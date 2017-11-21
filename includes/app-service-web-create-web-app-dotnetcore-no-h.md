@@ -1,12 +1,12 @@
-Dans Cloud Shell, créez une [application web](../articles/app-service/containers/app-service-linux-intro.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). N’oubliez pas de remplacer `<app_name>` par un nom d’application unique.
+Dans Cloud Shell, créez une [application web](../articles/app-service/containers/app-service-linux-intro.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). 
 
-Dans la commande suivante, le runtime est défini sur `dotnetcore|1.1`. Pour voir tous les runtimes pris en charge, exécutez [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+Dans l’exemple suivant, remplacez `<app_name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `dotnetcore|1.1`. Pour afficher tous les runtimes pris en charge, exécutez [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
 ```
 
-Une fois l’application web créée, Azure CLI affiche une sortie similaire à celle de l’exemple suivant :
+Une fois l’application web créée, Azure CLI affiche une sortie similaire à l’exemple suivant :
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -24,7 +24,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-Vous avez créé une application web vide dans un conteneur Linux, pour lequel un déploiement Git est activé.
+Vous avez créé une application web vide dans un conteneur Linux avec le déploiement Git activé.
 
 > [!NOTE]
 > L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`, avec le format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Enregistrez cette URL, car vous en aurez besoin ultérieurement.
