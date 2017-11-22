@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide : Créer un espace de travail Azure Databricks en utilisant le portail Azure | Microsoft Docs"
-description: "Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Azure Databricks et un cluster Apache Spark."
+title: "Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure | Microsoft Docs"
+description: "Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Azure Databricks et un cluster Apache Spark et exécuter une tâche Spark."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 9d4ee88cf3788071ba6b1eca909c1fe5e6044d03
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="quickstart-get-started-with-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Bien démarrer avec Azure Databricks en utilisant le portail Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
 Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks et un cluster Apache Spark au sein de cet espace de travail. Enfin, vous découvrirez comment exécuter un travail Spark sur le cluster Databricks. Pour plus d’informations sur Azure Databricks, consultez [Présentation d’Azure Databricks](what-is-azure-databricks.md)
 
@@ -31,7 +31,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure. 
 
-1. Dans le portail Azure, cliquez sur **+** , cliquez sur **Données + Analytique**, puis cliquez sur **Azure Databricks (préversion)**. Sous **Azure Databricks**, cliquez sur **Créer**.
+1. Dans le portail Azure, cliquez sur **+** , cliquez sur **Données + Analytique**, puis cliquez sur **Azure Databricks (préversion)**. 
+
+    ![Databricks sur le portail Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks sur le portail Azure")
+
+2. Sous **Azure Databricks (Préversion)**, cliquez sur **Créer**.
 
     > [!NOTE]
     > Azure Databricks est actuellement en préversion limitée. Si vous voulez que votre abonnement Azure soit pris en compte dans la liste des abonnements autorisés pour la préversion, vous devez remplir le [formulaire d’inscription](https://databricks.azurewebsites.net/).
@@ -136,7 +140,7 @@ Procédez comme suit pour créer un notebook dans Databricks, configurer le note
     * Définissez **Valeurs** sur **level**.
     * Définissez **Agrégation** sur **COUNT**.
 
-    Cliquez sur **Appliquer**.
+    Cliquez sur **Apply**.
 
 9. La sortie montre la représentation visuelle, comme illustré dans la capture d’écran suivante :
 

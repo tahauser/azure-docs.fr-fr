@@ -1,5 +1,5 @@
 ---
-title: "Guide pratique pour mettre à l’échelle votre environnement Azure Time Series Insights | Microsoft Docs"
+title: "Mise à l’échelle de votre environnement Azure Time Series Insights | Microsoft Docs"
 description: "Cet article explique comment mettre à l’échelle votre environnement Azure Time Series Insights. Utilisez le portail Azure pour augmenter ou réduire la capacité d’une référence SKU tarifaire."
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Guide pratique pour mettre à l’échelle votre environnement Time Series Insights
+# <a name="how-to-scale-your-time-series-insights-environment"></a>Mise à l’échelle de votre environnement Time Series Insights
 
 Cet article décrit comment changer la capacité de votre environnement Time Series Insights à l’aide du portail Azure. La capacité est le multiplicateur appliqué au débit d’entrée, à la capacité de stockage et au coût associé à votre référence SKU. 
 
@@ -50,7 +50,7 @@ Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, 
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. Réglez le curseur **Capacité** pour sélectionner la capacité qui correspond à vos besoins en matière de débit d’entrée et de stockage. Notez que le débit d’entrée, la capacité de stockage et l’estimation des coûts se mettent à jour de manière dynamique pour montrer l’impact du changement. 
+3. Réglez le curseur **Capacité** pour sélectionner la capacité qui correspond à vos besoins en matière de débit d’entrée et de stockage. Notez que le **débit d’entrée**, la **capacité de stockage** et l’**estimation des coûts** se mettent à jour de manière dynamique pour montrer l’impact du changement. 
 
    ![Curseur](media/scale-your-environment/slider.png)
 
@@ -59,4 +59,5 @@ Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, 
 4. Sélectionnez **Enregistrer** pour mettre à l’échelle l’environnement. L’indicateur de progression s’affiche momentanément tant que la modification n’est pas validée. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vérifiez que la nouvelle capacité est suffisante pour éviter la limitation. Pour plus d’informations, consultez [Si votre environnement est sujet à des limitations](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Vérifiez que la nouvelle capacité est suffisante pour éviter la limitation](time-series-insights-diagnose-and-solve-problems.md).

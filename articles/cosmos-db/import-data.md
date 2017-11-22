@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: b8df9623bf3826807ba066d4e625c3138c80c5b7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB : outil de migration de données
 
@@ -207,19 +207,19 @@ Voici un exemple de ligne de commande pour une importation CSV :
 
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
-## <a id="AzureTableSource"></a>Importation depuis Stockage Table Azure
+## <a id="AzureTableSource"></a>Importation depuis le stockage de tables Azure
 L'option d’importateur source de Stockage Table Azure vous permet d’effectuer l’importation à partir d'une table individuelle de Stockage Table Azure. Vous pouvez aussi filtrer les entités de table à importer. 
 
-Les données importées à partir du Stockage Table Azure peuvent être générées dans des tables et entités Azure Cosmos DB pour être utilisées avec l’API Table, ou dans des collections et des documents pour être utilisées avec l’API DocumentDB.  
+Les données importées à partir du Stockage Table Azure peuvent être générées dans des tables et entités Azure Cosmos DB pour être utilisées avec l’API Table, ou dans des collections et des documents pour être utilisées avec l’API DocumentDB. Toutefois, l’API Table est uniquement disponible en tant que cible dans l’utilitaire de ligne de commande, vous ne pouvez pas exporter vers l’API Table à l’aide de l’interface utilisateur de l’outil Data Migration. Pour plus d’informations, consultez la section [Importer des données à utiliser avec l’API Table Azure Cosmos DB](table-import.md). 
 
-![Capture d’écran des options sources de Stockage Table Azure](./media/import-data/azuretablesource.png)
+![Capture d’écran des options sources de stockage de tables Azure](./media/import-data/azuretablesource.png)
 
-Le format de la chaîne de connexion de Stockage Table Azure est :
+Le format de la chaîne de connexion de stockage de tables Azure est :
 
     DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
 
 > [!NOTE]
-> Utilisez la commande Verify pour vous assurer que l'instance de stockage Table Azure spécifiée dans le champ de la chaîne de connexion est accessible.
+> Utilisez la commande Verify pour vous assurer que l'instance de stockage de tables Azure spécifiée dans le champ de la chaîne de connexion est accessible.
 > 
 > 
 
@@ -259,7 +259,7 @@ Voici un exemple de ligne de commande pour effectuer l’importation à partir d
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos DB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
 ## <a id="BlobImport"></a>Importer à partir du Stockage Blob Azure
-Les options d’importateur source du fichier JSON, du fichier d'exportation MongoDB et du fichier CSV vous permettent d'importer un ou plusieurs fichiers à partir du stockage Blob Azure. Après avoir spécifié l’URL d’un conteneur d'objets blob et une clé de compte, fournissez une expression régulière pour sélectionner le ou les fichier à importer.
+Les options d’importateur source du fichier JSON, du fichier d'exportation MongoDB et du fichier CSV vous permettent d'importer un ou plusieurs fichiers à partir du stockage d’objets blob Azure. Après avoir spécifié l’URL d’un conteneur d'objets blob et une clé de compte, fournissez une expression régulière pour sélectionner le ou les fichier à importer.
 
 ![Capture d’écran des options sources du fichier blob](./media/import-data/blobsource.png)
 
@@ -522,20 +522,6 @@ Vous pouvez éventuellement choisir d’agrémenter le JSON qui en résulte, ce 
       }
     ]
     }]
-
-## <a id="tableapibulkexport"></a>Exporter vers l’API Table (importation en bloc)
-
-L’exportateur de l’API Table Azure Cosmos DB vous permet d’exporter des informations d’une source de Stockage Table Azure vers une base de données de l’API Table Azure Cosmos DB. 
-
-La chaîne de connexion du compte d’API Table Azure Cosmos DB vers lequel vous effectuez l’exportation peut être récupérée à partir du portail Azure, dans la page Chaîne de connexion. Utilisez le bouton Copier ![Capture d’écran de la chaîne de connexion dans le portail Azure](./media/import-data/copy-button.png) à droite de l’écran pour copier la chaîne entière.
-
-![Capture d’écran de la chaîne de connexion dans le portail Azure](./media/import-data/connection-string.png)
-
-## <a id="tableapiseqtarget"></a>Exporter vers l’API Table (importation d’enregistrement séquentiel)
-
-L’exportateur de l’API Table Azure Cosmos DB vous permet d’exporter des informations d’une source de Stockage Table Azure vers une base de données de l’API Table Azure Cosmos DB.
-
-La chaîne de connexion du compte d’API Table Azure Cosmos DB vers lequel vous effectuez l’exportation peut être récupérée à partir du portail Azure, dans la page Chaîne de connexion, comme illustré dans l’image de la section [Exporter vers l’API Table (importation en bloc)](#tableapibulkexport) ci-dessus.
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 Dans l'écran Configuration avancée, spécifiez l'emplacement du fichier journal dans lequel écrire toutes les erreurs. Les règles suivantes s'appliquent à cette page :

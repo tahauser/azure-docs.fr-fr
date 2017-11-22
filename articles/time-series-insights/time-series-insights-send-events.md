@@ -12,27 +12,27 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l’aide d’un hub d’événements
-Ce didacticiel explique comment créer et configurer un hub d’événements et exécuter un exemple d’application pour envoyer (push) des événements. Si vous disposez d’un hub d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [time series insights](https://insights.timeseries.azure.com).
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l’aide d’un concentrateur d’événements
+Ce didacticiel explique comment créer et configurer un hub d’événements et exécuter un exemple d’application pour envoyer (push) des événements. Si vous disposez d’un concentrateur d’événements existant qui a déjà des événements au format JSON, ignorez ce didacticiel et affichez votre environnement dans [Time Series Insights](https://insights.timeseries.azure.com).
 
-## <a name="configure-an-event-hub"></a>Configurer un hub d’événements
-1. Pour créer un hub d’événements, suivez les instructions de la [documentation](../event-hubs/event-hubs-create.md) sur les hubs d’événements.
+## <a name="configure-an-event-hub"></a>Configurer un concentrateur d’événements
+1. Pour créer un concentrateur d’événements, suivez les instructions de la [documentation](../event-hubs/event-hubs-create.md) relative aux concentrateurs d’événements.
 
 2. Recherchez **hub d’événements** dans la barre de recherche. Cliquez sur **Hubs d’événements** dans la liste retournée.
 
 3. Sélectionnez votre hub d’événements en cliquant sur son nom.
 
-4. Sous Entités dans la fenêtre de configuration du milieu, cliquez à nouveau sur **Hubs d’événements**.
+4. Sous **Entités** dans la fenêtre de configuration du milieu, cliquez à nouveau sur **Event Hubs**.
 
 5. Sélectionnez le nom du hub d'événements pour le configurer.
 
-  ![Sélectionnez le groupe de consommateurs du hub d’événements](media/send-events/consumer-group.png)
+  ![Sélectionnez le groupe de consommateurs du concentrateur d’événements](media/send-events/consumer-group.png)
 
 6. Sous **Entités**, sélectionnez **Groupes de consommateurs**.
  
@@ -52,7 +52,7 @@ Ce didacticiel explique comment créer et configurer un hub d’événements et 
 ## <a name="create-time-series-insights-event-source"></a>Créer la source d’événement Time Series Insights
 1. Si vous n’avez créé aucune source d’événement, suivez [ces instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) pour créer une source d’événement.
 
-2. Spécifiez **deviceTimestamp** comme nom de la propriété timestamp. Cette propriété définit l’horodatage réel dans l’exemple C#. Le nom de la propriété timestamp est sensible à la casse et les valeurs doivent être au format __aaaa-MM-jjTHH:mm:ss.FFFFFFFK__ lors de l’envoi au format JSON au hub d’événements. Si la propriété n’existe pas dans l’événement, le système utilise l’heure à laquelle l’événement a été placé dans la file d’attente du hub d’événements.
+2. Spécifiez **deviceTimestamp** comme nom de la propriété timestamp. Cette propriété définit l’horodatage réel dans l’exemple C#. Le nom de la propriété timestamp est sensible à la casse et les valeurs doivent être au format __aaaa-MM-jjTHH:mm:ss.FFFFFFFK__ lors de l’envoi au format JSON au concentrateur d’événements. Si la propriété n’existe pas dans l’événement, le système utilise l’heure à laquelle l’événement a été placé dans la file d’attente du concentrateur d’événements.
 
   ![Créez la source d’événement](media/send-events/event-source-1.png)
 
@@ -244,4 +244,5 @@ Un objet JSON avec un tableau JSON imbriqué contenant deux objets JSON. Cette e
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Étapes suivantes
-Affichez votre environnement dans [l’explorateur Time Series Insights](https://insights.timeseries.azure.com).
+> [!div class="nextstepaction"]
+> [Affichez votre environnement dans l’explorateur Time Series Insights](https://insights.timeseries.azure.com).
