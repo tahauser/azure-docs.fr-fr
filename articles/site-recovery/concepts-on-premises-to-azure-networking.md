@@ -1,6 +1,6 @@
 ---
-title: "Connexion à des machines virtuelles après le basculement vers Azure avec Azure Site Recovery | Microsoft Docs"
-description: "Aide sur la mise en réseau pour la connexion à des machines virtuelles Azure après le basculement depuis un site local avec Azure Site Recovery"
+title: "Configurer l’adressage IP pour se connecter après le basculement vers Azure avec Azure Site Recovery | Microsoft Docs"
+description: "Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles Azure après le basculement depuis un site local avec Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-azure"></a>Connexion à des machines virtuelles après le basculement vers Azure
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurer l’adressage IP pour se connecter après le basculement vers Azure
 
 Cet article explique la configuration réseau requise pour se connecter aux machines virtuelles Azure après avoir utilisé le service [Azure Site Recovery](site-recovery-overview.md) pour la réplication et le basculement vers Azure.
 

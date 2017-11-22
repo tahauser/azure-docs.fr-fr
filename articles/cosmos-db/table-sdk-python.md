@@ -1,6 +1,6 @@
 ---
-title: "Kit de développement logiciel (SDK) du stockage Table Azure pour Python | Microsoft Docs"
-description: "Découvrez le Kit de développement logiciel (SDK) du stockage Table Azure pour Python, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version."
+title: API de table Azure Cosmos DB pour Python | Microsoft Docs
+description: "Découvrez l’API de table Azure Cosmos DB, notamment les dates de lancement, les dates de suppression et les modifications apportées à chaque version."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 11/15/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a68b24fe91d3acb0f18d3d06d6252317bd671be4
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>Kit de développement logiciel (SDK) du stockage Table Azure pour Python : notes de publication et ressources
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Kit de développement logiciel (SDK) d’API de table Azure Cosmos DB pour Python : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [Java](table-sdk-java.md)
+> * [Node.JS](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
  
 
@@ -37,6 +39,10 @@ ms.lasthandoff: 11/06/2017
 
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Version en disponibilité générale
+
 ### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
 * Kit SDK (préversion)
 
@@ -49,6 +55,7 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |15 novembre 2017 |--- |
 | [0.37.1](#0.37.1) |05 octobre 2017 |--- |
 
 

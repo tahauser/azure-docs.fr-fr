@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Visite guidée d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
@@ -54,7 +54,7 @@ Développez un élément pour afficher les détails :
 ![Choisissez la vue de table et utilisez Configurer les colonnes](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. L’utilisation de cette méthode de tri ne vous permet pas toujours d’obtenir effectivement les éléments dans l’ordre croissant ou décroissant. Pour trier les éléments de manière fiable, utilisez l’opérateur `top` ou `sort`.
+> Cliquez sur l’en-tête d’une colonne pour trier à nouveau les résultats disponibles dans le navigateur web. Sachez toutefois que, pour un jeu de résultats volumineux, le système limite le nombre de lignes téléchargées vers le navigateur. L’utilisation de cette méthode de tri, qui trie simplement le jeu de résultats retourné, ne vous permet pas toujours d’obtenir effectivement les éléments dans l’ordre croissant ou décroissant. Pour trier les éléments de manière fiable, utilisez l’opérateur `top` ou `sort`.
 >
 >
 
@@ -92,7 +92,7 @@ Afficher les n premières lignes, classées par une colonne particulière :
 
 Le résultat serait le même, mais l’exécution de la requête serait un peu plus lente. (Vous pouvez également écrire `order`, qui est un alias de `sort`.)
 
-Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais, bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, vous devez uniquement trier de nouveau les enregistrements que vous avez récupérés.
+Les en-têtes de colonne dans la vue de table peuvent également servir à trier les résultats sur l’écran. Mais, bien sûr, si vous avez utilisé `take` ou `top` pour récupérer une partie seulement d’une table, cliquer sur l’en-tête de colonne ne fait que retrier les enregistrements que vous avez récupérés.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrage sur une condition
 
@@ -115,8 +115,9 @@ L’opérateur `where` utilise une expression booléenne. Voici quelques points 
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Trouver le bon type
-Rechercher les requêtes ayant échoué :
+### <a name="find-unsuccessful-requests"></a>Rechercher les requêtes ayant échoué
+
+Convertir une valeur de chaîne en un entier pour utiliser une comparaison de supériorité :
 
 ```AIQL
 
@@ -127,7 +128,7 @@ Rechercher les requêtes ayant échoué :
 `resultCode` has type string, so we must cast it app-insights-analytics-reference.md#casts for a numeric comparison.
 --->
 
-## <a name="time"></a>Time
+## <a name="time"></a>Temps
 
 Par défaut, vos requêtes sont limitées aux dernières 24 heures. Mais vous pouvez modifier cette plage :
 
@@ -240,7 +241,7 @@ Nous pouvons également séparer les résultats en requêtes de noms différents
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` regroupe les points de données du flux que la clause `by` évalue équitablement. Chaque valeur de l’expression `by` (chaque nom d’opération dans l’exemple ci-dessus) génère une ligne dans la table des résultats.
+`Summarize` regroupe les points de données du flux que la clause `by` évalue équitablement. Chaque valeur de l’expression `by` (chaque nom d’opération unique dans l’exemple ci-dessus) génère une ligne dans la table des résultats.
 
 Nous pouvons également regrouper les résultats par heure :
 
@@ -402,7 +403,7 @@ Combien existe-t-il de sessions de différentes longueurs ?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-La dernière ligne est nécessaire pour la conversion en datetime. Actuellement l’axe x d’un graphique est affiché sous forme scalaire uniquement s’il s’agit d’une valeur datetime.
+La dernière ligne est nécessaire pour la conversion en datetime. L’axe X d’un graphique est affiché sous forme scalaire uniquement s’il s’agit d’une valeur datetime.
 
 La clause `where` exclut les sessions à déclenchement unique (sessionDuration==0) et définit la longueur de l’axe X.
 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: anhoh
-ms.openlocfilehash: 4dbf91a3c1d6a287d7337647f9e059566c7ddbe5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca720f365a00070afd2a657829f5b108ab91fb9
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introduction à Azure Cosmos DB : API pour MongoDB
 
@@ -27,24 +27,23 @@ ms.lasthandoff: 10/11/2017
 
 ![Azure Cosmos DB : API MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Les bases de données Cosmos DB peuvent être utilisées comme magasin de données pour les applications écrites pour [MongoDB](https://docs.mongodb.com/manual/introduction/). Cela signifie qu’en utilisant les [pilotes](https://docs.mongodb.org/ecosystem/drivers/), votre application écrite pour MongoDB peut désormais communiquer avec Cosmos DB et utiliser des bases de données Cosmos DB au lieu de bases de données MongoDB. Dans de nombreux cas, vous pouvez passer de MongoDB à Cosmos DB en modifiant simplement une chaîne de connexion. Cette fonctionnalité vous permet de générer et d’exécuter facilement des applications de base de données MongoDB dans le cloud Azure avec la distribution mondiale et les [contrats SLA de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db) d’Azure Cosmos DB, tout en continuant à exploiter leurs outils et compétences existants pour MongoDB.
+Les bases de données Azure Cosmos DB peuvent être utilisées comme magasin de données pour les applications écrites pour [MongoDB](https://docs.mongodb.com/manual/introduction/). Cette fonctionnalité signifie qu’en utilisant les [pilotes](https://docs.mongodb.org/ecosystem/drivers/) existants, votre application écrite pour MongoDB peut désormais communiquer avec Azure Cosmos DB et utiliser des bases de données Azure Cosmos DB au lieu de bases de données MongoDB. Dans de nombreux cas, vous pouvez passer de MongoDB à Azure Cosmos DB en modifiant simplement une chaîne de connexion. Cette fonctionnalité vous permet de générer et d’exécuter facilement des applications de base de données MongoDB dans le cloud Azure avec la distribution mondiale et les [contrats SLA de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db) d’Azure Cosmos DB, tout en continuant à exploiter les outils et compétences existants pour MongoDB.
 
+**Compatibilité de MongoDB** : vous pouvez utiliser votre expertise, votre code d’application et vos outils MongoDB existants, pendant qu’Azure Cosmos DB implémente le protocole Wire MongoDB 3.4 (version 5) et prend en charge le [pipeline d’agrégation MongoDB](mongodb-feature-support.md#aggregation-pipeline). Vous pouvez développer des applications à l’aide de MongoDB et les déployer en production avec le service Azure Cosmos DB entièrement géré et distribué à l’échelle mondiale.
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Quel avantage pouvez-vous tirer en utilisant Azure Cosmos DB pour les applications MongoDB ?
 
-**Débit et stockage évolutifs avec flexibilité :** augmentez ou réduisez facilement la taille de votre base de données MongoDB pour répondre aux besoins de votre application. Vos données sont stockées sur des disques SSD (SSD) pour garantir une faible latence de manière prévisible. Cosmos DB prend en charge des collections MongoDB qui peuvent être mises à l’échelle pour atteindre des tailles de stockage quasi illimitées et un débit configuré. Vous pouvez mettre à l’échelle Cosmos DB de manière flexible et transparente avec des performances prévisibles à mesure que votre application se développe. 
+**Stockage et débit extensibles de façon élastique :** répondez aux besoins de votre application en augmentant ou en réduisant facilement la taille de votre base de données MongoDB. Vos données sont stockées sur des disques SSD pour garantir une faible latence de manière prévisible. Azure Cosmos DB prend en charge des collections MongoDB qui peuvent être mises à l’échelle pour atteindre des tailles de stockage quasi illimitées et un débit configuré. Vous pouvez mettre à l’échelle Azure Cosmos DB de manière flexible et transparente avec des performances prévisibles à mesure que votre application se développe. 
 
-**Réplication dans plusieurs régions :** Cosmos DB réplique en toute transparence vos données dans toutes les régions associées à votre compte MongoDB, ce qui vous permet de développer des applications qui requièrent l’accès global aux données tout en offrant un compromis entre cohérence, disponibilité et performances, le tout avec les garanties correspondantes. Cosmos DB fournit un basculement régional transparent avec les API multihébergement et la possibilité de mettre à l’échelle de manière élastique le débit et le stockage dans le monde entier. Pour en savoir plus, consultez [Distribution mondiale des données avec DocumentDB](distribute-data-globally.md).
+**Réplication dans plusieurs régions :** Azure Cosmos DB réplique en toute transparence vos données dans toutes les régions associées à votre compte MongoDB, ce qui vous permet de développer des applications qui requièrent l’accès global aux données tout en offrant un compromis entre cohérence, disponibilité et performances, le tout avec les garanties correspondantes. Azure Cosmos DB fournit un basculement régional transparent avec les API multihébergement et la possibilité de mettre à l’échelle de manière élastique le débit et le stockage dans le monde entier. Pour en savoir plus, consultez [Distribution mondiale des données avec DocumentDB](distribute-data-globally.md).
 
-**Compatibilité de MongoDB** : vous pouvez utiliser votre expertise, votre code d’application et vos outils MongoDB existants. Vous pouvez développer des applications à l’aide de MongoDB et les déployer en production avec le service Cosmos DB entièrement géré et distribué à l’échelle mondiale.
+**Aucune gestion de serveur** : vous n’avez pas à vous soucier de la gestion et de la mise à l’échelle de vos bases de données MongoDB. Azure Cosmos DB est un service entièrement géré, ce qui signifie que vous n’avez pas d’infrastructure ou de machines virtuelles à gérer. Azure Cosmos DB est disponible dans plus de 30 [régions Azure](https://azure.microsoft.com/regions/services/).
 
-**Aucune gestion de serveur** : vous n’avez pas à vous soucier de la gestion et de la mise à l’échelle de vos bases de données MongoDB. Cosmos DB est un service entièrement géré, ce qui signifie que vous n’avez pas d’infrastructure ou de machines virtuelles à gérer. Cosmos DB est disponible dans plus de 30 [régions Azure](https://azure.microsoft.com/regions/services/).
+**Niveaux de cohérence ajustables** : opérez un choix parmi cinq niveaux de cohérence bien définis pour obtenir un équilibre optimal entre cohérence et performances. Pour les requêtes et les opérations de lecture, Azure Cosmos DB propose cinq niveaux de cohérence distincts : Fort, En fonction de l’obsolescence, Par session, Préfixe cohérent et Éventuel. Ces niveaux de cohérence bien définis et granulaires vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence. Pour en savoir plus, consultez [Niveaux de cohérence des données analysables dans Azure Cosmos DB](consistency-levels.md).
 
-**Niveaux de cohérence ajustables :** choisissez entre cinq niveaux de cohérence bien définis pour obtenir un équilibre optimal entre cohérence et performances. Pour les requêtes et les opérations de lecture, Cosmos DB propose cinq niveaux de cohérence distincts : Fort, Obsolescence limitée, Session, Préfixe cohérent et Éventuel. Ces niveaux de cohérence bien définis et granulaires vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence. Pour en savoir plus, consultez [Niveaux de cohérence des données analysables dans Azure Cosmos DB](consistency-levels.md).
+**Indexation automatique :** par défaut, Azure Cosmos DB indexe automatiquement toutes les propriétés des documents de votre base de données MongoDB et n’attend pas et ne nécessite aucun schéma ou création d’index secondaires. En outre, la fonctionnalité d’index unique permet une contrainte d’unicité sur tous les champs de documents qui sont déjà indexés automatiquement dans Azure Cosmos DB.
 
-**Indexation automatique :** par défaut, Cosmos DB indexe automatiquement toutes les propriétés des documents de votre base de données MongoDB et n’attend pas et ne nécessite aucun schéma ou création d’index secondaires.
-
-**Qualité professionnelle** : Azure Cosmos DB prend en charge plusieurs réplicas locaux pour fournir une disponibilité de 99,99 % et une protection des données en cas de défaillances locales et régionales. Azure Cosmos DB offre des [certifications de conformité](https://www.microsoft.com/trustcenter) et des fonctionnalités de sécurité de qualité professionnelle. 
+**Qualité professionnelle** : Azure Cosmos DB prend en charge plusieurs réplicas locaux pour fournir une disponibilité de 99,99 % et une protection des données en cas de défaillances locales et régionales. Azure Cosmos DB offre des [certifications de conformité](https://www.microsoft.com/trustcenter) et des fonctionnalités de sécurité de qualité professionnelle. 
 
 Apprenez en plus grâce à cette vidéo Azure Friday avec Scott Hanselman et Kirill Gavrylyuk, responsable principal de l’ingénierie Azure Cosmos DB.
 
@@ -53,7 +52,7 @@ Apprenez en plus grâce à cette vidéo Azure Friday avec Scott Hanselman et Kir
 
 ## <a name="how-to-get-started"></a>Pour commencer
 
-Suivez les démarrages rapides de MongoDB pour créer un compte Cosmos DB et migrer votre application Mongo DB existante afin d’utiliser Cosmos DB ou en générer une nouvelle :
+Suivez les démarrages rapides de MongoDB pour créer un compte Azure Cosmos DB et migrer votre application Mongo DB existante afin d’utiliser Azure Cosmos DB ou d’en générer une nouvelle :
 
 * [Migrer une application web MongoDB Node.js existante](create-mongodb-nodejs.md)
 * [Développer une application web API MongoDB avec .NET et le Portail Azure](create-mongodb-dotnet.md)

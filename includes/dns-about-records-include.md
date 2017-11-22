@@ -8,7 +8,7 @@ Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’
 
 Chaque enregistrement DNS a un nom et un type. Les enregistrements sont organisés selon différents types, en fonction des données qu’ils contiennent. Le type le plus courant est un enregistrement « A » qui mappe un nom à une adresse IPv4. Un autre type courant est un enregistrement « MX » qui mappe un nom à un serveur de messagerie.
 
-le DNS Azure prend en charge tous les types d’enregistrement DNS courants, à savoir : A, AAAA, CNAME, MX, NS, PTR, SOA, SRV et TXT. Notez que les [enregistrements SPF sont représentés à l’aide d’enregistrements TXT](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS prend en charge tous les types d’enregistrement DNS courants, à savoir : A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV et TXT. Notez que les [enregistrements SPF sont représentés à l’aide d’enregistrements TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Jeux d’enregistrements
 

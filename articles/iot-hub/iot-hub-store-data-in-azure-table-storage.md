@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: aa33800de82b27d4819fe0eade127c2a40e3a493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Enregistrer les messages IoT Hub qui contiennent des données de capteurs dans un stockage Blob Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="what-you-learn"></a>Contenu
 
-Vous allez découvrir comment créer un compte de stockage Azure et une application de fonction Azure pour stocker des messages IoT Hub dans votre Stockage Table.
+Vous allez découvrir comment créer un compte de stockage Azure et une application de fonction Azure pour stocker des messages IoT Hub dans votre stockage d’objets blob.
 
 ## <a name="what-you-do"></a>Procédure
 

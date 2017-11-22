@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Fonctionnalités et outils pour PowerShell dans Azure Cloud Shell
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Fonctionnalités et outils pour PowerShell dans Azure Cloud Shell (préversion)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Fonctionnalités et outils pour [Bash](features.md) est également disponible.
 
-PowerShell dans Cloud Shell s’exécute sur `Windows Server 2016`.
+PowerShell dans Cloud Shell (préversion) s’exécute sur `Windows Server 2016`.
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 ### <a name="secure-automatic-authentication"></a>Authentification automatique sécurisée
 
-PowerShell dans Cloud Shell authentifie automatiquement et en toute sécurité l’accès au compte pour Azure PowerShell.
+PowerShell dans Cloud Shell (préversion) authentifie automatiquement et en toute sécurité l’accès au compte pour Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>Persistance des fichiers entre les sessions
 
@@ -45,7 +45,7 @@ Chaque requête pour Cloud Shell allouant une machine temporaire, les fichiers q
 
 ### <a name="azure-drive-azure"></a>Lecteur Azure (Azure :)
 
-PowerShell dans Cloud Shell vous démarre dans le lecteur Azure (`Azure:`).
+PowerShell dans Cloud Shell (préversion) vous démarre dans le lecteur Azure (`Azure:`).
 Le lecteur Azure facilite la détection et la navigation de ressources Azure telles que les ressources de calcul, réseau, de stockage etc. similaires à la navigation de système de fichiers.
 Vous pouvez continuer à utiliser les [applets de commande Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) que vous connaissez pour gérer ces ressources.
 Toutes les modifications apportées aux ressources Azure, effectuées directement dans le portail Azure ou via les applets de commande Azure PowerShell, sont immédiatement répercutées dans le lecteur Azure.
@@ -109,6 +109,6 @@ Ces commandes s’appuient sur la communication à distance PowerShell et néces
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide avec PowerShell dans Cloud Shell](quickstart-powershell.md)
+[Démarrage rapide avec PowerShell dans Cloud Shell (préversion)](quickstart-powershell.md)
 
 [En savoir plus sur Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

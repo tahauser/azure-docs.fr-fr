@@ -1,6 +1,6 @@
 ---
 title: "Encoder un élément multimédia avec Media Encoder Standard à l’aide de .NET | Microsoft Docs"
-description: "Cette rubrique montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard."
+description: "Cette article montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Encoder un élément multimédia avec Media Encoder Standard à l’aide de .NET
-Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur multimédia intégré de Media Services. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace. 
+Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur multimédia intégré de Media Services. Vous pouvez également utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles via Place de marché Azure. 
 
-Cette rubrique montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard (MES). Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Cette article montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard (MES). Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Nous vous recommandons de toujours encoder vos fichiers sources sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md). 
 
@@ -61,7 +61,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 * Spécifiez l’utilisation de la présélection [Diffusion en continu adaptative](media-services-autogen-bitrate-ladder-with-mes.md). 
 * Ajout d’une tâche d’encodage unique. 
 * Spécification de l’élément multimédia d’entrée à encoder.
-* Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
+* Création d’un élément multimédia de sortie qui contient l’élément multimédia encodé.
 * Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
 * Envoyez le travail.
 
@@ -181,6 +181,14 @@ Configurez votre environnement de développement et ajoutez des informations de 
                 }
             }
         }
+
+
+## <a name="advanced-encoding-features-to-explore"></a>Fonctionnalités d’encodage avancées à découvrir
+* [Procédure de génération de miniatures](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Génération de miniatures pendant l’encodage](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Rognage de vidéos pendant l’encodage](media-services-crop-video.md)
+* [Personnalisation des présélections d’encodage](media-services-custom-mes-presets-with-dotnet.md)
+* [Superposition ou filigrane d’une vidéo avec une image](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

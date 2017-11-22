@@ -14,30 +14,30 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Utilisation de Azure Functions Proxies (version préliminaire)
+# <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
-> [!NOTE] 
-> Azure Functions Proxies est actuellement disponible en version préliminaire. La version préliminaire est proposée gratuitement, mais une facturation standard s’applique à l’exécution des proxys. Pour plus d’informations, consultez [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
-
-Cet article vous explique comment configurer et utiliser Azure Functions Proxies. Cette fonctionnalité vous permet de spécifier des points de terminaison sur votre Function App implémentés par une autre ressource. Vous pouvez utiliser ces proxys pour diviser une API de grande taille en plusieurs applications Function (comme dans une architecture microservice), tout en continuant à présenter une surface API unique aux clients.
+Cet article vous explique comment configurer et utiliser Azure Functions Proxies. Cette fonctionnalité vous permet de spécifier des points de terminaison sur votre application de fonction implémentés par une autre ressource. Vous pouvez utiliser ces proxys pour diviser une API de grande taille en plusieurs applications de fonction (comme dans une architecture microservice), tout en continuant à présenter une surface API unique aux clients.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> Une facturation standard s’applique à l’exécution des proxys. Pour plus d’informations, consultez [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Création d’un proxy
 
 Cette section vous explique comment créer un proxy dans le portail Functions.
 
-1. Ouvrez le [portail Azure] et accédez à votre Function App.
+1. Ouvrez le [portail Azure] et accédez à votre application de fonction.
 2. Dans le volet gauche, sélectionnez **Nouveau proxy**.
 3. Entrez un nom pour votre proxy.
-4. Configurez le point de terminaison exposé sur cette Function App en spécifiant le **modèle de routage** et les **méthodes HTTP**. Ces paramètres se comportent selon les règles des [déclencheurs HTTP].
-5. Définissez l’**URL principale** sur un autre point de terminaison. Il peut s’agir d’une fonction dans une autre Function App ou bien de n’importe quelle autre API. La valeur ne doit pas nécessairement être statique et peut faire référence aux [paramètres de l’application] et aux [paramètres de la demande client d’origine].
+4. Configurez le point de terminaison exposé sur cette application de fonction en spécifiant le **modèle de routage** et les **méthodes HTTP**. Ces paramètres se comportent selon les règles des [déclencheurs HTTP].
+5. Définissez l’**URL principale** sur un autre point de terminaison. Il peut s’agir d’une fonction dans une autre application de fonction ou bien de n’importe quelle autre API. La valeur ne doit pas nécessairement être statique et peut faire référence aux [paramètres de l’application] et aux [paramètres de la demande client d’origine].
 6. Cliquez sur **Create**.
 
 Votre proxy existe désormais sous la forme d’un nouveau point de terminaison de votre application de fonction. Du point de vue du client, cela équivaut à un HttpTrigger dans Azure Functions. Vous pouvez essayer votre nouveau proxy en copiant l’URL de proxy et en le testant avec le client HTTP de votre choix.
@@ -97,10 +97,10 @@ Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOS
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 
-Les serveurs proxy que vous configurez sont stockés dans un fichier proxies.json, situé à la racine d’un répertoire de Function App. Vous pouvez modifier manuellement ce fichier et le déployer dans le cadre de votre application lors de l’utilisation de l’une des [méthodes de déploiement](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) prises en charge par Functions. La fonctionnalité doit être [activée](#enable) pour permettre le traitement du fichier. 
+Les serveurs proxy que vous configurez sont stockés dans un fichier proxies.json, situé à la racine d’un répertoire d’application de fonction. Vous pouvez modifier manuellement ce fichier et le déployer dans le cadre de votre application lors de l’utilisation de l’une des [méthodes de déploiement](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) prises en charge par Functions. La fonctionnalité doit être [activée](#enable) pour permettre le traitement du fichier. 
 
 > [!TIP] 
-> Si vous n’avez pas défini l’une des méthodes de déploiement, vous pouvez également utiliser le fichier proxies.json dans le portail. Accédez à votre Function App et sélectionnez **Fonctionnalités de la plateforme**, puis **Éditeur App Service**. Cela vous permettra d’afficher l’ensemble de la structure de fichiers de votre Function App et d’y apporter des modifications.
+> Si vous n’avez pas défini l’une des méthodes de déploiement, vous pouvez également utiliser le fichier proxies.json dans le portail. Accédez à votre application de fonction et sélectionnez **Fonctionnalités de la plateforme**, puis **Éditeur App Service**. Cela vous permettra d’afficher l’ensemble de la structure de fichiers de votre application de fonction et d’y apporter des modifications.
 
 Proxies.json est défini par un objet proxy, composé de proxys nommés et de leurs définitions. Vous pouvez éventuellement référencer un [schéma JSON](http://json.schemastore.org/proxies) de complétion de code si votre éditeur est compatible. Voici un exemple de fichier :
 
@@ -193,14 +193,14 @@ Voici un exemple de configuration :
 }
 ```
 > [!NOTE] 
-> Dans cet exemple, le corps est défini directement. Aucune propriété `backendUri` n’est nécessaire. Cet exemple illustre comment utiliser les Proxys Azure Functions pour simuler des API.
+> Dans cet exemple, le corps est défini directement. Aucune propriété `backendUri` n’est nécessaire. Cet exemple illustre comment utiliser Azure Functions Proxies pour simuler des API.
 
 ## <a name="enable"></a>Activation d’Azure Functions Proxies
 
 Les proxys sont désormais activés par défaut ! Si vous utilisiez une ancienne version de la préversion des proxys, et des proxys désactivés, vous devez activer manuellement les proxys une fois dans l’ordre, pour qu’ils s’exécutent.
 
-1. Ouvrez le [portail Azure] et accédez à votre Function App.
-2. Sélectionnez **Paramètres Function App**.
+1. Ouvrez le [portail Azure] et accédez à votre application de fonction.
+2. Sélectionnez **Paramètres de l’application de fonction**.
 3. Réglez **Activer les proxys Azure Functions (préversion)** sur **Activé**.
 
 Vous pouvez également revenir ici pour mettre à jour le runtime proxy lorsque de nouvelles fonctionnalités sont disponibles.

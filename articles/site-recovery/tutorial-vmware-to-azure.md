@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -85,20 +85,14 @@ La machine virtuelle du serveur de configuration doit être une machine virtuell
 Sur la machine virtuelle du serveur de configuration, vérifiez que l’horloge système est synchronisée avec un serveur de temps.
 L’heure doit être synchronisée dans une plage de 15 minutes. Si la différence d’heure est supérieure à 15 minutes, l’installation échoue.
 
-Vérifiez que la machine virtuelle du serveur de configuration peut accéder à ces URL :
+Vérifiez que le serveur de configuration peut accéder à ces URL :
 
-- *.accesscontrol.windows.net. Élément utilisé pour la gestion des identités et le contrôle d’accès.
-- *.backup.windowsazure.com. Élément utilisé pour la coordination et le transfert des données de réplication.
-- *.blob.core.windows.net. Élément utilisé pour l’accès au compte de stockage qui stocke les données répliquées.
-- *.hypervrecoverymanager.windowsazure.com. Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication.
-- time.nist.gov et time.windows.com. Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser les communications vers Azure.
 
-URL du cloud Azure Government :
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).
+    - Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
 
 Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser la communication aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), et aux ports 443 (HTTPS) et 9443 (réplication des données). Veillez à autoriser les plages d’adresses IP pour la région de votre abonnement Azure et pour la région des États-Unis de l’Ouest (utilisée pour la gestion du contrôle d’accès et des identités).
 

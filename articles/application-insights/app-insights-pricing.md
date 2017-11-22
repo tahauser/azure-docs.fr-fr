@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gérer la tarification et le volume de données dans Application Insights
 
@@ -39,7 +39,7 @@ Consultez la [page de tarification d’Application Insights][pricing] pour conna
 Le plan De base est la valeur par défaut lorsqu’une ressource Application Insights est créée et est suffisante pour la plupart des clients.
 
 * Dans le plan De base, vous êtes facturé en fonction du volume de données : nombre d’octets de données de télémétrie reçus par Application Insights. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application.
-Pour [les données tabulaires importées dans Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), le volume de données est mesuré en tant que taille non compressée des fichiers envoyés à Application Insights.  
+Pour [les données tabulaires importées dans Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), le volume de données est mesuré en tant que taille non compressée des fichiers envoyés à Application Insights.  
 * Votre premier 1 Go pour chaque application est gratuit. Si vous expérimentez ou développez simplement, vous n'aurez probablement pas à payer.
 * Les données des [Flux de métriques temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.
 * L[’exportation continue](app-insights-export-telemetry.md) est disponible moyennent des frais supplémentaires par Go dans le plan De base.
@@ -52,7 +52,7 @@ le [connecteur Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp
 * Vous payez pour chaque nœud qui envoie des données de télémétrie pour n'importe quelle application dans le plan Entreprise. 
  * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle Platform-as-a-Service qui héberge votre application.
  * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas comptés comme nœuds.
- * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker back-end, ces composants sont comptés séparément.
+ * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un worker backend, ces composants sont comptés séparément.
  * Les données [Flux de métriques en temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.* Dans un abonnement, vos frais sont calculés par nœud et non par application. Si vous avez cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
 * Bien que les frais indiqués soient par mois, vous êtes facturé uniquement pour toutes les heures dans lesquelles un nœud envoie des données de télémétrie à partir d’une application. Le tarif horaire est le prix mensuel indiqué / 744 (le nombre d’heures dans un mois de 31 jours).
 * Une allocation de volume de données de 200 Mo par jour est accordée pour chaque nœud détecté (avec une granularité par heure). L’allocation des données inutilisées n'est pas reportée d’un jour à l’autre.
@@ -110,7 +110,7 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 Le volume d’envoi de données est limité de trois façons :
 
 * **Échantillonnage :** ce mécanisme permet de réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. C’est le principal outil dont vous disposez pour ajuster la quantité de données. Découvrez plus en détail les [fonctionnalités d’échantillonnage](app-insights-sampling.md). 
-* **Limite quotidienne :** au moment de créer une ressource Application Insights à partir du portail Azure, cette limite est définie à 500 Go/jour. La valeur par défaut au moment de créer une ressource Application Insights à partir de Visual Studio est faible (seulement 32,3 Mo/jour) et vise uniquement à faciliter les tests. Dans ce cas, l’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. La limite maximale est de 500 Go/jour, à moins que vous en ayez demandé une plus élevée pour les besoins d’une application à fort trafic. Définissez la limite maximale avec précaution en partant du principe que vous ne devez **jamais atteindre la limite maximale**. Vous perdriez en effet le reste de données de la journée et ne pourriez pas surveiller votre application. Pour la modifier, servez-vous du panneau Limite quotidienne de volume, qui est lié au panneau Gestion du volume de données (voir ci-dessous). Notez que certains types d’abonnement disposent d’un crédit qui ne peut pas être utilisé pour Application Insights. Si l’abonnement impose une limite de dépense, le panneau Limite quotidienne indique comment la supprimer et permet d’augmenter la limite quotidienne au-delà de 32,3 Mo/jour.  
+* **Limite quotidienne :** au moment de créer une ressource Application Insights à partir du portail Azure, cette limite est définie à 100 Go/jour. La valeur par défaut au moment de créer une ressource Application Insights à partir de Visual Studio est faible (seulement 32,3 Mo/jour) et vise uniquement à faciliter les tests. Dans ce cas, l’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. La limite maximale est de 1 000 Go/jour, à moins que vous en ayez demandé une plus élevée pour les besoins d’une application à fort trafic. Définissez la limite maximale avec précaution en partant du principe que vous ne devez **jamais atteindre la limite maximale**. Vous perdriez en effet le reste de données de la journée et ne pourriez pas surveiller votre application. Pour la modifier, servez-vous du panneau Limite quotidienne de volume, qui est lié au panneau Gestion du volume de données (voir ci-dessous). Notez que certains types d’abonnement disposent d’un crédit qui ne peut pas être utilisé pour Application Insights. Si l’abonnement impose une limite de dépense, le panneau Limite quotidienne indique comment la supprimer et permet d’augmenter la limite quotidienne au-delà de 32,3 Mo/jour.  
 * **Limitation :** ce paramètre limite le débit de données à 32 000 événements par seconde, en moyenne sur 1 minute. 
 
 

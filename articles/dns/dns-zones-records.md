@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
@@ -54,6 +54,16 @@ Dans le DNS Azure, la durée de vie est spécifiée pour le jeu d’enregistreme
 Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés en réponse à toute requête contenant un nom correspondant (sauf s’il existe une correspondance plus proche d’un jeu d’enregistrements non génériques). Azure DNS prend en charge des jeux d'enregistrements génériques pour tous les types d'enregistrements, hormis NS et SOA.
 
 Pour créer un jeu d’enregistrements génériques, utilisez le nom de jeu d’enregistrements « \* ». Vous pouvez également utiliser un nom avec « \* » comme étiquette à gauche, par exemple, « \*.foo ».
+
+### <a name="caa-records"></a>Enregistrements CAA
+
+Un enregistrement CAA permet aux propriétaires de domaine de spécifier les autorités de certification autorisées à émettre des certificats pour leur domaine. Ainsi, les autorités de certification peuvent éviter d’émettre des certificats incorrects dans certains cas. Les enregistrements CAA présentent trois propriétés :
+* **Flags** : il s’agit d’un entier compris entre 0 et 255, utilisé pour représenter l’indicateur critique qui a une signification particulière par le [RFC](https://tools.ietf.org/html/rfc6844#section-3).
+* **Tag** : une chaîne ASCII qui peut être l’un des éléments suivants :
+    * **issue** : utilisez cette option si vous souhaitez spécifier quelles autorités de certification sont autorisées à émettre des certificats (de tous types).
+    * **issuewild** : utilisez cette option si vous souhaitez spécifier quelles autorités de certification sont autorisées à émettre des certificats (certificats avec caractères génériques uniquement).
+    * **iodef**: spécifiez une adresse e-mail ou le nom d’hôte auquel les autorités de certification peuvent envoyer des notifications pour les demandes portant sur des certificats non autorisés.
+* **Value** : valeur de la balise choisie.
 
 ### <a name="cname-records"></a>Enregistrements CNAME
 

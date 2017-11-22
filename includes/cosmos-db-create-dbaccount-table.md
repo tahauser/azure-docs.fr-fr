@@ -1,31 +1,26 @@
-1. Dans une nouvelle fenêtre, connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le volet de gauche, cliquez sur **Nouveau** et sur **Bases de données**, puis sous **Azure Cosmos DB**, cliquez sur **Créer**.
+1. Dans une nouvelle fenêtre du navigateur, connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Dans le volet de gauche, cliquez sur **Nouveau** et sur **Bases de données**, puis sous **Azure Cosmos DB**, cliquez sur **Créer**. 
    
    ![Capture d’écran du portail Azure, mettant en surbrillance l’option Plus de services, et Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Dans le panneau **Nouveau compte**, indiquez la configuration souhaitée pour le compte Azure Cosmos DB. 
-
-    Grâce à Azure Cosmos DB, vous pouvez choisir un des quatre modèles de programmation : Gremlin (graphique), MongoDB, SQL (DocumentDB) et Table (clé-valeur). 
-    
-    Dans ce guide de démarrage rapide, nous allons programmer sur l’API Table, vous choisirez donc **Table (clé-valeur)** lors du remplissage du formulaire. Cependant, si vous avez des données graphiques pour une application de réseau social, des données de document provenant d’une application du catalogue ou des données migrées depuis une application MongoDB, sachez qu’Azure Cosmos DB peut fournir une plate-forme de service de base de données hautement disponible et distribuée dans le monde entier pour toutes vos applications essentielles.
-
-    Remplissez le panneau Nouveau compte en vous aidant des informations figurant dans la capture d’écran. Vous allez choisir des valeurs uniques lors de la configuration de votre compte, c’est pourquoi vos valeurs ne correspondront pas exactement à la capture d’écran. 
+3. Dans la page **Nouveau compte**, entrez les paramètres pour le nouveau compte Azure Cosmos DB. 
  
-    ![Capture d’écran du panneau Nouveau > Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
-
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    ID|*Valeur unique*|Un nom unique que vous choisissez pour identifier le compte Azure Cosmos DB. *documents.azure.com* est ajouté à l’ID que vous fournissez pour créer votre URI ; aussi, utilisez un ID unique mais identifiable. Cet ID ne peut contenir que des minuscules, des chiffres et le caractère « - », et il doit comporter entre 3 et 50 caractères.
-    API|Table (clé-valeur)|Nous allons programmer sur [l’API Table](../articles/cosmos-db/table-introduction.md) plus loin dans cet article.|
-    Abonnement|*Votre abonnement*|L’abonnement Azure que vous souhaitez utiliser pour le compte Azure Cosmos DB. 
-    Groupe de ressources|*La même valeur que l’ID*|Le nouveau nom de groupe de ressources pour votre compte. Pour plus de simplicité, vous pouvez utiliser le même nom que votre ID. 
-    Lieu|*La région la plus proche de vos utilisateurs*|La zone géographique dans laquelle héberger votre compte Azure Cosmos DB. Choisissez l’emplacement le plus proche de vos utilisateurs afin de leur donner l’accès le plus rapide aux données.   
+    ID|*Entrez un nom unique*|Entrez un nom unique pour identifier ce compte Azure Cosmos DB. Étant donné que *documents.azure.com* est ajouté à l’ID que vous fournissez pour créer votre URI, utilisez un ID unique mais identifiable.<br><br>L’ID ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-), et doit comporter entre 3 et 50 caractères.
+    API|table Azure|L’API détermine le type de compte à créer. Azure Cosmos DB fournit cinq API pour répondre aux besoins de votre application : SQL (base de données Document), Gremlin (base de données de graphiques), MongoDB (base de données Document), Table Azure et Cassandra, qui nécessitent toutes un compte séparé.<br><br>Sélectionnez **Table Azure**, car ce guide de démarrage rapide vous permet de créer une table qui fonctionne avec l’API de table.<br><br>[En savoir plus sur l’API de table](../articles/cosmos-db/table-introduction.md) |
+    Abonnement|*Entrez le même nom unique que celui fourni plus haut dans ID*|Sélectionnez l’abonnement Azure que vous voulez utiliser pour ce compte Azure Cosmos DB. 
+    Groupe de ressources|*La même valeur que l’ID*|Entrez le nom du nouveau groupe de ressources pour votre compte. Pour plus de simplicité, vous pouvez utiliser le même nom que votre ID. 
+    Lieu|*Sélectionner la région la plus proche de vos utilisateurs*|Sélectionnez l’emplacement géographique où héberger votre compte Azure Cosmos DB. Utilisez l’emplacement le plus proche de vos utilisateurs, pour leur donner l’accès le plus rapide possible aux données.
+    Activer la géoredondance| Laisser vide | Ceci crée une version répliquée de votre base de données dans une seconde région (appairée). Laissez ce champ vide.  
+    Épingler au tableau de bord | Sélectionnez | Cochez cette case pour que votre nouveau compte de base de données soit ajouté à votre tableau de bord du portail pour un accès facilité.
 
-4. Cliquez sur **Créer** pour créer le compte.
-5. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
+    Cliquez ensuite sur **Créer**.  
 
-    ![Notification du début de déploiement](./media/cosmos-db-create-dbaccount-table/notification.png)
+    ![Capture d’écran du nouveau Panneau Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
 
-6.  Lorsque le déploiement est terminé, ouvrez le nouveau compte à partir de la mosaïque Toutes les ressources. 
+4. La création du compte prend quelques minutes. Pendant la création du compte, le portail affiche la vignette **Déploiement d’Azure Cosmos DB**.
 
-    ![Compte Azure Cosmos DB sur la vignette Toutes les ressources](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Volet Notifications du portail Azure](./media/cosmos-db-create-dbaccount-table/deploying-cosmos-db.png)
+
+    Une fois que le compte est créé, la page **Félicitations ! Votre compte Azure Cosmos DB a été créé** s’affiche.

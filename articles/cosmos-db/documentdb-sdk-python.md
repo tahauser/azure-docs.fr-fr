@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Python Azure Cosmos DB : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -51,6 +51,9 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Cette version du SDK nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
+
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Résolution de bogue pour le dictionnaire d’agrégation.
 * Résolution de bogue pour la suppression des barres obliques dans le lien de ressource.
@@ -131,6 +134,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |10 novembre 2017 |--- |
 | [2.2.1](#2.2.1) |29 septembre 2017 |--- |
 | [2.2.0](#2.2.0) |10 mai 2017 |--- |
 | [2.1.0](#2.1.0) |1er mai 2017 |--- |

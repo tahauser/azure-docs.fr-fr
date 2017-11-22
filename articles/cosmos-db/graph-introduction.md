@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Présentation d’Azure Cosmos DB : API Graph
 
@@ -44,7 +44,7 @@ L’API Graph Azure Cosmos DB offre ce qui suit :
 - Mise à l’échelle élastique du stockage et du débit avec moins de 10 ms de latences de lecture et moins de 15 ms au 99e centile.
 - Indexation automatique avec disponibilité de requête instantanée.
 - Niveaux de cohérence ajustables.
-- SLA complets, incluant une disponibilité de 99,99 %.
+- Contrats SLA complets, notamment un contrat SLA avec une disponibilité à 99,99 % pour tous les comptes à une ou plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
 
 Pour interroger Azure Cosmos DB, vous pouvez utiliser le langage de requête graphique d’[Apache TinkerPop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), ou d’autres systèmes graphiques compatibles avec TinkerPop tels qu’[Apache Spark GraphX](spark-connector-graph.md).
 
@@ -86,7 +86,7 @@ Azure Cosmos DB se démarque des autres bases de données de graphiques sur le m
 
 * Gestion intégrale
 
- Ne vous souciez plus de gérer les ressources de base de données et d’ordinateur. En tant que service Microsoft Azure entièrement géré, vous n’avez pas à gérer de machines virtuelles, à déployer et configurer des logiciels, à gérer la mise à l’échelle ni à vous préoccuper des mises à niveau complexes de la couche Données. Chaque graphique est automatiquement sauvegardé et protégé contre les défaillances régionales. Vous pouvez facilement ajouter un compte Azure Cosmos DB et approvisionner la capacité dont vous avez besoin afin de vous concentrer pleinement sur votre application plutôt que sur l’exploitation et la gestion de votre base de données.
+ Ne vous souciez plus de gérer les ressources de base de données et d’ordinateur. En tant que service Microsoft Azure entièrement géré, vous n’avez pas à gérer de machines virtuelles, à déployer et configurer des logiciels, à gérer la mise à l’échelle ni à vous préoccuper des mises à niveau complexes de la couche Données. Chaque graphe est automatiquement sauvegardé et protégé contre les défaillances régionales. Vous pouvez facilement ajouter un compte Azure Cosmos DB et approvisionner la capacité dont vous avez besoin afin de vous concentrer pleinement sur votre application plutôt que sur l’exploitation et la gestion de votre base de données.
 
 * Indexation automatique
 
@@ -124,8 +124,8 @@ En utilisant l’[émulateur Azure Cosmos DB](local-emulator.md), vous pouvez vo
 > [!NOTE]
 > La prise en charge de la validation de requêtes Gremlin sur l’[émulateur Azure Cosmos DB](local-emulator.md) n’est disponible qu’en passant par l’API Graph .NET.
 
-## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scénarios de prise en charge des graphiques par Azure Cosmos DB
-Voici quelques scénarios où la prise en charge des graphiques par Azure Cosmos DB peut être utile :
+## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Scénarios de prise en charge des graphes par Azure Cosmos DB
+Voici quelques scénarios où la prise en charge des graphes par Azure Cosmos DB peut être utile :
 
 * Réseaux sociaux
 
@@ -133,7 +133,7 @@ Voici quelques scénarios où la prise en charge des graphiques par Azure Cosmos
 
 * Moteurs de recommandation
 
- Ce scénario est couramment utilisé dans le secteur de la vente au détail. En associant des informations sur les produits, les utilisateurs et les interactions des utilisateurs (achats, navigation ou notation d’un article), vous pouvez générer des recommandations personnalisées. Azure Cosmos DB, avec sa faible latence, sa mise à l’échelle élastique et sa prise en charge native des graphiques, est idéal pour la modélisation de ces interactions.
+ Ce scénario est couramment utilisé dans le secteur de la vente au détail. En associant des informations sur les produits, les utilisateurs et les interactions des utilisateurs (achats, navigation ou notation d’un article), vous pouvez générer des recommandations personnalisées. Azure Cosmos DB, avec sa faible latence, sa mise à l’échelle élastique et sa prise en charge native des graphes, est idéal pour la modélisation de ces interactions.
 
 * Questions géospatiales
 
@@ -144,7 +144,7 @@ Voici quelques scénarios où la prise en charge des graphiques par Azure Cosmos
  Avec le réseau et les connexions entre les appareils IoT modélisés sous forme de graphe, vous pouvez obtenir un meilleur aperçu de l’état de vos appareils et ressources. Vous pouvez aussi découvrir comment les modifications apportées à une partie du réseau peuvent potentiellement en affecter une autre partie.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la prise en charge des graphiques dans Azure Cosmos DB, consultez :
+Pour en savoir plus sur la prise en charge des graphes dans Azure Cosmos DB, consultez :
 
-* Prise en main avec le [didacticiel graphique Azure Cosmos DB](create-graph-dotnet.md).
+* Bien démarrer avec le [didacticiel sur les graphes Azure Cosmos DB](create-graph-dotnet.md).
 * Découvrez comment [interroger les graphes dans Azure Cosmos DB à l’aide de Gremlin](gremlin-support.md).

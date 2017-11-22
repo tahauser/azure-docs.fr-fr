@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>Gérer les ressources Azure sur le portail
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
-> * [Portail](resource-group-portal.md) 
-> * [API REST](resource-manager-rest-api.md)
-> 
-> 
 
-Cette rubrique montre comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](resource-group-overview.md) pour gérer vos ressources Azure. Pour en savoir plus sur le déploiement des ressources avec le portail, voir [Déployer des ressources avec des modèles Resource Manager et le portail Azure](resource-group-template-deploy-portal.md).
-
-Actuellement, certains services ne prennent pas en charge le portail ou Resource Manager. Pour ces services, vous devez utiliser le [Portail Azure Classic](https://manage.windowsazure.com). Pour connaître l’état de chaque service, voir [Graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+Cet article montre comment utiliser le [Portail Azure](https://portal.azure.com) avec [Azure Resource Manager](resource-group-overview.md) pour gérer vos ressources Azure. Pour en savoir plus sur le déploiement des ressources avec le portail, voir [Déployer des ressources avec des modèles Resource Manager et le portail Azure](resource-group-template-deploy-portal.md).
 
 ## <a name="manage-resource-groups"></a>Gérer des groupes de ressources
 
@@ -58,7 +49,7 @@ Le groupe de ressources stocke des métadonnées sur les ressources. Par conséq
    
     ![ajouter des colonnes](./media/resource-group-portal/add-columns.png)
 7. Pour plus d’informations sur le déploiement de ressources dans votre nouveau groupe de ressources, voir [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](resource-group-template-deploy-portal.md).
-8. Pour accéder rapidement à un groupe de ressources, vous pouvez épingler le panneau à votre tableau de bord.
+8. Pour accéder rapidement à un groupe de ressources, vous pouvez épingler ce dernier à votre tableau de bord.
    
     ![épingler un groupe de ressources](./media/resource-group-portal/pin-group.png)
 9. Le tableau de bord affiche le groupe de ressources et ses ressources. Vous pouvez sélectionner les groupes de ressources ou l’une de leurs ressources pour accéder à l’élément correspondant.
@@ -71,12 +62,12 @@ Vous pouvez appliquer des balises à des groupes de ressources pour organiser lo
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>Surveiller les ressources
-Lorsque vous sélectionnez une ressource, le panneau de ressources présente les graphiques et tables par défaut pour la surveillance de ce type de ressource.
+Lorsque vous sélectionnez une ressource, le portail présente les graphiques et tables par défaut pour la surveillance de ce type de ressource.
 
 1. Sélectionnez une ressource, puis observez la section **Surveillance** . Elle contient des graphiques pertinents pour le type de ressource. L’illustration suivante montre les données de surveillance par défaut pour un compte de stockage.
    
     ![afficher la surveillance](./media/resource-group-portal/show-monitoring.png)
-2. Vous pouvez épingler une section du panneau à votre tableau de bord en sélectionnant les points de suspension (...) situés au-dessus de la section. Vous pouvez aussi personnaliser la taille de la section dans le panneau ou supprimer complètement cette section. L’illustration suivante montre comment épingler, personnaliser ou supprimer la section Processeur et mémoire.
+2. Vous pouvez épingler une section à votre tableau de bord en sélectionnant les points de suspension (...) situés au-dessus de la section. Vous pouvez aussi personnaliser la taille de la section ou supprimer complètement cette section. L’illustration suivante montre comment épingler, personnaliser ou supprimer la section Processeur et mémoire.
    
     ![épingler une section](./media/resource-group-portal/pin-cpu-section.png)
 3. Après avoir épinglé la section au tableau de bord, vous obtenez le résumé sur le tableau de bord. Vous pouvez le sélectionner immédiatement pour obtenir plus de détails sur les données.
@@ -92,7 +83,7 @@ Lorsque vous sélectionnez une ressource, le panneau de ressources présente les
      Pour plus d’informations sur l’utilisation des tableaux de bord, consultez [Création et partage de tableaux de bord sur le Portail Azure](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-resources"></a>Gestion des ressources
-Le panneau d’une ressource montre les options de gestion de cette ressource. Le portail présente les options de gestion pour ce type de ressource particulier. Les commandes de gestion se trouvent dans la partie supérieure et sur le côté gauche du panneau de la ressource.
+Lorsque vous visualisez une ressource dans le portail, les options de gestion de cette ressource particulière s’affichent.
 
 ![Gestion des ressources](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ Vous pouvez afficher des informations sur votre abonnement et les coûts cumulé
 
 ![abonnement](./media/resource-group-portal/select-subscription.png)
 
-Le panneau de l’abonnement vous présente un taux d’avancement.
+Le taux d’avancement s’affiche.
 
 ![taux d’avancement](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ Après avoir configuré votre groupe de ressources, vous pouvez éventuellement 
 Pour obtenir des instructions détaillées, voir [Exporter un modèle Azure Resource Manager à partir de ressources existantes](resource-manager-export-template.md).
 
 ## <a name="delete-resource-group-or-resources"></a>Supprimer des ressources ou un groupe de ressources
-La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Vous pouvez également supprimer des ressources individuelles d'un groupe de ressources. Faites preuve de prudence lorsque vous supprimez un groupe de ressources, car des ressources d’autres groupes de ressources peuvent y être liées. Resource Manager ne supprime pas les ressources liées, mais ces dernières risquent de ne pas fonctionner correctement sans les ressources attendues.
+La suppression d’un groupe de ressources supprime toutes les ressources qu’il contient. Vous pouvez également supprimer des ressources individuelles d'un groupe de ressources. Soyez prudent lors de la suppression d’un groupe de ressources. Ce dernier peut contenir des ressources dont des ressources d’autres groupes de ressources dépendent.
 
 ![supprimer un groupe](./media/resource-group-portal/delete-group.png)
 

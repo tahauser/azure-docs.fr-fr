@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduction à R Server et aux fonctionnalités Open Source R sur HDInsight
 
@@ -44,7 +44,9 @@ Vous avez la possibilité d’ajouter un accès à des objets Blob et des magasi
 Vous pouvez également utiliser [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) comme option de stockage pour une utilisation sur le nœud de périphérie. Le service Azure Files vous permet de monter un partage de fichiers qui a été créé dans un compte Azure Storage sur le système de fichiers Linux. Pour plus d’informations concernant ces options de stockage de données pour R Server sur un cluster HDInsight, consultez la page [Options de stockage Azure pour R Server sur des clusters HDInsight](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Accéder à R Server sur le cluster
-Vous pouvez vous connecter à R Server sur le nœud périphérique à l’aide d’un navigateur, à condition que vous ayez choisi d’inclure RStudio Server lors du processus d’approvisionnement. Si vous ne l’avez pas installé pendant l’approvisionnement du cluster, vous pourrez l’ajouter par la suite. Pour plus d’informations sur l’installation de RStudio Server après la création d’un cluster, consultez la page [Installer RStudio Server sur des clusters HDInsight](r-server-install-r-studio.md). Vous pouvez également vous connecter à R Server à l’aide de SSH/PuTTY pour accéder à la console R. 
+Vous pouvez vous connecter à R Server sur le nœud de périphérie à l’aide d’un navigateur. R Server est installé par défaut lors de la création du cluster. Pour plus d’informations, consultez [Commencer à utiliser R Server sur HDInsight](r-server-get-started.md).
+
+Vous pouvez également vous connecter à R Server à l’aide de la ligne de commande, en utilisant SSH/PuTTY pour accéder à la console R. 
 
 ## <a name="develop-and-run-r-scripts"></a>Développer et exécuter des scripts R
 Les scripts R que vous créez et exécutez peuvent utiliser n’importe quels packages R open source parmi plus de 8 000, en plus des routines distribuées et parallélisées de la bibliothèque ScaleR. En général, un script exécuté avec R Server sur le nœud périphérique s’exécute au sein de l’interpréteur R sur ce nœud, à l’exception des étapes qui doivent appeler une fonction ScaleR avec un contexte de calcul défini sur Hadoop MapReduce (RxHadoopMR) ou Spark (RxSpark). Dans ce cas, la fonction s’exécute en mode distribué sur les différents nœuds de données (tâches) du cluster qui sont associés aux données référencées. Pour plus d’informations concernant les différentes options de contexte de calcul, voir [Options de contexte de calcul pour R Server sur HDInsight](r-server-compute-contexts.md).
@@ -56,7 +58,7 @@ Lorsque la modélisation de vos données est terminée, vous pouvez mettre en œ
 Pour noter dans HDInsight, écrivez une fonction R qui appelle votre modèle pour effectuer des prévisions pour un nouveau fichier de données que vous avez chargé sur votre compte de stockage. Ensuite, enregistrez les prévisions dans le compte de stockage. Vous pouvez exécuter la routine à la demande sur le nœud de périmètre de votre cluster ou à l’aide d’une tâche planifiée.  
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Noter dans Azure Machine Learning (AML)
-Pour noter à l’aide d’un service web AML, utilisez le package R Azure Machine Learning open source nommé [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) pour publier votre modèle en tant que service web Azure. Pour plus de commodité, ce package est déjà installé sur le nœud de périphérie. Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
+Pour noter à l’aide d’un service web AML, utilisez le package R Azure Machine Learning open source nommé [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) pour publier votre modèle en tant que service web Azure. Par souci pratique, ce package est déjà installé sur le nœud de périphérie. Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
 
 Si vous choisissez cette option, il vous faut convertir tous les objets de modèle ScaleR en objets de modèle open source équivalents pour les utiliser avec le service web. Utilisez les fonctions de forçage de ScaleR, notamment `as.randomForest()` dans le cas des modèles basés sur un ensemble, pour cette conversion.
 
@@ -87,7 +89,7 @@ La maintenance, pour appliquer des correctifs de système d’exploitation ainsi
 Étant donné que les nœuds principaux sont redondants et que certains nœuds de données ne sont pas affectés, toutes les tâches en cours d’exécution pendant ce temps peuvent être ralenties. Elles doivent cependant être exécutées jusqu’à la fin. L’ensemble des logiciels personnalisés ou des données locales que vous détenez sont conservés durant ces événements de maintenance, sauf si une défaillance irrémédiable se produit, nécessitant une reconstruction du cluster.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>En savoir plus sur les options IDE pour R Server sur un cluster HDInsight
-Le nœud de périmètre Linux d’un cluster HDInsight est la zone d’accueil pour l’analyse basée sur R. Les versions récentes de HDInsight fournissent une option par défaut pour l’installation de la version communautaire de [RStudio Server](https://www.rstudio.com/products/rstudio-server/) sur le nœud de périmètre comme un IDE basé sur navigateur. L'utilisation de RStudio Server comme IDE pour le développement et l’exécution de scripts R peuvent être considérablement plus productifs que la simple utilisation de la console R. Si vous choisissez de ne pas ajouter RStudio Server lors de la création du cluster, mais que vous souhaitez l’ajouter ultérieurement, consultez la page [Installer R Studio Server sur des clusters HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio).
+Le nœud de périmètre Linux d’un cluster HDInsight est la zone d’accueil pour l’analyse basée sur R. Les versions récentes de HDInsight permettent une installation par défaut de RStudio Server sur le nœud de périphérie en tant qu’IDE basé sur navigateur. L'utilisation de RStudio Server comme IDE pour le développement et l’exécution de scripts R peuvent être considérablement plus productifs que la simple utilisation de la console R.
 
 Une autre option d’IDE complet consiste à installer un IDE de bureau et à l’utiliser pour accéder au cluster au moyen d’un contexte de calcul MapReduce ou Spark distant. Parmi les options disponibles figurent les [Outils R pour Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) de Microsoft, RStudio et [StatET](http://www.walware.de/goto/statet) sur Eclipse de WalWare.
 
@@ -100,6 +102,5 @@ Les frais associés à un cluster HDInsight avec R Server sont structurés de ma
 Pour plus d’informations sur l’utilisation de R Server avec des clusters HDInsight, consultez les rubriques suivantes :
 
 * [Prise en main de R Server sur HDInsight](r-server-get-started.md)
-* [Ajouter RStudio Server à HDInsight (s’il n’est pas installé lors de la création du cluster)](r-server-install-r-studio.md)
-* [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](r-server-compute-contexts.md)
-* [Options d’Azure Storage pour R Server sur HDInsight](r-server-storage.md)
+* [Options de contexte de calcul pour R Server sur HDInsight](r-server-compute-contexts.md)
+* [Options Stockage Azure pour R Server sur HDInsight](r-server-storage.md)

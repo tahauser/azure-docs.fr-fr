@@ -1,6 +1,6 @@
 ---
-title: "API Azure Cosmos DB Node.js, kit de développement logiciel (SDK) et Ressources | Microsoft Docs"
-description: "Tout savoir sur l’API Node.js et le kit de développement logiciel (SDK), y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit de développement logiciel (SDK) Azure Cosmos DB Node.js."
+title: API, SDK et ressources Azure Cosmos DB Node.js | Microsoft Docs
+description: "Tout savoir sur l’API et le SDK Node.js, notamment les dates de publication, les dates de retrait et les modifications effectuées entre chaque version du kit SDK Azure Cosmos DB Node.js."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Azure Cosmos DB Node.js : notes de publication et ressources
+# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>SDK Azure Cosmos DB Node.js : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Flux de modification .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -43,11 +43,11 @@ ms.lasthandoff: 10/11/2017
 
 <tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d’installation](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
-<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Contribution au kit SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
 <tr><td>**Exemples**</td><td>[Exemples de code Node.js](documentdb-nodejs-samples.md)</td></tr>
 
-<tr><td>**Didacticiel de prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Didacticiel de prise en main**</td><td>[Bien démarrer avec le kit SDK Node.js](documentdb-nodejs-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Générer une application web Node.js à l’aide d’Azure Cosmos DB](documentdb-nodejs-application.md)</td></tr>
 
@@ -60,6 +60,14 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="1.14.0"/>1.14.0</a>
+* Ajout de la prise en charge de la cohérence de session.
+* Cette version du SDK nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
+
+### <a name="1.13.0"/>1.13.0</a>
+* Requêtes Splitproofed entre partitions.
+* Ajout de la prise en charge des liens de ressources comprenant des barres obliques de début et de fin (et des tests correspondants).
 
 ### <a name="1.12.2"/>1.12.2</a>
 *   Documentation npm mise à jour.
@@ -171,12 +179,14 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
-Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
+Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un kit dSDK retiré.
 
 <br/>
 
-| Version | Date de lancement | Date de suppression |
+| Version | Date de publication | Date de retrait |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |9 novembre 2017 |--- |
+| [1.13.0](#1.13.0) |11 octobre 2017 |--- |
 | [1.12.2](#1.12.2) |10 août 2017 |--- |
 | [1.12.1](#1.12.1) |10 août 2017 |--- |
 | [1.12.0](#1.12.0) |10 mai 2017 |--- |

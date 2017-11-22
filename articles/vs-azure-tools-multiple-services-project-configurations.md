@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configuration de votre projet Azure à l'aide de plusieurs configurations de service
 Un projet de service cloud Azure comprend deux fichiers de configuration : ServiceDefinition.csdef et ServiceConfiguration.cscfg. Ces fichiers sont fournis avec votre application de service cloud Azure et déployés dans Azure.
@@ -30,7 +30,7 @@ Les outils Azure pour Microsoft Visual Studio fournissent des pages de propriét
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Pour plus d'informations sur les schémas sous-jacents des fichiers de définition et de configuration de service, consultez la [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398.aspx). Pour plus d'informations sur la configuration de service, consultez [Configuration de Cloud Services](cloud-services/cloud-services-how-to-configure.md).
+Pour en savoir plus sur les schémas sous-jacents des fichiers de définition et de configuration de service, consultez les articles relatifs au [schéma XML .csdef](cloud-services/schema-csdef-file.md) et au [schéma XML .cscfg](cloud-services/schema-cscfg-file.md). Pour plus d'informations sur la configuration de service, consultez [Configuration de Cloud Services](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Configuration des propriétés de rôle
 Les pages de propriétés d’un rôle web et d’un rôle de travail sont similaires, bien qu'il existe quelques différences, décrites dans les sections suivantes.
@@ -88,7 +88,7 @@ Vous pouvez utiliser la page de propriétés du **Stockage local** pour réserve
 ## <a name="certificates-page"></a>Page Certificats
 Dans la page **Certificats** , vous pouvez associer des certificats à votre rôle. Les certificats que vous ajoutez peuvent être utilisés pour configurer vos points de terminaison HTTPS dans la page de propriétés **Points de terminaison** .
 
-La page de propriétés **Certificats** ajoute des informations sur vos certificats à votre configuration de service. Notez que vos certificats ne sont pas empaquetés avec votre service. Vous devez les charger séparément sur Azure via le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+La page de propriétés **Certificats** ajoute des informations sur vos certificats à votre configuration de service. Notez que vos certificats ne sont pas empaquetés avec votre service. Vous devez les charger séparément sur Azure, via le [portail Azure](http://portal.azure.com).
 
 Pour associer un certificat à votre rôle, donnez un nom au certificat. Ce nom permet de faire référence au certificat lorsque vous configurez un point de terminaison HTTPS dans la page de propriétés **Points de terminaison** . Ensuite, spécifiez si le magasin de certificats est **Machine locale** ou **Utilisateur actuel** et le nom du magasin. Enfin, entrez l'empreinte du certificat. Si le certificat est dans Utilisateur actuel\Mon magasin, vous pouvez entrer l'empreinte du certificat en sélectionnant le certificat à partir d'une liste. S'il se trouve à un autre emplacement, entrez la valeur de l'empreinte numérique à la main.
 

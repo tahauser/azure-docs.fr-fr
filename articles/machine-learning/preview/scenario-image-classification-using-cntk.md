@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classification d’images à l’aide d’Azure Machine Learning Workbench
 
@@ -42,7 +42,7 @@ Ce didacticiel est divisé en trois parties :
 Bien qu’une expérience antérieure de l’apprentissage automatique (« machine learning ») et de CNTK ne soit pas indispensable, cela peut vous aider à comprendre les principes sous-jacents. Les valeurs de précision, les temps d’apprentissage, etc., indiqués dans le didacticiel ne sont que des références. Les valeurs réelles liées à l’exécution du code diffèrent très probablement.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Cet exemple nécessite les prérequis suivants :
 
@@ -52,9 +52,11 @@ Cet exemple nécessite les prérequis suivants :
 4. Vous n’avez pas besoin d’un GPU dédié pour former la machine à vecteurs de support dans la partie 1, mais vous en avez besoin pour affiner le réseau de neurones profond décrit dans la partie 2. Si vous n’avez pas un GPU puissant, si vous souhaitez former avec plusieurs GPU ou si vous n’avez pas de machine Windows, utilisez la machine virtuelle DLVM (Deep Learning Virtual Machine), qui est dotée du système d’exploitation Windows. Vous trouverez [ici](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) un guide de déploiement en 1 clic. Une fois le déploiement effectué, connectez-vous à la machine virtuelle via une connexion Bureau à distance, installez Workbench, puis exécutez le code localement à partir de la machine virtuelle.
 5. Diverses bibliothèques Python telles que OpenCV doivent être installées. Cliquez sur *Ouvrir l’invite de commandes* à partir du menu *Fichier* dans Workbench et exécutez les commandes suivantes pour installer ces dépendances :  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` après avoir téléchargé le fichier OpenCV au format wheel depuis http://www.lfd.uci.edu/~gohlke/pythonlibs/ (le nom exact du fichier et sa version peuvent changer)
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` après avoir téléchargé le fichier OpenCV au format wheel depuis http://www.lfd.uci.edu/~gohlke/pythonlibs/ (le nom exact du fichier et sa version peuvent changer)
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>Résolution des problèmes / Bogues connus
 - Un GPU est nécessaire pour la partie 2. Sinon, une erreur indiquant que « l’apprentissage avec normalisation par lot sur l’UC n’est pas encore implémenté » est générée quand vous essayez d’affiner le réseau de neurones profond.
@@ -91,12 +93,10 @@ Ce didacticiel utilise comme exemple un jeu de données de motifs de vêtements 
 
 Le script `0_downloadData.py` télécharge toutes les images dans le répertoire *DATA_DIR/images/fashionTexture/*. Sur les 428 URL, certaines sont probablement rompues. Ce n’est pas un problème. Cela signifie simplement que nous avons un peu moins d’images pour l’apprentissage et les tests.
 
-L’illustration suivante montre des exemples pour les attributs correspondant aux pois (deux colonnes de gauche), aux rayures (deux colonnes du milieu) et au style léopard (deux colonnes de droite). Les annotations ont été faites en fonction du vêtement pour le haut du corps.
+L’illustration suivante montre des exemples pour les attributs correspondant aux pois (à gauche), aux rayures (au milieu) et au style léopard (à droite). Les annotations ont été faites en fonction du vêtement pour le haut du corps.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble de Fonctions durables - Azure"
+title: "Vue d’ensemble de Fonctions durables - Azure (préversion)"
 description: "Introduction à l’extension Fonctions durables pour Azure Functions."
 services: functions
 author: cgillum
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Vue d’ensemble de Fonctions durables (Azure Functions)
+# <a name="durable-functions-overview-preview"></a>Vue d’ensemble de Fonctions durables (préversion)
 
-*Fonctions durables* est une extension d[’Azure Functions](functions-overview.md) et d[’Azure WebJobs](../app-service/web-sites-create-web-jobs.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
+*Fonctions durables* est une extension d[’Azure Functions](functions-overview.md) et d[’Azure WebJobs](../app-service/web-sites-create-web-jobs.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
 L’extension vous permet de définir des flux de travail avec état dans un nouveau type de fonction appelé une *fonction d’orchestrateur*. Voici quelques-uns des avantages des fonctions d’orchestrateur :
 
@@ -31,9 +31,9 @@ L’extension vous permet de définir des flux de travail avec état dans un nou
 * Elles créent automatiquement des points de contrôle de leur progression chaque fois que la fonction attend. L’état local n’est jamais perdu si le processus est recyclé ou si la machine virtuelle redémarre.
 
 > [!NOTE]
-> Fonctions durables est une extension avancée pour Azure Functions et ne convient pas à toutes les applications. Le reste de cet article suppose que vous maîtrisez parfaitement les concepts [Azure Functions](functions-overview.md) et les défis qu’impose le développement d’applications sans serveur.
+> Fonctions durables (en préversion) est une extension avancée pour Azure Functions qui ne convient pas à toutes les applications. Le reste de cet article suppose que vous maîtrisez parfaitement les concepts [Azure Functions](functions-overview.md) et les défis qu’impose le développement d’applications serverless.
 
-Le principal cas d’usage principal pour Fonctions durables est la simplification de problèmes complexes de coordination avec état dans des applications sans serveur. Les sections suivantes décrivent certains modèles d’application standard qui peuvent tirer parti de Fonctions durables.
+Le principal cas d’usage principal pour Fonctions durables est la simplification de problèmes complexes de coordination avec état dans des applications serverless. Les sections suivantes décrivent certains modèles d’application standard qui peuvent tirer parti de Fonctions durables.
 
 ## <a name="pattern-1-function-chaining"></a>Modèle 1 : chaînage de fonctions
 
@@ -229,7 +229,7 @@ Le minuteur durable est créé en appelant `ctx.CreateTimer`. La notification es
 
 ## <a name="the-technology"></a>La technologie
 
-En arrière-plan, l’extension Fonctions durables est construite par-dessus l[’infrastructure des tâches durables](https://github.com/Azure/durabletask), une bibliothèque open source sur GitHub pour la création d’orchestrations de tâches durables. Tout comme Azure Functions est l’évolution sans serveur d’Azure Webjobs, Fonctions durables est l’évolution sans serveur de l’infrastructure des tâches durables. L’infrastructure des tâches durables est très utilisée au sein de Microsoft et à l’extérieur pour automatiser des processus critiques. Il convient parfaitement à l’environnement Azure Functions sans serveur.
+En arrière-plan, l’extension Fonctions durables est construite par-dessus l[’infrastructure des tâches durables](https://github.com/Azure/durabletask), une bibliothèque open source sur GitHub pour la création d’orchestrations de tâches durables. Tout comme Azure Functions est l’évolution serverless d’Azure Webjobs, Fonctions durables est l’évolution serverless du framework des tâches durables. Le framework des tâches durables est très utilisé au sein de Microsoft et à l’extérieur pour automatiser des processus critiques. Il convient parfaitement à l’environnement Azure Functions serverless.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Approvisionnement d’événements, création de points de contrôle et réexécution
 

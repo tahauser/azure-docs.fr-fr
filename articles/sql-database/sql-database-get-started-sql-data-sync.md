@@ -1,6 +1,6 @@
 ---
-title: "Bien démarrer avec Azure SQL Data Sync (préversion) | Microsoft Docs"
-description: "Ce didacticiel explique comment bien démarrer avec Azure SQL Data Sync (préversion)."
+title: "Configurer Azure SQL Data Sync (Préversion) | Microsoft Docs"
+description: "Ce didacticiel vous montre comment configurer Azure SQL Data Sync (Préversion)."
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -13,21 +13,21 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Bien démarrer avec Azure SQL Data Sync (préversion)
+# <a name="set-up-sql-data-sync-preview"></a>Configurer SQL Data Sync (Préversion)
 Dans ce didacticiel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation hybride contenant des instances SQL Database et SQL Server. Ce nouveau groupe de synchronisation est entièrement configuré et synchronise sur la planification définie.
 
 Ce didacticiel suppose que vous ayez déjà utilisé SQL Database et SQL Server. 
 
-Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (préversion)](sql-database-sync-data.md).
+Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (Préversion)](sql-database-sync-data.md).
 
 Pour obtenir des exemples PowerShell complets qui montrent comment configurer SQL Data Sync, consultez les articles suivants :
 -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -110,7 +110,7 @@ Dans la page **Configurer une base de données Azure**, effectuez les étapes su
 
     ![Nouveau membre de synchronisation SQL Database ajouté](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Ajouter une base de données SQL Server locale
+### <a name="add-on-prem"></a> Ajouter une base de données SQL Server locale
 
 Dans la section **Base de données membre**, ajoutez éventuellement un serveur SQL local au groupe de synchronisation en sélectionnant **Ajouter une base de données locale**. La page **Configurer localement** s’ouvre.
 
@@ -193,6 +193,83 @@ Une fois les nouveaux membres du groupe de synchronisation créés et déployés
 
 4.  Enfin, sélectionnez **Enregistrer**.
 
+## <a name="faq-about-setup-and-configuration"></a>FAQ sur l’installation et la configuration
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>À quelle fréquence Data Sync synchronise-t-il mes données ? 
+Il effectue une synchronisation au minimum toutes les cinq minutes.
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL Data Sync gère-t-il intégralement la création et le provisionnement des tables ?
+
+Si les tables de schéma de synchronisation ne sont pas déjà créées dans la base de données de destination, SQL Data Sync (Préversion) les crée avec les colonnes que vous avez sélectionnées. Toutefois, ce comportement ne permet pas la création d’un schéma haute fidélité, pour les raisons suivantes :
+
+-   Seules les colonnes que vous avez sélectionnées sont créées dans la table de destination. Si certaines colonnes dans les tables source ne font pas partie du groupe de synchronisation, elles ne sont pas provisionnées dans les tables de destination.
+
+-   Des index sont créés uniquement pour les colonnes sélectionnées. Si l’index de la table source a des colonnes qui ne font pas partie du groupe de synchronisation, ces index ne sont pas provisionnés dans les tables de destination.
+
+-   Les index sur des colonnes de type XML ne sont pas provisionnés.
+
+-   Les contraintes CHECK ne sont pas provisionnées.
+
+-   Les déclencheurs existants sur les tables sources ne sont pas provisionnés.
+
+-   Les vues et procédures stockées ne sont pas créées sur la base de données de destination.
+
+En raison de ces limitations, nous vous recommandons les opérations suivantes :
+-   Pour les environnements de production, provisionnez vous-même le schéma haute fidélité.
+-   Pour tester le service, la fonctionnalité de provisionnement automatique de SQL Data Sync (Préversion) fonctionne bien.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Pourquoi puis-je voir des tables que je n’ai pas créées ?  
+Data Sync crée des tables latérales dans votre base de données utilisateur pour le suivi des modifications. Ne les supprimez pas, sinon Data Sync cessera de fonctionner.
+
+### <a name="is-my-data-convergent-after-a-sync"></a>Mes données convergent-elles après une synchronisation ?
+
+Pas nécessairement. Dans un groupe de synchronisation comprenant un concentrateur et trois rayons (A, B et C), les synchronisations sont les suivantes : Concentrateur vers A, Concentrateur vers B et Concentrateur vers C. Si une modification est apportée à la base de données A *après* la synchronisation Concentrateur vers A, cette modification sera prise en compte dans la base de données B ou C après la prochaine tâche de synchronisation.
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Comment obtenir des modifications de schéma dans un groupe de synchronisation ?
+
+Vous devez effectuer les modifications de schéma manuellement.
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Comment puis-je exporter et importer une base de données avec Data Sync ?
+Après avoir exporté une base de données sous forme de fichier `.bacpac` et avoir importé le fichier pour créer une base de données, vous devez effectuer les deux tâches suivantes pour utiliser Data Sync dans la nouvelle base de données :
+1.  Nettoyer les objets Data Sync et les tables annexes de la **nouvelle base de données** à l’aide de [ce script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Ce script supprime tous les objets Data Sync requis de la base de données.
+2.  Recréer le groupe de synchronisation avec la nouvelle base de données. Si vous n’avez plus besoin de l’ancien groupe de synchronisation, supprimez-le.
+
+## <a name="faq-about-the-client-agent"></a>FAQ concernant l’agent client
+
+### <a name="why-do-i-need-a-client-agent"></a>Pourquoi ai-je besoin d’un agent client ?
+
+Le service SQL Data Sync (Préversion) communique avec les bases de données SQL Server via l’agent client. Cette fonctionnalité de sécurité empêche la communication directe avec les bases de données derrière un pare-feu. Lorsque le service SQL Data Sync (Préversion) communique avec l’agent, il utilise des connexions chiffrées et un jeton unique ou *clé d’agent*. Les bases de données SQL Server authentifient l’agent à l’aide de la chaîne de connexion et de la clé d’agent. Cette méthode assure un haut niveau de sécurité pour vos données.
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Combien d’instances de l’interface utilisateur de l’agent local peuvent être exécutées ?
+
+Une seule instance de l’interface utilisateur peut être exécutée.
+
+### <a name="how-can-i-change-my-service-account"></a>Comment faire pour modifier mon compte de service ?
+
+Après avoir installé un agent client, la seule façon de modifier le compte de service consiste à le désinstaller et à installer un nouvel agent client avec le nouveau compte de service.
+
+### <a name="how-do-i-change-my-agent-key"></a>Comment faire pour modifier ma clé d’agent ?
+
+Une clé d’agent ne peut être utilisée qu’une seule fois par un agent. Elle ne peut pas être réutilisée lorsque vous supprimez puis réinstallez un nouvel agent, et ne peut pas non plus être utilisée par plusieurs agents. Si vous avez besoin de créer une nouvelle clé pour un agent existant, vous devez vous assurer que la même clé est enregistrée auprès de l’agent client et du service SQL Data Sync (Préversion).
+
+### <a name="how-do-i-retire-a-client-agent"></a>Comment mettre hors service un agent client ?
+
+Pour invalider ou mettre hors service immédiatement un agent, régénérez sa clé dans le portail, mais ne l’envoyez pas dans l’interface utilisateur de l’agent. La régénération d’une clé invalide la clé précédente, peu importe que l’agent correspondant soit en ligne ou hors connexion.
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Comment déplacer un agent client vers un autre ordinateur ?
+
+Si vous souhaitez exécuter l’agent local à partir d’un autre ordinateur, procédez comme suit :
+
+1. Installez l’agent sur l’ordinateur souhaité.
+
+2. Connectez-vous au portail SQL Data Sync (Préversion) et régénérez une clé d’agent pour le nouvel agent.
+
+3. Utilisez l’interface utilisateur du nouvel agent pour envoyer la nouvelle clé d’agent.
+
+4. Patientez pendant que l’agent client télécharge la liste des bases de données locales qui ont été enregistrées précédemment.
+
+5. Indiquez les informations d’identification de base de données pour toutes les bases de données apparaissant comme inaccessibles. Ces bases de données doivent être accessibles depuis le nouvel ordinateur sur lequel l’agent est installé.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Félicitations ! Vous avez créé un groupe de synchronisation incluant une instance de base de données SQL et une base de données SQL Server.
 
@@ -200,6 +277,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

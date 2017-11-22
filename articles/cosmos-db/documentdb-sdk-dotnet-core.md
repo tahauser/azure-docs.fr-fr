@@ -1,6 +1,6 @@
 ---
-title: "API .NET Core Azure Cosmos DB, kit de développement logiciel (SDK) et Ressources | Microsoft Docs"
-description: "Tout savoir sur l’API .NET Core et le kit de développement logiciel (SDK), y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB."
+title: "SDK et ressources de l’API .NET Core Azure Cosmos DB | Microsoft Docs"
+description: "Tout savoir sur l’API .NET Core et le kit SDK, notamment les dates de publication, les dates de retrait et les modifications effectuées entre chaque version du kit SDK .NET Core Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) .NET Core Azure Cosmos DB : notes de publication et ressources
+# <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK .NET Core Azure Cosmos DB : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Flux de modification .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -37,13 +37,13 @@ ms.lasthandoff: 10/26/2017
 
 <table>
 
-<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
+<tr><td>**Téléchargement du kit SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
 <tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](documentdb-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Bien démarrer avec le kit SDK .NET Core Azure Cosmos DB](documentdb-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -52,11 +52,17 @@ ms.lasthandoff: 10/26/2017
 
 ## <a name="release-notes"></a>Notes de publication
 
-Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](documentdb-sdk-dotnet.md).
+Le kit SDK .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit SDK .NET Azure Cosmos DB](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+> Le kit SDK .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un kit SDK .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * Remplacement du nom Azure DocumentDB par le nom Azure Cosmos DB dans la documentation de référence des API, les informations de métadonnées des assemblys et le package NuGet. 
+ * Exposition des informations de diagnostic et de la latence à partir de la réponse aux requêtes envoyées en mode de connexion directe. Les noms des propriétés sont RequestDiagnosticsString et RequestLatency dans la classe ResourceResponse.
+ * Cette version du SDK nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * Ajout de plusieurs améliorations et correctifs de fiabilité.
@@ -130,20 +136,21 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB permet de gén
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
-La version préliminaire du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB permet de générer des applications [ASP.NET Core](https://www.asp.net/core) et [.NET Core](https://www.microsoft.com/net/core#windows) rapides et multiplateformes à exécuter sous Windows, Mac et Linux.
+Le kit SDK .NET Core Azure Cosmos DB (préversion) permet de générer des applications [ASP.NET Core](https://www.asp.net/core) et [.NET Core](https://www.microsoft.com/net/core#windows) rapides et multiplateformes à exécuter sur Windows, Mac et Linux.
 
-La version préliminaire du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](documentdb-sdk-dotnet.md) et prend en charge les éléments suivants :
+Le kit SDK .NET Core Azure Cosmos DB (préversion) assure la parité des fonctions avec la dernière version du [kit SDK .NET Azure Cosmos DB](documentdb-sdk-dotnet.md) et prend en charge les éléments suivants :
 * Tous les [modes de connexion](performance-tips.md#networking) : mode passerelle, TCP Direct et HTTPs Direct. 
 * Tous les [niveaux de cohérence](consistency-levels.md): Forte, Session, Obsolescence limitée et Éventuelle.
 * [Collections partitionnées](partition-data.md). 
 * [Comptes de base de données multirégions et géoréplication](distribute-data-globally.md).
 
-Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) ou envoyez une demande sur le [référentiel GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb) ou envoyez une demande sur le [dépôt GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
-## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
+## <a name="release--retirement-dates"></a>Dates de publication et de retrait
 
-| Version | Date de lancement | Date de suppression |
+| Version | Date de publication | Date de retrait |
 | --- | --- | --- |
+| [1.7.0](#1.7.0) |10 novembre 2017 |--- |
 | [1.6.0](#1.6.0) |17 octobre 2017 |--- |
 | [1.5.1](#1.5.1) |2 octobre 2017 |--- |
 | [1.5.0](#1.5.0) |10 août 2017 |--- | 

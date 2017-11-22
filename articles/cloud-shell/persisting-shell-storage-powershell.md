@@ -1,5 +1,5 @@
 ---
-title: "Conserver des fichiers dans Azure Cloud Shell (préversion) | Microsoft Docs"
+title: "Conserver des fichiers dans PowerShell dans Azure Cloud Shell (préversion) | Microsoft Docs"
 description: "Procédure pas à pas de conservation des fichiers avec Azure Cloud Shell."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Fonctionnement de Cloud Shell
-Cloud Shell conserve les fichiers à l’aide de la méthode suivante : 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Utilisation de PowerShell dans Azure Cloud Shell (préversion)
+PowerShell dans Cloud Shell (préversion) conserve les fichiers à l’aide de la méthode suivante : 
 * Montage du partage de fichiers spécifié en tant que `clouddrive` dans votre répertoire `$Home` pour l’interaction directe avec le partage de fichiers.
 
 ## <a name="list-cloud-drive-file-shares"></a>Répertorier les partages de fichiers du lecteur Cloud

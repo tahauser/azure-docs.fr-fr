@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel Kubernertes sur Azure - Préparer Azure Container Registry | Microsoft Docs"
+title: "Didacticiel Kubernetes sur Azure - Préparer Azure Container Registry | Microsoft Docs"
 description: "Didacticiel ACS - Préparer Azure Container Registry"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -32,22 +32,22 @@ Azure Container Registry (ACR) est un registre privé Azure pour les images de c
 > * Marquage d’une image conteneur pour ACR
 > * Chargement de l’image dans ACR
 
-Dans les didacticiels suivants, cette instance ACR est intégrée avec un cluster Kubernetes dans ACS. 
+Dans les didacticiels suivants, cette instance ACR est intégrée avec un cluster Kubernetes dans ACS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Dans le [didacticiel précédent](./tutorial-kubernetes-prepare-app.md), une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur](./tutorial-kubernetes-prepare-app.md).
 
-Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.20 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.21 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
 Lorsque vous déployez un registre de conteneurs Azure, il vous faut tout d’abord un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `westus2`.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `eastus`.
 
 ```azurecli
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#create). Le nom d’un registre de conteneurs **doit être unique**.
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Envoyer des images au registre
 
-Envoyez l’image `azure-vote-front` vers votre registre. 
+Envoyez l’image `azure-vote-front` vers votre registre.
 
 À l’aide de l’exemple suivant, remplacez le nom d’ACR loginServer par le loginServer à partir de votre environnement.
 

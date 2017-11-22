@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 Windows offre un large éventail de [compteurs de performance](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) tels que le niveau d’occupation du processeur, la mémoire, le disque et l’utilisation du réseau. Vous pouvez également définir les vôtres. [Application Insights](app-insights-overview.md) peut afficher ces compteurs de performance si votre application est exécutée sous IIS sur un hôte ou une machine virtuelle local sur lequel vous disposez d’un accès administratif. Les graphiques indiquent les ressources disponibles pour votre application active, et peuvent vous aider à identifier l’équilibrage de charge entre les instances de serveur.
@@ -83,7 +83,6 @@ Pour collecter les compteurs de performances système et les envoyer à Applicat
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-
 Ou vous pouvez effectuer la même opération avec les mesures personnalisées que vous avez créées :
 
 ``` C#
@@ -115,6 +114,9 @@ Comme les autres données de télémétrie, **performanceCounters** possède ég
 
 * *taux d’exceptions* est un compteur de performances système. Le CLR compte l’ensemble des exceptions gérées et non gérées qui sont levées et divise le total d’un intervalle d'échantillonnage par la longueur de cet intervalle. Le Kit de développement logiciel (SDK) Application Insights collecte ce résultat et l’envoie au portail.
 * *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](app-insights-asp-net-exceptions.md). 
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications Asp.Net Core
+Les compteurs de performances ne sont pris en charge que si l’application cible le .NET Framework complet. Il est impossible de collecter les compteurs de performances pour les applications .Net Core.
 
 ## <a name="alerts"></a>Alertes
 Comme d’autres mesures, vous pouvez [définir une alerte](app-insights-alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le panneau Alertes et cliquez sur Ajouter une alerte.

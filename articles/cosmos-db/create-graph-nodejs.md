@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB : Créer une application Node.js à l’aide de l’API Graph
 
-Azure Cosmos DB est le service de base de données multi-modèle distribué mondialement de Microsoft. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle distribué mondialement de Microsoft. Vous pouvez rapidement créer et interroger des bases de données de documents, de paires clé/valeur et de graphes, qui bénéficient toutes des fonctionnalités de distribution mondiale et de mise à l’échelle horizontale qui sont au cœur d’Azure Cosmos DB. 
 
 Ce guide de démarrage rapide explique comment créer un compte Azure Cosmos DB pour l’API Graph (préversion), une base de données ainsi qu’un graphe à l’aide du portail Azure. Par la suite, vous allez créer et exécuter une application console en utilisant le pilote [Gremlin Node.js](https://www.npmjs.com/package/gremlin) open-source.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
+Avant de pouvoir exécuter cet exemple, vous devez posséder les prérequis suivants :
 * [Node.js](https://nodejs.org/en/) version 0.10.29 ou supérieure
 * [Git](http://git-scm.com/)
 
@@ -39,7 +39,7 @@ Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requ
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphique
+## <a name="add-a-graph"></a>Ajout d’un graphe
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -75,9 +75,23 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
         });
     ```
 
-  Les configurations sont toutes dans `config.js`, que nous allons modifier dans la section suivante.
+  Les configurations sont toutes dans `config.js`, que nous allons modifier dans la [section suivante](#update-your-connection-string).
 
-* Une série d’étapes Gremlin sont exécutées à l’aide de la méthode `client.execute`.
+* Plusieurs fonctions sont définies pour exécuter différentes opérations Gremlin. Voici l’une d’entre elles :
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Chaque fonction exécute une méthode `client.execute` avec un paramètre de chaîne de requête Gremlin. Voici un exemple d’exécution de `g.V().count()` :
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
     });
     ```
 
+* À la fin du fichier, toutes les méthodes sont appelées à l’aide de la méthode `async.waterfall()`. Le code suivant va les exécuter les unes après les autres :
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
 1. Ouvrez le fichier config.js. 
 
-2. Dans le fichier config.js, renseignez la clé config.endpoint avec la valeur **URI Gremlin** à partir de la page **Vue d’ensemble** du portail Azure. 
+2. Dans le fichier config.js, renseignez la clé `config.endpoint` avec la valeur **URI Gremlin** dans la page **Vue d’ensemble** du portail Azure. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
@@ -108,7 +139,7 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
 
    ![Panneau « Clés » du portail Azure](./media/create-graph-nodejs/keys.png)
 
-4. Entrez le nom de la base de données et le nom du graphique (conteneur) pour la valeur de config.database et de config.collection. 
+4. Entrez le nom de la base de données et le nom du graphe (conteneur) pour la valeur de config.database et de config.collection. 
 
 Voici un exemple de ce à quoi votre fichier config.js terminé doit ressembler :
 
@@ -134,9 +165,9 @@ module.exports = config;
 
 ## <a name="browse-with-data-explorer"></a>Navigation avec l’Explorateur de données
 
-Vous pouvez maintenant revenir à l’Explorateur de données, dans le portail Azure, pour afficher, modifier, interroger et manipuler vos nouvelles données graphiques.
+Vous pouvez maintenant revenir à l’Explorateur de données, dans le portail Azure, pour afficher, modifier, interroger et manipuler vos nouvelles données de graphe.
 
-Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet **Graphique**. Développez la base de données, suivie de la collection, puis sélectionnez **Graphe**.
+Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet **Graphes**. Développez la base de données, suivie de la collection, puis sélectionnez **Graphe**.
 
 Les données générées par l’exemple d’application s’affichent dans le volet suivant de l’onglet **Graphe** lorsque vous sélectionnez **Appliquer un filtre**.
 
@@ -156,7 +187,7 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
+Dans cet article, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphe puissante, à l’aide de Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)

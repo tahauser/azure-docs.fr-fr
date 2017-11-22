@@ -1,6 +1,5 @@
-<!-- A-series - compute-intensive instances, H-series -->
 
-Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz. 
+Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz.  Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur les performances de réseau et de débit de stockage pour chaque taille de ce regroupement. 
 
 Les machines virtuelles de la série H sont des machines virtuelles de calcul haute performance de nouvelles génération, destinées à répondre à des besoins de calcul de haut niveau, par exemple en relation avec la modélisation moléculaire et la dynamique des fluides. Les machines virtuelles à 8 et 16 processeurs virtuels reposent sur la technologie de processeur Intel Haswell E5-2667 V3 avec mémoire DDR4 et stockage temporaire SSD. 
 
@@ -14,12 +13,12 @@ ACU : 290-300
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de disque max : E/S par seconde | Nombre max de cartes réseau |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1 000 |16 |16 x 500 |2  |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |4 |
-| Standard_H8m |8 |112 |1 000 |16 |16 x 500 |2  |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |4  |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |4  |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |4 |
+| Standard_H8 |8 |56 |1 000 |32 |32 x 500 |2  |
+| Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |
+| Standard_H8m |8 |112 |1 000 |32 |32 x 500 |2  |
+| Standard_H16m |16 |224 |2000 |64 |64 x 500 |4  |
+| Standard_H16r* |16 |112 |2000 |64 |64 x 500 |4  |
+| Standard_H16mr* |16 |224 |2000 |64 |64 x 500 |4 |
 
 *Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
 
@@ -33,10 +32,10 @@ ACU : 225
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (HDD) : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Nombre max de cartes réseau|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16 x 500 |2 |
-| Standard_A9* |16 |112 |382 |16 |16 x 500 |4 |
-| Standard_A10 |8 |56 |382 |16 |16 x 500 |2  |
-| Standard_A11 |16 |112 |382 |16 |16 x 500 |4 |
+| Standard_A8* |8 |56 |382 |32 |32 x 500 |2 |
+| Standard_A9* |16 |112 |382 |64 |64 x 500 |4 |
+| Standard_A10 |8 |56 |382 |32 |32 x 500 |2  |
+| Standard_A11 |16 |112 |382 |64 |64 x 500 |4 |
 
 *Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
 

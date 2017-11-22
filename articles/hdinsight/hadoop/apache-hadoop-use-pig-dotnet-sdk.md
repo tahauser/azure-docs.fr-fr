@@ -1,6 +1,6 @@
 ---
-title: "Exécuter des travaux Apache Pig avec le Kit de développement .NET pour Hadoop - Azure HDInsight | Documents Microsoft"
-description: "Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
+title: "Exécuter des travaux Apache Pig avec le kit .NET SDK pour Hadoop - Azure HDInsight | Microsoft Docs"
+description: "Apprenez à utiliser le kit .NET SDK pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
 services: hdinsight
 documentationcenter: .net
 author: Blackmist
@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 27ecba06f2251aaf742f2221982cad5cb9602769
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
+# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Exécution de tâches Pig à l’aide du kit .NET SDK pour Hadoop dans HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des travaux Pig vers Hadoop sur Azure HDInsight.
+Apprenez à utiliser le kit .NET SDK pour Hadoop afin de soumettre des travaux Pig à Hadoop sur Azure HDInsight.
 
-Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Pig permet de créer des opérations MapReduce en modélisant une série de transformations de données. Dans ce document, vous apprenez à utiliser une application de base C# pour soumettre un travail Pig sur un cluster HDInsight.
+Le kit .NET SDK HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Pig permet de créer des opérations MapReduce en modélisant une série de transformations de données. Dans ce document, vous apprenez à utiliser une application de base C# pour soumettre un travail Pig sur un cluster HDInsight.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -43,7 +43,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 ## <a name="create-the-application"></a>Création de l’application
 
-Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET.
+Le kit .NET SDK HDInsight fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET.
 
 1. Dans le menu **Fichier** de Visual Studio, sélectionnez **Nouveau**, puis **Projet**.
 
@@ -57,7 +57,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 
 3. Cliquez sur **OK** pour créer le projet.
 
-4. À partir du menu **Outils**, sélectionnez **Gestionnaire de package de bibliothèque** ou **Gestionnaire de package Nuget**, puis sélectionnez **Console du gestionnaire de package**.
+4. À partir du menu **Outils**, sélectionnez **Gestionnaire de package de bibliothèque** ou **Gestionnaire de package NuGet**, puis sélectionnez **Console du gestionnaire de package**.
 
 5. Pour installer les packages du Kit de développement logiciel (SDK) .NET, utilisez la commande suivante :
 
@@ -121,10 +121,6 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 7. Pour démarrer l’application, appuyez sur **F5**.
 
 8. Pour quitter l’application, appuyez sur **Entrée**.
-
-## <a name="summary"></a>Résumé
-
-Comme vous pouvez le voir, le Kit de développement logiciel (SDK) .NET pour Hadoop vous permet de créer des applications .NET qui envoient des tâches Pig à un cluster HDInsight, et de surveiller l’état du travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

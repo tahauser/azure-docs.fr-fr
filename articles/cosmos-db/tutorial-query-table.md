@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB : Comment interroger les données d’une table avec l’API Table (préversion) ?
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB : Comment interroger les données d’une table avec l’API Table
 
-L’[API de table](table-introduction.md) d’Azure Cosmos DB (version préliminaire) prend en charge les requêtes OData et [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) requêtes sur des données de clé/valeur (table).  
+[L’API Table](table-introduction.md) d’Azure Cosmos DB prend en charge les requêtes OData et [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) effectuées sur des données de clé/valeur (table).  
 
 Cet article décrit les tâches suivantes : 
 
@@ -38,13 +38,13 @@ L’exemple de table `People` suivant est utilisé pour les interrogations de ce
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Azure Cosmos DB étant compatible avec les API d’Azure Stockage Table, consultez [Querying Tables and Entities] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) pour plus d’informations sur la manière d’effectuer des interrogations avec l’API Table. 
+Pour plus d’informations sur l’interrogation des données avec l’API Table, consultez Interrogation des tables et des entités (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities). 
 
 Pour plus d’informations sur les fonctionnalités étendues offertes par Azure Cosmos DB, consultez [Azure Cosmos DB : API Table](table-introduction.md) et [Développer avec l’API Table en utilisant .NET](tutorial-develop-table-dotnet.md). 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-Pour le bon fonctionnement de ces requêtes, vous devez disposer d’un compte Azure Cosmos DB et de données d’entité dans le conteneur. Cela n’est pas le cas ? Lancez le [démarrage rapide en 5 minutes](https://aka.ms/acdbtnetqs) ou le [didacticiel destiné aux développeurs](https://aka.ms/acdbtabletut) pour créer un compte et alimenter votre base de données.
+Pour le bon fonctionnement de ces requêtes, vous devez disposer d’un compte Azure Cosmos DB et de données d’entité dans le conteneur. Cela n’est pas le cas ? Lancez le [démarrage rapide en 5 minutes](create-table-dotnet.md) ou le [didacticiel destiné aux développeurs](tutorial-develop-table-dotnet.md) pour créer un compte et alimenter votre base de données.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Interroger sur PartitionKey et RowKey
 Les propriétés PartitionKey et RowKey formant une clé primaire d’une entité, vous pouvez utiliser la syntaxe spéciale suivante pour identifier l’entité : 
@@ -106,12 +106,12 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez effectué les tâches suivantes :
+Dans ce didacticiel, vous avez :
 
 > [!div class="checklist"]
-> * Découvrez comment interroger en utilisant l’API Table (préversion) 
+> * Appris à interroger des données avec l’API Table
 
 Vous pouvez maintenant poursuivre avec le didacticiel suivant montrant comment distribuer vos données globalement.
 
 > [!div class="nextstepaction"]
-> [Distribuer vos données globalement](tutorial-global-distribution-documentdb.md)
+> [Distribuer vos données globalement](tutorial-global-distribution-table.md)

@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)
 
 ![Symbole d’IT Service Management Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-IT Service Management Connector assure une intégration bidirectionnelle entre un produit/service ITSM (IT Service Management) et Log Analytics.  À travers cette connexion, vous pouvez créer des incidents, des alertes ou des événements dans un produit ITSM sur la base des alertes Log Analytics ou d’enregistrements de journal. Le connecteur importe aussi des données telles que des incidents et des demandes de modification du produit ITSM dans OMS Log Analytics.
+IT Service Management Connector (ITSMC) assure une intégration bidirectionnelle entre un produit/service ITSM (IT Service Management) et Log Analytics.  À travers cette connexion, vous pouvez créer des incidents, des alertes ou des événements dans un produit ITSM sur la base des alertes Log Analytics ou d’enregistrements de journal. Le connecteur importe aussi des données telles que des incidents et des demandes de modification du produit ITSM dans OMS Log Analytics.
 
-IT Service Management Connector vous offre de nombreuses possibilités :
+Avec ITSMC, vous pouvez :
 
   - Intégrer des alertes opérationnelles à vos méthodes de gestion des incidents dans l’outil ITSM de votre choix.
     - Créez des éléments de travail (tels que des alertes, des événements et des incidents) dans ITSM à partir des alertes OMS et via la fonctionnalité de recherche dans les journaux.
-    - Créez des éléments de travail basés sur vos alertes Azure Activity Log via une action ITSM dans les groupes d’actions. 
-  
+    - Créez des éléments de travail basés sur vos alertes Azure Activity Log via une action ITSM dans les groupes d’actions.
+
   - Unifier les données de surveillance, de journal et de gestion des services utilisées à l’échelle de votre organisation.
     - Mettez en corrélation les données d’incidents et de demandes de modification de vos outils ITSM avec les données de journal pertinentes dans l’espace de travail Log Analytics.   
     - Examinez des tableaux de bord de haut niveau pour obtenir une vue d’ensemble des incidents, des demandes de modification et des systèmes impactés.
     - Écrivez des requêtes Log Analytics pour obtenir des insights dans les données de gestion des services.
-      
+
 ## <a name="adding-the-it-service-management-connector-solution"></a>Ajout de la solution IT Service Management Connector
 
 Ajoutez la solution IT Service Management Connector à votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
 
-Vignette IT Service Management Connector apparaissant dans la galerie de solutions :
+La vignette ITSMC telle que vous pouvez la voir dans la galerie de solutions est présentée ici :
 
 ![vignette du connecteur](./media/log-analytics-itsmc/itsmc-solutions-tile.png)
 
@@ -51,14 +51,16 @@ Une fois ajoutée, la solution IT Service Management Connector s’affiche sous 
 
 > [!NOTE]
 
-> Par défaut, IT Service Management Connector actualise les données de la connexion une fois dans toutes les 24 heures. Pour actualiser instantanément les données de votre connexion en rapport avec des modifications ou mises à jour de modèle que vous apportez, cliquez sur le bouton d’actualisation en regard de votre connexion.
+> Par défaut, ITSMC actualise les données de connexion toutes les 24 heures. Pour actualiser instantanément les données de votre connexion en rapport avec des modifications ou mises à jour de modèle que vous apportez, cliquez sur le bouton « Actualiser » en regard de votre connexion.
 
  ![Actualisation d’ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
 ## <a name="configuring-the-connection-with-your-itsm-software"></a>Configuration de la connexion avec votre logiciel ITSM
 
-La solution IT Service Management Connector permet de se connecter à **System Center Service Manager**, **ServiceNow**, **Provance** et **Cherwell**. Configurez votre connexion avec
+ITSM permet de se connecter à **System Center Service Manager**, **ServiceNow**, **Provance** et **Cherwell**.
+
+Utilisez les procédures suivantes qui vous conviennent le mieux :
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -70,16 +72,18 @@ La solution IT Service Management Connector permet de se connecter à **System C
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 
-Une fois que vous avez configuré IT Service Management Connector avec les détails de votre logiciel ITSM, le connecteur commence à recueillir des données auprès du produit/service ITSM connecté. Selon le nombre d’incidents et de demandes de modification présents dans le service/produit ITSM, la synchronisation initiale s’effectue normalement en quelques minutes. 
+Une fois le connecteur configuré, il démarre la collecte des données à partir du produit/service ITSM connecté. Selon le nombre d’incidents et de demandes de modification présents dans le produit/service ITSM, la synchronisation initiale s’effectue normalement en quelques minutes.
 
 > [!NOTE]
-> - Les données importées à partir du produit ITSM par la solution IT Service Management Connector s’affichent dans Log Analytics sous forme d’enregistrements de journal du type **ServiceDesk_CL**.
-> - Un enregistrement de journal contient un champ nommé **ServiceDeskWorkItemType_s**, qui est soit un incident soit une demande de modification, c’est-à-dire les deux types de données importées à partir du produit ITSM.
+> - Les données importées à partir du produit ITSM par la solution ITSM s’affichent dans Log Analytics sous forme d’enregistrements de journal du type **ServiceDesk_CL**.
+> - Un enregistrement de journal contient un champ nommé **ServiceDeskWorkItemType_s**, qui est soit un incident soit une requête de modification, c’est-à-dire les deux types de données importées à partir du produit ITSM.
 
 ## <a name="data-synced-from-itsm-product"></a>Données synchronisées à partir du produit ITSM
-Les incidents et les demandes de modification sont synchronisés entre votre produit ITSM et votre espace de travail Log Analytics. Les informations suivantes présentent des exemples de données collectées par IT Service Management Connector :
+Les incidents et les demandes de modification sont synchronisés entre votre produit ITSM et votre espace de travail Log Analytics.
+Les informations suivantes présentent des exemples de données collectées par ITSM :
 
 > [!NOTE]
+
 > Selon le type d’élément de travail importé dans Log Analytics, l’événement **ServiceDesk_CL** contient les champs suivants :
 
 **Élément de travail :****Incidents**  
@@ -193,18 +197,20 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ![Écran Log Analytics](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
 
-## <a name="it-service-management-connector--integration-with-other-oms-solutions"></a>IT Service Management Connector – intégration avec d’autres solutions OMS
+## <a name="itsmc-integration-with-other-oms-solutions"></a>Intégration d’ITSMC à d’autres solutions OMS
 
-IT Service Management Connector prend actuellement en charge l’intégration avec la solution Service Map.
+Le connecteur ITSM prend actuellement en charge l’intégration avec la solution Service Map.
 
-La solution Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Carte de service affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent. Pour en savoir plus : [Carte de service](../operations-management-suite/operations-management-suite-service-map.md).
+La solution Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Carte de service affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent.
+
+Pour en savoir plus : [Carte de service](../operations-management-suite/operations-management-suite-service-map.md).
 
 Si vous utilisez aussi la solution Service Map, vous pouvez afficher les éléments de service d’assistance créés dans les solutions ITSM comme dans l’exemple suivant :
 
 ![Intégration de ServiceMap](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 ## <a name="create-itsm-work-items-for-oms-alerts"></a>Créer des éléments de travail ITSM pour des alertes OMS
 
-Une fois la solution ITSM Connector en place, vous pouvez configurer les alertes OMS pour qu’elles déclenchent la création d’éléments de travail dans votre outil ITSM connecté comme suit :
+Une fois la solution ITSM en place, vous pouvez configurer les alertes OMS pour qu’elles déclenchent la création d’éléments de travail dans votre outil ITSM connecté. Procédez comme suit :
 
 1. Dans la fenêtre **Recherche dans les journaux**, exécutez une requête de recherche dans les journaux pour afficher les données. Les résultats de la requête correspondent aux sources des éléments de travail.
 2. Dans **Recherche dans les journaux**, cliquez sur **Alerte** pour ouvrir la page **Ajouter une règle d’alerte**.
@@ -227,7 +233,7 @@ L’alerte OMS que vous avez créée est visible sous **Paramètres**>**Alertes*
 
 ## <a name="create-itsm-work-items-from-oms-logs"></a>Créer des éléments de travail ITSM à partir de journaux OMS
 
-Vous pouvez aussi créer des éléments de travail dans les sources ITSM connectées directement à partir d’un enregistrement de journal comme suit :
+Vous pouvez également créer des éléments de travail dans les sources ITSM connectées directement à partir d’un enregistrement de journal. Procédez comme suit :
 
 1. Sous **Recherche dans les journaux**, recherchez les données requises, sélectionnez les informations détaillées, puis cliquez sur **Créer un élément de travail**.
 
@@ -243,7 +249,7 @@ Vous pouvez aussi créer des éléments de travail dans les sources ITSM connect
   - **Sélectionner une connexion** : connexion ITSM dans laquelle vous souhaitez créer cet élément de travail.
   - **Élément de travail** : type d’élément de travail.
 
-3. Pour utiliser un modèle d’élément de travail existant pour un incident, cliquez sur **Oui** sous **Générer l’élément de travail en fonction du modèle**, puis cliquez sur **créer**.
+3. Pour utiliser un modèle d’élément de travail existant pour un incident, cliquez sur **Oui** sous l’option **Générer l’élément de travail en fonction du modèle**, puis cliquez sur **Créer**.
 
     Ou,
 
@@ -251,51 +257,51 @@ Vous pouvez aussi créer des éléments de travail dans les sources ITSM connect
 
 4. Indiquez les valeurs appropriées dans les zones de texte **Type de contact**, **Impact**, **Urgence**, **Catégorie** et **Sous-catégorie**, puis cliquez sur **Créer**.
 
-## <a name="create-itsm-work-items-from-azure-alerts"></a>Créer des éléments de travail ITSM à partir des alertes Azure
-ITSM Connector est désormais intégré avec les groupes d’action. Les [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) offrent une méthode modulaire et réutilisable pour déclencher des actions pour vos alertes Azure. Dans les groupes d’actions, l’action ITSM crée des éléments de travail dans votre produit ITSM en s’appuyant sur une solution ITSM Connector existante.
+## <a name="create-itsm-work-items-from-azure-alerts"></a>Créer des éléments de travail ITSM à partir d’alertes Azure
+ITSMC est intégré à des groupes d’actions.
+
+Les [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) offrent une méthode modulaire et réutilisable pour déclencher des actions pour vos alertes Azure. Grâce à l’action ITSM dans les groupes d’actions, vous pouvez créer des éléments de travail dans votre produit ITSM qui inclut une connexion à une solution de connecteur ITSM.
+
+Procédez comme suit :
 
 1. Dans le portail Azure, cliquez sur **Moniteur**.
-2. Dans le volet gauche, cliquez sur **Groupes d’actions**.
+2. Dans le volet gauche, cliquez sur **Groupes d’actions**. La fenêtre **Ajouter un groupe d’actions** s’affiche.
 
-    ![Groupes d’actions](media/log-analytics-itsmc/ActionGroups.png)
+    ![Groupes d’actions](media/log-analytics-itsmc/action-groups.png)
 
-3. Attribuez un **Nom** et un **Nom court** à votre groupe d’actions. Sélectionnez le **Groupe de ressources** et l’**Abonnement** pour lesquels vous voulez créer le groupe d’actions.
+3. Attribuez un **Nom** et un **Nom court** à votre groupe d’actions. Sélectionnez le **Groupe de ressources** et l’**Abonnement** pour lesquels vous voulez créer votre groupe d’actions.
 
-    ![Détails du groupe d’actions](media/log-analytics-itsmc/ActionGroupsDetail.png)
+    ![Détails du groupe d’actions](media/log-analytics-itsmc/action-groups-details.png)
 
-4. Dans la zone Actions, sélectionnez **ITSM** dans la liste déroulante **Type d’action**. Attribuez un **Nom** à l’action et cliquez sur **Modifier les détails**.
+4. Dans la liste d’actions, sélectionnez **ITSM** dans le menu déroulant **Type d’action**. Entrez un **Nom** pour l’action et cliquez sur **Modifier les détails**.
+5. Sélectionnez l’**Abonnement** dans lequel se trouve votre espace de travail Log Analytics. Sélectionnez le nom de **Connexion** (le nom de votre connecteur ITSM) suivi du nom de votre espace de travail. Par exemple, « MaSolutionTSMMConnector(MonEspaceDeTravail) ».
 
+    ![Détails de l’action ITSM](./media/log-analytics-itsmc/itsm-action-details.png)
 
-5. Sélectionnez l’**Abonnement** dans lequel se trouve votre espace de travail Log Analytics. Sélectionnez la **Connexion**, c’est-à-dire le nom de votre solution ITSM Connector suivi du nom de votre espace de travail. Par exemple, « MaSolutionTSMMConnector(MonEspaceDeTravail) ».
+6. Sélectionnez le type d’**Élément de travail** dans le menu déroulant.
+   Choisissez d’utiliser un modèle existant ou renseignez les champs requis par votre produit ITSM.
+7. Cliquez sur **OK**.
 
-    ![Détails de l’action ITSM](./media/log-analytics-itsmc/ITSMActionDetails.png)
-
-6. Sélectionnez le type d’**Élément de travail** dans la liste déroulante.
-7. Choisissez d’utiliser un modèle existant ou renseignez les champs requis par votre produit ITSM.
-8. Cliquez sur **OK**
-
-Quand vous créez/modifiez une règle d’alerte Azure, utilisez un groupe d’actions qui contient une action ITSM. Quand l’alerte se déclenche, l’élément de travail est créé dans l’outil ITSM. 
+Lorsque vous créez/modifiez une règle d’alerte Azure, utilisez un groupe d’actions qui contient une action ITSM. Quand l’alerte se déclenche, l’élément de travail est créé dans l’outil ITSM.
 
 >[!NOTE]
->À l’heure actuelle, seules les alertes du journal d’activité prennent en charge l’action ITSM. Pour les autres alertes Azure, cette action est une opération nulle (« no-op »).
->
+
+> À l’heure actuelle, seules les alertes du journal d’activité prennent en charge l’action ITSM. L’action ITSM n’est pas prise en charge pour d’autres alertes Azure.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Dépanner des connexions ITSM dans OMS
 1.  Si la connexion échoue à partir de l’interface utilisateur de la source connectée avec un message **Erreur lors de l’enregistrement de la connexion**, procédez comme suit :
- - Pour les connexions ServiceNow, Cherwell et Provance,
-    - vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.
-    - Vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.
- - Pour les connexions Service Manager,
-     - vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-     
+ - Pour les connexions ServiceNow, Cherwell et Provance, vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.
+        - vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.
+ - Pour les connexions Service Manager, vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+
 2.  Si les données de ServiceNow ne sont pas synchronisées dans Log Analytics, vérifiez que l’instance ServiceNow n’est pas en état de veille. Parfois, les instances de développement ServiceNow entrent en veille quand elles restent longtemps inactives. Autrement, signalez le problème.
 3.  Si des alertes OMS se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM ou qu’aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations génériques, examinez les emplacements suivants :
- -  **Solution IT Service Management Connector** : la solution affiche un résumé des connexions, éléments de travail, ordinateurs, etc. Cliquez sur la vignette indiquant **État du connecteur**. Vous accédez alors à **Recherche dans les journaux** avec la requête appropriée. Pour plus d’informations, consultez les enregistrements de journal pour lesquels LogType_S a la valeur ERROR.
- - Ou bien, examinez les erreurs/informations connexes directement dans la page **Recherche dans les journaux** en utilisant la requête *Type=ServiceDeskLog_CL*.
+ -  ITSM : la solution affiche un résumé des connexions, éléments de travail, ordinateurs, etc. Cliquez sur la vignette indiquant **État du connecteur**. Vous accédez alors à **Recherche dans les journaux** avec la requête appropriée. Pour plus d’informations, consultez les enregistrements de journal pour lesquels LogType_S a la valeur ERROR.
+ - Page **Recherche dans les journaux** : examinez les erreurs/informations connexes directement en utilisant la requête *Type=ServiceDeskLog_CL*.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Résoudre les problèmes de déploiement de l’application web Service Manager
-1.  Si vous êtes confronté à des problèmes de déploiement d’application web, vérifiez que vous disposez des autorisations suffisantes dans l’abonnement mentionné pour créer/déployer des ressources.
+1.  En cas de problèmes de déploiement d’application web, vérifiez que vous disposez des autorisations suffisantes dans l’abonnement mentionné pour créer/déployer des ressources.
 2.  Si vous obtenez l’erreur **« Référence d’objet non définie sur une instance d’un objet »** pendant l’exécution du [script](log-analytics-itsmc-service-manager-script.md), vérifiez que vous avez entré des valeurs valides sous la section **Configuration utilisateur**.
 3.  Si vous échouez à créer l’espace de noms du relais Service Bus, vérifiez que le fournisseur de ressources requis est inscrit dans l’abonnement. S’il n’est pas inscrit, créez manuellement l’espace de noms Service Bus Relay à partir du portail Azure. Vous pouvez également le créer lors de la [création de la connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) à partir du portail Azure.
 

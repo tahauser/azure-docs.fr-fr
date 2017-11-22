@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Cas d’utilisation courants d’Azure Cosmos DB
 Cet article présente plusieurs cas d’utilisation courants pour Azure Cosmos DB.  Les recommandations de cet article constituent le point de départ du développement de votre application avec Cosmos DB.   
@@ -39,7 +39,7 @@ Azure Cosmos DB est une base de données multimodèle distribuée à l’échell
 
 Voici certains attributs d’Azure Cosmos DB qui rendent cette base de données parfaitement adaptée aux applications hautes performances destinées à une utilisation mondiale.
 
-* Azure Cosmos DB partitionne vos données en mode natif pour offrir une disponibilité et une évolutivité élevées. Ce service assure des garanties de disponibilité, de débit, de faible latence et de cohérence de 99,99 %.
+* Azure Cosmos DB partitionne vos données en mode natif pour offrir une disponibilité et une évolutivité élevées. Azure Cosmos DB garantit une disponibilité, un débit, une faible latence et une cohérence à 99,99 % pour tous les comptes à région unique et à plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
 * Azure Cosmos DB dispose d’un stockage SSD avec des temps de réponse de l’ordre des millisecondes à faible latence.
 * La prise en charge par Azure Cosmos DB des niveaux de cohérence finale, de préfixe, de session et liée sans état offre un rapport coût-performances faible et une flexibilité totale. Aucun service de base de données n’offre autant de flexibilité qu’Azure Cosmos DB en matière de niveaux de cohérence. 
 * Azure Cosmos DB possède un modèle de tarification flexible et adapté aux données qui mesure indépendamment le stockage et le débit.

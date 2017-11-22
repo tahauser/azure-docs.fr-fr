@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -38,12 +38,13 @@ En tant que service de base de données distribué mondialement, Azure Cosmos DB
     * À l’aide des API multihébergement d’Azure Cosmos DB, l’application sait où se trouve la région la plus proche et envoie les requêtes au centre de données le plus proche. Tout ceci est possible sans aucune modification de configuration. Vous définissez votre région d’écriture et autant de régions de lecture que vous souhaitez, le reste est géré pour vous.
 
 * **Plusieurs modèles de données et API populaires pour la consultation et l’interrogation des données**
-    * Le modèle de données basé sur le atome-enregistrement-séquence (ARS) sur lequel repose Azure Cosmos DB prend en charge en mode natif plusieurs modèles de données, incluant notamment les documents, les graphiques, les clés-valeurs, les tables et les modèles de données en colonnes.
+    * Le modèle de données basé sur le atome-enregistrement-séquence (ARS) sur lequel repose Azure Cosmos DB prend en charge en mode natif plusieurs modèles de données, incluant notamment les documents, les graphes, les clés-valeurs, les tables et les modèles de données en colonnes.
     * Les API pour les modèles suivants sont pris en charge avec les SDK et sont disponibles dans plusieurs langages :
         * [API DocumentDB](documentdb-introduction.md) : moteur de base de données JSON sans schéma avec des fonctions d’interrogation SQL.
         * [API MongoDB](mongodb-introduction.md) : service de base de données MongoDB reposant sur Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications MongoDB existants.
-        * [API Table](table-introduction.md) : service de base de données de stockage de clés-valeurs qui fournit des fonctionnalités haut de gamme pour les applications de stockage Table Azure.
-        * [API Graph (Gremlin)](graph-introduction.md) : service de base de données graphique conçu conformément à la [spécification Apache TinkerPop](http://tinkerpop.apache.org/).
+        * [API Table](table-introduction.md) : service de base de données de clés-valeurs qui fournit des fonctionnalités haut de gamme pour les applications de stockage Table Azure.
+        * [API Graph (Gremlin)](graph-introduction.md) : service de base de données orientée graphe conçu conformément à la [spécification Apache TinkerPop](http://tinkerpop.apache.org/).
+        * [API Cassandra](cassandra-introduction.md) : un magasin de clés/valeurs basé sur une implémentation [Apache Cassandra](https://cassandra.apache.org/). 
         * Des modèles de données supplémentaires seront bientôt disponibles.
 
 * **Mettre à l’échelle le débit et le stockage de façon élastique et à la demande, dans le monde entier**
@@ -55,7 +56,7 @@ En tant que service de base de données distribué mondialement, Azure Cosmos DB
     * Pour un élément standard de 1 Ko, Cosmos DB garantit la latence de bout en bout des lectures sous 10 ms et des écritures indexées sous 15 ms au 99e centile, dans la même région Azure. Les latences médianes sont nettement plus faibles (inférieures à 5 ms).
 
 * **Assurer une disponibilité en continu**
-    * Disponibilité de 99,99 % dans une même région.
+    * Contrat SLA de disponibilité à 99,99 % pour tous les comptes à une et plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
     * Déployez dans n’importe quel nombre de [régions Azure](https://azure.microsoft.com/regions) pour bénéficier d’une haute disponibilité.
     * [Simulez la défaillance](regional-failover.md) d’une ou plusieurs régions avec comme garantie l’absence de perte de données. 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Gouvernance dans Azure
 
@@ -225,14 +225,14 @@ Les ressources ne doivent pas nécessairement appartenir au même groupe de ress
 Les stratégies de ressources vous permettent de créer des règles standard pour votre organisation. Vous pouvez créer des stratégies qui garantissent que les ressources sont balisées avec les valeurs appropriées.
 
 > [!Note]
-> Pour plus d’informations, consultez [Appliquer des stratégies de ressources pour les balises](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Pour plus d’informations, consultez [Initiative de la stratégie de facturation en fonction de balises](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Vous avez également la possibilité de consulter les ressources balisées via le portail Azure.
 
 Le [rapport d’utilisation](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) de votre abonnement inclut les noms et valeurs de balises, ce qui vous permet de répartir les coûts en fonction des balises.
 
 > [!Note]
-> Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> Pour plus d’informations sur les balises, consultez [Initiative de la stratégie de facturation en fonction de balises](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Les limites suivantes s’appliquent aux balises :
 
@@ -412,7 +412,7 @@ Azure Security Center surveille les ressources Azure suivantes :
 
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-Le [programme de sécurité et de gouvernance](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) des informations de l’équipe de maintenance et de développement logiciel du Service OMS prend en charge ses besoins métier, et respecte les lois et réglementations décrites sur les sites [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/) et [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Ceux-ci expliquent également comment OMS fixe les exigences de sécurité, identifie les contrôles de sécurité, et gère et analyse les risques. Chaque année, nous révisons les stratégies, normes, procédures et directives.
+Le [programme de sécurité et de gouvernance](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) des informations de l’équipe de maintenance et de développement logiciel du Service OMS prend en charge ses besoins métier, et respecte les lois et réglementations décrites sur les sites [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/) et [Microsoft Trust Center Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Ceux-ci expliquent également comment OMS fixe les exigences de sécurité, identifie les contrôles de sécurité, et gère et analyse les risques. Chaque année, nous révisons les stratégies, normes, procédures et directives.
 
 Chaque membre de l’équipe de développement d’OMS reçoit une formation formelle en matière de sécurité des applications. En interne, nous utilisons un système de contrôle de version pour le développement de logiciels. Chaque projet de logiciel est protégé par le système de contrôle de version.
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Informations de référence sur l’interface CLI de gestion des modèles
 
@@ -69,6 +69,8 @@ Arguments locaux :
                      the active MLC env.
 
 **Configurer l’environnement de développement**
+
+La commande de configuration implique que vous disposiez d’un accès Contributeur à l’abonnement. Si vous ne disposez pas de cet accès, il vous faut au moins un accès Contributeur au groupe de ressources vers lequel vous effectuez le déploiement. Pour l’obtenir, vous devez spécifier le nom du groupe de ressources dans la commande de configuration à l’aide de l’indicateur `-g`. 
 
 Il existe deux options de déploiement : *local* et *cluster*. Définissez l’indicateur `--cluster` (ou `-c`) pour configurer le déploiement cluster, qui provisionne un cluster ACS. La syntaxe de configuration de base est la suivante :
 

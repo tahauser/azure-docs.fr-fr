@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Se connecter à Kafka sur HDInsight (version préliminaire) via un réseau virtuel Azure
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Se connecter à Kafka sur HDInsight via un réseau virtuel Azure
 
 Découvrez comment vous connecter directement à Kafka sur HDInsight via un réseau virtuel Azure. Ce document fournit des informations sur la connexion à Kafka en utilisant les configurations suivantes :
 
@@ -32,7 +32,7 @@ Découvrez comment vous connecter directement à Kafka sur HDInsight via un rés
 
 HDInsight n’autorise pas la connexion directe à Kafka via l’internet public. Au lieu de cela, les clients de Kafka (producteurs et consommateurs) doivent utiliser une des méthodes de connexion suivantes :
 
-* Exécutez le client dans le même réseau virtuel que Kafka sur HDInsight. Cette configuration est utilisée dans le document [Démarrer avec Apache Kafka (version préliminaire) sur HDInsight](apache-kafka-get-started.md). Le client s’exécute directement sur les nœuds du cluster HDInsight ou sur une autre machine virtuelle dans le même réseau.
+* Exécutez le client dans le même réseau virtuel que Kafka sur HDInsight. Cette configuration est utilisée dans le document [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md). Le client s’exécute directement sur les nœuds du cluster HDInsight ou sur une autre machine virtuelle dans le même réseau.
 
 * Connectez un réseau privé, notamment votre réseau local, au réseau virtuel. Cette configuration permet aux clients de votre réseau local de travailler directement avec Kafka. Pour activer cette configuration, effectuez les tâches suivantes :
 
@@ -239,7 +239,7 @@ En suivant les étapes de cette section, vous pouvez créer la configuration ci-
   > [!WARNING]
   > Ce processus prend environ 15 minutes.
 
-8. Utilisez la cmdlet suivante pour récupérer l’URL du client VPN Windows pour le réseau virtuel :
+8. Utilisez l’applet de commande suivante pour récupérer l’URL du client VPN Windows pour le réseau virtuel :
 
     ```powershell
     Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName `

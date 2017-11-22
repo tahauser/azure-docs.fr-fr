@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuration des services cloud
-> [!div class="op_single_selector"]
-> * [Portail Azure](cloud-services-how-to-configure-portal.md)
-> * [Portail Azure Classic](cloud-services-how-to-configure.md)
->
->
-
 Vous pouvez configurer les paramètres les plus couramment utilisés pour un service cloud dans le portail Azure. Ou, si vous voulez mettre à jour directement vos fichiers de configuration, téléchargez un fichier de configuration de service pour le mettre à jour, puis chargez-le et mettez à jour le service cloud avec les modifications de la configuration. Dans les deux cas, les mises à jour de la configuration sont transmises à toutes les instances de rôle.
 
 Vous pouvez également gérer les instances de vos rôles de service cloud ou le Bureau à distance qui s’y trouve.
@@ -77,9 +71,9 @@ Au lieu d’utiliser **Paramètres** > **Règles d’alerte**, vous pouvez cliqu
 Vous pouvez alors personnaliser le graphique utilisé avec la vignette ou ajouter une règle d’alerte.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Redémarrage, réinitialisation ou Bureau à distance
-À ce stade, vous ne pouvez pas configurer le Bureau à distance à l’aide du **portail Azure**. Toutefois, vous pouvez le configurer par le biais du [portail Azure Classic](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) ou [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Vous pouvez configurer le Bureau à distance via le [portail Azure (configurer le Bureau à distance)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), ou [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Tout d’abord, cliquez sur l’instance de service cloud.
+Pour redémarrer, réinitialiser ou accéder à distance à un élément dans un service Cloud, cliquez sur l’instance de service cloud.
 
 ![Instance de service cloud](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

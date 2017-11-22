@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utiliser la solution Service Map dans Operations Management Suite
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, processus et ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
@@ -32,7 +32,7 @@ Cet article décrit les détails de l’utilisation de Service Map. Pour plus d�
 Service Map crée automatiquement une carte de référence commune des dépendances entre vos serveurs, les processus et les services tiers. La solution découvre et mappe toutes les dépendances TCP, en identifiant les connexions inattendues, les systèmes tiers distants dont vous dépendez et les dépendances envers les zones sombres traditionnelles de votre réseau comme Active Directory. Service Map détecte les échecs de connexion réseau que vos systèmes gérés tentent d’établir, vous aidant ainsi à identifier d’éventuels problèmes de réseau, interruptions de service et autres configurations de serveur inappropriées.
 
 ### <a name="incident-management"></a>Gestion des incidents
-Service Map vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évide de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des flux de travail intégrés avec la fonction Change Tracking d’Operations Management Suite, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause première d’un incident.
+Service Map vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évite de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des flux de travail intégrés avec la fonction Change Tracking d’Operations Management Suite, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause première d’un incident.
 
 ### <a name="migration-assurance"></a>Garantie d’une migration réussie
 La solution Service Map vous permet de planifier, d’accélérer et de valider efficacement les migrations vers Azure pour vous assurer que rien n’est oublié et vous prémunir contre toute panne surprise. Vous pouvez découvrir tous les systèmes interdépendants qui doivent migrer en même temps, évaluer la capacité et la configuration du système et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration. Une fois la migration terminée, vous pouvez vérifier la charge et l’identité du client pour contrôler que les systèmes de test et les clients se connectent. Si vos définitions de pare-feu et de planification de sous-réseau rencontrent des problèmes, les connexions ayant échoué dans les mappages Service Map vous dirigent vers les systèmes nécessitant une connectivité.
@@ -133,7 +133,7 @@ Certains processus jouent des rôles particuliers sur les machines : serveurs w
 
 
 ## <a name="failed-connections"></a>Connexions ayant échoué
-Les connexions qui ont échoué sont affichées dans les cartes de type Service Map des processus et machines, avec une ligne rouge en pointillés indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système ayant un agentService Map déployé si ce système est celui qui a tenté d’établir de telles connexions. La solution Service Map mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
+Les connexions qui ont échoué sont affichées dans les cartes de type Service Map des processus et machines, avec une ligne rouge en pointillé indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système ayant un agentService Map déployé si ce système est celui qui a tenté d’établir de telles connexions. La solution Service Map mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
 
 ![Connexions ayant échoué](media/oms-service-map/failed-connections.png)
 
@@ -231,16 +231,16 @@ Le volet **Performances d’une machine** affiche des métriques de performance 
 Pour afficher les données de performances, vous pouvez avoir besoin d’[activer les compteurs de performances Log Analytics appropriés](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Les compteurs que vous souhaitez activer :
 
 Windows :
-- Processeur(*)\% temps processeur
-- Mémoire\% octets validés en cours d’utilisation
-- Carte réseau(*)\Octets envoyés/s
-- Carte réseau(*)\Octets reçus/s
+- Processeur(*)\\ % de temps processeur
+- Mémoire\\ % d’octets validés en cours d’utilisation
+- Carte réseau(*)\\Octets envoyés/s
+- Carte réseau(*)\\Octets reçus/s
 
 Linux :
-- Processeur(*)\% temps processeur
-- Mémoire(*)\% mémoire utilisée
-- Carte réseau(*)\Octets envoyés/s
-- Carte réseau(*)\Octets reçus/s
+- Processeur(*)\\ % de temps processeur
+- Mémoire(*)\\ % de mémoire utilisée
+- Carte réseau(*)\\Octets envoyés/s
+- Carte réseau(*)\\Octets reçus/s
 
 Pour obtenir les données de performances réseau, vous devez également activer la solution Wire Data 2.0 dans Operations Management Suite.
  

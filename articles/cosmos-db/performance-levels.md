@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
@@ -119,13 +119,13 @@ Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers 
 
 1. Dans le [**portail Azure**](https://portal.azure.com), cliquez sur **Azure Cosmos DB**, puis sélectionnez le compte Cosmos DB à modifier. 
  
-    Si **Azure Cosmos DB** ne figure pas dans la barre de lancement, cliquez sur >, accédez à **Bases de données**, sélectionnez **Azure Cosmos DB**, puis sélectionnez le compte DocumentDB.  
+    Si **Azure Cosmos DB** ne figure pas dans la barre de lancement, cliquez sur >, accédez à **Bases de données**, sélectionnez **Azure Cosmos DB**, puis sélectionnez le compte.  
 
-2. Dans le menu de la ressource, sous **Conteneurs**, cliquez sur **Mettre à l’échelle**, sélectionnez la collection à modifier dans la liste déroulante, puis cliquez sur **Niveau tarifaire**. Les comptes utilisant un débit prédéfini ont un niveau tarifaire de S1, S2 ou S3.  Dans le panneau **Choisir votre niveau tarifaire**, cliquez sur **Standard** pour basculer vers le débit défini par l’utilisateur, puis cliquez sur **Sélectionner** pour enregistrer vos modifications.
+2. Dans le menu de la ressource, sous **Conteneurs**, cliquez sur **Mettre à l’échelle**, sélectionnez la collection à modifier dans la liste déroulante, puis cliquez sur **Niveau tarifaire**. Les comptes utilisant un débit prédéfini ont un niveau tarifaire de S1, S2 ou S3.  Dans la page **Choisir votre niveau tarifaire**, cliquez sur **Standard** pour basculer vers le débit défini par l’utilisateur, puis cliquez sur **Sélectionner** pour enregistrer vos modifications.
 
-    ![Capture d’écran du panneau Paramètres montrant où modifier la valeur de débit](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Capture d’écran de la page Paramètres montrant où modifier la valeur de débit](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. De retour dans le panneau **Mettre à l’échelle**, le **Niveau tarifaire** est défini sur **Standard** et la zone **Débit (UR/s)** est affichée avec une valeur par défaut de 400. Définissez le débit entre 400 et 10 000 [unités de requête](request-units.md)/seconde (unités de requête/s). **L’Estimation de la facture mensuelle** au bas de la page se met à jour automatiquement pour donner une estimation du coût mensuel. 
+3. De retour dans la page **Mettre à l’échelle**, le **Niveau tarifaire** est défini sur **Standard** et la zone **Débit (UR/s)** est affichée avec une valeur par défaut de 400. Définissez le débit entre 400 et 10 000 [unités de requête](request-units.md)/seconde (unités de requête/s). **L’Estimation de la facture mensuelle** au bas de la page se met à jour automatiquement pour donner une estimation du coût mensuel. 
 
     >[!IMPORTANT] 
     > Une fois que vous enregistrez vos modifications et que vous passez au niveau tarifaire Standard, vous ne pouvez pas restaurer les niveaux de performances S1, S2 ou S3.
@@ -135,13 +135,13 @@ Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers 
     Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour migrer une collection à partition unique vers une collection partitionnée, voir [Migration de collections à partition unique vers des collections partitionnées](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Le passage du niveau S1, S2 ou S3 au niveau Standard peut prendre jusqu’à 2 minutes.
+    > Le passage du niveau S1, S2 ou S3 au niveau Standard peut prendre jusqu’à deux minutes.
     > 
     > 
 
 **Migration vers des collections à partition unique à l’aide du Kit SDK .NET**
 
-Vous pouvez également modifier les niveaux de performances de vos collections via nos Kits SDK. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de notre [API .NET DocumentDB](documentdb-sdk-dotnet.md), mais le processus est similaire pour nos autres Kits SDK.
+Vous pouvez également modifier les niveaux de performances de vos collections via les Kits de développement logiciel (SDK) Azure Cosmos DB. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de l’[API .NET DocumentDB](documentdb-sdk-dotnet.md), mais le processus est similaire pour nos autres Kits de développement logiciel (SDK).
 
 Voici un extrait de code permettant de remplacer le débit de la collection par 5 000 unités de requête par seconde :
     

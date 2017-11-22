@@ -6,29 +6,28 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 7ae0ffa3-c8da-4151-bdcc-8f4f69290fb4
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources
-Dans cette rubrique, vous allez découvrir le modèle de déploiement Azure Resource Manager et le modèle de déploiement classique, l’état de vos ressources et la raison pour laquelle vos ressources ont été déployées avec l’un ou l’autre modèle de déploiement. Resource Manager et les modèles de déploiement classique représentent deux façons différentes de déployer et de gérer vos solutions Azure. Vous les utilisez avec deux ensembles différents d’API et les ressources déployées peuvent contenir des différences importantes. Les deux modèles ne sont pas entièrement compatibles entre eux. Cette rubrique décrit ces différences.
+Dans cet article, vous découvrez les modèles de déploiement classique et Azure Resource Manager. Resource Manager et les modèles de déploiement classique représentent deux façons différentes de déployer et de gérer vos solutions Azure. Vous les utilisez avec deux ensembles différents d’API et les ressources déployées peuvent contenir des différences importantes. Les deux modèles ne sont pas compatibles entre eux. Cet article décrit ces différences.
 
 Pour simplifier le déploiement et la gestion des ressources, Microsoft recommande l’utilisation de Resource Manager pour les nouvelles ressources. Microsoft recommande, si possible, un nouveau déploiement des ressources existantes via Resource Manager.
 
 Si vous n’êtes pas familier avec Resource Manager, nous vous recommandons de commencer par passer en revue la terminologie définie dans l’article [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).
 
 ## <a name="history-of-the-deployment-models"></a>Historique des modèles de déploiement
-À l’origine, Azure fournissait uniquement le modèle de déploiement classique. Dans ce modèle, chaque ressource existait indépendamment. Il n’existait aucun moyen de regrouper des ressources associées. Au lieu de cela, il fallait suivre manuellement les ressources qui composaient la solution ou l’application manuellement, et veiller à les gérer selon une approche coordonnée. Pour déployer une solution, il fallait soit créer chaque ressource individuellement via le portail classique, soit créer un script qui déployait toutes les ressources dans le bon ordre. Pour supprimer une solution, il fallait supprimer chaque ressource individuellement. Il était difficile d’appliquer et de mettre à jour des stratégies de contrôle d’accès pour des ressources liées. Enfin, il n’était pas possible d’appliquer des balises aux ressources afin de les étiqueter à l’aide de termes qui facilitent la surveillance des ressources et la gestion de la facturation.
+À l’origine, Azure fournissait uniquement le modèle de déploiement classique. Dans ce modèle, chaque ressource existait indépendamment. Il n’existait aucun moyen de regrouper des ressources associées. Au lieu de cela, il fallait suivre manuellement les ressources qui composaient la solution ou l’application manuellement, et veiller à les gérer selon une approche coordonnée. Pour déployer une solution, il fallait soit créer chaque ressource individuellement via le portail, soit créer un script qui déployait toutes les ressources dans le bon ordre. Pour supprimer une solution, il fallait supprimer chaque ressource individuellement. Il était difficile d’appliquer et de mettre à jour des stratégies de contrôle d’accès pour des ressources liées. Enfin, il n’était pas possible d’appliquer des balises aux ressources afin de les étiqueter à l’aide de termes qui facilitent la surveillance des ressources et la gestion de la facturation.
 
 En 2014, Azure a introduit le modèle de déploiement Resource Manager, et avec celui-ci le concept de groupe de ressources. Un groupe de ressources est un conteneur de ressources qui partagent un cycle de vie commun. Le modèle de déploiement Resource Manager présente plusieurs avantages :
 
@@ -39,20 +38,14 @@ En 2014, Azure a introduit le modèle de déploiement Resource Manager, et avec 
 * Vous pouvez utiliser JavaScript Objet Notation (JSON) pour définir l’infrastructure de votre solution. Le fichier JSON est connu sous le nom de modèle Resource Manager.
 * Vous pouvez définir les dépendances entre les ressources afin de les déployer dans le bon ordre.
 
-Quand Resource Manager a été ajouté, toutes les ressources ont été rétroactivement ajoutées aux groupes de ressources par défaut. Si vous créez une ressource via un déploiement classique maintenant, la ressource est automatiquement créée dans un groupe de ressources par défaut pour ce service, même si vous n’avez pas spécifié ce groupe de ressources au moment du déploiement. Toutefois, le fait d’exister simplement au sein d’un groupe de ressources ne signifie pas que la ressource a été convertie en modèle Resource Manager. Nous allons examiner la manière dont chaque service gère les deux modèles de déploiement dans la section qui suit. 
+Quand Resource Manager a été ajouté, toutes les ressources ont été rétroactivement ajoutées aux groupes de ressources par défaut. Si vous créez une ressource via un déploiement classique maintenant, la ressource est automatiquement créée dans un groupe de ressources par défaut pour ce service, même si vous n’avez pas spécifié ce groupe de ressources au moment du déploiement. Toutefois, le fait d’exister simplement au sein d’un groupe de ressources ne signifie pas que la ressource a été convertie en modèle Resource Manager.
 
 ## <a name="understand-support-for-the-models"></a>Présentation de la prise en charge des modèles
-Lorsque vous choisissez le modèle de déploiement à utiliser pour vos ressources, trois scénarios sont à prendre en considération :
+Il existe trois scénarios à connaître :
 
-1. Le service prend en charge Resource Manager et ne fournit qu’un seul type.
-2. Le service prend en charge Resource Manager mais fournit deux types : un pour le modèle de déploiement Resource Manager et un pour le modèle classique. Ce scénario s’applique uniquement aux machines virtuelles, aux comptes de stockage et aux réseaux virtuels.
-3. Le service ne prend pas en charge Resource Manager.
-
-Pour découvrir si un service prend en charge Resource Manager, voir [Fournisseurs et types de ressources](resource-manager-supported-services.md).
-
-Si le service que vous souhaitez utiliser ne prend pas en charge Resource Manager, vous devez continuer à l’aide du déploiement classique.
-
-Si le service prend en charge Resource Manager et **n’est pas** une machine virtuelle, un compte de stockage ou un réseau virtuel, vous pouvez utiliser le déploiement Resource Manager sans le moindre problème.
+1. Cloud Services ne prend pas en charge le modèle de déploiement Resource Manager.
+2. Les machines virtuelles, les comptes de stockage et les réseaux virtuels prennent en charge les modèles de déploiement classique et Resource Manager.
+3. Tous les autres services Azure prennent en charge Resource Manager.
 
 Pour les machines virtuelles, les comptes de stockage et les réseaux virtuels, si la ressource a été créée via un déploiement classique, vous devez continuer à l’utiliser via des opérations classiques. Si la machine virtuelle, le compte de stockage ou le réseau virtuel a été créé via un déploiement Resource Manager, vous devez continuer à utiliser des opérations de Resource Manager. Cette distinction peut être déroutante lorsque votre abonnement contient un mélange de ressources créées via un déploiement Resource Manager et un déploiement classique. Cette combinaison de ressources peut générer des résultats inattendus, car les ressources ne prennent pas en charge les mêmes opérations.
 
@@ -81,66 +74,6 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 ```
 
 Seules les ressources créées via Resource Manager prennent en charge les balises. Vous ne pouvez pas appliquer des balises aux ressources classiques.
-
-## <a name="resource-manager-characteristics"></a>Caractéristiques de Resource Manager
-Pour vous aider à comprendre les deux modèles, examinons maintenant les caractéristiques des types Resource Manager :
-
-* Créé via le [portail Azure](https://portal.azure.com/).
-  
-     ![portail Azure](./media/resource-manager-deployment-model/portal.png)
-  
-     Pour calculer, stocker et mettre en réseau des ressources, vous avez la possibilité d’utiliser le Gestionnaire des ressources ou le déploiement classique. Sélectionnez **Gestionnaire des ressources**.
-  
-     ![Déploiement Resource Manager](./media/resource-manager-deployment-model/select-resource-manager.png)
-* Créé avec la version Resource Manager des applets de commande Azure PowerShell. Ces commandes présentent le format *Verb-AzureRmNoun*.
-
-  ```powershell
-  New-AzureRmResourceGroupDeployment
-  ```
-
-* Créé via [l’API REST Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) pour les opérations REST.
-* Créé à l’aide de commandes de l’interface de ligne de commande Azure exécutées en mode **arm** .
-  
-  ```azurecli
-  azure config mode arm
-  azure group deployment create
-  ```
-
-* Le type de ressource n’inclut pas **(classique)** dans le nom. L’illustration suivante indique le type en tant que **compte de stockage**.
-  
-    ![application web](./media/resource-manager-deployment-model/resource-manager-type.png)
-
-## <a name="classic-deployment-characteristics"></a>Caractéristiques du déploiement classique
-Vous connaissez peut-être aussi le modèle de déploiement classique en tant que modèle de gestion des services.
-
-Les ressources créées dans le modèle de déploiement classique partagent les caractéristiques suivantes :
-
-* Créé via le [portail classique](https://manage.windowsazure.com)
-  
-     ![portail classique](./media/resource-manager-deployment-model/classic-portal.png)
-  
-     Ou créées via le portail Azure avec le déploiement **Classique** sélectionné (pour les catégories Calcul, Stockage et Mise en réseau).
-  
-     ![Déploiement classique](./media/resource-manager-deployment-model/select-classic.png)
-* Créées via la version Gestion des services des applets de commande Azure PowerShell. Ces noms de commande présentent le format *Verb-AzureNoun*.
-
-  ```powershell
-  New-AzureVM
-  ```
-
-* Créées via [l’API REST Gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx) pour les opérations REST.
-* Créées à l’aide de commandes de l’interface de ligne de commande Azure exécutées en mode **asm** .
-
-  ```azurecli
-  azure config mode asm
-  azure vm create
-  ```
-   
-* Le type de ressource inclut **(classique)** dans le nom. L’illustration suivante indique le type en tant que **compte de stockage (classique)**.
-  
-    ![type classique](./media/resource-manager-deployment-model/classic-type.png)
-
-Vous pouvez utiliser le portail Azure pour gérer les ressources créées par un déploiement classique.
 
 ## <a name="changes-for-compute-network-and-storage"></a>Modifications en termes de calcul, de réseau et de stockage
 Le diagramme suivant affiche les ressources de calcul, de réseau et de stockage déployées via Resource Manager.
@@ -176,9 +109,9 @@ Le tableau suivant décrit les modifications dans l’interaction des fournisseu
 | Groupes à haute disponibilité |La disponibilité de la plateforme était indiquée en configurant le même « AvailabilitySetName » sur les machines virtuelles. Le nombre maximal de domaines d’erreur était de 2. |Le groupe à haute disponibilité est une ressource exposée par le fournisseur Microsoft.Compute. Les machines virtuelles qui nécessitent une haute disponibilité doivent faire partie du groupe à haute disponibilité. Le nombre maximal de domaines d’erreur est maintenant de 3. |
 | Groupe d'affinités |Les groupes d’affinités étaient nécessaires pour créer des réseaux virtuels. Toutefois, avec l’introduction des réseaux virtuels régionaux, ils ne sont plus nécessaires. |Pour simplifier, le concept de groupe d’affinités n’existe pas dans les API exposées par le Gestionnaire de ressources Azure. |
 | Équilibrage de la charge. |La création d’un service cloud fournit un équilibrage de la charge implicite pour les machines virtuelles déployées. |L’équilibrage de la charge est une ressource exposée par le fournisseur Microsoft.Network. La principale interface réseau des machines virtuelles dont la charge doit être équilibrée doit faire référence à l’équilibrage de la charge. Ces éléments d’équilibrage de la charge peuvent être internes ou externes. Une instance d’équilibreur de charge fait référence au pool principal d’adresses IP qui comporte la carte d’interface réseau d’une machine virtuelle (facultatif) et fait référence à l’adresse IP publique ou privée d’un équilibreur de charge (facultative). [En savoir plus.](../virtual-network/resource-groups-networking.md) |
-| Adresse IP virtuelle |Les services cloud obtiennent une adresse IP virtuelle par défaut lorsqu’une machine virtuelle est ajoutée à un service cloud. L’adresse IP virtuelle est l’adresse associée à l’équilibrage de charge implicite. |L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. Les adresses IP publiques dynamiques peuvent être attribuées à un équilibrage de charge. Les adresses IP publiques peuvent être sécurisées à l’aide de groupes de sécurité. |
-| Adresses IP réservées |Vous pouvez réserver une adresse IP dans Azure et l’associer à un service cloud pour vous assurer que l’adresse IP est permanente. |L’adresse IP publique peut être créée en mode « Statique ». Elle offre les mêmes fonctionnalités qu’une « Adresse IP réservée ». Les adresses IP publiques statiques peuvent être attribuées dès maintenant à un équilibrage de la charge. |
-| Adresse IP publique par machine virtuelle |Les adresses IP publiques peuvent également être associées directement à une machine virtuelle. |L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. Toutefois, seules les adresses IP dynamiques publiques peuvent être affectées à une interface réseau pour obtenir une adresse IP publique par machine virtuelle. |
+| Adresse IP virtuelle |Cloud Services obtient une adresse IP virtuelle par défaut lorsqu’une machine virtuelle est ajoutée à un service cloud. L’adresse IP virtuelle est l’adresse associée à l’équilibrage de charge implicite. |L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. Les adresses IP publiques dynamiques peuvent être attribuées à un équilibreur de charge. Les adresses IP publiques peuvent être sécurisées à l’aide de groupes de sécurité. |
+| Adresses IP réservées |Vous pouvez réserver une adresse IP dans Azure et l’associer à un service cloud pour vous assurer que l’adresse IP est permanente. |L’adresse IP publique peut être créée en mode « Statique ». Elle offre les mêmes fonctionnalités qu’une « Adresse IP réservée ». |
+| Adresse IP publique par machine virtuelle |Les adresses IP publiques peuvent également être associées directement à une machine virtuelle. |L’adresse IP est une ressource exposée par le fournisseur Microsoft.Network. L’adresse IP publique peut être statique (réservée) ou dynamique. |
 | Points de terminaison |Les points de terminaison d’entrée doivent être configurés sur la machine virtuelle pour pouvoir ouvrir la connectivité pour certains ports. Un des modes les plus communs de connexion aux machines virtuelles se fait en définissant des points de terminaison d’entrée. |Les règles NAT entrantes peuvent être configurées sur l’équilibrage de la charge pour obtenir les mêmes fonctionnalités d’activation des points de terminaison sur certains ports spécifiques pour se connecter aux machines virtuelles. |
 | Nom DNS |Les services cloud obtiennent un nom DNS global unique et implicite. Par exemple : `mycoffeeshop.cloudapp.net`. |Les noms DNS sont des paramètres facultatifs qui peuvent être spécifiés sur une ressource d’adresse IP publique. Le nom de domaine complet se présente au format suivant : `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Interfaces réseau |L’interface réseau principale et secondaire et ses propriétés ont été définies en tant que configuration du réseau d’une machine virtuelle. |L’interface réseau est une ressource exposée par le fournisseur Microsoft.Network. Le cycle de vie de l’interface réseau n’est pas lié à une machine virtuelle. L’interface réseau fait référence à l’adresse IP attribuée à la machine virtuelle (obligatoire), au sous-réseau du réseau virtuel de la machine virtuelle (obligatoire) et à un groupe de sécurité réseau (facultatif). |
@@ -193,14 +126,14 @@ Si vous êtes prêt à migrer vos ressources d’un déploiement classique vers 
 3. [Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
-**Puis-je créer une machine virtuelle à l’aide d’Azure Resource Manager et la déployer dans un réseau virtuel créé à l’aide d’un déploiement classique ?**
+## <a name="frequently-asked-questions"></a>Forum Aux Questions
+**Puis-je créer une machine virtuelle à l’aide de Resource Manager et la déployer dans un réseau virtuel créé à l’aide d’un déploiement classique ?**
 
-Ce n’est pas pris en charge. Vous ne pouvez pas utiliser Azure Resource Manager pour déployer une machine virtuelle dans un réseau virtuel créé à l’aide du modèle de déploiement classique.
+Cette configuration n’est pas prise en charge. Vous ne pouvez pas utiliser Resource Manager pour déployer une machine virtuelle dans un réseau virtuel créé à l’aide du modèle de déploiement classique.
 
-**Puis-je créer une machine virtuelle à l’aide d’Azure Resource Manager à partir d’une image utilisateur créée à l’aide des API de gestion des services Azure ?**
+**Puis-je créer une machine virtuelle à l’aide de Resource Manager à partir d’une image utilisateur créée à l’aide du modèle de déploiement classique ?**
 
-Ce n’est pas pris en charge. Toutefois, vous pouvez copier les fichiers VHD (de disque dur virtuel) à partir d’un compte de stockage créé à l’aide des API de gestion des services et les ajouter dans un nouveau compte créé à l’aide d’Azure Resource Manager.
+Cette configuration n’est pas prise en charge. Toutefois, vous pouvez copier les fichiers VHD (de disque dur virtuel) à partir d’un compte de stockage créé à l’aide du modèle de déploiement classique et l’ajouter dans un nouveau compte créé à l’aide de Resource Manager.
 
 **Quel est l’impact sur le quota pour mon abonnement ?**
 

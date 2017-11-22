@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/10/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
-Azure Cosmos DB prend en charge le langage de traversée de graphe [d’Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Il s’agit d’une API Graph qui permet de créer des entités de graphes et d’effectuer des opérations de requête de graphe. Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
+Azure Cosmos DB prend en charge le langage de traversée de graphe [d’Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Il s’agit d’une API Graph qui permet de créer des entités de graphes et d’effectuer des opérations de requête de graphe. Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (sommets et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
 
-Azure Cosmos DB apporte des fonctionnalités d’entreprise aux bases de données de graphes. Cela inclut la distribution globale, la mise à l’échelle indépendante du stockage et du débit, les latences prévisibles de quelques millisecondes, l’indexation automatique et les contrats de niveau de service de disponibilité à 99,99 %. Étant donné qu’Azure Cosmos DB prend en charge TinkerPop/Gremlin, vous pouvez facilement migrer des applications écrites à l’aide d’une autre base de données de graphes sans avoir à apporter des modifications de code. En outre, en vertu de la prise en charge de Gremlin, Azure Cosmos DB intègre parfaitement les infrastructures d’analyse compatibles avec TinkerPop comme [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+Azure Cosmos DB apporte des fonctionnalités d’entreprise aux bases de données de graphes. Cela inclut la distribution globale, la mise à l’échelle indépendante du stockage et du débit, les latences prévisibles de quelques millisecondes, l’indexation automatique, les contrats SLA, ainsi que la disponibilité de lecture pour les comptes de base de données couvrant plusieurs régions. Étant donné qu’Azure Cosmos DB prend en charge TinkerPop/Gremlin, vous pouvez facilement migrer des applications écrites à l’aide d’une autre base de données de graphes sans avoir à apporter des modifications de code. En outre, en vertu de la prise en charge de Gremlin, Azure Cosmos DB intègre parfaitement les infrastructures d’analyse compatibles avec TinkerPop comme [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
 Dans cet article, nous fournissons une procédure pas à pas de Gremlin, et nous énumérons les fonctionnalités de Gremlin et les étapes prises en charge dans la version préliminaire de la prise en charge de l’API Graph.
 
@@ -33,7 +33,7 @@ Nous allons utiliser un exemple de graphe pour comprendre comment les requêtes 
 
 ![Exemple de base de données montrant des personnes, des appareils et des centres d’intérêt](./media/gremlin-support/sample-graph.png) 
 
-Ce graphe présente les types suivants de vertex (appelés « label » dans Gremlin) :
+Ce graphe présente les types suivants de sommet (appelés « label » dans Gremlin) :
 
 - Personnes : le graphe comporte trois personnes, Robin, Thomas et Ben
 - Centres d’intérêt : leurs centres d’intérêt, dans cet exemple, le football
@@ -49,7 +49,7 @@ Nous représentons les relations entre ces entités à l’aide des types/labels
 
 Nous allons exécuter certaines opérations sur ce graphe à l’aide de la [Console Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Vous pouvez également effectuer ces opérations à l’aide de pilotes de Gremlin dans la plateforme de votre choix (Java, Node.js, Python ou .NET).  Avant d’examiner ce qui est pris en charge dans Azure Cosmos DB, penchons-nous sur quelques exemples pour vous familiariser avec la syntaxe.
 
-En premier lieu, examinons CRUD. L’instruction Gremlin suivante insère le vertex « Thomas » dans le graphe :
+En premier lieu, examinons CRUD. L’instruction Gremlin suivante insère le sommet « Thomas » dans le graphe :
 
 ```
 :> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
@@ -61,7 +61,7 @@ Ensuite, l’instruction Gremlin suivante insère un bord « connaît » entre
 :> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
 ```
 
-La requête suivante renvoie les vertex « personne » dans l’ordre décroissant de leur prénom :
+La requête suivante renvoie les sommets « personne » dans l’ordre décroissant de leur prénom :
 ```
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
@@ -82,14 +82,14 @@ Le tableau suivant répertorie les fonctionnalités TinkerPop implémentées par
 | --- | --- | --- |
 | Fonctionnalités de graphe | Fournit la persistance et ConcurrentAccess dans la version préliminaire. Conçu pour prendre en charge les transactions | Les méthodes de l’ordinateur peuvent être implémentées via le connecteur Spark. |
 | Fonctionnalités variables | Prend en charge les valeurs booléennes, entières, byte, doubles, flottantes, longues et de chaîne | Prend en charge les types primitifs, et est compatible avec des types complexes via un modèle de données |
-| Fonctionnalités de vertex | Prend en charge RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Prend en charge la création, la modification et la suppression de vertex |
-| Fonctionnalités de propriétés de vertex | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression des propriétés vertex |
+| Fonctionnalités de sommet | Prend en charge RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Prend en charge la création, la modification et la suppression de sommet |
+| Fonctionnalités de propriétés de sommet | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression des propriétés de sommet |
 | Fonctionnalités de bords | AddEges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Prend en charge la création, la modification et la suppression de bords |
 | Fonctionnalités de propriétés de bords | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression de bords |
 
 ## <a name="gremlin-wire-format-graphson"></a>Format de câble Gremlin : GraphSON
 
-Azure Cosmos DB utilise le [format GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) lors du renvoi des résultats des opérations Gremlin. GraphSON est le format standard Gremlin pour représenter des vertex, des bords et des propriétés (propriétés à valeurs uniques et multiples) à l’aide de JSON. 
+Azure Cosmos DB utilise le [format GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) lors du renvoi des résultats des opérations Gremlin. GraphSON est le format standard Gremlin pour représenter des sommets, des bords et des propriétés (propriétés à valeurs uniques et multiples) à l’aide de JSON. 
 
 Par exemple, l’extrait de code suivant montre une représentation sous forme de GraphSON d’un sommet *retourné au client* dans Azure Cosmos DB. 
 
@@ -130,24 +130,24 @@ Par exemple, l’extrait de code suivant montre une représentation sous forme d
   }
 ```
 
-Les propriétés utilisées par GraphSON pour les vertex sont les suivantes :
+Les propriétés utilisées par GraphSON pour les sommets sont les suivantes :
 
 | Propriété | Description |
 | --- | --- |
-| id | ID du vertex. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
-| label | Le label du vertex. Élément facultatif, utilisé pour décrire le type d’entité. |
-| type | Utilisé pour distinguer les vertex des documents non graphes |
-| properties | Sac de propriétés définies par l’utilisateur associé au vertex. Chaque propriété peut avoir plusieurs valeurs. |
-| _partition (configurable) | La clé de partition du vertex. Peut être utilisé pour augmenter la taille des instances des graphes sur plusieurs serveurs |
-| outE | Contient une liste des bords extérieurs d’un vertex. Permet de stocker les informations de contiguïté avec des vertex pour une exécution rapide des traversées. Les bords sont regroupés en fonction de leurs labels. |
+| id | ID du sommet. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
+| label | Étiquette du sommet. Élément facultatif, utilisé pour décrire le type d’entité. |
+| type | Utilisé pour distinguer les sommets des documents non-graphes |
+| properties | Sac de propriétés définies par l’utilisateur associé au sommet. Chaque propriété peut avoir plusieurs valeurs. |
+| _partition (configurable) | Clé de partition du sommet. Peut être utilisé pour augmenter la taille des instances des graphes sur plusieurs serveurs |
+| outE | Contient une liste des bords extérieurs d’un sommet. Permet de stocker les informations de contiguïté avec des sommets pour une exécution rapide des traversées. Les bords sont regroupés en fonction de leurs étiquettes. |
 
 Et le bord contient les informations suivantes pour faciliter la navigation vers d’autres parties du graphe.
 
 | Propriété | Description |
 | --- | --- |
-| id | L’ID du bord. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
-| label | Le label du bord. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
-| inV | Contient une liste des vertex d’entrée pour un bord. Permet de stocker les informations de contiguïté avec le bord pour une exécution rapide des traversées. Les vertex sont regroupés en fonction de leurs labels. |
+| id | ID du bord. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
+| label | Étiquette du bord. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
+| inV | Contient une liste des sommets d’entrée pour un bord. Permet de stocker les informations de contiguïté avec le bord pour une exécution rapide des traversées. Les sommets sont regroupés en fonction de leurs étiquettes. |
 | properties | Sac de propriétés définies par l’utilisateur associé au bord. Chaque propriété peut avoir plusieurs valeurs. |
 
 Chaque propriété peut stocker plusieurs valeurs dans un tableau. 
@@ -158,7 +158,7 @@ Chaque propriété peut stocker plusieurs valeurs dans un tableau.
 
 ## <a name="gremlin-partitioning"></a>Partitionnement de Gremlin
 
-Dans Azure Cosmos DB, les graphes sont stockés dans des conteneurs qui peuvent évoluer indépendamment en termes de stockage et de débit (valeurs exprimées en termes de demandes normalisées par seconde). Chaque conteneur doit définir une propriété de clé de partition facultative mais recommandée, qui détermine une limite de partition logique pour les données associées. Chaque vertex/bord doit posséder une propriété `id` unique pour les entités au sein de cette valeur de clé de partition. Les détails sont traités dans [Partitionnement dans Azure Cosmos DB](partition-data.md).
+Dans Azure Cosmos DB, les graphes sont stockés dans des conteneurs qui peuvent évoluer indépendamment en termes de stockage et de débit (valeurs exprimées en termes de demandes normalisées par seconde). Chaque conteneur doit définir une propriété de clé de partition facultative mais recommandée, qui détermine une limite de partition logique pour les données associées. Chaque sommet/bord doit avoir une propriété `id` unique pour les entités au sein de cette valeur de clé de partition. Les détails sont traités dans [Partitionnement dans Azure Cosmos DB](partition-data.md).
 
 Les opérations Gremlin fonctionnent parfaitement entre les données de graphe qui s’étendent sur plusieurs partitions dans Azure Cosmos DB. Toutefois, il est recommandé de choisir une clé de partition pour vos graphes, qui sera couramment utilisée comme un filtre dans les requêtes, possédera de nombreuses valeurs distinctes et une fréquence similaire d’accès à ces valeurs. 
 
@@ -167,8 +167,8 @@ Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure C
 
 | étape | Description | Documentation TinkerPop 3.2 | Remarques |
 | --- | --- | --- | --- |
-| `addE` | Ajoute un bord reliant deux vertex | [étape addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | Ajoute un vertex au graphe | [étape addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `addE` | Ajoute un bord reliant deux sommets | [étape addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
+| `addV` | Ajoute un sommet au graphe | [étape addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
 | `and` | Fait en sorte que toutes les traversées retournent une valeur | [étape and](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Un modulateur d’étape pour attribuer une variable à la sortie d’une étape | [étape as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Un modulateur d’étape utilisé avec `group` et `order` | [étape by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
@@ -176,10 +176,10 @@ Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure C
 | `constant` | Renvoie une valeur constante. Utilisé avec `coalesce`| [étape constant](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
 | `count` | Renvoie le nombre de traversées | [étape count](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
 | `dedup` | Renvoie les valeurs en supprimant les doublons | [étape dedup](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
-| `drop` | Supprime les valeurs (vertex/bord) | [étape drop](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |
+| `drop` | Supprime les valeurs (sommet/bord) | [étape drop](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |
 | `fold` | Agit comme une barrière qui calcule l’agrégation des résultats| [étape fold](http://tinkerpop.apache.org/docs/current/reference/#fold-step) | |
 | `group` | Regroupe les valeurs basées sur les labels spécifiés| [étape group](http://tinkerpop.apache.org/docs/current/reference/#group-step) | |
-| `has` | Permet de filtrer les propriétés, les vertex et les bords. Prend en charge `hasLabel`, `hasId`, `hasNot`, et les variantes `has`. | [étape has](http://tinkerpop.apache.org/docs/current/reference/#has-step) | |
+| `has` | Permet de filtrer les propriétés, les sommets et les bords. Prend en charge les variantes `hasLabel`, `hasId`, `hasNot` et `has`. | [étape has](http://tinkerpop.apache.org/docs/current/reference/#has-step) | |
 | `inject` | Injecter des valeurs dans un flux de données| [étape inject](http://tinkerpop.apache.org/docs/current/reference/#inject-step) | |
 | `is` | Permet d’exécuter un filtre à l’aide d’une expression booléenne | [étape is](http://tinkerpop.apache.org/docs/current/reference/#is-step) | |
 | `limit` | Permet de limiter le nombre d’éléments dans la traversée| [étape limit](http://tinkerpop.apache.org/docs/current/reference/#limit-step) | |
@@ -190,19 +190,19 @@ Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure C
 | `order` | Renvoie les résultats dans l’ordre de tri spécifié | [étape order](http://tinkerpop.apache.org/docs/current/reference/#order-step) | |
 | `path` | Renvoie le chemin d’accès complet de la traversée | [étape path](http://tinkerpop.apache.org/docs/current/reference/#path-step) | |
 | `project` | Projette les propriétés sous forme de carte | [étape project](http://tinkerpop.apache.org/docs/current/reference/#project-step) | |
-| `properties` | Renvoie les propriétés pour les labels spécifiés | [étape properties](http://tinkerpop.apache.org/docs/current/reference/#properties-step) | |
+| `properties` | Retourne les propriétés pour les étiquettes spécifiées | [étape properties](http://tinkerpop.apache.org/docs/current/reference/#properties-step) | |
 | `range` | Filtre la plage de valeurs spécifiée| [étape range](http://tinkerpop.apache.org/docs/current/reference/#range-step) | |
 | `repeat` | Répète l’étape le nombre de fois spécifié. Permet d’effectuer des boucles | [répétez l’étape](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) | |
 | `sample` | Permet d’échantillonner les résultats à partir de la traversée | [étape sample](http://tinkerpop.apache.org/docs/current/reference/#sample-step) | |
 | `select` | Permet de projeter les résultats à partir de la traversée |  [étape select](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
 | `store` | Pour les agrégations non bloquantes de la traversée | [étape store](http://tinkerpop.apache.org/docs/current/reference/#store-step) | |
-| `tree` | Chemins d’accès d’agrégation à partir d’un vertex dans une arborescence | [étape tree](http://tinkerpop.apache.org/docs/current/reference/#tree-step) | |
+| `tree` | Chemins d’agrégation à partir d’un sommet dans une arborescence | [étape tree](http://tinkerpop.apache.org/docs/current/reference/#tree-step) | |
 | `unfold` | Dérouler un itérateur comme une étape| [étape unfold](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) | |
 | `union` | Fusionner les résultats à partir de plusieurs traversées| [étape union](http://tinkerpop.apache.org/docs/current/reference/#union-step) | |
-| `V` | Inclut les étapes nécessaires pour les traversées entre les vertex et les bords `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` et `otherV` pour | [étapes vertex](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
+| `V` | Inclut les étapes nécessaires pour les traversées entre les sommets et les bords `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` et `otherV` pour | [étapes vertex](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
 | `where` | Permet de filtrer les résultats à partir de la traversée. Prend en charge les opérateurs `eq`, `neq`, `lt`, `lte`, `gt`, `gte` et `between`  | [étape where](http://tinkerpop.apache.org/docs/current/reference/#where-step) | |
 
-Le moteur optimisé pour l’écriture d’Azure Cosmos DB prend en charge l’indexation automatique de toutes les propriétés au sein des vertex et des bords par défaut. Par conséquent, les requêtes avec des filtres, les requêtes de plage, le tri ou les agrégations sur toutes les propriétés sont traités à partir de l’index et exécutés efficacement. Pour plus d’informations sur la façon dont fonctionne l’indexation dans Azure Cosmos DB, consultez notre article sur [l’indexation indépendante du schéma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Le moteur optimisé pour l’écriture d’Azure Cosmos DB prend en charge l’indexation automatique de toutes les propriétés au sein des sommets et des bords par défaut. Par conséquent, les requêtes avec des filtres, les requêtes de plage, le tri ou les agrégations sur toutes les propriétés sont traités à partir de l’index et exécutés efficacement. Pour plus d’informations sur la façon dont fonctionne l’indexation dans Azure Cosmos DB, consultez notre article sur [l’indexation indépendante du schéma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Commencez par créer une application de graphe [à l’aide de nos kits SDK](create-graph-dotnet.md) 

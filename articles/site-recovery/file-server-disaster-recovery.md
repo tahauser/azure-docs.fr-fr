@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération de plusieurs charges de travail.
 
-Cet article explique comment protéger un serveur de fichiers avec Azure Site Recovery, et fournit d’autres recommandations adaptées à différents environnements. 
+Cet article explique comment protéger un serveur de fichiers avec Azure Site Recovery, et fournit d’autres recommandations adaptées à différents environnements.     
 
 - [Protéger les ordinateurs serveurs de fichiers Azure IaaS](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [Protéger les serveurs de fichiers locaux](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -51,7 +51,7 @@ Dans la référence ci-dessus, plusieurs serveurs de fichiers, appelés « membr
 
 Le schéma ci-dessous donne une représentation graphique destinée à simplifier le choix de la stratégie à utiliser pour votre environnement de serveur de fichiers.
 
-![arbre de décision](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Facteurs à prendre en compte lors de la prise de décision concernant la récupération d’urgence
@@ -67,7 +67,7 @@ Le schéma ci-dessous donne une représentation graphique destinée à simplifie
 Étant donné que la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées être vraies pour les scénarios suivants :
 | Source    |Vers un site secondaire    |Vers Azure
 |---------|---------|---------|
-|Microsoft Azure| -|Oui|
+|Azure| -|Oui|
 |Hyper-V|   Oui |Oui
 |VMware |Oui|   Oui
 |Serveur physique|   Oui |Oui

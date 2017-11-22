@@ -1,6 +1,6 @@
 ---
-title: "Créer une API sans serveur à l’aide d’Azure Functions | Microsoft Docs"
-description: "Guide pratique : créer une API sans serveur à l’aide d’Azure Functions"
+title: "Créer une API serverless à l’aide d’Azure Functions | Microsoft Docs"
+description: "Comment  créer une API serverless à l’aide d’Azure Functions"
 services: functions
 author: mattchenderson
 manager: cfowler
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="create-a-serverless-api-using-azure-functions"></a>Créer une API sans serveur à l’aide d’Azure Functions
+# <a name="create-a-serverless-api-using-azure-functions"></a>Créer une API serverless à l’aide d’Azure Functions
 
-Dans ce didacticiel, vous allez découvrir en quoi Azure Functions vous permet de générer des API hautement scalables. Azure Functions est fourni avec une collection de liaisons et de déclencheurs HTTP intégrés qui permettent de créer facilement un point de terminaison dans différents langages, dont Node.JS et C#. Dans ce didacticiel, vous allez personnaliser un déclencheur HTTP pour gérer des actions spécifiques dans votre conception d’API. Vous allez également préparer le développement de votre API, l’intégration avec Proxys Azure Functions et la configuration d’API factices. Tout cela s’effectue sur l’environnement de calcul sans serveur de Functions. Vous n’avez donc pas à vous soucier de la mise à l’échelle des ressources et vous pouvez vous concentrer uniquement sur votre logique d’API.
+Dans ce didacticiel, vous allez découvrir en quoi Azure Functions vous permet de générer des API hautement scalables. Azure Functions est fourni avec une collection de liaisons et de déclencheurs HTTP intégrés qui permettent de créer facilement un point de terminaison dans différents langages, dont Node.JS et C#. Dans ce didacticiel, vous allez personnaliser un déclencheur HTTP pour gérer des actions spécifiques dans votre conception d’API. Vous allez également préparer le développement de votre API, l’intégration avec Proxys Azure Functions et la configuration d’API factices. Tout cela s’effectue sur l’environnement de calcul serverless de Functions. Vous n’avez donc pas à vous soucier de la mise à l’échelle des ressources et vous pouvez vous concentrer uniquement sur votre logique d’API.
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -67,7 +67,7 @@ Ensuite, testez votre fonction pour observer son fonctionnement avec la nouvelle
 
 ## <a name="proxies-overview"></a>Vue d’ensemble des proxys
 
-Dans la section suivante, vous ferez apparaître votre API par le biais d’un proxy. Proxys Azure Functions est une fonctionnalité en préversion qui vous permet de transférer les demandes vers d’autres ressources. Vous définissez un point de terminaison HTTP comme avec le déclencheur HTTP, mais, au lieu d’écrire du code à exécuter lorsque ce point de terminaison est appelé, vous spécifiez l’URL d’une implémentation à distance. Cela vous permet de composer plusieurs sources d’API en une seule surface d’API facile à utiliser pour les clients. C’est particulièrement utile si vous souhaitez créer votre API sous forme de microservices.
+Dans la section suivante, vous ferez apparaître votre API par le biais d’un proxy. Azure Functions Proxies vous permet de transférer les requêtes vers d’autres ressources. Vous définissez un point de terminaison HTTP comme avec le déclencheur HTTP, mais, au lieu d’écrire du code à exécuter lorsque ce point de terminaison est appelé, vous spécifiez l’URL d’une implémentation à distance. Cela vous permet de composer plusieurs sources d’API en une seule surface d’API facile à utiliser pour les clients. C’est particulièrement utile si vous souhaitez créer votre API sous forme de microservices.
 
 Un proxy peut pointer vers n’importe quelle ressource HTTP, notamment :
 - Azure Functions 
@@ -75,7 +75,7 @@ Un proxy peut pointer vers n’importe quelle ressource HTTP, notamment :
 - Conteneurs Docker dans [App Service sur Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Toute autre API hébergée
 
-Pour en savoir plus sur les proxys, consultez la page [Utilisation de proxys Azure Functions (préversion)].
+Pour en savoir plus sur les proxys, consultez [Utilisation d’Azure Functions Proxies].
 
 ## <a name="create-your-first-proxy"></a>Créer un premier proxy
 
@@ -97,7 +97,7 @@ Répétez les étapes de la page [Créer une application de fonction](https://do
 ### <a name="creating-a-proxy-on-the-frontend"></a>Créer un proxy sur le serveur frontal
 
 1. Revenez à votre application de fonction frontend sur le portail.
-1. Dans la barre de navigation gauche, cliquez sur le signe « + » à côté de « Proxys (préversion) ».
+1. Dans le volet de navigation de gauche, cliquez sur le signe « + » en regard de « Proxys ».
     ![Création d’un proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Utilisez les paramètres de proxy spécifiés dans le tableau. 
 
@@ -182,14 +182,14 @@ Testez votre API factice en appelant le point de terminaison `<YourProxyApp>.azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à créer et à personnaliser une API sur Azure Functions. Vous avez également appris à réunir plusieurs API, y compris factices, en une surface d’API unifiée. Vous pouvez utiliser ces techniques pour construire des API plus complexes, qui s’exécutent sur le modèle de calcul sans serveur fourni par Azure Functions.
+Dans ce didacticiel, vous avez appris à créer et à personnaliser une API sur Azure Functions. Vous avez également appris à réunir plusieurs API, y compris factices, en une surface d’API unifiée. Vous pouvez utiliser ces techniques pour construire des API plus complexes, qui s’exécutent sur le modèle de calcul serverless fourni par Azure Functions.
 
 Les références suivantes peuvent être utiles pour développer davantage votre API :
 
 - [Liaisons HTTP et webhook Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Utilisation de proxys Azure Functions (préversion)]
+- [Utilisation d’Azure Functions Proxies]
 - [Documenter une API Azure Functions (préversion)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Utilisation de proxys Azure Functions (préversion)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Utilisation d’Azure Functions Proxies]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

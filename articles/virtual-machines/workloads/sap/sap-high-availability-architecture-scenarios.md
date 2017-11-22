@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 867fe2835418a48e4e616d8137ba9fa4182c8fb7
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 31f3765d807882e65a247819a5999c191f9e7ac5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Scénarios et architecture de haute disponibilité pour SAP NetWeaver
 
@@ -228,201 +228,185 @@ ms.lasthandoff: 10/16/2017
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
-## <a name="definition-of-terminologies"></a>Définition des termes
+## <a name="terminology-definitions"></a>Définitions de terminologie
 
-Le terme **haute disponibilité** est relatif à un ensemble de technologies qui réduisent les interruptions des services informatiques en assurant la continuité de l’activité des services informatiques par le biais de composants redondants, tolérants aux pannes ou protégés par basculement au sein du **même** centre de données. Dans notre cas, au sein d’une région Azure.
+**Haute disponibilité** : fait référence à un ensemble de technologies qui réduisent les interruptions des services informatiques en assurant la continuité de l’activité des services informatiques par le biais de composants redondants, tolérants aux pannes ou protégés par basculement au sein du *même* centre de données. Dans notre cas, le centre de données se trouve dans une région Azure.
 
-La **récupération d’urgence** vise également à réduire l’interruption des services informatiques et leur récupération, mais entre **différents** centres de données éloignés de plusieurs centaines de kilomètres les uns des autres. Dans notre cas, généralement entre différentes régions Azure de la même région géopolitique ou tel que défini par vous en tant que client.
+**Récupération d’urgence** : fait également référence à la réduction de l’interruption des services informatiques et à leur récupération, mais sur *divers* centres de données qui peuvent se trouver à des centaines de kilomètres les uns des autres. Dans notre cas, les centres de données peuvent se trouver dans diverses régions Azure d’une même région géopolitique ou dans des emplacements définis par vous en tant que client.
 
 
 ## <a name="overview-of-high-availability"></a>Vue d’ensemble de la haute disponibilité
-Nous pouvons diviser la discussion concernant la haute disponibilité de SAP dans Azure en trois parties :
+La haute disponibilité SAP dans Azure peut être divisée en trois types :
 
-* La **haute disponibilité de l’infrastructure Azure**, par exemple, celle du calcul (machines virtuelles), du réseau, du stockage, etc., et ses avantages en termes d’augmentation de la disponibilité des applications SAP.
+* **Haute disponibilité de l’infrastructure Azure** : 
 
-* **Utilisation du redémarrage de machine virtuelle de l’infrastructure Azure pour permettre une plus haute disponibilité des applications SAP**
+    La haute disponibilité peut inclure, par exemple, le calcul (machines virtuelles), le réseau ou le stockage et ses avantages en termes d’augmentation de la disponibilité des applications SAP.
 
-  Si vous décidez de ne pas utiliser des fonctionnalités comme le clustering de basculement Windows Server (WSFC) ou Pacemaker sur Linux, le redémarrage de machine virtuelle Azure permet de protéger un système SAP contre les interruptions de services planifiées ou non de l’infrastructure des serveurs physiques Azure et de la plateforme Azure sous-jacente globale.
+* **Utilisation du redémarrage de machine virtuelle de l’infrastructure Azure pour permettre une *plus haute disponibilité* des applications SAP** : 
 
+    Si vous décidez de ne pas utiliser des fonctionnalités telles que le Clustering de basculement Windows Server (WSFC) ou Pacemaker sur Linux, le redémarrage de machine virtuelle Azure est utilisé. Il protège les systèmes SAP contre les temps d’arrêt planifiés ou non de l’infrastructure de serveur physique Azure et de la plateforme Azure sous-jacente globale.
 
-* **Haute disponibilité de l’application SAP**
+* **Haute disponibilité de l’application SAP** : 
 
-  Pour obtenir une haute disponibilité du système SAP complet, nous devons protéger tous les composants critiques du système SAP, par exemple :
-  * **Serveurs d’applications SAP** redondants et
-  * Composants uniques (par exemple **Point de défaillance unique**) comme
-    * une **instance (A)SCS** et le
-    *  **SGBD** de SAP.
+    Pour obtenir une haute disponibilité du système SAP complet, vous devez protéger tous les composants critiques du système SAP. Par exemple :
+    * Serveurs d’applications SAP redondants.
+    * Composants uniques. Un composant à point de défaillance unique (SPOF) tel qu’une instance SAP ASCS/SCS ou un système de gestion de base de données (SGBD) en est un exemple.
 
+La haute disponibilité SAP dans Azure est différente de la haute disponibilité SAP dans un environnement physique local ou virtuel. Le document suivant, [Haute disponibilité et continuité des activités de SAP NetWeaver dans les environnements virtuels avec VMware et Hyper-V sur Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper], décrit les configurations à haute disponibilité SAP standard dans des environnements virtualisés sur Windows.
 
-La haute disponibilité SAP dans Azure présente des différences par rapport à la haute disponibilité SAP dans un environnement physique local ou virtuel. Le document suivant, [Haute disponibilité et continuité des activités de SAP NetWeaver dans les environnements virtuels avec VMware et Hyper-V sur Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper], décrit les configurations à haute disponibilité SAP standard dans des environnements virtualisés sur Windows.
+Il n’existe aucune configuration à haute disponibilité SAP intégrée pour Linux comme celle de Windows. Pour plus d’informations sur la haute disponibilité SAP locale pour Linux, consultez [Informations des partenaires pour la haute disponibilité][sap-ha-partner-information].
 
-Il n’existe aucune configuration haute disponibilité SAP intégrée pour Linux comparable à celle de Windows. Pour plus d’informations sur la haute disponibilité de SAP local pour Linux, consultez [Informations des partenaires pour la haute disponibilité][sap-ha-partner-information].
+## <a name="azure-infrastructure-high-availability"></a>Haute disponibilité de l’infrastructure Azure
 
-## <a name="azure-infrastructure-high-availability"></a>haute disponibilité de l’infrastructure Azure
+### <a name="sla-for-single-instance-virtual-machines"></a>SLA pour les machines virtuelles à instance unique
 
-### <a name="single-instance-virtual-machine-sla"></a>Contrat SLA pour les machines virtuelles à une seule instance
+Il existe actuellement un contrat SLA de 99,9 % pour machine virtuelle unique avec le stockage Premium. Pour avoir une idée de ce à quoi peut ressembler la disponibilité d’une machine virtuelle unique, vous pouvez calculer le produit des divers [Contrats de niveau de service Azure][azure-sla] disponibles.
 
-Il existe actuellement un contrat SLA de 99,9 % pour machine virtuelle unique avec le stockage Premium. Pour avoir une idée de ce à quoi peut ressembler la disponibilité d’une machine virtuelle unique, vous pouvez calculer le produit des différents [contrats SLA Azure][azure-sla] disponibles.
-
-La base de calcul est de 30 jours par mois, ou 43 200 minutes. Par conséquent, le temps d’interruption de 0,05 % correspond à 21,6 minutes. Comme d’habitude, la disponibilité des différents services est le produit de la multiplication suivante :
+La base de calcul est de 30 jours par mois, ou 43 200 minutes. Par exemple, un temps d’arrêt de 0,05 % correspond à 21,6 minutes. Comme d’habitude, la disponibilité des divers services est calculée comme suit :
 
 (Service de disponibilité #1/100) * (Service de disponibilité #2/100) * (Service de disponibilité #3/100) \*…
 
-comme ce qui suit :
+Par exemple :
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975, soit une disponibilité globale de 99,75 %.
 
 ### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Plusieurs instances de machines virtuelles dans le même groupe à haute disponibilité
-Pour toutes les machines virtuelles comportant deux instances ou plus déployées dans le même **groupe à haute disponibilité**, nous garantissons la connectivité des machines virtuelles à au moins une instance pendant au moins 99,95 % du temps.
+Pour toutes les machines virtuelles comportant au moins deux instances déployées dans le même *groupe à haute disponibilité*, nous garantissons une connectivité à une instance minimum pendant au moins 99,95 % du temps.
 
-Quand deux machines virtuelles ou plus font partie du même groupe à haute disponibilité, chaque machine virtuelle d’un groupe à haute disponibilité se voit attribuer un **domaine de mise à jour** et un **domaine d’erreur** par la plateforme Azure sous-jacente.
+Lorsque deux machines virtuelles ou plus font partie du même groupe à haute disponibilité, chaque machine virtuelle du groupe à haute disponibilité se voit attribuer un *domaine de mise à jour* et un *domaine d’erreur* par la plateforme Azure sous-jacente.
 
-Les **domaines d’erreur** garantissent que les machines virtuelles sont déployées sur des matériels différents qui ne partagent pas une source d’alimentation électrique ni un commutateur réseau communs. Quand des interruptions non planifiées des serveurs, du commutateur réseau ou de la source d’alimentation électrique se produisent, une seule machine virtuelle est affectée.
+* Les **domaines de mise à jour** garantissent que les diverses machines virtuelles ne sont pas redémarrées en même temps lors de la maintenance planifiée d’une infrastructure Azure. Une seule machine virtuelle est redémarrée à la fois.
 
-Les **domaines de mise à jour** garantissent que les différentes machines virtuelles ne sont pas redémarrées en même lors de la maintenance planifiée de l’infrastructure Azure, mais qu’une seule machine virtuelle est redémarrée à la fois.
-
-Pour plus d’informations, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure][azure-virtual-machines-manage-availability].
-
-Les groupes à haute disponibilité sont utilisés pour la haute disponibilité des :
-
-* Serveurs d’applications SAP redondants  
-
-* Clusters à deux nœuds ou plus (par exemple des machines virtuelles) qui protègent des points de défaillance uniques, comme une instance de (A)SCS et le SGBD de SAP
-
-### <a name="virtual-machine-vm-planned-and-unplanned-maintenance"></a>Maintenance planifiée et non planifiée des machines virtuelles
-
-Deux types d'événements de plateforme Azure peuvent avoir un effet sur la disponibilité de vos machines virtuelles : la maintenance planifiée et la maintenance non planifiée.
-
-* Les **événements de maintenance planifiée** sont des mises à jour périodiques effectuées par Microsoft sur la plateforme sous-jacente Azure, pour améliorer la fiabilité, les performances et la sécurité de l’infrastructure où s’exécutent vos machines virtuelles.
-
-* Les **événements de maintenance non planifiée** ont lieu quand l’infrastructure physique ou matérielle sous-jacente de votre machine virtuelle connaît une défaillance. Cela comprend les défaillances du réseau local, du disque local ou au niveau du rack. Quand une défaillance de ce type est détectée, la plateforme Azure migre automatiquement votre machine virtuelle du serveur physique défectueux vers un serveur physique sain. De tels événements sont rares, mais peuvent entraîner un redémarrage de votre machine virtuelle.
+* Les **domaines d’erreur** garantissent que les machines virtuelles sont déployées sur des composants matériels qui ne partagent pas une source d’alimentation électrique ni un commutateur réseau communs. Lorsqu’un temps d’arrêt non planifié des serveurs, d’un commutateur réseau ou d’une source d’alimentation électrique se produit, une seule machine virtuelle est affectée.
 
 Pour plus d’informations, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure][azure-virtual-machines-manage-availability].
 
-### <a name="azure-storage-redundancy"></a>Redondance d’Azure Storage
-Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour garantir une durabilité et une haute disponibilité, conformément au contrat de niveau de service Stockage Azure, même en cas de défaillances matérielles temporaires.
+Un groupe à haute disponibilité est utilisé pour la haute disponibilité des :
 
-Dans la mesure où Stockage Azure consiste à conserver trois images des données par défaut, RAID5 ou RAID1 sur plusieurs disques Azure n’est pas nécessaire.
+* Serveurs d’applications SAP redondants.  
+* Clusters à deux nœuds ou plus (machines virtuelles, par exemple) qui protègent les SPOF comme une instance SAP ASCS/SCS ou un SGBD.
+
+### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Maintenance planifiée et non planifiée des machines virtuelles
+
+Deux types d’événements de la plateforme Azure peuvent affecter la disponibilité de vos machines virtuelles :
+
+* Les événements de **maintenance planifiée** sont des mises à jour périodiques appliquées par Microsoft à la plateforme Azure sous-jacente. Les mises à jour améliorent la fiabilité, les performances et la sécurité globales de l’infrastructure de plateforme sur laquelle vos machines virtuelles sont exécutées.
+
+* Les événements de **maintenance non planifiée** ont lieu lorsque l’infrastructure physique ou matérielle sous-jacente de votre machine virtuelle connaît une défaillance. Cela peut comprendre les défaillances du réseau local, du disque local ou au niveau du rack. Lorsqu’une défaillance de ce type est détectée, la plateforme Azure migre automatiquement votre machine virtuelle du serveur physique défectueux qui l’héberge vers un serveur physique sain. De tels événements sont rares, mais ils peuvent entraîner un redémarrage de votre machine virtuelle.
+
+Pour plus d’informations, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure][azure-virtual-machines-manage-availability].
+
+### <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
+Les données dans votre compte de stockage sont toujours répliquées pour garantir une durabilité, ainsi qu’une haute disponibilité, et répondre ainsi au contrat de niveau de service (SLA) Stockage Azure, y compris face aux défaillances matérielles temporaires.
+
+Stockage Azure conservant trois images des données par défaut, l’utilisation de RAID 5 ou RAID 1 sur plusieurs disques Azure n’est pas nécessaire.
 
 Pour plus d’informations, consultez [Réplication de Stockage Azure][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
-Les disques managés sont un nouveau type de ressources d’Azure Resource Manager. Ils peuvent être utilisés à la place des disques durs virtuels qui sont stockés dans les comptes de stockage Azure. Les disques managés s’alignent automatiquement sur le groupe à haute disponibilité de la machine virtuelle à laquelle ils sont attachés. De fait, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci.
+Managed Disks correspond à un nouveau type de ressources dans Azure Resource Manager. Ils peuvent être utilisés à la place des disques durs virtuels (VHD) qui sont stockés dans les comptes de stockage Azure. Les disques gérés sont automatiquement alignés sur le groupe à haute disponibilité de la machine virtuelle à laquelle ils sont joints. Ils améliorent la disponibilité de votre machine virtuelle et des services qui sont exécutés sur celle-ci.
+
 Pour plus d’informations, consultez [Vue d’ensemble d’Azure Managed Disks][azure-storage-managed-disks-overview].
 
-Nous vous recommandons d’utiliser des disques managés, car ils simplifient le déploiement et la gestion de vos machines virtuelles.
-**Actuellement, SAP prend en charge seulement les disques managés Premium**. Pour plus d’informations, consultez la note SAP [1928533].
+Nous vous recommandons d’utiliser des disques gérés, car ils simplifient le déploiement et la gestion de vos machines virtuelles.
 
-## <a name="utilizing-azure-infrastructure-ha-to-achieve-sap-application-higher-availability"></a>Utilisation de la haute disponibilité de l’infrastructure Azure pour permettre une disponibilité « plus haute » de l’application SAP
+Actuellement, SAP prend uniquement en charge les disques gérés Premium. Pour plus d’informations, consultez la note SAP [1928533].
 
-Si vous décidez de ne pas utiliser de fonctionnalités telles que le clustering de basculement Windows Server (WSFC) ou Pacemaker sur Linux (uniquement pris en charge pour SLES versions 12 et ultérieures), le redémarrage de la machine virtuelle Azure permet de protéger un système SAP contre les interruptions de services planifiées ou non de l’infrastructure du serveur physique Azure et de la plateforme Azure sous-jacente globale.
+## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Utilisation de la haute disponibilité de l’infrastructure Azure pour permettre une *plus haute disponibilité* des applications SAP
 
-Cette approche est décrite plus en détails dans le document suivant : [Utilisation du redémarrage des machines virtuelles de l’infrastructure Azure pour une « disponibilité plus haute » du système SAP][sap-higher-availability].
+Si vous décidez de ne pas utiliser des fonctionnalités telles que WSFC ou Pacemaker sur Linux (actuellement prises en charge pour SUSE Linux Enterprise Server [SLES] 12 et versions ultérieures uniquement), le redémarrage de la machine virtuelle Azure est utilisé. Il protège les systèmes SAP contre les temps d’arrêt planifiés ou non de l’infrastructure de serveur physique Azure et de la plateforme Azure sous-jacente globale.
 
-## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Haute disponibilité de l’application SAP sur Azure IaaS
+Pour plus d’informations sur cette approche, consultez [Utiliser le redémarrage des machines virtuelles de l’infrastructure Azure pour une plus haute disponibilité du système SAP][sap-higher-availability].
 
-Pour obtenir une haute disponibilité du système SAP complet, nous devons protéger tous les composants critiques du système SAP, par exemple :
+## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Haute disponibilité des applications SAP sur Azure IaaS
 
-* **Serveurs d’applications SAP** redondants et
+Pour obtenir une haute disponibilité du système SAP complet, vous devez protéger tous les composants critiques du système SAP. Par exemple :
+  * Serveurs d’applications SAP redondants.
+  * Composants uniques. Un composant à point de défaillance unique (SPOF) tel qu’une instance SAP ASCS/SCS ou un système de gestion de base de données (SGBD) en est un exemple.
 
-* Composants uniques (par exemple **Point de défaillance unique**) comme
-  * une **instance (A)SCS** et le
-  *  **SGBD** de SAP.
+Les sections suivantes expliquent comment obtenir la haute disponibilité pour les trois composants critiques du système SAP.
 
-Nous expliquons ci-dessous en détail comment obtenir la haute disponibilité pour les trois composants critiques du système SAP.
+### <a name="high-availability-architecture-for-sap-application-servers"></a>Architecture de haute disponibilité pour des serveurs d’applications SAP
 
-### <a name="high-availability-for-sap-application-servers"></a>Haute disponibilité pour les serveurs d’applications SAP
-
-> Ce chapitre concerne à la fois :
+> Cette section s’applique à :
 >
 > ![Windows][Logo_Windows] Windows et ![Linux][Logo_Linux] Linux
 >
 
-En règle générale, vous n’avez pas besoin d’une solution à haute disponibilité pour le serveur d’applications et les instances de dialogue SAP. La haute disponibilité s’obtient via la redondance, et vous configurez plusieurs instances de dialogue sur différentes instances de machines virtuelles Azure. Vous devez avoir au moins deux instances d’applications SAP installées dans deux instances de machines virtuelles Azure.
+En règle générale, vous n’avez pas besoin d’une solution à haute disponibilité pour le serveur d’applications et les instances de dialogue SAP. La haute disponibilité s’obtient via la redondance, et vous configurez plusieurs instances de dialogue sur diverses instances de machines virtuelles Azure. Vous devez avoir au moins deux instances d’applications SAP installées dans deux instances de machines virtuelles Azure.
 
 ![Figure 1 : Serveur d’applications SAP à haute disponibilité][sap-ha-guide-figure-2000]
 
-_**Figure 1 :** Serveur d’applications SAP à haute disponibilité_
+_**Figure 1 :** Serveur d’applications SAP à haute disponibilité_
 
 Vous devez placer toutes les machines virtuelles qui hébergent des instances de serveur d’applications SAP dans le même groupe à haute disponibilité Azure. Un groupe à haute disponibilité Azure garantit que :
 
-* Toutes les machines virtuelles font partie du même **domaine de mise à niveau**. Un domaine de mise à niveau permet par exemple d’éviter que les machines virtuelles soient mises à jour en même temps lors d’une interruption de maintenance planifiée.
-La fonctionnalité de base, qui repose sur des domaines de mise à niveau et d’erreur différents au sein d’une unité d’échelle Azure a déjà été présentée dans le chapitre [Domaines de mise à niveau][planning-guide-3.2.2].
+* Toutes les machines virtuelles font partie du même domaine de mise à jour.  
+    Un domaine de mise à jour permet de s’assurer que les machines virtuelles ne soient pas mises à jour en même temps lors d’un temps d’arrêt de maintenance planifiée.
 
-* Toutes les machines virtuelles font partie du même **domaine d’erreur**. Un domaine d’erreur permet par exemple de s’assurer que les machines virtuelles soient déployées de sorte qu’aucun point de défaillance unique n’affecte la disponibilité de l’ensemble des machines virtuelles.
+    La fonctionnalité de base, qui repose sur des domaines de mise à jour et d’erreur différents au sein d’une unité d’échelle Azure a déjà été présentée dans la section [Domaines de mise à jour][planning-guide-3.2.2].
 
-Le nombre de domaines de mise à niveau et d’erreur pouvant être utilisé par un groupe à haute disponibilité Azure au sein d’une unité d’échelle Azure est limité. Cela signifie que si vous placez un certain nombre de machines virtuelles dans un groupe à haute disponibilité, tôt ou tard plusieurs machines virtuelles aboutissent au même domaine de mise à niveau ou d’erreur.
+* Toutes les machines virtuelles font partie du même domaine d’erreur.  
+    Un domaine d’erreur permet de s’assurer que les machines virtuelles soient déployées de sorte qu’aucun point de défaillance unique n’affecte la disponibilité de l’ensemble des machines virtuelles.
 
-En déployant plusieurs instances de serveurs d’applications SAP dans leurs machines virtuelles dédiées et en supposant que nous avons cinq domaines de mise à niveau, nous obtenons l’image suivante. Le nombre maximal réel de domaines d’erreur et de mise à jour au sein d’un groupe à haute disponibilité peut changer à l’avenir :
+Le nombre de domaines de mise à jour et d’erreur pouvant être utilisé par un groupe à haute disponibilité Azure au sein d’une unité d’échelle Azure est limité. Si vous continuez d’ajouter des machines virtuelles à un groupe à haute disponibilité, deux machines virtuelles ou plus pourront se retrouver dans le même domaine d’erreur ou de mise à jour.
 
-![Figure 2 : Haute disponibilité des serveurs d’applications SAP dans un groupe à haute disponibilité Azure][planning-guide-figure-3000]
-_**Figure 2 :** Haute disponibilité des serveurs d’applications SAP dans un groupe à haute disponibilité Azure_ Vous pouvez trouver plus de détails dans cette documentation : [Gérer la disponibilité des machines virtuelles][virtual-machines-manage-availability].
+Si vous déployez plusieurs instances de serveurs d’applications SAP dans leurs machines virtuelles dédiées, en supposant que nous avons cinq domaines de mise à jour, nous obtenons l’image suivante. Le nombre maximum réel de domaines de mise à jour et d’erreur au sein d’un groupe à haute disponibilité peut changer à l’avenir :
 
+![Figure 2 : Haute disponibilité de serveurs d’applications SAP dans un groupe à haute disponibilité Azure][planning-guide-figure-3000]
+_**Figure 2 :** Haute disponibilité de serveurs d’applications SAP dans un groupe à haute disponibilité Azure_
 
-Les groupes à haute disponibilité Azure ont été présentés dans le chapitre [Groupes à haute disponibilité Azure] [planning-guide-3.2.3] du document Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver.
+Pour plus d’informations, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure][azure-virtual-machines-manage-availability].
 
+Pour plus d’informations, consultez la section [Groupes à haute disponibilité Azure][planning-guide-3.2.3] du document Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver.
 
-**Disque non managé uniquement :** étant donné que le compte de stockage Azure constitue un point de défaillance unique potentiel, il est important de disposer d’au moins deux comptes de stockage Azure, où au moins deux machines virtuelles sont distribuées. Dans une configuration idéale, les disques de chaque machine virtuelle exécutant une instance de dialogue SAP sont déployés dans un compte de stockage différent.
+**Disques non gérés uniquement :** étant donné que le compte de stockage Azure constitue un point de défaillance unique potentiel, il est important de disposer d’au moins deux comptes de stockage Azure, où au moins deux machines virtuelles sont distribuées. Dans une configuration idéale, les disques de chaque machine virtuelle exécutant une instance de dialogue SAP sont déployés dans un compte de stockage différent.
 
 > [!IMPORTANT]
+> Nous vous recommandons vivement d’utiliser des disques gérés Azure pour vos installations à haute disponibilité SAP. Étant donné que les disques gérés s’alignent automatiquement avec le groupe à haute disponibilité de la machine virtuelle à laquelle ils sont joints, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci.  
 >
-> Nous vous recommandons fortement d’utiliser les disques Azure Managed Disks pour vos installations à haute disponibilité SAP, car ils s’alignent automatiquement avec le groupe à haute disponibilité de la machine virtuelle à laquelle ils sont attachés. De ce fait, ils augmentent la disponibilité de votre machine virtuelle et des services exécutés sur celle-ci.  
->
 
-
-### <a name="high-availability-architecture-for-the-sap-ascs-instance"></a>Architecture de la haute disponibilité pour l’instance (A)SCS SAP
-
-### <a name="high-availability-architecture-for-the-sap-ascs-instance-on-windows"></a>Architecture de la haute disponibilité pour l’instance (A)SCS SAP sur Windows
-
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Architecture de haute disponibilité pour une instance SAP ASCS/SCS sur Windows
 
 > ![Windows][Logo_Windows] Windows
 >
 
-Vous pouvez utiliser la solution **Clustering de basculement Windows Server** (**WSFC**) pour protéger l’instance (A)SCS SAP. Il existe deux variantes de la solution :
+Vous pouvez utiliser une solution WSFC pour protéger l’instance SAP ASCS/SCS. La solution comporte deux variantes :
 
-* Clustering de l’instance (A)SCS SAP avec des **disques partagés en cluster**
+* **Mettre en cluster l’instance SAP ASCS/SCS à l’aide de disques partagés en cluster** : pour plus d’informations sur cette architecture, consultez [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster][sap-high-availability-guide-wsfc-shared-disk].   
 
-   Vous pouvez trouver plus d’informations sur l’architecture de la haute disponibilité avec des disques partagés en cluster dans ce document : [Clustering d’instance (A)SCS SAP sur un cluster de basculement Windows avec un disque partagé de cluster][sap-high-availability-guide-wsfc-shared-disk].   
+* **Mettre en cluster l’instance SAP ASCS/SCS à l’aide du partage de fichiers** : pour plus d’informations sur cette architecture, consultez [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers][sap-high-availability-guide-wsfc-file-share].
 
-* Clustering de l’instance (A)SCS SAP avec un **partage de fichiers**
-
-  Vous pouvez trouver plus d’informations sur l’architecture de la haute disponibilité avec un partage de fichiers dans ce document : [Clustering d’instance (A)SCS SAP sur un cluster de basculement Windows avec un partage de fichiers][sap-high-availability-guide-wsfc-file-share].
-
-### <a name="high-availability-for-the-sap-ascs-instance-on-linux"></a>Haute disponibilité pour l’instance (A)SCS SAP sur Linux
-
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architecture de haute disponibilité pour une instance SAP ASCS/SCS sur Linux
 
 > ![Linux][Logo_Linux] Linux
 >
+Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide de l’infrastructure de cluster SLES, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sap-suse-ascs-ha].
 
-Vous pouvez trouver plus d’informations sur le clustering de l’instance (A)SCS SAP avec l’infrastructure de cluster de SUSE Linux Enterprise Server dans ce document : [Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sap-suse-ascs-ha].
-
-### <a name="sap-netweaver-multi-sid-configuration-for-clustered-sap-ascs-instance"></a>Configuration multi-SID de SAP NetWeaver pour l’instance (A)SCS SAP en cluster
+### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuration multi-SID de SAP NetWeaver pour une instance SAP ASCS/SCS en cluster
 
 > ![Windows][Logo_Windows] Windows
 >
->Actuellement, le multi-SID est pris en charge seulement avec le **cluster de basculement Windows Server (WSFC)**. Le multi-SID est pris en charge avec les **partages de fichiers** et les **disques partagés**.
+> Actuellement, le multi-SID est pris en charge avec WSFC uniquement. Le multi-SID est pris en charge avec les partages de fichiers et les disques partagés.
 >
+Pour plus d’informations sur l’architecture de haute disponibilité multi-SID, consultez :
 
-Vous pouvez trouver plus d’informations sur l’architecture de la haute disponibilité multi-SID dans ces documents sur les architectures :
+* [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS pour le clustering de basculement Windows Server et le partage de fichiers][sap-ascs-ha-multi-sid-wsfc-file-share]
 
-* [Haute disponibilité multi-SID de l’instance (A)SCS SAP avec le clustering de basculement Windows Server et le partage de fichiers][sap-ascs-ha-multi-sid-wsfc-file-share]
+* [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS pour le clustering de basculement Windows Server et un disque partagé][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-* [Haute disponibilité multi-SID de l’instance (A)SCS SAP avec le clustering de basculement Windows Server et un disque partagé][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+### <a name="high-availability-dbms-instance"></a>Instance de SGBD à haute disponibilité
 
-### <a name="high-availability-dbms-instance"></a>Instance du SGBD à haute disponibilité
+Le SGBD constitue également un point de défaillance unique d’un système SAP. Vous devez le protéger à l’aide d’une solution à haute disponibilité. La figure suivante montre une solution à haute disponibilité SQL Server AlwaysOn dans Azure, avec le clustering de basculement Windows Server et l’équilibreur de charge interne Azure. SQL Server AlwaysOn réplique les fichiers journaux et les données SGBD à l’aide de sa propre réplication de SGBD. Dans ce cas, vous n’avez pas besoin d’un disque partagé en cluster, ce qui simplifie l’ensemble de la configuration.
 
-Le SGBD constitue également un point de défaillance unique d’un système SAP. Vous devez le protéger à l’aide d’une solution à haute disponibilité. La figure suivante montre une solution à haute disponibilité SQL Server Always On dans Azure, avec le clustering de basculement Windows Server et l’équilibreur de charge interne d’Azure. SQL Server Always On réplique les fichiers journaux et les données du SGBD à l’aide de sa propre réplication de SGBD. Dans ce cas, vous n’avez pas besoin d’un disque partagé en cluster, ce qui simplifie l’ensemble de la configuration.
+![Figure 3 : Exemple de SGBD SAP à haute disponibilité avec SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
-![Figure 3 : Exemple de SGBD SAP à haute disponibilité avec SQL Server Always On][sap-ha-guide-figure-2003]
+_**Figure 3 :** Exemple de SGBD SAP à haute disponibilité avec SQL Server AlwaysOn_
 
-_**Figure 3 :** Exemple de SGBD SAP à haute disponibilité avec SQL Server Always On_
+Pour plus d’informations sur le clustering de SGBD SQL Server dans Azure à l’aide du modèle de déploiement Azure Resource Manager, consultez ces articles :
 
-Pour plus d’informations sur le clustering de **SGBD SQL Server** dans Azure avec le modèle de déploiement Azure Resource Manager, consultez ces articles :
-
-* [Configurer un groupe de disponibilité Always On dans des machines virtuelles manuellement à l’aide du modèle Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configurer un groupe de disponibilité AlwaysOn dans des machines virtuelles Azure manuellement à l’aide de Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 
 * [Configurer un équilibreur de charge interne Azure pour un groupe de disponibilité AlwaysOn dans Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-Pour plus d’informations sur le clustering du **SGBD SAP HANA** dans Azure avec le modèle de déploiement Azure Resource Manager, consultez cet article :
-
-* [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha]
+Pour plus d’informations sur le clustering du SGBD SAP HANA dans Azure à l’aide du modèle de déploiement Azure Resource Manager, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].

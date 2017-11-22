@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, plan consommation, plan app service, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+keywords: "azure functions, fonctions, plan consommation, plan app service, traitement des événements, webhooks, calcul dynamique, architecture serverless"
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparaison des plans d’hébergement Azure Functions
 
-## <a name="introduction"></a>Introduction
+Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez donc pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [serverless](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez donc pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [sans serveur](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+>[!NOTE]  
+> Pour l’instant, l’hébergement de Linux est uniquement disponible dans un plan App Service.
 
 Si vous n’êtes pas familiarisé avec Azure Functions, consultez [Vue d’ensemble d’Azure Functions](functions-overview.md).
 
@@ -55,7 +56,7 @@ Le plan d’hébergement par défaut (le plan Consommation) présente les avanta
 
 ## <a name="app-service-plan"></a>Plan App Service
 
-Dans le plan App Service, vos applications de fonction sont exécutées sur des machines virtuelles dédiées sur des références SKU de base, Standard, Premium et Isolé, à l’instar de Web Apps, d’API Apps et de Mobile Apps. Les machines virtuelles dédiées sont allouées à vos applications App Service, ce qui signifie que l’hôte des fonctions est toujours en cours d’exécution.
+Dans le plan App Service, vos applications de fonction sont exécutées sur des machines virtuelles dédiées sur des références SKU de base, Standard, Premium et Isolé, à l’instar de Web Apps, d’API Apps et de Mobile Apps. Les machines virtuelles dédiées sont allouées à vos applications App Service, ce qui signifie que l’hôte des fonctions est toujours en cours d’exécution. Les plans App Service prennent en charge Linux.
 
 Pensez à un plan App Service dans les cas suivants :
 - Vous disposez de machines virtuelles existantes, sous-utilisées qui exécutent déjà d’autres instances App Service.
@@ -63,12 +64,13 @@ Pensez à un plan App Service dans les cas suivants :
 - Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan Consommation.
 - Vous avez besoin d’une durée d’exécution supérieure à celle qui est autorisée dans le plan Consommation (de 10 minutes).
 - Vous avez besoin de fonctionnalités qui sont disponibles uniquement dans un plan App Service, telles que la prise en charge d’App Service Environment, la connectivité des réseaux virtuels/VPN et la configuration de machines virtuelles volumineuses. 
+- Vous souhaitez exécuter votre application de fonction sur Linux, ou voulez fournir une image personnalisée sur laquelle exécuter vos fonctions.
 
 L’utilisation d’une machine virtuelle dissocie le coût du nombre d’exécutions, de la durée d’exécution et de la mémoire utilisée. Vous ne payez donc pas plus que le coût de l’instance de machine virtuelle que vous allouez. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Avec un plan App Service, vous pouvez augmenter manuellement la taille des instances en ajoutant des instances de machine virtuelle, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/web-sites-scale.md). 
 
-Si vous prévoyez d’exécuter des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de cœurs. Pour plus d’informations, consultez les [informations de référence sur JavaScript pour Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
+Si vous prévoyez d’exécuter des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans App Service à cœur unique](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +95,7 @@ Quand vous utilisez le plan d’hébergement Consommation, les fichiers de code 
 > [!NOTE]
 > Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les blobs sont traités immédiatement. Pour éviter ce délai initial, pensez à l’une des options suivantes :
 > - Utilisez l’application de fonction dans un plan App Service, avec le paramètre Toujours actif activé.
-> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un message de file d’attente qui contient le nom de l’objet blob. Pour en obtenir un exemple, consultez [Déclencheur de file d’attente avec liaison d’entrée d’objet blob](functions-bindings-storage-blob.md#input-sample).
+> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un message de file d’attente qui contient le nom de l’objet blob. Pour obtenir un exemple, consultez [Exemples JavaScript et Script C# de liaisons d’entrée et de sortie blob](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](http://www.powerbi.com/) est une suite d’outils d’analyse métiers permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Pour exporter des données d’Application Insights vers Power BI, nous vous recommandons trois méthodes. Vous pouvez les utiliser séparément ou ensemble.
 
 * [**Adaptateur Power BI**](#power-pi-adapter) : configurez un tableau de bord complet des données de télémétrie à partir de votre application. L’ensemble de graphiques est prédéfini, mais vous pouvez ajouter vos propres requêtes à partir d’autres sources.
-* [**Exporter des requêtes Analytics**](#export-analytics-queries) : écrivez une requête souhaitée à l’aide d’Analytics et exportez-la vers Power BI. Vous pouvez placer cette requête sur un tableau de bord, avec d’autres données.
+* [**Exporter des requêtes Analytics**](#export-analytics-queries) : écrivez une requête souhaitée à l’aide d’Analytics ou à partir des entonnoirs d’utilisation et exportez-la vers Power BI. Vous pouvez placer cette requête sur un tableau de bord, avec d’autres données.
 * [**Exportation continue et Stream Analytics**](app-insights-export-stream-analytics.md) : implique un travail supplémentaire de configuration. Cela est utile si vous souhaitez conserver vos données pendant de longues périodes. Sinon, les autres méthodes sont recommandées.
 
 ## <a name="power-bi-adapter"></a>Adaptateur Power BI
@@ -48,7 +48,7 @@ Vous pouvez modifier le tableau de bord en associant des graphiques Application 
 Après l’importation initiale, le tableau de bord et les rapports sont mis à jour quotidiennement. Vous pouvez contrôler la planification de l’actualisation du jeu de données.
 
 ## <a name="export-analytics-queries"></a>Exporter des requêtes Analytics
-Cet itinéraire permet d’écrire la requête Analytics souhaitée, puis de l’exporter vers un tableau de bord Power BI. (Vous pouvez ajouter au tableau de bord créé par l’adaptateur).
+Cet itinéraire permet d’écrire la requête Analytics souhaitée ou de l’exporter à partir des entonnoirs d’utilisation, puis de l’exporter vers un tableau de bord Power BI. (Vous pouvez ajouter au tableau de bord créé par l’adaptateur).
 
 ### <a name="one-time-install-power-bi-desktop"></a>Une fois : installez Power BI Desktop
 Pour importer votre requête Application Insights, vous utilisez la version pour ordinateur de bureau de Power BI. Ensuite vous pouvez la publier sur le web ou vers votre espace de travail cloud Power BI. 
@@ -82,7 +82,29 @@ Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Sélectionner une visualisation](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Actualisez le rapport manuellement selon des intervalles ou configurez une actualisation planifiée dans la page des options.
 
-## <a name="troubleshooting"></a>résolution des problèmes
+### <a name="export-a-funnel"></a>Exporter un entonnoir
+1. [Créez votre entonnoir](usage-funnels.md).
+2. Cliquez sur le bouton Power BI. 
+
+   ![Bouton Power BI](./media/app-insights-export-power-bi/button.png)
+   
+3. Dans Power BI Desktop, sélectionnez **Obtenir des données, Requête vide** puis, dans l’éditeur de requête, sous **Affichage**, sélectionnez **Éditeur de requêtes avancé**.
+
+   ![Requête vide](./media/app-insights-export-power-bi/blankquery.png)
+
+   Collez le script de langage M exporté dans l’Éditeur de requêtes avancé. 
+
+   ![Éditeur de requêtes avancé](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Sélectionnez des éléments dans la requête et choisissez la visualisation en entonnoir.
+
+   ![Sélectionner la séquence et entonnoir](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Changez le titre pour le rendre plus significatif et publiez votre rapport sur votre espace de travail cloud Power BI. 
+
+   ![Changer le titre](./media/app-insights-export-power-bi/changetitle.png)
+
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 ### <a name="401-or-403-unauthorized"></a>401 ou 403 non autorisé 
 Cela peut se produire si votre jeton d’actualisation n’a pas été mis à jour. Essayez les opérations suivantes pour vérifier que vous avez toujours accès. Si vous avez accès et que l’actualisation des informations d’identification échoue, ouvrez un ticket de support.

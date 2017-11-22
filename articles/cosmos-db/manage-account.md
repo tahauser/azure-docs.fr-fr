@@ -13,44 +13,44 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 11/15/2017
 ms.author: kirillg
-ms.openlocfilehash: a0c6ec8d490e1adacc96758971ab91d8eaeab45c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86b43b312bf7ce52ab75855424cc5db473245159
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Comment gérer un compte Azure Cosmos DB
 Découvrez comment définir la cohérence globale, utiliser les clés et supprimer un compte Azure Cosmos DB dans le portail Azure.
 
 ## <a id="consistency"></a>Gérer les paramètres de cohérence Azure Cosmos DB
-La sélection du niveau de cohérence adéquat dépend de la sémantique de votre application. Vous devez vous familiariser avec les niveaux de cohérence disponibles dans Azure Cosmos DB en lisant l’article relatif à [l’utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans Azure Cosmos DB][consistency]. Azure Cosmos DB fournit les garanties de cohérence, de disponibilité et de performance, à tous les niveaux de cohérence disponibles pour votre compte de base de données. La configuration de votre compte de base de données avec un niveau de cohérence Fort nécessite que vos données se limitent à une seule région Azure et ne soient pas disponibles mondialement. En revanche, les niveaux de cohérence souples (Obsolescence limitée, Session ou Éventuel) vous permettent d’associer autant de régions Azure que vous le souhaitez à votre compte de base de données. Les étapes simples suivantes vous montrent comment sélectionner le niveau de cohérence par défaut pour votre compte de base de données. 
+La sélection du niveau de cohérence adéquat dépend de la sémantique de votre application. Familiarisez-vous avec les niveaux de cohérence disponibles dans Azure Cosmos DB en lisant l’article relatif à [l’utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans Azure Cosmos DB][consistency]. Azure Cosmos DB fournit les garanties de cohérence, de disponibilité et de performance, à tous les niveaux de cohérence disponibles pour votre compte de base de données. La configuration de votre compte de base de données avec un niveau de cohérence Fort nécessite que vos données se limitent à une seule région Azure et ne soient pas disponibles mondialement. En revanche, les niveaux de cohérence souple (Obsolescence limitée, Session ou Éventuelle) vous permettent d’associer autant de régions Azure que vous le souhaitez à votre compte de base de données. Les étapes simples suivantes vous montrent comment sélectionner le niveau de cohérence par défaut pour votre compte de base de données.
 
 ### <a name="to-specify-the-default-consistency-for-an-azure-cosmos-db-account"></a>Pour spécifier le niveau de cohérence par défaut d’un compte Azure Cosmos DB
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte Azure Cosmos DB.
-2. Dans le panneau du compte, cliquez sur **Cohérence par défaut**.
-3. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
+2. Dans la page du compte, cliquez sur **Cohérence par défaut**.
+3. Dans la page **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence, puis cliquez sur **Enregistrer**.
     ![Cohérence par défaut Session][5]
 
 ## <a id="keys"></a>Affichage, copie et régénération des clés d’accès
-Lorsque vous créez un compte Azure Cosmos DB, le service génère deux clés d’accès maître qui peuvent être utilisées pour l’authentification lors de l’accès au compte Azure Cosmos DB. En fournissant deux clés d'accès, Azure Cosmos DB vous permet de régénérer les clés sans interruption de votre compte Azure Cosmos DB. 
+Lorsque vous créez un compte Azure Cosmos DB, le service génère deux clés d’accès maître qui peuvent être utilisées pour l’authentification lors de l’accès au compte Azure Cosmos DB. En fournissant deux clés d’accès, Azure Cosmos DB vous permet de régénérer les clés sans interruption de votre compte Azure Cosmos DB. 
 
-Dans le [portail Azure](https://portal.azure.com/), accédez au panneau **Clés** à partir du menu de ressources dans le panneau **Compte Azure Cosmos DB** pour afficher, copier et régénérer les clés d’accès à votre compte Azure Cosmos DB.
+Dans le [portail Azure](https://portal.azure.com/), accédez à la page **Clés** à partir du menu de ressources de la page **Compte Azure Cosmos DB** pour afficher, copier et regénérer les clés d’accès à votre compte Azure Cosmos DB.
 
-![Capture d’écran du portail Azure, panneau Clés](./media/manage-account/keys.png)
+![Capture d’écran du portail Azure, page Clés](./media/manage-account/keys.png)
 
 > [!NOTE]
-> Le panneau **Clés** inclut également des chaînes de connexion primaire et secondaire qui peuvent être utilisées pour la connexion à votre compte à partir de [l’outil de migration de données](import-data.md).
+> La page **Clés** inclut également des chaînes de connexion primaires et secondaires qui peuvent être utilisées pour la connexion à votre compte à partir de [l’outil de migration de données](import-data.md).
 > 
 > 
 
-Des clés en lecture seule sont également disponibles sur ce panneau. Les lectures et les demandes sont des opérations en lecture seule, contrairement aux opérations de création, de suppression et de remplacement.
+Des clés en lecture seule sont également disponibles dans cette page. Les lectures et les demandes sont des opérations en lecture seule, contrairement aux opérations de création, de suppression et de remplacement.
 
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Copie d’une touche d’accès rapide dans le portail Azure
-Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
+### <a name="copy-an-access-key-in-the-azure-portal"></a>Copier une clé d’accès dans le portail Azure
+Dans la page **Clés**, cliquez sur le bouton **Copier** situé à droite de la clé que vous souhaitez copier.
 
-![Affichage et copie d’une touche d’accès rapide dans le portail Azure, panneau Clés](./media/manage-account/copykeys.png)
+![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/manage-account/copykeys.png)
 
 ### <a name="regenerate-access-keys"></a>Régénération de clés d'accès
 Vous devez modifier périodiquement les clés d'accès à votre compte Azure Cosmos DB pour garantir la sécurité des connexions. Deux clés d’accès vous sont affectées afin de vous permettre de conserver des connexions au compte Azure Cosmos DB à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
@@ -64,10 +64,10 @@ Si certains de vos services cloud ou applications utilisent le compte Azure Cos
 
 1. Mettez à jour la clé d’accès dans le code de votre application afin de référencer la clé d’accès secondaire du compte Azure Cosmos DB.
 2. Régénérez la clé d’accès principale de votre compte Azure Cosmos DB. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte Azure Cosmos DB.
-3. Dans le panneau **Compte Azure Cosmos DB**, cliquez sur **Clés**.
-4. Dans le panneau **Clés**, cliquez sur le bouton Régénérer, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
+3. Dans la page **Compte Azure Cosmos DB**, cliquez sur **Clés**.
+4. Dans la page **Clés**, cliquez sur le bouton Regénérer, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
     ![Régénération des clés d’accès](./media/manage-account/regenerate-keys.png)
-5. Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
+5. Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ cinq minutes après la regénération), mettez à jour la clé d’accès dans le code de votre application afin de référencer la nouvelle clé d’accès principale.
 6. Régénérez la clé d’accès secondaire.
    
     ![Régénération de clés d'accès](./media/manage-account/regenerate-secondary-key.png)
@@ -87,16 +87,16 @@ Procédez comme suit pour récupérer votre chaîne de connexion :
 Si vous utilisez la chaîne de connexion dans [l’outil de migration de base de données Azure Cosmos DB](import-data.md), ajoutez le nom de la base de données à la fin de la chaîne de connexion. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a id="delete"></a> Supprimer un compte Azure Cosmos DB
-Pour supprimer du portail Azure un compte Azure Cosmos DB dont vous ne vous servez plus, cliquez avec le bouton droit sur le nom du compte, puis cliquez sur **Supprimer le compte**.
+Pour supprimer du portail Azure un compte Azure Cosmos DB dont vous ne vous servez plus, cliquez avec le bouton droit sur le nom du compte, puis cliquez sur **Supprimer le compte**.
 
-![Comment supprimer un compte Azure Cosmos DB dans le portail Azure](./media/manage-account/deleteaccount.png)
+![Comment supprimer un compte Azure Cosmos DB dans le portail Azure](./media/manage-account/deleteaccount.png)
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez au compte Azure Cosmos DB à supprimer.
-2. Dans le panneau **Compte Azure Cosmos DB**, cliquez avec le bouton droit sur le compte, puis cliquez sur **Supprimer le compte**. 
-3. Dans le volet de confirmation qui s'affiche, entrez le nom du compte Azure Cosmos DB pour confirmer que vous souhaitez le supprimer.
+2. Dans la page **Compte Azure Cosmos DB**, cliquez avec le bouton droit sur le compte, puis cliquez sur **Supprimer le compte**. 
+3. Dans la page de confirmation qui s’affiche, entrez le nom du compte Azure Cosmos DB pour confirmer que vous souhaitez le supprimer.
 4. Cliquez sur le bouton **Supprimer** .
 
-![Comment supprimer un compte Azure Cosmos DB dans le portail Azure](./media/manage-account/delete-account-confirm.png)
+![Comment supprimer un compte Azure Cosmos DB dans le portail Azure](./media/manage-account/delete-account-confirm.png)
 
 ## <a id="next"></a>Étapes suivantes
 Découvrez comment [prendre en main votre compte Azure Cosmos DB](http://go.microsoft.com/fwlink/p/?LinkId=402364).

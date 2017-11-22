@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/09/2017
@@ -110,7 +110,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     Réduire la fréquence de Garbage Collection peut aider dans certains cas. Dans .NET, définissez [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) sur true.
 6. **Implémentation d’interruption à des intervalles de RetryAfter**
 
-    Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. La prise en charge de la stratégie de nouvelle tentative est incluse dans les versions 1.8.0 et ultérieures de DocumentDB [.NET](documentdb-sdk-dotnet.md) et [Java](documentdb-sdk-java.md), dans les versions 1.9.0 et ultérieures de [Node.js](documentdb-sdk-node.md) et [Python](documentdb-sdk-python.md) et dans toutes les versions prises en charge des Kits de développement logiciel (SDK) [.NET Core](documentdb-sdk-dotnet-core.md). Pour plus d’informations, consultez la section [Dépassement des limites de débit réservé](request-units.md#RequestRateTooLarge) et [Propriété RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. La prise en charge de la stratégie de nouvelle tentative est incluse dans les versions 1.8.0 et ultérieures de DocumentDB [.NET](documentdb-sdk-dotnet.md) et [Java](documentdb-sdk-java.md), dans les versions 1.9.0 et ultérieures de [Node.js](documentdb-sdk-node.md) et [Python](documentdb-sdk-python.md) et dans toutes les versions prises en charge des kits SDK [.NET Core](documentdb-sdk-dotnet-core.md). Pour plus d’informations, consultez la section [Dépassement des limites de débit réservé](request-units.md#RequestRateTooLarge) et [Propriété RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Augmentation de la taille des instances de votre charge de travail cliente**
 
     Si vous effectuez des tests à des niveaux de débit élevé (> 50 000 RU/s), l’application cliente peut devenir un goulet d’étranglement en raison du plafonnement sur l’utilisation du processeur ou du réseau. Si vous atteignez ce point, vous pouvez continuer à augmenter le compte Cosmos DB en augmentant la taille des instances de vos applications clientes sur plusieurs serveurs.
@@ -133,7 +133,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
 11. **Utilisation du processus hôte 64 bits**
 
-    Le kit de développement logiciel (SDK) DocumentDB fonctionne dans un processus hôte 32 bits lorsque vous utilisez le kit de développement logiciel (SDK) DocumentDB .NET version 1.11.4 et ultérieures. Toutefois, que si vous utilisez des requêtes entre les partitions, le processus hôte 64 bits est recommandé pour améliorer les performances. Les types d’applications suivants utilisent des processus hôte 32 bits par défaut. Pour les remplacer par des processus 64 bits, procédez comme suit, selon le type de votre application :
+    Le kit SDK DocumentDB fonctionne dans un processus hôte 32 bits lorsque vous utilisez le kit SDK DocumentDB .NET version 1.11.4 et ultérieures. Toutefois, que si vous utilisez des requêtes entre les partitions, le processus hôte 64 bits est recommandé pour améliorer les performances. Les types d’applications suivants utilisent des processus hôte 32 bits par défaut. Pour les remplacer par des processus 64 bits, procédez comme suit, selon le type de votre application :
 
     - Pour les applications exécutables, désactivez l’option **Préférer 32 bits** dans la fenêtre **Propriétés du projet**, dans l’onglet **Générer**.
 
@@ -165,7 +165,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
     Cosmos DB propose un riche ensemble d’opérations de base de données, dont les requêtes hiérarchiques et relationnelles avec les fonctions définies par l’utilisateur, les procédures stockées et les déclencheurs, qui fonctionnent tous au niveau des documents d’une collection de base de données. Le coût associé à chacune de ces opérations varie en fonction du processeur, des E/S et de la mémoire nécessaires à l’exécution de l’opération. Plutôt que de vous soucier de la gestion des ressources matérielles, vous pouvez considérer une unité de demande comme une mesure unique des ressources nécessaires à l'exécution des opérations de base de données et à la réponse à la demande de l'application.
 
-    Le débit est provisionné en fonction de la quantité [d’unités de requête](request-units.md) définie pour chaque conteneur. La consommation d'unités de demande est évaluée en fonction d'un taux par seconde. Les applications qui dépassent le taux d’unité de requête configuré pour le compte associé sont limitées jusqu’à ce que le taux soit inférieur au niveau réservé pour le compte. Si votre application requiert un niveau de débit plus élevé, vous pouvez augmenter le débit en provisionnant des unités de requête supplémentaires. 
+    Le débit est provisionné en fonction de la quantité [d’unités de requête](request-units.md) définie pour chaque conteneur. La consommation d'unités de demande est évaluée en fonction d'un taux par seconde. Les applications qui dépassent le taux d’unités de requête configuré pour le conteneur associé sont limitées jusqu’à ce que le taux soit inférieur au niveau configuré pour le conteneur. Si votre application requiert un niveau de débit plus élevé, vous pouvez augmenter le débit en provisionnant des unités de requête supplémentaires. 
 
     La complexité d’une requête a un impact sur le nombre d’unités de requête consommées pour une opération. Le nombre de prédicats, la nature des prédicats, le nombre de fonctions définies par l’utilisateur et la taille du jeu de données sources ont tous une influence sur le coût des opérations de requête.
 

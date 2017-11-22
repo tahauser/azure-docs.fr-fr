@@ -1,5 +1,5 @@
 ---
-title: "Limitations d’Azure Cloud Shell (version préliminaire) | Microsoft Docs"
+title: "Limitations d’Azure Cloud Shell | Microsoft Docs"
 description: "Vue d’ensemble des limites d’Azure Cloud Shell"
 services: azure
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -70,14 +70,14 @@ Votre historique de commandes de l’interpréteur de commandes risque d’être
 
 ### <a name="slow-startup-time"></a>Temps de démarrage lent
 
-L’initialisation de PowerShell dans Azure Cloud Shell peut prendre jusqu’à 60 secondes pendant l’aperçu.
+L’initialisation de PowerShell dans Azure Cloud Shell (préversion) peut prendre jusqu’à 60 secondes.
 
 ### <a name="no-home-directory-persistence"></a>Aucune persistance du répertoire $Home
 
 Les données écrites sur `$Home` par n’importe quelle application (telle que git, vim, etc.) ne sont pas conservées entre les sessions PowerShell. Consultez [ici](troubleshooting.md#powershell-resolutions) la solution de contournement.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Emplacement du fichier par défaut lors de sa création à partir du lecteur Azure :
-Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier C:\Users par défaut. 
+Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des applets de commande PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier C:\Users par défaut. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

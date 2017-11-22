@@ -1,6 +1,6 @@
 ---
-title: "Kit de développement logiciel (SDK) .NET Core Azure Cosmos DB et ressources | Microsoft Docs"
-description: "Tout savoir sur l’API .NET et le Kit de développement logiciel (SDK), y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du Kit de développement logiciel (SDK) .NET Azure Cosmos DB."
+title: Azure Cosmos DB .NET SDK et ressources | Microsoft Docs
+description: "Tout savoir sur l’API et le kit .NET SDK, notamment les dates de publication, les dates de retrait et les modifications effectuées entre chaque version du kit kit Azure Cosmos DB .NET SDK."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) .NET Azure Cosmos DB : téléchargement et notes de publication
+# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK : téléchargement et notes de publication
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Flux de modification .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -37,13 +37,13 @@ ms.lasthandoff: 10/26/2017
 
 <table>
 
-<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**Téléchargement du kit SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
 <tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](documentdb-get-started.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Bien démarrer avec Azure Cosmos DB .NET SDK](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -51,6 +51,15 @@ ms.lasthandoff: 10/26/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
+
+* Remplacement du nom Azure DocumentDB par le nom Azure Cosmos DB dans la documentation de référence des API, les informations de métadonnées des assemblys et le package NuGet. 
+* Exposition des informations de diagnostic et de la latence à partir de la réponse aux requêtes envoyées en mode de connexion directe. Les noms des propriétés sont RequestDiagnosticsString et RequestLatency dans la classe ResourceResponse.
+* Cette version du SDK nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator. 
+
+### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
+
+* Changements internes concernant les assemblys friend Microsoft.
 
 ### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
 
@@ -255,12 +264,14 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
 
-Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
+Toute requête envoyée à Azure Cosmos DB à l’aide d’un kit SDK retiré est rejetée par le service.
 
 <br/>
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |10 novembre 2017 |--- |
+| [1.18.1](#1.18.1) |7 novembre 2017 |--- |
 | [1.18.0](#1.18.0) |17 octobre 2017 |--- |
 | [1.17.0](#1.17.0) |10 août 2017 |--- |
 | [1.16.1](#1.16.1) |7 août 2017 |--- |

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB : Développer avec l’API Graph dans .NET
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
@@ -53,7 +53,6 @@ Commençons par créer un compte Azure Cosmos DB dans le portail Azure.
 
 > [!TIP]
 > * Possédez-vous un compte Azure Cosmos DB ? Si tel est le cas, passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).
-> * Possédiez-vous un compte Azure DocumentDB ? Si c’est le cas, votre compte a été converti en compte Azure Cosmos DB et vous pouvez passer directement à l’étape [Configurer votre solution Visual Studio](#SetupVS).  
 > * Si vous utilisez l’émulateur Azure Cosmos DB, suivez les étapes de la section [Émulateur Azure Cosmos DB](local-emulator.md) pour le configurer, puis passez directement à l’étape [Configurer votre solution Visual Studio](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ Dans le portail Azure, accédez à votre compte Azure Cosmos DB, cliquez sur **C
 
 Copiez l’URI à partir du portail et collez-le sur `Endpoint` dans la propriété du point de terminaison ci-dessus. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans la propriété `AuthKey` ci-dessus. 
 
-![Capture d’écran du portail Azure utilisée par le didacticiel pour créer une application C#. Montre un compte Azure Cosmos DB, le bouton CLÉS mis en surbrillance dans le panneau de navigation Azure Cosmos DB et les valeurs d’URI et de CLÉ PRIMAIRE mises en surbrillance dans le volet Clés] [clés] 
+![Capture d’écran du portail Azure utilisée par le didacticiel pour créer une application C#. Montre un compte Azure Cosmos DB, le bouton CLÉS mis en surbrillance dans le panneau de navigation Azure Cosmos DB et les valeurs d’URI et de CLÉ PRIMAIRE mises en surbrillance dans le volet Clés](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Instancier le DocumentClient 
 Ensuite, créez une instance de **DocumentClient**.  
@@ -269,11 +268,11 @@ Ce didacticiel Azure Cosmos DB est maintenant terminé !
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure.  
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez :
 
 > [!div class="checklist"]
 > * Créer un compte Azure Cosmos DB 

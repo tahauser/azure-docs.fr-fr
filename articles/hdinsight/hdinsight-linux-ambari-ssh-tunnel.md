@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Utilisation d’un tunnel SSH pour accéder à l’interface Web Ambari, JobHistory, NameNode, Oozie et d’autres interfaces Web
 
@@ -46,9 +46,9 @@ Si vous utilisez des actions de script pour personnaliser votre cluster, tous le
 
 Le [tunnel Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) achemine le trafic envoyé à un port sur votre station de travail locale. Le trafic est acheminé via une connexion SSH vers le nœud principal de votre cluster HDInsight. La requête est résolue comme si elle avait été créée sur le nœud principal. La réponse est alors acheminée via le tunnel sur votre station de travail.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-* Un client SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un client SSH. La plupart des systèmes d’exploitation fournissent un client SSH accessible via la commande `ssh`. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Un navigateur web qui peut être configuré pour utiliser un proxy SOCKS5.
 
@@ -74,9 +74,9 @@ Cette commande va permettre de créer une connexion qui achemine le trafic vers 
 * **C** : compresse toutes les données car le trafic web est principalement du texte
 * **2** : force le SSH à essayer le protocole version 2 uniquement
 * **q** : mode silencieux
-* **T** : désactive l’allocation pseudo-tty puisque nous transférons simplement un port
-* **n** : empêche la lecture STDIN puisque nous transférons simplement un port
-* **N** : n’exécute pas une commande à distance puisque nous transférons simplement un port
+* **T** : désactive l’allocation pseudo-tty, puisque vous transférez simplement un port.
+* **n** : empêche la lecture STDIN, puisque vous transférez simplement un port.
+* **N** : n’exécute pas une commande à distance, puisque vous transférez simplement un port.
 * **f** : s’exécute à l’arrière-plan
 
 Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinateur local est acheminé au nœud principal du cluster.

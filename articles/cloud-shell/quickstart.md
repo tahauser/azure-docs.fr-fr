@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Démarrage rapide de Bash dans Azure Cloud Shell
 
@@ -30,7 +30,7 @@ Ce document explique comment utiliser Bash dans Azure Cloud Shell dans le [porta
 ## <a name="start-cloud-shell"></a>Démarrer Cloud Shell
 1. Lancez **Cloud Shell** dans le volet de navigation supérieure du portail Azure <br>
 ![](media/quickstart/shell-icon.png)
-2. Sélectionner un abonnement pour créer un compte de stockage et un partage de fichiers Azure
+2. Sélectionner un abonnement pour créer un compte de stockage et un partage Microsoft Azure Files
 3. Sélectionnez Créer le stockage
 
 > [!TIP]
@@ -59,7 +59,7 @@ Créez une machine virtuelle Ubuntu dans votre nouveau groupe de ressources. Azu
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Les clés publiques et privées utilisées pour authentifier votre machine virtuelle sont placées dans `/User/.ssh/id_rsa` et `/User/.ssh/id_rsa.pub` par Azure CLI 2.0, par défaut. Votre dossier .ssh est conservé dans l’image de 5 Go de votre partage de fichiers Azure attaché.
+> Les clés publiques et privées utilisées pour authentifier votre machine virtuelle sont placées dans `/User/.ssh/id_rsa` et `/User/.ssh/id_rsa.pub` par Azure CLI 2.0, par défaut. Votre dossier .ssh est conservé dans l’image de 5 Go de votre partage Azure Files attaché.
 
 Votre nom d’utilisateur sur cette machine virtuelle sera votre nom d’utilisateur utilisé dans Cloud Shell ($User@Azure:).
 
@@ -79,4 +79,4 @@ Exécutez `az group delete -n MyRG`.
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur les fichiers persistants pour Bash dans Cloud Shell](persisting-shell-storage.md) <br>
 [En savoir plus sur Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[En savoir plus sur le stockage de fichiers Azure](../storage/files/storage-files-introduction.md) <br>
+[En savoir plus sur le stockage Azure Files](../storage/files/storage-files-introduction.md) <br>

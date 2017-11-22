@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -32,7 +32,7 @@ Avec la montée en charge, vous pouvez créer un pool de requêtes comportant ju
 
 Quel que soit le nombre de réplicas de requête dont vous disposez dans un pool de requêtes, le traitement des charges de travail n’est pas distribué entre les réplicas de requête. Un seul serveur est utilisé comme serveur de traitement. Les réplicas de requête servent uniquement les requêtes sur les modèles synchronisés entre chaque réplica dans le pool de requêtes. 
 
-Quand les opérations de traitement sont terminées, une synchronisation doit être effectuée entre le serveur de traitement et les serveurs réplica de requête. Lors de l’automatisation des opérations de traitement, il est important de configurer une opération de synchronisation après la réussite des opérations de transformation.
+Quand les opérations de traitement sont terminées, une synchronisation doit être effectuée entre le serveur de traitement et les serveurs réplica de requête. Lors de l’automatisation des opérations de traitement, il est important de configurer une opération de synchronisation après la réussite des opérations de transformation. La synchronisation peut être effectuée manuellement dans le portail, ou à l’aide de PowerShell ou de l’API REST.
 
 > [!NOTE]
 > La montée en charge est disponible pour les serveurs du niveau tarifaire Standard. Chaque réplica de requête est facturé au même prix que votre serveur.
@@ -58,12 +58,10 @@ Quand les opérations de traitement sont terminées, une synchronisation doit ê
 
 Les modèles tabulaires sur votre serveur principal sont synchronisés avec les serveurs réplica. Quand la synchronisation est terminée, le pool de requêtes commence la distribution des requêtes entrantes entre les serveurs réplica. 
 
-### <a name="powershell"></a>PowerShell
-Utilisez l’applet de commande [Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Spécifiez une valeur supérieur à 1 pour le paramètre `-Capacity`.
 
 ## <a name="synchronization"></a>Synchronisation 
 
-Quand vous provisionnez de nouveaux réplicas de requête, Azure Analysis Services réplique automatiquement vos modèles sur tous les réplicas. Vous pouvez également effectuer une synchronisation manuelle. Quand vous traitez vos modèles, vous devez effectuer une synchronisation pour que les mises à jour soient synchronisées entre les réplicas de requête.
+Quand vous provisionnez de nouveaux réplicas de requête, Azure Analysis Services réplique automatiquement vos modèles sur tous les réplicas. Vous pouvez également effectuer une synchronisation manuelle à l’aide du portail ou de l’API REST. Quand vous traitez vos modèles, vous devez effectuer une synchronisation pour que les mises à jour soient synchronisées entre vos réplicas de requête.
 
 ### <a name="in-azure-portal"></a>Dans le portail Azure
 
@@ -72,12 +70,16 @@ Dans **Vue d’ensemble** > Modèle > **Synchroniser le modèle**.
 ![Curseur de montée en charge](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
+Utilisez l’opération de **synchronisation**.
 
-Synchroniser un modèle   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Synchroniser un modèle   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Obtenir l’état d’une synchronisation de modèle  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Obtenir l’état de la synchronisation  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Pour exécuter la synchronisation à partir de PowerShell, [effectuez une mise à jour vers le tout dernier](https://github.com/Azure/azure-powershell/releases) module AzureRM 5.01 ou version ultérieure. Utilisez [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Connexions
 

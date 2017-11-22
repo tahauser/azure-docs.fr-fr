@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel Kubernertes sur Azure - Mettre à l’échelle une application | Microsoft Docs"
+title: "Didacticiel Kubernetes sur Azure - Mettre à l’échelle une application | Microsoft Docs"
 description: "Didacticiel ACS - Mise à l’échelle d’une application"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c60bdf18f80f6922631e02855b83adeb876daa4c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: f060b37d5ae02dfd53f513b134692186024cf727
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Mettre à jour une application dans Azure Container Service (ACS)
 
@@ -49,7 +49,7 @@ Si vous avez créé votre cluster Kubernetes à l’aide des commandes dans le d
 L’exemple suivant permet d’augmenter le nombre de nœuds à trois dans le cluster Kubernetes nommé *myK8sCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
+az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
 ```
 
 Le résultat ressemble à ce qui suit :
