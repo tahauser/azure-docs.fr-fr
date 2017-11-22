@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Gérer les schémas de client
               href: saas-multitenantdb-schema-management.md
+            - name: 'Extraction, transformation et chargement (ETL) pour analyse'
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Développement d'applications
       items:
         - name: C et C ++
