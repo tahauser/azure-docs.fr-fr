@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
 Cet article contient les questions fréquemment posées sur Microsoft Azure Site Recovery. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -75,22 +75,7 @@ Pour protéger les machines virtuelles VMware, vous avez besoin d’un hypervise
 Oui. Lorsque vous utilisez Site Recovery pour coordonner la réplication et le basculement dans vos succursales, vous obtenez une orchestration unifiée et l’affichage de toutes les charges de travail de vos succursales dans un emplacement central. Vous pouvez facilement exécuter les basculements et gérer la récupération d’urgence de toutes les succursales à partir de votre siège social, sans vous rendre dans ces succursales.
 
 ## <a name="pricing"></a>Tarification
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Quels frais sont facturés lors de l’utilisation d’Azure Site Recovery ?
-Lorsque vous utilisez Site Recovery, des frais vous sont facturés pour la licence Site Recovery, le stockage Azure, les transactions de stockage et le transfert de données sortant. [En savoir plus](https://azure.microsoft.com/pricing/details/site-recovery).
-
-La licence Site Recovery est destinée à une instance protégée, l’instance étant une machine virtuelle ou un serveur physique.
-
-- Si un disque de machine virtuelle est répliqué vers un compte de stockage standard, les frais de stockage Azure concernent la consommation de stockage. Par exemple, si le disque source présente une taille de 1 To et 400 Go sont utilisés, Site Recovery crée un disque dur virtuel (VHD) de 1 To dans Azure, mais le stockage est facturé pour 400 Go (plus la quantité d’espace de stockage utilisée pour les journaux de réplication).
-- Si un disque de machine virtuelle est répliqué vers un compte de stockage Premium, les frais de stockage Azure concernent la taille de stockage provisionnée, arrondie selon l’option de disque de stockage Premium la plus proche. Par exemple, si le disque source présente une taille de 50 Go, Site Recovery crée un disque de 50 Go dans Azure et Azure mappe celui-ci au disque de stockage Premium le plus proche (P10).  Les coûts sont calculés selon le disque P10 et non selon le disque de 50 Go.  [Plus d’informations](https://aka.ms/premium-storage-pricing)  Si vous utilisez le stockage Premium, un compte de stockage standard est également requis pour la journalisation de réplication, et la quantité d’espace de stockage standard utilisée pour ces journaux est facturée en plus.
-- Aucun disque n’est créé tant qu’un test de basculement ou un basculement n’a pas eu lieu. Dans l’état de réplication, des frais de stockage s’appliquent dans la catégorie « Objet blob de page et disque » tels que déterminés par la [calculatrice du prix de stockage](https://azure.microsoft.com/en-in/pricing/calculator/). Ces frais sont basés sur le type de stockage premium/standard et sur le type de redondance des données (LRS, GRS,RA-GRS, etc.).
-- Si l’option permettant d’utiliser des disques managés sur un basculement est sélectionnée, des [frais de disques managés](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) s’appliquent après un basculement/test de basculement. Les frais de disques managés ne s’appliquent pas pendant la réplication.
-- Si l’option permettant d’utiliser des disques managés sur un basculement n’est pas sélectionnée, des frais de stockage dans la catégorie « Objet blob de page et disque » tels que déterminés par la [calculatrice du prix de stockage](https://azure.microsoft.com/en-in/pricing/calculator/) s’appliquent après le basculement. Ces frais sont basés sur le type de stockage premium/standard et sur le type de redondance des données (LRS, GRS,RA-GRS, etc.).
-- Des transactions de stockage sont facturées pendant la réplication à l’état stationnaire et pour les opérations régulières de machine virtuelle après un basculement/test de basculement. Mais ces coûts sont négligeables.
-
-Des coûts sont aussi facturés pendant le test de basculement, les coûts de la machine virtuelle, du stockage, de la sortie et des transactions de stockage s’appliquant.
-
-
+Pour toute questions relative à la tarification, consultez la FAQ sous [Tarification d'Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Sécurité
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Les données de réplication sont-elles envoyées vers le service Site Recovery ?

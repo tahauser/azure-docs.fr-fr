@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e99a7bc34ac5ed060100e5f5032513bf4b18b2eb
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Déployer une passerelle sur Windows ou Linux pour la solution préconfigurée d’usine connectée
 
@@ -44,7 +44,7 @@ Les étapes décrites dans cet article montrent comment déployer une passerelle
 ## <a name="windows-deployment"></a>Déploiement sous Windows
 
 > [!NOTE]
-> Si vous ne possédez pas encore de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Consultez le [catalogue d’appareils Azure IoT] pour obtenir la liste des passerelles compatibles avec la solution d’usine connectée. Suivez les instructions fournies avec la passerelle pour la configurer. Vois pouvez aussi utiliser les instructions suivantes pour configurer manuellement une de vos passerelles existantes.
+> Si vous ne possédez pas encore d’appareil de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Consultez le [catalogue d’appareils Azure IoT] pour obtenir la liste des passerelles compatibles avec la solution d’usine connectée. Suivez les instructions fournies avec la passerelle pour la configurer. Vois pouvez aussi utiliser les instructions suivantes pour configurer manuellement une de vos passerelles existantes.
 
 ### <a name="install-docker"></a>Installation de Docker
 
@@ -103,7 +103,7 @@ Vous pouvez également effectuer cette étape après l’installation de Docker,
 ## <a name="linux-deployment"></a>Déploiement sous Linux
 
 > [!NOTE]
-> Si vous ne possédez pas encore de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Consultez le [catalogue d’appareils Azure IoT] pour obtenir la liste des passerelles compatibles avec la solution d’usine connectée. Suivez les instructions fournies avec la passerelle pour la configurer. Vois pouvez aussi utiliser les instructions suivantes pour configurer manuellement une de vos passerelles existantes.
+> Si vous ne possédez pas encore d’appareil de passerelle, Microsoft vous recommande d’acheter une passerelle disponible dans le commerce auprès de l’un de nos partenaires. Consultez le [catalogue d’appareils Azure IoT] pour obtenir la liste des passerelles compatibles avec la solution d’usine connectée. Suivez les instructions fournies avec la passerelle pour la configurer. Vois pouvez aussi utiliser les instructions suivantes pour configurer manuellement une de vos passerelles existantes.
 
 [Installez Docker] sur votre passerelle Linux.
 

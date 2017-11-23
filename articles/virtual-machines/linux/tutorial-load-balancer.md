@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Équilibrage de la charge des machines virtuelles Linux dans Azure pour créer une application hautement disponible
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+Lorsque les trois cartes réseau virtuelles sont créées, passez à l’étape suivante
+
+
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
 ### <a name="create-cloud-init-config"></a>Créer une configuration cloud-init
-Dans le didacticiel précédent [How to customize a Linux virtual machine on first boot (Personnalisation d’une machine virtuelle Linux au premier démarrage)](tutorial-automate-vm-deployment.md), vous avez appris à automatiser la personnalisation des machines virtuelles avec cloud-init. Vous pouvez utiliser le même fichier de configuration cloud-init pour installer NGINX et exécuter une simple application Node.js « Hello World ».
+Dans le didacticiel précédent [How to customize a Linux virtual machine on first boot (Personnalisation d’une machine virtuelle Linux au premier démarrage)](tutorial-automate-vm-deployment.md), vous avez appris à automatiser la personnalisation des machines virtuelles avec cloud-init. Vous pouvez utiliser le même fichier de configuration cloud-init pour installer NGINX et exécuter une application Node.js « Hello World » simple à l’étape suivante. Pour voir l’équilibreur de charge en action, à la fin du didacticiel vous avez accès à cette application simple dans un navigateur web.
 
 Dans l’interpréteur de commandes actuel, créez un fichier nommé *cloud-init.txt* et collez la configuration suivante. Par exemple, créez le fichier dans l’interpréteur de commandes Cloud et non sur votre ordinateur local. Entrez `sensible-editor cloud-init.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne :
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Vous pouvez alors entrer l’adresse IP publique dans un navigateur web. N’oubliez pas - patientez quelques minutes avant que les machines virtuelles soient prêtes et que l’équilibreur de charge commence à diriger du trafic vers ces dernières. L’application s’affiche, avec notamment le nom d’hôte de la machine virtuelle sur laquelle l’équilibreur de charge a distribué le trafic comme dans l’exemple suivant :
+Vous pouvez alors entrer l’adresse IP publique dans un navigateur web. N’oubliez pas : patientez quelques minutes jusqu’à ce que les machines virtuelles soient prêtes pour que l’équilibreur de charge commence à répartir du trafic vers ces dernières. L’application s’affiche, avec notamment le nom d’hôte de la machine virtuelle sur laquelle l’équilibreur de charge a distribué le trafic comme dans l’exemple suivant :
 
 ![Exécution de l’application Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Pour visualiser la distribution de trafic par l’équilibreur de charge sur les deux machines virtuelles restantes exécutant votre application, vous pouvez forcer l’actualisation de votre navigateur web. Vous pouvez maintenant effectuer la maintenance sur la machine virtuelle, avec par exemple l’installation des mises à jour du système d’exploitation ou le redémarrage de la machine virtuelle.
 
+Pour afficher une liste des machines virtuelles avec des cartes réseau virtuelles connectées à l’équilibreur de charge, utilisez la commande [az network lb address-pool show](/cli/azure/network/lb/address-pool#show). Interroger et filtrer comme suit sur l’ID de la carte réseau virtuelle :
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+La sortie est similaire à l’exemple suivant, qui indique que la carte réseau virtuelle pour la machine virtuelle 2 ne fait plus partie du pool d’adresses principales :
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>Ajouter une machine virtuelle à l’équilibrage de charge
 Après avoir effectué les opérations de maintenance de la machine virtuelle, ou si vous devez développer la capacité, vous pouvez ajouter une machine virtuelle au pool d’adresses principal avec la commande [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). L’exemple suivant ajoute la carte réseau virtuelle pour **myVM2** à *myLoadBalancer* :
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Pour vérifier que la carte réseau virtuelle est connectée au pool d’adresses principales, utilisez à nouveau la commande [az network lb address-pool show](/cli/azure/network/lb/address-pool#show) de l’étape précédente.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
