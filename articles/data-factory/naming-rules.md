@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 8f0207853097a3d31e06a722025f3964678414bf
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 085328a9bbe304004f25f46ba5c366e911ac3836
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Règles d’affectation des noms
 Le tableau suivant fournit des règles d'affectation de noms pour les artefacts Data Factory.
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez [Naming rules in Data Factory version1](v1/data-factory-naming-rules.md) (Règles de nommage dans Data Factory version 1).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez [Règles de nommage dans Data Factory version 1](v1/data-factory-naming-rules.md).
 
 | Nom | Unicité du nom | Contrôles de validation |
 |:--- |:--- |:--- |

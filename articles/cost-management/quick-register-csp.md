@@ -1,20 +1,20 @@
 ---
-title: "S’inscrire avec des informations de partenaire CSP à Azure Cost Management | Microsoft Docs"
+title: "S’inscrire à l’aide des informations de partenaire CSP à la Gestion des coûts Azure | Microsoft Docs"
 description: "Utilisez vos informations de partenaire CSP pour vous inscrire à la Gestion des coûts Azure par Cloudyn."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>S’inscrire au programme pour les partenaires CSP et afficher les données de coût
 
@@ -22,7 +22,13 @@ En tant que partenaire CSP, vous pouvez vous inscrire à la Gestion des coûts A
 
 
 >[!NOTE]
->Pour vous inscrire, vous devez être un administrateur de programme partenaires ayant accès à l’API Espace partenaires. La configuration de l’API Espace partenaires est requise pour l’authentification et l’accès aux données. Pour plus d’informations, consultez [Se connecter à l’API Espace partenaires](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). En outre, les utilisateurs CSP indirects peuvent uniquement utiliser Cloudyn quand leur revendeur CSP direct s’inscrit auprès de Cloudyn pour fournir l’accès à ses clients et abonnements.
+
+>Seuls les partenaires et les fournisseurs CSP Indirect peuvent effectuer une inscription Cloudyn.
+>
+>La configuration de l’API Partner Center est nécessaire pour l’authentification et l’accès aux données. Un compte d’administrateur général Partner Center est nécessaire pour provisionner l’accès à l’API.
+Pour plus d’informations, consultez [Se connecter à l’API Espace partenaires](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>L’accès à Cloudyn peut être mis à disposition par les revendeurs CSP Indirect une fois que leur fournisseur CSP Indirect s’est inscrit à Cloudyn. Les revendeurs CSP Indirect peuvent ensuite fournir l’accès à Cloudyn aux clients et abonnements Azure.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -65,7 +71,7 @@ Les partenaires CSP indirects se connectent au portail Cloudyn à l’aide des c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à Cost Management. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur la Gestion des coûts Azure par Cloudyn, poursuivez avec le didacticiel sur la Gestion des coûts.
+Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à la Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur la Gestion des coûts Azure par Cloudyn, poursuivez avec le didacticiel sur la Gestion des coûts.
 
 > [!div class="nextstepaction"]
 > [Réviser l’utilisation et les coûts](./tutorial-review-usage.md)

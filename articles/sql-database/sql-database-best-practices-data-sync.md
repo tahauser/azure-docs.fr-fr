@@ -2,19 +2,19 @@
 title: Bonnes pratiques pour Azure SQL Data Sync | Microsoft Docs
 description: "Découvrez les pratiques recommandées pour configurer et exécuter Azure SQL Data Sync."
 services: sql-database
-ms.date: 11/2/2017
+ms.date: 11/13/2017
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7d9529fc8acd9347b0505b1c578febc1c2219b37
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Bonnes pratiques pour Azure SQL Data Sync (Préversion) 
+# <a name="best-practices-for-sql-data-sync-preview"></a>Bonnes pratiques pour SQL Data Sync (préversion) 
 
 Cet article décrit les bonnes pratiques pour Azure SQL Data Sync (Préversion).
 
@@ -44,54 +44,40 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 **Comment faire pour utiliser ces informations alors qu’il n’existe qu’une seule information d’identification pour une base de données dans le groupe de synchronisation ?**
 
--   Modifiez les informations d’identification pour différentes phases (par exemple, credential1 pour la configuration et credential2 pour les opérations continues).
+-   Changez les informations d’identification pour différentes phases (par exemple, *credential1* pour la configuration et *credential2* pour les opérations continues).
 
 -   Modifiez l’autorisation des informations d’identification (autrement dit, modifiez l’autorisation après avoir configuré la synchronisation).
 
-## <a name="locate-hub"></a> Emplacement de la base de données Hub
+## <a name="setup"></a>Paramétrage
 
-### <a name="enterprise-to-cloud-scenario"></a>Scénario entreprise-à-cloud
+### <a name="database-considerations-and-constraints"></a> Considérations et contraintes relatives aux bases de données
 
-Pour réduire la latence, conservez la base de données Hub proche de la plus grande concentration du trafic de base de données du groupe de synchronisation.
-
-### <a name="cloud-to-cloud-scenario"></a>Scénario cloud-à-cloud
-
--   Quand toutes les bases de données d’un groupe de synchronisation sont dans un même centre de données, le hub doit se trouver dans le même centre de données. Cette configuration réduit la latence et le coût de transfert de données entre les centres de données.
-
--   Quand les bases de données d’un groupe de synchronisation se trouvent dans plusieurs centres de données, le hub doit se trouver dans le même centre de données que la plupart des bases de données et du trafic de base de données.
-
-### <a name="mixed-scenarios"></a>Scénarios mixtes
-
-Appliquez les recommandations ci-dessus aux configurations de groupe de synchronisation plus complexes.
-
-## <a name="database-considerations-and-constraints"></a> Considérations et contraintes relatives aux bases de données
-
-### <a name="sql-database-instance-size"></a>Taille de l’instance de SQL Database
+#### <a name="sql-database-instance-size"></a>Taille de l’instance de SQL Database
 
 Quand vous créez une instance de SQL Database, définissez la taille maximale afin qu’elle soit toujours supérieure à la base de données que vous déployez. Si vous n’affectez pas à la taille maximale une valeur supérieure à la base de données déployée, la synchronisation échoue. Comme la croissance n’est pas automatique, vous pouvez exécuter une instruction ALTER DATABASE pour augmenter la taille de la base de données après sa création. Veillez à rester dans les limites de taille d’instance SQL Database.
 
 > [!IMPORTANT]
 > SQL Data Sync stocke des métadonnées supplémentaires avec chaque base de données. Veillez à prendre en compte ces métadonnées quand vous calculez l’espace nécessaire. La quantité de surcharge ajoutée est régie par la largeur des tables (par exemple, des tables étroites nécessitent davantage de surcharge) et la quantité de trafic.
 
-## <a name="table-considerations-and-constraints"></a> Considérations et contraintes relatives aux tables
+### <a name="table-considerations-and-constraints"></a> Considérations et contraintes relatives aux tables
 
-### <a name="selecting-tables"></a>Sélection de tables
+#### <a name="selecting-tables"></a>Sélection de tables
 
-Toutes les tables d’une base de données ne doivent pas obligatoirement être dans un [groupe de synchronisation](#sync-group). La sélection des tables à inclure dans un groupe de synchronisation et de celles à exclure (ou à inclure dans un autre groupe de synchronisation) peut avoir un impact sur l’efficacité et les coûts. Incluez dans un groupe de synchronisation uniquement les tables dont l’inclusion est exigée par des besoins professionnels, ainsi que les tables sur lesquelles elles dépendent.
+Toutes les tables d’une base de données ne doivent pas obligatoirement être dans un groupe de synchronisation. La sélection des tables à inclure dans un groupe de synchronisation et de celles à exclure (ou à inclure dans un autre groupe de synchronisation) peut avoir un impact sur l’efficacité et les coûts. Incluez dans un groupe de synchronisation uniquement les tables dont l’inclusion est exigée par des besoins professionnels, ainsi que les tables sur lesquelles elles dépendent.
 
-### <a name="primary-keys"></a>Clés primaires
+#### <a name="primary-keys"></a>Clés primaires
 
 Chaque table dans un groupe de synchronisation doit avoir une clé primaire. Le service SQL Data Sync (Préversion) ne peut pas synchroniser une table qui n’a pas de clé primaire.
 
 Avant le déploiement en production, testez les performances de synchronisation initiales et actuelles.
 
-## <a name="provisioning-destination-databases"></a> Provisionnement des bases de données de destination
+### <a name="provisioning-destination-databases"></a> Provisionnement des bases de données de destination
 
 SQL Data Sync (Préversion) fournit un provisionnement automatique de base des bases de données.
 
 Cette section présente les limitations du provisionnement offert par SQL Data Sync (Préversion).
 
-### <a name="auto-provisioning-limitations"></a>Limitations du provisionnement automatique
+#### <a name="auto-provisioning-limitations"></a>Limitations du provisionnement automatique
 
 Voici les limitations du provisionnement automatique offert par SQL Data Sync (Préversion).
 
@@ -109,39 +95,87 @@ Si l’index de la table source a des colonnes qui ne font pas partie du groupe 
 
 -   Les vues et procédures stockées ne sont pas créées sur la base de données de destination.
 
-### <a name="recommendations"></a>Recommandations
+#### <a name="recommendations"></a>Recommandations
 
 -   Utilisez la fonctionnalité de provisionnement automatique uniquement pour tester le service.
 
 -   Pour la production, vous devez provisionner le schéma de base de données.
 
-## <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Éviter une synchronisation initiale lente et coûteuse
+### <a name="locate-hub"></a> Emplacement de la base de données Hub
+
+#### <a name="enterprise-to-cloud-scenario"></a>Scénario entreprise-à-cloud
+
+Pour réduire la latence, conservez la base de données Hub proche de la plus grande concentration du trafic de base de données du groupe de synchronisation.
+
+#### <a name="cloud-to-cloud-scenario"></a>Scénario cloud-à-cloud
+
+-   Quand toutes les bases de données d’un groupe de synchronisation sont dans un même centre de données, le hub doit se trouver dans le même centre de données. Cette configuration réduit la latence et le coût de transfert de données entre les centres de données.
+
+-   Quand les bases de données d’un groupe de synchronisation se trouvent dans plusieurs centres de données, le hub doit se trouver dans le même centre de données que la plupart des bases de données et du trafic de base de données.
+
+#### <a name="mixed-scenarios"></a>Scénarios mixtes
+
+Appliquez les recommandations ci-dessus aux configurations de groupe de synchronisation plus complexes.
+
+## <a name="sync"></a>Synchronisation
+
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Éviter une synchronisation initiale lente et coûteuse
 
 Cette section traite de la synchronisation initiale d’un groupe de synchronisation et de ce que vous pouvez faire pour éviter qu’elle ne dure plus longtemps que nécessaire et ne coûte plus qu’elle ne devrait.
 
-### <a name="how-initial-synchronization-works"></a>Fonctionnement de la synchronisation initiale
+#### <a name="how-initial-synchronization-works"></a>Fonctionnement de la synchronisation initiale
 
 Quand vous créez un groupe de synchronisation, commencez avec des données d’une seule base de données. Si vous avez des données dans plusieurs bases de données, SQL Data Sync (Préversion) traite chaque ligne comme un conflit qui doit être résolu. Cette résolution de conflit ralentit la synchronisation initiale, qui peut prendre de plusieurs jours à plusieurs mois, en fonction de la taille de la base de données.
 
 En outre, si les bases de données se trouvent dans différents centres de données, les coûts de la synchronisation initiale sont plus élevés que nécessaire, étant donné que chaque ligne doit être déplacée entre les différents centres de données.
 
-### <a name="recommendation"></a>Recommandation
+#### <a name="recommendation"></a>Recommandation
 
 Si possible, commencez avec les données d’une seule des bases de données du groupe de synchronisation.
 
-## <a name="design-to-avoid-synchronization-loops"></a> Éviter les boucles de synchronisation
+### <a name="design-to-avoid-synchronization-loops"></a> Éviter les boucles de synchronisation
 
 Une boucle de synchronisation se produit quand il existe des références circulaires dans un groupe de synchronisation. Dans ce cas, chaque modification apportée à une base de données est répliquée dans les bases de données du groupe de synchronisation de manière circulaire et indéfiniment. Vous devez éviter les boucles de synchronisation, car elles dégradent les performances et peuvent augmenter considérablement les coûts.
 
-## <a name="avoid-out-of-date-databases-and-sync-groups"></a> Éviter les bases de données et les groupes de synchronisation obsolètes
+### <a name="handling-changes-that-fail-to-propagate"></a> Gestion des modifications dont la propagation échoue
+
+#### <a name="reasons-that-changes-fail-to-propagate"></a>Raisons pour lesquelles la propagation des modifications échoue
+
+La propagation des modifications peut échouer pour de nombreuses raisons, parmi lesquelles :
+
+-   Incompatibilité de schéma/type de données
+
+-   Tentative d’insertion de valeurs null dans des colonnes non nullables
+
+-   Violation de contraintes de clé étrangère
+
+#### <a name="what-happens-when-changes-fail-to-propagate"></a>Que se passe-t-il quand la propagation des modifications échoue ?
+
+-   Le groupe de synchronisation affiche un état d’avertissement.
+
+-   Les détails sont disponibles dans la visionneuse du journal de l’interface utilisateur du portail.
+
+-   Si le problème n’est pas résolu pendant 45 jours, la base de données devient obsolète.
+
+> [!NOTE]
+> Ces modifications ne sont jamais propagées. La seule façon de récupérer consiste à recréer le groupe de synchronisation.
+
+#### <a name="recommendation"></a>Recommandation
+
+Surveillez l’intégrité du groupe de synchronisation et de la base de données régulièrement par le biais de l’interface du portail et du journal.
+
+
+## <a name="maintenance"></a>Maintenance 
+
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Éviter les bases de données et les groupes de synchronisation obsolètes
 
 Un groupe de synchronisation ou une base de données d’un groupe de synchronisation peut devenir obsolète. Quand l’état d’un groupe de synchronisation est « obsolète », il cesse de fonctionner. Quand l’état d’une base de données est « obsolète », il y a un risque de perte de données. Il est préférable d’éviter ces situations plutôt que d’avoir à les corriger.
 
-### <a name="avoid-out-of-date-databases"></a>Éviter les bases de données obsolètes
+#### <a name="avoid-out-of-date-databases"></a>Éviter les bases de données obsolètes
 
 Une base de données bascule à l’état obsolète quand elle est hors connexion depuis 45 jours ou plus. Pour éviter qu’une base de données ne bascule à l’état obsolète, veillez à ce qu’aucune des bases de données ne soit hors connexion pendant 45 jours ou plus.
 
-### <a name="avoid-out-of-date-sync-groups"></a>Éviter les groupes de synchronisation obsolètes
+#### <a name="avoid-out-of-date-sync-groups"></a>Éviter les groupes de synchronisation obsolètes
 
 Un groupe de synchronisation bascule à l’état obsolète en cas d’échec de propagation d’une modification dans le groupe de synchronisation vers le reste du groupe de synchronisation pendant 45 jours ou plus. Pour éviter qu’un groupe de synchronisation ne bascule à l’état obsolète, vérifiez régulièrement le journal d’historique du groupe de synchronisation. Assurez-vous que tous les conflits sont résolus et que les modifications sont propagées dans les bases de données du groupe de synchronisation.
 
@@ -163,11 +197,11 @@ Vous pouvez empêcher qu’un groupe de synchronisation ne devienne obsolète en
 
 -   Mettant à jour les valeurs de données dans la ligne ayant provoqué l’échec pour qu’elles soient compatibles avec le schéma ou les clés étrangères dans la base de données cible.
 
-## <a name="avoid-deprovisioning-issues"></a> Éviter les problèmes d’annulation du provisionnement
+### <a name="avoid-deprovisioning-issues"></a> Éviter les problèmes d’annulation du provisionnement
 
 Dans certaines circonstances, la désinscription d’une base de données auprès d’un agent client peut entraîner l’échec des synchronisations.
 
-### <a name="scenario"></a>Scénario
+#### <a name="scenario"></a>Scénario
 
 1. Le groupe de synchronisation A a été créé avec une instance de SQL Database et une base de données SQL Server locale, qui est associée à l’agent local 1.
 
@@ -177,7 +211,7 @@ Dans certaines circonstances, la désinscription d’une base de données auprè
 
 4. Désormais, les opérations du groupe de synchronisation A échouent avec l’erreur suivante : « L’opération en cours a échoué, car la base de données n’est pas configurée pour la synchronisation ou vous ne disposez pas des autorisations nécessaires sur les tables de configuration de synchronisation. »
 
-### <a name="solution"></a>Solution
+#### <a name="solution"></a>Solution
 
 Évitez que ces situations ne se produisent en n’inscrivant jamais une base de données auprès de plusieurs agents.
 
@@ -189,34 +223,7 @@ Pour résoudre ce problème
 
 3. Déployez chaque groupe de synchronisation concerné (ce qui provisionne la base de données).
 
-## <a name="handling-changes-that-fail-to-propagate"></a> Gestion des modifications dont la propagation échoue
-
-### <a name="reasons-that-changes-fail-to-propagate"></a>Raisons pour lesquelles la propagation des modifications échoue
-
-La propagation des modifications peut échouer pour de nombreuses raisons, parmi lesquelles :
-
--   Incompatibilité de schéma/type de données
-
--   Tentative d’insertion de valeurs null dans des colonnes non nullables
-
--   Violation de contraintes de clé étrangère
-
-### <a name="what-happens-when-changes-fail-to-propagate"></a>Que se passe-t-il quand la propagation des modifications échoue ?
-
--   Le groupe de synchronisation affiche un état d’avertissement.
-
--   Les détails sont disponibles dans la visionneuse du journal de l’interface utilisateur du portail.
-
--   Si le problème n’est pas résolu pendant 45 jours, la base de données devient obsolète.
-
-> [!NOTE]
-> Ces modifications ne sont jamais propagées. La seule façon de récupérer consiste à recréer le groupe de synchronisation.
-
-### <a name="recommendation"></a>Recommandation
-
-Surveillez l’intégrité du groupe de synchronisation et de la base de données régulièrement par le biais de l’interface du portail et du journal.
-
-## <a name="modifying-your-sync-group"></a> Modification d’un groupe de synchronisation
+### <a name="modifying-your-sync-group"></a> Modification d’un groupe de synchronisation
 
 N’essayez pas de supprimer une base de données d’un groupe de synchronisation et de modifier ensuite le groupe de synchronisation sans avoir déployé au préalable l’une des modifications.
 
@@ -228,7 +235,8 @@ Si vous tentez de supprimer une base de données et de modifier un groupe de syn
 Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md)
--   [Bien démarrer avec Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

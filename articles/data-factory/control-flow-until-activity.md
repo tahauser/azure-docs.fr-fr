@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
 L’activité Until fournit les mêmes fonctionnalités qu’une structure de boucle do-until dans les langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until dans Data Factory. 
@@ -60,7 +60,7 @@ Propriété | Description | Valeurs autorisées | Requis
 name | Nom de l’activité `Until`. | String | Oui
 type | Doit être défini sur **Until**. | String | Oui
 expression | Expression qui doit retourner true ou false | Expression.  | Oui
-timeout | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. | Non
+timeout | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. Valeur maximale : 90 jours. | Non
 Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Oui
 
 ## <a name="example-1"></a>Exemple 1

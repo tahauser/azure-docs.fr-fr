@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Utiliser PowerShell pour la synchronisation entre une base de données SQL et une base de données locale SQL Server
 
 Ce script PowerShell configure la synchronisation des données entre une base de données Azure SQL et une base de données locale SQL Server. 
 
@@ -31,7 +31,7 @@ Cet exemple requiert le module Azure PowerShell version 4.2 ou ultérieure. Ex�
  
 Exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
-Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (préversion)](../sql-database-sync-data.md).
+Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (Préversion)](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -393,8 +393,9 @@ Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell 
 Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](../sql-database-sync-data.md)
--   [Bien démarrer avec Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
+-   [Configurer Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
 -   [Bonnes pratiques pour Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+-   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

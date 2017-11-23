@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/2/2017
+ms.date: 11/9/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88ca71f83696c5865405799cddc3645778261408
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Utilisation des applets de commande AzureRM.Backup pour sauvegarder des machines virtuelles
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 Cet article vous montre comment utiliser Azure PowerShell pour la sauvegarde et la restauration des machines virtuelles Azure. Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite de l’utilisation du modèle de déploiement classique pour sauvegarder des données dans un coffre de sauvegarde. Si vous n’avez pas créé de coffre de sauvegarde dans votre abonnement, consultez la version du Gestionnaire des ressources de cet article, [Utilisez les applets de commande AzureRM.RecoveryServices.Backup pour sauvegarder des machines virtuelles](backup-azure-vms-automation.md). Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 > [!IMPORTANT]
-> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À compter du 15 octobre 2017, vous ne pourrez plus vous servir de PowerShell pour créer des coffres de sauvegarde. **D’ici au 1er novembre 2017** :
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À compter du 30 novembre 2017, vous ne pouvez pas vous servir de PowerShell pour créer des coffres de sauvegarde.<br/> **D’ici au 30 novembre 2017** :
 >- tous les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
 >- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 >

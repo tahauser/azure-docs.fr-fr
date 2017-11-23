@@ -1,5 +1,5 @@
 ---
-title: "Référence technique de Azure Active Directory Conditional Access | Microsoft Docs"
+title: "Référence technique sur l’accès conditionnel Azure Active Directory | Microsoft Docs"
 description: "Découvrez comment utiliser le contrôle de l’accès conditionnel dans Azure Active Directory. Spécifiez les conditions d’authentification des utilisateurs et du contrôle d’accès à votre application. Lorsque les conditions spécifiées sont satisfaites, les utilisateurs sont authentifiés et peuvent accéder à votre application."
 services: active-directory.
 documentationcenter: 
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/11/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique de Azure Active Directory Conditional Access
+# <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique sur l’accès conditionnel Azure Active Directory
 
 Vous pouvez utiliser [l’accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) pour préciser les méthodes d’accès des utilisateurs autorisés aux ressources.  
 
@@ -119,20 +119,19 @@ Contrôlez l’accès du navigateur à l’aide de l’option **Navigateur** dan
 Dans une stratégie d’accès conditionnel, les navigateurs suivants sont pris en charge : 
 
 
-| SE                     | Navigateurs                    | Support     |
-| :--                    | :--                         | :-:         |
-| Windows 10             | Internet Explorer, Edge     | ![Vérification][1] |
-| Windows 10             | Chrome                      | ![Vérification][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome   | ![Vérification][1] |
-| Windows 7              | Internet Explorer, Chrome   | ![Vérification][1] |
-| iOS                    | Safari, Intune Managed Browser                      | ![Vérification][1] |
-| Android                | Chrome, Intune Managed Browser                      | ![Vérification][1] |
-| Windows Phone          | Internet Explorer, Edge     | ![Vérification][1] |
-| Windows Server 2016    | Internet Explorer, Edge     | ![Vérification][1] |
-| Windows Server 2016    | Chrome                      | Bientôt disponible |
-| Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Vérification][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Vérification][1] |
-| macOS                  | Chrome, Safari              | ![Vérification][1] |
+| SE                     | Navigateurs                            | Support     |
+| :--                    | :--                                 | :-:         |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Vérification][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Vérification][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Vérification][1] |
+| iOS                    | Safari, Intune Managed Browser      | ![Vérification][1] |
+| Android                | Chrome, Intune Managed Browser      | ![Vérification][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![Vérification][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Vérification][1] |
+| Windows Server 2016    | Chrome                              | Bientôt disponible |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Vérification][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Vérification][1] |
+| macOS                  | Chrome, Safari                      | ![Vérification][1] |
 
 
 > [!NOTE]

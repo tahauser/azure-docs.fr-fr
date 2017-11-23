@@ -1,5 +1,5 @@
 ---
-title: "Montage d’un volume Azure Files dans Azure Container Instances"
+title: Monter un volume Azure Files dans Azure Container Instances
 description: "Découvrir comment monter un volume Azure Files pour conserver l’état avec Azure Container Instances"
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montage d’un partage de fichiers Azure avec Azure Container Instances
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Monter un partage de fichiers Azure avec Azure Container Instances
 
 Par défaut, les conteneurs Azure Container Instances sont sans état. Si le conteneur se bloque ou s’arrête, son état est entièrement perdu. Pour conserver l’état au-delà de la durée de vie du conteneur, vous devez monter un volume à partir d’un stockage externe. Cet article explique comment monter un partage de fichiers Azure pour une utilisation avec Azure Container Instances.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Stocker les détails de l’accès au compte de stockage avec un coffre de clés Azure
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Stocker les détails de l’accès au compte de stockage avec Azure Key Vault
 
 Les clés de compte de stockage protégeant l’accès à vos données, nous vous recommandons de les stocker dans un coffre de clés Azure.
 
@@ -185,16 +185,16 @@ Insérer les valeurs dans le fichier de paramètres :
 Le modèle étant défini, vous pouvez créer le conteneur et monter son volume à l’aide d’Azure CLI. En supposant que le fichier de modèle est nommé *azuredeploy.json* et que le fichier de paramètres est nommé *azuredeploy.parameters.json*, la ligne de commande est la suivante :
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Après le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée via l’image **aci/seanmckenna-hellofiles** pour gérer les fichiers du partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Procédez comme suit pour obtenir l’adresse IP de l’application web :
+Après le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée via l’image **aci/seanmckenna-hellofiles** pour gérer les fichiers du partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Obtenez l’adresse IP de l’application web avec la commande [az container show](/cli/azure/container#az_container_show) :
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Vous pouvez utiliser un outil comme l’[Explorateur de stockage Microsoft Azure](http://storageexplorer.com) pour récupérer et inspecter le fichier écrit sur le partage de fichiers.
+Vous pouvez utiliser un outil comme l’[Explorateur de stockage Microsoft Azure](https://storageexplorer.com) pour récupérer et inspecter le fichier écrit sur le partage de fichiers.
 
 >[!NOTE]
 > Pour en savoir plus sur l’utilisation de modèles Azure Resource Manager, les fichiers de paramètres et le déploiement avec Azure CLI, voir [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).

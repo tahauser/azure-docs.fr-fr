@@ -1,25 +1,25 @@
 ---
-title: "Demandes d’augmentation du quota de base d’Azure Resource Manager | Microsoft Docs"
-description: "Demandes d’augmentation du quota de base d’Azure Resource Manager"
+title: "Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager | Microsoft Docs"
+description: "Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager"
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="resource-manager-core-quota-increase-requests"></a>Demandes d’augmentation du quota de base de Resource Manager
+# <a name="resource-manager-vcpu-quota-increase-requests"></a>Demandes d’augmentation des quotas de processeurs virtuels pour Resource Manager
 
-Les quotas de base de Resource Manager sont appliqués au niveau de la région et de la famille de références (SKU).
+Les quotas de processeurs virtuels pour Resource Manager sont appliqués au niveau de la région et de la famille de références (SKU).
 Pour en savoir plus sur la façon dont les quotas sont appliqués, consultez la page [Abonnement Azure et limites, quotas et contraintes de service](http://aka.ms/quotalimits).
 Pour en savoir plus sur les familles de références, vous pouvez comparer le coût et les performances sur la page [Tarification des machines virtuelles](http://aka.ms/pricingcompute).
 
-Pour demander une augmentation, créez un cas de prise en charge de quota de cœurs dans le portail Azure, [https://portal.azure.com](https://portal.azure.com).
+Pour demander une augmentation, créez un cas de support de quota pour les processeurs virtuels dans le portail Azure, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
 > Découvrez comment [créer une demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) dans le portail Azure.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Sécurisation des ressources Azure Content Delivery Network avec l’authentification du jeton
 
@@ -42,8 +42,6 @@ L’authentification du jeton s’assure que les requêtes sont générées par 
 
 Pour plus d’informations, consultez les exemples de configuration détaillés pour chaque paramètre dans [Configuration de l’authentification du jeton](#setting-up-token-authentication).
 
-Après avoir généré un jeton chiffré, ajoutez-le en tant que chaîne de requête à la fin du chemin d’accès de l’URL du fichier. Par exemple, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
-
 ## <a name="reference-architecture"></a>Architecture de référence
 
 Le diagramme des flux de travail suivant décrit comment Azure CDN applique l’authentification du jeton pour utiliser votre application web.
@@ -64,15 +62,21 @@ L’organigramme suivant décrit comment Azure CDN valide la requête du client 
 
 2. Placez le pointeur sur **HTTP Large**, puis cliquez sur **Token Auth** (Authentification du jeton) dans le menu volant. Vous pouvez ensuite configurer la clé de chiffrement et les paramètres de chiffrement comme suit :
 
-    1. Entrez une clé de chiffrement unique dans la zone **Clé primaire**, puis tapez éventuellement une clé de sauvegarde dans la zone **Clé de sauvegarde**.
-
-        ![Clé de configuration de l’authentification du jeton CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Créez une ou plusieurs clés de chiffrement. Une clé de chiffrement respecte la casse et peut contenir n’importe quelle combinaison de caractères alphanumériques. D’autres types de caractères, y compris les espaces, ne sont pas autorisés. La longueur maximale est de 250 caractères. Pour vous assurer que vos clés de chiffrement sont aléatoires, il est recommandé de les créer à l’aide de l’outil OpenSSL. L’outil OpenSSL présente la syntaxe suivante : `rand -hex <key length>`. Par exemple, `OpenSSL> rand -hex 32`. Pour éviter les temps d’arrêt, créez une clé primaire et une clé de sauvegarde. Une clé de sauvegarde fournit un accès ininterrompu à votre contenu pendant que la mise à jour de votre clé primaire est en cours.
     
-    2. Définissez des paramètres de chiffrement avec l’outil de chiffrement. Avec l’outil de chiffrement, vous pouvez autoriser ou refuser des requêtes en fonction de la date/heure d’expiration, du pays, du référent, du protocole et de l’IP du client (dans toute combinaison). 
+    2. Entrez une clé de chiffrement unique dans la zone **Clé primaire**, puis tapez éventuellement une clé de sauvegarde dans la zone **Clé de sauvegarde**.
 
-        ![Outil de chiffrement CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Sélectionnez la version minimale de chiffrement pour chaque clé dans la liste déroulante **Minimum Encryption Version (Version minimale de chiffrement)**, puis cliquez sur **Update (Mettre à jour)** :
+       - **V2** : indique que la clé peut être utilisée pour générer des jetons de version 2.0 et version 3.0. Utilisez cette option uniquement si vous effectuez la transition depuis une clé de chiffrement version 2.0 héritée vers une clé de version 3.0.
+       - **V3** : (recommandé) indique que la clé peut être uniquement utilisée pour générer des jetons de version 3.0.
 
-       Entrez des valeurs pour un ou plusieurs des paramètres de chiffrement suivants dans la zone **Encrypt Tool** (Outil de chiffrement) :  
+    ![Clé de configuration de l’authentification du jeton CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Utilisez l’outil de chiffrement pour définir les paramètres de chiffrement et générer un jeton. Avec l’outil de chiffrement, vous pouvez autoriser ou refuser des requêtes en fonction de la date/heure d’expiration, du pays, du référent, du protocole et de l’IP du client (dans toute combinaison). Bien qu’il n’existe aucune restriction sur le nombre et la combinaison de paramètres pouvant être associés pour former un jeton, la longueur totale d’un jeton est limitée à 512 caractères. 
+
+       ![Outil de chiffrement CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Entrez les valeurs pour un ou plusieurs des paramètres de chiffrement suivants dans la zone **Encrypt Tool (Outil de chiffrement)** :  
 
        - **ec_expire** : affecte une date/heure d’expiration à un jeton au-delà de laquelle le jeton est arrivé à expiration. Les requêtes soumises après la date/heure d’expiration sont refusées. Ce paramètre utilise un timestamp Unix, qui est basé sur le nombre de secondes écoulées depuis l’époque standard `1/1/1970 00:00:00 GMT`. (Vous pouvez utiliser des outils en ligne pour convertir l’heure standard en heure Unix, et inversement.) Par exemple, si vous souhaitez que le jeton arrive à expiration le `12/31/2016 12:00:00 GMT`, utilisez la valeur de timestamp Unix `1483185600`, comme suit. 
     
@@ -98,7 +102,7 @@ L’organigramme suivant décrit comment Azure CDN valide la requête du client 
     
        - **ec_ref_allow** : autorise uniquement les requêtes provenant du référent spécifié. Un référent identifie l’URL de la page web qui est liée à la ressource demandée. N’incluez pas le protocole dans la valeur du paramètre de référent. Les types d’entrée suivants sont autorisés pour la valeur du paramètre :
            - Un nom d’hôte ou un nom d’hôte et un chemin d’accès.
-           - Plusieurs référents. Pour ajouter plusieurs référents, séparez chacun d’eux par une virgule. Si vous spécifiez une valeur de référent, mais que la configuration du navigateur ne permet pas l’envoi des informations sur le référent, les requêtes sont refusées par défaut. 
+           - Plusieurs référents. Pour ajouter plusieurs référents, séparez chacun d’eux par une virgule. Si vous spécifiez une valeur de référent, mais que la configuration du navigateur ne permet pas l’envoi des informations sur le référent dans la requête, cette requête est refusée par défaut. 
            - Requêtes manquant d’informations sur le référent. Pour autoriser ces types de requête, entrez le texte « missing » ou une valeur vide. 
            - Sous-domaines. Pour autoriser des sous-domaines, entrez un astérisque (\*). Par exemple, pour autoriser tous les sous-domaines de `consoto.com`, entrez `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ L’organigramme suivant décrit comment Azure CDN valide la requête du client 
             
          ![Exemple de paramètre ec_clientip dans CDN](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. Lorsque vous avez entré les valeurs des paramètres de chiffrement, sélectionnez le type de clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)** et une version de chiffrement dans la liste **Encryption Version (Version de chiffrement)**, puis cliquez sur **Chiffrer**.
+    5. Après avoir entré les valeurs des paramètres de chiffrement, sélectionnez une clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)**.
+    
+    6. Sélectionnez une version de chiffrement dans la liste **Encryption Version (Version de chiffrement)** : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). Ensuite, cliquez sur **Encrypt (Chiffrer)**  pour générer le jeton.
+
+    Lorsque le jeton est généré, il est affiché dans la zone **Generated Token (Jeton généré)**. Pour utiliser le jeton, ajoutez-le en tant que chaîne de requête à la fin du fichier dans le chemin de l’URL. Par exemple, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. Testez éventuellement votre jeton avec l’outil de déchiffrement. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)**. Sélectionnez le type de clé de chiffrement à déchiffrer dans la liste déroulante **Key To Decrypt (Clé à déchiffrer)**, puis cliquez sur **Déchiffrer**.
+    7. Testez éventuellement votre jeton avec l’outil de déchiffrement. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)**. Sélectionnez la clé de chiffrement à utiliser dans la liste déroulante **Key To Decrypt (Clé à déchiffrer)**, puis cliquez sur **Decrypt (Déchiffrer)**.
 
-    5. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez le code dans la liste déroulante **Code de réponse**, puis cliquez sur **Enregistrer**. Le code de réponse **403** (Interdit) est sélectionné par défaut. Pour certains codes de réponse, vous pouvez également entrer l’URL de votre page d’erreur dans la zone **Valeur de l’en-tête**. 
+    Une fois que le jeton est déchiffré, ses paramètres sont affichés dans la zone **Original Parameters (Paramètres d’origine)**.
 
-    6. Après avoir généré un jeton chiffré, ajoutez-le en tant que chaîne de requête à la fin du fichier dans le chemin d’accès de l’URL. Par exemple, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez le code dans la liste déroulante **Code de réponse**, puis cliquez sur **Enregistrer**. Le code de réponse **403** (Interdit) est sélectionné par défaut. Pour certains codes de réponse, vous pouvez également entrer l’URL de votre page d’erreur dans la zone **Valeur de l’en-tête**. 
 
 3. Cliquez sur **Moteur de règles** sous **HTTP Large**. Le moteur de règles permet de définir les chemins d’accès pour appliquer la fonctionnalité, d’activer la fonctionnalité d’authentification du jeton et d’activer d’autres fonctionnalités associées à l’authentification du jeton. Pour plus d’informations, consultez [Moteur des règles Azure CDN](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ Les langages disponibles sont notamment :
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Tarification du fournisseur et des fonctionnalités du CDN Azure
 
-Pour plus d’informations, consultez [Présentation de CDN](cdn-overview.md).
+Pour des informations sur les fonctionnalités, consultez [Vue d’ensemble du CDN](cdn-overview.md). Pour des informations sur les tarifs, consultez [Tarifs Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).

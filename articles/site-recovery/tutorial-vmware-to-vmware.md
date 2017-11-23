@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware locaux sur un site secondaire
 
 InMage Scout dans [Azure Site Recovery](site-recovery-overview.md) assure la réplication en temps réel entre des sites VMware locaux. InMage Scout est inclus dans les abonnements au service Azure Site Recovery. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour suivre ce didacticiel :
 
@@ -45,7 +45,7 @@ Sélectionnez ce qui doit être répliqué et où.
 2. Sélectionnez **Vers le site de récupération** > **Oui, avec l’hyperviseur VMware vSphere**. Cliquez ensuite sur **OK**.
 3. Dans **Installation de Scout**, téléchargez le logiciel InMage Scout 8.0.1 GA et la clé d’inscription. Les fichiers d’installation pour tous les composants figurent dans le fichier .zip téléchargé.
 
-## <a name="install-component-updates"></a>Installer les mises à jour de composants
+## <a name="download-and-install-component-updates"></a>Télécharger et installer les mises à jour des composants
 
  Examinez et installez les dernières [mises à jour](#updates). Les mises à jour doivent être installées sur les serveurs dans l’ordre suivant :
 
@@ -83,7 +83,7 @@ Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6
 ## <a name="enable-replication"></a>Activer la réplication
 
 1. Configurez la réplication entre les sites VMware sources et cibles.
-2. Pour obtenir des instructions, consultez la documentation InMage Scout téléchargée avec le produit. Vous pouvez également accéder à la documentation comme suit :
+2. Consultez les documents suivants pour en savoir plus sur l’installation, la protection et la récupération :
 
    * [Notes de publication](https://aka.ms/asr-scout-release-notes)
    * [Matrice de compatibilité](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Mise à jour : 12 octobre 2017
+
+Téléchargez [Scout Update 6](https://aka.ms/asr-scout-update6).
 
 Scout Update 6 est une mise à jour cumulative. Elle contient tous les correctifs d’Update 1 à Update 5, ainsi que les nouveaux correctifs et améliorations décrits ci-dessous. 
 

@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>J’ai oublié mon mot de passe Azure AD
+# <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
 
-Si vous avez oublié votre mot de passe, si vous ne l’avez jamais reçu du personnel informatique,si l’accès à votre compte a été bloqué, ou si vous souhaitez le modifier, nous pouvons vous aider. Si vous connaissez votre mot de passe et que vous avez simplement besoin de le changer, continuez jusqu’à la section [Modifier mon mot de passe](#change-my-password) ci-dessous.
+Si vous avez oublié votre mot de passe, que vous ne l’avez jamais reçu du support de votre entreprise, que l’accès à votre compte a été bloqué ou que vous souhaitez le changer, nous pouvons vous aider. Si vous connaissez votre mot de passe et que vous avez simplement besoin de le changer, continuez jusqu’à la section [Modifier mon mot de passe](#change-my-password) ci-dessous.
 
    > [!NOTE]
    > Si vous tentez de récupérer un compte personnel comme Xbox, hotmail.com ou outlook.com, essayez les [suggestions fournies dans cet article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
@@ -64,7 +64,7 @@ Suivez les étapes ci-dessous pour accéder à la réinitialisation de mot de pa
    ![Vérifier vos données d’authentification][Verification]
 
 4. Votre personnel informatique pourra avoir besoin de plus d’éléments de vérification, vous devrez sans doute répéter l’étape 3 en sélectionnant une option différente.
-5. Sur la page **Choisir un nouveau mot de passe**, entrez un nouveau mot de passe, confirmez votre choix, puis cliquez sur **Terminer**. Nous vous conseillons de choisir un mot de passe comprenant 8 à 16 caractères, et incluant des majuscules, des minuscules, des nombres et des caractères spéciaux.
+5. Sur la page **Choisir un nouveau mot de passe**, entrez un nouveau mot de passe, confirmez votre choix, puis cliquez sur **Terminer**. Votre mot de passe professionnel ou scolaire peut présenter certaines exigences ; nous vous conseillons de choisir un mot de passe comprenant entre 8 et 16 caractères et incluant des majuscules, des minuscules, des nombres et des caractères spéciaux.
 6. Lorsque vous voyez apparaître le message **Votre mot de passe a été réinitialisé**, cela signifie que vous pouvez vous connecter avec votre nouveau mot de passe.
 
     ![Votre mot de passe a été réinitialisé][Complete]
@@ -95,6 +95,27 @@ Utilisez cette méthode si vous accédez généralement à vos applications à p
 3. Cliquez sur **Modifier le mot de passe**
 4. Saisissez votre ancien mot de passe, indiquez un nouveau mot de passe et confirmez-le, puis cliquez sur **Soumettre**
 
+## <a name="reset-password-at-login"></a>Réinitialiser le mot de passe à la connexion
+
+Si votre administrateur a activé la fonctionnalité, vous pouvez maintenant voir un lien vers **Réinitialiser le mot de passe** sur votre écran de connexion Windows 10 Fall Creators Update.
+
+![Écran de connexion][LoginScreen]
+
+Cliquez sur le lien **Réinitialiser le mot de passe** pour accéder à l’expérience SSPR depuis l’écran de connexion ; vous pouvez ainsi réinitialiser votre mot de passe sans avoir à vous connecter pour accéder à l’expérience web normal.
+
+1. Vérifiez votre nom d’utilisateur et cliquez sur **Suivant**.
+2. Choisissez et confirmez une méthode de contact pour la vérification. Votre personnel informatique pouvant avoir besoin de plus d’éléments de vérification, vous devrez sans doute répéter cette étape en sélectionnant une option différente.
+
+   ![Méthode de contact][ContactMethod]
+
+3. Dans la page **Créer un mot de passe**, entrez un nouveau mot de passe, confirmez votre choix, puis cliquez sur **Suivant**. Nous vous conseillons de choisir un mot de passe comprenant 8 à 16 caractères, et incluant des majuscules, des minuscules, des nombres et des caractères spéciaux.
+
+   ![Redéfinir le mot de passe][ResetPassword]
+
+4. Quand vous voyez **Votre mot de passe a été réinitialisé**, cliquez sur **Terminer**.
+
+Vous devriez maintenant pouvoir accéder à votre compte. Le cas échéant, contactez le personnel informatique de votre organisation pour plus d’aide.
+
 ## <a name="common-problems-and-their-solutions"></a>Problèmes courants et leurs solutions
 
  Voici quelques cas d'erreur courants et leurs solutions :
@@ -116,3 +137,6 @@ Utilisez cette méthode si vous accédez généralement à vos applications à p
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Vérifier vos données d’authentification"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Modifier votre mot de passe"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Votre mot de passe a été réinitialisé"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Lien de réinitialisation du mot de passe dans l’écran de connexion Windows 10 Fall Creators Update"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Vérifier vos données d’authentification"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Modifier votre mot de passe"

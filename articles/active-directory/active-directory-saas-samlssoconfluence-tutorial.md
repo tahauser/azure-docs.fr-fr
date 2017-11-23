@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17bd8294c957c0666ffe75d1ff06b863f1176048
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Confluence de resolution GmbH
 
@@ -169,26 +169,53 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. Dans la page **SAML SingleSignOn Plugin Configuration** (Configuration du plug-in d’authentification unique SAML), cliquez sur le bouton **Add additional Identity Provider** (ajouter un fournisseur d’identité) pour configurer les paramètres du fournisseur d’identité.
+16. Dans la page **SAML SingleSignOn Plugin Configuration** (Configuration du plug-in d’authentification unique SAML), cliquez sur le bouton **Add new IdP** (Ajouter un nouveau fournisseur d’identité) pour configurer les paramètres du fournisseur d’identité.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. Sur cette page, procédez comme suit :
+17. Dans la page **Choose your SAML Identity Provider** (Choisissez votre fournisseur d’identité SAML), effectuez les actions suivantes :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-    a. Ajoutez le **Nom** du fournisseur d’identité (p. ex. Azure AD).
+    a. Définissez **Azure AD** comme type de fournisseurs d’identité.
     
-    b. Ajoutez la **Description** du fournisseur d’identité (p. ex. Azure AD).
+    b. Ajoutez le **Nom** du fournisseur d’identité (p. ex. Azure AD).
+    
+    c. Ajoutez la **Description** du fournisseur d’identité (p. ex. Azure AD).
+    
+    d. Cliquez sur **Suivant**.
+    
+18. Dans la page **Identity provider configuration** (Configuration du fournisseur d’identité), cliquez sur le bouton **Next** (Suivant).
 
-    c. Cliquez sur **XML** et sélectionnez le fichier de **métadonnées** que vous avez téléchargé à partir du portail.
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
-    d. Cliquez sur le bouton **Charger**.
+19. Dans la page **Import SAML IdP Metadata** (Importer les métadonnées du fournisseur d’identité SAML), effectuez les actions suivantes :
 
-    e. Les métadonnées d’IdP sont lues et les champs sont renseignés de la manière mise en évidence dans la capture d’écran. 
-18. Cliquez sur le bouton **Enregistrer les paramètres** pour enregistrer les paramètres.
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
+    a. Cliquez sur le bouton **Load File** (Charger le fichier) et choisissez le fichier XML de métadonnées que vous avez téléchargé à l’étape 5.
+
+    b. Cliquez sur le bouton **Import** (Importer).
+    
+    c. Patientez quelques instants jusqu’à la fin de l’importation.
+    
+    d. Cliquez sur le bouton **Next** (Suivant).
+    
+20. Dans la page **User ID attribute and transformation** (Attribut d’ID d’utilisateur et transformation), cliquez sur le bouton **Next** (Suivant).
+
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+    
+21. Dans la page **User creation and update** (Création et mise à jour de l’utilisateur), cliquez sur **Save & Next** (Enregistrer et suivant) pour enregistrer les paramètres.   
+    
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+    
+22. Dans la page **Test your settings** (Tester vos paramètres), cliquez sur **Skip test & configure manually** (ignorer le test et configurer manuellement) afin d’ignorer le test de l’utilisateur pour l’instant. Cette opération, qui requiert certains paramètres dans le portail Azure, sera effectuée à la section suivante. 
+    
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+    
+23. Dans la boîte de dialogue **Skipping the test means...** (Ignorer le test signifie...), cliquez sur **OK**.
+    
+    ![Configurer l’authentification unique](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

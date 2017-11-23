@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: a0b8ff6894a1f30fd8d18beef234737573691af9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Sécuriser l’API web Node.js avec Azure Active Directory
 
@@ -53,7 +53,7 @@ Une fois que `package.json` est créé, exécutez `npm install` dans votre invit
 
 ### <a name="configure-the-project-to-use-active-directory"></a>Configurer le projet de manière à utiliser Active Directory
 
-Commencez la configuration de l’application en récupérant certaines valeurs spécifiques aux comptes dans Azure CLI. Pour commencer avec l’interface CLI, le plus simple est d’utiliser Azure Cloud Shell.
+Commencez la configuration de l’application en récupérant d’Azure CLI certaines valeurs spécifiques des comptes. Pour commencer avec l’interface CLI, le plus simple est d’utiliser Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

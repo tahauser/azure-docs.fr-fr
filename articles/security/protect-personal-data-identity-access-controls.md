@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory et Multi-Factor Authentication : protéger les données personnelles avec des contrôles d’accès et d’identité
 
@@ -121,23 +121,23 @@ Pour déployer MFA dans le cloud Azure, vous devez d’abord l’activer, puis a
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Comment permettre à Azure d’utiliser MFA ?
 
-Si vos utilisateurs disposent de licences comprenant Azure Multi-Factor Authentication, vous n’avez rien à faire pour activer Azure Multi-Factor Authentication (MFA). Dans le cas contraire, vous devez créer un fournisseur MFA dans votre annuaire. Pour ce faire, procédez comme suit :
+Si vos utilisateurs disposent de licences comprenant Azure Multi-Factor Authentication, vous devez simplement configurer Azure MFA par utilisateur ou par groupe. 
 
-1. Sélectionnez **Active Directory** dans le portail Azure Classic (en étant connecté en tant qu’administrateur).
+![Utilisateurs prenant en charge MFA](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Sélectionnez **Fournisseurs Multi-Factor Authentication.**
+Si vous ne disposez pas de licences, vous devez effectuer une série d’étapes pour déterminer le type de déploiement le mieux adapté à votre scénario. Vous pouvez commencer par lire l’article intitulé [Choisir la solution Azure Multi-Factor Authentication adaptée à vos besoins](../multi-factor-authentication/multi-factor-authentication-get-started.md). Si vous décidez de poursuivre dans cette voie, vous devez créer un serveur Multi-Factor Authentication. Pour commencer, effectuez les étapes suivantes :
 
-3. Sélectionnez **Nouveau**, puis sous **App Services**, sélectionnez **Fournisseur d’authentification multifacteur.**
+1. Sélectionnez **Active Directory** dans le portail Azure (en étant connecté en tant qu’administrateur).
 
-4. Sélectionnez **Création rapide.**
+2. Sélectionnez **Serveur MFA**
 
-5. Renseignez le champ du nom et sélectionnez un modèle d’utilisation (par authentification ou par utilisateur activé).
+3. Spécifiez une valeur de délai d’attente. 
 
-6. Désignez un annuaire auquel le fournisseur d’authentification multifacteur est associé.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Cliquez sur le bouton **Créer** .
+4. Cliquez sur **Enregistrer**.
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+Dans cette fenêtre, vous pouvez aussi télécharger le serveur MFA. Pour obtenir des détails supplémentaires sur le dimensionnement et la planification der votre déploiement, lisez l’article [Bien démarrer avec le serveur Azure Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 Pour obtenir des instructions sur la gestion du fournisseur d’authentification multifacteur, consultez [Prise en main du fournisseur Azure Multi-Factor Auth.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
@@ -158,7 +158,7 @@ Pour activer MFA en modifiant l’état de l’utilisateur, procédez comme suit
 5. Cochez la case en regard du nom de l’utilisateur.
 6. À droite, sous les étapes rapides, choisissez **Activer**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Confirmez votre sélection dans la fenêtre contextuelle qui s’ouvre.  Les utilisateurs pour lesquels MFA a été activé sont invités à s’inscrire la prochaine fois qu’ils se connectent.
 

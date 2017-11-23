@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article détaille la procédure permettant de configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services et d’accéder à ces rapports avec Power BI. Une fois que vous aurez suivi ces étapes, vous pourrez accéder directement à Power BI pour afficher tous les rapports, en personnaliser et en créer. 
@@ -29,6 +29,7 @@ Cet article détaille la procédure permettant de configurer les rapports pour l
 2. Pour l’instant, les rapports ne sont pas pris en charge pour SQL Azure, DPM et le serveur de sauvegarde Azure.
 3. Vous pouvez afficher des rapports sur différents coffres et différents abonnements, à condition que le même compte de stockage soit configuré pour chacun des coffres. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
 4. La fréquence d’actualisation planifiée des rapports est de 24 heures dans Power BI. Vous pouvez également effectuer une actualisation ad hoc des rapports dans Power BI, auquel cas les données les plus récentes du compte de stockage client sont utilisées pour le rendu des rapports. 
+5. Les rapports de sauvegarde Azure ne sont pas pris en charge actuellement dans les clouds nationaux.
 
 ## <a name="prerequisites"></a>Composants requis
 1. Créez un [compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) afin de le configurer pour les rapports. Il est utilisé pour stocker les données associées aux rapports.
@@ -50,19 +51,26 @@ Suivez les étapes ci-dessous afin de configurer le compte de stockage pour le c
 2. Dans la liste des éléments qui s’affiche sous le coffre, cliquez sur **Rapports de sauvegarde** sous la section Analyse et rapports afin de configurer le compte de stockage pour les rapports.
 
       ![Sélectionner l’élément de menu Rapports de sauvegarde - Étape 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. Dans le panneau Rapports de sauvegarde, cliquez sur le bouton **Configurer**. Le panneau Azure Application Insights, utilisé pour effectuer une transmission de données de type push vers le compte de stockage client, s’ouvre.
+3. Dans le panneau Rapports de sauvegarde, cliquez sur le lien **Paramètres de diagnostic**. L’interface utilisateur des paramètres de diagnostic, utilisé pour effectuer une transmission de données de type push vers le compte de stockage client, s’ouvre.
 
-      ![Configurer le compte de stockage - Étape 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Réglez le bouton bascule Statut sur **Activé** et cochez la case **Archiver vers un compte de stockage** pour que les données de rapports puissent commencer à arriver dans le compte de stockage.
+      ![Permettre les diagnostics - Étape 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. Cliquez sur le lien **Activer les diagnostics**. L’interface utilisateur s’ouvre pour la configuration du compte de stockage. 
 
-      ![Activer les diagnostics - Étape 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. Cliquez sur le sélecteur de compte de stockage et sélectionnez le compte de stockage dans la liste pour stocker les données de rapports, puis cliquez sur **OK**.
+      ![Activer les diagnostics - Étape 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. Entrez le nom du paramètre dans le champ **Nom** et cochez la case **Archiver dans un compte de stockage** pour que les données de rapports puissent commencer à arriver dans le compte de stockage.
 
-      ![Sélectionner le compte de stockage - Étape 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. Cochez la case **AzureBackupReport** et déplacez également le curseur pour sélectionner la période de rétention de ces données de rapports. Les données de rapports du compte de stockage sont conservées pendant la période sélectionnée avec ce curseur.
+      ![Permettre les diagnostics - Étape 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Cliquez sur le sélecteur de compte de stockage et sélectionnez l’abonnement et le compte de stockage appropriés dans la liste pour stocker les données de rapports, puis cliquez sur **OK**.
 
-      ![Sélectionner le compte de stockage - Étape 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. Vérifiez toutes les modifications et cliquez sur le bouton **Enregistrer** en haut, comme le montre la figure ci-dessus. Cette action garantit que toutes vos modifications sont enregistrées et que le compte de stockage est maintenant configuré de façon à stocker les données de rapports.
+      ![Sélectionner le compte de stockage - Étape 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. Dans la section Journal, cochez la case **AzureBackupReport**, déplacez le curseur pour sélectionner la période de rétention de ces données de rapports. Les données de rapports du compte de stockage sont conservées pendant la période sélectionnée avec ce curseur.
+
+      ![Enregistrer le compte de stockage - Étape 7](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. Vérifiez toutes les modifications et cliquez sur le bouton **Enregistrer** en haut, comme le montre la figure ci-dessus. Cette action garantit que toutes vos modifications sont enregistrées et que le compte de stockage est maintenant configuré de façon à stocker les données de rapports.
+
+9. Le tableau Paramètres de diagnostic doit désormais afficher le nouveau paramètre activé pour l’archivage. S’il n’apparaît pas, actualisez le tableau pour afficher le paramètre mis à jour.
+
+      ![Afficher le paramètre de diagnostic - Étape 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > Une fois que vous configurez des rapports en enregistrant un compte de stockage, vous devez **attendre 24 heures** pour que le push de données initial soit complété. Vous devez importer le pack de contenu Azure Backup dans Power BI uniquement après cette heure. Consultez la [section FAQ](#frequently-asked-questions) pour en savoir plus. 

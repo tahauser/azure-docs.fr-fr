@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur dans BizTalk Services
 
@@ -76,13 +76,9 @@ Informations complémentaires sur l’applet de commande [New-AzureSBNamespace](
 Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter Services. Dans votre projet BizTalk Services dans Visual Studio, vous utilisez les services d'adaptateur BizTalk pour vous connecter à un système métier local. Pour vous connecter, vous créez le relais métier et entrez les détails relatifs à votre système métier. À cette occasion, vous entrez également le nom et la clé de l'émetteur Service Bus.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Pour récupérer le nom et la clé de l'émetteur Service Bus
-1. Connectez-vous au [portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Dans le volet de navigation de gauche, sélectionnez **Service Bus**.
-3. Sélectionnez votre espace de noms. Dans la barre des tâches, sélectionnez **Informations de connexion**. Cette action affiche **l’Émetteur par défaut** (Nom de l’émetteur) et la **Clé par défaut** (Clé de l’émetteur). Leurs valeurs peuvent être copiées.  
-
-Pour résumer :  
-Nom de l'émetteur = émetteur par défaut  
-Clé de l'émetteur = clé par défaut
+1. Connectez-vous au [portail Azure](http://portal.azure.com).
+2. Recherchez **Service Bus**, puis sélectionnez votre espace de noms. 
+3. Ouvrez les propriétés **Stratégies d’accès partagé**, sélectionnez votre stratégie et affichez la **Chaîne de connexion** pour le nom et les valeurs de clé.  
 
 ## <a name="next"></a>Suivant
 Autres rubriques Azure BizTalk Services :
@@ -95,7 +91,7 @@ Autres rubriques Azure BizTalk Services :
 ## <a name="see-also"></a>Voir aussi
 * [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services : Provisionnement](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

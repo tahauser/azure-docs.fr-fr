@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir une plus grande partie de la plateforme.
@@ -38,7 +38,7 @@ Il est désormais possible de combiner plusieurs ressources Azure en un seul gro
 Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compte des différences de limites lorsque vous utilisez Azure Resource Manager. Par exemple, vous disposez d’une table **Limites d’abonnement** et d’une table **Limites d’abonnement – Azure Resource Manager**. Lorsqu'une limite s'applique aux deux scénarios, elle apparaît uniquement dans le premier tableau. Sauf indication contraire, les limites sont globales dans toutes les régions.
 
 > [!NOTE]
-> Il est important de souligner que les quotas de ressources dans les groupes de ressources Azure sont accessibles par région par le biais de votre abonnement et non par abonnement, comme les quotas de gestion des services. Nous allons utiliser des quotas de base à titre d'exemple. Si vous avez besoin de demander une augmentation du quota avec la prise en charge de cœurs, vous devez choisir le nombre de noyaux souhaité et les régions concernées, et effectuer une demande spécifique de quotas de base de groupes de ressources Azure pour les volumes et régions choisis. Par conséquent, si vous avez besoin de 30 cœurs en Europe de l'Ouest pour exécuter votre application, vous devez demander spécifiquement 30 cœurs en Europe de l'Ouest. Néanmoins, il n’y aura pas d’augmentation du quota de base dans les autres régions. Seule la région Europe de l'Ouest disposera du quota de 30 cœurs.
+> Il est important de souligner que les quotas de ressources dans les groupes de ressources Azure sont accessibles par région par le biais de votre abonnement et non par abonnement, comme les quotas de gestion des services. Nous allons utiliser des quotas de processeurs virtuels pour l’exemple. Si vous avez besoin de demander une augmentation des quotas de prise en charge des processeurs virtuels, vous devez déterminer le nombre de processeurs virtuels souhaités et les régions concernées, puis effectuer une demande spécifique de quotas de processeurs virtuels de groupes de ressources Azure pour la quantité et les régions nécessaires. Si vous avez besoin de 30 processeurs virtuels dans la région Europe de l’Ouest pour y exécuter votre application, vous devez donc demander spécifiquement 30 processeurs virtuels dans cette région. Le quota de processeurs virtuels ne sera pas augmenté dans les autres régions. Seule la région Europe de l’Ouest disposera du quota de 30 processeurs virtuels.
 > <!-- -->
 > Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-manager-common-deployment-errors.md)
 >

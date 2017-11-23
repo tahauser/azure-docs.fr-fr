@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -46,10 +46,7 @@ Les opérations de réglage appliquées aux bases de données SQL Azure sont ent
 
 Les mécanismes de réglage automatique sont matures et ont été éprouvés sur des centaines de milliers de bases de données exécutées sur Azure. Les opérations de réglage automatique appliquées sont vérifiées automatiquement afin de s’assurer qu’il y a une amélioration positive des performances des charges de travail. Les recommandations de performances ayant un impact négatif sont détectées de manière dynamique et inversées rapidement. Avec le journal d’historique de réglage, vous disposez d’une trace claire montrant les améliorations de réglage apportées à chaque base de données SQL Azure. 
 
-Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et des scénarios d’utilisation classiques, consultez la vidéo incorporée :
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![Fonctionnement du réglage automatique](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 Le réglage automatique dans Azure SQL Database partage sa logique de base avec le moteur de réglage automatique de SQL Server. Pour obtenir des informations techniques supplémentaires sur le mécanisme d’intelligence intégré, consultez [Réglage automatique dans SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
 
@@ -60,6 +57,12 @@ Le réglage automatique doit être activé manuellement sur votre abonnement. Po
 Le réglage automatique peut fonctionner de façon autonome par l’application automatique de recommandations de réglage, notamment une vérification automatisée des gains de performances. 
 
 Pour plus de contrôle, vous pouvez désactiver l’application automatique des recommandations de réglage et appliquer manuellement les recommandations par le biais du portail Azure. Vous pouvez également utiliser la solution uniquement pour afficher les recommandations de réglage automatique et les appliquer manuellement par le biais de scripts et d’outils de votre choix. 
+
+Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et des scénarios d’utilisation classiques, regardez la vidéo incorporée :
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Options de réglage automatique
 

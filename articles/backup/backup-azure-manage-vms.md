@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ Cet article fournit des conseils sur la gestion des sauvegardes de machines virt
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Gérer les coffres et les machines virtuelles protégées
 Dans le portail Azure, le tableau de bord Coffre Recovery Services permet d’accéder à des informations concernant le coffre, notamment :
 
-* l’instantané de sauvegarde le plus récent, c’est-à-dire le dernier point de restauration <br\>
-* la stratégie de sauvegarde <br\>
-* la taille totale de tous les instantanés de sauvegarde <br\>
-* le nombre de machines virtuelles protégées par le coffre <br\>
+* l’instantané de sauvegarde le plus récent, c’est-à-dire le dernier point de restauration
+* la stratégie de sauvegarde
+* la taille totale de tous les instantanés de sauvegarde
+* le nombre de machines virtuelles protégées par le coffre
 
 L’ouverture du coffre dans le tableau de bord permet d’initier de nombreuses tâches de gestion associées à une sauvegarde de machine virtuelle. Dans la mesure où les coffres peuvent être utilisés pour protéger plusieurs éléments (ou plusieurs machines virtuelles), vous devez cependant ouvrir le tableau de bord de l’élément du coffre pour afficher les détails d’une machine virtuelle spécifique. La procédure suivante vous montre comment ouvrir le *tableau de bord du coffre* puis le *tableau de bord de l’élément du coffre*. Pour les deux procédures, nous vous proposons des « astuces » pour vous aider à ajouter le coffre et l’élément du coffre au tableau de bord Azure à l’aide de la commande Épingler au tableau de bord. La commande Épingler au tableau de bord permet de créer un raccourci vers le coffre ou l’élément. Vous pouvez également utiliser le raccourci pour exécuter des commandes courantes.
 
@@ -50,11 +50,11 @@ L’ouverture du coffre dans le tableau de bord permet d’initier de nombreuses
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     La liste des archivages de Recovery Services est affichée.
 
-    ![Liste des coffres Recovery Services ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Liste des coffres Recovery Services ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > Si vous épinglez un coffre au tableau de bord Azure, ce coffre est immédiatement accessible à l’ouverture du portail Azure. Pour épingler un coffre au tableau de bord, accédez à la liste des coffres, cliquez avec le bouton droit sur le coffre, puis sélectionnez **Épingler au tableau de bord**.
@@ -89,13 +89,13 @@ Dans la procédure précédente, vous avez ouvert le tableau de bord du coffre. 
 
     Le tableau de bord de l’élément du coffre vous permet d’accomplir plusieurs tâches de gestion essentielles, par exemple :
 
-   * modifier des stratégies ou créer une stratégie de sauvegarde <br\>
-   * afficher les points de restauration et vérifier leur état de cohérence <br\>
-   * sauvegarde à la demande d’une machine virtuelle <br\>
-   * suspendre la protection des machines virtuelles <br\>
-   * reprendre la protection d’une machine virtuelle <br\>
-   * supprimer des données de sauvegarde (ou un point de récupération) <br\>
-   * [restaurer des disques de sauvegarde](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  &lt;br\>
+   * Modification des stratégies ou création d’une stratégie de sauvegarde
+   * Affichage des points de restauration et vérification de leur état de cohérence
+   * Sauvegarde à la demande d’une machine virtuelle
+   * Arrêt de la protection des machines virtuelles
+   * Reprise de la protection d’une machine virtuelle
+   * Suppression des données de sauvegarde (ou d’un point de récupération)
+   * [Restauration des disques de sauvegarde](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 Pour les procédures suivantes, nous allons travailler à partir du tableau de bord de l’élément du coffre.
 
@@ -110,7 +110,7 @@ Pour les procédures suivantes, nous allons travailler à partir du tableau de b
     ![Panneau Stratégie de sauvegarde](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. Dans le menu **Choisir une stratégie de sauvegarde** :
 
-   * Pour modifier les stratégies, sélectionnez une autre stratégie, puis cliquez sur **Enregistrer**. La nouvelle stratégie est appliquée immédiatement au coffre. <br\>
+   * Pour modifier les stratégies, sélectionnez une autre stratégie, puis cliquez sur **Enregistrer**. La nouvelle stratégie est appliquée immédiatement au coffre.
    * Pour créer une stratégie, sélectionnez **Créer**.
 
      ![Sauvegarde de machine virtuelle](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -148,7 +148,7 @@ Pour déclencher une sauvegarde à la demande d’une machine virtuelle :
 Si vous décidez d’arrêter la protection d’une machine virtuelle, vous devrez indiquer si vous souhaitez conserver les points de récupération. Il existe deux façons de suspendre la protection des machines virtuelles :
 
 * arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération, ou
-* arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération  <br/>
+* arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération 
 
 La conservation des points de récupération dans le stockage présente un coût, mais elle a l’avantage de vous permettre de restaurer ultérieurement la machine virtuelle, si vous le souhaitez. Pour plus d’informations sur les coûts de conservation des points de récupération, consultez la [tarification](https://azure.microsoft.com/pricing/details/backup/). Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer la machine virtuelle.
 

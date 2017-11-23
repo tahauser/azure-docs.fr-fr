@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce
 
@@ -121,9 +121,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Cliquez sur le bouton **Enregistrer** ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png).
 
 6. Dans la section **Configuration de Salesforce** , cliquez sur **Configurer Salesforce** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.** 
 

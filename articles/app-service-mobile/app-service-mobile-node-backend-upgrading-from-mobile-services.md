@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
-App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, voir [Que sont les applications Mobile Apps ?]
+App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, consultez [Que sont les applications Mobile Apps ?]
 
-Cette rubrique décrit comment mettre à niveau une application principale Node.js existante depuis Azure Mobile Services vers une nouvelle application App Service Mobile Apps. Pendant cette mise à niveau, votre application Mobile Services existante peut continuer à fonctionner.  Si vous devez mettre à niveau une application principale Node.js, voir [Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
+Cette article décrit comment mettre à niveau une application backend Node.js existante depuis Azure Mobile Services vers une nouvelle fonctionnalité App Service Mobile Apps. Pendant cette mise à niveau, votre application Mobile Services existante peut continuer à fonctionner.  Si vous devez mettre à niveau une application principale Node.js, voir [Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a accès à toutes les fonctionnalités App Service et c’est la [tarification App Service]qui est appliquée, et non celle de Mobile Services.
 
@@ -36,7 +36,7 @@ Quand un serveur principal mobile est mis à niveau vers Azure App Service, il a
 >
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Améliorations du Kit de développement logiciel (SDK) serveur Node.js Mobile Apps
-La mise à niveau vers le nouveau [Kit de développement logiciel (SDK) Mobile Apps](https://www.npmjs.com/package/azure-mobile-apps) offre de nombreuses améliorations, notamment :
+La mise à niveau vers le nouveau [Kit SDK Mobile Apps](https://www.npmjs.com/package/azure-mobile-apps) offre de nombreuses améliorations, notamment :
 
 * Basé sur [l’infrastructure Express](http://expressjs.com/en/index.html), le nouveau Kit de développement logiciel (SDK) Node est léger et conçu pour s’adapter aux nouvelles versions Node au fur et à mesure de leur sortie. Vous pouvez personnaliser le comportement de l’application avec l’intergiciel Express.
 * Les améliorations des performances sont significatives par rapport au Kit de développement logiciel (SDK) Mobile Services.
@@ -98,12 +98,12 @@ Au cours du déploiement, vous devez effectuer les opérations suivantes :
 3. Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un (en utilisant le même nom que votre application).
 
     Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau de tarification et à l’emplacement souhaité, voir [Présentation détaillée des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. Pour le **plan App Service**, le plan par défaut (du [niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez sélectionner un autre plan ou en [créer un](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application.
+4. Pour le **plan App Service**, le plan par défaut (du [niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez sélectionner un autre plan ou en [créer un](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application.
 
     Après avoir choisi le plan, cliquez sur **Créer**. Cette action crée le serveur principal Mobile App.
 
 ### <a name="run-createviewssql"></a>Exécuter CreateViews.SQL
-L’application structurée contient un fichier appelé `createViews.sql`.  Ce script doit être exécuté sur la base de données cible.  La chaîne de connexion de la base de données cible peut être obtenue à partir de votre service mobile migré dans le panneau **Paramètres** situé sous **Chaînes de connexion**.  Elle est nommée `MS_TableConnectionString`.
+L’application structurée contient un fichier appelé `createViews.sql`.  Ce script doit être exécuté sur la base de données cible.  La chaîne de connexion de la base de données cible peut être obtenue à partir de votre service mobile migré dans la page **Paramètres** sous **Chaînes de connexion**.  Elle est nommée `MS_TableConnectionString`.
 
 Vous pouvez exécuter ce script à partir de SQL Server Management Studio ou de Visual Studio.
 
@@ -116,7 +116,7 @@ Liez la base de données existante à votre App Service :
 * Dans la liste déroulante, sélectionnez **Base de données SQL**
 * Sous **Base de données SQL**, sélectionnez votre base de données existante, puis cliquez sur **Sélectionner**.
 * Sous **Chaîne de connexion**, entrez le nom d’utilisateur et le mot de passe de la base de données, puis cliquez sur **OK**.
-* Dans le panneau **Ajouter des connexions de données**, cliquez sur **OK**.
+* Dans la page **Ajouter des connexions de données**, cliquez sur **OK**.
 
 Vous trouverez le nom d’utilisateur et le mot de passe en affichant la chaîne de connexion de la base de données cible dans votre service mobile migré.
 

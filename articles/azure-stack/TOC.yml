@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: Publier des points de terminaison
           href: azure-stack-integrate-endpoints.md
+        - name: Surveillance externe
+          href: azure-stack-integrate-monitor.md
         - name: Sécurité
           href: azure-stack-integrate-security.md
     - name: Gérer
@@ -155,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Déployer un fournisseur de ressources SQL
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Créer des bases de données SQL
-              href: azure-stack-sql-resource-provider-databases.md
             - name: Ajouter des serveurs d’hébergement
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: Créer des bases de données SQL
+              href: azure-stack-sql-resource-provider-databases.md
         - name: Offrir App Service en tant que PaaS
           items:
             - name: Vue d’ensemble d’App Service sur Azure Stack
@@ -181,11 +183,11 @@
               href: azure-stack-marketplace.md
             - name: Télécharger des éléments du Marketplace
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Élément du Marketplace pour Azure Stack
+            - name: Éléments Place de marché Microsoft Azure pour Azure Stack
               href: azure-stack-marketplace-azure-items.md
             - name: Créer et publier un élément du Marketplace
               href: azure-stack-create-and-publish-marketplace-item.md
-            - name: Utiliser l’outil de publication duMarketplace
+            - name: Utiliser l’outil de publication du Marketplace
               href: azure-stack-marketplace-publisher.md
             - name: Ajouter une image de machine virtuelle personnalisée
               href: azure-stack-add-vm-image.md

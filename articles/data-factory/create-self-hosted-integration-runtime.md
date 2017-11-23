@@ -3,7 +3,7 @@ title: "Créer un runtime d’intégration autohébergé dans Azure Data Factory
 description: "Découvrez comment créer un runtime d’intégration autohébergé dans Azure Data Factory, permettant aux fabriques de données d’accéder aux magasins de données dans un réseau privé."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
@@ -103,11 +103,11 @@ Le runtime d’intégration autohébergé peut être installé en téléchargean
 
 
 ## <a name="high-availability-and-scalability"></a>Haute disponibilité et extensibilité
-Un runtime d’intégration autohébergé peut être associé à plusieurs ordinateurs sur site. Ces ordinateurs sont appelés nœuds. Vous pouvez associer jusqu’à quatre nœuds à un runtime d’intégration autohébergé. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :
+Un runtime d’intégration auto-hébergé peut être associé à plusieurs machines locales. Ces ordinateurs sont appelés nœuds. Vous pouvez associer jusqu’à quatre nœuds à un runtime d’intégration autohébergé. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :
 1. La haute disponibilité du runtime d’intégration autohébergé supprime le point de défaillance dans votre solution Big Data ou dans l’intégration de vos données cloud avec Azure Data Factory, ce qui garantit la continuité des activités sur un maximum de 4 nœuds.
 2. Les performances et le débit lors du déplacement des données entre les magasins de données locaux et dans le cloud ont été améliorés. Plus d’informations sur les [comparaisons des performances](copy-activity-performance.md).
 
-Vous pouvez associer plusieurs nœuds en installant simplement le logiciel du runtime d’intégration autohébergé à partir du [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et en l’enregistrant à l’aide des clés d’authentification obtenues via l’applet de commande AzureRmDataFactoryV2IntegrationRuntimeKey, comme décrit dans le [didacticiel](tutorial-hybrid-copy-powershell.md)
+Vous pouvez associer plusieurs nœuds en installant simplement le logiciel du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et en l’inscrivant à l’aide des clés d’authentification obtenues via l’applet de commande New-AzureRmDataFactoryV2IntegrationRuntimeKey, comme décrit dans le [didacticiel](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Vous n’avez pas besoin de créer un runtime d’intégration autohébergé pour associer chaque nœud.

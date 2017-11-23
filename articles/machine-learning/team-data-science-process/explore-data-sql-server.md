@@ -4,7 +4,7 @@ description: "Comment explorer les données stockées dans une machine virtuelle
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 4777a6acbf3b45ab207d64feb7cba52f61f38eeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5079fc9d9a0ccd89664407fcdba9a7958e1407d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorer les données d’une machine virtuelle SQL Server sur Azure
 Ce document explique comment explorer les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
@@ -69,6 +69,6 @@ La [bibliothèque Pandas](http://pandas.pydata.org/) de Python offre un ensemble
 
 Vous pouvez à présent utiliser la trame de données Pandas comme décrit dans la rubrique [Traiter les données Azure Blob dans votre environnement de science des données](data-blob.md).
 
-## <a name="cortana-analytics-process-in-action-example"></a>Exemple de processus Cortana Analytics en action
+## <a name="the-team-data-science-process-in-action-example"></a>Exemple de processus TDSP (Team Data Science Process) en action
 Pour obtenir un exemple de procédure pas à pas complet du processus Cortana Analytics à l’aide d’un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](sql-walkthrough.md).
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).
@@ -66,7 +66,7 @@ Commencez par créer le web frontal de l’application de vote à l’aide d’A
    
    ![Choix du service web ASP.NET dans la boîte de dialogue Nouveau service](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. La page suivante fournit un ensemble de modèles de projets ASP.NET Core. Pour ce didacticiel, sélectionnez **Application web**. 
+6. La page suivante fournit un ensemble de modèles de projets ASP.NET Core. Pour ce didacticiel, sélectionnez **Application web (MVC)**. 
    
    ![Choisir le type de projet ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 

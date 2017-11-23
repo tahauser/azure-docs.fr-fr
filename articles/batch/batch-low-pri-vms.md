@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
@@ -71,7 +71,7 @@ Azure Batch fournit plusieurs fonctionnalités permettant de facilement utiliser
 
 -   Quand des tâches sont interrompues, Batch détecte et replace automatiquement en file d’attente les tâches pour les réexécuter.
 
--   Les machines virtuelles de faible priorité ont un quota de cœurs distinct de celui des machines virtuelles dédiées. 
+-   Les machines virtuelles de faible priorité ont un quota de processeurs virtuels distinct de celui des machines virtuelles dédiées. 
     Le quota des machines virtuelles de faible priorité est supérieur à celui des machines virtuelles dédiées, car les machines virtuelles de faible priorité sont moins onéreuses. Pour plus d’informations, consultez [Quotas et limites du service Batch](batch-quota-limit.md#resource-quotas).    
 
 

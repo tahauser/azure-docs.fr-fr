@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b07b9e01a5a8d8a5189b130fb5a9baeef7a43f4f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 Le service Sauvegarde Azure comporte deux types de coffres : le coffre de sauvegarde et le coffre Recovery Services. Le coffre de sauvegarde a été créé en premier. Ensuite, le coffre Recovery Services est venu prendre en charge les déploiements Resource Manager étendus. Étant donné les capacités étendues et les dépendances des informations qui doivent être stockées dans le coffre, la suppression d’un coffre Backup ou Recovery Services peut prêter à confusion. Cet article explique comment supprimer le coffre dans le portail Classic et le portail Azure.  
@@ -33,7 +33,7 @@ Le service Sauvegarde Azure comporte deux types de coffres : le coffre de sauveg
 >
 
 > [!IMPORTANT]
-> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À compter du **15 octobre 2017**, vous ne pourrez plus vous servir de PowerShell pour créer des coffres de sauvegarde. <br/> **À compter du 1er novembre 2017** :
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À partir du **30 novembre 2017**, vous ne pouvez pas vous servir de PowerShell pour créer des coffres de sauvegarde. <br/> **D’ici au 30 novembre 2017** :
 >- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
 >- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 >

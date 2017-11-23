@@ -2,26 +2,26 @@
 title: Guide pratique pour utiliser des blocs-notes Jupyter dans Azure Machine Learning Workbench | Microsoft Docs
 description: "Guide d’utilisation de la fonctionnalité Bloc-notes Jupyter d’Azure Machine Learning Workbench"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Comment utiliser un bloc-notes Jupyter dans Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench prend en charge une expérimentation de science des données interactive par le biais de son intégration au bloc-notes Jupyter. Cet article décrit comment tirer parti de cette fonctionnalité pour augmenter la vitesse et la qualité de votre expérimentation de science des données interactive.
 
 ## <a name="prerequisites"></a>Composants requis
-- [Installer et créer Azure Machine Learning](/machine-learning/preview/quickstart-installation.md).
+- [Installer et créer Azure Machine Learning](quickstart-installation.md).
 - Se familiariser avec le [bloc-notes Jupyter](http://jupyter.org/), étant donné que cet article n’a pas vocation à expliquer comment utiliser Jupyter.
 
 ## <a name="jupyter-notebook-architecture"></a>Architecture du bloc-notes Jupyter
@@ -36,7 +36,7 @@ Pour plus d’informations, reportez-vous à la [documentation Jupyter](http://j
 ![architecture du bloc-notes](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## <a name="kernels-in-azure-ml-workbench-notebook"></a>Noyaux dans un bloc-notes Azure Machine Learning Workbench
-Vous pouvez accéder à de nombreux noyaux différents dans Azure Machine Learning Workbench tout simplement en définissant des configurations d’exécution et des cibles de calcul dans le dossier `aml_config` de votre projet. Ajoutez une nouvelle cible de calcul en émettant une commande `az ml computetarget attach` revient à ajouter un nouveau noyau.
+Vous pouvez accéder à de nombreux noyaux différents dans Azure Machine Learning Workbench en définissant des configurations d’exécution et des cibles de calcul dans le dossier `aml_config` de votre projet. Ajoutez une nouvelle cible de calcul en émettant une commande `az ml computetarget attach` revient à ajouter un nouveau noyau.
 
 >[!NOTE]
 >Consultez [Configurer une exécution](experimentation-service-configuration.md) pour plus d’informations sur les configurations d’exécutions et les cibles de calcul.
@@ -48,6 +48,9 @@ Actuellement, Workbench prend en charge les types suivants de noyaux.
 
 ### <a name="local-python-kernel"></a>Noyau Python local
 Ce noyau Python prend en charge l’exécution sur l’ordinateur local. Il est intégré à la prise en charge de l’historique des exécutions d’Azure Machine Learning. Le nom du noyau est généralement « my_project_name local ».
+
+>[!NOTE]
+>N’utilisez pas le noyau « Python 3 ». Il s’agit d’un noyau autonome fourni par Jupyter par défaut. Il n’est pas intégré avec les fonctionnalités d’Azure Machine Learning.
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Noyau Python dans Docker (local ou distant)
 Ce noyau Python s’exécute dans un conteneur Docker sur votre ordinateur local ou dans une machine virtuelle Linux distante. Le nom du noyau est généralement « my_project docker ». Le champ `Framework` du fichier `docker.runconfig` associé a la valeur `Python`.
@@ -104,6 +107,33 @@ Votre navigateur par défaut est automatiquement lancé avec le serveur Jupyter 
 Vous pouvez maintenant cliquer sur un fichier de bloc-notes `.ipynb`, l’ouvrir et définir le noyau (s’il n’a pas été défini), puis démarrer votre session interactive.
 
 ![tableau de bord du projet](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>Utiliser des commandes magic pour gérer des expérimentations
+
+Vous pouvez utiliser des [commandes magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html) dans vos cellules de bloc-notes pour suivre votre historique d’exécution et enregistrer des sorties, telles que des modèles ou des jeux de données.
+
+Pour suivre les exécutions de cellules de bloc-notes individuelles, utilisez la commande magic « %azureml history on ». Après l’activation de l’historique, chaque exécution de cellule apparaît en tant qu’entrée dans l’historique d’exécution.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+Pour désactiver le suivi des exécutions de cellules, utilisez la commande magic « %azureml history off ».
+
+Vous pouvez utiliser la commande magic « %azureml upload » pour enregistrer des fichiers de modèles et de données à partir de votre exécution. Les objets enregistrés apparaissent en tant que sorties dans la vue d’historique d’exécution pour une exécution donnée.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>Les sorties doivent être enregistrées dans un dossier nommé « outputs »
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour savoir comment utiliser un bloc-notes Jupyter, consultez la [documentation officielle de Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    

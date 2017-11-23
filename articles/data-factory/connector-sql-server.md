@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: f4df68a5cb240e9483cc088c620716bba207439b
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -252,7 +252,7 @@ Pour copier des données vers SQL Server, définissez **SqlSink** comme type de 
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **SqlSink** | Oui |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non |
 | sqlWriterStoredProcedureName |Nom de la procédure stockée qui met à jour/insère les données dans la table cible. |Non |

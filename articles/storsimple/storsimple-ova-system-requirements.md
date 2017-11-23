@@ -4,7 +4,7 @@ description: "En savoir plus sur la configuration logicielle et du réseau requi
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
 ## <a name="overview"></a>Vue d’ensemble
@@ -41,7 +41,10 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | **Hyperviseur** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 et versions ultérieures |
-| VMware ESXi |5.5 et 6.0 |
+| VMware ESXi |5.0, 5.5 et 6.0 <br> (6.5 n'est pas pris en charge.) |
+
+> [!IMPORTANT]
+> N’installez pas les outils VMware sur votre StorSimple Virtual Array, car cela engendrerait une configuration non prise en charge.
 
 ### <a name="virtual-device-requirements"></a>Configuration requise de l'appareil virtuel
 | **Composant** | **Prérequis** |
@@ -79,8 +82,8 @@ La configuration logicielle requise suivante concerne les clients SMB qui accèd
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Ne copiez pas et ne stockez pas de fichiers protégés par le système de fichiers EFS Windows pour le serveur de fichiers du groupe virtuel StorSimple. Cela donne lieu à une configuration non prise en charge. 
-> 
+> Ne copiez pas et ne stockez pas de fichiers protégés par le système de fichiers EFS Windows pour le serveur de fichiers du groupe virtuel StorSimple. Cela donne lieu à une configuration non prise en charge.
+
 
 ### <a name="supported-storage-format"></a>Format de stockage pris en charge
 Seul le stockage d’objets blob de blocs Azure est pris en charge. Les objets blob de pages ne sont pas pris en charge. En savoir plus [sur les objets blob de blocs et de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).

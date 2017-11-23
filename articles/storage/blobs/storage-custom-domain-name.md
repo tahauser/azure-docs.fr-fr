@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurer un nom de domaine personnalisé pour un point de terminaison de stockage Blob
 
@@ -55,7 +55,7 @@ Le processus consistant à mapper votre domaine personnalisé à un point de ter
 La méthode intermédiaire est couverte dans [Inscrire un domaine personnalisé à l’aide du sous-domaine *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## <a name="register-a-custom-domain"></a>Inscrire un domaine personnalisé
-Cette procédure permet d’inscrire un domaine personnalisé si vous n’êtes pas inquiet à l’idée que les utilisateurs ne puissent pas accéder au domaine pendant un court instant, ou si votre domaine personnalisé n’héberge actuellement aucune application.
+Cette procédure permet d’inscrire un domaine personnalisé si vous n’êtes pas inquiet à l’idée que les utilisateurs ne puissent pas accéder au domaine pendant un court instant, ou si votre domaine personnalisé n’héberge actuellement aucune application. Avec Azure DNS, vous pouvez configurer un nom DNS personnalisé pour votre magasin d’objets blob. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
 
 Si votre domaine personnalisé prend en charge une application qui ne peut supporter une interruption de service, suivez la procédure décrite à la rubrique [Inscrire un domaine personnalisé à l’aide du sous-domaine *asverify*](#register-a-custom-domain-using-the-asverify-subdomain).
 

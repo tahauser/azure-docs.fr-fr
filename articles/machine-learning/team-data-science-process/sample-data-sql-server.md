@@ -4,7 +4,7 @@ description: "Échantillonner des données dans SQL Server sur Azure"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
-Ce document montre comment échantillonner des données stockées dans SQL Server sur Azure à l’aide de SQL ou du langage de programmation Python. Il montre également comment déplacer les données échantillonnées vers Azure Machine Learning en les enregistrant dans un fichier, en les chargeant vers un objet blob Azure, puis en les lisant dans Azure Machine Learning Studio.
+Cet article montre comment échantillonner des données stockées dans SQL Server sur Azure à l’aide de SQL ou du langage de programmation Python. Il montre également comment déplacer les données échantillonnées vers Azure Machine Learning en les enregistrant dans un fichier, en les chargeant sur un objet blob Azure, puis en les lisant dans Azure Machine Learning Studio.
 
 L’échantillonnage Python utilise la bibliothèque ODBC [pyodbc](https://code.google.com/p/pyodbc/) pour se connecter à SQL Server sur Azure et la bibliothèque [Pandas](http://pandas.pydata.org/) pour effectuer l’échantillonnage proprement dit.
 
 > [!NOTE]
-> L’exemple de code SQL figurant dans ce document repose sur l’hypothèse que les données sont stockées dans SQL Server sur Azure. Si ce n’est pas le cas, reportez-vous à la rubrique [Déplacer des données vers SQL Server sur Azure](move-sql-server-virtual-machine.md) pour savoir comment déplacer vos données vers SQL Server sur Azure.
+> L’exemple de code SQL figurant dans ce document repose sur l’hypothèse que les données sont stockées dans SQL Server sur Azure. Si ce n’est pas le cas, consultez l’article [Déplacer des données vers SQL Server sur Azure](move-sql-server-virtual-machine.md) pour savoir comment déplacer vos données vers SQL Server sur Azure.
 > 
 > 
 
-Le **menu** ci-après pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. 
+Le **menu** ci-après pointe vers des articles qui expliquent comment échantillonner des données dans différents environnements de stockage. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -42,7 +42,7 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
 ## <a name="SQL"></a>Utilisation de SQL
 Cette section décrit différentes méthodes permettant d’effectuer un échantillonnage aléatoire simple des données de la base de données via SQL. Choisissez une méthode en fonction de la taille de vos données et de leur distribution.
 
-Les deux options ci-après indiquent comment utiliser l’élément newid dans SQL Server pour procéder à l’échantillonnage. La méthode que vous choisissez dépend du degré aléatoire qui doit caractériser l’échantillon (dans l’exemple de code ci-après, l’élément pk_id est supposé correspondre à une clé primaire générée automatiquement).
+Les deux options suivantes indiquent comment utiliser `newid` dans SQL Server pour procéder à l’échantillonnage. La méthode que vous choisissez dépend du degré aléatoire qui doit caractériser l’échantillon (dans l’exemple de code suivant, l’élément pk_id est supposé correspondre à une clé primaire générée automatiquement).
 
 1. Échantillon aléatoire moins strict
    
@@ -53,7 +53,7 @@ Les deux options ci-après indiquent comment utiliser l’élément newid dans S
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Vous pouvez également utiliser l’élément TABLESAMPLE pour l’échantillonnage, comme illustré ci-dessous. L’utilisation de cette méthode peut constituer une meilleure approche si vos données sont volumineuses (en supposant que les données figurant sur des pages différentes ne sont pas corrélées) et que vous souhaitez que la requête s’exécute dans un délai acceptable.
+Vous pouvez aussi utiliser Tablesample pour l’échantillonnage des données. L’utilisation de cette méthode peut constituer une meilleure approche si vos données sont volumineuses (en supposant que les données figurant sur des pages différentes ne sont pas corrélées) et que vous souhaitez que la requête s’exécute dans un délai acceptable.
 
     SELECT *
     FROM <table_name> 
@@ -65,7 +65,7 @@ Vous pouvez également utiliser l’élément TABLESAMPLE pour l’échantillonn
 > 
 
 ### <a name="sql-aml"></a>Connexion à Azure Machine Learning
-Vous pouvez utiliser directement les exemples de requêtes ci-dessus dans le module [Importer les données][import-data] d’Azure Machine Learning afin de sous-échantillonner les données à la volée et de les importer dans une expérience Azure Machine Learning. La capture d’écran ci-après illustre l’utilisation du module Lecteur pour lire les données échantillonnées :
+Vous pouvez utiliser directement les exemples de requêtes ci-dessus dans le module [Importer les données][import-data] d’Azure Machine Learning afin de sous-échantillonner les données à la volée et de les importer dans une expérience Azure Machine Learning. La capture d’écran ci-dessous illustre l’utilisation du module Lecteur pour lire les données échantillonnées :
 
 ![lecteur sql][1]
 
@@ -76,7 +76,7 @@ Cette section décrit l’utilisation de la [bibliothèque pyodbc](https://code.
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La bibliothèque [Pandas](http://pandas.pydata.org/) de Python offre un ensemble élaboré de structures de données et d’outils d’analyse des données pour la manipulation des données dans le cadre d’une programmation en Python. Le code ci-après lit un échantillon de 0,1 % des données d’une table de la base de données Azure SQL dans une trame de données pandas :
+La bibliothèque [Pandas](http://pandas.pydata.org/) de Python offre un ensemble élaboré de structures de données et d’outils d’analyse des données pour la manipulation des données dans le cadre d’une programmation en Python. Le code suivant lit un échantillon de 0,1 % des données d’une table de la base de données Azure SQL dans une trame de données Pandas :
 
     import pandas as pd
 
@@ -117,7 +117,7 @@ Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données
 ![objet blob de lecteur][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Exemple de processus TDSP (Team Data Science Process) en action
-Pour obtenir un exemple de procédure pas à pas complet du processus TDSP (Team Data Science Process) à l’aide d’un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](sql-walkthrough.md).
+Pour obtenir un exemple de procédure pas à pas du processus TDSP (Team Data Science Process) à l’aide d’un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

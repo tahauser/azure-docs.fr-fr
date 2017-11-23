@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données SQL sur Microsoft Azure Stack
 
@@ -74,7 +74,7 @@ Le script effectue les étapes suivantes :
 - Inscription de votre fournisseur de ressources auprès du Azure Resource Manager local (utilisateur et administrateur).
 
 > [!NOTE]
-> Si l’installation prend plus de 90 minutes, elle risque d’échouer et un message d’erreur s’affiche à l’écran ainsi que dans le fichier journal, mais une nouvelle tentative de déploiement est effectuée à partir de l’étape ayant échoué. Les systèmes qui ne répondent pas aux spécifications recommandées en matière de mémoire et de noyau risquent de ne pas pouvoir déployer le fournisseur de ressources SQL.
+> Si l’installation prend plus de 90 minutes, elle risque d’échouer et un message d’erreur s’affiche à l’écran ainsi que dans le fichier journal, mais une nouvelle tentative de déploiement est effectuée à partir de l’étape ayant échoué. Les systèmes qui ne répondent pas aux spécifications recommandées en matière de mémoire et de processeur virtuel risquent de ne pas pouvoir déployer le fournisseur de ressources SQL.
 >
 
 Voici un exemple que vous pouvez exécuter à partir de l’invite PowerShell (mais changez les informations et les mots de passe du compte si nécessaire) :

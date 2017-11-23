@@ -4,7 +4,7 @@ description: "Comment explorer les données stockées dans différents environne
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 1b99ce11709376294f6a2385b9f4ff3388b99ab7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 97d344fd31d711454f3e4aa251361b86351cc283
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="heading"></a>Échantillonner des données dans des conteneurs d'objets blob Azure, SQL Server et des tables Hive
-Ce document contient des liens vers des rubriques qui expliquent comment échantillonner les données stockées dans l’un des trois emplacements Azure :
+Ce document contient des liens vers des articles qui expliquent comment échantillonner les données stockées dans l’un des trois emplacements Azure :
 
 * **données de conteneurs d’objets blob Azure** sont échantillonnées par le biais de leur téléchargement par programmation, puis de leur échantillonnage à l’aide d’un exemple de code Python.
 * **données SQL Server** sont échantillonnées à l’aide de SQL et du langage de programmation Python. 

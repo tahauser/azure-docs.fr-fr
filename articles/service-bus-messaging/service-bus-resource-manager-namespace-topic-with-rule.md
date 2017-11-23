@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus avec rubrique, abonnement et règle à l’aide d’un modèle Azure Resource Manager
 
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus avec une rubrique, un abonnement et une règle (filtre). Vous apprenez à définir les ressources à déployer et à configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus avec une rubrique, un abonnement et une règle (filtre). L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
 Pour plus d’informations sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -50,7 +50,7 @@ Les [rubriques et les abonnements Service Bus](service-bus-queues-topics-subscri
 
 ## <a name="what-are-rules-filters"></a>Qu’est-ce qu’une règle (filtre) ?
 
-Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour ce faire, vous pouvez configurer des abonnements pour rechercher les messages présentant les propriétés spécifiques, puis apporter des modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des filtres d’abonnement. Pour en savoir plus sur les règles (filtres), consultez [Règles et actions](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiques doivent être traités différemment. Pour activer ce traitement personnalisé, vous pouvez configurer des abonnements pour rechercher les messages présentant les propriétés spécifiques, puis apporter des modifications à ces propriétés. Bien que les abonnements Service Bus voient tous les messages envoyés à la rubrique, vous pouvez uniquement copier un sous-ensemble de ces messages dans la file d’attente d’abonnement virtuelle. Pour ce faire, il faut utiliser des filtres d’abonnement. Pour en savoir plus sur les règles (filtres), consultez [Règles et actions](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
@@ -100,9 +100,12 @@ Nom de la règle (filtre) créée dans l’espace de noms Service Bus.
 La version de l’API Service Bus du modèle.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>Ressources à déployer
 Crée un espace de noms Service Bus standard de type **Messagerie**, avec rubrique, abonnement et règles.

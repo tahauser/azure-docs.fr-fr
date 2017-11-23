@@ -4,7 +4,7 @@ description: "Planifiez une analyse avancée en imaginant une série de question
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev
-ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4cf702b899b285b18c09d7a5951589d2ae71b7d
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
-Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettront d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans [Qu’est-ce que le processus TDSP (Team Data Science Process) ?](overview.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
+Quelles ressources devez-vous inclure lors de la configuration d’un environnement à des fins de traitement des analyses avancées sur un jeu de données ? Cet article propose une série de questions qui permettent d’identifier les tâches et les ressources pertinentes pour votre scénario. L’ordre des étapes principales pour l’analyse prédictive est défini dans [Qu’est-ce que le processus TDSP (Team Data Science Process) ?](overview.md). Chacune de ces étapes nécessite des ressources spécifiques pour les tâches correspondant à votre scénario. Les principales questions pour identifier votre scénario concernent la logistique de données, leurs caractéristiques, la qualité des jeux de données, ainsi que les outils et les langues à utiliser pour effectuer l’analyse.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>Questions logistiques : emplacements et déplacement des données
-Les questions logistiques concernent l’emplacement de la **source de données**, la **destination cible** dans Azure et la configuration requise pour le déplacement des données, y compris la planification, la quantité et les ressources impliquées. Il peut être nécessaire de déplacer les données plusieurs fois pendant le processus d’analyse. Un scénario courant consiste à déplacer les données locales dans un système de stockage sur Azure, puis dans Machine Learning Studio.
+Les questions logistiques concernent l’emplacement de la **source de données**, la **destination cible** dans Azure et la configuration requise pour le déplacement des données, notamment la planification, la quantité et les ressources impliquées. Il peut être nécessaire de déplacer les données plusieurs fois pendant le processus d’analyse. Un scénario courant consiste à déplacer les données locales dans un système de stockage sur Azure, puis dans Machine Learning Studio.
 
 1. **Quelle est votre source de données ?** S’agit-il d’une source locale ou dans le cloud ? Par exemple :
    
@@ -42,14 +42,14 @@ Les questions logistiques concernent l’emplacement de la **source de données*
    * HDInsight (Hadoop sur Azure) ou tables Hive
    * Azure Machine Learning
    * Disques durs virtuels Azure montables.
-3. **Comment allez-vous déplacer les données ?** Les procédures et les ressources disponibles pour l’intégration ou le chargement des données dans différents environnements de stockage et de traitement sont décrites dans les rubriques suivantes.
+3. **Comment allez-vous déplacer les données ?** Les procédures et les ressources disponibles pour l’intégration ou le chargement des données dans différents environnements de stockage et de traitement sont décrites dans les articles suivants :
    
    * [Charger des données dans des environnements de stockage à des fins d’analyse](ingest-data.md)
    * [Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données](../studio/import-data.md)
 4. **Les données doivent-elles être déplacées à intervalles réguliers ou modifiées pendant la migration ?** Envisagez d’utiliser Azure Data Factory (ADF) lorsque les données doivent être migrées en permanence, notamment si cela implique un scénario hybride qui accède aux ressources locales et cloud, lorsque les données sont traitées ou doivent être modifiées, ou si vous ajoutez une logique métier en cours de migration. Pour plus d’informations, référez-vous à [Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory](move-sql-azure-adf.md)
-5. **Quelle est la quantité de données à déplacer vers Azure ?** Si les jeux de données sont très volumineux, ils peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, reportez-vous à la rubrique sur les limites de taille pour Machine Learning Studio dans la section suivante. Dans ces cas, un échantillon de données peut servir à l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus TDSP (Team Data Science Process)](sample-data.md).
+5. **Quelle est la quantité de données à déplacer vers Azure ?** Si les jeux de données sont extrêmement volumineux, ils peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, reportez-vous à la rubrique sur les limites de taille pour Machine Learning Studio dans la section suivante. Dans ces cas, un échantillon de données peut servir à l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus TDSP (Team Data Science Process)](sample-data.md).
 
-## <a name="data-characteristics-questions-type-format-and-size"></a>Questions sur les caractéristiques des données : type, format et taille
+## <a name="data-characteristics-questions-type-format-and-size"></a>Questions sur les caractéristiques des données : type, format et taille
 Ces questions sont essentielles pour la planification de vos environnements de stockage et de traitement. Chacun d’entre eux sera adapté aux différents types de données, avec des restrictions propres.
 
 1. **Quels sont les types de données ?** Par exemple :
@@ -67,9 +67,9 @@ Ces questions sont essentielles pour la planification de vos environnements de s
    * Tables SQL Server
 3. **Quel volume vos données représentent-elles ?**
    
-   * Petit : moins de 2 Go
-   * Moyen : entre 2 Go et 10 Go
-   * Grand : supérieur à 10 Go
+   * Petit : moins de 2 Go
+   * Moyen : plus de 2 Go et moins de 10 Go
+   * Grand : plus de 10 Go
 
 Prenons par exemple l’environnement Azure Machine Learning Studio :
 
@@ -79,7 +79,7 @@ Prenons par exemple l’environnement Azure Machine Learning Studio :
 Pour plus d’informations sur les limitations des autres services Azure utilisés dans le processus d’analyse, référez-vous à [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Questions sur la qualité des données : exploration et prétraitement
-1. **Que savez-vous sur vos données ?** Explorez les données lorsque vous avez besoin d’obtenir et de comprendre leurs caractéristiques de base. Par exemple les modèles ou les tendances qu’elles dévoilent, les aberrations qu’elles contiennent ou le nombre de valeurs manquantes. Cette étape est importante en vue de déterminer l’étendue du prétraitement nécessaire, de formuler des hypothèses visant à suggérer les fonctionnalités ou le type d’analyse les plus appropriés, et de planifier la collecte de données supplémentaires. Le calcul des statistiques descriptives et le tracé des visualisations sont des techniques utiles pour l’inspection des données. Pour plus d’informations sur l’exploration d’un jeu de données dans différents environnements Azure, référez-vous à [Explorer les données du processus TDSP (Team Data Science Process)](explore-data.md).
+1. **Que savez-vous sur vos données ?** Explorez les données pour comprendre leurs caractéristiques de base. Par exemple les modèles ou les tendances qu’elles dévoilent, les aberrations qu’elles contiennent ou le nombre de valeurs manquantes. Cette étape est importante en vue de déterminer l’étendue du prétraitement nécessaire, de formuler des hypothèses visant à suggérer les fonctionnalités ou le type d’analyse les plus appropriés, et de planifier la collecte de données supplémentaires. Le calcul des statistiques descriptives et le tracé des visualisations sont des techniques utiles pour l’inspection des données. Pour plus d’informations sur l’exploration d’un jeu de données dans différents environnements Azure, référez-vous à [Explorer les données du processus TDSP (Team Data Science Process)](explore-data.md).
 2. **Les données nécessitent-elles un prétraitement ou un nettoyage ?**
    Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Pour obtenir une description, référez-vous à [Tâches de préparation des données pour l’apprentissage automatique amélioré](prepare-data.md).
 

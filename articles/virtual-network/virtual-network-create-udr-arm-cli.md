@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: adfcf53f9fca0efafb538edfd65b95313dcf1559
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>Créer un routage défini par l’utilisateur - Azure CLI
 
@@ -293,6 +293,12 @@ Les commandes d’Azure CLI sont identiques, que vous les exécutiez à partir d
         - **Ubuntu** : exécutez la commande `tracepath myvm-private`.
       Le trafic transite par 10.0.2.4 (l’appliance virtuelle réseau) avant d’atteindre 10.0.1.4 (la machine virtuelle dans le sous-réseau Privé). 
     - Exécutez les étapes précédentes en vous connectant à la machine virtuelle *myVm-Private* et en effectuant un test ping sur la machine virtuelle *myVm-Public*. La commande de suivi de l’itinéraire montre la communication transitant via 10.0.2.4 avant d’atteindre 10.0.0.4 (la machine virtuelle dans le sous-réseau Public).
+      
+      > [!NOTE]
+      > Les étapes précédentes vous permettent de confirmer le routage entre les adresses IP privées Azure. Si vous voulez transférer ou rediriger via proxy le trafic vers des adresses IP publiques par le biais d’une appliance virtuelle réseau :
+      > - L’application doit fournir la traduction d’adresses réseau ou la fonctionnalité de proxy. Si vous utilisez la traduction d’adresses réseau, l’appliance doit convertir l’adresse IP source en sa propre adresse, puis transférer cette requête à l’adresse IP publique. Si l’appliance a traduit l’adresse source ou redirige via proxy, Azure traduit l’adresse IP privée de l’appliance virtuelle réseau en adresse IP publique. Pour plus d’informations sur les différentes méthodes qu’Azure utilise pour traduire des adresses IP privées en adresses IP publiques, consultez [Présentation des connexions sortantes](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Itinéraire supplémentaire dans la table de routage tel que le préfixe : 0.0.0.0/0, le type de tronçon suivant VirtualAppliance et l’adresse IP de tronçon suivant 10.0.2.4 (dans l’exemple de script précédent).
+      >
     - **Facultatif** : utilisez la fonctionnalité de tronçon suivant d'Azure Network Watcher pour valider le tronçon suivant entre deux machines virtuelles dans Azure. Avant d’utiliser Network Watcher, vous devez [créer une instance Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour la région dans laquelle vous souhaitez l’utiliser. Ce didacticiel utilise la région Est des États-Unis. Une fois que vous avez activé une instance Network Watcher pour la région, entrez la commande suivante pour consulter les informations du tronçon suivant entre les machines virtuelles des sous-réseaux Public et Privé :
      
         ```azurecli-interactive

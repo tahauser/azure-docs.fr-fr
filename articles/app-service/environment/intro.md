@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 322cf2ebbe83d00fcebcec618e07141d26f4f255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Présentation des environnements App Service #
  
@@ -48,13 +48,13 @@ Un environnement App Service est composé de frontends et de workers. Les fronte
 
 Les workers sont des rôles qui hébergent des applications clientes. Ils sont disponibles dans trois tailles fixes :
 
-* Un cœur /3,5 Go de RAM
-* Deux cœurs/7 Go de RAM
-* Quatre cœurs/14 Go de RAM
+* Un processeur virtuel/3,5 Go de RAM
+* Deux processeurs virtuels/7 Go de RAM
+* Quatre processeurs virtuels/14 Go de RAM
 
 Les clients n’ont pas besoin de gérer les frontends et les workers. Toute infrastructure est automatiquement ajoutée à mesure que les clients augmentent l’échelle de leurs plans App Service. À mesure que des plans App Service sont créés ou mis à l’échelle dans un environnement App Service, l’infrastructure requise est ajoutée ou supprimée en conséquence.
 
-Un tarif fixe mensuel couvre l’infrastructure d’un environnement App Service et ne change pas avec la taille de l’environnement. Chaque cœur de plan App Service présente aussi un coût. Toutes les applications hébergées dans un environnement App Service sont dans la référence (SKU) de prix Isolée. Pour plus d’informations sur les tarifs d’un environnement App Service, consultez la page de [tarification App Service][Pricing] et passez en revue les options disponibles pour les environnements App Service.
+Un tarif fixe mensuel couvre l’infrastructure d’un environnement App Service et ne change pas avec la taille de l’environnement. Chaque processeur virtuel de plan App Service présente aussi un coût. Toutes les applications hébergées dans un environnement App Service sont dans la référence (SKU) de prix Isolée. Pour plus d’informations sur les tarifs d’un environnement App Service, consultez la page de [tarification App Service][Pricing] et passez en revue les options disponibles pour les environnements App Service.
 
 ## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels ##
 
@@ -68,13 +68,15 @@ Les applications doivent souvent accéder à des ressources d'entreprise telles 
 
 Pour plus d’informations sur le fonctionnement des environnements App Service avec des réseaux virtuels et des réseaux locaux, consultez [Considérations sur les réseaux d’environnement App Service][ASENetwork].
 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
+
 ## <a name="app-service-environment-v1"></a>Environnement App Service v1 ##
 
 L’environnement App Service est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont basées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2. 
 
 Dans ASEv1, vous devez gérer toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir augmenter l’échelle de votre plan App Service, vous devez d’abord augmenter celle du pool de workers où vous voulez héberger le plan.
 
-Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASEv1, vous payez pour chaque cœur alloué. Cela inclut les cœurs utilisés pour les frontends ou les workers qui n’hébergent pas de charges de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
+Les versions ASEv1 et ASEv2 utilisent un modèle de tarification différent. Dans ASEv1, vous payez pour chaque processeur virtuel alloué. Cela inclut les processeurs virtuels utilisés pour les frontends ou les workers qui n’hébergent pas de charges de travail. Dans la version ASEv1, la taille d’échelle maximale par défaut d’un environnement App Service correspond à un total de 55 hôtes, dont les workers et les frontends. L’un des avantages d’un ASEv1 est qu’il peut être déployé sur un réseau virtuel classique et sur un réseau virtuel Resource Manager. Pour plus d’informations sur ASEv1, consultez [Présentation de l’environnement App Service v1][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

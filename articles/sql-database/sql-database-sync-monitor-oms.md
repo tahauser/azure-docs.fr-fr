@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: e1099d2cd7eeccbe76d762028a0c5d5f95f53026
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Surveiller Azure SQL Data Sync (Préversion) avec OMS Log Analytics 
+# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Surveiller SQL Data Sync (préversion) avec OMS Log Analytics 
 
 Pour contrôler le journal d’activité de SQL Data Sync et détecter les erreurs et avertissements, vous deviez vérifier manuellement SQL Data Sync dans le portail Azure ou utiliser PowerShell ou l’API REST. Suivez les étapes décrites dans cet article pour configurer une solution personnalisée qui améliore l’expérience de surveillance de Data Sync. Vous pouvez personnaliser cette solution pour l’adapter à votre scénario.
 
@@ -24,17 +24,17 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 Vous n’avez plus besoin d’examiner les journaux de chaque groupe de synchronisation individuellement pour rechercher des problèmes. Vous pouvez surveiller tous vos groupes de synchronisation à partir de n’importe lequel de vos abonnements et d’un seul emplacement à l’aide d’une vue personnalisée OMS (Operations Management Suite). Cette vue met en évidence les informations qui intéressent les clients SQL Data Sync.
 
-![Tableau de surveillance Data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.jpg)
+![Tableau de surveillance Data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Notifications automatiques par e-mail
 
-Vous n’avez plus besoin de consulter le journal manuellement dans le portail Azure ou par le biais de PowerShell ou de l’API REST. Grâce à [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), vous pouvez créer des alertes envoyées directement aux adresses e-mail des personnes devant être informées en cas d’erreur.
+Vous n’avez plus besoin de consulter le journal manuellement dans le portail Azure ou par le biais de PowerShell ou de l’API REST. Grâce à [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), vous pouvez créer des alertes qui sont envoyées directement aux adresses e-mail des personnes devant être informées en cas d’erreur.
 
-![Notifications Data Sync par e-mail](media/sql-database-sync-monitor-oms/sync-email-notifications.jpg)
+![Notifications Data Sync par e-mail](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-this-up"></a>Comment effectuer la configuration ? 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>Comment faire pour configurer ces fonctionnalités de surveillance ? 
 
-Implémentez une solution de surveillance OMS personnalisée pour SQL Data Sync en moins d’une heure en procédant comme suit.
+Effectuez les étapes suivantes pour implémenter une solution de surveillance OMS personnalisée pour SQL Data Sync en moins d’une heure :
 
 Vous devez configurer trois composants :
 
@@ -52,7 +52,7 @@ Téléchargez les deux exemples suivants :
 
 -   [Vue OMS de journal Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Composants requis
 
 Vérifiez que vous avez configuré les éléments suivants :
 
@@ -80,7 +80,7 @@ Pour plus d’informations sur la création d’un runbook, consultez [Mon premi
 
 6.  Sous votre compte Azure Automation, sélectionnez l’onglet **Variables** sous Ressources partagées.
 
-7.  Dans la page Variables, sélectionnez **Ajouter une variable**. Nous devons créer une variable pour stocker la dernière heure d’exécution du runbook. Si vous avez plusieurs runbooks, vous avez besoin d’une variable pour chaque runbook.
+7.  Dans la page Variables, sélectionnez **Ajouter une variable**. Créez une variable pour stocker la dernière heure d’exécution du runbook. Si vous avez plusieurs runbooks, vous avez besoin d’une variable pour chaque runbook.
 
 8.  Définissez `DataSyncLogLastUpdatedTime` comme nom de variable et DateTime comme Type.
 
@@ -92,11 +92,11 @@ Pour plus d’informations sur la création d’un runbook, consultez [Mon premi
 
     2.  Informations sur les groupes de synchronisation.
 
-    3.  Informations OMS. Recherchez ces informations sur le portail OMS | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données à Log Analytics, consultez [Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
+    3.  Informations OMS. Recherchez ces informations sur le portail OMS | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données à Log Analytics, consultez [Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Exécutez le runbook dans le volet Test. Vérifiez que le test a réussi.
 
-    S’il y a des erreurs, vérifiez que le module PowerShell le plus récent est installé. Vous pouvez le faire dans la **Galerie de modules** dans votre compte Automation.
+    S’il y a des erreurs, vérifiez que le module PowerShell le plus récent est installé. Vous pouvez installer le module PowerShell le plus récent dans la **Galerie de modules** dans votre compte Automation.
 
 12. Cliquez sur **Publier**.
 
@@ -118,7 +118,7 @@ Pour planifier le runbook
 
 ### <a name="check-the-automation"></a>Vérifier l’automation
 
-Pour surveiller si votre automation s’exécute comme prévu, sous **Vue d’ensemble** pour votre compte automation, recherchez la vue **Statistiques des tâches** sous **Surveillance**. Épinglez-la à votre tableau de bord pour en faciliter la consultation. Les exécutions réussies du runbook sont affichées avec la mention « Terminé » et les exécutions ayant échoué avec la mention « Échec ».
+Pour surveiller si votre automation s’exécute comme prévu, sous **Vue d’ensemble** pour votre compte automation, recherchez la vue **Statistiques des tâches** sous **Surveillance**. Épinglez cette vue à votre tableau de bord pour en faciliter la consultation. Les exécutions réussies du runbook sont affichées avec la mention « Terminé » et les exécutions ayant échoué avec la mention « Échec ».
 
 ## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>Créer une alerte de lecture du journal OMS pour les notifications par e-mail
 
@@ -136,9 +136,9 @@ Pour créer une alerte qui utilise OMS Log Analytics, effectuez les étapes suiv
 
     1.  Affectez **Supérieur à** comme Valeur de l’agrégat.
 
-    2.  Après **Supérieur à**, entrez le seuil qui doit s’écouler avant que vous receviez des notifications. Une certaine quantité d’erreurs temporaires sont attendues dans Data Sync. Nous vous recommandons de définir le seuil à 5 pour réduire le bruit.
+    2.  Après **Supérieur à**, entrez le seuil qui doit s’écouler avant que vous receviez des notifications. Une certaine quantité d’erreurs temporaires sont attendues dans Data Sync. Pour réduire le bruit, définissez le seuil avec la valeur 5.
 
-5.  Sous **Actions**, affectez la valeur Oui à **Notification par e-mail**. Entrez les destinataires de messagerie de votre choix.
+5.  Sous **Actions**, choisissez Oui pour **Notification par e-mail**. Entrez les destinataires de messagerie de votre choix.
 
 6.  Cliquez sur **Enregistrer**. Les destinataires spécifiés reçoivent maintenant des notifications par e-mail quand des erreurs se produisent.
 
@@ -192,7 +192,8 @@ Téléchargez les exemples de code décrits dans cet article à partir des empla
 Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md)
--   [Bien démarrer avec Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

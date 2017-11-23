@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 
@@ -108,7 +108,7 @@ Chaque instance de service est également partitionnée à l’aide du schéma d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez le [Guide de démarrage rapide](service-fabric-api-management-quick-start.md) pour configurer votre premier cluster Service Fabric avec Gestion des API et faire passer les requêtes par le biais de Gestion des API vers vos services.
+Suivez le [didacticiel](service-fabric-tutorial-deploy-api-management.md) pour configurer votre premier cluster Service Fabric avec Gestion des API et faire passer les requêtes par le biais de Gestion des API vers vos services.
 
 <!-- links -->
 

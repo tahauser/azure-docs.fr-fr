@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: d8fa78585842a7e4414c8decf422c971938b683f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 37957c75fbe18734761ed8b33a27fe566018f4d2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -194,7 +194,7 @@ Pour copier des données vers une banque de données compatible ODBC, définisse
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **OdbcSink** | Oui |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **OdbcSink**. | Oui |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (la valeur par défaut est 0, détectée automatiquement) |
 | preCopyScript |Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans la banque de données à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |

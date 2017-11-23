@@ -4,7 +4,7 @@ description: "Décrit les nouvelles fonctionnalités, les problèmes et les solu
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notes de publication de StorSimple 8000 Series Update 5
 
@@ -31,6 +31,7 @@ Update 5 peut être appliquée à n’importe quel appareil StorSimple exécuta
 Lisez les informations contenues dans les notes de publication avant de déployer la mise à jour dans votre solution StorSimple.
 
 > [!IMPORTANT]
+> * Update 5 est une mise à jour obligatoire et elle doit être installée immédiatement. Pour plus d’informations, consultez [Comment appliquer Update 5](storsimple-8000-install-update-5.md).
 > * Update 5 contient les mises à jour logicielles de l’appareil, celles du microprogramme de disque, de la sécurité du système d’exploitation ainsi que d’autres mises à jour du système d’exploitation. L’installation de cette mise à jour prend environ 4 heures. La mise à jour du microprogramme de disque est une mise à jour perturbatrice qui entraîne une interruption de service pour votre appareil. Nous vous recommandons d’appliquer Update 5 pour maintenir votre appareil à jour.
 > * Pour les nouvelles versions, vous ne voyez pas immédiatement les mises à jour, car nous effectuons un déploiement échelonné des mises à jour. Revérifiez les mises à jour dans quelques jours, car celles-ci seront bientôt disponibles.
 

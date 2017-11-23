@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser l’identité de service managée (préversion publique) dans App Service et Azure Functions
 
@@ -103,7 +103,7 @@ Il existe un protocole REST simple pour obtenir un jeton dans App Service et Azu
 
 ### <a name="asal"></a>Utilisation de la bibliothèque Microsoft.Azure.Services.AppAuthentication pour .NET
 
-Pour les applications et les fonctions .NET, la façon la plus simple pour utiliser une identité de service managée consiste à passer par le package Microsoft.Azure.Services.AppAuthentication. Cette bibliothèque vous permet également de tester votre code localement sur votre machine de développement, à l’aide de votre compte d’utilisateur à partir [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) ou de l’authentification intégrée Azure Active Directory. Cette section vous montre comment prendre en main la bibliothèque.
+Pour les applications et les fonctions .NET, la façon la plus simple pour utiliser une identité de service managée consiste à passer par le package Microsoft.Azure.Services.AppAuthentication. Cette bibliothèque vous permet également de tester votre code localement sur votre machine de développement, à l’aide de votre compte d’utilisateur à partir de Visual Studio, [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) ou de l’authentification intégrée Azure Active Directory. Pour plus d’informations sur les options de développement local avec cette bibliothèque, consultez le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication ]. Cette section vous montre comment prendre en main la bibliothèque dans votre code.
 
 1. Ajoutez des références aux packages NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) et [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) à votre application.
 
@@ -119,7 +119,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opérations qu’il expose, consultez [l’exemple .NET associant App Service, Key Vault et l’identité du service administré](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opérations qu’il expose, consultez le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication ] et [l’exemple .NET associant App Service, Key Vault et l’identité du service administré](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-rest-protocol"></a>Utilisation du protocole REST
 
@@ -208,3 +208,6 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+
+[Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication ]: https://go.microsoft.com/fwlink/p/?linkid=862452

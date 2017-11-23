@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: b8a9204b9eece396fbc30eacc8912ba9e655b963
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Mettre à l’échelle un cluster Service Fabric
 
-Ce didacticiel constitue la troisième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce didacticiel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.
+Ce didacticiel constitue la deuxième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce didacticiel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -31,7 +31,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Ajouter des nœuds de cluster (scale out)
 > * Supprimer des nœuds de cluster (scale in)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -40,7 +40,7 @@ Avant de commencer ce didacticiel :
 - Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
-Connectez-vous à votre compte Azure et sélectionnez votre abonnement avant d’exécuter des commandes Azure.
+Connectez-vous à votre compte Azure, sélectionnez votre abonnement avant d’exécuter des commandes Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -79,7 +79,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 
 Maintenant que vous êtes connecté, vous pouvez utiliser une commande pour obtenir l’état de chaque nœud du cluster. Pour PowerShell, utilisez la commande `Get-ServiceFabricClusterHealth` tandis que pour **sfctl**, utilisez la commande ``.
 
-## <a name="scale-out"></a>Augmenter le nombre d’instances
+## <a name="scale-out"></a>Montée en charge
 
 Lorsque vous augmentez le nombre d’instances (scale out), vous ajoutez des instances de machines virtuelles au groupe identique. Ces instances deviennent les nœuds que Service Fabric utilise. Service Fabric sait quand des instances sont ajoutées au groupe identique et réagit automatiquement. Le code suivant obtient un groupe identique par son nom et augmente de 1 sa **capacité**.
 

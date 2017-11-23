@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Approbations (version préliminaire)
+# <a name="approvals"></a>Approbations
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Grâce aux approbations Privileged Identity Management, vous pouvez configurer des rôles afin de demander une approbation d’activation, et choisir un ou plusieurs utilisateurs ou groupes comme approbateurs délégués. Poursuivez pour découvrir comment configurer des rôles et sélectionner des approbateurs.
 
->[!NOTE]
-N’oubliez pas que cette fonctionnalité est en cours de développement et que vous pouvez rencontrer des bugs. La fonctionnalité, y compris le texte et les conventions d’affectation de noms, peut être modifiée et ne doit pas être considérée comme finale.
 
-
-## <a name="key-terminology"></a>Terminologie clé
+## <a name="new-terminology"></a>Nouvelle terminologie
 
 *Utilisateur de rôle éligible* : un utilisateur de rôle éligible est un utilisateur au sein de votre organisation affecté à un rôle Azure AD comme éligible (le rôle requiert une activation).
 
-*Approbateur délégué* : un approbateur délégué est une ou plusieurs personnes ou groupes au sein de votre Azure AD responsables de l’approbation des demandes d’activation de rôle.
+*Approbateur délégué* : un approbateur délégué est une ou plusieurs personnes ou groupes au sein de votre Azure AD responsables de l’approbation des demandes d’activation de rôles.
 
 ## <a name="scenarios"></a>Scénarios
 

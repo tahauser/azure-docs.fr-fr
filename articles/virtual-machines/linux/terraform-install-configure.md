@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure
  
 Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage de création de modèles simple](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform en vue d’approvisionner des ressources dans Azure. 
 
 > [!TIP]
-> Terraform est installé par défaut dans [l’environnement Bash d’Azure Cloud Shell](/azure/cloud-shell/quickstart). Il est également préconfiguré avec des informations d’identification et des [modules Azure Terraform](https://registry.terraform.io/modules/Azure). Si vous utilisez Cloud Shell, vous pouvez ignorer les sections de ce document sur l’installation et la configuration.
+Pour en savoir plus sur l’utilisation de Terraform avec Azure, visitez [Terraform Hub](/azure/terraform). Terraform est installé par défaut dans [Cloud Shell](/terraform/terraform-cloud-shell). Si vous utilisez Cloud Shell, vous pouvez ignorer les sections de ce document sur l’installation et la configuration.
 
 ## <a name="install-terraform"></a>Installer Terraform
 

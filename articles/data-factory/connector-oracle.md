@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 2266bf17dd769102e70c20728ededb304f73beb4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: df9ba6367b2d2ce1b2c281ce483e63b0baa9feb6
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -164,7 +164,7 @@ Pour copier des données vers Oracle, définissez **OracleSink** comme type de r
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **OracleSink** | Oui |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **OracleSink**. | Oui |
 | writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). | Non |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Oracle à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: fa660dd72acb5b19a49fc0100c3c1e5fc8e87dee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -223,7 +223,7 @@ Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink*
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **SqlDWSink** | Oui |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlDWSink**. | Oui |
 | allowPolyBase |Indique s’il faut utiliser PolyBase (le cas échéant) au lieu du mécanisme BULKINSERT. <br/><br/> **L’utilisation de PolyBase est la méthode recommandée pour charger des données dans SQL Data Warehouse.** Reportez-vous à la section [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) pour connaître les contraintes et les détails.<br/><br/>Valeurs autorisées : **True** (par défaut), et **False**.  |Non |
 | polyBaseSettings |Groupe de propriétés pouvant être spécifié lorsque la propriété **allowPolybase** est définie sur **true**. |Non |
 | rejectValue |Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête.<br/><br/>Pour en savoir plus sur les options de rejet de PolyBase dans la section **Arguments** de la rubrique [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) (Créer une table externe (Transact-SQL)). <br/><br/>Valeurs autorisées : 0 (par défaut), 1, 2,... |Non |

@@ -3,7 +3,7 @@ title: "Qu’est-ce que la Recherche Azure ? | Microsoft Docs"
 description: "Azure Search est un service de recherche cloud hébergé intégralement géré. En savoir plus dans la vue d'ensemble de cette fonctionnalité."
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>Présentation d’Azure Search
-Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant vos données dans les applications web, mobiles et d’entreprise.
+Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant votre contenu dans les applications web, mobiles et d’entreprise.
 
-Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/searchservice/) ou d’un [SDK .NET](search-howto-dotnet-sdk.md) simple, qui masque la complexité inhérente de la technologie de recherche. En plus des API, le portail Azure fournit un support administratif et de prototypage. L’infrastructure et la disponibilité sont gérées par Microsoft.
+Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/searchservice/) ou d’un [SDK.NET](search-howto-dotnet-sdk.md) simple, qui masque la complexité inhérente de la récupération d’informations. En plus des API, le portail Azure offre la prise en charge de l’administration et de la gestion de contenu, avec des outils de prototypage et d’interrogation de vos index. Étant donné que le service s’exécute dans le cloud, infrastructure et la disponibilité sont gérées par Microsoft.
 
 <a name="feature-drilldown"></a>
 

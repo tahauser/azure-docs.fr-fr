@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche Azure
 Une application mutualisée est une application qui fournit les mêmes services et fonctionnalités à plusieurs clients qui ne peuvent pas voir ni partager les données d’un autre client. Ce document aborde les stratégies d’isolation de client pour les applications mutualisées conçues avec Recherche Azure.
 
 ## <a name="azure-search-concepts"></a>Concepts de Recherche Azure
-En tant que solution SaaS (search-as-a-service), Recherche Azure permet aux développeurs d’ajouter des expériences de recherche enrichies dans les applications sans avoir à gérer d’infrastructure, ni devenir un expert en matière de recherche. Les données sont téléchargées vers le service, puis stockées dans le cloud. À l’aide de requêtes simples dans l’API Recherche Azure, les données peuvent ensuite être modifiées et faire l’objet de recherches. [Cet article](http://aka.ms/whatisazsearch)présente une vue d’ensemble du service. Avant d’aborder les modèles de conception, il est important de comprendre certains concepts de Recherche Azure.
+En tant que solution SaaS (search-as-a-service), Recherche Azure permet aux développeurs d’ajouter des expériences de recherche enrichies dans les applications sans avoir à gérer d’infrastructure, ni devenir un expert en matière de récupération d’informations. Les données sont téléchargées vers le service, puis stockées dans le cloud. À l’aide de requêtes simples dans l’API Recherche Azure, les données peuvent ensuite être modifiées et faire l’objet de recherches. [Cet article](http://aka.ms/whatisazsearch)présente une vue d’ensemble du service. Avant d’aborder les modèles de conception, il est important de comprendre certains concepts de Recherche Azure.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Rechercher des services, des index, des champs et des documents
 Lorsque vous utilisez Recherche Azure, vous vous abonnez à un *service de recherche*. Lorsque les données sont téléchargées vers Recherche Azure, elles sont stockées dans un *index* au sein du service de recherche. Un seul service peut contenir plusieurs index. Pour utiliser les concepts familiers des bases de données, le service de recherche peut être comparé à une base de données, tandis que les index au sein d’un service peuvent être comparés aux tables dans une base de données.

@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search
 Une fois que vous avez [choisi un niveau tarifaire](search-sku-tier.md) et [approvisionné un service de recherche](search-create-service-portal.md), l’étape suivante, facultative, consiste à augmenter le nombre de réplicas ou de partitions utilisés par votre service. Chaque niveau propose un nombre fixe d’unités de facturation. Cet article explique comment allouer ces unités pour obtenir une configuration optimale par rapport à vos exigences pour l’exécution des requêtes, l’indexation et le stockage.
 
-La configuration des ressources est disponible lorsque vous configurez un service au [niveau basique](http://aka.ms/azuresearchbasic) ou à l’un des [niveaux standard](search-limits-quotas-capacity.md). Pour les services facturables à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. 
+La configuration des ressources est disponible lorsque vous configurez un service au [niveau basique](http://aka.ms/azuresearchbasic) ou à l’un des [niveaux standard](search-limits-quotas-capacity.md). Pour les services à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. 
 
 La facture est proportionnelle au nombre de SU : moins elles sont nombreuses, plus la facture diminue. La facturation reste en vigueur tant que le service est configuré. Si vous n’utilisez pas temporairement un service, la seule manière d’éviter la facturation consiste à supprimer ce service, puis à le recréer lorsque vous en avez besoin.
 
@@ -51,7 +51,7 @@ Pour augmenter ou modifier l’allocation des réplicas et des partitions, nous 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/), puis sélectionnez le service de recherche.
 2. Dans **Paramètres**, ouvrez le panneau **Mettre à l’échelle** et utilisez les curseurs pour augmenter ou diminuer le nombre de partitions et de réplicas.
 
-Si vous avez besoin d’une approche codée ou scriptée de l’approvisionnement, [l’API REST de gestion](https://msdn.microsoft.com/library/azure/dn832687.aspx) est une alternative au portail.
+Si vous avez besoin d’une approche codée ou scriptée de l’approvisionnement, [l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/services) est une alternative au portail.
 
 En règle générale, les applications de recherche ont besoin de plus de réplicas que de partitions, en particulier lorsque les opérations de service favorisent les charges de travail de requête. La section [Haute disponibilité](#HA) explique pourquoi.
 
@@ -63,9 +63,7 @@ En règle générale, les applications de recherche ont besoin de plus de répli
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>Haute disponibilité
-Nous vous recommandons généralement de démarrer avec une partition et un ou deux réplicas, puis de monter en puissance à mesure que les volumes de requête se créent. Pour de nombreux services au niveau basique ou S1, une partition offre suffisamment de stockage et d’E/S (15 millions de documents par partition).
-
-Les charges de travail de requêtes s’exécutent principalement sur des réplicas. Si vous nécessitez une haute disponibilité ou un débit plus important, vous aurez probablement besoin de réplicas supplémentaires.
+Nous vous recommandons généralement de démarrer avec une partition et un ou deux réplicas, puis de monter en puissance à mesure que les volumes de requête se créent. Les charges de travail de requêtes s’exécutent principalement sur des réplicas. Si vous nécessitez une haute disponibilité ou un débit plus important, vous aurez probablement besoin de réplicas supplémentaires.
 
 Recommandations générales pour la haute disponibilité :
 
@@ -73,6 +71,8 @@ Recommandations générales pour la haute disponibilité :
 * Trois réplicas minimum pour la haute disponibilité des charges de travail en lecture/écriture (les requêtes et l’indexation en tant que documents individuels sont ajoutées, mises à jour ou supprimées)
 
 Les contrats de niveau de service (SLA) pour la Recherche Azure sont ciblés au moment des opérations de requête et des mises à jour d’index qui se composent d’ajout, de mise à jour ou de suppression de documents.
+
+Le niveau De base est plafonné à une partition et trois réplicas. Si vous souhaitez pouvoir répondre immédiatement aux fluctuations de la demande sur le plan de l’indexation et du débit des requêtes, songez à passer à l’un des niveaux Standard.
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilité des index lors d’une reconstruction
 
@@ -89,9 +89,9 @@ Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence.
 ## <a name="increase-query-performance-with-replicas"></a>Augmenter les performances des requêtes avec des réplicas
 La latence des requêtes vous permet de découvrir si des réplicas supplémentaires doivent être ajoutés. En règle générale, la première étape vers l’amélioration des performances des requêtes consiste à ajouter davantage de cette ressource. Lorsque vous ajoutez des réplicas, les copies supplémentaires de l’index sont mises en ligne pour prendre en charge les charges de travail supérieures de requête et équilibrer la charge des requêtes sur plusieurs réplicas.
 
-Nous ne pouvons fournir aucune estimation sur les requêtes par seconde (RPS) : les performances des requêtes dépendent de la complexité de la requête et des charges de travail concurrentes. En moyenne, un réplica au niveau de référence (SKU) De base ou S1 peut traiter environ 15 requêtes par seconde, mais le débit sera supérieur ou inférieur en fonction de la complexité de la requête (les requêtes à facettes sont plus complexes) et de la latence du réseau. Cependant, bien que l'ajout de réplicas entraîne une amélioration de l’évolutivité et des performances, le résultat final n'est pas strictement linéaire : en ajoutant trois réplicas, le débit ne sera pas forcément multiplié par trois.
+Nous ne pouvons fournir aucune estimation sur les requêtes par seconde (RPS) : les performances des requêtes dépendent de la complexité de la requête et des charges de travail concurrentes. Bien que l’ajout de réplicas entraîne clairement une amélioration de l’évolutivité et des performances, le résultat final n’est pas strictement linéaire : si vous ajoutez trois réplicas, le débit n’est pas forcément multiplié par trois.
 
-Pour en savoir plus sur les requêtes par seconde, notamment les approches d’estimation de RPS pour vos charges de travail, voir [Gérer votre service de recherche](search-manage.md).
+Pour obtenir de l’aide sur l’estimation des requêtes par seconde pour vos charges de travail, consultez [Considérations sur les performances et l’optimisation de Recherche Azure](search-performance-optimization.md).
 
 ## <a name="increase-indexing-performance-with-partitions"></a>Améliorer les performances d’indexation avec des partitions
 Les applications de recherche nécessitant une actualisation des données en temps réel ou presque ont proportionnellement besoin de plus de partitions que de réplicas. L’ajout de partitions répartit les opérations de lecture/écriture sur un plus grand nombre de ressources de calcul. Il vous offre également davantage d’espace disque pour stocker des documents et des index supplémentaires.

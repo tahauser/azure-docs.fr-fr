@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
 
@@ -47,7 +47,7 @@ Cet article examine les meilleures pratiques suivantes pour les machines virtuel
 
 ## <a name="vm-authentication-and-access-control"></a>Authentification des machines virtuelles et contrôle d’accès à celles-ci
 
-La première étape dans la protection de votre machine virtuelle consiste à vous assurer que seuls les utilisateurs autorisés sont en mesure de créer des machines virtuelles. Vous pouvez utiliser les [stratégies Azure Resource Manager](../azure-resource-manager/resource-manager-policy.md) pour définir les conventions des ressources de votre organisation, créer des stratégies personnalisées et les appliquer aux ressources, comme un [groupe de ressources](../azure-resource-manager/resource-group-overview.md).
+La première étape dans la protection de votre machine virtuelle consiste à vous assurer que seuls les utilisateurs autorisés sont en mesure de créer des machines virtuelles. Vous pouvez utiliser les [stratégies Azure](../azure-policy/azure-policy-introduction.md) pour définir les conventions des ressources de votre organisation, créer des stratégies personnalisées et les appliquer aux ressources, comme un [groupe de ressources](../azure-resource-manager/resource-group-overview.md).
 
 Les machines virtuelles qui appartiennent à un groupe de ressources héritent naturellement ses stratégies. Si nous recommandons cette approche pour la gestion des machines virtuelles, vous pouvez également contrôler l’accès à chaque stratégie de machine virtuelle à l’aide du [contrôle d’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-configure.md).
 

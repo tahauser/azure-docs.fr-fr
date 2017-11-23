@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1288fe2eeb9b31b912cd918be624e7a4703f0709
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Présentation de la gestion des appareils dans Azure Active Directory
 
@@ -135,12 +135,31 @@ La gestion des périphériques dans Azure AD vous permet de :
 
 En règle générale, vous devez utiliser :
 
-- Les appareils inscrits sur Azure AD pour les appareils personnels
+- Des appareils inscrits sur Azure AD :
 
-- Les appareils joints Azure AD pour les appareils qui ne sont pas joints à un AD local 
+    - Pour les appareils personnels 
+
+    - Pour inscrire manuellement des appareils auprès d’Azure AD
+
+- Des appareils joints Azure AD : 
+
+    - Pour les appareils qui sont détenus par votre organisation
+
+    - Pour les appareils qui **ne sont pas** joints à un AD local
+
+    - Pour inscrire manuellement des appareils auprès d’Azure AD
+
+    - Pour changer l’état local d’un appareil
 
 - Les appareils joints Azure AD hybrides pour les appareils joints à un AD local     
 
+    - Pour les appareils qui sont détenus par votre organisation
+
+    - Pour les appareils qui sont joints à un AD local
+
+    - Pour inscrire automatiquement des appareils auprès d’Azure AD
+
+    - Pour changer l’état local d’un appareil
 
 
 

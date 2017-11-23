@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
@@ -42,9 +42,9 @@ Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
 
 Avant que vous puissiez sauvegarder Windows Server, vous devez créer un emplacement, ou des points de restauration, pour les sauvegardes à stocker. Un [coffre Recovery Services](backup-azure-recovery-services-vault-overview.md) est un conteneur dans Azure qui stocke les sauvegardes de votre serveur Windows. Suivez les étapes ci-dessous pour créer un coffre Recovery Services dans le portail Azure. 
 
-1. Dans le menu de gauche, sélectionnez **Autres services** et, dans la liste des services, tapez **Recovery Services**. Cliquez sur **Coffres Recovery Services**.
+1. Dans le menu de gauche, sélectionnez **Tous les services**, puis dans la liste des services, tapez **Recovery Services**. Cliquez sur **Coffres Recovery Services**.
 
-   ![ouvrir le coffre Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![ouvrir le coffre Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
@@ -134,7 +134,7 @@ Vous avez établi la planification lors de l’exécution des tâches de sauvega
 
 1.  Dans la console de l’agent Microsoft Azure Recovery Services, cliquez sur **Sauvegarder maintenant**.
 
-    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Download Agent for Windows Server or Windows Client](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  Dans l’Assistant **Sauvegarder maintenant**, sélectionnez dans **Fichiers et dossiers** ou **État du système** l’élément que vous souhaitez sauvegarder, puis cliquez sur **Suivant**. 
 3. Dans la page **Confirmation**, vérifiez les paramètres utilisés par l’Assistant **Sauvegarder maintenant** pour sauvegarder votre serveur, puis cliquez sur **Sauvegarder**.

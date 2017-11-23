@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -70,11 +70,11 @@ Pour installer les pilotes GRID NVIDIA sur des machines virtuelles NV, établiss
 5. Téléchargez et installez le pilote GRID :
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 
 6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui**.
@@ -139,11 +139,11 @@ Pour installer les pilotes GRID NVIDIA sur des machines virtuelles NV, établiss
 5. Téléchargez et installez le pilote GRID :
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 6. Lorsque vous êtes invité à indiquer si vous souhaitez exécuter l’utilitaire nvidia-xconfig pour mettre à jour votre fichier de configuration X, sélectionnez **Oui**.
 
@@ -165,7 +165,7 @@ Pour installer les pilotes GRID NVIDIA sur des machines virtuelles NV, établiss
 
 Pour interroger l’état de l’appareil GPU, connectez-vous par SSH à la machine virtuelle et exécutez l’utilitaire de ligne de commande [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installé avec le pilote. 
 
-Une sortie similaire à ce qui suit s’affiche :
+Une sortie similaire à ce qui suit s’affiche. La version de votre pilote et vos détails de GPU peuvent différer de ceux indiqués.
 
 ![État de l’appareil NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
@@ -229,7 +229,7 @@ Ensuite, exécutez les commandes d’installation spécifiques de votre distribu
 
 1. Téléchargez et installez les pilotes CUDA.
   ```bash
-  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -352,7 +352,7 @@ Déployez des machines virtuelles NC24r à partir d’une des images suivantes d
 
 * Il existe un problème connu avec les pilotes CUDA sur les machines virtuelles Azure de série N exécutant le noyau Linux 4.4.0-75 sur Ubuntu 16.04 LTS. Si vous effectuez une mise à niveau à partir d’une version antérieure du noyau, procédez à la mise à niveau vers la version 4.4.0-77 du noyau au minimum.
 
-* Vous pouvez définir le mode de persistance à l’aide de nvidia-smi. De cette façon, la sortie de la commande est plus rapide quand vous avez besoin d’effectuer une requête sur les cartes. Pour définir le mode de persistance, exécutez `nvidia-smi -pm 1`. Notez que si la machine virtuelle est redémarrée, le paramètre du mode n’est pas conservé. Vous pouvez toujours définir le paramètre du mode dans un script à exécuter au démarrage.
+* Vous pouvez définir le mode de persistance à l’aide de `nvidia-smi`. De cette façon, la sortie de la commande est plus rapide quand vous avez besoin d’effectuer une requête sur les cartes. Pour définir le mode de persistance, exécutez `nvidia-smi -pm 1`. Notez que si la machine virtuelle est redémarrée, le paramètre du mode n’est pas conservé. Vous pouvez toujours définir le paramètre du mode dans un script à exécuter au démarrage.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

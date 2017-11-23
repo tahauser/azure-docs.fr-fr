@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Tester votre solution avec des appareils simulés
 
@@ -39,6 +39,10 @@ Le tableau suivant présente les données que l’appareil d’éclairage commun
 | Nom   | Valeurs      |
 | ------ | ----------- |
 | État | « on » (allumé), « off » (éteint) |
+| online | true, false |
+
+> [!NOTE]
+> La valeur de télémétrie **online** est obligatoire pour tous les types simulés.
 
 *Méthodes*
 
@@ -267,7 +271,11 @@ Pour tester le type d’appareil **Lightbulb**, vous pouvez commencer par déter
 
 Pour tester et déboguer localement vos modifications, consultez [Device simulation overview](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) (Vue d’ensemble de la simulation d’appareil).
 
-Configurez le projet pour copier les nouveaux fichiers d’appareil **Lightbulb** dans le répertoire de sortie.
+Configurez le projet pour copier les nouveaux fichiers d’appareil **Lightbulb** dans le répertoire de sortie :
+
+* Si vous utilisez Visual Studio, veillez à ajouter les trois nouveaux fichiers lightbulb que vous avez créés dans la section précédente au projet **Services** dans la solution. Utilisez ensuite **l’Explorateur de solutions** pour les marquer pour la copie vers le répertoire de sortie.
+
+* Si vous utilisez Visual Studio Code, ouvrez le fichier **Services.csproj** et ajoutez les trois nouveaux fichiers lightbulb que vous avez créés dans la section précédente. Consultez les entrées existantes de fichier modèle d’appareil dans le fichier **Services.csproj** en guise d’exemples.
 
 Pour tester le nouvel appareil dans une solution déployée, consultez une des sources suivantes :
 

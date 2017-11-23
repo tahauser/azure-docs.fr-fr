@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec Python
 Dans ce guide de démarrage rapide, vous apprenez à utiliser Python pour charger, télécharger et lister des objets blob de blocs dans un conteneur de Stockage Blob Azure. 
@@ -73,7 +73,11 @@ Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](
 
 Une fois que vous avez vérifié les fichiers, appuyez sur n’importe quelle touche pour terminer la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier example.py pour examiner le code. 
 
-## <a name="get-references-to-the-storage-objects"></a>Obtenir des références aux objets de stockage
+## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+
+Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer son fonctionnement.
+
+### <a name="get-references-to-the-storage-objects"></a>Obtenir des références aux objets de stockage
 La première chose à faire est de créer les références aux objets utilisés pour accéder et gérer Stockage Blob. Ces objets reposent les uns sur les autres, chacun est utilisé par le suivant dans la liste.
 
 * Instanciez l’objet **BlockBlobService**, qui pointe vers le service blob de votre compte de stockage. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
+### <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Comme les objets blob de blocs sont les plus couramment utilisés, nous les utilisons dans ce démarrage rapide.  
 
@@ -128,7 +132,7 @@ Il existe plusieurs méthodes de chargement que vous pouvez utiliser avec Stocka
 
 Les objets blob de blocs peuvent atteindre une taille maximale de 4.7 To et peuvent représenter toutes sortes d’éléments allant des feuilles de calcul Excel aux fichiers vidéo volumineux. Les objets blob de pages sont principalement utilisés pour les fichiers VHD utilisés pour stocker des machines virtuelles IaaS. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. La plupart des objets stockés dans Stockage Blob sont des objets blob de blocs.
 
-## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+### <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
 
 Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de la méthode **list_blobs**. Cette méthode retourne un générateur. Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers en affichant les noms des objets blob trouvés dans un conteneur.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Télécharger les objets blob
+### <a name="download-the-blobs"></a>Télécharger les objets blob
 
 Téléchargez les objets blob sur votre disque local à l’aide de la méthode **get\_blob\_to\_path**. Le code suivant télécharge l’objet blob chargé dans une section précédente. « _DOWNLOADED » est ajouté en tant que suffixe au nom de l’objet blob, ce qui vous permet de voir les deux fichiers sur le disque local. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de **delete\_container**. Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **delete\_blob** pour supprimer ces fichiers.
 
 ```python

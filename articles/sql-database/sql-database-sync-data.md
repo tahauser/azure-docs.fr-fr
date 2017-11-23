@@ -13,16 +13,16 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (Préversion)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync (préversion)
 
 SQL Data Sync est un service conçu sur la base de données SQL Azure qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données SQL et instances SQL Server.
 
@@ -44,7 +44,7 @@ Data Sync utilise une topologie hub and spoke pour synchroniser les données. Vo
 -   La **base de données de synchronisation** contient les métadonnées et le journal de Data Sync. La base de données de synchronisation doit être une base de données Azure SQL Database située dans la même région que la base de données Hub. La base de données de synchronisation est créée par le client et lui appartient.
 
 > [!NOTE]
-> Si vous utilisez une base de données locale, vous devez [configurer un agent local.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Si vous utilisez une base de données locale, vous devez [configurer un agent local](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Synchroniser des données entre des bases de données](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -77,33 +77,6 @@ Data Sync ne convient pas aux scénarios suivants :
 -   **Résolution des conflits :** Data Sync fournit deux options pour la résolution de conflit, *Priorité au hub* ou *Priorité au membre*.
     -   Si vous sélectionnez *Priorité au hub*, les modifications dans le hub remplacent toujours les modifications dans le membre.
     -   Si vous sélectionnez *Priorité au membre*, les modifications dans le membre remplacent toujours les modifications dans le hub. S’il existe plusieurs membres, la valeur finale dépend du membre qui se synchronise en premier.
-
-## <a name="common-questions"></a>Questions courantes
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>À quelle fréquence Data Sync synchronise-t-il mes données ? 
-Il effectue une synchronisation au minimum toutes les cinq minutes.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Puis-je utiliser Data Sync pour effectuer une synchronisation entre les bases de données SQL Server locales uniquement ? 
-Pas directement. Vous pouvez effectuer une synchronisation entre les bases de données SQL Server locales de façon indirecte, en créant une base de données Hub dans Azure, puis en ajoutant les bases de données locales au groupe de synchronisation.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Puis-je utiliser Data Sync pour envoyer des données de ma base de données de production vers une base de données vide, et garder mes données synchronisées ? 
-Oui. Créez manuellement le schéma dans la nouvelle base de données en créant le script à partir de la base de données d’origine. Après avoir créé le schéma, ajoutez les tables à un groupe de synchronisation pour copier les données et les garder synchronisées.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Pourquoi puis-je voir des tables que je n’ai pas créées ?  
-Data Sync crée des tables latérales dans votre base de données utilisateur pour le suivi des modifications. Ne les supprimez pas, sinon Data Sync cessera de fonctionner.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>J’ai reçu un message d’erreur indiquant : « Impossible d’insérer la valeur NULL dans la colonne \<colonne\>. Cette colonne n’accepte pas les valeurs NULL. » Que signifie cette erreur et comment puis-je la corriger ? 
-Ce message d’erreur indique l’un des deux problèmes suivants :
-1.  Une table sans clé primaire existe peut-être. Pour résoudre ce problème, ajoutez une clé primaire à toutes les tables que vous synchronisez.
-2.  Une clause WHERE existe peut-être dans votre instruction CREATE INDEX. La synchronisation ne gère pas cette condition. Pour résoudre ce problème, supprimez la clause WHERE ou apportez manuellement les modifications à toutes les bases de données. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Comment Data Sync traite-t-il les références circulaires ? Autrement dit, lorsque les mêmes données sont synchronisées dans plusieurs groupes de synchronisation et changent constamment en conséquence ?
-Data Sync ne traite pas les références circulaires. Veillez à les éviter. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Comment puis-je exporter et importer une base de données avec Data Sync ?
-Après avoir exporté une base de données sous forme de fichier `.bacpac` et avoir importé le fichier pour créer une base de données, vous devez effectuer les deux tâches suivantes pour utiliser Data Sync dans la nouvelle base de données :
-1.  Nettoyer les objets Data Sync et les tables annexes de la **nouvelle base de données** à l’aide de [ce script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Ce script supprime tous les objets Data Sync requis de la base de données.
-2.  Recréer le groupe de synchronisation avec la nouvelle base de données. Si vous n’avez plus besoin de l’ancien groupe de synchronisation, supprimez-le.
 
 ## <a name="sync-req-lim"></a> Spécifications et limitations
 
@@ -151,12 +124,51 @@ Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppres
 | Intervalle de synchronisation minimale                                           | 5 minutes              |                             |
 |||
 
+## <a name="faq-about-sql-data-sync"></a>FAQ sur SQL Data Sync
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Combien coûte le service de synchronisation des données SQL Data Sync (préversion) ?
+
+L’utilisation de la préversion de SQL Data Sync n’engendre aucun coût lié au service proprement dit.  Toutefois, les frais de transfert de données pour le déplacement des données vers et depuis votre instance SQL Database vous seront facturés. Pour en savoir plus, voir [Tarification de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>Quelles régions prennent en charge la synchronisation des données ?
+
+SQL Data Sync (préversion) est disponible dans toutes les régions de cloud public.
+
+### <a name="is-a-sql-database-account-required"></a>Un compte SQL Database est-il requis ? 
+
+Oui. Vous devez avoir un compte SQL Database pour héberger la base de données Hub.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Puis-je utiliser Data Sync pour effectuer une synchronisation entre les bases de données SQL Server locales uniquement ? 
+Pas directement. Vous pouvez effectuer une synchronisation entre les bases de données SQL Server locales de façon indirecte, en créant une base de données Hub dans Azure, puis en ajoutant les bases de données locales au groupe de synchronisation.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Puis-je utiliser Data Sync pour envoyer des données de ma base de données de production vers une base de données vide, et garder mes données synchronisées ? 
+Oui. Créez manuellement le schéma dans la nouvelle base de données en créant le script à partir de la base de données d’origine. Après avoir créé le schéma, ajoutez les tables à un groupe de synchronisation pour copier les données et les garder synchronisées.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Dois-je utiliser SQL Data Sync pour sauvegarder et restaurer mes bases de données ?
+
+Il est déconseillé d’utiliser SQL Data Sync (préversion) pour créer une sauvegarde de vos données. Vous ne pouvez pas sauvegarder et restaurer à un point précis dans le temps, car les synchronisations de SQL Data Sync (version préliminaire) ne sont pas affectées à des versions. Par ailleurs, SQL Data Sync (préversion) ne sauvegarde pas d’autres objets SQL, notamment les procédures stockées, et n’effectue pas rapidement l’équivalent d’une opération de restauration.
+
+Consultez [Copie d'une base de données SQL Azure](sql-database-copy.md) pour prendre connaissance d’une technique de sauvegarde recommandée.
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>Le classement est-il pris en charge dans SQL Data Sync ?
+
+Oui. SQL Data Sync prend en charge le classement dans les scénarios suivants :
+
+-   Si les tables du schéma de synchronisation sélectionné ne sont pas encore dans votre Hub ou dans les bases de données membres, lorsque vous déployez le groupe de synchronisation, le service crée automatiquement les tables et colonnes correspondantes avec les paramètres de classement sélectionnés dans les bases de données de destination vides.
+
+-   Si les tables à synchroniser existent déjà dans votre Hub ou vos bases de données membres, SQL Data Sync requiert que les colonnes clés primaires aient le même classement dans le Hub que dans les bases de données membres pour déployer avec succès le groupe de synchronisation. Il n’existe aucune restriction de classement sur les colonnes autres que les colonnes clés primaires.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>La fédération est-elle prise en charge dans SQL Data Sync ?
+
+La base de données racine de fédération peut être utilisée sans limitation dans SQL Data Sync (préversion). Vous ne pouvez pas ajouter de point de terminaison de base de données fédérée à la version actuelle de SQL Data Sync (préversion).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur SQL Data Sync, consultez :
 
--   [Bien démarrer avec Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Configurer Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Surveiller Azure SQL Data Sync avec OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Exemples PowerShell complets qui montrent comment configurer SQL Data Sync :

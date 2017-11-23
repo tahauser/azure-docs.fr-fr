@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: fbd2372829a1aefa2c080c0a8a72b9ff4375b16f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Créer une règle d’autorisation Service Bus pour l’espace de noms et la file d’attente à l’aide d’un modèle Azure Resource Manager
 
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée une [règle d’autorisation](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) pour un espace de noms Service Bus et une file d’attente. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée une [règle d’autorisation](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) pour un espace de noms Service Bus et une file d’attente. L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
 Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -36,12 +36,13 @@ Pour obtenir le modèle complet, consultez le [modèle de règle d’autorisatio
 > * [Créer un espace de noms Service Bus par rubrique et abonnement](service-bus-resource-manager-namespace-topic.md)
 > * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
+> Pour rechercher les derniers modèles, recherchez **Service Bus** dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
-Avec ce modèle, vous allez déployer une règle d’autorisation Service Bus pour un espace de noms et une entité de messagerie (une file d’attente, dans le cas présent).
+
+Avec ce modèle, vous déployez une règle d’autorisation Service Bus pour un espace de noms et une entité de messagerie (une file d’attente, dans le cas présent).
 
 Ce modèle utilise la [signature d’accès partagé (SAP)](service-bus-sas.md) pour l’authentification. SAP permet aux applications de s’authentifier auprès de Service Bus à l’aide d’une clé d’accès sur l’espace de noms, ou sur l’entité de messagerie (file d’attente ou rubrique) avec des droits spécifiques associés. Vous pouvez ensuite utiliser cette clé pour générer un jeton SAS que les clients peuvent ensuite utiliser pour s’authentifier auprès de Service Bus.
 
@@ -86,9 +87,12 @@ Nom de la file d’attente dans l’espace de noms Service Bus.
 La version de l’API Service Bus du modèle.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Ressources à déployer

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Les tableaux suivants présentent les valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
@@ -27,12 +27,12 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 ## <a name="workload-management"></a>Gestion des charges de travail
 | Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |DWU max pour un SQL Data Warehouse unique |6000 |
-| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |DWU max pour un serveur SQL unique |6 000 par défaut<br/><br/> Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 45 000, ce qui permet jusqu’à 6 000 DWU. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support][creating a support ticket] et en sélectionnant *Quota* en tant que type de demande.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5. Vous pouvez consulter votre consommation de DTU actuelle dans le panneau SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
-| Connexion de base de données |Sessions simultanées ouvertes |1 024<br/><br/>Nous prenons en charge un maximum de 1 024 connexions actives, chacune pouvant envoyer simultanément des requêtes à une base de données SQL Data Warehouse. Notez que le nombre de requêtes pouvant réellement s’exécuter simultanément est limité. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
+| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |DWU max pour un SQL Data Warehouse unique | [Niveau de performance](performance-tiers.md) Optimisé pour l’élasticité : DW6000<br></br>[Niveau de performance](performance-tiers.md) Optimisé pour le calcul : DW30000c |
+| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support][creating a support ticket] et en sélectionnant *Quota* en tant que type de demande.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple :<br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
+| Connexion de base de données |Sessions simultanées ouvertes |1 024<br/><br/>Chacune des 1024 sessions actives peut envoyer des requêtes à une base de données SQL Data Warehouse en même temps. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
-| [Gestion des charges de travail][Workload management] |Nombre maximal de requêtes concurrentes |32<br/><br/> Par défaut, SQL Data Warehouse peut exécuter un maximum de 32 requêtes et files d’attente simultanées.<br/><br/>Le niveau de concurrence peut diminuer lorsque des utilisateurs sont affectés à une classe de ressource supérieure ou si SQL Data Warehouse est configuré avec une DWU basse. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter. |
-| [Tempdb][Tempdb] |Taille maximale de Tempdb |399 Go par DW100. Par conséquent, pour DWU1000, la taille de Tempdb est 3,99 To |
+| [Gestion des charges de travail][Workload management] |Nombre maximal de requêtes concurrentes |32<br/><br/> Par défaut, SQL Data Warehouse peut exécuter un maximum de 32 requêtes et files d’attente simultanées.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont affectés à des classes de ressources plus élevées ou lorsque SQL Data Warehouse a un [niveau de service](performance-tiers.md#service-levels) inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter. |
+| [tempdb][Tempdb] |Go maximum |399 Go par DW100. Par conséquent, pour DWU1000, la taille de tempdb est 3,99 To |
 
 ## <a name="database-objects"></a>Objets de base de données
 | Catégorie | Description | Maximale |
@@ -42,7 +42,7 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | Table |Tables par base de données |2 milliards |
 | Table |Colonnes par table |1 024 colonnes |
 | Table |Octets par colonne |Dépend de la colonne [type de données][data type].  La limite est de 8 000 pour les types de données Char, de 4 000 pour nvarchar ou 2 Go pour les types de données MAX. |
-| Table |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, SQL Data Warehouse prend en charge le stockage de dépassement de ligne qui permet d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez l’article MSDN [Données de dépassement de ligne de plus de 8 Ko][Row-Overflow Data Exceeding 8 KB]. |
+| Table |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, SQL Data Warehouse prend en charge le stockage de dépassement de ligne qui permet d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 Ko][Row-Overflow Data Exceeding 8 KB]. |
 | Table |Partitions par table |15 000<br/><br/>Pour des performances élevées, nous vous recommandons de réduire au minimum le nombre de partitions nécessaires tout en prenant quand même en charge les besoins de votre entreprise. À mesure que le nombre de partitions augmente, la charge pour les opérations Langage de définition de données (DDL) et Langage de manipulation de données (DML) augmente et ralentit les performances. |
 | Table |Caractères par valeur limite de partition. |4000 |
 | Index |Index non-cluster par table. |999<br/><br/>Applicable uniquement aux tables de stockage de lignes. |
@@ -58,7 +58,7 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 ## <a name="loads"></a>Charges
 | Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
-| Charges Polybase |60 Mo par ligne |1<br/><br/>Les charges Polybase sont limitées au chargement de lignes de moins de 1 Mo et ne peuvent pas charger vers VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX).<br/><br/> |
+| Charges Polybase |60 Mo par ligne |1<br/><br/>Polybase charge uniquement les lignes de moins de 1 Mo et ne peuvent pas charger vers VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Requêtes
 | Catégorie | Description | Maximale |

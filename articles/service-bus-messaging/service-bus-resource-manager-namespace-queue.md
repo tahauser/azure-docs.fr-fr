@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 4358130a2c8e897a0fdd1f9560f766d6e22db4d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ac9bb07a1b690681e0b263eea233cd5373d990b
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
 
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus et une file d’attente au sein de cet espace de noms. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus et une file d’attente au sein de cet espace de noms. L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés durant l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
 Pour plus d’informations sur la création de modèles, consultez l’article [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -36,13 +36,13 @@ Pour obtenir le modèle complet, consultez le [modèle d’espace de noms et de 
 > * [Création d'un espace de noms Service Bus](service-bus-resource-manager-namespace.md)
 > * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
+> Pour obtenir les derniers modèles, recherchez **Service Bus** dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
 
-Avec ce modèle, vous allez déployer un espace de noms Service Bus avec une file d’attente.
+Avec ce modèle, vous déployez un espace de noms Service Bus avec une file d’attente.
 
 Les [files d’attente Service Bus](service-bus-queues-topics-subscriptions.md#queues) permettent de remettre des messages selon le principe du premier entré, premier sorti (FIFO) à un ou plusieurs destinataires concurrents.
 
@@ -81,9 +81,12 @@ Nom de la file d’attente créée dans l’espace de noms Service Bus.
 La version de l’API Service Bus du modèle.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Ressources à déployer

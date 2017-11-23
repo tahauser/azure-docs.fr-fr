@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Meilleures pratiques pour Azure App Service
 Cet article résume les meilleures pratiques dans l’utilisation de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -40,7 +40,26 @@ Si vous remarquez qu’une application consomme plus d’UC que prévu ou qu’e
 Pour plus d’informations sur les applications « sans état » et « avec état », visualisez la vidéo [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)(Planification d’une application multiniveau complète et évolutive sur l’application web Microsoft Azure). Pour plus d’informations sur les options de montée en charge et de mise à l’échelle automatique, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quand les ressources de socket sont épuisées
-L’utilisation des bibliothèques clientes constitue une raison courante de l’épuisement des connexions TCP sortantes ; ces bibliothèques ne sont pas implémentées pour la réutilisation des connexions TCP ou, dans le cas d’un protocole de niveau supérieur tel que HTTP, la logique de connexion persistante n’est pas utilisée. Veuillez consulter la documentation pour chacune des bibliothèques référencées par les applications dans votre plan App Service afin de vous assurer que celles-ci sont configurées ou accessibles dans votre code pour une réutilisation efficace des connexions sortantes. Suivez également les instructions de la documentation des bibliothèques pour une création et une mise en production appropriées ainsi que pour un nettoyage servant à éviter la fuite des connexions. Lorsque les examens des bibliothèques clientes sont en cours d’exécution, leur impact peut être atténué en augmentant la taille des instances.  
+L’utilisation des bibliothèques clientes constitue une raison courante de l’épuisement des connexions TCP sortantes ; ces bibliothèques ne sont pas implémentées pour la réutilisation des connexions TCP ou, dans le cas d’un protocole de niveau supérieur tel que HTTP, la logique de connexion persistante n’est pas utilisée. Veuillez consulter la documentation pour chacune des bibliothèques référencées par les applications dans votre plan App Service afin de vous assurer que celles-ci sont configurées ou accessibles dans votre code pour une réutilisation efficace des connexions sortantes. Suivez également les instructions de la documentation des bibliothèques pour une création et une mise en production appropriées ainsi que pour un nettoyage servant à éviter la fuite des connexions. Lorsque les examens des bibliothèques clientes sont en cours d’exécution, leur impact peut être atténué en augmentant la taille des instances.
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js et requêtes http sortantes
+Quand vous utilisez Node.js et de nombreuses requêtes http sortantes, il est très important de prendre en compte le protocole HTTP - Keep-Alive. Vous pouvez utiliser le package [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` pour en faciliter l’utilisation dans votre code.
+
+Vous devez toujours gérer la réponse `http`, même si vous n’effectuez aucune opération dans le gestionnaire. Si vous ne gérez pas la réponse correctement, votre application finit par se bloquer, car aucun socket supplémentaire n’est disponible.
+
+Par exemple, quand vous utilisez le package `http` ou `https` :
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+Si vous exécutez App Service sur Linux sur un ordinateur avec plusieurs cœurs, une autre bonne pratique consiste à utiliser PM2 pour démarrer plusieurs processus Node.js afin d’exécuter votre application. Pour ce faire, il suffit de spécifier une commande de démarrage à votre conteneur.
+
+Par exemple, pour démarrer quatre instances :
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>La sauvegarde de votre application échoue
 Les deux raisons les plus courantes qui entraînent l'échec de la sauvegarde d'une application sont les suivantes : des paramètres de stockage non valides et une configuration de base de données non valide. Ces échecs se produisent généralement lorsque des modifications ont été appliquées à des ressources de stockage ou de base de données, ou lorsque la méthode d'accès à ces ressources a changé (par exemple en cas de mise à jour des informations d’identification pour accéder à la base de données sélectionnée dans les paramètres de sauvegarde). En général, les sauvegardes s'exécutent de façon planifiée et requièrent l’accès au stockage (pour générer les fichiers sauvegardés) et aux bases de données (pour copier et lire le contenu à inclure dans la sauvegarde). L'incapacité à accéder à l'une de ces ressources entraîne une erreur de sauvegarde permanente. 

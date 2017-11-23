@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemples d’implémentation d’une structure d’entreprise Azure
 Cette rubrique fournit des exemples montrant comment une entreprise peut implémenter les recommandations pour une [structure d’entreprise Azure](resource-manager-subscription-governance.md). Elle utilise une société fictive nommée Contoso pour illustrer les bonnes pratiques pour des scénarios courants.
@@ -68,7 +68,7 @@ Dave a les exigences suivantes pour la gestion des ressources dans l’abonnemen
 * Il doit surveiller les coûts. Par conséquent, il souhaite empêcher les propriétaires d’applications de créer des machines virtuelles inutiles et coûteuses.  
 * Étant donné que cette application sert aux développeurs de nombreuses divisions, il souhaite baliser chaque ressource avec la division et le propriétaire d’application. À l’aide de ces balises, ETS peut facturer les équipes appropriées.
 
-Il crée les [stratégies de Resource Manager](resource-manager-policy.md) suivantes :
+Il crée les [stratégies Azure](../azure-policy/azure-policy-introduction.md) suivantes :
 
 | Champ | Résultat | Description |
 | --- | --- | --- |

@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 8dd48787e7b788d249085b3110484de1a2c1d265
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f854b4f1331cf1272371e1cc7574d40b6b39efd
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager
 
-Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus ainsi qu’une rubrique et un abonnement au sein de cet espace de noms. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
+Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus ainsi qu’une rubrique et un abonnement au sein de cet espace de noms. L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés durant l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
 Pour en savoir plus sur la création de modèles, consultez [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -36,13 +36,13 @@ Pour le modèle complet, consultez le modèle [Espace de noms Service Bus avec r
 > * [Créer un espace de noms Service Bus avec file d'attente et règle d’autorisation](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Créer un modèle d’espace de noms Service Bus avec rubrique, abonnement et règle](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Pour rechercher les derniers modèles, recherchez « Service Bus » dans la galerie [Modèles de démarrage rapide Azure][Azure Quickstart Templates].
+> Pour obtenir les derniers modèles, recherchez **Service Bus** dans la galerie de [modèles de démarrage rapide Azure][Azure Quickstart Templates].
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Qu'allez-vous déployer ?
 
-Avec ce modèle, vous allez déployer un espace de noms Service Bus par rubrique et abonnement.
+Avec ce modèle, vous déployez un espace de noms Service Bus par rubrique et abonnement.
 
 Les [rubriques et les abonnements Service Bus](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) fournissent une forme de communication de type un-à-plusieurs dans un modèle de *publication/abonnement*.
 
@@ -52,7 +52,7 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 
 ## <a name="parameters"></a>Paramètres
 
-Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters` , qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient selon le projet que vous déployez, ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent identiques. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
+Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters` , qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient en fonction du projet que vous déployez ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent inchangées. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
 
 Le modèle définit les paramètres suivants.
 
@@ -87,9 +87,12 @@ Nom de l'abonnement créé dans l'espace de noms Service Bus.
 La version de l’API Service Bus du modèle.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>Ressources à déployer
 Crée un espace de noms Service Bus standard de type **Messagerie**, par rubrique et abonnement.

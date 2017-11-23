@@ -5,7 +5,7 @@
 
 # Prise en main
 
-## [Didacticiel du débutant](sql-data-warehouse-get-started-tutorial.md)
+## [Didacticiel de chargement des données](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Didacticiel de requête élastique](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [meilleures pratiques](sql-data-warehouse-best-practices.md)
 ## [Gérer](sql-data-warehouse-overview-manage.md)

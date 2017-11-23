@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 ## <a name="overview"></a>Vue d'ensemble
 Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
-Cet article utilise le [portail Azure](https://portal.azure.com), Azure PowerShell et l’interface de ligne de commande Azure pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Cet article utilise le [portail Azure](https://portal.azure.com), Azure PowerShell et l’interface de ligne de commande Azure pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -43,24 +43,24 @@ Le diagnostic d'application vous permet de capturer des informations générées
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-Lors de l'exécution, vous pouvez récupérer ces journaux pour vous aider lors du dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Au moment de l’exécution, vous pouvez récupérer ces journaux pour vous aider durant le dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 Les applications web App Service journalisent également les informations de déploiement lorsque vous publiez du contenu dans une application web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
 
 ## <a name="enablediag"></a>Activation des diagnostics
-Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez au panneau de votre application web, cliquez sur **Paramètres > Journaux de diagnostics**.
+Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez à la page de votre application web, puis cliquez sur **Paramètres > Journaux de diagnostics**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Lorsque vous activez le **diagnostic d’application**, choisissez également le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l'application soient consignées.
+Quand vous activez les **diagnostics d’application**, choisissez également le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l’application soient journalisées.
 
 > [!NOTE]
 > Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
 >
 >
 
-Dans le [portail Azure Classic](https://manage.windowsazure.com), sous l’onglet **Configurer** de l’application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage** , vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
+Dans le [portail Azure Classic](https://manage.windowsazure.com), sous l’onglet **Configurer** de l’application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d’objets blob dans lequel les journaux sont écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
 
 Dans le [portail Azure Classic](https://manage.windowsazure.com) , l’onglet **Configurer** de l’application web comprend aussi des paramètres supplémentaires pour le diagnostic d’application :
 
@@ -85,7 +85,7 @@ Bien que ces trois emplacements de stockage fournissent les mêmes informations 
 > Les informations stockées dans le **stockage table** ou le **stockage blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](/downloads/#).
 >
 > [!NOTE]
-> Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite** . Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Les diagnostics peuvent également être activés à partir du module Azure PowerShell via l’applet de commande **Set-AzureWebsite** . Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -113,7 +113,7 @@ Pour télécharger les fichiers journaux, démarrez une nouvelle instance du mod
 
     Save-AzureWebSiteLog -Name webappname
 
-Cette commande enregistre les journaux de l’application web spécifiée par le paramètre **-Name** dans un fichier nommé **logs.zip** du répertoire en cours.
+Cette commande enregistre les journaux de l’application web spécifiée par le paramètre **-Name** dans un fichier nommé **logs.zip** du répertoire actif.
 
 > [!NOTE]
 > Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
@@ -125,7 +125,7 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 
     azure site log download webappname
 
-Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire en cours.
+Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire actif.
 
 > [!NOTE]
 > Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../cli-install-nodejs.md).
@@ -136,11 +136,11 @@ Cette commande enregistre les journaux de l’application web nommée « webap
 Visual Studio Application Insights fournit des outils de filtrage et de recherche dans les journaux, mais aussi de mise en corrélation des journaux avec les requêtes et d’autres événements.
 
 1. Ajoutez le Kit de développement logiciel Application Insights à votre projet dans Visual Studio.
-   * Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez Ajouter Application Insights. Vous serez guidé tout au long de la création de la ressource Application Insights. [En savoir plus](../application-insights/app-insights-asp-net.md)
+   * Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis sélectionnez Ajouter Application Insights. L’interface vous guide tout au long de la création de la ressource Application Insights. [En savoir plus](../application-insights/app-insights-asp-net.md)
 2. Ajoutez le package de l’écouteur de suivi à votre projet.
    * Cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet. Sélectionnez `Microsoft.ApplicationInsights.TraceListener` [En savoir plus](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Téléchargez votre projet et exécutez-le pour générer des données de journal.
-4. Dans le [portail Azure](https://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous pouvez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../application-insights/app-insights-diagnostic-search.md)
+4. Dans le [portail Azure](https://portal.azure.com/), accédez à votre nouvelle ressource Application Insights, puis ouvrez la fonction de **recherche**. Vous devriez voir vos données de journal, ainsi que la requête, l’utilisation et les autres mesures de télémétrie. Vous devrez parfois patienter quelques minutes pour accéder à certaines mesures de télémétrie : dans ce cas, cliquez sur Actualiser. [En savoir plus](../application-insights/app-insights-diagnostic-search.md)
 
 [En savoir plus sur le suivi des performances avec Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
@@ -151,7 +151,7 @@ Lors du développement d’une application, il est utile de visualiser des infor
 > Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
 >
 > [!NOTE]
-> Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\\** sont également diffusées.
+> Pendant le streaming des journaux, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\\** sont également diffusées.
 >
 >
 
@@ -160,7 +160,7 @@ Pour diffuser des informations de journalisation en continu, démarrez une nouve
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-Une connexion est alors établie avec l’application Web spécifiée par le paramètre **-Name** , et les informations sont diffusées vers la fenêtre PowerShell à mesure que des événements de journalisation se produisent sur l’application Web. Toute information enregistrée dans un fichier ayant l'extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
+Cette commande établit une connexion avec l’application web spécifiée par le paramètre **-Name**, puis diffuse les informations vers la fenêtre PowerShell à mesure que des événements de journalisation se produisent sur l’application web. Toute information enregistrée dans un fichier ayant l’extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
 
 Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **-Message** . Par exemple :
 
@@ -182,7 +182,7 @@ Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'
 
     az webapp log tail --name webappname --resource-group myResourceGroup
 
-Une connexion est alors établie avec l’application Web nommée « webappname », et les informations sont diffusées vers la fenêtre à mesure que des événements de journalisation se produisent sur l’application Web. Toute information enregistrée dans un fichier ayant l'extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
+Cette commande établie une connexion avec l’application web nommée « webappname », puis diffuse les informations vers la fenêtre à mesure que des événements de journalisation se produisent sur l’application web. Toute information enregistrée dans un fichier ayant l’extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
 
 Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **--Filter** . Par exemple :
 
@@ -199,19 +199,19 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 ## <a name="understandlogs"></a> Présentation des journaux de diagnostic
 ### <a name="application-diagnostics-logs"></a>Journaux de diagnostic d'application
-Le diagnostic d'application stocke les informations dans un format spécifique pour les applications .NET selon que vous stockez les journaux dans le système de fichiers, le stockage de tables ou le stockage d'objets blob. L'ensemble de base des données stockées est le même dans les trois types de stockage, à savoir : date et heure auxquelles l'événement s'est produit, ID de processus qui a généré l'événement, type d'événement (informations, avertissement, erreur) et message d'événement.
+Le diagnostic d'application stocke les informations dans un format spécifique pour les applications .NET selon que vous stockez les journaux dans le système de fichiers, le stockage de tables ou le stockage d'objets blob. L’ensemble de base des données stockées est le même dans les trois types de stockage, à savoir : date et heure auxquelles l’événement s’est produit, ID de processus qui a généré l’événement, type d’événement (informations, avertissement, erreur) et message d’événement.
 
 **Système de fichiers**
 
-Chaque ligne consignée dans le système de fichiers ou reçue par le biais d'une diffusion en continu se présente au format suivant :
+Chaque ligne journalisée dans le système de fichiers ou reçue par le biais d’un streaming se présente au format suivant :
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 Par exemple, un événement d'erreur se présente comme suit :
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
-Parmi les trois méthodes disponibles, la journalisation d'informations dans le système de fichiers est celle qui fournit les informations les plus élémentaires. L'heure, l'ID de processus, le niveau d'événement et le message sont, en effet, les seules informations fournies.
+Parmi les trois méthodes disponibles, la journalisation d’informations dans le système de fichiers est celle qui fournit les informations les plus élémentaires. L’heure, l’ID de processus, le niveau d’événement et le message sont, en effet, les seules informations fournies.
 
 **Stockage Table**
 
@@ -253,12 +253,12 @@ Les données stockées dans un objet blob se présentent comme suit :
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> La première ligne du journal contient les en-têtes de colonne, tels qu'ils sont représentés dans cet exemple.
+> La première ligne du journal contient les en-têtes de colonne, tels qu’ils sont représentés dans cet exemple.
 >
 >
 
 ### <a name="failed-request-traces"></a>Suivi des demandes ayant échoué
-Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr######.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
+Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr######.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Si vous ouvrez un des fichiers XML dans Internet Explorer, ce dernier utilise la feuille de style XSL pour fournir un affichage formaté des informations de suivi. Cet affichage ressemble à l’exemple suivant :
 
 ![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -282,7 +282,3 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 >
 >
-
-## <a name="whats-changed"></a>Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)

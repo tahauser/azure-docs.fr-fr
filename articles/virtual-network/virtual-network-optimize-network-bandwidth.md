@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimiser le débit du réseau des machines virtuelles Azure
 
@@ -51,11 +51,11 @@ Si votre machine virtuelle Windows est compatible avec la [mise en réseau accé
 
 ## <a name="linux-vm"></a>Machine virtuelle Linux
 
-La mise à l’échelle côté réception (RSS) est toujours activée par défaut sur une machine virtuelle Azure Linux. Les noyaux Linux publiés depuis janvier 2017 incluent de nouvelles options d’optimisation du réseau qui permettent à une machine virtuelle Linux d’obtenir un débit réseau plus élevé.
+La mise à l’échelle côté réception (RSS) est toujours activée par défaut sur une machine virtuelle Azure Linux. Les noyaux Linux publiés depuis octobre 2017 incluent de nouvelles options d’optimisation du réseau qui permettent à une machine virtuelle Linux d’obtenir un débit réseau plus élevé.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu pour les nouveaux déploiements
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de juin 2017, qui est :
+Pour bénéficier de l’optimisation, installez tout d’abord à jour vers la version la plus récente de 16.04-LTS, comme ceci :
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -75,35 +75,39 @@ apt-get -y upgrade
 Commande facultative :
 
 `apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Noyau de la préversion Ubuntu Azure
-> [!WARNING]
-> Ce noyau de la préversion Azure Linux peut ne pas offrir les mêmes niveaux de disponibilité et de fiabilité que les noyaux et images de la Place de marché qui se trouvent dans la version mise à la disposition générale. La fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être aussi fiable que le noyau par défaut. N’utilisez pas ce noyau pour les charges de travail de production.
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Mise à niveau du noyau Ubuntu Azure pour les machines virtuelles existantes
 
-Des performances significatives en termes de débit peuvent être atteintes en installant le noyau Azure Linux proposé. Pour tester ce noyau, ajoutez cette ligne à /etc/apt/sources.list.
+Des performances significatives en termes de débit peuvent être atteintes en mettant à jour vers le noyau Azure Linux proposé. Pour vérifier si vous avez ce noyau, vérifiez la version de votre noyau.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
 Exécutez ensuite ces commandes en tant qu’utilisateur racine.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de juillet 2017, qui est :
+Pour bénéficier des dernières optimisations, mettez tout d’abord à jour vers la version la plus récente, comme ceci :
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
 Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
-L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2.2-2. Entrez les commandes suivantes pour installer LIS :
+L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2.2-2, bien que les versions ultérieures contiennent d’autres améliorations. Entrez les commandes suivantes pour installer la dernière version de LIS :
 
 ```bash
 sudo yum update
@@ -113,21 +117,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, à compter de juillet 2017, qui est :
+Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, comme ceci :
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
 Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
 L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour télécharger et installer les LIS :
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

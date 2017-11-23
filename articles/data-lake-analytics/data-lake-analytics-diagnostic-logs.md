@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
     ![Activer les diagnostics pour collecter des journaux d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Dans les __Paramètres de diagnostic__, définissez le statut sur __Activé__ et sélectionnez les options de journalisation.
+3. Dans __Paramètres de diagnostic__, entrez un __Nom__ pour cette configuration de journalisation, puis sélectionnez les options de journalisation.
 
     ![Activer les diagnostics pour collecter des journaux d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Activer les journaux de diagnostic")
-
-   * Définissez **État** sur **Activé** pour activer la journalisation de diagnostic.
 
    * Vous pouvez choisir de stocker/traiter les données de trois manières différentes.
 
@@ -58,34 +56,14 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
         > [!NOTE]
         > Vous devez sélectionner __Archiver dans un compte de stockage__, __Diffuser vers Event Hub__ ou __Envoyer à Log Analytics__ avant de cliquer sur le bouton __Enregistrer__.
 
-Une fois que vous avez activé les paramètres de diagnostic, vous pouvez retourner dans le panneau __Journaux de diagnostic__ pour consulter les journaux.
-
-## <a name="view-logs"></a>Consulter les journaux
-
-### <a name="use-the-data-lake-analytics-view"></a>Utiliser la vue Data Lake Analytics
-
-1. Dans le panneau de votre compte Data Lake Analytics, sous **Surveillance**, sélectionnez **Journaux de diagnostic**, puis sélectionnez l’entrée pour laquelle afficher les journaux.
-
-    ![Afficher la journalisation des diagnostics](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Afficher les journaux de diagnostic")
-
-2. Les journaux sont classés par **journaux d’audit** et **journaux de requêtes**.
-
-    ![entrées de journal](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Les journaux de demande capturent chaque demande d’API effectuée sur le compte Data Lake Analytics.
-   * Les journaux d’audit sont similaires aux journaux de requête, mais ils offrent une répartition beaucoup plus détaillée des opérations. Par exemple, un simple appel d’API de chargement dans un journal de demande peut entraîner plusieurs opérations « Ajouter » dans son journal d’audit.
-
-3. Cliquez sur le lien **Télécharger** d’une entrée de journal pour le télécharger.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Utiliser le compte de Stockage Azure qui contient les données du journal
 
-1. Ouvrez le panneau du compte de Stockage Azure associé à Data Lake Analytics pour la journalisation, puis cliquez sur __Objets blob__. Le panneau **Service Blob** répertorie deux conteneurs.
-
-    ![Afficher la journalisation des diagnostics](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
+1. Pour afficher les conteneurs d’objets blob qui contiennent les données de journalisation, ouvrez le compte de stockage Azure utilisé par Data Lake Analytics pour la journalisation, puis cliquez sur __Objets blob__.
 
    * Le conteneur **insights-logs-audit** contient les journaux d’audit.
    * Le conteneur **insights-logs-requests** contient les journaux de demande.
-2. Les journaux sont stockés dans ces conteneurs selon la structure suivante :
+
+2. Les journaux sont stockés dans ces conteneurs, selon la structure de fichiers suivante :
 
         resourceId=/
           SUBSCRIPTIONS/

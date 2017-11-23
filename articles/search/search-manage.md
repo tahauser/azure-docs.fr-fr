@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Azure Search est un service de recherche entièrement géré, basé sur le cloud
 * Ajustez la capacité de service en modifiant l’allocation des partitions et des réplicas.
 * Surveillez l’utilisation des ressources, par rapport aux limites maximales de votre niveau de service.
 
-**Non compris** 
+Notez que la *mise à niveau* n’est pas répertoriée comme une tâche administrative. Sachant que les ressources sont allouées pendant l’approvisionnement du service, le passage à un autre niveau nécessite de créer un nouveau service. Pour plus d’informations, consultez [Création d’un service Azure Search](search-create-service-portal.md).
 
-*gestion de contenu* (ou gestion des index) fait référence à des opérations telles que l’analyse de la recherche du trafic pour comprendre le volume de requêtes, détecter les conditions recherchées par les personnes et déterminer dans quelle mesure les résultats de recherche réussissent à guider les clients vers des documents spécifiques de votre index. Pour obtenir de l’aide dans ce domaine, consultez [Recherche de l’analyse du trafic pour la Recherche Azure](search-traffic-analytics.md).
-
-Les *performances des requêtes* dépassent le cadre de cet article. Pour plus d’informations, consultez [Surveiller l’utilisation et les statistiques](search-monitor-usage.md) et [Performances et optimisation](search-performance-optimization.md).
-
-La *mise à niveau* n’est pas une tâche d’administration. Sachant que les ressources sont allouées pendant l’approvisionnement du service, le passage à un autre niveau nécessite de créer un nouveau service. Pour plus d’informations, consultez [Création d’un service Azure Search](search-create-service-portal.md).
+> [!Tip]
+> Besoin d’aide sur la façon d’analyser le trafic des recherches ou le niveau de performance des requêtes ? Obtenez des insights sur le volume de requêtes, les termes recherchés par les utilisateurs et l’efficacité à laquelle les résultats de la recherche guident les clients vers des documents spécifiques dans votre index. Pour obtenir de l’aide, consultez [Analytique du trafic de recherche pour Recherche Azure](search-traffic-analytics.md), [Surveiller les métriques relatives à l’utilisation et aux requêtes](search-monitor-usage.md) et [Niveau de performance et optimisation](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -113,15 +110,10 @@ Une autre façon d’afficher les autorisations d’accès consiste à cliquer s
 ## <a name="monitor-resource-usage"></a>surveiller l’utilisation des ressources ;
 Sur le tableau de bord, l’analyse des ressources se limite aux informations affichées dans le tableau de bord des services et à quelques mesures que vous pouvez obtenir en interrogeant le service. Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application.
 
-L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d’informations, voir [Limites de service de recherche](search-limits-quotas-capacity.md). 
+L’API REST Search Service vous permet d’obtenir le nombre de documents et d’index par programmation : 
 
 * [Obtention de statistiques d'index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Nombre de documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Récupération d’urgence et pannes de service
 

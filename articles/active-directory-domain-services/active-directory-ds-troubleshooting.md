@@ -4,7 +4,7 @@ description: "Guide de dépannage pour les services de domaine Azure Active Dire
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Vous ne pouvez pas activer les services de domaine Azure AD pour votre annuaire Azure AD
-Cette section vous permet de résoudre les erreurs lorsque vous essayez d’activer les services de domaine Azure AD pour votre répertoire et que cette opération échoue ou que l’état bascule sur « Désactivé ».
+Cette section vous permet de résoudre les erreurs quand vous essayez d’activer Azure AD Domain Services pour votre annuaire.
 
 Choisissez les étapes de résolution qui correspondent au message d’erreur que vous rencontrez.
 
@@ -81,7 +81,7 @@ Utilisez le script PowerShell suivant pour trouver l’application et la supprim
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 

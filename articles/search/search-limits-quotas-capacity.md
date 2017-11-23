@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales de stockage, de charges de travail et de quantités d’index, de documents et d’autres objets dépendent du niveau tarifaire (**Gratuit**, **De base** ou **Standard**) de la [Recherche Azure](search-create-service-portal.md).
 
-* **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Il s’agit d’une option sans coût supplémentaire pour les abonnés existants et qui vous permet de tester le service avant de vous inscrire pour obtenir des ressources dédiées.
+* **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. 
 * Le niveau **De base** fournit des ressources informatiques dédiées aux charges de production à petite échelle.
 * Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard apparaît dans : S1, S2, S3 et S3 Haute densité (S3 HD).
 
 > [!NOTE]
-> Un service est approvisionné à un niveau spécifique. Si vous avez besoin de passer au niveau supérieur pour obtenir plus de capacité, vous devez approvisionner un nouveau service (il n’existe pas de mise à niveau sur place). Pour en savoir plus, consultez [Choisir une référence (SKU) ou un niveau tarifaire](search-sku-tier.md). Pour en savoir plus sur le réglage de capacité dans un service que vous avez déjà approvisionné, consultez [Mettre à l’échelle des niveaux de ressources pour interroger et indexer les charges de travail](search-capacity-planning.md).
+> Un service est approvisionné à un niveau spécifique. Si vous avez besoin de passer au niveau supérieur pour obtenir plus de capacité, vous devez provisionner un nouveau service (la mise à niveau sur place n’est pas disponible). Pour en savoir plus, consultez [Choisir une référence (SKU) ou un niveau tarifaire](search-sku-tier.md). Pour en savoir plus sur le réglage de capacité dans un service que vous avez déjà approvisionné, consultez [Mettre à l’échelle des niveaux de ressources pour interroger et indexer les charges de travail](search-capacity-planning.md).
 >
 
 ## <a name="per-subscription-limits"></a>Limites par abonnement
@@ -66,16 +66,11 @@ Indique la taille maximum du document lors de l’appel d’une API d’index. L
 
 Pour réduire la taille du document, pensez à exclure de la requête les données non requêtables. Les images et autres données binaires ne sont pas directement requêtables et ne doivent pas être stockées dans l’index. Pour intégrer les données non requêtables dans les résultats de la recherche, définissez un champ sans possibilité de recherche qui stocke une référence URL à la ressource.
 
-## <a name="workload-limits-queries-per-second"></a>Limites de charge de travail (requêtes par seconde)
-| Ressource | Gratuit | De base | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| RPS |N/A  |~3 par réplica |~15 par réplica |~60 par réplica |Moins de 60 par réplica |Moins de 60 par réplica |
+## <a name="queries-per-second-qps"></a>Requêtes par seconde
 
-Le nombre de requêtes par seconde (RPS) est une approximation basée sur une méthode heuristique. Il est calculé à l’aide de charges de travail client simulées et réelles pour obtenir des valeurs estimées. Le débit exact de requêtes par seconde varie en fonction de vos données et de la nature de la requête.
+Les estimations du nombre de requêtes par seconde doivent être développées indépendamment par chaque client. La taille et la complexité des index et des requêtes ainsi que la quantité de trafic sont les principaux facteurs qui déterminent le nombre de requêtes par seconde. Si ces facteurs sont inconnus, il est impossible d’établir des estimations significatives.
 
-Bien que des estimations approximatives figurent ci-dessus, le débit réel est difficile à déterminer, en particulier dans le service partagé Gratuit où le débit est basé sur la bande passante disponible et la concurrence pour les ressources système. Dans le niveau Gratuit, les ressources de calcul et de stockage sont partagées par plusieurs abonnés. Les requêtes par seconde de votre solution varient donc toujours selon le nombre de charges de travail supplémentaires exécutées simultanément.
-
-Au niveau Standard, vous pouvez mieux estimer les RPS, car vous contrôlez davantage de paramètres. Pour obtenir des conseils sur la façon de calculer les requêtes par seconde (RPS) de vos charges de travail, consultez la section sur les meilleures pratiques sous [Gérer votre solution de recherche](search-manage.md) .
+Les estimations sont plus prévisibles si elles sont calculées sur des services qui s’exécutent sur des ressources dédiées (niveaux De base et Standard). Vous pouvez mieux estimer les requêtes par seconde, car vous contrôlez davantage de paramètres. Pour obtenir de l’aide sur la manière d’aborder les estimations, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
 
 ## <a name="api-request-limits"></a>Limites de requête d’API
 * 16 Mo maximum par requête <sup>1</sup>

@@ -12,22 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Surveiller et gérer les serveurs et les coffres Azure Recovery services pour les ordinateurs Windows
-> [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](backup-azure-manage-windows-server.md)
-> * [Classique](backup-azure-manage-windows-server-classic.md)
->
->
 
-Cet article offre une vue d’ensemble des tâches de surveillance et de gestion des sauvegardes disponibles via le portail Azure et l’agent Sauvegarde Microsoft Azure. Cet article part du principe que vous disposez déjà d’un abonnement Azure et que vous avez créé au moins un coffre Recovery Services.
+Cet article présente une vue d’ensemble des tâches de surveillance et de gestion des sauvegardes via le portail Azure et l’agent Sauvegarde Microsoft Azure. Cet article part du principe que vous disposez déjà d’un abonnement Azure et que vous avez créé au moins un coffre Recovery Services.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -37,11 +32,11 @@ Cet article offre une vue d’ensemble des tâches de surveillance et de gestion
 Le tableau de bord du coffre Recovery Services vous montre les détails ou les attributs d’un coffre Recovery Services.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
-2. Dans le menu Hub, cliquez sur **Plus de services**.
+2. Dans le menu Hub, cliquez sur **Autres services**.
 
     ![Ouvrir une liste de Recovery Services - Étape 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
-3. Vous voulez ouvrir un coffre Recovery Services. Dans la boîte de dialogue, commencez à taper **Recovery Services**. Au fur et à mesure des caractères saisis, la liste est filtrée. Cliquez sur **Coffres Recovery Services** pour afficher la liste des coffres Recovery Services de votre abonnement.
+3. Vous voulez ouvrir un coffre Recovery Services. Dans la boîte de dialogue, commencez à taper **Recovery Services**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Coffres Recovery Services** pour afficher la liste des coffres Recovery Services de votre abonnement.
 
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
 
@@ -49,7 +44,7 @@ Le tableau de bord du coffre Recovery Services vous montre les détails ou les a
 
     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Dans la liste des coffres, sélectionnez le coffre Recovery Services que vous souhaitez ouvrir. Le panneau du tableau de bord du coffre Recovery Services s’ouvre.
+4. Dans la liste des coffres, sélectionnez le coffre Recovery Services que vous souhaitez ouvrir. Le menu du tableau de bord du coffre Recovery Services s’ouvre.
 
     ![coffre recovery services tableau de bord](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -66,13 +61,13 @@ Vous pouvez surveiller les travaux et les alertes à partir du tableau de bord d
 
 ![Tâches du tableau de bord Backup](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-Cliquez sur les informations contenues dans chacune de ces mosaïques pour ouvrir le panneau correspondant où vous pourrez gérer les tâches associées.
+Cliquez sur les informations contenues dans chacune de ces vignettes pour ouvrir le menu correspondant où vous pouvez gérer les tâches associées.
 
 De haut en bas dans le tableau de bord :
 
 * Panneau Paramètres : vous donne accès aux tâches de sauvegarde disponibles.
 * Panneau Sauvegarde : vous permet de sauvegarder de nouveaux fichiers et dossiers (ou machines virtuelles Azure) dans le coffre Recovery Services.
-* Panneau Supprimer : si un coffre Recovery Services n’est plus utilisé, vous pouvez le supprimer pour libérer de l’espace de stockage. L’option Supprimer est disponible uniquement une fois que tous les serveurs protégés ont été supprimés du coffre.
+* Panneau Supprimer : si un coffre Recovery Services n’est plus utilisé, supprimez-le pour libérer de l’espace de stockage. L’option Supprimer est disponible uniquement une fois que tous les serveurs protégés ont été supprimés du coffre.
 
 ![Tâches du tableau de bord Backup](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -80,11 +75,11 @@ De haut en bas dans le tableau de bord :
 | Niveau d’alerte | Alertes envoyées |
 | --- | --- |
 | Critique |Échec de sauvegarde, échec de récupération |
-| Avertissement |Sauvegarde terminée avec des avertissements (lorsque moins de cent fichiers n’ont pas été sauvegardés du fait de problèmes d’altération et que plus d’un million de fichiers ont été correctement sauvegardés) |
+| Avertissement |Sauvegarde terminée avec des avertissements (lorsque < 100 fichiers n’ont pas été sauvegardés du fait de problèmes d’altération, et que > 1 000 000 fichiers ont été correctement sauvegardés) |
 | Informations |Aucun |
 
 ## <a name="manage-backup-alerts"></a>Gérer les alertes de sauvegarde
-Cliquez sur la mosaïque **Alertes de sauvegarde** pour ouvrir le panneau **Alertes de sauvegarde** et gérer les alertes.
+Cliquez sur la vignette **Alertes de sauvegarde** pour ouvrir le menu **Alertes de sauvegarde** et gérer les alertes.
 
 ![Alertes de sauvegarde](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
@@ -93,9 +88,9 @@ La mosaïque Alertes de sauvegarde indique :
 * le nombre d’alertes critiques non résolues dans les 24 dernières heures
 * le nombre d’alertes d’avertissement non résolues dans les 24 dernières heures
 
-Cliquez sur chacun de ces liens pour accéder au panneau **Alertes de sauvegarde** affichant une vue filtrée sur ces alertes (critiques ou d’avertissement).
+Cliquez sur le lien pour afficher le menu **Alertes de sauvegarde**, avec une vue filtrée de ces alertes (Critique ou Avertissement).
 
-Dans le panneau Alertes de sauvegarde, vous pouvez :
+Dans le menu Alertes de sauvegarde, vous pouvez :
 
 * Choisir les informations appropriées à inclure dans vos alertes
 
@@ -107,7 +102,7 @@ Dans le panneau Alertes de sauvegarde, vous pouvez :
 
     ![Filtrer les alertes](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-Si la fréquence de **notification** est définie sur **Par alerte**, le système ne procède à aucun regroupement ou réduction des e-mails. Chaque alerte génère une notification. Il s’agit du paramètre par défaut. Un e-mail de résolution accompagne chaque notification.
+Si la fréquence de **notification** est définie sur **Par alerte**, le système ne procède à aucun regroupement ou réduction des e-mails. Chaque alerte se traduit par une notification (paramètre par défaut), et un e-mail de résolution est immédiatement envoyé.
 
 Si la fréquence de **notification** est définie sur **Synthèse horaire**, un e-mail est envoyé à l’utilisateur pour lui indiquer que de nouvelles alertes non résolues ont été générées au cours de la dernière heure. Un e-mail de résolution est envoyé à la fin de l’heure.
 
@@ -117,12 +112,12 @@ Des alertes peuvent être envoyées pour les niveaux de gravité suivants :
 * Avertissement
 * information
 
-Pour désactiver l’alerte, cliquez sur le bouton **Inactivate** (Désactiver) dans le panneau contenant les détails du travail. Lorsque vous cliquez sur Inactivate (Désactiver), vous pouvez ajouter des commentaires pour la résolution de l’alerte.
+Pour désactiver l’alerte, cliquez sur le bouton **Désactiver** dans le menu contenant les détails du travail. Lorsque vous cliquez sur Désactiver, vous pouvez ajouter des commentaires pour la résolution de l’alerte.
 
 Pour choisir les colonnes que vous souhaitez voir apparaître dans l’alerte, cliquez sur le bouton **Choisir les colonnes** .
 
 > [!NOTE]
-> Dans le panneau **Paramètres**, vous pouvez gérer les alertes de sauvegarde en sélectionnant **Monitoring and Reports (Surveillance et rapports) > Alertes et événements > Alertes de sauvegarde**, puis en cliquant sur **Filtrer** ou **Configurer les notifications**.
+> Dans le menu **Paramètres**, vous gérez les alertes de sauvegarde en sélectionnant **Surveillance et rapports > Alertes et événements > Alertes de sauvegarde**, puis en cliquant sur **Filtrer** ou **Configurer les notifications**.
 >
 >
 
@@ -133,14 +128,14 @@ Dans la mosaïque Éléments de sauvegarde, cliquez sur **File-Folders** (Dossie
 
 ![Mosaïque Éléments de sauvegarde](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-Le panneau Éléments de sauvegarde s’ouvre avec le filtre défini sur File-Folders (Dossiers de fichiers) et affiche chaque élément de sauvegarde spécifique.
+Le menu Éléments de sauvegarde s’ouvre avec le filtre défini sur Fichiers-dossiers et affiche chaque élément de sauvegarde spécifique.
 
 ![Éléments de sauvegarde](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 Sélectionnez un élément de sauvegarde spécifique dans la liste pour en afficher les principaux détails.
 
 > [!NOTE]
-> Dans le panneau **Paramètres**, vous pouvez gérer les fichiers et dossiers en sélectionnant **Éléments protégés > Éléments de sauvegarde**, puis en sélectionnant **File-Folders** (Dossiers de fichiers) dans le menu déroulant.
+> Dans le menu **Paramètres**, vous gérez les fichiers et dossiers en sélectionnant **Éléments protégés > Éléments de sauvegarde**, puis en sélectionnant **Fichiers-dossiers** dans le menu déroulant.
 >
 >
 
@@ -154,23 +149,23 @@ Dans la section Sauvegarde du tableau de bord, la mosaïque Travail de sauvegard
 * en cours
 * ayant échoué au cours des 24 dernières heures
 
-Pour gérer vos travaux de sauvegarde, cliquez sur la mosaïque **Travaux de sauvegarde** pour ouvrir le panneau Travaux de sauvegarde.
+Pour gérer vos travaux de sauvegarde, cliquez sur la vignette **Travaux de sauvegarde** pour ouvrir le menu Travaux de sauvegarde.
 
 ![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
-Cliquez sur le bouton **Choisir les colonnes** en haut de la page pour modifier les informations disponibles dans le panneau Travaux de sauvegarde.
+Cliquez sur le bouton **Choisir les colonnes** en haut de la page pour modifier les informations disponibles dans le menu Travaux de sauvegarde.
 
 Utilisez le bouton **Filtrer** pour sélectionner les fichiers ou les dossiers, ainsi que la sauvegarde de la machine virtuelle Azure.
 
-Si vous ne voyez pas vos fichiers et dossiers sauvegardés, cliquez sur le bouton **Filtrer** en haut de la page et sélectionnez **Fichiers et dossiers** dans le menu Item Type (Type d’élément).
+Si vous ne voyez pas vos fichiers et dossiers de sauvegarde, cliquez sur le bouton **Filtrer** en haut de la page et sélectionnez **Fichiers et dossiers** dans le menu Type d’élément.
 
 > [!NOTE]
-> Dans le panneau **Paramètres**, vous pouvez gérer les travaux de sauvegarde en sélectionnant **Monitoring and Reports (Surveillance et rapports) > Travaux > Travaux de sauvegarde**, puis en sélectionnant **File-Folders** (Dossiers de fichiers) dans le menu déroulant.
+> Dans le menu **Paramètres**, vous gérez les travaux de sauvegarde en sélectionnant **Surveillance et rapports > Travaux > Travaux de sauvegarde**, puis en sélectionnant **Fichiers-dossiers** dans le menu déroulant.
 >
 >
 
 ## <a name="monitor-backup-usage"></a>Surveiller l’utilisation de la sauvegarde
-Dans la section Sauvegarde du tableau de bord, la mosaïque Backup Usage (Utilisation de la sauvegarde) indique le stockage consommé dans Azure. Les données d’utilisation du stockage incluent :
+Dans la section Sauvegarde du tableau de bord, la vignette Utilisation de la sauvegarde indique le stockage consommé dans Azure. Les données d’utilisation du stockage incluent :
 
 * L’utilisation du stockage cloud LRS associée au coffre
 * L’utilisation du stockage cloud GRS associée au coffre
@@ -180,13 +175,13 @@ Pour gérer vos serveurs de production, cliquez sur **Paramètres**.
 
 Sous Gérer, cliquez sur **Infrastructure de sauvegarde > Serveurs de Production**.
 
-Le panneau Serveurs de Production affiche une liste de tous vos serveurs de production disponibles. Cliquez sur un serveur dans la liste pour afficher les détails correspondants.
+Le menu Serveurs de Production affiche une liste de tous vos serveurs de production disponibles. Cliquez sur un serveur dans la liste pour afficher les détails correspondants.
 
 ![Éléments protégés](./media/backup-azure-manage-windows-server/production-server-list.png)
 
 
-## <a name="open-the-azure-backup-agent"></a>Ouvrir l’agent Azure Backup
-Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup*sur votre ordinateur).
+## <a name="open-the-azure-backup-agent"></a>Ouvrir l’agent de sauvegarde Azure
+Ouvrez **l’agent de sauvegarde Microsoft Azure**  (vous le trouverez en recherchant *Sauvegarde Microsoft Azure*sur votre ordinateur).
 
 ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
@@ -205,7 +200,7 @@ Dans les **Actions** disponibles à droite de la console de l’agent de sauvega
 >
 
 ## <a name="modify-the-backup-schedule"></a>Modifier la planification de sauvegarde
-1. Dans l’agent Microsoft Azure Backup, cliquez sur **Planifier la sauvegarde**.
+1. Dans l’agent de sauvegarde Microsoft Azure, cliquez sur **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 2. Dans **l’Assistant Planification de sauvegarde**, conservez l’option **Modifier les éléments ou les dates/heures de sauvegarde** sélectionnée, puis cliquez sur **Suivant**.
@@ -252,10 +247,10 @@ Pour activer la limitation :
 3. Cliquez sur **OK**.
 
 ## <a name="manage-exclusion-settings"></a>Gérer les paramètres d’exclusion
-1. Ouvrez **l’agent Microsoft Azure Backup** (vous pouvez le trouver en recherchant *Microsoft Azure Backup*sur votre ordinateur).
+1. Ouvrez **l’agent de sauvegarde Microsoft Azure** (vous le trouverez en recherchant *Sauvegarde Microsoft Azure*sur votre ordinateur).
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
-2. Dans l’agent Microsoft Azure Backup, cliquez sur **Planifier la sauvegarde**.
+2. Dans l’agent de sauvegarde Microsoft Azure, cliquez sur **Planifier la sauvegarde**.
 
     ![Planifier une sauvegarde de Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 3. Dans l’Assistant Planification de sauvegarde, conservez l’option **Modifier les éléments ou les dates/heures de sauvegarde** sélectionnée, puis cliquez sur **Suivant**.
@@ -317,5 +312,5 @@ R3 Voici les cas pour lesquels la notification ne sera pas envoyée afin de réd
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
-* Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
-* Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* Pour en savoir plus sur Azure Backup, consultez [Vue d’ensemble de Sauvegarde Azure](backup-introduction-to-azure-backup.md)
+* Consultez le [forum Sauvegarde Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)

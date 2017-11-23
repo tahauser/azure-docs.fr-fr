@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb08d5c80954e1c231bf6e8b781b09700ef0959d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows à l’aide du modèle de déploiement classique
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 Cet article explique comment récupérer des données à partir d’un coffre de sauvegarde et les restaurer sur un serveur ou un ordinateur. Depuis mars 2017, vous ne pouvez plus utiliser le portail Classic pour créer des coffres de sauvegarde.
 
 > [!IMPORTANT]
-> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À compter du **15 octobre 2017**, vous ne pourrez plus vous servir de PowerShell pour créer des coffres de sauvegarde. <br/> **À compter du 1er novembre 2017** :
+> Vous pouvez désormais mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft vous recommande de mettre à niveau vos coffres de sauvegarde vers des coffres Recovery Services.<br/> À partir du **30 novembre 2017**, vous ne pouvez pas vous servir de PowerShell pour créer des coffres de sauvegarde. <br/> **À compter du 30 novembre 2017** :
 >- Les coffres de sauvegarde restants seront automatiquement mis à niveau vers des coffres Recovery Services.
 >- Vous ne pourrez plus accéder à vos données de sauvegarde depuis le portail Classic. Au lieu de cela, vous devrez utiliser le portail Azure pour accéder à ces données au sein de coffres Recovery Services.
 >

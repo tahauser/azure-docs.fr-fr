@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 9629a86e72e0d5943f0e50e04268720fbedf6c35
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -65,6 +65,10 @@ Par exemple, vous pouvez effectuer les activités de copie suivantes :
 * Copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
 * Copier les fichiers compressés depuis le système de fichiers local, les décompresser, puis accéder à Azure Data Lake Store.
 * Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
+
+## <a name="supported-regions"></a>Régions prises en charge
+
+Le service qui propose l’activité de copie est disponible mondialement, dans les régions et zones géographiques répertoriées dans [Emplacement du runtime d’intégration](concepts-integration-runtime.md#integration-runtime-location). La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
 
 ## <a name="configuration"></a>Configuration
 

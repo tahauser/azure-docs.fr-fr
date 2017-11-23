@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -29,7 +29,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 
 | Service | Schéma et documentation |
 | --- | --- |
-| Gestion des API | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| API Management | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Journalisation des diagnostics Azure Batch](../batch/batch-diagnostics.md) |
@@ -56,20 +56,36 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
 |Type de ressource|Catégorie|Nom d’affichage de la catégorie|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Engine (Moteur)|Engine (Moteur)|
+|Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Journaux relatifs à la passerelle ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Journaux de travail|
 |Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|État du nœud DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Journaux de service|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtient les métriques du point de terminaison, par exemple, la bande passante, la sortie, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|ActivityRuns|Journal d’exécutions d’activités de pipeline|
+|Microsoft.DataFactory/factories|PipelineRuns|Journal d’exécutions de pipeline|
+|Microsoft.DataFactory/factories|TriggerRuns|Journal d’exécutions de déclencheur|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeStore/accounts|Requêtes|Journaux de requête|
+|Microsoft.Devices/IotHubs|Connexions|Connexions|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Télémétrie d’appareil|
+|Microsoft.Devices/IotHubs|C2DCommands|Commandes C2D|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Opérations d’identité des appareils|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Opérations de chargement de fichier|
+|Microsoft.Devices/IotHubs|Itinéraires|Itinéraires|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|Opérations de jumeaux D2C|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Opérations de jumeaux C2D|
+|Microsoft.Devices/IotHubs|TwinQueries|Requêtes de jumeaux|
+|Microsoft.Devices/IotHubs|JobsOperations|Opérations de travaux|
+|Microsoft.Devices/IotHubs|DirectMethods|Méthodes directes|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Opérations sur les appareils|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Opérations de service|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’archivage|
 |Microsoft.EventHub/namespaces|OperationalLogs|Journaux des opérations|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Journaux de mise à l’échelle automatique|
@@ -78,6 +94,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Suivi des événements de compte d’intégration|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Événement de groupe de sécurité réseau|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Compteur de règle de groupe de sécurité réseau|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Événement de flux de règle de groupe de sécurité réseau|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notifications de protection DDoS|
@@ -85,6 +102,11 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Journal d’accès à la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Journal de performance de la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Journal de pare-feu de la passerelle d’application|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Journaux de diagnostic de passerelle|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Journaux de diagnostic de tunnel|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Journaux de diagnostic d’itinéraires|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Événement de résultats d’intégrité de sondage Traffic Manager|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table des compteurs GWM|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Données de rapport de sauvegarde Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Travaux Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Événements Azure Site Recovery|
@@ -93,7 +115,6 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Points de récupération Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Journaux des opérations|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Journaux des opérations|
-|Microsoft.Sql/servers/databases|QueryStore|Magasin de requêtes|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Statistiques d’exécution du magasin de données des requêtes|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Statistiques d’attente du magasin de requêtes|
 |Microsoft.Sql/servers/databases|Errors|Errors|

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -84,8 +84,25 @@ Lorsque vous utilisez Azure ML Workbench, vous pouvez également nous envoyer un
 
 - La bibliothèque RevoScalePy est uniquement prise en charge sous Windows ou Linux (dans des conteneurs Docker). Pas de prise en charge sur macOS.
 
-## <a name="delete-experimentation-account"></a>Supprimer un compte Expérimentation
-Vous pouvez utiliser l’interface CLI pour supprimer un compte Expérimentation, mais vous devez supprimer au préalable les espaces de travail enfants et les projets enfants au sein de ces espaces de travail enfants.
+## <a name="cant-update-workbench"></a>Impossible de mettre à jour Workbench
+Quand une nouvelle mise à jour est disponible, la page d’accueil de l’application Workbench affiche un message vous informant de sa disponibilité. Un badge de mise à jour doit s’afficher en bas à gauche de l’application sur l’icône représentant une cloche. Cliquez sur le badge et suivez l’Assistant Installation pour installer la mise à jour. 
+
+![image de la mise à jour](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Si vous ne voyez pas la notification, essayez de redémarrer l’application. Si vous ne voyez toujours pas la notification de mise à jour après le redémarrage, cela peut être dû à plusieurs choses.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Vous lancez Workbench à partir d’un raccourci épinglé dans la barre des tâches
+Vous avez peut-être déjà installé la mise à jour, mais le raccourci épinglé pointe encore vers les anciens éléments sur le disque. Pour contrôler si c’est le cas, accédez au dossier `%localappdata%/AmlWorkbench`, vérifiez si la dernière version y est installée et examinez la propriété du raccourci épinglé pour voir où elle pointe. Si nécessaire, supprimez simplement l’ancien raccourci, lancez Workbench à partir du menu Démarrer et créez éventuellement un nouveau raccourci épinglé dans la barre des tâches.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Vous avez installé Workbench à l’aide du lien « Installer Azure ML Workbench » sur une machine virtuelle DSVM Windows
+Malheureusement, il n’existe aucune solution simple pour résoudre ce problème. Vous devez effectuer les étapes suivantes pour supprimer les éléments installés, puis télécharger le programme d’installation le plus récent pour effectuer une nouvelle installation de Workbench : 
+   - Supprimer le dossier `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - Supprimer le script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Supprimer le raccourci du Bureau qui lance le script ci-dessus
+   - Télécharger le programme d’installation https://aka.ms/azureml-wb-msi et réinstaller.
+
+## <a name="cant-delete-experimentation-account"></a>Impossible de supprimer un compte d’expérimentation
+Vous pouvez utiliser l’interface CLI pour supprimer un compte d’expérimentation, mais vous devez supprimer au préalable les espaces de travail enfants et les projets enfants au sein de ces espaces de travail enfants. Dans le cas contraire, une erreur s’affiche.
 
 ```azure-cli
 # delete a project
@@ -100,9 +117,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 Vous pouvez également supprimer les projets et espaces de travail dans l’application Workbench.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Impossible d’ouvrir le fichier si le projet se trouve dans OneDrive
+Si vous avez Windows 10 Fall Creators Update et que votre projet est créé dans un dossier local mappé à OneDrive, vous constaterez peut-être que vous ne pouvez ouvrir aucun fichier dans Workbench. Il s’agit d’un bogue, introduit par Fall Creators Update, qui provoque l’échec du code node.js dans un dossier OneDrive. Ce bogue sera bientôt résolu par Windows Update, mais en attendant ne créez pas de projets dans un dossier OneDrive.
 
-## <a name="file-name-too-long-on-windows"></a>Nom de fichier trop long sous Windows
-Si vous utilisez Workbench sous Windows, vous risquez de vous heurter à la limite maximale de longueur de nom de fichier par défaut (260 caractères), qui peut être indiquée de façon trompeuse comme si « le système ne trouve pas le chemin d’accès spécifié ». Vous pouvez modifier un paramètre de clé de Registre pour permettre des noms de chemin de fichier beaucoup plus longs. Consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) pour plus d’informations sur la façon de définir la clé de Registre _MAX_PATH_.
+## <a name="file-name-too-long-on-windows"></a>Nom de fichier trop long sur Windows
+Si vous utilisez Workbench sur Windows, vous risquez d’atteindre la limite maximale de longueur de nom de fichier par défaut (260 caractères), ce qui vous sera signifié par l’erreur « Le chemin d’accès spécifié est introuvable ». Vous pouvez modifier un paramètre de clé de Registre pour permettre des noms de chemin de fichier beaucoup plus longs. Consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) pour plus d’informations sur la façon de définir la clé de Registre _MAX_PATH_.
 
 ## <a name="docker-error-read-connection-refused"></a>Erreur Docker « read: connection refused »
 Lors de l’exécution avec un conteneur Docker local, l’erreur suivante est susceptible de s’afficher : 

@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considérations relatives au modèle Azure Resource Manager
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Lorsque vous développez votre application, il est important de garantir la portabilité du modèle entre Azure et Azure Stack.  Cette rubrique présente des considérations relatives au développement de [modèles](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) Azure Resource Manager, afin que vous puissiez mettre au point un prototype de votre déploiement d’application et de test dans Azure sans avoir accès à un environnement Azure Stack.
+
+## <a name="resource-provider-availability"></a>Disponibilité du fournisseur de ressources
+Le modèle que vous envisagez de déployer utilise un service Microsoft Azure déjà disponible ou en préversion dans Azure Stack.
 
 ## <a name="public-namespaces"></a>Espaces de noms publics
 Comme Azure Stack est hébergé dans votre centre de données, il dispose d’espaces de noms de point de terminaison de service autres que le cloud public Azure. Par conséquent, les points de terminaison publics codés en dur dans les modèles Resource Manager échouent lorsque vous essayez de les déployer sur Azure Stack. Au lieu de cela, vous pouvez utiliser la fonction de *référence* et de *concaténation* pour générer dynamiquement le point de terminaison de service en fonction des valeurs récupérées à partir du fournisseur de ressources lors du déploiement. Par exemple, au lieu de spécifier *blob.core.windows.net* dans votre modèle, vous devez récupérer l’objet [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) pour définir dynamiquement le point de terminaison *osDisk.URI* :
@@ -73,7 +76,6 @@ Les modèles Resource Manager utilisent un attribut d’emplacement pour placer 
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)

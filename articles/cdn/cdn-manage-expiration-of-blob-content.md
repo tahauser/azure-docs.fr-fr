@@ -1,5 +1,5 @@
 ---
-title: "Gérer l’expiration des objets blob d’Azure Storage dans Azure CDN | Microsoft Docs"
+title: "Gérer l’expiration de contenu web dans Azure Content Delivery Network | Microsoft Docs"
 description: "Découvrez les options de contrôle de la durée de vie des objets blob dans la mise en cache Azure CDN."
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Gérer l’expiration des objets blob d’Azure Storage dans Azure CDN
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gérer l’expiration de contenu web dans Azure Content Delivery Network
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Service Azure Storage Blob](cdn-manage-expiration-of-blob-content.md)
+> * [stockage d’objets blob Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-Le [service BLOB](../storage/common/storage-introduction.md#blob-storage) dans [Stockage Azure](../storage/common/storage-introduction.md) fait partie des différentes origines Azure intégrées à Azure CDN.  Tout contenu d’objet BLOB publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie.  La durée de vie est déterminée par l’ [*Cache-Control* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) dans la réponse HTTP d’Azure Storage.
+Le [service BLOB](../storage/common/storage-introduction.md#blob-storage) dans [Stockage Azure](../storage/common/storage-introduction.md) fait partie des différentes origines Azure intégrées à Azure Content Delivery Network (CDN). Tout contenu d’objet BLOB publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie. La durée de vie est déterminée par l’[en-tête `Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) dans la réponse HTTP de Stockage Azure.
 
 > [!TIP]
-> Vous pouvez choisir de ne pas définir la durée de vie d’un objet BLOB.  Dans ce cas, Azure CDN applique automatiquement une durée de vie de sept jours par défaut.
+> Vous pouvez choisir de ne pas définir de durée de vie sur un objet blob. Dans ce cas, Azure CDN applique automatiquement une durée de vie de sept jours par défaut.
 > 
-> Pour découvrir comment Azure CDN accélère l’accès aux objets blob et à d’autres fichiers, consultez la [Vue d’ensemble d’Azure CDN](cdn-overview.md).
+> Pour plus d’informations sur la façon dont Azure CDN accélère l’accès aux fichiers et à d’autres ressources, consultez [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md).
 > 
-> Pour plus d’informations sur le service BLOB Azure Storage, consultez la page [Concepts du service BLOB](https://msdn.microsoft.com/library/dd179376.aspx). 
-> 
-> 
+> Pour plus d’informations sur le stockage Blob Azure, consultez [Présentation du Stockage Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+ 
 
 Ce didacticiel présente plusieurs façons de définir la durée de vie d’un objet BLOB dans Azure Storage.  
 
@@ -93,14 +92,14 @@ class Program
 ```
 
 > [!TIP]
-> De nombreux autres exemples de code .NET sont disponibles dans les [exemples de stockage d’objets BLOB Azure pour .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
+> De nombreux autres exemples de code .NET sont disponibles dans les [exemples de stockage Blob Azure pour .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 > 
 
 ## <a name="other-methods"></a>Autres méthodes
 * [Interface de ligne de commande Azure](../cli-install-nodejs.md)
   
-    Lors du chargement de l’objet blob, définissez la propriété *cacheControl* à l’aide du switch `-p`.  Cet exemple définit la durée de vie sur une heure (3 600 secondes).
+    Lors du chargement de l’objet blob, définissez la propriété *cacheControl* à l’aide du switch `-p`. Cet exemple définit la durée de vie sur une heure (3 600 secondes).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -112,10 +111,10 @@ class Program
   
     Certains outils de gestion Azure Storage tiers vous permettent de définir la propriété *CacheControl* sur les objets BLOB. 
 
-## <a name="testing-the-cache-control-header"></a>Test de l’en-tête *Cache-Control*
-Vous pouvez facilement vérifier la durée de vie de vos objets BLOB.  À l’aide des [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)de votre navigateur, vérifiez que votre objet BLOB comprend l’en-tête de réponse *Cache-Control* .  Vous pouvez également utiliser un outil tel que **wget**, [Postman](https://www.getpostman.com/) ou [Fiddler](http://www.telerik.com/fiddler) pour examiner les en-têtes de réponse.
+## <a name="testing-the-cache-control-header"></a>Test de l’en-tête Cache-Control
+Vous pouvez facilement vérifier la durée de vie de vos objets BLOB.  À l’aide des [outils de développement](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) de votre navigateur, vérifiez que votre objet blob comprend l’en-tête de réponse `Cache-Control`. Vous pouvez également utiliser un outil tel que **wget**, [Postman](https://www.getpostman.com/) ou [Fiddler](http://www.telerik.com/fiddler) pour examiner les en-têtes de réponse.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur les en-têtes *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [En savoir plus sur l’en-tête `Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Comment gérer l’expiration des contenus de service cloud dans Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

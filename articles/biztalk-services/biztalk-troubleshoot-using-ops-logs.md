@@ -14,27 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services : résolution des problèmes à l’aide des journaux des opérations
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+
 ## <a name="what-are-the-operation-logs"></a>Présentation des journaux des opérations
-Les journaux des opérations sont une fonction des services de gestion disponibles dans le portail Azure Classic et qui vous permettent d'afficher l’historique des journaux des opérations effectuées sur vos services Azure, y compris BizTalk Services. Vous pouvez ainsi afficher les données d’historique des opérations de gestion liées à votre abonnement BizTalk Services jusqu’à 180 jours.
+Les journaux des opérations sont une fonction des services de gestion qui vous permettent d’afficher l’historique des journaux des opérations effectuées sur vos services Azure, y compris BizTalk Services. Vous pouvez ainsi afficher les données d’historique des opérations de gestion liées à votre abonnement BizTalk Services jusqu’à 180 jours.
 
 > [!NOTE]
-> Cette fonctionnalité capture uniquement les journaux des opérations de gestion de BizTalk Services, telles que le moment du début du service, de la sauvegarde, etc. Ces opérations sont suivies, qu'elles soient effectuées à partir du portail Azure Classic ou à l'aide des [API REST du service BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Pour obtenir la liste complète des opérations suivies à l'aide des services de gestion, consultez la rubrique [Opérations suivies à l'aide des services de gestion Azure](#bizops).<br/><br/>
+> Cette fonctionnalité capture uniquement les journaux des opérations de gestion de BizTalk Services, telles que le moment du début du service, de la sauvegarde, etc. Ces opérations sont suivies à l’aide de l’[API REST de BizTalk Services](http://msdn.microsoft.com/library/azure/dn232347.aspx). Pour obtenir la liste complète des opérations suivies à l'aide des services de gestion, consultez la rubrique [Opérations suivies à l'aide des services de gestion Azure](#bizops).<br/><br/>
 > Cette fonctionnalité ne capture pas les journaux des activités liées à l'exécution de BizTalk Services (telles que les messages traités par des ponts, etc.). Pour afficher ces journaux, vous devez utiliser l’affichage de suivi du portail BizTalk Services. Pour plus d'informations, consultez la rubrique [Messages de suivi](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
 ## <a name="view-biztalk-services-operation-logs"></a>Affichage des journaux des opérations BizTalk Services
-1. Dans le portail Azure Classic, sélectionnez **Services de gestion**, puis l’onglet **Journaux des opérations**.
+1. Dans le portail, sélectionnez **Services de gestion**, puis l’onglet **Journaux des opérations**.
 2. Vous pouvez filtrer les journaux selon différents paramètres tels que l’abonnement, la plage de dates, le type de service (ex. : BizTalk Services), le nom du service ou le statut de l’opération (ex. : réussite, échec).
 3. Sélectionnez la coche pour afficher la liste filtrée. L’image suivante montre les activités liées à testbiztalkservice : ![Affichage des journaux des opérations][ViewLogs] 
 4. Pour afficher plus d'informations sur une opération spécifique, sélectionnez la ligne et cliquez sur **Détails** en bas de la page.
@@ -64,7 +66,7 @@ Le tableau ci-dessous répertorie les opérations suivies à l'aide des services
 * [Sauvegarde d'un service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Restauration d'un service BizTalk depuis une sauvegarde](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services : Provisionnement](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [Limitation dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)

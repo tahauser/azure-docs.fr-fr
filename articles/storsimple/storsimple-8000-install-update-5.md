@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installer Update 5 sur votre appareil StorSimple
 
@@ -29,6 +29,7 @@ Ce didacticiel explique comment installer Update 5 sur un appareil StorSimple e
 Update 5 comprend les mises à jour logicielles de l’appareil, celles de Storport, de Spaceport, de la sécurité du système d’exploitation et du système d’exploitation lui-même ainsi que celle du microprogramme de disque.  Les mises à jour logicielles de l’appareil, comme celles de Spaceport, de Storport, de la sécurité et du système d’exploitation, sont des mises à jour sans interruption de service. Les mises à jour sans interruption de service ou régulières peuvent être appliquées via le portail Azure ou via la méthode du correctif logiciel. Les mises à jour du microprogramme de disque sont des mises à jour avec interruption de service ; elles s’appliquent lorsque l’appareil est en mode de maintenance, par le biais de la méthode du correctif logiciel en utilisant l’interface Windows PowerShell de l’appareil.
 
 > [!IMPORTANT]
+> * Update 5 est une mise à jour obligatoire à installer immédiatement. Pour plus d’informations, consultez [Notes de version pour Update 5](storsimple-update5-release-notes.md).
 > * Un ensemble de vérifications préalables manuelles et automatiques sont effectuées avant l’installation pour déterminer l’intégrité de l’appareil sur le plan de l’état du matériel et de la connectivité réseau. Ces vérifications préalables sont effectuées uniquement si vous appliquez les mises à jour à partir du portail Azure.
 > * Nous vous recommandons vivement d’installer les mises à jour à l’aide de la méthode du correctif logiciel lorsque vous mettez à jour un appareil exécutant des versions antérieures à Update 3. Si vous rencontrez des problèmes, [créez un ticket de support](storsimple-8000-contact-microsoft-support.md).
 > * Nous vous recommandons d’installer les mises à jour du logiciel et d’autres mises à jour régulières au moyen du portail Azure. Vous devez uniquement accéder à l’interface Windows PowerShell de l’appareil (pour installer les mises à jour) en cas d’échec de la vérification de la passerelle avant la mise à jour dans le portail. Selon la version que vous mettez à jour, l’installation des mises à jour peut prendre 4 heures (ou plus). Les mises à jour du mode de maintenance doivent être installées via l’interface Windows PowerShell de l’appareil. Les mises à jour en mode de maintenance étant des mises à jour perturbatrices, elles entraînent un temps d’arrêt pour votre appareil.

@@ -1,6 +1,6 @@
 ---
-title: "Connexion à des machines virtuelles après le basculement vers un site secondaire avec Azure Site Recovery | Microsoft Docs"
-description: "Aide sur la mise en réseau pour la connexion à des machines virtuelles après le basculement vers un site secondaire avec Azure Site Recovery."
+title: "Configurer l’adressage IP pour se connecter après le basculement vers un site secondaire avec Azure Site Recovery | Microsoft Docs"
+description: "Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles après le basculement sur un site secondaire avec Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: ce33a90a303a10de8ff198754e8e39c334035537
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 6baeda08b1c41cc024a02f51ca27be2829c46962
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-a-secondary-site"></a>Connexion à des machines virtuelles après le basculement vers un site secondaire
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-a-secondary-site"></a>Configurer l’adressage IP pour se connecter après le basculement sur un site secondaire
 
 Après avoir passé en revue les prérequis pour le déploiement, lisez cet article pour planifier la mise en réseau lors de la réplication de machines virtuelles Hyper-V gérées dans les clouds System Center Virtual Machines Manager (VMM) sur un site secondaire à l’aide [d’Azure Site Recovery](site-recovery-overview.md) dans le portail Azure. 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: d7da4c3c4aa902cf9ccb97ebd13b7d16940f2c32
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Copier des données depuis/vers Stockage Table Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -187,11 +187,11 @@ Si la colonne de table Azure est de type datetime:
 
 ### <a name="azure-table-as-sink"></a>Table Azure en tant que récepteur
 
-Pour copier des données de Table Azure, définissez **AzureTableSink** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
+Pour copier des données vers la Table Azure, définissez le type de récepteur sur **AzureTableSink** dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **AzureTableSink** |Oui |
+| type | La propriété de type de la source d’activité de copie doit être définie sur **AzureTableSink**. |Oui |
 | azureTableDefaultPartitionKeyValue |Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Non |
 | azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, « AzureTableDefaultPartitionKeyValue » est utilisée comme clé de partition. |Non |
 | azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Non |

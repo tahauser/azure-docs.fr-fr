@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -141,6 +141,9 @@ Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel prése
 - Chaque serveur Azure SQL Database peut avoir jusqu’à 128 entrées ACL pour un réseau virtuel donné.
 
 - Les règles de réseau virtuel s’appliquent uniquement à des réseaux virtuels Azure Resource Manager, et non à des réseaux avec un [modèle de déploiement Classic][arm-deployment-model-568f].
+
+- Activer les points de terminaison de réseau virtuel pour Azure SQL Database active également les points de terminaison pour les services MySQL et PostGres Azure. Toutefois, avec les points de terminaison activés, les tentatives de connexion à partir des points de terminaison pour vos instances de MySQL ou Postgres échoueront.
+    - La raison sous-jacente est que MySQL et PostGres ne prennent pas actuellement en charge les ACL.
 
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
     - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 291ca51c83233294d882a94f886bc874e13e97be
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copier des données depuis/vers Azure Cosmos DB à l’aide d’Azure Data Factory
 
@@ -165,7 +165,7 @@ Pour copier des données d’Azure Cosmos DB, définissez le type de récepteur 
 
 | Propriété | Description | Requis |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **DocumentDbCollectionSink** |Oui |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **DocumentDbCollectionSink**. |Oui |
 | nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, `Name.First` dans la structure du jeu de données de sortie génère la structure JSON suivante dans le document Cosmos DB :`"Name": {"First": "[value maps to this column from source]"}` lorsque le séparateur nestedSeparator est un point. |Non (la valeur par défaut est un point `.`) |
 | writeBatchTimeout |Temps d'attente pour que l'opération soit terminée avant d'expirer.<br/><br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non |
 

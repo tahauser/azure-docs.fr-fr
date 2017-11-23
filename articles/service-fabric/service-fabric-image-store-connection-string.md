@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Comprendre le paramètre ImageStoreConnectionString
 
@@ -44,7 +44,7 @@ Le fait d’héberger le magasin d’images dans un service système au sein mê
 
 Le fournisseur du système de fichiers est utilisé à la place du service de magasin d’images pour les clusters à boîtier unique locaux pendant le développement, de façon à démarrer le cluster un peu plus vite. La différence est généralement faible, mais c’est une optimisation utile à la plupart des gens lors du développement. Il est également possible de déployer un cluster à boîtier unique local avec les autres types de fournisseurs de stockage, mais il n’y a généralement aucune raison de le faire dans la mesure où le flux de travail de développement / test reste le même quel que soit le fournisseur. En dehors de cette utilisation, les fournisseurs de système de fichiers et de Stockage Azure n’existent que pour la prise en charge des anciennes générations.
 
-Par conséquent, si ImageStoreConnectionString est configurable, on utilise en général simplement le paramètre par défaut. En cas de publication sur Azure avec [Visual Studio][12], le paramètre est automatiquement défini en conséquence. Pour un déploiement par programmation sur des clusters hébergés dans Azure, la chaîne de connexion est toujours « fabric:ImageStore ». En cas de doute, sa valeur peut toujours être vérifiée en récupérant le manifeste de cluster par [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Les clusters de test et de production locaux doivent également être toujours configurés pour utiliser le fournisseur de service de magasin d’images.
+Par conséquent, si ImageStoreConnectionString est configurable, on utilise en général simplement le paramètre par défaut. En cas de publication sur Azure avec Visual Studio, le paramètre est automatiquement défini en conséquence. Pour un déploiement par programmation sur des clusters hébergés dans Azure, la chaîne de connexion est toujours « fabric:ImageStore ». En cas de doute, sa valeur peut toujours être vérifiée en récupérant le manifeste de cluster par [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Les clusters de test et de production locaux doivent également être toujours configurés pour utiliser le fournisseur de service de magasin d’images.
 
 ### <a name="next-steps"></a>Étapes suivantes
 [Déployer et supprimer des applications avec PowerShell][10]
@@ -55,4 +55,4 @@ Par conséquent, si ImageStoreConnectionString est configurable, on utilise en g
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Intégration d’entreprise avec les transformations XML
 ## <a name="overview"></a>Vue d'ensemble
@@ -50,6 +50,11 @@ Maintenant que vous avez exécuté la configuration requise, il est temps de cr�
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Sélectionnez l’action **Transformer XML**   
 6. Ajoutez le **CONTENU** XML à transformer. Vous pouvez utiliser toute donnée XML que vous recevez dans la requête HTTP en tant que **CONTENU**. Dans cet exemple, sélectionnez le corps de la demande HTTP qui a déclenché l’application logique.
+
+   > [!NOTE]
+   > Vérifiez que le contenu de **Transformer XML** est au format XML. Si le contenu n’est pas au format XML ou s’il est codé en base 64, vous devez spécifier une expression qui traite le contenu. Vous pouvez par exemple utiliser des [fonctions](logic-apps-workflow-definition-language.md#functions) comme ```@base64ToBinary``` pour le décodage du contenu ou ```@xml``` pour le traitement du contenu au format XML.
+ 
+
 7. Sélectionnez le nom du **MAPPAGE** que vous souhaitez utiliser pour effectuer la transformation. Le mappage doit déjà exister dans votre compte d’intégration. Lors d’une étape précédente, vous avez déjà attribué à votre application logique l’accès à votre compte d’intégration qui contient le mappage.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Enregistrez votre travail   

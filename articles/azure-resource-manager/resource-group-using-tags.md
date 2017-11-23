@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: e695cb375492c163350bcd7bfcb1dbdbc3f3c48f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l’aide de balises
 
@@ -149,7 +149,7 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. La stratégie que vous définissez peut exiger que toutes les ressources aient une valeur pour une balise en particulier. Pour plus d'informations, consultez [Utiliser les stratégies pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
+* Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. La stratégie que vous définissez peut exiger que toutes les ressources aient une valeur pour une balise en particulier. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../azure-policy/azure-policy-introduction.md).
 * Pour plus d’informations sur l’utilisation d’Azure PowerShell lors du déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager.md).
 * Si vous n’avez jamais utilisé l’interface CLI Azure pour le déploiement de ressources, consultez [Utiliser l’interface CLI Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Pour plus d’informations sur l’utilisation du portail, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](resource-group-portal.md).  

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory
 Cette rubrique montre comment déplacer des données d’une base de données SQL Server locale vers une base de données SQL Azure via le stockage d’objets blob Azure à l’aide d’Azure Data Factory (ADF).
@@ -80,32 +80,14 @@ La passerelle de gestion des données sérialise et désérialise les données s
 Pour obtenir des détails et des instructions d’installation sur la passerelle de gestion des données, consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Création de services liés pour la connexion aux ressources de données
-Un service lié définit les informations nécessaires à Azure Data Factory pour se connecter à des ressources de données. La procédure pas à pas pour la création de services liés est fournie dans [Créer des services liés](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+Un service lié définit les informations nécessaires à Azure Data Factory pour se connecter à des ressources de données. Dans ce scénario, nous avons trois ressources pour lesquelles les services liés sont nécessaires :
 
-Dans ce scénario, nous avons trois ressources pour lesquelles les services liés sont nécessaires.
+1. SQL Server local
+2. un stockage Azure Blob
+3. Base de données SQL Azure
 
-1. [Service lié pour SQL Server local](#adf-linked-service-onprem-sql)
-2. [Service lié pour Azure Blob Storage](#adf-linked-service-blob-store)
-3. [Service lié pour base de données Azure SQL](#adf-linked-service-azure-sql)
+La procédure pas à pas pour la création de services liés est fournie dans [Créer des services liés](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Service lié pour base de données SQL Server locale
-Pour créer un service lié pour le serveur SQL Server local :
-
-* Cliquez sur le **magasin de données** dans la page d’accueil ADF du portail Azure Classic.
-* Sélectionnez **SQL**, puis entrez le *nom d’utilisateur* et le *mot de passe* du serveur SQL local. Vous devez entrer le nom du serveur sous la forme d’un **nom d’instance avec barre oblique inverse et nom de serveur entièrement qualifié (nomserveur\nominstance)**. Nommez le service lié *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Service lié pour les objets blob
-Pour créer un service lié pour le compte de stockage d’objets Blob Azure :
-
-* Cliquez sur le **magasin de données** dans la page d’accueil ADF du portail Azure Classic.
-* Sélectionnez **Azure Storage Account**.
-* Entrez la clé et le nom de conteneur du compte de stockage Blob Azure. Nommez le service lié *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Service lié pour la base de données SQL Azure
-Pour créer le service lié pour la base de données SQL Azure :
-
-* Cliquez sur le **magasin de données** dans la page d’accueil ADF du portail Azure Classic.
-* Sélectionnez **Azure SQL**, puis entrez le *nom d’utilisateur* et le *mot de passe* de la base de données Azure SQL. Le *nom d’utilisateur* doit être spécifié en tant que *user@servername*.   
 
 ## <a name="adf-tables"></a>Définir et créer des tables pour spécifier l’accès aux jeux de données
 Créez des tables qui spécifient la structure, l'emplacement et la disponibilité des jeux de données avec les procédures reposant sur des scripts suivantes. Les fichiers JSON sont utilisés pour définir les tables. Pour plus d'informations sur la structure de ces fichiers, consultez [Jeux de données](../../data-factory/v1/data-factory-create-datasets.md).
@@ -311,9 +293,6 @@ Copiez cette définition JSON du pipeline dans un fichier appelé *pipelinedef.j
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Vérifiez que le pipeline s’affiche sur l’ADF dans le portail Azure Classic comme suit (lorsque vous cliquez sur le schéma)
-
-![Pipeline ADF](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Lancer le pipeline
 Le pipeline peut maintenant être exécuté à l'aide de la commande suivante :

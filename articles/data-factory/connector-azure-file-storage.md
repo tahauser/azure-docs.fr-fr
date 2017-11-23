@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
 
@@ -48,11 +48,11 @@ Les propriétés prises en charge pour le service lié Stockage Fichier Azure so
 | host | Spécifie le point de terminaison Stockage Fichier Azure en tant que `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Oui |
 | userId | Spécifiez l’utilisateur pouvant accéder à Stockage Fichier Azure en tant que `"userid": "AZURE\\<storage name>"`. | Oui |
 | password | Spécifiez la clé d’accès au stockage. Marquez ce champ comme SecureString.<br/> | Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non pour Source, Oui pour Récepteur |
 
->[!TIP]
-> - Pour effectuer une copie vers Stockage Fichier Azure à l’aide d’Azure Integration Runtime, [créez un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) explicitement avec l’emplacement de votre stockage de fichiers et associez-le au service lié comme dans l’exemple suivant.
-> - Pour effectuer une copie depuis/vers Stockage Fichier Azure à l’aide du runtime d’intégration auto-hébergé en dehors d’Azure, n’oubliez pas d’ouvrir le port TCP 445 sortant sur votre réseau local.
+>[!IMPORTANT]
+> - Pour copier des données dans le Stockage Fichier Azure à l’aide d’Azure Integration Runtime, [créez un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) explicitement avec l’emplacement de Stockage Fichier, puis associez-le au service lié, comme dans l’exemple suivant.
+> - Pour copier des données depuis/vers Stockage Fichier Azure à l’aide du runtime d’intégration auto-hébergé en dehors d’Azure, n’oubliez pas d’ouvrir le port TCP 445 sortant sur votre réseau local.
 
 **Exemple :**
 

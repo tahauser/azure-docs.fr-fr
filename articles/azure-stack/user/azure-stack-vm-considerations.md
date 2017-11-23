@@ -4,7 +4,7 @@ description: "Découvrez les différences et les éléments à prendre en compte
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
-ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considérations relatives aux machines virtuelles dans Azure Stack
 
@@ -46,12 +46,14 @@ Le Kit de développement Azure Stack prend en charge les tailles suivantes :
 
 | Type | Taille | Plage de tailles prises en charge |
 | --- | --- | --- |
-|Usage général |De base A|A0-A4|
-|Usage général |Standard A|A0-A7|
-|Usage général |Standard D|D1-D4|
-|Usage général |Standard Dv2|D1v2-D5v2|
-|Mémoire optimisée|Série D|D11-D14|
-|Mémoire optimisée |Série Dv2|D11v2-D14v2|
+|Usage général |De base A|A0 - A4|
+|Usage général |Standard A|A0 - A7|
+|Usage général |Série D|D1 - D4|
+|Usage général |Série Dv2|D1_v2 - D5_v2|
+|Usage général |Série DS|DS1 - DS4|
+|Usage général |Séries DSv2|DS1_v2 - DS5_v2|
+|Mémoire optimisée|Série DS|DS11 - DS14|
+|Mémoire optimisée |Séries DSv2|DS11_v2 - DS14_v2|
 
 Les tailles de machine virtuelle et les quantités de ressources associées sont cohérentes entre Azure Stack et Azure. Par exemple, cela inclut la quantité de mémoire, le nombre de cœurs et le nombre ou la taille des disques de données qui peuvent être créés. Toutefois, les performances d’une même taille de machine virtuelle dans Azure Stack dépendent des caractéristiques sous-jacentes de chaque environnement Azure Stack.
 

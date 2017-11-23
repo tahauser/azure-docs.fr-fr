@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Résoudre les problèmes de sauvegarde Microsoft Azure : problèmes liés à un agent et/ou une extension
 
@@ -67,6 +67,11 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 5 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>La configuration de disque spécifiée n’est pas prise en charge
+
+> [!NOTE]
+> Nous avons une préversion privée pour prendre en charge les sauvegardes des machines virtuelles dotées de disques non managés de >1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque [supérieures à 1 023 Go](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - Si vous disposez de disques supérieurs à 1 To, [attachez de nouveaux disques](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) inférieurs à 1 To. <br>

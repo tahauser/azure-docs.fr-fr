@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 11/10/2017
 ms.author: jingwang
-ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 Avec l’activité de copie dans Azure Data Factory, vous avez deux moyens de traiter les lignes incompatibles lors de la copie de données entre les magasins de données source et récepteur :
 
 - Vous pouvez abandonner et laisser en échec l’activité de copie en cas de détection de données incompatibles (comportement par défaut).
-- Vous pouvez continuer à copier toutes les données en ajoutant une tolérance de panne et en ignorant les lignes de données incompatibles. Vous avez également la possibilité de journaliser les lignes incompatibles dans le stockage Blob Azure afin de pouvoir examiner la cause de l’échec dans le journal, corriger les données sur la source de données, puis effectuer une nouvelle tentative de copie.
+- Vous pouvez continuer à copier toutes les données en ajoutant une tolérance de panne et en ignorant les lignes de données incompatibles. Vous avez également la possibilité de journaliser les lignes incompatibles dans le stockage Blob Azure ou Azure Data Lake Store. afin de pouvoir examiner la cause de l’échec dans le journal, corriger les données sur la source de données, puis effectuer une nouvelle tentative de copie.
 
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Tolérance de panne de l’activité de copie dans V1](v1/data-factory-copy-activity-fault-tolerance.md).
@@ -50,23 +50,24 @@ L’exemple suivant fournit une définition JSON pour configurer la manière d�
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "AzureBlobLinkedService",
+              "referenceName": "<Azure Storage or Data Lake Store linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"
      }
 }
 ```
+
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Indique s’il faut ignorer ou non les lignes incompatibles durant la copie. | true<br/>False (valeur par défaut) | Non
 redirectIncompatibleRowSettings | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non
-linkedServiceName | Service lié de Stockage Azure pour stocker le journal contenant les lignes ignorées. | Nom d’un service lié AzureStorage ou AzureStorageSas faisant référence à l’instance de stockage que vous souhaitez utiliser pour stocker le fichier journal. | Non
-path | Chemin d’accès du fichier journal contenant les lignes ignorées. | Spécifiez le chemin d’accès sur Stockage Blob que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
+linkedServiceName | Service lié de [Stockage Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) pour stocker le journal contenant les lignes ignorées. | Nom d’un service lié de type `AzureStorage` ou `AzureDataLakeStore` faisant référence à l’instance que vous souhaitez utiliser pour stocker le fichier journal. | Non
+path | Chemin d’accès du fichier journal contenant les lignes ignorées. | Spécifiez le chemin que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
 ## <a name="monitor-skipped-rows"></a>Effectuer le monitoring des lignes ignorées
 Une fois l’activité de copie exécutée, vous pouvez voir le nombre de lignes ignorées dans la sortie de l’activité de copie :

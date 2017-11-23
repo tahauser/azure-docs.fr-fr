@@ -3,34 +3,31 @@ title: "Guide de démarrage rapide Azure - Transférer des objets vers/à partir
 description: "Apprenez rapidement à transférer des objets vers/à partir de Stockage Blob Azure avec .NET"
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: ca4cb2dea9cdd2e46c3aef042e525acdfc09de8e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec .NET
 
-Dans ce guide de démarrage rapide, vous apprenez à utiliser C#.NET pour charger, télécharger et lister des objets blob de blocs dans un conteneur Stockage Blob Azure sur Windows.
+Dans ce démarrage rapide, vous allez découvrir comment utiliser la bibliothèque cliente .NET pour le Stockage Azure afin de charger, télécharger et répertorier des objets blob de blocs dans un conteneur.
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour effectuer ce démarrage rapide :
+Pour effectuer ce démarrage rapide, vous devez installer [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) avec la charge de travail suivante :
 
-* Installez [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) avec la charge de travail suivante :
-    - **Développement Azure**
+- **Développement Azure**
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -86,7 +83,11 @@ Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](
 
 Une fois que vous avez vérifié les fichiers, appuyez sur n’importe quelle touche pour terminer la démonstration et supprimer les fichiers de test. Maintenant que vous avec compris l’exemple, ouvrez le fichier Program.cs pour examiner le code. 
 
-## <a name="get-references-to-the-storage-objects"></a>Obtenir des références aux objets de stockage
+## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+
+Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer son fonctionnement.
+
+### <a name="get-references-to-the-storage-objects"></a>Obtenir des références aux objets de stockage
 
 La première chose à faire est de créer les références aux objets utilisés pour accéder et gérer Stockage Blob. Ces objets reposent l’un sur l’autre : chacun est utilisé par le suivant dans la liste.
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
+### <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Les objets blob de blocs sont les plus couramment utilisés et nous les utilisons donc dans ce guide de démarrage rapide. 
 
@@ -148,7 +149,7 @@ Il existe plusieurs méthodes de chargement que vous pouvez utiliser avec Stocka
 
 Les objets blob de blocs peuvent être n’importe quel type de fichier texte ou binaire. Les objets blob de pages sont principalement utilisés pour les fichiers VHD utilisés pour stocker des machines virtuelles IaaS. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. La plupart des objets stockés dans Stockage Blob sont des objets blob de blocs.
 
-## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+### <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
 
 Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers pour montrer les URI des objets blob rencontrés. Vous pouvez copier l’URI à partir de la fenêtre Commande et la coller dans un navigateur pour afficher le fichier.
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Télécharger des objets blob
+### <a name="download-blobs"></a>Télécharger des objets blob
 
 Téléchargez des objets blob sur votre disque local à l’aide de [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer le conteneur à l’aide de [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Supprimez aussi les fichiers créés s’ils ne sont plus nécessaires.
 
@@ -200,5 +201,7 @@ Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers
 
 > [!div class="nextstepaction"]
 > [Guide pratique des opérations Stockage Blob](storage-dotnet-how-to-use-blobs.md)
+
+Pour obtenir d’autres exemples de code de Stockage Azure que vous pouvez télécharger et exécuter, consultez la liste [Exemples de Stockage Azure avec .NET](../common/storage-samples-dotnet.md).
 
 Pour plus d’informations sur l’Explorateur Stockage et les objets blob, consultez [Gérer les ressources de stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Liste de compatibilité de fédération Azure AD
 Azure Active Directory fournit l’authentification unique et une sécurité de l’accès aux applications améliorée pour Office 365 et d’autres ressources de Microsoft Online Services pour des implémentations hybrides et uniquement dans le cloud ne nécessitant aucune solution non-Microsoft. À l’instar de la plupart des services Microsoft Online, Office 365 est intégré à Azure Active Directory pour les services de répertoire, l’authentification et l’autorisation. En outre, Azure Active Directory fournit l’authentification unique à des milliers d’applications SaaS et à des applications web locales. Consultez la galerie d’applications Azure Active Directory pour connaître les applications SaaS prises en charge.
@@ -46,6 +46,7 @@ Pour plus d’informations sur la façon dont votre fournisseur d’identité ti
 * [Centrify](#centrify) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [Authentification composite DigitalPersona](#digitalpersona-composite-authentication)
+* [ForgeRock Identity Platform Access Management V5.x](#forgerock-identity-platform-access-management-v5x)
 * [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -186,6 +187,17 @@ Voici la matrice de prise en charge des scénarios pour cette expérience d’au
 
 Pour plus d’informations, consultez [DigitalPersona Composite Authentication](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>ForgeRock Identity Platform Access Management V5.x
+
+Voici la matrice de prise en charge des scénarios pour cette expérience d’authentification unique :
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Clients web (p. ex., Exchange Web Access et SharePoint Online) |Pris en charge |Aucun|
+| Applications clientes riches (p. ex., Lync, abonnement Office, CRM) |Pris en charge |Aucun|
+| Clients de messagerie riches (p. ex., Outlook et ActiveSync) |Pris en charge |Aucun |
+
+Pour plus d’informations, consultez [ForgeRock Identity Platform Access Management V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Federated Identity Manager 6.2.2
 

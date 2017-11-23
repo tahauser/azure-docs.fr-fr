@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Choisir une référence (SKU) ou un niveau tarifaire pour Azure Search
 Dans Azure Search, un [service est configuré](search-create-service-portal.md) sur un niveau tarifaire ou une SKU spécifique. Vous avez le choix entre les options suivantes : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations et capacités.
@@ -43,9 +43,9 @@ La capacité et les coûts d’exécution du service vont de pair. Les informati
 
 * Nombre et taille des index que vous envisagez de créer.
 * Nombre et taille des documents à télécharger.
-* Volume de requêtes, en termes de requêtes par seconde (RPS).
+* Volume de requêtes, en termes de requêtes par seconde (RPS). Pour obtenir de l’aide, consultez [Considérations sur les performances et l’optimisation de Recherche Azure](search-performance-optimization.md).
 
-Le nombre et la taille sont des éléments importants, car les limites maximales sont atteintes via une limite stricte sur le nombre d’index ou de documents dans un service, ou sur les ressources (stockage ou réplicas) utilisées par le service. La limite réelle de votre service est déterminée par l’élément épuisé en premier (ressources ou objets).
+Le nombre et la taille sont des éléments importants, car les limites maximales sont atteintes par le biais d’une limite stricte sur le nombre d’index par service, ou sur les ressources (stockage ou réplicas) utilisées par le service. La limite réelle de votre service est déterminée par l’élément épuisé en premier (ressources ou objets).
 
 Une fois les estimations connues, les étapes suivantes doivent simplifier le processus :
 
@@ -60,10 +60,10 @@ Le tableau suivant fournit des descriptions de chaque niveau.
 | --- | --- |
 | **Gratuit** |Un service partagé, sans frais, utilisé pour l’évaluation, l’investigation ou de petites charges de travail. Dans la mesure où il est partagé avec d’autres abonnés, le débit des requêtes et l’indexation varient en fonction des autres utilisateurs ayant recours au service. Faible capacité (50 Mo ou 3 index contenant jusqu’à 10 000 documents chacun). |
 | **De base** |Charges de travail de production de petite taille sur du matériel dédié. Hautement disponible. Capacité maximale de 3 réplicas et 1 partition (2 Go). |
-| **S1** |Standard 1 prend en charge les combinaisons flexibles de partitions (12) et de réplicas (12), utilisées pour des charges de travail de taille moyenne sur du matériel dédié. Vous pouvez allouer des partitions et des réplicas dans des combinaisons prises en charge par un nombre maximal de 36 unités de recherche facturables. À ce niveau, les partitions sont de 25 Go chacune et le RPS est d’environ 15 requêtes par seconde. |
-| **S2** |Standard 2 exécute les grandes charges de travail de production à l’aide des mêmes 36 unités de recherche que S1, mais avec des partitions et des réplicas plus importants. À ce niveau, les partitions sont de 100 Go chacune et le RPS est d’environ 60 requêtes par seconde. |
-| **S3** |Standard 3 exécute les charges de production proportionnellement plus importantes sur les systèmes haut de gamme, dans des configurations allant jusqu’à 12 partitions ou 12 réplicas sous 36 unités de recherche. À ce niveau, les partitions sont de 200 Go chacune et le RPS est d’environ 60 requêtes par seconde. |
-| **S3 HD** |Standard 3 haute densité est conçu pour un grand nombre d’index plus petits. Vous pouvez avoir jusqu'à 3 partitions de 200 Go chacune. Le RPS est supérieur à 60 requêtes par seconde. |
+| **S1** |Standard 1 prend en charge les combinaisons flexibles de partitions (12) et de réplicas (12), utilisées pour des charges de travail de taille moyenne sur du matériel dédié. Vous pouvez allouer des partitions et des réplicas dans des combinaisons prises en charge par un nombre maximal de 36 unités de recherche facturables. À ce niveau, les partitions font 25 Go chacune. |
+| **S2** |Standard 2 exécute les grandes charges de travail de production à l’aide des mêmes 36 unités de recherche que S1, mais avec des partitions et des réplicas plus importants. À ce niveau, les partitions font 100 Go chacune. |
+| **S3** |Standard 3 exécute les charges de production proportionnellement plus importantes sur les systèmes haut de gamme, dans des configurations allant jusqu’à 12 partitions ou 12 réplicas sous 36 unités de recherche. À ce niveau, les partitions font 200 Go chacune. |
+| **S3 HD** |Standard 3 haute densité est conçu pour un grand nombre d’index plus petits. Vous pouvez avoir jusqu'à 3 partitions de 200 Go chacune.|
 
 > [!NOTE]
 > Les valeurs maximales de réplica et de partition sont facturées en tant qu’unités de recherche (36 unités maximum par service), ce qui impose une limite effective inférieure à ce que la valeur maximale indique au premier abord. Par exemple, pour utiliser le nombre maximal de 12 réplicas, vous pouvez avoir au maximum 3 partitions (3 * 12 = 36 unités). De même, pour utiliser le nombre maximal de partitions, vous devez réduire les réplicas à 3. Pour accéder à un graphique sur les combinaisons autorisées, voir [Mettre à l’échelle les niveaux de ressources pour interroger et indexer les charges de travail dans Azure Search](search-capacity-planning.md) .
@@ -81,7 +81,6 @@ Le tableau suivant est un sous-ensemble des [Limites de service dans Azure Searc
 | Partitions maximales |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
 | Taille de partition |50 Mo au total |2 Go par service |25 Go par partition |100 Go par partition (jusqu’à 1,2 To par service) |200 Go par partition (jusqu’à 2,4 To par service) |200 Go (jusqu'à un maximum de 600 Go par service) |
 | Réplicas maximales |N/A |3 |12 |12 |12 |12 |
-| Requêtes par seconde |N/A |~3 par réplica |~15 par réplica |~60 par réplica |Moins de 60 par réplica |Moins de 60 par réplica |
 
 <sup>1</sup> Les fonctionnalités de niveau Gratuit et d’évaluation ne sont pas fournies avec des Contrats de niveau de service (SLA). Pour tous les niveaux facturables, les SLA entrent en vigueur lorsque vous approvisionnez une redondance suffisante pour votre service. Un SLA de requête (lecture) requiert au moins deux réplicas. Un SLA de requête et d’indexation (lecture-écriture) nécessite au moins trois réplicas. Le nombre de partitions n’est pas pris en compte dans les SLA. 
 

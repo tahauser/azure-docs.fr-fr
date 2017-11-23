@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613ea691e38b6f0bcd8873fc2ec6bcafb3cc6c78
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -34,7 +34,7 @@ Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’of
 | Stratégies d’éditeur | Oui | Oui |   
 | Groupes de consommateurs | 20 | 20 |
 | Relecture des messages | Oui | Oui |
-| Unités de débit maximales | 20 (flexible jusqu’à 100)   | 1 unité de capacité≈200 |
+| Unités de débit maximales | 20 (flexible jusqu’à 100)   | 1 CU≈50 |
 | Connexions réparties | 1 000 inclus | 100 K inclus |
 | Connexions négociées supplémentaires | Oui | Oui |
 | Rétention des messages | 1 jour inclus | Jusqu’à 7 jours inclus |
@@ -48,18 +48,25 @@ Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicat
 * Augmentation de la taille des messages jusqu’à 1 Mo contre 256 Ko pour les plans Standard.
 * Performances reproductibles chaque fois.
 * Garantie de la capacité à répondre à vos besoins en rafale.
-* Évolutivité de 1 à 8 unités de capacité : assure jusqu’à 2 millions d’événements d’entrée par seconde.
-  * Les unités de capacité gèrent la mise à l’échelle des Event Hubs Dedicated, où chaque unité de capacité peut fournir approximativement l’équivalent de 200 unités de débit.
+* Inclut la fonctionnalité [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) d’Azure Event Hubs, pour permettre l’intégration aux microlots et à la rétention à long terme
 * Aucune maintenance : nous gérons l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement.
-* Tarification mensuelle fixe.
+* Tarif horaire fixe.
+* Rétention des messages jusqu’à 7 jours, sans coûts supplémentaires
 
 Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit du niveau Standard autorisent 1 000 événements par seconde ou 1 Mo par seconde en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des concentrateurs d’événements achetés.
+
+Cet environnement dédié et réservé fournit d’autres fonctionnalités disponibles exclusivement avec ce niveau tarifaire. En voici certaines :
+
+* Contrôle du nombre d’espaces de noms dans votre cluster
+* Définition de limites de débit pour chaque espace de noms
+* Configuration du nombre d’Event Hubs sous chaque espace de noms
+* Définition du nombre limite de partitions
 
 Ce service est destiné aux grands utilisateurs de télémétrie et est disponible pour les clients disposant d’un contrat d’entreprise.
 
 ## <a name="how-to-onboard"></a>Intégration : mode d’emploi
 
-La plateforme Event Hubs Dedicated est proposée via un contrat Entreprise avec différentes tailles d’unités de capacité. Chaque unité de capacité fournit environ l’équivalent de 200 unités de débit. Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. 
+Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. Pour commencer à utiliser cette référence SKU, contactez (le support de facturation) [https://ms.portal.azure.com/#create/Microsoft.Support] ou votre représentant Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Contactez votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité des Event Hubs Dedicated. Vous pouvez également en apprendre plus sur Event Hubs en consultant les liens suivants :

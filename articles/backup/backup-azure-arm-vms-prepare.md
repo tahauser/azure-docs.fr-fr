@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 > [!div class="op_single_selector"]
@@ -56,6 +56,12 @@ Avant de préparer votre environnement, notez les limitations.
 
 * La sauvegarde de machines virtuelles ayant plus de 16 disques de données n’est pas prise en charge.
 * La sauvegarde de machines virtuelles avec des tailles de disque de données supérieures à 1 023 Go n’est pas prise en charge.
+
+> [!NOTE]
+> Nous avons une préversion privée pour prendre en charge les sauvegardes des machines virtuelles dotées de disques non managés de >1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 * La sauvegarde des machines virtuelles chiffrées BEK seulement n’est pas prise en charge. La sauvegarde des machines virtuelles Linux chiffrées LUKS n’est pas prise en charge.
 * La sauvegarde des machines virtuelles contenant une configuration de volumes partagés de cluster (CSV) ou de serveur de fichiers avec montée en puissance parallèle n’est pas recommandée car elle exige d’impliquer toutes les machines virtuelles incluses dans la configuration du cluster pendant la tâche de capture instantanée. Sauvegarde Azure ne prend pas en charge la cohérence multimachine virtuelle. 

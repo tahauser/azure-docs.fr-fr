@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article s’applique à la version 2 du service Azure Data Factory. Il fournit des réponses aux questions les plus fréquentes sur Data Factory.  
@@ -152,7 +152,7 @@ Pour plus d’informations sur les concepts de Data Factory, consultez les artic
 Pour plus d’informations sur la tarification d’Azure Data Factory, consultez [Détails sur la tarification de Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Quelles sont les régions qui prennent en charge Azure Data Factory version 2 ?
-Vous pouvez actuellement créer des fabriques de données de version 2 dans les régions États-Unis de l’Est et États-Unis de l’Est 2. Toutefois, une fabrique de données peut utiliser le runtime d’intégration dans une autre région pour déplacer des données entre les magasins de données, les activités de répartition dans les services de calcul ou la distribution de packages SSIS. Pour plus d’informations, consultez la section relative aux [emplacements de Data Factory](concepts-integration-runtime.md#integration-runtime-location).
+Vous pouvez actuellement créer des fabriques de données de version 2 dans les régions États-Unis de l’Est, États-Unis de l’Est 2 et Europe de l’Ouest. Toutefois, une fabrique de données peut utiliser le runtime d’intégration dans une autre région pour déplacer des données entre les magasins de données, les activités de répartition dans les services de calcul ou la distribution de packages SSIS. Pour plus d’informations, consultez la section relative aux [emplacements de Data Factory](concepts-integration-runtime.md#integration-runtime-location).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Comment se tenir informé sur Data Factory ?
 Pour obtenir les informations les plus récentes sur Azure Data Factory, consultez les sites suivants :

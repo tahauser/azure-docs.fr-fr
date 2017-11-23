@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bb9a5087ead309ab24128594c53ae313cd4b63c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Windows avec Azure Resource Manager
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous expliquons comment utiliser les stratégies d’Azure Resource Manager afin de définir le comportement souhaité pour les machines virtuelles de votre entreprise.
 
-Pour une introduction aux stratégies, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../../azure-resource-manager/resource-manager-policy.md).
+Pour une introduction aux stratégies, consultez la page [Qu’est-ce qu’Azure Policy ?](../../azure-policy/azure-policy-introduction.md).
 
 ## <a name="permitted-virtual-machines"></a>Machines virtuelles autorisées
 Pour vous assurer que les machines virtuelles de votre entreprise sont compatibles avec une application, vous pouvez limiter les systèmes d’exploitation autorisés. Dans l’exemple de stratégie suivant, vous autorisez uniquement la création de machines virtuelles Windows Server 2012 R2 Datacenter :
@@ -105,7 +105,7 @@ Pour modifier la stratégie précédente pour autoriser toute image Windows Serv
 }
 ```
 
-Pour plus d’informations sur les champs de la stratégie, consultez les [alias de stratégie](../../azure-resource-manager/resource-manager-policy.md#aliases).
+Pour plus d’informations sur les champs de la stratégie, consultez les [alias de stratégie](../../azure-policy/policy-definition.md#aliases).
 
 ## <a name="managed-disks"></a>Disques gérés
 
@@ -250,6 +250,6 @@ Lorsque vous disposez d’une licence locale, vous pouvez enregistrer les frais 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Après avoir défini une règle de stratégie (comme le montrent les exemples précédents), vous devez créer la définition de stratégie et l’attribuer à une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour affecter des stratégies via le portail, consultez [Utiliser le portail Azure pour affecter et gérer les stratégies de ressources](../../azure-resource-manager/resource-manager-policy-portal.md). Pour affecter des stratégies via l’API REST, PowerShell ou Azure CLI, consultez [Affecter et gérer des stratégies via un script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
-* Pour une introduction aux stratégies de ressources, consultez la page [Vue d’ensemble des stratégies de ressources](../../azure-resource-manager/resource-manager-policy.md).
+* Après avoir défini une règle de stratégie (comme le montrent les exemples précédents), vous devez créer la définition de stratégie et l’attribuer à une étendue. L’étendue peut être un abonnement, un groupe de ressources ou une ressource. Pour affecter des stratégies, consultez [Utiliser le portail Azure pour attribuer et gérer les stratégies de ressources](../../azure-policy/assign-policy-definition.md), [Utiliser PowerShell pour affecter des stratégies](../../azure-policy/assign-policy-definition-ps.md) et [Utiliser Azure CLI pour affecter des stratégies](../../azure-policy/assign-policy-definition-cli.md).
+* Pour une introduction aux stratégies de ressources, consultez la page [Qu’est-ce qu’Azure Policy ?](../../azure-policy/azure-policy-introduction.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](../../azure-resource-manager/resource-manager-subscription-governance.md).

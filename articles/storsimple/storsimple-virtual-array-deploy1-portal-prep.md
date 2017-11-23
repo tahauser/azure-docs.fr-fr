@@ -4,7 +4,7 @@ description: "Le premier didacticiel de déploiement de StorSimple Virtual Array
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
 
@@ -42,7 +42,7 @@ Consultez les articles suivants dans l'ordre indiqué pour déployer votre insta
 | **#** | **Dans cette étape** | **Procédez comme suit …** | **Et utilisez ces documents.** |
 | --- | --- | --- | --- |
 | 1. |**Configuration du portail Azure** |Créez et configurez votre service StorSimple Device Manager avant de configurer une instance StorSimple Virtual Array. |[Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Configuration du tableau virtuel** |Pour Hyper-V, configurez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant Hyper-V sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Pour VMware, configurez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.5 et versions ultérieures.<br></br> |[Configuration d’un tableau virtuel dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Configuration du tableau virtuel** |Pour Hyper-V, configurez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant Hyper-V sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Pour VMware, provisionnez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5 ou 6.0.<br></br> |[Configuration d’un tableau virtuel dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Configuration du tableau virtuel** |Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br> Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI. |[Configuration d’un tableau virtuel comme serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un tableau virtuel comme serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
@@ -68,9 +68,9 @@ Avant de commencer, assurez-vous que :
 
 ### <a name="for-the-storsimple-virtual-array"></a>Pour StorSimple Virtual Array
 
-Avant de déployer un tableau virtuel, assurez-vous que :
+Avant de déployer un tableau virtuel, assurez-vous de remplir les conditions suivantes :
 
-* Vous avez accès à un système hôte exécutant Hyper-V sur Windows Server 2008 R2 ou une version ultérieure ou VMware (ESXi 5.5 ou une version ultérieure) permettant de configurer un appareil.
+* Vous avez accès à un système hôte exécutant Hyper-V sur Windows Server 2008 R2 ou une version ultérieure, ou VMware (ESXi 5.0, 5.5 ou 6.0) permettant de configurer un appareil.
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre tableau virtuel :
   
   * Un minimum de 4 cœurs.
@@ -136,7 +136,7 @@ Procédez comme suit dans le [portail Azure](https://portal.azure.com/).
    
    * VHDX pour Hyper-V sur Windows Server 2012 et versions ultérieures
    * VHD pour Hyper-V sur Windows Server 2008 R2 et versions ultérieures
-   * VMDK pour VMWare ESXi 5.5 et versions ultérieures
+   * VMDK pour VMWare ESXi 5.0, 5.5 ou 6.0
 5. Téléchargez et décompressez le fichier sur un lecteur local et notez l’emplacement du fichier décompressé.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Étape facultative : configuration d’un nouveau compte de stockage pour le service

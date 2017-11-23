@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -57,7 +57,7 @@ Non, vous pouvez héberger votre application n'importe où (dans le cloud ou sur
 Avant d’ouvrir « Azure AD B2C » dans le menu à gauche du portail Azure, vous devez basculer dans le répertoire que vous souhaitez gérer.  Changez de répertoire en cliquant sur votre identité dans le coin supérieur droit du portail Azure, puis sélectionnez un répertoire dans la liste déroulante qui s’affiche.  Pour obtenir une procédure détaillée avec des images, consultez [Accéder aux paramètres d’Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Comment puis-je personnaliser les e-mails de vérification (le contenu et le champ « De: ») envoyés par Azure AD B2C ?
-Vous pouvez utiliser la [fonctionnalité de personnalisation de la société](../active-directory/active-directory-add-company-branding.md) pour personnaliser le contenu des e-mails de vérification. Plus précisément, ces deux éléments du message peuvent être personnalisés :
+Vous pouvez utiliser la [fonctionnalité de personnalisation de la société](../active-directory/customize-branding.md) pour personnaliser le contenu des e-mails de vérification. Plus précisément, ces deux éléments du message peuvent être personnalisés :
 
 * **Logo de bannière**: affiché en bas à droite.
 * **Couleur d’arrière-plan**: affiché en haut.
@@ -66,11 +66,11 @@ Vous pouvez utiliser la [fonctionnalité de personnalisation de la société](..
 
 La signature d’e-mail contient le nom du client B2C que vous avez fourni lors de la création du client B2C. Vous pouvez modifier le nom à l’aide de ces instructions :
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements.
-1. Accédez à votre client B2C.
-1. Cliquez sur l'onglet **Configurer** .
-1. Modifiez le champ **Nom** dans la section **Propriétés du répertoire**.
-1. Cliquez sur **Enregistrer** au bas de la page.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’abonnements.
+1. Ouvrez le panneau **Azure Active Directory**.
+1. Cliquez sur l’onglet **Propriétés**.
+1. Changez le champ **Nom**.
+1. Cliquez sur **Enregistrer** dans la partie supérieure de la page.
 
 Il n’existe actuellement aucun moyen de modifier le champ « De : » de l’e-mail. Votez sur [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) si vous êtes intéressé par la personnalisation du corps de l’e-mail de vérification.
 
@@ -98,9 +98,9 @@ Lisez cet article sur les [identités externes](../active-directory/active-direc
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quelles sont les fonctionnalités de création de rapports et d’audit proposées par Azure AD B2C ? Sont-elles identiques à celles d’Azure AD Premium ?
 Non, Azure AD B2C ne prend pas en charge le même ensemble de rapports qu'Azure AD Premium. Toutefois, de nombreux points communs existent :
 
-* Les rapports de connexion fournissent un enregistrement de chaque connexion avec des détails réduits.
-* Les rapports d’audit sont disponibles dans le portail Azure, sous Azure Active Directory > ACTIVITÉ - Journaux d’audit > choisissez B2C et appliquez les filtres souhaités. Les activités d’administration et d’application sont traitées. 
-* Un rapport d’utilisation, couvrant le nombre d’utilisateurs, le nombre de connexions et le volume de MFA est disponible via [l’API de création de rapports](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api).
+* Les **rapports de connexion** sont disponibles dans le portail Azure uniquement (Azure Active Directory > Activité > Connexions), pas par le biais de l’API Graph. Ils fournissent un enregistrement de chaque connexion avec des détails réduits.
+* Les **rapports d’audit** sont disponibles dans le portail Azure uniquement (Azure Active Directory > Activité > Journaux d’audit), pas par le biais de l’API Graph. Ils incluent les activités d’administration et d’application. 
+* Les **rapports d’utilisation** sont disponibles par le biais de [l’API de création de rapports d’utilisation](active-directory-b2c-reference-usage-reporting-api.md) uniquement, pas par le biais du portail Azure. Ils comprennent le nombre d’utilisateurs, le nombre de connexions et le volume de MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Puis-je localiser l'interface utilisateur des pages présentées par Azure AD B2C ? Quelles sont les langues prises en charge ?
 Oui.  Découvrez la [personnalisation linguistique](active-directory-b2c-reference-language-customization.md), qui est en préversion publique.  Nous fournissons des traductions en 36 langues, et vous pouvez remplacer n’importe quelle chaîne pour l’adapter à vos besoins.

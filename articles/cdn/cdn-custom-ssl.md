@@ -1,5 +1,5 @@
 ---
-title: "Activer ou désactiver HTTPS sur un domaine personnalisé Microsoft Azure CDN (Content Delivery Network) | Microsoft Docs"
+title: "Configurer HTTPS sur un domaine personnalisé Microsoft Azure CDN (Content Delivery Network) | Microsoft Docs"
 description: "Découvrez comment activer ou désactiver HTTPS sur votre point de terminaison Microsoft Azure CDN avec un domaine personnalisé."
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Activer ou désactiver HTTPS sur un domaine personnalisé Microsoft Azure CDN (Content Delivery Network)
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Configurer HTTPS sur un domaine personnalisé Microsoft Azure CDN (Content Delivery Network)
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-La prise en charge de HTTPS pour les domaines personnalisés Microsoft Azure CDN (Content Delivery Network) vous permet de diffuser du contenu sécurisé via SSL en utilisant votre propre nom de domaine, afin d’améliorer la sécurité des données pendant leur transit. Le workflow de bout en bout visant à activer HTTPS pour votre domaine personnalisé est simplifié via l’activation en un clic et la gestion complète des certificats, le tout sans coût supplémentaire.
+Microsoft prend en charge le protocole HTTPS pour les domaines personnalisés sur Azure Content Delivery Network (CDN). Avec la prise en charge de domaines personnalisés HTTPS, vous pouvez livrer du contenu sécurisé via SSL à l’aide de votre propre nom de domaine et améliorer la sécurité des données lors de leur transit. Le workflow permettant d’activer HTTPS pour votre domaine personnalisé est simplifié via l’activation en un clic et la gestion complète des certificats, le tout sans coût supplémentaire.
 
-Il est essentiel de garantir la confidentialité et l’intégrité de toutes les données sensibles de vos applications web lors de leur transit. L’utilisation du protocole HTTPS garantit que vos données sensibles sont chiffrées lorsqu’elles sont envoyées sur Internet. Il assure la confiance et l’authentification, mais protège également vos applications web contre les attaques. Azure CDN prend en charge HTTPS sur un point de terminaison CDN par défaut. Ainsi, si vous créez un point de terminaison CDN à partir d’Azure CDN (par exemple, `https://contoso.azureedge.net`), HTTPS est automatiquement activé. En outre, avec la prise en charge de HTTPS sur un domaine personnalisé, vous pouvez également activer la livraison sécurisée pour un domaine personnalisé (par exemple, `https://www.contoso.com`). 
+Il est essentiel de garantir la confidentialité et l’intégrité des données sensibles de vos applications web lors de leur transit. En utilisant le protocole HTTPS, vous êtes sûr que vos données sensibles sont chiffrées lorsqu’elles sont envoyées sur Internet. Il assure la confiance et l’authentification, mais protège également vos applications web contre les attaques. Par défaut, Azure CDN prend en charge HTTPS sur un point de terminaison CDN. Ainsi, si vous créez un point de terminaison CDN à partir d’Azure CDN (par exemple, `https://contoso.azureedge.net`), HTTPS est automatiquement activé. De plus, avec la prise en charge de HTTPS sur un domaine personnalisé, vous pouvez également activer la livraison sécurisée pour un domaine personnalisé (par exemple, `https://www.contoso.com`). 
 
 Voici quelques-uns des attributs clés de la fonctionnalité HTTPS :
 
@@ -41,7 +41,7 @@ Voici quelques-uns des attributs clés de la fonctionnalité HTTPS :
 
 ## <a name="enabling-https"></a>Activation de HTTPS
 
-Pour activer HTTPS, suivez ces étapes :
+Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 
 ### <a name="step-1-enable-the-feature"></a>Étape 1 : Activation de la fonctionnalité 
 
@@ -66,7 +66,7 @@ Pour activer HTTPS, suivez ces étapes :
 Dès que vous avez activé HTTPS sur votre domaine personnalisé, l’autorité de certification DigiCert valide la propriété de votre domaine en contactant son inscrit, en fonction de ses informations [WHOIS](http://whois.domaintools.com/) du domaine. Une prise de contact est établie par le biais de l’adresse de messagerie (par défaut) ou le numéro de téléphone répertorié dans l’inscription WHOIS. 
 
 >[!NOTE]
->Si vous avez un enregistrement CAA (Certificate Authority Authorization) auprès de votre fournisseur DNS, il doit inclure DigiCert en tant qu’autorité de certification valide. Un enregistrement CAA permet aux propriétaires de domaine de spécifier avec leurs fournisseurs DNS les autorités de certification autorisées à émettre des certificats pour leur domaine. Si une autorité de certification reçoit une commande de certificat pour un domaine qui contient un enregistrement CCA et que cette autorité de certification n’est pas répertoriée comme émetteur autorisé, elle ne peut pas émettre le certificat pour ce domaine ou sous-domaine.
+>Si vous avez un enregistrement CAA (Certificate Authority Authorization) auprès de votre fournisseur DNS, il doit inclure DigiCert en tant qu’autorité de certification valide. Un enregistrement CAA permet aux propriétaires de domaine de spécifier avec leurs fournisseurs DNS les autorités de certification autorisées à émettre des certificats pour leur domaine. Si une autorité de certification reçoit une commande de certificat pour un domaine qui contient un enregistrement CCA et que cette autorité de certification n’est pas répertoriée comme émetteur autorisé, elle ne peut pas émettre le certificat pour ce domaine ou sous-domaine. Pour plus d’informations sur la gestion des enregistrements CAA, consultez [Administrer les enregistrements CAA](https://support.dnsimple.com/articles/manage-caa-record/). Pour obtenir un outil d’enregistrement CAA, consultez [Assistance pour les enregistrements CAA](https://sslmate.com/caa/).
 
 ![Enregistrement WHOIS](./media/cdn-custom-ssl/whois-record.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>Désactivation de HTTPS
 
-Une fois que vous avez activé le protocole HTTPS, vous pouvez le désactiver ultérieurement. Pour désactiver HTTPS, suivez ces étapes :
+Après avoir activé le protocole HTTPS sur un domaine personnalisé, vous pouvez le désactiver ultérieurement. Pour désactiver HTTPS, suivez ces étapes :
 
 ### <a name="step-1-disable-the-feature"></a>Étape 1 : Désactivation de la fonctionnalité 
 

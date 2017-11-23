@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Ajouter un fournisseur de ressources App Service à un environnement Azure Stack déconnecté sécurisé par AD FS
 
@@ -110,7 +110,7 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont remplies avec le nombre minimal d’instance et la référence (SKU) minimale pour chaque rôle dans un déploiement ASDK. Un résumé des exigences de base et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
+12. Passez en revue de l’instance de rôle et les options de la référence SKU. Les valeurs par défaut sont remplies avec le nombre minimal d’instance et la référence (SKU) minimale pour chaque rôle dans un déploiement ASDK. Un résumé des exigences en termes de processeur virtuel et de mémoire est fourni pour vous aider à planifier votre déploiement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
      > [!NOTE]
      > Pour les déploiements de production, suivez le guide dans [Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack](azure-stack-app-service-capacity-planning.md).
@@ -119,11 +119,11 @@ Pour déployer App Service dans un environnement déconnecté, vous devez d’ab
 
     | Rôle | Nombre minimal d’instances | Nombre minimal de références (SKU) | Remarques |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
-    | Gestion | 1 | Standard_A2 - (2 cœurs, 3 584 Mo) | Gère les points de terminaison App Service Azure Resource Manager et d’API, les extensions du portail (admin, locataire, portail Functions) et du service des données. Pour prendre en charge le basculement, augmenter les instances recommandées à 2. |
-    | Éditeur | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Publie du contenu via FTP et un déploiement web. |
-    | FrontEnd | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Achemine les demandes vers les applications App Service. |
-    | Worker partagé | 1 | Standard_A1 - (1 cœur, 1 792 Mo) | Héberge les applications web ou d’API et Azure Functions. Il peut être nécessaire d’ajouter plus d’instances. En tant qu’opérateur, vous pouvez définir votre offre et choisir n’importe quel niveau de référence. Les niveaux doivent avoir au minimum un cœur. |
+    | Controller | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Gère et maintient l’intégrité du Cloud App Service. |
+    | Gestion | 1 | Standard_A2 - (2 processeurs virtuels, 3 584 Mo) | Gère les points de terminaison App Service Azure Resource Manager et d’API, les extensions du portail (admin, locataire, portail Functions) et du service des données. Pour prendre en charge le basculement, augmenter les instances recommandées à 2. |
+    | Éditeur | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Publie du contenu via FTP et un déploiement web. |
+    | FrontEnd | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Achemine les demandes vers les applications App Service. |
+    | Worker partagé | 1 | Standard_A1 - (1 processeur virtuel, 1 792 Mo) | Héberge les applications web ou d’API et Azure Functions. Il peut être nécessaire d’ajouter plus d’instances. En tant qu’opérateur, vous pouvez définir votre offre et choisir n’importe quel niveau de référence. Les niveaux doivent avoir au minimum un processeur virtuel. |
 
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image08.png)    
 

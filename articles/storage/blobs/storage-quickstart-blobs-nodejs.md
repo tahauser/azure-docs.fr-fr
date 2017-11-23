@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec Node.js
 
@@ -103,7 +103,11 @@ Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](
 
 Une fois que vous avez vérifié les fichiers, appuyez sur n’importe quelle touche pour terminer la démonstration et supprimer les fichiers de test. Maintenant que vous avec compris l’exemple, ouvrez le fichier index.js pour examiner le code. 
 
-## <a name="get-references-to-the-storage-objects"></a>Obtenir des références aux objets de stockage
+## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+
+Ensuite, nous allons parcourir l’exemple de code pas à pas pour vous montrer son fonctionnement.
+
+### <a name="get-references-to-the-storage-objects"></a>Obtenir des références aux objets de stockage
 
 La première chose à faire est de créer la référence au `BlobService` utilisé pour accéder au Stockage Blob et le gérer. Ces objets reposent l’un sur l’autre : chacun est utilisé par le suivant dans la liste.
 
@@ -120,7 +124,7 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
+### <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Les objets blob de blocs sont les plus couramment utilisés. Ils conviennent parfaitement au stockage de données texte et binaires, c’est pourquoi nous les utilisons dans ce guide de démarrage rapide.
 
@@ -141,7 +145,7 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 Il existe plusieurs méthodes de chargement que vous pouvez utiliser avec Stockage Blob. Par exemple, si vous avez un flux de mémoire, vous pouvez utiliser la méthode [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) plutôt que [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+### <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
 
 Ensuite, l’application obtient une liste des fichiers du conteneur à l’aide de [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers pour montrer les URI des objets blob rencontrés. Vous pouvez copier l’URI à partir de la fenêtre Commande et la coller dans un navigateur pour afficher le fichier.
 
@@ -158,7 +162,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     console.log('\n');
 ```
 
-## <a name="download-blobs"></a>Télécharger des objets blob
+### <a name="download-blobs"></a>Télécharger des objets blob
 
 Téléchargez les objets blob sur votre disque local à l’aide de [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
@@ -171,7 +175,7 @@ handleError(error);
 console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) et [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Supprimez aussi les fichiers créés s’ils ne sont plus nécessaires. Cette opération est effectuée dans l’application quand vous appuyez sur la touche Entrée pour quitter l’application.
 

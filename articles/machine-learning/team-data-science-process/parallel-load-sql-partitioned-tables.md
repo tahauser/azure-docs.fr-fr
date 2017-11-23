@@ -4,7 +4,7 @@ description: "Importer des données en parallèle et en bloc à l’aide de tabl
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 Ce document décrit comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les *vues et tables partitionnées*permettent d’améliorer l’importation des données et le traitement des requêtes. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Créer une base de données et un ensemble de groupes de fichiers
 * [Créez une base de données](https://technet.microsoft.com/library/ms176061.aspx) (si elle n’existe pas).
-* Ajoutez des groupes de fichiers de base de données à la base de données qui contiendra les fichiers physiques partitionnés. Pour cette opération, utilisez [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si la base de données n’existe pas ou [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si elle existe.
+* Ajoutez des groupes de fichiers à la base de données qui contient les fichiers physiques partitionnés. 
+* Pour cette opération, utilisez [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si la base de données n’existe pas encore ou [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si elle existe.
 * Ajoutez un ou plusieurs fichiers (selon le cas) dans chaque groupe de fichiers de base de données.
   
   > [!NOTE]
-  > Spécifiez le groupe de fichiers cible qui contiennent les données de cette partition, ainsi que le nom du ou des fichiers physiques de base de données qui stockeront les données du groupe de fichiers.
+  > Spécifiez le groupe de fichiers cible qui contient les données de cette partition, ainsi que le nom du ou des fichiers physiques de base de données où sont stockés les données du groupe de fichiers.
   > 
   > 
 
@@ -55,18 +56,19 @@ L’exemple suivant crée une base de données avec trois groupes de fichiers a
     ')
 
 ## <a name="create-a-partitioned-table"></a>Créer une table partitionnée
-Créez une ou plusieurs tables partitionnées, selon le schéma de données, et mappez-les aux groupes de fichiers de base de données créés à l’étape précédente. Une fois les données importées en bloc dans la ou les tables partitionnées, les enregistrements sont répartis dans les groupes de fichiers selon un schéma de partition, comme indiqué ci-dessous.
+Pour créer des tables partitionnées basées sur le schéma de données, mappé aux groupes de fichiers de base de données créé à l’étape précédente, vous devez d’abord créer une fonction de partition et un schéma. Une fois les données importées en bloc dans la ou les tables partitionnées, les enregistrements sont répartis dans les groupes de fichiers conformément à un schéma de partition, comme indiqué ci-dessous.
 
-**Pour créer une table de partition, vous devez :**
-
-* [Créer une fonction de partition](https://msdn.microsoft.com/library/ms187802.aspx) qui définit la plage de valeurs/limites à inclure dans chaque table de partition, par exemple, pour limiter les partitions mensuelles (some\_datetime\_field) de l’année 2013 :
+### <a name="1-create-a-partition-function"></a>1. Créer une fonction de partition
+[Créez une fonction de partition](https://msdn.microsoft.com/library/ms187802.aspx) Cette fonction définit la plage de valeurs/limites à inclure dans chaque table de partition, par exemple pour limiter les partitions mensuelles (un\_champ\_date_heure) de l’année 2013 :
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Créer un schéma de partition](https://msdn.microsoft.com/library/ms179854.aspx) qui mappe chaque plage de la fonction de partition à un groupe de fichiers physique, par exemple :
+
+### <a name="2-create-a-partition-scheme"></a>2. Créer un schéma de partition
+[Créez un schéma de partition](https://msdn.microsoft.com/library/ms179854.aspx). Ce schéma mappe chaque plage de la fonction de partition à un groupe de fichiers physique, par exemple :
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ Créez une ou plusieurs tables partitionnées, selon le schéma de données, et 
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Créer une ou plusieurs tables partitionnées](https://msdn.microsoft.com/library/ms174979.aspx)selon votre schéma de données, puis spécifiez le schéma de partition et le champ de contrainte utilisé pour partitionner la table, par exemple :
+
+### <a name="3-create-a-partition-table"></a>3. Créer une table de partition
+[Créez une ou plusieurs tables partitionnées](https://msdn.microsoft.com/library/ms174979.aspx) conformément à votre schéma de données, puis spécifiez le schéma de partition et le champ de contrainte utilisé pour partitionner la table, par exemple :
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,8 +95,9 @@ Créez une ou plusieurs tables partitionnées, selon le schéma de données, et 
 Pour plus d’informations, consultez l’article [Créer des tables partitionnées et des index](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Importer les données en bloc dans chaque table de partition
+
 * Vous pouvez utiliser BCP, BULK INSERT ou d’autres méthodes telles que l’ [Assistant Migration SQL Server](http://sqlazuremw.codeplex.com/). L’exemple fourni utilise la méthode BCP.
-* [Modifiez la base de données](https://msdn.microsoft.com/library/bb522682.aspx) en remplaçant le schéma de journalisation des transactions par BULK_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
+* [Modifiez la base de données](https://msdn.microsoft.com/library/bb522682.aspx) en remplaçant le schéma de journalisation des transactions par BULK_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 * Pour accélérer le chargement des données, lancez plusieurs importations en bloc en parallèle. Pour obtenir des conseils sur l’accélération de l’importation en bloc de volumes importants dans des bases de données SQL Server, consultez l’article [Charger 1 To en moins d’une heure](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
@@ -163,7 +168,7 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Créer des index pour optimiser les jointures et le traitement des requêtes
 * Si vous extrayez des données de plusieurs tables à des fins de modélisation, créez des index sur les clés de jointure pour améliorer les performances des jointures.
-* [Créez des index](https://technet.microsoft.com/library/ms188783.aspx) (clusterisés ou non) ciblant le même groupe de fichiers de chaque partition, par exemple :
+* [Créez des index](https://technet.microsoft.com/library/ms188783.aspx) (en cluster ou non) ciblant le même groupe de fichiers de chaque partition, par exemple :
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
@@ -173,10 +178,10 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > Vous pouvez créer les index avant d’importer les données en bloc. Mais la création des index avant l’opération d’importation ralentira le chargement des données.
+  > Vous pouvez créer les index avant d’importer les données en bloc. La création des index avant l’opération d’importation ralentit le chargement des données.
   > 
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Exemple de processus d’analyse avancé et technologie en action
-Pour obtenir un exemple de procédure pas à pas complet utilisant le processus Cortana Analytics avec un jeu de données public, consultez [Processus Cortana Analytics en action : utilisation de SQL Server](sql-walkthrough.md).
+Pour obtenir un exemple de procédure pas à pas complet du processus TDSP (Team Data Science Process) avec un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](sql-walkthrough.md).
 

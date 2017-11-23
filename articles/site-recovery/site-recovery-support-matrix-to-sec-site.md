@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice de prise en charge pour la réplication sur un site secondaire avec Azure Site Recovery
 
@@ -28,7 +28,7 @@ Cet article résume ce qui est pris en charge lorsque vous utilisez le service [
 
 **Déploiement** | **Détails** 
 --- | ---
-**VMware vers VMware** | Récupération d’urgence de machines virtuelles VMware locales vers un site VMware secondaire.<br/><br/> Télécharger le [guide de l’utilisateur InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**VMware vers VMware** | Récupération d’urgence de machines virtuelles VMware locales vers un site VMware secondaire.<br/><br/> Télécharger le [guide de l’utilisateur InMage Scout](https://aka.ms/asr-scout-user-guide)
 **Hyper-V vers Hyper-V** | Récupération d’urgence de machines virtuelles Hyper-V locales résidant dans des clouds VMM vers un cloud VMM secondaire.<br></br> Non pris en charge sans VMM.
 
 
@@ -39,7 +39,7 @@ Cet article résume ce qui est pris en charge lorsque vous utilisez le service [
 
 **Déploiement** | **Support**
 --- | ---
-**Machine virtuelle VMware/serveur physique** | vCenter 5.5 ou 6.0 (prise en charge des fonctionnalités 5.5 uniquement) 
+**Machine virtuelle VMware/serveur physique** | vCenter 5.5, 6.0 et 6.5 (prise en charge des fonctionnalités 5.5 uniquement)
 **Hyper-V avec VMM** | Windows Server 2016 et Windows Server 2012 R2 avec les dernières mises à jour.<br/><br/> Les hôtes Windows Server 2016 doivent être gérés par VMM 2016.<br/><br/> Les clouds VMM 2016 qui combinent des hôtes Windows Server 2016 et 2012 R2 ne sont actuellement pas pris en charge.<br/><br/> Les déploiements comprenant la mise à niveau d’une VMM 2012 R2 existant vers System Center 2016 ne sont actuellement pas pris en charge.
 
 
@@ -49,7 +49,7 @@ Le tableau suivant récapitule la prise en charge du système d’exploitation p
 
 **Serveur VMware/physique** | **Hyper-V (avec VMM)**
 --- | ---
-Windows Server 2012 R2 64 bits, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Tout système d’exploitation invité [pris en charge par Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+Windows Server 2016 64 bits, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Tout système d’exploitation invité [pris en charge par Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Stockage de machine Linux
 
@@ -104,15 +104,15 @@ VHD/VHDX | N/A | Oui (jusqu’à 16 disques)
 Machine virtuelle de 2e génération | N/A | Oui
 Disque de cluster partagé | Oui  | Non
 Disque chiffré | Non | Non
-UEFI| Non | N/A
+UEFI| Oui | N/A
 NFS | Non | Non
 SMB 3.0 | Non | Non
 RDM | Oui | N/A
-Disque > 1 To | Non | Oui
+Disque > 1 To | Oui | Oui
 Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui | Oui
 Espaces de stockage | Non | Oui
-Ajout/suppression de disque à chaud | Non | Non
-Exclure le disque | Non | Oui
+Ajout/suppression de disque à chaud | Oui | Non
+Exclure le disque | Oui | Oui
 Chemins d’accès multiples (MPIO) | N/A | Oui
 
 ## <a name="vaults"></a>Coffres

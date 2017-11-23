@@ -1,6 +1,6 @@
 ---
 title: "Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Docs"
-description: "Découvrez les commandes et surveillez les performances sous les onglets du portail Azure Classic de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS"
+description: "En savoir plus sur les contrôles et l’analyse de performances pour BizTalk Services"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Passer en revue les onglets Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexion hybride
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Après avoir créé votre service BizTalk et déployé votre application, vous pouvez modifier certains paramètres du service BizTalk et surveiller les performances de l'application. 
 
-La première fois que vous ouvrez le portail Azure Classic, l’onglet **TOUS LES ÉLÉMENTS** s’affiche automatiquement. Pour afficher votre service BizTalk, sélectionnez-le sous l’onglet **Tous les éléments**. Vous pouvez aussi sélectionner l’onglet **BIZTALK SERVICES**, puis le nom de votre service BizTalk.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Une nouvelle fenêtre apparaît avec les onglets suivants : Cette rubrique décrit ces onglets.
 
@@ -84,9 +84,9 @@ Supposons que vous vouliez que le service BizTalk utilise une nouvelle clé prim
 <br/><br/>
 <ol>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. Sélectionnez la clé secondaire. Une fois que c'est fait, le service BizTalk commence à utiliser la clé secondaire.</li>
-<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
+<li>Sélectionnez votre compte de stockage et regénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. À présent, sélectionnez la clé primaire. Il s'agit de la nouvelle clé primaire que vous avez régénérée.</li>
-<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé secondaire.</li>
+<li>Sélectionnez votre compte de stockage et regénérez la clé secondaire.</li>
 </ol>
 <br/>
 On parle de « clés de substitution » pour décrire ce processus. L'objectif est de permettre aux utilisateurs de basculer entre la clé primaire et la clé secondaire sans interrompre le service BizTalk.</td>
@@ -169,7 +169,7 @@ Pour obtenir une description de ces mesures de performances, accédez à la sect
 </tr>
 <tr>
 <td><strong>Nom d’abonnement</strong></td>
-<td>Répertorie l’abonnement qui héberge votre service BizTalk. L’abonnement régit l’accès au portail Azure Classic.</td>
+<td>Répertorie l’abonnement qui héberge votre service BizTalk. L’abonnement gère l’accès.</td>
 </tr>
 <tr>
 <td><strong>Identifiant d’abonnement</strong></td>
@@ -177,7 +177,7 @@ Pour obtenir une description de ces mesures de performances, accédez à la sect
 </tr>
 </table>
 
-[BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280) indique la procédure de création d’un service BizTalk Services.
+[BizTalk Services : Provisionnement](http://go.microsoft.com/fwlink/p/?LinkID=302280) récapitule les étapes de la création d’un service BizTalk.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Gérer, Informations de connexion, Clés de synchronisation et Supprimer dans la barre des tâches :
 <table border="1">
@@ -206,9 +206,9 @@ Supposons que vous vouliez que le service BizTalk utilise une nouvelle clé prim
 <br/><br/>
 <ol>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. Sélectionnez la clé secondaire. Une fois que c'est fait, le service BizTalk commence à utiliser la clé secondaire.</li>
-<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
+<li>Sélectionnez votre compte de stockage et regénérez la clé primaire. Rappelez-vous que votre service BizTalk utilise la clé secondaire.</li>
 <li>Sélectionnez votre service BizTalk, puis <strong>Clés de synchronisation</strong>. À présent, sélectionnez la clé primaire. Il s'agit de la nouvelle clé primaire que vous avez régénérée.</li>
-<li>Dans le portail Azure Classic, sélectionnez votre compte de stockage et régénérez la clé secondaire.</li>
+<li>Sélectionnez votre compte de stockage et regénérez la clé secondaire.</li>
 </ol>
 <br/>
 On parle de « clés de substitution » pour décrire ce processus. L'objectif est de permettre aux utilisateurs de basculer entre la clé primaire et la clé secondaire sans interrompre le service BizTalk.</td>
@@ -329,7 +329,7 @@ Définit l'état de la sauvegarde sur Aucun ou Automatique. Lorsqu'il est défin
 [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md) fournit les détails. 
 
 ## <a name="HybridConnections"></a>Connexions hybrides
-Les connexions hybrides connectent une application Azure, telle que Web Apps ou Mobile Services dans Azure App Service, à une ressource locale utilisant un port TCP statique, tel que SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont gérées dans BizTalk Services au sein du portail Azure Classic.
+Les connexions hybrides connectent une application Azure, telle que Web Apps ou Mobile Services dans Azure App Service, à une ressource locale utilisant un port TCP statique, tel que SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont managées dans BizTalk Services.
 
 Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 ## <a name="see-also"></a>Voir aussi
 * [Connexions hybrides](integration-hybrid-connection-overview.md)  
 * [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](biztalk-editions-feature-chart.md)  
-* [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](biztalk-provision-services.md)  
+* [BizTalk Services : Provisionnement](biztalk-provision-services.md)  
 * [BizTalk Services : tableau comparatif des états du service BizTalk](biztalk-service-state-chart.md)  
 * [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

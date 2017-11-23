@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -51,14 +51,6 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 > L’application d’orchestration des correctifs utilise le service système gestionnaire des réparations de Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par l’application d’orchestration des correctifs suit la progression de l’exécution de Windows Update pour chaque nœud.
 
 ## <a name="prerequisites"></a>Composants requis
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Version du runtime Service Fabric minimale prise en charge
-
-#### <a name="azure-clusters"></a>Clusters Azure
-L’application d’orchestration des correctifs doit être exécutée sur des clusters Azure qui ont la version du runtime Service Fabric 5.5 ou ultérieure.
-
-#### <a name="standalone-on-premises-clusters"></a>Clusters locaux autonomes
-L’application d’orchestration des correctifs doit être exécutée sur des clusters Azure qui ont la version du runtime Service Fabric 5.6 ou ultérieure.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
@@ -135,59 +127,6 @@ Pour activer le service de gestion des réparations :
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Désactiver les mises à jour automatiques Windows Update sur tous les nœuds
 
 Les mises à jour automatiques Windows peuvent entraîner une perte de disponibilité, car plusieurs nœuds de cluster peuvent redémarrer en même temps. Par défaut, l’application d’orchestration des correctifs tente de désactiver les mises à jour automatiques Windows Update sur chaque nœud du cluster. Toutefois, si les paramètres sont gérés par une stratégie d’administrateur ou de groupe, nous vous recommandons de définir la stratégie Windows Update en optant explicitement pour l’envoi d’une notification avant le téléchargement.
-
-### <a name="optional-enable-azure-diagnostics"></a>Facultatif : Activer Azure Diagnostics
-
-Pour les clusters exécutant la version du runtime Service Fabric `5.6.220.9494` ou une version supérieure, les journaux de l’application d’orchestration des correctifs sont collectés en même temps que les journaux Service Fabric.
-Vous pouvez ignorer cette étape si votre cluster exécute le runtime Service Fabric version `5.6.220.9494` et plus.
-
-Pour les clusters exécutant une version inférieure à `5.6.220.9494`, les journaux de l’application d’orchestration des correctifs sont collectés en local, sur chaque nœud du cluster.
-Nous recommandons de configurer Azure Diagnostics de façon à charger les journaux de l’ensemble des nœuds à un emplacement central.
-
-Pour plus d’informations sur l’activation d’Azure Diagnostics, voir [Collecte des journaux avec Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Les journaux de l’application d’orchestration des correctifs sont générés sur les ID de fournisseur fixes suivants :
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-Dans le modèle de gestionnaire de ressources, accédez à la section `EtwEventSourceProviderConfiguration` sous `WadCfg` et ajoutez les entrées suivantes :
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Si votre cluster Service Fabric a plusieurs types de nœuds, la section précédente doit être ajoutée pour toutes les sections `WadCfg`.
 
 ## <a name="download-the-app-package"></a>Télécharger le package de l’application
 
@@ -303,20 +242,16 @@ Pour activer le proxy inverse sur le cluster, procédez de la manière décrite 
 
 ## <a name="diagnosticshealth-events"></a>Événements de diagnostic et d’intégrité
 
-### <a name="collect-patch-orchestration-app-logs"></a>Collecter les journaux de l’application d’orchestration des correctifs
+### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Depuis la version du runtime `5.6.220.9494`, les journaux de l’application d’orchestration des correctifs sont collectés en même temps que les journaux Service Fabric.
-Pour les clusters exécutant une version du runtime Service Fabric inférieure à `5.6.220.9494`, les journaux peuvent être collectés à l’aide de l’une des méthodes suivantes.
+Les journaux de l’application d’orchestration des correctifs sont collectés en même temps que les journaux du runtime Service Fabric.
 
-#### <a name="locally-on-each-node"></a>Localement sur chaque nœud
+Si vous le souhaitez, vous pouvez capturer les journaux au moyen du pipeline ou de l’outil de diagnostic de votre choix. L’application d’orchestration des correctifs utilise les ID de fournisseur fixes ci-dessous pour journaliser les événements par le biais [d’eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Si la version du runtime Service Fabric est inférieure à `5.6.220.9494`, les journaux sont collectés en local sur chaque nœud du cluster Service Fabric. L’emplacement à partir duquel vous pouvez accéder aux journaux est \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
-
-Par exemple, si Service Fabric est installé sur le lecteur D, le chemin d’accès est D:\\PatchOrchestrationApplication\\logs.
-
-#### <a name="central-location"></a>Emplacement central
-
-Si Azure Diagnostics est configuré dans le cadre des étapes préalables de préparation, les journaux de l’application d’orchestration des correctifs sont disponibles dans le Stockage Azure.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Rapports d'intégrité
 

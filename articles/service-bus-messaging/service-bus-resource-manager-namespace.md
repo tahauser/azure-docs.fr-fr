@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus à l’aide d’un modèle Azure Resource Manager
 
@@ -48,9 +48,9 @@ Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous
 [![Déploiement sur Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Paramètres
-Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters` , qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient selon le projet que vous déployez, ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent identiques. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
+Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée `Parameters` , qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient en fonction du projet que vous déployez ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent inchangées. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
 
-Ce modèle définit les paramètres suivants.
+Ce modèle définit les paramètres suivants :
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Nom de l’espace de noms Service Bus à créer.
@@ -81,7 +81,7 @@ Nom de la référence [SKU](https://azure.microsoft.com/pricing/details/service-
 
 ```
 
-Le modèle définit les valeurs autorisées pour ce paramètre (Standard ou Premium) et affecte une valeur par défaut (Standard) si aucune valeur n’est spécifiée.
+Le modèle définit les valeurs autorisées pour ce paramètre (Standard ou Premium). Si aucune valeur n’est spécifiée, Resource Manager affecte une valeur par défaut (Standard).
 
 Pour plus d’informations sur la tarification de Service Bus, consultez [Service Bus pricing and billing (Tarification et facturation de Service Bus)][Service Bus pricing and billing].
 
@@ -91,7 +91,7 @@ La version de l’API Service Bus du modèle.
 ```json
 "serviceBusApiVersion": { 
        "type": "string", 
-       "defaultValue": "2015-08-01", 
+       "defaultValue": "2017-04-01", 
        "metadata": { 
            "description": "Service Bus ApiVersion used by the template" 
        } 

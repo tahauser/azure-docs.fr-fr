@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (DWU) et Data Warehouse Units de calcul (cDWU)
 Explique les Data Warehouse Units (DWU) et les Data Warehouse Units de calcul (cDWU) pour Azure SQL Data Warehouse. Incluez des recommandations sur le choix du nombre idéal de Data Warehouse Units et la modification de leur nombre. 
@@ -52,16 +52,8 @@ Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmen
 Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Le niveau de performances optimisé pour le calcul offre les meilleures performances de requête et la plus grande échelle, mais à un prix d’entrée plus élevé. Il est conçu pour les entreprises en demande constante de performances élevées. Ces systèmes exploitent au maximum le cache. 
 
 ### <a name="capacity-limits"></a>Limites de capacité
-Par défaut, chaque serveur (par exemple, myserver.database.windows.net) possède un quota qui limite la taille et l’échelle des bases de données sur cette instance. Un serveur peut héberger des bases de données SQL DW et SQL DB, qui doivent toutes respecter le quota. Ce quota est mesuré en Database Transaction Units (DTU) et défini par défaut sur 54 000 pour autoriser jusqu'à 6 000 cDWU. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en créant un ticket de support et en sélectionnant « Quota » comme type de requête. 
+Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../sql-database/sql-database-what-is-a-dtu.md) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-Pour calculer votre besoin en DTU, appliquez les multiplicateurs suivants au calcul de DTU :
-
-| Niveau de performances | Unité de mesure | Multiplicateur DTU | Exemple                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Élasticité       |  DWU            | 7.5            | DW6000 x 7,5 = 45 000 DTU |
-| Calcul          | cDWU            | 9              | DW6000 x 7,5 = 54 000 DTU |
-
-Vous pouvez consulter votre consommation de DTU actuelle dans les propriétés SQL Server du portail.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>De combien de DWU ai-je besoin ?
 Le nombre idéal de DWU dépend en grande partie de votre charge de travail et de la quantité de données que vous avez chargées dans le système.

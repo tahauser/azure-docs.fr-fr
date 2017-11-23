@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/8/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -577,7 +577,7 @@ Une autre raison de créer un groupe de machines virtuelles identiques avec moin
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Comment modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques ?
 
-Pour modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques, consultez [Modifier le nombre d’instances d’un groupe de machines virtuelles identiques](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Pour modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques dans le portail Azure, dans la section des propriétés du groupe de machines virtuelles identiques, cliquez sur le panneau de « mise à l’échelle » et utilisez la barre du curseur. Pour connaître d’autres manières de modifier le nombre d’instances, consultez [Modifier le nombre d’instances d’un groupe de machines virtuelles identiques](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Comment définir des alertes personnalisées lorsque certains seuils sont atteints ?
 

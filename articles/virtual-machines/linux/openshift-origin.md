@@ -15,22 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1a40c4cc064b32aced7e976f40f6ed6a57e62204
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Déployer OpenShift Origin dans Azure
 
-Il existe plusieurs façons de déployer OpenShift Origin dans Azure. Vous pouvez déployer manuellement tous les composants d’infrastructure Azure nécessaires, puis suivre la [documentation](https://docs.openshift.org/3.6/welcome/index.html) d’OpenShift Origin.
-Vous pouvez également utiliser un modèle Resource Manager existant qui simplifie le déploiement du cluster OpenShift Origin. Un tel modèle se trouve [ici](https://github.com/Microsoft/openshift-origin).
+Vous pouvez utiliser l’une des deux manières de déployer OpenShift Origin dans Azure :
 
-## <a name="deploy-using-the-openshift-origin-template"></a>Déployer à l’aide du modèle OpenShift Origin
+- Vous pouvez déployer manuellement tous les composants d’infrastructure Azure nécessaires, puis suivre la [documentation](https://docs.openshift.org/3.6/welcome/index.html) d’OpenShift Origin.
+- Vous pouvez également utiliser un [modèle Resource Manager](https://github.com/Microsoft/openshift-origin) existant qui simplifie le déploiement du cluster OpenShift Origin.
 
-Utilisez la valeur de `appId` du principal de service créé précédemment pour le paramètre `aadClientId`.
+## <a name="deploy-by-using-the-openshift-origin-template"></a>Déployer à l’aide du modèle OpenShift Origin
 
-L’exemple suivant crée un fichier de paramètres nommé **azuredeploy.parameters.json** avec toutes les entrées requises.
+Utilisez la valeur `appId` du principal de service créé précédemment pour le paramètre `aadClientId`.
+
+L’exemple suivant crée un fichier de paramètres nommé azuredeploy.parameters.json avec toutes les entrées requises.
 
 ```json
 {
@@ -92,13 +94,13 @@ L’exemple suivant crée un fichier de paramètres nommé **azuredeploy.paramet
 }
 ```
 
-### <a name="deploy-using-azure-cli"></a>Déployer à l’aide d’Azure CLI
+### <a name="deploy-by-using-azure-cli"></a>Déployer à l’aide d’Azure CLI
 
 
 > [!NOTE] 
-> La commande suivante requiert Azure CLI 2.0.8 ou version ultérieure. Pour vérifier la version de l’interface Azure CLI, exécutez la commande `az --version`. Pour mettre à jour l’interface, consultez [Installer Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> La commande suivante requiert Azure CLI 2.0.8 ou version ultérieure. Pour vérifier la version d’Azure CLI, exécutez la commande `az --version`. Pour mettre à jour l’interface, consultez [Installer Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-L’exemple suivant déploie le cluster OpenShift et toutes les ressources associées dans un groupe de ressources nommé myResourceGroup avec le nom de déploiement myOpenShiftCluster. Le modèle est référencé directement à partir du dépôt GitHub, et un fichier de paramètres locaux nommé **azuredeploy.parameters.json** est utilisé.
+L’exemple suivant déploie le cluster OpenShift et toutes les ressources associées dans un groupe de ressources nommé myResourceGroup, avec le nom de déploiement myOpenShiftCluster. Le modèle est référencé directement à partir du dépôt GitHub à l’aide d’un fichier de paramètres locaux nommé azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -106,7 +108,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-La durée du déploiement varie en fonction du nombre total de nœuds déployés, avec un minimum de 25 minutes. L’URL de la console OpenShift et le nom DNS du maître OpenShift est affiché sur le terminal à l’issue du déploiement.
+La durée du déploiement varie en fonction du nombre total de nœuds déployés, avec un minimum de 25 minutes. L’URL de la console OpenShift et le nom DNS de l’OpenShift master s’affichent sur le terminal à l’issue du déploiement.
 
 ```json
 {
@@ -117,7 +119,7 @@ La durée du déploiement varie en fonction du nombre total de nœuds déployés
 
 ## <a name="connect-to-the-openshift-cluster"></a>Se connecter au cluster OpenShift
 
-Une fois le déploiement terminé, connectez-vous à la console OpenShift dans un navigateur à l’aide de la valeur de `OpenShift Console Uri`. Vous avez également la possibilité de vous connecter à l’OpenShift master à l’aide de la commande suivante :
+Une fois le déploiement terminé, connectez-vous à la console OpenShift dans un navigateur à l’aide de la valeur `OpenShift Console Uri`. Vous pouvez aussi vous connecter à l’OpenShift master à l’aide de la commande suivante :
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -125,7 +127,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées.
+Utilisez la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées quand vous n’en avez plus besoin.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -133,6 +135,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tâches post-déploiement](./openshift-post-deployment.md)
-- [Résolution des problèmes relatifs au déploiement d’OpenShift](./openshift-troubleshooting.md)
+- [Tâches de post-déploiement](./openshift-post-deployment.md)
+- [Résoudre les problèmes liés au déploiement d’OpenShift](./openshift-troubleshooting.md)
 - [Prise en main d’OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

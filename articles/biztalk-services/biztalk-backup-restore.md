@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Sauvegarde et restauration de BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Cette rubrique montre comment effectuer une sauvegarde et une restauration BizTalk Services à l’aide du portail Azure Classic.
+Azure BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. 
 
-Vous pouvez également utiliser l' [API REST BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=325584)pour sauvegarder BizTalk Services. 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
 > Les connexions hybrides NE sont PAS sauvegardées, quelle que soit l’édition. Vous devez recréer vos connexions hybrides.
@@ -34,7 +34,6 @@ Vous pouvez également utiliser l' [API REST BizTalk Services](http://go.microso
 
 ## <a name="before-you-begin"></a>Avant de commencer
 * Il se peut que les fonctionnalités de sauvegarde et de restauration ne soient pas disponibles dans toutes les éditions. Consultez [BizTalk Services : tableau comparatif des éditions](biztalk-editions-feature-chart.md).
-* À l’aide du portail Azure Classic, vous pouvez créer une sauvegarde à la demande ou planifiée. 
 * Le contenu des sauvegardes peut être restauré vers le même service BizTalk ou vers un nouveau service BizTalk. Pour restaurer le service BizTalk à l'aide du même nom, le service BizTalk existant doit être supprimé et le nom doit être disponible. Après avoir supprimé un service BizTalk, la disponibilité du même nom peut prendre du temps. Si vous ne pouvez pas attendre que le même nom soit disponible, restaurez vers un nouveau service BizTalk.
 * BizTalk Services peut être restauré vers la même édition ou une édition supérieure. La restauration de BizTalk Services vers une édition inférieure, à partir de la sauvegarde créée, n'est pas prise en charge.
   
@@ -46,70 +45,10 @@ Vous pouvez également utiliser l' [API REST BizTalk Services](http://go.microso
 * Facultatif : dans le portail BizTalk Services, arrêtez toutes les opérations de gestion.
 
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
-Une sauvegarde peut être effectuée à tout moment et vous la contrôlez complètement. Cette section répertorie les étapes à suivre pour créer des sauvegardes à l’aide du portail Azure Classic :
+Une sauvegarde peut être effectuée à tout moment et vous la contrôlez complètement. Pour créer une sauvegarde, utilisez l’[API REST pour la gestion de BizTalk Services sur Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
-[Sauvegarde à la demande](#backupnow)
-
-[Planification d'une sauvegarde](#backupschedule)
-
-#### <a name="backupnow"></a>Sauvegarde à la demande
-1. Dans le portail Azure Classic, sélectionnez **BizTalk Services**, puis le service BizTalk que vous souhaitez sauvegarder.
-2. Sous l’onglet **Tableau de bord**, sélectionnez **Sauvegarder** en bas de la page.
-3. Entrez un nom de sauvegarde. Par exemple, entrez *monServiceBizTalk*BU*Date*.
-4. Choisissez un compte de stockage d'objets blob et sélectionnez la coche pour démarrer la sauvegarde.
-
-Une fois la sauvegarde terminée, un conteneur portant le nom de sauvegarde indiqué est créé dans le compte de stockage. Ce conteneur comprend la configuration de sauvegarde de votre service BizTalk.
-
-#### <a name="backupschedule"></a>Planification d'une sauvegarde
-1. Dans le Portail Azure Classic, sélectionnez **BizTalk Services**, puis le nom du service BizTalk pour lequel vous souhaitez planifier la sauvegarde et enfin l’onglet **Configurer**.
-2. Définissez **État de la sauvegarde** sur **Automatique**. 
-3. Sélectionnez le **Compte de stockage** dans lequel stocker la sauvegarde, puis entrez la **Fréquence** de création des sauvegardes et la durée pendant laquelle vous souhaitez les conserver (**Jours de rétention**) :
-   
-    ![][AutomaticBU]
-   
-    **Remarques**     
-   
-   * Dans **Jours de rétention**, la période de rétention doit être supérieure à la fréquence des sauvegardes.
-   * Sélectionnez **Conserver toujours au moins une sauvegarde**, même si le délai de rétention est dépassé.
-4. Sélectionnez **Enregistrer**.
-
-Lors de l'exécution d'une tâche de sauvegarde planifiée, un conteneur est créé (pour stocker les données de sauvegarde) dans le compte de stockage que vous avez indiqué. Le nom du conteneur se présente comme suit : *Service BizTalk nom-date-heure*. 
-
-Si le tableau de bord du service BizTalk indique l'état **Échec** :
-
-![Statut de la dernière sauvegarde planifiée][BackupStatus] 
-
-Le lien ouvre les journaux des opérations des services de gestion pour vous aider à résoudre le problème. Consultez [BizTalk Services : résolution des problèmes à l'aide des journaux des opérations](http://go.microsoft.com/fwlink/p/?LinkId=391211).
-
-## <a name="restore"></a>Restore
-Vous pouvez restaurer des sauvegardes depuis le portail Azure Classic ou l’ [API REST Restaurer le service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Cette section répertorie les étapes à suivre pour restaurer une sauvegarde à l’aide du portail Azure Classic.
-
-#### <a name="before-restoring-a-backup"></a>Avant de restaurer une sauvegarde
-* De nouveaux magasins de suivi, d'archivage et de surveillance peuvent être spécifiés lors de la restauration d'un service BizTalk.
-* Les mêmes données de runtime EDI sont restaurées. La sauvegarde du runtime EDI stocke les numéros de contrôle. Les numéros de contrôle restaurés apparaissent en séquence depuis le moment de la sauvegarde. Si des messages sont traités après la dernière sauvegarde, la restauration du contenu de cette sauvegarde peut entraîner des numéros de contrôle en double.
-
-#### <a name="restore-a-backup"></a>Restauration d'une sauvegarde
-1. Dans le Portail Azure Classic, sélectionnez **Nouveau** > **App Services** > **Service BizTalk** > **Restaurer** :
-   
-    ![Restauration d'une sauvegarde][Restore]
-2. Dans **URL de sauvegarde**, sélectionnez l'icône de dossier et développez le compte de stockage Azure qui stocke la sauvegarde de la configuration du service BizTalk. Développez le conteneur, puis dans le volet droit, sélectionnez le fichier .txt de sauvegarde correspondant. 
-   <br/><br/>
-   Sélectionnez **Ouvrir**.
-3. Dans la page **Restaurer le service BizTalk**, entrez le **Nom du service BizTalk**, puis vérifiez **l’URL de domaine**, **l’Édition** et la **Région** du service BizTalk restauré. **Créer une instance de base de données SQL** pour la base de données de suivi :
-   
-    ![][RestoreBizTalkService]
-   
-    Sélectionnez la flèche Suivant.
-4. Vérifiez le nom de la base de données SQL, entrez le serveur physique sur lequel la base de données SQL sera créée, ainsi qu'un nom d'utilisateur/mot de passe pour ce serveur.
-
-    Si vous souhaitez configurer l’édition, la taille et d’autres propriétés de la base de données SQL, sélectionnez **Configurer les paramètres avancés de la base de données**. 
-
-    Sélectionnez la flèche Suivant.
-
-1. Créez un compte de stockage ou spécifiez un compte de stockage existant pour le service BizTalk.
-2. Cliquez sur la coche pour démarrer la restauration.
-
-Une fois la restauration terminée, un nouveau service BizTalk est répertorié comme étant dans un état interrompu sur la page BizTalk Services du portail Azure Classic.
+## <a name="restore"></a>Restauration
+Pour restaurer une sauvegarde, utilisez l’[API REST pour la gestion de BizTalk Services sur Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Après avoir restauré une sauvegarde
 Le service BizTalk est systématiquement restauré dans un état **Suspendu** . Dans cet état, vous pouvez apporter des modifications à la configuration avant que le nouvel environnement ne soit fonctionnel :
@@ -118,8 +57,6 @@ Le service BizTalk est systématiquement restauré dans un état **Suspendu** . 
 * Vous restaurez un service BizTalk pour répliquer un environnement de service BizTalk existant. Dans ce cas de figure, s'il existe des contrats configurés dans le portail BizTalk Services d'origine utilisant un dossier FTP source, vous devrez peut-être mettre à jour les contrats de l'environnement récemment restauré de manière à utiliser un autre dossier FTP source. Sinon, vous risquez de vous retrouver avec deux contrats différents tentant d'extraire le même message.
 * Si vous avez procédé à la restauration pour plusieurs environnements de service BizTalk, veillez à cibler l'environnement approprié dans les applications Visual Studio, applets de commande PowerShell, API REST ou API OM du portail de gestion du partenaire commercial.
 * Il est recommandé de configurer des sauvegardes automatisées dans l'environnement du service BizTalk récemment restauré.
-
-Pour démarrer le service BizTalk dans le portail Azure Classic, sélectionnez le service BizTalk restauré, puis **Reprendre** dans la barre des tâches. 
 
 ## <a name="what-gets-backed-up"></a>Éléments sauvegardés
 Dans le cadre d'une sauvegarde, les éléments suivants sont sauvegardés :
@@ -194,13 +131,13 @@ Si la base de données de suivi est supprimée et qu'elle doit être récupéré
 </table>
 
 ## <a name="next"></a>Suivant
-Pour créer des services Azure BizTalk Services dans le portail Azure Classic, accédez à [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Pour créer Azure BizTalk Services, accédez à [BizTalk Services : Provisionnement](http://go.microsoft.com/fwlink/p/?LinkID=302280). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Voir aussi
 * [Sauvegarde d'un service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Restauration d'un service BizTalk depuis une sauvegarde](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services : approvisionnement à l’aide du portail Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services : Provisionnement](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [Limitation dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)

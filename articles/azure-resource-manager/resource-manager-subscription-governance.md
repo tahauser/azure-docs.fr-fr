@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Structure d’entreprise Azure : gouvernance normative de l’abonnement
 Les entreprises adoptent de plus en plus le cloud public en raison de son agilité et de la flexibilité. Elles utilisent les atouts du cloud pour générer des revenus ou optimiser les ressources de l’entreprise. Microsoft Azure offre une multitude de services que les entreprises peuvent combiner sous forme de blocs de construction pour traiter une large gamme de charges de travail et d’applications. 
@@ -89,7 +89,7 @@ Le premier pilier de la structure est constitué de normes d’attribution de no
 > Les conseils précédents vous aident à implémenter une convention de dénomination cohérente.
 
 ## <a name="policies-and-auditing"></a>Stratégies et audit
-Le deuxième pilier de la structure implique la création de [stratégies Azure Resource Manager](resource-manager-policy.md) et [l’audit du journal d’activité](resource-group-audit.md). Les stratégies Resource Manager vous donnent la possibilité de gérer les risques dans Azure. Vous pouvez définir des stratégies qui garantissent la souveraineté des données en limitant, en appliquant ou en auditant certaines actions. 
+Le deuxième pilier de la structure implique la création de [stratégies Azure](../azure-policy/azure-policy-introduction.md) et [l’audit du journal d’activité](resource-group-audit.md). Les stratégies Resource Manager vous donnent la possibilité de gérer les risques dans Azure. Vous pouvez définir des stratégies qui garantissent la souveraineté des données en limitant, en appliquant ou en auditant certaines actions. 
 
 * La stratégie est un système **d’autorisation** par défaut. Vous contrôlez les actions en définissant et en affectant des stratégies à des ressources qui refusent ou auditent des actions sur les ressources.
 * Les stratégies sont décrites par des définitions de stratégie dans un langage de définition de stratégie (conditions if-then).

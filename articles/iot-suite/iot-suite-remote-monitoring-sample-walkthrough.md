@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Architecture de la solution préconfigurée de surveillance à distance
 
@@ -42,7 +42,7 @@ Le diagramme suivant décrit l’articulation des composants logiques de la solu
 L’architecture cloud a évolué depuis que Microsoft a publié les premières solutions préconfigurées. Les [microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) ont émergé comme une pratique ayant fait ses preuves pour obtenir une mise à l’échelle et une flexibilité sans sacrifier la vitesse de développement. Plusieurs services de Microsoft utilisent ce modèle d’architecture en interne et obtiennent de très bons résultats en termes de scalabilité et de fiabilité. Les solutions préconfigurées mises à jour intègrent ces apprentissages afin que vous puissiez également en bénéficier.
 
 > [!TIP]
-> Pour en savoir plus sur les architectures de microservice, consultez [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architecture d’application .NET) et [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices : une révolution des applications par le cloud).
+> Pour en savoir plus sur les architectures de microservice, consultez [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architecture d’application .NET) et [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: une révolution des applications par le cloud).
 
 ## <a name="device-connectivity"></a>Connectivité des appareils
 
@@ -110,7 +110,7 @@ Le microservice `telemetry-agent` permet au portail de solutions de lire les don
 
 Utilisez le point de terminaison RESTful fourni par ce microservice pour gérer les données de télémétrie, les règles et les alarmes.
 
-### <a name="storage"></a>Stockage
+### <a name="storage"></a>Storage
 
 Le microservice [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) est un adaptateur devant le service de stockage principal utilisé pour la solution préconfigurée. Son rôle se résume aux opérations de collecte et de stockage de paires clé/valeur.
 
@@ -141,5 +141,6 @@ Si vous souhaitez consulter le code source et la documentation de développement
 
 * [Solution préconfigurée de surveillance à distance avec Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)
 * [Solution préconfigurée de surveillance à distance avec Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Solution préconfigurée pour l’architecture de surveillance à distance](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
 
 Pour plus d’informations conceptuelles sur la solution préconfigurée de surveillance à distance, consultez [Personnaliser la solution préconfigurée](iot-suite-remote-monitoring-customize.md).

@@ -4,7 +4,7 @@ description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Arr
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Vue d'ensemble
-Ce didacticiel explique comment configurer et vous connecter à StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.5 et versions ultérieures. Cet article concerne le déploiement de StorSimple Virtual Array dans le portail Azure, ainsi que dans Microsoft Azure Government Cloud.
+Ce didacticiel explique comment configurer et vous connecter à StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5 ou 6.0. Cet article concerne le déploiement de StorSimple Virtual Array dans le portail Azure, ainsi que dans Microsoft Azure Government Cloud.
 
 Vous aurez besoin de privilèges d’administrateur pour configurer un appareil virtuel et vous y connecter. La configuration initiale peut prendre environ 10 minutes.
 
 ## <a name="provisioning-prerequisites"></a>Configuration des composants requis
-Vous trouverez ici les conditions requises pour configurer un appareil virtuel sur un ordinateur hôte exécutant VMware ESXi 5.5 et versions ultérieures.
+Vous trouverez ici les conditions requises pour provisionner un appareil virtuel sur un système hôte exécutant VMware ESXi 5.0, 5.5 ou 6.0.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Pour le service StorSimple Device Manager
 Avant de commencer, assurez-vous que :
@@ -64,7 +64,7 @@ Pour configurer et vous connecter à un appareil virtuel, vous devez effectuer l
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel
 Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
-* Un accès à un système hôte exécutant VMware ESXi Server 5.5 et versions ultérieures.
+* Un accès à un système hôte exécutant VMware ESXi Server 5.0, 5.5 ou 6.0.
 * Un client VMware vSphere sur votre système pour gérer l'hôte ESXi.
 
   * Un minimum de 4 cœurs.
@@ -183,6 +183,9 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Votre machine virtuelle est désormais configurée. L'étape suivante consiste à mettre cette machine sous tension et à obtenir l'adresse IP.
+
+> [!NOTE]
+> Nous vous recommandons de ne pas installer les outils VMware sur votre système Virtual Array (provisionné plus haut). Cette configuration avec les outils VMware installés n’est pas prise en charge.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Étape 3 : Démarrer l’appareil virtuel et obtenir l'adresse IP
 Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.

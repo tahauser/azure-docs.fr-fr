@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.reviewer: richagi
+ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurer les paramètres d’Azure Multi-Factor Authentication - Préversion publique
 
@@ -29,7 +29,7 @@ Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant qu
 
 | Fonctionnalité | Description | 
 |:--- |:--- |
-| [Blocage/déblocage des utilisateurs](#block/unblock-users) |Bloquer/débloquer des utilisateurs peut empêcher les utilisateurs de recevoir des demandes d’authentification. |
+| [Bloquer et débloquer des utilisateurs](#block-and-unblock) |Bloquer/débloquer des utilisateurs peut empêcher les utilisateurs de recevoir des demandes d’authentification. |
 | [Alerte de fraude](#fraud-alert) |Une alerte de fraude peut être configurée et installée de manière à ce que vos utilisateurs puissent signaler les tentatives frauduleuses d’accès à leurs ressources. |
 | [Contournement à usage unique](#one-time-bypass) |Un contournement à usage unique permet à un utilisateur de s'authentifier une seule fois en « contournant » l'authentification multifacteur. |
 | [Messages vocaux personnalisés](#custom-voice-messages) |Les messages vocaux personnalisés vous permettent d'utiliser vos propres enregistrements ou messages d’accueil avec l'authentification multifacteur. |
@@ -39,7 +39,7 @@ Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant qu
 | [Mémoriser Multi-Factor Authentication pour les appareils et les navigateurs mémorisés](#remember-multi-factor-authentication-for-devices-that-users-trust) |Vous permet de mémoriser des appareils pour un nombre défini de jours après qu’un utilisateur soit parvenu à se connecter à l’aide de MFA. |
 | [Méthodes de vérification sélectionnables](#selectable-verification-methods) |Vous permet de choisir les méthodes d'authentification disponibles pour les utilisateurs. |
 
-## <a name="blockunblock-users"></a>Blocage/déblocage des utilisateurs
+## <a name="block-and-unblock"></a>Bloquer et débloquer
 En bloquant/débloquant des utilisateurs, vous pouvez les empêcher de recevoir des demandes d’authentification. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués.
 
 ### <a name="block-a-user"></a>Bloquer un utilisateur
@@ -70,7 +70,7 @@ Une alerte de fraude peut être configurée et installée de manière à ce que 
 
 ### <a name="configuration-options"></a>Options de configuration
 
-- **Bloquer l’utilisateur en cas de signalement de fraude** - Si un utilisateur signale une fraude, son compte est bloqué.
+- **Bloquer l'utilisateur en cas de signalement de fraude** : Si un utilisateur fait l’objet d’un signalement de fraude, son compte est bloqué pendant 90 jours ou jusqu'à ce qu’un administrateur débloque son compte. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
 - **Code pour signaler une fraude lors du message d’accueil initial** : quand les utilisateurs reçoivent un appel téléphonique pour effectuer la vérification en deux étapes, ils appuient normalement sur # pour confirmer leur connexion. S’ils veulent signaler une fraude, ils doivent saisir un code avant d’appuyer sur #. Ce code est **0** par défaut, mais vous pouvez le personnaliser.
 
 > [!NOTE]
