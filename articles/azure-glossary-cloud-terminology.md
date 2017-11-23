@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : un dictionnaire de la terminologie des technologies cloud sur la plateforme Azure
 
@@ -87,7 +87,7 @@ La tarification, les crédits et les conditions associées applicables à un abo
 Consultez la page [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portail
-Portail web sécurisé utilisé pour déployer et gérer les services Azure.  Il existe deux portails : le [Portail Azure](http://portal.azure.com/) et le [portail Classic](http://manage.windowsazure.com/). Certains services sont disponibles dans les deux portails, tandis que d’autres sont uniquement disponibles dans l’un ou l’autre. Le [graphique de la disponibilité du portail Azure](https://azure.microsoft.com/features/azure-portal/availability/) répertorie les services disponibles dans chaque portail.
+Portail web sécurisé utilisé pour déployer et gérer les services Azure.
 
 ## <a name="region"></a>region
 Une zone à l’intérieur d’une zone géographique qui ne dépasse pas les frontières nationales et contient un ou plusieurs centres de données. La tarification, les services régionaux et les types d’offre sont exposés au niveau régional. Une région est généralement associée à une autre région, qui peut se trouver à plusieurs centaines de kilomètres. Les paires régionales peuvent servir dans des scénarios de récupération d’urgence et de haute disponibilité. Elles sont également appelées *emplacement*.  

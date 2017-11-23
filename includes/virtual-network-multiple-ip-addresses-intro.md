@@ -1,8 +1,7 @@
 > [!div class="op_single_selector"]
-> * [Portail](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Portail Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI 2.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
-> * [CLI 1.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md)
+> * [Interface de ligne de commande Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 > * [Modèle](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
 >
 

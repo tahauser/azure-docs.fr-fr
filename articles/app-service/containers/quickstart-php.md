@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Créer une application web PHP dans App Service sur Linux
 
@@ -33,8 +33,8 @@ Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windo
 
 Pour effectuer ce démarrage rapide :
 
-* [Installez Git](https://git-scm.com/)
-* [Installez PHP](https://php.net)
+* <a href="https://git-scm.com/" target="_blank">Installez Git</a>
+* <a href="https://php.net" target="_blank">Installez PHP</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

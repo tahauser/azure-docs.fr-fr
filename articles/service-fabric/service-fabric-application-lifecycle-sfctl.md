@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
-ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gérer une application Azure Service Fabric à l’aide d’Azure Service Fabric CLI
 
@@ -67,7 +67,7 @@ La valeur de `application-type-build-path` est le nom du répertoire où vous av
 
 ### <a name="delete-the-application-package"></a>Supprimer le package d’application
 
-Nous vous recommandons de supprimer le package d’application une fois que l’application est inscrite avec succès.  La suppression de packages d’application du magasin d’images libère des ressources système.  La conservation des packages d’application inutilisés consomme du stockage sur disque et affecte le niveau de performance des applications. 
+Nous vous recommandons de supprimer le package d’application une fois que l’application est inscrite.  La suppression de packages d’application du magasin d’images libère des ressources système.  La conservation des packages d’application inutilisés consomme du stockage sur disque et affecte le niveau de performance des applications. 
 
 Pour supprimer le package d’application du magasin d’images, utilisez la commande suivante :
 
@@ -133,7 +133,7 @@ sfctl application delete --application-id TestEdApp
 Après avoir supprimé l’application, vous pouvez annuler l’approvisionnement du type d’application s’il n’est plus nécessaire. Pour annuler l’approvisionnement du type d’application, utilisez la commande suivante :
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 Le nom et la version du type doivent correspondre au nom et à la version du manifeste de l’application précédemment approvisionné.

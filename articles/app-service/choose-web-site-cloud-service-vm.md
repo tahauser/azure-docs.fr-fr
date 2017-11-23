@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
 ## <a name="overview"></a>Vue d’ensemble
@@ -48,7 +48,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 | Accès aux services tels que Service Bus, Storage et Base de données SQL |X |X |X |X | |
 | Hébergement des services Web ou niveaux d'une architecture multiniveau |X |X |X |X | |
 | Hébergement du niveau intermédiaire d'une architecture multiniveau |X |X |X |X |Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. |
-| Prise en charge intégrée de MySQL-as-a-service |X |X |X | |Cloud Services peut intégrer MySQL en tant que service via les offres ClearDB, mais pas dans le cadre du workflow du portail Azure. |
+| Prise en charge intégrée de MySQL-as-a-service |X |X | | | |
 | Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python |X |X |X |X |Service Fabric prend en charge la création d’un serveur web frontal à l’aide [d’ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md), ou vous pouvez déployer n’importe quel type d’application (Node.js, Java, etc.) en tant que [fichier exécutable invité](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Montée en charge vers plusieurs instances sans redéploiement |X |X |X |X |Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un programme d'équilibrage de la charge pour acheminer les demandes entre les machines et créer un groupe d'affinités afin d'empêcher les redémarrages simultanés de toutes les instances en cas de maintenance ou de panne matérielle. |
 | Prise en charge de SSL |X |X |X |X |Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](app-service-web-tutorial-custom-ssl.md). |
@@ -97,7 +97,7 @@ Azure App Service est une excellente solution pour l’hébergement de sites web
 * Intégration avec Active Directory
 
 ### <a id="iis6"></a> J’ai une application IIS6 qui s’exécute sur Windows Server 2003.
-Azure App Service permet d’éviter facilement les coûts d’infrastructure liés à la migration d’anciennes applications IIS6. Microsoft a créé des [outils de migration simples et des informations de migration détaillées](https://www.movemetowebsites.net/) qui vous permettent de vérifier la compatibilité et d'identifier les modifications nécessaires. L'intégration à Visual Studio, TFS et autres outils de CMS simplifie le déploiement d'applications IIS6 directement dans le cloud. Une fois déployé, le portail Azure offre l’accès à des outils de gestion robustes, afin de réduire vos coûts et de faire face à la demande. Avec l'outil de migration, vous pouvez :
+Azure App Service permet d’éviter facilement les coûts d’infrastructure liés à la migration d’anciennes applications IIS6. Microsoft a créé des [outils de migration simples et des informations de migration détaillées](https://www.migratetoazure.net/) qui vous permettent de vérifier la compatibilité et d'identifier les modifications nécessaires. L'intégration à Visual Studio, TFS et autres outils de CMS simplifie le déploiement d'applications IIS6 directement dans le cloud. Une fois déployé, le portail Azure offre l’accès à des outils de gestion robustes, afin de réduire vos coûts et de faire face à la demande. Avec l'outil de migration, vous pouvez :
 
 * Migrer rapidement et facilement vos applications web Windows Server 2003 sur le cloud.
 * Choisir de laisser votre base de données SQL attachée localement pour créer une application hybride.
@@ -174,7 +174,6 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

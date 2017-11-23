@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
 
 Ce guide présente les principaux concepts associés au déploiement et à la gestion d’une infrastructure Microsoft Azure. Si vous débutez dans le cloud computing ou ne connaissez pas encore Azure, ce guide vous aide à vous familiariser rapidement avec les concepts, le déploiement et les détails de gestion. De nombreuses sections de ce guide présentent des activités, comme le déploiement d’une machine virtuelle, qu’elles accompagnent de liens vers des articles techniques approfondis et détaillés.
@@ -517,4 +515,3 @@ Vous pouvez aider à sécuriser les réseaux virtuels Azure à l’aide d’un g
 
 - [Créer une machine virtuelle Windows](/virtual-machines/windows/quick-create-portal.md)
 - [Créer une machine virtuelle Linux](../../virtual-machines/linux/quick-create-portal.md)
-

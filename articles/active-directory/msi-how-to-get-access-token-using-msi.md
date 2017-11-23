@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 168b2ab3676d3f3e2830966f850e14adbe579f85
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour se connecter et obtenir des jetons 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Une fois que vous avez activé l’identité du service administré sur une machine virtuelle Azure, vous pouvez l’utiliser pour vous connecter et pour demander un jeton d’accès. Cet article vous montre plusieurs façons d’utiliser un [principal du service](develop/active-directory-dev-glossary.md#service-principal-object) MSI pour vous connecter et obtenir un [jeton d’accès de l’application uniquement](develop/active-directory-dev-glossary.md#access-token) pour accéder à d’autres ressources, y compris :
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="prerequisites"></a>Composants requis
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Si vous envisagez d’utiliser les exemples PowerShell de cet article, veillez à installer [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM) ou une version ultérieure. Si vous envisagez d’utiliser les exemples Azure CLI de cet article, vous disposez de trois options :
 - Utiliser [Azure Cloud Shell](../cloud-shell/overview.md) à partir du portail Azure.

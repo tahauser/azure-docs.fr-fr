@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>À propos des VHD
 
-Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Pour plus d’informations sur le stockage Premium, consultez [High-performance premium storage and Azure VMs](../articles/storage/common/storage-premium-storage.md) (Stockage Premium hautes performances et machines virtuelles Azure).
+Les VHD utilisés dans Azure sont des fichiers .vhd stockés comme objets blob de pages dans un compte de stockage Standard ou Premium dans Azure. Pour des informations sur les objets blob de pages, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Pour plus d’informations sur le stockage Premium, consultez [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md) (Stockage Premium hautes performances et machines virtuelles Azure).
 
 Azure prend en charge le format VHD de disque fixe. Le format fixe définit linéairement le disque logique dans le fichier de façon que l'offset du disque X soit stocké à l'offset de l'objet blob X. Un petit pied de page à la fin de l'objet blob décrit les propriétés du disque dur virtuel. Souvent, le format fixe gaspille de l'espace du fait que la plupart des disques comportent de grandes plages inutilisées. Cependant, Azure stocke les fichiers .vhd dans un format fragmenté : vous profitez donc en même temps de disques fixes et dynamiques. Pour plus d’informations, consultez [Prise en main des disques durs virtuels](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -26,11 +26,11 @@ Lorsque vous créez vos disques, vous avez le choix entre deux niveaux de perfor
 
 Le stockage Standard s’appuie sur des disques durs et offre un stockage économique qui n’en est pas moins performant. Le stockage Standard peut être répliqué localement dans un centre de données ou être géoredondant avec des centres de données principal et secondaire. Pour plus d’informations sur la réplication du stockage, consultez [Réplication du stockage Azure](../articles/storage/common/storage-redundancy.md). 
 
-Pour plus d’informations sur l’utilisation du stockage Standard avec des disques de machine virtuelle, consultez [Standard Storage and Disks](../articles/storage/common/storage-standard-storage.md) (Stockage Standard et disques).
+Pour plus d’informations sur l’utilisation du stockage Standard avec des disques de machine virtuelle, consultez [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md) (Stockage Standard et disques).
 
 ### <a name="premium-storage"></a>Stockage Premium 
 
-Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Vous pouvez utiliser le stockage Premium avec les machines virtuelles Azure de série DS, DSv2, GS, Ls, ou FS. Pour plus d’informations, consultez [Stockage Premium](../articles/storage/common/storage-premium-storage.md).
+Le stockage Premium s’appuie sur des disques SSD afin d’assurer de hautes performances et une faible latence pour les machines virtuelles qui exécutent des charges de travail nécessitant de nombreuses E/S. Vous pouvez utiliser le stockage Premium avec les machines virtuelles Azure de série DS, DSv2, GS, Ls, ou FS. Pour plus d’informations, consultez [Stockage Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Disques non gérés
 

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Prise en charge de l’architecture multilocataire dans Azure Site Recovery pour répliquer des machines virtuelles VMware sur Azure via CSP
 
@@ -50,7 +50,7 @@ Comme le montre le diagramme précédent, chaque client possède un serveur d’
 L’exigence d’isolation des données nécessite que toutes les informations sensibles sur l’infrastructure (telles que les informations d’identification d’accès) ne soient pas divulguées aux locataires. Pour cette raison, nous recommandons que tous les composants du serveur d’administration restent sous le contrôle exclusif du partenaire. Les composants de serveur d’administration sont les suivants :
 * Serveur de configuration (CS)
 * Serveur de traitement (PS)
-* Serveur cible maître (MT) 
+* Serveur cible maître (MT)
 
 Un PS d’évolution est également sous le contrôle du partenaire.
 
@@ -82,7 +82,7 @@ La procédure d’accès de compte vCenter est la suivante :
 
     * **Tâches** : Créer une tâche, Mettre à jour une tâche
 
-    * **Machine virtuelle** : 
+    * **Machine virtuelle** :
         * Configuration > tout
         * Interagir > Répondre à la question, Connexion d’appareil, Configurer un support de CD, Configurer une disquette, Mettre hors tension, Mettre sous tension, Installation des outils VMware
         * Inventaire > Créer à partir d’un existant, Créer, S’inscrire, Annuler l’inscription
@@ -138,8 +138,8 @@ Les prérequis de la machine virtuelle sont les mêmes que ceux décrits dans la
 
 ### <a name="step-1-create-a-tenant-account"></a>Étape 1 : Créer un compte locataire
 
-1. Via [Microsoft Partner Center](https://partnercenter.microsoft.com/), connectez-vous à votre compte CSP. 
- 
+1. Via [Microsoft Partner Center](https://partnercenter.microsoft.com/), connectez-vous à votre compte CSP.
+
 2. Dans le menu **Tableau de bord**, sélectionnez **Clients**.
 
     ![Le lien Clients de Microsoft Partner Center](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ Les prérequis de la machine virtuelle sont les mêmes que ceux décrits dans la
 
     ![La page Révision](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Une fois que vous avez créé le compte locataire, une page de confirmation affichant les détails du compte par défaut et le mot de passe de cet abonnement apparaît. 
+    Une fois que vous avez créé le compte locataire, une page de confirmation affichant les détails du compte par défaut et le mot de passe de cet abonnement apparaît.
 
 7. Enregistrez les informations et modifiez le mot de passe ultérieurement si nécessaire via la page de connexion au portail Azure.  
- 
+
     Vous pouvez partager ces informations avec le locataire en l’état, ou vous pouvez créer et partager un compte distinct si nécessaire.
 
 ### <a name="step-2-access-the-tenant-account"></a>Étape 2 : Accéder au compte locataire
 
-Vous pouvez accéder à l’abonnement du locataire via le tableau de bord du Microsoft Partner Center, comme décrit dans « Étape 1 : Créer un compte locataire. » 
+Vous pouvez accéder à l’abonnement du locataire via le tableau de bord du Microsoft Partner Center, comme décrit dans « Étape 1 : Créer un compte locataire. »
 
 1. Accédez à la page **Clients**, puis cliquez sur le nom du compte locataire.
 
 2. Sur la page **Abonnements** du compte locataire, vous pouvez surveiller les abonnements de compte existants et ajouter d’autres abonnements si nécessaire. Pour gérer les opérations de récupération d’urgence du locataire, sélectionnez **Toutes les ressources (portail Azure)**.
 
     ![Le lien Toutes les ressources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Cliquer sur **Toutes les ressources** vous permet d’accéder aux abonnements Azure du locataire. Vous pouvez vérifier l’accès en cliquant sur le lien Azure Active Directory en haut à droite du portail Azure.
 
     ![Lien Azure Active Directory](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ Vous pouvez accéder à l’abonnement du locataire via le tableau de bord du Mi
 Vous pouvez maintenant effectuer toutes les opérations de récupération de site pour le locataire via le portail Azure et gérer les opérations de récupération d’urgence. Pour accéder à l’abonnement locataire via CSP pour la récupération d’urgence gérée, suivez la procédure décrite précédemment.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Étape 3 : Déployer des ressources sur l’abonnement locataire
-1. Sur le portail Azure, créez un groupe de ressources, puis déployez un coffre Recovery Services en suivant la procédure habituelle. 
- 
+1. Sur le portail Azure, créez un groupe de ressources, puis déployez un coffre Recovery Services en suivant la procédure habituelle.
+
 2. Téléchargez la clé d’inscription du coffre.
 
 3. Inscrivez le serveur de configuration du locataire à l’aide de la clé d’inscription du coffre.

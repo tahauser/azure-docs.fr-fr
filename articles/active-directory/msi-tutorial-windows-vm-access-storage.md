@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
-ms.openlocfilehash: cd3c2e0d1d1db08c5d97033068b154f600497c24
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: e162134f52ceca9d77735893b847782d06e72cfe
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Utiliser l’identité MSI (Managed Service Identity) d’une machine virtuelle Windows pour accéder au stockage Azure via une clé d’accès
 
@@ -31,8 +31,11 @@ Ce didacticiel vous montre comment activer une identité MSI (Managed Service Id
 > * Autoriser votre machine virtuelle à accéder aux clés d’accès de stockage dans le Gestionnaire des ressources 
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer les clés d’accès de stockage à partir du Gestionnaire des ressources 
 
+## <a name="prerequisites"></a>Composants requis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -42,7 +45,7 @@ Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](ht
 
 Pour ce didacticiel, nous allons créer une machine virtuelle Windows. Vous pouvez également activer l’identité du service administré sur une machine virtuelle existante.
 
-1.  Cliquez sur le bouton **+/Créer un service** dans le coin supérieur gauche du portail Azure.
+1.  Cliquez sur le bouton **+/Créer un service** dans l’angle supérieur gauche du portail Azure.
 2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
 3.  Saisissez les informations de la machine virtuelle. Le **Nom d’utilisateur** et le **Mot de passe** créés ici sont les informations d’identification nécessaires pour vous connecter à la machine virtuelle.
 4.  Choisissez un **Abonnement** approprié pour la machine virtuelle dans la liste déroulante.
@@ -70,7 +73,7 @@ L’identité du service administré d’une machine virtuelle permet d’obteni
 
 Si vous n’en avez pas déjà un, vous allez maintenant créer un compte de stockage. Vous pouvez également ignorer cette étape et accorder l’accès MSI de votre machine virtuelle aux clés d’un compte de stockage existant. 
 
-1. Cliquez sur le bouton **+/Créer un service** dans le coin supérieur gauche du portail Azure.
+1. Cliquez sur le bouton **+/Créer un service** dans l’angle supérieur gauche du portail Azure.
 2. Cliquez sur **Stockage**, puis **Compte de stockage**, et un nouveau panneau « Créer un compte de stockage » s’affiche.
 3. Saisissez un nom pour le compte de stockage, vous l’utiliserez ultérieurement.  
 4. **Modèle de déploiement** et **Type de compte** doivent être respectivement définis sur « Gestionnaire de ressources » et « Usage général ». 
@@ -95,11 +98,11 @@ Plus tard, nous chargerons et téléchargerons un fichier vers le nouveau compte
 Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode natif.  Toutefois, vous pouvez utiliser une identité MSI pour récupérer les clés d’accès du compte de stockage à partir du Gestionnaire des ressources, puis utiliser ces clés pour accéder au stockage.  Dans cette étape, vous autorisez la MSI de votre machine virtuelle à accéder aux clés de votre compte de stockage.   
 
 1. Revenez à votre compte de stockage nouvellement créé.  
-2. Cliquez sur le lien **Contrôle d’accès (IAM)** dans le volet de gauche.  
+2. Cliquez sur le lien **(IAM) de contrôle d’accès** dans le panneau de gauche.  
 3. Cliquez sur **+ Ajouter** en haut de la page pour ajouter une nouvelle attribution de rôle à votre machine virtuelle.
 4. Définissez le **Rôle** sur « Rôle de service d’opérateur de clé de compte de stockage », sur le côté droit de la page. 
 5. Dans la liste déroulante suivante, définissez **Attribuer l’accès à** sur la ressource « Machine virtuelle ».  
-6. Ensuite, vérifiez que le bon abonnement apparaît dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur « Tous les groupes de ressources ».  
+6. Ensuite, assurez-vous que l’abonnement approprié est répertorié dans la liste déroulante **Abonnement**, puis définissez **Groupe de ressources** sur « Tous les groupes de ressources ».  
 7. Enfin, sous **Sélectionner**, choisissez votre machine virtuelle Windows dans la liste déroulante, puis cliquez sur **Enregistrer**. 
 
     ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
@@ -154,7 +157,7 @@ Nous créons ensuite un fichier appelé « test.txt ». Ensuite, utilisez la c
 echo "This is a test text file." > test.txt
 ```
 
-Veillez à installer les applets de commande du stockage Azure en premier, à l’aide de `Install-Module Azure.Storage`. Ensuite, chargez l’objet blob que vous venez de créer, à l’aide de l’applet de commande PowerShell `Set-AzureStorageBlobContent` :
+Veillez à installer les applets de commande du stockage Azure en premier, à l’aide de `Install-Module Azure.Storage`. Vous pouvez charger l’objet blob que vous venez de créer à l’aide de l’applet de commande PowerShell `Set-AzureStorageBlobContent`:
 
 ```powershell
 $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key

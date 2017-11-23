@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2a8000cadd6f6d7204e1790df62443a7ac7598c9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Créer une application web .NET Core dans App Service sur Linux
 
@@ -34,8 +34,8 @@ Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windo
 
 Pour effectuer ce démarrage rapide :
 
-* [Installez Git](https://git-scm.com/)
-* [Installer le kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/core)
+* <a href="https://git-scm.com/" target="_blank">Installez Git</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">Installer le kit de développement logiciel (SDK) .NET Core</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -85,11 +85,11 @@ git commit -m "first commit"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Créer une application web avec une image intégrée
+## <a name="create-a-web-app"></a>Créer une application web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Accédez à votre nouvelle application web. Remplacez _&lt;app name>_ par un nom d’application unique.
+Accédez à votre nouvelle application web. Remplacez _&lt;nom de l’application>_ par le nom de votre application web.
 
 ```bash
 http://<app name>.azurewebsites.net

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
 Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
@@ -340,8 +340,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ### <a name="section-name-faultanalysisservice"></a>Nom de la section : FaultAnalysisService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Entier (valeur par défaut : 0) |Non autorisée|NOT_PLATFORM_UNIX_START Paramètre TargetReplicaSetSize pour FaultAnalysisService. |
-| MinReplicaSetSize |Entier (valeur par défaut : 0) |Non autorisée|Paramètre MinReplicaSetSize pour FaultAnalysisService. |
+| TargetReplicaSetSize |Entier (valeur par défaut : 0) |statique|NOT_PLATFORM_UNIX_START Paramètre TargetReplicaSetSize pour FaultAnalysisService. |
+| MinReplicaSetSize |Entier (valeur par défaut : 0) |statique|Paramètre MinReplicaSetSize pour FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Durée en secondes (valeur par défaut : 60 minutes)|statique|Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour FaultAnalysisService. |
 | QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) |statique|Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour FaultAnalysisService. |
 | StandByReplicaKeepDuration| Durée en secondes (valeur par défaut : 60*24*7 minutes) |statique|Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour FaultAnalysisService. |
@@ -390,8 +390,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 | Activé |Valeur booléenne (valeur par défaut : false) |statique|Indicateur d’activation d’ImageStoreService. Par défaut : false |
-| TargetReplicaSetSize | Entier (valeur par défaut : 7) |Non autorisée|Paramètre TargetReplicaSetSize pour ImageStoreService. |
-| MinReplicaSetSize | Entier (valeur par défaut : 3) |Non autorisée|Paramètre MinReplicaSetSize pour ImageStoreService. |
+| TargetReplicaSetSize | Entier (valeur par défaut : 7) |statique|Paramètre TargetReplicaSetSize pour ImageStoreService. |
+| MinReplicaSetSize | Entier (valeur par défaut : 3) |statique|Paramètre MinReplicaSetSize pour ImageStoreService. |
 | ReplicaRestartWaitDuration | Durée en secondes (valeur par défaut : 60.0 * 30) |statique|Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour ImageStoreService. |
 | QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) |statique| Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour ImageStoreService. |
 | StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 3600.0*2) |statique| Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour ImageStoreService. |
@@ -414,8 +414,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ### <a name="section-name-upgradeorchestrationservice"></a>Nom de la section : UpgradeOrchestrationService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Entier (valeur par défaut : 0) |Non autorisée|Paramètre TargetReplicaSetSize pour UpgradeOrchestrationService. |
-| MinReplicaSetSize |Entier (valeur par défaut : 0) |Non autorisée|Paramètre MinReplicaSetSize pour UpgradeOrchestrationService.
+| TargetReplicaSetSize |Entier (valeur par défaut : 0) |statique |Paramètre TargetReplicaSetSize pour UpgradeOrchestrationService. |
+| MinReplicaSetSize |Entier (valeur par défaut : 0) |statique |Paramètre MinReplicaSetSize pour UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Durée en secondes (valeur par défaut : 60 minutes)|statique| Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) |statique| Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Durée en secondes (valeur par défaut : 60*24*7 minutes) |statique| Spécifiez la durée en secondes. Paramètre StandByReplicaKeepDuration pour UpgradeOrchestrationService. |

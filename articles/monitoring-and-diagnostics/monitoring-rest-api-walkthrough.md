@@ -18,12 +18,11 @@ ms.dyn365.ops.version:
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: mcollier
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 Cet article vous montre comment effectuer l’authentification afin que votre code puisse utiliser la [Référence de l’API REST Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -195,7 +194,7 @@ Une fois que les définitions des métriques disponibles sont connues, certaines
 
 **Méthode**: GET
 
-**URI de demande** : https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+**URI de demande** : https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&amp;timespan=*{starttime/endtime}*&amp;$filter=*{filter}*&amp;resultType=metadata&amp;api-version=*{apiVersion}*
 
 Par exemple, pour récupérer la liste des valeurs potentielles de la « dimension du nom de l’API » pour la métrique « Transactions » pendant une période donnée, la demande ressemble à ce qui suit :
 
@@ -284,7 +283,7 @@ Une fois les définitions des métriques disponibles et les valeurs de dimension
 
 **Méthode**: GET
 
-**URI de demande** : https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**URI de demande** : https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&amp;timespan=*{starttime/endtime}*&amp;$filter=*{filter}*&amp;interval=*{timeGrain}*&amp;aggregation=*{aggreation}*&amp;api-version=*{apiVersion}*
 
 Par exemple, pour récupérer les valeurs des métriques pour la métrique « Transactions » du stockage au cours d’une plage de 5 minutes, pour toutes les transactions relatives au nom de l’API « GetBlobProperties », la demande ressemble à ce qui suit :
 
@@ -428,7 +427,7 @@ Une fois les définitions de mesures disponibles connues, il est possible de ré
 
 **Méthode**: GET
 
-**URI de demande** : https://management.azure.com/subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/*{espace-de-noms-fournisseur-ressources}*/*{type-ressource}*/*{nom-ressource}*/providers/microsoft.insights/metrics?$filter=*{filtre}*&api-version=*{version-api}*
+**URI de demande** : https://management.azure.com/subscriptions/*{id-abonnement}*/resourceGroups/*{nom-groupe-ressources}*/providers/*{espace-de-noms-fournisseur-ressources}*/*{type-ressource}*/*{nom-ressource}*/providers/microsoft.insights/metrics?$filter=*{filtre}*&amp;api-version=*{version-api}*
 
 Par exemple, pour retrouver les points de données de mesure RunsSucceeded pour la plage de temps spécifiée et avec un fragment de temps de 1 heure, la requête est la suivante :
 
@@ -677,4 +676,3 @@ Invoke-RestMethod -Uri $request `
 * Affichez les [Mesures prises en charge avec Azure Monitor](monitoring-supported-metrics.md).
 * Consultez la [Référence de l’API REST Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Consultez la [Bibliothèque de gestion Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
-

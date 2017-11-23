@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.openlocfilehash: 612311f1c4e081e87dde76ce4a1d8efd46428c06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c166d5d4e0ae054e89eb3a5728f1d86f4e008c12
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configurer une identité du service administré (MSI) de machine virtuelle à l’aide de PowerShell
 
@@ -29,7 +29,7 @@ Dans cet article, vous apprenez à activer et à supprimer la MSI pour une machi
 
 ## <a name="prerequisites"></a>Composants requis
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 En outre, si ce n’est pas déjà fait, installez [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1).
 

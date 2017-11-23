@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transférer des données avec AzCopy sur Linux
 AzCopy sur Linux est un utilitaire en ligne de commande conçu pour copier des données depuis et vers un stockage de fichier et de blob Microsoft Azure en utilisant des commandes simples avec des performances optimales. Vous pouvez copier des données d’un objet vers un autre au sein de votre compte de stockage ou entre des comptes de stockage.
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-Notez qu’actuellement, AzCopy prend uniquement en charge la [SAP de compte](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+Notez qu’actuellement, AzCopy prend uniquement en charge la [SAP de compte](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Dossier du fichier journal
 Chaque fois que vous émettez une commande sur AzCopy, il vérifie si un fichier journal existe dans le dossier par défaut ou dans un dossier que vous avez spécifié via cette option. Si le fichier journal n’existe à aucun de ces emplacements, AzCopy considère l’opération comme nouvelle et génère un nouveau fichier journal.
@@ -673,7 +673,7 @@ Pour plus d’informations sur le stockage Azure et AzCopy, consultez les ressou
 ### <a name="azure-storage-documentation"></a>Documentation d’Azure Storage :
 * [Introduction à Azure Storage](../storage-introduction.md)
 * [Créer un compte de stockage](../storage-create-storage-account.md)
-* [Gérer les ressources de stockage Blob Azure avec l’explorateur de stockage (préversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [Gérer les ressources de stockage Blob Azure avec l’explorateur de stockage (préversion)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Utilisation d’Azure CLI 2.0 avec le stockage Azure](../storage-azure-cli.md)
 * [Utilisation du stockage d’objets blob à partir de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Utilisation du stockage d'objets blob à partir de Java](../blobs/storage-java-how-to-use-blob-storage.md)

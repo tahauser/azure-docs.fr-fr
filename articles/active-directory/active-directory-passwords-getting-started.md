@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Déploiement rapide de la réinitialisation de mot de passe en libre-service Azure AD
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 Grâce à la réinitialisation de mot de passe en libre-service, les administrateurs informatiques disposent d’un moyen simple pour permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes ou leurs mots de passe. Le système inclut des rapports détaillés de suivi d’accès au système, ainsi que des notifications pour vous prévenir de toute utilisation malveillante ou de tout abus.
 
-Ce guide part du principe que vous avez déjà une version d’essai opérationnelle ou une licence de locataire Azure Active Directory (Azure AD). Si vous avez besoin d’aide pour configurer Azure AD, consultez [Prise en main d’Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
+Ce guide part du principe que vous avez déjà une version d’essai opérationnelle ou une licence de locataire Azure Active Directory (Azure AD). Si vous avez besoin d’aide pour configurer Azure AD, consultez [Prise en main d’Azure AD](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Activer la réinitialisation de mot de passe en libre-service (SSPR) pour votre locataire Azure AD
 
@@ -73,7 +73,7 @@ Pour activer la synchronisation d’identité locale avec Azure AD, vous devez 
 
 * [Mise à niveau à partir de DirSync ou d’Azure AD Sync vers Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Prise en main d’Azure AD Connect à l’aide de paramètres express](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configurez l’écriture différée du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local
+* [Configurez l’écriture différée du mot de passe](active-directory-passwords-writeback.md#configure-password-writeback) pour écrire des mots de passe en différé à partir d’Azure AD dans votre répertoire local
 
 ### <a name="on-premises-policy-change"></a>Modification de la stratégie locale
 
