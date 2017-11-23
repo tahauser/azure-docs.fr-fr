@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: aff54b86da6a8a062a3f1c76aa69e32c60008274
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurer Network Performance Monitor pour ExpressRoute (préversion)
 
@@ -39,13 +39,19 @@ Vous pouvez :
 
 * Vérifier l’état système ExpressRoute à partir d’un point antérieur dans le temps
 
-**Comment cela fonctionne-t-il ?**
+## <a name="regions"></a>Régions prises en charge
+
+Vous pouvez surveiller des circuits ExpressRoute dans n’importe quelle partie du monde à l’aide d’un espace de travail hébergé dans une des régions suivantes :
+
+* Europe de l'Ouest 
+* Est des États-Unis 
+* Asie du Sud-Est 
+
+## <a name="workflow"></a>Flux de travail
 
 Des agents de surveillance sont installés sur plusieurs serveurs, en local et sur Azure. Les agents communiquent entre eux mais n’envoient pas de données. Ils envoient des paquets de négociation TCP. La communication entre les agents permet à Azure de mapper la topologie réseau et le chemin d’accès que le trafic peut prendre.
 
-**Workflow**
-
-1. Créez un espace de travail NPM dans la région Ouest-Centre des États-Unis. Il s’agit actuellement de la seule région où la préversion est prise en charge.
+1. Créez un espace de travail NPM dans une des [régions prises en charge](#regions).
 2. Installer et configurer des agents logiciels : 
     * Installez des agents de surveillance sur les serveurs locaux et les machines virtuelles Azure.
     * Configurez les paramètres sur les serveurs de l’agent de surveillance pour autoriser les agents de surveillance à communiquer. (Ouvrez les ports du pare-feu, etc.)
@@ -53,7 +59,7 @@ Des agents de surveillance sont installés sur plusieurs serveurs, en local et s
 4. Demandez à mettre sur liste verte votre espace de travail NPM.
 5. Configurez la surveillance : détection automatique et gestion des réseaux visibles dans NPM.
 
-Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres objets ou services, et si vous avez déjà un espace de travail dans la région Ouest-Centre des États-Unis, vous pouvez passer les étapes 1 et 2 et commencer votre configuration à l’étape 3.
+Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres objets ou services, et si vous avez déjà un espace de travail dans une des régions prises en charge, vous pouvez passer les étapes 1 et 2 et commencer votre configuration à l’étape 3.
 
 ## <a name="configure"></a>Étape 1 : Créer un espace de travail
 
@@ -66,8 +72,13 @@ Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres o
   * Espace de travail OMS : saisissez un nom pour votre espace de travail.
   * Abonnement : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
   * Groupe de ressources : créez un groupe de ressources ou utilisez un groupe existant.
-  * Emplacement : vous devez sélectionner la région Ouest-Centre des États-Unis pour cette préversion.
+  * Emplacement : vous devez sélectionner une [région prise en charge](#regions).
   * Niveau tarifaire : sélectionnez « Gratuit ».
+  
+  >[!NOTE]
+  >Le circuit ExpressRoute peut se trouver n’importe où dans le monde et pas nécessairement dans la même région que l’espace de travail.
+  >
+
 
   ![espace de travail](.\media\how-to-npm\4.png)<br><br>
 4. Cliquez sur **OK** pour enregistrer et déployer le modèle de paramètres. Une fois le modèle validé, cliquez sur **Créer** pour déployer l’espace de travail.
@@ -95,7 +106,7 @@ Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres o
 
 ### <a name="installagent"></a>2.2 : Installer un agent de surveillance sur chaque serveur de surveillance
 
-1. Exécutez **Installation** pour installer l’agent sur chaque serveur que vous souhaitez utiliser pour la surveillance ExpressRoute. Le serveur que vous utilisez pour la surveillance peut être une machine virtuelle ou locale et doit avoir accès à Internet. Vous devez installer au moins un agent localement, et un sur chaque segment de réseau que vous souhaitez surveiller dans Azure.
+1. Exécutez **Installation** pour installer l’agent sur chaque serveur que vous souhaitez utiliser pour la surveillance ExpressRoute. Le serveur que vous utilisez pour la surveillance peut être une machine virtuelle ou locale et doit avoir accès à Internet. Vous devez installer au moins un agent localement, et un agent sur chaque segment de réseau que vous souhaitez surveiller dans Azure.
 2. Sur la page d’**accueil**, cliquez sur **Suivant**.
 3. Sur la page **Termes du contrat de licence**, lisez les conditions de licence, puis cliquez sur **J’accepte**.
 4. Sur la page **Dossier de destination**, modifiez ou conservez le dossier d’installation par défaut, puis cliquez sur **Suivant**.
@@ -116,7 +127,7 @@ Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres o
 
 ### <a name="proxy"></a>2.3 : Configurer des paramètres de proxy (facultatif)
 
-Si vous utilisez un proxy web pour accéder à Internet, procédez comme suit pour configurer les paramètres de proxy pour Microsoft Monitoring Agent. Vous devez effectuer ces étapes pour chaque serveur. Si vous devez configurer plusieurs serveurs, utilisez un script pour automatiser ce processus. Si c’est le cas, consultez [Pour configurer les paramètres de proxy de Microsoft Monitoring Agent à l’aide d’un script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Si vous utilisez un proxy web pour accéder à Internet, procédez comme suit pour configurer les paramètres de proxy pour Microsoft Monitoring Agent. Effectuez ces étapes pour chaque serveur. Si vous devez configurer plusieurs serveurs, utilisez un script pour automatiser ce processus. Si c’est le cas, consultez [Pour configurer les paramètres de proxy de Microsoft Monitoring Agent à l’aide d’un script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
 Pour configurer les paramètres de proxy de Microsoft Monitoring Agent dans le Panneau de configuration :
 
@@ -168,8 +179,7 @@ Pour plus d’informations concernant le groupe de sécurité réseau, consultez
 >
 >
 
-Avant de commencer à utiliser la fonctionnalité de surveillance ExpressRoute de NPM, vous devez demander à ce que votre espace de travail soit mis sur liste verte. [Cliquez ici pour accéder à la page et remplissez le formulaire de demande](https://go.microsoft.com/fwlink/?linkid=862263). (Conseil : vous pouvez ouvrir ce lien dans une nouvelle fenêtre ou un nouvel onglet). Le processus de mise sur liste verte peut prendre une journée de travail ou plus. Nous vous envoyons un e-mail une fois que la mise sur liste verte est terminée.
-
+Avant de commencer à utiliser la fonctionnalité de surveillance ExpressRoute de NPM, vous devez demander à ce que votre espace de travail soit mis sur liste verte. [Cliquez ici pour accéder à la page et remplissez le formulaire de demande](https://aka.ms/npmcohort). (Conseil : vous pouvez ouvrir ce lien dans une nouvelle fenêtre ou un nouvel onglet). Le processus de mise sur liste verte peut prendre une journée de travail ou plus. Nous vous enverrons un e-mail une fois la mise sur liste verte terminée.
 
 ## <a name="setupmonitor"></a>Étape 5 : Configurer NPM pour la surveillance ExpressRoute
 
@@ -189,7 +199,7 @@ Après avoir terminé les sections précédentes et vérifié que vous avez ét�
 3. Sur la page de configuration, accédez à l’onglet « Appairages ExpressRoute » situé dans le panneau de gauche. Cliquez sur **Discover now** (Détecter maintenant).
 
   ![détecter](.\media\how-to-npm\13.png)
-4. Une fois la détection terminée, vous voyez des règles pour un nom de circuit et un nom de réseau virtuel uniques. Au départ, ces règles sont désactivées. Vous devez activer les règles, puis sélectionnez les agents de surveillance et les valeurs de seuil.
+4. Une fois la détection terminée, vous voyez des règles pour un nom de circuit et un nom de réseau virtuel uniques. Au départ, ces règles sont désactivées. Activez les règles, puis sélectionnez les agents de surveillance et les valeurs de seuil.
 
   ![règles](.\media\how-to-npm\14.png)
 5. Après l’activation des règles et la sélection des valeurs et des agents que vous souhaitez surveiller, vous devez attendre entre 30 minutes et 1 heure pour que les valeurs commencent à s’ajouter et que les vignettes **Surveillance ExpressRoute** deviennent disponibles. Une fois que vous voyez les vignettes de surveillance, vos circuits ExpressRoute et ressources de connexion sont surveillés par NPM.
@@ -229,6 +239,7 @@ Vous pouvez augmenter le niveau de visibilité pour inclure des sauts locaux en 
 
 ![filtres](.\media\how-to-npm\topology.png)
 
-#### <a name="detailed-topology-view-of-a-particular-expressroute-circuit---with-vnet-connections"></a>Affichage détaillé de la topologie d’un circuit ExpressRoute particulier - avec des connexions de réseau virtuel
+#### <a name="detailed-topology-view-of-a-circuit"></a>Vue détaillée de la topologie d’un circuit
 
+Cette vue affiche les connexions de réseau virtuel.
 ![topologie détaillée](.\media\how-to-npm\17.png)

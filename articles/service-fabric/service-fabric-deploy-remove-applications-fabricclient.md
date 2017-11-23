@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 480f574640d4a9ccd4da97a98adc8b284d373855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d737e354f5e7ee57c2e2c3d9b5599d4ba2b09af
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Déployer et supprimer des applications avec FabricClient
 > [!div class="op_single_selector"]
+> * [Gestionnaire de ressources](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [Interface de ligne de commande de Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
@@ -42,7 +43,7 @@ Une fois qu’une application a été déployée et qu’une instance est exécu
 1. Supprimer l’instance d’application en cours d’exécution
 2. Désinscrire le type d’application si vous n’en avez plus besoin
 
-Si vous utilisez [Visual Studio pour déployer et déboguer des applications](service-fabric-publish-app-remote-cluster.md) dans votre cluster de développement local, toutes les étapes précédentes sont gérées automatiquement à l’aide d’un script PowerShell.  Ce script se trouve dans le dossier *Scripts* du projet d’application. Cet article fournit des précisions sur les actions de ce script afin que vous puissiez effectuer les mêmes opérations en dehors de Visual Studio. 
+Si vous utilisez Visual Studio pour déployer et déboguer des applications dans votre cluster de développement local, toutes les étapes précédentes sont gérées automatiquement à l’aide d’un script PowerShell.  Ce script se trouve dans le dossier *Scripts* du projet d’application. Cet article fournit des précisions sur les actions de ce script afin que vous puissiez effectuer les mêmes opérations en dehors de Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 Connectez-vous au cluster en créant une instance [FabricClient](/dotnet/api/system.fabric.fabricclient) avant d’exécuter un des exemples de code dans cet article. Pour obtenir des exemples de connexion à un cluster de développement local, à un cluster distant ou à un cluster sécurisé à l’aide d’Azure Active Directory, de certificats X509 ou de Windows Active Directory, consultez [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Pour vous connecter au cluster de développement local, exécutez la commande suivante :
@@ -71,7 +72,7 @@ L’API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.appli
 L’API [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) fournit des informations sur tous les types d’application correctement inscrits. Vous pouvez utiliser cette API pour déterminer quand l’inscription est effectuée.
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Supprimer un package d’application du magasin d’images
-Nous vous recommandons de supprimer le package d’application une fois que l’application est inscrite avec succès.  La suppression de packages d’application du magasin d’images libère des ressources système.  La conservation des packages d’application inutilisés consomme du stockage sur disque et affecte le niveau de performance des applications. Supprimez le package d’application du magasin d’images à l’aide de l’API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
+Nous vous recommandons de supprimer le package d’application une fois que l’application est inscrite.  La suppression de packages d’application du magasin d’images libère des ressources système.  La conservation des packages d’application inutilisés consomme du stockage sur disque et affecte le niveau de performance des applications. Supprimez le package d’application du magasin d’images à l’aide de l’API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="create-an-application-instance"></a>Créer une instance d’application
 Vous pouvez instancier une application à partir de n’importe quel type d’application correctement inscrit à l’aide de l’API [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). Le nom de chaque application doit commencer par le schéma *« fabric: »* et être unique pour chaque instance d’application (dans un cluster). Les éventuels services par défaut définis dans le manifeste de l’application du type de l’application cible sont également créés.

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -53,11 +53,13 @@ L’édition gratuite de Data Catalog est limitée à 5 000 ressources de don
 
 L’édition Standard de Data Catalog prend en charge jusqu’à 100 000 ressources de données inscrites.
 
+Tout objet inscrit dans Data Catalog, y compris les tableaux, vues, fichiers et rapports, est comptabilisé comme une ressource de données.
+
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Quels sont les types de sources et de ressources de données pris en charge ?
 Pour obtenir la liste des sources de données actuellement prises en charge, reportez-vous au [DSR Data Catalog](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Comment demander la prise en charge d’une autre source de données ?
-Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vous dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Pour demander des fonctionnalités et envoyer d’autres commentaires, rendez-vous dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Comment démarrer avec Data Catalog ?
 La meilleure façon de commencer est de consulter la section [Prise en main de Data Catalog](data-catalog-get-started.md). Cet article présente de bout en bout les fonctionnalités intégrées au service.
@@ -65,7 +67,7 @@ La meilleure façon de commencer est de consulter la section [Prise en main de D
 ## <a name="how-do-i-register-my-data"></a>Comment inscrire mes données ?
 Pour inscrire vos données dans Data Catalog :
 1. Dans le portail Azure Data Catalog, dans la zone **Publier**, démarrez l’outil d’inscription Azure Data Catalog. 
-2. Dans l’application de publication Data Catalog, connectez-vous avec les mêmes identifiants que ceux utilisés pour accéder au portail Data Catalog.
+2. Dans l’outil d'inscription de la source de données Data Catalog, connectez-vous avec les mêmes identifiants que ceux utilisés pour accéder au portail Data Catalog.
 3. Sélectionnez la source de données et les ressources spécifiques que vous souhaitez inscrire.
 
 ## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Quelles propriétés sont extraites pour les ressources de données qui sont inscrites ?
@@ -84,7 +86,7 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 >
 
 > [!NOTE]
-> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication Data Catalog extrait la valeur de cette propriété. Pour les bases de données relationnelles SQL Server, qui ne possèdent pas de propriété **Description** de première classe, l’application de publication Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de cette propriété. Pour les bases de données relationnelles SQL Server, qui ne possèdent pas de propriété **Description** de première classe, l'outil d'inscription de la source de données Data Catalog extrait la valeur de la propriété étendue **ms_description** pour les objets et les colonnes. Pour plus d’informations, consultez la page [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
@@ -94,7 +96,7 @@ Après avoir inscrit des ressources auprès de Data Catalog, il peut s’écoul
 ## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Comment annoter et enrichir les métadonnées pour mes ressources de données inscrites ?
 La méthode la plus simple pour fournir des métadonnées pour des ressources inscrites consiste à sélectionner la ressource dans le portail Data Catalog, puis à entrer les valeurs dans le volet des propriétés ou du schéma de l’objet sélectionné.
 
-Vous pouvez également fournir des métadonnées, telles que des experts et des balises, pendant le processus d'inscription. Les valeurs que vous fournissez dans le service de publication Data Catalog s’appliquent à toutes les ressources inscrites à ce moment-là. Pour afficher les objets récemment inscrits dans le portail pour des annotations supplémentaires, sélectionnez le bouton **Afficher le portail** dans le dernier écran de l’application de publication Data Catalog.
+Vous pouvez également fournir des métadonnées, telles que des experts et des balises, pendant le processus d'inscription. Les valeurs que vous fournissez dans le service de publication Data Catalog s’appliquent à toutes les ressources inscrites à ce moment-là. Pour afficher les objets récemment inscrits dans le portail pour des annotations supplémentaires, sélectionnez le bouton **Afficher le portail** dans le dernier écran de l'outil d'inscription de la source de données Data Catalog.
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>Comment supprimer mes objets de données inscrits ?
 Vous pouvez supprimer un objet de Data Catalog en sélectionnant l’objet dans le portail, puis en cliquant sur le bouton **Supprimer**. La suppression de l’objet supprime ses métadonnées de Data Catalog, mais n’affecte pas la source de données sous-jacente.
@@ -106,7 +108,7 @@ Un expert est une personne qui a un point de vue éclairé sur un objet de donn�
 Pour signaler des problèmes, partager des informations et poser des questions, rendez-vous dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Le catalogue fonctionne-t-il avec une autre source de données qui m’intéresse ?
-Nous travaillons activement à l’ajout de sources de données supplémentaires à Data Catalog. Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Nous travaillons activement à l’ajout de sources de données supplémentaires à Data Catalog. Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 ## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Comment Azure Data Catalog est-il lié au catalogue de données dans Power BI pour Office 365 ?
 Vous pouvez considérer Azure Data Catalog comme une évolution de Data Catalog dans Power BI. À partir du printemps 2017, Azure Data Catalog est utilisé pour activer le partage et la découverte de requêtes dans Excel 2016 et Power Query pour Excel. Les fonctions Data Catalog d’Excel sont disponibles pour les utilisateurs disposant de licences Power BI Pro.
@@ -114,14 +116,18 @@ Vous pouvez considérer Azure Data Catalog comme une évolution de Data Catalo
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Quelles sont les autorisations dont j’ai besoin pour inscrire des ressources auprès de Data Catalog ?
 Pour exécuter l’outil de référencement pour Data Catalog, vous avez besoin d’autorisations sur la source de données qui vous permet de lire les métadonnées de la source. Pour inclure également un aperçu, vous devez disposer des autorisations qui vous permettent de lire les données à partir des objets en cours d’inscription.
 
+Data Catalog permet également aux administrateurs de catalogue d'empêcher certains utilisateurs et groupes d'ajouter des métadonnées au catalogue. Pour plus d’informations, consultez [Guide pratique pour sécuriser l’accès à un catalogue de données et des ressources de données](data-catalog-how-to-secure-catalog.md).
+
 ## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Data Catalog sera-t-il également disponible pour un déploiement local ?
 Data Catalog est un service cloud qui peut fonctionner avec des sources de données cloud et locales, offrant ainsi une solution de détection de sources de données hybrides. Aucune version du service Data Catalog s’exécutant localement n’est actuellement prévue.
 
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Est-il possible d’extraire davantage de métadonnées/des métadonnées plus riches à partir de sources de données que j’inscris ?
-Nous travaillons activement au développement des fonctionnalités de Data Catalog. Si vous souhaitez que des métadonnées supplémentaires soient extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Par la suite, nous autoriserons des tiers à ajouter de nouveaux types de sources de données via une API d’extensibilité.
+Nous travaillons activement au développement des fonctionnalités de Data Catalog. Si vous souhaitez que des métadonnées supplémentaires soient extraites à partir de la source de données pendant l’inscription, suggérez-les (ou votez en leur faveur si elles ont déjà été suggérées) dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog). 
+
+Si vous souhaitez inclure des métadonnées de colonne/schéma, des aperçus ou des profils de données pour les sources de données dans lesquelles ces métadonnées ne sont pas extraites par l’outil d’inscription, vous pouvez utiliser l’API Data Catalog pour ajouter ces métadonnées. Pour plus d’informations, consultez [API REST Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Comment restreindre la visibilité des ressources de données inscrites, afin que seules certaines personnes puissent les découvrir ?
-Sélectionnez les ressources de données dans Data Catalog, puis cliquez sur le bouton **Appropriation**. Les propriétaires de ressources de données dans Data Catalog peuvent modifier les paramètres de visibilité pour autoriser tous les utilisateurs à découvrir les ressources leur appartenant, ou pour limiter la visibilité à des utilisateurs spécifiques.
+Sélectionnez les ressources de données dans Data Catalog, puis cliquez sur le bouton **Appropriation**. Les propriétaires de ressources de données dans Data Catalog peuvent modifier les paramètres de visibilité pour autoriser tous les utilisateurs à découvrir les ressources leur appartenant, ou pour limiter la visibilité à des utilisateurs spécifiques. Pour plus d’informations, consultez [Gérer les ressources de données dans Azure Data Catalog](data-catalog-how-to-manage.md).
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Comment mettre à jour l’inscription d’une ressource de données pour que les modifications apportées dans la source de données soient reflétées dans le catalogue ?
 Pour mettre à jour les métadonnées pour les ressources de données qui sont déjà inscrites dans le catalogue, réinscrivez simplement la source de données qui contient les ressources. Les modifications apportées à la source de données, telles que l’ajout ou la suppression de colonnes de tables ou de vues, sont actualisées dans le catalogue, mais les annotations fournies par les utilisateurs sont conservées.

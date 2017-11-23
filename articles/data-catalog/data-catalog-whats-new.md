@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Nouveautés d'Azure Data Catalog
 Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, toutes les versions ne contiennent pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente les nouvelles fonctionnalités orientées utilisateur ajoutées au service Azure Data Catalog.
+
+## <a name="whats-new-for-november-2017"></a>Nouveautés de novembre 2017 
+Depuis novembre 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
+
+* Prise en charge de la liaison directement aux termes du glossaire métier spécifique dans le portail Data Catalog. Les utilisateurs peuvent copier des liens à partir du glossaire métier et les incorporer dans des documents, des e-mails, des rapports ou d'autres emplacements à lier directement à la définition du terme de glossaire.
+* Prise en charge des principaux du service Azure Active Directory. Les administrateurs de Data Catalog peuvent utiliser des principaux de service pour autoriser les applications clientes à accéder au catalogue, et accorder des autorisations spécifiques à ces applications, comme ils le feraient pour des utilisateurs et des groupes de sécurité. Pour plus d'informations, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Prise en charge de l’authentification Azure Active Directory lors de la connexion aux sources de données Azure SQL Database et Azure SQL Data Warehouse à l’aide de l’outil d'inscription des sources de données Data Catalog. Pour plus d’informations, consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou de SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
+
 
 ## <a name="whats-new-for-september-2017"></a>Nouveautés de septembre 2017 
 À compter de septembre 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :

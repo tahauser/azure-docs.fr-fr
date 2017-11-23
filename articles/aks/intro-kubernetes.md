@@ -14,20 +14,32 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a8ac18464d0efcc0db96e1667f18f2f853208573
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9fba9fdda3503ec80fede845466858825e3677a5
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Présentation d’Azure Container Service (AKS)
 
 Azure Container Service (AKS) simplifie la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur. Il vous permet d’exploiter vos compétences existantes ou de faire appel à une large communauté d’experts toujours plus nombreux pour déployer et gérer des applications en conteneur sur Microsoft Azure.
 
 En utilisant AKS, vous pouvez tirer parti des fonctionnalités d’entreprise d’Azure tout en conservant la portabilité des applications par le biais de Kubernetes et du format d’image Docker.
+
+## <a name="managed-kubernetes-in-azure"></a>Managed Kubernetes dans Azure
+
+AKS permet de réduire la complexité et la surcharge opérationnelle de la gestion d’un cluster Kubernetes en déléguant une grande partie de cette responsabilité à Azure. En tant que service Kubernetes hébergé, Azure gère pour vous des tâches critiques telles que l’analyse de l'intégrité et la maintenance. En outre, vous payez uniquement pour les nœuds de l’agent au sein de vos clusters, pas pour les maîtres. En tant que service Kubernetes géré, AKS fournit :
+
+> [!div class="checklist"]
+> * Des mises à niveau de version et des correctifs Kubernetes automatisés
+> * Une mise à l’échelle de cluster simplifiée
+> * Un plan de contrôle hébergé à réparation spontanée (maîtres)
+> * Des coûts réduits : payez uniquement pour les nœuds du pool de l'agent en cours d'exécution
+
+Comme Azure gère la gestion des nœuds de votre cluster AKS, vous n’avez plus besoin d'effectuer les tâches manuellement, notamment les mises à niveau du cluster. Comme Azure gère ces tâches de maintenance critiques pour vous, AKS ne fournit pas d'accès direct (comme avec SSH) au cluster.
 
 ## <a name="using-azure-container-service-aks"></a>Utilisation d’Azure Container Service (AKS)
 L’objectif d’AKS est de proposer un environnement d’hébergement de conteneurs basé sur des outils et des technologies open source déjà bien connus de nos clients. Dans cette optique, nous présentons les points de terminaison standards de l’API Kubernetes. En utilisant ces points de terminaison standards, vous pouvez exploiter n’importe quel logiciel capable de communiquer avec un cluster Kubernetes. Par exemple, vous pourriez choisir [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/), ou [draft](https://github.com/Azure/draft).
