@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -75,7 +75,7 @@ Dans ce document, nous évoquerons les fonctionnalités d’entreprise Azure sui
 
 ### <a name="basic-network-connectivity"></a>Connectivité réseau de base
 
-Le service [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) vous permet de connecter en toute sécurité les ressources Azure entre elles à l’aide de réseaux virtuels. Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Un réseau virtuel est une isolation logique de l’infrastructure réseau Azure dédiée à votre abonnement. Vous pouvez aussi connecter des réseaux virtuels entre eux et à vos réseaux locaux au moyen de réseaux privés virtuels (VPN) de site à site et de [liaisons réseau étendu](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dédiées.
+Le service [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) vous permet de connecter en toute sécurité les ressources Azure entre elles à l’aide de réseaux virtuels. Un réseau virtuel est une représentation de votre propre réseau dans le cloud. Un réseau virtuel est une isolation logique de l’infrastructure réseau Azure dédiée à votre abonnement. Vous pouvez aussi connecter des réseaux virtuels entre eux et à vos réseaux locaux au moyen de réseaux privés virtuels (VPN￼) de site à site et de [liaisons réseau étendu](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dédiées.
 
 ![Connectivité réseau de base](media/azure-network-security/azure-network-security-fig-2.png)
 
