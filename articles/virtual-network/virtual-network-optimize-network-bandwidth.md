@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimiser le débit du réseau des machines virtuelles Azure
 
@@ -33,7 +33,7 @@ Si votre machine virtuelle Windows est compatible avec la [mise en réseau accé
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. Entrez la commande suivante pour activer la mise à l’échelle côté réception (RSS) :
 
@@ -44,7 +44,7 @@ Si votre machine virtuelle Windows est compatible avec la [mise en réseau accé
 3. Vérifiez que la mise à l’échelle côté réception (RSS) est activée sur la machine virtuelle en entrant de nouveau la commande `Get-NetAdapterRss`. Si l’opération réussit, l’exemple de sortie suivant est retourné :
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
@@ -55,26 +55,35 @@ La mise à l’échelle côté réception (RSS) est toujours activée par défau
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu pour les nouveaux déploiements
 
-Pour bénéficier de l’optimisation, installez tout d’abord à jour vers la version la plus récente de 16.04-LTS, comme ceci :
+Le noyau Ubuntu Azure fournit les meilleures performances réseau sur Azure et est le noyau par défaut depuis le 21 septembre 2017. Pour bénéficier de ce noyau, installez tout d’abord la version la plus récente de 16.04-LTS, comme décrit ci-dessous :
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-Une fois la mise à jour terminée, entrez les commandes suivantes pour obtenir le noyau le plus récent :
+Une fois la création terminée, entrez les commandes suivantes pour obtenir les mises à jour les plus récentes. Ces étapes fonctionnent aussi pour les machines virtuelles qui s’exécutent actuellement sur le noyau Ubuntu Azure.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+L’ensemble de commandes optionnel suivant peut être utile pour les déploiements Ubuntu existants qui disposent déjà du noyau Azure mais qui ont rencontré des erreurs lors de mises à jour.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Commande facultative :
-
-`apt-get -y dist-upgrade`
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Mise à niveau du noyau Ubuntu Azure pour les machines virtuelles existantes
 
 Des performances significatives en termes de débit peuvent être atteintes en mettant à jour vers le noyau Azure Linux proposé. Pour vérifier si vous avez ce noyau, vérifiez la version de votre noyau.
@@ -87,7 +96,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Exécutez ensuite ces commandes en tant qu’utilisateur racine.
+Si votre machine virtuelle ne dispose pas du noyau Azure, le numéro de version commence en général par « 4.4 ». Si c’est le cas, exécutez les commandes suivantes à la racine.
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -99,14 +108,14 @@ reboot
 
 ### <a name="centos"></a>CentOS
 
-Pour bénéficier des dernières optimisations, mettez tout d’abord à jour vers la version la plus récente, comme ceci :
+Pour bénéficier des dernières optimisations, il est préférable de créer une machine virtuelle avec la version la plus récente prise en charge en spécifiant les paramètres suivants :
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
+Il peut être bénéfique pour les machines virtuelles nouvelles ou existantes d’installer la dernière version de Linux Integration Services (LIS).
 L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2.2-2, bien que les versions ultérieures contiennent d’autres améliorations. Entrez les commandes suivantes pour installer la dernière version de LIS :
 
 ```bash
@@ -117,14 +126,14 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Pour bénéficier de l’optimisation, mettez tout d’abord à jour vers la version la plus récente, comme ceci :
+Pour bénéficier des optimisations, il est préférable de créer une machine virtuelle avec la version la plus récente prise en charge en spécifiant les paramètres suivants :
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-Une fois la mise à jour terminée, installez les Services d’intégration Linux (LIS) les plus récents.
+Il peut être bénéfique pour les machines virtuelles nouvelles ou existantes d’installer la dernière version de Linux Integration Services (LIS).
 L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour télécharger et installer les LIS :
 
 ```bash
