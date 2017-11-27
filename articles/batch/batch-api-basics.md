@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -75,7 +75,7 @@ Vous pouvez créer un compte Azure Batch à l’aide du [Portail Azure](batch-ac
 Vous pouvez exécuter plusieurs charges de travail Batch dans un compte Batch ou répartir vos charges de travail entre plusieurs comptes Batch se trouvant dans le même abonnement mais dans différentes régions Azure.
 
 > [!NOTE]
-> Lorsque vous créez un compte Batch, vous devez généralement choisir le mode **Service Batch** par défaut. Les pools sont alloués en arrière-plan dans des abonnements gérés par Azure. Dans l’autre mode d’**abonnement utilisateur**, qui n’est plus recommandé, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement lors de la création d’un pool. Pour créer un compte Batch dans le mode abonnement utilisateur, vous devez également associer le compte avec une Azure Key Vault.
+> Lorsque vous créez un compte Batch, vous devez généralement choisir le mode **Service Batch** par défaut. Les pools sont alloués en arrière-plan dans des abonnements gérés par Azure. Dans l’autre mode d’**abonnement utilisateur**, qui n’est plus recommandé pour la plupart des scénarios, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement pendant la création d’un pool. Pour créer un compte Batch dans le mode abonnement utilisateur, vous devez également inscrire votre abonnement auprès d’Azure Batch et associer le compte avec une Azure Key Vault.
 >
 
 
@@ -150,7 +150,9 @@ Pour les configurations requises détaillées, consultez [Utiliser une image per
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Prise en charge du conteneur dans les pools de machines virtuelles
 
-Lorsque vous créez un pool de configuration de machines virtuelles à l’aide des API de lot, vous pouvez configurer le pool pour exécuter des tâches dans des conteneurs Docker. Actuellement, vous devez créer le pool à l’aide du centre de données de Windows Server 2016 avec l’image des conteneurs venant de la Place de Marché Azure, ou fournir une image de machine virtuelle personnalisée qui inclut Docker Community Edition et tous les pilotes requis. Les paramètres du pool doivent inclure une [configuration du conteneur](/rest/api/batchservice/pool/add#definitions_containerconfiguration) copiant des images de conteneur sur les machines virtuelles une fois le pool créé. Les tâches qui s’exécutent sur le pool peuvent ensuite référencer les images et les options d’exécution du conteneur.
+Lorsque vous créez un pool de configuration de machines virtuelles à l’aide des API de lot, vous pouvez configurer le pool pour exécuter des tâches dans des conteneurs Docker. À l’heure actuelle, vous devez créer le pool à l’aide d’une image qui prend en charge les conteneurs Docker. Utilisez Windows Server 2016 Datacenter avec l’image Containers provenant de la Place de Marché Azure ou fournissez une image de machine virtuelle personnalisée qui inclut Docker Community Edition ou Enterprise Edition et tous les pilotes requis. Les paramètres du pool doivent inclure une [configuration du conteneur](/rest/api/batchservice/pool/add#definitions_containerconfiguration) copiant des images de conteneur sur les machines virtuelles une fois le pool créé. Les tâches qui s’exécutent sur le pool peuvent ensuite référencer les images et les options d’exécution du conteneur.
+
+Pour plus d’informations, consultez [Exécutez des applications de conteneur Docker sur Azure Batch](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Type de nœud de calcul et nombre cible de nœuds
 

@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -44,7 +44,7 @@ L’expérience d’intégration protection de point de terminaison peut varier 
 | Windows Defender (logiciel anti-programme malveillant de Microsoft)                  | Windows Server 2016                   | Non, intégré au système d’exploitation           | Oui                       |
 | System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via l’extension                | Oui                       |
 | Trend Micro : toutes les versions         | Gamme Windows Server                 | Via l’extension                | Oui                       |
-| Symantec v12+                     | Gamme Windows Server                 | Non                           | Oui                        |
+| Symantec v12.1.1100+                     | Gamme Windows Server                 | Non                           | Oui                        |
 | MacAfee                           | Gamme Windows Server                 | Non                           | Non                        |
 | Kaspersky                         | Gamme Windows Server                 | Non                           | Non                        |
 | Sophos                            | Gamme Windows Server                 | Non                           | Non                        |
@@ -91,7 +91,7 @@ La section **Ajouter des sources de données** comprend d’autres sources de do
 Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
 * [Guide des opérations et de planification de Security Center](security-center-planning-and-operations-guide.md)
-* [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md) (Connexion de Microsoft Advanced Threat Analytics à Azure Security Center)
+* [Connexion de Microsoft Advanced Threat Analytics à Azure Security Center](security-center-ata-integration.md)
 * [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md) (Connexion d’Azure Active Directory Identity Protection à Azure Security Center)
 * [Surveillance de l’intégrité de la sécurité dans Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Surveiller les solutions de partenaire avec Security Center](security-center-partner-solutions.md). découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.

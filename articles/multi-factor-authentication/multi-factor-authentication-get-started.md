@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b05cc76f8d8b2d14ac87fa3c55479bf0cf2377b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Choisissez la solution Azure Multi-Factor Authentication qui vous convient
 Étant donné qu’il existe plusieurs types d’Azure Multi-Factor Authentication (MFA), nous devons répondre à quelques questions pour connaître la version utiliser.  Ces questions sont les suivantes :
@@ -60,7 +60,7 @@ Le tableau suivant compare les fonctionnalités disponibles de Multi-Factor Auth
 | Code de vérification d'application mobile comme second facteur | ● | ● |
 | Appel téléphonique comme second facteur | ● | ● |
 | SMS unidirectionnel comme second facteur | ● | ● |
-| SMS bidirectionnel comme second facteur | | ● |
+| SMS bidirectionnel comme second facteur | | ● (Déprécié)| 
 | Jetons matériels comme second facteur | | ● |
 | Mots de passe d’application pour les clients Office 365 qui ne prennent pas en charge MFA | ● | |
 | Contrôle d'administration sur les méthodes d'authentification | ● | ● |

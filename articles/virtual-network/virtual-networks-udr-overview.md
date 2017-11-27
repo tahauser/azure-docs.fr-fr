@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -118,7 +118,7 @@ Le nom affiché et référencé pour les types de tronçon suivants diffère ent
 
 Une passerelle de réseau local peut échanger les itinéraires avec une passerelle de réseau virtuel Azure à l’aide du protocole de passerelle frontière (BGP). L’utilisation du protocole BGP avec une passerelle de réseau virtuel Azure dépend du type que vous avez sélectionné lorsque vous avez créé la passerelle. Si le type que vous avez sélectionné était :
 
-- **ExpressRoute** : vous devez utiliser le protocole BGP pour publier les itinéraires vers le routeur edge de Microsoft. Vous ne pouvez pas créer des itinéraires définis par l’utilisateur si vous déployez une passerelle de réseau virtuel avec le type ExpressRoute.
+- **ExpressRoute** : vous devez utiliser le protocole BGP pour publier les itinéraires locaux vers le routeur de périphérie Microsoft. Vous ne pouvez pas créer d’itinéraires définis par l’utilisateur pour forcer l’acheminement du trafic vers la passerelle de réseau virtuel ExpressRoute si vous déployez une passerelle de réseau virtuel avec le type ExpressRoute. Vous pouvez utiliser des itinéraires définis par l’utilisateur pour forcer l’acheminement du trafic provenant d’ExpressRoute vers, par exemple, une appliance virtuelle réseau. 
 - **VPN** : vous pouvez éventuellement utiliser le protocole BGP. Pour plus d’informations, consultez [BGP avec les connexions VPN de site à site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Lorsque vous échangez des itinéraires avec Azure à l’aide du protocole BGP, un itinéraire distinct est ajouté à la table de routage de tous les sous-réseaux d’un réseau virtuel pour chaque préfixe publié. L’itinéraire est ajouté avec *Passerelle de réseau virtuel* comme source et type de tronçon suivant. 

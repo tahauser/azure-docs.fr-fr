@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
-ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -131,11 +131,11 @@ sudo apt-get install servicefabricsdkcommon
 ## <a name="set-up-the-service-fabric-cli"></a>Configurer l’interface de ligne de commande Service Fabric
 
 L’[interface de ligne de commande Service Fabric](service-fabric-cli.md) inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications.
-Suivez les instructions de l’[interface de ligne de commande Service Fabric](service-fabric-cli.md) pour installer l’interface de ligne de commande.
+Suivez les instructions de [l’interface de ligne de commande Service Fabric](service-fabric-cli.md) pour installer l’interface de ligne de commande.
 
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Configurer les générateurs Yeoman pour des conteneurs et des exécutables invités
-Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer des applications Service Fabric à partir d’un terminal à l’aide des générateurs de modèle Yeoman. Suivez ces étapes pour configurer les générateurs de modèle Yeoman Service Fabric :
+Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer des applications Service Fabric à partir d’un terminal, à l’aide des générateurs de modèle Yeoman. Suivez ces étapes pour configurer les générateurs de modèle Yeoman Service Fabric :
 
 1. Installer nodejs et NPM sur votre machine
 
@@ -221,6 +221,7 @@ sudo apt-get install -f
 * [Créer et déployer votre première application Java Service Fabric sous Linux à l’aide du plug-in Service Fabric pour Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first Java application on Linux (Créer votre première application Java sur Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
+* [Préparer un environnement de développement sur Windows](service-fabric-local-linux-cluster-windows.md)
 * [Utilisez l’interface de ligne de commande Service Fabric pour gérer vos applications](service-fabric-application-lifecycle-sfctl.md)
 * [Différences entre Service Fabric Windows/Linux](service-fabric-linux-windows-differences.md)
 * [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)

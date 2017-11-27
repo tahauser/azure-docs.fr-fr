@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
 Cet article vous aide à comprendre les différents types d’alertes de sécurité et les informations associées disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes et des incidents, consultez l’article [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ Les champs suivants sont communs aux exemples d’alerte de vidage sur incident 
 * DUMPFILE : nom du fichier de vidage sur incident.
 * PROCESSNAME : nom du processus bloqué.
 * PROCESSVERSION : version du processus bloqué.
+
+### <a name="code-injection-discovered"></a>Injection de code détectée
+Une injection de code est l’insertion de modules exécutables dans des processus ou threads en cours d’exécution.  Cette technique est utilisée par les programmes malveillants pour accéder aux données, masquer ou empêcher leur suppression (par exemple, la persistance). Cette alerte indique qu’un module injecté est présent dans l’image mémoire. Les développeurs de logiciels légitimes procèdent parfois à une injection de code pour des raisons non malveillantes, comme la modification ou l’extension d’une application existante ou d’un composant de système d’exploitation.  Pour distinguer les modules injectés malveillants et non malveillants, Azure Security Center vérifie si le module injecté est conforme à un profil de comportement suspect. Le résultat de cette vérification est indiqué par le champ « SIGNATURE » de l’alerte et est répercuté dans le niveau de gravité de l’alerte, la description de l’alerte et les étapes de correction de l’alerte. 
+
+Cette alerte présente les champs supplémentaires suivants :
+
+- ADRESSE : emplacement du module injecté dans la mémoire
+- NOM DE L’IMAGE : nom du module injecté. Notez que ce champ peut être vide si le nom de l’image n’est pas fourni dans l’image.
+- SIGNATURE : indique si le module injecté est conforme à un profil de comportement suspect. 
+
+Le tableau ci-dessous répertorie des exemples de résultats et leur description :
+
+| Valeur de la signature                      | Description                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Exploit de chargeur par réflexion suspect | Ce comportement suspect est souvent corrélé au chargement de code injecté indépendamment du chargeur du système d’exploitation |
+| Exploit injecté suspect          | Révèle une malveillance souvent corrélée à l’injection de code dans la mémoire                                       |
+| Exploit d’injection suspect         | Révèle une malveillance souvent corrélée à l’utilisation du code injecté dans la mémoire                                   |
+| Exploit de débogueur injecté suspect | Révèle une malveillance souvent corrélée à la détection ou au contournement d’un débogueur                         |
+| Exploit distant injecté suspect   | Révèle une malveillance souvent corrélée aux scénarios de contrôle et de commande (C2)                                 |
+
+Voici un exemple de ce type d’alerte :
+
+![Alerte d’injection de code](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Segment de code suspect
+Le segment de code suspect indique qu’un segment de code a été alloué à l’aide des méthodes non standard, comme celles utilisées par l’injection par réflexion et le « creusage » de processus (process hollowing).  En outre, cette alerte présente d’autres caractéristiques du segment de code pour fournir un contexte relatif aux fonctionnalités et aux comportements du segment de code indiqué.
+
+Cette alerte présente les champs supplémentaires suivants :
+
+- ADRESSE : emplacement du module injecté dans la mémoire
+- TAILLE : taille du segment de code suspect
+- SIGNATURES DE CHAÎNE : ce champ répertorie les fonctionnalités des API dont les noms de fonction sont contenus dans le segment de code. Voici des exemples de fonctionnalités :
+    - Descripteurs de la section image, exécution de code dynamique pour x64, allocation de mémoire et capacité du chargeur, capacité d’injection de code à distance, capacité de contrôle de détournement, variables d’environnement de lecture, mémoire du processus arbitraire de lecture, privilèges de jeton de requête ou de modification, communication réseau HTTP/HTTPS et communication de socket réseau.
+- IMAGE DÉTECTÉE : ce champ indique si une image PE a été injectée dans le processus au sein duquel le segment de code suspect a été détecté et à quelle adresse le module injecté commence.
+- SHELLCODE : ce champ indique la présence d’un comportement couramment utilisé par des charges utiles malveillantes pour obtenir un accès à des fonctions supplémentaires du système d’exploitation sensible sur le plan de la sécurité. 
+
+Voici un exemple de ce type d’alerte :
+
+![Alerte de segment de code suspect](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Shellcode détecté
 Un shellcode est la charge utile exécutée après qu’un programme malveillant a exploité une vulnérabilité logicielle. Cette alerte indique que l’analyse de vidage sur incident a détecté du code exécutable présentant un comportement souvent associé à des charges utiles malveillantes. Bien que des logiciels non malveillants puissent présenter aussi ce comportement, il n’est pas typique des pratiques de développement logiciel normales.

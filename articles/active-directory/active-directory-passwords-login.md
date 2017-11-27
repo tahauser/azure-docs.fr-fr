@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
 Vous avez déjà déployé la fonction de réinitialisation de mot de passe libre-service d’Azure AD (SSPR), mais les utilisateurs continuent d’appeler le support technique lorsqu’ils oublient leur mot de passe. En effet, ils ne parviennent pas à accéder à un navigateur web pour accéder à la fonction SSPR.
 
-Avec la nouvelle mise à jour Windows 10 Fall Creators Update, les utilisateurs dotés d’appareils joints Azure AD ont accès à un lien Réinitialiser le mot de passe, affiché sur l’écran de connexion. Lorsqu’ils cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà. 
+Avec la nouvelle mise à jour Windows 10 Fall Creators Update, les utilisateurs dotés d’appareils joints Azure AD ont accès à un lien Réinitialiser le mot de passe, affiché sur l’écran de connexion. Lorsqu’ils cliquent sur ce lien, ils bénéficient de l’expérience SSPR qu’ils connaissent déjà.
 
 Pour permettre aux utilisateurs de réinitialiser leur mot de passe Azure AD à partir de l’écran de connexion Windows 10, vous devez :
 
-* installer Windows 10 version 1709, ou une version plus récente du client joint au domaine Azure AD ;
+* installer Windows 10 version 1709, ou une version plus récente du client [joint à Azure AD](device-management-azure-portal.md).
 * activer la réinitialisation du mot de passe libre-service Azure AD.
 * Configurez et déployez le paramètre permettant d’activer le lien de réinitialisation du mot de passe via l’une des méthodes suivantes :
    * [Profil de configuration d’appareil Intune](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Vous avez désormais créé et attribué une stratégie de configuration d’app
 
 Nous vous recommandons d’utiliser cette méthode uniquement pour tester la procédure de modification du mot de passe.
 
-1. Se connecter à un appareil joint au domaine Azure Active Directory à l’aide d’informations d’identification d’administration
+1. Se connecter à un appareil joint à Azure Active Directory à l’aide d’informations d’identification d’administration
 2. Exécutez **regedit** en tant qu’administrateur
 3. Définissez la clé de Registre suivante
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Maintenant que la stratégie est configurée et attribuée, quelles sont les mod
 
 Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran d’ouverture de session. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
 
-Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](active-directory-passwords-update-your-own-password.md#reset-password-at-login)
+Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## <a name="common-issues"></a>Problèmes courants
 

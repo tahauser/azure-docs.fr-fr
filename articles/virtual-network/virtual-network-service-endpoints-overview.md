@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Points de terminaison de service de réseau virtuel (préversion)
 
@@ -28,7 +28,7 @@ Les points de terminaison de service de réseau virtuel étendent votre espace d
 Cette fonctionnalité est disponible en préversion pour les services et régions Azure suivants :
 
 - **Stockage Azure** : toutes les régions dans le cloud public Azure.
-- **Azure SQL Database** : WestCentralUS, WestUS2 et EastUS.
+- **Azure SQL** : toutes les régions dans le cloud public Azure.
 
 Pour obtenir des notifications actualisées pour la préversion, vérifiez la page [Mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -122,4 +122,5 @@ Pour une ressource de service Azure (par exemple, un compte de stockage Azure), 
 - Découvrez comment [sécuriser un compte de stockage Azure pour un réseau virtuel](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Découvrez comment [sécuriser une base de données Azure SQL Database pour un réseau virtuel](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Découvrez [l’intégration des services Azure aux réseaux virtuels](virtual-network-for-azure-services.md).
+-  Utilisez ce [modèle de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) pour configurer le point de terminaison de service sur un sous-réseau de réseau virtuel et sécuriser un compte de stockage Azure en l’associant à ce sous-réseau.
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Classification d’Iris, partie 2 : générer un modèle
 Les services Azure Machine Learning (version préliminaire) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -291,7 +291,7 @@ Grâce à Machine Learning, vous pouvez configurer facilement des environnements
    Lorsque `run.py` se termine, un graphique apparaît dans la vue de liste de l’historique des exécutions dans Workbench.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Exécuter des scripts dans un conteneur Docker sur une machine distante
-Pour exécuter votre script dans un conteneur Docker sur une machine Linux distante, vous devez disposer d’un accès SSH (nom d’utilisateur et mot de passe) à cette machine. Le moteur Docker doit également être installé et en cours d’exécution sur cette machine distante. Pour obtenir une machine Linux de ce type, le plus simple consiste à créer une [machine virtuelle DSVM (Data Science Virtual Machine) basée sur Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) sur Azure. 
+Pour exécuter votre script dans un conteneur Docker sur une machine Linux distante, vous devez disposer d’un accès SSH (nom d’utilisateur et mot de passe) à cette machine. Le moteur Docker doit également être installé et en cours d’exécution sur cette machine distante. Pour obtenir une machine Linux de ce type, le plus simple consiste à créer une machine virtuelle DSVM (Data Science Virtual Machine) basée sur Ubuntu dans Azure. Découvrez [comment créer une machine virtuelle DSVM Ubuntu à utiliser dans Azure Machine Learning Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >La machine virtuelle DSVM basée sur CentOS n’est *pas* prise en charge.
@@ -343,7 +343,9 @@ Pour exécuter votre script dans un conteneur Docker sur une machine Linux dista
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Exécuter le script dans un cluster HDInsight
-Vous pouvez également exécuter ce script dans un cluster Spark. 
+Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Découvrez [comment créer un cluster HDInsight Spark à utiliser dans Azure Machine Learning Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![REMARQUE] Le cluster HDInsight doit utiliser Stockage Blob Azure en tant que stockage principal. L’utilisation du stockage Azure Data Lake n’est pas encore prise en charge.
 
 1. Si vous avez accès à un cluster Spark pour Azure HDInsight, générez une commande de configuration d’exécution HDInsight, comme indiqué ici. Indiquez comme paramètres le nom du cluster HDInsight, ainsi que vos nom d’utilisateur et mot de passe HDInsight. Utilisez la commande suivante :
 

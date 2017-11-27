@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory (préversion)
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux.  Cela permet de garantir qu’ils se voient présenter les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité.
@@ -43,7 +43,8 @@ Pour configurer les conditions d’utilisation d’Azure AD, effectuez les étap
 2. Vérifiez que l’annuaire est associé à un abonnement Azure AD Premium P1, P2, EMS E3 ou EMS E5.  Si ce n’est pas le cas, [abonnez-vous à Azure AD Premium](active-directory-get-started-premium.md) ou [optez pour un essai](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Affichez le tableau de bord des conditions d’utilisation d’Azure AD à l’adresse [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>Les contrôles de stratégie d’accès conditionnel (y compris les conditions d’utilisation) ne peuvent pas être appliqués sur les comptes de service.  Nous vous recommandons d’exclure tous les comptes de service de la stratégie d’accès conditionnel.
 
 ## <a name="add-company-terms-of-use"></a>Ajouter les conditions d’utilisation de l’entreprise
 Après avoir finalisé vos conditions d’utilisation, effectuez les étapes suivantes pour les ajouter.
@@ -92,7 +93,6 @@ Les utilisateurs dans l’étendue voient ce qui suit une fois les conditions d�
 
 ## <a name="additional-information"></a>Informations supplémentaires
 Tenez compte des points suivants pour faciliter la mise en place de conditions d’utilisation.
-
 
 Les utilisateurs dans l’étendue doivent se déconnecter et se reconnecter pour satisfaire aux exigences d’une nouvelle stratégie si :
  - une stratégie d’accès conditionnel est activée sur les conditions d’utilisation ;

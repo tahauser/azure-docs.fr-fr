@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ Windows prend en charge deux modes d’isolation pour les conteneurs : Processu
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > Le mode d’isolation Hyper-V est disponible pour les références SKU Azure Ev3 et Dv3 qui prennent en charge la virtualisation imbriquée. 
-   >
+   > Le mode d’isolation Hyper-V est disponible pour les références SKU Azure Ev3 et Dv3 qui prennent en charge la virtualisation imbriquée. Assurez-vous que le rôle Hyper-V est installé sur les hôtes. Pour le vérifier, connectez-vous à ces derniers.
    >
 
 ## <a name="configure-resource-governance"></a>Configurer la gouvernance des ressources
@@ -325,7 +324,7 @@ L’application est prête lorsqu’elle est à l’état ```Ready``` : ![Prêt
 Ouvrez un navigateur et accédez à http://containercluster.westus2.cloudapp.azure.com:8081. Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
-Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Les [clusters d’essai](https://try.servicefabric.azure.com/) sont automatiquement supprimés après quelques heures.
+Vous continuez à être facturé tant que le cluster est en cours d’exécution. Pensez à [supprimer votre cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  Les [clusters d’essai](https://try.servicefabric.azure.com/) sont automatiquement supprimés après quelques heures.
 
 Une fois l’image publiée dans le registre de conteneurs, vous pouvez supprimer l’image locale de votre ordinateur de développement :
 

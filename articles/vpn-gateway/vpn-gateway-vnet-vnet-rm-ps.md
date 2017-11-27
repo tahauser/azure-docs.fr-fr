@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
@@ -59,13 +59,17 @@ Pour plus d’informations sur les connexions de réseau virtuel à réseau virt
 
 ## <a name="which-set-of-steps-should-i-use"></a>Quelle procédure dois-je utiliser ?
 
-Cet article inclut deux ensembles d’étapes distincts. L’un des ensembles est destiné aux [réseaux virtuels qui se trouvent dans le même abonnement](#samesub), et l’autre aux [réseaux virtuels qui se trouvent dans des abonnements différents](#difsub). La principale différence réside dans le fait que vous puissiez ou non créer et configurer toutes les ressources de passerelle et de réseau virtuel au sein de la même session PowerShell.
-
-Les étapes de cet article utilisent les variables déclarées au début de chaque section. Si vous travaillez déjà avec des réseaux virtuels existants, modifiez les variables pour les adapter aux paramètres de votre propre environnement. Si vous souhaitez une résolution de noms pour vos réseaux virtuels, consultez la page [Résolution de noms](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Connexion de réseaux virtuels situés dans le même abonnement
+Cet article inclut deux ensembles d’étapes distincts. L’un d’eux est destiné aux [réseaux virtuels qui se trouvent dans le même abonnement](#samesub). Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet4.
 
 ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Il existe un article distinct pour les [réseaux virtuels qui se trouvent dans des abonnements différents](#difsub). Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet5.
+
+![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+La principale différence réside dans le fait que vous puissiez ou non créer et configurer toutes les ressources de passerelle et de réseau virtuel au sein de la même session PowerShell. Vous devez utiliser des sessions PowerShell distinctes quand vous configurez les connexions pour des réseaux virtuels qui se trouvent dans des abonnements différents. Vous pouvez combiner des configurations si vous le souhaitez ou choisir simplement celle que vous voulez utiliser.
+
+## <a name="samesub"></a>Connexion de réseaux virtuels situés dans le même abonnement
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
@@ -90,7 +94,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * Adresse IP publique : VNet1GWIP
 * Type de VPN : RouteBased
 * Connection(1to4) : VNet1toVNet4
-* Connection(1to5) : VNet1toVNet5
+* Connection(1to5) : VNet1toVNet5 (pour les réseaux virtuels se trouvant dans des abonnements différents)
 * Type de connexion : VNet2VNet
 
 **Valeurs pour TestVNet4 :**
@@ -279,8 +283,6 @@ Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étape
 4. Vérifiez votre connexion. Consultez la section [Vérification de votre connexion](#verify).
 
 ## <a name="difsub"></a>Connexion de réseaux virtuels situés dans différents abonnements
-
-![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 Dans ce scénario, nous connectons TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. Les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. La différence entre ce processus et le précédent réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement. notamment lorsque les deux abonnements appartiennent à différentes organisations.
 

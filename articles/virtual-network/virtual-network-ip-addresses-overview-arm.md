@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/16/2017
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types :
 
 * **Adresses IP publiques** : Elles sont utilisées pour la communication avec Internet, notamment les services Azure accessibles au public.
-* **Adresses IP privées**: elles sont utilisées pour la communication au sein d’un réseau virtuel Azure (VNet) et de votre réseau local lorsque vous utilisez une passerelle VPN ou un circuit ExpressRoute pour étendre votre réseau à Azure.
+* **Adresses IP privées** : utilisées pour la communication au sein d’un réseau virtuel Azure (VNet) et de votre réseau local quand vous faites appel à une passerelle VPN ou à un circuit ExpressRoute pour étendre votre réseau à Azure.
 
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du [modèle de déploiement classique](virtual-network-ip-addresses-overview-classic.md).
@@ -36,7 +36,7 @@ Si vous êtes familiarisé avec le modèle de déploiement classique, vérifiez 
 
 ## <a name="public-ip-addresses"></a>Adresses IP publiques
 
-Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et des services Azure accessibles au public, tels que le [Cache Redis Azure](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), les [bases de données SQL](../sql-database/sql-database-technical-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Azure Storage](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Les adresses IP publiques permettent aux ressources Internet de communiquer avec les ressources Azure (communication entrante). Les adresses IP publiques permettent également aux ressources Azure de communiquer avec Internet et les services Azure publics (communication sortante) quand une adresse IP est attribuée à la ressource. L’adresse est dédiée à la ressource jusqu’à ce que vous annuliez son attribution. Si aucune adresse IP publique n’est attribuée à une ressource, la ressource peut toujours communiquer avec Internet (communication sortante), mais Azure attribue dynamiquement une adresse IP disponible qui n’est pas dédiée à la ressource. Pour plus d’informations sur les connexions sortantes dans Azure, consultez [Comprendre les connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Dans Azure Resource Manager, une [adresse IP publique](virtual-network-public-ip-address.md) est une ressource ayant ses propres propriétés. Voici quelques unes des ressources auxquelles vous pouvez associer une ressource d’adresse IP publique :
 
@@ -98,7 +98,7 @@ Des adresses IP publiques statiques sont fréquemment utilisées dans les cas su
 >
 
 ### <a name="dns-hostname-resolution"></a>Résolution de nom d’hôte DNS
-Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource IP publique, qui crée un mappage pour l’élément *domainnamelabel*.*location*.cloudapp.azure.com vers l’adresse IP publique dans les serveurs DNS gérés par Azure. Par exemple, si vous créez une ressource IP publique avec **contoso** en tant que *domainnamelabel* dans **l’emplacement** Azure *États-Unis de l’Ouest*, le nom de domaine complet (FQDN) **contoso.westus.cloudapp.azure.com** résout l’adresse IP publique de la ressource. Vous pouvez utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure.
+Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource IP publique, qui crée un mappage pour l’élément *domainnamelabel*.*location*.cloudapp.azure.com vers l’adresse IP publique dans les serveurs DNS gérés par Azure. Par exemple, si vous créez une ressource IP publique avec **contoso** en tant que *domainnamelabel* dans **l’emplacement** Azure *États-Unis de l’Ouest*, le nom de domaine complet (FQDN) **contoso.westus.cloudapp.azure.com** est associé à l’adresse IP publique de la ressource. Vous pouvez utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure. À la place ou en plus de l’étiquette de nom DNS avec le suffixe par défaut, vous pouvez utiliser le service Azure DNS pour configurer un nom DNS avec un suffixe personnalisé qui se résout en adresse IP publique. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
 
 > [!IMPORTANT]
 > Chaque étiquette de nom de domaine créée doit être unique dans son emplacement Azure.  
@@ -145,10 +145,12 @@ Les adresses IP privées sont créées avec une adresse IPv4 et IPv6. Les adress
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 
-Une adresse IP privée est allouée à partir de la plage d’adresses du sous-réseau de la machine virtuelle dans lequel la ressource est déployée. Il existe deux méthodes d’allocation d’adresses IP :
+Une adresse IP privée est allouée à partir de la plage d’adresses du sous-réseau de la machine virtuelle dans lequel la ressource est déployée. Azure réserve les quatre premières adresses de la plage d’adresses de chaque sous-réseau, qui ne peuvent donc pas être attribuées à des ressources. Par exemple, si la plage d’adresses du sous-réseau est 10.0.0.0/16, les adresses 10.0.0.0 à 10.0.0.3 ne peuvent pas être attribuées à des ressources. Les adresses IP de la plage d’adresses du sous-réseau peuvent uniquement être attribuées à une ressource à la fois. 
 
-- **Dynamique**: Azure réserve les quatre premières adresses dans chaque plage d’adresses de sous-réseau sans les assigner. Azure assigne la prochaine adresse disponible à une ressource de la plage d’adresses du sous-réseau. Par exemple, si la plage d’adresses du sous-réseau est 10.0.0.0/16, et que les adresses 10.0.0.0.4 à 10.0.0.14 (celles de .0 à .3 sont réservées), Azure assigne alors l’adresse 10.0.0.15 à la ressource. La méthode d’allocation par défaut est dynamique. Une fois assignées, les adresses IP dynamiques ne sont libérées que si l’interface réseau est supprimée, assignée à un sous-réseau différent au sein du même réseau virtuel ou bien si la méthode d’allocation devient statique et qu’une adresse IP différente est spécifiée. Par défaut, Azure assigne l’adresse dynamique assignée précédente à l’adresse statique lorsque vous modifiez la méthode d’allocation.
-- **Statique** : Vous sélectionnez et assignez une adresse de la plage d’adresses du sous-réseau. L’adresse que vous assignez peut correspondre à n’importe quelle adresse qui se trouve au sein de la plage d’adresses de sous-réseau n’étant pas une de ses quatre premières adresses, et qui n’est pas déjà assignée à une autre ressource du sous-réseau. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous changez la méthode d’allocation en statique, Azure assigne l’adresse IP statique précédemment assignée en tant qu’adresse dynamique, même si ce n’est pas la prochaine adresse disponible dans la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
+Il existe deux méthodes d’allocation d’adresses IP :
+
+- **Dynamique** : Azure attribue la première adresse IP non attribuée ou non réservée de la plage d’adresses du sous-réseau. Par exemple, Azure attribue l’adresse 10.0.0.10 à une nouvelle ressource si les adresses 10.0.0.4 à 10.0.0.9 sont déjà attribuées à d’autres ressources. La méthode d’allocation par défaut est dynamique. Une fois assignées, les adresses IP dynamiques ne sont libérées que si l’interface réseau est supprimée, assignée à un sous-réseau différent au sein du même réseau virtuel ou bien si la méthode d’allocation devient statique et qu’une adresse IP différente est spécifiée. Par défaut, Azure définit l’adresse statique sur l’adresse dynamique attribuée précédemment quand vous sélectionnez la méthode d’allocation statique à la place de la méthode dynamique.
+- **Statique** : vous sélectionnez et attribuez n’importe quelle adresse IP non attribuée ou non réservée de la plage d’adresses du sous-réseau. Par exemple, si la plage d’adresses d’un sous-réseau est 10.0.0.0/16 et que les adresses 10.0.0.4 à 10.0.0.9 sont déjà attribuées à d’autres ressources, vous pouvez attribuer n’importe quelle adresse de la plage 10.0.0.10 - 10.0.255.254. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous sélectionnez la méthode d’allocation statique à la place de la méthode dynamique, Azure définit l’adresse dynamique sur l’adresse IP statique précédemment attribuée, même si celle-ci n’est pas la première adresse disponible de la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 
@@ -164,7 +166,7 @@ Les machines virtuelles configurées avec des serveurs DNS gérés par Azure peu
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Équilibreurs de charge internes (ILB) et passerelles d’application
 
-Vous pouvez affecter une adresse IP privée à la configuration **frontale** d’un [équilibreur de charge interne Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) ou d’une [passerelle d’application Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cette adresse IP privée sert de point de terminaison interne, accessible uniquement aux ressources de son réseau virtuel, et de réseaux distants connectés au réseau virtuel. Vous pouvez affecter une adresse IP privée statique ou dynamique à la configuration frontale.
+Vous pouvez attribuer une adresse IP privée à la configuration **frontale** d’un [équilibreur de charge interne Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) ou d’une [passerelle Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cette adresse IP privée sert de point de terminaison interne, accessible uniquement aux ressources de son réseau virtuel, et de réseaux distants connectés au réseau virtuel. Vous pouvez affecter une adresse IP privée statique ou dynamique à la configuration frontale.
 
 ### <a name="at-a-glance"></a>Aperçu
 Le tableau ci-dessous présente la propriété spécifique par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles (dynamique ou statique) utilisables.
