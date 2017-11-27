@@ -19,7 +19,7 @@
       href: tutorial-review-usage.md
     - name: 2 - Contrôler l'accès aux données
       href: tutorial-user-access.md
-    - name: 3 - Prévoir les dépenses
+    - name: 3 - prévoir les dépenses
       href: tutorial-forecast-spending.md
     - name: 4 - Gérer les coûts
       href: tutorial-manage-costs.md
@@ -32,6 +32,6 @@
     - name: Tarification
       href: 'https://azure.microsoft.com/pricing/details/cost-management'
     - name: Disponibilité régionale
-      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'
+      href: 'https://azure.microsoft.com/en-us/regions/services/'
     - name: Forum Aux Questions
       href: cost-mgt-faq.md
