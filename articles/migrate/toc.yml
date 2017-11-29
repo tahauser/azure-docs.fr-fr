@@ -1,0 +1,40 @@
+- name: Documentation Azure Migrate
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: À propos d’Azure Migrate
+      href: migrate-overview.md
+- name: Didacticiels
+  items:
+    - name: Découvrir et évaluer des machines virtuelles VMware
+      href: tutorial-assessment-vmware.md
+- name: Concepts
+  items:
+    - name: Calculs d’évaluation
+      href: concepts-assessment-calculation.md
+    - name: Visualisation de dépendance
+      href: concepts-dependency-visualization.md
+- name: Procédures
+  items:
+    - name: Découvrir et évaluer un environnement de grande taille
+      href: how-to-scale-assessment.md
+    - name: Regrouper des machines
+      href: how-to-create-a-group.md
+    - name: Regrouper des machines à l’aide de dépendances de machines
+      href: how-to-create-group-machine-dependencies.md
+    - name: Regrouper des machines à l’aide du balisage VMware
+      href: how-to-tag-v-center.md
+    - name: Affiner un groupe à l’aide de dépendances de groupes
+      href: how-to-create-group-dependencies.md
+    - name: Personnaliser une évaluation
+      href: how-to-modify-assessment.md
+    - name: Migrer des machines après évaluation
+      href: how-to-get-migration-tool.md
+    - name: Résoudre les problèmes d’Azure Migrate
+      href: troubleshooting-general.md
+- name: Ressources
+  items:
+    - name: Azure Migrate
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'

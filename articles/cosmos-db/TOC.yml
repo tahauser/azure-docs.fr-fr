@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Partitionnement
       href: partition-data.md
+    - name: Clés uniques
+      href: unique-keys.md
     - name: Cohérence
       href: consistency-levels.md
     - name: Débit

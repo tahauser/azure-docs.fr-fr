@@ -20,7 +20,7 @@
 
 ## Créer des travaux
 ### [Créer des entrées](stream-analytics-define-inputs.md)
-### [Exemples de données d’entrée](stream-analytics-sample-data-input.md)
+### [Tester les requêtes et exemples de données d’entrée](stream-analytics-sample-data-input.md)
 ### [Modèles de requête courants](stream-analytics-stream-analytics-query-patterns.md)
 ### [Fonctions Windows](stream-analytics-window-functions.md)
 

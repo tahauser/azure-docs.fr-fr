@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Démarrages rapides
   items:
-    - name: Déployer sur le routeur edge - Windows
-      href: quickstart.md
     - name: Déployer sur le routeur edge - Linux
       href: quickstart-linux.md
+    - name: Déployer sur le routeur edge - Windows
+      href: quickstart.md
 - name: Didacticiels
   items:
-    - name: Simuler un appareil Edge - Windows
-      href: tutorial-simulate-device-windows.md
     - name: Simuler un appareil Edge - Linux
       href: tutorial-simulate-device-linux.md
+    - name: Simuler un appareil Edge - Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Développer un module C#'
       href: tutorial-csharp-module.md
     - name: Déployer Azure Stream Analytics
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Procédures
   items:
-    - name: Créer un appareil de passerelle
-      href: how-to-create-gateway-device.md
+    - name: Créer une passerelle transparente
+      href: how-to-create-transparent-gateway.md
     - name: Déployer et surveiller à l’échelle
       href: how-to-deploy-monitor.md
     - name: Provisionner un appareil IoT Core
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Déploiements
       href: module-deployment-monitoring.md
+    - name: Appareil IoT Edge en tant que passerelle
+      href: iot-edge-as-gateway.md
     - name: Sécurité
       href: security.md
 - name: Ressources
