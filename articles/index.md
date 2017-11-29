@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 featureFlags: clicktale
-ms.openlocfilehash: 33fa9122eff29b15943c47b0c690cd3fe8244550
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 3ba89d9e704eaacf78c5c6a18c9ed5de01f9785b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4154,10 +4154,10 @@ Interface de ligne de commande Azure </h3>
                                                     <a href="https://www.visualstudio.com/vs/python">Outils Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Prise en main de Visual Studio</a>
+                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Prise en main de Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Prise en main de Visual Studio Code</a>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Prise en main de Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>

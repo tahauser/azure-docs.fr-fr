@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentation de la préversion d’Azure Databricks
 metadata:
   title: Documentation Azure Databricks- Didacticiels | Microsoft Docs
-  description: Apprenez à utiliser Azure Databricks à l’aide du guide de démarrage rapide et d’autres liens fournis ici. Azure Databricks est une plateforme d’analyse basée sur Apache Spark et optimisée pour la plateforme de services cloud Microsoft Azure.
+  description: Apprenez à utiliser Azure Databricks à l’aide du guide de démarrage rapide et d’autres liens fournis ici. Azure Databricks est une plateforme d’analytique basée sur Apache Spark et optimisée pour la plateforme de services cloud Microsoft Azure.
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: 'Apprenez à utiliser Azure Databricks à l’aide du guide de démarrage rapide et d’autres liens fournis ici. Azure Databricks est une plateforme d’analyse basée sur Apache Spark et optimisée pour la plateforme de services cloud Microsoft Azure. Conçu avec les créateurs d’Apache Spark, Databricks est intégré dans Azure pour offrir une configuration en un clic, des workflows simplifiés et un espace de travail interactif permettant aux scientifiques des données, ingénieurs des données et aux analystes d’entreprise de collaborer.'
+  description: 'Apprenez à utiliser Azure Databricks à l’aide du guide de démarrage rapide et d’autres liens fournis ici. Azure Databricks est une plateforme d’analytique basée sur Apache Spark et optimisée pour la plateforme de services cloud Microsoft Azure. Conçu avec les créateurs d’Apache Spark, Databricks est intégré dans Azure pour offrir une configuration en un clic, des workflows simplifiés et un espace de travail interactif permettant aux scientifiques des données, aux ingénieurs des données et aux analystes métier de collaborer.'
 sections:
   - title: "Démarrages en 5\_minutes"
     items:
@@ -35,8 +35,8 @@ sections:
         style: ordered
         items:
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Prise en main d’Azure Databricks</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Importer des données à partir du Stockage Azure</a>'
-          - hmtl: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>'
+          - html: '<a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Importer des données à partir du Stockage Azure</a>'
+          - hmtl: '<a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Utiliser des blocs-notes</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Exécuter les travaux Spark</a>'
           - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Utiliser des sources de données Spark</a>'

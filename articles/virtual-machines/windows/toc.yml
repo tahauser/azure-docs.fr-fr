@@ -77,7 +77,7 @@
         - name: Calcul haute performance
           href: sizes-hpc.md
         - name: Unités de calcul Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Maintenance et mises à jour
       href: maintenance-and-updates.md
     - name: Stockage sur disque

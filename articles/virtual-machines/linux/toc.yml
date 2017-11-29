@@ -83,7 +83,7 @@
         - name: Calcul haute performance
           href: sizes-hpc.md
         - name: Unités de calcul Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Distributions approuvées
       href: endorsed-distros.md
     - name: Maintenance et mises à jour
