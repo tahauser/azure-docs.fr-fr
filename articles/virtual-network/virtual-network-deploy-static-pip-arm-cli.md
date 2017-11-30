@@ -1,10 +1,10 @@
 ---
-title: "Créer une machine virtuelle avec une adresse IP publique statique - Azure CLI 2.0 | Microsoft Docs"
-description: "Apprenez à créer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface Azure CLI 2.0."
+title: "Créer une machine virtuelle avec une adresse IP publique statique - Azure CLI | Microsoft Docs"
+description: "Apprenez à créer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface de ligne de commande Azure (CLI)."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide de l’interface Azure CLI 2.0
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide d’Azure CLI
 
 > [!div class="op_single_selector"]
-> * [portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Modèle](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Azure dispose de deux modèles de déploiement différents pour créer et utilis
 
 ## <a name = "create"></a>Créer la machine virtuelle
 
-Vous pouvez effectuer cette tâche à l’aide d’Azure CLI 2.0 (cet article) ou d’[Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). Les valeurs des variables comprises entre symboles "" dans les étapes suivantes créent des ressources avec ces paramètres à partir du scénario. Modifiez les valeurs, le cas échéant, en fonction de votre environnement.
+Les valeurs des variables comprises entre symboles "" dans les étapes suivantes créent des ressources avec ces paramètres à partir du scénario. Modifiez les valeurs, le cas échéant, en fonction de votre environnement.
 
 1. Installez [Azure CLI 2.0](/cli/azure/install-az-cli2) si vous ne l’avez pas encore fait.
 2. Créez une paire de clés SSH publique et privée pour les machines virtuelles Linux en effectuant les étapes décrites dans l’article [Créer une paire de clés publique et privée SSH pour les machines virtuelles Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

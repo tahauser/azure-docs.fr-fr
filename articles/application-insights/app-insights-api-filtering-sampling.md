@@ -1,6 +1,6 @@
 ---
-title: "Filtrage et prétraitement dans le kit SDK Azure Application Insights | Microsoft Docs"
-description: "Écrivez des processeurs de télémétrie et des initialiseurs de télémétrie que le kit SDK doit filtrer ou ajoutez des propriétés aux données avant que la télémétrie ne soit envoyée au portail Application Insights."
+title: "Filtrage et prétraitement dans le Kit de développement logiciel (SDK) Azure Application Insights | Microsoft Docs"
+description: "Écrivez des processeurs de télémétrie et des initialiseurs de télémétrie que le Kit de développement logiciel (SDK) doit filtrer ou ajoutez des propriétés aux données avant que la télémétrie ne soit envoyée au portail Application Insights."
 services: application-insights
 documentationcenter: 
 author: beckylino
@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 5f4db2e79575202d3d9fa1601fb182c7a0881338
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
 
-Vous pouvez écrire et configurer des plug-ins pour le kit SDK Application Insights afin de personnaliser la capture et le traitement des données de télémétrie avant leur envoi au service Application Insights.
+Vous pouvez écrire et configurer des plug-ins pour le Kit de développement logiciel (SDK) Application Insights afin de personnaliser la capture et le traitement des données de télémétrie avant leur envoi au service Application Insights.
 
 * [échantillonnage](app-insights-sampling.md) réduit le volume des données de télémétrie sans affecter les statistiques. Il maintient ensemble les points de données liés de sorte que vous pouvez naviguer entre eux pour diagnostiquer un problème. Dans le portail, les nombres totaux sont multipliés pour compenser l'échantillonnage.
 * Le filtrage avec des processeurs de télémétrie [pour ASP.NET](#filtering) ou [Java](app-insights-java-filter-telemetry.md) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant l’envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Mais le filtrage est une approche plus simple que l’échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affecte vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
@@ -135,6 +135,17 @@ Vous pouvez transférer des valeurs de chaîne depuis le fichier .config en four
 ```
 
 Les clients de télémétrie créés après ce point utiliseront vos processeurs.
+
+Le code suivant montre comment ajouter un initialiseur de télémétrie dans ASP.NET Core.
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var initializer = new SuccessfulDependencyFilter();
+    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+    configuration.TelemetryInitializers.Add(initializer);
+}
+```
 
 ### <a name="example-filters"></a>Exemples de filtres
 #### <a name="synthetic-requests"></a>Demandes synthétiques
@@ -343,10 +354,10 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 * [Présentation de l’API](app-insights-api-custom-events-metrics.md)
 * [Référence ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 
-## <a name="sdk-code"></a>Code SDK
-* [SDK ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+## <a name="sdk-code"></a>Code du Kit de développement logiciel (SDK)
+* [Kit de développement logiciel (SDK) principal ASP.NET](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [SDK ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
+* [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Étapes suivantes
 * [Recherche d’événements et de journaux](app-insights-diagnostic-search.md)

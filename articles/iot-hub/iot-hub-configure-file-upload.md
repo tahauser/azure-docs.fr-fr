@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d875947297be5d47362369b96bc6ab0d90b3c93
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurer les chargements de fichiers IoT Hub à l’aide du portail Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="file-upload"></a>Chargement de fichiers
 
-Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub][lnk-upload], vous devez d’abord associer un compte de stockage Azure à votre concentrateur. Sélectionnez **Chargement de fichier** pour afficher une liste de propriétés de chargement de fichiers pour l’IoT Hub en cours de modification.
+Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub][lnk-upload], vous devez d’abord associer un compte de stockage Azure à votre hub. Sélectionnez **Chargement de fichier** pour afficher une liste de propriétés de chargement de fichiers pour l’IoT Hub en cours de modification.
 
 ![Afficher les paramètres de chargement de fichier IoT Hub dans le portail][13]
 
@@ -57,7 +57,7 @@ Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur IoT Hub][lnk-devguide]
-* [Simulation d’un appareil avec IoT Edge][lnk-iotedge]
+* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
 * [Sécuriser votre solution IoT de bout en bout][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
@@ -71,5 +71,5 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md

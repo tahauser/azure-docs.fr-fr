@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Didacticiel : Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite
 La solution préconfigurée de surveillance à distance [Microsoft Azure IoT Suite][lnk-internetofthings] est un excellent moyen de commencer rapidement avec un ensemble de fonctionnalités de bout en bout illustrant une solution IoT. Ce didacticiel vous familiarise avec l’ajout de Logic App à votre solution préconfigurée de surveillance à distance Microsoft Azure IoT Suite. Ces étapes montrent comment tirer davantage parti de votre solution IoT en la connectant à un processus d’entreprise.
@@ -33,7 +33,7 @@ Avant de commencer ce didacticiel, vous devez :
 
 Pour suivre ce didacticiel, vous avez besoin de Visual Studio 2015 ou Visual Studio 2017 pour modifier les actions dans le serveur principal de la solution préconfigurée.
 
-En supposant que vous avez déjà approvisionné votre solution préconfigurée de surveillance à distance, accédez au groupe de ressources de cette solution dans le [portail Azure][lnk-azureportal]. Le groupe de ressources a le même nom que celui de la solution choisi lorsque vous avez configuré votre solution de surveillance à distance. Dans le groupe de ressources, vous pouvez voir toutes les ressources Azure approvisionnées pour votre solution (à l’exception de l’application Azure Active Directory que vous pouvez trouver dans le portail Azure Classic). La capture d’écran suivante montre un exemple de panneau **Groupe de ressources** pour une solution préconfigurée de surveillance à distance :
+En supposant que vous avez déjà approvisionné votre solution préconfigurée de surveillance à distance, accédez au groupe de ressources de cette solution dans le [portail Azure][lnk-azureportal]. Le groupe de ressources a le même nom que celui de la solution choisi lorsque vous avez configuré votre solution de surveillance à distance. Dans le groupe de ressources, vous pouvez voir toutes les ressources Azure approvisionnées pour votre solution. La capture d’écran suivante montre un exemple de panneau **Groupe de ressources** pour une solution préconfigurée de surveillance à distance :
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

@@ -1,10 +1,10 @@
 ---
-title: "Création d’un réseau virtuel - Azure CLI 2.0 | Microsoft Docs"
-description: "Découvrez comment créer un réseau virtuel à l’aide de l’interface Azure CLI 2.0."
+title: "Créer un réseau virtuel - Azure CLI | Microsoft Docs"
+description: "Découvrez comment créer un réseau virtuel à l’aide d’Azure CLI."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Créer un réseau virtuel à l’aide d’Azure CLI 2.0
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Créer un réseau virtuel à l’aide d’Azure CLI
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure propose deux modèles de déploiement : Azure Resource Manager et classique. Microsoft recommande la création de ressources via le modèle de déploiement Resource Manager. Pour en savoir plus sur les différences entre deux modèles, lisez l’article [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
-Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager
-- [Azure CLI 2.0 ](#create-a-virtual-network) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
- 
-    Vous pouvez également créer un réseau virtuel via Resource Manager à l’aide d’autres outils ou créer un réseau virtuel via le modèle de déploiement classique en sélectionnant une option différente dans la liste suivante :
+Vous pouvez également créer un réseau virtuel via Resource Manager à l’aide d’autres outils ou créer un réseau virtuel via le modèle de déploiement classique en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Portail](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Pour créer un réseau virtuel à l’aide d’Azure CLI 2.0, procédez comme suit :
+Pour créer un réseau virtuel à l’aide d’Azure CLI, procédez comme suit :
 
 1. Installez et configurez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#login).
 

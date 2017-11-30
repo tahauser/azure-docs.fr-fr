@@ -1,6 +1,6 @@
 ---
-title: "Présentation des ports de haute disponibilité dans Azure | Microsoft Docs"
-description: "Découvrez comment équilibrer la charge des ports de haute disponibilité sur un équilibreur de charge interne."
+title: "Vue d’ensemble des ports haute disponibilité dans Azure | Microsoft Docs"
+description: "Découvrez plus d’informations sur l’équilibrage de charge des ports haute disponibilité sur un équilibreur de charge interne."
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -15,76 +15,75 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="high-availability-ports-overview-preview"></a>Présentation des ports de haute disponibilité (préversion)
+# <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
-Azure Load Balancer Standard permet désormais d’équilibrer la charge des flux TCP et UDP sur tous les ports simultanément lors de l’utilisation d’un équilibrage de charge interne. 
+Azure Load Balancer Standard vous permet d’équilibrer la charge des flux TCP et UDP sur tous les ports simultanément quand vous utilisez un équilibreur de charge interne. 
 
 >[!NOTE]
-> La fonctionnalité des ports haute disponibilité est proposée avec Load Balancer Standard, actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il est nécessaire de s’inscrire à la préversion standard de Load Balancer pour pouvoir utiliser les ports haute disponibilité avec des ressources Load Balancer Standard. Suivez les instructions relatives à l’inscription en plus de la [préversion standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer.
+> La fonctionnalité des ports haute disponibilité est disponible avec Load Balancer Standard, actuellement en préversion. Les niveaux de disponibilité et de fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Inscrivez-vous à la préversion standard de Load Balancer pour utiliser les ports haute disponibilité avec des ressources Load Balancer Standard. Suivez également les instructions de l’inscription à la [préversion Standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer.
 
-Une règle de Ports à haute disponibilité est une variante d’une règle d’équilibrage de charge configurée sur un équilibrage de charge Load Balancer Standard interne.  Les scénarios sont simplifiés en fournissant une seule règle d’équilibrage de charge pour équilibrer la charge de tous les flux TCP et UDP arrivant sur tous les ports d’un serveur frontal Load Balancer Standard interne. La décision d’équilibrage de charge est effectuée par flux basé sur le tuple de cinq : adresse IP source, port source, adresse IP de destination, port de destination et protocole.
+Une règle de ports haute disponibilité est une variante d’une règle d’équilibrage de charge configurée sur un équilibreur de charge standard interne. Vous pouvez simplifier l’utilisation de l’équilibreur de charge en fournissant une seule règle pour équilibrer la charge de tous les flux TCP et UDP arrivant sur tous les ports d’un équilibreur de charge standard interne. La décision d’équilibrage de charge est prise par flux. Elle est basée sur la connexion à 5 tuples suivante : adresse IP source, port source, adresse IP de destination, port de destination et protocole.
 
-Les ports à haute disponibilité permettent d’obtenir des scénarios critiques comme la haute disponibilité et la mise à l’échelle des appliances virtuelles réseau dans des réseaux virtuels, ainsi que d’autres scénarios où l’équilibrage de charge doit être effectué sur un grand nombre de ports. 
+La fonctionnalité des ports haute disponibilité est utile dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. Elle peut également servir quand un grand nombre de ports doit avoir une charge équilibrée. 
 
-Les ports à haute disponibilité sont configurés en définissant les ports du serveur frontal et principal sur **0** et le protocole sur **All** (Tous).  La ressource d’équilibrage de charge interne équilibre désormais tous les flux TCP et UDP, quel que soit le numéro de port.
+La fonctionnalité des ports haute disponibilité est configurée quand vous définissez les ports frontaux et principaux sur **0**, et le protocole sur **Tous**. La ressource d’équilibreur de charge interne équilibre alors tous les flux TCP et UDP, quel que soit le nombre de ports.
 
-## <a name="why-use-ha-ports"></a>Pourquoi utiliser des ports à haute disponibilité ?
+## <a name="why-use-ha-ports"></a>Pourquoi utiliser des ports haute disponibilité ?
 
 ### <a name="nva"></a>Appliances virtuelles réseau
 
-Vous pouvez utiliser des appliances virtuelles réseau pour sécuriser votre charge de travail Azure contre plusieurs types de menaces de sécurité. Lorsque des appliances virtuelles réseau sont utilisées dans ces scénarios, elles doivent être fiables, hautement disponibles et évolutives pour la demande.
+Vous pouvez utiliser des appliances virtuelles réseau pour sécuriser votre charge de travail Azure contre plusieurs types de menaces de sécurité. Quand des appliances virtuelles réseau sont utilisées dans ces scénarios, elles doivent être fiables, hautement disponibles et s’adapter à la demande.
 
-Vous pouvez atteindre ces objectifs dans votre scénario en ajoutant simplement des instances d’appliances virtuelles réseau au pool principal de l’équilibrage de charge interne Azure et en configurant une règle d’équilibrage de charge sur les ports à haute disponibilité.
+Vous pouvez atteindre ces objectifs en ajoutant simplement des instances d’appliances virtuelles réseau au pool principal de l’équilibreur de charge interne Azure et en configurant une règle d’équilibreur de charge pour les ports haute disponibilité.
 
-Les ports à haute disponibilité présentent plusieurs avantages pour les scénarios d’appliances virtuelles réseau à haute disponibilité :
-- basculement rapide vers des instances intègres avec des sondes d’intégrité par instance
-- meilleures performances avec la montée en puissance vers n instances actives
-- scénarios n-actif et actif-passif
-- élimination du besoin d’utiliser des solutions complexes comme les nœuds Zookeeper pour le monitoring des appliances
+Les ports haute disponibilité présentent plusieurs avantages pour les scénarios de haute disponibilité des appliances virtuelles réseau :
+- Basculement rapide sur des instances saines, avec des sondes d’intégrité par instance
+- Meilleures performances avec une montée en charge jusqu’à *n* instances actives
+- Scénarios *n*-actif et actif-passif
+- Plus besoin d’utiliser des solutions complexes comme les nœuds Apache Zookeeper pour le monitoring des appliances
 
-L’exemple suivant présente un déploiement de type « Hub and Spoke » sur un réseau virtuel, dans lequel les spokes forcent le tunneling de leur trafic vers le réseau virtuel du hub et via l’appliance virtuelle réseau, avant de quitter l’espace de confiance. Les appliances virtuelles réseau se situent derrière un Load Balancer Standard interne avec une configuration de ports à haute disponibilité.  Tout le trafic peut être traité et transféré en conséquence. 
+Le diagramme suivant présente un déploiement de réseau virtuel hub-and-spoke. Les spokes forcent le tunneling de leur trafic vers le réseau virtuel du hub et via l’appliance virtuelle réseau avant de quitter l’espace de confiance. Les appliances virtuelles réseau se trouvent derrière un équilibreur de charge standard interne avec une configuration de ports haute disponibilité. Tout le trafic peut être traité et transféré en conséquence.
 
-![exemple de ports de haute disponibilité](./media/load-balancer-ha-ports-overview/nvaha.png)
+![Diagramme d’un réseau virtuel hub-and-spoke avec des appliances virtuelles réseau déployées en mode de haute disponibilité](./media/load-balancer-ha-ports-overview/nvaha.png)
 
-Figure 1 : Réseau virtuel « Hub and Spoke » avec appliances virtuelles réseau déployées en mode haute disponibilité
-
-Si vous utilisez des appliances virtuelles réseau, renseignez-vous auprès du fournisseur respectif sur l’utilisation de ports à haute disponibilité et les scénarios pris en charge.
+>[!NOTE]
+> Si vous utilisez des appliances virtuelles réseau, renseignez-vous auprès des fournisseurs respectifs sur l’utilisation des ports haute disponibilité et les scénarios pris en charge.
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Équilibrage de charge d’un grand nombre de ports
 
-Vous pouvez également utiliser des ports à haute disponibilité pour des scénarios d’application qui nécessitent l’équilibrage de charge d’un grand nombre de ports. Ces scénarios peuvent être simplifiés à l’aide d’un [Load Balancer Standard](https://aka.ms/lbpreview) interne avec des ports à haute disponibilité où une règle d’équilibrage de charge unique remplace plusieurs règles d’équilibrage de charge individuelles, une pour chaque port.
+Vous pouvez aussi utiliser des ports haute disponibilité pour les applications qui nécessitent l’équilibrage de charge d’un grand nombre de ports. Vous pouvez simplifier ces scénarios à l’aide d’un [équilibreur de charge standard](https://aka.ms/lbpreview) interne avec des ports haute disponibilité. Une seule règle d’équilibrage de charge remplace plusieurs règles individuelles d’équilibrage de charge, une pour chaque port.
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Les ports à haute disponibilité sont disponibles dans les [mêmes régions que Load Balancer Standard](https://aka.ms/lbpreview#region-availability).  
+La fonctionnalité des ports haute disponibilité est disponible dans les [mêmes régions que Load Balancer Standard](https://aka.ms/lbpreview#region-availability).  
 
 ## <a name="preview-sign-up"></a>S’inscrire à la préversion
 
-Pour découvrir la préversion des ports à haute disponibilité associés à Load Balancer Standard, inscrivez votre abonnement et bénéficiez d’un accès via PowerShell ou Azure CLI 2.0.  Effectuez les trois étapes suivantes :
+Pour utiliser la préversion de la fonctionnalité des ports haute disponibilité dans Load Balancer Standard, inscrivez votre abonnement afin d’obtenir l’accès. Vous pouvez utiliser Azure CLI 2.0 ou PowerShell.
 
 >[!NOTE]
->Pour utiliser cette fonctionnalité, vous devez également vous inscrire à la [préversion standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer, en plus des ports haute disponibilité. L’inscription aux ports haute disponibilité et aux préversions standard de Load Balancer peut prendre jusqu’à une heure.
+>Pour utiliser cette fonctionnalité, vous devez également vous inscrire à la [préversion Standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer, en plus de la fonctionnalité des ports haute disponibilité. L’inscription peut prendre jusqu’à une heure.
 
-### <a name="sign-up-using-azure-cli-20"></a>S’inscrire à l’aide d’Azure CLI 2.0
+### <a name="sign-up-by-using-azure-cli-20"></a>S’inscrire à l’aide d’Azure CLI 2.0
 
-1. Enregistrer la fonctionnalité auprès du fournisseur
+1. Inscrire la fonctionnalité auprès du fournisseur :
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
     ```
     
-2. L’opération précédente peut prendre jusqu’à 10 minutes.  Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
+2. L’opération précédente peut prendre jusqu’à 10 minutes. Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
 
     ```cli
     az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
     ```
     
-    Passez à l’étape 3 lorsque l’état d’enregistrement de la fonction retourne « Enregistré », comme indiqué ci-dessous :
+    L’opération a réussi quand l’état d’inscription de la fonctionnalité retourne **Inscrit**, comme illustré ici :
    
     ```json
     {
@@ -97,25 +96,25 @@ Pour découvrir la préversion des ports à haute disponibilité associés à Lo
     }
     ```
     
-3. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
+3. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
-### <a name="sign-up-using-powershell"></a>S’inscrire à l’aide de PowerShell
+### <a name="sign-up-by-using-powershell"></a>S’inscrire à l’aide de PowerShell
 
-1. Enregistrer la fonctionnalité auprès du fournisseur
+1. Inscrire la fonctionnalité auprès du fournisseur :
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
     
-2. L’opération précédente peut prendre jusqu’à 10 minutes.  Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
+2. L’opération précédente peut prendre jusqu’à 10 minutes. Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
-    Passez à l’étape 3 lorsque l’état d’enregistrement de la fonction retourne « Enregistré », comme indiqué ci-dessous :
+    L’opération a réussi quand l’état d’inscription de la fonctionnalité retourne **Inscrit**, comme illustré ici :
    
     ```
     FeatureName          ProviderName      RegistrationState
@@ -123,7 +122,7 @@ Pour découvrir la préversion des ports à haute disponibilité associés à Lo
     AllowILBAllPortsRule Microsoft.Network Registered
     ```
     
-3. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
+3. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
@@ -132,19 +131,19 @@ Pour découvrir la préversion des ports à haute disponibilité associés à Lo
 
 ## <a name="limitations"></a>Limites
 
-Voici les configurations et exceptions prises en charge pour les ports de haute disponibilité :
+Voici les configurations ou exceptions prises en charge pour la fonctionnalité des ports haute disponibilité :
 
-- Une configuration d’adresse IP frontale peut consister en une seule règle d’équilibrage de charge DSR avec ports à haute disponibilité ou en une seule règle d’équilibrage de charge non DSR avec ports à haute disponibilité. Elle ne peut pas comprendre les deux à la fois.
-- Une même configuration IP d’interface réseau ne peut avoir qu’une seule règle d’équilibrage de charge non DSR avec des ports à haute disponibilité. Aucune autre règle ne peut être configurée pour cette configuration IP.
-- Une même configuration IP d’interface réseau peut comporter une ou plusieurs règles d’équilibrage de charge DSR avec ports à haute disponibilité, du moment que toutes leurs configurations IP frontend sont uniques.
-- Il est possible de faire coexister plusieurs règles d’équilibrage de charge pointant vers un même pool backend si l’ensemble des règles d’équilibrage de charge est configuré avec des ports à haute disponibilité (DSR uniquement), ou, si l’ensemble des règles est configuré sans ports à haute disponibilité (DSR et non DSR). Ces deux règles d’équilibrage de charge ne peuvent pas coexister en présence d’une combinaison de règles avec et sans ports à haute disponibilité.
-- Les ports à haute disponibilité ne sont pas disponibles avec IPv6.
-- La symétrie des flux pour les scénarios NVA est uniquement prise en charge avec une seule carte réseau. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). 
+- Une même configuration IP frontale peut avoir une seule règle d’équilibreur de charge DSR avec des ports haute disponibilité ou une seule règle d’équilibreur de charge non-DSR avec des ports haute disponibilité. Elle ne peut pas comprendre les deux à la fois.
+- Une même configuration IP d’interface réseau ne peut avoir qu’une seule règle d’équilibreur de charge non-DSR avec des ports haute disponibilité. Vous ne pouvez pas configurer d’autres règles pour cette ipconfig.
+- Une même configuration IP d’interface réseau peut avoir une ou plusieurs règles d’équilibreur de charge DSR avec des ports haute disponibilité, du moment que toutes leurs configurations IP frontales respectives sont uniques.
+- Si toutes les règles d’équilibrage de charge ont des ports haute disponibilité (DSR uniquement), deux (ou plus) règles d’équilibreur de charge pointant vers le même pool principal peuvent coexister. Cela est vrai aussi si toutes les règles n’ont pas de port haute disponibilité (DSR et non-DSR). En cas de combinaison de règles avec et sans ports haute disponibilité, toutefois, les deux règles d’équilibrage de charge ne peuvent pas coexister.
+- La fonctionnalité des ports haute disponibilité n’est pas disponible pour IPv6.
+- La symétrie des flux dans les scénarios d’appliances virtuelles réseau est uniquement prise en charge avec une seule carte réseau. Consultez la description et le diagramme des [appliances virtuelles réseau](#nva). 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer des ports à haute disponibilité sur un Load Balancer Standard interne](load-balancer-configure-ha-ports.md)
+- [Configurer des ports haute disponibilité sur un équilibreur de charge standard interne](load-balancer-configure-ha-ports.md)
 - [En savoir plus sur la préversion de Load Balancer Standard](https://aka.ms/lbpreview)
 

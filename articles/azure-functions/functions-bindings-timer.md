@@ -1,5 +1,5 @@
 ---
-title: "Déclencheur de minuteur Azure Functions| Microsoft Docs"
+title: "Déclencheur de minuteur Azure Functions"
 description: "Découvrez comment utiliser des déclencheurs de minuteur dans Azure Functions."
 services: functions
 documentationcenter: na
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Déclencheur de minuteur Azure Functions
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-Cet article explique comment configurer et coder des déclencheurs de minuteur dans Azure Functions. Azure Functions offre une liaison de déclencheur de minuteur qui vous permet d’exécuter votre code de fonction selon une planification définie. 
-
-Le déclencheur du minuteur prend en charge la montée en charge multi-instance. Une instance unique d’une fonction de minuteur spécifique est exécutée sur toutes les instances.
+Cet article explique comment utiliser des déclencheurs de minuteur dans Azure Functions. Un déclencheur de minuteur vous permet d’exécuter une fonction de manière planifiée. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>Exemple
 
-## <a name="timer-trigger"></a>Déclencheur de minuteur
-Le déclencheur de minuteur d’une fonction utilise l’objet JSON suivant dans le tableau `bindings` de function.json :
+Consultez l’exemple propre à un langage particulier :
+
+* [C# précompilé](#trigger---c-example)
+* [Script C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>Exemple en code C#
+
+L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui s’exécute toutes les cinq minutes :
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>Exemple de script C#
+
+L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée.
+
+Voici les données de liaison dans le fichier *function.json* :
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-La valeur de `schedule` est une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui contient les six champs suivants : 
+Voici le code Script C# :
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>Exemple F#
+
+L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction de script F#](functions-reference-fsharp.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée.
+
+Voici les données de liaison dans le fichier *function.json* :
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Voici le code de script F# :
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>Exemple JavaScript
+
+L’exemple suivant montre une liaison de déclencheur de minuteur dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit un journal indiquant si cet appel de fonction est dû à une occurrence de planification manquée.
+
+Voici les données de liaison dans le fichier *function.json* :
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Voici le code de script F# :
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>Attributs pour C# précompilé
+
+Pour les fonctions [C# précompilées](functions-dotnet-class-library.md), utilisez [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+Le constructeur de l’attribut prend une expression CRON, comme illustré dans l’exemple suivant :
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+Vous pouvez spécifier un `TimeSpan` au lieu d’une expression CRON si votre application de fonction s’exécute sur un plan App Service (et non un plan Consommation).
+
+## <a name="configuration"></a>Configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `TimerTrigger`.
+
+|Propriété function.json | Propriété d’attribut |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Doit avoir la valeur « timerTrigger ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
+|**direction** | n/a | Doit avoir la valeur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**name** | n/a | Nom de la variable qui représente l’objet de minuteur dans le code de la fonction. | 
+|**schedule**|**ScheduleExpression**|Sur le plan Consommation, vous pouvez définir des planifications avec une expression CRON. Si vous utilisez un plan App Service, vous pouvez également utiliser une chaîne `TimeSpan`. Les sections suivantes expliquent les expressions CRON. Vous pouvez placer l’expression de planification dans un paramètre d’application et affecter à cette propriété une valeur encapsulée dans des signes **%**, comme dans cet exemple : « %nom_de_paramètre_d’application_avec_expression_CRON% ». Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+
+### <a name="cron-format"></a>Format CRON 
+
+Une [expression CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) pour le déclencheur de minuteur Azure Functions comprend les six champs suivants : 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->De nombreuses expressions CRON disponibles en ligne omettent le champ `{second}`. Si vous effectuez une copie à partir de l’une d’entre elles, vous devez l’adapter de façon à prendre en compte le champ `{second}` supplémentaire. Pour obtenir des exemples spécifiques, consultez la section [Exemples de planification](#examples) plus bas.
+>De nombreuses expressions CRON disponibles en ligne omettent le champ `{second}`. Si vous copiez à partir de l’une d’elles, ajoutez le champ `{second}` manquant.
+
+### <a name="cron-time-zones"></a>Fuseaux horaires CRON
 
 Le fuseau horaire par défaut utilisé avec les expressions CRON est le Temps universel coordonné (UTC). Pour baser votre expression CRON sur un autre fuseau horaire, créez un nouveau paramètre d’application nommé `WEBSITE_TIME_ZONE` pour votre application de fonction. Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans l’[index des fuseaux horaires de Microsoft](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
@@ -67,12 +184,9 @@ Sinon, vous pouvez ajouter un nouveau paramètre d’application pour votre appl
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>Exemples CRON
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>Exemples de planification :
-Voici quelques exemples d’expressions CRON que vous pouvez utiliser pour la propriété `schedule`. 
+Voici quelques exemples d’expressions CRON que vous pouvez utiliser pour le déclencheur de minuteur dans Azure Functions. 
 
 Pour déclencher la fonction toutes les cinq minutes :
 
@@ -110,9 +224,8 @@ Pour déclencher la fonction à 9h30 tous les jours de la semaine :
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>Usage
 
-## <a name="trigger-usage"></a>Utilisation du déclencheur
 Lorsqu’une fonction de déclenchement du minuteur est appelée, [l’objet minuteur](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) est transmis à la fonction. Le code JSON suivant est un exemple de représentation de l’objet minuteur. 
 
 ```json
@@ -127,68 +240,14 @@ Lorsqu’une fonction de déclenchement du minuteur est appelée, [l’objet min
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>Montée en charge
 
-## <a name="trigger-sample"></a>Exemple de déclencheur
-Supposez que le tableau `bindings` de function.json contient le déclencheur de minuteur suivant :
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Consultez l’exemple, dans le langage de votre choix, où l’objet minuteur est lu pour déterminer s’il s’exécute avec du retard.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.JS](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Exemple de déclencheur en C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>Exemple de déclencheur en F# #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Exemple de déclencheur en Node.js
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+Le déclencheur du minuteur prend en charge la montée en charge multi-instance. Une instance unique d’une fonction de minuteur spécifique est exécutée sur toutes les instances.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Accéder à un guide de démarrage rapide qui utilise un déclencheur de minuteur](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2572c618f6ad27f57603d8e8a2ff04de6846c6ca
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
@@ -119,7 +119,7 @@ Pour ajouter l’échange de revendications au profil technique autodéclaré :
 
 1. Ouvrez le fichier TrustFrameworkBase.xml et recherchez `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Passez en revue la configuration de ce profil technique. Notez comment l’échange avec l’utilisateur est défini sous la forme de revendications demandées à l’utilisateur (revendications d’entrée) et de revendications attendues en retour par le fournisseur autodéclaré (revendications de sortie).
-3. Recherchez `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`. Notez que ce profil est appelé au titre de l’étape d’orchestration 6 de `<UserJourney Id="ProfileEdit">`.
+3. Recherchez `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`. Notez que ce profil est appelé au titre de l’étape d’orchestration 4 de `<UserJourney Id="ProfileEdit">`.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Étape 4 : téléchargement et test du fichier de stratégie de partie de confiance de modification de profil
 

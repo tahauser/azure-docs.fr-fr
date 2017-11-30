@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 
@@ -148,9 +148,9 @@ Logstash vous permet d’aplatir à un niveau de tuple de flux les journaux de f
     ```
 Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie. La section d’entrée désigne la source d’entrée des journaux que Logstash va traiter. Dans ce cas, nous allons utiliser un plug-in d’entrée d’objets blob Azure (installé aux étapes suivantes) qui nous permet d’accéder aux fichiers JSON de journalisation des flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+La section de filtre aplatit ensuite chaque fichier journal du flux pour que chaque tuple de flux et les propriétés qui lui sont associées deviennent un événement Logstash à part entière.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+Enfin, la section de sortie transfère chaque événement Logstash vers le serveur Graylog. N’hésitez pas à modifier le fichier de configuration Logstash pour l’adapter à vos besoins.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.

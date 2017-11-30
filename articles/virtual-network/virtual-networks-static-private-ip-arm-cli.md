@@ -1,11 +1,11 @@
 ---
-title: "Configurer des adresses IP privées pour les machines virtuelles - Azure CLI 2.0 | Microsoft Docs"
-description: "Apprenez à configurer des adresses IP privées pour les machines virtuelles à l’aide de l’interface Azure CLI 2.0."
+title: "Configurer des adresses IP privées pour les machines virtuelles - Azure CLI | Microsoft Docs"
+description: "Apprenez à configurer des adresses IP privées pour les machines virtuelles à l’aide de l’interface de ligne de commande Azure (CLI)."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide de l’interface Azure CLI 2.0
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide d’Azure CLI
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche 
-
-Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) : 
-
-- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager 
-- [Azure CLI 2.0 ](#specify-a-static-private-ip-address-when-creating-a-vm) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -43,11 +35,11 @@ Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez �
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Les exemples de commandes Azure CLI 2.0 supposent l’existence d’un environnement simple. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-arm-cli.md).
+> Les exemples de commandes Azure CLI suivants attendent un environnement simple existant. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-arm-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Spécifier une adresse IP privée statique lors de la création d’une machine virtuelle
 
-Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd* d’un réseau virtuel nommé *TestVNet* avec l’adresse IP privée statique *192.168.1.101*, procédez comme suit :
+Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd* d’un réseau virtuel nommé *TestVNet* avec l’adresse IP privée statique *192.168.1.101*, effectuez les étapes suivantes :
 
 1. Si vous ne l’avez pas encore fait, installez et configurez la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure par le biais de la commande [az login](/cli/azure/#login). 
 
@@ -131,10 +123,10 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
     Paramètres :
 
     * `--private-ip-address` : adresse IP privée statique pour la carte réseau.
-    * `--vnet-name` : nom du réseau virtuel dans lequel créer la carte réseau.
+    * `--vnet-name` : nom du réseau virtuel dans lequel créer la carte réseau.
     * `--subnet` : nom du sous-réseau virtuel dans lequel créer la carte réseau.
 
-4. Exécutez la commande [azure vm create](/cli/azure/vm/nic#create) pour créer la machine virtuelle à l’aide de l’adresse IP publique et la carte réseau créées ci-dessus. La liste affichée après le résultat présente les différents paramètres utilisés.
+4. Exécutez la commande [azure vm create](/cli/azure/vm/nic#create) pour créer la machine virtuelle à l’aide de l’adresse IP publique et la carte réseau créées précédemment. La liste affichée après le résultat présente les différents paramètres utilisés.
    
     ```azurecli
     az vm create \
@@ -169,7 +161,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Récupérer des informations d’adresse IP privée statique pour une machine virtuelle
 
-Pour visualiser l’adresse IP privée statique créée, exécutez la commande Azure CLI suivante, puis examinez les valeurs de *Private IP alloc-method* et de *Private IP address* :
+Exécutez la commande Azure CLI suivante pour examiner les valeurs de *Private IP alloc-method* et de *Private IP address* :
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -204,13 +196,13 @@ La sortie est identique à ce qui suit :
 
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Supprimer une adresse IP privée statique d’une machine virtuelle
 
-Vous ne pouvez pas supprimer une adresse IP privée statique à partir d’une carte réseau dans l’interface Azure CLI des déploiements Resource Manager. Vous devez respecter les consignes suivantes :
+Vous ne pouvez pas supprimer une adresse IP privée statique à partir d’une carte réseau dans Azure CLI pour des déploiements Resource Manager. Vous devez respecter les consignes suivantes :
 - Créer une nouvelle carte réseau qui utilise une adresse IP dynamique
 - Définir la carte réseau de la machine virtuelle sur l’instance nouvellement créée. 
 
-Pour modifier la carte réseau de la machine virtuelle utilisée dans les commandes ci-dessus, suivez la procédure ci-dessous.
+Pour modifier la carte réseau de la machine virtuelle utilisée dans les commandes précédentes, effectuez les étapes suivantes :
 
-1. Exécutez la commande **azure network nic create** afin de créer une nouvelle carte réseau à l’aide de l’allocation d’adresses IP dynamiques, avec une nouvelle adresse IP. Dans la mesure où aucune adresse IP n’est spécifiée, la méthode d’allocation est **Dynamique**.
+1. Exécutez la commande **azure network nic create** afin de créer une nouvelle carte réseau à l’aide de l’allocation d’adresses IP dynamiques, avec une nouvelle adresse IP. Étant donné qu’aucune adresse IP n’est spécifiée, la méthode d’allocation est **Dynamique**.
 
     ```azurecli
     az network nic create     \

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empaqueter et déployer des conteneurs en tant qu’application Service Fabric
 
@@ -218,7 +218,7 @@ Pour déployer l’application sur un cluster dans Azure, utilisez votre propre 
 
 Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe de Service Fabric, et chacun peut y déployer des applications tout en découvrant cette plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric). 
 
-Pour plus d’informations sur la création de votre propre cluster, voir [Créer votre premier cluster Service Fabric sur Azure](service-fabric-get-started-azure-cluster.md).
+Pour plus d’informations sur la création de votre propre cluster, consultez [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Générer et déployer l’application sur le cluster
 Vous pouvez déployer l’application sur le cluster Azure à l’aide de l’interface de ligne de commande (CLI) de Service Fabric. Si cette interface n’est pas installée sur votre machine, suivez les instructions [ici](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) pour l’installer. 

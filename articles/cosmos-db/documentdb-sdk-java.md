@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB - Kit de développement logiciel (SDK) Java DocumentDB : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -51,6 +51,13 @@ ms.lasthandoff: 10/24/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+* Amélioration des performances de la sérialisation Json.
+* Cette version du SDK nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
+
+### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
+* Changements internes concernant les bibliothèques Microsoft.
 
 ### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
 * Correction d’un problème de lecture des plages de clés de partition uniques.
@@ -174,6 +181,8 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |14 novembre 2017 |--- |
+| [1.14.0](#1.14.0) |28 octobre 2017 |--- |
 | [1.13.0](#1.13.0) |25 août 2017 |--- |
 | [1.12.0](#1.12.0) |11 juillet 2017 |--- |
 | [1.11.0](#1.11.0) |10 mai 2017 |--- |

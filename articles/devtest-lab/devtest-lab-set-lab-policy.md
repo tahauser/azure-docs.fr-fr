@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’un laboratoire dans Azure DevTest Labs
 
@@ -79,7 +79,9 @@ La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laque
 
 1. Si vous activez cette stratégie, spécifiez l’heure (et le fuseau horaire) de l’arrêt pour toutes les machines virtuelles du laboratoire actif.
 
-1. Spécifiez **Oui** ou **Non** pour l’option d’envoi de notification 15 minutes avant l’heure d’arrêt automatique spécifiée. Si vous spécifiez **Oui**, entrez un point de terminaison de l’URL de Webhook ou une adresse e-mail pour y publier ou envoyer la notification. Pour plus d’informations sur les webhooks, consultez [Créer une fonction Azure d’API ou de webhook](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Spécifiez **Oui** ou **Non** pour l’option d’envoi de notification 15 minutes avant l’heure d’arrêt automatique spécifiée. Si vous choisissez **Oui**, saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt.
+
+   Pour plus d’informations sur les webhooks, consultez [Créer une fonction Azure d’API ou de webhook](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Sélectionnez **Enregistrer**.
 

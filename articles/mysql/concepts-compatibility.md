@@ -9,12 +9,15 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 4df0dcc7d0f2bde24c1a7e12eea6fa142612a0e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
+# <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Pilotes MySQL et outils de gestion compatibles avec Azure Database pour MySQL
+Cet article décrit les pilotes et outils de gestion compatibles avec Azure Database pour MySQL.
+
 ## <a name="mysql-drivers"></a>Pilotes MySQL
 En termes de base de données MySQL, Azure Database pour MySQL utilise la version community edition la plus populaire au monde. Par conséquent, elle est compatible avec un large éventail de langages de programmation et de pilotes. L’objectif est de prendre en charge les trois versions les plus récentes de pilotes MySQL, et de poursuivre les efforts avec les auteurs de la Communauté open source, afin d’améliorer en permanence les fonctionnalités et la facilité d’utilisation des pilotes MySQL. Une liste de pilotes testés et détectés compatibles avec Azure Database pour MySQL 5.6 et 5.7 est fournie dans le tableau suivant :
 

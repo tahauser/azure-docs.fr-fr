@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f32c8cd6e32e99bc34d62435bcd1883ba957e716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19bd7ed4bab915d7918a192a046653666cfaa498
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisation des journaux de flux des groupes de sécurité réseau Azure avec Power BI
 
@@ -119,7 +119,7 @@ N’hésitez pas à personnaliser ce modèle selon vos besoins. Il existe de nom
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’article [Visualize network traffic patterns to and from your VMs using open source tools](network-watcher-using-open-source-tools.md) (Visualiser les modèles de trafic réseau vers et depuis vos machines virtuelles à l’aide d’outils open source) pour apprendre à visualiser vos journaux de flux NSG avec la pile Elastick
+Consultez l’article [Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) pour apprendre à visualiser vos journaux de flux NSG avec la pile Elastick.
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

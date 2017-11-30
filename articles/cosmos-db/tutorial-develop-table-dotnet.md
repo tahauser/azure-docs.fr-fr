@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB : développer avec l’API Table dans .NET
 
@@ -72,6 +72,10 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
 Commençons par créer un compte Azure Cosmos DB dans le portail Azure.  
+ 
+> [!IMPORTANT]  
+> Vous devez créer un nouveau compte d’API Table à utiliser avec les Kits de développement logiciel (SDK) d’API Table généralement disponibles. Les comptes d’API Table créés pendant la version préliminaire ne sont pas pris en charge par les Kits de développement logiciel (SDK) généralement disponibles. 
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -88,7 +92,7 @@ Commençons par créer un compte Azure Cosmos DB dans le portail Azure.
 2. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Ouvrez le fichier de solution dans Visual Studio. 
@@ -99,24 +103,32 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
 
-    Utilisez les boutons de copie sur le côté droit de l’écran pour copier la CHAÎNE DE CONNEXION.
+    Utilisez les boutons de copie sur le côté droit de l’écran pour copier la CHAÎNE DE CONNEXION PRINCIPALE.
 
     ![Afficher et copier la CHAÎNE DE CONNEXION dans le volet Chaîne de connexion](./media/create-table-dotnet/connection-string.png)
 
 2. Dans Visual Studio, ouvrez le fichier app.config. 
 
-3. Collez la valeur de CHAÎNE DE CONNEXION dans le fichier app.config comme valeur de CosmosDBStorageConnectionString. 
+3. Supprimez les marques de commentaire de la chaîne StorageConnectionString à la ligne 8 et commentez la chaîne StorageConnectionString à la ligne 7, étant donné que ce didacticiel n’utilise pas l’émulateur de stockage. Les lignes 7 et 8 doivent maintenant ressembler à ceci :
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > Pour utiliser cette application avec le service Stockage Table Azure, vous devez modifier la chaîne de connexion dans `app.config file`. Utilisez le nom du compte en tant que nom du compte Table et la clé en tant que clé primaire de stockage Azure. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. Collez la valeur de la CHAÎNE DE CONNEXION PRINCIPALE du portail dans la valeur StorageConnectionString à la ligne 8. Collez la chaîne entre les guillemets.
+   
+    > [!IMPORTANT]
+    > Si votre point de terminaison utilise documents.azure.com, cela signifie que vous disposez d’un compte de version préliminaire et que vous devez créer un [nouveau compte d’API Table](#create-a-database-account) à utiliser avec le Kit de développement logiciel (SDK) d’API Table généralement disponible. 
     >
 
-4. Enregistrez le fichier app.config.
+    La ligne 8 doit maintenant ressembler à :
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. Enregistrez le fichier app.config.
 
 Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
@@ -316,12 +328,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure.   
-
-1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée.  
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**. 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

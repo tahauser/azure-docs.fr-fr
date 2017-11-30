@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.openlocfilehash: b473ba03b8b700b3123f82343e59a1ed897c4189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,6 @@ Consultez [Pig](transform-data-using-hadoop-pig.md) et [Hive](transform-data-usi
             "type": "LinkedServiceReference"
         },
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
-        "jarlibs": "MyAzureStorage/jars/jar1",
         "getDebugInfo": "Failure",
         "arguments": [
           "-SampleHadoopJobArgument1"
@@ -76,7 +75,7 @@ Consultez [Pig](transform-data-using-hadoop-pig.md) et [Hive](transform-data-usi
 | className         | Nom de la classe à exécuter         | Oui      |
 | jarLinkedService  | Référence à un service lié Stockage Azure utilisé pour stocker les fichiers Jar. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non       |
 | jarFilePath       | Indiquez le chemin des fichiers Jar stockés dans le stockage Azure référencé par jarLinkedService. Le nom de fichier respecte la casse. | Oui      |
-| jarlibs           | Indiquez le chemin des fichiers de bibliothèque Jar référencés par le travail stocké dans le stockage Azure référencé par jarLinkedService. Le nom de fichier respecte la casse. | Non       |
+| jarlibs           | Le tableau de chaînes du chemin des fichiers de bibliothèque Jar référencés par le travail stocké dans le stockage Azure défini dans jarLinkedService. Le nom de fichier respecte la casse. | Non       |
 | getDebugInfo      | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par jarLinkedService. Valeurs autorisées : Aucun, Toujours ou Échec. Valeur par défaut : Aucun. | Non       |
 | arguments         | Spécifie un tableau d’arguments pour un travail Hadoop. Les arguments sont passés sous la forme d’arguments de ligne de commande à chaque tâche. | Non       |
 | defines           | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive. | Non       |

@@ -18,7 +18,7 @@
 | domaines personnalisés [Prise en charge SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |
 | Équilibrage de charge intégré | |X |X |X |X |
 | [Toujours actif](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Sauvegardes planifiées](../articles/app-service/web-sites-backup.md) | | | |Une fois par jour |Toutes les 5 minutes<sup>8</sup> |
+| [Sauvegardes planifiées](../articles/app-service/web-sites-backup.md) | | | |12 par jour |Toutes les 5 minutes<sup>8</sup> |
 | [Mise à l'échelle automatique](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |

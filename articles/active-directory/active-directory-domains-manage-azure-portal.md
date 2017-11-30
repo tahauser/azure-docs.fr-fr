@@ -4,7 +4,7 @@ description: "Concepts de gestion et procédures pour gérer un nom de domaine d
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 Un nom de domaine est une partie importante de l’identificateur de nombreuses ressources de répertoire : il fait partie du nom ou de l’adresse électronique d’un utilisateur, de l’adresse d’un groupe et parfois de l’URI ID d’application pour une application. Une ressource dans Azure Active Directory (Azure AD) peut inclure un nom de domaine déjà vérifié comme appartenant à l’annuaire qui contient la ressource. Seul un administrateur général peut effectuer des tâches de gestion de domaine dans Azure AD.
@@ -29,18 +29,18 @@ Lors de la création du répertoire, le nom de domaine initial, par exemple « c
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Azure Active Directory**.
-   
-   ![Ouvrir la gestion des utilisateurs](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Sélectionnez **Noms de domaine**.
-4. Sélectionnez le nom du domaine dont vous voulez faire le domaine principal.
+3. Sélectionnez **Noms de domaine personnalisés**.
+     
+   ![Ouvrir la gestion des utilisateurs](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
+4. Sélectionnez le nom du domaine que vous souhaitez choisir comme domaine principal.
 5. Sélectionnez la commande **Définir comme principal**. Confirmez votre choix lorsque vous y êtes invité.
    
-   ![Créer un nom de domaine principal](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![Créer un nom de domaine principal](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 Vous pouvez modifier le nom de domaine principal de votre répertoire en n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre répertoire ne changera pas les noms des utilisateurs existants.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Ajouter des noms de domaine personnalisés à Azure AD
-> Vous pouvez ajouter jusqu’à 900 noms de domaine managé. Si vous envisagez de configurer tous vos domaines pour la fédération avec l’annuaire Active Directory local, vous pouvez ajouter jusqu’à 450 noms de domaine dans chaque répertoire. Pour plus d’informations, consultez la section [Noms de domaines fédérés et gérés](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Ajouter des noms de domaine personnalisés à votre locataire Azure AD
+Vous pouvez ajouter jusqu’à 900 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec l’annuaire Active Directory local, vous pouvez ajouter jusqu’à 450 noms de domaine dans chaque répertoire. Pour plus d’informations, consultez la section [Noms de domaines fédérés et gérés](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Ajouter des sous-domaines d’un domaine personnalisé
 Si vous souhaitez ajouter un nom de domaine de troisième niveau, tel que « europe.contoso.com » à votre répertoire, vous devez tout d’abord ajouter et vérifier le domaine de second niveau, tel que contoso.com. Le sous-domaine est automatiquement vérifié par Azure AD. Pour voir que le sous-domaine que vous venez d’ajouter a été vérifié, actualisez la page dans le navigateur qui répertorie les domaines.

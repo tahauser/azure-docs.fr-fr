@@ -3,8 +3,8 @@ title: "Utilisation d’Azure DNS pour les domaines privés | Microsoft Docs"
 description: "Vue d’ensemble du service d’hébergement DNS privé sur Microsoft Azure."
 services: dns
 documentationcenter: na
-author: garbrad
-manager: 
+author: KumudD
+manager: jennoc
 editor: 
 ms.assetid: 
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2017
-ms.author: garbrad
-ms.openlocfilehash: ed47a9d850995aaf9e78bfde8b6a5fd80dc36918
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/20/2017
+ms.author: kumud
+ms.openlocfilehash: 95cf8ab2bd34e698e12452e062687219bad49eb6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Utilisation d’Azure DNS pour les domaines privés
 Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de service en une adresse IP. Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure.  En plus des domaines DNS accessibles sur Internet, Azure DNS prend désormais également en charge les domaines DNS privés en tant que fonctionnalité en préversion.  
@@ -37,16 +37,16 @@ Azure DNS fournit un service DNS fiable et sécurisé pour gérer et résoudre l
 
 * **Gestion automatique des enregistrements de noms d’hôte.** En plus d’héberger vos enregistrements DNS personnalisés, Azure gère automatiquement les enregistrements de noms d’hôte pour les machines virtuelles dans les réseaux virtuels spécifiés.  Cela vous permet d’optimiser les noms de domaine que vous utilisez sans avoir à créer de solutions DNS personnalisées ni modifier l’application.
 
-* **Résolution de noms d’hôte entre réseaux virtuels.** Contrairement aux noms d’hôte fournis par Azure, les zones DNS privées peuvent être partagées entre des réseaux virtuels.  Cette fonctionnalité simplifie les scénarios de détection de services et réseaux croisés, tels que l’homologation de réseaux virtuels.
+* **Résolution de noms d’hôte entre réseaux virtuels.** Contrairement aux noms d’hôte fournis par Azure, les zones DNS privé peuvent être partagées entre des réseaux virtuels.  Cette fonctionnalité simplifie les scénarios de détection de services et réseaux croisés, tels que l’homologation de réseaux virtuels.
 
-* **Outils familiers et expérience utilisateur.** Pour réduire la courbe d’apprentissage, cette nouvelle offre utilise les outils Azure DNS déjà bien établis (PowerShell, modèles Resource Manager, API REST), et un support sera ajouté à l’interface CLI et au portail dès que possible.
+* **Outils familiers et expérience utilisateur.** Pour réduire la courbe d’apprentissage, cette nouvelle offre utilise les outils Azure DNS déjà bien établis (PowerShell, modèles Resource Manager, API REST).
 
 * **Prise en charge DNS avec découpage d’horizon.** Azure DNS permet de créer des zones portant le même nom capables de résoudre des résultats différents au sein d’un réseau virtuel et à partir de l’Internet public.  Un scénario classique de DNS avec découpage d’horizon consiste à fournir une version dédiée d’un service pour une utilisation au sein du réseau virtuel.
 
 
 ## <a name="pricing"></a>Tarification
 
-Les zones DNS privées seront gratuites dans la préversion managée. À l’annonce de sa disponibilité générale, cette fonctionnalité utilisera un modèle tarifaire basé sur l’utilisation similaire à l’offre Azure DNS actuelle. 
+Les zones DNS privé sont gratuites dans la préversion managée. Durant sa disponibilité générale, cette fonctionnalité va utiliser un modèle tarifaire basé sur l’utilisation, similaire à l’offre Azure DNS actuelle. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -66,6 +66,15 @@ Oui.
 Oui, vous devez définir le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` sur *false*.
 
 ## <a name="language-support"></a>Support multilingue
+
+**Je souhaite utiliser des websockets dans mon application Node.js. Y a-t-il des configurations ou des paramètres spéciaux à définir ?**
+
+Oui, vous devez désactiver `perMessageDeflate` dans votre code Node.js côté serveur. Par exemple, si vous utilisez socket.io, effectuez les étapes suivantes :
+```
+var io = require('socket.io')(server,{
+  perMessageDeflate :false
+});
+```
 
 **Prenez-vous en charge les applications .NET Core non compilées ?**
 

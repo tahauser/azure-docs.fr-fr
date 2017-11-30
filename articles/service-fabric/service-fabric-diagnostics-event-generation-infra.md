@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Événement au niveau de la plateforme et génération de journal
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Il est important d’effectuer une surveillance au niveau de la plateforme pour déterminer si votre matériel et votre cluster se comportent comme prévu. Même si Service Fabric peut garantir l’exécution continue d’une application pendant les pannes de matériel, vous devez toujours déterminer si une erreur se produit dans l’application ou dans l’infrastructure sous-jacente. Vous devez surveiller également vos clusters pour mieux planifier la capacité et aider à prendre les décisions concernant l’ajout ou la suppression de matériel.
 
-Service Fabric fournit cinq canaux de journaux différents prêts à l’emploi, qui génèrent les événements suivants :
-
-* Canal opérationnel : opérations de haut niveau effectuées par Service Fabric et le cluster. Cela comprend les événements pour un nœud mis en ligne, une nouvelle application déployée, l’annulation d’une mise à niveau de SF, etc.
+Service Fabric fournit les canaux de journal suivants prêts à l’emploi :
+* Canal opérationnel : opérations de haut niveau effectuées par Service Fabric et le cluster. Cela comprend les événements pour un nœud mis en ligne, une nouvelle application déployée, l’annulation d’une mise à niveau, etc.
 * Canal opérationnel - détaillé : rapports d’intégrité et décisions d’équilibrage de charge
-* Canal de données et de messagerie : événements et journaux critiques générés dans notre messagerie (pour le moment le proxy inverse uniquement) et chemin de données (modèles de services fiables)
+* Canal de données et de messagerie : événements et journaux critiques générés dans la messagerie (pour le moment le proxy inverse uniquement) et chemin de données (modèles de services fiables)
 * Canal de données et de messagerie - détaillée : canal détaillé qui contient tous les journaux non critiques à partir de données et de messagerie dans le cluster (ce canal a un volume très élevé d’événements)   
+
+En plus de ceux-ci, deux canaux EventSource structurés sont fournis, ainsi que des journaux que nous collectons à des fins de support.
 * [Événements Reliable Services](service-fabric-reliable-services-diagnostics.md) : événements spécifiques au modèle de programmation
 * [Événements Reliable Actors](service-fabric-reliable-actors-diagnostics.md) : compteurs de performances et événements spécifiques au modèle de programmation
 * Journaux de support : journaux générés par Service Fabric uniquement pour être utilisés de notre côté lorsque nous vous fournissons le support technique

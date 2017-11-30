@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Windows
 Les scores de test d’évaluation SPECInt suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Windows Server. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -65,7 +65,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_H16mr |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |7 |569,6 |2.8 |
 
 ## <a name="about-specint"></a>À propos de SPECint
-Les chiffres Windows ont été calculés en exécutant [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) sur Windows Server. SPECint a été exécuté à l’aide de l’option de taux de base (SPECint_rate2006), avec une copie par cœur. SPECint se compose de 12 tests distincts, chacun exécuté trois fois, en prenant la valeur médiane de chaque test et en les pondérant pour former un score composite. Ces tests ont été exécutés sur plusieurs machines virtuelles pour fournir les scores moyens indiqués.
+Les chiffres Windows ont été calculés en exécutant [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) sur Windows Server. SPECint a été exécuté à l’aide de l’option de taux de base (SPECint_rate2006), avec une copie par processeur virtuel. SPECint se compose de 12 tests distincts, chacun exécuté trois fois, en prenant la valeur médiane de chaque test et en les pondérant pour former un score composite. Ces tests ont été exécutés sur plusieurs machines virtuelles pour fournir les scores moyens indiqués.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les capacités de stockage, les détails du disque et d’autres considérations relatives au choix d’une taille de machine virtuelle, consultez [Tailles des machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

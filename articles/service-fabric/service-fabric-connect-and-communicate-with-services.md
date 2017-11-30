@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Se connecter aux services et communiquer avec eux dans Service Fabric.
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.
@@ -63,7 +63,7 @@ Comme le montre l’illustration suivante, le service DNS (exécuté dans le cl
 Pour plus d’informations sur l’utilisation du service DNS, consultez l’article [Service DNS dans Azure Service Fabric](service-fabric-dnsservice.md).
 
 ### <a name="reverse-proxy-service"></a>Service de proxy inverse
-Le proxy inverse traite les services dans le cluster qui expose des points de terminaison HTTP, y compris HTTPS. Le proxy inverse simplifie l’appel d’autres services et de leurs méthodes grâce à un format URI spécifique, et gère les étapes de résolution, de connexion et de reconnexion indispensable pour permettre à un service de communiquer avec un autre à l’aide du service d’affectation de noms. En d’autres termes, il masque le service d’affectation de noms lors de l’appel d’autres services de sorte que la procédure est aussi simple que l’appel d’une URL.
+Le proxy inverse traite les services dans le cluster qui expose des points de terminaison HTTP, y compris HTTPS. Le proxy inverse simplifie l’appel d’autres services et de leurs méthodes grâce à un format URI spécifique, et gère les étapes de résolution, de connexion et de reconnexion indispensables pour permettre à un service de communiquer avec un autre à l’aide du service de nommage. En d’autres termes, il masque le service d’affectation de noms lors de l’appel d’autres services de sorte que la procédure est aussi simple que l’appel d’une URL.
 
 ![points de terminaison de service][10]
 

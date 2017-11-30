@@ -3,41 +3,76 @@ title: "Séries de références (SKU) non disponibles | Microsoft Docs"
 description: "Certaines séries de références (SKU) ne sont pas disponibles pour l’abonnement sélectionné pour cette région."
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>Séries de références (SKU) non disponibles
-Dans certaines régions, certaines références (SKU) ne sont pas automatiquement disponibles pour les nouveaux abonnements.  Cela peut se produire lorsque [de meilleures références sont commercialisées dans une région](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) et que les anciennes références sont moins demandées.
-Le message «*Some SKU series are unavailable for the selected subscription for this region »*(Certaines séries de références ne sont pas disponibles pour l’abonnement sélectionné pour cette région) s’affiche lors de la création d’une demande de support pour augmenter le quota de cœurs de calcul.
+# <a name="region-or-sku-unavailable"></a>Région ou référence (SKU) non disponible
+Cet article décrit comment résoudre le problème quand un abonnement Azure n’a pas accès à une région ou à un SKU de machine virtuelle.
 
-Vous pouvez consulter la disponibilité des références sur la page [Services Azure par région](https://azure.microsoft.com/regions/#services) . 
+## <a name="symptoms"></a>Symptômes
 
-Pour avoir accès à une référence non disponible depuis votre abonnement, créez une demande de support « Gestion de l’abonnement ».
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Quand vous déployez une machine virtuelle, vous recevez l’un des messages d’erreur suivants :
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* Sur la page Paramètres de base, sélectionnez le type de problème « Gestion de l’abonnement » et cliquez sur « Suivant ».
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Quand vous achetez des instances de machine virtuelle réservées, vous recevez l’un des messages d’erreur suivants :
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>Quand vous créez une demande de support pour augmenter le quota de cœurs de calcul, une région ou une famille de références (SKU) n’est pas disponible pour la sélection.
+
+## <a name="solution"></a>Solution
+Tout d’abord, nous vous recommandons d’utiliser une autre région ou référence qui répond aux besoins de votre entreprise. Si vous ne parvenez pas à trouver une région ou référence appropriée, créez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) « Gestion de l’abonnement » en suivant les étapes ci-dessous :
+
+
+- Dans la page Paramètres de base, sélectionnez le type de problème « Gestion de l’abonnement », sélectionnez l’abonnement, puis cliquez sur « Suivant ».
 
 ![Panneau Informations de base](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* Sur la page Problème, sélectionnez le type de problème « Other General questions » (Autres questions d’ordre général), puis entrez la région exacte et la référence que vous ne voyez pas.
-  Cela permet d’accélérer le processus de support.
+
+-   Dans la page Problème, sélectionnez le type de problème « Autres questions générales ».
+- Dans la section Détails :
+  - Indiquez si vous cherchez à déployer des machines virtuelles ou à acheter des instances de machine virtuelle réservées.
+  - Spécifiez la région, la référence et le nombre d’instances de machine virtuelle que vous envisagez de déployer ou d’acheter.
+
 
 ![Problème](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* Sur la page Informations de contact, entrez vos coordonnées et cliquez sur « Créer ».
+-   Entrez vos informations de contact, puis cliquez sur « Créer ».
 
 ![Informations de contact](./media/SKU-series-unavailable/ContactInformation.png)
 

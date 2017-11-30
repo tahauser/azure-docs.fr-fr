@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0050b620d1cdbe95f6cf53a8e6f65271865c9e0b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 00043293eb57768f0117e912bb67f02d088934f3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>Mettre à l’échelle votre solution IoT Hub
 Azure IoT Hub peut prendre en charge jusqu’à un million d’appareils connectés simultanément. Pour plus d’informations, consultez la [tarification IoT Hub][lnk-pricing]. Chaque unité IoT Hub autorise un certain nombre de messages quotidiens.
@@ -55,10 +55,10 @@ Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur IoT Hub][lnk-devguide]
-* [Simulation d’un appareil avec Azure IoT Edge][lnk-iotedge]
+* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Windows
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
 
 ## <a name="example-workload"></a>Exemple de charge de travail
-Adventure Works Cycles souhaite créer une application de magasin en ligne dans Azure, avec :
+Adventure Works Cycles souhaite créer une application de magasin en ligne dans Azure, avec :
 
 * Deux serveurs IIS exécutant le client frontal dans une couche web
 * Deux serveurs IIS pour le traitement des données et des commandes dans une couche d’application

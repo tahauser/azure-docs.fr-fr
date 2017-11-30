@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Créer et inscrire des connecteurs SOAP dans Azure Logic Apps
 
 Pour intégrer les services SOAP à vos flux de travail d’application logique, vous pouvez créer et inscrire un connecteur SOAP (Simple Object Access Protocol) personnalisé à l’aide du langage de description de services (WSDL) qui décrit votre service SOAP. Les connecteurs SOAP fonctionnant comme des connecteurs prédéfinis, vous pouvez les utiliser de la même façon que les autres connecteurs dans vos applications logiques.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour inscrire votre connecteur SOAP, vous avez besoin de ces éléments :
 
-* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez commencer avec un [compte Azure gratuit](https://azure.microsoft.com/free/). Sinon, souscrivez à un [abonnement avec paiement au fur et à mesure](https://azure.microsoft.com/pricing/purchase-options/).
+* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez commencer avec un [compte Azure gratuit](https://azure.microsoft.com/free/). Sinon, souscrivez un [abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
 * L’un de ces éléments :
   * Une URL vers un fichier WSDL qui définit votre service SOAP et les API
@@ -148,7 +148,13 @@ Les connecteurs personnalisées inscrits mais non certifiés fonctionnent comme 
  
 Pour partager votre connecteur avec des utilisateurs externes à l’extérieur de ces limites, par exemple, avec tous les utilisateurs Logic Apps, [soumettez votre connecteur à la certification Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="faq"></a>Questions fréquentes (FAQ)
+## <a name="faq"></a>Forum Aux Questions
+
+**Q :** Le connecteur SOAP est-il généralement disponible ? </br>
+**R :** Le connecteur SOAP étant en **préversion**, ce n’est pas encore un service généralement disponible.
+
+**Q :** Y a-t-il des restrictions et des problèmes connus concernant le connecteur SOAP ? </br>
+**R :** Oui, consultez [Restrictions et problèmes connus concernant le connecteur SOAP](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **Q :** Y a-t-il des limites qui s’imposent aux connecteurs personnalisés ? </br>
 **R :** Oui. Vous trouverez les [limites des connecteurs personnalisés ici](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

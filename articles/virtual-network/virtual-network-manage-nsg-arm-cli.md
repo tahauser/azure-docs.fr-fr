@@ -1,10 +1,10 @@
 ---
-title: "Gestion des groupes de sécurité réseau - Azure CLI 2.0 | Microsoft Docs"
-description: "Découvrez comment gérer les groupes de sécurité réseau à l’aide d’Azure CLI 2.0."
+title: "Gérer les groupes de sécurité réseau - Azure CLI | Microsoft Docs"
+description: "Découvrez comment gérer les groupes de sécurité réseau à l’aide de l’interface de ligne de commande Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Gérer des groupes de sécurité réseau avec Azure CLI 2.0
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Gérer les groupes de sécurité réseau avec Azure CLI
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche 
-
-Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) : 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager 
-- [Azure CLI 2.0 ](#View-existing-NSGs) : notre interface Azure CLI nouvelle génération pour le modèle de déploiement Resource Manager (cet article)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l
 
 ## <a name="prerequisite"></a>Configuration requise
 Si vous ne l’avez pas encore fait, installez et configurez la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure par le biais de la commande [az login](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Afficher les groupes de sécurité réseau existants
 Pour afficher la liste des groupes de sécurité réseau d’un groupe de ressources spécifique, exécutez la commande [az network nsg list](/cli/azure/network/nsg#list) avec un format de sortie `-o table` :
@@ -84,18 +75,18 @@ Sortie attendue :
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> Vous pouvez également utiliser [az network nsg rule list](/cli/azure/network/nsg/rule#list) afin de répertorier uniquement les règles personnalisées d’un groupe de sécurité réseau.
+> Vous pouvez également utiliser [az network nsg rule list](/cli/azure/network/nsg/rule#list) pour répertorier uniquement les règles personnalisées d’un groupe de sécurité réseau.
 >
 
 ## <a name="view-nsg-associations"></a>Afficher les associations de groupes de sécurité réseau
 
-Pour afficher les ressources associées au groupe de sécurité réseau **NSG-FrontEnd**, exécutez la commande `az network nsg show`, comme indiqué ci-dessous. 
+Pour afficher les ressources auxquelles le groupe de sécurité réseau **NSG-FrontEnd** est associé, exécutez la commande `az network nsg show` : 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Recherchez les propriétés **networkInterfaces** et **subnets**, comme indiqué ci-dessous :
+Recherchez les propriétés **NetworkInterfaces** et **Subnets**, comme indiqué dans l’exemple de sortie suivant :
 
 ```json
 [
@@ -117,7 +108,7 @@ Recherchez les propriétés **networkInterfaces** et **subnets**, comme indiqué
 ]
 ```
 
-Dans l’exemple ci-dessus, le groupe de sécurité réseau n’est associé à aucune interface réseau, mais à un sous-réseau nommé **FrontEnd**.
+Dans l’exemple précédent, le groupe de sécurité réseau n’est associé à aucune interface réseau (carte réseau), mais il est associé à un sous-réseau nommé **FrontEnd**.
 
 ## <a name="add-a-rule"></a>Ajouter une règle
 Pour ajouter une règle autorisant le trafic **entrant** sur le port **443** d’une machine vers le groupe de sécurité réseau **NSG-FrontEnd**, entrez la commande suivante :
@@ -339,7 +330,7 @@ Dans la sortie, la clé `networkSecurityGroup` présente une valeur similaire à
   ```
 
 ## <a name="delete-an-nsg"></a>Suppression d'un groupe de sécurité réseau
-Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est associé à aucune ressource. Pour supprimer un groupe de sécurité réseau, procédez comme suit.
+Vous ne pouvez supprimer un groupe de sécurité réseau que s’il n’est associé à aucune ressource. Pour supprimer un groupe de sécurité réseau, effectuez les étapes suivantes :
 
 1. Pour consulter les ressources associées à un groupe de sécurité réseau, exécutez `azure network nsg show` comme illustré dans [Afficher les associations de groupes de sécurité réseau](#View-NSGs-associations).
 2. Si le groupe de sécurité réseau est associé à des cartes réseau, exécutez `azure network nic set` comme illustré dans [Dissocier un groupe de sécurité réseau d’une carte réseau](#Dissociate-an-NSG-from-a-NIC) pour chaque carte réseau. 

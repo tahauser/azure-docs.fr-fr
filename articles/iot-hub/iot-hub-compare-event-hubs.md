@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: 44dc7b18d46d1e75e8b55b6e32a346272a06bda9
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b515e05d16dda83c7d865113d5d3578c44be084f
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Comparaison entre Azure IoT Hub et Azure Event Hub
 L’une des principales utilisations IoT Hub consiste à rassembler des mesures de télémétrie relevées par des appareils. Pour cette raison, IoT Hub est souvent comparé à [Azure Event Hubs][Azure Event Hubs]. Tout comme IoT Hub, les hubs d’événements constituent un service de traitement des événements. Celui-ci fournit des entrées d’événements et de télémétrie vers le cloud à grande échelle, avec une faible latence et une grande fiabilité.
@@ -47,7 +47,7 @@ Pour en savoir plus sur la planification de votre déploiement IoT Hub, consulte
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Guide du développeur IoT Hub][lnk-devguide]
-* [Simulation d’un appareil avec IoT Edge][lnk-iotedge]
+* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
@@ -63,5 +63,5 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

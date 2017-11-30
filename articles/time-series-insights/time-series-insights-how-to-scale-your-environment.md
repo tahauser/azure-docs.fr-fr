@@ -12,8 +12,8 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/16/2017
@@ -46,7 +46,7 @@ Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, 
 ## <a name="change-the-capacity-of-your-environment"></a>Changer la capacité de votre environnement
 1. Dans le portail Azure, recherchez et sélectionnez votre environnement Time Series Insights. 
 
-2. Sous le titre **Paramètres**, sélectionnez **Configurer**.
+2. Dans le menu de votre environnement Time Series Insighs, sélectionnez **Configurer**.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

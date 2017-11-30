@@ -1,6 +1,6 @@
 ---
 title: IT Service Management Connector dans Azure Log Analytics | Microsoft Docs
-description: "IT Service Management Connector permet de surveiller et de gérer de manière centralisée les éléments de travail ITSM dans Azure Log Analytics et de résoudre rapidement les problèmes éventuels."
+description: "Cet article fournit une vue d’ensemble du connecteur de gestion des services informatiques (ITSMC) et des informations sur l’utilisation de cette solution pour surveiller et gérer les éléments de travail ITSM dans OMS Log Analytics et résoudre rapidement les problèmes éventuels."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)
 
 ![Symbole d’IT Service Management Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-IT Service Management Connector (ITSMC) assure une intégration bidirectionnelle entre un produit/service ITSM (IT Service Management) et Log Analytics.  À travers cette connexion, vous pouvez créer des incidents, des alertes ou des événements dans un produit ITSM sur la base des alertes Log Analytics ou d’enregistrements de journal. Le connecteur importe aussi des données telles que des incidents et des demandes de modification du produit ITSM dans OMS Log Analytics.
+IT Service Management Connector (ITSMC) assure une intégration bidirectionnelle entre un produit/service ITSM (IT Service Management) et Log Analytics.  À travers cette connexion, vous pouvez créer des incidents, des alertes ou des événements dans un produit ITSM sur la base des alertes Log Analytics, d’enregistrements de journal ou d’alertes Azure. Le connecteur importe aussi des données telles que des incidents et des demandes de modification du produit ITSM dans OMS Log Analytics.
 
 Avec ITSMC, vous pouvez :
 
@@ -56,11 +56,11 @@ Une fois ajoutée, la solution IT Service Management Connector s’affiche sous 
  ![Actualisation d’ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Configuration de la connexion avec votre logiciel ITSM
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>Configuration de la connexion ITSMC avec vos produits/services ITSM
 
 ITSM permet de se connecter à **System Center Service Manager**, **ServiceNow**, **Provance** et **Cherwell**.
 
-Utilisez les procédures suivantes qui vous conviennent le mieux :
+Utilisez les procédures suivantes qui vous concernent :
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -258,6 +258,7 @@ Vous pouvez également créer des éléments de travail dans les sources ITSM co
 4. Indiquez les valeurs appropriées dans les zones de texte **Type de contact**, **Impact**, **Urgence**, **Catégorie** et **Sous-catégorie**, puis cliquez sur **Créer**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Créer des éléments de travail ITSM à partir d’alertes Azure
+
 ITSMC est intégré à des groupes d’actions.
 
 Les [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) offrent une méthode modulaire et réutilisable pour déclencher des actions pour vos alertes Azure. Grâce à l’action ITSM dans les groupes d’actions, vous pouvez créer des éléments de travail dans votre produit ITSM qui inclut une connexion à une solution de connecteur ITSM.
@@ -286,7 +287,7 @@ Lorsque vous créez/modifiez une règle d’alerte Azure, utilisez un groupe d�
 
 >[!NOTE]
 
-> À l’heure actuelle, seules les alertes du journal d’activité prennent en charge l’action ITSM. L’action ITSM n’est pas prise en charge pour d’autres alertes Azure.
+> Seules les alertes de journal d’activité prennent en charge l’action ITSM ; les autres alertes Azure ne la prennent pas en charge.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Dépanner des connexions ITSM dans OMS

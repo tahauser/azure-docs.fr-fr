@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
@@ -431,7 +431,7 @@ Azure Cosmos DB définit le débit par défaut pour votre conteneur en fonction 
 Le concept de débit est expliqué dans l’article [Unités de requête dans Azure Cosmos DB](request-units.md). Le débit d’une table est réparti de manière équilibrée entre les partitions physiques sous-jacentes.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Quel est le nombre d’unités de requête par seconde d’une table créée via CQL ? Comment faire pour le changer ?
-Azure Cosmos DB utilise les unités de requête par seconde (RU/s) comme devise pour fournir le débit. Les tables créées via CQL contiennent 400 unités de requêtes. Vous pouvez modifier ce nombre jusqu’à 10 000 à partir du portail. Si vous avez besoin de plus de 10 000 unités de requête en préversion privée, vous pouvez les créer en amont à partir du portail. Si vous souhaitez cette fonctionnalité pour CQL, contactez-nous à l’adresse [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB utilise les unités de requête par seconde (RU/s) comme devise pour fournir le débit. Les tables créées via CQL contiennent 400 unités de requêtes. Vous pouvez modifier ce nombre à partir du portail. 
 
 CQL
 ```

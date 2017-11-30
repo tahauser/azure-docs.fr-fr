@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.openlocfilehash: 07cb786e3053cb933fb87b2991cebb979a91ace0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Créer une machine virtuelle Linux de base dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer vos machines virtuelles dans Azure comme vous le feriez pour toute autre ressource. Cet article vous explique comment créer une machine virtuelle de base avec Ansible. Vous pouvez également découvrir comment [créer un environnement de machine virtuelle complète avec Ansible](ansible-create-complete-vm.md).
@@ -29,7 +29,7 @@ Ansible vous permet d’automatiser le déploiement et la configuration de resso
 Pour gérer des ressources Azure avec Ansible, vous avez besoin des éléments suivants :
 
 - Ansible et les modules du SDK Azure Python installés sur votre système hôte.
-    - Installez Ansible sur [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) et [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)
+    - Installation d’Ansible sur [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) et [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Les informations d’identification Azure, et Ansible configuré pour les utiliser.
     - [Créer des informations d’identification Azure et configurer Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. 

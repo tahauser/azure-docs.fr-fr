@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
+ms.date: 11/17/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilisez les applets de commande AzureRM.RecoveryServices.Backup pour sauvegarder des machines virtuelles
 > [!div class="op_single_selector"]
@@ -266,7 +266,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Restauration d’une machine virtuelle Azure
-Il existe une différence clé entre la restauration d’une machine virtuelle à l’aide du portail Azure et la restauration d’une machine virtuelle à l’aide de PowerShell. Avec PowerShell, l’opération de restauration est terminée dès que sont créés les disques et les informations de configuration à partir d’un point de restauration.
+Il existe une différence clé entre la restauration d’une machine virtuelle à l’aide du portail Azure et la restauration d’une machine virtuelle à l’aide de PowerShell. Avec PowerShell, l’opération de restauration est terminée dès que sont créés les disques et les informations de configuration à partir d’un point de restauration. Si vous souhaitez restaurer ou récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure, reportez-vous à la [section de récupération des fichiers](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 
 > [!NOTE]
 > L’opération de restauration ne crée pas de machine virtuelle.
@@ -507,6 +507,76 @@ Après avoir restauré les disques, exécutez les étapes ci-après pour créer 
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+## <a name="restore-files-from-an-azure-vm-backup"></a>Restaurer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
+
+En plus de la restauration des disques, vous pouvez également restaurer des fichiers individuels à partir d’une sauvegarde de machine virtuelle Azure. La fonctionnalité de restauration de fichiers permet d’accéder à tous les fichiers d’un point de récupération ; vous pouvez les gérer par le biais de l’Explorateur de fichiers, comme vous le faites pour des fichiers normaux.
+
+Les étapes élémentaires pour restaurer un fichier à partir d’une sauvegarde de machine virtuelle Azure sont les suivantes :
+
+* Sélectionner la machine virtuelle
+* Choisir un point de récupération
+* Monter les disques du point de récupération
+* Copier les fichiers nécessaires
+* Démonter le disque
+
+
+### <a name="select-the-vm"></a>Sélectionner la machine virtuelle
+Pour obtenir l’objet PowerShell permettant d’identifier l’élément à restaurer, vous devez commencer au niveau du conteneur dans le coffre et descendre dans la hiérarchie d’objets. Pour sélectionner le conteneur qui représente la machine virtuelle, utilisez l’applet de commande **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** et dirigez-la vers l’applet de commande **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**.
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+```
+
+### <a name="choose-a-recovery-point"></a>Choisir un point de récupération
+Utilisez l’applet de commande **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** pour répertorier tous les points de récupération pour l’élément de sauvegarde. Ensuite, choisissez le point de récupération à restaurer. Si vous ne savez pas quel point de récupération utiliser, nous vous conseillons de choisir le point RecoveryPointType = AppConsistent le plus récent dans la liste.
+
+Dans le script suivant, la variable **$rp**est un tableau de points de récupération des 7 derniers jours pour l’élément de sauvegarde sélectionné. Le tableau est trié dans l’ordre chronologique inverse, le point de récupération le plus récent détenant l’index 0. Utilisez l'indexation de tableau PowerShell standard pour sélectionner le point de récupération. Dans l’exemple, $rp[0] sélectionne le dernier point de récupération.
+
+```
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM/recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
+```
+
+### <a name="mount-the-disks-of-recovery-point"></a>Monter les disques du point de récupération
+
+Utilisez l’applet de commande **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)** pour le montage de tous les disques du point de récupération par le script.
+
+> [!NOTE]
+> Les disques sont montés en tant que disques iSCSI attachés à la machine sur laquelle le script est exécuté. En procédant ainsi, l’opération est pratiquement instantanée et n’entraîne AUCUN frais.
+>
+>
+
+```
+PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+
+OsType  Password        Filename
+------  --------        --------
+Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
+```
+Exécutez le script sur la machine où vous souhaitez récupérer les fichiers. Vous devez entrer le mot de passe indiqué ci-dessus pour exécuter le script. Lorsque les disques sont attachés, utilisez l’Explorateur de fichiers Windows pour parcourir les nouveaux volumes et les fichiers. Pour plus d’informations, reportez-vous à la [documentation de récupération de fichiers](backup-azure-restore-files-from-vm.md).
+
+### <a name="unmount-the-disks"></a>Démonter les disques
+Lorsque les fichiers nécessaires à l’opération sont copiés, démontez les disques à l’aide de l’applet de commande  **[Disable-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)**. Cette action est vivement recommandée, car elle permet de s’assurer que l’accès aux fichiers du point de récupération est supprimé.
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous préférez utiliser PowerShell pour gérer vos ressources Azure, consultez l’article PowerShell [Déployer et gérer une sauvegarde pour Windows Server](backup-client-automation.md). Si vous gérez des sauvegardes DPM, consultez l’article [Déployer et gérer la sauvegarde pour DPM](backup-dpm-automation.md). Ces deux articles ont une version concernant les déploiements avec le modèle Resource Manager et le modèle Classic.  

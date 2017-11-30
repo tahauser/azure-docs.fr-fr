@@ -1,6 +1,6 @@
 ---
 title: Suivi des modifications avec Azure Log Analytics | Microsoft Docs
-description: "La solution de suivi des modifications dans Log Analytics permet d’identifier les modifications apportées aux logiciels et au service Windows qui se produisent dans votre environnement."
+description: "La solution Change Tracking dans Log Analytics permet d’identifier les modifications apportées aux logiciels et au service Windows qui se produisent dans votre environnement."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications
 
 ![Symbole Change Tracking](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
-Cet article vous aidera à utiliser la solution de suivi des modifications de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux clés de Registre, fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
+Cet article vous permet d’utiliser la solution Change Tracking de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux clés de Registre, fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
 Vous installez la solution pour mettre à jour le type d’agent que vous avez installé. Les modifications apportées aux logiciels, services Windows et démons Linux installés sur les serveurs analysés sont lues. Ensuite, les données sont envoyées au service Log Analytics dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
@@ -41,7 +41,7 @@ Suivez les étapes ci-dessous pour configurer les fichiers à suivre sur les ord
 1. Dans le portail OMS, cliquez sur **Paramètres** (symbole d'engrenage).
 2. Sur la page **Paramètres** cliquez sur **Données**, puis sur **Suivi des fichiers Linux**.
 3. Sous Suivi des modifications des fichiers Linux, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : « /etc/*.conf »
-4. Cliquez sur **Save**.  
+4. Cliquez sur **Enregistrer**.  
 
 > [!NOTE]
 > Le suivi des fichiers Linux est doté de fonctionnalités supplémentaires, y compris le suivi du répertoire, la récursivité dans les répertoires et le suivi des caractères génériques.
@@ -96,12 +96,16 @@ Autres limitations :
 * Lorsque le trafic réseau est élevé, l'affichage des enregistrements de modifications peut prendre jusqu'à six heures.
 * Si vous modifiez la configuration lorsqu’un ordinateur est arrêté, l’ordinateur risque de publier des modifications de fichiers appartenant à la configuration précédente.
 
+### <a name="known-issues"></a>Problèmes connus
+La solution Change Tracking connaît les problèmes suivants :
+* Les mises à jour de correctif logiciel ne sont pas collectées pour les machines Windows 10 Creators Update et Windows Server 2016 Core RS3.
+
 ## <a name="change-tracking-data-collection-details"></a>Détails de la collecte de données de suivi des modifications
 Le suivi des modifications collecte des métadonnées d’inventaire logiciel et de service Windows à l’aide des agents que vous avez activés.
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres informations sur le mode de collecte en vue du suivi des modifications.
 
-| plateforme | Agent direct | Agent Operations Manager | Agent Linux | Azure Storage | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | fréquence de collecte |
+| plateforme | Agent direct | Agent Operations Manager | Agent Linux | Azure Storage | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Windows et Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Entre 5 minutes et 50 minutes, selon le type de modification. Pour plus d’informations, consultez le tableau suivant. |
 

@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Résolution des problèmes de configuration d’environnement et de déploiement de services
 Les informations suivantes peuvent vous aider à déterminer la cause des erreurs susceptibles de se produire lors de la configuration de l’environnement de gestion des modèles.
 
 ## <a name="model-management-environment"></a>Environnement de gestion des modèles
-### <a name="owner-permission-required"></a>Autorisation du propriétaire requise
-Vous devez disposer de l’autorisation du propriétaire sur l’abonnement Azure pour inscrire la ressource Compute Machine Learning.
-
-Vous avez également besoin de l’autorisation du propriétaire pour configurer un cluster pour le déploiement de vos services web.
+### <a name="contributor-permission-required"></a>Autorisation du contributeur requise
+Vous avez besoin d’un accès collaborateur à l’abonnement ou au groupe de ressources pour configurer un cluster en vue du déploiement de vos services web.
 
 ### <a name="resource-availability"></a>Disponibilité des ressources
 Vous devez disposer de suffisamment de ressources disponibles dans votre abonnement pour approvisionner les ressources d’environnement.
@@ -89,6 +87,7 @@ Exemple Python :
 ```
 
 ## <a name="other-common-problems"></a>Autres problèmes courants
+- Si l’installation pip d’azure-cli-ml échoue avec l’erreur `cannot find the path specified` sur un ordinateur Windows, vous devez activer la prise en charge du chemin d’accès long. Consultez https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Si la commande `env setup` échoue avec `LocationNotAvailableForResourceType`, c’est que vous utilisez probablement le mauvais emplacement (région) pour les ressources d’apprentissage automatique. Assurez-vous que l’emplacement spécifié avec le paramètre `-l` est `eastus2`, `westcentralus` ou `australiaeast`.
 - Si la commande `env setup` échoue avec `Resource quota limit exceeded`, assurez-vous que votre abonnement dispose de suffisamment de cœurs et que vos ressources ne sont pas utilisées par d’autres processus.
 - Si la commande `env setup` échoue avec `Invalid environment name. Name must only contain lowercase alphanumeric characters`, assurez-vous que le nom du service ne contient pas de majuscules, de symboles ou de trait de soulignement (_) (comme dans *my_environment*).

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Gérer les coûts à l’aide d’Azure Cost Management
 
@@ -80,6 +80,23 @@ L’image suivante montre un exemple de règles créées pour une nouvelle caté
 
 ![Exemple de catégorie](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Sources et rapports de balise
+
+Les données de balise présentes dans les rapports Cloudyn proviennent de trois emplacements :
+
+- API de ressources de fournisseur de cloud
+- API de facturation de fournisseur de cloud
+- Balises créées manuellement à partir des sources suivantes :
+    - Balises d’entité Cloudyn : métadonnées définies par l’utilisateur appliquées aux entités Cloudyn
+    - Category Manager : outil de nettoyage de données qui crée de nouvelles balises basées sur des règles appliquées aux balises existantes
+
+Pour afficher des balises de fournisseur de cloud dans des rapports de coût Cloudyn, vous devez créer un modèle de répartition de coût personnalisé à l’aide de Cost Allocation 360. Pour cela, accédez à **Cost** > **Cost Management** > **Cost Allocation 360**, sélectionnez les balises souhaitées, puis définissez des règles pour gérer les coûts sans balises. Créez ensuite un nouveau modèle de coût. Par la suite, vous pouvez afficher des rapports dans Cost Allocation Analysis pour consulter, filtrer et trier sur vos balises de ressources Azure.
+
+Les balises de ressources Azure apparaissent uniquement dans les rapports **Cost Allocation Analysis**.
+
+Les balises de facturation de fournisseur de cloud apparaissent dans tous les rapports de coût.
+
+Les balises d’entités Cloudyn et les balises que vous créez manuellement apparaissent dans tous les rapports de coût.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Créer des rapports de récupération des données de facturation et de facturation interne

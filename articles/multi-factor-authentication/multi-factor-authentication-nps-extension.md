@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ebd6109fdae00da9e6dc1fc456573327d521e7e9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ L’extension NPS est conçue pour fonctionner avec votre infrastructure existan
 
 ### <a name="licenses"></a>Licences
 
-L’extension NPS pour Azure MFA est disponible pour les clients disposant de [licences pour Azure MFA](multi-factor-authentication.md) (incluses dans Azure AD Premium, EMS ou un abonnement MFA). Les licences basées sur la consommation pour Azure MFA, telles que les licences par utilisateur ou par authentification, ne sont pas compatibles avec l’extension de serveur NPS. 
+L’extension NPS pour Azure MFA est disponible pour les clients disposant de [licences pour Azure MFA](multi-factor-authentication.md) (incluses dans Azure AD Premium, EMS ou une licence autonome MFA). Les licences basées sur la consommation pour Azure MFA, telles que les licences par utilisateur ou par authentification, ne sont pas compatibles avec l’extension de serveur NPS. 
 
 ### <a name="software"></a>Logiciel
 
@@ -81,7 +81,7 @@ Avant d’installer l’extension NPS, vous souhaitez préparer votre environnem
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Activer le rôle NPS sur un serveur joint à un domaine
 
-Le serveur NPS se connecte à Azure Active Directory et authentifie les demandes MFA. Choisissez un serveur pour ce rôle. Nous vous recommandons de choisir un serveur qui ne gère pas les demandes provenant d’autres services, car l’extension NPS génère des erreurs pour toutes les demandes qui ne sont pas RADIUS.
+Le serveur NPS se connecte à Azure Active Directory et authentifie les demandes MFA. Choisissez un serveur pour ce rôle. Nous vous recommandons de choisir un serveur qui ne gère pas les demandes provenant d’autres services, car l’extension NPS génère des erreurs pour toutes les demandes qui ne sont pas RADIUS. Vous devez configurer le serveur NPS en tant que serveur d’authentification principal et secondaire pour votre environnement ; il ne peut pas rediriger de demandes RADIUS par proxy vers un autre serveur.
 
 1. Sur votre serveur, ouvrez l’**Assistant d’ajout de rôles et fonctionnalités** à partir du menu Démarrage rapide du Gestionnaire de serveur.
 2. Choisissez **Installation basée sur un rôle ou une fonctionnalité** pour votre type d’installation.
@@ -193,7 +193,7 @@ Si vous avez des utilisateurs qui ne sont pas inscrits pour l’authentification
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Non défini (équivaut à TRUE) |
 
-L’objectif de ce paramètre est de déterminer l’action à exécuter lorsqu’un utilisateur n’est pas inscrit pour l’authentification MFA. Lorsque la clé n’existe pas, n’est pas définie ou est définie sur TRUE, et si l’utilisateur n’est pas inscrit, l’extension échoue à la demande d’authentification MFA. Lorsque la clé est définie sur FALSE et que l’utilisateur n’est pas inscrit, l’authentification s’effectue sans procéder à l’authentification MFA.
+L’objectif de ce paramètre est de déterminer l’action à exécuter lorsqu’un utilisateur n’est pas inscrit pour l’authentification MFA. Lorsque la clé n’existe pas, n’est pas définie ou est définie sur TRUE, et si l’utilisateur n’est pas inscrit, l’extension échoue à la demande d’authentification MFA. Lorsque la clé est définie sur FALSE et que l’utilisateur n’est pas inscrit, l’authentification s’effectue sans procéder à l’authentification MFA. Si un utilisateur est inscrit dans MFA, il doit s’authentifier avec MFA même si REQUIRE_USER_MATCH est défini sur FALSE.
 
 Vous pouvez choisir de créer cette clé et de lui affecter la valeur FALSE pour vos utilisateurs qui sont en cours d’intégration et ne sont peut-être pas encore inscrits pour l’authentification Azure MFA. Toutefois, étant donné que la définition de la clé permet aux utilisateurs qui ne sont pas inscrits pour l’authentification MFA de se connecter, vous devez supprimer cette clé avant de passer en production.
 

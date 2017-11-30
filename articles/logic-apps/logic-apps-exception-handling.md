@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -26,38 +26,74 @@ Azure Logic Apps propose un ensemble complet d’outils et de modèles afin de g
 
 ## <a name="retry-policies"></a>Stratégies de nouvelle tentative
 
-Le type de gestion des erreurs et des exceptions le plus simple consiste à utiliser une stratégie de nouvelle tentative. Cette stratégie définit si l’action doit faire l’objet d’une nouvelle tentative en cas d’expiration ou d’échec de la demande initiale (toute demande ayant entraîné une réponse 429 ou 5xx). Par défaut, toutes les actions font l’objet de 4 tentatives supplémentaires sur des intervalles de 20 secondes. Par conséquent, si la première demande reçoit une réponse `500 Internal Server Error`, le moteur de flux de travail s’interrompt pendant 20 secondes, puis tente à nouveau d’exécuter la demande. Si à l’issue de toutes les tentatives, la réponse renvoie toujours une exception ou un échec, le flux de travail continue et marque l’état de l’action comme `Failed`.
+Le type de gestion des erreurs et des exceptions le plus simple consiste à utiliser une stratégie de nouvelle tentative. Cette stratégie définit si et comment l’action doit faire l’objet d’une nouvelle tentative en cas d’expiration ou d’échec de la demande initiale (toute demande ayant entraîné une réponse 429 ou 5xx). Il existe trois types de stratégies de nouvelle tentative : `exponential`, `fixed` et `none`. Si aucune stratégie de nouvelle tentative n’est fournie dans la définition de workflow, la stratégie par défaut est utilisée. Vous pouvez configurer des stratégies de nouvelle tentative dans les **entrées** d’une action ou d’un déclencheur s’ils peuvent faire l’objet d’une nouvelle tentative. De même, dans le Concepteur d’applications logiques, vous pouvez configurer des stratégies de nouvelle tentative (le cas échéant) sous les **paramètres** d’un bloc donné.
 
-Vous pouvez configurer des stratégies de nouvelle tentative dans les **entrées** d’une action en particulier. Une stratégie de nouvelle tentative peut par exemple être configurée pour effectuer jusqu’à 4 tentatives avec des intervalles d’1 heure. Pour plus d’informations sur les propriétés d’entrée, voir [Actions et déclencheurs de flux de travail][retryPolicyMSDN].
+Pour plus d’informations sur les limitations des stratégies de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) et, pour plus d’informations sur la syntaxe prise en charge, consultez la [section sur les stratégies de nouvelle tentative dans l’article Déclencheurs et actions pour les workflows ][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Intervalle exponentiel
+Le type de stratégie `exponential` réessaie une demande ayant échoué après un intervalle de temps aléatoire à partir d’une plage à croissance exponentielle. Grâce à ce type de stratégie, chaque nouvelle tentative est envoyée à un intervalle aléatoire supérieur à **minimumInterval** et inférieur à **maximumInterval**. Une variable aléatoire uniforme dans la plage ci-dessous est générée pour chaque nouvelle tentative jusqu’à **count** compris :
+<table>
+<tr><th> Plage des variables aléatoires </th></tr>
+<tr><td>
+
+| Nombre de nouvelles tentatives | Intervalle minimal | Intervalle maximal |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
+| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
+| 3 | Max(2*interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+Pour les stratégies de type `exponential`, **count** et **interval** sont requis tandis que **minimumInterval** et **maximumInterval** peuvent être éventuellement fournis pour remplacer les valeurs par défaut de PT5S et PT1D respectivement.
+
+| Nom de l'élément | Requis | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Oui | String | `exponential` |
+| count | Oui | Entier  | Nombre de nouvelles tentatives, doit être compris entre 1 et 90  |
+| interval | Oui | String | Intervalle avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), doit être compris entre PT5S et PT1D |
+| minimumInterval | Non| String | Intervalle minimal avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), doit être compris entre PT5S et **interval** |
+| maximumInterval | Non| String | Intervalle minimal avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), doit être compris entre **interval** et PT1D |
+
+### <a name="fixed-interval"></a>Intervalle fixe
+
+Le type de stratégie `fixed` réessaie une demande ayant échoué en attendant l’intervalle de temps fourni avant d’envoyer la demande suivante.
+
+| Nom de l'élément | Requis | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Oui | String | `fixed`|
+| count | Oui | Entier  | Nombre de nouvelles tentatives, doit être compris entre 1 et 90 |
+| interval | Oui | String | Intervalle avant nouvelle tentative au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), doit être compris entre PT5S et PT1D |
+
+### <a name="none"></a>Aucun
+Le type de stratégie `none` ne réessaie pas une demande ayant échoué.
+
+| Nom de l'élément | Requis | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Oui | String | `none`|
+
+### <a name="default"></a>Default
+Si aucune stratégie de nouvelle tentative n’est spécifiée, la stratégie par défaut est utilisée. La stratégie par défaut est une stratégie d’intervalles exponentiels qui envoie jusqu’à 4 tentatives à intervalles exponentiels définis à 7,5 secondes et limités entre 5 et 45 secondes. Cette stratégie par défaut (utilisée quand **retryPolicy** n’est pas défini) est équivalente à la stratégie dans cet exemple de définition de workflow HTTP :
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-Si vous voulez que votre action HTTP effectue 4 tentatives et attende 10 minutes entre chacune d’entre elles, vous devez utiliser la définition suivante :
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Pour plus d’informations sur la syntaxe prise en charge, consultez la [section relative aux stratégies de nouvelle tentative sous Actions et déclencheurs de flux de travail][retryPolicyMSDN].
 
 ## <a name="catch-failures-with-the-runafter-property"></a>Identification des échecs avec la propriété RunAfter
 
@@ -207,7 +243,7 @@ Vous pouvez utiliser les expressions ci-dessus pour exécuter différents modèl
 ## <a name="azure-diagnostics-and-telemetry"></a>Azure Diagnostics et télémétrie
 
 Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. 
-[Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail (y compris tous les états d’exécution et d’action) à un compte Azure Storage ou un concentrateur d’événements Azure. Vous pouvez surveiller les journaux et les mesures ou les publier dans n’importe quel outil de surveillance de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via le concentrateur d’événements Azure dans [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives sans aucune anomalie, des moyennes ou des échecs dans les journaux de diagnostic. Stream Analytics peut facilement exporter ses résultats vers d’autres sources de données, telles que les files d’attente, les rubriques, SQL, Azure Cosmos DB et Power BI.
+[Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail (y compris tous les états d’exécution et d’action) à un compte Azure Storage ou un hub d’événements Azure. Vous pouvez surveiller les journaux et les mesures ou les publier dans n’importe quel outil de surveillance de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via le hub d’événements Azure dans [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives sans aucune anomalie, des moyennes ou des échecs dans les journaux de diagnostic. Stream Analytics peut facilement exporter ses résultats vers d’autres sources de données, telles que les files d’attente, les rubriques, SQL, Azure Cosmos DB et Power BI.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

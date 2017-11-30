@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure
 
@@ -368,7 +368,7 @@ Créez ensuite trois machines virtuelles : deux machines virtuelles SQL Server 
 | --- | --- | --- | --- |
 | Sélectionnez l’élément de la galerie approprié. |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise sur Windows Server 2016** |**SQL Server 2016 SP1 Enterprise sur Windows Server 2016** |
 | **Notions** |**Nom** = cluster-fsw<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |**Nom** = sqlserver-0<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |**Nom** = sqlserver-1<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |
-| Configuration de la machine virtuelle - **Taille** |**TAILLE** = DS1\_V2 (1 cœur, 3,5 Go) |**TAILLE** = DS2\_V2 (2 cœurs, 7 Go)</br>La taille doit prendre en charge un stockage SSD (prise en charge des disques Premium. )) |**TAILLE** = DS2\_V2 (2 cœurs, 7 Go) |
+| Configuration de la machine virtuelle - **Taille** |**TAILLE** = DS1\_V2 (1 processeur virtuel, 3,5 Go) |**TAILLE** = DS2\_V2 (2 processeurs virtuels, 7 Go)</br>La taille doit prendre en charge un stockage SSD (prise en charge des disques Premium. )) |**TAILLE** = DS2\_V2 (2 processeurs virtuels, 7 Go) |
 | Configuration de la machine virtuelle - **Paramètres** |**Stockage** : Utiliser des disques gérés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques gérés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques gérés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |
 | Configuration de la machine virtuelle - **Paramètres SQL Server** |Non applicable |**Connectivité SQL** = privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = désactivée<br/>**Configuration du stockage** = général<br/>**Mise à jour corrective automatisée** : dimanche à 2h00<br/>**Sauvegarde automatisée** = désactivée</br>**Intégration Azure Key Vault** = Désactivée |**Connectivité SQL** = privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = désactivée<br/>**Configuration du stockage** = général<br/>**Mise à jour corrective automatisée** : dimanche à 2h00<br/>**Sauvegarde automatisée** = désactivée</br>**Intégration Azure Key Vault** = Désactivée |
 

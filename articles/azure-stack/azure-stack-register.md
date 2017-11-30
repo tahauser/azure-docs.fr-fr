@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/15/2017
 ms.author: erikje
-ms.openlocfilehash: 24cde66a132ae2e1ba0eb9b1564915746e5ca448
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Inscrire Azure Stack auprès de votre abonnement Azure
 
@@ -38,7 +38,6 @@ Avant d’inscrire Azure Stack auprès d’Azure, vous devez disposer des élé
 - L’ID d’abonnement d’un abonnement Azure. Pour obtenir l’ID, connectez-vous à Azure, cliquez sur **Plus de services** > **Abonnements**, cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux** vous trouverez alors l’**ID d’abonnement**. Les abonnements au cloud du gouvernement de Chine, d’Allemagne et des États-Unis ne sont pas pris en charge pour le moment.
 - Le nom d’utilisateur et le mot de passe d’un compte qui est un propriétaire de l’abonnement (les comptes MSA/2FA sont pris en charge).
 - L’annuaire Azure Active Directory de l’abonnement Azure. Pour trouver cet annuaire dans Azure, pointez sur votre avatar situé en haut à droite dans le portail Azure. 
-- [Inscrire un fournisseur de ressources Azure Stack](#register-azure-stack-resource-provider-in-azure).
 
 Si vous n’avez pas d’abonnement Azure répondant à ces exigences, vous pouvez [créer un compte Azure gratuit ici](https://azure.microsoft.com/en-us/free/?b=17.06). L’inscription d’Azure Stack n’entraîne aucun frais sur votre abonnement Azure.
 
@@ -46,39 +45,65 @@ Si vous n’avez pas d’abonnement Azure répondant à ces exigences, vous pouv
 
 ## <a name="register-azure-stack-resource-provider-in-azure"></a>Inscrire un fournisseur de ressources Azure Stack dans Azure
 > [!NOTE] 
-> Cette étape ne doit être effectuée qu’une seule fois dans un environnement Azure Stack.
+> Cette étape doit être effectuée une seule fois dans un environnement Azure Stack.
 >
 
-1. Démarrez PowerShell ISE en tant qu’administrateur.
-2. Connectez-vous au compte Azure qui est un propriétaire de l’abonnement Azure avec le paramètre -EnvironmentName défini sur « AzureCloud ».
+1. Démarrez une session PowerShell en tant qu’administrateur.
+2. Connectez-vous au compte Azure propriétaire de l’abonnement Azure (vous pouvez utiliser l’applet de commande Login-AzureRmAccount pour vous connecter puis, lors de la connexion, veillez à définir le paramètre -EnvironmentName sur « AzureCloud »).
 3. Inscrivez le fournisseur de ressources Azure « Microsoft.AzureStack ».
 
-Exemple : 
+**Exemple :** 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
-
 ## <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
 > [!NOTE]
->Toutes les étapes suivantes doivent être effectuées sur l’ordinateur hôte.
+> Toutes ces étapes doivent être exécutées à partir d’une machine ayant accès au point de terminaison privilégié. Pour le Kit de développement Azure Stack, il s’agira de l’ordinateur hôte. Si vous utilisez un système intégré, contactez votre opérateur Azure Stack.
 >
 
-1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md). 
-2. Copiez le [script RegisterWithAzure.psm1](https://go.microsoft.com/fwlink/?linkid=842959) dans un dossier (tel que C:\Temp).
-3. Démarrez PowerShell ISE en tant qu’administrateur et importez le module RegisterWithAzure.    
-4. À partir du script RegisterWithAzure.psm1, exécutez le module Add-AzsRegistration. Remplacez les espaces réservés suivants : 
-    - *YourCloudAdminCredential* est un objet PowerShell qui contient les informations d’identification de domaine local pour domain\cloudadmin (pour le kit de développement, il s’agit d’azurestack\cloudadmin).
-    - *YourAzureSubscriptionID* est l’ID d’abonnement Azure que vous voulez utiliser pour inscrire Azure Stack.
-    - *YourAzureDirectoryTenantName* est le nom de l’annuaire de locataire Azure associé à votre abonnement Azure. La ressource de l’enregistrement sera créée dans ce locataire de l’annuaire. 
-    - *YourPrivilegedEndpoint* est le nom du [point de terminaison privilégié](azure-stack-privileged-endpoint.md).
+1. Ouvrez une console PowerShell en tant qu’administrateur et [installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
 
-    ```powershell
-    Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
-    ```
-5. Dans la fenêtre de connexion indépendante, entrez les informations d’identification de votre abonnement Azure.
+2. Ajoutez le compte Azure que vous utiliserez pour inscrire Azure Stack. Pour cela, exécutez l’applet de commande `Add-AzureRmAccount` sans aucun paramètre. Vous êtes invité à entrer vos informations d’identification de compte Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.  
+
+3. Si vous avez plusieurs abonnements, exécutez la commande suivante pour sélectionner celui que vous souhaitez utiliser :  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+4. Supprimez toutes les versions existantes des modules PowerShell qui correspondent à l’inscription et [téléchargez la dernière version de celui-ci depuis GitHub](azure-stack-powershell-download.md).  
+
+5. Dans le répertoire « AzureStack-Tools-master » créé à l’étape précédente, accédez au dossier « Registration » et importez le module « .\RegisterWithAzure.psm1 » :  
+
+   ```powershell 
+   Import-Module .\RegisterWithAzure.psm1 
+   ```
+
+6. Dans la même session PowerShell, exécutez le script suivant. À l’invite d’informations d’identification, spécifiez `azurestack\cloudadmin` comme utilisateur, le mot de passe est identique à celui utilisé pour l’administrateur local pendant le déploiement.  
+
+   ```powershell
+   $AzureContext = Get-AzureRmContext
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   Add-AzsRegistration `
+       -CloudAdminCredential $CloudAdminCred `
+       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
+       -PrivilegedEndpoint AzS-ERCS01 `
+       -BillingModel Development 
+   ```
+
+   | Paramètre | Description |
+   | -------- | ------------- |
+   | CloudAdminCredential | Les informations d’identification de domaine de cloud qui sont utilisées pour [accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Le nom d’utilisateur est au format « \<Azure Stack domain\>\cloudadmin ». Pour le kit de développement, le nom d’utilisateur est défini sur « azurestack\cloudadmin ». Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur.|
+   | AzureSubscriptionId | L’abonnement Azure que vous utilisez pour inscrire Azure Stack.|
+   | AzureDirectoryTenantName | Nom de l’annuaire de locataire Azure associé à votre abonnement Azure. La ressource de l’enregistrement sera créée dans ce locataire de l’annuaire. |
+   | PrivilegedEndpoint | Une console PowerShell distante préconfigurée qui vous fournit des fonctionnalités telles que la collecte de journaux et d’autres tâches de post-déploiement. Pour le kit de développement, le point de terminaison privilégié est hébergé sur la machine virtuelle « AzS-ERCS01 ». Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur. Pour en savoir plus, reportez-vous à la rubrique relative à l’[utilisation du point de terminaison privilégié](azure-stack-privileged-endpoint.md).|
+   | BillingModel | Le modèle de facturation utilisé par votre abonnement. Les valeurs autorisées pour ce paramètre sont « Capacity », « PayAsYouUse » et « Development ». Pour le kit de développement, cette valeur est définie sur « Development ». Si vous utilisez un système intégré, contactez votre opérateur Azure Stack pour obtenir cette valeur. |
+
+7. Une fois le script terminé, un message « Activation d’Azure Stack (cette étape peut prendre jusqu’à 10 minutes) » s’affiche. 
 
 ## <a name="verify-the-registration"></a>Vérifier l’inscription
 

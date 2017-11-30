@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Didacticiel : Intégration d’Azure Active Directory avec Front
 
@@ -104,66 +104,60 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     ![Boîte de dialogue Authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Dans la section **Domaine et URL Front**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
+3. Dans la section **Front Domain and URLs** (Domaine et URL Front), procédez comme suit :
 
     ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.frontapp.com`
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Cochez **Afficher les paramètres d’URL avancés** si vous souhaitez configurer l’application en mode initié par le **fournisseur de service** :
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL d’authentification unique réels qui sont décrits plus loin dans le didacticiel, ou contactez l’[équipe de support technique Front](mailto:support@frontapp.com) pour obtenir ces valeurs. 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels qui sont décrits plus loin dans le didacticiel, ou contactez [l’équipe de support technique Front](mailto:support@frontapp.com) pour obtenir ces valeurs. 
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Cliquez sur le bouton **Enregistrer** .
+5. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Dans la section **Configuration de Front** , cliquez sur **Configurer Front** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+6. Dans la section **Configuration de Front** , cliquez sur **Configurer Front** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
     ![Configurer l’authentification unique](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Connectez-vous à votre client Front en tant qu’administrateur.
+7. Connectez-vous à votre client Front en tant qu’administrateur.
 
-9. Accédez à **Paramètres (icône représentant une roue dentée en bas de la barre latérale gauche) > Préférences**.
+8. Accédez à **Paramètres (icône représentant une roue dentée en bas de la barre latérale gauche) > Préférences**.
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Cliquez sur le lien **Authentification unique** .
+9. Cliquez sur le lien **Authentification unique** .
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Sélectionnez **SAML** dans la liste déroulante **Authentification unique**.
+10. Sélectionnez **SAML** dans la liste déroulante **Authentification unique**.
    
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. Dans la zone de texte **Point d’entrée** copiez la valeur de **URL du service d’authentification unique** indiquée dans l’Assistant Configuration de l’application Azure AD.
+11. Dans la zone de texte **Point d’entrée** copiez la valeur de **URL du service d’authentification unique** indiquée dans l’Assistant Configuration de l’application Azure AD.
     
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Ouvrez dans le Bloc-notes votre fichier **Certificate(Base64)** téléchargé, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat de signature**.
+12. Ouvrez dans le Bloc-notes votre fichier **Certificate(Base64)** téléchargé, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat de signature**.
     
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Dans la section **Service provider settings** (Paramètres du fournisseur de services), procédez comme suit :
+13. Dans la section **Service provider settings** (Paramètres du fournisseur de services), procédez comme suit :
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Copiez la valeur de l’**ID d’entité** et collez-la dans la zone de texte **Identificateur** de la section **Domaine et URL Front** du portail Azure.
 
-    b. Copiez la valeur de l’**URL ACS** et collez-la dans la zone de texte **URL de connexion** de la section **Domaine et URL Front** du portail Azure.
+    b. Copiez la valeur de **l’URL ACS** et collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL Front** du Portail Azure.
     
-15. Cliquez sur le bouton **Enregistrer** .
+14. Cliquez sur le bouton **Enregistrer** .
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

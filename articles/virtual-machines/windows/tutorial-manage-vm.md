@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell
 
@@ -293,7 +293,7 @@ Le tableau suivant classe les tailles en fonction des cas d’utilisation.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Usage général         |DSv2, Dv2, DS, D, Av2, A0-7| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |
 | Optimisé pour le calcul      | Fs, F             | Ratio processeur/mémoire élevé. Convient pour les applications au trafic moyen, les appliances réseau et les processus de traitement par lots.        |
-| Mémoire optimisée       | GS, G, DSv2, DS, Dv2, D   | Ratio mémoire/cœur élevé. Idéale pour les bases de données relationnelles, les caches moyens à grands et l’analytique en mémoire.                 |
+| Mémoire optimisée       | GS, G, DSv2, DS, Dv2, D   | Ratio mémoire/processeur élevé. Idéale pour les bases de données relationnelles, les caches moyens à grands et l’analytique en mémoire.                 |
 | Optimisé pour le stockage       | Ls                | Débit de disque et E/S élevés. Idéale pour les bases de données NoSQL, SQL et Big Data.                                                         |
 | GPU           | NV, NC            | Machines virtuelles spécialisées conçues pour les opérations graphiques lourdes et la retouche vidéo.       |
 | Hautes performances | H, A8-11          | Nos machines virtuelles dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). 

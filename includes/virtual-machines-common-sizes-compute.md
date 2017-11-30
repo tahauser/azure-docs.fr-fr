@@ -1,5 +1,7 @@
 <!-- F-series, Fs-series* -->
 
+Les tailles de machine virtuelle optimisées pour le calcul ont un ratio processeur/mémoire élevé et conviennent aux serveurs web, appliances réseau, processus de traitement par lots et serveurs d’applications à trafic moyen. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement.
+
 La série Fsv2 repose sur le processeur Intel® Xeon® Platinum 8168, avec une fréquence de base de 2,7 GHz et une fréquence turbo monocœur maximale de 3,7 GHz. Les instructions Intel® AVX-512, une nouveauté sur les processeurs évolutifs Intel, fourniront jusqu'à 2X plus de performances pour les charges de travail de traitement vectoriel pour les opérations en virgule flottante simple ou double précision. En d’autres termes, elles sont très rapides pour les charges de travail de calcul. 
 
 Affichant le coût le plus bas par heure, la série Fsv2 offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par processeur virtuel. 
@@ -14,7 +16,7 @@ La série Fs propose tous les avantages de la série F, en plus du stockage Prem
 
 ACU : 195 - 210
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+| Taille             | Processeurs virtuels | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Modéré                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Modéré                                       |
@@ -29,7 +31,7 @@ ACU : 195 - 210
 
 ACU : 210-250
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4 000 / 32 (12) |3 200 / 48 |2 / 750 |
 | Standard_F2s |2 |4 |8 |8 |8 000 / 64 (24) |6 400 / 96 |2 / 1 500 |
@@ -48,7 +50,7 @@ Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
 ACU : 210-250
 
-| Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+| Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1 500                     |

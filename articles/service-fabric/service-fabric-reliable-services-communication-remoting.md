@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Communication à distance des services avec Reliable Services
 Pour les services qui ne sont pas liés à une pile ou un protocole de communication particulier, comme WebAPI, Windows Communication Foundation (WCF) ou autres, l’infrastructure Reliable Services fournit un mécanisme de communication à distance pour configurer rapidement et facilement un appel de procédure distante pour les services.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 L'infrastructure de communication à distance propage les exceptions levées au niveau du service au client. Par conséquent, la logique de gestion des exceptions au niveau du client à l’aide de `ServiceProxy` peut directement traiter les exceptions levées par le service.
 
 ## <a name="service-proxy-lifetime"></a>Durée de vie du proxy du service
-Comme la création de proxy de service est une opération légère, les utilisateurs peuvent en créer autant de fois que nécessaire. Le proxy de service peut être réutilisé tant que les utilisateurs en a besoin. Si l’Api Remote lève une exception, les utilisateurs peuvent encore réutiliser le même proxy. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’appel de l’API, un contrôle interne vérifie si le client de communication utilisé est valide. En fonction de ce résultat, nous recréons le client de communication. Par conséquent, les utilisateurs n’ont pas besoin de recréer le proxy de service en cas d’exception.
+Comme la création de proxy de service est une opération légère, les utilisateurs peuvent en créer autant de fois que nécessaire. Les instances de proxy de service peuvent être réutilisées tant que les utilisateurs en ont besoin. Si un appel de procédure distante lève une exception, les utilisateurs peuvent toujours réutiliser la même instance de proxy. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’invocation d’appels distants, nous vérifions en interne que le client de communication est valide. Nous recréons le client de communication en fonction du résultat. De fait, si une exception est levée, les utilisateurs n’ont pas à recréer le proxy de service, car cela est fait de manière transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Durée de vie de la fabrique ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) est une fabrique qui crée le proxy pour différentes interfaces de communication à distance. Si vous utilisez l’API ServiceProxy.Create pour la création de proxy, l’infrastructure crée le ServiceProxyFactory singleton.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) est une fabrique qui crée des instances de proxy pour différentes interfaces de communication à distance. Si vous utilisez l’API `ServiceProxy.Create` pour créer un proxy, le framework crée un singleton ServiceProxy.
 Il est utile d’en créer un manuellement lorsque vous devez remplacer les propriétés [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
-La fabrique est une opération coûteuse. ServiceProxyFactory conserve le cache du client de communication.
+La création de fabrique est une opération coûteuse. ServiceProxyFactory conserve le cache interne du client de communication.
 Il est recommandé de mettre en cache ServiceProxyFactory aussi longtemps que possible.
 
 ## <a name="remoting-exception-handling"></a>Gestion des exceptions à distance

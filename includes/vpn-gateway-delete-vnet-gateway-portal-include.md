@@ -6,7 +6,7 @@
 ### <a name="step-2-delete-connections"></a>Étape 2 : Suppression des connexions
 
 1. Dans le panneau de votre passerelle de réseau virtuel, cliquez sur **Connexions** pour afficher toutes les connexions à la passerelle.
-2. Cliquez sur **’...’** sur la ligne du nom de la connexion, puis sélectionnez **Supprimer** dans la liste déroulante.
+2. Cliquez sur **'...'** sur la ligne du nom de la connexion, puis sélectionnez **Supprimer** dans la liste déroulante.
 3. Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer la connexion. Si vous avez plusieurs connexions, supprimez chaque connexion.
 
 ### <a name="step-3-delete-the-virtual-network-gateway"></a>Étape 3 : Supprimez la passerelle de réseau virtuel

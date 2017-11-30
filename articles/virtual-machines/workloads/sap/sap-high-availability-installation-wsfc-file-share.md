@@ -1,6 +1,6 @@
 ---
-title: "Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour une instance SAP (A)SCS sur Azure | Microsoft Docs"
-description: "Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour une instance SAP (A)SCS"
+title: "Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure | Microsoft Docs"
+description: "Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec7888cfb9b0d288b5b25f580c852ee32306684c
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="sap-netweaver-ha-installation-on-windows-failover-cluster-and-file-share-for-sap-ascs-instance-on-azure"></a>Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour une instance SAP (A)SCS sur Azure
+# <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -33,6 +33,8 @@ ms.lasthandoff: 10/16/2017
 [1596496]:https://launchpad.support.sap.com/#/notes/1596496
 
 [sap-installation-guides]:http://service.sap.com/instguides
+
+[sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -194,24 +196,23 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Ce document décrit comment installer et configurer un système SAP à haute disponibilité sur Azure, avec un **cluster de basculement Windows (WSFC)** et le **partage de fichiers Scale Out** comme option pour le clustering d’instance SAP (A)SCS.
+Cet article décrit comment installer et configurer un système SAP à haute disponibilité sur Azure avec un cluster de basculement Windows Server (WSFC, Windows Server Failover Cluster) et un serveur de fichiers avec montée en puissance parallèle comme option pour le clustering d’instances SAP ASCS/SCS.
 
 ## <a name="prerequisites"></a>Composants requis
 
-Veillez à consulter ces documents avant de commencer l’installation :
+Avant de commencer l’installation, consultez les articles suivants :
 
-* [Guide d’architecture - Clustering d’instance SAP (A)SCS sur un **cluster de basculement Windows** à l’aide du **Partage de fichiers**][sap-high-availability-guide-wsfc-file-share]
+* [Guide d’architecture : Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure][sap-high-availability-guide-wsfc-file-share]
 
-* [Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de **cluster de basculement Windows** et de **partage de fichiers** pour une instance SAP (A)SCS][sap-high-availability-infrastructure-wsfc-file-share]
+* [Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP (A)SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
+Vous avez besoin des exécutables et DLL suivants de SAP :
+* Outil d’installation SAP Software Provisioning Manager (SWPM) version SPS21 (ou ultérieure).
+* Téléchargez l’archive NTCLUST.SAR la plus récente avec la nouvelle DLL de ressource de cluster SAP. Les nouvelles DLL de cluster SAP prennent en charge la haute disponibilité SAP ASCS/SCS avec partage de fichiers sur un cluster de basculement Windows Server.
 
-Vous avez besoin des exécutables / DLL suivants de SAP :
-* Outil d’installation SAP **Software Provisioning Manager** (**SWPM**) version **SPS21 (ou ultérieure)**.
-* Téléchargez l’archive **NTCLUST.SAR la plus récente** avec la nouvelle DLL de ressource de cluster SAP. Les nouvelles DLL de cluster SAP prennent en charge la haute disponibilité SAP (A)SCS avec partage de fichiers sur un cluster de basculement Windows Server.
+  Pour plus d’informations sur la nouvelle DLL de ressource de cluster SAP, consultez ce billet de blog : [New SAP cluster resource DLL is available!][sap-blog-new-sap-cluster-resource-dll] (Disponibilité de la nouvelle DLL de ressource de cluster SAP).
 
-  Pour plus d’informations sur la nouvelle DLL de ressource de cluster SAP, consultez ce billet de blog : [New SAP cluster resource DLL is available! (Disponibilité de la nouvelle DLL de ressource de cluster SAP)][sap-blog-new-sap-cluster-resource-dll]
-
-Nous ne décrivons pas l’installation du système SGBD, car celle-ci varie en fonction du système utilisé. Toutefois, nous partons du principe que la haute disponibilité du SGBD est assurée par les fonctionnalités prises en charge par les différents fournisseurs de SGBD pour Azure, par exemple Always On ou la mise en miroir de base de données pour SQL Server, et Oracle Data Guard pour bases de données Oracle. Dans le scénario utilisé dans cet article, nous n’avons pas ajouté de protection supplémentaire au SGBD.
+Nous ne décrivons pas l’installation du système de gestion de base de données (SGBD) car celle-ci varie en fonction du système utilisé. Toutefois, nous partons du principe que la haute disponibilité du SGBD est assurée par les fonctionnalités prises en charge par les différents fournisseurs de SGBD pour Azure, par exemple AlwaysOn ou la mise en miroir de bases de données pour SQL Server et Oracle Data Guard pour les bases de données Oracle. Dans le scénario utilisé dans cet article, nous n’avons pas ajouté de protection supplémentaire au SGBD.
 
 Il n’existe pas de considérations particulières lorsque différents services de SGBD interagissent avec ce type de configuration SAP ASCS/SCS en cluster dans Azure.
 
@@ -220,34 +221,34 @@ Il n’existe pas de considérations particulières lorsque différents services
 >
 >
 
-## <a name="install-ascs-instance-on-ascs-cluster"></a>Installer l’instance (A)SCS sur le cluster (A)SCS
+## <a name="install-an-ascsscs-instance-on-an-ascsscs-cluster"></a>Installer une instance ASCS/SCS sur un cluster ASCS/SCS
 
 > [!IMPORTANT]
 >
->Actuellement, un paramètre de haute disponibilité avec une configuration de partage de fichiers n’est pas pris en charge par l’outil d’installation SAP Software Provisioning Manager (SWPM). Par conséquent, une adoption manuelle est nécessaire pour installer un système SAP, par exemple pour installer et mettre en cluster une instance SAP (A)SCS et configurer un SAP GLOBALHOST distinct.  
+> Actuellement, un paramètre de haute disponibilité avec une configuration de partage de fichiers n’est pas pris en charge par l’outil d’installation SAP SWPM. Par conséquent, une adoption manuelle est nécessaire pour installer un système SAP (par exemple, pour installer et mettre en cluster une instance SAP ASCS/SCS et configurer un hôte global SAP distinct).  
 >
->Les autres étapes d’installation (et de mise en cluster) de l’instance de SGBD et des serveurs d’applications SAP restent inchangées.
+> Les autres étapes d’installation (et de mise en cluster) de l’instance de SGBD et des serveurs d’applications SAP restent inchangées.
 >
 
-### <a name="install-ascs-instance-on-local-drive"></a>Installer l’instance (A)SCS sur un lecteur local
+### <a name="install-an-ascsscs-instance-on-your-local-drive"></a>Installer une instance ASCS/SCS sur votre lecteur local
 
-Installez l’instance SAP (A)SCS sur **les deux** nœuds du cluster (A) SCS. Installez-la sur le lecteur **local**. Dans notre exemple, nous avons choisi le lecteur local C:\\. Vous pouvez choisir n’importe quel autre lecteur local.  
+Installez une instance SAP ASCS/SCS sur *les deux* nœuds du cluster ASCS/SCS. Installez-la sur le lecteur local. Dans notre exemple, le lecteur local est C:\\. Cependant, vous pouvez choisir n’importe quel autre lecteur local.  
 
-Pour effectuer l’installation, naviguez dans l’outil d’installation SAP SWPM vers :
+Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
 
-&lt;Produit&gt; -> &lt;SGBD&gt; -> Installation -> Application Server ABAP (ou Java) -> Distributed System -> (A)SCS Instance
+**\<Produit>** > **\<SGBD>** > **Installation** > **Application Server ABAP** (ou **Java**) > **Distributed System** > **ASCS/SCS instance**
 
 > [!IMPORTANT]
->Actuellement, le scénario de partage de fichiers n’est pas encore pris en charge par l’outil d’installation SAP SWPM. Vous **ne pouvez pas utiliser** le chemin d’installation :
+> Actuellement, le scénario de partage de fichiers n’est pas pris en charge par l’outil d’installation SAP SWPM. Vous ne *pouvez pas* utiliser le chemin d’installation suivant :
 >
->&lt;Produit&gt; -> &lt;SGBD&gt; -> Installation -> Application Server ABAP (or Java) -> High-Availability  System -> …
+> **\<Produit>** > **\<SGBD>** > **Installation** > **Application Server ABAP** (ou **Java**) > **High-Availability System** > …
 >
 
-### <a name="remove-sapmnt-and-create-saploc-file-share"></a>Supprimer SAPMNT et créer le partage de fichiers SAPLOC
+### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>Supprimer SAPMNT et créer un partage de fichiers SAPLOC
 
 SWMP a créé un partage local SAPMNT dans le dossier C:\\usr\\sap.
 
-Supprimez le partage de fichiers SAPMNT sur **les deux** nœuds de cluster (A)SCS :
+Supprimez le partage de fichiers SAPMNT sur *les deux* nœuds de cluster ASCS/SCS.
 
 Exécutez le script PowerShell suivant :
 
@@ -255,7 +256,7 @@ Exécutez le script PowerShell suivant :
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
-Si le partage SAPLOC n’existe pas, créez-le sur les deux nœuds de cluster ASC.
+Si le partage SAPLOC n’existe pas, créez-en un sur *les deux* nœuds de cluster ASCS/SCS.
 
 Exécutez le script PowerShell suivant :
 
@@ -272,19 +273,19 @@ $SAPusrSapPath = "$SAPDisk\usr\sap"
 New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName , $SAPLocalAdminGroupName  
  ```
 
-## <a name="prepare-sap-global-host-on-sofs-cluster"></a>Préparer SAP GLOBAL HOST sur le cluster SOFS
+## <a name="prepare-an-sap-global-host-on-the-sofs-cluster"></a>Préparer un hôte global SAP sur le cluster SOFS
 
-Lors de cette étape, vous allez créer le partage de volume et de fichiers suivant sur le cluster SOFS :
+Créez le partage de volume et de fichiers suivant sur le cluster SOFS :
 
-* Structure C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS\ de fichier SAP GLOBALHOST sur le volume partagé de cluster (CSV) SOFS
+* Structure C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ de fichier SAP GLOBALHOST sur le volume partagé de cluster (CSV) SOFS
 
-* Créer le partage de fichiers SAPMNT
+* Partage de fichiers SAPMNT
 
-* Définiz la sécurité sur le partage de fichiers et de dossiers SAPMNT avec un contrôle total pour :
-    * Groupe d’utilisateurs **&lt;DOMAINE&gt;\SAP_&lt;SID&gt;_GlobalAdmin**
-    * **Objets ordinateur de nœud de cluster SAP (A)SCS &lt;DOMAINE&gt;\ClusterNode1$ et &lt;DOMAINE&gt;\ClusterNode2$**
+* Définiz la sécurité sur le partage de fichiers et le dossier SAPMNT avec un contrôle total pour :
+    * Le groupe d’utilisateurs \<DOMAINE>\SAP_\<SID>_GlobalAdmin
+    * Les objets ordinateur de nœud de cluster SAP ASCS/SCS \<DOMAINE>\ClusterNode1$ et \<DOMAINE>\ClusterNode2$
 
-Pour créer le volume partagé de cluster avec une résilience en miroir comme défini dans le chapitre **Prérequis SAP pour SOFS dans Azure - ADD LINK**, exécutez l’applet de commande PowerShell suivante sur l’un des nœuds de cluster SOFS :
+Pour créer un volume CSV avec une résilience en miroir, exécutez la cmdlet PowerShell suivante sur l’un des nœuds de cluster SOFS :
 
 
 ```PowerShell
@@ -298,11 +299,11 @@ $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSClusterNode1 = "ascs-1"
 $ASCSClusterNode2 = "ascs-2"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define SAP ASCS/SCS cluster node computer objects
 $ASCSClusterObjectNode1 = "$DomainName\$ASCSClusterNode1$"
 $ASCSClusterObjectNode2 = "$DomainName\$ASCSClusterNode2$"
 
@@ -312,85 +313,81 @@ New-Item -Path $SAPGlobalFOlder -ItemType Directory
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume1\usr\sap\"
 
-# Create SAPMNT file share and set share security
+# Create a SAPMNT file share and set share security
 New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName, $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $false -CachingMode None -Verbose
 
 # Get SAPMNT file share security settings
 Get-SmbShareAccess sapmnt
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add file security object of SAP_<sid>_GlobalAdmin group
+# Add a file security object of SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add  a security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add a security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
 # Set security
 Set-Acl $UsrSAPFolder $Acl -Verbose
  ```
-## <a name="stop-ascs-instances-and-sap-services"></a>Arrêter les instances (A)SCS et les services SAP
+## <a name="stop-ascsscs-instances-and-sap-services"></a>Arrêter les instances ASCS/SCS et les services SAP
 
 Effectuez les étapes suivantes :
-* Arrêtez les instances SAP (A)SCS sur les deux nœuds de cluster (A)SCS.
-* Arrêtez les services Windows SAP (A)SCS **SAP&lt;SID&gt;_&lt;numéro_instance&gt;** sur les deux nœuds de cluster.
+1. Arrêtez les instances SAP ASCS/SCS sur les deux nœuds de cluster ASCS/SCS.
+2. Arrêtez les services Windows SAP ASCS/SCS **SAP\<SID>_\<numéro_instance>** sur les deux nœuds de cluster.
 
-## <a name="move-sys-folder-to-sofs-cluster"></a>Déplacer le dossier \SYS\.... vers le cluster SOFS
+## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>Déplacer le dossier \SYS\... vers le cluster SOFS
 
 Effectuez les étapes suivantes :
-* Copiez le dossier SYS (par exemple, C:\usr\sap\\&lt;SID&gt;\SYS) de l’un des nœuds de cluster (A)SCS vers le cluster SOFS (par exemple, C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS).
-* Supprimez le dossier C:\usr\sap\\&lt;SID&gt;\SYS des deux nœuds de cluster (A)SCS.
+1. Copiez le dossier SYS (par exemple, C:\usr\sap\\<SID>\SYS) de l’un des nœuds de cluster ASCS/SCS vers le cluster SOFS (par exemple, vers C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
+2. Supprimez le dossier C:\usr\sap\\<SID>\SYS des deux nœuds de cluster ASCS/SCS.
 
-## <a name="update-cluster-security-setting-on-sap-ascs-cluster"></a>Mettre à jour le paramètre de sécurité de cluster sur le cluster SAP (A)SCS
+## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>Mettre à jour le paramètre de sécurité de cluster sur le cluster SAP ASCS/SCS
 
-Exécutez le script PowerShell suivant sur l’un des nœuds de cluster SAP (A)SCS :
+Exécutez le script PowerShell suivant sur l’un des nœuds de cluster SAP ASCS/SCS :
 
 ```PowerShell
-# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to cluster
+# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# Set full access for <DOMAIn>\SAP_<SID>_GlobalAdmin group
+# Set full access for the <DOMAIN>\SAP_<SID>_GlobalAdmin group
 Grant-ClusterAccess -User $SAPSIDGlobalAdminGroupName -Full
 
 #Check security settings
 Get-ClusterAccess
 ```
 
-## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascs-instance"></a>Créer un nom d’hôte virtuel pour l’instance SAP (A)SCS en cluster
+## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster
 
-Comme décrit dans le chapitre [Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host], créez le nom réseau du cluster SAP (A)SCS (par exemple, **pr1-ASC [10.0.6.7]**).
+Créez un nom réseau du cluster SAP ASCS/SCS (par exemple, **pr1-ascs [10.0.6.7]**) comme décrit dans la section [Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
-## <a name="update-default-and-sap-ascs-instance-profile"></a>Mettre à jour le profil d’Instance SAP (A)SCS et DEFAULT
+## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Mettre à jour le profil par défaut et le profil d’instance SAP ASCS/SCS
 
-Vous devez mettre à jour le profil d’instance SAP (A)SCS et DEFAULT &lt;SID&gt;_(A)SCS<Nr>_<Host> de façon à utiliser :
-
-* Le nouveau nom d’hôte virtuel SAP (A)SCS
-
-* Le nouveau nom d’hôte SAP GLOBAL
+Pour utiliser le nouveau nom d’hôte virtuel SAP ASCS/SCS et le nom d’hôte global SAP, vous devez mettre à jour le profil par défaut et le profil d’instance SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr>_<Host>.
 
 
 | Anciennes valeurs |  |
 | --- | --- |
-| Nom d’hôte SAP (A)SCS = hôte global SAP | ascs-1 |
-| Nom du profil d’instance SAP (A)SCS | PR1_ASCS00_ascs-1 |
+| Nom d’hôte SAP ASCS/SCS = hôte global SAP | ascs-1 |
+| Nom du profil d’instance SAP ASCS/SCS | PR1_ASCS00_ascs-1 |
 
 | Nouvelles valeurs |  |
 | --- | --- |
-| Nom d’hôte SAP (A)SCS | **pr1-ascs** |
+| Nom d’hôte SAP ASCS/SCS | **pr1-ascs** |
 | Hôte global SAP | **sapglobal** |
-| Nom du profil d’instance SAP (A)SCS | PR1\_ASCS00\_**pr1-ascs** |
+| Nom du profil d’instance SAP ASCS/SCS | PR1\_ASCS00\_**pr1-ascs** |
 
-### <a name="update-sap-default-profile"></a>Mettre à jour le profil SAP DEFAULT
+### <a name="update-sap-default-profile"></a>Mettre à jour le profil SAP par défaut
 
 
 | Nom du paramètre | Valeur du paramètre |
@@ -399,12 +396,12 @@ Vous devez mettre à jour le profil d’instance SAP (A)SCS et DEFAULT &lt;SID&g
 | rdisp/mshost | **pr1-ascs** |
 | enque/serverhost | **pr1-ascs** |
 
-### <a name="update-sap-ascs-instance-profile"></a>Mettre à jour le profil d’Instance SAP (A)SCS
+### <a name="update-the-sap-ascsscs-instance-profile"></a>Mettre à jour le profil d’instance SAP ASCS/SCS
 
 | Nom du paramètre | Valeur du paramètre |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
-| DIR_PROFILE | \\\\**sapglobal**\sapmnt\PR1\SYS\profile |
+| DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
 | _PF | $(DIR_PROFILE)\PR1\_ASCS00_ pr1-ascs |
 | Restart_Program_02 = local$(_MS) pf=$(_PF) | **Start**_Program_02 = local$(_MS) pf=$(_PF) |
 | SAPLOCALHOST | **pr1-ascs** |
@@ -414,28 +411,28 @@ Vous devez mettre à jour le profil d’instance SAP (A)SCS et DEFAULT &lt;SID&g
 | service/ha_check_node | **1** |
 
 > [!IMPORTANT]
->Vous pouvez utiliser l’applet de commande PowerShell **Update-SAPASCSSCSProfile** pour automatiser la mise à jour du profil.
+>Vous pouvez utiliser la cmdlet PowerShell **Update-SAPASCSSCSProfile** pour automatiser la mise à jour du profil.
 >
->L’applet de commande PowerShell prend en charge les instances SAP ABAP ASCS et SAP Java SCS.
+>La cmdlet PowerShell prend en charge les instances SAP ABAP ASCS et SAP Java SCS.
 >
 
-Copiez **SAPScripts.ps1** vers le lecteur local C:\tmp et exécutez l’applet de commande PowerShell suivante :
+Copiez [**SAPScripts.psm1**][sap-powershell-scrips] sur votre lecteur local C:\tmp et exécutez la cmdlet PowerShell suivante :
 
 ```PowerShell
-Import-Module C:\tmp\SAPScripts.ps1
+Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Figure 1 : Sortie de SAPScripts.ps1][sap-ha-guide-figure-8012]
+![Figure 1 : Sortie de SAPScripts.psm1][sap-ha-guide-figure-8012]
 
-_**Figure 1 :** Sortie de SAPScripts.ps1_
+_**Figure 1** : Sortie de SAPScripts.psm1_
 
-## <a name="update-ltsidgtadm-user-environment-variable"></a>Mettre à jour la variable d’environnement utilisateur &lt;sid&gt;adm
+## <a name="update-the-sidadm-user-environment-variable"></a>Mettre à jour la variable d’environnement utilisateur \<sid>adm
 
-Mettez à jour le nouveau chemin UNC GLOBALHOST d’environnement utilisateur &lt;sid&gt;adm sur les deux nœuds de cluster (A)SCS.
-Ouvrez une session en tant qu’utilisateur &lt;sid&gt;adm et démarrez l’outil Regedit.exe.
-Accédez à **HKEY_CURRENT_USER** -> **Environment** et mettez à jour les variables :
+1. Mettez à jour le nouveau chemin UNC GLOBALHOST d’environnement utilisateur \<sid>adm sur *les deux* nœuds de cluster ASCS/SCS.
+2. Ouvrez une session en tant qu’utilisateur \<sid>adm, puis démarrez l’outil Regedit.exe.
+3. Accédez à **HKEY_CURRENT_USER** > **Environment** et mettez à jour les variables :
 
 | Variable | Valeur |
 | --- | --- |
@@ -445,31 +442,25 @@ Accédez à **HKEY_CURRENT_USER** -> **Environment** et mettez à jour les varia
 | SAPLOCALHOST  | **pr1-ascs** |
 
 
-## <a name="install-new-saprcdll"></a>Installer la nouvelle SAPRC.DLL
+## <a name="install-a-new-saprcdll-file"></a>Installer un nouveau fichier saprc.dll
 
-Vous devez installer une nouvelle version de la ressource de cluster SAP qui prend en charge le scénario de partage de fichiers.
+1. Installez une nouvelle version de la ressource de cluster SAP prenant en charge le scénario de partage de fichiers.
 
-Téléchargez le package **NTCLUST. SAR** le plus récent à partir de la Place de Marché SAP Service.
+2. Téléchargez le package NTCLUST. SAR le plus récent à partir de la Place de marché SAP Service.
 
-Décompressez NTCLUS.SAR sur l’un des nœuds de cluster (A)SCS et exécutez la commande suivante à partir de l’invite de commandes pour installer la nouvelle saprc.dll :
+3. Décompressez NTCLUS.SAR sur l’un des nœuds de cluster ASCS/SCS, puis exécutez la commande suivante à partir de l’invite de commandes pour installer le nouveau fichier saprc.dll :
 
 ```
 .\NTCLUST\insaprct.exe -yes -install
 ```
 
-La nouvelle saprc.dll sera installée sur les deux nœuds de cluster (A)SCS.
+Le nouveau fichier saprc.dll est installé sur les deux nœuds de cluster ASCS/SCS.
 
-Pour plus d’informations, consultez [SAP Note 1596496 - How to update SAP Resource Type DLLs for Cluster Resource Monitor (Guide pratique pour mettre à jour des DLL de type de ressource SAP pour le moniteur de ressource du cluster][1596496].
+Pour plus d’informations, consultez [SAP Note 1596496 - How to update SAP resource type DLLs for Cluster Resource Monitor ][1596496] (Guide pratique pour mettre à jour des DLL de type de ressource SAP pour le moniteur de ressource du cluster).
 
-## <a name="create-sap-sid-cluster-group-network-name-and-ip"></a>Créer une adresse IP, un nom réseau et un groupe de clusters SAP <SID>
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Créer une adresse IP, un nom réseau et un groupe de clusters SAP <SID>
 
-Vous devez créer :
-
-* Un groupe de clusters SAP &lt;SID&gt;
-* <nom_réseau(A)SCS>
-* et l’adresse IP correspondante.
-
-Exécutez l’applet de commande PowerShell suivante :
+Pour créer un groupe de clusters SAP \<SID>, un nom réseau ASCS/SCS et une adresse IP correspondante, exécutez la cmdlet PowerShell suivante :
 
 ```PowerShell
 # Create SAP Cluster Group
@@ -480,23 +471,23 @@ $SAPASCSNetworkName = "pr1-ascs"
 $SAPASCSIPAddress = "10.0.6.7"
 $SAPASCSSubnetMask = "255.255.255.0"
 
-# Create SAP ASCS instance Virtual IP cluster resource
+# Create an SAP ASCS instance virtual IP cluster resource
 Add-ClusterGroup -Name $SAPClusterGroupName -Verbose
 
-#Create SAP ASCS Virtual IP Address
+#Create an SAP ASCS virtual IP address
 $SAPIPClusterResource = Add-ClusterResource -Name $SAPIPClusterResourceName -ResourceType "IP Address" -Group $SAPClusterGroupName -Verbose
 
-# Set static IP Address
+# Set a static IP address
 $param1 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,Address,$SAPASCSIPAddress
 $param2 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,SubnetMask,$SAPASCSSubnetMask
 $params = $param1,$param2
 $params | Set-ClusterParameter
 
-# Create corresponding network name
+# Create a corresponding network name
 $SAPNetworkNameClusterResourceName = $SAPASCSNetworkName
 Add-ClusterResource -Name $SAPNetworkNameClusterResourceName -ResourceType "Network Name" -Group $SAPClusterGroupName -Verbose
 
-# Set Network DNS Name
+# Set a network DNS name
 $SAPNetworkNameClusterResource = Get-ClusterResource $SAPNetworkNameClusterResourceName
 $SAPNetworkNameClusterResource | Set-ClusterParameter -Name Name -Value $SAPASCSNetworkName
 
@@ -506,17 +497,17 @@ $SAPNetworkNameClusterResource | Get-ClusterParameter
 #Set resource dependencies
 Set-ClusterResourceDependency -Resource $SAPNetworkNameClusterResourceName -Dependency "[$SAPIPClusterResourceName]" -Verbose
 
-#Start SAP <SID> Cluster Group
+#Start an SAP <SID> cluster group
 Start-ClusterGroup -Name $SAPClusterGroupName -Verbose
 ```
 
-## <a name="register-sap-start-service-on-both-nodes"></a>Inscrire le service de démarrage SAP sur les deux nœuds
+## <a name="register-the-sap-start-service-on-both-nodes"></a>Inscrire le service de démarrage SAP sur les deux nœuds
 
-Vous devez réinscrire le service sapstart SAP (A)SCS pour qu’il pointe vers le nouveau profil et le nouveau chemin de profil.
+Réinscrivez le service de démarrage SAP ASCS/SCS pour qu’il pointe vers le nouveau profil et le nouveau chemin de profil.
 
-Vous devez exécuter cela sur les deux nœuds de cluster (A)SCS.
+Vous devez effectuer cette réinscription sur *les deux* nœuds de cluster ASCS/SCS.
 
-Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges :
+Exécutez la commande suivante dans l’invite de commandes avec élévation de privilèges :
 
 ```
 C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
@@ -524,22 +515,22 @@ C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profi
 
 ![Figure 2 : Réinstaller le service SAP][sap-ha-guide-figure-8013]
 
-_**Figure 2 :** Réinstaller le service SAP_
+_**Figure 2** : Réinstaller le service SAP_
 
-Vérifiez que les paramètres sont corrects et choisissez **Manuel** comme Type de démarrage.
+Assurez-vous que les paramètres sont corrects, puis sélectionnez **Manuel** sous **Type de démarrage**.
 
-## <a name="stop-ascs-service"></a>Arrêter le service (A)SCS
+## <a name="stop-the-ascsscs-service"></a>Arrêter le service ASCS/SCS
 
-Arrêtez le service SAP (A)SCS **SAP&lt;SID&gt;_&lt;numéro_instance&gt;** sur les deux nœuds de cluster (A)SCS.
+Arrêtez le service SAP ASCS/SCS SAP\<SID>_\<numéro_instance> sur les deux nœuds de cluster ASCS/SCS.
 
-## <a name="create-new-sap-service-and-sap-instance-resources"></a>Créer le nouveau service SAP et les nouvelles ressources d’instance SAP
+## <a name="create-a-new-sap-service-and-sap-instance-resources"></a>Créer un nouveau service SAP et les ressources d’instance SAP
 
-Vous devez maintenant finaliser la création des ressources du groupe de clusters SAP SAP&lt;SID&gt;. Vous devez par exemple créer les ressources :
+Pour finaliser la création des ressources du groupe de clusters SAP SAP\<SID>, créez les ressources suivantes :
 
-* **SAP &lt;SID&gt; &lt;numéro_instance&gt; Service** et
-* **SAP &lt;SID&gt; &lt;numéro_instance&gt; Instance**
+* SAP \<SID> \<numéro_instance> service
+* SAP \<SID> \<numéro_instance> instance
 
-Exécutez l’applet de commande PowerShell suivante :
+Exécutez l’applet de commande PowerShell suivant :
 
 ```PowerShell
 $SAPSID = "PR1"
@@ -559,10 +550,10 @@ Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Depende
 
 $SAPInstanceClusterResourceName = "SAP $SAPSID $SAPInstanceNumber Instance"
 
-# Create SAP Instance cluster resource
+# Create SAP instance cluster resource
 $SAPASCSServiceClusterResource = Add-ClusterResource -Name $SAPInstanceClusterResourceName -Group $SAPClusterGroupName -ResourceType "SAP Resource" -SeparateMonitor -Verbose
 
-#Set SAP Instance cluster resource parameters
+#Set SAP instance cluster resource parameters
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystemName -Value $SAPSID -Verbose
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $SAPInstanceNumber -Verbose
 
@@ -570,29 +561,28 @@ $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $
 Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Dependency "[$SAPServiceClusterResourceName]" -Verbose
 ```
 
-## <a name="add-a-probe-port"></a>Ajouter un port de sondage
+## <a name="add-a-probe-port"></a>Ajouter un port de sonde
 
-Lors de cette étape, vous allez configurer le port de sonde SAP-SID-IP d’une ressource de cluster SAP à l’aide de PowerShell. Exécutez cette configuration sur un des nœuds de cluster SAP ASCS/SCS, comme décrit [ici][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
+Configurez le port de sonde SAP-SID-IP (ressource de cluster SAP) à l’aide de PowerShell. Exécutez cette configuration sur l’un des nœuds de cluster SAP ASCS/SCS, comme décrit [dans cet article][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
-## <a name="install-ers-instance-on-both-cluster-nodes"></a>Installer l’instance ERS sur les deux nœuds de cluster
+## <a name="install-an-ers-instance-on-both-cluster-nodes"></a>Installer une instance ERS sur les deux nœuds de cluster
 
-À l’étape suivante, vous devez installer l’instance ERS (Enqueue Replication Server) sur les deux nœuds du cluster (A)SCS.
-L’option d’installation se trouve dans le menu SWPM :
+Installez une instance ERS (Enqueue Replication Server) sur *les deux* nœuds du cluster ASCS/SCS. Dans le menu de l’outil SWPM, utilisez ce chemin d’installation :
 
-&lt;Produit&gt; -> &lt;SGBD&gt; -> Installation -> Additional SAP System instances -> **Enqueue Replication Server Instance**
+**\<Produit>** > **\<SGBD>** > **Installation** > **Additional SAP System instances** > **Enqueue Replication Server Instance**
 
-## <a name="install-dbms-instance-and-sap-application-servers"></a>Installer l’instance de SGBD et les serveurs d’applications SAP
+## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installer une instance de SGBD et les serveurs d’applications SAP
 
 Finalisez l’installation de votre système SAP en installant :
-* L’instance de SGBD
-* Le serveur d’applications SAP principal
-* Le serveur d’applications SAP supplémentaire
+* Une instance de SGBD
+* Un serveur d’applications SAP principal
+* Un serveur d’applications SAP supplémentaire
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Installation of an (A)SCS Instance on a Failover Cluster with no Shared Disks - Official SAP Guidelines for HA File Share (Installation d’une Instance (A)SCS sur un cluster de basculement sans disques partagés - Recommandations SAP officielles pour le partage de fichiers hautement disponible)][sap-official-ha-file-share-document]
+* [Installation d’une instance ASCS/SCS sur un cluster de basculement sans disques partagés - Recommandations SAP officielles pour le partage de fichiers hautement disponibles][sap-official-ha-file-share-document]
 
-* [Espaces de stockage direct dans Windows Server 2016][s2d-in-win-2016]
+* [Storage Spaces Direct dans Windows Server 2016][s2d-in-win-2016]
 
 * [Vue d’ensemble des serveurs de fichiers avec montée en puissance parallèle pour les données d’application][sofs-overview]
 

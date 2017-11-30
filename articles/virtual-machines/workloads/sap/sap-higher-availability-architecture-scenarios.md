@@ -1,5 +1,5 @@
 ---
-title: "Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité du système SAP | Microsoft Docs"
+title: "Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité d’un système SAP | Microsoft Docs"
 description: "Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité des applications SAP"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,14 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ebdc79d240a1250150d8ec2ef1d41b9a65ea0ee
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: be0792affba1eba32c2643344b7e284858adb9d6
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-system"></a>Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité du système SAP
+# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité d’un système SAP
 
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -207,65 +208,74 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-> Ce chapitre concerne :
+> Cette section s’applique à :
 >
 > ![Windows][Logo_Windows] Windows et ![Linux][Logo_Linux] Linux
 >
 
-Si vous décidez de ne pas utiliser de fonctionnalités telles que le clustering de basculement Windows Server (WSFC) ou Pacemaker sur Linux (uniquement pris en charge pour SLES versions 12 et ultérieures), le redémarrage de la machine virtuelle Azure permet de protéger un système SAP contre les interruptions de services planifiées ou non de l’infrastructure du serveur physique Azure et de la plateforme Azure sous-jacente globale.
+Si vous décidez de ne pas utiliser des fonctionnalités telles que le clustering de basculement Windows Server (WSFC) ou Pacemaker sur Linux (actuellement prises en charge pour SUSE Linux Enterprise Server [SLES] 12 et versions ultérieures uniquement), le redémarrage de la machine virtuelle Azure est utilisé. Il protège les systèmes SAP contre les temps d’arrêt planifiés ou non de l’infrastructure de serveur physique Azure et de la plateforme Azure sous-jacente globale.
 
 > [!NOTE]
-> Il est important de mentionner que le redémarrage de la machine virtuelle Azure protège principalement les machines virtuelles et PAS les applications. Le redémarrage de la machine virtuelle n’offre pas de haute disponibilité pour les applications SAP, mais un certain niveau de disponibilité de l’infrastructure et, par conséquent, indirectement une « plus haute disponibilité » des systèmes SAP. Par ailleurs, il n’existe actuellement aucun contrat de niveau de service (SLA) concernant le temps nécessaire au redémarrage d’une machine virtuelle après une interruption d’hôte planifiée ou non. Par conséquent, cette méthode de haute disponibilité n’est pas adaptée aux composants essentiels d’un système SAP, tel qu’un (A)SCS ou un SGBD (système de gestion de base de données).
+> Le redémarrage de la machine virtuelle Azure protège principalement les machines virtuelles et *pas* les applications. Bien que le redémarrage de la machine virtuelle n’offre pas une haute disponibilité aux applications SAP, il offre un certain niveau de disponibilité de l’infrastructure. Il offre également un « plus haut niveau de disponibilité » aux systèmes SAP indirectement. Par ailleurs, il n’existe aucun contrat SLA pour la durée du redémarrage d’une machine virtuelle à l’issue d’une panne de l’hôte planifiée ou non, ce qui rend cette méthode de la haute disponibilité inappropriée aux composants critiques d’un système SAP. Par exemple, les composants critiques peuvent être une instance ASCS/SCS ou un système de gestion de base de données (SGBD).
 >
 >
 
-Le stockage est un autre élément important d’infrastructure pour la haute disponibilité. Par exemple, le contrat de niveau de service Stockage Azure assure une disponibilité de 99,9 %. Si une personne déploie toutes les machines virtuelles et ses disques sur un compte Azure Storage unique, l’indisponibilité potentielle d’Azure Storage entraînera celle de toutes les machines virtuelles placées dans ce compte Azure Storage et également celle de tous les composants SAP s’exécutant sur ces dernières.  
+Le stockage est un autre élément important d’infrastructure pour la haute disponibilité. Par exemple, le contrat de niveau de service Stockage Azure assure une disponibilité de 99,9 %. Si vous déployez toutes les machines virtuelles et leurs disques sur un compte Stockage Azure unique, l’indisponibilité potentielle de Stockage Azure entraîne celle de toutes les machines virtuelles placées dans ce compte Stockage Azure et de tous les composants SAP s’exécutant sur ces dernières.  
 
-Au lieu de placer toutes les machines virtuelles dans un seul compte Azure Storage, vous pouvez également utiliser les comptes de stockage dédiés pour chaque machine virtuelle et ainsi augmenter la disponibilité globale des machines virtuelles et des applications SAP en utilisant plusieurs comptes Azure Storage indépendants.
+Au lieu de placer toutes les machines virtuelles dans un compte de stockage Azure unique, vous pouvez utiliser des comptes de stockage dédiés pour chaque machine virtuelle. L’utilisation de plusieurs comptes de stockage Azure indépendants vous permet d’augmenter la disponibilité globale des machines virtuelles et des applications SAP.
 
-Les disques managés Azure sont automatiquement placés dans le domaine d’erreur de la machine virtuelle à laquelle ils sont attachés. Si vous placez deux machines virtuelles dans un groupe à haute disponibilité et que vous utilisez des disques managés, la plateforme se charge également de distribuer ces derniers dans différents domaines d’erreur. Si vous envisagez d’utiliser un Stockage Premium, nous vous recommandons vivement de recourir à des disques managés également.
+Les disques managés Azure sont automatiquement placés dans le domaine d’erreur de la machine virtuelle à laquelle ils sont attachés. Si vous placez deux machines virtuelles dans un groupe à haute disponibilité et que vous utilisez des disques managés, la plateforme se charge également de distribuer ces derniers dans différents domaines d’erreur. Si vous envisagez d’utiliser un compte de stockage Premium, nous vous recommandons vivement de recourir à des disques managés.
 
-Voici un exemple de ce à quoi pourrait ressembler une architecture de système SAP NetWeaver utilisant la haute disponibilité d’infrastructure Azure et des comptes de stockage :
+Voici un exemple de ce à quoi pourrait ressembler une architecture de système SAP NetWeaver utilisant la haute disponibilité d’infrastructure Azure et des comptes de stockage :
 
-![Utiliser la haute disponibilité d’infrastructure Azure pour permettre une « plus haute » disponibilité de l’application SAP][planning-guide-figure-2900]
+![Utiliser la haute disponibilité de l’infrastructure Azure pour permettre une plus haute disponibilité des applications SAP][planning-guide-figure-2900]
 
-Voici un exemple de ce à quoi pourrait ressembler une architecture de système SAP NetWeaver utilisant la haute disponibilité d’infrastructure Azure et des disques managés :
+Voici un exemple de ce à quoi pourrait ressembler une architecture de système SAP NetWeaver utilisant la haute disponibilité d’infrastructure Azure et des disques managés :
 
-![Utiliser la haute disponibilité d’infrastructure Azure pour permettre une « plus haute » disponibilité de l’application SAP][planning-guide-figure-2901]
+![Utiliser la haute disponibilité de l’infrastructure Azure pour permettre une plus haute disponibilité des applications SAP][planning-guide-figure-2901]
 
-Pour les composants SAP stratégiques, nous avons obtenu jusqu’ici ce qui suit :
+Pour les composants SAP critiques, vous avez obtenu jusqu’ici ce qui suit :
 
 * La haute disponibilité des serveurs d’applications SAP
 
-  Les instances de serveur d’applications SAP sont des composants redondants. Chaque instance de serveur d’applications SAP est déployée sur sa propre machine virtuelle s’exécutant dans un domaine de mise à niveau et d’erreur différent (voir les chapitres [Domaines d’erreur][planning-guide-3.2.1] et [Domaines de mise à niveau][planning-guide-3.2.2]). Cela est assuré par l’utilisation des groupes à haute disponibilité Azure (voir le chapitre [Groupes à haute disponibilité Azure][planning-guide-3.2.3]). L’indisponibilité planifiée ou non planifiée potentielle d’un domaine de mise à niveau ou d’erreur Azure entraîne l’indisponibilité d’un nombre limité de machines virtuelles avec leurs instances de serveurs d’applications SAP.
+    Les instances de serveur d’applications SAP sont des composants redondants. Chaque instance de serveur d’applications SAP est déployé sur sa propre machine virtuelle, qui s’exécute dans un domaine d’erreur et de mise à niveau Azure différent. Pour plus d’informations, consultez les sections [Domaines d’erreur][planning-guide-3.2.1] et [Domaines de mise à niveau][planning-guide-3.2.2]. 
 
-  Chaque instance de serveur d’applications SAP est placée dans son propre compte Azure Storage : l’indisponibilité potentielle d’un compte de stockage Azure provoquera l’indisponibilité d’une seule machine virtuelle et de son instance de serveur d’applications SAP. Toutefois, sachez qu’un abonnement Azure est limité quand au nombre de comptes Azure Storage. Pour assurer le démarrage automatique de l’instance (A)SCS après le redémarrage de la machine virtuelle, veillez à définir le paramètre de démarrage automatique dans le profil de démarrage de l’instance (A)SCS décrit dans le chapitre [Utilisation du démarrage automatique pour les instances SAP][planning-guide-11.5].
-  Pour plus de détails, voir également le chapitre [Haute disponibilité pour les serveurs d’applications SAP][planning-guide-11.4.1].
+    Vous pouvez garantir cette configuration à l’aide de groupes à haute disponibilité Azure. Pour plus d’informations, consultez la section [Groupes à haute disponibilité Azure][planning-guide-3.2.3]. 
 
-  Même si vous utilisez des disques managés, ces disques sont également stockés dans un compte de stockage Azure et peuvent être indisponibles en cas d’une panne de stockage.
+    L’indisponibilité planifiée ou non planifiée potentielle d’un domaine de mise à niveau ou d’erreur Azure entraîne l’indisponibilité d’un nombre limité de machines virtuelles avec leurs instances de serveurs d’applications SAP.
 
-* *plus haute* disponibilité de l’instance (A)SCS SAP
+    Chaque instance de serveur d’applications SAP est placé dans son propre compte de stockage Azure. L’indisponibilité potentielle d’un seul compte de stockage Azure entraîne celle d’une seule machine virtuelle avec son instance de serveur d’applications SAP. Toutefois, sachez qu’un abonnement Azure est limité quant au nombre de comptes de stockage Azure. Pour assurer le démarrage automatique de l’instance ASCS/SCS après le redémarrage de la machine virtuelle, veillez à définir le paramètre de démarrage automatique dans le profil de démarrage de l’instance ASCS/SCS décrit dans la section [Utilisation du démarrage automatique pour les instances SAP][planning-guide-11.5].
+  
+    Pour plus d’informations, consultez [Haute disponibilité pour les serveurs d’applications SAP][planning-guide-11.4.1].
 
-  Ici, nous utilisons le redémarrage de la machine virtuelle Azure afin de protéger la machine virtuelle avec l’instance (A)SCS SAP installée. En cas d’interruption planifiée ou non de serveurs Azure, les machines virtuelles sont redémarrées sur un autre serveur disponible. Comme mentionné précédemment, le redémarrage de la machine virtuelle Azure protège les machines virtuelles mais PAS les applications, qui sont dans ce cas l’instance (A)SCS. Ce redémarrage permet d’obtenir indirectement une « plus haute disponibilité » de l’instance (A)SCS SAP. Pour assurer le démarrage automatique de l’instance (A)SCS après le redémarrage de la machine virtuelle, veillez à définir le paramètre de démarrage automatique du profil de démarrage de l’instance (A)SCS décrit dans le chapitre [Utilisation du démarrage automatique pour les instances SAP][planning-guide-11.5]. Cela signifie que l’instance (A)SCS en tant que point de défaillance unique s’exécutant sur une machine virtuelle unique sera un facteur déterminant de la disponibilité de l’ensemble du paysage SAP.
+    Même si vous utilisez des disques managés, ils sont stockés dans un compte de stockage Azure et peuvent être indisponibles en cas de panne de stockage.
 
-* *plus haute* disponibilité du serveur du SGBD (système de gestion de base de données)
+* *Plus haute disponibilité* des instances ASCS/SCS SAP
 
-  Ici, comme pour le cas d’utilisation de l’instance (A)SCS SAP, nous utilisons le redémarrage de la machine virtuelle pour protéger la machine virtuelle sur laquelle est installé le logiciel de SGBD (système de gestion de base de données). Ce redémarrage nous permet également d’obtenir une « plus haute disponibilité » du logiciel de SGBD (système de gestion de base de données).
-  Le SGBD (système de gestion de base de données) s’exécutant sur une seule machine virtuelle est également un point de défaillance unique, qui est le facteur déterminant de disponibilité de l’ensemble du paysage SAP.
+    Dans ce scénario, nous utilisons le redémarrage de la machine virtuelle Azure afin de protéger la machine virtuelle avec l’instance ASCS/SCS SAP installée. En cas d’interruption planifiée ou non de serveurs Azure, les machines virtuelles sont redémarrées sur un autre serveur disponible. Comme mentionné précédemment, le redémarrage de la machine virtuelle Azure protège les machines virtuelles mais *pas* les applications, qui sont dans ce cas l’instance ASCS/SCS. Ce redémarrage permet d’obtenir indirectement une « plus haute disponibilité » de l’instance ASCS/SCS SAP. 
+
+    Pour assurer un démarrage automatique de l’instance ASCS/SCS après le redémarrage de la machine virtuelle, définissez le paramètre de démarrage automatique dans le profil de démarrage de l’instance ASCS/SCS, comme décrit dans la section [Utilisation du démarrage automatique pour les instances SAP][planning-guide-11.5]. Ce paramètre signifie que l’instance ASCS/SCS en tant que point de défaillance unique (SPOF) s’exécutant sur une machine virtuelle unique détermine la disponibilité de l’ensemble du paysage SAP.
+
+* *Plus haute disponibilité* du serveur du SGBD (système de gestion de base de données)
+
+    Comme dans le cas d’utilisation de l’instance ASCS/SCS SAP précédent, vous utilisez le redémarrage de la machine virtuelle pour protéger la machine virtuelle sur laquelle est installé le logiciel du SGBD (système de gestion de base de données). Ce redémarrage vous permet également d’obtenir une « plus haute disponibilité » du logiciel du SGBD.
+  
+    Un SGBD (système de gestion de base de données) s’exécutant sur une seule machine virtuelle est également un point de défaillance unique, qui est le facteur déterminant de disponibilité de l’ensemble du paysage SAP.
 
 ## <a name="using-autostart-for-sap-instances"></a>Utilisation du démarrage automatique pour les instances SAP
-  SAP a proposé une fonctionnalité permettant de démarrer automatiquement des instances SAP immédiatement après le démarrage du système d’exploitation au sein de la machine virtuelle. Les étapes exactes ont été documentées dans l’article de base de connaissances SAP [1909114]. Toutefois, SAP recommande de ne plus utiliser ce paramètre, car aucun contrôle n’est exercé sur l’ordre de redémarrage de l’instance, en supposant que plusieurs machines virtuelles ont été affectées ou que plusieurs instances s’exécutent sur une machine virtuelle. Dans l’hypothèse d’un scénario Azure classique d’un serveur d’applications SAP sur une machine virtuelle et dans le cas du redémarrage éventuel d’une seule machine virtuelle, le démarrage automatique n’est pas vraiment critique et peut être activé en ajoutant ce paramètre :
+SAP propose un paramètre qui vous permet de démarrer automatiquement des instances SAP immédiatement après le démarrage du système d’exploitation au sein de la machine virtuelle. Les instructions sont documentées dans l’article de base de connaissances SAP [1909114]. Toutefois, SAP ne recommande plus d’utiliser le paramètre, car il ne permet pas de contrôler l’ordre des redémarrages d’instances si plusieurs machines virtuelles sont concernées ou si plusieurs instances sont en cours d’exécution par machine virtuelle. 
+
+Dans l’hypothèse d’un scénario Azure classique d’une seule instance de serveur d’applications SAP sur une machine virtuelle et dans le cas du redémarrage éventuel d’une seule machine virtuelle, le démarrage automatique n’est pas critique. Mais vous pouvez l’activer en ajoutant le paramètre suivant dans le profil de démarrage de l’instance SAP Advanced Business Application Programming (ABAP) ou Java :
 
       Autostart = 1
 
-  Dans le profil de démarrage de l’instance ABAP et/ou Java SAP.
 
   > [!NOTE]
-  > Le paramètre de démarrage automatique peut avoir également quelques inconvénients. Le paramètre déclenche le démarrage d’une instance ABAP ou Java SAP au démarrage du service Windows/Linux associé de l’instance. Cela est certainement le cas au démarrage du système d’exploitation. Toutefois, les redémarrages des services SAP sont également courants pour la fonctionnalité de gestion du cycle de vie du logiciel SAP, telle que SUM ou d’autres mises à jour et mises à niveau. Ces fonctionnalités n’attendent pas du tout le redémarrage automatique d’une instance. Par conséquent, le paramètre de démarrage automatique doit être désactivé avant d’exécuter ces tâches. Le paramètre de démarrage automatique ne doit pas être utilisé pour les instances SAP en cluster, telles que ASCS/SCS/CI.
+  > Le paramètre de démarrage automatique comporte aussi quelques défauts. Plus précisément, il déclenche le démarrage d’une instance SAP ABAP ou Java au démarrage du service Windows ou Linux associé de l’instance. Cette séquence se produit lorsque le système d’exploitation démarre. Toutefois, les redémarrages des services SAP sont également courants pour la fonctionnalité de gestion du cycle de vie du logiciel SAP, telle que Software Update Manager (SUM) ou d’autres mises à jour et mises à niveau. Ces fonctionnalités n’attendent pas le redémarrage automatique d’une instance. Par conséquent, le paramètre de démarrage automatique doit être désactivé avant d’exécuter ces tâches. Le paramètre de démarrage automatique ne doit pas être utilisé pour les instances SAP en cluster, comme ASCS/SCS/CI.
   >
   >
 
-  Consultez les informations supplémentaires concernant le démarrage automatique des instances SAP ici :
+  Pour plus d’informations sur le démarrage automatique pour les instances SAP, consultez les articles suivants :
 
   * [Start/Stop SAP along with your Unix Server Start/Stop (Démarrage/Arrêt de SAP à l’aide de la fonctionnalité correspondante de votre serveur Unix)](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [Starting and Stopping SAP NetWeaver Management Agents (Démarrage et arrêt des agents de gestion SAP NetWeaver)](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)

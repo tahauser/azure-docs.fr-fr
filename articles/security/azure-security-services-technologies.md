@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Services et technologies de sécurité Azure
 Dans nos discussions avec les clients Azure actuels et futurs, une question revient souvent : « Avez-vous une liste de tous les services et technologies de sécurité proposés par Azure ? ».
 
-Nous sommes conscients que lorsque vous évaluez les options techniques des fournisseurs de service Cloud, il est utile de disposer d’une telle liste pour analyser les différentes options plus profondément lorsque vous êtes prêt.
+Lors de l’évaluation des options de fournisseur de services cloud, il est utile de disposer de ces informations.
 
 Ce document fournit une première version de cette liste. Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. La liste est classée par catégories, et la liste des catégories évoluera également au fil du temps. Veillez à consulter cette page régulièrement pour vous tenir au courant de l’évolution de nos technologies et services liés à la sécurité.
 

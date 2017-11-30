@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 11/16/2017
 ms.author: raiye
-ms.openlocfilehash: 90ce26733c7018e2cf9464470a65bd0539772c3b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -88,7 +88,7 @@ En raison d’un bogue de sécurité, nous désactivons les versions suivantes d
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |8 novembre 2017 |Publication 5.14 |TBD |
+| WA-GUEST-OS-5.12_201710-02 |8 novembre 2017 |Publication 5.14 |TBD |
 | WA-GUEST-OS-5.11_201709-01 |6 octobre 2017 |Post 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 août 2017 |Post 5.12 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
@@ -111,7 +111,7 @@ En raison d’un bogue de sécurité, nous désactivons les versions suivantes d
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-01 |8 novembre 2017 |Publication 4.49 |TBD |
+| WA-GUEST-OS-4.47_201710-02 |8 novembre 2017 |Publication 4.49 |TBD |
 | WA-GUEST-OS-4.46_201709-01 |6 octobre 2017 |Post 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 août 2017 |Post 4.47 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
@@ -134,7 +134,7 @@ En raison d’un bogue de sécurité, nous désactivons les versions suivantes d
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |8 novembre 2017 |Publication 3.56 |TBD |
+| WA-GUEST-OS-3.54_201710-02 |8 novembre 2017 |Publication 3.56 |TBD |
 | WA-GUEST-OS-3.53_201709-01 |6 octobre 2017 |Post 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 août 2017 |Post 3.54 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |
@@ -157,7 +157,7 @@ En raison d’un bogue de sécurité, nous désactivons les versions suivantes d
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |8 novembre 2017 |Publication 2.69 |TBD |
+| WA-GUEST-OS-2.67_201710-02 |8 novembre 2017 |Publication 2.69 |TBD |
 | WA-GUEST-OS-2.66_201709-01 |6 octobre 2017 |Post 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 août 2017 |Post 2.67 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 août 2017 |8 novembre 2017 |TBD |

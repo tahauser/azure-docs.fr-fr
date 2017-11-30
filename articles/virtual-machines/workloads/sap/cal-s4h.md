@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Déploiement de SAP S/4HANA ou BW/4HANA sur Azure
 Cet article explique comment déployer S/4HANA sur Azure en utilisant SAP Cloud Appliance Library (SAP CAL) 3.0. Procédez de la même façon pour déployer d’autres solutions SAP HANA, comme BW/4HANA.
@@ -95,7 +95,7 @@ Vous avez correctement créé un compte SAP CAL capable d’effectuer les tâch
 Vous pouvez à présent commencer à déployer S/4HANA dans votre abonnement utilisateur dans Azure.
 
 > [!NOTE]
-Avant de poursuivre, déterminez si vous êtes lié à des quotas de cœurs pour les machines virtuelles Azure série H. Pour le moment, SAP CAL utilise des machines virtuelles Azure série H pour déployer certaines solutions SAP HANA. Il se peut que votre abonnement Azure ne soit pas associé à des quotas de cœurs pour la série H. Dans ce cas, vous devrez peut-être contacter le support Azure pour obtenir un quota d’au moins 16 cœurs de série H.
+Avant de poursuivre, déterminez si vous êtes lié à des quotas de processeurs virtuels pour les machines virtuelles Azure série H. Pour le moment, SAP CAL utilise des machines virtuelles Azure série H pour déployer certaines solutions SAP HANA. Il se peut que votre abonnement Azure ne soit pas associé à des quotas de processeurs virtuels pour la série H. Dans ce cas, vous devrez peut-être contacter le support Azure pour obtenir un quota d’au moins 16 processeurs virtuels de série H.
 
 > [!NOTE]
 Lorsque vous déployez une solution sur Azure dans SAP CAL, vous constaterez peut-être que vous ne pouvez choisir qu’une seule région Azure. Pour effectuer un déploiement dans des régions Azure autres que celle suggérée par SAP CAL, vous devez acheter un abonnement CAL auprès de SAP. Vous devrez peut-être également ouvrir un message avec SAP pour que votre compte CAL puisse déployer dans des régions Azure autres que celles suggérées initialement.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Présentation de Microsoft Azure
 Microsoft Azure est la plateforme d'applications de Microsoft pour le cloud public.  L'objectif de cet article est de vous donner les bases pour comprendre les principes essentiels d'Azure, même si vous ne disposez d'absolument aucune connaissance en matière de cloud computing.
@@ -77,7 +77,7 @@ Dans bien des cas, le cloud est utilisé pour exécuter les sites et application
 
 C’est exactement ce que fournit Web Apps. Ce modèle de calcul offre un environnement web géré et utilise le portail de gestion Azure ainsi que des API. Vous pouvez transférer une application de site web existante vers Web Apps sans la modifier ou en créer une directement dans le cloud. Une fois que le site web fonctionne, vous pouvez ajouter ou supprimer des instances de façon dynamique sur Azure Web Apps pour équilibrer les demandes. Azure Apps propose une option partagée, grâce à laquelle votre site est exécuté sur une machine virtuelle avec d’autres sites, et une option standard qui permet au site de fonctionner sur sa propre machine virtuelle. L’option standard vous permet également d’augmenter la taille (la puissance informatique) de vos instances si nécessaire.
 
-Pour le développement, Web Apps prend en charge .NET, PHP, Node.js, Java et Python, de même que la base de données SQL et MySQL (de ClearDB, un partenaire Microsoft) pour le stockage relationnel. La prise en charge de plusieurs applications populaires, notamment WordPress, Joomla et Drupal est également intégrée. L'objectif est de fournir une plateforme économique, évolutive et utile au plus grand nombre pour la création de sites et d'applications web dans le cloud public.
+Pour le développement, Web Apps prend en charge .NET, PHP, Node.js, Java et Python, de même que SQL Database et Azure Database pour MySQL pour le stockage relationnel. La prise en charge de plusieurs applications populaires, notamment WordPress, Joomla et Drupal est également intégrée. L'objectif est de fournir une plateforme économique, évolutive et utile au plus grand nombre pour la création de sites et d'applications web dans le cloud public.
 
 **Scénarios Web Apps**
 

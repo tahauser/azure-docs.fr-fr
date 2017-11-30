@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
 
@@ -113,6 +113,7 @@ Procédez comme suit pour effectuer la transition de votre service vers le porta
 
 Une fois la transition terminée, vous pouvez gérer vos appareils via le service StorSimple Device Manager dans le portail Azure. Si vous ne voyez pas une option pour migrer vers le portail Azure, mais que vous souhaitez le faire, vous pouvez [soumettre une demande](https://aka.ms/ss8000-cx-signup).
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Opérations prises en charge sur les appareils exécutant des versions antérieures à Update 3.0
 Seuls les appareils StorSimple exécutant Update 3.0 et des versions ultérieures sont pris en charge dans le portail Azure. La prise en charge des appareils exécutant des versions antérieures est limitée. Une fois que vous avez effectué la migration vers le portail Azure, utilisez le tableau suivant pour connaître les opérations prises en charge sur les appareils exécutant des versions antérieures à Update 3.0.
 
 | Opération                                                                                                                       | Pris en charge      |

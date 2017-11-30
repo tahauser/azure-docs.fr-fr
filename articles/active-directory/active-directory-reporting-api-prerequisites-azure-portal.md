@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Configuration requise pour accéder à l’API de création de rapports Azure AD
 
@@ -55,7 +55,7 @@ Pour configurer votre annuaire et lui permettre d’accéder à l’API de créa
 
 **Pour inscrire une application Azure Active Directory :**
 
-1. Dans le volet de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Active Directory**.
+1. Dans le volet de navigation gauche du [Portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ Ces valeurs sont nécessaires lors de la configuration des appels à l’API de 
 
 **Pour obtenir votre nom de domaine :**
 
-1. Dans le volet de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Active Directory**.
+1. Dans le volet de navigation gauche du [Portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Dans le panneau **Azure Active Directory**, cliquez sur **Noms de domaine**.
+2. Dans le panneau **Azure Active Directory**, cliquez sur **Noms de domaine personnalisés**.
 
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Ces valeurs sont nécessaires lors de la configuration des appels à l’API de 
 
 **Pour obtenir l’ID client de votre application :**
 
-1. Dans le volet de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Active Directory**.
+1. Dans le volet de navigation gauche du [Portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Pour obtenir la clé secrète client de l’application, vous devez créer une n
 
 **Pour obtenir la clé secrète client de l’application :**
 
-1. Dans le volet de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Active Directory**.
+1. Dans le volet de navigation gauche du [Portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
    
     ![Inscription de l’application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

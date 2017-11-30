@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Liaisons de stockage Blob Azure Functions
 
@@ -193,7 +193,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Doit être défini sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. Les exceptions sont notées à la section [utilisation](#trigger---usage). |
 |**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction. | 
 |**path** | **BlobPath** |Conteneur à surveiller.  Peut être un [modèle de nom d’objet blob](#trigger-blob-name-patterns). | 
-|**connection** | **Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** | **Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
@@ -309,7 +309,7 @@ Consultez l’exemple propre à un langage particulier :
 
 ### <a name="input--output---c-example"></a>Entrée et sortie - exemple C#
 
-L’exemple suivant est une fonction [C# précompilé](functions-dotnet-class-library.md) qui utilise trois liaisons d’objet blob, une d’entrée et deux de sortie. La fonction est déclenchée par la création d’un objet blob d’image dans le conteneur *sample-images*. Il crée des copies de petite et moyenne taille de l’objet blob d’image. 
+L’exemple suivant est une fonction [C# précompilée](functions-dotnet-class-library.md) qui utilise un déclencheur d’objet blob et deux liaisons d’objet blob de sortie. La fonction est déclenchée par la création d’un objet blob d’image dans le conteneur *sample-images*. Il crée des copies de petite et moyenne taille de l’objet blob d’image. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -342,7 +342,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Entrée et sortie - exemple Script C#
 
-L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et dans un code [Script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction effectue une copie d’un objet blob. La fonction est déclenchée par un message de file d’attente qui contient le nom de l’objet blob à copier. Le nouvel objet blob est nommé *{originalblobname}-Copy*.
+L’exemple suivant montre des liaisons d’entrée et de sortie d’objets blob dans un fichier *function.json* et du code de [script C#](functions-reference-csharp.md) qui utilise les liaisons. La fonction effectue une copie d’un objet blob de texte. La fonction est déclenchée par un message de file d’attente qui contient le nom de l’objet blob à copier. Le nouvel objet blob est nommé *{originalblobname}-Copy*.
 
 Dans le fichier *function.json*, la propriété de métadonnées `queueTrigger` est utilisée pour spécifier le nom de l’objet blob dans les propriétés `path` :
 
@@ -380,7 +380,7 @@ La section [configuration](#input--output---configuration) décrit ces propriét
 Voici le code Script C# :
 
 ```cs
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
@@ -389,7 +389,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 ### <a name="input--output---javascript-example"></a>Entrée et sortie - exemple JavaScript
 
-L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et dans un [code JavaScript] (functions-reference-node.md) qui utilise la liaison. La fonction effectue une copie d’un objet blob. La fonction est déclenchée par un message de file d’attente qui contient le nom de l’objet blob à copier. Le nouvel objet blob est nommé *{originalblobname}-Copy*.
+L’exemple suivant montre des liaisons d’entrée et de sortie d’objets blob dans un fichier *function.json* et du [code JavaScript] (functions-reference-node.md) qui utilise les liaisons. La fonction effectue une copie d’un objet blob. La fonction est déclenchée par un message de file d’attente qui contient le nom de l’objet blob à copier. Le nouvel objet blob est nommé *{originalblobname}-Copy*.
 
 Dans le fichier *function.json*, la propriété de métadonnées `queueTrigger` est utilisée pour spécifier le nom de l’objet blob dans les propriétés `path` :
 
@@ -465,10 +465,10 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur `blob`. |
-|**direction** | n/a | Doit avoir la valeur `in` pour une liaison d’entrée ou out pour une liaison de sortie. Les exceptions sont répertoriées à la section [utilisation](#input--output---usage). |
+|**direction** | n/a | Doit avoir la valeur `in` pour une liaison d’entrée ou out pour une liaison de sortie. Les exceptions sont notées à la section [utilisation](#input--output---usage). |
 |**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.  La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
 |**path** |**BlobPath** | Chemin de l’objet blob. | 
-|**connection** |**Connection**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
 |n/a | **Access** | Indique si vous lirez ou écrirez. |
 
 ## <a name="input--output---usage"></a>Entrée et sortie - utilisation

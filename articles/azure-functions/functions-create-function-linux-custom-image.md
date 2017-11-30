@@ -5,17 +5,17 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 11/08/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 40fbbd0ec020320b26ed343aec8ac31d60b646dc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 67ee02df2c42ba39c2f186cc95fa886a3d735ed2
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Créer une fonction sur Linux en utilisant une image personnalisée (préversion)
 
@@ -145,7 +145,7 @@ Vous pouvez désormais utiliser cette image comme source de déploiement pour un
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0.21 ou ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -162,13 +162,13 @@ L’hébergement Linux pour Functions n’est pas actuellement pris en charge da
 
 L’application de fonction héberge l’exécution de vos fonctions. Créez une application de fonction à partir de l’image Docker Hub à l’aide de la commande [az functionapp create](/cli/azure/functionapp#create). 
 
-Dans la commande suivante, indiquez un nom d’application de fonction unique là où se trouve l’espace réservé `<app_name>`, et le nom du compte de stockage pour `<storage_name>`. La valeur `<app_name>` est utilisée en tant que domaine DNS par défaut pour l’application de fonction. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Comme précédemment, `<docker-id>` est le nom de votre compte Docker.
+Dans la commande suivante, indiquez un nom d’application de fonction unique là où se trouve l’espace réservé `<app_name>`, et le nom du compte de stockage pour `<storage_name>`. La valeur `<app_name>` est utilisée en tant que domaine DNS par défaut pour la Function App. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Comme précédemment, `<docker-id>` est le nom de votre compte Docker.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --plan myAppServicePlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0 
 ```
-Une fois l’application de fonction créée, Azure CLI affiche des informations semblables à celles de l’exemple suivant :
+Une fois la Function App créée, Azure CLI affiche des informations semblables à celles de l’exemple suivant :
 
 ```json
 {

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
-ms.openlocfilehash: 9781fc75b3820a9248e495ccd63870c06472fa20
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1097b853ca0f461300f294e9f5baabf2ae4e15a1
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API Table Azure Cosmos DB pour Node.js : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -33,15 +33,19 @@ ms.lasthandoff: 11/15/2017
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**Documentation de l’API**|[Documentation de référence de l’API Node.js](http://azure.github.io/azure-storage-node/)|
-|**Contribution au kit SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
+|**Contribution au Kit de développement logiciel (SDK)**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
+
+> [!IMPORTANT]
+> Si vous avez créé un compte d’API Table pendant la durée de la préversion, [créez un compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les kits SDK mis à la disposition générale pour l’API Table.
+>
 
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Version en disponibilité générale
 
-## <a name="release-and-retirement-dates"></a>Dates de publication et de retrait
-Microsoft fournira une notification au moins **12 mois** avant le retrait d’un kit SDK pour faciliter la transition vers une version plus récente/prise en charge.
+## <a name="release-and-retirement-dates"></a>Dates de lancement et de suppression
+Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
 

@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
 
@@ -319,7 +319,7 @@ displayName | Étiquette (dans la langue spécifiée par les paramètres région
 
 counterSpecifier est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphe et d’alerte du portail Azure, utilisent counterSpecifier comme « clé » qui identifie une métrique ou une instance de métrique. Pour les métriques `builtin`, nous vous recommandons d’utiliser des valeurs pour counterSpecifier qui commencent par `/builtin/`. Si vous collectez une instance spécifique d’une métrique, nous vous recommandons d’attacher l’identificateur de l’instance à la valeur de counterSpecifier. Voici quelques exemples :
 
-* `/builtin/Processor/PercentIdleTime` : Temps d’inactivité moyen pour tous les cœurs
+* `/builtin/Processor/PercentIdleTime` : temps d’inactivité moyen pour tous les processeurs virtuels
 * `/builtin/Disk/FreeSpace(/mnt)` : Espace libre pour le système de fichiers /mnt
 * `/builtin/Disk/FreeSpace` : Espace libre moyen pour tous les systèmes de fichiers montés
 
@@ -424,7 +424,7 @@ Le fournisseur de métriques intégré est une source de métriques parmi les pl
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métriques intégrées pour la classe Processeur
 
-La classe de métriques Processeur fournit des informations sur l’utilisation du processeur dans la machine virtuelle. Lors de l’agrégation de pourcentages, le résultat est la moyenne pour toutes les UC. Dans une machine virtuelle à deux cœurs, si un cœur a été occupé à 100 % et que l’autre a été inactif à 100 %, la valeur de PercentIdleTime serait ainsi 50. Si chaque cœur a été occupé à 50 % pour la même période, le résultat serait également 50. Dans une machine virtuelle à quatre cœurs, si un cœur a été occupé à 100 % et que les autres ont été inactifs, la valeur de PercentIdleTime serait 75.
+La classe de métriques Processeur fournit des informations sur l’utilisation du processeur dans la machine virtuelle. Lors de l’agrégation de pourcentages, le résultat est la moyenne pour toutes les UC. Dans une machine virtuelle à deux processeurs virtuels, si un processeur virtuel a été occupé à 100 % et que l’autre a été inactif à 100 %, la valeur de PercentIdleTime s’élèverait à 50. Si chaque processeur virtuel a été occupé à 50 % pendant la même période, le résultat serait également 50. Dans une machine virtuelle à quatre processeurs virtuels, si un processeur virtuel a été occupé à 100 % et que les autres ont été inactifs, la valeur de PercentIdleTime s’élèverait à 75.
 
 counter | Signification
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | Pourcentage de temps passé en mode privilégié (noyau)
 
 La somme des quatre premiers compteurs doit être de 100 %. La somme des trois derniers compteurs est également de 100 %. Ils subdivisent la somme de PercentProcessorTime, PercentIOWaitTime et PercentInterruptTime.
 
-Pour obtenir une seule métrique agrégée pour tous les processeurs, définissez `"condition": "IsAggregate=TRUE"`. Pour obtenir une métrique pour un processeur spécifique, par exemple le deuxième processeur logique d’une machine virtuelle à quatre cœurs, définissez `"condition": "Name=\\"1\\""`. Les numéros des processeurs logiques sont dans la plage `[0..n-1]`.
+Pour obtenir une seule métrique agrégée pour tous les processeurs, définissez `"condition": "IsAggregate=TRUE"`. Pour obtenir une métrique pour un processeur spécifique, par exemple le deuxième processeur logique d’une machine virtuelle à quatre processeurs virtuels, définissez `"condition": "Name=\\"1\\""`. Les numéros des processeurs logiques sont dans la plage `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>métriques intégrées pour la classe Mémoire
 

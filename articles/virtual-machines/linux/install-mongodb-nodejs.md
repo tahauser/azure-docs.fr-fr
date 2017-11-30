@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Guide pratique d’installation et de configuration de MongoDB sur une machine virtuelle Linux avec Azure CLI 1.0
 [MongoDB](http://www.mongodb.org) est une base de données NoSQL open-source qui offre des performances élevées. Cet article vous montre comment installer et configurer MongoDB sur une machine virtuelle Linux dans Azure à l’aide du modèle de déploiement de Resource Manager. Présentations d’exemples détaillant comment :
@@ -163,7 +163,7 @@ Vous pouvez créer une instance MongoDB complexe sur un cluster partitionné en 
 * [Cluster de partitionnement MongoDB sur CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Le déploiement de ce cluster partitionné MongoDB complexe requiert plus de 20 cœurs, ce qui est généralement le nombre de cœurs par défaut par région pour un abonnement. Ouvrez une demande de support Azure pour augmenter votre nombre de cœurs.
+> Le déploiement de ce cluster partitionné MongoDB complexe requiert plus de 20 processeurs virtuels, ce qui est généralement le nombre de processeurs virtuels par défaut par région pour un abonnement. Ouvrez une demande de support Azure pour augmenter votre nombre de processeurs virtuels.
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Saisissez vos propres valeurs, comme suit :
 

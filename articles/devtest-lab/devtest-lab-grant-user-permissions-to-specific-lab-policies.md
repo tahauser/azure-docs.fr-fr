@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques
 ## <a name="overview"></a>Vue d'ensemble
@@ -87,9 +87,9 @@ Dans l’exemple précédent, la stratégie **AllowedVmSizesInLab** est utilisé
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir accordé aux utilisateurs des autorisations sur des stratégies de laboratoire spécifiques, voici des étapes à prendre en compte :
 
-* [Sécuriser l’accès à un laboratoire](devtest-lab-add-devtest-user.md).
-* [Définir des stratégies de laboratoire](devtest-lab-set-lab-policy.md).
-* [Créer un modèle de laboratoire](devtest-lab-create-template.md).
-* [Créer des artefacts personnalisés pour vos machines virtuelles](devtest-lab-artifact-author.md).
-* [Ajouter une machine virtuelle avec des artefacts à un laboratoire](devtest-lab-add-vm-with-artifacts.md).
+* [Sécuriser l’accès à un laboratoire](devtest-lab-add-devtest-user.md)
+* [Définir des stratégies de laboratoire](devtest-lab-set-lab-policy.md)
+* [Créer un modèle de laboratoire](devtest-lab-create-template.md)
+* [Créer des artefacts personnalisés pour vos machines virtuelles](devtest-lab-artifact-author.md)
+* [Ajouter une machine virtuelle à un laboratoire](devtest-lab-add-vm.md)
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
-# <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Didacticiel : configuration de Salesforce pour approvisionner automatiquement des utilisateurs
+# <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Didacticiel : configuration de Salesforce pour approvisionner automatiquement des utilisateurs
 
 L’objectif de ce didacticiel est de montrer les étapes à effectuer dans Salesforce et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Salesforce.
 
@@ -33,11 +33,9 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 ## <a name="assigning-users-to-salesforce"></a>Assigner des utilisateurs à Salesforce
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes d’utilisateur, les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
 
-Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes dans Azure AD représentent les utilisateurs qui ont besoin d’accéder à votre application Salesforce. Dès que vous avez fait votre choix, vous pouvez assigner ces utilisateurs à votre application Salesforce en suivant les instructions disponibles à la page suivante :
-
-[Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Avant de configurer et d’activer le service de provisionnement, vous devez déterminer quels utilisateurs ou groupes dans Azure AD ont besoin d’accéder à votre application Salesforce. Une fois cette décision prise, vous pouvez affecter ces utilisateurs à votre application Salesforce en suivant les instructions fournies dans [Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Conseils importants concernant l’assignation d’utilisateurs à Salesforce
 
@@ -55,7 +53,7 @@ Cette section va vous guider afin de connecter votre instance Azure AD à votre
 >[!Tip]
 >Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Salesforce, grâce aux instructions disponibles dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Configurer l’approvisionnement automatique d’un compte utilisateur :
+### <a name="configure-automatic-user-account-provisioning"></a>Configurer l’approvisionnement automatique d’un compte utilisateur
 
 Cette section décrit comment activer l’approvisionnement des utilisateurs des comptes d’utilisateurs Active Directory sur Salesforce.
 
@@ -65,26 +63,31 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 3. Sélectionnez votre instance de Salesforce, puis sélectionnez l’onglet **Approvisionnement**.
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
-![Approvisionnement](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
+    ![approvisionnement](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+
+5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
-    a. Dans la zone de texte **Nom d’utilisateur administrateur**, entrez le nom d’un compte Salesforce auquel le profil **Administrateur système** est assigné dans Salesforce.com.
+    a. Dans la zone de texte **Nom d’utilisateur administrateur**, saisissez le nom d’un compte Salesforce auquel le profil **Administrateur système** est assigné dans Salesforce.com.
    
     b. Dans la zone de texte **Mot de passe d’administrateur**, entrez le mot de passe de ce compte.
 
-6. Pour obtenir le jeton de sécurité Salesforce, ouvrez un nouvel onglet et connectez-vous au même compte d’administration Salesforce. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Mes paramètres**.
+6. Pour obtenir le jeton de sécurité Salesforce, ouvrez un nouvel onglet et connectez-vous au même compte d’administration Salesforce. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Paramètres**.
 
      ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-my-settings.png "Activer l’approvisionnement automatique des utilisateurs")
-7. Dans le volet de navigation gauche, cliquez sur **Personnel** pour développer la section associée, puis sur **Réinitialiser mon jeton de sécurité**.
+
+7. Dans le volet de navigation gauche, cliquez sur **Mes informations personnelles** pour développer la section associée, puis sur **Réinitialiser mon jeton de sécurité**.
   
     ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-personal-reset.png "Activer l’approvisionnement automatique des utilisateurs")
-8. Sur la page **Réinitialiser mon jeton de sécurité**, cliquez sur **Réinitialiser le jeton de sécurité**.
+
+8. Sur la page **Réinitialiser le jeton de sécurité**, cliquez sur **Réinitialiser le jeton de sécurité**.
 
     ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-reset-token.png "Activer l’approvisionnement automatique des utilisateurs")
+
 9. Contrôlez la boîte de réception associée à ce compte d’administrateur. Recherchez un message électronique provenant de Salesforce.com qui contient le nouveau jeton de sécurité.
-10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton Socket**.
+
+10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton secret**.
 
 11. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Salesforce.
 
@@ -108,4 +111,4 @@ Vous pouvez désormais créer un compte de test. Patientez jusqu’à 20 minute
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-* [Configurer l’authentification unique](active-directory-saas-salesforce-tutorial.md)
+* [Configurer l’authentification unique](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)
