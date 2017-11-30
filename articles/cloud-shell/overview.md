@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 Azure Cloud Shell est un shell interactif, accessible par navigateur pour la gestion des ressources Azure.
@@ -82,12 +82,12 @@ Les listes déroulantes sont filtrées pour la région Cloud Shell qui vous a é
 [Découvrez le stockage Cloud Shell, la mise à jour des partages de fichiers et le chargement/téléchargement de fichiers.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Concepts
-* Cloud Shell s’exécute sur une machine temporaire fournie par session et par utilisateur
+* Cloud Shell s’exécute sur un hôte temporaire fourni par session et par utilisateur
 * Cloud Shell expire après 20 minutes sans activité interactive
-* Cloud Shell est accessible uniquement avec un partage de fichiers attaché
+* Cloud Shell requiert qu’un partage de fichiers soit monté
 * Cloud Shell utilise le même partage de fichiers pour Bash et PowerShell
 * Cloud Shell est affecté à une machine par compte d’utilisateur
-* Les autorisations sont définies en tant qu’utilisateur Linux standard (Bash)
+* Les autorisations sont définies en tant qu’utilisateur Linux standard dans Bash
 
 En savoir plus sur les fonctionnalités de [Bash dans Cloud Shell](features.md) et [PowerShell dans Cloud Shell (préversion)](features-powershell.md).
 
@@ -102,5 +102,5 @@ Essayez ces exemples dans les démarrages rapides pour [Bash dans Cloud Shell](q
 La machine qui héberge Cloud Shell est gratuite, avec comme condition préalable le montage d’un partage Azure Files. Les coûts de stockage standard s’appliquent.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Démarrage rapide de Bash dans Cloud Shell](quickstart.md)
+[Démarrage rapide de Bash dans Cloud Shell](quickstart.md) <br>
 [Démarrage rapide de PowerShell dans Cloud Shell (préversion)](quickstart-powershell.md)

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f03c91b7b27a4fb39b996599efd11242a785b2b2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-create-datasets.md)
@@ -185,9 +183,9 @@ Les recommandations suivantes vous permettent de déterminer le moment auquel in
 Apprenez-en davantage sur la manière dont la fabrique de données mappe les données sources au récepteur de [Mappage de schémas et de types]( copy-activity-schema-and-type-mapping.md) et quand spécifier des informations de structure.
 
 ## <a name="create-datasets"></a>Créez les jeux de données
-Vous pouvez créer des jeux de données en utilisant l’un des outils ou kits de développement logiciel suivants : [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell]((quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modèle Azure Resource Manager et portail Azure
+Vous pouvez créer des jeux de données en utilisant l’un des outils ou kits de développement logiciel suivants : [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modèle Azure Resource Manager et portail Azure
 
-## <a name="v1-vs-v2-datasets"></a>Jeux de données V1 et V2
+## <a name="v1-vs-v2-datasets"></a>Comparaison des jeux de données V1 et V2
 
 Voici quelques différences entre les jeux de données Data Factory V1 et V2 : 
 
@@ -202,4 +200,3 @@ Consultez les didacticiels suivants pour obtenir des instructions pas à pas sur
 - [Démarrage rapide : créer une fabrique de données à l’aide de PowerShell](quickstart-create-data-factory-powershell.md)
 - [Démarrage rapide : créer une fabrique de données à l’aide d’une API REST](quickstart-create-data-factory-rest-api.md)
 - Démarrage rapide : créer une fabrique de données à l’aide du portail Azure
-

@@ -1,8 +1,6 @@
 Dans Cloud Shell, créez une [application web](../articles/app-service/app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). 
 
-L’application web offre un espace d’hébergement pour votre code et fournit une URL permettant de visualiser l’application déployée.
-
-Dans la commande ci-après, remplacez *\<app_name>* par un nom unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Si `<app_name>` n’est pas une valeur unique, un message d’erreur s’affiche : « Un site web avec ce nom <app_name> existe déjà.» L’URL par défaut de l’application web est `https://<app_name>.azurewebsites.net`. 
+Dans l’exemple suivant, remplacez *\<app_name>* par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -32,7 +30,7 @@ Vous avez créé une application web vide, avec le déploiement Git activé.
 > L’URL du Git distant est indiquée dans la propriété `deploymentLocalGitUrl`, avec le format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Enregistrez cette URL, car vous en aurez besoin ultérieurement.
 >
 
-Accédez au site pour voir votre nouvelle application web.
+Accédez à la nouvelle application web.
 
 ```bash
 http://<app_name>.azurewebsites.net

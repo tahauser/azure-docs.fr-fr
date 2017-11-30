@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
-Il existe plusieurs outils dans Microsoft Azure pour protéger les données en fonction des besoins de sécurité et de conformité de votre entreprise. Ce document se concentre sur la façon dont les données sont protégées au repos dans Microsoft Azure, présente les divers composants impliqués dans l’implémentation de la protection des données, et passe en revue les avantages et les inconvénients des différentes approches de protection de la gestion des clés. 
+Il existe plusieurs outils dans Microsoft Azure pour protéger les données en fonction des besoins de sécurité et de conformité de votre entreprise. Ce document porte sur les points suivants :
+- Protection des données au repos sur Microsoft Azure
+- Présentation des différents composants impliqués dans la mise en œuvre de la protection des données
+- Examen des avantages et des inconvénients des principales approches de protection de la gestion 
 
 Le chiffrement au repos est une exigence de sécurité courante. Un avantage de Microsoft Azure est que les organisations peuvent réaliser le chiffrement au repos sans devoir supporter les coûts d’implémentation et de gestion, ni le risque d’une solution de gestion des clés personnalisée. Les organisations ont la possibilité de laisser Azure gérer complètement le chiffrement au repos. En outre, les organisations ont différentes options pour gérer étroitement le chiffrement ou les clés de chiffrement.
 
@@ -40,7 +43,7 @@ Le chiffrement au repos est destiné à fournir une protection des données pour
 
 Le chiffrement au repos est conçu pour empêcher l’attaquant d’accéder aux données non chiffrées en garantissant que les données sont chiffrées quand elles sont sur le disque. Si un attaquant devait obtenir un disque dur avec des données ainsi chiffrées et sans accès aux clés de chiffrement, il ne pourrait compromettre les données que très difficilement. Dans un tel scénario, un attaquant devrait tenter des attaques sur des données chiffrées, ce qui est bien plus complexe et gourmand en ressources qu’accéder à des données non chiffrées sur un disque dur. Pour cette raison, le chiffrement au repos est fortement recommandé et constitue une exigence de haute priorité pour de nombreuses organisations. 
 
-Dans certains cas, le chiffrement au repos est nécessaire pour les besoins de l’organisation en matière de gouvernance et de conformité des données. Les réglementations publiques et de l’industrie, comme HIPAA, PCI et FedRAMP, et les exigences réglementaires internationales, définissent des protections spécifiques via des processus et des stratégies quant aux exigences de protection et de chiffrement des données. Pour la plupart de ces réglementations, le chiffrement au repos est une mesure obligatoire nécessaire à la conformité de la protection et de la gestion des données. 
+Dans certains cas, le chiffrement au repos est nécessaire pour les besoins de l’organisation en matière de gouvernance et de conformité des données. Les réglementations publiques et de l’industrie, comme HIPAA, PCI et FedRAMP définissent des protections spécifiques quant aux exigences de protection et de chiffrement des données. Pour la plupart de ces réglementations, le chiffrement au repos est une mesure obligatoire nécessaire à la conformité de la protection et de la gestion des données. 
 
 En plus des obligations réglementaires et de conformité, le chiffrement au repos doit être perçu comme une fonctionnalité de défense en profondeur des plateformes. Alors que Microsoft fournit une plateforme conforme pour les services, les applications et les données, une sécurité physique et des équipements complète, et le contrôle et l’audit des accès aux données , il est important de fournir des mesures de sécurité supplémentaires qui se recouvrent en cas d’échec de l’une des mesures de sécurité. Le chiffrement au repos fournit un mécanisme de défense supplémentaire de cet ordre.
 
@@ -62,7 +65,7 @@ Les autorisations d’utiliser les clés stockées dans Azure Key Vault, pour le
 
 ### <a name="key-hierarchy"></a>Hiérarchie des clés
 
-Généralement, plusieurs clés de chiffrement sont utilisées dans une implémentation du chiffrement au repos. Un chiffrement asymétrique est utile pour établir la confiance, et une authentification est nécessaire pour l’accès et la gestion des clés. Un chiffrement symétrique est plus efficace pour le chiffrement et le déchiffrement en bloc, permettant un chiffrement plus fort et de meilleures performances. En outre, limiter l’utilisation d’une seule clé de chiffrement réduit le risque que la clé soit compromise et le coût du rechiffrement quand une clé doit être remplacée. Pour tirer parti des avantages du chiffrement symétrique et asymétrique, et pour limiter l’utilisation et l’exposition d’une seule clé, les modèles de chiffrement au repos d’Azure utilisent une hiérarchie de clés constituée des types de clés suivants :
+Plusieurs clés de chiffrement sont utilisées dans une implémentation du chiffrement au repos. Un chiffrement asymétrique est utile pour établir la confiance, et une authentification est nécessaire pour l’accès et la gestion des clés. Un chiffrement symétrique est plus efficace pour le chiffrement et le déchiffrement en bloc, permettant un chiffrement plus fort et de meilleures performances. En outre, limiter l’utilisation d’une seule clé de chiffrement réduit le risque que la clé soit compromise et le coût du rechiffrement quand une clé doit être remplacée. Pour tirer parti des avantages du chiffrement symétrique et asymétrique, et pour limiter l’utilisation et l’exposition d’une seule clé, les modèles de chiffrement au repos d’Azure utilisent une hiérarchie de clés constituée des types de clés suivants :
 
 - **Clé de chiffrement des données** : une clé symétrique AES256 utilisée pour chiffrer une partition ou un bloc de données.  Une même ressource peut avoir plusieurs partitions et de nombreuses clés de chiffrement des données. Le chiffrement de chaque bloc de données avec une clé différente rend les attaques d’analyse du chiffrement plus difficiles. L’accès aux clés de chiffrement des données est nécessaire au fournisseur de ressources ou à l’instance d’application qui chiffre et déchiffre un bloc spécifique. Quand une clé de chiffrement des données est remplacée par une nouvelle clé, seules les données du bloc qui y est associé doivent être rechiffrées avec la nouvelle clé.
 - **Clé de chiffrement des clés** : une clé de chiffrement asymétrique utilisée pour chiffrer les clés de chiffrement des données. L’utilisation d’une clé de chiffrement des clés permet le chiffrement et le contrôle des clés de chiffrement des données elles-mêmes. L’entité qui a accès à la clé de chiffrement des clés peut être différente de l’entité qui a besoin de la clé de chiffrement des données. Ceci permet à une entité de négocier l’accès à la clé de chiffrement des données dans le but de garantir un accès limité de chaque clé de chiffrement des données à une partition spécifique. Comme la clé de chiffrement des clés est nécessaire pour déchiffrer les clés de chiffrement des données, la clé de chiffrement des clés est dès lors le point unique par lequel les clés de chiffrement des données peuvent être supprimées en supprimant la clé de chiffrement des clés.
@@ -100,7 +103,7 @@ Les modèles de chiffrement pris en charge dans Azure se divisent en deux groupe
 
 ### <a name="client-encryption-model"></a>Modèle de chiffrement client
 
-Le modèle de chiffrement client fait référence au chiffrement qui est effectué en dehors du fournisseur de ressources ou d’Azure par le service ou l’application appelante. Le chiffrement peut être effectué par l’application de service dans Azure, ou par une application s’exécutant dans le centre de données du client. Dans les deux cas, quand vous tirez parti de ce modèle de chiffrement, le fournisseur de ressources Azure reçoit un objet blob chiffré des données sans possibilité de déchiffrer les données en aucune façon ou d’avoir accès aux clés de chiffrement. Dans ce modèle, la gestion des clés est effectuée par le service ou l’application appelant, et est complètement opaque pour le service Azure.
+Le modèle de chiffrement client fait référence au chiffrement qui est effectué en dehors du fournisseur de ressources ou d’Azure par le service ou l’application appelante. Le chiffrement peut être effectué par l’application de service dans Azure, ou par une application s’exécutant dans le centre de données du client. Dans les deux cas, quand vous tirez parti de ce modèle de chiffrement, le fournisseur de ressources Azure reçoit un objet blob chiffré des données sans possibilité de déchiffrer les données en aucune façon ou d’avoir accès aux clés de chiffrement. Dans ce modèle, la gestion des clés est effectuée par le service ou l’application appelant et est opaque pour le service Azure.
 
 ![Client](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
@@ -145,7 +148,7 @@ Pour les scénarios où l’exigence est de chiffrer les données au repos et de
 
 ##### <a name="key-access"></a>Accès aux clés
 
-Le modèle de chiffrement côté serveur avec des clés gérées par le client dans Azure Key Vault implique que le service accède aux clés pour chiffrer et déchiffrer quand c’est nécessaire. Les clés de chiffrement au repos sont rendues accessibles à un service via une stratégie de contrôle d’accès accordant à cet identité de service un accès pour recevoir la clé. Un service Azure s’exécutant pour le compte d’un abonnement associé peut être configuré avec une identité pour ce service au sein de cet abonnement. Le service peut effectuer l’authentification Azure Active Directory et recevoir un jeton d’authentification en s’identifiant lui-même comme étant ce service agissant pour le compte de l’abonnement. Ce jeton peut ensuite être présenté au coffre de clés pour obtenir une clé à laquelle l’accès lui a été donné.
+Le modèle de chiffrement côté serveur avec des clés gérées par le client dans Azure Key Vault implique que le service accède aux clés pour chiffrer et déchiffrer quand c’est nécessaire. Les clés de chiffrement au repos sont rendues accessibles à un service via une stratégie de contrôle d’accès. Cette stratégie accorde à cette identité de service un accès pour recevoir la clé. Un service Azure s’exécutant pour le compte d’un abonnement associé peut être configuré avec une identité dans cet abonnement. Le service peut effectuer l’authentification Azure Active Directory et recevoir un jeton d’authentification en s’identifiant lui-même comme étant ce service agissant pour le compte de l’abonnement. Ce jeton peut ensuite être présenté au coffre de clés pour obtenir une clé à laquelle l’accès lui a été donné.
 
 Pour les opérations utilisant des clés de chiffrement, une identité de service peut être autorisée à accéder aux opérations suivantes : déchiffrer, chiffrer, unwrapKey, wrapKey, vérifier, signer, obtenir, répertorier, mettre à jour, créer, importer, supprimer, sauvegarder et restaurer.
 
@@ -201,7 +204,7 @@ Les services cloud Microsoft sont utilisés dans chacun des trois modèles cloud
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Chiffrement au repos pour les clients SaaS
 
-Les clients SaaS (Software as a Service) ont généralement le chiffrement au repos activé ou disponible dans chaque service. Les services Office 365 proposent plusieurs options permettant aux clients de vérifier ou d’activer le chiffrement au repos. Pour plus d’informations sur les services Office 365, consultez Technologies de chiffrement des données pour Office 365.
+Les clients SaaS (Software as a Service) ont généralement le chiffrement au repos activé ou disponible dans chaque service. Office 365 propose plusieurs options permettant aux clients de vérifier ou d’activer le chiffrement au repos. Pour plus d’informations sur les services Office 365, consultez Technologies de chiffrement des données pour Office 365.
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Chiffrement au repos pour les clients PaaS
 
@@ -263,7 +266,7 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 | Sauvegarde                           |                | -                   | -                            | -                            | Oui    |
 | **Décisionnel &amp; Analytique**       |                |                     |                              |                              |        |
 | Azure Data Factory               |                | Oui                 | -                            | -                            | -      |
-| Azure Machine Learning           |                | -                   | Préversion                      | -                            | -      |
+| Azure Machine Learning           |                | -                   | VERSION PRÉLIMINAIRE                      | -                            | -      |
 | Azure Stream Analytics           |                | Oui                 | -                            | -                            | -      |
 | HDInsights (Stockage Blob Azure)  |                | Oui                 | -                            | -                            | -      |
 | HDInsights (Stockage Data Lake)   |                | Oui                 | -                            | -                            | -      |

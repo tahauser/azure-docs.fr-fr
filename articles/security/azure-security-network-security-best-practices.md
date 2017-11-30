@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Meilleures pratiques en matière de sécurité réseau - Azure
-Microsoft Azure vous permet de connecter des machines virtuelles et des appliances à d’autres appareils en réseau, en les plaçant sur des réseaux virtuels Microsoft Azure. Un réseau virtuel Azure est une construction de réseau virtuel qui vous permet de connecter des cartes d’interface réseau virtuel à un réseau virtuel, afin de permettre des communications via TCP/IP entre les appareils fonctionnant sur le réseau. Les machines Microsoft Azure Virtual Machines reliées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel Azure, ou des réseaux virtuels Azure différents, sur Internet ou sur vos réseaux locaux.
+Microsoft Azure vous permet de connecter des machines virtuelles et des appliances à d’autres appareils en réseau, en les plaçant sur des réseaux virtuels Microsoft Azure. Un réseau virtuel Azure est une construction qui vous permet de connecter des cartes d’interface réseau virtuel à un réseau virtuel, afin de permettre des communications via TCP/IP entre les appareils fonctionnant sur le réseau. Les machines Microsoft Azure Virtual Machines reliées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel Azure, ou des réseaux virtuels Azure différents, sur Internet ou sur vos réseaux locaux.
 
 Dans cet article, nous aborderons différentes meilleures pratiques en matière de sécurité réseau sur Azure. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
 
@@ -82,7 +82,7 @@ Pour en savoir plus sur les itinéraires définis par l’utilisateur et leur co
 
 ## <a name="enable-forced-tunneling"></a>Activation du tunneling forcé
 Pour mieux appréhender le concept de « tunneling forcé », il peut être utile de comprendre le fonctionnement du « tunneling fractionné ».
-L’exemple le plus courant de tunneling fractionné est associé aux connexions VPN. Prenons un exemple : vous établissez une connexion VPN entre votre chambre d’hôtel et votre réseau d’entreprise. Cette connexion vous permet d’accéder aux ressources de votre réseau d’entreprise ; toutes les communications vers ces ressources transitent via le tunnel VPN.
+L’exemple le plus courant de tunneling fractionné est associé aux connexions VPN. Prenons un exemple : vous établissez une connexion VPN entre votre chambre d’hôtel et votre réseau d’entreprise. Cette connexion vous permet d’accéder aux ressources d’entreprise ; toutes les communications vers votre réseau d’entreprise transitent via le tunnel VPN.
 
 Que se passe-t-il lorsque vous souhaitez vous connecter à des ressources sur Internet ? Lorsque le tunneling fractionné est activé, ces connexions accèdent directement à Internet, sans passer par le tunnel VPN. Certains experts en matière de sécurité considèrent que cette pratique peut constituer un risque. Pour cette raison, ils recommandent de désactiver le tunneling fractionné et de faire en sorte que toutes les connexions (celles qui sont dirigées vers Internet comme celles qui ont pour destination les ressources d’entreprise) passent par le tunnel VPN. Cela présente un avantage : les connexions à Internet doivent transiter via les appareils de gestion de la sécurité réseau de l’entreprise. Si le client VPN était connecté à Internet en dehors du tunnel VPN, ce ne serait pas le cas.
 
@@ -146,8 +146,7 @@ Pour optimiser cette durée active et ces performances, une méthode bien connue
 
 La répartition du trafic permet d’augmenter la disponibilité. En effet, si l’un des serveurs web est indisponible, l’équilibreur de charge arrête d’envoyer des données à ce serveur et redirige le trafic vers les serveurs actifs. L’équilibrage de charge améliore également les performances, car la surcharge du processeur, du réseau et de la mémoire associée au traitement des requêtes est répartie sur les différents serveurs avec équilibrage de charge.
 
-Nous vous recommandons de tirer parti aussi souvent que possible de l’équilibrage de charge, selon les besoins de vos services. Nous aborderons la pertinence au cours des sections suivantes.
-Au niveau du réseau virtuel Azure, Azure vous propose trois options principales en matière d’équilibrage de charge :
+Nous vous recommandons de tirer parti aussi souvent que possible de l’équilibrage de charge, selon les besoins de vos services. Nous aborderons la pertinence au cours des sections suivantes : Au niveau du réseau virtuel Azure, Azure vous propose trois options principales en matière d’équilibrage de charge :
 
 * Équilibrage de charge basé sur HTTP
 * Équilibrage de charge externe

@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
@@ -118,8 +118,6 @@ Cependant la rétrogradation du niveau de tarification peut affecter négativeme
 
 *Rétrogradation vers le niveau De base/Standard* : l’OLTP en mémoire n’est pas pris en charge dans des bases de données de niveau standard ou de base. En outre, il n’est pas possible de déplacer une base de données qui comporte des objets OLTP en mémoire vers un niveau standard ou de base.
 
-Avant de rétrograder la base de données vers un niveau standard/de base, supprimez toutes les tables à mémoire optimisée et tous les types de table, ainsi que tous les modules T-SQL compilés en mode natif.
-
 Vous pouvez comprendre par programmation si une base de données spécifique prend en charge l’OLTP en mémoire. Vous pouvez exécuter la requête Transact-SQL suivante :
 
 ```
@@ -128,6 +126,13 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Si la requête renvoie **1**, l’OLTP en mémoire est pris en charge dans cette base de données.
 
+Avant de rétrograder la base de données vers un niveau standard/de base, supprimez toutes les tables à mémoire optimisée et tous les types de table, ainsi que tous les modules T-SQL compilés en mode natif. Les requêtes suivantes identifient tous les objets devant être supprimés avant qu’une base de données puisse être rétrogradée vers Standard/de Base :
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *Rétrogradation vers un niveau Premium inférieur* : les données dans des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau tarifaire de la base de données ou disponible dans le pool élastique. L’opération échoue si vous tentez de réduire le niveau tarifaire ou de déplacer la base de données dans un pool qui ne dispose pas d’un stockage OLTP en mémoire suffisant.
 

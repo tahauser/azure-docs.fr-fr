@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!NOTE]
@@ -49,6 +49,8 @@ Cet article aborde les points suivants :
 
 ![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>Dans Azure Data Factory version 1, le minimum d’unités de déplacement de données cloud pour la copie de cloud-cloud est de deux. Si ce minimum n’est pas spécifié, consultez les unités de déplacement de données par défaut utilisées dans les [unités de déplacement de données cloud](#cloud-data-movement-units).
 
 **Points à noter :**
 * Le débit est calculé à l’aide de la formule suivante : [taille des données lues à partir de la source]/[durée d’exécution de l’activité de copie].
@@ -90,9 +92,16 @@ Et ainsi de suite.
 Dans cet exemple, lorsque la valeur **concurrency** est définie sur 2, **l’exécution d’activité 1** et **l’exécution d’activité 2** copient les données de deux fenêtres d’activité **de façon simultanée** pour améliorer les performances de déplacement de données. Toutefois, si plusieurs fichiers sont associés à l’exécution d’activité 1, le service de déplacement de données copie les fichiers de la source vers la destination, un fichier à la fois.
 
 ### <a name="cloud-data-movement-units"></a>Unités de déplacement de données cloud
-Une **unité de déplacement de données cloud** est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Data Factory. Une unité de déplacement de données peut être utilisée dans une opération de copie cloud-cloud, mais pas dans une copie hybride.
+Une **unité de déplacement de données cloud** est une mesure qui représente la puissance (combinaison de l’allocation de ressources de processeur, de mémoire et de réseau) d’une seule unité dans Data Factory. Une unité de déplacement de données cloud est applicable dans une opération de copie cloud-cloud, mais pas dans une copie hybride.
 
-Par défaut, Data Factory utilise une unité de déplacement de données cloud unique pour mener à bien une exécution d’activité de copie unique. Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
+**Le minimum d’unités de déplacement de données cloud pour exécuter l’activité de copie est de deux.** Si aucun minimum n’est spécifié, le tableau suivant répertorie les unités de déplacement de données par défaut utilisées dans différents scénarios de copie :
+
+| Scénario de copie | Unités de déplacement de données cloud par défaut déterminées par le service |
+|:--- |:--- |
+| Copie de données entre des magasins basés sur des fichiers | Entre 2 et 16 selon le nombre et la taille des fichiers. |
+| Tous les autres scénarios de copie | 2 |
+
+Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 2, 4, 8, 16, 32. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Par défaut, Data Factory utilise une unité de déplacement de données cloud u
     }
 ]
 ```
-Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 1 (par défaut), 2, 4, 8, 16, 32. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données.
 
 > [!NOTE]
 > Si vous avez besoin de plus d’unités de déplacement de données cloud pour un débit plus élevé, contactez le [support Azure](https://azure.microsoft.com/support/). Actuellement, un paramètre de 8 et plus fonctionne uniquement lorsque vous **copiez plusieurs fichiers à partir d’un stockage blob, d’une instance Data Lake Store, d’Amazon S3, d’un FTP cloud, d’un SFTP cloud vers un stockage blob, une instance Data Lake Store ou Azure SQL Database**.

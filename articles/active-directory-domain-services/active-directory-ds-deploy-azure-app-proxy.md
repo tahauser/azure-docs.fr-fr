@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application sur un domaine managé par les Azure Active Directory Domain Services
 Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Avec les Azure AD Domain Services, vous pouvez désormais transférer des applications héritées vers des services d’infrastructure Azure. Vous pouvez ensuite publier ces applications à l’aide du proxy d’application Azure AD pour fournir un accès à distance sécurisé aux utilisateurs de votre organisation.
@@ -56,7 +56,7 @@ Procédez comme suit pour activer le proxy d’application Azure AD pour votre a
 
 
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>Tâche 2 : configurer des serveurs Windows joints à un domaine pour déployer le connecteur de proxy d’application Azure AD
-Vous avez besoin de machines virtuelles Windows Server jointes à un domaine sur lesquelles vous pouvez installer le connecteur de proxy d’application Azure AD. Selon les applications publiées, vous pouvez choisir d'approvisionner plusieurs serveurs sur lesquels le connecteur est installé. Cette option de déploiement vous donne une plus grande disponibilité et vous permet de traiter des charges d’authentification plus importantes.
+Vous avez besoin de machines virtuelles Windows Server jointes à un domaine sur lesquelles vous pouvez installer le connecteur de proxy d’application Azure AD. Pour certaines applications, vous pouvez choisir d'approvisionner plusieurs serveurs sur lesquels le connecteur est installé. Cette option de déploiement vous donne une plus grande disponibilité et vous permet de traiter des charges d’authentification plus importantes.
 
 Configurez les serveurs de connecteur sur le même réseau virtuel (ou un réseau virtuel connecté/homologué) dans lequel vous avez activé votre domaine managé Azure AD Domain Services. De même, les serveurs hébergeant les applications que vous publiez par le biais du proxy d’application doivent être installés sur le même réseau virtuel Azure.
 
@@ -103,7 +103,7 @@ Activez l’authentification unique pour vos applications avec l’authentificat
 
 
 ### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Activer la délégation Kerberos contrainte basée sur la ressource pour le connecteur de proxy d’application Azure AD
-Le connecteur de proxy d’application Azure doit être configuré pour la délégation Kerberos contrainte (KCD), pour pouvoir emprunter l’identité des utilisateurs sur le domaine managé. Sur un domaine managé Azure AD Domain Services, vous n’avez pas les privilèges d’administrateur de domaine. Par conséquent, **la KCD traditionnelle au niveau des comptes ne peut pas être configurée sur un domaine managé**.
+Le connecteur de proxy d’application Azure doit être configuré pour la délégation Kerberos contrainte (KCD) pour pouvoir emprunter l’identité des utilisateurs sur le domaine managé. Sur un domaine managé Azure AD Domain Services, vous n’avez pas les privilèges d’administrateur de domaine. Par conséquent, **la KCD traditionnelle au niveau des comptes ne peut pas être configurée sur un domaine managé**.
 
 Utilisez plutôt la KCD basée sur la ressource, comme décrit dans cet [article](active-directory-ds-enable-kcd.md).
 
@@ -113,12 +113,12 @@ Utilisez plutôt la KCD basée sur la ressource, comme décrit dans cet [article
 >
 
 Utilisez l’applet de commande PowerShell Get-ADComputer pour récupérer les paramètres de l’ordinateur sur lequel est installé le connecteur de proxy d’application Azure AD.
-```
+```powershell
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
 Par la suite, utilisez l’applet de commande Set-ADComputer pour configurer la KCD basée sur la ressource pour le serveur de ressources.
-```
+```powershell
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 

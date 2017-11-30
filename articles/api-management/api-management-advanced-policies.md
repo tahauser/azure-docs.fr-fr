@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -268,26 +268,26 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Étendues de la stratégie :** toutes les étendues  
   
 ##  <a name="LimitConcurrency"></a> Limit concurrency  
- La stratégie `limit-concurrency` empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié. En cas de dépassement du seuil, les requêtes sont ajoutées à la file d’attente jusqu’à ce que la longueur maximale de cette dernière soit atteinte. Lorsque la file est pleine, les nouvelles requêtes échouent immédiatement.
+ La stratégie `limit-concurrency` empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié. En cas de dépassement de ce nombre, les nouvelles requêtes échouent immédiatement avec le code d’état 429 Trop de requêtes.
   
 ###  <a name="LimitConcurrencyStatement"></a> Instruction de la stratégie  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Exemples  
   
-####  <a name="ChooseExample"></a> Exemple  
+#### <a name="example"></a>Exemple  
  L’exemple suivant montre comment limiter le nombre de requêtes transmises à un serveur principal en fonction de la valeur d’une variable contextuelle.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |---------------|-----------------|--------------|--------------|  
 |key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|Oui|N/A|  
 |max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|Oui|N/A|  
-|timeout|Nombre entier. Expression autorisée. Spécifie le nombre de secondes pendant lesquelles une requête doit attendre pour entrer dans une étendue avant d’échouer avec l’erreur « 429 Too Many Requests » (Trop de requêtes).|Non|Infini|  
-|max-queue-length|Nombre entier. Expression autorisée. Spécifie la longueur maximale de la file d’attente. Les requêtes entrantes qui essayent d’entrer dans cette stratégie échouent avec l’erreur « 429 Too Many Request » (Trop de requêtes) dès que la file est pleine.|Non|Infini|  
   
-###  <a name="ChooseUsage"></a> Utilisation  
+### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error  

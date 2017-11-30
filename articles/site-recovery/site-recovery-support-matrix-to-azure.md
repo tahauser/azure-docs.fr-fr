@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
 
@@ -145,6 +145,7 @@ Plusieurs cartes réseau | Oui | Oui
 Adresse IP réservée | Oui | Oui
 IPv4 | Oui | Oui
 Conserver l’adresse IP source | Oui | Oui
+Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) | Non | Non
 
 
 ## <a name="support-for-storage"></a>Prise en charge du stockage
@@ -188,9 +189,11 @@ GRS | Oui | Oui
 RA-GRS | Oui | Oui
 Stockage froid | Non | Non
 Stockage chaud| Non | Non
+Objets blob de blocs | Non | Non
 Chiffrement au repos (SSE)| Oui | Oui
 Stockage Premium | Oui | Oui
 Service Import/Export | Non | Non
+Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) configurés sur le compte de stockage cible ou le compte de stockage de cache utilisé pour stocker les données de réplication | Non | Non
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Prise en charge de la configuration de calcul Azure

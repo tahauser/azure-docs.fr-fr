@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Fonctionnalités et outils pour PowerShell dans Azure Cloud Shell (préversion)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 PowerShell dans Cloud Shell (préversion) s’exécute sur `Windows Server 2016`.
 
-## <a name="features"></a>Fonctionnalités
+## <a name="features"></a>Caractéristiques
 
 ### <a name="secure-automatic-authentication"></a>Authentification automatique sécurisée
 
@@ -91,7 +91,7 @@ Ces commandes s’appuient sur la communication à distance PowerShell et néces
 
 |**Catégorie**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Outils Azure     |[Azure PowerShell (4.4.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1)<br> [Azure CLI (2.0.20)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Outils Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Interface de ligne de commande Azure (2.0.21)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |Éditeurs de texte    |vim<br> nano                             |
 |Gestionnaire de package |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Contrôle de code source  |git                                      |

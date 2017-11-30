@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuration du service d’expérimentation Azure Machine Learning
 
@@ -28,9 +28,9 @@ Vous pouvez exécuter un script Python ou PySpark dans un projet Workbench local
 Les environnements dans lesquels vous pouvez exécuter vos scripts sont les suivants : 
 
 * Python (3.5.2) sur votre ordinateur local installé par Workbench
-* Conda Python à l’intérieur d’un conteneur Docker sur un ordinateur local
-* Conda Python à l’intérieur d’un conteneur Docker sur une machine Linux distante, par exemple, une [machine virtuelle DSVM basée sur la distribution Linux Ubuntu sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
-* [HDInsight pour Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) sur Azure
+* Conda Python à l’intérieur d’un conteneur Docker sur un ordinateur local ;
+* Conda Python à l’intérieur d’un conteneur Docker sur une machine Linux distante, par exemple, une [machine virtuelle de science des données basée sur la distribution Linux Ubuntu sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) ;
+* [HDInsight pour Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) sur Azure.
 
 >[!IMPORTANT]
 >Actuellement, le service d’expérimentation Azure Machine Learning prend en charge les versions de runtime Python 3.5.2 et Spark 2.1.11. 
@@ -46,9 +46,9 @@ La commande _az ml computetarget attach_ dans l’interface de ligne de commande
 
 Les cibles de calcul prises en charge sont les suivantes :
 * Environnement Python (3.5.2) sur votre ordinateur installé par Workbench
-* Docker local sur votre ordinateur
-* Docker distant sur machines virtuelles exécutant la distribution Linux Ubuntu, par exemple, une [machine virtuelle de science des données basée sur la distribution Linux Ubuntu sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
-* [cluster HDInsight pour Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) sur Azure
+* Docker local sur votre ordinateur ;
+* Docker distant sur machines virtuelles exécutant la distribution Linux Ubuntu, par exemple, une [machine virtuelle de science des données basée sur la distribution Linux Ubuntu sur Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) ;
+* [cluster HDInsight pour Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) sur Azure.
 
 Actuellement, le service d’expérimentation prend en charge les versions de runtime Python 3.5.2 et Spark 2.1.11. 
 
@@ -220,6 +220,8 @@ _**Présentation de l’exécution de machine virtuelle distante pour un script 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Exécution d’un script sur un cluster HDInsight
 HDInsight est une plateforme populaire pour l’analytique du Big Data qui prend en charge Apache Spark. Workbench permet d’effectuer une expérimentation sur le Big Data à l’aide de clusters HDInsight Spark. 
+
+>![REMARQUE] Le cluster HDInsight doit utiliser Stockage Blob Azure en tant que stockage principal. L’utilisation du stockage Azure Data Lake n’est pas encore prise en charge.
 
 Pour créer une cible de calcul et une configuration de série de tests pour un cluster Azure HDInsight Spark, vous pouvez utiliser la commande suivante :
 

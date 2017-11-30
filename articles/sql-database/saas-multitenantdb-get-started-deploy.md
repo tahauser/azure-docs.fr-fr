@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: bc96221abf62677b53df43daa44a925ac5792043
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
 
@@ -120,7 +120,7 @@ L’application présente des lieux, telles que des salles de concert, des clubs
 Un **concentrateur d’événements** central fournit une liste de liens vers les locataires de votre déploiement spécifique.
 
 1. Ouvrez le *concentrateur d’événements* dans votre navigateur web :
-    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Remplacez par la valeur utilisateur de votre déploiement.)*
+    - http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net &nbsp; *(Remplacez par la valeur utilisateur de votre déploiement.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Un **concentrateur d’événements** central fournit une liste de liens vers le
 
 Pour contrôler la distribution des requêtes entrantes, l’application utilise [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Les pages d’événements, qui sont spécifiques au locataire, incluent le nom du locataire dans l’URL. Les URL incluent également votre valeur Utilisateur spécifique et respectent ce format :
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 L’application d’événements analyse le nom du locataire à partir de l’URL et la hache pour créer une clé permettant d’accéder à un catalogue utilisant la [gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Le catalogue mappe la clé à l’emplacement de la base de données du locataire. Le **concentrateur d’événements** répertorie tous les locataires qui sont enregistrés dans le catalogue. Le **concentrateur d’événements** utilise les métadonnées étendues dans le catalogue pour récupérer le nom du locataire associé à chaque mappage pour créer les URL.
 
@@ -156,7 +156,7 @@ Vous pouvez souhaiter redémarrer la session de générateur de charge pour util
 
 Le déploiement initial inclut trois exemples de locataires dans la base de données *Tenants1*. Nous allons créer un autre locataire pour voir comment il affecte l’application déployée. Dans cette étape, vous créez rapidement un nouveau locataire.
 
-1. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1* dans *PowerShell ISE*.
+1. Ouvrez ...\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1* dans *PowerShell ISE*.
 2. Appuyez sur **F5** pour exécuter le script (laissez les valeurs par défaut pour l’instant).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ Le modèle multilocataire partitionné vous permet de choisir s’il faut approv
 
 Nous approvisionnons maintenant un autre locataire, dans sa propre base de données cette fois-ci.
 
-1. Dans... \\Learning Modules\\Provision and Catalog\*Demo-ProvisionTenants.ps1*, définissez *$TenantName* sur **Salix Salsa**,  *$VenueType* sur **dance** et *$Scenario* sur **2**.
+1. Dans ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, définissez *$TenantName* sur **Salix Salsa**, *$VenueType* sur **dance** et *$Scenario* sur **2**.
 
 2. Appuyez sur **F5** pour réexécuter le script.
     - Cet appui sur F5 configure le nouveau locataire dans une base de données distincte. La base de données et le locataire sont enregistrés dans le catalogue. Le navigateur s’ouvre alors sur la page des événements du locataire.
@@ -239,7 +239,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > - Afficher l’utilisation du pool pour surveiller l’activité du locataire
 > - Supprimer les exemples de ressources pour arrêter la facturation associée
 
-Essayez maintenant le [didacticiel sur l’approvisionnement et le catalogue](sql-database-saas-tutorial-provision-and-catalog.md).
+Essayez maintenant le [didacticiel sur les clients d’approvisionnement](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

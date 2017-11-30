@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Résolution :
 
-Nous travaillons à la mise à jour du Gestionnaire de connexions hybrides pour résoudre ce problème. Pour des solutions de contournement, voir [Erreur de connexion hybride avec SQL Server : System.OverflowException : L’opération arithmétique a provoqué un dépassement de capacité](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+L’exception a été provoquée par un problème avec Hybrid Connection Manager qui a depuis été résolu. Veillez à [mettre à jour votre Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) pour résoudre ce problème.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Comment ajouter ou modifier une règle de réécriture d’URL ?
 
@@ -319,4 +319,4 @@ Vous pouvez également spécifier les types MIME dynamiques et statiques spécif
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Comment migrer à partir d’un environnement local vers App Service ?
 
-Pour migrer des sites à partir de serveurs web Windows et Linux vers App Service, vous pouvez utiliser l’Assistant Migration d’Azure App Service. L’outil de migration crée les applications et bases de données web dans Azure en fonction des besoins, puis publie le contenu. Pour plus d’informations, voir [Assistant Migration d’Azure App Service](https://www.movemetothecloud.net/).
+Pour migrer des sites à partir de serveurs web Windows et Linux vers App Service, vous pouvez utiliser l’Assistant Migration d’Azure App Service. L’outil de migration crée les applications et bases de données web dans Azure en fonction des besoins, puis publie le contenu. Pour plus d’informations, voir [Assistant Migration d’Azure App Service](https://www.migratetoazure.net/).
