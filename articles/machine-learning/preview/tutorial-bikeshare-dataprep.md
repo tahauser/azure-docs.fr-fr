@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Didacticiel BikeShare : Préparation de données avancée avec Azure Machine Learning Workbench
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -261,10 +261,7 @@ Pour utiliser les données dans une prévision par bloc de deux heures, vous dev
 
    > [!NOTE]
    > Azure Machine Learning Workbench synthétise un programme basé sur les exemples que vous fournissez et applique le même programme sur les lignes restantes. Toutes les autres lignes sont automatiquement renseignées en fonction de l’exemple que vous avez fourni. Workbench analyse également vos données et tente d’identifier les cas marginaux. 
-
-   > [!IMPORTANT]
-   > Identification des cas marginaux peut ne pas fonctionner sur Mac dans la version actuelle de Workbench. Ignorez l’__étape 3__ et l’__étape 4__ ci-dessous sur Mac. Au lieu de cela, appuyez sur __OK__ une fois toutes les lignes remplies avec les valeurs dérivées.
-   
+  
 3. Le texte **Analyse des données** au-dessus de la grille indique que Workbench tente de détecter les cas marginaux. Une fois l’opération terminée, l’état passe à **Passer en revue la ligne suggérée suivante** ou **Aucune suggestion**. Dans cet exemple, **Passer en revue la ligne suggérée suivante** est retourné.
 
 4. Pour passer en revue les modifications suggérées, sélectionnez **Passer en revue la ligne suggérée suivante**. La cellule que vous devez passer en revue et corriger (si besoin) est mise en surbrillance dans l’affichage.
@@ -294,11 +291,6 @@ Pour utiliser les données dans une prévision par bloc de deux heures, vous dev
 
    ![Image de l’exemple Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > Sur Mac, effectuez l’étape suivante au lieu de l’__étape 8__ ci-dessous.
-   >
-   > * Accédez à la première cellule qui contient `Feb 01, 2015 12AM-2AM`. Il doit s’agir de la __ligne 15__. Remplacez la valeur par `Jan 02, 2015 12AM-2AM`, puis appuyez sur __Entrée__. 
-   
 
 8. Attendez que l’état passe de **Analyse des données** à **Passer en revue la ligne suggérée suivante**. L’attente peut durer plusieurs secondes. Sélectionnez le lien d’état pour accéder à la ligne suggérée. 
 
@@ -513,12 +505,7 @@ Pour résumer la demande de vélos pendant une période de 2 heures, utilisez d
     > Vous pouvez donner un exemple par rapport à n’importe quelle ligne. Pour cet exemple, la valeur `Jan 01, 2017 12AM-2AM` est valide pour la première ligne de données.
 
     ![Image de l’exemple de données](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > Sur Mac, effectuez l’étape suivante au lieu de l’__étape 3__ ci-dessous.
-   >
-   > * Accédez à la première cellule qui contient `Jan 01, 2017 1AM-2AM`. Il doit s’agir de la __ligne 14__. Remplacez la valeur par `Jan 01, 2017 12AM-2AM`, puis appuyez sur __Entrée__. 
-
+   
 3. Attendez que l’application calcule les valeurs par rapport à toutes les lignes. L’attente peut durer plusieurs secondes. Une fois l’analyse terminée, utilisez le lien __Passer en revue la ligne suggérée suivante__ pour passer en revue les données.
 
    ![Image de l’analyse terminée avec un lien de passage en revue](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database 
 
-Cet article explique l’architecture de connectivité Azure SQL Database et comment les différents composants fonctionnent pour diriger le trafic vers votre instance Azure SQL Database. Ces composants de connectivité Azure SQL Database permettent de diriger le trafic réseau vers la base de données Azure avec des clients se connectant à partir d’Azure et d’autres se connectant en dehors d’Azure. Cet article comporte également des exemples de script permettant de modifier la façon dont la connectivité se produit et des considérations liées à la modification des paramètres de connectivité par défaut. Si vous avez des questions suite à la lecture de cet article, veuillez contacter Dhruv à l’adresse suivante : dmalik@microsoft.com. 
+Cet article explique l’architecture de connectivité Azure SQL Database et comment les différents composants fonctionnent pour diriger le trafic vers votre instance Azure SQL Database. Ces composants de connectivité Azure SQL Database permettent de diriger le trafic réseau vers la base de données Azure avec des clients se connectant à partir d’Azure et d’autres se connectant en dehors d’Azure. Cet article comporte également des exemples de script permettant de modifier la façon dont la connectivité se produit et des considérations liées à la modification des paramètres de connectivité par défaut. 
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
 
-Le diagramme suivant donne une vue d’ensemble détaillée de l’architecture de connectivité Azure SQL Database. 
+Le diagramme suivant donne une vue d’ensemble détaillée de l’architecture de connectivité Azure SQL Database.
 
 ![Présentation de l’architecture](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | --- | --- |--- |
 | Est de l’Australie | 191.238.66.109 | 13.75.149.87 |
 | Sud-Est de l’Australie | 191.239.192.109 | 13.73.109.251 |
-| Sud du Brésil | 104.41.11.5 | |    
-| Centre du Canada | 40.85.224.249 | |    
+| Sud du Brésil | 104.41.11.5 | |
+| Centre du Canada | 40.85.224.249 | |
 | Est du Canada | 40.86.226.166 | |
 | Centre des États-Unis | 23.99.160.139 | 13.67.215.62 |
 | Est de l'Asie | 191.234.2.139 | 52.175.33.150 |
 | Est des États-Unis 1 | 191.238.6.43 | 40.121.158.30 |
 | Est des États-Unis 2 | 191.239.224.107 | 40.79.84.180 |
-| Inde-Centre | 104.211.96.159  | |   
+| Inde-Centre | 104.211.96.159  | |
 | Sud de l'Inde | 104.211.224.146  | |
 | Inde-Ouest | 104.211.160.80 | |
 | Est du Japon | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Centre-Sud des États-Unis | 23.98.162.75 | 13.66.62.124 |
 | Asie du Sud-Est | 23.100.117.95 | 104.43.15.0 |
 | Nord du Royaume-Uni | 13.87.97.210 | |
-| Sud du Royaume-Uni 1 | 51.140.184.11 | |    
+| Sud du Royaume-Uni 1 | 51.140.184.11 | |
 | Sud du Royaume-Uni 2 | 13.87.34.7 | |
 | Ouest du Royaume-Uni | 51.141.8.11  | |
 | Centre-Ouest des États-Unis | 13.78.145.25 | |
@@ -95,12 +95,12 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 
-Pour modifier la stratégie de connexion Azure SQL Database d’un serveur Azure SQL Database, utilisez l’[API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Pour modifier la stratégie de connexion Azure SQL Database d’un serveur Azure SQL Database, utilisez l’[API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Si votre stratégie de connexion est définie sur **Proxy**, tous les paquets réseau transitent via la passerelle Azure SQL Database. Pour ce paramètre, vous devez autoriser le trafic sortant uniquement vers l’IP de la passerelle Azure SQL Database. L’utilisation d’un paramètre de **Proxy** offre plus de latence qu’un paramètre de **redirection**. 
-- Si votre stratégie de connexion repose sur le paramètre de **redirection**, tous les paquets réseau se dirigent directement vers le proxy de l’intergiciel. Pour ce paramètre, vous devez autoriser le trafic sortant vers plusieurs adresses IP. 
+- Si votre stratégie de connexion est définie sur **Proxy**, tous les paquets réseau transitent via la passerelle Azure SQL Database. Pour ce paramètre, vous devez autoriser le trafic sortant uniquement vers l’IP de la passerelle Azure SQL Database. L’utilisation d’un paramètre de **Proxy** offre plus de latence qu’un paramètre de **redirection**.
+- Si votre stratégie de connexion repose sur le paramètre de **redirection**, tous les paquets réseau se dirigent directement vers le proxy de l’intergiciel. Pour ce paramètre, vous devez autoriser le trafic sortant vers plusieurs adresses IP.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Script permettant de modifier les paramètres de connexion via PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script permettant de modifier les paramètres de connexion via PowerShell
 
 > [!IMPORTANT]
 > Ce script nécessite le [module Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script permettant de modifier les paramètres de connexion via Azure CLI 2.0 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script permettant de modifier les paramètres de connexion via Azure CLI 2.0
 
 > [!IMPORTANT]
 > Ce script nécessite [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 Le script CLI suivant montre comment modifier la stratégie de connexion.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
