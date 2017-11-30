@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Permet de gérer les réplicas qui font partie des partitions de service.
@@ -29,8 +29,7 @@ Permet de gérer les réplicas qui font partie des partitions de service.
 | --- | --- |
 |    deployed  | Permet d’obtenir les détails d’un réplica déployé sur un nœud Service Fabric.|
 |    deployed-list| Permet d’obtenir la liste des réplicas déployés sur un nœud Service Fabric.|
-|    health    | Permet d’obtenir l’intégrité d’une instance de service sans état ou d’un réplica de service avec état
-                   Service Fabric.|
+|    health    | Permet d’obtenir l’intégrité d’une instance de service sans état ou d’un réplica de service avec état Service Fabric.|
 |    info      | Permet d’obtenir les informations sur un réplica d’une partition Service Fabric.|
 |    list      | Permet d’obtenir les informations sur des réplicas d’une partition de service Service Fabric.|
 |    remove    | Supprime un réplica de service exécuté sur un nœud.|

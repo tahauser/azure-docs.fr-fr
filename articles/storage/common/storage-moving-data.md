@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Transfert de données vers et à partir d’Azure Storage
 Si vous voulez déplacer des données locales vers Azure Storage (ou inversement), il existe plusieurs façons de procéder. L’approche la mieux adaptée à vos besoins dépend de votre scénario. Cet article fournit un aperçu des différents scénarios et des offres appropriées pour chacun d’eux.
@@ -76,4 +76,4 @@ Quand vous disposez d’applications et de charges de travail locales, vous avez
 Consultez [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) pour en savoir plus.
 ### <a name="moving-data-faq"></a>FAQ sur le déplacement des données :
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Puis-je migrer des disques durs virtuels d’une région à une autre sans copie ?
-La seule façon de copier des disques durs virtuels entre des régions consiste à copier les données entre les comptes de stockage dans chaque région. Pour ce faire, vous pouvez utiliser AZCopy. Pour en savoir plus, consultez Transfert de données avec l’utilitaire de ligne de commande AzCopy. Pour les très grandes quantités de données, vous pouvez également utiliser Azure Import/Export. Consultez [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) pour en savoir plus.
+La seule façon de copier des disques durs virtuels entre des régions consiste à copier les données entre les comptes de stockage dans chaque région. Pour ce faire, vous pouvez utiliser AZCopy. Pour en savoir plus, consultez Transfert de données avec l’utilitaire de ligne de commande AzCopy. Pour les très grandes quantités de données, vous pouvez également utiliser Azure Import/Export. Consultez [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) pour en savoir plus.

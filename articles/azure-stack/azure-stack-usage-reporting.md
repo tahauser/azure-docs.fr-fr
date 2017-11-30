@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Signaler les données d’utilisation Azure Stack à Azure 
 
@@ -53,7 +53,7 @@ Pour configurer la génération de rapports de données d’utilisation, vous de
 
 ## <a name="view-usage---csp-subscriptions"></a>Voir l’utilisation : abonnements CSP
 
-Si vous avez inscrit votre service Azure Stack en utilisant un abonnement CSP, vous pouvez voir votre utilisation et votre facturation de la même façon que vous consultez votre consommation Azure. L’utilisation d’Azure Stack sera incluse dans votre facture et dans le fichier de réconciliation, disponible via [l’Espace partenaires](https://partnercenter.microsoft.com/en-us/partner/home). Le fichier de réconciliation est mis à jour tous les mois. Si vous avez besoin d’accéder aux informations récentes de l’utilisation d’Azure Stack, vous pouvez utiliser les API de l’Espace partenaires.
+Si vous avez inscrit votre service Azure Stack en utilisant un abonnement CSP, vous pouvez voir votre utilisation et votre facturation de la même façon que vous consultez votre consommation Azure. L’utilisation d’Azure Stack sera incluse dans votre facture et dans le fichier de réconciliation, disponible via [l’Espace partenaires](https://partnercenter.microsoft.com/partner/home). Le fichier de réconciliation est mis à jour tous les mois. Si vous avez besoin d’accéder aux informations récentes de l’utilisation d’Azure Stack, vous pouvez utiliser les API de l’Espace partenaires.
 
    ![Espace partenaires](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,14 +82,14 @@ Les utilisateurs sont facturés seulement pour les machines virtuelles qui s’e
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>J’ai une licence Windows Server que je veux utiliser sur Azure Stack : comment procéder ?
 
-L’utilisation des licences existantes évite la génération de compteurs d’utilisation. Les licences Windows Server existantes peuvent être utilisées dans Azure Stack, comme décrit dans la section « Using existing software with Azure Stack » du [Microsoft Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Les clients doivent déployer leurs machines virtuelles Windows Server comme décrit dans la rubrique [Azure Hybrid Benefit pour Windows Server](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) pour pouvoir utiliser leurs licences existantes.
+L’utilisation des licences existantes évite la génération de compteurs d’utilisation. Les licences Windows Server existantes peuvent être utilisées dans Azure Stack, comme décrit dans la section « Using existing software with Azure Stack » du [Microsoft Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Les clients doivent déployer leurs machines virtuelles Windows Server comme décrit dans la rubrique [Azure Hybrid Benefit pour Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) pour pouvoir utiliser leurs licences existantes.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Quel abonnement est facturé pour la consommation de ressources ?
 L’abonnement qui est fourni lors de [l’inscription d’Azure Stack auprès d’Azure](azure-stack-register.md) est facturé.
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Quels types d’abonnements sont pris en charge pour la génération de rapports de données d’utilisation ?
 
-Pour les systèmes multinœuds Azure Stack, les abonnements Contrat Entreprise et CSP sont pris en charge. Pour le Kit de développement Azure Stack, les abonnements Contrat Entreprise, Paiement à l’utilisation, CSP et MSDN prennent en charge les rapports de données d’utilisation.
+Pour les systèmes multinœuds Azure Stack, les abonnements Contrat Entreprise et CSP sont pris en charge. Pour le Kit de développement Azure Stack, les abonnements Accord Entreprise, Paiement à l’utilisation, CSP et MSDN prennent en charge les rapports de données d’utilisation.
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>La génération de rapports de données d’utilisation fonctionne-t-elle avec les clouds souverains ?
 
@@ -97,7 +97,7 @@ Dans le Kit de développement Azure Stack, la génération de rapports d’utili
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Comment les utilisateurs peuvent-ils identifier les données d’utilisation Azure Stack dans le portail de facturation Azure ?
 
-Les utilisateurs peuvent voir les données d’utilisation Azure Stack dans le fichier des détails d’utilisation. Pour savoir comment obtenir le fichier des détails d’utilisation, reportez-vous à l’article [Télécharger l’utilisation à partir du Centre des comptes Azure (.csv)](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Le fichier des détails d’utilisation contient les compteurs Azure Stack qui identifient le stockage et les machines virtuelles Azure Stack. Toutes les ressources utilisées dans Azure Stack sont signalées dans la zone nommée « Azure Stack ».
+Les utilisateurs peuvent voir les données d’utilisation Azure Stack dans le fichier des détails d’utilisation. Pour savoir comment obtenir le fichier des détails d’utilisation, reportez-vous à l’article [Télécharger l’utilisation à partir du Centre des comptes Azure (.csv)](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Le fichier des détails d’utilisation contient les compteurs Azure Stack qui identifient le stockage et les machines virtuelles Azure Stack. Toutes les ressources utilisées dans Azure Stack sont signalées dans la zone nommée « Azure Stack ».
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Pourquoi l’utilisation signalée dans Azure Stack ne correspond-il pas au rapport généré à partir du Centre des comptes Azure ?
 
