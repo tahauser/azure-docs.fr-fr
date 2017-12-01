@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurer les paramètres d’Azure Multi-Factor Authentication - Préversion publique
 
@@ -85,7 +85,7 @@ Une alerte de fraude peut être configurée et installée de manière à ce que 
 6. En bas de la page Paramètres du service, sélectionnez **Accéder au portail** .
 7. Dans le portail de gestion Azure Multi-Factor Authentication, sous Afficher un rapport, cliquez sur **Alerte fraude**.
 8. Spécifiez la plage de dates que vous souhaitez afficher dans le rapport. Vous pouvez également spécifier les noms d’utilisateur, les numéros de téléphone et l’état des utilisateurs.
-9. Cliquez sur **Exécuter**. Ceci fait apparaître un rapport des alertes de fraude. Cliquez sur **Exporter au format CSV** si vous souhaitez exporter le rapport.
+9. Cliquez sur **Exécuter** pour afficher un rapport des alertes de fraude. Cliquez sur **Exporter au format CSV** si vous souhaitez exporter le rapport.
 
 ## <a name="one-time-bypass"></a>Contournement à usage unique
 Un contournement à usage unique permet à un utilisateur de s'authentifier une seule fois sans procéder à la vérification en deux étapes. Le contournement est temporaire et expire après le nombre de secondes spécifié. Par conséquent, lorsque l’application mobile ou le téléphone ne reçoit pas de notification ou d’appel téléphonique, vous pouvez activer un contournement à usage unique afin que l’utilisateur puisse accéder à la ressource souhaitée.
@@ -110,16 +110,16 @@ Un contournement à usage unique permet à un utilisateur de s'authentifier une 
 6. En bas de la page Paramètres du service, sélectionnez **Accéder au portail** .
 7. Dans le portail de gestion Azure Multi-Factor Authentication, sous Afficher un rapport, cliquez sur **Contournement à usage unique**.
 8. Spécifiez la plage de dates que vous souhaitez afficher dans le rapport. Vous pouvez également spécifier les noms d’utilisateur, les numéros de téléphone et l’état des utilisateurs.
-9. Cliquez sur **Exécuter**. Ceci fait apparaître un rapport des contournements. Cliquez sur **Exporter au format CSV** si vous souhaitez exporter le rapport.
+9. Cliquez sur **Exécuter** pour afficher un rapport des contournements. Cliquez sur **Exporter au format CSV** si vous souhaitez exporter le rapport.
 
 ## <a name="custom-voice-messages"></a>Messages vocaux personnalisés
 Les messages vocaux personnalisés vous permettent d’utiliser vos propres enregistrements ou messages d’accueil pour la vérification en deux étapes. Ils peuvent être utilisés pour compléter ou remplacer les enregistrements Microsoft.
 
-Avant de commencer, tenez compte des informations suivantes :
+Avant de commencer, tenez compte des restrictions suivantes :
 
 * Les formats de fichiers pris en charge sont .wav et .mp3.
 * La taille limite des fichiers est de 5 Mo.
-* Les messages d’authentification doivent durer moins de 20 secondes. Toute durée supérieure pourrait entraîner l’échec de la vérification, car l’utilisateur ne répondra peut-être pas avant que le message se termine et que la vérification expire.
+* Les messages d’authentification doivent durer moins de 20 secondes. Toute durée supérieure à 20 secondes peut entraîner l’échec de la vérification, car l’utilisateur ne répondra peut-être pas avant que le message se termine et que la vérification expire.
 
 ### <a name="set-up-a-custom-message"></a>Configurer un message personnalisé
 
@@ -134,7 +134,7 @@ Avant de commencer, tenez compte des informations suivantes :
 6. Sélectionnez **Ajouter**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Mise en cache dans Azure Multi-Factor Authentication
-La mise en cache vous permet de définir une période spécifique pour que les tentatives d’authentification suivantes au cours de cette période aboutissent automatiquement. Cette fonctionnalité est principalement utilisée lorsque les systèmes locaux, comme un VPN, envoient plusieurs demandes de vérification alors que la première demande est toujours en cours. Ceci permet aux demandes suivantes de réussir automatiquement après que l’utilisateur a réussi la première vérification en cours. 
+La mise en cache vous permet de définir une période spécifique pour que les tentatives d’authentification suivantes au cours de cette période aboutissent automatiquement. Cette fonctionnalité est principalement utilisée lorsque les systèmes locaux, comme un VPN, envoient plusieurs demandes de vérification alors que la première demande est toujours en cours. La mise en cache permet aux demandes suivantes de réussir automatiquement après que l’utilisateur a réussi la première vérification en cours. 
 
 La mise en cache n’est pas destinée à être utilisée pour les connexions à Azure AD.
 
@@ -178,7 +178,7 @@ Que la fonction Adresses IP approuvées soit activée ou non, la vérification e
 5. Sous Multi-Factor Authentication, sélectionnez **Gérer les paramètres du service**.
 6. Dans la page Paramètres du service, sous Adresses IP approuvées, vous disposez de deux options :
    
-   * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** – Activez la case à cocher. Tous les utilisateurs fédérés qui se connectent à partir du réseau d’entreprise contourneront la vérification en deux étapes à l’aide d’une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Vous devez créer la règle suivante dans AD FS si elle n’existe pas déjà : "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+   * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** – Activez la case à cocher. Tous les utilisateurs fédérés qui se connectent à partir du réseau d’entreprise contourneront la vérification en deux étapes à l’aide d’une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si aucune règle n’existe, créez la règle suivante dans AD FS : "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
 
 
@@ -203,7 +203,7 @@ Voici ce qu’il faut absolument savoir sur les mots de passe d'application.
 * Le mot de passe est généré automatiquement et il n'est pas fourni par l'utilisateur. Le mot de passe automatiquement généré est en effet beaucoup plus difficile à pirater et bien mieux sécurisé.
 * Un utilisateur peut posséder jusqu’à 40 mots de passe. 
 * Les applications qui mettent en cache des mots de passe et les utilisent dans des scénarios locaux peuvent échouer, car le mot de passe d’application n’est pas connu en dehors de l’ID d’organisation. Des courriers électroniques Exchange sont, par exemple, stockés localement, mais la messagerie archivée se trouve dans le cloud. Le même mot de passe ne fonctionne pas.
-* Une fois l’authentification multifacteur activée sur un compte d’utilisateur, les mots de passe d’application peuvent être utilisés avec la plupart des clients sans navigateur tels qu’Outlook et Lync, mais les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application via des applications sans navigateur telles que Windows PowerShell, même si l’utilisateur dispose d’un compte d’administrateur.  Vérifiez que vous créez un compte de service avec un mot de passe fort pour exécuter des scripts PowerShell et que vous n’activez pas ce compte pour la vérification en deux étapes.
+* Une fois que l’authentification multifacteur est activée sur un compte utilisateur, les mots de passe d’application peuvent être utilisés avec la plupart des clients sans navigateur tels qu’Outlook et Lync. Les actions d’administration ne peuvent pas être effectuées à l’aide de mots de passe d’application via des applications sans navigateur telles que Windows PowerShell, même si l’utilisateur dispose d’un compte d’administrateur.  Créez un compte de service avec un mot de passe fort pour exécuter des scripts PowerShell et n’activez pas la vérification en deux étapes pour ce compte.
 
 > [!WARNING]
 > Les mots de passe d’application ne fonctionnent pas dans les environnements hybrides où les clients communiquent avec les points de terminaison locaux et les points de terminaison à découverte automatique cloud. En effet, les mots de passe de domaine sont tenus de s’authentifier en local et les mots de passe d’application doivent s’authentifier avec le cloud.
@@ -217,7 +217,7 @@ Microsoft recommande de créer un mot de passe par appareil, et non un mot de pa
 Azure AD prend en charge la fédération (authentification unique) avec les services de domaine Windows Server Active Directory (AD DS) locaux. Si votre organisation est fédérée avec Azure AD et que vous vous apprêtez à utiliser Azure Multi-Factor Authentication, vous trouverez ci-dessous des informations importantes à propos de l’utilisation des mots de passe. Cette section s’applique uniquement aux clients fédérés (SSO).
 
 * Les mots de passe d’application sont vérifiés par Azure AD et contournent ainsi la fédération. La fédération n’est utilisée activement que lorsque vous configurez les mots de passe d’application.
-* Pour les utilisateurs fédérés (SSO), nous n’accédons jamais au fournisseur d’identité (IdP), contrairement au flux passif. Les mots de passe sont stockés dans l’ID d’organisation. Si l'utilisateur quitte l'entreprise, ces informations doivent être stockées en temps réel dans l'id d'organisation à l'aide de DirSync. La désactivation/suppression de compte peut mettre jusqu’à trois heures à se synchroniser, ce qui peut retarder la désactivation/suppression du mot de passe dans Azure AD.
+* Pour les utilisateurs fédérés (SSO), nous ne contactons jamais le fournisseur d’identité (IdP), contrairement au flux passif. Les mots de passe sont stockés dans l’ID d’organisation. Si l'utilisateur quitte l'entreprise, ces informations doivent être stockées en temps réel dans l'id d'organisation à l'aide de DirSync. La désactivation/suppression de compte peut mettre jusqu’à trois heures à se synchroniser, ce qui peut retarder la désactivation/suppression du mot de passe dans Azure AD.
 * Les paramètres de contrôle d'accès client locaux ne sont pas honorés par Mot de passe d’application
 * Aucune authentification locale de journalisation/fonctionnalité d’audit n’est disponible pour les mots de passe d’application.
 * Certaines conceptions architecturales avancées peuvent nécessiter une combinaison de noms d’utilisateur, de mots de passe et de mots de passe d’application durant l’utilisation de la vérification en deux étapes avec les clients, selon l’emplacement où ils s’authentifient. Pour les clients qui s’authentifient auprès d’une infrastructure locale, vous devez utiliser le nom d’utilisateur et le mot de passe d’une organisation. Pour les clients qui s'authentifient auprès d'Azure AD, vous utiliseriez le mot de passe d’application.
@@ -254,13 +254,13 @@ Les utilisateurs peuvent créer des mots de passe d'application lors de leur ins
 Les utilisateurs peuvent également créer des mots de passe d’application après l’inscription, en modifiant leurs paramètres dans le portail Azure ou le portail Office 365. Pour plus d’informations et pour connaître les étapes détaillées pour vos utilisateurs, consultez [Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Mémoriser Multi-Factor Authentication pour les appareils utilisateur de confiance
-La mémorisation Multi-Factor Authentication pour les appareils et les navigateurs de confiance est une fonctionnalité disponible gratuitement pour tous les utilisateurs MFA. Elle vous permet de donner aux utilisateurs la possibilité de contourner MFA pour un nombre défini de jours après une connexion réussie à l’aide de l’authentification multifacteur. Cela permet d’améliorer le confort d’utilisation en réduisant le nombre de fois où un utilisateur peut effectuer la vérification en deux étapes sur le même appareil.
+La mémorisation Multi-Factor Authentication pour les appareils et les navigateurs de confiance est une fonctionnalité disponible gratuitement pour tous les utilisateurs MFA. Ce paramètre permet de donner aux utilisateurs la possibilité de contourner MFA pour un nombre défini de jours après une connexion réussie à l’aide de MFA. Cela permet d’améliorer le confort d’utilisation en réduisant le nombre de fois où un utilisateur peut effectuer la vérification en deux étapes sur le même appareil.
 
 Toutefois, si un appareil ou un compte est compromis, la mémorisation MFA des appareils de confiance est susceptible d’affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [restaurer Multi-Factor Authentication sur tous les appareils](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Cette action a pour effet de révoquer le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer MFA sur leurs propres appareils en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 
 ### <a name="how-it-works"></a>Fonctionnement
 
-La mémorisation de Multi-Factor Authentication consiste à configurer un cookie persistant sur le navigateur lorsqu’un utilisateur coche la case « Ne plus me demander pendant **X** jours » lors de sa connexion. L’utilisateur ne recevra plus aucune invite de vérification MFA sur ce navigateur jusqu’à l’expiration du cookie. Si l’utilisateur ouvre un autre navigateur sur le même appareil ou s’il efface les cookies, il recevra de nouveau l’invite de vérification. 
+La mémorisation de Multi-Factor Authentication consiste à configurer un cookie persistant sur le navigateur lorsqu’un utilisateur coche la case « Ne plus me demander pendant **X** jours » lors de sa connexion. L’utilisateur ne recevra plus aucune invite de vérification MFA sur ce navigateur tant que le cookie ne sera pas arrivé à expiration. Si l’utilisateur ouvre un autre navigateur sur le même appareil ou s’il efface les cookies, il recevra de nouveau l’invite de vérification. 
 
 La case « Ne plus me demander pendant **X** jours » ne s’affiche pas dans les applications non liées à un navigateur, qu’elles prennent ou non en charge les fonctions d’authentification modernes. Ces applications utilisent des jetons d’actualisation qui fournissent de nouveaux jetons d’accès toutes les heures. Lorsqu’un jeton d’actualisation est validé, Azure AD vérifie que la dernière vérification en deux étapes effectuée respecte le délai configuré. 
 
@@ -295,9 +295,9 @@ Lorsque vos utilisateurs inscrivent leurs comptes à MFA, ils choisissent la mé
 | Méthode | Description |
 |:--- |:--- |
 | Appel vers le téléphone |Passe un appel vocal automatisé. L’utilisateur répond à l’appel et appuie sur la touche # du clavier du téléphone pour s’authentifier. Ce numéro de téléphone n’est pas synchronisé avec Active Directory local. |
-| Message texte vers le téléphone |Envoie un message texte contenant un code de vérification. L’utilisateur est invité à répondre au SMS avec le code de vérification ou à entrer le code de vérification dans l’interface de connexion. |
+| Message texte vers le téléphone |Envoie un message texte contenant un code de vérification. L’utilisateur est invité à entrer le code de vérification dans l’interface de connexion. On parle alors « SMS unidirectionnel ». Ce terme signifie que l’utilisateur doit renvoyer par SMS dans un code spécifique. Les SMS bidirectionnels sont déconseillés et ne seront plus pris en charge à compter du 14 novembre 2018. Les utilisateurs pour lesquels les SMS bidirectionnels ont été configurés passeront automatiquement à l’authentification « appel téléphonique » à ce moment-là.|
 | Notification via une application mobile |Envoie une notification Push sur votre téléphone ou votre appareil inscrit. L’utilisateur consulte la notification et sélectionne **Vérifier** pour terminer la vérification. <br>L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Code de vérification de l’application mobile |L’application Microsoft Authenticator génère un nouveau code de vérification OATH toutes les trente secondes. L’utilisateur entre ce code de vérification dans l’interface de connexion.<br>L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Code de vérification de l’application mobile |L’application Microsoft Authenticator génère un nouveau code de vérification OATH toutes les 30 secondes. L’utilisateur entre ce code de vérification dans l’interface de connexion.<br>L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Comment activer/désactiver les méthodes d'authentification
 1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).

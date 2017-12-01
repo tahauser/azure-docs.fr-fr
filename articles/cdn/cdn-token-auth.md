@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/03/2017
+ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Sécurisation des ressources Azure Content Delivery Network avec l’authentification du jeton
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="overview"></a>Vue d'ensemble
 
-L’authentification du jeton est un mécanisme qui vous permet d’empêcher Azure Content Delivery Network (CDN) de fournir des ressources à des clients non autorisés. L’authentification du jeton vise généralement à empêcher le « hotlinking » de contenu, au cours duquel un autre site web (souvent un forum de discussion) utilise vos ressources sans autorisation. Le « hotlinking » peut avoir un impact sur vos coûts de distribution de contenu. En activant l’authentification du jeton sur CDN, les requêtes sont authentifiées par les points de présence de périmètre CDN avant que CDN ne remette le contenu. 
+L’authentification du jeton est un mécanisme qui vous permet d’empêcher Azure Content Delivery Network (CDN) de fournir des ressources à des clients non autorisés. L’authentification du jeton vise généralement à empêcher le « hotlinking » de contenu, dans le cadre duquel un autre site web, tel un forum de discussion, utilise vos ressources sans autorisation. Le « hotlinking » peut avoir un impact sur vos coûts de distribution de contenu. En activant l’authentification du jeton sur CDN, les requêtes sont authentifiées par le serveur de périphérie CDN avant que CDN livre le contenu. 
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -50,7 +50,7 @@ Le diagramme des flux de travail suivant décrit comment Azure CDN applique l’
 
 ## <a name="token-validation-logic-on-cdn-endpoint"></a>Logique de validation de jeton sur le point de terminaison CDN
     
-L’organigramme suivant décrit comment Azure CDN valide la requête du client lorsque l’authentification du jeton est configurée sur le point de terminaison CDN.
+L’organigramme suivant décrit comment Azure CDN valide une demande du client lorsque l’authentification du jeton est configurée sur le point de terminaison CDN.
 
 ![Logique de validation du jeton dans CDN](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
@@ -58,15 +58,25 @@ L’organigramme suivant décrit comment Azure CDN valide la requête du client 
 
 1. À partir du [portail Azure](https://portal.azure.com), accédez à votre profil CDN, puis cliquez sur **Gérer** pour ouvrir le portail supplémentaire.
 
-    ![Bouton Gérer du profil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Bouton Gérer du profil CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Placez le pointeur sur **HTTP Large**, puis cliquez sur **Token Auth** (Authentification du jeton) dans le menu volant. Vous pouvez ensuite configurer la clé de chiffrement et les paramètres de chiffrement comme suit :
+2. Positionnez le pointeur sur **HTTP Large**, puis cliquez sur **Token Auth** (Authentification du jeton) dans le menu volant. Vous pouvez ensuite configurer la clé de chiffrement et les paramètres de chiffrement comme suit :
 
-    1. Créez une ou plusieurs clés de chiffrement. Une clé de chiffrement respecte la casse et peut contenir n’importe quelle combinaison de caractères alphanumériques. D’autres types de caractères, y compris les espaces, ne sont pas autorisés. La longueur maximale est de 250 caractères. Pour vous assurer que vos clés de chiffrement sont aléatoires, il est recommandé de les créer à l’aide de l’outil OpenSSL. L’outil OpenSSL présente la syntaxe suivante : `rand -hex <key length>`. Par exemple, `OpenSSL> rand -hex 32`. Pour éviter les temps d’arrêt, créez une clé primaire et une clé de sauvegarde. Une clé de sauvegarde fournit un accès ininterrompu à votre contenu pendant que la mise à jour de votre clé primaire est en cours.
+    1. Créez une ou plusieurs clés de chiffrement. Une clé de chiffrement respecte la casse et peut contenir n’importe quelle combinaison de caractères alphanumériques. D’autres types de caractères, y compris les espaces, ne sont pas autorisés. La longueur maximale est de 250 caractères. Pour vous assurer que vos clés de chiffrement sont aléatoires, nous vous recommandons de les créer à l’aide de l’outil [OpenSSL](https://www.openssl.org/). 
+
+       La syntaxe de l’outil OpenSSL est la suivante :
+
+       ```rand -hex <key length>```
+
+       Par exemple :
+
+       ```OpenSSL> rand -hex 32``` 
+
+       Pour éviter les temps d’arrêt, créez une clé primaire et une clé de sauvegarde. Une clé de sauvegarde fournit un accès ininterrompu à votre contenu pendant que la mise à jour de votre clé primaire est en cours.
     
     2. Entrez une clé de chiffrement unique dans la zone **Clé primaire**, puis tapez éventuellement une clé de sauvegarde dans la zone **Clé de sauvegarde**.
 
-    3. Sélectionnez la version minimale de chiffrement pour chaque clé dans la liste déroulante **Minimum Encryption Version (Version minimale de chiffrement)**, puis cliquez sur **Update (Mettre à jour)** :
+    3. Sélectionnez la version minimale de chiffrement pour chaque clé dans la liste **Minimum Encryption Version (Version minimale de chiffrement)**, puis cliquez sur **Update (Mettre à jour)** :
        - **V2** : indique que la clé peut être utilisée pour générer des jetons de version 2.0 et version 3.0. Utilisez cette option uniquement si vous effectuez la transition depuis une clé de chiffrement version 2.0 héritée vers une clé de version 3.0.
        - **V3** : (recommandé) indique que la clé peut être uniquement utilisée pour générer des jetons de version 3.0.
 
@@ -76,70 +86,94 @@ L’organigramme suivant décrit comment Azure CDN valide la requête du client 
 
        ![Outil de chiffrement CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-       Entrez les valeurs pour un ou plusieurs des paramètres de chiffrement suivants dans la zone **Encrypt Tool (Outil de chiffrement)** :  
+       Entrez les valeurs pour un ou plusieurs des paramètres de chiffrement suivants dans la zone **Encrypt Tool (Outil de chiffrement)** : 
 
-       - **ec_expire** : affecte une date/heure d’expiration à un jeton au-delà de laquelle le jeton est arrivé à expiration. Les requêtes soumises après la date/heure d’expiration sont refusées. Ce paramètre utilise un timestamp Unix, qui est basé sur le nombre de secondes écoulées depuis l’époque standard `1/1/1970 00:00:00 GMT`. (Vous pouvez utiliser des outils en ligne pour convertir l’heure standard en heure Unix, et inversement.) Par exemple, si vous souhaitez que le jeton arrive à expiration le `12/31/2016 12:00:00 GMT`, utilisez la valeur de timestamp Unix `1483185600`, comme suit. 
-    
-         ![Exemple de paramètre ec_expire dans CDN](./media/cdn-token-auth/cdn-token-auth-expire2.png)
-    
-       - **ec_url_allow** : permet d’adapter les jetons à une ressource ou à un chemin d’accès particulier. Ce paramètre restreint l’accès aux demandes dont l’URL commence par un chemin d’accès relatif spécifique. Les URL sont sensibles à la casse. Entrez plusieurs chemins d’accès en les séparant par une virgule. Selon vos exigences, vous pouvez définir des valeurs différentes pour fournir différents niveaux d’accès. 
-        
-         Par exemple, pour l’URL `http://www.mydomain.com/pictures/city/strasbourg.png`, ces requêtes sont autorisées pour les valeurs d’entrée suivantes :
-
-         - Valeur d’entrée `/` : toutes les requêtes sont autorisées.
-         - Valeur d’entrée `/pictures` : les requêtes suivantes sont autorisées :
-            - `http://www.mydomain.com/pictures.png`
-            - `http://www.mydomain.com/pictures/city/strasbourg.png`
-            - `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
-         - Valeur d’entrée `/pictures/` : seules les requêtes contenant le chemin d’accès `/pictures/` sont autorisées. Par exemple, `http://www.mydomain.com/pictures/city/strasbourg.png`.
-         - Valeur d’entrée `/pictures/city/strasbourg.png` : seules les requêtes concernant ce chemin d’accès et cette ressource spécifiques sont autorisées.
-    
-       - **ec_country_allow** : autorise uniquement les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont refusées. Utilisez des codes de pays et séparez-les par des virgules. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez US, FR dans la zone comme indiqué ci-dessous.  
-        
-           ![Exemple de paramètre ec_country_allow dans CDN](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
-
-       - **ec_country_deny** : refuse les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont autorisées. Utilisez des codes de pays et séparez-les par des virgules. Par exemple, pour refuser l’accès aux requêtes provenant des États-Unis et de France, entrez US, FR dans la zone.
-    
-       - **ec_ref_allow** : autorise uniquement les requêtes provenant du référent spécifié. Un référent identifie l’URL de la page web qui est liée à la ressource demandée. N’incluez pas le protocole dans la valeur du paramètre de référent. Les types d’entrée suivants sont autorisés pour la valeur du paramètre :
-           - Un nom d’hôte ou un nom d’hôte et un chemin d’accès.
-           - Plusieurs référents. Pour ajouter plusieurs référents, séparez chacun d’eux par une virgule. Si vous spécifiez une valeur de référent, mais que la configuration du navigateur ne permet pas l’envoi des informations sur le référent dans la requête, cette requête est refusée par défaut. 
-           - Requêtes manquant d’informations sur le référent. Pour autoriser ces types de requête, entrez le texte « missing » ou une valeur vide. 
-           - Sous-domaines. Pour autoriser des sous-domaines, entrez un astérisque (\*). Par exemple, pour autoriser tous les sous-domaines de `consoto.com`, entrez `*.consoto.com`. 
-           
-          L’exemple suivant présente l’entrée permettant d’autoriser l’accès aux requêtes provenant de `www.consoto.com`, à l’ensemble des sous-domaines sous `consoto2.com` et aux requêtes manquant d’informations ou disposant de valeurs vides pour les référents.
-        
-          ![Exemple de paramètre ec_ref_allow dans CDN](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
-    
-       - **ec_ref_deny** : refuse les requêtes provenant du référent spécifié. L’implémentation est identique à celle du paramètre ec_ref_allow.
-         
-       - **ec_proto_allow** : autorise uniquement les requêtes correspondant au protocole spécifié, par exemple, HTTP ou HTTPS.
-            
-       - **ec_proto_deny** : refuse les protocoles correspondant au protocole spécifié, par exemple, HTTP ou HTTPS.
-    
-       - **ec_clientip** : limite l’accès à l’adresse IP de demandeur spécifiée. Les adresses IPV4 et IPV6 sont prises en charge. Vous pouvez spécifier un sous-réseau IP ou une adresse IP de requête unique.
-            
-         ![Exemple de paramètre ec_clientip dans CDN](./media/cdn-token-auth/cdn-token-auth-clientip.png)
+       > [!div class="mx-tdCol2BreakAll"] 
+       > <table>
+       > <tr>
+       >   <th>Nom du paramètre</th> 
+       >   <th>Description</th>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_expire</b></td>
+       >    <td>Affecte à un jeton une date/heure d’expiration au-delà de laquelle le jeton expire. Les requêtes soumises après la date/heure d’expiration sont refusées. Ce paramètre utilise un timestamp Unix, qui est basé sur le nombre de secondes écoulées depuis l’époque Unix standard `1/1/1970 00:00:00 GMT`. (Vous pouvez utiliser des outils en ligne pour convertir l’heure standard en heure Unix, et inversement.)> 
+       >    Par exemple, si vous souhaitez que le jeton expire à `12/31/2016 12:00:00 GMT`, utilisez la valeur de timestamp Unix `1483185600`. 
+       > </tr>
+       > <tr>
+       >    <td><b>ec_url_allow</b></td> 
+       >    <td>Permet d’adapter les jetons à une ressource ou à un chemin d’accès particulier. Ce paramètre restreint l’accès aux demandes dont l’URL commence par un chemin d’accès relatif spécifique. Les URL sont sensibles à la casse. Entrez plusieurs chemins d’accès en les séparant par une virgule ; n’ajoutez pas d’espaces. Selon vos exigences, vous pouvez définir des valeurs différentes pour fournir différents niveaux d’accès.> 
+       >    Par exemple, pour l’URL `http://www.mydomain.com/pictures/city/strasbourg.png`, ces requêtes sont autorisées pour les valeurs d’entrée suivantes : 
+       >    <ul>
+       >       <li>Valeur d’entrée `/` : toutes les requêtes sont autorisées.</li>
+       >       <li>Valeur d’entrée `/pictures` : les requêtes suivantes sont autorisées : <ul>
+       >          <li>`http://www.mydomain.com/pictures.png`</li>
+       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
+       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
+       >       </ul></li>
+       >       <li>Valeur d’entrée `/pictures/` : seules les requêtes contenant le chemin d’accès `/pictures/` sont autorisées. Par exemple, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+       >       <li>Valeur d’entrée `/pictures/city/strasbourg.png` : seules les requêtes concernant ce chemin d’accès et cette ressource spécifiques sont autorisées.</li>
+       >    </ul>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_country_allow</b></td> 
+       >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont refusées. Utilisez un [code de pays ISO 3166](https://msdn.microsoft.com/library/mt761717.aspx) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_country_deny</b></td> 
+       >    <td>Refuse les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont autorisées. L’implémentation est identique à celle du paramètre <b>ec_country_allow</b>. Si un code de pays est présent dans les paramètres <b>ec_country_allow</b> et <b>ec_country_deny</b>, le paramètre <b>ec_country_allow</b> est prioritaire.</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_ref_allow</b></td>
+       >    <td>Autorise uniquement les requêtes provenant du référent spécifié. Un référent identifie l’URL de la page web qui est liée à la ressource demandée. N’incluez pas le protocole dans la valeur du paramètre.>    
+       >    Les types d’entrée autorisés sont les suivants :
+       >    <ul>
+       >       <li>Un nom d’hôte ou un nom d’hôte et un chemin d’accès.</li>
+       >       <li>Plusieurs référents. Pour ajouter plusieurs référents, séparez-les par une virgule ; n’ajoutez pas d’espace. Si vous spécifiez une valeur de référent, mais que la configuration du navigateur ne permet pas l’envoi des informations sur le référent dans la requête, cette requête est refusée par défaut.</li> 
+       >       <li>Requêtes manquant d’informations ou contenant des informations vides sur le référent. Par défaut, le paramètre <b>ec_ref_allow</b> bloque ces types de requêtes. Pour autoriser ces requêtes, entrez le texte « missing » ou une valeur vide (à l’aide d’une virgule de fin).</li> 
+       >       <li>Sous-domaines. Pour autoriser des sous-domaines, entrez un astérisque (\*). Par exemple, pour autoriser tous les sous-domaines de `contoso.com`, entrez `*.contoso.com`.</li>
+       >    </ul>     
+       >    Par exemple, pour autoriser l’accès aux requêtes provenant de `www.contoso.com`, à l’ensemble des sous-domaines sous `contoso2.com` et aux requêtes manquant de référents ou contenant des valeurs vides pour les référents, entrez `www.contoso.com,*.contoso.com,missing`.</td>
+       > </tr>
+       > <tr> 
+       >    <td><b>ec_ref_deny</b></td>
+       >    <td>Refuse les requêtes provenant du référent spécifié. L’implémentation est identique à celle du paramètre <b>ec_ref_allow</b>. Si un référent est présent dans les deux paramètres <b>ec_ref_allow</b> et <b>ec_ref_deny</b>, le paramètre <b>ec_ref_allow</b> est prioritaire.</td>
+       > </tr>
+       > <tr> 
+       >    <td><b>ec_proto_allow</b></td> 
+       >    <td>Autorise uniquement les requêtes provenant du protocole spécifié. Les valeurs valides sont `http`, `https` ou `http,https`.</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_proto_deny</b></td>
+       >    <td>Refuse les requêtes du protocole spécifié. L’implémentation est identique à celle du paramètre <b>ec_proto_allow</b>. Si un protocole est présent dans les deux paramètres <b>ec_proto_allow</b> et <b>ec_proto_deny</b>, le paramètre <b>ec_proto_allow</b> est prioritaire.</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_clientip</b></td>
+       >    <td>Restreint l’accès à l’adresse IP de demandeur spécifié. Les adresses IPV4 et IPV6 sont prises en charge. Vous pouvez spécifier une adresse IP de requête unique ou des adresses IP associées à un sous-réseau spécifique. Par exemple, `11.22.33.0/22` autorise les requêtes provenant des adresses IP 11.22.32.1 à 11.22.35.254.</td>
+       > </tr>
+       > </table>
 
     5. Après avoir entré les valeurs des paramètres de chiffrement, sélectionnez une clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)**.
     
-    6. Sélectionnez une version de chiffrement dans la liste **Encryption Version (Version de chiffrement)** : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). Ensuite, cliquez sur **Encrypt (Chiffrer)**  pour générer le jeton.
+    6. Sélectionnez une version de chiffrement dans la liste **Encryption Version (Version de chiffrement)** : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). 
+
+    7. Cliquez sur **Encrypt (Chiffrer)** pour générer le jeton.
 
     Lorsque le jeton est généré, il est affiché dans la zone **Generated Token (Jeton généré)**. Pour utiliser le jeton, ajoutez-le en tant que chaîne de requête à la fin du fichier dans le chemin de l’URL. Par exemple, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    7. Testez éventuellement votre jeton avec l’outil de déchiffrement. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)**. Sélectionnez la clé de chiffrement à utiliser dans la liste déroulante **Key To Decrypt (Clé à déchiffrer)**, puis cliquez sur **Decrypt (Déchiffrer)**.
+    8. Vous pouvez tester votre jeton avec l’outil de déchiffrement afin d’afficher les paramètres de votre jeton. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)**. Sélectionnez la clé de chiffrement à utiliser dans la liste **Key To Decrypt (Clé pour déchiffrer)**, puis cliquez sur **Decrypt (Déchiffrer)**.
 
     Une fois que le jeton est déchiffré, ses paramètres sont affichés dans la zone **Original Parameters (Paramètres d’origine)**.
 
-    8. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez le code dans la liste déroulante **Code de réponse**, puis cliquez sur **Enregistrer**. Le code de réponse **403** (Interdit) est sélectionné par défaut. Pour certains codes de réponse, vous pouvez également entrer l’URL de votre page d’erreur dans la zone **Valeur de l’en-tête**. 
+    9. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez **Enabled (Activé)**, puis sélectionnez le code de réponse dans la liste **Code de réponse**. Le **Header Name (Nom d’en-tête)** est automatiquement défini sur **Location (Emplacement)**. Cliquez sur **Save (Enregistrer)** pour implémenter le nouveau code de réponse. Pour certains codes de réponse, vous devez également entrer l’URL de votre page d’erreur dans la zone **Header Value (Valeur d’en-tête)**. Le code de réponse **403** (Interdit) est sélectionné par défaut. 
 
 3. Cliquez sur **Moteur de règles** sous **HTTP Large**. Le moteur de règles permet de définir les chemins d’accès pour appliquer la fonctionnalité, d’activer la fonctionnalité d’authentification du jeton et d’activer d’autres fonctionnalités associées à l’authentification du jeton. Pour plus d’informations, consultez [Moteur des règles Azure CDN](cdn-rules-engine-reference.md).
 
     1. Sélectionnez une règle existante ou créez-en une pour définir la ressource ou le chemin d’accès pour lesquels vous souhaitez appliquer l’authentification du jeton. 
-    2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](cdn-rules-engine-reference-features.md#token-auth)** dans la liste déroulante **Fonctionnalités**, puis sélectionnez **Activé**. Cliquez sur **Mettre à jour** si vous mettez à jour une règle ou sur **Ajouter** si vous en créez une.
+    2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](cdn-rules-engine-reference-features.md#token-auth)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)**. Cliquez sur **Mettre à jour** si vous mettez à jour une règle ou sur **Ajouter** si vous en créez une.
         
     ![Exemple d’activation de l’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. Dans le moteur de règles, vous pouvez également activer d’autres fonctionnalités associées à l’authentification. Pour activer l’une des fonctionnalités suivantes, sélectionnez-la dans la liste déroulante **Fonctionnalités**, puis sélectionnez **Activé**.
+4. Dans le moteur de règles, vous pouvez également activer d’autres fonctionnalités associées à l’authentification. Pour activer l’une des fonctionnalités suivantes, sélectionnez-la dans la liste **Features (Fonctionnalités)**, puis sélectionnez **Enabled (Activé)**.
     
     - **[Token auth denial code (Code de refus d’authentification du jeton)](cdn-rules-engine-reference-features.md#token-auth-denial-code)** : détermine le type de réponse à retourner à un utilisateur quand une requête est refusée. Les règles définies ici remplacent les codes de réponse de la section **Custom Denial Handling (Gestion personnalisée des refus)** de la page d’authentification basée sur le jeton.
     - **[Token Auth Ignore URL Case (Ignorer la casse de l’URL pour l’authentification du jeton)](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)** : détermine si la casse de l’URL utilisée pour valider le jeton est prise en compte.
@@ -150,12 +184,12 @@ L’organigramme suivant décrit comment Azure CDN valide la requête du client 
 5. Vous pouvez personnaliser votre jeton en accédant au code source dans [GitHub](https://github.com/VerizonDigital/ectoken).
 Les langages disponibles sont notamment :
     
-- C
-- C#
-- PHP
-- Perl
-- Java
-- Python    
+   - C
+   - C#
+   - PHP
+   - Perl
+   - Java
+   - Python 
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Tarification du fournisseur et des fonctionnalités du CDN Azure
 

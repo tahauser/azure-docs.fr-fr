@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD
 
@@ -207,7 +207,18 @@ Exemple : quatre administrateurs font partie d’un environnement. L’administ
 
 ## <a name="on-premises-integration"></a>Intégration locale
 
-Si vous installez, configurez et activez Azure AD Connect, vous disposez des options supplémentaires suivantes pour les intégrations locales. Si ces options sont grisées, la réécriture n’a pas été correctement configurée. Pour plus d’informations, consultez [Configuration de la réécriture du mot de passe](active-directory-passwords-writeback.md#configuring-password-writeback).
+Si vous installez, configurez et activez Azure AD Connect, vous disposez des options supplémentaires suivantes pour les intégrations locales. Si ces options sont grisées, la réécriture n’a pas été correctement configurée. Pour plus d’informations, consultez [Configuration de la réécriture du mot de passe](active-directory-passwords-writeback.md#configure-password-writeback).
+
+![Écriture différée][Writeback]
+
+Cette page fournit un état rapide du client d’écriture différée local. L’un des messages suivants s’affiche en fonction de la configuration actuelle :
+
+* Votre client de réécriture local est opérationnel.
+* Azure AD Connect est en ligne et connecté à votre client de réécriture local. Cependant, il semble que la version installée d’Azure AD Connect est obsolète. Pensez à [mettre à niveau Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) pour vous assurer que vous disposez des dernières fonctionnalités de connectivité et des correctifs de bogues importants.
+* Malheureusement, nous ne pouvons pas vérifier l’état de votre client de réécriture local, car la version installée d’Azure AD Connect est obsolète. [Mettez à niveau Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) pour être en mesure de vérifier l’état de votre connexion.
+* Malheureusement, nous ne sommes pas en mesure de nous connecter à votre client d’écriture différée local pour le moment. [Résolvez les problèmes avec Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) pour restaurer la connexion.
+* Malheureusement, nous ne pouvons pas nous connecter à votre client de réécriture local, car la réécriture du mot de passe n’a pas été configurée correctement. [Configurez la réécriture du mot de passe](active-directory-passwords-writeback.md#configure-password-writeback) pour restaurer la connexion.
+* Malheureusement, nous ne sommes pas en mesure de nous connecter à votre client d’écriture différée local pour le moment. Cela peut être dû à des problèmes temporaires de notre côté. Si le problème persiste, [résolvez les problèmes avec Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) pour restaurer la connexion.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Réécriture du mot de passe dans votre répertoire local
 
@@ -233,7 +244,7 @@ La réinitialisation et la modification du mot de passe sont totalement prises e
 Pour tester ce scénario avec l’un des utilisateurs partenaires, consultez la page http://passwordreset.microsoftonline.com. Si ces utilisateurs disposent d’une autre adresse de messagerie ou d’un e-mail d’authentification, la réinitialisation du mot de passe fonctionne comme prévu.
 
 > [!NOTE]
-> Les comptes Microsoft qui disposent d’un accès invité à votre locataire Azure AD, tels que les comptes Hotmail.com, Outlook.com ou correspondant à d’autres adresses e-mail personnelles, ne peuvent pas utiliser Azure AD SSPR. Les utilisateurs de ces comptes doivent réinitialiser leur mot de passe à l’aide des informations figurant dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+> Les comptes Microsoft qui disposent d’un accès invité à votre locataire Azure AD, tels que les comptes Hotmail.com, Outlook.com ou correspondant à d’autres adresses e-mail personnelles, ne peuvent pas utiliser Azure AD SSPR. Les utilisateurs de ces comptes doivent réinitialiser leur mot de passe à l’aide des informations fournies dans l’article [Lorsque vous n’avez pas accès à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -253,3 +264,4 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Méthodes d’authentification disponibles dans Azure Active Directory et quantité requise"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Intégration locale - Configuration de la réécriture de mot de passe et informations de dépannage"

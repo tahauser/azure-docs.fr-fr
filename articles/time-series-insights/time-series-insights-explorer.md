@@ -3,7 +3,7 @@ title: "Explorer des données avec l’explorateur Azure Time Series Insights | 
 description: "Cet article décrit comment utiliser l’Explorateur Azure Time Series Insights dans votre navigateur web pour afficher rapidement une vue globale de vos données et valider votre environnement IoT."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 Cet article explore les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. Vous pouvez utiliser l’explorateur Time Series Insights dans votre navigateur web pour créer des visualisations de vos données.
@@ -50,10 +50,10 @@ Après quelques minutes suite à la connexion de votre source d’événements �
       - **Fractionner par** : Cette liste déroulante affiche les colonnes catégorielles (chaînes)
       - Vous pouvez activer une interpolation par étape, afficher les valeurs minimale et maximale et ajuster l’axe des ordonnées à partir du panneau suivant pour mesurer.  En outre, vous pouvez choisir si les données indiquées sont un nombre, une moyenne ou une somme des données.
       - Vous pouvez ajouter jusqu'à cinq conditions à afficher sur l’axe des abscisses.  Utilisez le bouton **Copier** bouton pour ajouter un terme supplémentaire, ou cliquez sur le bouton **Ajouter** pour ajouter un nouveau terme.
+     
+        ![Panneau de l’éditeur de conditions](media/time-series-insights-explorer/explorer2.png)
 
-      ![Panneau de l’éditeur de conditions](media/time-series-insights-explorer/explorer2.png)
-
-      - **Prédicat** : Le prédicat vous permet de filtrer rapidement les événements à l’aide de l’ensemble d’opérandes ci-dessous. Si vous effectuez une recherche en la sélectionnant ou en cliquant dessus, le prédicat est automatiquement mis à jour selon cette recherche.  Les types d’opérandes pris en charge comprennent les suivants :
+      - **Prédicat** : Le prédicat vous permet de filtrer rapidement les événements à l’aide de l’ensemble d’opérandes ci-dessous. Si vous effectuez une recherche en la sélectionnant ou en cliquant dessus, le prédicat est automatiquement mis à jour selon cette recherche.      Les types d’opérandes pris en charge comprennent les suivants :
 
          |Opération  |Types pris en charge  |Remarques  |
          |---------|---------|---------|
@@ -74,7 +74,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
    ![Requêtes](media/time-series-insights-explorer/explorer3.png)
 
-9. L’outil **Vue en perspective** fournit une vue simultanée de jusqu'à quatre requêtes uniques. Vous trouverez le bouton de la vue en perspective dans le coin supérieur droit du graphique.  
+9. L’outil **Vue en perspective** fournit une vue simultanée de jusqu'à quatre requêtes uniques. Le bouton de la vue en perspective se situe dans le coin supérieur droit du graphique.  
 
    ![Vue en perspective](media/time-series-insights-explorer/explorer4.png)
 
@@ -107,4 +107,5 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 Vous avez maintenant vu les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

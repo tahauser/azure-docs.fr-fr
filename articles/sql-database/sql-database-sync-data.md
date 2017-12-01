@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync (préversion)
 
@@ -80,16 +80,6 @@ Data Sync ne convient pas aux scénarios suivants :
 
 ## <a name="sync-req-lim"></a> Spécifications et limitations
 
-### <a name="general-requirements"></a>Conditions générales
-
--   Chaque table doit avoir une clé primaire. Ne modifiez pas la valeur de la clé primaire dans une ligne. Si vous avez à le faire, supprimez la ligne et recréez-la avec la nouvelle valeur de clé primaire. 
-
--   Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
-
--   Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
-
--   L’isolement de capture instantanée doit être activé. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### <a name="general-considerations"></a>Considérations d’ordre général
 
 #### <a name="eventual-consistency"></a>Cohérence éventuelle
@@ -98,7 +88,19 @@ Data Sync ne convient pas aux scénarios suivants :
 #### <a name="performance-impact"></a>Impact sur les performances
 Data Sync utilise des déclencheurs d’insertion, de mise à jour et de suppression pour effectuer le suivi des modifications. Cela crée des tables latérales dans la base de données utilisateur pour le suivi des modifications. Ces activités de suivi des modifications ont un impact sur votre charge de travail de base de données. Évaluez votre niveau de service et effectuez une mise à niveau si nécessaire.
 
+### <a name="general-requirements"></a>Conditions générales
+
+-   Chaque table doit avoir une clé primaire. Ne modifiez pas la valeur de la clé primaire dans une ligne. Si vous avez à le faire, supprimez la ligne et recréez-la avec la nouvelle valeur de clé primaire. 
+
+-   L’isolement de capture instantanée doit être activé. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### <a name="general-limitations"></a>Limitations générales
+
+-   Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
+
+-   Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
+
+-   L’authentification Azure Active Directory n’est pas prise en charge.
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 

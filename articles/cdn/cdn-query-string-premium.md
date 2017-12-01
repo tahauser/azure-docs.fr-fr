@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: ba9c28f0e6df25b101b45edf836d0b95056cbc6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2021b5b7602605a7c264e9cd575399077691da34
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings---premium"></a>Contrôler le comportement de mise en cache d’Azure Content Delivery Network à l’aide de chaînes de requête - Premium
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>Vue d'ensemble
-Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui survient après le caractère `?`. Une chaîne de requête peut contenir un ou plusieurs paramètres séparés par un caractère `&`. Par exemple, `http://www.domain.com/content.mov?data1=true&data2=false`. S’il existe plusieurs paramètres de chaîne de requête dans une demande, l’ordre des paramètres n’a pas d’importance. 
+Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance. 
 
 > [!IMPORTANT]
 > Les produits CDN standard et premium proposent les mêmes fonctionnalités de mise en cache des chaînes de requête, mais l’interface utilisateur est différente.  Cet article décrit l’interface d’**Azure CDN Premium fourni par Verizon**. Pour la mise en cache des chaînes de requête avec le **CDN Azure Standard fourni par Akamai** et le **CDN Azure Standard fourni par Verizon**, consultez [Contrôle du comportement de mise en cache des demandes CDN avec des chaînes de requête](cdn-query-string.md).

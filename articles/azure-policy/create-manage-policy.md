@@ -3,17 +3,17 @@ title: "Utiliser une stratégie Azure pour créer et gérer des stratégies afin
 description: "Utilisez une stratégie Azure pour appliquer des normes, se conformer aux réglementations de conformité et d’audit, maîtriser les coûts, garantir la sécurité et maintenir les performances, et imposer les principes de conception à l’échelle de l’entreprise."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -386,7 +386,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Résoudre une ressource non conforme ou refusée
 
-En suivant l’exemple ci-dessus, après avoir attribué la définition de stratégie pour nécessiter SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, nous allons pas à pas résoudre une situation où la création d’un serveur SQL a été refusée en raison d’une version différente.
+En suivant l’exemple ci-dessus, après avoir attribué la définition de stratégie pour nécessiter SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, nous allons pas à pas résoudre une situation où la création d’un serveur SQL a été refusée en raison d’une version différente en demandant une exclusion.
 
 1. Sélectionnez **Attributions** dans le volet gauche.
 2. Parcourez toutes les attributions de stratégies puis lancez l’attribution *Nécessitent SQL Server version 12.0*.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurer Network Performance Monitor pour ExpressRoute (préversion)
 
@@ -96,7 +96,7 @@ Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres o
 1. Sur la page **Configuration de Network Performance Monitor - Installation de TCP** de votre ressource, dans la section **Installer les agents OMS**, cliquez sur l’agent qui correspond à votre processeur de serveur et téléchargez le fichier de configuration.
 
   >[!NOTE]
-  >L’agent Linux n’est actuellement pas pris en charge pour la surveillance ExpressRoute.
+  >L’agent doit être installé sur Windows Server 2008 SP1 ou version ultérieure. Le monitoring des circuits ExpressRoute à l’aide du système d’exploitation de bureau Windows et du système d’exploitation Linux n’est pas pris en charge. 
   >
   >
 2. Ensuite, copiez et collez **l’ID d’espace de travail** et la **clé primaire** dans le bloc-notes.
@@ -105,6 +105,8 @@ Si vous utilisez déjà Network Performance Monitor pour surveiller d’autres o
   ![Script PowerShell](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2 : Installer un agent de surveillance sur chaque serveur de surveillance
+
+Nous vous recommandons d’installer au moins deux agents de chaque côté de la connexion ExpressRoute (par exemple, localement, réseaux virtuels Azure) à des fins de redondance. Pour installer les agents, procédez comme suit :
 
 1. Exécutez **Installation** pour installer l’agent sur chaque serveur que vous souhaitez utiliser pour la surveillance ExpressRoute. Le serveur que vous utilisez pour la surveillance peut être une machine virtuelle ou locale et doit avoir accès à Internet. Vous devez installer au moins un agent localement, et un agent sur chaque segment de réseau que vous souhaitez surveiller dans Azure.
 2. Sur la page d’**accueil**, cliquez sur **Suivant**.

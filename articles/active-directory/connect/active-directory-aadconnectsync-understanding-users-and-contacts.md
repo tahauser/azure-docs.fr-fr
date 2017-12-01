@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect Sync : Présentation des utilisateurs, des groupes et des contacts
 Il existe plusieurs raisons pour lesquelles vous pouvez avoir plusieurs forêts Active Directory et il existe plusieurs topologies de déploiement différentes. Parmi les modèles courants, citons les déploiements de ressources de comptes et les forêts avec liste d’adresses globale synchronisées après fusion et acquisition. Mais même s’il existe des modèles pures, les modèles hybrides sont également courants. La configuration par défaut du service de synchronisation Azure AD Connect ne suppose pas l’existence d’un modèle particulier, mais des comportements différents peuvent être observés en fonction de la façon dont la correspondance utilisateur a été sélectionnée dans le guide d’installation.
@@ -42,15 +42,15 @@ Points importants à prendre en compte pendant la synchronisation de groupes dep
 
 * Pour synchroniser un groupe Active Directory avec Azure AD en tant que groupe à extension messagerie :
 
-    * Si l’attribut *proxyAddress* du groupe est vide, son attribut *mail* doit avoir une valeur, OU 
+    * Si l’attribut *proxyAddress* du groupe est vide, son attribut *mail* doit comporter une valeur
 
-    * Si l’attribut *proxyAddress* du groupe n’est pas vide, il doit également contenir une valeur d’adresse proxy SMTP principale (comme l’indique le préfixe **SMTP** en majuscules). Voici quelques exemples :
+    * Si l’attribut *proxyAddress* du groupe n’est pas vide, il doit au moins comporter une valeur d’adresse de proxy SMTP. Voici quelques exemples :
     
-      * Un groupe Active Directory dont l’attribut proxyAddress a la valeur *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* n’est pas à extension messagerie dans Azure AD. Il n’a pas d’adresse SMTP principale.
-      
-      * Un groupe Active Directory dont l’attribut proxyAddress a les valeurs *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* n’est pas à extension messagerie dans Azure AD. Il a une adresse SMTP, mais elle n’est pas principale.
+      * Un groupe Active Directory dont l’attribut proxyAddress a la valeur *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* n’est pas à extension messagerie dans Azure AD. Il n’a pas d’adresse SMTP.
       
       * Un groupe Active Directory dont l’attribut proxyAddress a les valeurs *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* est à extension messagerie dans Azure AD.
+      
+      * Un groupe Active Directory dont l’attribut proxyAddress possède les valeurs *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* est aussi à extension messagerie dans Azure AD.
 
 ## <a name="contacts"></a>Contacts
 Avoir des contacts représentant un utilisateur dans une autre forêt est courant après une fusion et acquisition où une solution GALSync joue le rôle de pont entre plusieurs forêts Exchange. L’objet de contact est toujours joint de l’espace de connecteur au métaverse à l’aide de l’attribut de messagerie. S’il existe déjà un objet contact ou un objet utilisateur avec la même adresse de messagerie, les objets sont joints. Ce comportement est configuré dans la règle **In from AD – Contact Join**. Il existe également une règle nommée **In from AD – Contact Common** avec un flux d’attribut vers l’attribut de métaverse **sourceObjectType** avec la constante **Contact**. Cette règle a une priorité très faible. Ainsi, si un objet utilisateur est joint au même objet Metaverse, la règle **In from AD – User Common** fournit la valeur User à cet attribut. Avec cette règle, cet attribut a la valeur Contact si aucun utilisateur n’a été joint et la valeur User si au moins un utilisateur a été trouvé.

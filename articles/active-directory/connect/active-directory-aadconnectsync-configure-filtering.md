@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Sync : Configurer le filtrage
 L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Office 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
@@ -296,7 +296,14 @@ Lorsque vous êtes satisfait, exportez les modifications vers Azure AD.
 ## <a name="group-based-filtering"></a>Filtrage de groupe
 Vous pouvez configurer le filtrage basé sur un groupe la première fois que vous installez Azure AD Connect à l’aide de [l’installation personnalisée](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Ce filtrage est conçu pour un déploiement pilote dans lequel vous ne souhaitez synchroniser qu’un petit ensemble d’objets. Lorsque vous désactivez le filtrage basé sur un groupe, vous ne pouvez plus le réactiver. L’utilisation du filtrage basé sur un groupe dans une configuration personnalisée n’est *pas prise en charge*. La configuration de cette fonctionnalité n’est possible que par le biais de l’Assistant Installation. Lorsque vous avez terminé votre pilote, utilisez l’une des autres options de filtrage indiquées dans cet article. Si vous utilisez le filtrage basé sur l’unité d’organisation avec le filtrage basé sur les groupes, l’unité d’organisation dans laquelle se trouvent les objets de groupe et de membre doit être incluse.
 
-Lors de la synchronisation de plusieurs forêts Active Directory, vous pouvez configurer le filtrage basé sur les groupes en spécifiant un groupe différent pour chaque connecteur Active Directory. Si vous voulez synchroniser un utilisateur dans une forêt Active Directory, alors que cet utilisateur dispose d’un ou de plusieurs objets FSP correspondants dans d’autres forêts Active Directory, vous devez veiller à ce que l’objet utilisateur et tous ses objets FSP correspondants soient compris dans l’étendue du filtrage basé sur les groupes. Si un ou plusieurs objets FSP sont exclus par filtrage basé sur les groupes, l’objet utilisateur ne sera pas synchronisé avec Azure AD.
+Lors de la synchronisation de plusieurs forêts Active Directory, vous pouvez configurer le filtrage basé sur les groupes en spécifiant un groupe différent pour chaque connecteur Active Directory. Si vous voulez synchroniser un utilisateur dans une forêt Active Directory, alors que cet utilisateur dispose d’un ou de plusieurs objets correspondants dans d’autres forêts Active Directory, vous devez veiller à ce que l’objet utilisateur et tous ses objets correspondants soient compris dans l’étendue du filtrage basé sur les groupes. Exemples :
+
+* Vous avez un utilisateur dans une forêt qui dispose d’un objet FSP (entité de sécurité externe) correspondant dans une autre forêt. Les deux objets doivent se trouver dans l’étendue de filtrage par groupe. Dans le cas contraire, l’utilisateur n’est pas synchronisé sur Azure AD.
+
+* Vous avez un utilisateur dans une forêt qui dispose d’un compte de ressource correspondant (par exemple, une boîte aux lettres liée) dans une autre forêt. De plus, vous avez configuré Azure AD Connect pour lier l’utilisateur au compte de ressource. Les deux objets doivent se trouver dans l’étendue de filtrage par groupe. Dans le cas contraire, l’utilisateur n’est pas synchronisé sur Azure AD.
+
+* Vous avez un utilisateur dans une forêt qui dispose d’un contact par e-mail correspondant dans une autre forêt. De plus, vous avez configuré Azure AD Connect pour lier l’utilisateur au contact par e-mail. Les deux objets doivent se trouver dans l’étendue de filtrage par groupe. Dans le cas contraire, l’utilisateur n’est pas synchronisé sur Azure AD.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Apprenez-en davantage sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).

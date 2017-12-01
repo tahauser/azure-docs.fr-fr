@@ -1,5 +1,5 @@
 ---
-title: "Référence technique sur l’accès conditionnel Azure Active Directory | Microsoft Docs"
+title: "Référence technique de Azure Active Directory Conditional Access | Microsoft Docs"
 description: "Découvrez comment utiliser le contrôle de l’accès conditionnel dans Azure Active Directory. Spécifiez les conditions d’authentification des utilisateurs et du contrôle d’accès à votre application. Lorsque les conditions spécifiées sont satisfaites, les utilisateurs sont authentifiés et peuvent accéder à votre application."
 services: active-directory.
 documentationcenter: 
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/11/2017
+ms.date: 11/19/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique sur l’accès conditionnel Azure Active Directory
+# <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique de Azure Active Directory Conditional Access
 
 Vous pouvez utiliser [l’accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) pour préciser les méthodes d’accès des utilisateurs autorisés aux ressources.  
 
@@ -177,25 +177,20 @@ Contrôlez les connexions clientes à l’aide de l’option **Nécessite une ap
 
 Les applications client suivantes peuvent être utilisées avec l’exigence d’une application cliente approuvée :
 
+
+- Microsoft Azure Information Protection
 - Microsoft Excel
-
 - Microsoft OneDrive
-
-- Microsoft Outlook
-
 - Microsoft OneNote
-
+- Microsoft Outlook
+- Planificateur Microsoft
 - Microsoft PowerPoint
-
 - Microsoft SharePoint
-
 - Microsoft Skype Entreprise
-
 - Microsoft Teams
-
 - Microsoft Visio
-
 - Microsoft Word
+
 
 
 **Remarques**

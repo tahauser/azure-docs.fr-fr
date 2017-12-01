@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données MySQL sur Microsoft Azure Stack
 
@@ -38,15 +38,16 @@ Le fournisseur de ressources est constitué de trois composants :
 
 Cette version ne crée plus d’instance de MySQL. Vous devez les créer et/ou fournir un accès à des instances SQL externes. Visitez la [Galerie de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) à la recherche d’un exemple de modèle qui peut :
 - Créer un serveur MySQL pour vous
-- Télécharger et déployer un serveur MySQL à partir de la Place de marché.
+- Téléchargez et déployez un serveur MySQL à partir de la Place de marché.
 
-![REMARQUE] Les serveurs d’hébergement installés sur un Azure Stack à plusieurs nœuds doivent être créés à partir d’un abonnement locataire. Ils ne peuvent pas être créés à partir de l’abonnement du fournisseur par défaut. Autrement dit, ils doivent être créés à partir du portail du locataire ou à partir d’une session PowerShell avec un nom de connexion approprié. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent disposer des licences appropriées. L’administrateur de service peut être le propriétaire de cet abonnement.
+> [!NOTE]
+> Les serveurs d’hébergement installés sur un Azure Stack à plusieurs nœuds doivent être créés à partir d’un abonnement locataire. Ils ne peuvent pas être créés à partir de l’abonnement du fournisseur par défaut. Autrement dit, ils doivent être créés à partir du portail du locataire ou à partir d’une session PowerShell avec un nom de connexion approprié. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent disposer des licences appropriées. L’administrateur de service peut être le propriétaire de cet abonnement.
 
 ### <a name="required-privileges"></a>Privilèges requis
 Le compte système doit disposer des privilèges suivants :
 
-1.  Base de données : Créer, Supprimer
-2.  Connexion : Créer, Définir, Supprimer, Accorder, Révoquer
+1.  Base de données : créer, supprimer
+2.  Connexion : créer, définir, supprimer, accorder, révoquer
 
 ## <a name="deploy-the-resource-provider"></a>Déployer le fournisseur de ressources
 
@@ -60,6 +61,9 @@ Le compte système doit disposer des privilèges suivants :
     b. Sur les systèmes à plusieurs nœuds, l’hôte doit être un système qui peut accéder au point de terminaison privilégié.
 
 3. [Téléchargez le fichier binaire du fournisseur de ressources MySQL](https://aka.ms/azurestackmysqlrp)et exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire.
+
+    > [!NOTE]
+    > Si vous opérez sur la build Azure Stack 20170928.3 ou une build antérieure, [téléchargez cette version](https://aka.ms/azurestackmysqlrp1709).
 
 4.  Le certificat racine Azure Stack est récupéré à partir du point de terminaison privilégié. Pour ASDK, un certificat auto-signé est créé dans le cadre de ce processus. Pour plusieurs nœuds, vous devez fournir un certificat approprié.
 
@@ -86,8 +90,8 @@ Le script effectue les étapes suivantes :
 
 
 Vous pouvez :
-- spécifier au moins les paramètres requis sur la ligne de commande
-- ou, si vous procédez à une exécution sans paramètres, les entrer lorsque vous y êtes invité.
+- spécifier au moins les paramètres requis sur la ligne de commande ;
+- ou, si vous procédez à une exécution sans paramètres, entrer ceux-ci lorsque vous y êtes invité.
 
 Voici un exemple que vous pouvez exécuter à partir de l’invite PowerShell (mais changez les informations et les mots de passe du compte si nécessaire) :
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,18 +130,19 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>Paramètres de DeployMySqlProvider.ps1
 
-Vous pouvez spécifier ces paramètres sur la ligne de commande. Si vous ne le faites pas, ou si la validation des paramètres échoue, vous êtes invité à fournir les paramètres obligatoires.
+### <a name="deploysqlproviderps1-parameters"></a>Paramètres de DeploySqlProvider.ps1
+Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le faites pas, ou si la validation des paramètres échoue, vous êtes invité à fournir les paramètres obligatoires.
 
 | Nom du paramètre | Description | Commentaire ou valeur par défaut |
 | --- | --- | --- |
@@ -153,7 +162,7 @@ Vous pouvez spécifier ces paramètres sur la ligne de commande. Si vous ne le f
 En fonction de la vitesse de téléchargement et des performances système, l’installation peut durer entre 20 minutes et plusieurs heures. Vous devez actualiser le portail d’administration si le panneau MySQLAdapter n’est pas disponible.
 
 > [!NOTE]
-> Si l’installation prend plus de 90 minutes, elle risque d’échouer et vous verrez un message d’erreur à l’écran et dans le fichier journal. Une nouvelle tentative de déploiement est effectuée à partir de l’étape ayant échoué. Les systèmes qui ne répondent pas aux spécifications recommandées en matière de mémoire et de processeur virtuel risquent de ne pas pouvoir déployer le fournisseur de ressources MySQL.
+> Si l’installation prend plus de 90 minutes, elle risque d’échouer et vous verrez un message d’erreur à l’écran et dans le fichier journal. Une nouvelle tentative de déploiement est effectuée à partir de l’étape ayant échoué. Les systèmes qui ne répondent pas aux spécifications recommandées en matière de mémoire et de noyau risquent de ne pas pouvoir déployer le fournisseur de ressources MySQL.
 
 
 
@@ -189,14 +198,15 @@ En fonction de la vitesse de téléchargement et des performances système, l’
     - Une capacité de base de données
     - La sauvegarde automatique
     - La réservation de serveurs hautes performances pour des services individuels
-    - Et ainsi de suite.
-    Le nom de la référence SKU doit refléter les propriétés afin que les locataires puissent placer leurs bases de données de manière appropriée. Tous les serveurs d’hébergement d’une référence SKU doivent avoir les mêmes capacités.
+ 
 
-    ![Créer une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+Le nom de la référence SKU doit refléter les propriétés afin que les locataires puissent placer leurs bases de données de manière appropriée. Tous les serveurs d’hébergement d’une référence SKU doivent avoir les mêmes capacités.
+
+![Créer une référence (SKU) MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer une base de données tant que la référence n’a pas été créée.
+> Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer une base de données tant que la référence n’a pas été créée.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Créer sa première base de données MySQL pour tester son déploiement
@@ -231,17 +241,17 @@ Une heure entière peut être nécessaire avant que les références n’apparai
 Augmentez la capacité en ajoutant des serveurs MySQL dans le portail Azure Stack. Des serveurs supplémentaires peuvent être ajoutés à une nouvelle référence SKU ou à une référence existante. Assurez-vous que les caractéristiques du serveur sont identiques.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>Mise à disposition des bases de données MySQL pour les locataires
+## <a name="make-mysql-databases-available-to-tenants"></a>Mettre des bases de données MySQL à la disposition des locataires
 Créez des plans et des offres pour mettre les bases de données MySQL à disposition des locataires. Ajoutez le service Microsoft.MySqlAdapter, ajoutez un quota, et ainsi de suite.
 
 ![Créer des plans et des offres pour inclure des bases de données](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Mise à jour du mot de passe d’administration
+## <a name="update-the-administrative-password"></a>Mettre à jour le mot de passe d’administration
 Vous pouvez modifier le mot de passe en commençant par le modifier sur l’instance du serveur MySQL. Accédez à **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement MySQL** &gt; et cliquez sur le serveur d’hébergement. Dans le volet Paramètres, cliquez sur Mot de passe.
 
 ![Mettre à jour le mot de passe de l’administrateur](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>Suppression du fournisseur de ressources de l’adaptateur MySQL
+## <a name="remove-the-mysql-resource-provider-adapter"></a>Supprimer l’adaptateur de fournisseur de ressources MySQL
 
 Pour supprimer le fournisseur de ressources, il est essentiel de supprimer d’abord toutes les dépendances.
 
@@ -263,6 +273,5 @@ Pour supprimer le fournisseur de ressources, il est essentiel de supprimer d’a
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 
 Essayez d’autres [services PaaS](azure-stack-tools-paas-services.md) comme le [fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md) et le [fournisseur de ressources App Services](azure-stack-app-service-overview.md).

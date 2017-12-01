@@ -1,6 +1,8 @@
 ---
 title: "Diagnostiquer et résoudre les problèmes dans Azure Time Series Insights | Microsoft Docs"
 description: "Cet article décrit comment diagnostiquer, dépanner et résoudre les problèmes courants que vous pouvez rencontrer dans votre environnement Azure Time Series Insights."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
@@ -9,11 +11,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -24,7 +26,7 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 Azure Time Series Insights ne prend en charge que les données JSON. Pour obtenir des exemples de données JSON, consultez [Structures JSON prises en charge](time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Cause possible B : Il manque une autorisation requise pour la clé de source d’événements
-* Pour IoTHub, vous devez fournir la clé avec l’autorisation **Connexion de service**.
+* Pour IoT Hub, vous devez fournir la clé avec l’autorisation **Connexion de service**.
 
    ![Autorisation de connexion de service IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
@@ -37,7 +39,7 @@ Azure Time Series Insights ne prend en charge que les données JSON. Pour obteni
    Comme indiqué dans l’illustration précédente, les stratégies **read** et **manage** sont acceptées, car elles disposent toutes deux de l’autorisation **Listen**.
 
 ### <a name="possible-cause-c-the-consumer-group-provided-is-not-exclusive-to-time-series-insights"></a>Cause possible C : le groupe de consommateurs spécifié a été créé exclusivement pour Time Series Insights
-Lors de l’enregistrement d’un IoT Hub ou Event Hub, spécifiez le groupe de consommateurs qui sera utilisé pour la lecture des données. Ce groupe de consommateurs ne doit **pas** être partagé. Si le groupe de consommateurs est partagé, le concentrateur d’événements sous-jacent déconnecte automatiquement l’un des lecteurs au hasard. Fournissez un groupe de consommateurs unique auprès duquel Time Series Insights lira les informations.
+Lors de l’enregistrement d’un IoT Hub ou Event Hub, spécifiez le groupe de consommateurs utilisé pour la lecture des données. Ce groupe de consommateurs ne doit **pas** être partagé. Si le groupe de consommateurs est partagé, le concentrateur d’événements sous-jacent déconnecte automatiquement l’un des lecteurs au hasard. Fournissez un groupe de consommateurs unique auprès duquel Time Series Insights lira les informations.
 
 ## <a name="problem-2-some-data-is-shown-but-some-is-missing"></a>Problème 2 : Certaines données sont affichées, mais certaines manquent
 Lorsque vous affichez des données partiellement, mais que les données sont en retard, il existe plusieurs possibilités à envisager :
@@ -61,7 +63,7 @@ Pour en savoir plus sur la logique de mise à plat, consultez [Structures JSON p
 Pour éviter tout décalage, augmentez la capacité de votre environnement. Pour plus d’informations, consultez [Comment mettre à l’échelle votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Cause possible de B: La réception initiale des données d’historique est à l’origine de l’entrée lente
-Si vous vous connectez à une source d’événement existante, il est probable que votre concentrateur Event Hub ou IoT Hub comporte déjà des données. L’environnement démarre l’extraction des données depuis le début de la période de rétention des messages de la source d’événement.
+Si vous vous connectez à une source d’événement actuelle, il est probable que votre Event Hub ou IoT Hub comporte déjà des données. L’environnement démarre l’extraction des données depuis le début de la période de rétention des messages de la source d’événement.
 
 Ce comportement est le comportement par défaut et ne peut être modifié. Vous pouvez appliquer des limitations, et l’ingestion des données historiques peut prendre un certain temps.
 

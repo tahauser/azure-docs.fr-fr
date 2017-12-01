@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
 
@@ -35,7 +35,7 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 > * Simuler l’utilisation sur une base de données multi-locataire partitionnée en exécutant un générateur de charge fourni
 > * Surveiller la base de données à mesure qu’elle répond à l’augmentation de la charge
 > * Augmenter la taille de la base de données en réponse à la charge accrue sur la base de données
-> * Provisionner un nouveau locataire dans sa propre base de données
+> * Provisionner un locataire dans une base de données à un seul locataire
 
 Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
@@ -55,7 +55,7 @@ La gestion des performances des bases de données se compose des opérations sui
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Log Analytics peut collecter des données de télémétrie à partir de nombreux services, et être utilisé pour interroger et définir des alertes.
+Pour les scénarios de volume important où vous travaillez avec de nombreuses ressources, [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/) peut être utilisé. Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Log Analytics peut collecter des données de télémétrie à partir de nombreux services, et être utilisé pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
@@ -67,11 +67,11 @@ Pour une bonne compréhension du fonctionnement de la gestion et de la surveilla
 
 Si vous avez déjà provisionné un lot de locataires dans le cadre d’un didacticiel précédent, passez à la section [Simuler l’utilisation sur toutes les bases de données de locataire](#simulate-usage-on-all-tenant-databases).
 
-1. Dans **PowerShell ISE**, ouvrez …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce didacticiel.
+1. Ouvrez... **Modules d’apprentissage**Analyse et gestion des performances\\\\Demo-PerformanceMonitoringAndManagement.ps1\\ dans *PowerShell ISE*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce didacticiel.
 1. Définissez **$DemoScenario** = **1**, _Approvisionner un lot de locataires_
 1. Appuyez sur **F5** pour exécuter le script.
 
-Le script déploie 17 locataires dans la base de données multi-locataire en quelques minutes. 
+En quelques minutes, le script déploie 17 locataires dans la base de données multi-locataire. 
 
 Le script *New-TenantBatch* crée des locataires avec des clés de locataire uniques au sein de la base de données multi-locataire partitionnée et les initialise avec le nom du locataire et le type de lieu. Ce comportement est cohérent avec la manière dont l’application approvisionne un nouveau locataire. 
 
@@ -88,14 +88,14 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simule une charge de tra
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en DTU), la durée et les intervalles varient selon les bases de données pour simuler l’activité d’un locataire imprévisible.
 
-1. Dans **PowerShell ISE**, ouvrez …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce didacticiel.
+1. Ouvrez... **Modules d’apprentissage**Analyse et gestion des performances\\\\Demo-PerformanceMonitoringAndManagement.ps1\\ dans *PowerShell ISE*. Gardez ce script ouvert, car vous exécuterez plusieurs scénarios au cours de ce didacticiel.
 1. Définissez **$DemoScenario** = **2**, _Générer une charge d’intensité normale_.
 1. Appuyez sur **F5** pour appliquer une charge à tous vos locataires.
 
 L’application de base de données multi-locataire SaaS Wingtip Tickets est une application SaaS, et dans le monde réel, la charge se trouvant sur une application SaaS est généralement sporadique et imprévisible. Pour simuler cette situation, le générateur de charge produit une charge aléatoire répartie sur tous les locataires. Plusieurs minutes étant nécessaires pour que le modèle de charge émerge, laissez au générateur de charge environ 3 à 5 minutes avant d’essayer de surveiller la charge dans les sections suivantes.
 
 > [!IMPORTANT]
-> Le générateur de charge s’exécute comme une série de travaux dans une nouvelle fenêtre PowerShell. Si vous fermez la session, le générateur de charge s’arrête. Le générateur de charge reste à l’état *job-invoking* où il génère la charge sur les nouveaux clients approvisionnés après le démarrage du générateur. Utilisez *Ctrl-C* pour arrêter l’appel de nouvelles tâches et de quitter le script. Le générateur de charge continue de s’exécuter, mais uniquement sur les clients existants.
+> Le générateur de charge s’exécute en tant que série de travaux dans une nouvelle fenêtre PowerShell. Si vous fermez la session, le générateur de charge s’arrête. Le générateur de charge reste à l’état *job-invoking* où il génère la charge sur les nouveaux clients approvisionnés après le démarrage du générateur. Utilisez *Ctrl-C* pour arrêter l’appel de nouvelles tâches et de quitter le script. Le générateur de charge continue de s’exécuter, mais uniquement sur les clients existants.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Surveiller l’utilisation des ressources via le portail Azure
 
@@ -120,9 +120,9 @@ Définissez une alerte sur la base de données, qui se déclenche quand \>l’ut
 1. Entrez un nom, par exemple **Nombre élevé de DTU**,
 1. Définissez les valeurs suivantes :
    * **Métrique = pourcentage DTU**
-   * **Condition = supérieur à**.
+   * **Condition = supérieur à**
    * **Seuil = 75**.
-   * **Période = Au cours des 30 dernières minutes**.
+   * **Période = Au cours des 30 dernières minutes**
 1. Ajoutez une adresse e-mail à la zone *Adresse(s) e-mail administrateur supplémentaire(s)*, puis cliquez sur **OK**.
 
    ![définir une alerte](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -195,7 +195,7 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 > * Simuler l’utilisation sur une base de données multi-locataire partitionnée en exécutant un générateur de charge fourni
 > * Surveiller la base de données à mesure qu’elle répond à l’augmentation de la charge
 > * Augmenter la taille de la base de données en réponse à la charge accrue sur la base de données
-> * Provisionner un nouveau locataire dans sa propre base de données
+> * Provisionner un locataire dans une base de données à un seul locataire
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

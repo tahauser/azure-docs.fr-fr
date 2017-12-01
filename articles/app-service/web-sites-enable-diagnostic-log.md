@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 ## <a name="overview"></a>Vue d'ensemble
@@ -34,9 +34,9 @@ Les applications web App Service fournissent des fonctionnalités de diagnostic
 ### <a name="web-server-diagnostics"></a>Diagnostics de serveur web
 Vous pouvez activer ou désactiver les types de journaux suivants :
 
-* **Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
-* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Cela peut se révéler utile si vous essayez d'améliorer les performances du site ou d'isoler la cause d'une erreur HTTP spécifique.
-* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ce rapport se révèle utile pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
+* **Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur.
+* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations peuvent se révéler utiles si vous essayez d’améliorer les performances du site ou d’isoler la cause d’une erreur HTTP spécifique.
+* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
 
 ### <a name="application-diagnostics"></a>diagnostics d’application
 Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
@@ -45,7 +45,7 @@ Le diagnostic d'application vous permet de capturer des informations générées
 
 Au moment de l’exécution, vous pouvez récupérer ces journaux pour vous aider durant le dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-Les applications web App Service journalisent également les informations de déploiement lorsque vous publiez du contenu dans une application web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
+Les applications web App Service journalisent également les informations de déploiement lorsque vous publiez du contenu dans une application web. Cette opération est automatique et il n’existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
 
 ## <a name="enablediag"></a>Activation des diagnostics
 Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), accédez à la page de votre application web, puis cliquez sur **Paramètres > Journaux de diagnostics**.
@@ -53,21 +53,20 @@ Pour activer les diagnostics sur le [portail Azure](https://portal.azure.com), a
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Quand vous activez les **diagnostics d’application**, choisissez également le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l’application soient journalisées.
+Quand vous activez les **diagnostics d’application**, choisissez également le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour journaliser toutes les informations générées par l’application.
 
 > [!NOTE]
 > Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
 >
 >
 
-Dans le [portail Azure Classic](https://manage.windowsazure.com), sous l’onglet **Configurer** de l’application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d’objets blob dans lequel les journaux sont écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
+Pour **Journal des applications**, vous pouvez temporairement activer l’option système à des fins de débogage. Cette option se désactive automatiquement au bout de 12 heures. Vous pouvez également activer l’option de stockage d’objets blob pour sélectionner le conteneur de blog où les journaux sont consignés.
 
-Dans le [portail Azure Classic](https://manage.windowsazure.com) , l’onglet **Configurer** de l’application web comprend aussi des paramètres supplémentaires pour le diagnostic d’application :
+Pour **Journalisation du serveur web**, vous pouvez sélectionner **Stockage** ou **Système de fichiers**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d’objets blob dans lequel les journaux sont écrits. 
 
-* **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
-* **Stockage de tables** : stocke les informations de diagnostic d’application dans la table et le compte Azure Storage spécifiés.
-* **Stockage d'objets blob** : stocke les informations de diagnostic d'application dans le conteneur d'objets blob et le compte Azure Storage spécifiés.
-* **Période de rétention** : par défaut, les journaux ne sont pas automatiquement supprimés du **Stockage Blob**. Sélectionnez **Set retention** et entrez la période de conservation des journaux (en jours) si vous souhaitez les supprimer automatiquement.
+Si vous stockez les journaux sur le système de fichiers, vous pouvez accéder à ces fichiers par FTP ou les télécharger sous forme d’archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (Azure CLI).
+
+Par défaut, les journaux ne sont pas automatiquement supprimés (à l’exception du **Journal des applications (Système de fichiers)**). Pour supprimer automatiquement les journaux, définissez le champ **Période de rétention (jours)**.
 
 > [!NOTE]
 > Si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-create-storage-account.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
@@ -85,7 +84,7 @@ Bien que ces trois emplacements de stockage fournissent les mêmes informations 
 > Les informations stockées dans le **stockage table** ou le **stockage blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](/downloads/#).
 >
 > [!NOTE]
-> Les diagnostics peuvent également être activés à partir du module Azure PowerShell via l’applet de commande **Set-AzureWebsite** . Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite** . Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -101,12 +100,10 @@ La structure de répertoires dans laquelle les journaux sont stockés est la sui
 * **Journaux de déploiement** : /LogFiles/Git. Ce dossier contient les journaux générés par les processus de déploiement internes utilisés par les applications web Azure, ainsi que les journaux des déploiements Git.
 
 ### <a name="ftp"></a>FTP
-Pour accéder à des informations de diagnostic par FTP, consultez le **Tableau de bord** de votre application web sur le [portail Azure Classic](https://manage.windowsazure.com). Dans la section **Aperçu**, cliquez sur le lien **Journaux de diagnostic FTP** pour accéder aux fichiers journaux via FTP. L'entrée **Deployment/FTP User** indique le nom d'utilisateur à utiliser pour accéder au site FTP.
 
-> [!NOTE]
-> Si l’entrée **Utilisateur du déploiement/FTP** n’est pas définie ou si vous avez oublié le mot de passe de cet utilisateur, vous pouvez créer un utilisateur et un mot de passe en utilisant le lien **Réinitialiser les informations d’identification de déploiement** dans la section **Aperçu** du **Tableau de bord**.
->
->
+Pour ouvrir une connexion FTP sur le serveur FTP de votre application, consultez [Déployer votre application dans Azure App Service avec FTP/S](app-service-deploy-ftp.md).
+
+Une fois connecté au serveur FTP/S de votre application web, ouvrez le dossier **LogFiles**, où les fichiers journaux sont stockés.
 
 ### <a name="download-with-azure-powershell"></a>Téléchargement avec Azure PowerShell
 Pour télécharger les fichiers journaux, démarrez une nouvelle instance du module Azure PowerShell et utilisez la commande suivante :
@@ -145,7 +142,7 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 [En savoir plus sur le suivi des performances avec Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Diffusion en continu des journaux
-Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Pour ce faire, vous pouvez diffuser ces informations vers votre environnement de développement en utilisant soit Azure PowerShell, soit l’interface de ligne de commande Azure.
+Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez diffuser ces informations vers votre environnement de développement en utilisant Azure PowerShell ou l’interface de ligne de commande Azure.
 
 > [!NOTE]
 > Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
@@ -207,7 +204,7 @@ Chaque ligne journalisée dans le système de fichiers ou reçue par le biais d�
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-Par exemple, un événement d'erreur se présente comme suit :
+Par exemple, un événement d’erreur peut se présenter comme suit :
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -224,7 +221,7 @@ Lorsque vous consignez des informations dans le stockage de tables, des proprié
 | Timestamp |Date et heure auxquelles l'événement s'est produit |
 | EventTickCount |Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue) |
 | ApplicationName |Nom de l’application web |
-| niveau |Niveau d'événement (erreur, avertissement ou information, par exemple) |
+| Level |Niveau d’événement (par exemple, erreur, avertissement ou information) |
 | EventId |ID de cet événement<p><p>Il est, par défaut, défini sur 0 |
 | InstanceId |Instance de l’application web sur laquelle l’événement s’est produit |
 | Pid |ID du processus |
@@ -238,7 +235,7 @@ Lorsque vous consignez des données dans un stockage d'objets blob, elles sont s
 | Nom de la propriété | Valeur/format |
 | --- | --- |
 | Date |Date et heure auxquelles l'événement s'est produit |
-| niveau |Niveau d'événement (erreur, avertissement ou information, par exemple) |
+| Level |Niveau d’événement (par exemple, erreur, avertissement ou information) |
 | ApplicationName |Nom de l’application web |
 | InstanceId |Instance d’application web sur laquelle l’événement s’est produit |
 | EventTickCount |Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue) |
@@ -247,7 +244,7 @@ Lorsque vous consignez des données dans un stockage d'objets blob, elles sont s
 | Tid |ID de thread qui a généré l'événement |
 | Message |Message détaillé sur l'événement |
 
-Les données stockées dans un objet blob se présentent comme suit :
+Les données stockées dans un objet blob peuvent se présenter comme suit :
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,7 +255,7 @@ Les données stockées dans un objet blob se présentent comme suit :
 >
 
 ### <a name="failed-request-traces"></a>Suivi des demandes ayant échoué
-Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr######.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Si vous ouvrez un des fichiers XML dans Internet Explorer, ce dernier utilise la feuille de style XSL pour fournir un affichage formaté des informations de suivi. Cet affichage ressemble à l’exemple suivant :
+Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr######.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Si vous ouvrez un des fichiers XML dans Internet Explorer, ce dernier utilise la feuille de style XSL pour fournir un affichage mis en forme des informations de suivi, comme dans l’exemple suivant :
 
 ![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 

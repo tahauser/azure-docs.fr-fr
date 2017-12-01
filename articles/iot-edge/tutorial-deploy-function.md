@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Déployer une fonction Azure en tant que module IoT Edge - version préliminaire
 Vous pouvez utiliser Azure Functions pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce didacticiel vous guide à travers la création et le déploiement d’une fonction Azure qui filtre les données de capteur sur l’appareil simulé IoT Edge que vous avez créé dans les didacticiels Déployer Azure IoT Edge sur un appareil simulé pour [Windows][lnk-tutorial1-win]ou [Linux][lnk-tutorial1-lin]. Ce didacticiel vous montre comment effectuer les opérations suivantes :     
@@ -129,7 +129,7 @@ Les étapes suivantes vous montrent comment créer une fonction IoT Edge à l’
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```
@@ -141,7 +141,7 @@ Les étapes suivantes vous montrent comment créer une fonction IoT Edge à l’
 1. Créez l’image Docker.
     1. Dans l’explorateur de Visual Studio Code, cliquez sur le dossier **Docker** pour l’ouvrir. Puis sélectionnez le dossier pour votre plateforme de conteneur, soit **linux-x64** soit **windows-nano**. 
     2. Cliquez avec le bouton droit sur le fichier **Dockerfile** et cliquez sur **Créer image Docker du module IoT Edge**. 
-    3. Dans le champ **Sélectionner un dossier**, accédez au dossier **Docker/linux-x64** puis cliquez sur **Sélectionner un dossier en tant que EXE_DIR**. 
+    3. Dans la zone **Sélectionner un dossier**, accédez au dossier du projet, **FilterFunction**, puis cliquez sur **Sélectionner un dossier en tant que EXE_DIR**. 
     4. Dans la zone de texte contextuelle en haut de la fenêtre de Visual Studio Code, entrez le nom de l’image. Par exemple, `<docker registry address>/filterfunction:latest` ; où *Adresse du registre docker* est votre ID Docker si vous utilisez Docker Hub, ou est semblable à `<your registry name>.azurecr.io`, si vous utilisez Azure Container Registry.
  
 4. Connectez-vous à Docker. Dans le terminal intégré, entrez la commande suivante : 
@@ -225,7 +225,7 @@ Pour pouvoir surveiller les messages appareil vers cloud envoyés par votre appa
 Dans ce didacticiel, vous avez créé une fonction Azure qui contient le code pour filtrer les données brutes générées par votre appareil IoT Edge. Pour continuer l’exploration d’Azure IoT Edge, apprenez à utiliser un appareil IoT Edge en tant que passerelle. 
 
 > [!div class="nextstepaction"]
-> [Créer un périphérique de passerelle IoT Edge](how-to-create-gateway-device.md)
+> [Créer un périphérique de passerelle IoT Edge](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

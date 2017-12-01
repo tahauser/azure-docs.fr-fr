@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestion des appareils avec le portail Azure
 
@@ -32,7 +32,30 @@ Cette rubrique :
 
 - Fournit des informations sur la gestion des appareils avec le portail Azure
 
+## <a name="manage-devices"></a>Gérer des appareils 
 
+Le portail Azure centralise les opérations de gestion de vos appareils. Pour y accéder, utilisez un [lien direct](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) ou suivez les étapes manuelles ci-dessous :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
+
+2. Sur la barre de navigation gauche, cliquez sur **Active Directory**.
+
+    ![Configurer les paramètres de l’appareil](./media/device-management-azure-portal/01.png)
+
+3. Dans la section **Gérer**, cliquez sur **Appareils**.
+
+    ![Configurer les paramètres de l’appareil](./media/device-management-azure-portal/11.png)
+ 
+La page **Appareils** vous permet :
+
+- De configurer les paramètres de gestion de vos appareils
+
+- Localiser les appareils
+
+- D’effectuer les tâches de gestion relatives aux appareils
+
+- De consulter les journaux d’audit liés à la gestion des appareils  
+  
 
 ## <a name="configure-device-settings"></a>Configurer les paramètres de l’appareil
 

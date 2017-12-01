@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e10b5dba6f91c97a5c6b71aee76eef062a8be82c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge à partir du portail Azure sur un appareil Windows - préversion
 
@@ -94,21 +94,33 @@ Vérifiez dans Docker que l’agent IoT Edge est en cours d’exécution en tant
 docker ps
 ```
 
+![Voir edgeAgent dans Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## <a name="deploy-a-module"></a>Déployer un module
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>Afficher les données générées
 
-Dans ce guide de démarrage rapide, vous avez créé un nouveau périphérique IoT Edge et installé le runtime IoT Edge. Puis vous avez utilisé le portail Azure pour transmettre un module IoT Edge afin de l'exécuter sur l’appareil sans avoir à apporter des modifications à l’appareil lui-même. Dans ce cas, le module que vous transmettez crée des données environnementales que vous pouvez utiliser pour les didacticiels. 
+Dans ce guide de démarrage rapide, vous avez créé un nouveau périphérique IoT Edge et installé le runtime IoT Edge. Puis vous avez utilisé le portail Azure pour transmettre un module IoT Edge afin de l’exécuter sur l’appareil sans avoir à apporter des modifications à l’appareil lui-même. Dans ce cas, le module que vous transmettez crée des données environnementales que vous pouvez utiliser pour les didacticiels. 
 
-Afficher les messages envoyés à partir du module tempSensor :
+Ouvrez l’invite de commandes sur l’ordinateur exécutant votre appareil simulé à nouveau. Confirmez que le module déployé à partir du cloud est en cours d’exécution sur votre appareil IoT Edge. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![Afficher trois modules sur votre appareil](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Affichez les messages envoyés du module tempSensor vers le cloud. 
+
+```cmd
 docker logs -f tempSensor
 ```
 
-Vous pouvez également afficher les données de télémétrie que l’appareil envoie à l’aide de l['outil Explorateur d'IoT Hub][lnk-iothub-explorer]. 
+![Afficher les données à partir de votre module](./media/tutorial-simulate-device-windows/docker-logs.png)
+
+Vous pouvez également afficher les données de télémétrie que l’appareil envoie à l’aide de l’[outil Explorateur d’IoT Hub][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’avez plus besoin de l’IoT Hub que vous avez créé, vous pouvez utiliser la commande [az iot hub delete][lnk-delete] pour supprimer la ressource et tous les appareils associés :
@@ -138,6 +150,7 @@ Vous avez appris à déployer un module IoT Edge sur un appareil IoT Edge. Essay
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Conception de bases de données cloud évolutives
 La montée en charge des bases de données peut être aisément accomplie à l’aide de fonctionnalités et d’outils évolutifs de bases de données SQL Azure. En particulier, vous pouvez utiliser la **Bibliothèque cliente de bases de données élastiques** pour créer et gérer des bases de données avec montée en charge. Cette fonctionnalité vous permet de développer facilement des applications partitionnées à l'aide de centaines, voire de milliers, de bases de données SQL Azure. [tâches élastiques](sql-database-elastic-jobs-powershell.md) pour faciliter la gestion de ces bases de données.
 
-Pour installer la bibliothèque, accédez à NuGet à l’adresse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Pour télécharger :
+* la version .NET de la bibliothèque, consultez [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* la version Java de la bibliothèque, consultez le dépôt [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Documentation
 1. [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md)
@@ -50,7 +52,7 @@ La montée en charge des applications à l’aide du *partitionnement* présente
 - **Gestion des cartes de partitions**: une base de données spéciale appelée « gestionnaire des cartes de partitions » est créée. La gestion des cartes de partitions est la capacité d’une application à gérer les métadonnées sur ses partitions. Les développeurs peuvent utiliser cette fonctionnalité pour enregistrer des bases de données, décrire les mappages de clés de partitionnement individuelles ou de plages de clés pour ces bases de données et gérer ces métadonnées en même temps que le nombre et la composition des bases de données évoluent en fonction des changements de capacités. Sans la bibliothèque cliente de base de données élastique, vous passeriez beaucoup de temps à écrire le code de gestion lors de l'implémentation du partitionnement. Pour plus d'informations, consultez [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
 
 - **Routage dépendant des données**: imaginez une requête arrivant dans l'application. Selon la valeur de la clé de partitionnement de la demande, l'application doit déterminer la base de données correcte en fonction de la valeur de clé. Elle ouvre ensuite une connexion à la base de données pour traiter la demande. Le routage dépendant des données fournit la possibilité d'ouvrir des connexions avec un seul appel simple de la carte de partitions de l'application. Le routage dépendant des données est un autre aspect du code d’infrastructure qui est maintenant couvert par les fonctionnalités de la bibliothèque cliente de base de données élastique. Pour plus d'informations, consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md).
-- **Requêtes sur plusieurs partitions**: l'interrogation de plusieurs partitions fonctionne lorsqu'une demande implique plusieurs (ou toutes les) partitions. Une requête sur plusieurs partitions exécute le même code T-SQL sur toutes les partitions ou un ensemble de partitions. Les résultats provenant des partitions participantes sont fusionnés en un résultat global défini à l'aide de la sémantique UNION ALL. La fonctionnalité, telle qu’exposée via la bibliothèque cliente, gère de nombreuses tâches, notamment : la gestion des connexions, la gestion des threads, la gestion des erreurs et le traitement des résultats intermédiaires. Les requêtes sur plusieurs partitions peuvent interroger des centaines de partitions. Pour plus d'informations, consultez [Requête sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md).
+- **Requêtes sur plusieurs partitions**: l'interrogation de plusieurs partitions fonctionne lorsqu'une demande implique plusieurs (ou toutes les) partitions. Une requête sur plusieurs partitions exécute le même code T-SQL sur toutes les partitions ou un ensemble de partitions. Les résultats provenant des partitions participantes sont fusionnés en un résultat global défini à l'aide de la sémantique UNION ALL. La fonctionnalité, telle qu’exposée via la bibliothèque cliente, assure de nombreuses tâches, notamment : la gestion des connexions, la gestion des threads, la gestion des erreurs et le traitement des résultats intermédiaires. Les requêtes sur plusieurs partitions peuvent interroger des centaines de partitions. Pour plus d'informations, consultez [Requête sur plusieurs partitions](sql-database-elastic-scale-multishard-querying.md).
 
 De manière générale, les clients utilisant les outils de base de données élastique peuvent s’attendre à obtenir toutes les fonctionnalités T-SQL lors de l’envoi d’opérations de partitions locales, à la différence des opérations entre plusieurs partitions qui ont leur propre sémantique.
 
@@ -58,15 +60,11 @@ De manière générale, les clients utilisant les outils de base de données él
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Bibliothèque cliente de bases de données élastiques](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) : Pour **installer** la bibliothèque à l’aide de NuGet.
+- Bibliothèque cliente de bases de données élastiques ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) : pour **télécharger** la bibliothèque.
 
 - [Bien démarrer avec les outils de bases de données élastiques](sql-database-elastic-scale-get-started.md) : Pour obtenir un **exemple d’application** illustrant les fonctions des clients.
 
-- [Github, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools) : La bibliothèque est un logiciel open source.
-    - La bibliothèque cliente d’outils de bases de données élastiques permet aux développeurs ADO.NET de créer des applications qui implémentent et utilisent le modèle nommé « partitionnement de base de données » dans Azure SQL Database.
-
-- [La bibliothèque cliente de la base de données élastique est maintenant accessible en open source !](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - **Billet de blog** daté du 09/09/2015 sur la bibliothèque cliente de bases de données élastiques.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) : pour contribuer au code.
 - [Vue d’ensemble des requêtes élastiques dans Azure SQL Database](sql-database-elastic-query-overview.md) pour utiliser des requêtes élastiques.
 
 - [Déplacement de données entre bases de données cloud mises à l’échelle](sql-database-elastic-scale-overview-split-and-merge.md) pour obtenir des instructions sur l’utilisation de **l’outil de fractionnement et de fusion**.

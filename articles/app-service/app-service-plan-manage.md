@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gérer un plan App Service dans Azure
 
@@ -58,7 +58,7 @@ Sélectionnez **Changer le plan App Service** pour démarrer le processus.
 
 **Modifier le Plan App Service** ouvre le sélecteur de **plan App Service**. Sélectionnez le plan vers lequel déplacer cette application. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > La page **Sélectionner un plan App Service** est filtrée selon les critères suivants : 
 > - Il existe dans le même groupe de ressources 
 > - Il existe dans la même région géographique 
@@ -82,7 +82,7 @@ La commande **Cloner l’application** figure dans la section **Outils de dével
 
 ## <a name="scale-an-app-service-plan"></a>Mettre à l’échelle un plan App Service
 
-Pour faire évoluer le niveau tarifaire d’un plan App Service, consultez [Montée en puissance d’une application dans Azure](web-sites-scale.md).
+Pour faire évoluer le niveau tarifaire d’un plan App Service, consultez [Scalabilité verticale d’une application dans Azure](web-sites-scale.md).
 
 Pour augmenter le nombre d’instances d’une application, consultez [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

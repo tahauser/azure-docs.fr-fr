@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge à partir du portail Azure sur un appareil Linux - préversion
 
@@ -53,7 +53,7 @@ Créez un IoT hub dans votre abonnement Azure. Le niveau gratuit d'IoT Hub fonct
 
 Créez une identité d’appareil pour votre appareil simulé afin qu’il puisse communiquer avec votre IoT Hub. Étant donné que les appareils IoT Edge se comportent et peuvent être gérés différemment des appareils IoT standard, vous déclarez qu’il s’agit d’un appareil IoT Edge dès le départ. 
 
-1. Accédez à votre IoT Hub dans le portail Azure.
+1. Accédez à votre hub IoT dans le portail Azure.
 1. Sélectionnez **IoT Edge (préversion)**.
 1. Sélectionnez **Ajouter appareil IoT Edge**.
 1. Donnez à votre appareil simulé un ID d’appareil unique.
@@ -66,24 +66,26 @@ Créez une identité d’appareil pour votre appareil simulé afin qu’il puiss
 Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend deux modules. Tout d’abord, l’agent IoT Edge facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge. En second lieu, le hub IoT Edge gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et un IoT Hub. 
 
 Sur l’ordinateur où vous allez exécuter l’appareil IoT Edge, téléchargez le script de contrôle IoT Edge :
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configurez le runtime avec votre chaîne de connexion d'appareil IoT Edge de la section précédente :
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Démarrez le runtime :
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Vérifiez dans Docker que l’agent IoT Edge est en cours d’exécution en tant que module :
-```python
+```cmd
 sudo docker ps
 ```
+
+![Voir edgeAgent dans Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Déployer un module
 
@@ -91,15 +93,25 @@ sudo docker ps
 
 ## <a name="view-generated-data"></a>Afficher les données générées
 
-Dans ce guide de démarrage rapide, vous avez créé un nouveau périphérique IoT Edge et installé le runtime IoT Edge. Puis vous avez utilisé le portail Azure pour transmettre un module IoT Edge afin de l'exécuter sur l’appareil sans avoir à apporter des modifications à l’appareil lui-même. Dans ce cas, le module que vous transmettez crée des données environnementales que vous pouvez utiliser pour les didacticiels. 
+Dans ce guide de démarrage rapide, vous avez créé un nouveau périphérique IoT Edge et installé le runtime IoT Edge. Puis vous avez utilisé le portail Azure pour transmettre un module IoT Edge afin de l’exécuter sur l’appareil sans avoir à apporter des modifications à l’appareil lui-même. Dans ce cas, le module que vous transmettez crée des données environnementales que vous pouvez utiliser pour les didacticiels. 
 
-Afficher les messages envoyés à partir du module tempSensor :
+Ouvrez l’invite de commandes sur l’ordinateur exécutant votre appareil simulé à nouveau. Confirmez que le module déployé à partir du cloud est en cours d’exécution sur votre appareil IoT Edge :
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Afficher trois modules sur votre appareil](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Afficher les messages envoyés du module tempSensor vers le cloud :
+
+```cmd
 sudo docker logs -f tempSensor
 ```
 
-Vous pouvez également afficher les données de télémétrie que l’appareil envoie à l’aide de l['outil Explorateur d'IoT Hub][lnk-iothub-explorer]. 
+![Afficher les données à partir de votre module](./media/tutorial-simulate-device-linux/docker-logs.png)
+
+Vous pouvez également afficher les données de télémétrie que l’appareil envoie à l’aide de l’[outil Explorateur d’IoT Hub][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Lake Store à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 | resourceGroupName | Nom du groupe de ressources Azure auquel appartient le compte Data Lake Store. | Requis pour le récepteur |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
-Reportez-vous aux sections ci-dessous pour accéder à d’autres propriétés et à des exemples JSON concernant ces deux types d’authentification :
+Pour accéder à d’autres propriétés et à des exemples JSON concernant ces deux types d’authentification, reportez-vous aux sections suivantes :
 
 - [Utilisation de l’authentification de principal de service](#using-service-principal-authentication)
 - [Utilisation de l’authentification MSI (Managed Service Identity)](#using-managed-service-identitiy-authentication)
@@ -71,7 +71,7 @@ Pour utiliser une authentification du principal du service, inscrivez une entit�
 >[!TIP]
 > Veillez à accorder l’autorisation appropriée au principal de service dans Azure Data Lake Store :
 >- En tant que source, accordez au moins l’autorisation d’accès aux données **Lecture + Exécution** pour lister et copier le contenu d’un dossier, ou l’autorisation **Lecture** pour copier un seul fichier. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
->- En tant que récepteur, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour autoriser la copie (la source et le récepteur sont tous les deux dans le cloud) et permettre la détection par Data Factory de la région de Data Lake Store, accordez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant.
+>- En tant que récepteur, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), pour permettre la détection par Data Factory de la région de Data Lake Store, attribuez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant :
 
 Les propriétés prises en charge sont les suivantes :
 
@@ -106,7 +106,7 @@ Les propriétés prises en charge sont les suivantes :
 }
 ```
 
-### <a name="using-managed-service-identitiy-authentication"></a>Utilisation de l’authentification MSI (Managed Service Identity)
+### <a name="using-managed-service-identity-authentication"></a>Utilisation de l’authentification MSI (Managed Service Identity)
 
 Une fabrique de données peut être associée à une [identité de service managé](data-factory-service-identity.md), représentant la fabrique de données en question. Vous pouvez utiliser directement cette identité de service pour l’authentification Data Lake Store, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier depuis/vers votre Data Lake Store.
 
@@ -118,7 +118,7 @@ Pour utiliser l’authentification MSI (Managed Service Identity) :
 >[!TIP]
 > Veillez à accorder l’autorisation appropriée à l’identité de service de la fabrique de données dans Azure Data Lake Store :
 >- En tant que source, accordez au moins l’autorisation d’accès aux données **Lecture + Exécution** pour lister et copier le contenu d’un dossier, ou l’autorisation **Lecture** pour copier un seul fichier. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
->- En tant que récepteur, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour autoriser la copie (la source et le récepteur sont tous les deux dans le cloud) et permettre la détection par Data Factory de la région de Data Lake Store, accordez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant.
+>- En tant que récepteur, accordez au moins l’autorisation d’accès aux données **Écriture + Exécution** pour créer des éléments enfants dans le dossier. Et si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), pour permettre la détection par Data Factory de la région de Data Lake Store, attribuez au moins le rôle **Lecteur** dans le contrôle d’accès au compte (IAM). Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant :
 
 Dans Azure Data Factory, il n’est pas nécessaire de spécifier de propriétés en dehors des informations générales Data Lake Store du service lié.
 

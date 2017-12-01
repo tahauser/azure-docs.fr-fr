@@ -13,140 +13,84 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: billgib;genemi
-ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.author: billgib
+ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Bienvenue dans l’exemple d’application client Azure SQL Database Wingtip Tickets SaaS
+# <a name="the-wingtip-tickets-saas-application"></a>Application SaaS Wingtip Tickets
 
-Bienvenue dans l’exemple d’application client Azure SQL Database Wingtip Tickets SaaS et ses didacticiels. Le terme client de base de données fait référence au mode d’isolation des données que votre application fournit à vos clients, qui paient pour être hébergés dans votre application. Pour simplifier les choses pour l’instant, soit chaque client dispose d’une base de données entière pour lui seul soit il partage une base de données avec d’autres clients.
+La même application *Wingtip Tickets* est implémentée dans chacun des trois exemples. L’application est une simple application SaaS de réservation et de liste d’événements ciblant les lieux de petite taille (cinémas, clubs, etc.). Chaque lieu correspond à un locataire de l’application et dispose de ses propres données : détails sur le lieu, listes d’événements, clients, commandes de tickets, etc.  L’application, ainsi que les scripts de gestion et les didacticiels, présentent un scénario SaaS de bout en bout. Celui-ci inclut le provisionnement des locataires, le monitoring et la gestion des performances, la gestion des schémas et les rapports et analytiques entre locataires.
 
-## <a name="wingtip-tickets-app"></a>L’application Wingtip Tickets
+## <a name="three-saas-application-patterns"></a>3 modèles d’application SaaS
 
-L’exemple d’application Wingtip Tickets illustre les effets des différents modèles de client de base de données pour la conception et la gestion des applications SaaS mutualisées. Les didacticiels qui l’accompagnent décrivent directement ces mêmes effets. Wingtip Tickets repose sur Azure SQL Database.
+Trois versions de l’application sont disponibles, chacune explorant un modèle différent d’architecture mutualisée de base de données sur Azure SQL Database.  La première utilise une application à locataire unique avec une base de données mono-locataire isolée. La deuxième utilise une application multi-locataire avec une base de données par locataire. La troisième utilise une application multi-locataire avec des bases de données multi-locataires partitionnées.
 
-Wingtip Tickets est conçu pour gérer les différents scénarios de conception et de gestion qui sont utilisés par de vrais clients SaaS. Les modèles d’utilisation qui en émergent sont pris en compte pour Wingtip Tickets.
+![Trois modèles d’architecture mutualisée][image-three-tenancy-patterns]
 
-Vous pouvez installer l’application Wingtip Tickets dans votre propre abonnement Azure en moins de cinq minutes. L’installation inclut des exemples de données pour plusieurs clients. Vous pouvez installer l’application et les scripts de gestion pour tous les modèles, car les installations ne peuvent pas interagir ou interférer entre elles.
+ Chaque exemple inclut des scripts et didacticiels qui explorent plusieurs modèles de conception et de gestion que vous pouvez utiliser dans votre propre application.  Chaque exemple se déploie en moins de cinq minutes.  Les trois exemples peuvent être déployés côte à côte. Vous pouvez alors comparer les différences de conception et de gestion.
 
-#### <a name="code-in-github"></a>Le code dans Github
+## <a name="standalone-application-pattern"></a>Modèle d’application autonome
 
-Le code de l’application et les scripts de gestion sont disponibles sur GitHub :
+Le modèle d’application autonome utilise une application à locataire unique avec une base de données mono-locataire pour chaque locataire. Chaque application du locataire est déployée dans un groupe de ressources Azure distinct. Ce dernier peut se trouver dans l’abonnement du fournisseur de services ou dans celui du locataire qui est alors géré par le fournisseur au nom du locataire. Ce modèle fournit l’isolation des locataires la plus grande, mais il est généralement le plus onéreux, car il n’existe aucune possibilité de partager des ressources entre plusieurs locataires.
 
-- Modèle **Application autonome** : [référentiel WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-- Modèle **Une base de données par client** : [référentiel WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
-- Modèle **Base de données mutualisée partitionnée** : [référentiel WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
+Consultez les [didacticiels][docs-tutorials-for-wingtip-sa] et le code sur GitHub  [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-La même base de code pour l’application Wingtip Tickets est réutilisée pour tous les modèles répertoriés précédemment. Vous pouvez utiliser le code à partir de Github pour démarrer vos propres projets SaaS.
+## <a name="database-per-tenant-pattern"></a>Modèle avec une base de données par locataire
 
+Le modèle de base de données par locataire est efficace pour les fournisseurs de services qui sont concernés par l’isolation des locataires et souhaitent exécuter un service centralisé qui permet une utilisation rentable de ressources partagées. Une base de données est créée pour chaque locataire ou lieu, et toutes les bases de données sont gérées centralement. Les bases de données peuvent être hébergées dans des pools élastiques pour fournir une gestion des performances rentable et facile, qui tire parti des modèles de charge de travail imprévisibles des locataires. Une base de données de catalogue contient le mappage entre les locataires et leurs bases de données. Ce mappage est géré à l’aide des fonctionnalités de gestion de carte de partitions de la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md), ce qui garantit une gestion efficace des connexions à l’application.
 
+Consultez les [didacticiels][docs-tutorials-for-wingtip-dpt] et le code sur GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="major-database-tenancy-models"></a>Principaux modèles de base de données principale
+## <a name="sharded-multi-tenant-database-pattern"></a>Modèle de base de données multi-locataire partitionnée
 
-Wingtip Tickets est une application SaaS répertoriant des événements et gérant la vente de tickets. Wingtip fournit des services qui sont nécessaires aux lieux de vente. Tous les éléments suivants s’appliquent à chaque emplacement :
+Les bases de données multi-locataires sont efficaces pour les fournisseurs de services qui veulent un coût inférieur par locataire et n’ont besoin d’une forte isolation des locataires. Ce modèle permet la compression de gros volumes de locataires dans une seule base de données, et ainsi de réduire le coût par locataire. Une échelle presque infinie est possible en partitionnant les locataires entre plusieurs bases de données.  Une base de données de catalogue mappe à nouveau les locataires aux bases de données.  
 
-- Paie pour être hébergé dans votre application.
-- Est un *client* dans Wingtip.
-- Accueille des événements. Les événements suivants sont impliqués :
-    - Le prix des tickets.
-    - La vente des tickets.
-    - Les clients qui achètent des tickets.
+Ce modèle autorise également un modèle hybride dans lequel vous pouvez optimiser les coûts avec plusieurs locataires dans une base de données, ou optimiser l’isolation avec un seul locataire dans sa propre base de données. Le choix peut être effectué locataire par locataire, soit lorsque le locataire est provisionné, soit ultérieurement, sans aucun impact sur l’application.
 
-L’application, ainsi que les scripts de gestion et les didacticiels, présentent un scénario complet de SaaS. Ce scénario inclut les activités suivantes :
-
-- Configuration de clients.
-- Surveillance et gestion des performances.
-- Gestion des schémas.
-- Création de rapports et d’analyses entre clients.
-
-Toutes ces activités sont fournies à l’échelle nécessaire.
-
-
-
-## <a name="code-samples-for-each-tenancy-model"></a>Exemples de code pour chaque modèle de client
-
-Un ensemble de modèles d’application sont mis en évidence. Toutefois, les autres implémentations peuvent mélanger les éléments de deux modèles ou plus.
-
-#### <a name="standalone-app-model"></a>Modèle d’application autonome
-
-![Modèle d’application autonome][standalone-app-model-62s]
-
-Ce modèle utilise une application à client unique. Par conséquent, ce modèle ne nécessite qu’une seule base de données, et stocke des données pour un seul client. Le client bénéficie d’une isolation totale par rapport aux autres clients dans la base de données.
-
-Vous pouvez utiliser ce modèle lorsque vous vendez des instances de votre application à de nombreux clients, pour que chaque client opère sur son propre espace. Il est ainsi le seul client. Alors que la base de données stocke des données pour un seul client, elle stocke les données de nombreux clients du client.
-
-#### <a name="database-per-tenant"></a>Base de données par client
-
-![Modèle de base de données par client][database-per-tenant-model-35d]
-
-Ce modèle possède plusieurs clients dans l’instance de l’application. Pour chaque nouveau client, une autre base de données est allouée pour une utilisation uniquement par le nouveau client.
-
-Ce modèle offre une isolation de la base de données complète pour chaque client. Le service Azure SQL Database est assez sophistiqué pour rendre ce modèle plausible.
-
-- [Présentation d’un exemple d’application SaaS mutualisée SQL Database][saas-dbpertenant-wingtip-app-overview-15d] - contient plus d’informations sur ce modèle.
-
-#### <a name="sharded-multi-tenant-databases-the-hybrid"></a>Bases de données mutualisées partitionnées, le modèle hybride
-
-![Bases de données mutualisées partitionnées, le modèle hybride][sharded-multitenantdb-model-hybrid-79m]
-
-Ce modèle possède plusieurs clients dans l’instance de l’application. Ce modèle possède également plusieurs clients dans tout ou partie de ses bases de données. Ce modèle est adapté pour offrir différents niveaux de service afin que les clients puissent payer plus s’ils souhaitent bénéficier d’une isolation complète de la base de données.
-
-Le schéma de chaque base de données inclut un identificateur de client. L’identificateur de client est présent même dans les bases de données qui ne stockent qu’un seul client.
-
-- [Présentation d’un exemple d’application SaaS mutualisée SQL Database][saas-multitenantdb-get-started-deploy-89i]
-
-
-
-## <a name="tutorials-for-each-tenancy-model"></a>Didacticiels pour chaque modèle de client
-
-Chaque modèle de client est documenté par ce qui suit :
-
-- Un ensemble d’articles de didacticiel.
-- Un code source stocké dans un référentiel Github dédié au modèle :
-    - Le code de l’application Wingtip Tickets.
-    - Le code de script pour les scénarios de gestion.
-
-#### <a name="tutorials-for-management-scenarios"></a>Didacticiels pour les scénarios de gestion
-
-Des articles de didacticiel pour chaque modèle couvrant les scénarios de gestion suivants :
-
-- Approvisionnement client.
-- Surveillance et gestion des performances.
-- Gestion des schémas.
-- Création de rapports et d’analyses entre clients.
-- Restauration d’un client à un point antérieur dans le temps.
-- Récupération d’urgence.
-
-
+Consultez les [didacticiels][docs-tutorials-for-wingtip-mt] et le code sur GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Présentation d’un exemple d’application SaaS mutualisée SQL Database][saas-dbpertenant-wingtip-app-overview-15d] - contient plus d’informations sur ce modèle.
+#### <a name="conceptual-descriptions"></a>Descriptions conceptuelles
 
-- [Modèles de client de base de données SaaS mutualisée][multi-tenant-saas-database-tenancy-patterns-60p]
+- Une explication plus détaillée des modèles d’architecture mutualisée d’application est disponible à l’adresse [Modèles de location de base de données SaaS multi-locataire][saas-tenancy-app-design-patterns-md]
+
+#### <a name="tutorials-and-code"></a>Didacticiels et code
+
+- Application autonome :
+    - [Didacticiels pour une application autonome][docs-tutorials-for-wingtip-sa].
+    - [Code pour une application autonome, sur Github][github-code-for-wingtip-sa].
+
+- Base de données par locataire :
+    - [Didacticiels pour les bases de données par locataire][docs-tutorials-for-wingtip-dpt].
+    - [Code pour la base de données par locataire, sur GitHub][github-code-for-wingtip-dpt].
+
+- Multi-locataire partitionné :
+    - [Didacticiels pour un multi-locataire partitionné][docs-tutorials-for-wingtip-mt].
+    - [Code pour un multi-locataire partitionné, sur GitHub][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[standalone-app-model-62s]: media/saas-tenancy-welcome-wingtip-tickets-app/model-standalone-app.png "Modèle d’application autonome"
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Trois modèles d’architecture mutualisée."
 
-[database-per-tenant-model-35d]: media/saas-tenancy-welcome-wingtip-tickets-app/model-database-per-tenant.png "Modèle de base de données par client"
+<!-- Docs.ms.com references. -->
 
-[sharded-multitenantdb-model-hybrid-79m]: media/saas-tenancy-welcome-wingtip-tickets-app/model-sharded-multitenantdb-hybrid.png "Bases de données mutualisées partitionnées, le modèle hybride"
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
 
+<!-- WWWeb http references. -->
 
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-<!-- Article references. -->
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
-
-[multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
-
-[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
-
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

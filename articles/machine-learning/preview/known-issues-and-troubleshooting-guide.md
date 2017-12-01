@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
 
-> [!IMPORTANT]
-> Lors de la communication avec l’équipe de support, il est important de disposer du numéro de build. Pour trouver le numéro de build de l’application, cliquez le menu **Aide**. Cliquez sur le numéro de build pour le copier dans le Presse-papiers. Vous pouvez le coller dans vos e-mails ou sur des forums d’aide pour signaler des problèmes.
-
-![vérifier le numéro de version](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Rechercher le numéro de build de Workbench
+Lors de la communication avec l’équipe de support, il est important de préciser le numéro de build de l’application Workbench. Sous Windows, pour accéder au numéro de build, cliquez sur le menu **Aide** et choisissez **À propos d’Azure ML Workbench**. Sous macOS, cliquez sur le menu **Azure ML Workbench** et choisissez **À propos d’Azure ML Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Forum MSDN Machine Learning
 Nous avons un forum MSDN sur leque vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’URL du forum est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
@@ -75,10 +73,13 @@ Lorsque vous utilisez Azure ML Workbench, vous pouvez également nous envoyer un
     >Cette limite ne s’applique pas aux dossiers `.git`, `docs` et `outputs`. Ces noms de dossier respectent la casse. Si vous travaillez avec des fichiers volumineux, reportez-vous à [Persistance des modifications et gestion des fichiers volumineux](how-to-read-write-files.md).
 
 - Temps d’exécution maximal autorisé pour les expérimentations : sept jours
+
 - Taille maximale du fichier suivi dans le dossier `outputs` après une exécution : 512 Mo
   - Autrement dit, si votre script génère un fichier de plus de 512 Mo dans le dossier de sortie, ce fichier n’est pas collecté. Si vous travaillez avec des fichiers volumineux, reportez-vous à [Persistance des modifications et gestion des fichiers volumineux](how-to-read-write-files.md).
 
 - Les clés SSH ne sont pas prises en charge lors de la connexion à un ordinateur distant ou un cluster Spark via SSH. Seul le mode nom d’utilisateur/mot de passe est actuellement pris en charge.
+
+- Lorsque vous utilisez un cluster HDInsight en tant que cible de calcul, il doit utiliser l’objet blob Azure comme stockage principal. L’utilisation du stockage Azure Data Lake n’est pas prise en charge.
 
 - Les transformations de clustering de texte ne sont pas prises en charge sur Mac.
 
@@ -102,7 +103,7 @@ Malheureusement, il n’existe aucune solution simple pour résoudre ce problèm
    - Télécharger le programme d’installation https://aka.ms/azureml-wb-msi et réinstaller.
 
 ## <a name="cant-delete-experimentation-account"></a>Impossible de supprimer un compte d’expérimentation
-Vous pouvez utiliser l’interface CLI pour supprimer un compte d’expérimentation, mais vous devez supprimer au préalable les espaces de travail enfants et les projets enfants au sein de ces espaces de travail enfants. Dans le cas contraire, une erreur s’affiche.
+Vous pouvez utiliser l’interface CLI pour supprimer un compte Expérimentation, mais vous devez supprimer au préalable les espaces de travail enfants et les projets enfants au sein de ces espaces de travail enfants. Dans le cas contraire, une erreur s’affiche.
 
 ```azure-cli
 # delete a project
@@ -120,7 +121,7 @@ Vous pouvez également supprimer les projets et espaces de travail dans l’appl
 ## <a name="cant-open-file-if-project-is-in-onedrive"></a>Impossible d’ouvrir le fichier si le projet se trouve dans OneDrive
 Si vous avez Windows 10 Fall Creators Update et que votre projet est créé dans un dossier local mappé à OneDrive, vous constaterez peut-être que vous ne pouvez ouvrir aucun fichier dans Workbench. Il s’agit d’un bogue, introduit par Fall Creators Update, qui provoque l’échec du code node.js dans un dossier OneDrive. Ce bogue sera bientôt résolu par Windows Update, mais en attendant ne créez pas de projets dans un dossier OneDrive.
 
-## <a name="file-name-too-long-on-windows"></a>Nom de fichier trop long sur Windows
+## <a name="file-name-too-long-on-windows"></a>Nom de fichier trop long sous Windows
 Si vous utilisez Workbench sur Windows, vous risquez d’atteindre la limite maximale de longueur de nom de fichier par défaut (260 caractères), ce qui vous sera signifié par l’erreur « Le chemin d’accès spécifié est introuvable ». Vous pouvez modifier un paramètre de clé de Registre pour permettre des noms de chemin de fichier beaucoup plus longs. Consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) pour plus d’informations sur la façon de définir la clé de Registre _MAX_PATH_.
 
 ## <a name="docker-error-read-connection-refused"></a>Erreur Docker « read: connection refused »

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Exécuter une tâche en conteneur dans Azure Container Instances
 
@@ -85,7 +85,7 @@ Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir l
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Sortie :
+Output:
 
 ```bash
 [('the', 990),
@@ -131,7 +131,7 @@ Si vous spécifiez `NumWords=5` et `MinLength=8` pour les variables d’environn
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Sortie :
+Output:
 
 ```bash
 [('CLAUDIUS', 120),
@@ -147,7 +147,7 @@ Spécifiez une ligne de commande lorsque vous créez une instance de conteneur p
 
 Vous pouvez demander à l’exemple de conteneur d’analyser du texte autre que celui *d’Hamlet* en spécifiant une autre ligne de commande. Le script Python exécuté par le conteneur (*wordcount.py*) accepte une URL comme argument, et traite le contenu de cette page au lieu de celui défini par défaut.
 
-Par exemple, pour déterminer les trois mots à cinq lettres les plus utilisés dans *Roméo et Juliette* :
+Par exemple, pour déterminer les 3 mots à cinq lettres les plus utilisés dans *Roméo et Juliette* :
 
 ```azurecli-interactive
 az container create \
@@ -165,13 +165,15 @@ Là encore, lorsque l’état du conteneur est *Terminé*, affichez les journaux
 az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
-Sortie :
+Output:
 
 ```bash
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+### <a name="persist-task-output"></a>Conserver les sorties des tâches
 
 Pour plus d’informations sur la conservation de la sortie de vos conteneurs qui s’exécutent jusqu’à achèvement, consultez [Montage d’un partage de fichiers Azure avec Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
