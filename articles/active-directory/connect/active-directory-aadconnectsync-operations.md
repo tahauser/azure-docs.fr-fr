@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure Connect AD sync : tâches opérationnelles et examen
 L’objectif de cette rubrique consiste à décrire les tâches opérationnelles de la synchronisation d’Azure AD Connect.
@@ -33,6 +33,11 @@ Le mode intermédiaire peut être utilisé dans le cadre de plusieurs scénarios
 Avec un serveur en mode intermédiaire, vous pouvez apporter des modifications à la configuration et visualiser les modifications avant de rendre le serveur actif. Il permet également d’exécuter une importation et la synchronisation complètes afin de vérifier que toutes les modifications sont attendues avant de les appliquer dans un environnement de production.
 
 Lors de l’installation, vous pouvez sélectionner le serveur en **mode intermédiaire**. Cette action rend le serveur actif pour l’importation et la synchronisation, mais n’exécute aucune exportation. Un serveur en mode intermédiaire n’exécute pas la synchronisation de mot de passe et l’écriture différée de mot de passe même si vous avez sélectionné ces fonctions au cours de l’installation. Lorsque vous désactivez le mode intermédiaire, le serveur lance l’exportation et active la synchronisation de mot de passe et l’écriture différée de mot de passe.
+
+> [!NOTE]
+> Supposons que vous avez activé la fonctionnalité Synchronisation de hachage de mot de passe dans Azure AD Connect. Lorsque vous activez le mode de préproduction, le serveur interrompt la synchroniser des modifications du mot de passe à partir de l'instance AD sur site. Lorsque vous désactivez le mode de préproduction, le serveur reprend la synchronisation des modifications du mot de passe à partir du point où il s'est arrêté. Si le serveur reste en mode de préproduction pendant une période prolongée, il risque de mettre un certain temps pour synchroniser toutes les modifications de mot de passe survenues dans l'intervalle.
+>
+>
 
 Vous pouvez toujours forcer une exportation en utilisant le gestionnaire de services de synchronisation.
 

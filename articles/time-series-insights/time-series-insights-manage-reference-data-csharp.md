@@ -1,5 +1,5 @@
 ---
-title: "Gérer des données de référence pour un environnement Azure Time Series Insights à l’aide de C# | Microsoft Docs"
+title: "Gérer des données de référence dans un environnement Azure Time Series Insights à l’aide de C# | Microsoft Docs"
 description: "Cet article décrit comment gérer des données de référence pour un environnement Azure Time Series Insights en créant une application personnalisée écrite dans le langage C# (c-sharp) .NET."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,21 +11,23 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: fa4a115cc1199a99c7acf64281082dca5dfb8579
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gérer des données de référence pour un environnement Azure Time Series Insights à l’aide de C#
 
-Cet article décrit l’exemple de code C# que vous pouvez compiler pour gérer des données de référence pour un environnement Azure Time Series Insights.
+Cette rubrique l’exemple de code C# que vous pouvez compiler pour gérer des données de référence pour un environnement Azure Time Series Insights.
 
-Assurez-vous d’avoir effectué les étapes suivantes avant de compiler et d’exécuter l’exemple de code :
-1. Un jeu de données de référence a été créé à l’aide de [cet article](time-series-insights-add-reference-data-set.md).
+Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de code :
+1. [Créez un jeu de données de référence](time-series-insights-add-reference-data-set.md).
 
-2. Configurez le jeton d’accès à utiliser par l’application avec laquelle autoriser. Assurez-vous que le jeton d’accès est obtenu via l’API Azure Active Directory. Ce jeton doit être transmis dans l’en-tête `Authorization` de chaque demande de l’API de requête. Pour configurer les applications non interactives, consultez l’article [Authentification et autorisation](time-series-insights-authentication-and-authorization.md).
+2. Configurez le jeton d'autorisation d'accès de l'application. Assurez-vous que le jeton d’accès est obtenu via l’API Azure Active Directory. Vous devez transmettre le jeton dans l’en-tête `Authorization` de chaque demande de l’API de requête. 
+ 
+   Pour plus d'informations sur la configuration d'applications non interactives, voir [Authentification et autorisation](time-series-insights-authentication-and-authorization.md).
 
 3. Modifiez l’exemple de code pour remplacer les exemples de constantes, désignées dans **#DUMMY#**, au début du code. 
 
@@ -232,4 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations de référence sur l’API REST complètes, consultez [API de données de référence](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[API de données de référence](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

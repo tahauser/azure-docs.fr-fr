@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 7d3c655a754f83284c386d2007c604a731367814
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6c5d01a831a76c497f42fe4af3d90f8c5dc5903
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Didacticiel : configuration de Salesforce Sandbox pour approvisionner automatiquement des utilisateurs
+# <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Didacticiel : configuration de Salesforce Sandbox pour provisionner automatiquement des utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Salesforce Sandbox et Azure AD permettant d’approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Salesforce Sandbox.
 
@@ -27,17 +27,15 @@ L’objectif de ce didacticiel est de présenter les étapes à effectuer dans S
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-*   Un abonné Azure Active Directory.
-*   Vous devez posséder un abonné valide pour les éditions Salesforce Sandbox foráWork ou Salesforce Sandbox for Education. Vous pouvez utiliser un compte d’essai gratuit pour chaque service.
+*   Un locataire Azure Active Directory.
+*   Un abonné valide pour les éditions Salesforce Sandbox for Work ou Salesforce Sandbox for Education. Vous pouvez utiliser un compte d’essai gratuit pour chaque service.
 *   Un compte d’utilisateur dans Salesforce Sandbox avec les autorisations d’administrateur d’équipe.
 
 ## <a name="assigning-users-to-salesforce-sandbox"></a>Assigner des utilisateurs à Salesforce Sandbox
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, seuls les utilisateurs et les groupes qui ont été « assignés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, seuls les utilisateurs et les groupes qui ont été « assignés » à une application dans Azure AD sont synchronisés.
 
-Avant de configurer et d’activer le service d’approvisionnement, vous devez déterminer quels utilisateurs et/ou groupes dans Azure AD représentent les utilisateurs qui ont besoin d’accéder à votre application Salesforce Sandbox. Dès que vous avez fait votre choix, vous pouvez assigner ces utilisateurs à votre application Salesforce Sandbox en suivant les instructions disponibles à la page suivante :
-
-[Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Avant de configurer et d’activer le service de provisionnement, vous devez déterminer quels utilisateurs ou groupes dans Azure AD ont besoin d’accéder à votre application Salesforce Sandbox. Une fois cette décision prise, vous pouvez affecter ces utilisateurs à votre application Salesforce Sandbox en suivant les instructions fournies dans [affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Conseils importants concernant l’assignation d’utilisateurs à Salesforce Sandbox
 
@@ -55,7 +53,7 @@ Cette section va vous guider afin de connecter votre instance Azure AD à votre
 >[!Tip]
 >Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Salesforce Sandbox, grâce aux instructions disponibles dans le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que chacune de ces deux fonctionnalités compléte l’autre.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Configurer l’approvisionnement automatique d’un compte utilisateur :
+### <a name="configure-automatic-user-account-provisioning"></a>Configurer l’approvisionnement automatique d’un compte utilisateur
 
 Cette section décrit comment activer l’approvisionnement des utilisateurs des comptes d’utilisateurs Active Directory sur Salesforce Sandbox.
 
@@ -65,26 +63,31 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 3. Sélectionnez votre instance de Salesforce Sandbox, puis sélectionnez l’onglet **Approvisionnement**.
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
-    ![Approvisionnement](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
+4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
+    ![approvisionnement](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
+
+5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
    
     a. Dans la zone de texte **Nom d’utilisateur administrateur Salesforce Sandbox**, entrez le nom d’un compte Salesforce Sandbox auquel le profil **Administrateur système** est assigné dans Salesforce.com.
    
     b. Dans la zone de texte **Mot de passe d’administrateur**, entrez le mot de passe de ce compte.
 
-6. Pour obtenir le jeton de sécurité Salesforce Sandbox, ouvrez un nouvel onglet et connectez-vous au même compte Administrateur Salesforce Sandbox. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Mes paramètres**.
+6. Pour obtenir le jeton de sécurité Salesforce Sandbox, ouvrez un nouvel onglet et connectez-vous au même compte Administrateur Salesforce Sandbox. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Paramètres**.
 
      ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Activer l’approvisionnement automatique des utilisateurs")
-7. Dans le volet de navigation gauche, cliquez sur **Personnel** pour développer la section associée, puis sur **Réinitialiser mon jeton de sécurité**.
+
+7. Dans le volet de navigation gauche, cliquez sur **Mes informations personnelles** pour développer la section associée, puis sur **Réinitialiser mon jeton de sécurité**.
   
     ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Activer l’approvisionnement automatique des utilisateurs")
-8. Sur la page **Réinitialiser mon jeton de sécurité**, cliquez sur le bouton **Réinitialiser le jeton de sécurité**.
+
+8. Sur la page **Réinitialiser le jeton de sécurité**, cliquez sur le bouton **Réinitialiser le jeton de sécurité**.
 
     ![Activer l’approvisionnement automatique des utilisateurs](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Activer l’approvisionnement automatique des utilisateurs")
+
 9. Contrôlez la boîte de réception associée à ce compte d’administrateur. Vous allez recevoir un e-mail de la part de Salesforce Sandbox.com dans lequel se trouve le nouveau jeton de sécurité.
-10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton Socket**.
+
+10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton secret**.
 
 11. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Salesforce Sandbox.
 
@@ -100,7 +103,6 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 17. Cliquez sur **Enregistrer.**
 
-
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes affectés à Salesforce Sandbox dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les rapports d’activité d’approvisionnement. Ces rapports décrivent toutes les actions effectuées par le service d’approvisionnement sur votre application Salesforce Sandbox.
 
 Vous pouvez désormais créer un compte de test. Patientez jusqu’à 20 minutes avant de vérifier que le compte a bien été synchronisé avec Salesforce.
@@ -109,4 +111,4 @@ Vous pouvez désormais créer un compte de test. Patientez jusqu’à 20 minute
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-* [Configurer l’authentification unique](active-directory-saas-salesforcesandbox-tutorial.md)
+* [Configurer l’authentification unique](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)

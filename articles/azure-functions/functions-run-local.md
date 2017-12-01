@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
 Bien que le [portail Azure] fournisse un ensemble complet d’outils pour le développement et le test d’Azure Functions, nombreux sont les développeurs qui privilégient une expérience de développement local. Azure Functions facilite l’utilisation de votre éditeur de code et de vos outils de développement local préférés pour développer et tester vos fonctions sur votre ordinateur local. Vos fonctions peuvent se déclencher sur des événements dans Azure, et vous pouvez déboguer vos fonctions C# et JavaScript sur votre ordinateur local. 
 
 Si vous êtes un développeur Visual Studio C#, Azure Functions [s’intègre aussi à Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Lorsque vous créez et publiez des fonctions à partir d'un projet local, vous ne devez pas essayer de maintenir ou de modifier le code du projet dans le portail.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installer Azure Functions Core Tools
 
@@ -83,7 +86,7 @@ func init MyFunctionProj
 
 ## <a name="create-a-local-functions-project"></a>Créer un projet Functions local
 
-Quand il est exécuté localement, un projet Functions est un répertoire qui contient les fichiers [host.json](functions-host-json.md) et [local.settings.json](#local-settings). Ce répertoire est l’équivalent d’une application de fonction dans Azure. Pour plus d’informations sur la structure de dossiers Azure Functions, consultez le [Guide de développement Azure Functions](functions-reference.md#folder-structure).
+Quand il est exécuté localement, un projet Functions est un répertoire qui contient les fichiers [host.json](functions-host-json.md) et [local.settings.json](#local-settings-file). Ce répertoire est l’équivalent d’une application de fonction dans Azure. Pour plus d’informations sur la structure de dossiers Azure Functions, consultez le [Guide de développement Azure Functions](functions-reference.md#folder-structure).
 
 Dans la fenêtre du terminal ou à partir d’une invite de commandes, exécutez la commande suivante pour créer le projet et le référentiel Git local :
 
@@ -102,8 +105,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Pour créer le projet sans référentiel Git local, utilisez l’option `--no-source-control [-n]`.
-
-<a name="local-settings"></a>
 
 ## <a name="local-settings-file"></a>Fichier de paramètres locaux
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles à partir de n’importe quelle image Windows Server ou image personnalisée Windows de plateforme Azure prise en charge. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Serv
 >
 
 > [!NOTE]
-> L’utilisation d’Azure Hybrid Benefit pour Windows Server avec des machines virtuelles faisant l’objet d’une facturation pour des logiciels supplémentaires, comme SQL Server ou l’une des images de place de marché tierce, est en cours de déploiement. Si vous obtenez une erreur 409 (par exemple, Vous n’êtes pas autorisé à changer la propriété « LicenseType »), cela indique que vous essayez de convertir ou de déployer une nouvelle machine virtuelle Windows Server impliquant des coûts logiciels supplémentaires, situation qui n’est peut-être pas prise en charge dans la région concernée.
+> L’utilisation d’Azure Hybrid Benefit pour Windows Server avec des machines virtuelles faisant l’objet d’une facturation pour des logiciels supplémentaires, comme SQL Server ou l’une des images de place de marché tierce, est en cours de déploiement. Si vous obtenez une erreur 409 (par exemple, Vous n’êtes pas autorisé à changer la propriété « LicenseType »), cela indique que vous essayez de convertir ou de déployer une nouvelle machine virtuelle Windows Server impliquant des coûts logiciels supplémentaires, situation qui n’est peut-être pas prise en charge dans la région concernée. Il en va de même si vous tentez de rechercher l’option de configuration du portail pour effectuer la conversion et que cette option ne s’affiche pas pour cette machine virtuelle.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>Portail
 Dans le panneau de la machine virtuelle du Portail, vous pouvez mettre à jour la machine virtuelle pour utiliser Azure Hybrid Benefit en sélectionnant l’option « Configuration », puis en activant l’option « Azure Hybrid Benefit ».
+
+> [!NOTE]
+> Si l’option permettant d’activer ou de désactiver « Azure Hybrid Benefit » ne s’affiche pas sous « Configuration », cela est dû au fait que la conversion n’est pas encore prise en charge pour le type de machine virtuelle sélectionné (par exemple, une machine virtuelle générée à partir d’une image personnalisée ou à partir d’une image dotée de logiciels payants supplémentaires comme SQL Sever ou Place de marché Azure).
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Téléchargement d’un disque dur virtuel Windows Server
 Pour déployer une machine virtuelle Windows Server dans Azure, vous devez d’abord créer un disque dur virtuel contenant votre build Windows de base. Ce disque dur virtuel doit être correctement préparé par Sysprep avant son téléchargement sur Azure. Découvrez [plus d’information sur la configuration requise du disque dur virtuel et le processus Sysprep](upload-generalized-managed.md) et la [prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Sauvegardez la machine virtuelle avant d’exécuter Sysprep. 
@@ -182,10 +186,12 @@ Vous pouvez également [créer et déployer un groupe de machines virtuelles ide
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [réaliser des économies avec Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-Consultez les [instructions détaillées sur la gestion des licences avec Azure Hybrid Benefit pour Windows Server](http://go.microsoft.com/fwlink/?LinkId=859786).
+Consultez les [instructions détaillées sur la gestion des licences avec Azure Hybrid Benefit pour Windows Server](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit).
 
 En savoir plus sur [l’utilisation de modèles Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Découvrez comment [Azure Hybrid Benefit pour Windows Server et Azure Site Recovery rendent la migration d’applications vers Azure encore plus rentable](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+
+En savoir plus sur [Windows 10 sur Azure avec des droits d’hébergement multilocataire](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment).
 
 Obtenir plus d’informations dans le [Forum Aux Questions](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

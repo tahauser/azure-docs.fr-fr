@@ -1,6 +1,6 @@
 ---
-title: "À propos des disques et des VHD pour les machines virtuelles Microsoft Azure Windows | Microsoft Docs"
-description: "Découvrez les notions de base relatives aux disques et aux VHD pour les machines virtuelles Windows dans Azure."
+title: "À propos du stockage des disques non gérés (objets blob de pages) et des disques gérés pour les machines virtuelles Microsoft Azure Windows | Microsoft Docs"
+description: "Découvrez les principes de base du stockage des disques non gérés (objets blob de pages) et des disques gérés pour les machines virtuelles Windows dans Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-windows-vms"></a>À propos des disques et des VHD pour les machines virtuelles Azure Windows
+# <a name="about-disks-storage-for-azure-windows-vms"></a>À propos du stockage des disques pour les machines virtuelles Azure Windows
 Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des disques comme emplacement de stockage pour un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation Windows et un disque temporaire. Le disque de système d’exploitation est créé à partir d’une image. Le disque de système d’exploitation et l’image sont des disques durs virtuels (VHD) stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD. 
 
 Dans cet article, nous parlons des différentes utilisations pour les disques, puis nous abordons les types de disques que vous pouvez créer et utiliser. Cet article est également disponible pour les [machines virtuelles Linux](../linux/about-disks-and-vhds.md).
@@ -79,6 +79,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Étapes suivantes
-* [Attacher un disque](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour ajouter un stockage supplémentaire pour votre machine virtuelle.
-* [Changer la lettre de lecteur du disque temporaire Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) pour que votre application puisse utiliser le lecteur D: pour les données.
+* [Attacher un disque](attach-disk-portal.md) pour ajouter un stockage supplémentaire pour votre machine virtuelle.
+* [Créez un instantané](snapshot-copy-managed-disk.md).
+* [Convertissez en disques gérés](convert-unmanaged-to-managed-disks.md).
+
 

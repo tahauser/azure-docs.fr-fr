@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/21/2017
 ms.author: jingwang
-ms.openlocfilehash: f2675a0af82640925b837ae80e751fcab5972321
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -29,6 +29,9 @@ Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fic
 
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez [Fichier et formats de compression pris en charge dans Data Factory version 1](v1//data-factory-supported-file-and-compression-formats.md).
+
+> [!TIP]
+> Découvrez comment l'activité mappe vos données source au récepteur à l'aide de la [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md), et comment les métadonnées sont déterminées en fonction de vos paramètres de format de fichier et des conseils sur la spécification de la section du [jeu de données`structure`](concepts-datasets-linked-services.md#dataset-structure).
 
 ## <a name="text-format"></a>Format Texte
 

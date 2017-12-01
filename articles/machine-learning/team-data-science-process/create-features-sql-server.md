@@ -4,7 +4,7 @@ description: "Traiter les données de SQL Azure"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;fashah;garye
-ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
-Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python, les deux approches étant illustrées ici.
+Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python pour accomplir cette tâche. Les deux approches sont décrites ici.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
@@ -67,12 +67,12 @@ L’exemple ci-dessous illustre comment générer des fonctionnalités compartim
 ### <a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
-Voici une brève introduction relative aux données de latitude/longitude (reposant sur les informations du site stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Vous pourrez ainsi vous familiariser avec ces notions avant d’implémenter le champ d’emplacement :
+Voici une brève introduction relative aux données de latitude/longitude (reposant sur les informations du site stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Voici quelques informations utiles à connaître sur les données de localisation avant de créer des fonctionnalités sur le terrain :
 
 * Le signe indique si nous nous trouvons au nord, au sud, à l’est ou à l’ouest.
-* Un chiffre des centaines différent de zéro indique que nous utilisons la longitude, et non la latitude.
-* Le chiffre des dizaines équivaut à environ 1 000 kilomètres. Il nous fournit des informations utiles sur le continent ou l’océan dans lequel nous nous trouvons.
-* Le chiffre des unités (un degré décimal) équivaut à 111 kilomètres maximum (60 milles marins, soit environ 69 milles terrestres). Il nous permet de déterminer approximativement le département de grande superficie ou le pays dans lequel nous sommes.
+* Un chiffre non nul de centaines indique la longitude, pas la latitude.
+* Le chiffre des dizaines équivaut à environ 1 000 kilomètres. Il fournit des informations utiles sur le continent ou l’océan dans lequel nous nous trouvons.
+* Le chiffre des unités (un degré décimal) équivaut à 111 kilomètres maximum (60 milles marins, soit environ 69 milles terrestres). Il indique approximativement le département de grande superficie ou le pays dans lequel nous sommes.
 * La première décimale équivaut à 11,1 km maximum : elle permet de distinguer la position d’une grande ville de celle d’une autre grande localité voisine.
 * La deuxième décimale équivaut à 1,1 km maximum : elle permet de différencier un village du suivant.
 * La troisième décimale équivaut à 110 m maximum : elle permet d’identifier un domaine agricole ou un campus universitaire de grande taille.
@@ -80,7 +80,7 @@ Voici une brève introduction relative aux données de latitude/longitude (repos
 * La cinquième décimale équivaut à 1,1 m maximum : elle permet de distinguer un arbre d’un autre. Un tel niveau de précision sur les appareils GPS commerciaux ne peut être atteint qu’au moyen d’une correction différentielle.
 * La sixième décimale équivaut à 0,11 m maximum : vous pouvez notamment l’utiliser pour représenter des structures en détail, pour concevoir des plans d’aménagement paysager et pour construire des routes. Elle devrait se révéler amplement suffisante pour assurer le suivi des mouvements des glaciers et des rivières. L’obtention d’une telle précision sur un GPS nécessite l’emploi de mesures rigoureuses, telles qu’une correction différentielle.
 
-Vous pouvez implémenter les informations d’emplacement comme illustré ci-dessous, en les répartissant par région, par emplacement et par ville. Notez qu’il est également possible d’appeler un point de terminaison REST, tel que l’API Bing Cartes disponible à l’adresse `https://msdn.microsoft.com/library/ff701710.aspx` , pour obtenir les informations de région/secteur.
+Vous pouvez implémenter les informations de localisation en les répartissant par région, par emplacement et par ville. Notez qu’il est également possible d’appeler un point de terminaison REST, tel que l’API Bing Cartes disponible à l’adresse `https://msdn.microsoft.com/library/ff701710.aspx` , pour obtenir les informations de région/secteur.
 
     select
         <location_columnname>
@@ -93,10 +93,10 @@ Vous pouvez implémenter les informations d’emplacement comme illustré ci-des
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’emplacement pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment.
+Vous pouvez en outre exploiter ces fonctionnalités de localisation pour générer d’autres fonctionnalités utilisant des décomptes comme décrit précédemment.
 
 > [!TIP]
-> Vous pouvez insérer les enregistrements par programme en utilisant la langue de votre choix. Vous pouvez avoir besoin d’insérer les données dans des blocs afin d’améliorer l’efficacité des écritures [Pour consulter l’exemple décrivant la procédure à suivre, cliquez ici](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> Vous pouvez insérer les enregistrements par programmation en utilisant le langage de votre choix. Vous devrez peut-être insérer les données en blocs pour améliorer l'efficacité de l'écriture. [Voici un exemple montrant comment faire à l’aide de la commande pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > Une autre solution consiste à insérer les données dans la base de données à l’aide de l’ [utilitaire BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
@@ -104,10 +104,10 @@ Vous pouvez en outre exploiter les fonctionnalités ci-dessus basées sur l’em
 ### <a name="sql-aml"></a>Connexion à Azure Machine Learning
 La fonctionnalité que vous venez de générer peut être ajoutée sous la forme d’une colonne à une table existante ou stockée dans une nouvelle table et associée à la table d’origine pour l’apprentissage automatique. Vous pouvez générer des fonctionnalités ou y accéder si elles sont déjà créées à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) dans Azure Machine Learning comme expliqué ci-dessous :
 
-![lecteurs azureml](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Lecteurs Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Utilisation d’un langage de programmation tel que Python
-L’utilisation de Python pour générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué dans [Traiter les données Azure Blob dans votre environnement de science des données](data-blob.md). Les données doivent être chargées à partir de la base de données dans une trame de données pandas, puis faire l’objet d’un traitement complémentaire. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
+L’utilisation de Python pour générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python. Pour obtenir une comparaison, voir [Traiter les données Azure Blob dans votre environnement de science des données](data-blob.md). Chargez les informations de la base de données dans une trame de données pandas pour poursuivre le traitement. Le processus de connexion à la base de données et le chargement des données dans la trame de données sont décrits dans cette section.
 
 Le format de chaîne de connexion ci-après vous permet de vous connecter à une base de données SQL Server à partir de Python à l’aide de pyodbc (en remplaçant les variables servername, dbname, username et password par les valeurs qui vous correspondent) :
 
@@ -115,7 +115,7 @@ Le format de chaîne de connexion ci-après vous permet de vous connecter à une
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La [bibliothèque Pandas](http://pandas.pydata.org/) de Python offre un ensemble élaboré de structures de données et d’outils d’analyse des données pour la manipulation des données dans le cadre d’une programmation en Python. Le code ci-après lit les résultats renvoyés par une base de données SQL Server dans une trame de données pandas :
+La [bibliothèque Pandas](http://pandas.pydata.org/) de Python offre un ensemble élaboré de structures de données et d’outils d’analyse des données pour la manipulation des données dans le cadre d’une programmation en Python. Le code suivant lit les résultats renvoyés par une base de données SQL Server dans une trame de données Pandas :
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)

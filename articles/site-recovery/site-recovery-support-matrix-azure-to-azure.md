@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
 
@@ -164,9 +164,10 @@ GRS | Pris en charge |
 RA-GRS | Pris en charge |
 ZRS | Non pris en charge |  
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud.
+Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure )  | Non | Autoriser l'accès à des réseaux virtuels Azure spécifiques sur des comptes de stockage en cache utilisés pour stocker des données répliquées n'est pas pris en charge. 
 
 >[!IMPORTANT]
-> Veillez à respecter les [conseils de stockage](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) pour vos machines virtuelles sources Azure afin d’éviter les problèmes de performances. Si vous suivez les paramètres par défaut, Site Recovery crée les comptes de stockage nécessaires en fonction de la configuration source. Si vous personnalisez et sélectionnez vos propres paramètres, veillez à respecter les (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) comme étant vos machines virtuelles sources.
+> Vérifiez que vous respectez les valeurs d'évolutivité et de performances des disques VM pour les machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) afin d'éviter tout problème de performances. Si vous suivez les paramètres par défaut, Site Recovery créera les disques et les comptes de stockage nécessaires en fonction de la configuration source. Si vous personnalisez et sélectionnez vos propres paramètres, gardez à l’esprit que vous suivez les cibles d’évolutivité et de performances pour vos disques de machines virtuelles sources.
 
 ## <a name="support-for-network-configuration"></a>Prise en charge de la configuration réseau
 **Configuration** | **Prise en charge/Non prise en charge** | **Notes**

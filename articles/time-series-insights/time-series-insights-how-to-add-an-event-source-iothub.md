@@ -1,5 +1,5 @@
 ---
-title: "Comment ajouter une source d’événement IoT Hub à votre environnement Azure Time Series Insights | Microsoft Docs"
+title: "Guide pratique pour ajouter une source d’événement IoT Hub à Azure Time Series Insights | Microsoft Docs"
 description: "Cet article décrit comment ajouter une source d’événement connectée à un IoT Hub à votre environnement Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,19 +10,19 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Ajout d’une source d’événement de IoT Hub à l’environnement Time Series Insights
 Cet article décrit comment utiliser le Portail Azure pour ajouter une source d’événement qui lit des données à partir d’un IoT Hub dans votre environnement Time Series Insights.
 
 ## <a name="prerequisites"></a>Composants requis
 - Créez un environnement Time Series Insights. Pour plus d’informations, consultez [Créer un environnement Azure Time Series Insights](time-series-insights-get-started.md). 
-- Créez un IoT Hub. Pour plus d’informations sur les IoT Hubs, consultez [Création d’un IoT Hub à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md).
+- Créez un IoT Hub. Pour plus d’informations sur les IoT Hubs, consultez [Création d’un IoT Hub à l’aide du portail Azure](../iot-hub/iot-hub-create-through-portal.md)
 - L’IoT Hub doit avoir des événements de message actifs envoyés.
 - Créez un groupe de consommateurs dédié dans IoT Hub pour l’environnement Time Series Insight à utiliser. Chaque source d’événement Time Series Insights doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec d’autres consommateurs. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles d’obtenir des erreurs. Pour plus d’informations, reportez-vous au [Guide du développeur IoT Hub](../iot-hub/iot-hub-devguide.md).
 

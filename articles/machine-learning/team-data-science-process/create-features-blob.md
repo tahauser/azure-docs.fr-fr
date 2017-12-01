@@ -4,7 +4,7 @@ description: "Comment créer des fonctionnalités pour les données stockées da
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas
 Ce document montre comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/) . Après avoir décrit le chargement des données dans une trame de données Pandas, il montre comment générer des fonctionnalités catégorielles à l’aide de scripts Python avec des valeurs d’indicateur et des caractéristiques de compartimentage.
@@ -31,7 +31,7 @@ Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonction
 Cet article part du principe que vous avez créé un compte de stockage d’objets blob Azure et que vous y avez stocké vos données. Si vous avez besoin d’instructions pour configurer un compte, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Chargement des données dans une trame de données Pandas
-Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé depuis la source Blob vers un fichier local qui peut ensuite être chargé dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
+Pour explorer et exploiter un jeu de données, téléchargez-le depuis la source blob vers un fichier local. Puis chargez-le dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
 
 1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service du blob. Remplacez la variable dans le code ci-dessous par vos propres valeurs :
    
@@ -93,8 +93,8 @@ Pour générer des fonctionnalités compartimentées, procédez comme suit :
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
-Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (exemples ou caractéristiques) dans un objet blob Azure et les exploiter dans Azure Machine Learning en procédant comme suit : notez qu’il est également possible de créer d’autres fonctionnalités dans Azure Machine Learning Studio.
+## <a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure pour une exploitation dans Azure Machine Learning
+Pour exploiter dans Azure Machine Learning les données que vous avez explorées, échantillonnées ou implémentées, importez les données dans un objet blob Azure. D'autres fonctionnalités peuvent également être créées dans Azure Machine Learning Studio. Les étapes suivantes montrent comment charger les données :
 
 1. Écrivez le bloc de données dans le fichier local.
    
@@ -120,7 +120,7 @@ Après avoir exploré les données et créé les fonctionnalités nécessaires, 
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) d’Azure Machine Learning comme le montre l’écran ci-dessous :
+3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Importer des données](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) d’Azure Machine Learning comme le montre la capture d'écran suivantes :
 
 ![objet blob de lecteur](./media/data-blob/reader_blob.png)
 

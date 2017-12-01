@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c8e598159d2139397952a5c11eac54dc38939f47
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-a-java-application"></a>Créer une application Java
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
@@ -83,7 +83,7 @@ Pour déployer l’application sur un cluster dans Azure, créez votre propre cl
 
 Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric). 
 
-Pour plus d’informations sur la création de votre propre cluster, voir [Créer votre premier cluster Service Fabric sur Azure](service-fabric-get-started-azure-cluster.md).
+Pour plus d’informations sur la création de votre propre cluster, consultez [Créer un cluster Service Fabric dans Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > Le service frontal web est configuré pour écouter le trafic entrant sur le port 8080. Assurez-vous que ce port est ouvert dans votre cluster. Si vous utilisez le cluster tiers, ce port est ouvert.
@@ -147,5 +147,5 @@ Dans ce démarrage rapide, vous avez appris comment :
 > * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 
 * En savoir plus sur le [débogage des services dans Java à l’aide d’Eclipse](service-fabric-debugging-your-application-java.md)
-* En savoir plus sur la [configuration de l’intégration et du déploiement continus à l’aide de Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* En savoir plus sur la [configuration de l’intégration et du déploiement continus à l’aide de Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Consulter d’autres [exemples Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

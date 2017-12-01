@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ? 
 
@@ -34,7 +34,7 @@ SQL Database partage sa base de code avec le [moteur de base de données Micros
 SQL Database offre des performances prévisibles à plusieurs niveaux de service qui permettent une évolutivité dynamique avec aucun temps mort, une optimisation intelligente intégrée, une évolutivité et une disponibilité globales, ainsi que des options avancées de sécurité, et tout cela sans (presque) aucune tâche d’administration. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. Le service SQL Database est actuellement présent dans 38 centres de données du monde entier, et de plus en plus de centres de données passent en ligne régulièrement, ce qui vous permet d’exécuter votre base de données dans un centre de données proche de chez vous.
 
 > [!NOTE]
-> Visitez le [Centre de gestion de la confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/) pour plus d’informations sur la sécurité de la plateforme Azure.
+> Visitez le [Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/security/) pour plus d’informations sur la sécurité de la plateforme Azure.
 >
 
 ## <a name="scalable-performance-and-pools"></a>Pools et performances évolutives
@@ -137,7 +137,7 @@ SQL Database vous permet de gérer de manière centralisée les identités d’u
 
 ### <a name="compliance-certification"></a>Certification de conformité
 
-SQL Database participe à des audits réguliers et a été certifié par rapport à plusieurs normes de conformité. Pour en savoir plus, accédez au [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://azure.microsoft.com/support/trust-center/services/).
+SQL Database participe à des audits réguliers et a été certifié par rapport à plusieurs normes de conformité. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](https://azure.microsoft.com/support/trust-center/services/).
 
 ## <a name="easy-to-use-tools"></a>Outils simples d’utilisation
 

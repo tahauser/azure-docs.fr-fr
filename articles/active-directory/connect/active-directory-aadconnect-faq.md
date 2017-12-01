@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Forum Aux Questions sur Azure Active Directory Connect
 
@@ -43,8 +43,14 @@ Tous les logiciels réseau, périphériques physiques ou autres limitant la dur�
 **Q : Les domaines avec un nom en une seule partie sont-ils pris en charge ?**  
 Non, Azure AD Connect ne prend pas en charge les forêts/domaines locaux utilisant des noms de domaine en une seule partie.
 
+**Q : Les forêts comportant des domaines AD disjoints sont-elles prises en charge ?**  
+Non, Azure AD Connect ne prend pas en charge les forêts locales contenant des espaces de noms disjoints.
+
 **Q : Les noms NetBios comportant un point sont-ils pris en charge ?**  
 Non, Azure AD Connect ne prend pas en charge les forêts/domaines locaux  dont le nom NetBios contient un point « . ».
+
+**Q : L'environnement IPv6 pur est-il pris en charge ?**  
+Non, Azure AD Connect ne prend pas en charge l'environnement IPv6 pur.
 
 ## <a name="federation"></a>Fédération
 **Q : Que faire si je reçois un e-mail me demandant de renouveler mon certificat Office 365**  

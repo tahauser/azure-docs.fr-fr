@@ -1,207 +1,191 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Teamwork | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Teamwork."
+title: "Didacticiel : Intégration d’Azure Active Directory à Teamwork.com | Microsoft Docs"
+description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Teamwork.com."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: 03760032-3d76-4b47-ab84-241f72fbd561
+ms.reviewer: joflore
+ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Didacticiel : Intégration d’Azure Active Directory à Teamwork
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Didacticiel : Intégration d’Azure Active Directory à Teamwork.com
 
-Dans ce didacticiel, vous allez apprendre à intégrer Teamwork à Azure Active Directory (Azure AD).
+Dans ce didacticiel, vous allez apprendre à intégrer Teamwork.com à Azure Active Directory (Azure AD).
 
-L’intégration de Teamwork à Azure AD vous offre les avantages suivants :
+L’intégration de Teamwork.com dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Teamwork.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Teamwork (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes de manière centralisée dans le Portail de gestion Azure.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Teamwork.com.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Teamwork.com (par le biais de l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour configurer l’intégration d’Azure AD à Teamwork, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à Teamwork.com, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Teamwork pour lequel l’authentification unique est activée
-
+- une authentification unique Teamwork.com activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
 
-
 Vous devez en outre suivre les recommandations ci-dessous :
 
-- Vous ne devez pas utiliser votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-
+- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Teamwork à partir de la galerie
+1. Ajout de Teamwork.com à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
+## <a name="adding-teamworkcom-from-the-gallery"></a>Ajout de Teamwork.com à partir de la galerie
+Pour configurer l’intégration de Teamwork.com dans Azure AD, vous devez ajouter Teamwork.com, à partir de la galerie, à votre liste d’applications SaaS gérées.
 
-## <a name="adding-teamwork-from-the-gallery"></a>Ajout de Teamwork à partir de la galerie
-Pour configurer l’intégration de Teamwork à Azure AD, vous devez ajouter Teamwork à partir de la galerie à votre liste d’applications SaaS gérées.
+**Pour ajouter Teamwork.com à partir de la galerie, procédez comme suit :**
 
-**Pour ajouter Teamwork à partir de la galerie, procédez comme suit :**
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-1. Dans le **[Portail de gestion Azure](https://portal.azure.com)**, dans le panneau de navigation gauche, cliquez sur l’icône **Azure Active Directory**. 
-
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![Panneau Applications d’entreprise][2]
     
-3. Cliquez sur le bouton **Ajouter** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Teamwork**.
+4. Dans la zone de recherche, tapez **Teamwork.com**, sélectionnez **Teamwork.com** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_001.png)
+    ![Teamwork.com dans la liste des résultats](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_addfromgallery.png)
 
-5. Dans le panneau de résultats, sélectionnez **Teamwork**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_0001.png)
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Teamwork.com avec un utilisateur de test appelé « Britta Simon ».
 
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Teamwork.com équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Teamwork.com associé doit être établie.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Teamwork au moyen d’un utilisateur de test appelé « Britta Simon ».
+Dans Teamwork.com, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** pour établir la relation.
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Teamwork équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur Teamwork associé doit être établie.
+Pour configurer et tester l’authentification unique Azure AD avec Teamwork.com, vous devez suivre les indications des sections suivantes :
 
-Pour ce faire, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **Username** (Nom d’utilisateur) dans Teamwork.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test Teamwork.com](#create-a-teamworkcom-test-user)** pour avoir un équivalent de Britta Simon dans Teamwork.com lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-Pour configurer et tester l’authentification unique Azure AD avec Teamwork, vous devez suivre les indications des sections suivantes :
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Teamwork](#creating-a-teamwork-test-user)** pour avoir un équivalent de Britta Simon dans Teamwork lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Teamwork.com.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+**Pour configurer l'authentification unique Azure AD avec Teamwork.com, procédez comme suit :**
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le Portail de gestion Azure et configurer l’authentification unique dans votre application Teamwork.
+1. Dans le Portail Azure, dans la page d’intégration de l’application **Teamwork.com**, cliquez sur **Authentification unique**.
 
-**Pour configurer l’authentification unique Azure AD avec Teamwork, procédez comme suit :**
-
-1. Dans le Portail de gestion Azure, sur la page d’intégration de l’application **Teamwork**, cliquez sur **Authentification unique**.
-
-    ![Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_01.png)
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_samlbase.png)
 
-3. Dans la section **Domaine et URL Teamwork**, renseignez la zone de texte **URL de connexion** avec une URL présentant le format suivant : `https://<company name>.teamwork.com`
+3. Dans la section **Domaine et URL Teamwork.com**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_02.png)
+    ![Informations d’authentification unique dans Domaine et URL Teamwork.com](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
+
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.teamwork.com`
 
     > [!NOTE] 
-    > Notez qu’il ne s’agit pas de la valeur réelle. Vous devez mettre à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique de Teamwork](mailto:support@teamwork.com). 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique de Teamwork.com](mailto:support@teamwork.com). 
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Créer un certificat**.
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_certificate.png) 
 
-5. Dans la boîte de dialogue **Créer un certificat**, cliquez sur l’icône de calendrier et sélectionnez une **date d’expiration**. Ensuite, cliquez sur le bouton **Enregistrer**.
+5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_general_300.png)
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
-6. Dans la section **Certificat de signature SAML**, sélectionnez **Activer le nouveau certificat** et cliquez sur **Enregistrer**.
+6. Pour configurer l’authentification unique du côté **Teamwork.com**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique de Teamwork.com](mailto:support@teamwork.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_04.png)
+> [!TIP]
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-7. Dans la fenêtre contextuelle **Certificat de substitution**, cliquez sur **OK**.
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-8. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_05.png) 
-
-9. Pour obtenir la configuration de l’authentification unique pour votre application, contactez [l’équipe de support technique de Teamwork](mailto:support@teamwork.com) en lui fournissant les **métadonnées** téléchargées.
-  
-
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le Portail de gestion Azure.
-
-![Créer un utilisateur Azure AD][100]
+   ![Créer un utilisateur de test Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **Portail de gestion Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png) 
+    ![Bouton Azure Active Directory](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png)
 
-2. Accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs** pour afficher la liste des utilisateurs.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png) 
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
-3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png) 
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png)
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+
+    ![Bouton Ajouter](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png)
 
 4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png)
+
+    a. Dans la zone **Nom**, tapez **BrittaSimon**.
+
+    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+
+    d. Cliquez sur **Créer**.
  
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png) 
+### <a name="create-a-teamworkcom-test-user"></a>Créer un utilisateur test Teamwork.com
 
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Teamwork.com. Collaborez avec [l'équipe de support Teamwork.com](mailto:support@teamwork.com) pour ajouter les utilisateurs de la plateforme Teamwork.com. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Teamwork.com.
 
-    d. Cliquez sur **Create**. 
+![Attribuer le rôle utilisateur][200] 
 
+**Pour affecter Britta Simon à Teamwork.com, procédez comme suit :**
 
-
-### <a name="creating-a-teamwork-test-user"></a>Création d’un utilisateur de test Teamwork
-
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Teamwork. Collaborez avec [l’équipe de support technique de Teamwork](mailto:support@teamwork.com) pour ajouter les utilisateurs dans la plateforme Teamwork.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Teamwork.
-
-![Affecter des utilisateurs][200] 
-
-**Pour affecter Britta Simon à Teamwork, procédez comme suit :**
-
-1. Dans le Portail de gestion Azure, ouvrez la vue des applications, accédez à la vue des répertoires, allez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Teamwork**.
+2. Dans la liste des applications, sélectionnez **Teamwork.com**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_50.png) 
+    ![Lien Teamwork.com dans la liste des applications](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_app.png)  
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Lien « Utilisateurs et groupes »][202]
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![Affecter des utilisateurs][203]
+    ![Volet Ajouter une attribution][203]
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
@@ -209,14 +193,12 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
-
-
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Teamwork dans le volet d’accès, vous devez être connecté automatiquement à votre application Teamwork.
-
+Lorsque vous cliquez sur la vignette Teamwork.com dans le volet d’accès, vous devez être connecté automatiquement à votre application Teamwork.com.
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
@@ -238,3 +220,4 @@ Lorsque vous cliquez sur la vignette Teamwork dans le volet d’accès, vous dev
 [201]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_203.png
+

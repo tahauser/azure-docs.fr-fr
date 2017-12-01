@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -47,7 +47,7 @@ Parmi ces URL, le tableau suivant indique celles qui représentent le strict min
 | \*.entrust.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats pour MFA. |
 | \*.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilisé pour MFA. |
-| \*.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
+| \**.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
 ## <a name="errors-in-the-wizard"></a>Erreurs dans l’Assistant
 L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). S’il existe un problème, il apparaît probablement déjà au niveau de la page **Connexion à Azure AD** page de l’Assistant car la configuration du proxy est globale.
@@ -94,6 +94,9 @@ Si le proxy n’est pas configuré correctement, une erreur apparaît : ![proxy2
 | --- | --- | --- |
 | 403 |Interdit |Le proxy n’a pas été ouvert pour l’URL demandée. Revisitez la configuration du proxy et vérifiez que les [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) ont été ouvertes. |
 | 407 |Authentification proxy requise |Le serveur proxy nécessitait une connexion et aucune n’a été fournie. Si le serveur proxy nécessite une authentification, vérifiez que ce paramètre a été configuré dans le fichier machine.config. Vérifiez également que vous utilisez des comptes de domaine pour l’utilisateur qui exécute l’Assistant et pour le compte de service. |
+
+### <a name="proxy-idle-timeout-setting"></a>Définition du délai d'inactivité du proxy
+Quand Azure AD Connect envoie une demande d'exportation à Azure AD, Azure AD peut prendre jusqu'à 5 minutes pour traiter la demande avant de générer une réponse. Cela peut se produire en particulier si plusieurs objets de groupe appartiennent à de grands groupes inclus dans la même demande d'exportation. Assurez-vous que le délai d'inactivité du proxy est supérieur à 5 minutes. Sinon, vous risquez de rencontrer un problème de connectivité intermittente avec Azure AD sur le serveur Azure AD Connect.
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Modèle de communication entre Azure AD Connect et Azure AD
 Si vous avez suivi l’ensemble des étapes précédentes et que vous ne pouvez toujours pas vous connecter, vous pouvez commencer à examiner les journaux du réseau. Cette section documente un modèle de connectivité réussi et normal. Elle indique également les fausses pistes courantes qui peuvent être ignorées quand vous lisez les journaux du réseau.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 23fa083ef8dc67767db68fd6e783203419b2becd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Comment obtenir Azure Multi-Factor Authentication ?
 
@@ -65,7 +65,7 @@ Le tableau suivant fournit la liste des fonctionnalités qui sont disponibles da
 | ID d’appelant personnalisé pour les appels téléphoniques | | |● |
 | Adresses IP approuvées | | |● |
 | Mémoriser MFA pour les appareils fiables |● |● |● |
-| SDK MFA | | |● (Requiert un fournisseur Multi-Factor Auth et un abonnement Azure complet) |
+| SDK MFA | | |● (Déprécié) | 
 | MFA pour les applications locales | | |● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Comment obtenir Azure Multi-Factor Authentication ?

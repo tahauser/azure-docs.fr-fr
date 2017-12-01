@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dc12037928d5cc62c35535d45cf674865e3bfe25
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
+
+> [!IMPORTANT]
+> La dépréciation du Kit de développement logiciel (SDK) Azure Multi-Factor Authentication a été annoncée. Cette fonctionnalité ne sera plus prise en charge pour les nouveaux clients. Les clients actuels peuvent continuer à utiliser le Kit de développement logiciel (SDK) jusqu’au 14 novembre 2018. Passée cette date, les appels au Kit de développement logiciel (SDK) échoueront. 
 
 Le Kit de développement logiciel (SDK) Azure Multi-Factor Authentication vous permet d’intégrer une vérification en deux étapes dans les processus de connexion et de transaction des applications de votre locataire Azure AD.
 
@@ -35,30 +38,7 @@ Comme les API n’ont pas accès aux utilisateurs enregistrés dans Azure Active
 
 
 ## <a name="download-the-sdk"></a>Télécharger le Kit de développement logiciel (SDK)
-Le téléchargement du SDK Azure Multi-Factor Authentication nécessite un [fournisseur Azure Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md).  Cela requiert un abonnement Azure complet, même si vous possédez des licences Azure MFA, Azure AD Premium ou Enterprise Mobility Suite.  Pour télécharger le Kit de développement logiciel, accédez au portail de gestion multi-facteur. Vous pouvez accéder au portail soit en gérant directement le fournisseur Multi-Factor Auth, soit en cliquant sur le lien **Accéder au portail** sur la page des paramètres du MFA.
-
-### <a name="download-from-the-azure-classic-portal"></a>Télécharger à partir du portail Azure Classic
-1. Connectez-vous en tant qu’administrateur au [portail Azure Classic](https://manage.windowsazure.com).
-2. Sélectionnez **Active Directory**à gauche.
-3. En haut de la page Active Directory, sélectionnez **Fournisseurs d’authentification multifacteur**
-4. En bas, sélectionnez **Gérer**. Une nouvelle page s’ouvre.
-5. En bas à gauche, cliquez sur **SDK**.
-   <center>![Télécharger](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Sélectionnez la langue souhaitée, puis cliquez sur l’un des liens de téléchargement associés.
-7. Enregistrez le fichier téléchargé.
-
-### <a name="download-from-the-service-settings"></a>Télécharger à partir des paramètres de service
-1. Connectez-vous en tant qu’administrateur au [portail Azure Classic](https://manage.windowsazure.com).
-2. Sélectionnez **Active Directory**à gauche.
-3. Double-cliquez sur votre instance d’Azure AD.
-4. En haut de la page, cliquez sur **Configurer**
-5. Sous Authentification multifacteur, sélectionnez **Gérer les paramètres du service**
-   ![Télécharger](./media/multi-factor-authentication-sdk/download2.png)
-6. Au bas de la page Paramètres du service, cliquez sur **Accéder au portail**. Une nouvelle page s’ouvre.
-   ![Télécharger](./media/multi-factor-authentication-sdk/download3a.png)
-7. En bas à gauche, cliquez sur **SDK**.
-8. Sélectionnez la langue souhaitée, puis cliquez sur l’un des liens de téléchargement associés.
-9. Enregistrez le fichier téléchargé.
+Le téléchargement du SDK Azure Multi-Factor Authentication nécessite un [fournisseur Azure Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md).  Cela requiert un abonnement Azure complet, même si vous possédez des licences Azure MFA, Azure AD Premium ou Enterprise Mobility Suite. Les méthodes publiques de téléchargement du Kit SDK ont été supprimées depuis que le Kit SDK a été déprécié. Nous vous conseillons d’ouvrir un dossier de support auprès de Microsoft si vous avez besoin de télécharger le Kit SDK.
 
 ## <a name="whats-in-the-sdk"></a>Nouveautés du Kit de développement logiciel (SDK)
 Le Kit de développement logiciel (SDK) contient les éléments suivants :

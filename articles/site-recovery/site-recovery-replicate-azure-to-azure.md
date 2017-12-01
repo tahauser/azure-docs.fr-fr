@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/22/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles Azure vers une autre région Azure
 
@@ -53,7 +53,7 @@ Pour cette illustration, nous allons répliquer des machines virtuelles en cours
 
 1. **Source :** fait référence au point d’origine des machines (en l’occurrence, **Azure**).
 
-2. **Emplacement source :** il s’agit de la région Azure où vous souhaitez protéger vos machines virtuelles. Dans notre exemple, l’emplacement source est « Asie de l’Est ».
+2. **Emplacement source :** il s’agit de la région Azure où vous souhaitez protéger vos machines virtuelles. Dans notre exemple, l’emplacement source est « Asie de l’Est »
 
 3. **Modèle de déploiement :** fait référence au modèle de déploiement Azure des machines sources. Vous pouvez sélectionner Classique ou Resource Manager pour que les machines appartenant à ce modèle spécifique soient répertoriées pour la protection à l’étape suivante.
 
@@ -69,34 +69,34 @@ Dans **Machines virtuelles > Sélectionner les machines virtuelles**, cliquez su
     ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 
-Dans la section Paramètres, vous pouvez configurer les propriétés du site cible.
+Dans la section Paramètres, vous pouvez configurer les propriétés du site cible
 
 1. **Emplacement cible :** il s’agit de l’emplacement où vos données de machines virtuelles sources sont répliquées. En fonction de l’emplacement des machines virtuelles sélectionné, Site Recovery vous fournit la liste des régions cibles appropriées.
 
     > [!TIP]
     > Nous vous recommandons de conserver le même emplacement cible que votre coffre Recovery services.
 
-2. **Groupe de ressources cible :** il s’agit du groupe de ressources auquel toutes vos machines virtuelles répliquées appartiendront. Par défaut, ASR crée un groupe de ressources dans la région cible avec un nom ayant le suffixe « asr ». Dans le cas où le groupe de ressources créé par ASR existe déjà, il est réutilisé. Vous pouvez également choisir de le personnaliser comme indiqué dans la section ci-dessous.    
-3. **Réseau virtuel cible :** par défaut, ASR crée un réseau virtuel dans la région cible avec un nom ayant le suffixe « asr ». Il sera mappé à votre réseau source et utilisé pour toute protection ultérieure.
+2. **Groupe de ressources cible :** il s'agit du groupe de ressources auquel appartiendront toutes vos machines virtuelles répliquées. Par défaut, Azure Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». Si le groupe de ressources créé par Azure Site Recovery existe déjà, il sera réutilisé. Vous pouvez également choisir de le personnaliser, comme indiqué dans la section ci-dessous.    
+3. **Réseau virtuel cible :** par défaut, Azure Site Recovery crée un réseau virtuel dans la région cible avec un nom ayant le suffixe « asr ». Il sera mappé à votre réseau source et utilisé pour toute protection ultérieure.
 
     > [!NOTE]
     > Pour en savoir plus sur le mappage réseau, [consultez les détails sur la mise en réseau](site-recovery-network-mapping-azure-to-azure.md).
 
-4. **Comptes de stockage cibles :** par défaut, ASR crée le nouveau compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Dans le cas où le compte de stockage créé par ASR existe déjà, il est réutilisé.
+4. **Comptes de stockage cibles :** par défaut, Azure Site Recovery crée le nouveau compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Dans le cas où le compte de stockage créé par Azure Site Recovery existe déjà, il est réutilisé.
 
-5. **Comptes de stockage de cache :** ASR a besoin d’un compte de stockage supplémentaire appelé « stockage de cache » dans la région source. Toutes les modifications effectuées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache avant leur réplication vers l’emplacement cible.
+5. **Comptes de stockage de cache :** Azure Site Recovery a besoin d’un compte de stockage supplémentaire appelé « stockage de cache » dans la région source. Toutes les modifications effectuées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache avant leur réplication vers l’emplacement cible.
 
-6. **Groupe à haute disponibilité :** par défaut, ASR crée un groupe à haute disponibilité dans la région cible avec un nom ayant le suffixe « asr ». Dans le cas où le groupe à haute disponibilité créé par ASR existe déjà, il est réutilisé.
+6. **Groupe à haute disponibilité :** par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom ayant le suffixe « asr ». Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il sera réutilisé.
 
-7.  **Stratégie de réplication :** elle définit les paramètres de l’historique de rétention des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, ASR crée une stratégie de réplication avec des paramètres par défaut de « 24 heures » pour la rétention des points de récupération et « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
+7.  **Stratégie de réplication :** elle définit les paramètres de l’historique de rétention des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec des paramètres par défaut de « 24 heures » pour la rétention des points de récupération et « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
 
     ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 ## <a name="customize-target-resources"></a>Personnaliser les ressources cibles
 
-Si vous souhaitez changer les valeurs par défaut utilisées par ASR, vous pouvez le faire pour répondre à vos besoins.
+Si vous souhaitez changer les valeurs par défaut utilisées par Azure Site Recovery, vous pouvez le faire pour répondre à vos besoins.
 
-1. **Personnaliser :** cliquez sur ce bouton pour changer les valeurs par défaut utilisées par ASR.
+1. **Personnaliser :** cliquez sur ce bouton pour changer les valeurs par défaut utilisées par Azure Site Recovery.
 
 2. **Groupe de ressources cible :** vous pouvez sélectionner le groupe de ressources dans la liste de tous les groupes de ressources existants à l’emplacement cible dans l’abonnement.
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
-ms.openlocfilehash: 23dce1b3f6f40f8e4d5606d237700f31281d66c7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 06ce541b42de2ad20014199a7e87fe3d8c2dfe01
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API Table Azure Cosmos DB pour Java : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -35,12 +35,16 @@ ms.lasthandoff: 11/15/2017
 |**Documentation de l’API**|[Documentation de référence sur l’API Java](http://azure.github.io/azure-storage-java/)|
 |**Contribution au Kit de développement logiciel (SDK)**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
+> [!IMPORTANT]
+> Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les Kits de développement logiciels (SDK) mis à la disposition générale pour l’API Table.
+>
+
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Version en disponibilité générale
 
-## <a name="release-and-retirement-dates"></a>Dates de publication et de retrait
+## <a name="release-and-retirement-dates"></a>Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 

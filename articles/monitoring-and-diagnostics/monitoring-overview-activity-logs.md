@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: d36cc43889c190544b9a2735ce00e718c11fd216
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 Le **Journal d’activité Azure** est un journal d’abonnement qui fournit un aperçu de tous les événements relatifs aux abonnements qui se sont produits dans Azure. Cela inclut une plage de données, à partir de données opérationnelles d’Azure Resource Manager pour les mises à jour des événements de l’état d’intégrité du service. Le journal d’activité était précédemment appelé « journaux d’audit » ou « journaux des opérations », car la catégorie administrative indique les événements de plan de contrôle pour vos abonnements. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état de l’opération et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle Classic/« RDFE ».
@@ -49,7 +49,8 @@ Le journal d’activité contient plusieurs catégories de données. Pour plus d
 * **Alerte** : cette catégorie contient l’enregistrement de toutes les activations des alertes Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « % du processeur sur myVM a été supérieur à 80 pour les 5 dernières minutes. » Une variété de systèmes Azure possèdent un concept d’alertes : vous pouvez définir une règle quelconque et recevoir une notification lorsque les conditions correspondent à cette règle. Chaque fois qu’un type d’alerte Azure pris en charge « s’active » ou si les conditions sont remplies pour générer une notification, un enregistrement de l’activation est également envoyé à cette catégorie du journal d’activité.
 * **Mise à l’échelle automatique** : cette catégorie contient l’enregistrement de tous les événements liés au fonctionnement du moteur de mise à l’échelle selon les paramètres d’échelle automatique définis dans votre abonnement. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « Échec de l’action de monter en puissance de la mise à l’échelle automatique. » À l’aide de la mise à l’échelle automatique, vous pouvez automatiquement augmenter ou diminuer la taille des instances dans un type de ressource pris en charge basé sur l’heure du jour et/ou les données de charge (métriques) à l’aide d’un paramètre de mise à l’échelle automatique. Lorsque les conditions sont remplies pour monter ou descendre en puissance, les événements de démarrage réussis ou échoués sont enregistrés dans cette catégorie.
 * **Recommandation** : cette catégorie contient les événements de recommandation de certains types de ressources, telles que les sites Web et les serveurs SQL. Ces événements proposent des recommandations sur la manière de mieux utiliser vos ressources. Vous ne recevez que les événements de ce type si vous disposez de ressources qui émettent des recommandations.
-* **Stratégie, sécurité et état d’intégrité du service** : ces catégories ne contiennent pas d’événements ; elles sont réservées à un usage ultérieur.
+* **Sécurité** : Cette catégorie contient l’enregistrement de toutes les alertes générées par Azure Security Center. Voici un exemple du type d’événement que vous pouvez voir dans cette catégorie : « Suspicious double extension file executed. » (Fichier à extension double suspect exécuté.).
+* **Stratégie et état d’intégrité du service** : ces catégories ne contiennent pas d’événements ; elles sont réservées à un usage ultérieur.
 
 ## <a name="event-schema-per-category"></a>Schéma d’événements par catégorie
 [Consultez cet article pour comprendre le schéma d’événements de journal d’activité par catégorie.](monitoring-activity-log-schema.md)

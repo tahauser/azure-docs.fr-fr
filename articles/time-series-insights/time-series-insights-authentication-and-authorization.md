@@ -1,5 +1,5 @@
 ---
-title: "Comment configurer l’authentification et l’autorisation pour qu’une application personnalisée appelle l’API Azure Time Series Insights | Microsoft Docs"
+title: Guide pratique pour authentifier et autoriser des API dans Azure Time Series Insights
 description: "Cet article décrit comment configurer l’authentification et l’autorisation pour une application personnalisée qui appelle l’API Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -28,11 +28,11 @@ Cette section explique comment configurer une application pour accéder à l’A
 
 Lorsque vous avez une application qui doit accéder à Time Series Insights, vous devez configurer une application Azure Active Directory et affecter des stratégies d’accès aux données dans l’environnement Time Series Insights. Cette approche est préférable à l’exécution de l’application avec vos propres informations d’identification, car :
 
-* Vous pouvez assigner à l’identité de l’application des autorisations différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application doit faire. Par exemple, vous pouvez autoriser l’application à lire des données uniquement dans un environnement Time Series Insights particulier.
+* Vous pouvez assigner à l’identité de l’application des autorisations différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application nécessite. Par exemple, vous pouvez autoriser l’application à lire des données uniquement dans un environnement Time Series Insights particulier.
 * Il est inutile de modifier les informations d’identification de l’application si vos responsabilités évoluent.
 * Vous pouvez utiliser un certificat ou une clé d’application pour automatiser l’authentification lorsque vous exécutez un script sans assistance.
 
-Cet article explique comment effectuer ces étapes via le portail Azure. Elle se concentre sur une application à client unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à client unique sont généralement utilisées pour des applications métier exécutées au sein de votre organisation.
+Cette rubrique vous explique comment effectuer ces étapes via le portail Azure. Elle se concentre sur une application à client unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à client unique sont généralement utilisées pour des applications métier exécutées au sein de votre organisation.
 
 Le flux d’installation se compose de trois étapes principales :
 
@@ -104,4 +104,6 @@ Utilisez l’ID et la clé de l’application dans votre application pour effect
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour un exemple de code qui appelle l’API Time Series Insights, voir [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
 - Pour obtenir des informations de référence sur l’API, consultez le [document de référence sur l’API de requête](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
-- [Créer un principal du service dans le portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+
+> [!div class="nextstepaction"]
+> [Créer un principal du service](../azure-resource-manager/resource-group-create-service-principal-portal.md)

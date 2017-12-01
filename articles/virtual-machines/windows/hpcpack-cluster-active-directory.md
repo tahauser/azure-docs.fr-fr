@@ -1,23 +1,23 @@
 ---
 title: "Cluster HPC Pack avec Azure Active Directory | Microsoft Docs"
-description: "Apprenez à intégrer un cluster HPC Pack 2016 dans Azure avec Azure Active Directory"
+description: "Apprenez à intégrer un cluster Microsoft HPC Pack 2016 dans Azure avec Azure Active Directory"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 11/16/2017
 ms.author: danlep
-ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb0e878c4e987d111a535603cede25c639087ca7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Gérer un cluster HPC Pack dans Azure avec Azure Active Directory
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) prend en charge l’intégration avec [Azure Active Directory](../../active-directory/index.md) (Azure AD) pour les administrateurs qui déploient un cluster HPC Pack dans Azure.
@@ -59,69 +59,66 @@ L’intégration d’un cluster HPC Pack avec Azure AD peut vous aider à attein
 
 
 ## <a name="step-1-register-the-hpc-cluster-server-with-your-azure-ad-tenant"></a>Étape 1 : Inscrire le serveur de cluster HPC avec votre locataire Azure AD
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Cliquez sur **Active Directory** dans le menu de gauche, puis sur le répertoire souhaité dans votre abonnement. Vous devez être autorisé à accéder aux ressources du répertoire.
-3. Cliquez sur **Utilisateurs** et vérifiez que des comptes utilisateur ont déjà été créés ou configurés.
-4. Cliquez sur **Applications** > **Ajouter**, puis cliquez sur **Ajouter une application développée par mon organisation**. Entrez les informations suivantes dans l’Assistant :
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Si votre compte vous permet d’accéder à plus d’un client Azure AD, cliquez sur votre compte dans le coin supérieur droit. Définissez votre session de portail sur le client souhaité. Vous devez être autorisé à accéder aux ressources du répertoire. 
+3. Cliquez sur **Azure Active Directory** dans le volet de navigation Services à gauche, cliquez sur **Utilisateurs et groupes**, et vérifiez qu’il existe déjà des comptes d’utilisateur créés ou configurés.
+4. Dans **Azure Active Directory**, cliquez sur **Inscriptions d’application** > **Nouvelle inscription d’application**. Entrez les informations suivantes :
     * **Nom** : HPCPackClusterServer.
-    * **Type** : sélectionnez **Application web et/ou API web**.
+    * **Type d’application** : Sélectionnez **Application web/API**
     * **URL de connexion** : entrez l’URL de base de l’exemple, qui est par défaut `https://hpcserver`.
-    * **URI ID d’application** - `https://<Directory_name>/<application_name>`. Remplacez `<Directory_name`> par le nom complet de votre locataire Azure AD, par exemple `hpclocal.onmicrosoft.com`, puis remplacez `<application_name>` par le nom que vous avez précédemment choisi.
+    * Cliquez sur **Créer**.
+5. Une fois l’application ajoutée, sélectionnez-la dans la liste **Inscriptions d’application**. Puis cliquez sur **Paramètres** > **Propriétés**. Entrez les informations suivantes :
+    * Sélectionnez **Oui** pour **Mutualisé**.
+    * Modifiez **URI ID d’application** sur `https://<Directory_name>/<application_name>`. Remplacez `<Directory_name`> par le nom complet de votre locataire Azure AD, par exemple `hpclocal.onmicrosoft.com`, puis remplacez `<application_name>` par le nom que vous avez précédemment choisi.
+6. Cliquez sur **Enregistrer**. Une fois l’enregistrement terminé, dans la page de l’application, cliquez sur **Manifeste**. Modifiez le manifeste en recherchant le paramètre `appRoles` et en ajoutant le rôle d’application suivant, puis en cliquant sur **Enregistrer** :
 
-5. Après avoir ajouté l’application, cliquez sur **Configurer**. Configurez les propriétés suivantes :
-    * Sélectionnez **Oui** pour **Application mutualisée**.
-    * Sélectionnez **Oui** pour **Affectation de l'utilisateur requise pour accéder à l'application**.
-
-6. Cliquez sur **Enregistrer**. Une fois l’enregistrement terminé, cliquez sur **Gérer le manifeste**. Cette action permet de télécharger le fichier JSON du manifeste de votre application. Modifiez le manifeste téléchargé en recherchant le paramètre `appRoles` et en ajoutant le rôle d’application suivant :
-    ```json
-    "appRoles": [
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "displayName": "HpcAdminMirror",
-        "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "description": "HpcAdminMirror",
-        "value": "HpcAdminMirror"
-        },
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "description": "HpcUsers",
-        "displayName": "HpcUsers",
-        "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "value": "HpcUsers"
-        }
-    ],
-    ```
-7. Enregistrez le fichier . Dans le portail, cliquez sur **Gérer le manifeste** > **Télécharger le manifeste**. Vous pouvez ensuite télécharger le manifeste modifié.
-8. Cliquez sur **Utilisateurs**, sélectionnez un utilisateur, puis cliquez sur **Affecter**. Affectez l’un des rôles disponibles (HpcUsers ou HpcAdminMirror) à l’utilisateur. Répétez cette étape avec des utilisateurs supplémentaires dans le répertoire. Pour plus d’informations générales sur les utilisateurs de cluster, consultez [Gestion des utilisateurs de clusters](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
-
-   > [!NOTE] 
-   > Pour gérer les utilisateurs, nous vous recommandons d’utiliser le panneau de la version préliminaire d’Azure Active Directory dans le [portail Azure](https://portal.azure.com).
-   >
+  ```json
+  "appRoles": [
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "displayName": "HpcAdminMirror",
+     "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "description": "HpcAdminMirror",
+     "value": "HpcAdminMirror"
+     },
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "description": "HpcUsers",
+     "displayName": "HpcUsers",
+     "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "value": "HpcUsers"
+     }
+  ],
+  ```
+7. Dans **Azure Active Directory**, cliquez sur **Applications d’entreprise** > **Toutes les applications**. Sélectionnez **HPCPackClusterServer** dans la liste.
+8. Cliquez sur **Propriétés** et modifiez **Affectation d’utilisateurs requise** sur **Oui**. Cliquez sur **Enregistrer**.
+9. Cliquez sur **Utilisateurs et groupes** > **Ajouter un utilisateur**. Sélectionnez un utilisateur et sélectionnez un rôle, puis cliquez sur **Affecter**. Affectez l’un des rôles disponibles (HpcUsers ou HpcAdminMirror) à l’utilisateur. Répétez cette étape avec des utilisateurs supplémentaires dans le répertoire. Pour plus d’informations générales sur les utilisateurs de cluster, consultez [Gestion des utilisateurs de clusters](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
 
 ## <a name="step-2-register-the-hpc-cluster-client-with-your-azure-ad-tenant"></a>Étape 2 : Inscrire le client de cluster HPC avec votre locataire Azure AD
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Cliquez sur **Active Directory** dans le menu de gauche, puis sur le répertoire souhaité dans votre abonnement. Vous devez être autorisé à accéder aux ressources du répertoire.
-3. Cliquez sur **Applications** > **Ajouter**, puis cliquez sur **Ajouter une application développée par mon organisation**. Entrez les informations suivantes dans l’Assistant :
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Si votre compte vous permet d’accéder à plus d’un client Azure AD, cliquez sur votre compte dans le coin supérieur droit. Définissez votre session de portail sur le client souhaité. Vous devez être autorisé à accéder aux ressources du répertoire. 
+3. Dans **Azure Active Directory**, cliquez sur **Inscriptions d’application** > **Nouvelle inscription d’application**. Entrez les informations suivantes :
 
-    * **Nom** : HPCPackClusterClient.
-    * **Type** : sélectionnez **Application cliente native**
+    * **Nom** : HPCPackClusterClient.    
+    * **Type d’application** : Sélectionnez **Native**
     * **URI de redirection** - `http://hpcclient`
+    * Cliquez sur **Créer**
 
-4. Après avoir ajouté l’application, cliquez sur **Configurer**. Copiez l’**ID client** et enregistrez-le. Vous en aurez besoin plus tard lors de la configuration de votre application.
+4. Une fois l’application ajoutée, sélectionnez-la dans la liste **Inscriptions d’application**. Copiez la valeur **ID d’application** et enregistrez-la. Vous en aurez besoin plus tard lors de la configuration de votre application.
 
-5. Dans **Autorisations pour d’autres applications**, cliquez sur **Ajouter une application**. Recherchez et ajoutez l’application HpcPackClusterServer (créée à l’étape 1).
+5. Cliquez sur **Paramètres** > **Autorisations requises** > **Ajouter** > **Sélectionner une API**. Recherchez et sélectionnez l’application HpcPackClusterServer (créée à l’étape 1).
 
-6. Dans la liste déroulante **Autorisations déléguées**, sélectionnez **Accéder à HpcClusterServer**. Cliquez ensuite sur **Enregistrer**.
+6. Sur la page **Activer l’accès**, sélectionnez **Accéder à HpcClusterServer**. Cliquez ensuite sur **Terminé**.
 
 
 ## <a name="step-3-configure-the-hpc-cluster"></a>Étape 3 : Configurer le cluster HPC
@@ -134,21 +131,23 @@ L’intégration d’un cluster HPC Pack avec Azure AD peut vous aider à attein
 
     ```powershell
 
-    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
+    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcPackClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
     où
 
     * `AADTenant` spécifie le nom de locataire Azure AD, tel que `hpclocal.onmicrosoft.com`.
-    * `AADClientAppId` spécifie l’ID client de l’application créée à l’étape 2.
+    * `AADClientAppId` spécifie l’ID de l’application créée à l’étape 2.
 
-4. Redémarrez le service HpcSchedulerStateful.
+4. Effectuez une des actions suivantes, selon la configuration du nœud principal :
 
-    Dans un cluster avec plusieurs nœuds principaux, vous pouvez exécuter les commandes PowerShell suivantes sur le nœud principal pour basculer le réplica principal pour le service HpcSchedulerStateful :
+    * Dans un cluster HPC Pack avec un seul nœud principal, redémarrez le service HpcScheduler.
+
+    * Dans un cluster HPC Pack avec plusieurs nœuds principaux, exécutez les commandes PowerShell suivantes sur le nœud principal pour redémarrer le service HpcSchedulerStateful :
 
     ```powershell
     Connect-ServiceFabricCluster
 
-    Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService”
+    Move-ServiceFabricPrimaryReplica –ServiceName "fabric:/HpcApplication/SchedulerStatefulService"
 
     ```
 
@@ -174,7 +173,7 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ### <a name="manage-the-local-token-cache"></a>Gérer le cache local de jetons
 
-HPC Pack 2016 fournit deux nouvelles applets de commande HPC PowerShell pour gérer le cache local de jetons. Ces applets de commande sont utiles pour envoyer des travaux en mode non interactif. Voir l’exemple suivant :
+HPC Pack 2016 fournit les applets de commande HPC PowerShell suivantes pour gérer le cache local de jetons. Ces applets de commande sont utiles pour envoyer des travaux en mode non interactif. Voir l’exemple suivant :
 
 ```powershell
 Remove-HpcTokenCache
@@ -191,9 +190,9 @@ Parfois, vous pouvez être amené à exécuter le travail sous l’utilisateur d
 1. Exécutez les commandes suivantes pour définir les informations d’identification :
 
     ```powershell
-    $localUser = “<username>”
+    $localUser = "<username>"
 
-    $localUserPassword=”<password>”
+    $localUserPassword="<password>"
 
     $secpasswd = ConvertTo-SecureString $localUserPassword -AsPlainText -Force
 

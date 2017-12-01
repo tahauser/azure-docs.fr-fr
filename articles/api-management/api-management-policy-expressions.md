@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.  
@@ -174,7 +174,7 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 |----------------------|-------------------------------------------------------|  
 |context|Api: IApi<br /><br /> Déploiement<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Demande<br /><br /> RequestId: Guid<br /><br /> Réponse<br /><br /> Abonnement<br /><br /> Tracing: bool<br /><br /> Utilisateur<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
-|context.Deployment|Region: string<br /><br /> ServiceName: string|  
+|context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificats : IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|  
 |context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|  
 |context.Product|Apis: IEnumerable<IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
@@ -199,6 +199,12 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> Si le paramètre d’entrée contient une valeur valide d’en-tête de jeton JWT, la méthode renvoie `true` et le paramètre de résultats contient une valeur de type `Jwt` ; sinon, la méthode renvoie `false`.|  
 |Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|  
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Renvoie des valeurs de revendication séparées par des virgules ou `defaultValue` si l’en-tête est introuvable.|
+|byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - texte brut à déchiffrer<br /><br />alg - nom de l'algorithme de chiffrement symétrique<br /><br />key - clé de chiffrement<br /><br />iv - vecteur d'initialisation<br /><br />Renvoie un texte brut chiffré.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - texte brut à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />Renvoie un texte brut chiffré.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - texte brut à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />key - clé de chiffrement<br /><br />iv - vecteur d'initialisation<br /><br />Renvoie un texte brut chiffré.|
+|byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - texte à déchiffrer<br /><br />alg - nom de l'algorithme de chiffrement symétrique<br /><br />key - clé de chiffrement<br /><br />iv - vecteur d'initialisation<br /><br />Renvoie un texte brut.|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - texte à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />Renvoie un texte brut.|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - texte à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />key - clé de chiffrement<br /><br />iv - vecteur d'initialisation<br /><br />Renvoie un texte brut.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
