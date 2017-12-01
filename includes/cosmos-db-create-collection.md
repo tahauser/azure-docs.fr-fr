@@ -12,9 +12,9 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     ---|---|---
     ID de base de données|Tâches|Entrez *Tasks* comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères /, \\, # ou ?, ni d’espace de fin.
     ID de la collection|Éléments|Entrez *Items* comme nom pour votre nouvelle collection. Les ID de collection sont soumis aux mêmes spécifications de caractères que les noms de base de données.
-    Capacité de stockage| Fixe (10 Go)|Changez la valeur en **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
-    Débit|400 RU|Changez le débit en 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.
-    Clé de partition|/category|Clé de partition qui distribue les données uniformément à chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. Pour plus d’informations, consultez la section [Conception du partitionnement](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Capacité de stockage| Fixe (10 Go)|Modifiez la valeur en sélectionnant **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
+    Débit|400 RU|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). La capacité de stockage doit être définie sur **Fixe (10 Go)** afin de définir le débit sur 400 RU/s. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. 
+    Clé de partition|/category|Entrez */category* comme clé de partition. Une clé de partition distribue les données uniformément à chaque partition de la base de données. Pour plus d’informations sur le partitionnement, consultez [Conception du partitionnement](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
     Cliquez sur **OK**.
 

@@ -115,7 +115,7 @@ Il existe plusieurs façons de démarrer avec Application Insights. Commencez pa
   * [Visual Studio](app-insights-asp-net.md) 2013 Update 2 ou version ultérieure.
   * Java dans [Eclipse](app-insights-java-eclipse.md) ou [autres outils](app-insights-java-get-started.md)
   * [Node.JS](app-insights-nodejs.md)
-  * [Autres plateformes](app-insights-platforms.md)
+  * [autres plateformes](app-insights-platforms.md)
 * **[Instrumentez vos pages web](app-insights-javascript.md)** pour l’affichage de page, AJAX et d’autres données de télémétrie côté client.
 * **[Analysez l’utilisation des applications mobiles](app-insights-mobile-center-quickstart.md)** en effectuant l’intégration avec Visual Studio App Center.
 * **[Tests de disponibilité](app-insights-monitor-web-app-availability.md)** : effectuez régulièrement un test ping sur votre site web à partir de nos serveurs.

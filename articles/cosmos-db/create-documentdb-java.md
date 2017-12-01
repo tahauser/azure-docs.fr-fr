@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de documents à l’aide de Java et du portail Azure
 
@@ -97,13 +97,19 @@ L’exercice portant sur l’Explorateur de données est désormais terminé. Av
 
 À présent, travaillons sur le code. Nous allons cloner une application API DocumentDB à partir de GitHub, définir la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
-1. Ouvrez une fenêtre de terminal git comme Git Bash et utilisez la commande `cd` pour accéder à un dossier d’installation pour l’exemple d’application. 
+1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Ouvrez une fenêtre de terminal git comme Git Bash et utilisez la commande `cd` pour accéder au nouveau dossier d’installation pour l’exemple d’application. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -209,13 +215,25 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. Dans la fenêtre de terminal git, tapez `mvn package` pour installer les packages Java requis.
+2. Dans la fenêtre de terminal git, utilisez la commande suivante pour installer les packages Java requis.
 
-3. Dans la fenêtre de terminal git, exécutez `mvn exec:java -D exec.mainClass=GetStarted.Program` pour démarrer l’application Java.
+    ```
+    mvn package
+    ```
 
-    La fenêtre de terminal affiche une notification vous informant que la base de données FamilyDB a été créée. Appuyez sur une touche pour créer la collection, puis basculez vers l’Explorateur de données et constatez qu’il contient désormais une base de données FamilyDB.
+3. Dans la fenêtre de terminal git, utilisez la commande suivante pour démarrer l’application Java.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    La fenêtre de terminal affiche une notification vous informant que la base de données FamilyDB a été créée. 
     
-    Continuez à appuyer sur des touches pour créer les documents, puis exécutez une requête.
+4. Appuyez sur une touche pour créer la collection. 
+
+5. Revenez dans l’Explorateur de données et constatez qu’il contient désormais une base de données FamilyDB.
+    
+6. Continuez à appuyer sur des touches dans la fenêtre de console pour que le code crée des documents et effectuer une requête.
     
     À la fin du programme, toutes les ressources obtenues à partir de cette application sont supprimées de votre compte afin que vous n’ayez aucun frais à payer. 
 

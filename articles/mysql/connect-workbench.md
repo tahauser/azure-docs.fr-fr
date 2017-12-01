@@ -32,7 +32,7 @@ Obtenez les informations requises pour vous connecter à la base de données Azu
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **myserver4demo**.
+2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **myserver4demo**.
 
 3. Cliquez sur le nom du serveur.
 

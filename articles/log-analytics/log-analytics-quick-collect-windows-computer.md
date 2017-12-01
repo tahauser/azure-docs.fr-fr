@@ -51,7 +51,7 @@ Avant d’installer Microsoft Monitoring Agent pour Windows, vous devez disposer
 2. Dans votre liste d’espaces de travail Log Analytics, sélectionnez *DefaultLAWorkspace* créé précédemment.
 3. Sélectionnez **Paramètres avancés**.<br><br> ![Paramètres avancés de Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Sélectionnez **Sources connectées**, puis **Serveurs Windows**.   
-5. Des valeurs figurent à droite de **Clé primaire** et d’**ID de l’espace de travail**. Copiez-collez ces deux valeurs dans votre éditeur favori.   
+5. Des valeurs figurent à droite d’**ID de l’espace de travail** et de **Clé primaire**. Copiez-collez ces deux valeurs dans votre éditeur favori.   
 
 ## <a name="install-the-agent-for-windows"></a>Installer l’agent pour Windows
 Les étapes suivantes installent et configurent l’agent pour Log Analytics dans le cloud Azure et Azure Government en utilisant le programme d’installation de Microsoft Monitoring Agent sur votre ordinateur.  
@@ -88,7 +88,7 @@ Log Analytics est capable de collecter les événements des journaux des événe
 À présent que vous avez activé la collecte de données, exécutons un exemple simple de recherche dans les journaux pour voir certaines données de l’ordinateur cible.  
 
 1. Dans le portail Azure, sous l’espace de travail sélectionné, cliquez sur la vignette **Recherche dans les journaux**.  
-2. Dans le volet Recherche dans les journaux, dans le champ de requête, tapez `Perf`, puis appuyez sur Entrée ou cliquez sur le bouton de recherche à droite du champ de requête.<br><br> ![Exemple de requête de recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> Par exemple, la requête présentée dans l’image suivante a retourné 735 enregistrements de performances.<br><br> ![Résultat de la recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-search-perf.png)
+2. Dans le volet Recherche dans les journaux, dans le champ de requête, tapez `Perf`, puis appuyez sur Entrée ou cliquez sur le bouton de recherche à droite du champ de requête.<br><br> ![Exemple de requête de recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> Par exemple, la requête présentée dans l’image suivante a retourné 735 enregistrements de performances.<br><br> ![Résultat de la recherche dans les journaux Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Lorsque vous n’en avez plus besoin, vous pouvez supprimer l’agent de l’ordinateur Windows ainsi que l’espace de travail Log Analytics.  

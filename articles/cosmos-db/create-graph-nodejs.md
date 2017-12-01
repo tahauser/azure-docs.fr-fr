@@ -23,13 +23,13 @@ ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB : Créer une application Node.js à l’aide de l’API Graph
 
-Azure Cosmos DB est le service de base de données multi-modèle distribué mondialement de Microsoft. Vous pouvez rapidement créer et interroger des bases de données de documents, de paires clé/valeur et de graphes, qui bénéficient toutes des fonctionnalités de distribution mondiale et de mise à l’échelle horizontale qui sont au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle distribué mondialement de Microsoft. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
 Ce guide de démarrage rapide explique comment créer un compte Azure Cosmos DB pour l’API Graph (préversion), une base de données ainsi qu’un graphe à l’aide du portail Azure. Par la suite, vous allez créer et exécuter une application console en utilisant le pilote [Gremlin Node.js](https://www.npmjs.com/package/gremlin) open-source.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-Avant de pouvoir exécuter cet exemple, vous devez posséder les prérequis suivants :
+Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
 * [Node.js](https://nodejs.org/en/) version 0.10.29 ou supérieure
 * [Git](http://git-scm.com/)
 
@@ -39,7 +39,7 @@ Avant de pouvoir exécuter cet exemple, vous devez posséder les prérequis suiv
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphe
+## <a name="add-a-graph"></a>Ajout d’un graphique
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -139,7 +139,7 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
 
    ![Panneau « Clés » du portail Azure](./media/create-graph-nodejs/keys.png)
 
-4. Entrez le nom de la base de données et le nom du graphe (conteneur) pour la valeur de config.database et de config.collection. 
+4. Entrez le nom de la base de données et le nom du graphique (conteneur) pour la valeur de config.database et de config.collection. 
 
 Voici un exemple de ce à quoi votre fichier config.js terminé doit ressembler :
 
@@ -165,9 +165,9 @@ module.exports = config;
 
 ## <a name="browse-with-data-explorer"></a>Navigation avec l’Explorateur de données
 
-Vous pouvez maintenant revenir à l’Explorateur de données, dans le portail Azure, pour afficher, modifier, interroger et manipuler vos nouvelles données de graphe.
+Vous pouvez maintenant revenir à l’Explorateur de données, dans le portail Azure, pour afficher, modifier, interroger et manipuler vos nouvelles données graphiques.
 
-Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet **Graphes**. Développez la base de données, suivie de la collection, puis sélectionnez **Graphe**.
+Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet **Graphique**. Développez la base de données, suivie de la collection, puis sélectionnez **Graphe**.
 
 Les données générées par l’exemple d’application s’affichent dans le volet suivant de l’onglet **Graphe** lorsque vous sélectionnez **Appliquer un filtre**.
 
@@ -187,7 +187,7 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphe puissante, à l’aide de Gremlin. 
+Dans cet article, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)

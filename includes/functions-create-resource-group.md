@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure, comme les applications de fonction, les bases de données et les comptes de stockage, sont déployées et gérées.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure comme les Function Apps, les bases de données et les comptes de stockage sont déployées et gérées.
 
 L’exemple suivant crée un groupe de ressources nommé `myResourceGroup`.  
 Si vous n’utilisez pas Cloud Shell, connectez-vous d’abord à l’aide de `az login`.

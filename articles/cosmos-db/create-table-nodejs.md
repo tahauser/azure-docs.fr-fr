@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Node.js et Azure Cosmos DB
 
-Ce démarrage rapide montre comment utiliser Node.js et [l’API Table](table-introduction.md) d’Azure Cosmos DB pour créer une application en clonant un exemple à partir de GitHub. Ce démarrage rapide vous montre également comment créer un compte Azure Cosmos DB et comment utiliser l’Explorateur de données pour créer des tables et des entités dans le portail web Azure.
+Ce démarrage rapide montre comment utiliser Node.js et [l’API Table](table-introduction.md) d’Azure Cosmos DB pour créer une application en clonant un exemple à partir de GitHub. Ce guide de démarrage rapide vous montre également comment créer un compte Azure Cosmos DB et comment utiliser l’Explorateur de données pour créer des tables et des entités dans le portail web Azure.
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous avez la possibilité de créer et d’interroger rapidement des bases de données de documents, de paires clé/valeur, de colonnes larges et de graphes, qui bénéficient toutes des capacités de distribution mondiale et de mise à l’échelle horizontale qui sont au cœur d’Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -38,6 +38,10 @@ Par ailleurs :
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
+
+> [!IMPORTANT] 
+> Vous devez créer un compte d’API Table pour utiliser les kits SDK d’API Table mis à la disposition générale. Les comptes d’API Table créés pendant la durée de la préversion ne sont pas pris en charge par les kits SDK mis à la disposition générale.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -68,13 +72,11 @@ Vous pouvez maintenant ajouter des données à votre nouvelle table grâce à l�
     cd "C:\git-samples"
     ```
 
-2. Exécutez la commande suivante pour cloner l’exemple de dépôt : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
+2. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
-
-3. Ouvrez le fichier de solution dans Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
@@ -82,9 +84,15 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
 
-    ![Affichez et copiez les informations de chaîne de connexion qui se trouvent dans le volet Chaîne de connexion.](./media/create-table-nodejs/connection-string.png)
+    ![Affichez et copiez les informations de chaîne de connexion qui se trouvent dans le volet Chaîne de connexion](./media/create-table-nodejs/connection-string.png)
 
-2. Ouvrez le fichier app.config, puis copiez-y les propriétés de chaîne de connexion.
+2. Copiez la CHAÎNE DE CONNEXION PRINCIPALE à l’aide du bouton Copier à droite.
+
+3. Ouvrez le fichier app.config, puis collez la valeur dans connectionString à la ligne trois. 
+
+    > [!IMPORTANT]
+    > Si votre point de terminaison utilise documents.azure.com, cela signifie que vous disposez d’un compte de version préliminaire et que vous devez créer un [nouveau compte d’API Table](#create-a-database-account) à utiliser avec le Kit de développement logiciel (SDK) d’API Table généralement disponible.
+    >
 
 3. Enregistrez le fichier app.config.
 
@@ -92,20 +100,25 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
 ## <a name="run-the-app"></a>Exécution de l'application
 
-1. Dans la fenêtre de terminal git, exécutez la commande `cd` pour accéder au dossier storage-table-java-getting-started.
+1. Dans la fenêtre de terminal git, exécutez `cd` pour accéder au dossier storage-table-java-getting-started.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Dans la fenêtre de terminal git, exécutez les commandes suivantes pour démarrer l’application Java.
+2. Exécutez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier package.json
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. Dans la fenêtre de terminal git, exécutez les commandes suivantes pour démarrer l’application Node.
+
+    ```
     node ./tableSample.js 
     ```
 
-    La fenêtre de console affiche les données qui sont ajoutées à la nouvelle base de données de table dans Azure Cosmos DB.
+    La fenêtre de console affiche les données de table qui sont ajoutées à la nouvelle base de données de tables dans Azure Cosmos DB.
 
     Vous pouvez dès à présent revenir à l’Explorateur de données et voir la requête, modifier et travailler avec ces nouvelles données. 
 

@@ -26,7 +26,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un
 - [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Installer Python et le connecteur MySQL
-Installez [Python](https://www.python.org/downloads/) et le [connecteur MySQL pour Python](https://dev.mysql.com/downloads/connector/python/) sur votre ordinateur. En fonction de votre plateforme, suivez les étapes décrites dans la section appropriée :
+Installez [Python](https://www.python.org/downloads/) et le [connecteur MySQL pour Python](https://dev.mysql.com/downloads/connector/python/) sur votre ordinateur. Suivez les étapes correspondant à votre plateforme :
 
 ### <a name="windows"></a>Windows
 1. Téléchargez et installez Python 2.7 sur [python.org](https://www.python.org/downloads/windows/). 

@@ -9,7 +9,7 @@
     Paramètre|Valeur suggérée|Description
     ---|---|---
     ID|*Entrez un nom unique*|Entrez un nom unique pour identifier ce compte Azure Cosmos DB. Étant donné que *documents.azure.com* est ajouté à l’ID que vous fournissez pour créer votre URI, utilisez un ID unique mais identifiable.<br><br>L’ID ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-), et doit comporter entre 3 et 50 caractères.
-    API|Gremlin (graphe)|L’API détermine le type de compte à créer. Azure Cosmos DB fournit quatre API pour répondre aux besoins de votre application : Gremlin (graphe), MongoDB, SQL (DocumentDB) et Table (clé-valeur). Chaque API nécessite actuellement un compte distinct. <br><br>Sélectionnez **Gremlin (graphe)**, car dans ce démarrage rapide, vous créez un graphe qui peut être interrogé avec la syntaxe Gremlin.<br><br>[En savoir plus sur l’API Graph](../articles/cosmos-db/graph-introduction.md)
+    API|Gremlin (graphique)|L’API détermine le type de compte à créer. Azure Cosmos DB fournit cinq API pour répondre aux besoins de votre application : SQL (base de données Document), Gremlin (base de données de graphiques), MongoDB (base de données Document), Table Azure et Cassandra, qui nécessitent toutes un compte séparé. <br><br>Sélectionnez **Gremlin (graphe)**, car dans ce démarrage rapide, vous créez un graphe qui peut être interrogé avec la syntaxe Gremlin.<br><br>[En savoir plus sur l’API Graph](../articles/cosmos-db/graph-introduction.md)
     Abonnement|*Votre abonnement*|Sélectionnez l’abonnement Azure que vous voulez utiliser pour ce compte Azure Cosmos DB. 
     Groupe de ressources|*Entrez le même nom unique que celui fourni plus haut dans ID*|Entrez le nom du nouveau groupe de ressources pour votre compte. Pour plus de simplicité, vous pouvez utiliser le même nom que votre ID. 
     Lieu|*Sélectionner la région la plus proche de vos utilisateurs*|Sélectionnez l’emplacement géographique où héberger votre compte Azure Cosmos DB. Utilisez l’emplacement le plus proche de vos utilisateurs, pour leur donner l’accès le plus rapide possible aux données.
@@ -20,7 +20,7 @@
 
     ![Panneau de nouveau compte pour Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-4. La création du compte prend quelques minutes. Pendant la création du compte, le portail affiche la vignette **Déploiement d’Azure Cosmos DB**.
+4. La création du compte prend quelques minutes. Au cours de création d’un compte, le portail affiche la vignette **Déploiement d’Azure Cosmos DB** sur le côté droit. Vous devrez peut-être faire défiler à droite sur votre tableau de bord pour voir la vignette. Il existe également une barre de progression en haut de l’écran. Vous pouvez surveiller la progression de la zone souhaitée.
 
     ![Volet Notifications du portail Azure](./media/cosmos-db-create-dbaccount-graph/deploying-cosmos-db.png)
 

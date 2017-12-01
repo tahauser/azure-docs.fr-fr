@@ -83,7 +83,7 @@ Obtenez les informations requises pour vous connecter à la base de données Azu
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche du Portail Azure, cliquez sur **Toutes les ressources** puis recherchez le serveur que vous venez de créer, par exemple, **myserver4demo**.
 3. Cliquez sur le nom du serveur, **myserver4demo**.
-4. Sélectionnez la page **Propriétés** du serveur, puis notez le **Nom du serveur** et le **Nom de connexion de l’administrateur du serveur**.
+4. Sélectionnez la page **Propriétés** du serveur, puis notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**.
  ![Azure Database pour MySQL - Connexion d’administrateur du serveur](./media/connect-go/1_server-properties-name-login.png)
 5. Si vous avez oublié vos informations de connexion au serveur, accédez à la page **Vue d’ensemble** pour afficher le nom de connexion de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
    

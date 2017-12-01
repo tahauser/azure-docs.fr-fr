@@ -90,7 +90,7 @@ Vous pouvez accéder au site SCM à partir d’**Outils avancés** dans le menu 
 
 Consultez les liens ci-dessous pour vous familiariser avec App Service sur Linux. Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Guide pratique pour utiliser une image Docker personnalisée pour Web App for Containers](quickstart-custom-docker-image.md)
+* [Guide pratique pour utiliser une image Docker personnalisée pour Web App pour conteneurs](quickstart-custom-docker-image.md)
 * [Utiliser .NET Core dans Azure App Service sur Linux](quickstart-dotnetcore.md)
 * [Utiliser Ruby dans Azure App Service sur Linux](quickstart-ruby.md)
 * [Forum aux questions sur Azure App Service Web App for Containers](app-service-linux-faq.md)

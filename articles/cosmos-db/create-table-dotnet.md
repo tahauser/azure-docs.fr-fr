@@ -3,7 +3,7 @@ title: "Démarrage rapide : API Table avec .NET - Azure Cosmos DB | Microsoft Do
 description: "Ce guide de démarrage rapide montre comment utiliser l’API Table d’Azure Cosmos DB pour créer une application avec le portail Azure et .NET"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/20/2017
+ms.author: mimig
+ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec .NET et Azure Cosmos DB 
 
@@ -34,6 +34,10 @@ Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez téléch
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
+
+> [!IMPORTANT] 
+> Vous devez créer un compte d’API Table pour utiliser les kits SDK d’API Table mis à la disposition générale. Les comptes d’API Table créés pendant la durée de la préversion ne sont pas pris en charge par les kits SDK mis à la disposition générale.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,21 +88,26 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 2. Dans Visual Studio, ouvrez le fichier App.config. 
 
-3. Supprimez les marques de commentaire de la chaîne StorageConnectionString à la ligne 8 et commentez la chaîne StorageConnectionString à la ligne 7, étant donné que ce didacticiel n’utilise pas l’émulateur de stockage. 
-
-3. Collez la valeur de la CHAÎNE DE CONNEXION PRINCIPALE dans la valeur de la chaîne StorageConnectionString à la ligne 8. 
+3. Supprimez les marques de commentaire de la chaîne StorageConnectionString à la ligne 8 et commentez la chaîne StorageConnectionString à la ligne 7, étant donné que ce didacticiel n’utilise pas l’émulateur de stockage. Les lignes 7 et 8 doivent maintenant ressembler à ceci :
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    La ligne 8 doit maintenant ressembler à
+4. Collez la CHAÎNE DE CONNEXION PRINCIPALE du portail dans la valeur StorageConnectionString à la ligne 8. Collez la chaîne entre les guillemets. 
+
+    > [!IMPORTANT]
+    > Si votre point de terminaison utilise documents.azure.com, cela signifie que vous disposez d’un compte de version préliminaire et que vous devez créer un [nouveau compte d’API Table](#create-a-database-account) à utiliser avec le Kit de développement logiciel (SDK) d’API Table généralement disponible. 
+    > 
+
+    La ligne 8 doit maintenant ressembler à :
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. Enregistrez le fichier App.config.
+5. Enregistrez le fichier App.config.
 
 Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
@@ -110,13 +119,27 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
 3. À partir des résultats, installez la bibliothèque **Microsoft.Azure.CosmosDB.Table**. Cette opération installe le package API Table d’Azure Cosmos DB, ainsi que toutes les dépendances.
 
-4. Appuyez sur Ctrl + F5 pour exécuter l’application.
+4. Ouvrez BasicSamples.cs et ajoutez un point d’arrêt aux lignes 30 et 52.
 
-    La fenêtre de console affiche les données de table qui sont ajoutées à la nouvelle base de données de tables dans Azure Cosmos DB.
+5. Appuyez sur Ctrl + F5 pour exécuter l’application.
 
-    Vous pouvez dès à présent revenir à l’Explorateur de données et voir la requête, modifier et travailler avec ces nouvelles données.
+    La fenêtre de console affiche les données de table qui sont ajoutées à la nouvelle base de données de tables dans Azure Cosmos DB. 
+    
+    En cas d’erreur relative aux dépendances, consultez [Résolution des problèmes](table-sdk-dotnet.md#troubleshooting).
 
-## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
+    Lorsque vous atteignez le premier point d’arrêt, revenez à l’Explorateur de données dans le portail Azure et développez la table demo*, puis cliquez sur **Entités**. L’onglet **Entités** situé à droite affiche la nouvelle entité qui a été ajoutée, notez que le numéro de téléphone de l’utilisateur est 425-555-0101.
+    
+6. Fermez l’onglet Entités dans l’Explorateur de données.
+    
+7. Continuez à exécuter l’application jusqu’au point d’arrêt suivant.
+
+    Lorsque vous atteignez le point d’arrêt, revenez au portail, cliquez à nouveau sur Entités pour ouvrir l’onglet Entités, et notez que le numéro de téléphone a été remplacé par 425-555-0105.
+
+8. De retour dans la fenêtre de console, appuyez sur CTRL+C pour mettre fin à l’exécution de l’application. 
+
+    Vous pouvez maintenant revenir à l’Explorateur de données et ajouter ou modifier des entités et interroger les données.
+
+## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
