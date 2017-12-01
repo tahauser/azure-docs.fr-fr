@@ -24,7 +24,7 @@ ms.lasthandoff: 11/17/2017
 # <a name="azure-and-linux"></a>Azure et Linux
 Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
 
-Si vous êtes familiarisé avec les différentes fonctionnalités d’Amazon AWS, vous pouvez examiner le [document de mappage de définition](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)Azure vs AWS.
+Si vous êtes familiarisé avec les différentes fonctionnalités d’Amazon AWS, vous pouvez examiner le [document d'équivalences](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) Azure vs AWS.
 
 ## <a name="regions"></a>Régions
 Les ressources Microsoft Azure sont réparties sur plusieurs régions géographiques dans le monde.  Une « région » représente plusieurs centres de données au sein d’une seule zone géographique.  Nous avons 34 régions généralement disponibles dans le monde avec 4 autres régions prévues. Étant donné que nous poursuivons le développement de notre couverture globale, nous maintenons une liste à jour des régions existantes et nouvelles.
