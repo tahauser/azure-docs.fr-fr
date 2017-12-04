@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 359887a8527d5432e705d9739e30f0eb2363e34f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Principaux de service avec Azure Container Service (AKS)
 
@@ -43,7 +43,7 @@ Lors du déploiement d’un cluster AKS avec la commande `az aks create`, vous a
 Dans l’exemple suivant, un cluster AKS est créé, et puisqu’un principal de service existant n’est pas spécifié, un principal de service est créé pour le cluster. Pour effectuer cette opération, votre compte doit disposer des droits nécessaires pour la création d’un principal de service.
 
 ```azurecli
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Utiliser un Service Pack existant
@@ -52,8 +52,6 @@ Un principal de service Azure AD existant peut être utilisé ou créé au préa
 
 Lorsque vous utilisez un principal de service existant, celui-ci doit remplir les conditions suivantes :
 
-- Portée : l’abonnement utilisé pour déployer le cluster
-- Rôle : Collaborateur
 - Clé secrète client : doit être un mot de passe
 
 ## <a name="pre-create-a-new-sp"></a>Créer un nouveau Service Pack au préalable
@@ -61,8 +59,7 @@ Lorsque vous utilisez un principal de service existant, celui-ci doit remplir le
 Pour créer le principal de service avec Azure CLI, utilisez la commande [az ad sp create-for-rbac]().
 
 ```azurecli
-id=$(az account show --query id --output tsv)
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+az ad sp create-for-rbac --skip-assignment
 ```
 
 Le résultat ressemble à ce qui suit. Notez la valeur de `appId` et `password`. Ces valeurs sont utilisées lors de la création d’un cluster AKS.
@@ -82,7 +79,7 @@ Le résultat ressemble à ce qui suit. Notez la valeur de `appId` et `password`.
 Lorsque vous utilisez un principal de service créé au préalable, fournissez `appId` et `password` en tant que valeurs d’argument à la commande `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
 ```
 
 Si vous déployez un cluster AKS à partir du portail Azure, entrez ces valeurs dans le formulaire de configuration de cluster AKS.
@@ -99,6 +96,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 * Sur les machines virtuelles principales et de nœud du cluster Kubernetes, les informations d’identification du principal du service sont stockées dans le fichier /etc/kubernetes/azure.json.
 * Si vous utilisez la commande `az aks create` pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier ~/.azure/acsServicePrincipal.json sur la machine utilisée pour exécuter la commande.
 * Si vous utilisez la commande `az aks create` pour générer automatiquement le principal de service, ce dernier peut également s’authentifier auprès d’un registre [Azure Container Registry](../container-registry/container-registry-intro.md) créé dans le même abonnement.
+* Lors de la suppression d’un cluster AKS qui a été créé par `az aks create`, le principal du service qui a été créé automatiquement ne sera pas supprimé. Vous pouvez utiliser `az ad sp delete --id $clientID` pour le supprimer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

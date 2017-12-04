@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
 Les services Azure Machine Learning (version préliminaire) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -163,7 +163,7 @@ Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteu
 
 3. Créez l’environnement. Vous devez exécuter cette étape une fois par environnement. Par exemple, exécutez-la une fois pour l’environnement de développement et une fois pour l’environnement de production. Utilisez le _mode local_ pour ce premier environnement. Vous pouvez essayer le commutateur `-c` ou `--cluster` dans la commande suivante pour configurer un environnement en _mode cluster_ ultérieurement.
 
-Notez que pour la commande de configuration suivante, vous devez disposer d’un accès collaborateur à l’abonnement. Si vous n’en avez pas, il vous faudra au moins un accès collaborateur au groupe de ressources dans lequel vous déployez. Pour ce faire, vous devez spécifier le nom de groupe de ressources dans le cadre de la commande d’installation à l’aide de l’indicateur `-g`. 
+   Notez que pour la commande de configuration suivante, vous devez disposer d’un accès collaborateur à l’abonnement. Si vous n’en avez pas, il vous faudra au moins un accès collaborateur au groupe de ressources dans lequel vous déployez. Pour l’obtenir, vous devez spécifier le nom du groupe de ressources dans la commande de configuration à l’aide de l’indicateur `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ Vous êtes maintenant prêt à exécuter le service web.
 
 Pour tester le service web **irisapp** qui est en cours d’exécution, utilisez un enregistrement JSON encodé contenant un tableau de quatre nombres aléatoires :
 
-1. Le service web inclut des exemples de données. Lors de l’exécution en mode local, vous pouvez appeler la commande**az ml service show realtime**. Cet appel récupère un exemple de commande d’exécution qui vous pouvez utiliser pour tester le service. L’appel récupère également l’URL de notation que vous pouvez utiliser pour intégrer le service à votre propre application personnalisée :
+1. Le service web inclut des exemples de données. Lors de l’exécution en mode local, vous pouvez appeler la commande **az ml service usage realtime**. Cet appel récupère un exemple de commande d’exécution qui vous pouvez utiliser pour tester le service. L’appel récupère également l’URL de notation que vous pouvez utiliser pour intégrer le service à votre propre application personnalisée :
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. Pour tester le service, exécutez la commande service run retournée :

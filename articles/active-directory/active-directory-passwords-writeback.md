@@ -6,21 +6,21 @@ keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>Vue d’ensemble de la réécriture du mot de passe
 
@@ -108,8 +108,8 @@ Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface util
 
 Si vous définissez ces autorisations, le compte de service de l’agent de gestion de chaque forêt peut gérer les mots de passe pour les comptes d’utilisateur de cette forêt. 
 
->[!IMPORTANT]
->Sans ces autorisations, même si l’écriture différée semble configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud.
+> [!IMPORTANT]
+> Sans ces autorisations, même si l’écriture différée semble configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud.
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
 5. Sélectionnez le compte auquel les autorisations sont appliquées (à partir de la configuration Azure AD Connect).
 6. Dans la liste déroulante **S’applique à**, sélectionnez les objets de type **utilisateur descendant**.
 7. Sous **Autorisations**, cochez les cases correspondant aux éléments suivants :
-    * **Ne pas faire expirer le mot de passe**
     * **Réinitialiser le mot de passe**
     * **Modifier le mot de passe**
     * **Écrire lockoutTime**

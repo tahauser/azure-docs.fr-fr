@@ -15,13 +15,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/01/2017
+ms.date: 08/02/2017
 ms.author: ayolubek
-ms.openlocfilehash: 788b9d2e7ff9e1dba2aca5eca982e4ddf045a6c4
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ae7ce2c138a9948654d96e018c167d12356ae93d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portail Azure : utilisez l’éditeur de requête SQL pour vous connecter et effectuer des requêtes de données
 
@@ -31,10 +31,7 @@ L’éditeur de requête SQL est un outil de requête de navigateur qui offre un
 
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
 
-- [Créer une base de données - Portail](sql-database-get-started-portal.md)
-- [Créer une base de données - CLI](sql-database-get-started-cli.md)
-- [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
-
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

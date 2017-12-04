@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulation d’échange à fréquence élevée avec Stream Analytics
-La combinaison de langage SQL, UDF JavaScript et UDA de Azure Stream Analytics est une combinaison puissante qui permet aux utilisateurs d’effectuer des tâches d’analytique avancée, y compris d’apprentissage automatique en ligne et de notation ou de simulation des processus avec état. Cet article décrit comment effectuer une régression linéaire dans une tâche Azure Stream Analytics qui exécute la formation continue et la notation dans un scénario commercial haute fréquence.
+La combinaison du langage SQL, des fonctions JavaScript définies par l’utilisateur (UDF) et des agrégats définis par l’utilisateur (UDA) dans Azure Stream Analytics permet aux utilisateurs d’effectuer des analyses avancées. Les analyses avancées peuvent inclure l’apprentissage automatique en ligne et la notation, ainsi que la simulation des processus avec état. Cet article décrit comment effectuer une régression linéaire dans une tâche Azure Stream Analytics qui exécute la formation continue et la notation dans un scénario commercial haute fréquence.
 
 ## <a name="high-frequency-trading"></a>Échange à fréquence élevée
-Le flux logique des échanges à haute fréquence est basé sur l’obtention des devis en temps réel à partir d’un échange de sécurité, la création d’un modèle prédictif autour des devis, afin de pouvoir anticiper le mouvement des prix et de passer des commandes d’achat ou de vente en conséquence pour générer des revenus en fonction de la prédiction réussie des mouvements de prix. Par conséquent, nous avons besoin des éléments suivants :
-* Flux de devis en temps réel
-* Un modèle de prévision pouvant opérer sur les devis en temps réel
-* Une simulation commerciale illustrant le résultat de l’algorithme commercial
+Le flux logique des échanges à fréquence élevée concerne :
+1. L’obtention de devis en temps réel à partir d’un échange de sécurité.
+2. La création d’un modèle prédictif autour des devis, afin d’anticiper les mouvements de prix.
+3. Le placement d’ordres d’achat ou de vente pour générer des revenus à partir de la prédiction réussie des mouvements de prix. 
+
+Par conséquent, nous avons besoin :
+* D’un flux de devis en temps réel.
+* D’un modèle de prévision pouvant opérer sur les devis en temps réel.
+* D’une simulation commerciale illustrant les profits ou les pertes de l’algorithme commercial.
 
 ### <a name="real-time-quote-feed"></a>Flux de devis en temps réel
-IEX permet l’affichage gratuit des offres en temps réel et la demande de devis à l’aide de socket.io, https://iextrading.com/developer/docs/#websockets. Un programme de console simple peut être écrit pour recevoir les devis en temps réel et transmettre à un concentrateur d’événements en tant que source de données. La structure du programme est présentée ci-dessous. La gestion des erreurs est omise par souci de concision. Vous devez également inclure les packages NuGet SocketIoClientDotNet et WindowsAzure.ServiceBus dans votre projet.
+IEX permet l’affichage gratuit des [offres en temps réel et la demande de devis](https://iextrading.com/developer/docs/#websockets) à l’aide de socket.io. Un programme de console simple peut être écrit pour recevoir les devis en temps réel et les transmettre aux Event Hubs Azure en tant que source de données. Le code suivant est la structure du programme. Le code omet la gestion des erreurs pour des raisons de concision. Vous devez également inclure les packages NuGet SocketIoClientDotNet et WindowsAzure.ServiceBus dans votre projet.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ IEX permet l’affichage gratuit des offres en temps réel et la demande de devi
         socket.Emit("subscribe", symbols);
     });
 
-Voici quelques exemples d’événements générés.
+Voici quelques exemples d’événements générés :
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -62,18 +67,20 @@ Voici quelques exemples d’événements générés.
     {"symbol":"GOOG","marketPercent":0.04795,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953362629,"sector":"softwareservices","securityType":"commonstock"}
 
 >[!NOTE]
->Le timestamp de l’événement est **lastUpdated**, en heure d’époque.
+>L’horodatage de l’événement est **lastUpdated**, en heure d’époque.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modèle de prédictif pour les échanges à fréquence élevée
-À des fins de démonstration, nous utilisons un modèle linéaire décrit par Darryl Shen dans sa thèse. http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+À des fins de démonstration, nous utilisons un modèle linéaire décrit par Darryl Shen dans [sa thèse](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
 
-Le déséquilibre du volume de commande (VOI) est une fonction d’offres/demandes qui concerne les prix et le volume, elle s’applique aux offres/demandes en cours ou depuis le dernier cycle. Dans la thèse, sont identifiées les corrélations entre le déséquilibre du volume de commande et les mouvements de prix futurs. On y distingue un modèle linéaire entre les 5 dernières valeurs du VOI et les variations de prix des 10 cycles suivants. L’apprentissage du modèle est effectué à l’aide des données du jour précédent et de la régression linéaire. Le modèle formé est ensuite utilisé pour effectuer des prédictions de prix sur les devis du jour de bourse actuel, en temps réel. Lorsqu’une variation de prix suffisamment importante est prévue, une transaction est exécutée. Selon le paramètre de seuil, des milliers de transactions peuvent se produire pour une action unique en un seul jour de bourse.
+Le déséquilibre du volume de commande (VOI) est une fonction d’offres/demandes qui concerne les prix et le volume, elle s’applique aux offres/demandes en cours ou depuis le dernier cycle. Dans la thèse, sont identifiées les corrélations entre le déséquilibre du volume de commande et les mouvements de prix futurs. On y distingue un modèle linéaire entre les 5 dernières valeurs du VOI et les mouvements de prix des 10 cycles suivants. L’apprentissage du modèle est effectué à l’aide des données du jour précédent et de la régression linéaire. 
+
+Le modèle formé est ensuite utilisé pour effectuer des prédictions de prix sur les devis du jour de bourse actuel, en temps réel. Lorsqu’une variation de prix suffisamment importante est prévue, une transaction est exécutée. Selon le paramètre de seuil, des milliers de transactions peuvent se produire pour une action unique en un seul jour de bourse.
 
 ![Définition du déséquilibre du volume de commande (VOI)](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Maintenant, nous allons exprimer les opérations d’apprentissage et de prédiction dans une tâche Azure Stream Analytics.
 
-Tout d’abord, les entrées sont nettoyées. L’heure d’époque est convertie au format datetime à l’aide de **DATEADD**. **TRY_CAST** est utilisé pour convertir de force les types de données sans faire échouer la requête. Il est toujours conseillé d’effectuer une conversion de type (transtypage) des champs d’entrée vers les types de données attendus ; cela permet d’éviter les comportements inattendus lorsqu’il s’agit de manipulation ou de comparaison des champs.
+Tout d’abord, les entrées sont nettoyées. L’heure d’époque est convertie au format datetime via **DATEADD**. **TRY_CAST** est utilisé pour convertir de force les types de données sans faire échouer la requête. Il est toujours conseillé d’effectuer une conversion de type des champs d’entrée vers les types de données attendus ; cela permet d’éviter les comportements inattendus lors de la manipulation ou de la comparaison des champs.
 
     WITH
     typeconvertedquotes AS (
@@ -93,7 +100,7 @@ Tout d’abord, les entrées sont nettoyées. L’heure d’époque est converti
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
@@ -116,7 +123,7 @@ Ensuite, nous utilisons la fonction **LAG** pour obtenir les valeurs depuis le d
         FROM timefilteredquotes
     ),
 
-Nous pouvons ensuite calculer la valeur pour VOI. Notez que nous filtrons les valeurs null si le cycle précédent n’existe pas, au cas où.
+Nous pouvons ensuite calculer la valeur pour VOI. Nous filtrons les valeurs null si le cycle précédent n’existe pas, au cas où.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -163,7 +170,7 @@ Nous pouvons ensuite calculer la valeur pour VOI. Notez que nous filtrons les va
         FROM currentPriceAndVOI
     ),
 
-Ensuite, nous remodelons les données en entrées dans un modèle linéaire à deux variables. De nouveau, filtrez les événements pour lesquels les données sont incomplètes.
+Ensuite, nous remodelons les données en entrées dans un modèle linéaire à deux variables. De nouveau, nous filtrons les événements pour lesquels les données sont incomplètes.
 
     modelInput AS (
         /* create feature vector, x being VOI, y being delta price */
@@ -230,7 +237,7 @@ Comme Azure Stream Analytics n’a pas de fonction intégrée de régression lin
         FROM modelparambs
     ),
 
-Afin de pouvoir utiliser le modèle du jour précédent pour la notation de l’événement actuel, nous souhaitons joindre les devis au modèle. Toutefois, dans ce cas, au lieu d’utiliser **JOIN**, nous utilisons **UNION** sur les événements du modèle et de devis, puis nous utilisons **LAG** pour coupler les événements avec le modèle du jour précédent, ainsi nous obtenons une seule correspondance. En raison du weekend-end, il faut revenir trois jours en arrière. En utilisant **JOIN**, on obtient trois modèles pour chaque événement de devis.
+Pour utiliser le modèle du jour précédent pour la notation de l’événement actuel, nous souhaitons joindre les devis au modèle. Mais au lieu d’utiliser **JOIN**, nous utilisons **UNION** sur les événements de modèle et les événements de devis. Ensuite, nous utilisons **LAG** pour coupler les événements avec le modèle du jour précédent, afin obtenir exactement une correspondance. En raison du weekend-end, il faut revenir trois jours en arrière. En utilisant simplement **JOIN**, nous obtiendrions trois modèles pour chaque événement de devis.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ Afin de pouvoir utiliser le modèle du jour précédent pour la notation de l’
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ Afin de pouvoir utiliser le modèle du jour précédent pour la notation de l’
         WHERE type = 'voi'
     ),
 
-Ainsi, nous pouvons faire des prédictions et générer des signaux d’achat/vente basés sur le modèle, avec une valeur de seuil de 0,02. La valeur commerciale de 10 est acheter ; la valeur commerciale de -10 est vendre.
+Ainsi, nous pouvons faire des prédictions et générer des signaux d’achat/vente basés sur le modèle, avec une valeur de seuil de 0,02. Une valeur commerciale de 10 correspond à un achat. Une valeur commerciale de -10 correspond à une vente.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ Ainsi, nous pouvons faire des prédictions et générer des signaux d’achat/ve
     ),
 
 ### <a name="trading-simulation"></a>Simulation commerciale
-Une fois que nous disposons des signaux commerciaux, nous souhaitons tester l’efficacité de la stratégie commerciale, sans commercer réellement. Cela est possible avec un agrégat défini par l’utilisateur (UDA), avec une fenêtre récurrente, faisant des bonds à chaque minute. Le regroupement supplémentaire sur la date et la clause Having permettent les comptes de fenêtre pour les événements appartenant au même jour. Pour une fenêtre récurrente étendue sur deux jours, **GROUP BY** permet de séparer le regroupement entre jour précédent et jour actuel. La clause **HAVING** filtre les fenêtres se terminant durant le jour en cours, mais regroupe en fonction de la journée précédente.
+Après avoir obtenu les signaux commerciaux, nous voulons tester l’efficacité de la stratégie commerciale, sans commercer réellement. 
+
+Nous réalisons ce test à l’aide d’un UDA, avec une fenêtre récurrente, faisant des bonds à chaque minute. Le regroupement supplémentaire sur la date et la clause Having permettent les comptes de fenêtre pour les événements appartenant au même jour. Pour une fenêtre récurrente étendue sur deux jours, la date **GROUP BY** permet de séparer le regroupement entre jour précédent et jour actuel. La clause **HAVING** filtre les fenêtres qui se terminent durant le jour en cours, mais se regroupent durant la journée précédente.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ Une fois que nous disposons des signaux commerciaux, nous souhaitons tester l’
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-L’UDA JavaScript initialise les accumulateurs de la fonction init, calcule la transition d'état prenant en compte chaque événement ajouté à la fenêtre et retourne les résultats de la simulation à la fin de la fenêtre. Le processus commercial général consiste à acheter des actions lors de la réception d’un signal d’achat sans détention d’actions ; et à vendre des titres lors de la réception d’un signal de vente avec détention d’actions, ou en position courte s’il n’y a pas de détention d’actions. Si un signal d’achat est reçu en position courte, il s’agit d’un achat de couverture. Nous ne détenons jamais 10 parts d’une action donnée dans cette simulation et le coût de transaction est fixe à 8 $.
+L’UDA JavaScript initialise les accumulateurs de la fonction `init`, calcule la transition d’état prenant en compte chaque événement ajouté à la fenêtre et retourne les résultats de la simulation à la fin de la fenêtre. Le processus commercial général consiste à :
+
+- Acheter des actions lors de la réception d’un signal d’achat sans détention d’actions.
+- Vendre des actions lors de la réception d’un signal de vente avec détention d’actions.
+- Position courte s’il n’y a pas de détention d’actions. 
+
+Si un signal d’achat est reçu en position courte, il s’agit d’un achat de couverture. Nous ne détenons jamais 10 parts d’une action dans cette simulation. Le coût de transaction est fixe à 8 $.
 
 
     function main() {
@@ -432,6 +447,10 @@ Enfin, nous générons dans le tableau de bord Power BI pour la visualisation.
 
 
 ## <a name="summary"></a>Résumé
-Comme vous pouvez le voir, un modèle commercial réaliste à fréquence élevée peut être implémenté avec une requête peu complexe dans Azure Stream Analytics. Nous devons simplifier le modèle de cinq à deux variables d’entrée, en raison de l’absence de fonction de régression linéaire intégrée. Toutefois, pour un utilisateur déterminé, les algorithmes de dimensions et de sophistication plus élevée peuvent éventuellement être implémentés, comme pour l’UDA JavaScript. À noter que la plupart de la requête, en dehors de l’UDA JavaScript, peut être testée et déboguée dans Visual Studio avec les [outils Azure Stream Analytics pour Visual Studio](stream-analytics-tools-for-visual-studio.md). Une fois que la requête initiale a été écrite, l’auteur a passé moins de 30 minutes à tester et déboguer la requête dans Visual Studio. Actuellement, UDA ne peut pas être débogué dans Visual Studio. Nous essayons de rendre cela possible avec la capacité d’examiner le code JavaScript. En outre, notez que les champs atteignant l’UDA ont des noms de champ en minuscule. Ce comportement n’était pas prévu durant le test de la requête. Toutefois, avec Azure Stream Analytics niveau de compatibilité 1.1, nous permettons à la casse du nom de champ d’être conservée, par conséquent, le comportement est plus naturel.
+Nous pouvons implémenter un modèle commercial réaliste à fréquence élevée avec une requête peu complexe dans Azure Stream Analytics. Nous devons simplifier le modèle de cinq à deux variables d’entrée, en raison de l’absence d’une fonction de régression linéaire intégrée. Mais pour un utilisateur déterminé, les algorithmes de dimensions et de sophistication plus élevée peuvent éventuellement être implémentés, comme pour l’UDA JavaScript. 
 
-J’espère que cet article inspirera les utilisateurs d’Azure Stream Analytics qui peuvent utiliser notre service pour effectuer des analyses avancées en quasi temps réel, en continu. Faites-nous part de vos commentaires afin de faciliter l’implémentation des requêtes pour les scénarios d’analytique avancée.
+À noter que la plupart de la requête, en dehors de l’UDA JavaScript, peut être testée et déboguée dans Visual Studio à l’aide des [Outils Azure Stream Analytics pour Visual Studio](stream-analytics-tools-for-visual-studio.md). Une fois que la requête initiale a été écrite, l’auteur a passé moins de 30 minutes à tester et déboguer la requête dans Visual Studio. 
+
+Actuellement, l’UDA ne peut pas être débogué dans Visual Studio. Nous essayons de rendre cela possible avec la capacité d’examiner le code JavaScript. En outre, notez que les champs atteignant l’UDA ont des noms en minuscule. Ce comportement n’était pas prévu durant le test de la requête. Cependant, avec le niveau de compatibilité 1.1 d’Azure Stream Analytics, nous préservons la casse du nom de champ, par conséquent, le comportement est plus naturel.
+
+J’espère que cet article inspirera les utilisateurs d’Azure Stream Analytics qui peuvent utiliser notre service pour effectuer des analyses avancées en quasi temps réel, en continu. Faites-nous part de vos commentaires afin de faciliter l’implémentation des requêtes pour les scénarios d’analyses avancées.

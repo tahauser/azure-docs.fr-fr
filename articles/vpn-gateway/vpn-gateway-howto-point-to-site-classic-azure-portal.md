@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configurer une connexion point à site vers un réseau virtuel à l’aide d’une authentification par certificat (classique) : portail Azure
 
@@ -35,8 +35,10 @@ Cet article vous explique comment créer un réseau virtuel avec une connexion p
 
 Une connexion par passerelle VPN point à site (P2S) vous permet de créer une connexion sécurisée à votre réseau virtuel à partir d’un ordinateur de client individuel. Les connexions VPN point à site sont utiles lorsque vous souhaitez vous connecter à votre réseau virtuel à partir d’un emplacement distant, par exemple lorsque vous travaillez à distance depuis votre domicile ou en conférence. De même, l’utilisation d’un VPN P2S est une solution utile qui constitue une alternative au VPN Site à Site lorsqu’un nombre restreint de clients doivent se connecter à un réseau virtuel. Une connexion VPN P2S est établie en étant démarrée à partir de l’ordinateur du client.
 
-Le modèle de déploiement classique prend en charge les clients VPN Windows uniquement et utilise le protocole de tunneling Secure Socket (SSTP), un protocole VPN basé sur SSL. Pour prendre en charge des clients VPN non Windows, votre réseau virtuel doit être créé à l’aide du modèle de déploiement Resource Manager. Le modèle de déploiement Resource Manager prend en charge les VPN IKEv2, en plus de SSTP. Pour plus d'informations, consultez [À propos des connexions P2S](point-to-site-about.md).
-
+> [!IMPORTANT]
+> Le modèle de déploiement classique prend en charge les clients VPN Windows uniquement et utilise le protocole de tunneling Secure Socket (SSTP), un protocole VPN basé sur SSL. Pour prendre en charge des clients VPN non Windows, votre réseau virtuel doit être créé à l’aide du modèle de déploiement Resource Manager. Le modèle de déploiement Azure Resource Manager prend en charge les VPN IKEv2, en plus de SSTP. Pour plus d'informations, consultez [À propos des connexions P2S](point-to-site-about.md).
+>
+>
 
 ![Diagramme point à site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
