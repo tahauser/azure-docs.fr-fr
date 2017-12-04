@@ -1,6 +1,6 @@
 ---
-title: "Connecter un réseau virtuel Azure à un autre réseau virtuel : PowerShell | Microsoft Docs"
-description: "Cet article vous guide dans l’interconnexion de réseaux virtuels avec Azure Resource Manager et PowerShell"
+title: "Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : PowerShell | Microsoft Docs"
+description: "Cet article vous guide dans l’interconnexion de réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel et PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
-Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. 
+Cet article explique comment connecter des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory.
 
 Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent PowerShell. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
@@ -37,13 +37,15 @@ Les étapes mentionnées dans cet article s’appliquent au modèle de déploiem
 >
 >
 
-La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être les connecter à l’aide de VNet Peering. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>À propos de la connexion de réseaux virtuels
 
-Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
+La connexion entre deux réseaux virtuels est semblable à la création d’une connexion IPsec dans un emplacement sur site. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE et communiquent de la même façon. La différence entre ces types de connexion se trouve dans la configuration de la passerelle réseau locale. Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, vous ne voyez pas l’espace d’adressage de la passerelle réseau locale. L’espace est créé et rempli automatiquement. Si vous mettez à jour l’espace d’adressage pour un réseau virtuel, l’autre réseau virtuel acheminera automatiquement le trafic vers le nouvel espace d’adressage.
 
-![À propos des connexions](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+Si vous utilisez des configurations complexes, il se peut que vous préfériez utiliser une connexion IPsec plutôt qu’une connexion de réseau virtuel à réseau virtuel. Ainsi, vous pourrez spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si vous connectez vos réseaux virtuels avec une connexion IPsec, vous devez créer et configurer la passerelle réseau locale manuellement. Pour plus d’informations, consultez [Configurations d’une connexion de site à site](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-### <a name="why-connect-virtual-networks"></a>Pourquoi connecter des réseaux virtuels ?
+De plus, si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être les connecter à l’aide de l’homologation de réseaux virtuels. L’homologation de réseaux virtuels n’utilise pas de passerelle VPN, et son prix et sa fonctionnalité sont quelque peu différents. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
 
@@ -55,19 +57,22 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
 
   * Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés pour des besoins d’isolement ou d’administration.
 
-Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article.
+Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Quelle procédure dois-je utiliser ?
 
-Cet article inclut deux ensembles d’étapes distincts. L’un d’eux est destiné aux [réseaux virtuels qui se trouvent dans le même abonnement](#samesub). Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet4.
+Cet article inclut deux ensembles d’étapes distincts. L’un des ensembles est destiné aux [réseaux virtuels qui se trouvent dans le même abonnement](#samesub), et l’autre aux [réseaux virtuels qui se trouvent dans des abonnements différents](#difsub).
+La différence essentielle entre ces deux ensembles est que vous devez utiliser des sessions PowerShell distinctes quand vous configurez les connexions pour des réseaux virtuels qui se trouvent dans des abonnements différents. 
 
-![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement celle que vous voulez utiliser. Toutes les configurations utilisent la connexion de réseau virtuel à réseau virtuel. Le trafic circule entre les réseaux virtuels connectés directement entre eux. Dans cet exercice, le trafic du réseau TestVNet4 n’est pas acheminé jusqu’au réseau TestVNet5.
 
-Il existe un article distinct pour les [réseaux virtuels qui se trouvent dans des abonnements différents](#difsub). Les étapes à suivre pour cette configuration utilisent les réseaux virtuels TestVNet1 et TestVNet5.
+* [Réseaux virtuels qui se trouvent dans le même abonnement](#samesub) : les étapes de cette configuration utilisent les réseaux TestVNet1 et TestVNet4.
 
-![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+  ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-La principale différence réside dans le fait que vous puissiez ou non créer et configurer toutes les ressources de passerelle et de réseau virtuel au sein de la même session PowerShell. Vous devez utiliser des sessions PowerShell distinctes quand vous configurez les connexions pour des réseaux virtuels qui se trouvent dans des abonnements différents. Vous pouvez combiner des configurations si vous le souhaitez ou choisir simplement celle que vous voulez utiliser.
+* [Réseaux virtuels qui se trouvent dans des abonnements différents](#difsub) : les étapes de cette configuration utilisent les réseaux TestVNet1 et TestVNet5.
+
+  ![Diagramme v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 ## <a name="samesub"></a>Connexion de réseaux virtuels situés dans le même abonnement
 
@@ -77,7 +82,7 @@ Au préalable, vous devez installer la dernière version des applets de commande
 
 ### <a name="Step1"></a>Étape 1 : planifier vos plages d’adresses IP
 
-Dans les étapes suivantes, nous allons créer deux réseaux virtuels avec leurs sous-réseaux de passerelle respectifs et leur configuration. Nous allons ensuite créer une connexion VPN entre les deux réseaux virtuels. Il est important de planifier les plages d’adresses IP pour votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche. Dans ces exemples, nous n’incluons pas de serveur DNS. Si vous souhaitez une résolution de noms pour vos réseaux virtuels, consultez la page [Résolution de noms](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Dans les étapes suivantes, vous allez créer deux réseaux virtuels avec leurs sous-réseaux de passerelle respectifs et leur configuration. Vous allez ensuite créer une connexion VPN entre les deux réseaux virtuels. Il est important de planifier les plages d’adresses IP pour votre configuration réseau. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche. Dans ces exemples, nous n’incluons pas de serveur DNS. Si vous souhaitez une résolution de noms pour vos réseaux virtuels, consultez la page [Résolution de noms](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Nous utilisons les valeurs suivantes dans les exemples :
 
@@ -284,7 +289,7 @@ Une fois que vous avez configuré TestVNet1, créez TestVNet4. Suivez les étape
 
 ## <a name="difsub"></a>Connexion de réseaux virtuels situés dans différents abonnements
 
-Dans ce scénario, nous connectons TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. Les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. La différence entre ce processus et le précédent réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement. notamment lorsque les deux abonnements appartiennent à différentes organisations.
+Dans ce scénario, vous connectez TestVNet1 et TestVNet5. TestVNet1 et TestVNet5 se trouvent dans des abonnements différents. Les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. La différence entre ce processus et le précédent réside dans le fait qu’une partie des étapes de configuration doit être exécutée dans une session PowerShell distincte dans le contexte d’un deuxième abonnement. notamment lorsque les deux abonnements appartiennent à différentes organisations.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Étape 5 : créez et configurez TestVNet1
 

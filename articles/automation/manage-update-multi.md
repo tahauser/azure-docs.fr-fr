@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -87,6 +87,16 @@ La gestion des mises à jour est activée pour votre machine virtuelle.
 Pour obtenir des instructions sur l’activation de la gestion de la mise à jour pour les machines et ordinateurs virtuels Windows non Azure, consultez [Connecter des ordinateurs Windows au service Log Analytics dans Azure](../log-analytics/log-analytics-windows-agents.md).
 
 Pour obtenir des instructions sur l’activation de la gestion de la mise à jour pour les machines et ordinateurs virtuels Linux non Azure, consultez [Connecter vos ordinateurs Linux à Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Afficher les ordinateurs attachés à votre compte Automation
+Après avoir activé la gestion des mises à jour pour vos machines, vous pouvez afficher leurs informations en cliquant sur **Ordinateurs**. Les informations d’ordinateur telles que *Nom*, *Conformité*, *Environnement*, *Type de système d’exploitation*, *Mises à jour critiques et de sécurité* et *Autres mises à jour* sont disponibles. 
+
+  ![Afficher l’onglet des ordinateurs](./media/manage-update-multi/update-computers-tab.png)
+
+Les ordinateurs pour lesquels la gestion des mises à jour a été activée n’ont peut-être pas encore été évalués. L’état de conformité de ces ordinateurs serait *Non évalué*.  Voici une liste des valeurs de l’état de conformité :
+* Conforme : ordinateurs avec aucune mise à jour critique ou de sécurité manquante.
+* Non-conforme : ordinateurs avec des mises à jour critiques ou de sécurité manquantes.
+* Non évalué : l’ordinateur n’a transmis aucune donnée d’évaluation de mise à jour dans le délai escompté.  Ce délai est de trois heures pour les ordinateurs Linux et de douze heures pour les ordinateurs Windows.  
 
 ## <a name="view-an-update-assessment"></a>Afficher une évaluation des mises à jour
 

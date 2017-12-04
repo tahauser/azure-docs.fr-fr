@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
+Le réseau de distribution de contenu (CDN) Azure met en cache le contenu web statique à des emplacements stratégiques afin de fournir un débit maximal pour la distribution de contenu aux utilisateurs. Le CDN offre aux développeurs une solution globale pour la distribution de contenu haut débit en mettant en cache le contenu sur des nœuds physiques dans le monde entier. 
+
 > [!NOTE]
-> Ce document présente le réseau de distribution de contenu (CDN) d’Azure, son fonctionnement ainsi que les fonctionnalités de chaque produit Azure CDN.  Si vous souhaitez ignorer ces informations et passer directement au didacticiel de création d’un point de terminaison CDN, voir [Utilisation d’Azure CDN](cdn-create-new-endpoint.md).  Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page [Emplacements des points de présence CDN Azure](cdn-pop-locations.md).
-> 
+> Cet article décrit le réseau de distribution de contenu Azure, son fonctionnement et les fonctionnalités de chaque produit Azure CDN. Pour passer ces informations et suivre un didacticiel sur la création d’un point de terminaison de réseau de distribution de contenu, [Prise en main d’Azure CDN](cdn-create-new-endpoint.md). Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page [Emplacements des points de présence CDN Azure](cdn-pop-locations.md).
 > 
 
-Le réseau de distribution de contenu (CDN) Azure met en cache le contenu web statique à des emplacements stratégiques afin de fournir un débit maximal pour la distribution de contenu aux utilisateurs.  Le CDN offre aux développeurs une solution globale pour la distribution de contenu haut débit en mettant en cache le contenu sur des nœuds physiques dans le monde entier. 
-
-Les avantages de l’utilisation du CDN pour mettre en cache les ressources de site web incluent :
+Les avantages de l’utilisation d’un CDN pour mettre en cache les ressources de site web incluent :
 
 * De meilleures performances et une expérience enrichie pour les utilisateurs finaux, en particulier ceux qui utilisent des applications ayant recours à de nombreux allers-retours pour charger le contenu.
-* Une mise à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple au début de l'événement de lancement d'un produit.
-* Si l’on répartit les requêtes utilisateur et que l’on diffuse du contenu à partir des serveurs Edge, le trafic transmis à l’origine est moins important.
+* Une mise à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple le début de l’événement de lancement d’un produit.
+* La distribution des requêtes utilisateur et la diffusion de contenu directement depuis des serveurs Edge sont là pour que le trafic transmis à l’origine soit moins important.
+
 
 ## <a name="how-it-works"></a>Fonctionnement
 ![Présentation du CDN](./media/cdn-overview/cdn-overview.png)
@@ -50,36 +50,36 @@ Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Fonctionnalités de performance et optimisations__ |
-| [Accélération de site dynamique](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Accélération de Site dynamique - Compression d’Image adaptative](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&#x2713;**  |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Accélération de Site dynamique - Récupération de l’objet](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&#x2713;**  |  |  |
-| [Optimisation du streaming vidéo](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
-| [Optimisation des fichiers volumineux](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
-| [Équilibrage de charge du serveur global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Purge rapide](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Préchargement de ressources](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
-| [Mise en cache des chaînes de requête](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Double pile IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Assistance HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Accélération de site dynamique](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&amp;#x2713;**  | **&amp;#x2713;** | **&amp;#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Accélération de Site dynamique - Compression d’Image adaptative](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&amp;#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Accélération de Site dynamique - Récupération de l’objet](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&amp;#x2713;**  |  |  |
+| [Optimisation du streaming vidéo](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&amp;#x2713;**  | \* |  \* |
+| [Optimisation des fichiers volumineux](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&amp;#x2713;**  | \* |  \* |
+| [Équilibrage de charge du serveur global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Purge rapide](cdn-purge-endpoint.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Préchargement de ressources](cdn-preload-endpoint.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Mise en cache des chaînes de requête](cdn-query-string.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| Double pile IPv4/IPv6 |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Assistance HTTP/2](cdn-http2.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Sécurité__ |
-| Prise en charge HTTPS avec un point de terminaison CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [HTTPS sur un domaine personnalisé](cdn-custom-ssl.md) | |**&#x2713;** |**&#x2713;** |
-| [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrage géographique](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Jeton d’authentification](cdn-token-auth.md)|  |  |**&#x2713;**| 
-| [Protection DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Prise en charge HTTPS avec un point de terminaison CDN |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [HTTPS sur un domaine personnalisé](cdn-custom-ssl.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Filtrage géographique](cdn-restrict-access-by-country.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Jeton d’authentification](cdn-token-auth.md)|  |  |**&amp;#x2713;**| 
+| [Protection DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Analyse et création de rapports__ |
-| [Analyse principale](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Rapports HTTP avancés](cdn-advanced-http-reports.md) | | |**&#x2713;** |
-| [Statistiques en temps réel](cdn-real-time-stats.md) | | |**&#x2713;** |
-| [Alertes en temps réel](cdn-real-time-alerts.md) | | |**&#x2713;** |
+| [Analyse principale](cdn-analyze-usage-patterns.md) | **&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Rapports HTTP avancés](cdn-advanced-http-reports.md) | | |**&amp;#x2713;** |
+| [Statistiques en temps réel](cdn-real-time-stats.md) | | |**&amp;#x2713;** |
+| [Alertes en temps réel](cdn-real-time-alerts.md) | | |**&amp;#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Simplicité d’utilisation__ |
-| Intégration simple des services Azure tels que [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) et [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Gestion via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) ou [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Moteur de distribution de contenu personnalisable et basé sur des règles](cdn-rules-engine.md) | | |**&#x2713;** |
-| Paramètres du cache/des en-têtes (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&#x2713;** |
-| Redirection/réécriture d’URL (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&#x2713;** |
-| Règles d’appareil mobile (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&#x2713;** |
+| Intégration simple des services Azure tels que [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) et [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| Gestion via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) ou [PowerShell](cdn-manage-powershell.md). |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Moteur de distribution de contenu personnalisable et basé sur des règles](cdn-rules-engine.md) | | |**&amp;#x2713;** |
+| Paramètres du cache/des en-têtes (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
+| Redirection/réécriture d’URL (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
+| Règles d’appareil mobile (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
 
 \* Verizon prend en charge l’envoi de fichiers et de médias volumineux directement via la livraison web générale.
 
@@ -90,13 +90,13 @@ Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour une prise en main du CDN, consultez [Utilisation d’Azure CDN](cdn-create-new-endpoint.md).
+Pour découvrir Azure CDN, consultez la section [Prise en main d’Azure CDN](cdn-create-new-endpoint.md).
 
 Si vous êtes un client CDN existant, vous pouvez désormais gérer vos points de terminaison CDN via le [portail Microsoft Azure](https://portal.azure.com) ou avec [PowerShell](cdn-manage-powershell.md).
 
-Pour voir le CDN à l’œuvre, regardez la [vidéo de notre session Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Pour voir CDN en action, regardez la [vidéo de la session Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
 Apprenez à automatiser Azure CDN avec [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
 
-Pour obtenir des informations sur la tarification, consultez la page [Prix appliqués au Réseau de distribution de contenu (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
+Pour des informations sur les tarifs, consultez [Tarifs Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 

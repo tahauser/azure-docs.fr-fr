@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
-Cet article vous explique comment créer une connexion de passerelle VPN entre des réseaux virtuels. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. 
+Cet article explique comment connecter des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel. Les réseaux virtuels peuvent être situés dans des régions identiques ou différentes et appartenir à des abonnements identiques ou différents. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. 
 
 Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et font appel au portail Azure. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
@@ -39,15 +39,15 @@ Les étapes mentionnées dans cet article s’appliquent au modèle de déploiem
 
 ![Diagramme v2v](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Il est possible de créer des connexions de site à site (IPsec) entre les réseaux virtuels plutôt qu’une connexion de réseau virtuel à réseau virtuel. Les deux types de connexion fonctionnent de la même manière pour la communication. Cependant, quand vous créez une connexion de réseau virtuel à réseau virtuel, si vous mettez à jour l’espace d’adressage pour un réseau virtuel, l’autre réseau virtuel acheminera automatiquement le trafic vers le nouvel espace d’adressage. Si vous créez des connexions de site à site (IPsec), vous devez configurer manuellement l’espace d’adressage pour la passerelle de réseau local. Quand vous utilisez des configurations complexes, il se peut que vous préfériez créer des connexions IPsec plutôt qu’une connexion de réseau virtuel à réseau virtuel. Vous pouvez ainsi spécifier manuellement un espace d’adressage supplémentaire pour la passerelle de réseau local.
+## <a name="about"></a>À propos de la connexion de réseaux virtuels
 
-Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être les connecter à l’aide de VNet Peering. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+La connexion entre deux réseaux virtuels est semblable à la création d’une connexion IPsec dans un emplacement sur site. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE et communiquent de la même façon. La différence entre ces types de connexion se trouve dans la configuration de la passerelle réseau locale. Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, vous ne voyez pas l’espace d’adressage de la passerelle réseau locale. L’espace est créé et rempli automatiquement. Si vous mettez à jour l’espace d’adressage pour un réseau virtuel, l’autre réseau virtuel acheminera automatiquement le trafic vers le nouvel espace d’adressage.
 
-Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
+Si vous utilisez des configurations complexes, il se peut que vous préfériez utiliser une connexion IPsec plutôt qu’une connexion de réseau virtuel à réseau virtuel. Ainsi, vous pourrez spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si vous connectez vos réseaux virtuels avec une connexion IPsec, vous devez créer et configurer la passerelle réseau locale manuellement. Pour plus d’informations, consultez [Configurations d’une connexion de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-![À propos des connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "À propos des connexions")
+De plus, si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être les connecter à l’aide de l’homologation de réseaux virtuels. L’homologation de réseaux virtuels n’utilise pas de passerelle VPN, et son prix et sa fonctionnalité sont quelque peu différents. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="why-connect-virtual-networks"></a>Pourquoi connecter des réseaux virtuels ?
+### <a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
 
@@ -59,7 +59,11 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
 
   * Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés pour des besoins d’isolement ou d’administration.
 
-Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous servir de ces exemples de paramètres. Dans l’exemple, les réseaux virtuels se trouvent dans le même abonnement, mais dans des groupes de ressources différents. Si vos réseaux virtuels existent dans des abonnements différents, vous ne pourrez pas créer la connexion dans le portail. Vous pouvez utiliser [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) ou [l’interface de ligne de commande (CLI)](vpn-gateway-howto-vnet-vnet-cli.md). Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article.
+Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma suivant :
+
+![À propos des connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "À propos des connexions")
+
+Cet article vous aide à connecter des réseaux virtuels à l’aide d’une connexion de réseau virtuel à réseau virtuel. Lorsque vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous servir de ces exemples de paramètres. Dans l’exemple, les réseaux virtuels se trouvent dans le même abonnement, mais dans des groupes de ressources différents. Si vos réseaux virtuels existent dans des abonnements différents, vous ne pourrez pas créer la connexion dans le portail. Vous pouvez utiliser [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) ou [l’interface de ligne de commande (CLI)](vpn-gateway-howto-vnet-vnet-cli.md). Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article.
 
 ### <a name="values"></a>Exemples de paramètres
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d26fb8caacdd775b62d704a4b474e68e2f5a3ec
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: b1212bf46261b3fc4cc22224223cf00ec53881cb
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -53,7 +53,7 @@ Si vous ne savez pas quel composant Azure Backup utiliser pour vos besoins, cons
 
 | Composant | Avantages | limites | Qu’est-ce qui est protégé ? | Où sont stockées les sauvegardes ? |
 | --- | --- | --- | --- | --- |
-| Agent Azure Backup (MARS) |<li>Sauvegarde des fichiers et des dossiers sur un système d’exploitation Windows physique ou virtuel (les machines virtuelles peuvent être locales ou dans Azure)<li>Aucun serveur de sauvegarde distinct n’est requis. |<li>Sauvegarde 3 fois par jour <li>Ne tient pas compte des applications ; restauration au niveau du fichier, du dossier et du volume seulement, <li>  Linux non pris en charge. |<li>Fichiers, <li>Dossiers |Coffre Recovery Services |
+| Agent Azure Backup (MARS) |<li>Sauvegarde des fichiers et des dossiers sur un système d’exploitation Windows physique ou virtuel (les machines virtuelles peuvent être locales ou dans Azure)<li>Aucun serveur de sauvegarde distinct n’est requis. |<li>Sauvegarde 3 fois par jour <li>Ne tient pas compte des applications ; restauration au niveau du fichier, du dossier et du volume seulement, <li>  Linux non pris en charge. |<li>Fichiers, <li>Dossiers, <li>État du système |Coffre Recovery Services |
 | System Center DPM |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Possibilité d’utiliser un coffre Recovery Services<li>Prise en charge de Linux sur machines virtuelles Hyper-V et VMware <li>Sauvegarder et restaurer des machines virtuelles VMware à l’aide de DPM 2012 R2 |Impossible de sauvegarder des charges de travail Oracle.|<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Recovery Services,<li> Disque connecté localement,<li>  Bande (locale uniquement) |
 | Azure Backup Server |<li>Instantanés tenant compte des applications (VSS)<li>Flexibilité totale concernant le moment d’exécution de la sauvegarde<li>Granularité de récupération (tout)<li>Possibilité d’utiliser un coffre Recovery Services<li>Prise en charge de Linux sur machines virtuelles Hyper-V et VMware<li>Sauvegarder et restaurer des machines virtuelles VMWare <li>Ne nécessite pas de licence System Center |<li>Impossible de sauvegarder des charges de travail Oracle.<li>Requiert toujours un abonnement Azure en direct<li>Aucune prise en charge de la sauvegarde sur bande |<li>Fichiers, <li>Dossiers,<li> Volumes, <li>Machines virtuelles,<li> Applications,<li> Charges de travail |<li>Coffre Recovery Services,<li> Disque connecté localement |
 | Sauvegarde des machines virtuelles IaaS Azure |<li>Sauvegardes natives pour Windows/Linux<li>Aucune installation spécifique d’agent n’est requise<li>Sauvegarde au niveau structure sans nécessiter d’infrastructure de sauvegarde |<li>Sauvegarde des machines virtuelles une fois par jour <li>Restauration des machines virtuelles uniquement au niveau du disque<li>Impossible d’effectuer une sauvegarde en local |<li>Machines virtuelles, <li>Tous les disques (à l’aide de PowerShell) |<p>Coffre Recovery Services</p> |
