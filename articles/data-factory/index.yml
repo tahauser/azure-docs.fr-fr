@@ -43,6 +43,10 @@ sections:
               src: /azure/data-factory/media/index/portal.svg
             text: Portail Azure
             href: /azure/data-factory/quickstart-create-data-factory-portal
+          - image:
+              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+            text: Modèle Resource Manager
+            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
   - title: Didacticiels pas à pas
     items:
       - type: paragraph

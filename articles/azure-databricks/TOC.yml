@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: Qu’est-ce qu’Azure Databricks ?
+    - name: Présentation d’Azure Databricks
       href: what-is-azure-databricks.md
 - name: Démarrages rapides
   expanded: true
@@ -11,6 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Ressources
   items:
+    - name: Questions courantes
+      href: frequently-asked-questions-databricks.md
+    - name: Notes de publication
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Documentation Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Feuille de route Azure
