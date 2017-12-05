@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation de Site Recovery - Récupération d’urgence de Azure vers Azure
+metadata:
+  title: "Documentation Azure Site Recovery - Didacticiels, informations de référence sur les API | Microsoft\_Docs"
+  meta.description: Learn how to set up disaster recovery for Azure VMs
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Azure Site Recovery orchestre et gère la récupération d’urgence pour les machines virtuelles Azure. Découvrez comment répliquer dans une région secondaire et exécuter un basculement et une restauration, avec nos didacticiels et nos démarrages rapides.'
+sections:
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: Configurer rapidement une récupération d’urgence pour une machine virtuelle Azure
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
+            text: Portail Azure
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: 'Découvrez comment configurer la récupération d’urgence, le basculement et la restauration automatique pour les machines virtuelles Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Configurer une récupération d'urgence</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Exécuter une simulation de récupération d'urgence</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Exécuter un basculement et une restauration automatique</a>
+  - title: Référence
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Ligne de commande
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: "<p><a href=\"/rest/api/site-recovery/\">Référence d’API\_REST</a></p>"

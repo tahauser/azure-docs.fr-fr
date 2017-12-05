@@ -7,8 +7,10 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: "Créer un cluster\_ACS"
+    - name: "Créer un cluster\_ACS - CLI"
       href: kubernetes-walkthrough.md
+    - name: "Créer un cluster\_ACS - Portail"
+      href: kubernetes-walkthrough-portal.md
 - name: Didacticiels
   items:
     - name: 1 - Préparer l’application pour ACS

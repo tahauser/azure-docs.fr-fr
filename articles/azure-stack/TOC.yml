@@ -213,6 +213,10 @@
           items:
             - name: Connexion à l’aide de VPN
               href: azure-stack-connect-vpn.md
+            - name: À propos de la passerelle VPN
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: Paramètres de la passerelle VPN
+              href: azure-stack-vpn-gateway-settings.md
             - name: Connexion à l’aide d’ExpressRoute
               href: azure-stack-connect-expressroute.md
     - name: Résolution des problèmes

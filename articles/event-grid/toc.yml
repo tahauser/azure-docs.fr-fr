@@ -22,6 +22,8 @@
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Redimensionner les images chargées
       href: resize-images-on-storage-blob-upload-event.md
+    - name: Déclencher le runbook Azure Automation
+      href: ensure-tags-exists-on-new-virtual-machines.md
 - name: Concepts
   items:
     - name: Concepts d’Event Grid

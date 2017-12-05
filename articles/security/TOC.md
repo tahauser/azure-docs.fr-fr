@@ -133,6 +133,7 @@
 ## [Conseils sur la cybersécurité](azure-security-cyber-services.md)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Recommandations de sécurité pour les images Place de marché Microsoft Azure](security-recommendations-azure-marketplace-images.md)
+## [Enregistrement d’un ticket de support des événements de sécurité](azure-security-event-support-ticket.md)
 ## Scénarios
 ### [Gérer des données personnelles dans Azure](manage-personal-data-azure.md)
 ### [Découvrir, identifier et classer des données personnelles dans Azure](how-to-discover-classify-personal-data-azure.md)

@@ -224,6 +224,8 @@
       items:
         - name: Chef
           href: chef-automation.md
+        - name: Publier l’application web à partir de Visual Studio
+          href: publish-web-app-from-visual-studio.md
     - name: Exécuter des applications
       items:
         - name: SQL Server

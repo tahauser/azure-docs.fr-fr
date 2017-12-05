@@ -67,26 +67,20 @@
 
 ## Résolution des problèmes
 ### [Erreurs de déploiement courantes](resource-manager-common-deployment-errors.md)
-### [Comprendre les erreurs de déploiement](resource-manager-troubleshoot-tips.md)
-### Résolution des erreurs
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Problèmes de déploiement Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Problèmes d’approvisionnement et de répartition pour Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Problèmes d’approvisionnement et de répartition pour Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Erreurs de déploiement de la machine virtuelle
-#### Linux
-##### [Problèmes de déploiement](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Problèmes d’approvisionnement et de répartition](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Messages d’erreur courants](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Problèmes de déploiement](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Problèmes d’approvisionnement et de répartition](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Messages d’erreur courants](../virtual-machines/windows/error-messages.md)
+#### [Problèmes de déploiement Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Comprendre les erreurs de déploiement](resource-manager-troubleshoot-tips.md)
 
 # Référence
 ## [Format de modèle](/azure/templates/)

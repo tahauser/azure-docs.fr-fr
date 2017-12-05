@@ -40,8 +40,6 @@
 - name: Identité du service administré
   href: msi-overview.md
   items:
-    - name: Connecter ou obtenir un jeton
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Configurer MSI pour une machine virtuelle Azure
       items:
         - name: En passant par le portail Azure
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Utilisation de l’interface de ligne de commande Azure
           href: msi-howto-assign-access-cli.md
+    - name: Comment utiliser une MSI de machine virtuelle
+      items:
+        - name: Obtenir un jeton d’accès
+          href: msi-how-to-use-vm-msi-token.md
+        - name: 'Ouvrir une session dans PowerShell, Azure CLI'
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Utilisation avec les kits de développement logiciels (SDK) Azure
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Utiliser une MSI de machine virtuelle pour accéder à Azure Data Lake Store
       items:
         - name: À partir d’une machine virtuelle Windows

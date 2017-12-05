@@ -4,6 +4,8 @@
   items:
     - name: Présentation de Data Factory
       href: introduction.md
+    - name: "Comparer les versions\_1 et 2"
+      href: compare-versions.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: Portail
           href: quickstart-create-data-factory-portal.md
+        - name: Modèle Resource Manager
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: Didacticiels
   items:
     - name: 1 - Déployer des packages SSIS vers Azure

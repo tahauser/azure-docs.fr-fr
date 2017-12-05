@@ -6,7 +6,9 @@
 ## [Créer une application .NET](service-fabric-quickstart-dotnet.md)
 ## [Déployer une application de conteneur Linux](service-fabric-quickstart-containers-linux.md)
 ## [Déployer une application de conteneur Windows](service-fabric-quickstart-containers.md)
-## [Déployer une application Java](service-fabric-quickstart-java.md)
+## Démarrages rapides de Java
+### [Déployer une application Spring Boot](service-fabric-quickstart-java-spring-boot.md)
+### [Déployer une application Reliable Services](service-fabric-quickstart-java-reliable-services.md)
 
 # Didacticiels
 ## Déployer une application .NET
@@ -29,7 +31,9 @@
 #### [1a- Créer un cluser Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Créer un cluser Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Mettre à l’échelle le cluster](service-fabric-tutorial-scale-cluster.md)
-### [3- Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3- Mettre à niveau le runtime du cluster](service-fabric-tutorial-upgrade-cluster.md)
+### [4- Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Exemples

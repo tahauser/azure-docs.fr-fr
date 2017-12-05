@@ -11,8 +11,9 @@
 ### [Configuration de la haute disponibilité avec STONITH](ha-setup-with-stonith.md)
 ### [Sauvegarde du système d’exploitation pour références SKU de type II](os-backup-type-ii-skus.md)
 # SAP HANA sur des machines virtuelles Azure
-## [Instance SAP HANA unique](hana-get-started.md)
+## [Installation d’une instance SAP HANA unique](hana-get-started.md)
 ## [Guide de déploiement de S/4 HANA ou BW/4 HANA SAP CAL](cal-s4h.md)
+## [Guide des opérations SAP HANA sur Azure](hana-vm-operations.md)
 ## [Haute disponibilité de SAP HANA dans des machines virtuelles Azure](sap-hana-high-availability.md)
 ## [Vue d’ensemble de la sauvegarde SAP HANA](sap-hana-backup-guide.md)
 ## [Sauvegarde SAP HANA au niveau des fichiers](sap-hana-backup-file-level.md)

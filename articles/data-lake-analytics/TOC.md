@@ -31,6 +31,8 @@
 ### [Extensions cognitives de U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Analyser les journaux des sites web](data-lake-analytics-analyze-weblogs.md)
 ### [Code personnalisé U-SQL pour Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [U-SQL pour Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Exporter la base de données U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## Déboguer des programmes U-SQL
 ### [Travaux de surveillance et de résolution des problèmes](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

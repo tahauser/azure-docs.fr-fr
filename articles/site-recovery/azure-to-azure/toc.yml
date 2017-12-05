@@ -1,0 +1,113 @@
+- name: Documentation Site Recovery
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que Site Recovery\_?"
+      href: ../site-recovery-overview.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Répliquer une machine virtuelle Azure dans une région secondaire
+      href: azure-to-azure-quickstart.md
+- name: Didacticiels
+  items:
+    - name: Configurer une récupération d'urgence
+      href: azure-to-azure-tutorial-enable-replication.md
+    - name: Exécuter une simulation de récupération d'urgence
+      href: azure-to-azure-tutorial-dr-drill.md
+    - name: Exécuter un basculement et une restauration automatique
+      href: azure-to-azure-tutorial-failover-failback.md
+- name: Concepts
+  items:
+    - name: Architecture Azure vers Azure
+      href: concepts-azure-to-azure-architecture.md
+    - name: Matrice de prise en charge Azure vers Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
+    - name: Autorisations d’accès en fonction du rôle
+      href: ../site-recovery-role-based-linked-access-control.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Forum Aux Questions
+      href: ../site-recovery-faq.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: Procédures
+  items:
+    - name: Mise en réseau
+      items:
+        - name: Configurer la mise en réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Configurer le mappage réseau pour la récupération d’urgence de machines virtuelles Azure (préversion)
+          href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Configuration
+      items:
+        - name: Activer la réplication entre les régions Azure
+          href: site-recovery-replicate-azure-to-azure.md
+    - name: Basculement et restauration automatique
+      items:
+        - name: Configurer des plans de récupération
+          href: ../site-recovery-create-recovery-plans.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Ajouter des Runbooks Azure à des plans de récupération
+          href: ../site-recovery-runbook-automation.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Restaurer la protection des machines après un basculement
+          href: site-recovery-how-to-reprotect-azure-to-azure.md
+    - name: Migrer
+      items:
+        - name: Migrer des machines virtuelles Azure vers une autre région Azure
+          href: ../site-recovery-migrate-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Répliquer des ordinateurs sur une autre région Azure après migration
+          href: ../site-recovery-azure-to-azure-after-migration.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Charges de travail
+      items:
+        - name: Active Directory et DNS
+          href: ../site-recovery-active-directory.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Réplication de SQL Server
+          href: ../site-recovery-sql.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: SharePoint
+          href: ../site-recovery-sharepoint.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: "Dynamics\_AX"
+          href: ../site-recovery-dynamicsax.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: RDS
+          href: '../site-recovery-workload.md#protect-rds?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+        - name: "Microsoft\_Exchange"
+          href: '../site-recovery-workload.md#protect-exchange?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+        - name: SAP
+          href: ../site-recovery-sap.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Serveur de fichiers
+          href: ../file-server-disaster-recovery.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Applications web basées sur IIS
+          href: ../site-recovery-iis.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: "Citrix\_XenApp et XenDesktop"
+          href: ../site-recovery-citrix-xenapp-and-xendesktop.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Autres charges de travail
+          href: '../site-recovery-workload.md#workload-summary?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+    - name: Gérer
+      items:
+        - name: Supprimer des serveurs et désactiver la protection
+          href: ../site-recovery-manage-registration-and-protection.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.jsos
+        - name: Supprimer un coffre
+          href: ../delete-vault.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Résolution des problèmes
+      items:
+        - name: Problèmes de réplication Azure vers Azure
+          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+- name: Référence
+  items:
+    - name: "Azure\_PowerShell"
+      href: /powershell/module/azurerm.siterecovery
+    - name: Azure PowerShell classic
+      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/mt750497'
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'http://azure.microsoft.com/blog/tag/azure-site-recovery/'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Parcours d’apprentissage
+      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+    - name: Tarification
+      href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=site-recovery'

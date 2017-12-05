@@ -3,7 +3,7 @@
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
 
-# [Prise en main](iot-hub-get-started.md)
+# [Bien démarrer](iot-hub-get-started.md)
 
 ## Configurer votre appareil
 ### [Simuler un appareil sur votre ordinateur](iot-hub-get-started-simulated.md)
@@ -70,9 +70,10 @@
 ### [Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C](iot-hub-device-sdk-c-intro.md)
 #### [Utiliser IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Utiliser le sérialiseur](iot-hub-device-sdk-c-serializer.md)
-### Traitement des messages appareil-à-cloud
+### Routage des messages
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.JS](iot-hub-node-node-process-d2c.md)
 ### Envoi de messages cloud vers appareil
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
