@@ -29,7 +29,7 @@ Comme expliqué dans l’article [Contrôle d’accès en fonction du rôle Azur
 
 Dans DevTest Labs, une stratégie est un type de ressource qui active l’action RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Chaque stratégie de laboratoire est une ressource de type stratégie et peut être affectée comme étendue à un rôle RBAC.
 
-Par exemple, pour accorder à des utilisateurs une autorisation de lecture/écriture sur une stratégie **Tailles de machine virtuelle autorisées**, vous créez un rôle personnalisé qui fonctionne avec l’action **Microsoft.DevTestLab/labs/policySets/policies/***, puis vous affectez les utilisateurs appropriés à ce rôle personnalisé dans l’étendue de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Par exemple, pour accorder à des utilisateurs une autorisation de lecture/écriture sur une stratégie **Tailles de machine virtuelle autorisées**, vous créez un rôle personnalisé qui fonctionne avec l’action **Microsoft.DevTestLab/labs/policySets/policies/*** puis vous affectez les utilisateurs appropriés à ce rôle personnalisé dans l’étendue de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Pour en savoir plus sur les rôles personnalisés dans RBAC, consultez [Contrôle d’accès des rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md).
 
