@@ -31,14 +31,14 @@ Si vous êtes un développeur Visual Studio C#, Azure Functions [s’intègre au
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installer Azure Functions Core Tools
 
-[Azure Functions Core Tools] est une version locale du runtime d’Azure Functions que vous pouvez exécuter sur votre ordinateur de développement local. Ce n’est pas un émulateur ni un simulateur. Il s’agit du même runtime que celui qui alimente les fonctions dans Azure. Il existe deux versions d’Azure Functions Core Tools, l’une est destinée à la version 1.x du runtime et l’autre à la version 2.x. Les deux versions sont fournies en tant que [package npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Azure Functions Core Tools] est une version locale du runtime d’Azure Functions que vous pouvez exécuter sur votre ordinateur de développement local. Ce n’est pas un émulateur ni un simulateur. Il s’agit du même runtime que celui qui alimente les fonctions dans Azure. Il existe deux versions d’Azure Functions Core Tools, l’une destinée à la version 1.x du runtime et l’autre à la version 2.x. Les deux versions sont fournies en tant que [package npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
 >[!NOTE]  
-> Avant d’installer l’une des versions, vous devez [installer NodeJS](https://docs.npmjs.com/getting-started/installing-node), qui inclut npm. Pour la version 2.x des outils, attention seulement la version de Node.js 8.5 et les versions ultérieures sont pris en charge. 
+> Avant d’installer l’une ou l’autre des versions, vous devez [installer NodeJS](https://docs.npmjs.com/getting-started/installing-node), qui inclut npm. Pour la version 2.x des outils, seuls Node.js 8.5 et les versions ultérieures sont pris en charge.  
 
 ### <a name="version-1x-runtime"></a>Runtime de la version 1.x
 
-La version d’origine utilise le runtime de Functions 1.x. Cette version utilise .NET Framework et n’est prise en charge que sur les ordinateurs Windows. Pour installer les outils de la version 1.x, utilisez la commande suivante :
+La version d’origine des outils utilise le runtime de Functions 1.x. Cette version utilise .NET Framework et n’est prise en charge que sur les ordinateurs Windows. Pour installer les outils de la version 1.x, utilisez la commande suivante :
 
 ```bash
 npm install -g azure-functions-core-tools
@@ -65,7 +65,7 @@ Lorsque vous effectuez une installation sur Ubuntu, utilisez `sudo` comme suit 
 sudo npm install -g azure-functions-core-tools@core
 ```
 
-Lorsque vous procédez à une installation sur OSX et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
+Lorsque vous procédez à une installation sur OSX et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
