@@ -1,6 +1,6 @@
 # <a name="azure-managed-disks-overview"></a>Vue d’ensemble d’Azure Managed Disks
 
-Azure Managed Disks simplifie la gestion des disques des machines virtuelles Azure IaaS, en gérant les [comptes de stockage](../articles/storage/common/storage-introduction.md) associés aux disques de machines virtuelles. Vous spécifiez simplement le type ([Premium](../articles/storage/common/storage-premium-storage.md) ou [Standard](../articles/storage/common/storage-standard-storage.md)) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous.
+Azure Managed Disks simplifie la gestion des disques des machines virtuelles Azure IaaS, en gérant les [comptes de stockage](../articles/storage/common/storage-introduction.md) associés aux disques de machines virtuelles. Vous spécifiez simplement le type ([Premium](../articles/virtual-machines/windows/premium-storage.md) ou [Standard](../articles/virtual-machines/windows/standard-storage.md)) et la taille du disque dont vous avez besoin, et Azure crée et gère le disque pour vous.
 
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -44,7 +44,7 @@ Lorsque vous utilisez Managed Disks, les considérations de facturation suivant
 
 Examinons ces éléments de plus près.
 
-**Type de stockage :** Managed Disks propose 2 niveaux de performance : [Premium](../articles/storage/common/storage-premium-storage.md) (disques SSD) et [Standard](../articles/storage/common/storage-standard-storage.md) (disque dur). La facturation d’un disque managé dépend du type de stockage sélectionné.
+**Type de stockage :** Managed Disks propose 2 niveaux de performance : [Premium](../articles/virtual-machines/windows/premium-storage.md) (disques SSD) et [Standard](../articles/virtual-machines/windows/standard-storage.md) (disque dur). La facturation d’un disque managé dépend du type de stockage sélectionné.
 
 
 **Taille de disque** : la facturation des disques managés dépend de leur taille configurée. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille configurée de 200 Go, vous êtes facturé selon la tarification du disque S20.
@@ -131,9 +131,9 @@ Pour plus d’informations sur Managed Disks, consultez les articles suivants.
 
 ### <a name="compare-managed-disks-storage-options"></a>Comparer les options de stockage Managed Disks
 
-* [Stockage Premium et disques](../articles/storage/common/storage-premium-storage.md)
+* [Stockage Premium et disques](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Stockage Standard et disques](../articles/storage/common/storage-standard-storage.md)
+* [Stockage Standard et disques](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>Instructions d’utilisation
 

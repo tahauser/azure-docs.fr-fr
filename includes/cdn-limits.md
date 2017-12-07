@@ -1,7 +1,7 @@
 
 | Ressource | Limite par défaut | Limite maximale | 
 | --- | --- | --- |
-| Profils CDN |8 |25 |
+| Profils CDN |25 |25 |
 | Points de terminaison CDN par profil |10 |25 |
 | Domaines personnalisés par point de terminaison |10 |25 |
 
