@@ -4,7 +4,7 @@ description: "Utilisez les fonctionnalités de Cortana Intelligence pour obtenir
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/24/2017
 ms.author: bradsev
-ms.openlocfilehash: cdde0c8dc2fd1189970c0782769a609ca8142372
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guide de la solution Vehicle Telemetry Analytics : découverte approfondie de la solution
 Ce menu contient des liens vers les sections de ce manuel : 
@@ -45,10 +45,10 @@ Ce jeu de données au format JSON contient le schéma suivant.
 | VIN |Numéro d’identification de véhicule généré de manière aléatoire |Obtenu à partir d’une liste principale de 10 000 VIN générés de manière aléatoire |
 | Outside temperature |Température extérieure mesurée dans la zone de conduite du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 100 |
 | Engine temperature |Température moteur du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 500 |
-| Speed |Régime de conduite du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 100 |
+| Vitesse |Régime de conduite du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 100 |
 | Fuel |Niveau de carburant du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau de carburant en pourcentage) |
 | EngineOil |Niveau d’huile moteur du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau d’huile moteur en pourcentage) |
-| Tire pressure |Pression des pneus du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 50 (indique le niveau de pression des pneus en pourcentage) |
+| Pression des pneus |Pression des pneus du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 50 (indique le niveau de pression des pneus en pourcentage) |
 | Odometer |Valeur lue sur le compteur kilométrique du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 200 000 |
 | Accelerator_pedal_position |Position de la pédale d’accélérateur du véhicule |Nombre généré de manière aléatoire et compris entre 0 et 100 (indique le niveau d’accélération en pourcentage) |
 | Parking_brake_status |Indique si le véhicule est stationné ou non |True ou False |
@@ -149,7 +149,7 @@ Gestion des données d’entrée et de sortie :
 
 Flux de travail Partition Car Events
 
-![Flux de travail Partition Car Events](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
+![Workflow Partition Car Events](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
 
 Les données brutes sont partitionnées à l’aide d’une activité Hive Azure HDInsight dans PartitionCarEventsPipeline, comme indiqué dans la capture d’écran suivante. Les exemples de données générés pour une année à l’étape de préparation des données sont partitionnés par ANNÉE/MOIS. Les partitions sont utilisées pour générer les signaux et les données de diagnostic de véhicules pour chaque mois (12 partitions au total) d’une année. 

@@ -6,14 +6,14 @@ metadata:
   title: 'Documentation Azure Cosmos DB - Didacticiels, Référence des API'
   description: 'Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Didacticiels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.'
   services: cosmos-db
-  author: czeumault
-  manager: carolz
+  author: mimig
+  manager: jhubbard
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/29/2017
-  ms.author: carolz
+  ms.date: 12/05/2017
+  ms.author: mimig
 abstract:
   description: 'Azure Cosmos DB est un service de base de données multimodèle distribué à l’échelle mondiale. Utilisez ces guides de démarrage rapide, didacticiels et exemples pour développer des documents, des bases de données à colonne large, de graphiques et de clé/valeur. Découvrez ensuite comment répliquer vos données sur autant de régions Azure souhaitées et mettez à l’échelle votre débit sans tenir compte de votre stockage, tout en bénéficiant de contrats de niveau de service complets.'
   aside:
@@ -56,14 +56,14 @@ sections:
               - href: /azure/cosmos-db/create-mongodb-java
               - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-mongodb-flask
               - href: null
           - title: API Graph
             values:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: /azure/cosmos-db/create-graph-python
+              - href: null
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: API de table
             values:

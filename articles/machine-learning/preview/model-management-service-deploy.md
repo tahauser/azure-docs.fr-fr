@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Déploiement d’un modèle d’apprentissage automatique comme service web
 
@@ -25,7 +25,7 @@ Ce document décrit les étapes à suivre pour déployer vos modèles sous forme
 ## <a name="deploying-web-services"></a>Déploiement de services web
 À partir de l’interface CLI, vous pouvez déployer des services web à exécuter sur l’ordinateur local ou sur un cluster.
 
-Nous vous recommandons de commencer par un déploiement local. Dans un premier temps, vérifiez que votre modèle et votre code fonctionnent, puis déployez le service web sur un cluster pour une utilisation en production. Pour plus d’informations sur la configuration de votre environnement en vue d’un déploiement de cluster, consultez [Configuration de la gestion des modèles](model-management-configuration.md). 
+Nous vous recommandons de commencer par un déploiement local. Dans un premier temps, vérifiez que votre modèle et votre code fonctionnent, puis déployez le service web sur un cluster pour une utilisation en production. Pour plus d’informations sur la configuration de votre environnement en vue d’un déploiement de cluster, consultez [Configuration de la gestion des modèles](deployment-setup-configuration.md). 
 
 Les étapes de déploiement sont les suivantes :
 1. Utilisez le modèle d’apprentissage automatique que vous avez enregistré et formé.
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez testé votre service web pour une exécution locale, vous pouvez le déployer sur un cluster pour une utilisation à grande échelle. Pour plus d’informations sur la configuration d’un cluster en vue du déploiement d’un service web, consultez [Configuration de la gestion des modèles](model-management-configuration.md). 
+Maintenant que vous avez testé votre service web pour une exécution locale, vous pouvez le déployer sur un cluster pour une utilisation à grande échelle. Pour plus d’informations sur la configuration d’un cluster en vue du déploiement d’un service web, consultez [Configuration de la gestion des modèles](deployment-setup-configuration.md). 

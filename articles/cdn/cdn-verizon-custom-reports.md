@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Rapports personnalisés de Verizon
 
@@ -30,7 +30,7 @@ Les rapports personnalisés de Verizon accessibles via le portail de gestion pou
 ## <a name="accessing-verizon-custom-reports"></a>Accès aux rapports personnalisés de Verizon
 1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
    
-    ![Bouton de gestion du panneau de profil CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Bouton Gérer du profil CDN](./media/cdn-reports/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
 2. Pointez sur l’onglet **Analytics**, puis sur le menu volant **Custom Reports** (Rapports personnalisés). Cliquez sur **Edge CNAMEs**.

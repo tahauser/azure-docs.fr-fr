@@ -1,20 +1,11 @@
 
-> [!NOTE] 
-> Les préversions sont à votre disposition, à condition que vous acceptiez les conditions d’utilisation. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Cette préversion est limitée pour les régions suivantes :
-> - Ouest des États-Unis 2
-> - Est des États-Unis
-> - Europe occidentale
-> - Sud-est de l’Asie-Pacifique
-
-
 La famille de machines virtuelles de série B vous permet de choisir la taille de machine virtuelle vous offrant les performances de base nécessaires à votre charge de travail, avec la possibilité d’étendre jusqu’à 100 % les performances d’un processeur virtuel Intel® Broadwell E5-2673 v4 2.3GHz ou Intel® Haswell 2.4 GHz E5-2673 v3.
 
 Les machines virtuelles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les petites bases de données et les environnements de test et de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base. Ainsi, l’instance de machine virtuelle génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès que la machine virtuelle a cumulé des crédits, elle peut étendre ses performances en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application requiert des performances de processeur plus élevées.
 
 La série B est disponible dans les six tailles de machines virtuelles suivantes :
 
-| Taille          | Processeurs virtuels | Mémoire : Gio | SSD local = Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits cumulés/heure | Crédits cumulés max. |
+| Taille          | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits cumulés/heure | Crédits cumulés max. |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10%                            | 100 %                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20%                            | 100 %                      | 12                    | 288                |
@@ -26,16 +17,11 @@ La série B est disponible dans les six tailles de machines virtuelles suivantes
 
 
 
-## <a name="q--a-about-this-preview"></a>Questions et réponses relatives à cette préversion
-
-### <a name="q-how-can-i-participate-in-this-preview"></a>Q : Comment puis-je participer à cette préversion ?
-**R** : Demandez un quota pour la série de B dans l’une des régions prises en charge.  Une fois votre quota approuvé, vous pouvez utiliser le portail ou les API pour effectuer votre déploiement comme vous le faites en temps normal. Pour en savoir plus, consultez [Demandes d’augmentation du quota de base d’Azure Resource Manager](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+## <a name="q--a"></a>Questions et réponses 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q : Comment obtenir 135 % des performances de base d’une machine virtuelle ?
 **R** : Ce pourcentage est réparti sur les 8 processeurs virtuels qui composent la taille de la machine virtuelle. Par exemple, si votre application exploite 4 des 8 cœurs travaillant sur le traitement par lots et que chacun de ces 4 processeurs virtuels est utilisé à 30 %. La quantité totale des performances du processeur de la machine virtuelle serait égale à 120 %.  Ce qui signifie que votre machine virtuelle générerait un crédit temps basé sur le delta de 15 % à partir de vos performances de base.  Cela signifie également que lorsque vous disposez de crédits, cette même machine virtuelle peut utiliser la totalité des 8 processeurs virtuels pour obtenir une performance de processeur maximale de 800 %.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Q : Existe-t-il une remise sur le prix de la préversion ?
-**R** : Oui, vous pouvez voir le prix de la préversion sur notre [page de tarification](http://aka.ms/vmsizes).
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q : Comment puis-je surveiller mes soldes de crédit et de consommation ?
 **R** : Nous allons présenter 2 nouvelles mesures dans les semaines à venir. La mesure **Credit** vous permettra d’afficher les crédits cumulés par votre machine virtuelle et la mesure **ConsumedCredit** d’afficher le nombre de crédits de processeur utilisés par votre machine virtuelle.    Ces mesures figurent sur le volet des mesures du portail ou sont visibles par programme via les API Azure Monitor.
@@ -58,14 +44,7 @@ Si je prends les 120 crédits cumulés lors des heures creuses et que je soustr
 **R** : Oui, la série B prend en charge les disques de données de stockage Premium ?   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>Q : À partir de quelles régions puis-je accéder à la version d’évaluation ?
-**R** : La préversion de la série B sera disponible dans les régions suivantes :
-- Ouest des États-Unis 2
-- Est des États-Unis
-- Europe occidentale
-- Sud-est de l’Asie-Pacifique
 
-Une fois la préversion terminée, nous diffuserons la série B dans toutes les autres régions.
     
 
     
