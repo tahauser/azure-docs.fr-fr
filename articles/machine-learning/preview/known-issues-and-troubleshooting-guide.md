@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ Si vous rencontrez des problème lors de l’installation, les fichiers journaux
 /tmp/amlinstaller/logs/*
 ```
 Vous pouvez compresser le contenu de ces répertoires et nous l’envoyer à des fins de diagnostics.
+
+### <a name="app-update"></a>Mise à jour de l’application 
+#### <a name="no-update-notification-on-windows-desktop"></a>Aucune notification de mise à jour sur le Bureau Windows 
+Ce problème sera résolu dans une prochaine mise à jour. En attendant, évitez de lancer l’application à partir du raccourci épinglé à la barre des tâches. Lancez plutôt l’application à l’aide du menu Démarrer, de la barre de recherche Démarrer ou du raccourci situé sur votre Bureau (le cas échéant). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Aucune notification de mise à jour sur une machine virtuelle DSVM (Data Science Virtual Machine) Ubuntu
+Pour télécharger la dernière application, effectuez les étapes suivantes :   
+   - Supprimer le dossier \Users\AppData\Local\amlworkbench
+   - Supprimer le script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Supprimer le raccourci du Bureau qui lance le script ci-dessus
+   - Effectuer une nouvelle installation : [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Application de bureau Workbench
 Si vous rencontrez des difficultés pour vous connecter ou si le bureau Workbench se bloque, vous trouverez les fichiers journaux à l’emplacement suivant :

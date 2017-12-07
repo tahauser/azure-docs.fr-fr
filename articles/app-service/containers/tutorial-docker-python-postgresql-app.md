@@ -5,25 +5,22 @@ services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: 
-ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: fa3aa3a73338970fde2d0b0230e7b2e6ca687dc9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Créer une application web Docker Python et PostgreSQL dans Azure
 
-Web App pour conteneurs offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment créer une application web Docker Python de base dans Azure. Vous allez connecter cette application à une base de données PostgreSQL. Ceci fait, vous disposerez d’une application Python Flask s’exécutant dans un conteneur Docker sur [App Service sur Linux](app-service-linux-intro.md).
+Web App pour conteneurs offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment créer une application web Docker Python de base dans Azure. Vous connectez cette application à une base de données PostgreSQL. Ceci fait, vous disposez d’une application Python Flask s’exécutant dans un conteneur Docker sur [App Service sur Linux](app-service-linux-intro.md).
 
 ![Application Docker Python Flask dans App Service sur Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -124,7 +121,7 @@ Dans cette étape, vous allez créer une base de données PostgreSQL dans Azure.
 
 ### <a name="log-in-to-azure"></a>Connexion à Azure
 
-Vous allez maintenant utiliser Azure CLI 2.0 pour créer les ressources nécessaires à l’hébergement de votre application Python dans Web App pour conteneurs.  Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#login) et suivez les instructions à l’écran.
+Vous allez maintenant utiliser Azure CLI 2.0 pour créer les ressources nécessaires à l’hébergement de votre application Python dans Web App pour conteneurs.  Connectez-vous à votre abonnement Azure avec la commande [az login](/cli/azure/#az_login) et suivez les instructions à l’écran.
 
 ```azurecli
 az login
@@ -132,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md) avec la commande [az group create](/cli/azure/group#create).
+Créez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md) avec la commande [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -142,11 +139,11 @@ L’exemple suivant crée un groupe de ressources nommé dans la région États-
 az group create --name myResourceGroup --location "West US"
 ```
 
-Utilisez la commande [az appservice list-locations](/cli/azure/appservice#list-locations) dans Azure CLI pour afficher la liste des emplacements disponibles.
+Utilisez la commande [az appservice list-locations](/cli/azure/appservice#az_appservice_list_locations) dans Azure CLI pour afficher la liste des emplacements disponibles.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Créer un serveur Azure Database pour PostgreSQL
 
-Créez un serveur PostgreSQL avec la commande [az postgres server create](/cli/azure/documentdb#create).
+Créez un serveur PostgreSQL avec la commande [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create).
 
 Dans la commande suivante, remplacez un nom de serveur unique par l’espace réservé *\<postgresql_name>* et un nom d’utilisateur par l’espace réservé *\<admin_username>*. Le nom de serveur est utilisé dans votre point de terminaison PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`). C’est pourquoi, il doit être unique parmi l’ensemble des serveurs dans Azure. Le nom d’utilisateur correspond au compte d’utilisateur administrateur de la base de données initiale. Vous êtes invité à choisir un mot de passe pour cet utilisateur.
 
@@ -207,7 +204,7 @@ Dans cette étape, vous connectez votre exemple d’application Python Flask au 
 
 ### <a name="create-an-empty-database-and-set-up-a-new-database-application-user"></a>Création d’une base de données vide et configuration d’un nouvel utilisateur de l’application de base de données
 
-Créez un utilisateur de base de données avec accès à une seule base de données. Vous allez utiliser ces informations d’identification pour éviter que l’application ait un accès complet au serveur.
+Créez un utilisateur de base de données avec accès à une seule base de données. Vous utilisez ces informations d’identification pour éviter que l’application ait un accès complet au serveur.
 
 Connectez-vous à la base de données (vous êtes invité à entrer votre mot de passe d’administrateur).
 
@@ -263,7 +260,7 @@ Docker affiche une confirmation de création du conteneur.
 Successfully built 7548f983a36b
 ```
 
-Ajoutez les variables d’environnement de base de données dans le fichier de variables d’environnement *db.env*. L’application va se connecter à la base de données de production PostgreSQL dans Azure.
+Ajoutez les variables d’environnement de base de données dans le fichier de variables d’environnement *db.env*. L’application se connecte à la base de données de production Azure Database pour PostgreSQL.
 
 ```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
@@ -293,7 +290,7 @@ La base de données contient déjà l’inscription que vous avez créée préc�
 
 ## <a name="upload-the-docker-container-to-a-container-registry"></a>Charger le conteneur Docker vers un registre de conteneurs
 
-Dans cette étape, vous chargez le conteneur Docker dans un registre de conteneurs. Vous allez utiliser Azure Container Registry, mais vous pourriez aussi d’autres registres très répandus, comme Docker Hub.
+Dans cette étape, vous chargez le conteneur Docker dans un registre de conteneurs. Utilisez Azure Container Registry, mais vous pourriez aussi utiliser d’autres registres très répandus, comme Docker Hub.
 
 ### <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry
 
@@ -367,7 +364,7 @@ Dans cette étape, vous déployez votre application Python Flask basée sur le c
 
 ### <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
-Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#create).
+Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -417,7 +414,7 @@ Lorsque le plan App Service est créé, l’interface Azure CLI affiche des in
 
 ### <a name="create-a-web-app"></a>Créer une application web
 
-Créez une application web dans le plan App Service *myAppServicePlan* avec la commande [az webapp create](/cli/azure/webapp#create).
+Créez une application web dans le plan App Service *myAppServicePlan* avec la commande [az webapp create](/cli/azure/webapp#az_webapp_create).
 
 L’application web vous offre un espace d’hébergement pour déployer votre code, et fournit une URL pour vous permettre d’afficher l’application déployée. Utilisez  pour créer l’application web.
 
@@ -448,7 +445,7 @@ Une fois l’application web créée, Azure CLI affiche des informations simil
 
 Plus haut dans ce didacticiel, vous avez défini des variables d’environnement pour vous connecter à votre base de données PostgreSQL.
 
-Dans App Service, vous définissez les variables d’environnement comme des _paramètres d’application_ à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config#set).
+Dans App Service, vous définissez les variables d’environnement comme des _paramètres d’application_ à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
 
 L’exemple suivant spécifie les informations de connexion à la base de données comme des paramètres d’application. Il utilise également la variable *PORT* qui mappe le PORT 5000 de votre conteneur Docker pour qu’il reçoive le trafic HTTP sur le PORT 80.
 

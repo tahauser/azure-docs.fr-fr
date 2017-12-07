@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 701a7296368cd8150eedf8cc50b989fdf6112101
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c3eaa4d490b61b746e427d2fe2640ae5cdd6032c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
 
@@ -44,8 +44,8 @@ Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous 
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La dernière version de SQL Server Management Studio (SSMS) est installée. [Télécharger et installer SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.*
-
+> [!NOTE]
+> Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
@@ -59,11 +59,11 @@ Le modèle SaaS de base de données à un seul locataire bénéficie à de nombr
 Il existe une nouvelle version des travaux élastiques qui est désormais une fonctionnalité intégrée d’Azure SQL Database (qui ne nécessite pas de services ou de composants supplémentaires). Cette nouvelle version des travaux élastiques est pour le moment en préversion limitée. Cette préversion limitée prend actuellement en charge PowerShell pour créer des comptes de travail et T-SQL pour créer et gérer des travaux.
 
 > [!NOTE]
-> *Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.*
+> Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
-Les scripts et le code source de l’application de base de données Wingtip Tickets SaaS par client sont disponibles dans le référentiel github [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). [Étapes à suivre pour télécharger les scripts de l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Créer une base de données de compte de travail et un compte de travail
 
@@ -91,13 +91,14 @@ Pour créer un travail, nous utilisons un ensemble de procédures stockées syst
 1. Modifiez l’instruction : SET @wtpUser = &lt;utilisateur&gt; et remplacer la valeur de l’utilisateur utilisée lors du déploiement de l’application Wingtip Tickets SaaS Database Per Tenant
 1. Assurez-vous que vous êtes connecté à la base de données jobaccount, puis appuyez sur **F5** pour exécuter le script.
 
+Observez les événements suivants dans le script *DeployReferenceData.sql* :
 * **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup. Nous devons à présent ajouter des membres cibles.
 * **sp\_add\_target\_group\_member** ajoute un type de membre cible *server*, qui juge toutes les bases de données dans ce serveur (notez qu’il s’agit du serveur tenants1-dpt-&lt;User&gt; contenant les bases de données client) au moment de l’exécution du travail devant être incluses dans le travail ; la deuxième ajoute un type de membre cible *database*, plus précisément la base de données « or » (basetenantdb) qui réside sur le serveur catalog-dpt-&lt;Utilisateur&gt; et enfin un autre type de membre de groupe *database* permettant d’inclure la base de données adhocanalytics utilisée dans un prochain didacticiel.
 * **sp\_add\_job** crée une tâche appelée « Reference Data Deployment » (Déploiement des données de référence).
 * **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour la table de référence, VenueTypes.
 * Les autres vues dans le script indiquent l’existence des objets et contrôlent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer le moment où la tâche a été terminée avec succès sur toutes les bases de données client et deux autres bases de données contenant la table de référence.
 
-1. Dans SSMS, accédez à la base de données *contosoconcerthall* sur le serveur *tenants1-dpt-\<user\>* et interrogez la table *VenueTypes* pour vérifier que *Motorcycle Racing* et *Swimming Club* **figurent** à présent dans la liste des résultats.
+Dans SSMS, accédez à la base de données *contosoconcerthall* sur le serveur *tenants1-dpt-\<user\>* et interrogez la table *VenueTypes* pour vérifier que *Motorcycle Racing* et *Swimming Club* **figurent** à présent dans la liste des résultats.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Créer une tâche pour gérer l’index de la table de référence
@@ -111,9 +112,10 @@ Créez un travail en utilisant les mêmes procédures stockées « système »
 1. Si vous n’êtes pas déjà connecté, cliquez avec le bouton droit, sélectionnez Connexion et connectez-vous au serveur catalog-dpt-&lt;User&gt;.database.windows.net
 1. Assurez-vous que vous êtes connecté à la base de données jobaccount, puis appuyez sur F5 pour exécuter le script.
 
-* sp\_add\_job crée un travail appelé « Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885 ».
-* sp\_add\_jobstep crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour l’index.
-
+Observez les événements suivants dans le script *OnlineReindex.sql* :
+* sp**sp\_add\_job** crée un travail appelé « Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885 »
+* **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour l’index
+* Les vues restantes dans le script surveillent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer le moment où la tâche a été terminée avec succès sur tous les membres du groupe cible.
 
 
 
@@ -127,7 +129,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-[Didacticiel sur les analyses ad hoc](saas-tenancy-adhoc-analytics.md)
+Suivez maintenant le [didacticiel de génération de rapports ad-hoc](saas-tenancy-adhoc-analytics.md).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

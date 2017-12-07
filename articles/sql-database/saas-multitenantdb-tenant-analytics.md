@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analyses entre clients à l’aide de données extraites
 
@@ -73,7 +73,7 @@ Comprendre la fréquence à laquelle chaque client utilise le service fournit un
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
 - L’application de base de données Wingtip Tickets SaaS mutualisée est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données multi-locataire SaaS Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
-- Les scripts de base de données Wingtip SaaS et le [code source](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) de l’application sont disponibles au téléchargement sur GitHub. Veillez à *débloquer le fichier zip* avant d’extraire son contenu.
+- Les scripts de base de données Wingtip SaaS et le [code source](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) de l’application sont disponibles au téléchargement sur GitHub. Veillez à *débloquer le fichier zip* avant d’extraire son contenu. Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 - Power BI Desktop est installé. [Télécharger Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Le lot de clients supplémentaires a été configuré, consultez le [**Didacticiel de configuration des clients**](saas-multitenantdb-provision-and-catalog.md).
 - Un compte de travail et la base de données du compte de travail ont été créés. Consultez les étapes appropriées dans le [**Didacticiel de gestion du schéma**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -212,7 +212,7 @@ Le tracé précédent pour une Salle de concert Contoso montre que la forte affl
 
 Les informations sur les modèles de ventes de tickets peuvent aider Wingtip Tickets à optimiser leur modèle d’affaires. Au lieu de facturer tous les clients à niveau égal, Wingtip peut proposer des niveaux de service avec différents niveaux de performance. Les plus grands emplacements devant vendre plus de tickets par jour peuvent se voir proposer un niveau supérieur avec un contrat de niveau de service (SLA) plus élevé. Ces emplacements peuvent avoir leurs bases de données placées dans le pool avec des limites de ressources par base de données plus importantes. Chaque niveau de service peut avoir une allocation de vente horaire, avec des frais supplémentaires facturés pour les dépassements. Les plus grands emplacements qui ont des pics de vente périodiques peuvent tirer parti des niveaux supérieurs, et Wingtip Tickets peut commercialiser son service plus efficacement.
 
-Dans le même temps, certains clients Wingtip Tickets se plaignent d’éprouver des difficultés à vendre suffisamment de tickets pour justifier le coût du service. Dans ces aperçus, il y a peut-être une opportunité de dynamiser les ventes de tickets pour les emplacements sous-performants. Des ventes plus élevées augmenteraient la valeur perçue du service. Cliquez avec le bouton droit sur fact_Tickets et sélectionnez **Nouvelle mesure**. Entrez l’expression suivante pour la nouvelle mesure appelée **AverageTicketsSold** :
+Dans le même temps, certains clients Wingtip Tickets se plaignent d’éprouver des difficultés à vendre suffisamment de tickets pour justifier le coût du service. Dans ces insights, il y a peut-être une opportunité de dynamiser les ventes de tickets pour les emplacements sous-performants. Des ventes plus élevées augmenteraient la valeur perçue du service. Cliquez avec le bouton droit sur fact_Tickets et sélectionnez **Nouvelle mesure**. Entrez l’expression suivante pour la nouvelle mesure appelée **AverageTicketsSold** :
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

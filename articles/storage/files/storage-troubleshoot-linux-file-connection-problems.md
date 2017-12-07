@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
@@ -154,6 +154,21 @@ Causes courantes de ce problème :
 ### <a name="solution"></a>Solution
 
 Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de montage Azure Files sur Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Cet outil vous permet de valider le client exécutant l’environnement, de détecter les problèmes d’incompatibilité des configurations client qui risquent de compromettre l’accès d’Azure Files, de fournir des conseils prescriptifs sur les correctifs autonomes et de collecter les suivis de diagnostic.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls : impossible d’accéder à '&lt;chemin d’accès&gt;' : erreur d’entrée/sortie
+
+Quand vous tentez de répertorier les fichiers d’un partage de fichiers Azure à l’aide de la commande ls, cette commande se bloque et retourne l’erreur suivante :
+
+**ls : impossible d’accéder à '&lt;chemin d’accès&gt;' : erreur d’entrée/sortie**
+
+
+### <a name="solution"></a>Solution
+Mettez à niveau le noyau Linux vers les versions suivantes qui incluent un correctif pour ce problème :
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Toutes les versions 4.13 ou supérieures
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

@@ -13,24 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 39cb2464eb593a29c4436afb5c14419b704ebff4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811769443e322af3a2981c58979040a1e33b06e9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux sur les distributions approuvées par Azure
 Les partenaires fournissent des images Linux dans la Place de marché Microsoft Azure. Nous collaborons avec différentes communautés Linux pour étoffer la liste des distributions approuvée. Entre-temps, pour les distributions qui ne sont pas disponibles sur la Place de marché, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies dans [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="supported-distributions-and-versions"></a>Distributions et versions prises en charge
-Le tableau suivant répertorie les distributions et les version Linux prises en charge sur Microsoft Azure. Pour plus de détails, voir [Prise en charge d’images Linux dans Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892).
+Le tableau suivant répertorie les distributions et les version Linux prises en charge sur Microsoft Azure. Reportez-vous à la section [Prise en charge des images Linux dans Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) pour plus d'informations sur la prise en charge de Linux et de la technologie open source dans Azure.
 
 Les pilotes LIS (Linux Integration Services) pour Hyper-V et Azure sont des modules noyau que Microsoft distribue directement au noyau Linux en amont.  Certains pilotes LIS sont intégrés dans le noyau de la distribution par défaut. D’anciennes distributions basées sur Red Hat Enterprise (RHEL)/CentOS sont disponibles sous la forme de téléchargements séparés à partir de la page [Linux Integration Services Version 4.1 pour Hyper-V](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Pour plus d’informations sur les pilotes LIS, voir [Conditions requises pour le noyau Linux](create-upload-generic.md#linux-kernel-requirements).
 
 L’agent Linux Azure est pré-installé sur les images disponibles sur la Place de marché Microsoft Azure, et est généralement disponible dans le référentiel du package de la distribution. Le code source est disponible sur [GitHub](https://github.com/azure/walinuxagent).
 
+  
 | Distribution | Version | Pilotes | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3 : [téléchargement LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+ : dans le noyau |Paquet : dans le [référentiel](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) sous « WALinuxAgent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -39,8 +40,11 @@ L’agent Linux Azure est pré-installé sur les images disponibles sur la Place
 | Oracle Linux |6.4+, 7.0+ |Dans le noyau |Package : dans le référentiel sous « WALinuxAgent »  <br/>Code source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7+, 7.1+ |Dans le noyau |Package : dans le référentiel sous « WALinuxAgent »  <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES pour SAP<br>11 SP4<br>12 SP1+|Dans le noyau |Package :<p> pour 11 dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools)<br>pour 12 inclus dans le module « Cloud public » sous « python-azure-agent »<br/>Code source : [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE Leap 42.1+ |Dans le noyau |Package: dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sous « python-azure-agent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |Dans le noyau |Package : dans le référentiel sous « WALinuxAgent »  <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE |openSUSE Leap 42.2+ |Dans le noyau |Package: dans le référentiel [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sous « python-azure-agent » <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |Dans le noyau |Package : dans le référentiel sous « WALinuxAgent »  <br/>Code source : [GitHub](https://github.com/Azure/WALinuxAgent) |
+
+  - **<sup>1</sup>** Pour la prise en charge d'Ubuntu 12.04 sur Azure, consultez la [notice EOL](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+
 
 ## <a name="partners"></a>Partenaires
 

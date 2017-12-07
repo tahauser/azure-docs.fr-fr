@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Déployer et explorer une application multi-locataire SaaS qui illustre le modèle de base de données par locataire avec Azure SQL Database
 
@@ -173,7 +173,7 @@ Maintenant que vous avez démarré une charge dans le regroupement de locataires
 
 Si le générateur de charge s’exécute depuis plusieurs minutes, suffisamment de données doivent être disponibles pour commencer à rechercher certaines des fonctionnalités de surveillance intégrées aux pools et bases de données.
 
-1. Naviguez jusqu’au serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**, puis cliquez sur **Pool1** pour afficher l’utilisation des ressources du pool (le générateur de charge a été exécuté pendant une heure dans les graphiques suivants) :
+Naviguez jusqu’au serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**, puis cliquez sur **Pool1** pour afficher l’utilisation des ressources du pool (le générateur de charge a été exécuté pendant une heure dans les graphiques suivants) :
 
    ![surveiller un pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Restauration automatique d’Azure vers un site local
 
@@ -135,3 +135,17 @@ Une fois le travail de reprotection terminé, la machine virtuelle est répliqu�
 
 ## <a name="common-issues"></a>Problèmes courants
 Assurez-vous que le serveur vCenter est connecté avant de procéder à une restauration automatique. Sinon, la déconnexion des disques et leur attachement à la machine virtuelle échoueront.
+
+### <a name="common-error-codes"></a>Codes d’erreur courants
+
+#### <a name="error-code-8038"></a>Code d'erreur 8038
+
+*Impossible d'afficher la machine virtuelle sur site en raison de l'erreur*
+
+Cela se produit dans les situations suivantes 
+1. La machine virtuelle sur site est exécutée sur un hôte qui n'a pas suffisamment de mémoire provisionnée.
+
+Pour résoudre ce problème
+1. Vous pouvez provisionner plus de mémoire sur l'hôte ESXi.
+2. Déplacez la machine virtuelle vers un autre hôte ESXi disposant de suffisamment de mémoire pour démarrer la machine virtuelle.
+

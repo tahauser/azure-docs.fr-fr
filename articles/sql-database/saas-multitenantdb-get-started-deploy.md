@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
 
@@ -35,7 +35,7 @@ La section relative au déploiement qui suit inclut le bouton **Déployer dans A
 
 L’application est déployée avec des données pour trois exemples de locataires. Les locataires sont stockés ensemble dans une base de données multilocataire.
 
-N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir de [notre référentiel GitHub][link-github-wingtip-multitenantdb-55g].
+N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir de [notre dépôt GitHub][link-github-wingtip-multitenantdb-55g].
 
 #### <a name="learn-in-this-tutorial"></a>Découvrir, dans ce didacticiel, comment
 
@@ -93,7 +93,7 @@ Lors du déploiement de l’application, téléchargez le code source de l’app
 > [!IMPORTANT]
 > Le contenu exécutable (scripts, DLL) peut être bloqué par Windows lorsque des fichiers zip sont téléchargés à partir d’une source externe puis extraits. Lorsque vous extrayez les scripts d’un fichier zip, utilisez les étapes suivantes pour débloquer le fichier .zip avant l’extraction. En débloquant le fichier .zip, vous êtes assuré de l’exécution des scripts.
 
-1. Accédez au [référentiel GitHub WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Accédez au [dépôt GitHub WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Cliquez sur **Cloner ou télécharger**.
 3. Cliquez sur **Télécharger ZIP** et enregistrez le fichier.
 4. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-MultiTenantDb-master.zip**, puis sélectionnez **Propriétés**.
@@ -117,22 +117,22 @@ Les valeurs définies dans ce fichier sont utilisées par tous les scripts, il e
 
 L’application présente des lieux, telles que des salles de concert, des clubs de jazz, des salles de sport, etc. qui accueillent des événements. Les lieux sont inscrits en tant que clients de la plateforme Wingtip, offrant ainsi un moyen simple de répertorier les événements et de vendre des tickets. Chaque lieu obtient une application web personnalisée pour gérer et répertorier ses événements, ainsi que pour vendre des billets indépendamment des autres locataires. En coulisse, les données de chaque locataire sont stockées par défaut dans une base de données multilocataire partitionnée.
 
-Un **concentrateur d’événements** central fournit une liste de liens vers les locataires de votre déploiement spécifique.
+Un **hub d’événements** central fournit une liste de liens vers les locataires de votre déploiement spécifique.
 
-1. Ouvrez le *concentrateur d’événements* dans votre navigateur web :
-    - http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net &nbsp; *(Remplacez par la valeur utilisateur de votre déploiement.)*
+1. Ouvrez le *hub d’événements* dans votre navigateur web :
+    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Remplacez par la valeur utilisateur de votre déploiement.)*
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+    ![hub d’événements](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
-2. Cliquez sur **Fabrikam Jazz Club** dans le *concentrateur d’événements*.
+2. Cliquez sur **Fabrikam Jazz Club** dans le *hub d’événements*.
 
    ![Événements](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
 Pour contrôler la distribution des requêtes entrantes, l’application utilise [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Les pages d’événements, qui sont spécifiques au locataire, incluent le nom du locataire dans l’URL. Les URL incluent également votre valeur Utilisateur spécifique et respectent ce format :
 
-- http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
  
-L’application d’événements analyse le nom du locataire à partir de l’URL et la hache pour créer une clé permettant d’accéder à un catalogue utilisant la [gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Le catalogue mappe la clé à l’emplacement de la base de données du locataire. Le **concentrateur d’événements** répertorie tous les locataires qui sont enregistrés dans le catalogue. Le **concentrateur d’événements** utilise les métadonnées étendues dans le catalogue pour récupérer le nom du locataire associé à chaque mappage pour créer les URL.
+L’application d’événements analyse le nom du locataire à partir de l’URL et la hache pour créer une clé permettant d’accéder à un catalogue utilisant la [gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Le catalogue mappe la clé à l’emplacement de la base de données du locataire. Le **hub d’événements** répertorie tous les locataires qui sont enregistrés dans le catalogue. Le **hub d’événements** utilise les métadonnées étendues dans le catalogue pour récupérer le nom du locataire associé à chaque mappage pour créer les URL.
 
 Dans un environnement de production, vous créez généralement un enregistrement DNS CNAME pour [pointer un domaine Internet d’entreprise](../traffic-manager/traffic-manager-point-internet-domain.md) vers le profil Traffic Manager.
 
@@ -156,7 +156,7 @@ Vous pouvez souhaiter redémarrer la session de générateur de charge pour util
 
 Le déploiement initial inclut trois exemples de locataires dans la base de données *Tenants1*. Nous allons créer un autre locataire pour voir comment il affecte l’application déployée. Dans cette étape, vous créez rapidement un nouveau locataire.
 
-1. Ouvrez ...\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1* dans *PowerShell ISE*.
+1. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1* dans *PowerShell ISE*.
 2. Appuyez sur **F5** pour exécuter le script (laissez les valeurs par défaut pour l’instant).
 
    > [!NOTE]
@@ -166,7 +166,7 @@ Le nouveau locataire Red Maple Racing est ajouté à la base de données *Tenant
 
 ![Nouveau locataire](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Actualisez le *concentrateur d’événements* : le nouveau locataire apparaît dans la liste.
+Actualisez le *hub d’événements* : le nouveau locataire apparaît dans la liste.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Approvisionner un nouveau locataire dans sa propre base de données
 
@@ -174,7 +174,7 @@ Le modèle multilocataire partitionné vous permet de choisir s’il faut approv
 
 Nous approvisionnons maintenant un autre locataire, dans sa propre base de données cette fois-ci.
 
-1. Dans ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, définissez *$TenantName* sur **Salix Salsa**, *$VenueType* sur **dance** et *$Scenario* sur **2**.
+1. Dans... \\Learning Modules\\Provision and Catalog\*Demo-ProvisionTenants.ps1*, définissez *$TenantName* sur **Salix Salsa**,  *$VenueType* sur **dance** et *$Scenario* sur **2**.
 
 2. Appuyez sur **F5** pour réexécuter le script.
     - Cet appui sur F5 configure le nouveau locataire dans une base de données distincte. La base de données et le locataire sont enregistrés dans le catalogue. Le navigateur s’ouvre alors sur la page des événements du locataire.
@@ -183,7 +183,7 @@ Nous approvisionnons maintenant un autre locataire, dans sa propre base de donn�
 
    - Faites défiler vers le bas de la page. Dans la bannière, vous voyez le nom de la base de données dans laquelle les données du locataire sont stockées.
 
-3. Actualisez le concentrateur d’événements, les deux nouveaux locataires apparaissent maintenant dans la liste.
+3. Actualisez le hub d’événements, les deux nouveaux locataires apparaissent maintenant dans la liste.
 
 
 
@@ -193,11 +193,11 @@ Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
 1. Dans le [portail Azure](http://portal.azure.com), accédez à la liste des groupes de ressources. Ouvrez le groupe de ressources que vous avez créé lors du déploiement de l’application.
 
-   ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![groupe de ressources](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
 2. Cliquez sur le serveur **catalog-mt&lt;USER&gt;**. Le serveur de catalogue contient deux bases de données nommées *tenantcatalog* et *basetenantdb*. La base de données *basetenantdb* est une base de données de modèle vide. Elle est copiée pour créer une nouvelle base de données de locataires, quelle soit utilisée par plusieurs locataires ou un seul.
 
-   ![catalog server](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
+   ![serveur de catalogue](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
 3. Revenez au groupe de ressources et sélectionnez le serveur *tenants1-mt* contenant les bases de données de locataires.
     - La base de données tenants1 est une base de données multilocataire dans laquelle les trois locataires d’origine, plus le premier locataire que vous avez ajouté, sont stockés. Elle est configurée comme une base de données 50 DTU standard.
@@ -239,13 +239,13 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > - Afficher l’utilisation du pool pour surveiller l’activité du locataire
 > - Supprimer les exemples de ressources pour arrêter la facturation associée
 
-Essayez maintenant le [didacticiel sur les clients d’approvisionnement](sql-database-saas-tutorial-provision-and-catalog.md).
+Essayez maintenant le [didacticiel sur l’approvisionnement et le catalogue](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- Pour de plus amples informations sur les applications SaaS mutualisées, consultez [*Modèles de conception pour les applications SaaS mutualisées et Base de données SQL Azure*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications).
+- Pour de plus amples informations sur les applications SaaS mutualisées, consultez [*Modèles de conception pour les applications SaaS mutualisées*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications).
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -28,10 +28,10 @@ Azure Cloud Shell a les limitations connues suivantes :
 
 ### <a name="system-state-and-persistence"></a>État du système et persistance
 
-La machine qui fournit votre session Cloud Shell est temporaire. En effet, elle est recyclée lorsque votre session reste inactive pendant 20 minutes. Cloud Shell requiert qu’un partage de fichiers soit monté. Par conséquent, votre abonnement doit être en mesure de configurer des ressources de stockage pour accéder à Cloud Shell. Autres éléments à prendre en compte :
+La machine qui fournit votre session Cloud Shell est temporaire. En effet, elle est recyclée lorsque votre session reste inactive pendant 20 minutes. Cloud Shell requiert qu’un partage de fichiers Azure soit monté. Par conséquent, votre abonnement doit être en mesure de configurer des ressources de stockage pour accéder à Cloud Shell. Autres éléments à prendre en compte :
 
 * Avec le stockage monté, seules les modifications apportées à votre répertoire `clouddrive` sont conservées. Dans Bash, votre répertoire `$Home` est également conservé.
-* Les partages de fichiers peuvent être montés uniquement depuis votre [région affectée](persisting-shell-storage.md#mount-a-new-clouddrive).
+* Les partages de fichiers Azure peuvent être montés uniquement depuis votre [région affectée](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Dans Bash, exécutez `env` pour rechercher votre région définie en tant que `ACC_LOCATION`.
 * Azure Files prend uniquement en charge les comptes de stockage localement redondant et les comptes de stockage géoredondant.
 
@@ -77,10 +77,15 @@ L’initialisation de PowerShell dans Azure Cloud Shell (préversion) peut prend
 Les données écrites sur `$Home` par n’importe quelle application (telle que git, vim, etc.) ne sont pas conservées entre les sessions PowerShell. Consultez [ici](troubleshooting.md#powershell-resolutions) la solution de contournement.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Emplacement du fichier par défaut lors de sa création à partir du lecteur Azure :
-Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des applets de commande PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier C:\Users par défaut. 
+
+Les utilisateurs ne peuvent pas créer de fichiers sous le lecteur Azure à l’aide des cmdlets PowerShell. Si les utilisateurs créent des fichiers à l’aide d’autres outils, tels que vim ou nano, les fichiers sont enregistrés dans le dossier C:\Users par défaut. 
+
+### <a name="gui-applications-are-not-supported"></a>Les applications de l’interface graphique utilisateur ne sont pas prises en charge.
+
+Si l’utilisateur exécute une commande susceptible de créer une boîte de dialogue Windows, comme `Connect-AzureAD` ou `Login-AzureRMAccount`, un message d’erreur apparaît tel que : `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Dépannage de Cloud Shell](troubleshooting.md) <br>
-[Démarrage rapide de Bash](quickstart.md) <br>
-[Démarrage rapide de PowerShell](quickstart-powershell.md)
+[Démarrage rapide pour Bash](quickstart.md) <br>
+[Démarrage rapide pour PowerShell](quickstart-powershell.md)

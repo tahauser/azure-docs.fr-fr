@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Gestion des disques Azure avec PowerShell
 
@@ -41,7 +41,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez
 
 Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquement attachés à celle-ci. 
 
-**Disque de système d’exploitation** : la taille des disques de système d’exploitation peut atteindre 1 To ; ces disques hébergent le système d’exploitation des machines virtuelles.  Le disque de système d’exploitation se voit attribuer la lettre de lecteur *c:* par défaut. La configuration de la mise en cache de disque de système d’exploitation est optimisée pour les performances du système d’exploitation. Le disque de système d’exploitation **ne doit pas** héberger d’applications ou de données. Pour héberger ce type de contenu, utilisez plutôt un disque de données, qui est décrit plus loin dans cet article.
+**Disque de système d’exploitation** : la taille des disques de système d’exploitation peut atteindre 4 To ; ces disques hébergent le système d’exploitation des machines virtuelles.  Le disque de système d’exploitation se voit attribuer la lettre de lecteur *c:* par défaut. La configuration de la mise en cache de disque de système d’exploitation est optimisée pour les performances du système d’exploitation. Le disque de système d’exploitation **ne doit pas** héberger d’applications ou de données. Pour héberger ce type de contenu, utilisez plutôt un disque de données, qui est décrit plus loin dans cet article.
 
 **Disque temporaire** : les disques temporaires utilisent un disque SSD qui se trouve sur le même hôte Azure que la machine virtuelle. Les disques temporaires sont extrêmement performants et peuvent être utilisés pour des opérations telles que le traitement de données temporaires. Toutefois, si la machine virtuelle est déplacée vers un nouvel hôte, toutes les données stockées sur un disque temporaire sont supprimées. La taille du disque temporaire est déterminée par la taille de la machine virtuelle. Les disques temporaires se voient attribuer la lettre de lecteur *d:* par défaut.
 
@@ -81,7 +81,7 @@ Le stockage Standard s’appuie sur des disques durs et offre un stockage écono
 
 ### <a name="premium-disk"></a>Disque Premium
 
-Les disques Premium reposent sur un disque SSD à faible latence et hautes performances. Ils conviennent parfaitement aux machines virtuelles exécutant une charge de travail en production. Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS et FS. Les disques Premium sont de trois types (P10, P20, P30), la taille du disque détermine le type de disque. Lorsque vous sélectionnez une taille de disque, la valeur est arrondie au type suivant. Par exemple, si la taille est inférieure à 128 Go le type de disque sera P10, entre 129 Go et 512 Go, le type de disque sera P20, et au-delà de 512 Go, le type de disque sera P30. 
+Les disques Premium reposent sur un disque SSD à faible latence et hautes performances. Ils conviennent parfaitement aux machines virtuelles exécutant une charge de travail en production. Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS et FS. Les disques Premium sont de cinq types (P10, P20, P30, P40, P50). La taille du disque détermine le type de disque. Lorsque vous sélectionnez une taille de disque, la valeur est arrondie au type suivant. Par exemple, si la taille est inférieure à 128 Go, le type de disque sera P10, entre 129 Go et 512 Go, le type de disque sera P20, P30 pour 512 Go, P40 pour 2 To et P50 pour 4 To. 
 
 ### <a name="premium-disk-performance"></a>Performances du disque Premium
 
@@ -156,4 +156,4 @@ Ce didacticiel vous a apporté des connaissances concernant les disques de machi
 Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.
 
 > [!div class="nextstepaction"]
-> [How to customize a Linux virtual machine on first boot](./tutorial-automate-vm-deployment.md) (Comment personnaliser une machine virtuelle Linux au premier démarrage)
+> [Guide pratique pour personnaliser une machine virtuelle au premier démarrage](./tutorial-automate-vm-deployment.md)

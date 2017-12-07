@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
@@ -45,7 +45,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Activer la connectivité aux réseaux virtuels à l’aide du portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre instance APIM.
-2. Sélectionnez **Domaines personnalisés et SSL**.
+2. Sélectionnez **Réseau virtuel**.
 3. Configurez l’instance du service Gestion des API à déployer à l’intérieur d’un réseau virtuel.
 
     ![Menu Réseau virtuel du service Gestion des API][api-management-using-vnet-menu]
@@ -116,6 +116,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | * / 14000 - 14999 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès à SQL Azure V12** |Externe et interne |
 | * / 5671 |Règle de trafic sortant |AMQP |VIRTUAL_NETWORK / INTERNET|Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |Externe et interne |
 | * / 445 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance sur le partage de fichiers Azure pour GIT |Externe et interne |
+| * / 25028 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Se connecter au relais SMTP pour envoyer des e-mails |Externe et interne |
 | * / 6381 - 6383 |Trafic entrant et sortant |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Accès aux instances de cache Redis entre instances de rôle |Externe et interne |
 | * / * | Trafic entrant |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Équilibrage de charge de l’infrastructure Azure |Externe et interne |
 
@@ -141,7 +142,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 ## <a name="troubleshooting"></a>Résolution des problèmes
 * **Installation initiale** : si le déploiement initial du service Gestion des API sur un sous-réseau échoue, nous vous recommandons de commencer par déployer une machine virtuelle sur ce sous-réseau. Ensuite, utilisez le Bureau à distance pour vous connecter à la machine virtuelle et confirmez qu’il existe une connectivité à chacune des ressources de votre abonnement Azure mentionnées ci-dessous. 
     * Stockage Blob Azure
-    * Azure SQL Database
+    * Base de données SQL Azure
 
  > [!IMPORTANT]
  > Après avoir validé la connectivité, veillez à supprimer toutes les ressources déployées sur le sous-réseau avant d’y déployer le service Gestion des API.

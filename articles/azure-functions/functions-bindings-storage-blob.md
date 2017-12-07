@@ -1,5 +1,5 @@
 ---
-title: Liaisons de stockage Blob Azure Functions
+title: Liaisons Stockage Blob Azure pour Azure Functions
 description: "Comprendre comment utiliser les déclencheurs et les liaisons Stockage Blob Azure dans Azure Functions."
 services: functions
 documentationcenter: na
@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-blob-storage-bindings"></a>Liaisons de stockage Blob Azure Functions
+# <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
 Cet article explique comment utiliser des liaisons Stockage Blob Azure dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour les objets blob.
 
@@ -30,7 +30,7 @@ Cet article explique comment utiliser des liaisons Stockage Blob Azure dans Azur
 > [!NOTE]
 > Les [comptes de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts) ne sont pas pris en charge. Les déclencheurs et les liaisons de stockage blob nécessitent un compte de stockage à usage général. 
 
-## <a name="blob-storage-trigger"></a>Déclencheur de stockage d’objets blob
+## <a name="trigger"></a>Déclencheur
 
 Utilisez un déclencheur de stockage d’objets blob pour démarrer une fonction lors de la détection d’un objet blob nouveau ou mis à jour. Le contenu de l’objet blob est fourni comme entrée de la fonction.
 
@@ -59,7 +59,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Pour plus d’informations sur l’attribut `BlobTrigger`, consultez [Déclencheur - Attributs pour C# précompilé](#trigger---attributes-for-precompiled-c).
+Pour plus d’informations sur l’attribut `BlobTrigger`, consultez [Déclencheur - attributs](#trigger---attributes-for-precompiled-c).
 
 ### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
 
@@ -129,7 +129,7 @@ Voici le fichier *function.json* :
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
 
-Voici le code Script C# :
+Voici le code JavaScript :
 
 ```javascript
 module.exports = function(context) {
@@ -138,7 +138,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Déclencheur - Attributs pour C# précompilé
+## <a name="trigger---attributes"></a>Déclencheur - attributs
 
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur d’objet blob :
 
@@ -151,6 +151,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   public static void Run(
       [BlobTrigger("sample-images/{name}")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
 
   Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
@@ -160,7 +163,12 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
+
+  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -173,6 +181,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
       [FunctionName("BlobTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ....
+  }
   ```
 
 Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
@@ -193,7 +204,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Doit être défini sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. Les exceptions sont notées à la section [utilisation](#trigger---usage). |
 |**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction. | 
 |**path** | **BlobPath** |Conteneur à surveiller.  Peut être un [modèle de nom d’objet blob](#trigger-blob-name-patterns). | 
-|**Connexion** | **Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** | **Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
@@ -295,7 +308,7 @@ Si les 5 tentatives échouent, Azure Functions ajoute un message à une file d�
 
 Si le conteneur d’objets blob surveillé contient plus de 10 000 objets blob, le runtime Functions recherche les objets blob nouveaux ou modifiés dans les fichiers journaux. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, les [journaux de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux peuvent être omis. Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="blob-storage-input--output-bindings"></a>Liaisons d’entrée et de sortie du stockage d’objets blob
+## <a name="input--output"></a>Entrée et sortie
 
 Utilisez les liaisons d’entrée et de sortie du stockage d’objets blob pour lire et écrire des objets blob.
 
@@ -424,7 +437,7 @@ Dans le fichier *function.json*, la propriété de métadonnées `queueTrigger` 
 
 La section [configuration](#input--output---configuration) décrit ces propriétés.
 
-Voici le code Script C# :
+Voici le code JavaScript :
 
 ```javascript
 module.exports = function(context) {
@@ -434,7 +447,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes-for-precompiled-c"></a>Entrée et sortie - Attributs pour C# précompilé
+## <a name="input--output---attributes"></a>Entrée et sortie - attributs
 
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez le [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -445,6 +458,9 @@ Le constructeur de l’attribut prend le chemin de l’objet blob et un paramèt
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+    ...
+}
 ```
 
 Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
@@ -454,9 +470,14 @@ Vous pouvez définir la propriété `Connection` pour spécifier le compte de st
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+{
+    ...
+}
 ```
 
-Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Déclencheur - Attributs pour C# précompilé](#trigger---attributes-for-precompiled-c).
+Pour obtenir un exemple complet, consultez [Entrée et sortie - exemple C# précompilé](#input--output---c-example).
+
+Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attributes-for-precompiled-c).
 
 ## <a name="input--output---configuration"></a>Entrée et sortie - configuration
 
@@ -468,8 +489,10 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Doit avoir la valeur `in` pour une liaison d’entrée ou out pour une liaison de sortie. Les exceptions sont notées à la section [utilisation](#input--output---usage). |
 |**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.  La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
 |**path** |**BlobPath** | Chemin de l’objet blob. | 
-|**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |n/a | **Access** | Indique si vous lirez ou écrirez. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input--output---usage"></a>Entrée et sortie - utilisation
 

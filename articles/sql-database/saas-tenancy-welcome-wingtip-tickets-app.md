@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Application SaaS Wingtip Tickets
 
@@ -43,7 +43,7 @@ Consultez les [didacticiels][docs-tutorials-for-wingtip-sa] et le code sur GitHu
 
 Le modèle de base de données par locataire est efficace pour les fournisseurs de services qui sont concernés par l’isolation des locataires et souhaitent exécuter un service centralisé qui permet une utilisation rentable de ressources partagées. Une base de données est créée pour chaque locataire ou lieu, et toutes les bases de données sont gérées centralement. Les bases de données peuvent être hébergées dans des pools élastiques pour fournir une gestion des performances rentable et facile, qui tire parti des modèles de charge de travail imprévisibles des locataires. Une base de données de catalogue contient le mappage entre les locataires et leurs bases de données. Ce mappage est géré à l’aide des fonctionnalités de gestion de carte de partitions de la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md), ce qui garantit une gestion efficace des connexions à l’application.
 
-Consultez les [didacticiels][docs-tutorials-for-wingtip-dpt] et le code sur GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Consultez les [didacticiels][docs-tutorials-for-wingtip-dpt] et le code sur GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Modèle de base de données multi-locataire partitionnée
 
@@ -51,7 +51,7 @@ Les bases de données multi-locataires sont efficaces pour les fournisseurs de s
 
 Ce modèle autorise également un modèle hybride dans lequel vous pouvez optimiser les coûts avec plusieurs locataires dans une base de données, ou optimiser l’isolation avec un seul locataire dans sa propre base de données. Le choix peut être effectué locataire par locataire, soit lorsque le locataire est provisionné, soit ultérieurement, sans aucun impact sur l’application.
 
-Consultez les [didacticiels][docs-tutorials-for-wingtip-mt] et le code sur GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Consultez les [didacticiels][docs-tutorials-for-wingtip-mt] et le code sur GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -63,7 +63,7 @@ Consultez les [didacticiels][docs-tutorials-for-wingtip-mt] et le code sur GitHu
 
 - Application autonome :
     - [Didacticiels pour une application autonome][docs-tutorials-for-wingtip-sa].
-    - [Code pour une application autonome, sur Github][github-code-for-wingtip-sa].
+    - [Code pour une application autonome, sur GitHub][github-code-for-wingtip-sa].
 
 - Base de données par locataire :
     - [Didacticiels pour les bases de données par locataire][docs-tutorials-for-wingtip-dpt].

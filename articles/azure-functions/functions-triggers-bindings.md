@@ -1,5 +1,5 @@
 ---
-title: "Utiliser des déclencheurs et des liaisons dans Azure Functions | Microsoft Docs"
+title: "Utiliser des déclencheurs et des liaisons dans Azure Functions"
 description: "Découvrez comment utiliser des déclencheurs et des liaisons dans Azure Functions pour connecter l’exécution de votre code aux événements en ligne et aux services cloud."
 services: functions
 documentationcenter: na
@@ -7,27 +7,26 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
+keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture serverless"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 Azure Functions vous permet d’écrire du code en réponse aux événements dans Azure et d’autres services, via des *déclencheurs* et *liaisons*. Cet article est une vue d’ensemble conceptuelle des déclencheurs et pour tous les langages de programmation pris en charge. Les fonctionnalités communes à toutes les liaisons sont décrites ici.
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Les déclencheurs et les liaisons permettent de définir de manière déclarative la façon dont une fonction est appelée et les données avec lesquelles elle fonctionne. Un *déclencheur* définit la façon dont une fonction est appelée. Une fonction ne doit avoir qu’un seul déclencheur. Les déclencheurs sont associés à des données, généralement la charge utile qui a déclenché la fonction. 
+Les déclencheurs et les liaisons permettent de définir de manière déclarative la façon dont une fonction est appelée et les données avec lesquelles elle fonctionne. Un *déclencheur* définit la façon dont une fonction est appelée. Une fonction ne doit avoir qu’un seul déclencheur. Les déclencheurs sont associés à des données, généralement la charge utile qui a déclenché la fonction.
 
 Les *liaisons* d’entrée et de sortie fournissent un moyen déclaratif de se connecter à des données à partir de votre code. Comme pour les déclencheurs, vous spécifiez des chaînes de connexion et d’autres propriétés dans votre configuration des fonctions. Les liaisons sont facultatives et une fonction peut avoir plusieurs liaisons d’entrée et de sortie. 
 
@@ -35,11 +34,13 @@ Les *liaisons* d’entrée et de sortie fournissent un moyen déclaratif de se c
 
 Vous pouvez configurer des déclencheurs et liaisons dans l’onglet **Intégrer** du portail Azure Functions. En coulisses, l’interface utilisateur modifie un fichier appelé *function.json* dans le répertoire de la fonction. Vous pouvez modifier ce fichier en choisissant l’**Éditeur avancé**.
 
-Le tableau suivant montre les déclencheurs et liaisons qui sont pris en charge avec Azure Functions. 
+## <a name="supported-bindings"></a>Liaisons prises en charge
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Exemple : déclencheur de file d’attente et liaison de sortie de table
+Pour plus d’informations sur les liaisons en préversion ou approuvées pour la production, consultez [Langages pris en charge](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Exemple : déclencheur de file d’attente et liaison de sortie de table
 
 Imaginons que vous souhaitiez écrire une nouvelle ligne dans Stockage Table Azure à chaque fois qu’un nouveau message s’affiche dans Stockage File d’attente Azure. Ce scénario peut être implémenté à l’aide d’un déclencheur de file d’attente Azure et d’une liaison de sortie Stockage Table. 
 
@@ -126,9 +127,9 @@ Pour afficher et modifier le contenu de *function.json* dans le portail Azure, c
 
 Pour plus d’exemples de code et de détails sur l’intégration avec Stockage Azure, consultez [Déclencheurs et liaisons Azure Functions pour Stockage Azure](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Sens de la liaison
+## <a name="binding-direction"></a>Sens de la liaison
 
-Tous les déclencheurs et liaisons ont une propriété `direction` :
+Tous les déclencheurs et liaisons ont une propriété `direction` dans le fichier *function.json* :
 
 - Pour les déclencheurs, le sens est toujours `in`
 - Les liaisons d’entrée et de sortie utilisent `in` et `out`
@@ -243,7 +244,7 @@ Par exemple, un déclencheur de file d’attente Stockage Azure prend en charge 
 
 Les détails des propriétés de métadonnées pour chaque déclencheur sont décrits dans la rubrique de référence correspondante. La documentation est également disponible dans l’onglet **Intégrer** du portail, dans la section **Documentation** située sous la zone de configuration de liaison.  
 
-Par exemple, étant donné que les déclencheurs d’objet blob agissent avec un peu de retard, vous pouvez utiliser un déclencheur de file d’attente pour exécuter votre fonction (voir [Déclencheur Stockage Blob](functions-bindings-storage-blob.md#blob-storage-trigger)). Le message de file d’attente contiendra le nom de fichier du blob à déclencher. À l’aide de la propriété de métadonnées `queueTrigger`, vous pouvez spécifier ce comportement partout dans votre configuration, plutôt que dans votre code.
+Par exemple, étant donné que les déclencheurs d’objet blob agissent avec un peu de retard, vous pouvez utiliser un déclencheur de file d’attente pour exécuter votre fonction (voir [Déclencheur Stockage Blob](functions-bindings-storage-blob.md#trigger)). Le message de file d’attente contiendra le nom de fichier du blob à déclencher. À l’aide de la propriété de métadonnées `queueTrigger`, vous pouvez spécifier ce comportement partout dans votre configuration, plutôt que dans votre code.
 
 ```json
   "bindings": [
@@ -417,7 +418,7 @@ Pour plus d’informations sur une liaison spécifique, consultez les articles s
 - [Stockage de files d’attente](functions-bindings-storage-queue.md)
 - [Stockage d’objets blob](functions-bindings-storage-blob.md)
 - [Stockage Table](functions-bindings-storage-table.md)
-- [Concentrateur d’événements](functions-bindings-event-hubs.md)
+- [Hub d’événements](functions-bindings-event-hubs.md)
 - [Service Bus](functions-bindings-service-bus.md)
 - [Azure Cosmos DB](functions-bindings-documentdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)

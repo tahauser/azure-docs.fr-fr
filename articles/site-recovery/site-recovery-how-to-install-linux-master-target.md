@@ -3,7 +3,7 @@ title: "Installation d’un serveur cible maître Linux pour le basculement à p
 description: "Pour reprotéger une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux. Découvrez comment en installer."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
 Après avoir basculé une machine virtuelle, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -374,7 +374,7 @@ Une fois l’installation terminée, inscrivez le serveur de configuration à l�
 
 ### <a name="upgrade-the-master-target"></a>Mettez le serveur cible maître à niveau
 
-Exécutez le programme d’installation. Il détecte automatiquement que l’agent est installé sur le serveur cible maître. Sélectionnez **Y** (O) pour effectuer la mise à niveau.  Une fois la configuration terminée, vérifiez la version du serveur cible maître installée à l’aide de la commande suivante.
+Exécutez le programme d’installation. Il détecte automatiquement que l’agent est installé sur le serveur cible maître. Sélectionnez **Y** (O) pour effectuer la mise à niveau.  Une fois la configuration terminée, vérifiez la version du serveur cible maître installée à l’aide de la commande suivante :
 
     ```
     cat /usr/local/.vx_version

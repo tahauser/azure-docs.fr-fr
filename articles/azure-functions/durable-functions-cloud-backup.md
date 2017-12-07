@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -67,7 +67,7 @@ Cette fonction d’orchestrateur effectue essentiellement les opérations suivan
 4. Attend la fin de tous les chargements.
 5. Retourne le nombre total d’octets qui ont été chargés dans Stockage Blob Azure.
 
-Notez la ligne `await Task.WhenAll(tasks);`. Tous les appels à la fonction `E2_CopyFileToBlob` n’ont *pas* été attendus. Cela est intentionnel pour les autoriser à s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll`, nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
+Notez la ligne `await Task.WhenAll(tasks);`. Tous les appels à la fonction `E2_CopyFileToBlob` n’ont *pas* été attendus. Cela est intentionnel pour les autoriser à s’exécuter en parallèle. Lorsque nous transmettons ce tableau de tâches à `Task.WhenAll`, nous obtenons une tâche qui ne se termine pas *tant que toutes les opérations de copie ne sont pas finies*. Si vous connaissez la bibliothèque parallèle de tâches (Task Parallel Library, TPL) dans .NET, cela n’est pas nouveau pour vous. La différence est que ces tâches peuvent s’exécuter simultanément sur plusieurs machines virtuelles, et que l’extension Fonctions durables garantit que l’exécution de bout en bout n’est pas interrompue par un recyclage de processus.
 
 Après avoir attendu `Task.WhenAll`, nous savons que tous les appels à la fonction sont terminés et nous ont retourné des valeurs. Chaque appel à `E2_CopyFileToBlob` renvoie le nombre d’octets chargés. Pour calculer le nombre total d’octets, il suffit donc d’additionner toutes ces valeurs retournées.
 
@@ -92,7 +92,7 @@ L’implémentation est également très simple. Elle utilise certaines des fonc
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-L’implémentation charge le fichier à partir du disque et transmet de manière asynchrone le contenu vers un objet blob du même nom. La valeur de retour correspond au nombre d’octets copiés vers le stockage, utilisée ensuite par la fonction d’orchestrateur pour calculer la somme d’agrégation.
+L’implémentation charge le fichier à partir du disque et transmet de manière asynchrone le contenu vers un objet blob du même nom dans le conteneur « backups ». La valeur de retour correspond au nombre d’octets copiés vers le stockage, utilisée ensuite par la fonction d’orchestrateur pour calculer la somme d’agrégation.
 
 > [!NOTE]
 > Il s’agit d’un exemple parfait de déplacement d’opérations d’E/S vers une fonction `activityTrigger`. Non seulement le travail peut être réparti sur plusieurs machines virtuelles différentes, mais vous avez également la possibilité de créer des points de contrôle tout au long de la progression. Si le processus hôte est interrompu pour une raison quelconque, vous savez que les chargements ont déjà été effectués.

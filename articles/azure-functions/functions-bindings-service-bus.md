@@ -1,13 +1,13 @@
 ---
-title: "Déclencheurs et liaisons Service Bus Azure Functions"
+title: Liaisons Azure Service Bus pour Azure Functions
 description: "Découvrez comment utiliser des déclencheurs et des liaisons Azure Service Bus dans Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: functions
 ms.devlang: multiple
@@ -15,20 +15,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: glenga
-ms.openlocfilehash: 5ef558f19bb88d208b0d224e30137ac237ab64bc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: tdykstra
+ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-service-bus-bindings"></a>Liaisons Service Bus Azure Functions
+# <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
 Cet article explique comment utiliser des liaisons Azure Service Bus dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur et de sortie pour les files d’attente et les rubriques Service Bus.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="service-bus-trigger"></a>Déclencheur Service Bus
+## <a name="trigger"></a>Déclencheur
 
 Utilisez le déclencheur Service Bus pour répondre aux messages provenant d'une file d’attente ou d'une rubrique Service Bus. 
 
@@ -144,7 +144,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Déclencheur - Attributs pour C# précompilé
+## <a name="trigger---attributes"></a>Déclencheur - attributs
 
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur Service Bus :
 
@@ -156,6 +156,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
       [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Vous pouvez définir la propriété `Connection` pour spécifier le compte Service Bus à utiliser, comme indiqué dans l’exemple suivant :
@@ -165,7 +168,12 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   public static void Run(
       [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
       string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -180,6 +188,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
       public static void Run(
           [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
           string myQueueItem, TraceWriter log)
+  {
+      ...
+  }
   ```
 
 Le compte Service Bus à utiliser est déterminé dans l’ordre suivant :
@@ -202,8 +213,10 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**queueName**|**QueueName**|Nom de la file d’attente à surveiller.  Défini uniquement en cas de surveillance d’une file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
 |**subscriptionName**|**SubscriptionName**|Nom de l’abonnement à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
-|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. <br/>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. |
 |**accessRights**|**Access**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
@@ -229,7 +242,7 @@ Le fichier [host.json](functions-host-json.md#servicebus) contient les paramètr
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
 
-## <a name="service-bus-output-binding"></a>Liaison de sortie Service Bus
+## <a name="output"></a>Sortie
 
 Utilisez la liaison de sortie Azure Service Bus pour envoyer des messages de file d’attente ou de rubrique.
 
@@ -396,27 +409,35 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Sortie - Attributs pour C# précompilé
+## <a name="output---attributes"></a>Sortie - attributs
 
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
-  Le constructeur de l’attribut prend le nom de la file d’attente ou la rubrique et l’abonnement. Vous pouvez également spécifier les droits d’accès de la connexion. La détermination du paramètre des droits d’accès est expliquée dans la section [Sortie - configuration](#output---configuration). Voici un exemple qui illustre l’attribut appliqué à la valeur de retour de la fonction :
+Le constructeur de l’attribut prend le nom de la file d’attente ou la rubrique et l’abonnement. Vous pouvez également spécifier les droits d’accès de la connexion. La détermination du paramètre des droits d’accès est expliquée dans la section [Sortie - configuration](#output---configuration). Voici un exemple qui illustre l’attribut appliqué à la valeur de retour de la fonction :
 
-  ```csharp
-  [FunctionName("ServiceBusOutput")]
-  [return: ServiceBus("myqueue")]
-  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
-  ```
+```csharp
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue")]
+public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+{
+    ...
+}
+```
 
-  Vous pouvez définir la propriété `Connection` pour spécifier le compte Service Bus à utiliser, comme indiqué dans l’exemple suivant :
+Vous pouvez définir la propriété `Connection` pour spécifier le compte Service Bus à utiliser, comme indiqué dans l’exemple suivant :
 
-  ```csharp
-  [FunctionName("ServiceBusOutput")]
-  [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
-  ```
+```csharp
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+{
+    ...
+}
+```
 
-Vous pouvez utiliser l’attribut `ServiceBusAccount` pour spécifier le compte Service Bus à utiliser au niveau de la classe, de la méthode ou du paramètre.  Pour plus d’informations, consultez [Déclencheur - Attributs pour C# précompilé](#trigger---attributes-for-precompiled-c).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+
+Vous pouvez utiliser l’attribut `ServiceBusAccount` pour spécifier le compte Service Bus à utiliser au niveau de la classe, de la méthode ou du paramètre.  Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -430,8 +451,10 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**queueName**|**QueueName**|Nom de la file d’attente.  Défini uniquement en cas d’envoi de messages de file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique à surveiller. Défini uniquement en cas d’envoi de messages de rubrique, ne s’applique pas à une file d’attente.|
 |**subscriptionName**|**SubscriptionName**|Nom de l’abonnement à surveiller. Défini uniquement en cas d’envoi de messages de rubrique, ne s’applique pas à une file d’attente.|
-|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. <br/>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique.|
 |**accessRights**|**Access** |Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont « gérer » et « écouter ». La valeur par défaut est « gérer », ce qui indique que la connexion a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas d’autorisations **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Sortie - utilisation
 

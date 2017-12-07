@@ -1,5 +1,5 @@
 ---
-title: "Liaisons de stockage de file d’attente Azure Functions"
+title: "Liaisons de stockage File d’attente Azure pour Azure Functions"
 description: "Comprendre comment utiliser la liaison de sortie et le déclencheur Stockage File d’attente Azure dans Azure Functions."
 services: functions
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 9cf506d571c8d67a1e48ce34860db3dbc3445509
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-queue-storage-bindings"></a>Liaisons de stockage de file d’attente Azure Functions
+# <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
 Cet article explique comment utiliser les liaisons Stockage File d’attente Azure dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur et de sortie pour les files d’attente.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="queue-storage-trigger"></a>Déclencheur de stockage de file d’attente
+## <a name="trigger"></a>Déclencheur
 
 Utilisez le déclencheur de file d’attente pour démarrer une fonction lorsqu’un nouvel élément est reçu sur une file d’attente. Le message de file d’attente est fourni comme entrée pour la fonction.
 
@@ -151,7 +151,7 @@ module.exports = function (context) {
 
 La section [utilisation](#trigger---usage) explique `myQueueItem`, qui est nommé par la propriété `name` dans function.json.  La [section sur les métadonnées de message](#trigger---message-metadata) détaille toutes les autres variables indiquées.
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Déclencheur - Attributs pour C# précompilé
+## <a name="trigger---attributes"></a>Déclencheur - attributs
  
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur de file d’attente :
 
@@ -164,6 +164,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
@@ -173,8 +176,13 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
       TraceWriter log)
+  {
+      ....
+  }
   ```
  
+  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
+
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
   Fournit une autre manière de spécifier le compte de stockage à utiliser. Le constructeur prend le nom d’un paramètre d’application comportant une chaîne de connexion de stockage. L’attribut peut être appliqué au niveau du paramètre, de la méthode ou de la classe. L’exemple suivant montre le niveau de la classe et celui de la méthode :
@@ -186,6 +194,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
       [FunctionName("QueueTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
@@ -206,11 +217,13 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction**| n/a | Dans le fichier *function.json* uniquement. Doit être défini sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a |Nom de la variable qui représente la file d’attente dans le code de la fonction.  | 
 |**queueName** | **QueueName**| Nom de la file d’attente à interroger. | 
-|**connection** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br/>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
  
-Dans C# et Script C#, accédez aux données des objets blob en utilisant un paramètre de méthode comme `Stream paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
+Dans C# et Script C#, accédez aux données d’objets blob en utilisant un paramètre de méthode comme `Stream paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
 
 * Objet POCO - Le runtime Functions désérialise une charge utile JSON en objet POCO. 
 * `string`
@@ -245,7 +258,7 @@ Le fichier [host.json](functions-host-json.md#queues) contient les paramètres q
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="queue-storage-output-binding"></a>Liaison de sortie de stockage de file d’attente
+## <a name="output"></a>Sortie
 
 Utilisez la liaison de sortie Stockage File d’attente Azure pour écrire des messages dans une file d’attente.
 
@@ -386,7 +399,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Sortie - Attributs pour C# précompilé
+## <a name="output---attributes"></a>Sortie - attributs
  
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -396,6 +409,9 @@ L’attribut s’applique à un paramètre `out` ou à la valeur de retour de la
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
 Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
@@ -404,9 +420,14 @@ Vous pouvez définir la propriété `Connection` pour spécifier le compte de st
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
-Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Déclencheur - Attributs pour C# précompilé](#trigger---attributes-for-precompiled-c).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+
+Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -418,7 +439,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Doit être défini sur `out`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente la file d’attente dans le code de la fonction. La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.| 
 |**queueName** |**QueueName** | Nom de la file d’attente. | 
-|**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Sortie - utilisation
  

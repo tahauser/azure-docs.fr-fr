@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 2348db8f19391292f79608092a3c2482216493c6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gérer un groupe de machines virtuelles identiques avec Azure CLI 2.0
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI 2.0 courantes qui vous permettent d’effectuer ces tâches.
@@ -28,7 +28,7 @@ Pour effectuer ces tâches de gestion, vous devez disposer de la dernière build
 
 
 ## <a name="view-information-about-a-scale-set"></a>Afficher des informations sur un groupe identique
-Pour afficher les informations générales relatives à un groupe identique, utilisez la commande [az vmss show](/cli/azure/vmss#show). L’exemple suivant obtient des informations sur le groupe identique nommé *myScaleSet* dans le groupe de ressources *myResourceGroup*. Entrez vos propres noms, comme suit :
+Pour afficher les informations générales relatives à un groupe identique, utilisez la commande [az vmss show](/cli/azure/vmss#show). L’exemple suivant obtient des informations sur le groupe identique nommé *myScaleSet* dans le groupe de ressources *myResourceGroup*. Saisissez vos propres noms, comme suit :
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -36,7 +36,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Afficher les machines virtuelles d’un groupe identique
-Pour afficher une liste des instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instances](/cli/azure/vmss#list-instances). L’exemple suivant répertorie toutes les instances de machine virtuelle dans le groupe identique nommé *myScaleSet* et dans le groupe de ressources *myResourceGroup*. Spécifiez vos propres valeurs pour ces noms :
+Pour afficher une liste des instances de machine virtuelle dans un groupe identique, utilisez la commande [az vmss list-instances](/cli/azure/vmss#list-instances). L’exemple suivant liste toutes les instances de machines virtuelles du groupe identique nommé *myScaleSet* et du groupe de ressources *myResourceGroup*. Spécifiez vos propres valeurs pour ces noms :
 
 ```azurecli
 az vmss list-instances \

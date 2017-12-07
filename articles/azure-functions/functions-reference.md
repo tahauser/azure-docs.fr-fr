@@ -3,11 +3,11 @@ title: "Guide de développement Azure Functions | Microsoft Docs"
 description: "Découvrez les concepts et techniques Azure Functions dont vous avez besoin pour développer des fonctions dans Azure, et ce, pour tous les langages de programmation et toutes les liaisons."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "guide de développement, azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+keywords: "guide de développement, azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture serverless"
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.author: tdykstra
+ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -81,11 +81,8 @@ L’éditeur de fonctions intégré au portail Azure vous permet de mettre à jo
 Les conteneurs de fonctions sont créés sur App Service, de sorte que toutes les [options de déploiement disponibles sur les applications web standard](../app-service/app-service-deploy-local-git.md) le sont également sur les conteneurs de fonctions. Voici des méthodes que vous pouvez utiliser pour télécharger ou mettre à jour les fichiers du conteneur de fonctions. 
 
 #### <a name="to-use-app-service-editor"></a>Pour utiliser l’Éditeur App Service
-1. Dans le portail Azure Functions, cliquez sur **Paramètres du conteneur de fonctions**.
-2. Dans la section **Paramètres avancés** cliquez sur **Accéder aux paramètres App Service**.
-3. Cliquez sur **Éditeur App Service** dans App Menu Nav sous **OUTILS DE DÉVELOPPEMENT**.
-4. Cliquez sur **Atteindre**.
-   
+1. Dans le portail Azure Functions, cliquez sur **Fonctionnalités de la plate-forme**.
+2. Dans la section **OUTILS DE DÉVELOPPEMENT**, cliquez sur **Éditeur App Service**.   
    Une fois l’Éditeur App Service chargé, le fichier *host.json* et les dossiers de fonctions s’affichent sous *wwwroot*. 
 5. Ouvrez des fichiers pour les modifier, ou téléchargez des fichiers par glisser-déplacer depuis votre machine de développement.
 

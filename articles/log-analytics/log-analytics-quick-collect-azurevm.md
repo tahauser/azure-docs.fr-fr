@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2dec744b512a86a30cec1f334e265572fa7acc3e
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Collecter des données sur les machines virtuelles Azure
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de vos machines virtuelles Azure et des autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide vous montre comment configurer et collecter des données à partir de vos machines virtuelles Azure Linux ou Windows en quelques étapes simples.  
@@ -46,6 +46,9 @@ Pendant que les informations sont vérifiées et l’espace de travail créé, v
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Activer l’extension de machine virtuelle Log Analytics
 Pour les machines virtuelles Windows et Linux déjà déployées dans Azure, vous devez installer l’agent Log Analytics avec l’extension de machine virtuelle Log Analytics.  L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
+
+>[!NOTE]
+>L’agent OMS pour Linux ne peut pas être configuré pour envoyer des rapports à plus d’un espace de travail Log Analytics. 
 
 Vous noterez peut-être la présence de la bannière en haut de votre page de ressource Log Analytics du portail vous invitant à effectuer une mise à niveau.  La mise à niveau n’est pas nécessaire dans le cadre de ce guide de démarrage rapide.<br>
 

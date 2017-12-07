@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -40,7 +40,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-* L’application de base de données Wingtip Tickets SaaS par client est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-get-started-deploy.md)
+* L’application Wingtip Tickets SaaS Database Per Tenant est déployée. Pour un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Présentation des modèles de gestion de la performance SaaS
@@ -62,9 +62,9 @@ Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégr�
 
 Pour les scénarios de volume important où vous travaillez avec de nombreuses ressources, [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) peut être utilisé. Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Log Analytics peut collecter des données de télémétrie à partir de nombreux services, et être utilisé pour interroger et définir des alertes.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données Wingtip Tickets SaaS par client
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
-Les scripts et le code source de l’application de base de données Wingtip Tickets SaaS par client sont disponibles dans le référentiel github [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). [Étapes à suivre pour télécharger les scripts de l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 ## <a name="provision-additional-tenants"></a>Approvisionner des locataires supplémentaires
 

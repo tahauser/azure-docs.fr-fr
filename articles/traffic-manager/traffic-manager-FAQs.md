@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
+# <a name="traffic-manager-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Traffic Manager
 
 ## <a name="traffic-manager-basics"></a>Concepts de base de Traffic Manager
 
@@ -179,10 +179,10 @@ Si le script JavaScript de mesure fourni est utilisé, Traffic Manager peut voir
 Non, l’utilisation de Traffic Manager n’est pas obligatoire. La partie routage de Traffic Manager fonctionne séparément de la partie Mesures des utilisateurs réels. Elles ne doivent pas nécessairement se trouver dans la même propriété web, même si cela est une bonne idée.
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>Dois-je héberger un service sur les régions Azure à utiliser avec la fonctionnalité Mesures des utilisateurs réels ?
-Non, la fonctionnalité Mesures des utilisateurs réels ne nécessite pas de composant côté serveur pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et gérée par Azure. 
+Non, la fonctionnalité Mesures des utilisateurs réels ne nécessite pas de composant côté serveur pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et managée par Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>L’utilisation de la bande passante Azure augmente-t-elle quand j’utilise la fonctionnalité Mesures des utilisateurs réels ?
-Comme indiqué dans la réponse précédente, les composants côté serveur de la fonctionnalité Mesures des utilisateurs réels sont hébergés et gérés par Azure. La fonctionnalité Mesures des utilisateurs réels n’entraîne donc pas une augmentation de la bande passante Azure utilisée. Notez que ceci n’inclut pas l’utilisation de la bande passante au-delà de ce que facture Azure. Pour minimiser la bande passante utilisée, nous téléchargeons une image à pixel unique pour mesurer la latence jusqu’à une région Azure. 
+Comme indiqué dans la réponse précédente, les composants côté serveur de la fonctionnalité Mesures des utilisateurs réels sont hébergés et managés par Azure. La fonctionnalité Mesures des utilisateurs réels n’entraîne donc pas une augmentation de la bande passante Azure utilisée. Notez que ceci n’inclut pas l’utilisation de la bande passante au-delà de ce que facture Azure. Pour minimiser la bande passante utilisée, nous téléchargeons une image à pixel unique pour mesurer la latence jusqu’à une région Azure. 
 
 ## <a name="traffic-view"></a>Affichage du trafic
 
@@ -277,7 +277,7 @@ Azure Resource Manager exige que tous les groupes de ressources spécifient un e
 
 L’état de surveillance en cours de chaque point de terminaison, en plus du profil global s’affichent dans le portail Azure. Ces informations sont également disponibles via [l’API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), [les applets de commande PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) et [l’interface de ligne de commande Azure multiplateforme](../cli-install-nodejs.md) de Traffic Monitor.
 
-Azure ne fournit pas d’historique de l’état d’intégrité du point de terminaison ni de la capacité à déclencher des alertes en cas de modification du niveau d’intégrité du point de terminaison.
+Vous pouvez également utiliser Azure Monitor pour suivre l’intégrité de vos points de terminaison et en voir une représentation visuelle. Pour plus d’informations sur l’utilisation d’Azure Monitor, consultez la [documentation sur la surveillance Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Puis-je surveiller les points de terminaison HTTPS ?
 
@@ -288,6 +288,10 @@ Traffic manager ne peut pas fournir de validation de certificat :
 * Les certificats côté serveur ne sont pas validés.
 * Les certificats SNI côté serveur ne sont pas pris en charge.
 * Les certificats clients ne sont pas pris en charge.
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>J’ai arrêté un point de terminaison d’application web/service cloud Azure dans mon profil Traffic Manager, mais je ne reçois pas de trafic même après un redémarrage. Comment puis-je résoudre ce problème ?
+
+Quand un point de terminaison d’application web/service cloud Azure est arrêté, Traffic Manager cesse de vérifier son intégrité et redémarre les vérifications d’intégrité uniquement après avoir détecté le redémarrage du point de terminaison. Pour éviter ce délai, désactivez puis réactivez ce point de terminaison dans le profil Traffic Manager après avoir redémarré le point de terminaison.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Puis-je utiliser Traffic Manager même si mon application ne prend pas en charge HTTP ou HTTPS ?
 

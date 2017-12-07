@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurer les paramètres d’Azure Multi-Factor Authentication - Préversion publique
 
@@ -170,21 +170,40 @@ Lorsque la fonction Adresses IP approuvées est activée, la vérification en de
 
 Que la fonction Adresses IP approuvées soit activée ou non, la vérification en deux étapes est requise pour les flux de navigateur et les mots de passe d’application sont requis pour les applications client riches plus anciennes. 
 
-### <a name="to-enable-trusted-ips"></a>Pour activer Adresses IP approuvées
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Sélectionnez **Active Directory**à gauche.
-3. Sélectionnez le répertoire à gérer. 
-4. Sélectionnez **Configurer**.
-5. Sous Multi-Factor Authentication, sélectionnez **Gérer les paramètres du service**.
-6. Dans la page Paramètres du service, sous Adresses IP approuvées, vous disposez de deux options :
+### <a name="enable-named-locations-using-conditional-access"></a>Activer les emplacements nommés à l’aide de l’accès conditionnel
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. À gauche, sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
+3. Sélectionnez **Nouvel emplacement**.
+4. Donnez un nom à l’emplacement.
+5. Sélectionnez **Marquer comme emplacement approuvé**
+6. Spécifiez la plage d’adresses IP en notation CIDR (exemple : 192.168.1.1/24).
+7. Sélectionnez **Créer**
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>Activer les adresses IP approuvées à l’aide de l’accès conditionnel
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. À gauche, sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
+3. Sélectionnez **Configurer des adresses IP approuvées MFA**
+4. Dans la page Paramètres du service, sous Adresses IP approuvées, vous disposez de deux options :
    
-   * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** – Activez la case à cocher. Tous les utilisateurs fédérés qui se connectent à partir du réseau d’entreprise contourneront la vérification en deux étapes à l’aide d’une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si aucune règle n’existe, créez la règle suivante dans AD FS : "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
-
-
+   * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** – Activez la case à cocher. Tous les utilisateurs fédérés qui se connectent à partir du réseau d’entreprise contourneront la vérification en deux étapes à l’aide d’une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si aucune règle n’existe, créez la règle suivante dans AD FS : "c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
    * **Pour les demandes provenant d’une plage spécifique d’adresses IP** – Saisissez les adresses IP dans les zones de texte à l’aide de la notation CIDR. Par exemple : xxx.xxx.xxx.0/24 pour les adresses IP dans la plage xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 pour une adresse IP unique. Vous pouvez saisir jusqu'à 50 plages d'adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent la vérification en deux étapes.
-7. Cliquez sur **Save**.
-8. Une fois les mises à jour appliquées, cliquez sur **Fermer**.
+5. Sélectionnez **Enregistrer**.
+
+### <a name="enable-trusted-ips-using-service-settings"></a>Activer les adresses IP approuvées à l’aide des paramètres de service
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+3. Sélectionnez **Authentification multifacteur**.
+4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
+5. Dans la page Paramètres du service, sous Adresses IP approuvées, vous disposez de deux options :
+   
+   * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** – Activez la case à cocher. Tous les utilisateurs fédérés qui se connectent à partir du réseau d’entreprise contourneront la vérification en deux étapes à l’aide d’une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si aucune règle n’existe, créez la règle suivante dans AD FS : "c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+
+   * **Pour les demandes provenant d’une plage spécifique d’adresses IP** – Saisissez les adresses IP dans les zones de texte à l’aide de la notation CIDR. Par exemple : xxx.xxx.xxx.0/24 pour les adresses IP dans la plage xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 pour une adresse IP unique. Vous pouvez saisir jusqu'à 50 plages d'adresses IP. Les utilisateurs qui se connectent à partir de ces adresses IP contournent la vérification en deux étapes.
+6. Sélectionnez **Enregistrer**.
 
 ![Adresses IP approuvées](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -239,11 +258,10 @@ Azure AD prend en charge la fédération (authentification unique) avec les serv
 ### <a name="allow-app-password-creation"></a>Autoriser la création de mots de passe d’application
 Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d'application. Cette fonctionnalité doit être activée. Pour permettre aux utilisateurs de créer des mots de passe d’application, procédez comme suit :
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Sélectionnez **Active Directory**à gauche.
-3. Sélectionnez le répertoire à gérer. 
-4. Sélectionnez **Configurer**.
-5. Sous Multi-Factor Authentication, sélectionnez **Gérer les paramètres du service**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+3. Sélectionnez **Authentification multifacteur**.
+4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 6. Sélectionnez la case d’option située à côté de **Autoriser les utilisateurs à créer des mots de passe d’application pour se connecter à des applications sans navigateur**.
 
 ![Création de mots de passe d'application](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ La mémorisation de MFA sur les appareils fiables réduit donc le nombre d’aut
 >Cette fonctionnalité n’est pas compatible avec la fonctionnalité « Maintenir la connexion » d’AD FS lorsque l’utilisateur effectue la vérification en deux étapes pour AD FS via le serveur Azure MFA ou via une solution MFA tierce. Si vos utilisateurs cochent la case « Maintenir la connexion » sur AD FS alors qu’ils marquent leur appareil comme digne de confiance pour MFA, ils ne pourront pas procéder à la vérification une fois le délai associé à la mémorisation MFA expiré. Azure AD demande une vérification immédiate en deux étapes, mais AD FS renvoie un jeton avec la revendication MFA d’origine et la date associée, au lieu d’effectuer de nouveau la vérification en deux étapes. Ceci permet de définir une boucle de vérification entre Azure AD et AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Activer Mémoriser Multi-Factor Authentication
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Sélectionnez **Active Directory**à gauche.
-3. Sélectionnez le répertoire à gérer. 
-4. Sélectionnez **Configurer**.
-5. Sous Multi-Factor Authentication, sélectionnez **Gérer les paramètres du service**.
-6. Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, cochez la case **Permettre aux utilisateurs de mémoriser l’authentification multifacteur sur des appareils de confiance**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+3. Sélectionnez **Multi-Factor Authentication**.
+4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
+5. Dans la page Paramètres de service, sous **Mémoriser Multi-Factor Authentication**, cochez la case **Permettre aux utilisateurs de mémoriser l’authentification multifacteur sur des appareils de confiance**.
+
    ![Mémoriser des appareils](./media/multi-factor-authentication-whats-next/remember.png)
-7. Définissez le nombre de jours pendant lesquels vous souhaitez autoriser les appareils approuvés à contourner la vérification en deux étapes. La valeur par défaut est de 14 jours.
-8. Cliquez sur **Save**.
-9. Cliquez sur **Fermer**.
+
+6. Définissez le nombre de jours pendant lesquels vous souhaitez autoriser les appareils approuvés à contourner la vérification en deux étapes. La valeur par défaut est de 14 jours.
+7. Sélectionnez **Enregistrer**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marquer un appareil en tant qu’appareil de confiance
 
@@ -300,13 +318,12 @@ Lorsque vos utilisateurs inscrivent leurs comptes à MFA, ils choisissent la mé
 | Code de vérification de l’application mobile |L’application Microsoft Authenticator génère un nouveau code de vérification OATH toutes les 30 secondes. L’utilisateur entre ce code de vérification dans l’interface de connexion.<br>L’application Microsoft Authenticator est disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Comment activer/désactiver les méthodes d'authentification
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Sélectionnez **Active Directory**à gauche.
-3. Sélectionnez le répertoire à gérer. 
-4. Sélectionnez **Configurer**.
-5. Sous Multi-Factor Authentication, sélectionnez **Gérer les paramètres du service**.
-6. Dans les options de vérification de la page Paramètres de service, sélectionnez/désélectionnez les options que vous souhaitez utiliser.
-   ![Options de vérification](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. Cliquez sur **Save**.
-8. Cliquez sur **Fermer**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+3. Sélectionnez **Multi-Factor Authentication**.
+4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
+5. Dans les **options de vérification** de la page Paramètres de service, sélectionnez/désélectionnez les options que vous souhaitez utiliser.
 
+   ![Options de vérification](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. Cliquez sur **Enregistrer**.

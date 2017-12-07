@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 La passerelle Azure Application Gateway est un équilibreur de charge de couche 7. Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre des serveurs locaux ou dans le cloud. Application Gateway offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC) : équilibrage de charge HTTP, affinité de session basée sur les cookies, déchargement SSL (Secure Sockets Layer), sondes d’intégrité personnalisées, prise en charge de plusieurs sites, etc. Pour obtenir une liste complète des fonctionnalités prises en charge, voir [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
 
-Cet article vous guidera dans le téléchargement et la modification d’un modèle Azure Resource Manager existant à partir de GitHub, et dans son déploiement à partir de GitHub, de PowerShell et de l’interface Azure CLI.
+Cet article vous guidera dans le téléchargement et la modification d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) existant à partir de GitHub, et dans son déploiement à partir de GitHub, de PowerShell et de l’interface Azure CLI.
 
-Si vous déployez simplement le modèle Azure Resource Manager directement à partir de GitHub sans rien modifier, passez à la section Déployer un modèle à partir de GitHub.
+Si vous déployez simplement le modèle directement à partir de GitHub, sans rien modifier, passez à la section Déployer un modèle à partir de GitHub.
 
 ## <a name="scenario"></a>Scénario
 
@@ -75,9 +75,6 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
    * **type**. Type de ressource créée par le modèle. Dans ce cas, le type qui représente une passerelle d’application est `Microsoft.Network/applicationGateways`.
    * **name**. Nom de la ressource. Remarquez l’utilisation de `[parameters('applicationGatewayName')]`, qui signifie que le nom est fourni par vous ou un fichier de paramètres lors du déploiement.
    * **properties**. Liste des propriétés de la ressource. Ce modèle utilise le réseau virtuel et une adresse IP publique lors de la création de la passerelle Application Gateway.
-
-   > [!NOTE]
-   > Pour plus d’informations sur les modèles, consultez [Référence sur les modèles Resource Manager](/templates/).
 
 1. Revenez à [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Cliquez sur **azuredeploy-parameters.json**, puis sur **RAW**.

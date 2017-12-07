@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -65,69 +65,10 @@ La fonctionnalité des ports haute disponibilité est disponible dans les [même
 
 ## <a name="preview-sign-up"></a>S’inscrire à la préversion
 
-Pour utiliser la préversion de la fonctionnalité des ports haute disponibilité dans Load Balancer Standard, inscrivez votre abonnement afin d’obtenir l’accès. Vous pouvez utiliser Azure CLI 2.0 ou PowerShell.
+Pour utiliser la préversion de la fonctionnalité des ports haute disponibilité dans Load Balancer Standard, inscrivez votre abonnement à la [préversion de Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up). Vous pouvez effectuer cette inscription avec Azure CLI 2.0 ou PowerShell.
 
 >[!NOTE]
->Pour utiliser cette fonctionnalité, vous devez également vous inscrire à la [préversion Standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer, en plus de la fonctionnalité des ports haute disponibilité. L’inscription peut prendre jusqu’à une heure.
-
-### <a name="sign-up-by-using-azure-cli-20"></a>S’inscrire à l’aide d’Azure CLI 2.0
-
-1. Inscrire la fonctionnalité auprès du fournisseur :
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. L’opération précédente peut prendre jusqu’à 10 minutes. Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    L’opération a réussi quand l’état d’inscription de la fonctionnalité retourne **Inscrit**, comme illustré ici :
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>S’inscrire à l’aide de PowerShell
-
-1. Inscrire la fonctionnalité auprès du fournisseur :
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. L’opération précédente peut prendre jusqu’à 10 minutes. Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    L’opération a réussi quand l’état d’inscription de la fonctionnalité retourne **Inscrit**, comme illustré ici :
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>L’inscription peut prendre jusqu’à une heure.
 
 ## <a name="limitations"></a>Limites
 

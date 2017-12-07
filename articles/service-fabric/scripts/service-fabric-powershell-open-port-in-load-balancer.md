@@ -1,6 +1,6 @@
 ---
-title: "Exemple de script Azure PowerShell - Ouvrir le port d’application dans l’équilibrage de charge | Documents Microsoft"
-description: "Exemple de script Azure PowerShell - Ouvrir un port dans l’équilibrage de charge Azure pour une application de Service Fabric."
+title: "Exemple de script Azure PowerShell - Ouvrir le port d’application dans l’équilibreur de charge | Microsoft Docs"
+description: "Exemple de script Azure PowerShell - Ouvrir un port dans l’équilibreur de charge Azure pour une application Service Fabric."
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 08/15/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 76c1e44d7ad2325ce695dd134cf891727d385610
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9dbb0bedd02752c4735ae097a7bd64b7b5383d6e
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Ouvrir un port d’application dans l’équilibreur de charge Azure
 
-Une application Service Fabric s’exécutant dans Azure se trouve derrière l’équilibrage de charge Azure. Cet exemple de script ouvre un port dans un équilibreur de charge Azure pour qu’une application Service Fabric puisse communiquer avec des clients externes. Personnalisez les paramètres selon vos besoins. 
+Une application Service Fabric s’exécutant dans Azure se trouve derrière l’équilibreur de charge Azure. Cet exemple de script ouvre un port dans un équilibreur de charge Azure pour qu’une application Service Fabric puisse communiquer avec des clients externes. Personnalisez les paramètres selon vos besoins. 
 
-Si nécessaire, installez le module Service Fabric PowerShell avec le [Kit de développement logiciel (SDK) Service Fabric](../service-fabric-get-started.md). 
+Si nécessaire, installez le module Service Fabric PowerShell avec le [kit SDK Service Fabric](../service-fabric-get-started.md). 
 
 ## <a name="sample-script"></a>Exemple de script
 

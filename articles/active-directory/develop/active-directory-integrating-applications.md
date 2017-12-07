@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Intégration d’applications dans Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -178,7 +178,7 @@ La section suivante indique comment exposer les étendues d’accès en modifian
   }
   ```
   > [!NOTE]
-  > La valeur « id » doit être générée à l’aide d’un outil de génération de GUID comme [guidgen]] (https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) ou par programme. Elle représente un identificateur unique pour l’étendue comme exposée par l'API web. Une fois qu’un client est correctement configuré avec les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth2.0. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
+  > La valeur d’ID doit être générée à l'aide d'un outil de génération de GUID comme [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) ou d'un programme. Elle représente un identificateur unique pour l’étendue comme exposée par l'API web. Une fois qu’un client est correctement configuré avec les autorisations pour accéder à votre API web, Azure AD émet un jeton d’accès OAuth2.0. Lorsque le client appelle l’API web, il présente le jeton d’accès dont la revendication de l’étendue (scp) a été configurée sur les autorisations demandées dans son inscription d’application.
   >
   > Vous pouvez exposer des étendues supplémentaires ultérieurement si nécessaire. Considérez que votre API web peut exposer plusieurs étendues associées à un éventail de fonctions différentes. Votre ressource peut contrôler l’accès à l’API web lors de l’exécution, en évaluant la/les revendication(s) de l’étendue (`scp`) dans le jeton d’accès OAuth 2.0 reçu.
   > 

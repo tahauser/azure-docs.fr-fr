@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
-Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction C# est créée selon un modèle de déclencheur de minuteur prédéfini dans le portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre de l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. Pour que votre fonction traite des opérations CRUD individuelles dans une table Mobile Apps, utilisez à la place des [liaisons Mobile Apps](functions-bindings-mobile-apps.md).
+Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction C# est créée selon un modèle de déclencheur de minuteur prédéfini dans le portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
+
+Pour que votre fonction traite des opérations de création, de lecture, de mise à jour et de suppression individuelles dans une table Mobile Apps, utilisez à la place des [liaisons Mobile Apps](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -59,7 +61,7 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
     | Paramètre       | Valeur suggérée | Description             | 
     | ------------ | ------------------ | --------------------- | 
     | **Nom**  |  sqldb_connection  | Utilisé pour accéder à la chaîne de connexion stockée dans le code de votre fonction.    |
-    | **Valeur** | Chaîne copiée  | Collez la chaîne de connexion que vous avez copiée dans la section précédente. |
+    | **Valeur** | Chaîne copiée  | Collez la chaîne de connexion que vous avez copiée dans la section précédente et remplacez les espaces réservés `{your_username}` et `{your_password}` par des valeurs réelles. |
     | **Type** | Base de données SQL | Utilisez la connexion SQL Database par défaut. |   
 
 3. Cliquez sur **Save**.
@@ -84,7 +86,7 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
     using System.Threading.Tasks;
     ```
 
-4. Remplacez la fonction **Run** existante par le code suivant :
+4. Remplacez la fonction `Run` existante par le code suivant :
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
     }
     ```
 
-    Cet exemple de commande met à jour la colonne **Status** en fonction de la date d’envoi. Il doit mettre à jour 32 lignes de données.
+    Cet exemple de commande met à jour la colonne `Status` en fonction de la date d’envoi. Il doit mettre à jour 32 lignes de données.
 
 5. Cliquez sur **Enregistrer**, surveillez l’exécution suivante de la fonction dans les fenêtres **Journaux**, puis notez le nombre de lignes mises à jour dans la table **SalesOrderHeader**.
 

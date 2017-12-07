@@ -8,15 +8,15 @@ ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-ms.date: 05/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45e3e7e1288c9c468619bd553963cfd018298c32
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure
 
@@ -91,7 +91,7 @@ Cet article répertorie les différents serveurs et charges de travail que vous 
 |Hôte Hyper-V - agent de protection DPM sur un serveur hôte, un cluster ou une machine virtuelle Hyper-V|Windows Server 2008 R2 SP1 - Enterprise et Standard|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|O|O|Protéger : ordinateurs Hyper-V, volumes partagés de cluster<br /><br />Récupérer : machines virtuelles, récupération au niveau des éléments de fichiers et de dossiers, volumes, disques durs virtuels|
 |Hôte Hyper-V - agent de protection DPM sur un serveur hôte, un cluster ou une machine virtuelle Hyper-V|Windows Server 2008|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|N|N|Protéger : ordinateurs Hyper-V, volumes partagés de cluster<br /><br />Récupérer : machines virtuelles, récupération au niveau des éléments de fichiers et de dossiers, volumes, disques durs virtuels|
 |Machines virtuelles VMware|Serveur VMware 5.5 ou 6.0 ou 6.5 |Machine virtuelle Hyper-V locale|O|O (avec UR1)|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour Windows<br /> Applications virtuelles VMware non prises en charge|
-|Linux|Linux s’exécutant en tant qu’invité Hyper-V ou VMware|Machine virtuelle Hyper-V locale|O|O|Hyper-V doit s’exécuter sur Windows Server 2012 R2 ou Windows Server 2016. Protéger : toute la machine virtuelle<br /><br />Récupérer : toute la machine virtuelle|
+|Linux|Linux s’exécutant en tant qu’invité Hyper-V ou VMware|Machine virtuelle Hyper-V locale|O|O|Hyper-V doit s’exécuter sur Windows Server 2012 R2 ou Windows Server 2016. Protéger : toute la machine virtuelle<br /><br />Récupérer : toute la machine virtuelle <br/><br/> Pour obtenir la liste complète des versions et distributions Linux prises en charge, consultez l’article [Linux sur les distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Prise en charge des clusters
 Le serveur de sauvegarde Azure peut protéger les données dans les applications en cluster suivantes :

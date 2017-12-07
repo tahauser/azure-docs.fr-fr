@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/27/2017
+ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Serveurs de base de données Azure pour PostgreSQL
 Cet article présente des considérations et des instructions relatives à l’utilisation des serveurs Azure Database pour PostgreSQL.
@@ -38,13 +38,7 @@ Dans une base de données Azure Database pour serveur PostgreSQL, vous pouvez cr
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Comment se connecter et s’authentifier auprès d’un serveur de base de données Azure pour PostgreSQL ?
 Les éléments suivants permettent de garantir un accès sécurisé à votre base de données.
 
-|||
-| :-- | :-- |
-| **Authentification et autorisation** | Le serveur de base de données Azure pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. |
-| **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. |
-| **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. |
-| **Pare-feu** | Pour renforcer la protection de vos données, une règle de pare-feu empêche tout accès à votre serveur et à ses bases de données tant que vous ne précisez pas quels ordinateurs sont autorisés. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
-|||
+| :-- | :-- | | **Authentification et autorisation** | Le serveur Azure Database pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. | | **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. | | **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. | | **Pare-feu** | Pour renforcer la protection de vos données, une règle de pare-feu empêche tout accès à votre serveur et à ses bases de données tant que vous ne spécifiez pas les ordinateurs autorisés. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Comment gérer un serveur ?
 Vous pouvez gérer des serveurs Azure Database pour PostgreSQL à l’aide du [Portail Azure](https://portal.azure.com) ou [d’Azure CLI](/cli/azure/postgres).

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Cezanne HR Software
 
@@ -32,7 +32,7 @@ L’intégration de Cezanne HR Software dans Azure AD vous offre les avantages s
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Cezanne HR Software, vous avez besoin des éléments suivants :
 
@@ -108,17 +108,20 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans Domaine et URL Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
     b. Dans la zone de texte **Identificateur**, tapez l’URL : `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-    c. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
+    c. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
+    
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe du support Cezanne HR Software](https://cezannehr.com/services/support/).
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien de téléchargement du certificat](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer** .
+5. Cliquez sur le bouton **Enregistrer**.
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
@@ -210,11 +213,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
     ![Nouvel utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nouvel utilisateur")
 
-3.  À la section **Détails de la personne** , procédez comme suit :
+3.  Dans la section **Détails de la personne**, procédez comme suit :
 
     ![Nouvel utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nouvel utilisateur")
     
-    a. Désactivez l’option **Utilisateur interne** .
+    a. Désactivez l’option **Utilisateur interne**.
     
     b. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **Britta**.  
  
@@ -242,7 +245,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
     ![Utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilisateur")
     
-7. Cliquez sur le bouton **Enregistrer** .
+7. Cliquez sur le bouton **Enregistrer**.
 
     ![Utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilisateur")
 

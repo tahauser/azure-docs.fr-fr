@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration
 Quand vous demandez aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration, leurs appareils peuvent être marqués comme étant connus de votre organisation. Vous trouverez ci-dessous un guide pas à pas visant à activer l’accès conditionnel pour des applications locales à l’aide des services de fédération Active Directory (AD FS) dans Windows Server 2012 R2.
@@ -166,9 +166,9 @@ Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Par e
 4. Quand vous y êtes invité, connectez-vous avec vos informations d’identification. L’appareil est à présent joint.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Joindre un appareil Windows 7 à l’aide du service Azure Active Directory Device Registration
-Pour inscrire des appareils joints à un domaine Windows 7, vous devez déployer le package logiciel d’inscription d’appareils. Le package logiciel, appelé Workplace Join for Windows 7, est disponible en téléchargement sur le [site web Microsoft Connect](https://connect.microsoft.com/site1164). 
+Pour inscrire des appareils joints à un domaine Windows 7, vous devez déployer le [package logiciel d’inscription d’appareils](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Des instructions sur l’utilisation du package sont disponibles dans [Configuration de l’inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration-setup.md).
+Vous trouverez des instructions sur l’utilisation du package sur la page [Packages Windows Installer pour les ordinateurs autres que Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Vérifier que les appareils inscrits sont réécrits dans Active Directory
 Vous pouvez utiliser LDP.exe et Modification ADSI pour afficher les objets d’appareil et ainsi vérifier qu’ils ont bien été réécrits dans votre service Active Directory. Ces deux outils sont disponibles dans les outils d’administrateur Active Directory.

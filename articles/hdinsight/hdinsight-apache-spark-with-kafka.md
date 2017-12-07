@@ -14,21 +14,25 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: 652719a80133434ecb31c00738dcda261cfa0683
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a780a7d954486dbce402e4bf45be55af8ad36ab9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Exemple Apache Spark Streaming (DStream) avec Kafka sur HDInsight
 
 Découvrez comment utiliser Apache Spark pour diffuser des données vers ou depuis Apache Kafka à l’aide de DStreams. Cet exemple utilise un bloc-notes jupyter qui s’exécute sur le cluster Spark.
+
 > [!NOTE]
 > Les étapes décrites dans ce document créent un groupe de ressources Azure qui contient à la fois un Spark sur HDInsight et un Kafka sur un cluster HDInsight. Ces clusters sont tous deux situés dans un réseau virtuel Azure, ce qui permet au cluster Spark de communiquer directement avec le cluster Kafka.
 >
 > Lorsque vous avez terminé les étapes décrites dans ce document, n’oubliez pas de supprimer les clusters pour éviter les frais supplémentaires.
+
+> [!IMPORTANT]
+> Cet exemple utilise DStreams, une technologie de diffusion en continu Spark plus ancienne. Pour obtenir un exemple utilisant des fonctionnalités de diffusion en continu Spark plus récentes, consultez le document [Spark Structured Streaming avec Kafka](hdinsight-apache-kafka-spark-structured-streaming.md).
 
 ## <a name="create-the-clusters"></a>Création des clusters
 

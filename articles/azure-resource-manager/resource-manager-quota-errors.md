@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Résoudre les erreurs liées aux quotas de ressources
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Solution 3
 
-Pour augmenter une limite de quota, accédez au portail et signalez un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
+Pour demander une augmentation du quota, accédez au portail et soumettez une requête de support. Dans la requête de support, demandez une augmentation de votre quota pour la région dans laquelle vous souhaitez effectuer le déploiement.
 
 > [!NOTE]
 > N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
 >
 >
+
+1. Sélectionnez **Abonnements**.
+
+   ![Abonnements](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Sélectionnez l’abonnement nécessitant une augmentation du quota.
+
+   ![Sélectionnez un abonnement](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Sélectionnez **Utilisation + quotas**.
+
+   ![Sélectionnez Utilisation + quotas](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. Dans l’angle supérieur droit, cliquez sur **Demander une augmentation**.
+
+   ![Demander une augmentation](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Renseignez les formulaires pour le type de quota que vous avez besoin d’augmenter.
+
+   ![Renseignez le formulaire](./media/resource-manager-quota-errors/forms.png)

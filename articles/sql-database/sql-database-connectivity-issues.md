@@ -1,6 +1,6 @@
 ---
 title: "Corriger une erreur de connexion SQL, erreur temporaire | Microsoft Docs"
-description: "Découvrez comment diagnostiquer, résoudre et empêcher une erreur de connexion SQL ou une erreur temporaire dans Base de données SQL Azure. "
+description: "Découvrez comment diagnostiquer, résoudre et empêcher une erreur de connexion SQL ou une erreur temporaire dans Azure SQL Database. "
 keywords: "connexion SQL,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion"
 services: sql-database
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Diagnostiquer, résoudre et empêcher les erreurs de connexion SQL et les erreurs temporaires de Base de données SQL
-Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Base de données SQL Azure. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
+# <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Diagnostiquer, résoudre et empêcher les erreurs de connexion SQL et les erreurs temporaires dans SQL Database
+Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Azure SQL Database. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
@@ -40,16 +40,17 @@ Vous allez réessayer la connexion SQL ou la rétablir, en fonction de ce qui su
 * **Une erreur temporaire survient pendant une tentative de connexion**: la connexion doit être retentée après un délai de quelques secondes.
 * **Une erreur temporaire se produit pendant une commande de requête SQL** : cette dernière ne doit pas être retentée immédiatement. Au lieu de cela, après qu’un certain délai se soit écoulé, la connexion doit être établie. Ensuite, la commande peut être relancée.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Logique de nouvelle tentative pour les erreurs temporaires
+## <a name="retry-logic-for-transient-errors"></a>Logique de nouvelle tentative pour les erreurs temporaires
 Les programmes clients qui rencontrent occasionnellement une erreur temporaire sont plus solides lorsqu’ils contiennent une logique de nouvelle tentative.
 
 Si votre programme communique avec Azure SQL Database via un intergiciel (middleware) tiers, renseignez-vous auprès du fournisseur pour savoir s’il contient une logique de nouvelle tentative pour les erreurs temporaires.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Principes de nouvelle tentative
+### <a name="principles-for-retry"></a>Principes de nouvelle tentative
 * Une tentative d’ouverture de connexion doit être renouvelée si l’erreur est temporaire.
 * Une instruction SQL SELECT qui échoue avec une erreur temporaire ne doit pas être retentée directement.
   
@@ -58,30 +59,31 @@ Si votre programme communique avec Azure SQL Database via un intergiciel (middle
   
   * La logique de nouvelle tentative doit s’assurer que la transaction de base de données est complètement terminée ou que la transaction a été annulée.
 
-#### <a name="other-considerations-for-retry"></a>Autres considérations
+### <a name="other-considerations-for-retry"></a>Autres considérations
 * Un programme de commandes démarré automatiquement après les heures de travail et qui s’achève avant le matin peut être très patient entre deux tentatives.
 * Un programme d’interface utilisateur doit prendre en compte la tendance qu’ont les hommes à l’abandon en cas d’attente trop longue.
   
   * Toutefois, la solution ne consiste pas à retenter l’opération à chaque seconde, car une telle stratégie pourrait submerger le système de requêtes.
 
-#### <a name="interval-increase-between-retries"></a>Augmentation de l’intervalle entre les tentatives
+### <a name="interval-increase-between-retries"></a>Augmentation de l’intervalle entre les tentatives
 Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
 
 Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez la page [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Vous pouvez également définir le nombre maximal de tentatives avant l’arrêt automatique du programme.
 
-#### <a name="code-samples-with-retry-logic"></a>Exemples de code avec la logique de nouvelle tentative
-Vous trouverez des exemples de code avec logique de nouvelle tentative dans divers langages de programmation ici :
+### <a name="code-samples-with-retry-logic"></a>Exemples de code avec la logique de nouvelle tentative
+Des exemples de code avec logique de nouvelle tentative sont disponibles aux emplacements suivants :
 
-* [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
+- [Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Connexion résiliente à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Tester votre logique de nouvelle tentative
+### <a name="test-your-retry-logic"></a>Tester votre logique de nouvelle tentative
 Pour tester la logique de nouvelle tentative, vous devez simuler ou provoquer une erreur pouvant être corrigée alors que votre programme est en cours d’exécution.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Test par le biais de la déconnexion du réseau
+#### <a name="test-by-disconnecting-from-the-network"></a>Test par le biais de la déconnexion du réseau
 Pour tester votre logique de nouvelle tentative, vous pouvez déconnecter votre ordinateur client du réseau pendant l’exécution du programme. Vous obtiendrez l’erreur suivante :
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ Pour concrétiser cela, vous pouvez débrancher votre ordinateur du réseau avan
    * Suspend toute exécution à l’aide de la méthode **Console.ReadLine** ou d’une boîte de dialogue contenant un bouton OK. L’utilisateur appuie sur la touche Entrée après la connexion de l’ordinateur au réseau.
 5. Essaie de nouveau de se connecter, et attend la réussite.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Teste en fournissant un nom de base de données mal orthographié au moment de la connexion
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Teste en fournissant un nom de base de données mal orthographié au moment de la connexion
 Votre programme peut délibérément mal orthographier le nom d’utilisateur avant la première tentative de connexion. Vous obtiendrez l’erreur suivante :
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ Pour mettre cela en pratique, votre programme peut reconnaître un paramètre d�
 4. Supprime ’WRONG_’ du nom d’utilisateur.
 5. Essaie de nouveau de se connecter, et attend la réussite.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Paramètres de connexion .NET Sql pour les nouvelles tentatives de connexion
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Paramètres de connexion .NET Sql pour les nouvelles tentatives de connexion
 Si votre programme client se connecte à Azure SQL Database à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.6.1 ou une version ultérieure (ou .NET Core) afin de pouvoir tirer parti de la fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 Lorsque vous générez la [chaîne de connexion](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) pour votre objet **SqlConnection** , vous devez coordonner les valeurs entre les paramètres suivants :
 
@@ -138,7 +140,7 @@ Par exemple, si ConnectRetryCount = 3 et ConnectionRetryInterval = 10 secon
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Connexion ou commande
+## <a name="connection-versus-command"></a>Connexion ou commande
 Les paramètres **ConnectRetryCount** et **ConnectRetryInterval** permettent à votre objet **SqlConnection** de recommencer l’opération de connexion sans notification à votre programme ou renvoi du contrôle à celui-ci. Les nouvelles tentatives peuvent se produire dans les situations suivantes :
 
 * Appel de méthode mySqlConnection.Open
@@ -146,8 +148,9 @@ Les paramètres **ConnectRetryCount** et **ConnectRetryInterval** permettent à 
 
 Il existe une subtilité. Si une erreur temporaire se produit pendant l’exécution de votre *requête* , votre objet **SqlConnection** ne retente pas l’opération de connexion, et ne relance certainement pas votre requête. Toutefois, **SqlConnection** vérifie très rapidement la connexion avant d’envoyer votre requête pour exécution. Si la vérification rapide détecte un problème de connexion, **SqlConnection** réessaye l’opération de connexion. Si la nouvelle tentative réussit, votre requête est envoyée pour exécution.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Le paramètre ConnectRetryCount doit-il être combiné avec la logique de nouvelle tentative d’application ?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Le paramètre ConnectRetryCount doit-il être combiné avec la logique de nouvelle tentative d’application ?
 Supposons que votre application possède une logique de nouvelle tentative personnalisée robuste. Elle peut réessayer l’opération de connexion 4 fois. Si vous ajoutez **ConnectRetryInterval** et **ConnectRetryCount** = 3 à votre chaîne de connexion, vous augmentez le nombre de nouvelles tentatives à 4 * 3, soit 12 nouvelles tentatives. Vous ne souhaitez peut-être pas un si grand nombre de nouvelles tentatives.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -258,7 +261,7 @@ Un problème intermittent est parfois mieux diagnostiqué par la détection d’
 
 Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pourrez mettre en corrélation les entrées de journal avec des informations sur les erreurs de base consignées en interne par Azure SQL Database elle-même.
 
-Enterprise Library 6 (EntLib60) offre des classes .NET gérées afin de faciliter la journalisation :
+Enterprise Library 6 (EntLib60) offre des classes .NET managées afin de faciliter la journalisation :
 
 * [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](http://msdn.microsoft.com/library/dn440731.aspx)
 
@@ -373,9 +376,7 @@ Pour plus de détails, consultez [5 - Un jeu d’enfants : utilisation du bloc 
 ### <a name="entlib60-istransient-method-source-code"></a>Code source de la méthode EntLib60 IsTransient
 Ensuite, à partir de la classe **SqlDatabaseTransientErrorDetectionStrategy**, le code source C# pour la méthode **IsTransient**. Le code source clarifie les erreurs considérées comme temporaires qui peuvent faire l’objet de nouvelles tentatives depuis avril 2013.
 
-De nombreuses lignes **//comment** ont été supprimées de cette copie pour en augmenter la lisibilité.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour résoudre les autres problèmes de connexion courants à Azure SQL Database, consultez [Résolution des problèmes de connexion à Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
-* [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
+* [Regroupement de connexions SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant à ajouter des comportements de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

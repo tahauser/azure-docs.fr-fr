@@ -13,46 +13,37 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 6eb026b5f478769f680e3899a7c743546c2c9d88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Utilisation de .NET Core (C#) pour interroger une base de données SQL Azure
 
-Ce didacticiel de démarrage rapide indique comment utiliser [.NET Core](https://www.microsoft.com/net/) sur Windows/Linux/macOS pour créer un programme C# qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
+Ce didacticiel de démarrage rapide montre comment utiliser [.NET Core](https://www.microsoft.com/net/) sur Windows/Linux/macOS pour créer un programme C# qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous disposez des éléments suivants :
+Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
-- base de données SQL Azure. Ce guide de démarrage rapide utilise les ressources créées dans l’une de ces instructions de démarrage rapide : 
-
-   - [Créer une base de données - Portail](sql-database-get-started-portal.md)
-   - [Créer une base de données - CLI](sql-database-get-started-cli.md)
-   - [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce didacticiel de démarrage rapide.
+
 - Vous avez installé [.NET Core pour votre système d’exploitation](https://www.microsoft.com/net/core). 
 
 ## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
-Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image suivante. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**. 
+#### <a name="for-adonet"></a>Pour ADO.NET
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Continuez en cliquant sur **Afficher les chaînes de connexion de la base de données**.
 
-4. Si vous avez oublié vos informations de connexion au serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur. Vous pouvez réinitialiser le mot de passe si nécessaire.
-
-5. Cliquez sur **Afficher les chaînes de connexion de la base de données**.
-
-6. Passez en revue la chaîne de connexion **ADO.NET** complète.
+2. Passez en revue la chaîne de connexion **ADO.NET** complète.
 
     ![Chaîne de connexion ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 

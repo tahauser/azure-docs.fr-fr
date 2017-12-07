@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics sur IoT Edge (version préliminaire)
 
@@ -61,6 +61,11 @@ Vous pouvez suivre [ce didacticiel pas à pas](https://docs.microsoft.com/azure/
 
 #### <a name="create-an-asa-edge-job"></a>Créer une tâche ASA Edge
 1. Depuis le portail Azure, créez une nouvelle tâche Stream Analytics. [Lien direct pour créer une nouvelle tâche ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> Vous pouvez créer des tâches Edge dans toutes les régions prises en charge par ASA, **sauf dans la région « États-Unis de l’Ouest 2 »**.
+> Cette limitation sera supprimée sous peu.
+
 2. Dans l’écran de création, sélectionnez **Edge** en tant qu’**environnement d’hébergement** (voir l’image suivante) ![Création de la tâche](media/stream-analytics-edge/ASAEdge_create.png)
 3. Définition de la tâche
     1. **Définir le(s) flux d’entrée**. Définissez un ou plusieurs flux d’entrée pour votre tâche.
@@ -87,9 +92,9 @@ Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée
 #### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>Configurer votre environnement IoT Edge sur vos appareils
 Les tâches de périphérie peuvent être déployées sur les appareils exécutant Azure IoT Edge.
 Pour ce faire, vous devez procéder comme suit :
-- Créez un Iot Hub ;
-- Installez le runtime Docker et IoT Edge sur vos appareils de périphérie ;
-- Définissez vos appareils comme « Appareils IoT Edge » dans le IoT Hub.
+- Créez un hub Iot.
+- Installez le runtime Docker et IoT Edge sur vos appareils de périphérie.
+- Définissez vos appareils comme « Appareils IoT Edge » dans le hub IoT.
 
 Ces étapes sont décrites dans la documentation IoT Edge pour [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 

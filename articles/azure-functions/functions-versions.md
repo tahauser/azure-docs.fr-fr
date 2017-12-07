@@ -1,6 +1,6 @@
 ---
 title: Comment cibler des versions du runtime Azure Functions
-description: "Azure Functions prend en charge plusieurs versions du runtime. Découvrez comment spécifier la version du runtime d’une application de fonction hébergée sur Azure."
+description: "Azure Functions prend en charge plusieurs versions du runtime. Découvrez comment spécifier la version du runtime d’une application de fonction hébergée dans Azure."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
@@ -30,11 +30,11 @@ Une application de fonction s’exécute sur une version spécifique du runtime 
 | Runtime | État |
 |---------|---------|
 |1.x|Disponibilité générale (GA)|
-|2.x|Préversion|
+|2.x|VERSION PRÉLIMINAIRE|
 
 Les sections suivantes expliquent les différences de prise en charge des langages, des liaisons et du développement multiplateforme.
 
-### <a name="languages"></a>Langages
+### <a name="languages"></a>Langues
 
 Le tableau suivant montre les langages de programmation qui sont pris en charge dans chaque version du runtime.
 
@@ -44,9 +44,11 @@ Pour en savoir plus, consultez [Langages pris en charge](supported-languages.md)
 
 ### <a name="bindings"></a>Liaisons 
 
-Les liaisons expérimentales prises en charge par le runtime 1.x ne sont pas disponibles dans la version 2.x. Pour plus d’informations sur la prise en charge des liaisons et d’autres écarts fonctionnels dans la version 2.x, consultez [Runtime 2.0 known issues (Problèmes connus dans le runtime 2.0)](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
 Le runtime 2.x vous permet de créer des [extensions de liaison](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) personnalisées. Les liaisons intégrées qui utilisent ce modèle d’extensibilité sont disponibles uniquement dans la version 2.x. Parmi les principales figurent les [liaisons Microsoft Graph](functions-bindings-microsoft-graph.md).
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Pour plus d’informations sur la prise en charge des liaisons et d’autres écarts fonctionnels dans la version 2.x, consultez [Runtime 2.0 known issues (Problèmes connus dans le runtime 2.0)](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ### <a name="cross-platform-development"></a>Développement multiplateforme
 

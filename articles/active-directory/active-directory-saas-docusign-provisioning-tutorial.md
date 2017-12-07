@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Didacticiel : Configuration de DocuSign pour l’approvisionnement des utilisateurs
 
@@ -41,9 +41,12 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Conseils importants pour l’affectation d’utilisateurs à DocuSign
 
-*   Il est recommandé de n’assigner qu’un seul utilisateur Azure AD à DocuSign afin de tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*   Il est recommandé de n’assigner qu’un seul utilisateur Azure AD à DocuSign afin de tester la configuration de l’approvisionnement. Les autres utilisateurs peuvent être affectés ultérieurement.
 
 *   Quand vous assignez un utilisateur à DocuSign, vous devez sélectionner un rôle d’utilisateur valide. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+
+> [!NOTE]
+> Azure AD ne prend pas en charge le provisionnement de groupes avec l’application Docusign, seuls les utilisateurs peuvent être provisionnés.
 
 ## <a name="enable-user-provisioning"></a>Activer l’approvisionnement des utilisateurs
 
@@ -86,7 +89,7 @@ L’objectif de cette section est d’expliquer comment activer l’approvisionn
 
 12. Cliquez sur **Enregistrer.**
 
-Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes affectés à DocuSign dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application DocuSign.
+Cette commande démarre la synchronisation initiale des utilisateurs affectés à DocuSign dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application DocuSign.
 
 Vous pouvez désormais créer un compte de test. Patientez jusqu’à 20 minutes et vérifiez que le compte a bien été synchronisé avec DocuSign.
 

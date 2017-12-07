@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
@@ -194,9 +194,11 @@ Si vous avez déjà créé des tables dans le stockage Table Azure et que vous s
 * L’API Table d’Azure Cosmos DB utilise un modèle de capacité réservée pour garantir les performances. Que vous l’utilisez ou non, la capacité vous est donc facturée dès que la table est créée. Dans le cadre du stockage Table Azure, vous payez uniquement la capacité utilisée. Cela explique pourquoi l’API Table peut offrir un contrat de niveau de service (SLA) de 10 ms en lecture et de 15 ms en écriture au 99e centile, alors que le stockage Table Azure offre un SLA de 10 s. Même les tables vides sans requêtes de l’API Table engendrent donc des coûts pour assurer la disponibilité de la capacité et le traitement de toutes les requêtes selon les termes du SLA offert par Azure Cosmos DB.
 * Les résultats des requêtes retournés par l’API Table ne sont pas triés dans l’ordre des clés de ligne/partition, alors qu’ils le sont dans le stockage Table Azure.
 * Les clés de ligne ne peuvent pas dépasser 255 octets.
+* Les lots ne peuvent contenir que jusqu’à 2 Mo
 * Les appels CreateIfNotExists sont restreints par une limitation de gestion qui est fixe et distincte des autres opérations de table couvertes par les unités de requête. Cela signifie que ceux qui effectuent beaucoup d’appels CreateIfNotExists se voient imposer une limite qu’ils ne peuvent pas contrôler puisqu’elle ne provient pas de leurs propres unités de requête.
 * CORS n’est pas actuellement pris en charge.
 * Les noms de table ne respectent pas la casse dans le stockage Table Azure, alors qu’ils la respectent dans l’API Table d’Azure Cosmos DB.
+* Certains des formats internes Azure Cosmos DB pour les informations de codage, comme les champs binaires, ne sont actuellement pas aussi efficaces que souhaité. Par conséquent, des limitations inattendues sur la taille des données peuvent être observées. Par exemple, il n’est actuellement pas possible d’utiliser le méga-octet complet d’une entité de table pour stocker des données binaires, car l’encodage augmente la taille des données.
 
 En ce qui concerne l’API REST, il existe un certain nombre d’options liées aux points de terminaison/requêtes qui ne sont pas prises en charge par l’API Table d’Azure Cosmos DB :
 | Méthode(s) REST | Option de point de terminaison/requête REST | URL vers la documentation | Explication |

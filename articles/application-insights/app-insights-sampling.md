@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -309,7 +309,9 @@ Lorsque les données de télémétrie vous sont restituées, le service Applicat
 
 La précision de l’approximation dépend en grande partie du pourcentage d’échantillonnage configuré. Elle est également plus précise pour les applications qui gèrent un grand nombre de requêtes globalement similaires générées par un grand nombre d’utilisateurs. En revanche, pour les applications qui ne sont pas soumises à une charge importante, l’échantillonnage n’est pas nécessaire, car ces applications peuvent généralement envoyer toutes leurs données de télémétrie sans dépasser leur quota ni entraîner de perte de données liée à une limitation de la bande passante. 
 
-Notez qu’Application Insights n’échantillonne pas les données de télémétrie de type Mesures et Sessions, car il est préférable de disposer d’une bonne précision pour ces types de données. 
+> [!WARNING]
+> Application Insights n’échantillonne pas les exemples de données de télémétrie de type métriques et sessions. La précision réduite n’est pas du tout souhaitable pour ces types de données de télémétrie.
+> 
 
 ### <a name="adaptive-sampling"></a>échantillonnage adaptatif
 L’échantillonnage adaptatif ajoute un composant qui contrôle la vitesse de transmission actuelle à partir du Kit de développement logiciel (SDK) et ajuste le pourcentage d’échantillonnage afin de le maintenir en dessous du taux maximal cible. L’ajustement est recalculé à intervalles réguliers en fonction d’une moyenne mobile de la vitesse de transmission sortante.

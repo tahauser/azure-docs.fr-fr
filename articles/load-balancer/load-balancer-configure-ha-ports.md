@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Comment configurer des ports de haute disponibilité pour l’équilibreur de charge interne
 
@@ -41,13 +41,10 @@ Figure 1 : Appliances virtuelles réseau déployées derrière un équilibreur d
 
 ## <a name="preview-sign-up"></a>S’inscrire à la préversion
 
-Pour découvrir la préversion des ports à haute disponibilité associés à Load Balancer Standard, inscrivez votre abonnement et bénéficiez d’un accès via PowerShell ou Azure CLI 2.0.  Inscrivez votre abonnement pour
-
-1. la [préversion standard de Load Balancer](https://aka.ms/lbpreview#preview-sign-up) et 
-2. la [préversion des ports haute disponibilité](https://aka.ms/haports#preview-sign-up).
+Pour découvrir la préversion des ports à haute disponibilité associés à Load Balancer Standard, inscrivez votre abonnement et bénéficiez d’un accès via PowerShell ou Azure CLI 2.0. Inscrivez votre abonnement à la [préversion de Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Pour utiliser cette fonctionnalité, vous devez également vous inscrire à la [préversion standard](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer, en plus des ports haute disponibilité. L’inscription aux ports haute disponibilité et aux préversions standard de Load Balancer peut prendre jusqu’à une heure.
+>L’inscription des préversions de Load Balancer Standard peut prendre jusqu’à une heure.
 
 ## <a name="configuring-ha-ports"></a>Configuration des ports de haute disponibilité
 

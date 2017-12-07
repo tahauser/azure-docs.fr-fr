@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gérer l’expiration de contenu web dans Azure Content Delivery Network
 > [!div class="op_single_selector"]
 > * [Contenu web Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [stockage d’objets blob Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Stockage Blob Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-Le [service Stockage Blob](../storage/common/storage-introduction.md#blob-storage) dans Stockage Azure fait partie des différentes origines Azure intégrées à Azure Content Delivery Network (CDN). Tout contenu d’objet BLOB publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie. La durée de vie est déterminée par l’en-tête `Cache-Control`dans la réponse HTTP du serveur d’origine. Cet article décrit plusieurs façons de définir l’en-tête `Cache-Control` d’un blob dans Stockage Azure.
+Le [service Stockage Blob](../storage/common/storage-introduction.md#blob-storage) dans Stockage Azure fait partie des différentes origines Azure intégrées à Azure Content Delivery Network (CDN). Tout contenu d’objet blob publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie. La durée de vie est déterminée par l’en-tête `Cache-Control`dans la réponse HTTP du serveur d’origine. Cet article décrit plusieurs façons de définir l’en-tête `Cache-Control` d’un blob dans Stockage Azure.
 
 > [!TIP]
 > Vous pouvez choisir de ne pas définir de durée de vie sur un objet blob. Dans ce cas, Azure CDN applique automatiquement une durée de vie de sept jours par défaut. Cette valeur TTL par défaut s’applique uniquement aux optimisations de remise web générales. Pour optimiser les fichiers volumineux, la durée de vie par défaut est de 1 jour, et pour les optimisations du streaming multimédia, la durée de vie par défaut est de 1 an.
@@ -50,7 +50,7 @@ $context = New-AzureStorageContext -StorageAccountName "<storage account name>" 
 $blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
-$blob.ICloudBlob.Properties.CacheControl = "public, max-age=3600"
+$blob.ICloudBlob.Properties.CacheControl = "max-age=3600"
 
 # Send the update to the cloud
 $blob.ICloudBlob.SetProperties()
@@ -85,7 +85,7 @@ class Program
         CloudBlob blob = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
-        blob.Properties.CacheControl = "public, max-age=3600";
+        blob.Properties.CacheControl = "max-age=3600";
 
         // Update the blob's properties in the cloud
         blob.SetProperties();
@@ -99,15 +99,23 @@ class Program
 
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>Définition d’en-têtes Cache-Control à l’aide d’autres méthodes
 
-### <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
+### <a name="azure-storage-explorer"></a>Explorateur Stockage Azure
 Avec l’[Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/en-us/features/storage-explorer/), vous pouvez afficher et modifier vos ressources de stockage blob, y compris les propriétés telles que *CacheControl*. 
+
+Pour mettre à jour la propriété *CacheControl* d’un objet blob avec l’Explorateur Stockage Azure :
+   1. Sélectionnez un objet blob, puis sélectionnez **Propriétés** dans le menu contextuel. 
+   2. Faites défiler jusqu’à la propriété *CacheControl*.
+   3. Entrez une valeur, puis cliquez sur **Enregistrer**.
+
+
+![Propriétés de l’Explorateur Stockage Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interface de ligne de commande Azure
 Lorsque vous chargez un objet blob, vous pouvez définir la propriété *cacheControl* avec le commutateur `-p` dans l’[Interface de ligne de commande Azure](../cli-install-nodejs.md). L’exemple suivant montre comment définir la durée de vie sur 1 heure (3 600 secondes) :
   
-    ```text
-    azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
-    ```
+```command
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+```
 
 ### <a name="azure-storage-services-rest-api"></a>API REST des services Stockage Azure
 Vous pouvez utiliser l’[API REST des services Stockage Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx) pour définir explicitement la propriété *x-ms-blob-cache-control* en utilisant les opérations suivantes sur une demande :
