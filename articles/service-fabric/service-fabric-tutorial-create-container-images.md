@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-container-images-for-service-fabric"></a>Créer des images conteneurs pour Service Fabric
 
@@ -53,9 +53,9 @@ L’exemple d’application utilisé dans ce didacticiel est une application de 
 Utilisez git pour télécharger une copie de l’application dans votre environnement de développement.
 
 ```bash
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/
+cd service-fabric-containers/Linux/container-tutorial/
 ```
 
 Le répertoire « container-tutorial » contient un dossier nommé « azure-vote », qui contient le code source frontal et un fichier Dockerfile permettant de créer le frontal. Le répertoire « container-tutorial » comporte également le répertoire « redis » qui contient le fichier Dockerfile permettant de créer l’image redis. Ces répertoires contiennent les ressources nécessaires à cet ensemble de didacticiels. 

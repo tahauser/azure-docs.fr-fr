@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Dois-je choisir Cloud Services ou un autre service ?
 Azure Cloud Services est-il fait pour vous ? Azure propose différents modèles d’hébergement d’applications. Chaque modèle fournit un ensemble différent de services, donc votre choix dépend exactement ce que vous essayez de faire.
@@ -50,7 +50,7 @@ Même si les applications s'exécutent sur des machines virtuelles, il est impor
 ## <a name="scaling-and-management"></a>Mise à l'échelle et gestion
 Avec Cloud Services, vous ne créez pas de machines virtuelles. Au contraire, vous fournissez un fichier de configuration qui indique à Azure le nombre d'instances de chaque type voulu, par exemple, **trois instances de rôle Web** et **deux instances de rôle de travail**, et la plateforme se charge de les créer pour vous.  Vous continuez de choisir [la taille](cloud-services-sizes-specs.md) que doivent avoir ces machines virtuelles de stockage, mais vous ne les créez pas vous-même de manière explicite. Si votre application a besoin de traiter une charge plus importante, vous pouvez demander davantage de machines virtuelles ; Azure créera ces instances. Si la charge diminue, vous pouvez arrêter ces instances et cesser de payer pour elles.
 
-Une application Cloud Services est normalement mise à la disposition des utilisateurs au moyen d'un processus en deux étapes. Un développeur [télécharge d'abord l'application](cloud-services-how-to-create-deploy-portal.md) dans la zone de transit de la plateforme. Lorsqu’il est prêt à activer l’application, il utilise le portail de gestion Azure pour la faire passer de l’étape intermédiaire à l’environnement de production. Le [basculement entre la zone de transit et l'environnement de production](cloud-services-nodejs-stage-application.md) peut se faire sans temps d'arrêt, ce qui permet de mettre à niveau une application en cours d'exécution vers une nouvelle version sans perturbation pour les utilisateurs.
+Une application Cloud Services est normalement mise à la disposition des utilisateurs au moyen d'un processus en deux étapes. Un développeur [télécharge d'abord l'application](cloud-services-how-to-create-deploy-portal.md) dans la zone de transit de la plateforme. Lorsqu’il est prêt à activer l’application, il utilise le portail de gestion Azure pour la faire passer de l’étape intermédiaire à l’environnement de production. Le [basculement entre la zone de transit et l'environnement de production](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) peut se faire sans temps d'arrêt, ce qui permet de mettre à niveau une application en cours d'exécution vers une nouvelle version sans perturbation pour les utilisateurs.
 
 ## <a name="monitoring"></a>Surveillance
 Cloud Services fournit également la surveillance. À l’instar d’Azure Virtual Machines, il détecte l’échec d’un serveur physique et redémarre sur un nouvel ordinateur les machines virtuelles qui étaient exécutées sur ce serveur. Mais Cloud Services détecte aussi les échecs des machines virtuelles et des applications, et pas seulement les défaillances matérielles. À la différence des machines virtuelles, ils ont un agent à l'intérieur de chaque rôle Web et de travail, et sont donc en mesure de démarrer de nouvelles instances des machines virtuelles et des applications lorsqu'une défaillance se produit.

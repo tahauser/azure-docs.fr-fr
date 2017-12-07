@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
@@ -155,36 +155,4 @@ Vous pouvez mettre à jour les propriétés suivantes :
 * **Journalisation** pour activer ou désactiver la journalisation des erreurs sur le point de terminaison. Pour plus d’informations sur la journalisation, voir [Activation de la journalisation pour les services web Machine Learning](web-services-logging.md).
 * **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio, les exemples de données proviennent des données utilisées dans votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Octroyer ou suspendre l’accès aux services web pour les utilisateurs dans le portail
-Le portail Azure Classic vous permet d’autoriser ou de refuser l’accès à des utilisateurs spécifiques.
-
-### <a name="access-for-users-of-new-web-services"></a>Accès des utilisateurs de nouveaux services web
-Pour permettre à d’autres utilisateurs d’utiliser vos services web dans le portail des services web Azure Machine Learning, ajoutez-les en tant que coadministrateurs à votre abonnement Azure.
-
-Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
-
-1. Dans le volet de navigation, cliquez sur **Paramètres**, puis sur **Administrateurs**.
-2. En bas de la fenêtre, cliquez sur **Ajouter**. 
-3. Dans la boîte de dialogue Ajouter un coadministrateur, entrez l’adresse de messagerie de la personne que vous souhaitez ajouter en tant que coadministrateur, puis sélectionnez l’abonnement auquel le coadministrateur doit avoir accès.
-4. Cliquez sur **Save**.
-
-### <a name="access-for-users-of-classic-web-services"></a>Accès des utilisateurs de services web classiques
-Pour gérer un espace de travail :
-
-Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
-
-1. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
-2. Cliquez sur l’espace de travail que vous souhaitez gérer.
-3. Cliquez sur l’onglet **Configurer** .
-
-Sous l’onglet Configuration, vous pouvez suspendre l’accès à l’espace de travail Machine Learning en cliquant sur **REFUSER**. Les utilisateurs ne seront plus en mesure d’ouvrir l’espace de travail de Machine Learning Studio. Pour restaurer l’accès, cliquez sur **AUTORISER**.
-
-Utilisateurs spécifiques :
-
-Pour gérer des comptes supplémentaires qui ont accès à l’espace de travail dans Machine Learning Studio, cliquez sur **Se connecter à ML Studio** sous l’onglet **TABLEAU DE BORD**. Cela ouvre l’espace de travail de Machine Learning Studio. À ce stade, cliquez sur l’onglet **PARAMÈTRES**, puis sur **UTILISATEURS**. Vous pouvez cliquer sur **INVITER PLUS D’UTILISATEURS** pour octroyer à des utilisateurs un accès à l’espace de travail, ou sélectionner un utilisateur et cliquer sur **SUPPRIMER**.
-
-> [!NOTE]
-> Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure Classic afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
-> 
-> 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Résoudre les problèmes de déploiement de service cloud
 Lorsque vous déployez un package d’application de service cloud sur Azure, vous pouvez obtenir des informations concernant le déploiement dans le volet **Propriétés** du portail Azure. Vous pouvez utiliser les détails figurant dans ce volet pour faciliter la résolution des problèmes du service cloud, et vous pouvez fournir ces informations au support Azure lors de l’ouverture d’une nouvelle demande de support.
@@ -27,7 +27,6 @@ Lorsque vous déployez un package d’application de service cloud sur Azure, vo
 Vous trouverez le volet **Propriétés** comme suit :
 
 * Dans le portail Azure, cliquez successivement sur le déploiement de votre service cloud, sur **Tous les paramètres** et sur **Propriétés**.
-* Dans le portail Azure Classic, cliquez sur le déploiement de votre service cloud, puis sur **TABLEAU DE BORD** dans le coin inférieur droit de la page (sous **aperçu rapide**). Notez que ce volet ne contient aucun étiquette Propriétés.
 
 > [!NOTE]
 > Vous pouvez copier le contenu du volet **Propriétés** dans le Presse-papiers en cliquant sur l’icône dans le coin supérieur droit du volet.

@@ -4,7 +4,7 @@ description: "Utilisation du processus TDSP (Team Data Science Process) pour un 
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 11/29/2017
+ms.author: bradsev
+ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processus TDSP (Team Data Science Process) en action : utiliser des clusters Hadoop Azure HDInsight
 Dans cette procédure pas à pas, nous allons utiliser le [processus TDSP (Team Data Science Process)](overview.md) avec un scénario complet au moyen d’un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.

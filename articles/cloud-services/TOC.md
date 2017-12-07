@@ -41,7 +41,6 @@
 ### [Créer et déployer un service cloud dans le portail](cloud-services-how-to-create-deploy-portal.md)
 ### [Créer un conteneur de service cloud vide dans PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Configurer un nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md)
-### [Effectuer un déploiement intermédiaire d’un service cloud (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Se connecter à un contrôleur de domaine personnalisé](cloud-services-connect-to-custom-domain.md)
 
 ## Gérer le service

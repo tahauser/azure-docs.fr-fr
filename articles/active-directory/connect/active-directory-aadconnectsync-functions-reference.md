@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4ff0556ba79c7104fa0e1cd84ece7fe27521ebbb
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync : Référence aux fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -828,7 +828,7 @@ la fonction Item est utile si utilisée avec la fonction Contains, car cette der
 Génère une erreur si l’index est hors limites.
 
 **Exemple :**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Renvoie l’adresse de messagerie principale.
 
 - - -

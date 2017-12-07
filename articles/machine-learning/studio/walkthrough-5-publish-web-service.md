@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning
 Voici la cinquième étape de la procédure pas à pas [Développement d’une solution d’analyse prédictive avec Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ Les résultats du test apparaissent sur le côté droit de la page, dans la colo
 
 
 ## <a name="manage-the-web-service"></a>Gérer le service web
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Gérer un service web classique dans le portail Azure Classic
-
-Après avoir déployé votre service web classique, vous pouvez le gérer à partir du [portail Azure Classic](https://manage.windowsazure.com).
-
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
-3. Cliquez sur votre espace de travail.
-4. Cliquez sur l’onglet **Services web**.
-5. Cliquez sur le service web que nous avons créé
-6. Cliquez sur le point de terminaison « par défaut ».
-
-À partir de là, vous pouvez effectuer des opérations telles que surveiller le fonctionnement du service web et effectuer des ajustements de performances en modifiant le nombre d’appels simultanés que le service peut gérer.
-
-Pour plus d'informations, consultez la page suivante :
-
-* [Création de points de terminaison](create-endpoint.md)
-* [Mise à l’échelle du service web](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Gérer un service web classique ou nouveau dans le portail des services web Azure Machine Learning
 
 Une fois votre service web déployé, qu’il soit classique ou nouveau, vous pouvez le gérer dans le portail [des services web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart).
 

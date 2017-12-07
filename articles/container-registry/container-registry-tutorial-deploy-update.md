@@ -2,25 +2,18 @@
 title: "Didacticiel d’Azure Container Registry - Envoyer une image mise à jour vers les déploiements régionaux"
 description: "Distribuez une image Docker modifiée vers votre registre de conteneurs Azure géorépliqué, puis déployez les modifications automatiquement sur les applications web en cours d’exécution dans plusieurs régions. Troisième partie d’une série en trois parties."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: mmacy
-tags: acr, azure-container-registry, geo-replication
-keywords: Docker, conteneurs, registre, Azure
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 049fba28d0783a79331e8bc8de741f55e9caf828
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: mvc
+ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="push-an-updated-image-to-regional-deployments"></a>Distribuer une image mise à jour vers les déploiements régionaux
 

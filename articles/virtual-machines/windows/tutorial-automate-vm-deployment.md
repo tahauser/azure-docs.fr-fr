@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4e6bdba54ded3880aabfc22ea07217fb5035477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0503cef234b01c4eefb1c1de3d88d9a812c4c39
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Comment personnaliser une machine virtuelle Windows dans Azure
 Pour configurer des machines virtuelles de manière rapide et cohérente, une certaine forme d’automatisation est généralement souhaitée. Une approche courante pour personnaliser une machine virtuelle Windows consiste à utiliser [l’extension de script personnalisé pour Windows](extensions-customscript.md). Ce didacticiel vous explique comment effectuer les opérations suivantes :
@@ -127,6 +127,7 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
+# Create a virtual machine using the configuration
 New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
 ```
 

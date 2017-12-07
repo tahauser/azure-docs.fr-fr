@@ -4,7 +4,7 @@ description: "Utilisez les fonctionnalités de Cortana Intelligence pour obtenir
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 11/15/2017
 ms.author: bradsev
-ms.openlocfilehash: 4a28ef3765518fe2948853d1c6334cf034b40d34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instructions de configuration du tableau de bord Power BI pour le modèle de la solution Vehicle Telemetry Analytics
 Ce menu contient des liens vers les chapitres de ce manuel : 
@@ -27,7 +27,7 @@ Ce menu contient des liens vers les chapitres de ce manuel :
 
 La solution Vehicle Telemetry Analytics présente comment les concessionnaires de véhicules, les fabricants automobiles et les sociétés d’assurance peuvent utiliser les fonctionnalités de Cortana Intelligence. Ils peuvent obtenir des informations prédictives et en temps réel sur l’intégrité des véhicules et les habitudes de conduite afin d’améliorer l’expérience utilisateur, la recherche et le développement, et les campagnes marketing. Ces instructions pas à pas montrent comment vous pouvez configurer le tableau de bord et les rapports Power BI après avoir déployé la solution dans votre abonnement. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 * Déployez la solution [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
 * [Installez Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Obtenez un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous n’avez pas d’abonnement Azure, commencez par un abonnement Azure gratuit.
@@ -384,7 +384,7 @@ Vous avez correctement créé le tableau de bord en temps réel. À mesure que v
 
 12. Sélectionnez **Fermer** pour fermer le fichier Power BI Desktop.
 
-    ![Fermer](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/14-close-powerbi-desktop.png)
+    ![fermez](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/14-close-powerbi-desktop.png)
 
 13. Sélectionnez **Enregistrer** pour enregistrer les modifications. 
 

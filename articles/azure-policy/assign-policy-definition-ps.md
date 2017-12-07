@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 5c00d50817e40de0a43d05eb85662b494247d8fa
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6a9b7cff1341bd898b76a226ca413b8135eec408
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant PowerShell
 
@@ -30,19 +30,6 @@ Avant de commencer, assurez-vous que la dernière version de PowerShell est inst
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="opt-in-to-azure-policy"></a>Choisir Azure Policy
-
-Azure Policy est désormais disponible en préversion publique et vous devez vous inscrire pour en demander l’accès.
-
-1. Accédez à Azure Policy sur https://aka.ms/getpolicy et sélectionnez **S’inscrire** dans le volet gauche.
-
-   ![Rechercher une stratégie](media/assign-policy-definition/sign-up.png)
-
-2. Acceptez Stratégie Azure en sélectionnant dans la liste **Abonnement** les abonnements que vous voulez utiliser. Sélectionnez ensuite **S’inscrire**.
-
-   ![Choisir d’utiliser Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Votre requête est approuvée automatiquement pour la préversion. Patientez 30 minutes pour que le système traite votre inscription.
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 

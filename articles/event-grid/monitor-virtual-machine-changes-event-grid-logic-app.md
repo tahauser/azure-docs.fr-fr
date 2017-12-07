@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
@@ -91,7 +91,7 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
    ![Se connecter avec des informations d’identification Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Si vous êtes connecté avec un compte Microsoft personnel, par exemple @outlook.com ou @hotmail.com, le déclencheur Event Grid risque de ne pas apparaître correctement. Il existe une solution de contournement qui consiste à choisir [Se connecter avec le principal du service](/azure-resource-manager/resource-group-create-service-principal-portal.md), ou à s’authentifier en tant que membre de l’instance Azure Active Directory associée à l’abonnement Azure, par exemple, *nom-utilisateur*@emailoutlook.onmicrosoft.com.
+   > Si vous êtes connecté avec un compte Microsoft personnel, par exemple @outlook.com ou @hotmail.com, le déclencheur Event Grid risque de ne pas apparaître correctement. Il existe une solution de contournement qui consiste à choisir [Se connecter avec le principal du service](../azure-resource-manager/resource-group-create-service-principal-portal.md), ou à s’authentifier en tant que membre de l’instance Azure Active Directory associée à l’abonnement Azure, par exemple, *nom-utilisateur*@emailoutlook.onmicrosoft.com.
 
 8. Maintenant, abonnez votre application logique aux événements de l’éditeur. Renseignez les détails de votre abonnement aux événements, comme l’indique le tableau suivant :
 

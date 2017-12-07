@@ -3,8 +3,8 @@ title: Meilleures pratiques pour Azure SQL Data Warehouse | Microsoft Docs
 description: "Recommandations et meilleures pratiques que vous devez connaître pour développer des solutions pour Azure SQL Data Warehouse. Elles vous aideront à réussir."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: ef6abba371d3a22d1cbaeb88dbd242f9f97b361c
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Meilleures pratiques pour Azure SQL Data Warehouse
 Cet article rassemble les nombreuses meilleures pratiques qui vous permettront d’obtenir des performances optimales de votre Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
@@ -42,7 +42,7 @@ Contrairement à SQL Server, qui détecte et crée ou met à jour les statistiqu
 Voir aussi [Gestion des statistiques sur les tables][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS]
 
 ## <a name="group-insert-statements-into-batches"></a>Regrouper des instructions INSERT dans des lots
-Une charge unique dans une petite table à l’aide d’une instruction INSERT ou même un rechargement périodique d’une recherche peut répondre parfaitement à vos besoins grâce à une instruction comme `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Toutefois, si vous avez besoin de charger des milliers ou des millions de lignes sur une même journée, vous constaterez que les instructions INSERTS singleton sont inadaptées.  Au lieu de cela, développez vos processus afin qu’ils écrivent dans un fichier et un autre processus arrive régulièrement pour charger ce fichier.
+Une charge unique dans une petite table à l’aide d’une instruction INSERT ou même un rechargement périodique d’une recherche peut répondre parfaitement à vos besoins grâce à une instruction comme `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Toutefois, si vous avez besoin charger des milliers ou des millions de lignes sur une même journée, vous constaterez que les instructions INSERTS singleton sont inadaptées.  Au lieu de cela, développez vos processus afin qu’ils écrivent dans un fichier et un autre processus arrive régulièrement pour charger ce fichier.
 
 Voir aussi [INSERT][INSERT]
 
@@ -62,7 +62,7 @@ Par défaut, les tables sont distribuées par tourniquet (Round Robin).  Cela ai
 Voir aussi [Vue d’ensemble des tables][Table overview], [Distribution de tables][Table distribution], [Sélection d’une distribution de tables][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="do-not-over-partition"></a>Ne pas créer trop de partitions
-Bien que le partitionnement des données puisse être très efficace pour mettre à jour vos données grâce au basculement de partitions ou à l’optimisation des analyses avec élimination de partition, avoir un trop grand nombre de partitions peut ralentir vos requêtes.  Souvent une stratégie de partitionnement à granularité élevée qui peut fonctionner correctement sur SQL Server peut poser des problèmes sur SQL Data Warehouse.  Un trop grand nombre de partitions peut également réduire l’efficacité des index columnstore en cluster si chaque partition possède moins d’1 million de lignes.  N’oubliez pas que, en arrière-plan, SQL Data Warehouse partitionne vos données en 60 bases de données, donc si vous créez une table avec 100 partitions, cela produit en réalité 6 000 partitions.  Chaque charge de travail est différente ; par conséquent, le meilleur conseil serait d’expérimenter le partitionnement pour voir ce qui fonctionne le mieux pour votre charge de travail.  Envisagez d’abaisser le niveau de granularité à un niveau inférieur à celui qui a fonctionné pour vous dans SQL Server.  Par exemple, utilisez plutôt des partitions hebdomadaires ou mensuelles plutôt que des partitions quotidiennes.
+Bien que le partitionnement des données peut être très efficace pour mettre à jour vos données grâce au basculement de partitions ou à l’optimisation des analyses avec élimination de partition, avoir un trop grand nombre de partitions peut ralentir vos requêtes.  Souvent une stratégie de partitionnement à granularité élevée qui peut fonctionner correctement sur SQL Server peut poser des problèmes sur SQL Data Warehouse.  Un trop grand nombre de partitions peut également réduire l’efficacité des index columnstore en cluster si chaque partition possède moins d’1 million de lignes.  N’oubliez pas que, en arrière-plan, SQL Data Warehouse partitionne vos données en 60 bases de données, donc si vous créez une table avec 100 partitions, cela produit en réalité 6 000 partitions.  Chaque charge de travail est différente ; par conséquent, le meilleur conseil serait d’expérimenter le partitionnement pour voir ce qui fonctionne le mieux pour votre charge de travail.  Envisagez d’abaisser le niveau de granularité à un niveau inférieur à celui qui a fonctionné pour vous dans SQL Server.  Par exemple, utilisez plutôt des partitions hebdomadaires ou mensuelles plutôt que des partitions quotidiennes.
 
 Voir aussi [Partitionnement de table][Table partitioning]
 
@@ -84,7 +84,7 @@ Voir aussi [Tables temporaires][Temporary tables], [CREATE TABLE][CREATE TABLE],
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimiser les tables columnstore en clusters
 Les index columnstore en cluster sont l’une des méthodes les plus efficaces pour stocker vos données dans SQL Data Warehouse.  Par défaut, les tables dans SQL Data Warehouse sont créées en tant que ColumnStore en cluster.  Pour obtenir les meilleures performances pour les requêtes sur les tables columnstore, la qualité du segment est importante.  Lorsque les lignes sont écrites dans les tables columnstore avec une mémoire insuffisante, la qualité du segment columnstore peut être affectée.  La qualité du segment peut être mesurée par le nombre de lignes dans un groupe de lignes compressé.  Consultez la section [Causes de la qualité médiocre des index columnstore][Causes of poor columnstore index quality] dans l’article [Index de table][Table indexes] pour obtenir des instructions étape par étape sur la détection et l’amélioration de la qualité de segment pour les tables columnstore en cluster.  Étant donné que la qualité des segments columnstore est importante, nous vous conseillons d’utiliser des ID d’utilisateurs qui se trouvent dans la classe de ressource de moyenne ou grande taille pour le chargement des données. L’utilisation de faibles [niveaux de service](performance-tiers.md#service-levels) signifie que vous souhaitez assigner une classe de ressource plus grande à votre utilisateur de chargement.
 
-Étant donné que les tables columnstore ne transmettent généralement pas de données dans un segment columnstore compressé s’il existe moins d’1 million de lignes par table et si chaque table SQL Data Warehouse est partitionnée en 60 tables, en règle générale, les tables columnstore ne tireront aucun profit d’une requête, sauf si la table comporte plus de 60 millions de lignes.  Pour une table comportant moins de 60 millions de lignes, il ne sera peut-être pas judicieux d’avoir un index columnstore.  Mais cela ne peut pas nuire non plus.  En outre, si vous partitionnez vos données, vous souhaiterez peut-être estimer que chaque partition nécessitera 1 million de lignes pour bénéficier d’un index columnstore en cluster.  Si une table possède 100 partitions, elle devra avoir au moins 6 milliards de lignes pour bénéficier d’une banque de colonnes en cluster (60 distributions * 100 partitions * 1 million de lignes).  Si votre table ne possède pas six milliards de lignes dans cet exemple, réduisez le nombre de partitions ou envisagez plutôt d’utiliser une table de segment de mémoire.  Il peut être également intéressant de tester pour voir si de meilleures performances peuvent être obtenues avec une table de segment de mémoire ayant des index secondaires plutôt qu’avec une table columnstore.  Les tables columnstore ne gèrent pas encore les index secondaires.
+Étant donné que les tables columnstore ne transmettent généralement pas de données dans un segment columnstore compressé s’il existe moins d’1 million de lignes par table et si chaque table SQL Data Warehouse est partitionnée en 60 tables, en règle générale, les tables columnstore ne tireront aucun profit d’une requête, sauf si la table comporte plus de 60 millions de lignes.  Pour une table comportant moins de 60 millions de lignes, il ne sera peut-être pas judicieux d’avoir un index columnstore.  Mais cela ne peut pas nuire non plus.  En outre, si vous partitionnez vos données, vous souhaiterez peut-être estimer que chaque partition nécessitera 1 million de lignes pour bénéficier d’un index columnstore en cluster.  Si une table possède 100 partitions, elle devra avoir au moins 6 milliards de lignes pour bénéficier d’une banque de colonnes en cluster (60 distributions * 100 partitions * 1 million de lignes).  Si votre table ne possède pas six milliards de lignes dans cet exemple, réduisez le nombre de partitions ou envisagez plutôt d’utiliser une table de segment de mémoire.  Il peut être également intéressant de tester pour voir si de meilleures performances peuvent être obtenues avec une table de segment de mémoire ayant des index secondaires plutôt qu’avec une table columnstore.
 
 Lorsque vous interrogez une table columnstore, les requêtes s’exécutent plus vite si vous sélectionnez uniquement les colonnes dont vous avez besoin.  
 

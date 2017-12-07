@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Classification d’Iris, partie 2 : générer un modèle
 Les services Azure Machine Learning (version préliminaire) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -300,7 +300,7 @@ Pour exécuter votre script dans un conteneur Docker sur une machine Linux dista
  
    ```azurecli
    REM creates an myvm compute target
-   az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password> --type remotedocker
+   az ml computetarget attach remotedocker --name myvm --address <IP address> --username <username> --password <password>
    ```
    
    >[!NOTE]
@@ -351,7 +351,7 @@ Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Déc
 
    ```azurecli
    REM creates a compute target that points to a HDInsight cluster
-   az ml computetarget attach --name myhdi --address <cluster head node FQDN> --username <username> --password <password> --type cluster
+   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <username> --password <password>
 
    REM prepares the HDInsight cluster
    az ml experiment prepare -c myhdi

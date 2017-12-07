@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d6cddf54827d44e41add9e1e6b1a4323e03879e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | &nbsp; | Centre-Sud des États-Unis | États-Unis - partie centrale méridionale |
 | &nbsp; | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis |
 | &nbsp; | Ouest des États-Unis | Ouest des États-Unis |
-| &nbsp; | Ouest des États-Unis 2 | Ouest des États-Unis |
+| &nbsp; | Ouest des États-Unis 2 | Ouest des États-Unis 2 |
 | Canada | Est du Canada | Centre du Canada |
 | &nbsp; | Centre du Canada | Centre du Canada |
 | Brésil | Sud du Brésil | Sud du Brésil |

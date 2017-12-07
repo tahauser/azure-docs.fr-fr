@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 
@@ -102,8 +102,11 @@ Pour créer une machine virtuelle SQL Server 2016 Azure avec l’une de ces imag
 - [Machine virtuelle Azure Entreprise SQL Server 2016](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [Machine virtuelle Azure Standard SQL Server 2016](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Veuillez nous indiquer sous 10 jours le nombre de licences SQL Server que vous utiliserez dans Azure. Les liens vers les images précédentes comportent des instructions sur la manière de procéder.
+
+> [!NOTE]
+> Il n’est pas possible de modifier le modèle de licence d’une machine virtuelle SQL Server payée à la minute pour utiliser votre propre licence. Dans ce cas, vous devez créer une nouvelle machine virtuelle BYOD et migrer vos bases de données vers la nouvelle machine virtuelle. 
 
 ## <a name="avoid-unnecessary-costs"></a>Éviter les coûts inutiles
 
