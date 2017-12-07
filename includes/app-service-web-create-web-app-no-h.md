@@ -1,4 +1,4 @@
-Dans Cloud Shell, créez une [application web](../articles/app-service/app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create). 
+Dans Cloud Shell, créez une [application web](../articles/app-service/app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#az_webapp_create). 
 
 Dans l’exemple suivant, remplacez *\<app_name>* par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). 
 

@@ -1,6 +1,6 @@
 ---
 title: "Qu’est-ce qui a changé dans Azure Log Analytics ? | Microsoft Docs"
-description: "Cet article contient les questions fréquentes sur la mise à niveau de Log Analytics avec le nouveau langage de requête."
+description: "Cet article fournit le forum aux questions relatives à la mise à niveau de Log Analytics au nouveau langage de requête."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -11,16 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: bwren
-ms.openlocfilehash: 783223a37c2a13c9affbf382209ca2aa4f1ba4c7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 017a1da233827f19489a99b234ee9009fd9f6fe3
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Qu’est-ce qui a changé dans Azure Log Analytics ?
 En plus du langage de requête proprement dit, il y a plusieurs améliorations et modifications dont vous devez être informé quand votre espace de travail Log Analytics [passe au nouveau langage de requête](log-analytics-log-search-new.md).  Cet article décrit brièvement les différences entre un espace de travail hérité et un espace de travail mis à niveau, puis fournit des liens vers du contenu détaillé pour chacun. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Whats-changed-in-Azure-Log-Analytics/player]
 
 Pour obtenir une description des problèmes connus avec la mise à niveau et des réponses aux questions courantes, consultez [Questions fréquentes (FAQ) sur la nouvelle recherche dans les journaux Log Analytics et problèmes connus](log-analytics-log-search-faq.md).  
 
@@ -63,7 +65,7 @@ L’applet de commande Get-AzureRmOperationalInsightsSearchResults pour l’exé
 
 Pour plus d’informations à ce sujet, consultez [Azure Log Analytics REST API - PowerShell Cmdlets](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets).
 
-## <a name="log-search-api"></a>API Recherche dans les journaux
+## <a name="log-search-api"></a>API Recherche de journal
 L’API REST de recherche dans les journaux a changé, et les solutions qui utilisent l’ancienne version doivent être mises à jour pour utiliser la nouvelle version de l’API.   
 
 Vous trouverez des détails sur la nouvelle version de l’API dans [API REST Azure Log Analytics](https://dev.loganalytics.io/).

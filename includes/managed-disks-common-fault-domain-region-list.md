@@ -32,3 +32,9 @@
 | Sud-est de l’Australie | 2                       |
 |                     |                         |
 | Sud du Brésil        | 2                       |
+|                     |                         |
+| Gouvernement américain - Virginie     | 2                       |
+| Gouvernement des États-Unis – Texas        | 2                       |
+| Gouvernement des États-Unis – Arizona      | 2                       |
+| Centre des États-Unis – US DoD      | 2                       |
+| Est des États-Unis – US DoD         | 2                       |

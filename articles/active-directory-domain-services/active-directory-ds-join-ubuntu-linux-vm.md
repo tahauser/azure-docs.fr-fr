@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 8946166c04ce778d751ad79f7a010c9a5e71a05c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b41cebcc8592468fcabb157b1aee830dfe954229
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Joindre une machine virtuelle Ubuntu dans Azure à un domaine géré
 Cet article indique comment joindre une machine virtuelle Linux Ubuntu à un domaine géré par les services de domaine Azure AD.
@@ -120,12 +120,12 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+   > [!NOTE] 
+   > **Résolution des problèmes :** si *realm discover* ne peut pas trouver votre domaine géré :
+     * Vérifiez que le domaine est accessible à partir de la machine virtuelle (effectuez un test ping).
+     * Vérifiez également que la machine virtuelle a bien été déployée dans le réseau virtuel au sein duquel le domaine managé est disponible.
+     * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.
+   >
 
 2. Initialisez Kerberos. Sur votre terminal SSH, saisissez la commande suivante : 
 
@@ -141,7 +141,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
 3. Joignez l’ordinateur au domaine. Sur votre terminal SSH, saisissez la commande suivante : 
 
     > [!TIP] 
-    > Utilisez le même compte utilisateur qu’à l’étape précédente (« kinit »).
+    > Utilisez le même compte utilisateur qu’à l’étape précédente (« kinit »).
     >
 
     ```
