@@ -20,16 +20,19 @@
  
 ## Gérer
 ### [Gérer avec Azure PowerShell](cdn-manage-powershell.md)
+### [Restreindre l’accès par pays](cdn-restrict-access-by-country.md)
+### [Compression des fichiers pour améliorer les performances](cdn-improve-performance.md)
+### Contrôler le comportement de mise en cache
+#### [Comment fonctionne la mise en cache](cdn-how-caching-works.md)
+#### [Contrôler le comportement de mise en cache à l’aide de règles de mise en cache](cdn-caching-rules.md)
+#### Contenu du cache par chaînes de requête
+##### [Niveau standard](cdn-query-string.md)
+##### [Niveau Premium](cdn-query-string-premium.md)
+#### [Vider les ressources mises en cache](cdn-purge-endpoint.md)
+#### [Précharger les ressources mises en cache](cdn-preload-endpoint.md)
 ### Configurer la durée de vie
 #### [Contenu web Azure](cdn-manage-expiration-of-cloud-service-content.md)
 #### [stockage d’objets blob Azure](cdn-manage-expiration-of-blob-content.md)
-### [Restreindre l’accès par pays](cdn-restrict-access-by-country.md)
-### [Compression des fichiers pour améliorer les performances](cdn-improve-performance.md)
-### Contenu du cache par chaîne de requête
-#### [Niveau standard](cdn-query-string.md)
-#### [Niveau Premium](cdn-query-string-premium.md)
-### [Vider les ressources mises en cache](cdn-purge-endpoint.md)
-### [Précharger les ressources mises en cache](cdn-preload-endpoint.md)
 ### [Jeton d’authentification](cdn-token-auth.md)
 ### [Surveiller les ressources](cdn-resource-health.md)
 ### [Remplacer le comportement à l’aide de règles](cdn-rules-engine.md)

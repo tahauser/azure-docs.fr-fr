@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation relative au service Azure IoT Hub Device Provisioning (version préliminaire)
+title: Documentation relative au service Azure IoT Hub Device Provisioning
 metadata:
-  title: 'Documentation relative au service Azure IoT Hub Device Provisioning (version préliminaire) - Didacticiels, Référence d’API'
+  title: 'Documentation relative au service Azure IoT Hub Device Provisioning - Didacticiels, Référence d’API'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'Le service IoT Hub Device Provisioning (version préliminaire) est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact et juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et évolutive. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.'
+  description: 'Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et évolutive. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.'
 sections:
   - title: "Démarrages en 5\_minutes"
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: Découvrez comment utiliser le service IoT Hub Device Provisioning (version préliminaire) pour approvisionner automatiquement des appareils sécurisés sur un ou plusieurs hubs IoT.
+        text: Découvrez comment utiliser le service IoT Hub Device Provisioning pour approvisionner automatiquement des appareils sécurisés sur un ou plusieurs hubs IoT.
       - type: list
         style: ordered
         items:

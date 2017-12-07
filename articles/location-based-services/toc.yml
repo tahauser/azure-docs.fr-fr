@@ -33,6 +33,14 @@
       href: how-to-search-for-address.md
 - name: Référence
   items:
+    - name: API fonctionnelle - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+    - name: API de gestion - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+    - name: API de contrôle de carte - Javascript
+      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+- name: Ressources
+  items:
     - name: Centre de développement Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Feuille de route Azure
