@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6a247c225af734757ab0cb0a7502f39535299ca7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Fichiers de configuration du service d’expérimentation Azure Machine Learning
 
@@ -113,10 +113,10 @@ Pour spécifier une configuration de série de tests particulière, une paire de
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
+$ az ml computetarget attach remotedocker -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password>
 
 # create a compute context pointing to an HDI cluster head-node via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> --type cluster
+$ az ml computetarget attach cluster -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> 
 ```
 
 Cette commande crée une paire de fichiers en fonction de la cible de calcul spécifiée. Supposons que vous ayez nommé votre cible de calcul _foo_. Cette commande génère les fichiers _foo.compute_ et _foo.runconfig_ dans votre dossier **aml_config**.
@@ -185,7 +185,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun** : cet indicateur signale au service d’expérimentation s’il faut suivre ou non la série de tests dans l’infrastructure de l’historique des exécutions Azure ML Workbench. La valeur par défaut est _true_. 
 
-**UseSampling** :__ spécifie si les jeux de données échantillons actifs pour les sources de données sont utilisés pour la série de tests. Si la valeur est _false_, les sources de données ingèrent et utilisent la lecture de données complète de la banque de données. Si la valeur est _true_, les échantillons actifs sont utilisés. Les utilisateurs peuvent utiliser la section **DataSourceSettings » pour spécifier les jeux de données échantillons à utiliser s’ils souhaitent remplacer l’échantillon actif. 
+**UseSampling** :_UseSampling_spécifie si les jeux de données échantillons actifs pour les sources de données sont utilisés pour la série de tests. Si la valeur est _false_, les sources de données ingèrent et utilisent la lecture de données complète de la banque de données. Si la valeur est _true_, les échantillons actifs sont utilisés. Les utilisateurs peuvent utiliser la section **DataSourceSettings » pour spécifier les jeux de données échantillons à utiliser s’ils souhaitent remplacer l’échantillon actif. 
 
 **DataSourceSettings** : cette section de configuration spécifie les paramètres de source de données. Dans cette section, l’utilisateur spécifie l’échantillon de données existant pour une source de données particulière à utiliser dans le cadre de la série de tests. 
 

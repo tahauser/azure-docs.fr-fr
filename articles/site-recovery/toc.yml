@@ -135,13 +135,29 @@
         - name: Planification de la capacité pour la réplication de VMware vers Azure
           href: site-recovery-plan-capacity-vmware.md
         - name: Outil Deployment Planner pour la réplication de VMware vers Azure
-          href: site-recovery-deployment-planner.md
-        - name: Planification de la capacité pour la réplication d’Hyper-V vers Azure
-          href: site-recovery-capacity-planner.md
-        - name: Outil Capacity Planner pour la réplication d’Hyper-V vers Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+          href: null
+          items:
+            - name: Vue d’ensemble et conditions préalables
+              href: site-recovery-deployment-planner.md
+            - name: Exécuter Deployment planner
+              href: site-recovery-vmware-deployment-planner-run.md
+            - name: Analyser le rapport généré
+              href: site-recovery-vmware-deployment-planner-analyze-report.md
+            - name: Analyser le rapport d’estimation des coûts liés à la récupération d’urgence
+              href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Augmenter la taille des instances des serveurs de processus pour la réplication de VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Planification du déploiement et outil pour la réplication d’Hyper-V vers Azure
+          href: null
+          items:
+            - name: Vue d’ensemble et conditions préalables
+              href: site-recovery-hyper-v-deployment-planner.md
+            - name: Exécuter Deployment planner
+              href: site-recovery-hyper-v-deployment-planner-run.md
+            - name: Analyser le rapport généré
+              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+            - name: Analyser le rapport d’estimation des coûts liés à la récupération d’urgence
+              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Tests de mise à l’échelle des performances pour la réplication d’Hyper-V entre des sites locaux
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Configuration

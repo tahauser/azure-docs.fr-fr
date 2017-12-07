@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Ajouter des balises à une machine virtuelle
           href: tag.md
-        - name: Utiliser cloud-init
-          href: using-cloud-init.md
         - name: Exécuter des scripts sur une machine virtuelle
           href: extensions-customscript.md
         - name: Utiliser le Bureau à distance
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Créer une machine virtuelle complète
               href: terraform-create-complete-vm.md
+        - name: Cloud-Init
+          items:
+            - name: Présentation de cloud-init
+              href: using-cloud-init.md
+            - name: Configurer le nom d’hôte de la machine virtuelle
+              href: cloudinit-update-vm-hostname.md
+            - name: Mettre à jour les packages dans une machine virtuelle
+              href: cloudinit-update-vm.md
+            - name: Ajouter un utilisateur à une machine virtuelle
+              href: cloudinit-add-user.md
+            - name: Configurer un fichier d’échange
+              href: cloudinit-configure-swapfile.md
+            - name: Exécuter le script bash existant
+              href: cloudinit-bash-script.md
+            - name: Préparer la machine virtuelle existante pour cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:
