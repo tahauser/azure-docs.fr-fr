@@ -9,13 +9,13 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b8475dcc51fb24fadd1faa4a2008b25a4464080
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e061e599f365bf3d343cb59b8dc6a61e06627517
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Déployer Azure Machine Learning en tant que module IoT Edge - version préliminaire
+# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Déployer Azure Machine Learning en tant que module IoT Edge - préversion
 
 Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce didacticiel vous guide à travers le déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil sur la base de données de capteur sur l’appareil simulé IoT Edge que vous avez créé dans les didacticiels Déployer Azure IoT Edge sur un appareil simulé pour [Windows][lnk-tutorial1-win]ou [Linux][lnk-tutorial1-lin]. Vous allez apprendre à effectuer les actions suivantes : 
 
@@ -25,10 +25,10 @@ Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente
 
 Lorsque vous souhaitez utiliser votre propre modèle [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) dans votre solution, vous allez [déployer un modèle](https://aka.ms/aml-iot-edge-doc) pour IoT Edge et l’héberger dans un registre de conteneurs tel que [Azure Container Registry](../container-registry/index.yml) ou Docker.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-* L’appareil Azure IoT Edge que vous avez créé dans le démarrage rapide ou le premier didacticiel.
-* La chaîne de connexion IoT Hub pour l’IoT Hub auquel votre appareil IoT Edge se connecte.
+* L’appareil Azure IoT Edge que vous avez créé dans le guide de démarrage rapide ou le premier didacticiel.
+* La chaîne de connexion IoT Hub pour le hub IoT auquel votre appareil IoT Edge se connecte.
 * Le conteneur Azure ML
 
 ## <a name="create-the-azure-ml-container"></a>Créer le conteneur Azure ML
@@ -36,8 +36,8 @@ Pour créer votre conteneur Azure ML, suivez les instructions fournies dans [AI 
 
 ## <a name="run-the-solution"></a>Exécuter la solution
 
-1. Accédez à votre IoT Hub sur le [portail Azure](https://portal.azure.com).
-1. Accédez à **IoT Edge (version préliminaire)** et sélectionnez votre appareil IoT Edge.
+1. Accédez à votre hub IoT sur le [portail Azure](https://portal.azure.com).
+1. Accédez à **IoT Edge (préversion)** et sélectionnez votre appareil IoT Edge.
 1. Sélectionnez **Définir modules**.
 1. Sélectionnez **Ajouter module IoT Edge**.
 1. Dans le champ **Nom**, entrez `tempSensor`.
@@ -49,7 +49,7 @@ Pour créer votre conteneur Azure ML, suivez les instructions fournies dans [AI 
 1. Cliquez sur **Enregistrer**.
 1. De retour à l’étape **Ajouter des modules**, cliquez sur **Suivant**.
 1. Mettre à jour des itinéraires pour votre module :
-1. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Les modules publient tous les messages sur le runtime Edge. Des règles déclaratives dans le runtime définissent où ces messages circulent. Pour ce didacticiel, vous avez besoin de deux itinéraires. Le premier itinéraire transmet les messages du capteur de température au module Machine Learning le point de terminaison « mlInput », le point de terminaison utilisé par tous les modules Azure Machine Learning. Le deuxième itinéraire transmet les messages du module Machine Learning à IoT Hub. Dans cet itinéraire, « mlInput » correspondant à l’endput utilisé par tous les modules Azure Machine Learning pour transmettre des données, et « upstream » est une destination spéciale qui indique à Edge Hub d’envoyer des messages à IoT Hub. 
+1. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Les modules publient tous les messages sur le runtime Edge. Des règles déclaratives dans le runtime définissent où ces messages circulent. Pour ce didacticiel, vous avez besoin de deux itinéraires. Le premier itinéraire transmet les messages du capteur de température au module Machine Learning le point de terminaison « amlInput », le point de terminaison utilisé par tous les modules Azure Machine Learning. Le deuxième itinéraire transmet les messages du module Machine Learning à IoT Hub. Dans cet itinéraire, « amlOutput » correspond au point de terminaison utilisé par tous les modules Azure Machine Learning pour transmettre des données, et « $upstream » est une destination spéciale qui indique à Edge Hub d’envoyer des messages à IoT Hub. 
 
     ```json
     {

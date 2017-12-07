@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Installer un serveur web LEMP sur une machine virtuelle Azure
 Cet article vous guide à travers le déploiement d’un serveur web NGINX, de celui de MySQL et de PHP (la pile LEMP) sur une machine virtuelle Ubuntu dans Azure. Pouvant également être installée dans Azure, la pile LEMP est une alternative à la très répandue [pile LAMP](tutorial-lamp-stack.md). Pour voir le serveur LEMP fonctionner, vous pouvez éventuellement installer et configurer un site WordPress. Ce didacticiel vous explique comment effectuer les opérations suivantes :
@@ -31,6 +31,8 @@ Cet article vous guide à travers le déploiement d’un serveur web NGINX, de c
 > * Vérifier l’installation et la configuration
 > * Installer WordPress sur le serveur LEMP
 
+
+Ce programme d’installation est destiné aux tests rapides ou à la preuve de concept.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,15 +75,16 @@ Vérifiez la version de MySQL avec la commande suivante (remarquez le paramètre
 mysql -V
 ```
 
-Nous vous recommandons d’exécuter le script suivant pour vous aider à sécuriser l’installation de MySQL :
+Pour sécuriser l’installation de MySQL, exécutez le script `mysql_secure_installation`. Si vous configurez uniquement un serveur temporaire, vous pouvez ignorer cette étape. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Entrez votre mot de passe racine MySQL et configurez les paramètres de sécurité pour votre environnement.
+Entrez un mot de passe racine pour MySQL et configurez les paramètres de sécurité de votre environnement.
 
-Si vous souhaitez créer une base de données MySQL, ajoutez des utilisateurs ou changez les paramètres de configuration, puis connectez-vous à MySQL :
+Si vous souhaitez essayer des fonctionnalités de MySQL (créer une base de données MySQL, ajouter des utilisateurs ou changer des paramètres de configuration), connectez-vous à MySQL. Cette étape n’est pas nécessaire pour suivre ce didacticiel. 
+
 
 ```bash
 mysql -u root -p

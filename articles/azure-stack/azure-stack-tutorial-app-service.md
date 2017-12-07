@@ -1,6 +1,6 @@
 ---
-title: "Mettre des applications web, mobiles et API à la disposition de vos utilisateurs Azure Stack | Microsoft Docs"
-description: "Didacticiel pour installer le fournisseur de ressources App Service et créer des offres qui donnent à vos utilisateurs Azure Stack la possibilité de créer des applications web, mobiles et API."
+title: "Mettre des applications web et API à la disposition des utilisateurs Azure Stack | Microsoft Docs"
+description: "Didacticiel pour installer le fournisseur de ressources App Service et créer des offres qui donnent la possibilité aux utilisateurs Azure Stack de créer des applications web et API."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web, mobiles et API à la disposition de vos utilisateurs Azure Stack
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web et API à la disposition des utilisateurs Azure Stack
 
-En tant qu’un administrateur de cloud Azure Stack, vous pouvez créer des offres qui permettent à vos utilisateurs (locataires) de créer des applications Azure Functions, web, mobiles et API. En permettant à vos utilisateurs d’accéder à ces applications cloud à la demande, vous pouvez leur faire gagner du temps et économiser des ressources. Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
+En tant qu’administrateur cloud Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs (locataires) de créer des fonctions Azure Functions et des applications web et API. En permettant à vos utilisateurs d’accéder à ces applications cloud à la demande, vous pouvez leur faire gagner du temps et économiser des ressources. Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Déployer le fournisseur de ressources App Service
@@ -43,7 +43,7 @@ En tant qu’un administrateur de cloud Azure Stack, vous pouvez créer des off
 Vous pouvez créer une offre qui, par exemple, permet aux utilisateurs de créer des systèmes de gestion de contenu web DNN. Cette opération nécessite le service SQL Server que vous est déjà activé en installant le fournisseur de ressources SQL Server.
 
 1.  [Définissez un quota](azure-stack-setting-quotas.md) et nommez-le *AppServiceQuota*. Sélectionnez **Microsoft.Web** pour le champ **Namespace**.
-2.  [Créez un plan](azure-stack-create-plan.md). Nommez-le *TestAppServicePlan*, puis sélectionnez le service **Microsoft.SQL** et le quota **AppService Quota**.
+2.  [Créer un plan](azure-stack-create-plan.md). Nommez-le *TestAppServicePlan*, puis sélectionnez le service **Microsoft.SQL** et le quota **AppService Quota**.
 
     > [!NOTE]
     > Pour permettre aux utilisateurs de créer d’autres applications, il est possible que d’autres services soient exigés dans le plan. Par exemple, Azure Functions exige que le plan inclue le service **Microsoft.Storage**, tandis que Wordpress exige **Microsoft.MySQL**.

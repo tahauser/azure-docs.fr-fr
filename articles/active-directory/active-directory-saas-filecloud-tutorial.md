@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Didacticiel : Intégration d’Azure Active Directory avec FileCloud
 
@@ -108,12 +108,12 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique dans Domaine et URL FileCloud](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.filecloudhosted.com`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.filecloudonline.com`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de prise en charge des clients FileCloud](mailto:support@codelathe.com).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de prise en charge des clients FileCloud](mailto:support@codelathe.com). 
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -131,23 +131,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 8. Dans le volet de navigation gauche, cliquez sur **Paramètres**. 
    
-    ![Section Paramètres côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Configurer l’authentification unique côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Dans la section Paramètres, cliquez sur l’onglet **SSO**. 
    
-    ![Onglet Authentification unique côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Configurer l’authentification unique côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Dans le panneau **Single Sign On (SSO) Settings** (Paramètres d’authentification unique), sélectionnez **SAML** comme **Default SSO Type** (Type d’authentification unique par défaut).
    
-    ![Volet Paramètres de l’authentification unique côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Configurer l’authentification unique côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Collez l’**ID d’entité SAML** que vous avez copié à partir du portail Azure dans la zone de texte **IdP End Point URL** (URL du point de terminaison IdP).
+11. Dans la zone de texte **URL du point de terminaison IdP**, collez la valeur **ID d’entité SAML** que vous avez copiée à partir du portail Azure.
 
-    ![Zone de texte IDP End Point URL (URL du point de terminaison IdP)](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Configurer l’authentification unique côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Ouvrez votre fichier de métadonnées téléchargé dans le bloc-notes, copiez le contenu de celui-ci dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Meta Data** (métadonnées IdP) du panneau **SAML Settings** (Paramètres SAML).
 
-    ![Section IDP Meta Data (Métadonnées IDP) côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Configurer l’authentification unique côté application](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Cliquez sur le bouton **Enregistrer** .
 
@@ -192,7 +192,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 L’objectif de cette section est de créer un utilisateur nommé Britta Simon dans FileCloud. FileCloud prend en charge le déploiement juste-à-temps, qui est l’option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à FileCloud s’il n’existe pas encore.
 
 >[!NOTE]
->Si vous devez créer un utilisateur manuellement, contactez l’[équipe de prise en charge des clients FileCloud](mailto:support@codelathe.com). 
+>Si vous devez créer un utilisateur manuellement, contactez l’[équipe de prise en charge des clients FileCloud](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -226,9 +226,10 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
     
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette FileCloud dans le volet d’accès, vous devez être automatiquement authentifié auprès de votre application FileCloud.
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

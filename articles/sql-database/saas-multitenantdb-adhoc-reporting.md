@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données SQL Azure
 
@@ -37,7 +37,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
 
-* L’application de base de données Wingtip Tickets SaaS mutualisée est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application Wingtip Tickets SaaS mutualisée](saas-multitenantdb-get-started-deploy.md)
+* L’application de base de données multi-locataire SaaS Wingtip Tickets est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données multi-locataire SaaS Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * SQL Server Management Studio (SSMS) est installé. Pour télécharger et installer SSMS, consultez la rubrique [Téléchargement de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -52,12 +52,11 @@ L’accès à ces données dans une base de données mutualisée est facile, mai
 
 En distribuant les requêtes sur toutes les bases de données client, les requêtes élastiques permettent d’obtenir immédiatement des informations pour les transformer en données de production actives. Toutefois, étant donné qu’une requête élastique peut extraire des données provenant potentiellement de nombreuses bases de données, la latence de requête peut parfois être supérieure à celle observée pour des requêtes équivalentes soumises à une seule base de données mutualisée. Concevez des requêtes qui permettent de réduire le nombre de données retournées. Une requête élastique est souvent plus adaptée lorsqu’il s’agit d’interroger de petites quantités de données en temps réel. En revanche, ce n’est pas le cas pour la construction de requêtes ou de rapports d’analyse fréquemment utilisés ou complexes. Si les requêtes ne sont pas assez efficaces, consultez le [plan d’exécution](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) pour voir quelle partie de la requête a été repoussée vers la base de données distante. Et évaluez la quantité de données renvoyée. Les requêtes qui requièrent un traitement complexe analytique pourraient être traitées plus efficacement en enregistrant les données client extraites dans une base de données qui est optimisée pour les requêtes analytiques. SQL Database et SQL Data Warehouse peuvent héberger la base de données analytique.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Ce modèle pour analyse est expliqué dans la [didacticiel sur l’analyse des clients](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Obtenir les scripts d’application de base de données Wingtip Tickets SaaS mutualisée
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
-Les scripts de base de données Wingtip Tickets SaaS mutualisés et le code source de l’application sont disponibles dans le [référentiel github WingtipTicketsSaaS-MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Assurez-vous de suivre les étapes de déblocage décrites dans le fichier Lisezmoi.
+Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 ## <a name="create-ticket-sales-data"></a>Créer des données sur des ventes de tickets
 
@@ -96,7 +95,7 @@ Cet exercice ajoute le schéma (la source de données externe et les définition
 
     ![créer des informations d’identification](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   La source de données externe, définie pour utiliser la carte de partitions client dans la base de données de catalogue. En l’utilisant comme source de données externe, les requêtes sont distribuées sur toutes les bases de données inscrites dans le catalogue au moment de l’exécution de la requête. Étant donné que les noms de serveur sont différents pour chaque déploiement, ce script d’initialisation obtient l’emplacement de la base de données du catalogue en récupérant le serveur actuel (@@servername) dans lequel le script est exécuté.
+   En utilisant la base de données de catalogues comme source de données externe, les requêtes sont distribuées sur toutes les bases de données inscrites dans le catalogue au moment de l’exécution de la requête. Étant donné que les noms de serveur sont différents pour chaque déploiement, ce script d’initialisation obtient l’emplacement de la base de données du catalogue en récupérant le serveur actuel (@@servername) dans lequel le script est exécuté.
 
     ![créer une source de données externe](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Maintenant que la base de données *adhocreporting* est configurée, lancez-vous
 
 Lors de l’inspection du plan d’exécution, passez la souris sur les icônes de plan pour plus d’informations. 
 
-1. Ouvrir... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* dans SSMS.
+1. Dans *SSMS*, ouvrez ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
 2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.
 3. Sélectionnez le menu **Requête** et cliquez sur **Inclure le plan d’exécution réel**
 4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?*, puis appuyez sur **F5**.
@@ -155,9 +154,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Exécuter des requêtes distribuées sur toutes les bases de données client
 > * Déployer une base de données de rapport ad hoc et y ajouter un schéma pour exécuter des requêtes distribuées.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Essayez maintenant le [Didacticiel sur l’analyse des clients](saas-multitenantdb-tenant-analytics.md) pour explorer l’extraction de données dans une base de données d’analyse distincte pour un traitement d’analyse plus complexe.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

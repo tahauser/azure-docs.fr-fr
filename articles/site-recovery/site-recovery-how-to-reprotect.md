@@ -3,7 +3,7 @@ title: "Reprotection d’Azure vers un site local | Microsoft Docs"
 description: "Après avoir automatiquement restauré des machines virtuelles vers Azure, vous pouvez restaurer ces machines virtuelles vers votre site local. Apprenez à reprotéger des machines virtuelles avant une restauration automatique."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
-ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotection d’Azure vers un site local
 
 
 
 ## <a name="overview"></a>Vue d'ensemble
-Cet article explique comment reprotéger des machines virtuelles Azure d’Azure vers un site local. Suivez les instructions de cet article lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure (comme décrit dans [Basculement via Microsoft Azure Site Recovery](site-recovery-failover.md)).
+Cet article explique comment reprotéger des machines virtuelles Azure depuis Azure vers un site local. Suivez les instructions de cet article lorsque vous êtes prêt à restaurer automatiquement vos machines virtuelles VMware ou vos serveurs physiques Windows/Linux après leur basculement du site local vers Azure (comme décrit dans [Basculement via Microsoft Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Vous ne pouvez pas procéder à une restauration automatique après avoir [effectué une migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé une machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure. Si vous désactivez la protection de la machine virtuelle, vous ne pouvez pas effectuer de restauration automatique.
+> Vous ne pouvez pas procéder à une restauration automatique après avoir [effectué une migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé une machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure. Si vous désactivez la protection de la machine virtuelle, vous ne pouvez pas effectuer de restauration automatique. Si la machine virtuelle a été créée initialement dans Azure (dans le cloud), vous ne pouvez pas la reprotéger localement. Il faut que la machine ait été initialement protégée localement et qu’elle ait basculé vers Azure avant la reprotection.
 
 
 Une fois la reprotection terminée et les machines virtuelles protégées en cours de réplication, vous pouvez lancer une restauration automatique sur les machines virtuelles afin de les installer sur le site local.
@@ -62,13 +62,20 @@ Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou 
   * **Le serveur cible maître** : il reçoit des données de restauration automatique. Un serveur cible maître est installé par défaut sur le serveur d’administration sur site que vous avez créé. Toutefois, en fonction du volume de trafic restauré automatiquement, vous devrez peut-être créer un serveur cible maître distinct pour procéder à la restauration automatique.
     * [Si vous avez une machine virtuelle Linux, vous avez besoin d’un serveur cible maître Linux](site-recovery-how-to-install-linux-master-target.md).
     * Si vous avez une machine virtuelle Windows, vous avez besoin d’un serveur cible maître Windows. Vous pouvez réutiliser le serveur de processus local et les machines cibles maîtres.
+    * D’autres prérequis s’appliquent au serveur cible maître. Ils sont listés dans la section [Points à vérifier après l’installation du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-    D’autres conditions préalables s’appliquent au serveur cible maître. Elles sont répertoriées dans la section [Points à vérifier après l’installation du serveur cible maître](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Toutes les machines virtuelles d’un groupe de réplication doivent être du même type de système d’exploitation (toutes Windows ou toutes Linux). Un groupe de réplication avec des systèmes d’exploitation mixtes n’est pas pris en charge actuellement pour la reprotection et la restauration automatique locale. Ceci est dû au fait que le serveur cible maître doit exécuter le même système d’exploitation que la machine virtuelle, et toutes les machines virtuelles d’un groupe de réplication doivent avoir le même serveur cible maître. 
+
+    
 
 * Un serveur de configuration est requis en local lorsque vous effectuez une restauration automatique. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue. 
 
 > [!IMPORTANT]
 > Veillez à effectuer des sauvegardes régulières de votre serveur de configuration. En cas d’incident, restaurez le serveur avec la même adresse IP pour que la restauration automatique réussisse.
+
+> [!WARNING]
+> Un groupe de réplication ne doit avoir que des machines virtuelles Windows ou que des machines virtuelles Linux, et pas une combinaison des deux, car toutes les machines virtuelles d’un groupe réplication utilisent le même serveur cible maître, et une machine virtuelle Linux a besoin d’un serveur cible maître Linux (et il en va de même pour une machine virtuelle Windows).
 
 * Définissez le paramètre `disk.EnableUUID=true` dans les paramètres de configuration de la machine virtuelle cible maître dans VMware. Si cette ligne n’existe pas, ajoutez-la. Ce paramètre est nécessaire pour fournir un UUID cohérent au disque de machine virtuelle (VMDK) et lui assurer ainsi un montage correct.
 
@@ -77,7 +84,7 @@ Lorsque vous vous préparez pour reprotéger les machines virtuelles, prenez ou 
 * Vous devez ajouter un disque sur le serveur cible maître : un lecteur de rétention. Ajoutez un disque et formatez le lecteur.
 
 
-### <a name="frequently-asked-questions"></a>Forum Aux Questions
+### <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 #### <a name="why-do-i-need-a-s2s-vpn-or-an-expressroute-connection-to-replicate-data-back-to-the-on-premises-site"></a>Pourquoi ai-je besoin d’un VPN S2S ou d’une connexion ExpressRoute pour répliquer les données sur le site local ?
 Alors que la réplication à partir d’un site local vers Azure peut s’effectuer via Internet ou une connexion ExpressRoute avec une homologation publique, la reprotection et la restauration automatique nécessitent un VPN site-à-site (S2S) configuré pour répliquer les données. Spécifiez le réseau de sorte que les machines virtuelles basculées dans Azure puissent atteindre (avec une requête ping) le serveur de configuration local. Vous pouvez également déployer un serveur de processus dans le réseau Azure de la machine virtuelle basculée. Ce serveur de processus doit également être en mesure de communiquer avec le serveur de configuration local.
@@ -170,6 +177,8 @@ Actuellement, Azure Site Recovery prend en charge la restauration automatique un
 * Le serveur cible maître ne peut pas avoir de captures instantanées sur les disques. S’il existe des captures instantanées, l’opération de reprotection et de restauration automatique échoue.
 
 * Le serveur cible maître ne peut pas présenter de contrôleur SCSI Paravirtual. Il peut uniquement s’agir d’un contrôleur LSI Logic. Sans contrôleur LSI Logic, la reprotection échoue.
+
+* Sur toute instance donnée, le serveur cible maître peut avoir au plus 60 disques attachés. Si le nombre de machines virtuelles en cours de reprotection sur le serveur cible maître local a un nombre total de disques supérieur à 60, les reprotections vers le serveur cible maître commencent à échouer. Veillez à avoir assez d’emplacements de disque sur le serveur cible maître, ou déployez des serveurs cibles maîtres supplémentaires.
 
 <!--
 ### Failback policy

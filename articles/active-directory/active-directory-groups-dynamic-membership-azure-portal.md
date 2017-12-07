@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles avancées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils.
@@ -43,12 +43,12 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 
    ![Ajouter un nouveau groupe](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-4. Dans le panneau **Groupe** , saisissez un nom et une description pour le nouveau groupe. Sélectionnez un **Type d’appartenance** entre **Utilisateur dynamique** et **Appareil dynamique**, selon que vous souhaitiez créer une règle pour des utilisateurs ou des périphériques, puis sélectionnez **Ajouter une requête dynamique**. Vous pouvez utiliser le générateur de règle pour créer une règle simple, ou écrire une règle avancée vous-même. Cet article contient plus d’informations sur les attributs d’utilisateur et d’appareil disponibles, ainsi que des exemples de règles avancées.
+4. Dans le panneau **Groupe** , saisissez un nom et une description pour le nouveau groupe. Sélectionnez un **Type d’appartenance** entre **Utilisateur dynamique** et **Appareil dynamique**, selon que vous souhaitiez créer une règle pour des utilisateurs ou des appareils, puis sélectionnez **Ajouter une requête dynamique**. Vous pouvez utiliser le générateur de règle pour créer une règle simple, ou écrire une règle avancée vous-même. Cet article contient plus d’informations sur les attributs d’utilisateur et d’appareil disponibles, ainsi que des exemples de règles avancées.
 
    ![Ajouter une règle d’appartenance dynamique](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
 5. Après avoir créé la règle, sélectionnez **Ajouter une requête** dans le bas du panneau.
-6. Sélectionnez **Créer** on the **Groupe** panneau pour créer le groupe.
+6. Sélectionnez **Créer** dans le panneau **Groupe** pour créer le groupe.
 
 > [!TIP]
 > La création d’un groupe peut échouer si la règle avancée que vous avez entrée est incorrecte. Une notification s’affiche alors dans le coin supérieur droit du portail. Elle contient une explication de la raison pour laquelle la règle ne peut pas être acceptée par le système. Lisez-la avec attention pour comprendre comment vous devez ajuster la règle pour la rendre valide.
@@ -163,6 +163,7 @@ Opérateurs autorisés
 | companyName | Toute valeur de chaîne ou *null* | (user.companyName -eq "value") |
 | department |Toute valeur de chaîne ou *null* |(user.department -eq "value") |
 | displayName |Toute valeur de chaîne. |(user.displayName -eq "value") |
+| employeeId |Toute valeur de chaîne. |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Toute valeur de chaîne ou *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Toute valeur de chaîne ou *null* |(user.givenName -eq "value") |
 | jobTitle |Toute valeur de chaîne ou *null* |(user.jobTitle -eq "value") |
@@ -282,7 +283,7 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
  domainName | Toute valeur de chaîne. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nom de profil de l’inscription d’appareil Apple. | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
- managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
+ managementType | MDM (pour les appareils mobiles)<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
  organizationalUnit | Toute valeur de chaîne correspondant au nom de l’unité d’organisation définie par un Active Directory local. | (device.organizationalUnit -eq "US PCs")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")

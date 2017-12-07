@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: d572fe3ad01d75b76ac87b441a5397d1c1841547
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 52d6fe0757043a0a298c3fdee0478fb364074537
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Processus TDSP (Team Data Science Process) pour les scientifiques de données
 
@@ -26,10 +26,12 @@ Cet article donne des conseils pour un ensemble d’objectifs généralement uti
 
 - la compréhension d’une charge de travail analytique 
 - l’utilisation du processus TDSP
-- l’utilisation de Azure Machine Learning
+- l’utilisation d’Azure Machine Learning
 - les bases du transfert et du stockage de données
 - la spécification de la documentation de source de données
 - l’utilisation des outils pour le traitement analytique
+
+Ces documents de formation sont liés au processus Team Data Science Process (TDSP), ainsi qu’aux kits de ressources et logiciels Microsoft et open source, qui sont utiles pour la conception, l’exécution et la remise de solutions de science des données.
 
 ## <a name="lesson-path"></a>Parcours de la leçon
 Vous pouvez utiliser les éléments compris dans le tableau suivant pour guider votre propre apprentissage personnel. Lisez la colonne *Description* pour suivre le parcours, cliquez sur les liens *Rubrique* pour étudier les références et vérifier vos compétences à l’aide de la colonne *Vérification de la base de connaissances*.

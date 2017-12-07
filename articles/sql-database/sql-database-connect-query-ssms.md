@@ -15,39 +15,31 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
+ms.date: 11/28/2017
 ms.author: carlrab
-ms.openlocfilehash: f67ba82c3aaf312662096964b7b7942efa108607
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6ed77d5c106f72a06e410410321c39b3d7059ae9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database : utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) est un environnement intégré pour la gestion des infrastructures SQL, allant de SQL Server à SQL Database pour Microsoft Windows. Ce guide de démarrage rapide indique comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données. 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) est un environnement intégré qui gère les infrastructures SQL, de SQL Server à SQL Database pour Microsoft Windows. Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données. 
 
 ## <a name="prerequisites"></a>Composants requis
 
-Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
+Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides de démarrage rapide :
 
-- [Créer une base de données - Portail](sql-database-get-started-portal.md)
-- [Créer une base de données - CLI](sql-database-get-started-cli.md)
-- [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Avant de commencer, assurez-vous que vous avez installé la toute dernière version de [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
+#### <a name="install-the-latest-ssms"></a>Installer la dernière version de SSMS
+
+Avant de commencer, vérifiez que vous avez installé la toute dernière version de [SSMS][ssms-install-latest-84g]. 
 
 ## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
-Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image ci-dessous. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**.
-
-   ![informations de connexion](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe. 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="connect-to-your-database"></a>Connectez-vous à votre base de données
 
@@ -61,13 +53,14 @@ Utilisez SQL Server Management Studio pour établir une connexion à votre serve
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-   | Paramètre       | Valeur suggérée | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Paramètre      | Valeur suggérée    | Description | 
+   | ------------ | ------------------ | ----------- | 
    | **Type de serveur** | Moteur de base de données | Cette valeur est obligatoire. |
    | **Nom du serveur** | Nom complet du serveur | Le nom doit être similaire à ce qui suit : **mynewserver20170313.database.windows.net**. |
    | **Authentification** | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
    | **Connexion** | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
    | **Mot de passe** | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
+   ||||
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -172,3 +165,9 @@ Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté
 - Pour vous connecter et exécuter des requêtes avec Java, consultez la page [se connecter et effectuer des requêtes avec Java](sql-database-connect-query-java.md).
 - Pour vous connecter et exécuter des requêtes avec Python, consultez la page [se connecter et effectuer des requêtes avec Python](sql-database-connect-query-python.md).
 - Pour vous connecter et exécuter des requêtes avec Ruby, consultez la page [se connecter et effectuer des requêtes avec Ruby](sql-database-connect-query-ruby.md).
+
+
+<!-- Article link references. -->
+
+[ssms-install-latest-84g]: https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms
+

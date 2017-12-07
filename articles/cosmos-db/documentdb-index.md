@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: ce24e445177b7e2e499309f016478030efa6bfe8
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB : Documentation de l’API DocumentDB
 
@@ -34,9 +34,9 @@ Ces articles ne s’appliquent pas à l’API Graph, à l’API Table ou à l’
 - Site Web : [Query playground](https://www.documentdb.com/sql/demo) (interface de requête)
 - Aide-mémoire : [Grammaire SQL](documentdb-sql-query-cheat-sheet.md)
 
-## <a name="quickstarts"></a>Guides de démarrage rapide
+## <a name="quickstarts"></a>Démarrages rapides
 
-Les rubriques Guide de démarrage rapide sont le moyen le plus rapide de créer une application fonctionnelle avec Azure Cosmos DB. Dans chaque guide de démarrage rapide, vous apprenez à utiliser le portail Azure avec son interface utilisateur et votre langage de codage favori pour créer des solutions de base de données avec Azure Cosmos DB. Des applications web pouvant être clonées à partir de GitHub sont disponibles pour chaque guide de démarrage rapide. 
+Les rubriques Guide de démarrage rapide sont le moyen le plus rapide de créer une application fonctionnelle avec Azure Cosmos DB. Dans chaque guide de démarrage rapide, vous apprenez à utiliser le portail Azure avec son interface utilisateur et votre langage de codage favori pour créer des solutions de base de données avec Azure Cosmos DB. Des applications web clonables à partir de GitHub sont disponibles pour chaque guide de démarrage rapide. 
 
 - [.NET + Portail Azure + Applications web](create-documentdb-dotnet.md)
 - [Java + Portail Azure + Applications web](create-documentdb-java.md)
@@ -89,7 +89,7 @@ Ces didacticiels sont d’un niveau plus poussé que les guides de démarrage ra
 - [DateTimes](working-with-dates.md)
 - [Modélisation de données de document](modeling-data.md) 
 
-## <a name="sdks"></a>Kits SDK
+## <a name="sdks"></a>Kits de développement logiciel (SDK)
 
 Azure Cosmos DB fournit un nombre de kits SDK qui permettent de développer des applications côté client.
 

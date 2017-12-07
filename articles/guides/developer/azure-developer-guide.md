@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -34,7 +34,7 @@ En hébergeant vos applications dans Azure, vous pouvez commencer à petite éch
 
 Avec tous les services qu’offre Azure, il peut être ardu d’identifier les services dont vous avez besoin pour prendre en charge votre architecture de solution. Cette section met en évidence les services Azure que les développeurs utilisent couramment. Pour obtenir la liste de tous les services Azure, consultez la [documentation d’Azure](../../index.md).
 
-Tout d’abord, vous devez choisir la manière dont vous souhaitez héberger votre application dans Azure. Devez-vous gérer toute votre infrastructure en tant que machine virtuelle (VM) ? Pouvez-vous utiliser les installations de gestion de plateforme fournies par Azure ? Vous avez peut-être besoin uniquement d’un framework sans serveur pour héberger l’exécution de code ?
+Tout d’abord, vous devez choisir la manière dont vous souhaitez héberger votre application dans Azure. Devez-vous gérer toute votre infrastructure en tant que machine virtuelle (VM) ? Pouvez-vous utiliser les installations de gestion de plateforme fournies par Azure ? Vous avez peut-être besoin uniquement d’un framework serverless pour héberger l’exécution de code ?
 
 Votre application a besoin d’un stockage sur le cloud et Azure propose plusieurs options pour cela. Vous pouvez bénéficier de l’authentification en entreprise d’Azure. Il existe également des outils de développement et de surveillance basés sur le cloud, et la plupart des services d’hébergement offrent une intégration DevOps.
 
@@ -44,7 +44,7 @@ Votre application a besoin d’un stockage sur le cloud et Azure propose plusieu
 
 Azure propose plusieurs offres de calcul basées sur le cloud pour exécuter votre application sans avoir à vous soucier des détails d’infrastructure. Vous pouvez facilement monter en puissance ou augmenter la taille des instances de vos ressources à mesure que l’utilisation de vos applications augmente.
 
-Azure propose des services qui prennent en charge vos besoins d’hébergement et de développement d’applications. Azure fournit une infrastructure as a service (IaaS) pour vous donner un contrôle total sur l’hébergement de vos applications. Les offres PaaS (platform as a service) d’Azure fournissent des services entièrement managés qui vous seront nécessaires pour dynamiser vos applications. Azure inclut même un hébergement sans serveur dans lequel il vous suffit d’écrire votre code.
+Azure propose des services qui prennent en charge vos besoins d’hébergement et de développement d’applications. Azure fournit une infrastructure as a service (IaaS) pour vous donner un contrôle total sur l’hébergement de vos applications. Les offres PaaS (platform as a service) d’Azure fournissent des services entièrement managés qui vous seront nécessaires pour dynamiser vos applications. Azure inclut même un hébergement serverless dans lequel il vous suffit d’écrire votre code.
 
 ![Options d’hébergement d’applications Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -77,7 +77,7 @@ En raison du niveau de contrôle que vous avez avec les machines virtuelles, vou
 
 >**Démarrer** : créez une [machine virtuelle Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) ou une [machine virtuelle Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) à partir du portail Azure.
 
-#### <a name="azure-functions-serverless"></a>Azure Functions (sans serveur)
+#### <a name="azure-functions-serverless"></a>Azure Functions (serverless)
 
 Au lieu de vous préoccuper de créer et de gérer une application entière ou l’infrastructure pour exécuter votre code, ne serait-il pas mieux d’écrire simplement votre code et de l’exécuter en réponse à des événements ou selon une planification ?  [Azure Functions](../../azure-functions/functions-overview.md) est une offre de type « sans serveur » qui vous permet d’écrire juste le code nécessaire. Avec Functions, l’exécution du code est déclenchée par des requêtes HTTP, des webhooks, des événements de service cloud ou selon une planification. Vous pouvez écrire du code dans le langage de développement de votre choix, tel que C\#, F\#, Node.js, Python ou PHP. Avec une facturation basée sur la consommation, vous payez uniquement pour la durée pendant laquelle votre code s’exécute et Azure effectue la mise à l’échelle au besoin.
 
@@ -301,7 +301,7 @@ Lorsque vous autorisez l’accès à des ressources Azure, il est toujours recom
 
     > **Quand les utiliser** : lorsque vous gérez par programmation les ressources Azure ou accordez l’accès pour des applications. Pour plus d’informations, consultez [Créer une application Active Directory et un principal de service](../../resource-group-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Balises
+#### <a name="tags"></a>Tags
 
 Azure Resource Manager vous permet d’assigner des balises personnalisées à des ressources individuelles. Les balises, qui sont des paires clé-valeur, peuvent être utiles lorsque vous devez organiser les ressources à des fins de facturation ou de surveillance. Les balises vous permettent d’effectuer le suivi des ressources entre plusieurs groupes de ressources. Vous pouvez assigner des balises dans le portail, dans le modèle Azure Resource Manager ou par programmation, en utilisant l’API REST, l’interface de ligne de commande Azure ou PowerShell. Vous pouvez assigner plusieurs balises à chaque ressource. Pour en savoir plus, consultez [Organisation des ressources Azure à l’aide de balises](../../resource-group-using-tags.md).
 

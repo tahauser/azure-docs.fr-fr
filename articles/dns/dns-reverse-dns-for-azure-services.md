@@ -3,7 +3,7 @@ title: "DNS inversés dans les services Azure | Microsoft Docs"
 description: "Apprenez à configurer des recherches DNS inversées dans les services hébergés par Azure"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurer des DNS inversés dans les services hébergés par Azure
 
@@ -28,9 +28,8 @@ Il ne faut pas confondre ce scénario avec la capacité à [héberger les zones 
 
 Avant de lire cet article, prenez connaissance de cette [Vue d’ensemble des DNS inversés et de la prise en charge dans Azure](dns-reverse-dns-overview.md).
 
-Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
-* Dans le modèle de déploiement du Gestionnaire de ressources, les ressources de calcul (machines virtuelles, groupes de machines virtuelles identiques ou clusters Service Fabric) sont exposées via une ressource PublicIpAddress. Les recherche DNS inversées sont configurées à l’aide de la propriété 'ReverseFqdn' de la ressource PublicIpAddress.
-* Dans le modèle de déploiement classique, les ressources de calcul sont exposées à l’aide de services Cloud. Les recherche DNS inversées sont configurées à l’aide de la propriété 'ReverseDnsFqdn' du service Cloud.
+Dans Azure DNS, les ressources de calcul (machines virtuelles, groupes de machines virtuelles identiques ou clusters Service Fabric) sont exposées via une ressource PublicIpAddress. Les recherche DNS inversées sont configurées à l’aide de la propriété 'ReverseFqdn' de la ressource PublicIpAddress.
+
 
 Actuellement, les DNS inversés ne sont pas pris en charge dans Azure App Service.
 

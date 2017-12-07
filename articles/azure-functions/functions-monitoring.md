@@ -6,7 +6,7 @@ author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture serverless"
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -50,7 +50,7 @@ Activer Application Insights dans la page Function App **Créer** :
 
 ### <a name="existing-function-app"></a>Application de fonction existante
 
-Obtenir une clé d’instrumentation et l’enregistrer dans une application de fonction :
+Obtenir la clé d’instrumentation et l’enregistrer dans une application de fonction :
 
 1. Créez l’instance d’Application Insights. Définissez le type d’application sur **Général**.
 
@@ -60,7 +60,7 @@ Obtenir une clé d’instrumentation et l’enregistrer dans une application de 
 
    ![Copier la clé d’instrumentation Application Insights](media/functions-monitoring/copy-ai-key.png)
 
-1. Dans la page **Paramètres de l’application** de l’application de fonction, [ajoutez un paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) nommé APPINSIGHTS_INSTRUMENTATIONKEY et collez la clé d’instrumentation.
+1. Dans la page **Paramètres d’application** de l’application de fonction, [ajoutez un paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) en cliquant sur **Ajouter un nouveau paramètre**. Nommez le nouveau paramètre APPINSIGHTS_INSTRUMENTATIONKEY et collez la clé d’instrumentation copiée.
 
    ![Ajouter la clé d’instrumentation aux paramètres de l’application](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Obtenir une clé d’instrumentation et l’enregistrer dans une application de 
 
 ## <a name="view-telemetry-data"></a>Afficher les données de télémétrie
 
-Pour accéder à Application Insights à partir d’une application de fonction dans le portail, sélectionnez le lien **Application Insights** dans la page **Vue d’ensemble** de l’application de fonction.
+Pour accéder à l’instance Application Insights connectée à partir d’une application de fonction dans le portail, sélectionnez le lien **Application Insights** dans la page **Vue d’ensemble** de l’application de fonction.
 
 Pour plus d’informations sur l’utilisation d’Application Insights, consultez la [documentation d’Application Insights](https://docs.microsoft.com/azure/application-insights/). Cette section présente des exemples montrant comment afficher les données dans Application Insights. Si vous êtes déjà familiarisé avec Application Insights, vous pouvez passer directement aux [sections sur la configuration et la personnalisation des données de télémétrie](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ Sous l’onglet [Performances](../application-insights/app-insights-performance-
 
 ![Performances](media/functions-monitoring/performance.png)
 
-L’onglet **Serveurs** affiche l’utilisation des ressources et le débit par serveur. Ces données peuvent être utiles pour déboguer les scénarios où les fonctions ralentissent vos ressources sous-jacentes. Les serveurs sont appelés *instances de rôle cloud*. 
+L’onglet **Serveurs** affiche l’utilisation des ressources et le débit par serveur. Ces données peuvent être utiles pour déboguer les scénarios où les fonctions ralentissent vos ressources sous-jacentes. Les serveurs sont appelés **instances de rôle cloud**.
 
 ![Serveurs](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ L’onglet [Flux de métriques temps réel](../application-insights/app-insights
 
 ## <a name="query-telemetry-data"></a>Interroger les données de télémétrie
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) vous donne accès à toutes les données de télémétrie sous la forme de tables de base de données. Analytics fournit un langage de requête pour l’extraction et la manipulation des données.
+[Application Insights Analytics](../application-insights/app-insights-analytics.md) vous donne accès à toutes les données de télémétrie sous la forme de tables de base de données. Analytics fournit un langage de requête pour l’extraction, la manipulation et la visualisation des données.
 
 ![Sélectionner Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -178,7 +178,7 @@ Le fichier *host.json* configure la quantité de journalisation qu’une applica
 
 Cet exemple montre comment configurer les règles suivantes :
 
-1. Pour les journaux ayant la catégorie « Host.Results » ou « Function », envoyer uniquement les niveaux `Error` et supérieurs à Application Insights. Les journaux pour les niveaux `Information` et inférieurs sont ignorés.
+1. Pour les journaux ayant la catégorie « Host.Results » ou « Function », envoyer uniquement les niveaux `Error` et supérieurs à Application Insights. Les journaux pour les niveaux `Warning` et inférieurs sont ignorés.
 2. Pour les journaux ayant la catégorie Host. Aggregator, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights. Les journaux pour les niveaux `Debug` et inférieurs sont ignorés.
 3. Pour tous les autres journaux, envoyer uniquement les niveaux `Information` et supérieurs à Application Insights.
 
@@ -217,7 +217,7 @@ Tous ces journaux étant écrits au niveau `Information`, si vous filtrez sur le
 
 Ces journaux fournissent des nombres et des moyennes d’appels de fonction sur une période de temps [configurable](#configure-the-aggregator). La période par défaut est 30 secondes ou 1 000 résultats, selon la première de ces éventualités. 
 
-Les journaux apparaissent sous la dénomination « customMetrics » dans Application Insights. Le nombre d’exécutions, le taux de réussite et la durée en sont des exemples.
+Les journaux sont disponibles dans la table **customMetrics** dans Application Insights. Le nombre d’exécutions, le taux de réussite et la durée en sont des exemples.
 
 ![Requête portant sur customMetrics](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Tous ces journaux étant écrits au niveau `Information`, si vous filtrez sur le
 
 ### <a name="other-categories"></a>Autres catégories
 
-Tous les journaux des catégories autres que celles déjà mentionnées apparaissent sous la dénomination « traces » dans Application Insights.
+Tous les journaux des catégories autres que celles déjà mentionnées apparaissent dans la table **traces** dans Application Insights.
 
 ![Requête portant sur traces](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Si vous conservez la même chaîne de message et que vous inversez l’ordre des
 
 Ce mode de gestion des espaces réservés vous permet d’effectuer une journalisation structurée. Application Insights stocke les paires nom de paramètre/valeur en plus de la chaîne du message. Ainsi, les arguments du message deviennent des champs pouvant faire l’objet de requêtes.
 
-Par exemple, si votre appel de méthode de l’enregistreur d’événements ressemble à l’exemple précédent, vous pouvez interroger le champ `customDimensions.prop__rowKey`. L’ajout du préfixe évite toute collision entre les champs ajoutés par le runtime et les champs ajoutés par votre fonction de code.
+Par exemple, si votre appel de méthode de l’enregistreur d’événements ressemble à l’exemple précédent, vous pouvez interroger le champ `customDimensions.prop__rowKey`. L’ajout du préfixe `prop__` évite toute collision entre les champs ajoutés par le runtime et les champs ajoutés par votre fonction de code.
 
 Vous pouvez également exécuter une requête portant sur la chaîne de message d’origine en référençant le champ `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ Le paramètre `tagOverrides` définit `operation_Id` sur l’identificateur d’
 
 ### <a name="dependencies"></a>Dépendances
 
-Les dépendances n’apparaissent pas automatiquement, mais vous pouvez écrire du code personnalisé pour les afficher. L’exemple de code dans la [section relative aux données de télémétrie personnalisées C#](#custom-telemetry-in-c-functions) montre comment faire. L’exemple de code entraîne un *mappage d’application* dans Application Insights, qui ressemble à ceci :
+Les dépendances de la fonction vis-à-vis d’autres services n’apparaissent pas automatiquement, mais vous pouvez écrire du code personnalisé pour les afficher. L’exemple de code dans la [section relative aux données de télémétrie personnalisées C#](#custom-telemetry-in-c-functions) montre comment faire. L’exemple de code entraîne un *mappage d’application* dans Application Insights, qui ressemble à ceci :
 
 ![Mise en correspondance d’applications](media/functions-monitoring/app-map.png)
 
@@ -473,12 +473,12 @@ Sélectionnez l’onglet **Surveiller** associé à une fonction afin d’obteni
 
 ### <a name="real-time-monitoring"></a>Surveillance en temps réel
 
-Pour accéder à la surveillance en temps réel, cliquez sur **flux d’événements en direct** sous l’onglet **Surveiller** associé à la fonction. Le flux d’événements en direct s’affiche sous forme d’un graphe sous un nouvel onglet du navigateur.
+Pour accéder à la surveillance en temps réel, cliquez sur **Flux d’événements en direct** sous l’onglet **Surveiller** associé à la fonction. Le flux d’événements en direct s’affiche sous forme de graphe sous un nouvel onglet du navigateur.
 
 > [!NOTE]
-> Il existe un problème connu qui peut provoquer l’échec du remplissage de vos données. Vous devrez peut-être fermer l’onglet du navigateur contenant le flux d’événements en direct, puis cliquer à nouveau sur **flux d’événements en direct** pour lui permettre de remplir correctement vos données de flux de données d’événement. 
+> Il existe un problème connu qui peut provoquer l’échec du remplissage de vos données. Vous devrez peut-être fermer l’onglet du navigateur contenant le flux d’événements en direct, puis cliquer à nouveau sur **Flux d’événements en direct** pour lui permettre de remplir correctement vos données de flux de données d’événement. 
 
-Ces statistiques sont en temps réel, mais les graphiques réels des données d’exécution peuvent avoir une latence d’environ 10 secondes.
+Ces statistiques sont en temps réel, mais les graphes réels des données d’exécution peuvent avoir une latence d’environ 10 secondes.
 
 ### <a name="monitor-log-files-from-a-command-line"></a>Surveiller les fichiers journaux à partir d’une ligne de commande
 

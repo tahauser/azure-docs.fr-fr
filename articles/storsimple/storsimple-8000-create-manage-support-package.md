@@ -4,7 +4,7 @@ description: "Apprenez à créer, déchiffrer et modifier un package de prise en
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 
@@ -58,14 +58,14 @@ Vous pouvez partager votre package de support généré manuellement avec le sup
    
    * Pour les partages réseau protégés par un mot de passe, saisissez :
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       Vous serez invité à entrer un mot de passe, le chemin d’accès au dossier réseau partagé et une phrase secrète de chiffrement (car le package de support est chiffré). Un package de support est ensuite créé dans le dossier spécifié.
+       Vous serez invité à entrer un mot de passe et une phrase secrète chiffrée (car le package de support est chiffré). Un package de support est alors créé dans le dossier par défaut (le nom de l’appareil ajouté avec la date et l’heure courante).
    * Pour les partages qui ne sont pas protégés par un mot de passe, vous n’avez pas besoin du paramètre `-Credential` . Entrez les informations suivantes :
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       Le package de support est créé pour les deux contrôleurs dans le dossier réseau partagé spécifié. Il s’agit d’un fichier compressé et chiffré qui peut être envoyé au support technique de Microsoft à des fins de dépannage. Pour plus d'informations, consultez [Contacter le support technique de Microsoft](storsimple-8000-contact-microsoft-support.md).
+       Le package de support est créé pour les deux contrôleurs dans le dossier par défaut. Les package est un fichier compressé et chiffré qui peut être envoyé au support Microsoft à des fins de dépannage. Pour plus d'informations, consultez [Contacter le support technique de Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Les paramètres de l’applet de commande Export-HcsSupportPackage
 

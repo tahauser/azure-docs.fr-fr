@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/13/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: d22fe6456c3bd886f8f8863d362c0084fbe03da3
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 66748adc49ef921ab8adb5306b2a483234b076ae
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Collecter des données à partir d’ordinateurs Linux hébergés dans votre environnement
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de vos ordinateurs Linux physiques ou virtuels et d’autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
- 
+
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="log-in-to-azure-portal"></a>Connexion au portail Azure
@@ -55,6 +55,9 @@ Avant d’installer l’agent OMS pour Linux, vous devez disposer de l’ID et d
 
 ## <a name="install-the-agent-for-linux"></a>Installation de l’agent pour Linux
 Les étapes suivantes configurent le programme d’installation de l’agent pour Log Analytics dans Azure et dans le cloud Azure Government.  
+
+>[!NOTE]
+>L’agent OMS pour Linux ne peut pas être configuré pour envoyer des rapports à plus d’un espace de travail Log Analytics.  
 
 1. Pour configurer l’ordinateur Linux en vue d’une connexion à Log Analytics, exécutez la commande suivante en fournissant l’ID de l’espace de travail et la clé primaire copiés précédemment.  Cette commande télécharge l’agent, valide sa somme de contrôle et l’installe. 
     

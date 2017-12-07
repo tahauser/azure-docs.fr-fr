@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Notifications d'intégrité de service
 ## <a name="overview"></a>Vue d'ensemble
 
 Cet article vous montre comment afficher des notifications d'intégrité de service avec le Portail Azure.
 
-Les notifications d’intégrité de service vous permettent d’afficher les messages d’intégrité de service publiés par l’équipe Azure susceptibles d’affecter les ressources de votre abonnement. Ces notifications sont une sous-classe des événements du journal d’activité et figurent également dans le panneau Journal d’activité. Les notifications d’intégrité de service peuvent être informatives ou exploitables en fonction de la classe.
+Les notifications d’intégrité de service vous permettent d’afficher les messages d’intégrité de service publiés par l’équipe Azure susceptibles d’affecter les ressources de votre abonnement. Ces notifications sont une sous-classe des événements du journal d’activité et figurent également dans le journal d’activité. Les notifications d’intégrité de service peuvent être informatives ou exploitables en fonction de la classe.
 
 Il existe cinq classes de notifications de contrôle d’intégrité :  
 
-- **Action requise :** De temps à autre, nous pouvons remarquer quelque chose d’inhabituel sur votre compte. Nous pourrions avoir à travailler avec vous pour résoudre ce problème. Nous vous enverrons une notification soit détaillant les mesures que vous devrez prendre soit avec plus d’informations sur la façon de contacter l’équipe d’ingénierie ou de support technique d’Azure.  
-- **Récupération assistée :** Un événement est survenu et les ingénieurs ont confirmé que l’impact vous affectait toujours. L’ingénierie devra travailler avec vous directement pour restaurer vos services.  
+- **Action requise :** De temps à autre, Azure peut remarquer quelque chose d’inhabituel sur votre compte. Azure peut nécessiter votre aide pour résoudre ce problème. Azure vous envoie une notification avec les détails des actions à prendre ou avec les informations permettant de contacter les ingénieurs ou le support Azure.  
+- **Récupération assistée :** Un événement est survenu et les ingénieurs ont confirmé que l’impact vous affectait toujours. Les ingénieurs Azure doivent travailler directement avec vous pour restaurer vos services intégralement.  
 - **Incident :** Un événement ayant un impact sur un service affectant actuellement une ou plusieurs des ressources de votre abonnement.  
 - **Maintenance :** Il s’agit d’une notification vous informant d’une activité de maintenance planifiée qui peut avoir un impact sur une ou plusieurs ressources de votre abonnement.  
-- **Informations :** De temps de temps, nous pouvons vous envoyer des notifications pour vous informer sur les optimisations potentielles qui peuvent améliorer votre utilisation des ressources.  
+- **Informations :** De temps de temps, Azure peut vous envoyer des notifications pour vous informer des optimisations potentielles qui peuvent améliorer votre utilisation des ressources.  
 - **Sécurité :** Des informations urgentes liées à la sécurité concernant vos solutions s’exécutant sur Azure.
 
-Chaque notification d’intégrité de service contiendra des détails sur l’étendue et l’impact sur vos ressources. Les détails incluront ce qui suit :
+Chaque notification d’intégrité de service contient des détails sur l’étendue et l’impact sur vos ressources. Les détails sont les suivants :
 
 Nom de la propriété | Description
 -------- | -----------
@@ -70,14 +70,12 @@ Properties.communicationId | La communication associée à cet événement.
 1.  Dans le [portail](https://portal.azure.com), accédez au service **Monitor**
 
     ![Surveiller](./media/monitoring-service-notifications/home-monitor.png)
-2.  Cliquez sur l’option **Monitor** pour ouvrir le panneau Monitor. Ce panneau rassemble tous vos paramètres de surveillance et données dans une vue consolidée. Il ouvre d’abord la section **Journal d’activité** .
+2.  Cliquez sur l’option **Monitor** pour ouvrir l’expérience Monitor. Azure Monitor rassemble tous vos paramètres de surveillance et données dans une vue centralisée. Il ouvre d’abord la section **Journal d’activité** .
 
-3.  Cliquez maintenant sur le service **Notifications de service**
+3.  Cliquez maintenant sur la section **Alertes**.
 
     ![Surveiller](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Cliquez sur un des éléments de ligne pour afficher plus de détails
-
-5. Cliquez sur l’opération **+ Ajouter une alerte de journal d’activité** pour recevoir des notifications pour vous assurer que vous êtes informé des futures notifications de service de ce type. Pour en savoir plus sur la configuration des alertes sur les notifications de service, [cliquez ici](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Cliquez sur **+ Ajouter une alerte de journal d’activité** pour configurer une alerte qui vous permettra d’être informé des futures notifications de service. Pour en savoir plus sur la configuration d’alertes concernant les notifications de service, consultez la page [Créer des alertes de journal d’activité sur les notifications de service](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Étapes suivantes :
 Recevez des [notifications d'alerte lorsqu'une notification d’intégrité de service](monitoring-activity-log-alerts-on-service-notifications.md) est publiée  

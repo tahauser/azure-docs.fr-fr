@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 59aec1cb6433e90caf683b4bce98c92e9f79fd18
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Dépannage d’Azure Cloud Shell
 
@@ -59,13 +59,14 @@ Les solutions connues aux problèmes d’Azure Cloud Shell sont les suivantes :
 
 ### <a name="ctrlc-doesnt-exit-out-of-a-cmdlet-prompt"></a>La combinaison de touches CTRL + C ne permet pas de sortir d’une invite d’applet de commande
 
-- **Détails** : lorsque vous tentez de quitter une invite d’applet de commande, `Ctrl+C` ne quitte pas l’invite.
+- **Détails** : lorsque vous tentez de quitter une invite de cmdlet, `Ctrl+C` ne quitte pas l’invite.
 - **Résolution** : pour quitter l’invite, appuyez sur `Ctrl+C` puis sur `Enter`.
 
 ### <a name="gui-applications-are-not-supported"></a>Les applications de l’interface graphique utilisateur ne sont pas prises en charge.
 
-- **Détails** : si un utilisateur lance une application d’interface graphique utilisateur, l’invite ne renvoie rien. Par exemple, lorsqu’un utilisateur clone un dépôt GitHub privé pour lequel l’authentification à deux facteurs est activée, une boîte de dialogue s’affiche, permettant de procéder à l’authentification à deux facteurs.
-- **Résolution** : `Ctrl+C` pour quitter la commande.
+- **Détails** : si un utilisateur lance une application d’interface graphique utilisateur, l’invite ne renvoie rien. Par exemple, lorsqu’un utilisateur clone un dépôt GitHub privé pour lequel l’authentification à deux facteurs est activée, une boîte de dialogue s’affiche, permettant de procéder à l’authentification à deux facteurs.  
+- **Résolution** : fermez et rouvrez l’interpréteur de commandes.
+
 
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online n’ouvre pas la page d’aide
 

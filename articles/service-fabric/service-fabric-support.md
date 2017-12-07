@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2017
+ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
 
@@ -47,11 +47,11 @@ Pour en savoir plus :
 ## <a name="report-azure-service-fabric-issues"></a>Signaler des problèmes avec Azure Service Fabric 
 Nous avons défini un référentiel GitHub pour signaler les problèmes de Service Fabric.  De plus, nous surveillons activement les forums suivants.
 
-### <a name="github-repo"></a>Référentiel GitHub 
+### <a name="github-repo"></a>Dépôt GitHub 
 Signaler des problèmes avec Azure Service Fabric sur le [Référentiel Git des problèmes de Service Fabric](https://github.com/Azure/service-fabric-issues). Ce référentiel est destiné au signalement et au suivi des problèmes rencontrés avec Azure Service Fabric, ainsi qu’aux demandes de petites fonctionnalités. **Ne pas l’utiliser pour signaler des problèmes de site en ligne**.
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Forums StackOverflow et MSDN
-La [Balise Service Fabric sur StackOverflow][stackoverflow] et le [Forum Service Fabric sur MSDN][msdn-forum] sont recommandés pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
+L’[étiquette Service Fabric sur StackOverflow][stackoverflow] et le [forum Service Fabric sur MSDN][msdn-forum] sont parfaits pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
 
 ### <a name="azure-feedback-forum"></a>Forum de commentaires Azure
 Le [Forum de commentaires Azure pour Service Fabric][uservoice-forum] est le meilleur endroit pour envoyer vos idées de fonctionnalités majeures pour le produit. Nous examinons en effet les requêtes les plus populaires dans le cadre de notre planification à moyen ou long terme. Nous vous encourageons à chercher l’appui de la communauté pour vos suggestions.
@@ -68,20 +68,20 @@ Consultez les documents suivants pour savoir plus en détails comment faire en s
  
 Voici la liste des versions de Service Fabric prises en charge et la date associée de fin de prise en charge.
 
-| **Cluster runtime Service Fabric** | **Kit de développement logiciel compatible / Versions de package NuGet** | **Date de fin de prise en charge** |
-| --- | --- | --- |
-| Toutes les versions de clusters antérieures à 5.3.121 |Inférieure ou égale à la version 2.3 |20 janvier 2017 |
-| 5.3.* |Inférieure ou égale à la version 2.3 |24 février 2017 |
-| 5.4.* |Inférieure ou égale à la version 2.4 |10 mai 2017       |
-| 5.5.* |Inférieure ou égale à la version 2.5 |10 août 2017    |
-| 5.6.* |Inférieure ou égale à la version 2.6 |13 octobre 2017   |
-| 5.7.* |Inférieure ou égale à la version 2.7 |15 décembre 2017  |
-| 6.0.* |Inférieure ou égale à la version 2.8 |Version actuelle ; par conséquent, pas de date de fin
+| **Runtime Service Fabric dans le cluster** | **Version de cluster à partir de laquelle une mise à niveau directe est possible** |**Kit SDK compatible / Versions de package NuGet** | **Date de fin de prise en charge** |
+| --- | --- |--- | --- |
+| Toutes les versions de clusters antérieures à 5.3.121 | 5.1.158* |Inférieure ou égale à la version 2.3 |20 janvier 2017 |
+| 5.3.* | 5.1.158.* |Inférieure ou égale à la version 2.3 |24 février 2017 |
+| 5.4.* | 5.1.158.* |Inférieure ou égale à la version 2.4 |10 mai 2017       |
+| 5.5.* | 5.4.164.* |Inférieure ou égale à la version 2.5 |10 août 2017    |
+| 5.6.* | 5.4.164.* |Inférieure ou égale à la version 2.6 |13 octobre 2017   |
+| 5.7.* | 5.4.164.* |Inférieure ou égale à la version 2.7 |15 décembre 2017  |
+| 6.0.* | 5.6.205.* |Inférieure ou égale à la version 2.8 |Version actuelle ; par conséquent, pas de date de fin |
 
-## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versions préliminaires de Service Fabric – non pris en charge pour la production.
-De temps à autre, nous publions des versions dotées de fonctionnalités significatives, sur lesquelles nous souhaitons avoir un retour et qui sont publiées sous forme de version préliminaire. Ces versions préliminaires doivent uniquement être utilisées à des fins de test. Votre cluster de production doit toujours exécuter une version de Service Fabric prise en charge et stable. Les versions préliminaires commencent toujours par un numéro de version majeure et mineure : 255. Par exemple, la version 255.255.5703.949 de Service Fabric ne doit être utilisée que dans les clusters de test. Il s’agit d’une version préliminaire. Ces versions préliminaires sont également annoncées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) et s’accompagnent d’informations sur les fonctionnalités incluses.
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Préversions de Service Fabric – non pris en charge pour la production.
+De temps à autre, nous publions des versions avec des fonctionnalités significatives, sur lesquelles nous souhaitons avoir un retour et qui sont publiées sous forme de préversion. Ces préversions doivent uniquement être utilisées à des fins de test. Votre cluster de production doit toujours exécuter une version de Service Fabric prise en charge et stable. Les préversions commencent toujours par un numéro de version majeure et mineure : 255. Par exemple, la version 255.255.5703.949 de Service Fabric ne doit être utilisée que dans les clusters de test. Il s’agit d’une préversion. Ces préversions sont également annoncées sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) et s’accompagnent d’informations sur les fonctionnalités incluses.
 
-Il n’existe aucune option de support technique payant pour ces versions préliminaires. Utilisez l’une des options répertoriées dans la rubrique [Signaler des problèmes Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) pour poser des questions ou laisser un commentaire.
+Il n’existe aucune option de support technique payant pour ces préversions. Utilisez l’une des options répertoriées dans la rubrique [Signaler des problèmes Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) pour poser des questions ou laisser un commentaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

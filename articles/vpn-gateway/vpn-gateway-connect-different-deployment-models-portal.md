@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2100b2b8710207ddb5d1848f11f4d6133f1dfd91
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
@@ -33,13 +33,13 @@ Cet article vous explique comment connecter des réseaux virtuels classiques à 
 
 La connexion d’un réseau virtuel classique à un réseau virtuel Resource Manager est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents et des régions différentes. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article. 
 
-Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être plutôt utiliser VNet Peering pour les connecter. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). 
+Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être plutôt utiliser VNet Peering pour les connecter. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). 
 
 ### <a name="before"></a>Avant de commencer
 
 * Ces étapes supposent que les deux réseaux virtuels ont déjà été créés. Si vous utilisez cet article en guise d’exercice et que vous ne disposez pas de réseaux virtuels, vous trouverez des liens dans les étapes pour vous aider à les créer.
 * Vérifiez que les plages d’adresses des réseaux virtuels ne se chevauchent pas ou ne chevauchent aucune des plages des autres connexions susceptibles d’être utilisées par les passerelles.
-* Installez les dernières applets de commande PowerShell pour le Gestionnaire de ressources et pour la Gestion des services (classique). Dans cet article, nous utilisons le portail Azure et PowerShell. PowerShell est requis pour créer la connexion à partir du réseau virtuel classique vers le réseau virtuel Resource Manager. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
+* Installez les dernières applets de commande PowerShell pour le Gestionnaire de ressources et pour la Gestion des services (classique). Dans cet article, nous utilisons le portail Azure et PowerShell. PowerShell est requis pour créer la connexion à partir du réseau virtuel classique vers le réseau virtuel Resource Manager. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="values"></a>Exemples de paramètres
 
@@ -49,7 +49,9 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 
 Nom du réseau virtuel = ClassicVNet <br>
 Espace d’adressage = 10.0.0.0/24 <br>
-Sous-réseau-1 = 10.0.0.0/27 <br>
+Nom du sous-réseau = Subnet-1 <br>
+Plage d’adresses de sous-réseau = 10.0.0.0/27 <br>
+Abonnement = abonnement à utiliser <br>
 Groupe de ressources = ClassicRG <br>
 Emplacement = Ouest des États-Unis <br>
 Sous-réseau de passerelle = 10.0.0.32/28 <br>
@@ -59,18 +61,20 @@ Site local = RMVNetLocal <br>
 
 Nom du réseau virtuel = RMVNet <br>
 Espace d’adressage = 192.168.0.0/16 <br>
-Sous-réseau-1 = 192.168.1.0/24 <br>
-Sous-réseau de passerelle = 192.168.0.0/26 <br>
 Groupe de ressources = RG1 <br>
 Emplacement = Est des États-Unis <br>
+Nom du sous-réseau = Subnet-1 <br>
+Plage d’adresses = 192.168.1.0/24 <br>
+Sous-réseau de passerelle = 192.168.0.0/26 <br>
 Nom de passerelle de réseau virtuel = RMGateway <br>
 Type de passerelle = VPN <br>
 Type de VPN = Route-based <br>
-Nom de l’adresse IP publique de la passerelle = rmgwpip <br>
-Passerelle de réseau local = ClassicVNetLocal <br>
+Référence (SKU) = VpnGw1 <br>
+Emplacement = Est des États-Unis <br>
+Réseau virtuel = RMVNet <br> (associer la passerelle VPN à ce réseau virtuel) Première configuration IP = rmgwpip <br> (adresse IP publique de passerelle) Passerelle de réseau local = ClassicVNetLocal <br>
 Nom de connexion = RMtoClassic
 
-### <a name="connection-overview"></a>Vue d’ensemble de la connexion
+### <a name="connectoverview"></a>Vue d’ensemble de la connexion
 
 Pour cette configuration, vous créez une connexion de passerelle VPN via un tunnel VPN IPsec/IKE entre les réseaux virtuels. Assurez-vous que vos plages de réseau virtuel ne se chevauchent pas entre elles ou avec un réseau local auquel elles se connectent.
 
@@ -83,82 +87,104 @@ Le tableau suivant montre comment les réseaux virtuels et les sites locaux sont
 
 ## <a name="classicvnet"></a>Section 1 - Configurer les paramètres de réseau virtuel classique
 
-Dans cette section, vous créez le réseau local (site local) et la passerelle de réseau virtuel pour votre réseau virtuel classique. Si vous n’avez pas de réseau virtuel classique et que vous exécutez ces étapes en guise d’exercice, vous pouvez créer un réseau virtuel à l’aide de [cet article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) et les valeurs de paramètres [d’exemple](#values) ci-dessus.
+Dans cette section, vous créez le réseau virtuel classique, le réseau local (site local) et la passerelle de réseau virtuel. Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres,ou utilisez les valeurs [d’exemple](#values).
 
-Quand vous utilisez le portail pour créer un réseau virtuel classique, vous devez accéder à la page Réseau virtuel à l’aide de la procédure suivante, sinon l’option de création d’un réseau virtuel classique n’apparaît pas :
+### 1. <a name="classicvnet"></a>Créer un réseau virtuel classique
 
-1. Cliquez sur « + » pour ouvrir la page « Nouveau ».
-2. Dans le champ « Rechercher dans le marketplace », saisissez « réseau virtuel ». Si vous sélectionnez Mise en réseau -> Réseau virtuel à la place, l’option de création d’un réseau virtuel classique ne s’affiche pas.
-3. Localisez « Réseau virtuel » dans la liste renvoyée et cliquez dessus pour ouvrir la page correspondante. 
-4. Dans la page Réseau virtuel, sélectionnez « Classique » pour créer un réseau virtuel classique. 
+Si vous n’avez pas de réseau virtuel classique et que vous exécutez ces étapes en guise d’exercice, vous pouvez créer un réseau virtuel à l’aide de [cet article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) et les valeurs de paramètres [d’exemple](#values) ci-dessus.
 
-Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifiez que la passerelle est dynamique. Si elle est statique, vous devez tout d’abord supprimer la passerelle VPN avant de poursuivre.
+Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifiez que la passerelle est dynamique. Si elle est statique, vous devez d’abord supprimer la passerelle VPN avant de passer à [Configurer le site local](#local).
 
-Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres,ou utilisez les valeurs [d’exemple](#values).
+1. Ouvrez le [portail Azure](https://ms.portal.azure.com) et connectez-vous avec votre compte Azure.
+2. Cliquez sur **+ Créer une ressource** pour ouvrir la page « Nouveau ».
+3. Dans le champ « Rechercher dans le marketplace », saisissez « réseau virtuel ». Si vous sélectionnez Mise en réseau -> Réseau virtuel à la place, l’option de création d’un réseau virtuel classique ne s’affiche pas.
+4. Localisez « Réseau virtuel » dans la liste renvoyée et cliquez dessus pour ouvrir la page correspondante. 
+5. Dans la page Réseau virtuel, sélectionnez « Classique » pour créer un réseau virtuel classique. Si vous sélectionnez ici la valeur par défaut, vous vous retrouverez avec un réseau virtuel Resource Manager à la place.
 
-### 1. <a name="local"></a>Configurer le site local
-
-Ouvrez le [portail Azure](https://ms.portal.azure.com) et connectez-vous avec votre compte Azure.
+### 2. <a name="local"></a>Configurer le site local
 
 1. Accédez à **Toutes les ressources** et recherchez le **réseau virtuel classique** dans la liste.
-2. Dans la page **Vue d’ensemble**, dans la section **Connexions VPN**, cliquez sur le graphique **Passerelle** pour créer une passerelle.
-
-    ![Configurer une passerelle VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurer une passerelle VPN")
+2. Dans la page **Vue d’ensemble**, dans la section **Connexions VPN**, cliquez sur **Passerelle** pour créer une passerelle.
+  ![Configurer une passerelle VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurer une passerelle VPN")
 3. Dans la page **Nouvelle connexion VPN**, pour **Type de connexion**, sélectionnez **De site à site**.
 4. Sous **Site local**, cliquez sur **Configurer les paramètres requis**. La page **Site local** s’ouvre.
 5. Dans la page **Site local**, créez un nom pour faire référence au réseau virtuel Resource Manager. Par exemple, « RMVNetLocal ».
 6. Si la passerelle VPN pour le réseau virtuel Resource Manager a déjà une adresse IP publique, utilisez cette valeur pour le champ **Adresse IP de passerelle VPN**. Si vous effectuez ces étapes en guise d’exercice, ou si ne disposez pas encore dune passerelle de réseau virtuel pour votre réseau virtuel Resource Manager, vous pouvez créer une adresse IP d’espace réservé. Assurez-vous que l’adresse IP avec espace réservé utilise un format valide. Remplacez ensuite l’adresse IP avec espace réservé par l’adresse IP publique de la passerelle de réseau virtuel Resource Manager.
-7. Pour **Espace d’adressage du client**, utilisez les valeurs des espaces d’adressage IP de réseau virtuel pour le réseau virtuel Resource Manager. Ce paramètre sert à spécifier les espaces d’adressage à router vers le réseau virtuel Resource Manager.
+7. Pour **Espace d’adressage du client**, utilisez les [valeurs](#connectoverview) des espaces d’adressage IP de réseau virtuel pour le réseau virtuel Resource Manager. Ce paramètre sert à spécifier les espaces d’adressage à router vers le réseau virtuel Resource Manager. Dans l’exemple, nous utilisons 192.168.0.0/16, la plage d’adresses pour le RMVNet.
 8. Cliquez sur **OK** pour enregistrer les valeurs et revenez à la page **Nouvelle connexion VPN**.
 
-### <a name="classicgw"></a>2. Créer la passerelle de réseau virtuel
+### <a name="classicgw"></a>3. Créer la passerelle de réseau virtuel
 
-1. Dans la page **Nouvelle connexion VPN**, sélectionnez la case à cocher **Créer une passerelle immédiatement** et cliquez sur **Configuration de passerelle facultative** pour ouvrir la page **Configuration de la passerelle**. 
+1. Dans la page **Nouvelle connexion VPN**, cochez la case **Créer une passerelle immédiatement**.
+2. Cliquez sur **Configuration de passerelle facultative** pour ouvrir la page **Configuration de la passerelle**.
 
-    ![Ouvrir la page Configuration de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Ouvrir la page Configuration de la passerelle")
-2. Cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir la page **Ajouter un sous-réseau**. Le **Nom** est déjà configuré avec la valeur requise **GatewaySubnet**.
-3. La **Plage d’adresses** fait référence à la plage pour le sous-réseau de passerelle. Bien que vous puissiez créer un sous-réseau de passerelle avec une plage d’adresses /29 (3 adresses), nous vous recommandons de créer un sous-réseau de passerelle qui contient plus d’adresses IP. Cela afin d’accueillir des configurations futures nécessitant la disponibilité d’un plus grand nombre d’adresses IP. Si possible, utilisez /27 ou /28. Si vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous référer aux valeurs [d’exemple](#values). Cliquez sur **OK** pour créer le sous réseau de passerelle.
-4. Dans la page **Configuration de la passerelle**, le paramètre **Taille** désigne la référence SKU de passerelle. Sélectionnez la référence SKU de passerelle pour votre passerelle VPN.
-5. Vérifiez que **Type de routage** est défini sur **Dynamique**, puis cliquez sur **OK** pour revenir à la page **Nouvelle connexion VPN**.
-6. Dans la page **Nouvelle connexion VPN**, cliquez sur **OK** pour commencer à créer votre passerelle VPN. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes.
+  ![Ouvrir la page Configuration de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Ouvrir la page Configuration de la passerelle")
+3. Cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir la page **Ajouter un sous-réseau**. Le **Nom** est déjà configuré avec la valeur requise : **GatewaySubnet**.
+4. La **Plage d’adresses** fait référence à la plage pour le sous-réseau de passerelle. Bien que vous puissiez créer un sous-réseau de passerelle avec une plage d’adresses /29 (3 adresses), nous vous recommandons de créer un sous-réseau de passerelle qui contient plus d’adresses IP. Cela afin d’accueillir des configurations futures nécessitant la disponibilité d’un plus grand nombre d’adresses IP. Si possible, utilisez /27 ou /28. Si vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous référer aux [exemples de valeurs](#values). Pour cet exemple, nous utilisons « 10.0.0.32/28 ». Cliquez sur **OK** pour créer le sous réseau de passerelle.
+5. Dans la page **Configuration de la passerelle**, le paramètre **Taille** désigne la référence SKU de passerelle. Sélectionnez la référence SKU de passerelle pour votre passerelle VPN.
+6. Vérifiez que **Type de routage** est défini sur **Dynamique**, puis cliquez sur **OK** pour revenir à la page **Nouvelle connexion VPN**.
+7. Dans la page **Nouvelle connexion VPN**, cliquez sur **OK** pour commencer à créer votre passerelle VPN. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes.
 
-### <a name="ip"></a>3. Copier l’adresse IP publique de passerelle de réseau virtuel
+### <a name="ip"></a>4. Copier l’adresse IP publique de passerelle de réseau virtuel
 
 Une fois la passerelle de réseau virtuel créée, vous pouvez afficher l’adresse IP de la passerelle. 
 
 1. Accédez à votre réseau virtuel classique, puis cliquez sur **Vue d’ensemble**.
-2. Cliquez sur **Connexions VPN** afin d’ouvrir la page Connexions VPN. Dans la page Connexions VPN, vous pouvez afficher l’adresse IP publique. Il s’agit de l’adresse IP publique affectée à votre passerelle de réseau virtuel. 
-3. Notez ou copiez l’adresse IP. Vous en aurez besoin aux étapes suivantes pour vos paramètres de configuration de passerelle de réseau local Resource Manager. Vous pouvez également afficher l’état de vos connexions à la passerelle. Le site de réseau local que vous avez créé est répertorié comme « Connexion ». Le statut sera modifié une fois les connexions créées.
-4. Fermez la page après avoir copié l’adresse IP de passerelle.
+2. Cliquez sur **Connexions VPN** afin d’ouvrir la page Connexions VPN. Dans la page Connexions VPN, vous pouvez afficher l’adresse IP publique. Il s’agit de l’adresse IP publique affectée à votre passerelle de réseau virtuel. Prenez note de l’adresse IP. Vous en aurez besoin aux étapes suivantes pour vos paramètres de configuration de passerelle de réseau local Resource Manager. 
+3. Vous pouvez afficher l’état de vos connexions à la passerelle. Le site de réseau local que vous avez créé est répertorié comme « Connexion ». Le statut sera modifié une fois les connexions créées. Vous pouvez fermer cette page quand vous avez terminé de consulter l’état.
 
 ## <a name="rmvnet"></a>Section 2 - Configurer les paramètres du réseau virtuel Resource Manager
 
-Dans cette section, vous créez la passerelle de réseau virtuel et la passerelle de réseau local pour votre réseau virtuel Resource Manager. Si vous n’avez pas de réseau virtuel Resource Manager et que vous exécutez ces étapes en guise d’exercice, vous pouvez créer un réseau virtuel à l’aide de [cet article](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) et les valeurs de paramètres [d’exemple](#values) ci-dessus.
+Dans cette section, vous créez la passerelle de réseau virtuel et la passerelle de réseau local pour votre réseau virtuel Resource Manager. Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres,ou utilisez les valeurs [d’exemple](#values).
 
-Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres,ou utilisez les valeurs [d’exemple](#values).
+### <a name="1-create-a-virtual-network"></a>1. Créez un réseau virtuel
 
-### <a name="1-create-a-gateway-subnet"></a>1. Créer un sous-réseau de passerelle
+**Exemples de valeurs :**
 
-Vous devez d’abord créer un sous-réseau de passerelle pour pouvoir configurer une passerelle de réseau virtuel. Créez un sous-réseau de passerelle avec un nombre CIDR de /28 ou plus. (/27, /26, etc.)
+* Nom du réseau virtuel = RMVNet <br>
+* Espace d’adressage = 192.168.0.0/16 <br>
+* Groupe de ressources = RG1 <br>
+* Emplacement = Est des États-Unis <br>
+* Nom du sous-réseau = Subnet-1 <br>
+* Plage d’adresses = 192.168.1.0/24 <br>
+
+
+Si vous n’avez pas de réseau virtuel Resource Manager et que vous exécutez ces étapes en guise d’exercice, vous pouvez créer un réseau virtuel à l’aide de [cet article](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) et des exemples de valeurs.
+
+### <a name="2-create-a-gateway-subnet"></a>2. Créer un sous-réseau de passerelle
+
+**Exemple de valeur :** GatewaySubnet = 192.168.0.0/26
+
+Vous devez d’abord créer un sous-réseau de passerelle pour pouvoir configurer une passerelle de réseau virtuel. Créez un sous-réseau de passerelle avec un nombre CIDR de /28 ou plus (/27, /26, etc.). Si vous le créez dans le cadre d’un exercice, vous pouvez utiliser les exemples de valeurs.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="creategw"></a>2. Créer une passerelle de réseau virtuel
+### <a name="creategw"></a>3. Créer une passerelle de réseau virtuel
+
+**Exemples de valeurs :**
+
+* Nom de passerelle de réseau virtuel = RMGateway <br>
+* Type de passerelle = VPN <br>
+* Type de VPN = Route-based <br>
+* Référence (SKU) = VpnGw1 <br>
+* Emplacement = Est des États-Unis <br>
+* Réseau virtuel = RMVNet <br>
+* Première configuration IP = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>3. Créer une passerelle de réseau local
+### <a name="createlng"></a>4. Créer une passerelle de réseau local
 
-La passerelle de réseau local spécifie la plage d’adresses et l’adresse IP publique associées à votre réseau virtuel classique et à la passerelle de réseau virtuel.
-
-Si vous effectuez ces étapes en guise d’exercice, consultez ces paramètres :
+**Exemples de valeurs :** Passerelle de réseau local = ClassicVNetLocal
 
 | Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |Adresse IP publique de la passerelle|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Ouest des États-Unis | RMVNetLocal (192.168.0.0/16) |L’adresse IP publique qui est affectée à la passerelle ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Est des États-Unis |ClassicVNetLocal (10.0.0.0/24) |L’adresse IP publique qui est affectée à la passerelle RMVNet.|
+
+La passerelle de réseau local spécifie la plage d’adresses et l’adresse IP publique associées à votre réseau virtuel classique et à la passerelle de réseau virtuel. Si vous effectuez ces étapes en guise d’exercice, consultez les exemples de valeurs.
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 

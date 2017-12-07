@@ -1,5 +1,5 @@
 ---
-title: "Création et gestion des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure | Microsoft Docs"
+title: "Création et gestion des règles de pare-feu MySQL dans Azure Database pour MySQL | Microsoft Docs"
 description: "Création et gestion des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure"
 services: mysql
 author: v-chenyh
@@ -8,19 +8,19 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: 63ea6337b35193420924096690ed15cc1d5ede25
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du Portail Azure
 Les règles de pare-feu au niveau du serveur permettent aux administrateurs d’accéder à un serveur Azure Database pour MySQL à partir d’une adresse IP ou d’une plage d’adresses IP spécifiée. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
 
-1. Dans le panneau du serveur MySQL, sous le titre Paramètres, cliquez sur **Sécurité des connexions** afin d’ouvrir le panneau Sécurité des connexions pour la base de données Azure pour MySQL.
+1. Dans la page du serveur MySQL, sous le titre Paramètres, cliquez sur **Sécurité des connexions** pour ouvrir la page Sécurité des connexions pour Azure Database pour MySQL.
 
    ![Portail Azure - cliquez sur Sécurité des connexions](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
@@ -52,4 +52,4 @@ Répétez les étapes pour gérer les règles de pare-feu.
 * Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour vous aider à vous connecter à un serveur Azure Database pour MySQL, consultez la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](./concepts-connection-libraries.md)
+Pour vous aider à vous connecter à un serveur Azure Database pour MySQL, consultez la rubrique [Bibliothèques de connexions pour Azure Database pour MySQL](./concepts-connection-libraries.md)

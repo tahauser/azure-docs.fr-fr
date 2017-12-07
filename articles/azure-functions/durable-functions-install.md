@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
@@ -33,7 +33,7 @@ Actuellement, Visual Studio fournit la meilleure expérience de développement d
 
 ### <a name="prerequisites"></a>Composants requis
 
-* Installez la [dernière version de Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 ou plus). Incluez les outils Azure dans les options d’installation.
+* Installez la [dernière version de Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 ou plus). Incluez la charge de travail de **développement Azure** dans vos options d’installation.
 
 ### <a name="start-with-sample-functions"></a>Commencer par des exemples de fonctions
 
@@ -61,7 +61,7 @@ Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonc
 
 1. Créez une nouvelle application de fonction sur le site [functions.azure.com](https://functions.azure.com/signin).
 2. Configurez l’application de fonction pour qu’elle [utilise la version du runtime 2.0](functions-versions.md).
-3. Créez une fonction et sélectionnez le modèle **Durable Functions Orchestrator - C#**.
+3. Créez une fonction, en choisissant « C# » pour le langage et « Tout » pour le scénario. Ensuite, sélectionnez le modèle **Durable Functions Orchestrator - C#**.
 4. Sous **Extensions non installées**, cliquez sur **Installer** pour télécharger l’extension depuis le site NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Copier un exemple de code dans l’application de fonction

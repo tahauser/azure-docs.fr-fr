@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: d6409ac490f530d49f82c93b07b0fd22adbec4de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a7e94fe2cd2db398ab2afa9a6492cea144071114
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -111,7 +111,7 @@ Pour plus d’informations, consultez la page relative au [contrôle de version 
     ``` 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Créer une image à partir d’un disque géré à l’aide de PowerShell
 
-Pour simplement créer une image du disque du système d’exploitation, créez une image en spécifiant l’ID du disque géré en tant que disque du système d’exploitation.
+Pour simplement créer une image du disque du système d’exploitation, créez une image en spécifiant l’ID du disque managé en tant que disque du système d’exploitation.
 
     
 1. Définissez des variables. 

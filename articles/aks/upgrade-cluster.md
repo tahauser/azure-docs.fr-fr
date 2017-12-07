@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Mise à jour d’un cluster Azure Container Service (AKS)
 
@@ -43,7 +43,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Nous avons trois versions disponibles pour la mise à niveau : 1.7.9, 1.8.1 et 1.8.2. Nous pouvons utiliser la commande `az aks upgrade` pour mettre à niveau vers la dernière version disponible.  Pendant le processus de mise à niveau, les nœuds sont soigneusement [coordonnés et purgés](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) pour limiter les perturbations pour les applications en cours d’exécution.
+Nous avons trois versions disponibles pour la mise à niveau : 1.7.9, 1.8.1 et 1.8.2. Nous pouvons utiliser la commande `az aks upgrade` pour mettre à niveau vers la dernière version disponible.  Pendant le processus de mise à niveau, les nœuds sont soigneusement [coordonnés et purgés](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) pour limiter les perturbations pour les applications en cours d’exécution.  Avant d’effectuer une mise à niveau de cluster, assurez-vous de disposer d’une capacité de calcul supplémentaire suffisante pour gérer votre charge de travail au fur et à mesure que des noeuds de cluster sont ajoutés et supprimés.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2

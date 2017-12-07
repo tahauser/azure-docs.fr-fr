@@ -1,9 +1,9 @@
 ---
-title: Liaisons Stockage Table dans Azure Functions
+title: Liaisons de stockage Table Azure pour Azure Functions
 description: Comprendre comment utiliser les liaisons de stockage de table Azure dans Azure Functions.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
-ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: tdykstra
+ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-table-storage-bindings"></a>Liaisons Stockage Table dans Azure Functions
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
 Cet article explique comment utiliser les liaisons de stockage de table Azure dans Azure Functions. Azure Functions prend en charge les liaisons d’entrée et de sortie pour Stockage de table Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="table-storage-input-binding"></a>Liaison d’entrée de stockage de table
+## <a name="input"></a>Entrée
 
 La liaison d’entrée de stockage de table Azure permet de lire une table dans un compte de stockage Azure.
 
@@ -284,7 +284,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes-for-precompiled-c"></a>Entrée - Attributs pour C# précompilé
+## <a name="input---attributes"></a>Entrée - attributs
  
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer une liaison d’entrée de table :
 
@@ -298,6 +298,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
@@ -308,7 +311,12 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  Pour obtenir un exemple complet, consultez [Entrée - exemple C# précompilé](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -321,6 +329,9 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
@@ -345,7 +356,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**rowKey** |**RowKey** | facultatif. Clé de ligne de l’entité de table à lire. Consultez la section [utilisation](#input---usage) pour obtenir des conseils sur l’utilisation de cette propriété.| 
 |**take** |**Take** | facultatif. Nombre maximal d’entités à lire en JavaScript. Consultez la section [utilisation](#input---usage) pour obtenir des conseils sur l’utilisation de cette propriété.| 
 |**filter** |**Filter** | facultatif. Expression de filtre OData pour l’entrée de table dans JavaScript. Consultez la section [utilisation](#input---usage) pour obtenir des conseils sur l’utilisation de cette propriété.| 
-|**Connexion** |**Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br/>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** |**Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Entrée - utilisation
 
@@ -368,7 +381,7 @@ La liaison d’entrée de stockage de table prend en charge les scénarios suiva
 
   Définissez les propriétés `filter` et `take`. Ne définissez pas `partitionKey` ni `rowKey`. Accédez à l’entité (ou les entités) de table d’entrée à l’aide de `context.bindings.<name>`. Les objets désérialisés ont des propriétés `RowKey` et `PartitionKey`.
 
-## <a name="table-storage-output-binding"></a>Liaison de sortie de stockage de table
+## <a name="output"></a>Sortie
 
 Utilisez une liaison de sortie de stockage de table Azure pour écrire des entités dans une table d’un compte de Stockage Azure.
 
@@ -554,9 +567,9 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Sortie - Attributs pour C# précompilé
+## <a name="output---attributes"></a>Sortie - attributs
 
- Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez le [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs) qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez le [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs) qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Le constructeur de l’attribut prend le nom de la table. Il peut être utilisé sur un paramètre `out` ou sur la valeur de retour de la fonction, comme indiqué dans l’exemple suivant :
 
@@ -566,6 +579,9 @@ Le constructeur de l’attribut prend le nom de la table. Il peut être utilisé
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
@@ -576,9 +592,14 @@ Vous pouvez définir la propriété `Connection` pour spécifier le compte de st
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Entrée - Attributs pour C# précompilé](#input---attributes-for-precompiled-c).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+
+Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Entrée - attributs](#input---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -592,7 +613,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**tableName** |**TableName** | Nom de la table.| 
 |**partitionKey** |**PartitionKey** | Clé de partition de l’entité de table à écrire. Consultez la section [utilisation](#output---usage) pour obtenir des conseils sur l’utilisation de cette propriété.| 
 |**rowKey** |**RowKey** | Clé de ligne de l’entité de table à écrire. Consultez la section [utilisation](#output---usage) pour obtenir des conseils sur l’utilisation de cette propriété.| 
-|**Connexion** |**Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br/>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** |**Connection** | Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Sortie - utilisation
 

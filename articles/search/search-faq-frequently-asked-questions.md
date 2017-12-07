@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Recherche Azure - Questions fréquentes (FAQ)
  
@@ -29,7 +29,7 @@ La Recherche Azure comprend les fonctionnalités suivantes : prise en charge de 
 
 Lorsqu’ils comparent les technologies de recherche, les clients demandent souvent des précisions sur les différences entre la Recherche Azure et Elasticsearch. Lorsque les clients choisissent la Recherche Azure plutôt qu’Elasticsearch pour leurs projets d’applications de recherche, c’est généralement parce qu’elle facilite l’une de leurs tâches principales ou parce qu’ils ont besoin de l’intégrer à d’autres technologies Microsoft :
 
-+ La Recherche Azure est un service cloud entièrement géré, avec 99,9 % de contrats de niveau de service (SLA) lorsqu’elle reçoit suffisamment de redondance (2 réplicas pour l’accès en lecture, 3 réplicas pour l’accès en lecture-écriture).
++ La Recherche Azure est un service cloud totalement managé qui offre des contrats de niveau de service (SLA) à 99,9 % avec une redondance suffisante provisionnée (2 réplicas pour l’accès en lecture, 3 réplicas pour l’accès en lecture-écriture).
 + Les [processeurs de langage naturel](https://docs.microsoft.com/rest/api/searchservice/language-support) Microsoft offrent une analyse linguistique à la pointe de la technologie.  
 + Les [indexeurs de la Recherche Azure](search-indexer-overview.md) peuvent analyser diverses sources de données Azure en vue d’une indexation initiale et incrémentielle.
 + Si vous avez besoin d’une réponse rapide aux fluctuations de volume des requêtes ou de l’indexation, vous pouvez utiliser les [curseurs](search-manage.md#scale-up-or-down) du portail Azure, ou exécuter un [script PowerShell](search-manage-powershell.md), en ignorant la gestion des partitions.  

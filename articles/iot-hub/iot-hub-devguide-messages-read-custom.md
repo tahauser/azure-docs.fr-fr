@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/29/2017
 ms.author: dobett
-ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud
 
@@ -33,6 +33,8 @@ IoT Hub vous permet d’acheminer les [messages appareil-à-cloud][lnk-device-to
 Un seul message peut correspondre à la condition de plusieurs règles d’acheminement, auquel cas IoT Hub remet le message au point de terminaison associé à chaque règle ayant affiché une correspondance. Par ailleurs, IoT Hub déduplique automatiquement la remise des messages ; par conséquent, si un message correspond à plusieurs règles qui ont toutes la même destination, il n’est écrit qu’une seule fois dans cette destination.
 
 Un hub IoT a par défaut un [point de terminaison intégré][lnk-built-in]. Vous pouvez créer des points de terminaison personnalisés pour y acheminer les messages en liant d’autres services de votre abonnement au hub. IoT Hub prend actuellement en charge les conteneurs de stockage Azure, les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus.
+
+Lorsque vous utilisez des points de terminaison de routage et personnalisés, les messages sont uniquement remis au point de terminaison intégré s’ils ne correspondent à aucune règle. Pour remettre des messages au point de terminaison intégré ainsi qu’à un point de terminaison personnalisé, ajoutez un itinéraire qui envoie des messages au point de terminaison des **événements**.
 
 > [!NOTE]
 > IoT Hub prend uniquement en charge l’écriture de données dans des conteneurs de stockage Azure en tant qu’objets blob.

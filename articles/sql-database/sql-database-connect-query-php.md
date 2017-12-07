@@ -13,31 +13,27 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 08/08/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: ae8cf7b847442883f03078a8c34d0921f8992b02
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Utilisation de PHP pour interroger une base de données SQL Azure
 
-Ce didacticiel de démarrage rapide indique comment utiliser [PHP](http://php.net/manual/en/intro-whatis.php) pour créer un programme qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
+Ce didacticiel de démarrage rapide montre comment utiliser [PHP](http://php.net/manual/en/intro-whatis.php) pour créer un programme qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous disposez des éléments suivants :
+Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
-- base de données SQL Azure. Ce guide de démarrage rapide utilise les ressources créées dans l’une de ces instructions de démarrage rapide : 
-
-   - [Créer une base de données - Portail](sql-database-get-started-portal.md)
-   - [Créer une base de données - CLI](sql-database-get-started-cli.md)
-   - [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce didacticiel de démarrage rapide.
 
-- Vous avez installé PHP et les logiciels connexes pour votre système d’exploitation.
+- Installé PHP et les logiciels connexes sur votre système d’exploitation :
 
     - **MacOS** : installez Homebrew et PHP, installez le pilote ODBC et SQLCMD, puis installez le pilote PHP pour SQL Server. Consultez les [étapes 1.2, 1.3 et 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
     - **Ubuntu** : installez PHP et les autres packages requis, puis installez le pilote PHP pour SQL Server. Consultez les [étapes 1.2 et 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
@@ -45,15 +41,7 @@ Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous disposez des
 
 ## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
-Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image suivante. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**.  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Si vous avez oublié vos informations de connexion au serveur, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
 ## <a name="insert-code-to-query-sql-database"></a>Insertion du code pour interroger la base de données SQL
 
@@ -100,3 +88,10 @@ Obtenez les informations de connexion requises pour la connexion à la base de d
 - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/) (Pilotes PHP Microsoft pour SQL Server)
 - [Signaler des problèmes ou poser des questions](https://github.com/Microsoft/msphpsql/issues)
+- [Exemple de logique de nouvelle tentative : Connexion résiliente à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

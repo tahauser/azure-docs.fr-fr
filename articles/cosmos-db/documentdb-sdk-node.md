@@ -1,6 +1,6 @@
 ---
-title: API, SDK et ressources Azure Cosmos DB Node.js | Microsoft Docs
-description: "Tout savoir sur l’API et le SDK Node.js, notamment les dates de publication, les dates de retrait et les modifications effectuées entre chaque version du kit SDK Azure Cosmos DB Node.js."
+title: "API Azure Cosmos DB Node.js, kit de développement logiciel (SDK) et Ressources | Microsoft Docs"
+description: "Tout savoir sur l’API Node.js et le kit de développement logiciel (SDK), y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit de développement logiciel (SDK) Azure Cosmos DB Node.js."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5c53a7bfdcf5105df0ed3d3f70d927fc06cf36cf
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>SDK Azure Cosmos DB Node.js : notes de publication et ressources
+# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Azure Cosmos DB Node.js : notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Flux de modification .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -43,11 +43,11 @@ ms.lasthandoff: 11/15/2017
 
 <tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d’installation](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
-<tr><td>**Contribution au kit SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
 <tr><td>**Exemples**</td><td>[Exemples de code Node.js](documentdb-nodejs-samples.md)</td></tr>
 
-<tr><td>**Didacticiel de prise en main**</td><td>[Bien démarrer avec le kit SDK Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Didacticiel de prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Node.js](documentdb-nodejs-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Générer une application web Node.js à l’aide d’Azure Cosmos DB](documentdb-nodejs-application.md)</td></tr>
 
@@ -179,11 +179,11 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
-Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un kit dSDK retiré.
+Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
 <br/>
 
-| Version | Date de publication | Date de retrait |
+| Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
 | [1.14.0](#1.14.0) |9 novembre 2017 |--- |
 | [1.13.0](#1.13.0) |11 octobre 2017 |--- |

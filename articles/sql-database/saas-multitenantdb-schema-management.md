@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: billgib
-ms.openlocfilehash: 346177be29ec196464f4f441858222ac5d5eb8c3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e4b8e38d20ec408869f2228597afdf2f9620515b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
 
@@ -40,12 +40,12 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 
-* L’application de base de données Wingtip Tickets SaaS mutualisée est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer une application Wingtip Tickets SaaS mutualisée](saas-multitenantdb-get-started-deploy.md)
+* L’application de base de données Wingtip Tickets SaaS mutualisée est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données multi-locataire SaaS Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La dernière version de SQL Server Management Studio (SSMS) est installée. [Télécharger et installer SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> *Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.*
+> Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
@@ -58,9 +58,9 @@ Le modèle de base de données partitionnée mutualisée utilisé dans cet exemp
 
 Il existe une nouvelle version des travaux élastiques qui est désormais une fonctionnalité intégrée d’Azure SQL Database (qui ne nécessite pas de services ou de composants supplémentaires). Cette nouvelle version des travaux élastiques est pour le moment en préversion limitée. Cette préversion limitée prend actuellement en charge PowerShell pour créer des comptes de travail et T-SQL pour créer et gérer des travaux.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Obtenir les scripts d’application de base de données Wingtip Tickets SaaS mutualisée
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
-Les scripts de base de données Wingtip Tickets SaaS mutualisés et le code source de l’application sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). <!-- [Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS. 
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Créer une base de données de compte de travail et un compte de travail
 
@@ -89,13 +89,14 @@ Pour créer un travail, nous utilisons un ensemble de procédures stockées syst
 6. Modifiez l’instruction : set @User = &lt;utilisateur&gt; et remplacer la valeur de l’utilisateur utilisée lors du déploiement de l’application de base de données Wingtip Tickets SaaS mutualisée.
 7. Appuyez sur **F5** pour exécuter le script.
 
-    * **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup. Nous ajoutons ajouter des membres cibles au groupe.
-    * **sp\_add\_target\_group\_member** ajoute un type de membre cible *server*, qui juge toutes les bases de données dans ce serveur (notez qu’il s’agit du serveur tenants1-mt-&lt;user&gt; contenant les bases de données client) au moment de l’exécution du travail devant être incluses dans le travail ; un type de membre cible *database*, pour la base de données « or » (basetenantdb) qui réside sur le serveur catalog-mt-&lt;user&gt; et enfin un type de membre *database* permettant d’inclure la base de données adhocreporting utilisée dans un prochain didacticiel.
-    * **sp\_add\_job** crée une tâche appelée « Reference Data Deployment » (Déploiement des données de référence).
-    * **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour la table de référence, VenueTypes.
-    * Les autres vues dans le script indiquent l’existence des objets et contrôlent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer le moment où la tâche a été terminée avec succès sur les bases de données client et deux autres bases de données contenant la table de référence.
+Observez les événements suivants dans le script *DeployReferenceData.sql* :
+* **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup. Nous ajoutons ajouter des membres cibles au groupe.
+* **sp\_add\_target\_group\_member** ajoute un type de membre cible *server*, qui juge toutes les bases de données dans ce serveur (notez qu’il s’agit du serveur tenants1-mt-&lt;user&gt; contenant les bases de données client) au moment de l’exécution du travail devant être incluses dans le travail ; un type de membre cible *database*, pour la base de données « or » (basetenantdb) qui réside sur le serveur catalog-mt-&lt;user&gt; et enfin un type de membre *database* permettant d’inclure la base de données adhocreporting utilisée dans un prochain didacticiel.
+* **sp\_add\_job** crée une tâche appelée « Reference Data Deployment » (Déploiement des données de référence).
+* **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour la table de référence, VenueTypes.
+* Les autres vues dans le script indiquent l’existence des objets et contrôlent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer le moment où la tâche a été terminée avec succès sur les bases de données client et deux autres bases de données contenant la table de référence.
 
-1. Dans SSMS, accédez à la base de données sur le serveur *tenants1-mt-&lt;user&gt;* et interrogez la table *VenueTypes* pour vérifier que *Motorcycle Racing* et *Swimming Club* sont maintenant **ajoutés* à la table.
+Dans SSMS, accédez à la base de données sur le serveur *tenants1-mt-&lt;user&gt;* et interrogez la table *VenueTypes* pour vérifier que *Motorcycle Racing* et *Swimming Club* sont maintenant **ajoutés* à la table.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Créer une tâche pour gérer l’index de la table de référence
@@ -105,11 +106,12 @@ De façon similaire à l’exercice précédent, cet exercice crée un travail p
 
 1. Dans SSMS, connectez-vous à la base de données jobaccount sur le serveur catalog-mt-&lt;Utilisateur&gt;.database.windows.net.
 2. Dans SSMS, ouvrez le fichier ...\\Learning Modules\\Schema Management\\OnlineReindex.sql.
-3. Appuyez sur **F5** pour exécuter le script
+3. Appuyez sur **F5** pour exécuter le script.
 
-    * sp**sp\_add\_job** crée un travail appelé « Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885 ».
-    * **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour l’index.
-    * Les vues restantes dans le script surveillent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer le moment où la tâche a été terminée avec succès sur tous les membres du groupe cible.
+Observez les événements suivants dans le script *OnlineReindex.sql* :
+* sp**sp\_add\_job** crée un travail appelé « Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885 ».
+* **sp\_add\_jobstep** crée l’étape du travail contenant le texte de la commande T-SQL pour mettre à jour l’index.
+* Les vues restantes dans le script surveillent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer le moment où la tâche a été terminée avec succès sur tous les membres du groupe cible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -121,7 +123,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-[Didacticiel sur les analyses ad hoc](saas-multitenantdb-adhoc-reporting.md)
+Suivez maintenant le [didacticiel de génération de rapports ad-hoc](saas-multitenantdb-adhoc-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

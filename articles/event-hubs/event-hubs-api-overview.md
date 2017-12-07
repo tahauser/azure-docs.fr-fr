@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 40cd76e1aacb68d6051cae4a3c90a8970f5449f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd44fd0c9cbfab2365b1552e3cd90e84a5348d7
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="available-event-hubs-apis"></a>API Event Hubs disponibles
+
+Cet article décrit l’ensemble des clients API disponibles, que vous pouvez utiliser pour la gestion des ressources Event Hubs.
 
 ## <a name="runtime-apis"></a>API de runtime
 
@@ -57,5 +59,5 @@ Vous trouverez ci-dessous une liste de toutes les bibliothèques dédiées à la
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
-* [Créer un concentrateur d’événements](event-hubs-create.md)
+* [Créer un hub d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)

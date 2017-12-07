@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données SQL Azure
 
-Dans ce didacticiel, vous allez exécuter des requêtes distribuées sur l’ensemble des bases de données client pour permettre un rapport ad hoc. Ces requêtes peuvent extraire des analyses enfouies dans les données opérationnelles quotidiennes de l’application SaaS Wingtip Tickets. Pour cela, vous allez déployer une base de données analytique supplémentaire sur le serveur de catalogue et utiliser une requête élastique pour activer les requêtes distribuées.
+Dans ce didacticiel, vous allez exécuter des requêtes distribuées sur l’ensemble des bases de données client pour permettre un rapport ad hoc. Ces requêtes peuvent extraire des analyses enfouies dans les données opérationnelles quotidiennes de l’application SaaS Wingtip Tickets. Pour cela, vous déployez une base de données analytique supplémentaire sur le serveur de catalogue et utilisez une requête élastique pour activer les requêtes distribuées.
 
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
@@ -57,7 +57,7 @@ En distribuant les requêtes sur toutes les bases de données client, les requê
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
-Les scripts et le code source de l’application de base de données Wingtip Tickets SaaS par client sont disponibles dans le [référentiel github WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Assurez-vous de suivre les étapes de déblocage décrites dans le fichier Lisezmoi.
+Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 ## <a name="create-ticket-sales-data"></a>Créer des données sur des ventes de tickets
 
@@ -73,7 +73,7 @@ Dans l’application Wingtip Tickets SaaS Database Per Tenant, chaque client est
 
 Pour simuler ce modèle, un ensemble de vues globales est ajouté à la base de données locataire. Ces vues projettent alors un ID de locataire dans chacune des tables interrogées globalement. Par exemple, la vue *VenueEvents* ajoute un élément *VenueId* calculé dans les colonnes projetées à partir de la table *Events*. De même, les vues *VenueTicketPurchases* et *VenueTickets* ajoutent une colonne *VenueId* projetée à partir de leurs tables respectives. Ces affichages sont utilisés par une requête élastique pour paralléliser les requêtes et les transmettre à la bonne base de données client distante lorsqu'une colonne *VenueId* est présente. Cela réduit considérablement la quantité de données renvoyées et augmente nettement les performances pour de nombreuses requêtes. Ces vues globales ont été créées au préalable dans toutes les bases de données client.
 
-1. Ouvrez SSMS et [connectez-vous au serveur tenants1-&lt;USER&gt;](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Ouvrez SSMS et [connectez-vous au serveur tenants1-&lt;USER&gt;](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Développez **Bases de données**, cliquez avec le bouton droit sur **contosoconcerthall**, puis sélectionnez **Nouvelle requête**.
 3. Exécutez les requêtes suivantes pour découvrir la différence entre les tables de client unique et les vues globales :
 
@@ -95,7 +95,7 @@ Dans ces vues, l’élément *VenueId* est calculé en tant que hachage du nom d
 
 Pour examiner la définition de la vue *Venues* :
 
-1. Dans **Explorateur d’objets**, développez **contosoconcethall** > **Vues** :
+1. Dans **Explorateur d’objets**, développez **contosoconcerthall** > **Vues** :
 
    ![vues](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -127,7 +127,7 @@ Cet exercice ajoute le schéma (la source de données externe et les définition
 
     ![créer des informations d’identification](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   La source de données externe, définie pour utiliser la carte de partitions client dans la base de données de catalogue. En l’utilisant comme source de données externe, les requêtes sont distribuées sur toutes les bases de données inscrites dans le catalogue au moment de l’exécution de la requête. Étant donné que les noms de serveur sont différents pour chaque déploiement, ce script d’initialisation obtient l’emplacement de la base de données du catalogue en récupérant le serveur actuel (@@servername) dans lequel le script est exécuté.
+   En utilisant la base de données de catalogues comme source de données externe, les requêtes sont distribuées sur toutes les bases de données inscrites dans le catalogue au moment de l’exécution de la requête. Étant donné que les noms de serveur sont différents pour chaque déploiement, ce script d’initialisation obtient l’emplacement de la base de données du catalogue en récupérant le serveur actuel (@@servername) dans lequel le script est exécuté.
 
     ![créer une source de données externe](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Maintenant que la base de données *adhocreporting* est configurée, lancez-vous
 
 Lors de l’inspection du plan d’exécution, passez la souris sur les icônes de plan pour plus d’informations. 
 
-Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Étant donné que chaque élément *VenueId* correspond à une base de données unique, le filtrage peut être effectué à distance facilement, renvoyant uniquement les données nécessaires.
+Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Comme que chaque élément *VenueId* correspond à une base de données unique, le filtrage peut être effectué à distance facilement, renvoyant uniquement les données nécessaires.
 
 1. Ouvrir... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* dans SSMS.
 2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.
@@ -160,7 +160,7 @@ Remarque importante : lorsque nous avons défini la source de données externe,
 
    La requête renvoie la liste complète des lieux, montrant à quel point il est facile d’interroger l’ensemble des clients et de renvoyer des données provenant de chacun d’eux.
 
-   Inspectez le plan ; vous constaterez que la totalité des coûts correspond à la requête distante, car nous interrogeons simplement chaque base de données client et sélectionnons les informations relatives aux lieux.
+   Inspectez le plan ; vous constaterez que la totalité des coûts correspond à la requête distante, car chaque base de données client gère sa propre requête et renvoie ses informations relatives aux lieux.
 
    ![SELECT * FROM dbo.Venues](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Remarque importante : lorsque nous avons défini la source de données externe,
 
    Cette requête joint les données de bases de données client et la table *VenueTypes* table (elle est locale dans la mesure où elle figure dans la base de données *adhocreporting*).
 
-   Inspectez le plan ; vous constaterez que la majorité des coûts correspond à la requête distante, car nous interrogeons les informations relatives aux lieux de chaque client (dob.Venues), puis effectuons une jointure locale rapide avec la table *VenueTypes* pour afficher le nom convivial.
+   Inspectez le plan ; vous constatez que la majorité des coûts s'applique à la requête distante. Chaque base de données client renvoie ses informations relatives aux lieux et effectue une jointure locale avec la table *VenueTypes* locale pour afficher le nom convivial.
 
    ![Joindre des données locales et distantes](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?*, puis appuyez sur **F5**.
 
-   Cette requête effectue une opération de jointure et d’agrégation un peu plus complexe. Il est important de noter que la plupart du traitement est effectué à distance, et une fois encore, nous récupérons uniquement les lignes dont nous avons besoin, en renvoyant une seule ligne pour le cumul agrégé de ventes de tickets par jour pour chaque lieu.
+   Cette requête effectue une opération de jointure et d’agrégation un peu plus complexe. Il est important de noter que la plupart du traitement est effectuée à distance, et une fois encore, ce processus récupère uniquement les lignes nécessaires, soit une seule ligne pour le cumul agrégé de ventes de tickets par jour pour chaque lieu.
 
    ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 
@@ -189,7 +189,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Déployer une base de données de rapport ad hoc et y ajouter un schéma pour exécuter des requêtes distribuées.
 
 
-Essayez maintenant le [Didacticiel sur l’analyse des clients](saas-tenancy-tenant-analytics.md) pour explorer l’extraction de données dans une base de données d’analyse distincte pour un traitement d’analyse plus complexe...
+Essayez maintenant le [Didacticiel sur l’analyse des clients](saas-tenancy-tenant-analytics.md) pour explorer l’extraction de données dans une base de données d’analyse distincte pour un traitement d’analyse plus complexe.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

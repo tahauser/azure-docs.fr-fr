@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-## <a name="intro-on-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Azure
+# <a name="intro-on-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Azure
 
 Le contrôle d’accès en fonction du rôle (RBAC) est une fonctionnalité exclusive du portail Azure permettant aux propriétaires d’abonnement d’attribuer des rôles granulaires à d’autres utilisateurs afin qu’ils puissent gérer des étendues de ressource spécifiques dans leur environnement.
 
@@ -32,8 +32,7 @@ L’utilisation de la fonctionnalité RBAC dans l’environnement Windows Azure 
 * Avoir un abonnement Azure autonome attribué à l’utilisateur en tant que propriétaire (rôle d’abonnement)
 * Avoir le rôle Propriétaire de l’abonnement Azure
 * Avoir accès au [portail Azure](https://portal.azure.com)
-* Avoir le fournisseur de ressources suivant inscrit pour l’abonnement de l’utilisateur : **Microsoft.Authorization**. Pour plus d’informations sur l’enregistrement des fournisseurs de ressources, voir [Fournisseurs, régions, schémas et versions d’API Resource Manager](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
+* Avoir le fournisseur de ressources suivant inscrit pour l’abonnement de l’utilisateur : **Microsoft.Authorization**. Pour plus d’informations sur l’enregistrement des fournisseurs de ressources, voir [Fournisseurs, régions, schémas et versions d’API Resource Manager](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
 > Ni les abonnements Office 365 ni les licences Azure Active Directory (par exemple, Accès à Azure Active Directory) approvisionnées à partir du portail O365 ne sont éligibles pour l’utilisation de la fonctionnalité RBAC.
@@ -76,8 +75,7 @@ Après avoir sélectionné l’abonnement, l’utilisateur administrateur doit c
 
 ![ajouter un utilisateur dans la fonctionnalité de contrôle d’accès IAM dans le portail Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-L’étape suivante consiste à sélectionner le rôle à attribuer et l’utilisateur à qui le rôle RBAC doit être attribué. Dans le menu déroulant **Rôle**, l’utilisateur administrateur voit uniquement les rôles RBAC intégrés disponibles dans Azure. Pour plus d’explications sur chaque rôle et les étendues qui peuvent lui être attribuées, voir [Rôles intégrés pour contrôle d’accès en fonction du rôle Azure](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
+L’étape suivante consiste à sélectionner le rôle à attribuer et l’utilisateur à qui le rôle RBAC doit être attribué. Dans le menu déroulant **Rôle**, l’utilisateur administrateur voit uniquement les rôles RBAC intégrés disponibles dans Azure. Pour plus d’explications sur chaque rôle et les étendues qui peuvent lui être attribuées, voir [Rôles intégrés pour contrôle d’accès en fonction du rôle Azure](role-based-access-built-in-roles.md).
 
 L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de l’utilisateur externe. Le comportement attendu est que l’utilisateur externe n'apparaisse pas dans le client existant. Une fois l’utilisateur externe invité, il est visible sous **Abonnements > Contrôle d’accès (IAM)** avec tous les utilisateurs auxquels un rôle RBAC est actuellement attribué dans l’étendue de l’abonnement.
 
@@ -123,8 +121,7 @@ Dans l’affichage **Utilisateurs** sur les deux portails, les utilisateurs exte
 * par le type d’icône distinct sur le portail Azure ;
 * par le point d’approvisionnement sur le portail Azure Classic.
 
-Toutefois, l’octroi à un utilisateur externe d’un accès **Propriétaire** ou **Contributeur** à l’étendue **Abonnement** n’autorise pas l’accès à l’annuaire de l’utilisateur administrateur, sauf si l’**Administrateur général** l’autorise. Dans les propriétés de l’utilisateur, le **Type d’utilisateur** qui a deux paramètres communs, **Membre** et **Invité**, peut être identifié. Un membre est un utilisateur inscrit dans l’annuaire, tandis qu’un invité est un utilisateur invité dans l’annuaire à partir d’une source externe. Pour plus d’informations, voir [Comment les administrateurs Azure Active Directory ajoutent des utilisateurs B2B Collaboration](/active-directory/active-directory-b2b-admin-add-users).
-<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
+Toutefois, l’octroi à un utilisateur externe d’un accès **Propriétaire** ou **Contributeur** à l’étendue **Abonnement** n’autorise pas l’accès à l’annuaire de l’utilisateur administrateur, sauf si l’**Administrateur général** l’autorise. Dans les propriétés de l’utilisateur, le **Type d’utilisateur** qui a deux paramètres communs, **Membre** et **Invité**, peut être identifié. Un membre est un utilisateur inscrit dans l’annuaire, tandis qu’un invité est un utilisateur invité dans l’annuaire à partir d’une source externe. Pour plus d’informations, voir [Comment les administrateurs Azure Active Directory ajoutent des utilisateurs B2B Collaboration](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
 > Assurez-vous qu’une fois les informations d’identification entrées dans le portail, l’utilisateur externe sélectionne l’annuaire approprié auquel se connecter. Le même utilisateur peut avoir accès à plusieurs annuaires et sélectionner l’un d'eux en cliquant sur le nom d’utilisateur dans la partie supérieure droite du portail Azure, puis en choisissant l’annuaire approprié dans la liste déroulante.
@@ -165,7 +162,7 @@ Le comportement normal de cet utilisateur externe avec ce rôle intégré est de
 
 
 
-![présentation du rôle contributeur de machines virtuelles dans le portail azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![Vue d’ensemble du rôle contributeur de machines virtuelles dans le portail Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Octroyer l’accès au niveau d’un abonnement à un utilisateur figurant dans le même annuaire
 Le flux du processus est identique à celui de l’ajout d’un utilisateur externe, tant dans la perspective de l’administrateur octroyant le rôle RBAC, que de celle de l’utilisateur auquel l’accès au rôle est octroyé. La différence est que l’utilisateur invité ne reçoit pas d’e-mail d’invitation, car toutes les étendues de ressource au sein de l’abonnement sont disponibles dans le tableau de bord une fois la connexion établie.

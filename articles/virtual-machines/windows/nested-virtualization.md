@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
@@ -49,7 +49,7 @@ Créez une connexion Bureau à distance à la machine virtuelle.
 Vous pouvez configurer ces paramètres manuellement, ou utiliser le script PowerShell que nous vous fournissons pour automatiser la configuration.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Option 1 : Utiliser un script PowerShell pour configurer la virtualisation imbriquée
-Un script PowerShell pour activer la virtualisation imbriquée sur un hôte Windows Server 2016 est disponible sur [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Le script vérifie les conditions préalables, puis configure la virtualisation imbriquée sur la machine virtuelle Azure. Un redémarrage de la machine virtuelle Azure est nécessaire pour terminer la configuration. Ce script pourrait fonctionner dans d’autres environnements, mais cela n’est pas garanti. Consultez le billet de blog Azure avec une démonstration vidéo sur la virtualisation imbriquée exécutée sur Azure ! https://aka.ms/AzureNVblog.
+Un script PowerShell pour activer la virtualisation imbriquée sur un hôte Windows Server 2016 est disponible sur [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Le script vérifie les conditions préalables, puis configure la virtualisation imbriquée sur la machine virtuelle Azure. Un redémarrage de la machine virtuelle Azure est nécessaire pour terminer la configuration. Ce script pourrait fonctionner dans d’autres environnements, mais cela n’est pas garanti. Consultez le billet de blog Azure avec une démonstration vidéo sur la virtualisation imbriquée exécutée sur Azure ! https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Option 2 : Configurer manuellement la virtualisation imbriquée
 
@@ -140,7 +140,7 @@ Suivez les étapes ci-dessous pour configurer DHCP sur la machine virtuelle hôt
   
 2. Dans l’assistant, cliquez sur **Suivant** jusqu'à la page de Rôles de serveur.
   
-3. Cliquez pour sélectionner la case **Serveur DHCP**, puis sur **Ajouter des fonctionnalités**, et enfin sur**Suivant** jusqu'à ce que vous terminiez l’assistant.
+3. Cliquez pour sélectionner la case **Serveur DHCP**, puis sur **Ajouter des fonctionnalités**, et enfin sur **Suivant** jusqu'à ce que vous terminiez l’assistant.
   
 4. Cliquez sur **Installer**.
 

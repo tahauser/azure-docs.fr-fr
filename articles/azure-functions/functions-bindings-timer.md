@@ -1,13 +1,13 @@
 ---
-title: "Déclencheur de minuteur Azure Functions"
+title: "Déclencheur de minuteur pour Azure Functions"
 description: "Découvrez comment utiliser des déclencheurs de minuteur dans Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Déclencheur de minuteur Azure Functions
+# <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
 Cet article explique comment utiliser des déclencheurs de minuteur dans Azure Functions. Un déclencheur de minuteur vous permet d’exécuter une fonction de manière planifiée. 
 
@@ -93,7 +93,7 @@ Voici les données de liaison dans le fichier *function.json* :
 }
 ```
 
-Voici le code de script F# :
+Voici le code de script F# :
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
@@ -118,7 +118,7 @@ Voici les données de liaison dans le fichier *function.json* :
 }
 ```
 
-Voici le code de script F# :
+Voici le code de script JavaScript :
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -134,7 +134,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="attributes-for-precompiled-c"></a>Attributs pour C# précompilé
+## <a name="attributes"></a>Attributs
 
 Pour les fonctions [C# précompilées](functions-dotnet-class-library.md), utilisez [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -143,9 +143,14 @@ Le constructeur de l’attribut prend une expression CRON, comme illustré dans 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 Vous pouvez spécifier un `TimeSpan` au lieu d’une expression CRON si votre application de fonction s’exécute sur un plan App Service (et non un plan Consommation).
+
+Pour obtenir un exemple complet, consultez [Exemple C# précompilé](#c-example).
 
 ## <a name="configuration"></a>Configuration
 
@@ -154,9 +159,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Doit avoir la valeur « timerTrigger ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
-|**direction** | n/a | Doit avoir la valeur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**direction** | n/a | Doit être défini sur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente l’objet de minuteur dans le code de la fonction. | 
-|**schedule**|**ScheduleExpression**|Sur le plan Consommation, vous pouvez définir des planifications avec une expression CRON. Si vous utilisez un plan App Service, vous pouvez également utiliser une chaîne `TimeSpan`. Les sections suivantes expliquent les expressions CRON. Vous pouvez placer l’expression de planification dans un paramètre d’application et affecter à cette propriété une valeur encapsulée dans des signes **%**, comme dans cet exemple : « %nom_de_paramètre_d’application_avec_expression_CRON% ». Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**schedule**|**ScheduleExpression**|Sur le plan Consommation, vous pouvez définir des planifications avec une expression CRON. Si vous utilisez un plan App Service, vous pouvez également utiliser une chaîne `TimeSpan`. Les sections suivantes expliquent les expressions CRON. Vous pouvez placer l’expression de planification dans un paramètre d’application et affecter à cette propriété une valeur encapsulée dans des signes **%**, comme dans cet exemple : « %nom_de_paramètre_d’application_avec_expression_CRON% ». |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="cron-format"></a>Format CRON 
 

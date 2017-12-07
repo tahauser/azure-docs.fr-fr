@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restaurer la base de données SQL Azure d’un locataire unique dans une application SaaS multilocataire
 
-Par sa conception, l’application SaaS Wingtip utilise un modèle de base de données par client, où chaque client possède sa propre base de données. L’un des avantages de ce modèle est la facilité avec laquelle il est possible de restaurer les données d’un client unique de manière isolée, sans affecter les autres clients.
+De par sa conception, l’application SaaS Wingtip Tickets utilise un modèle de base de données par client, où chaque client possède sa propre base de données. L’un des avantages de ce modèle est la facilité avec laquelle il est possible de restaurer les données d’un client unique de manière isolée, sans affecter les autres clients.
 
 Dans ce didacticiel, vous allez découvrir deux modèles de récupération des données :
 
@@ -53,9 +53,9 @@ Dans le premier modèle, les données sont restaurées dans une nouvelle base de
 
 Dans le second modèle (qui suppose que le client a perdu des données ou qu’elles sont corrompues), la base de données de production du client est restaurée à un point antérieur dans le temps. Dans le modèle de restauration sur place, le client est mis hors connexion pendant un bref instant, le temps que la base de données soit restaurée et remise en ligne. La base de données d’origine est supprimée, mais elle peut toujours être restaurée si vous avez besoin de revenir à un point encore plus antérieur dans le temps. Il existe une variante de ce modèle : vous pouvez renommer la base de données au lieu de la supprimer, bien que cela n’offre aucun avantage supplémentaire en termes de sécurité des données.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtenir les scripts d’application Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
-Les scripts et le code source de l’application SaaS Wingtip sont disponibles dans le référentiel GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procédure de téléchargement des scripts SaaS Wingtip](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simuler la suppression accidentelle des données par le client
 
@@ -146,6 +146,6 @@ Dans ce didacticiel, vous avez appris à :
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* Autres [didacticiels reposant sur l’application SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Autres didacticiels reposant sur l’application SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL](sql-database-business-continuity.md)
 * [En savoir plus sur les sauvegardes SQL Database](sql-database-automated-backups.md)

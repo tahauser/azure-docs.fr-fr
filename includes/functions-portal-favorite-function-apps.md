@@ -12,6 +12,6 @@ Si vous ne l’avez pas déjà fait, ajoutez des Function Apps à vos favoris da
 
 3. Fermez le menu, puis faites défiler vers le bas pour afficher l’icône Functions. Cliquez sur cette icône pour afficher une liste de toutes vos Function Apps. Cliquez sur votre Function App pour travailler avec les fonctions de cette application. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Applications de fonction dans les Favoris](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

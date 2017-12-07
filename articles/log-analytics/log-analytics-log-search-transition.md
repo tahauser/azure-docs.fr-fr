@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transition vers le nouveau langage de requête d’Azure Log Analytics
 Log Analytics a récemment implémenté un nouveau langage de requête.  Cet article a pour but de vous aider à passer à ce langage pour Log Analytics si vous connaissez déjà l’ancien.
+
+## <a name="resources"></a>Ressources
+
 
 ## <a name="language-converter"></a>Convertisseur de langage
 
 Si vous connaissez l’ancien langage de requête de Log Analytics, le moyen le plus simple de créer la même requête dans le nouveau langage est d’utiliser le convertisseur de langage, qui se trouve dans le portail Recherche dans les journaux lorsque votre espace de travail est converti.  L’utilisation du convertisseur est simple. Il vous suffit de taper une requête dans l’ancien langage, puis de cliquer sur **Convertir**.  Vous pouvez soit cliquer sur le bouton de recherche pour exécuter la requête, soit copier-coller la requête pour l’utiliser ailleurs.
 
 ![Convertisseur de langage](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Ressources
+Le [site de la documentation du langage de requête Log Analytics](https://docs.loganalytics.io) contient toutes les ressources dont vous avez besoin pour vous familiariser avec le nouveau langage,  notamment des didacticiels, des exemples et des informations de référence complètes.
 
 
 ## <a name="cheat-sheet"></a>Aide-mémoire

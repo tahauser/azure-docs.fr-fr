@@ -3,7 +3,7 @@ title: "Comment reprotéger à partir de machines virtuelles rebasculées vers l
 description: "Après un basculement de machines virtuelles d’une région Azure vers une autre, vous pouvez utiliser Azure Site Recovery pour protéger les machines dans le sens inverse. Découvrez comment effectuer une reprotection avant un rebasculement."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Reprotection à partir d’une région Azure rebasculée vers la région primaire
 
@@ -31,16 +31,16 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Vue d'ensemble
 Lorsque vous [basculez](site-recovery-failover.md) les machines virtuelles d’une région Azure vers une autre, les machines virtuelles sont dans un état non protégé. Si vous souhaitez ramener les machines virtuelles à la région primaire, vous devez les protéger avant de les rebasculer. La façon d’opérer le basculement ne change pas, quelle que soit la direction du basculement. De même, après activation de la protection des machines virtuelles, il n’existe aucune différence entre la reprotection après basculement ou après restauration automatique.
-Pour expliquer les flux de travail de reprotection et pour éviter toute confusion, nous allons utiliser comme site principal des machines protégées la région Asie-Pacifique, et comme site de récupération des machines la région Asie du Sud-est. Pendant le basculement, vous allez basculer les machines virtuelles vers la région Asie du Sud-est. Avant la restauration automatique, vous devez reprotéger les machines virtuelles de l’Asie du Sud-est vers l’Asie-Pacifique. Cet article décrit la procédure à suivre pour reprotéger.
+Pour expliquer les flux de travail de reprotection et pour éviter toute confusion, nous allons utiliser comme site principal des machines protégées la région Asie-Pacifique, et comme site de récupération des machines la région Asie du Sud-Est. Pendant le basculement, les machines virtuelles démarreront dans la région Asie du Sud-Est. Avant la restauration automatique, vous devez reprotéger les machines virtuelles de l’Asie du Sud-est vers l’Asie-Pacifique. Cet article décrit la procédure à suivre pour reprotéger.
 
 > [!WARNING]
-> Si vous avez [procédé à la migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas effectuer de restauration automatique après cela.
+> Si vous avez [procédé à la migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas reprotéger ou restaurer automatiquement la machine virtuelle.
 
 Une fois la reprotection terminée et les machines virtuelles protégées en cours de réplication, vous pouvez lancer un basculement sur les machines virtuelles afin de les ramener dans la région Asie-Pacifique.
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 1. Les machines virtuelles doivent avoir été validées.
 2. Le site cible, en l’occurrence la région Azure Asie-Pacifique, doit être disponible et en mesure d’accéder aux ressources ou de créer des ressources dans cette région.
 
@@ -56,9 +56,9 @@ Voici la procédure à suivre pour reprotéger une machine virtuelle à l’aide
 
 ![Panneau Reprotéger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Vérifiez les informations **Groupe de ressources, Réseau, Stockage et Groupes à haute disponibilité**, puis cliquez sur OK. Si des ressources sont marquées (nouvelles), elles seront créées dans le cadre de la reprotection.
+3. Vérifiez les informations **Groupe de ressources, Réseau, Stockage et Groupes à haute disponibilité**, puis cliquez sur OK. Si des ressources sont marquées (nouvelles), elles sont créées pendant la reprotection.
 
-Cela aura pour effet de déclencher un travail de reprotection qui amorcera tout d’abord le site cible (en l’occurrence Asie du Sud-est) avec les dernières données, puis répliquera les deltas avant que vous opériez le rebasculement vers la région Asie du Sud-Est.
+Le travail de reprotection amorce tout d’abord le site cible (en l’occurrence Asie du Sud-est) avec les dernières données, puis réplique les deltas avant que vous opériez le rebasculement vers la région Asie du Sud-Est.
 
 ### <a name="reprotect-customization"></a>Personnalisation de la reprotection
 Si vous souhaitez choisir le compte de stockage ou le réseau d’extraction durant une reprotection, vous pouvez le faire à l’aide de l’option Personnaliser fournie dans le panneau Reprotéger.
@@ -72,7 +72,7 @@ Vous pouvez personnaliser les propriétés suivantes de la machine virtuelle cib
 |Propriété |Remarques  |
 |---------|---------|
 |Groupe de ressources cible     | Vous pouvez choisir de modifier le groupe de ressources cible dans lequel créer la machine virtuelle. Dans le cadre d’une reprotection, la machine virtuelle cible est supprimée. Vous pouvez donc choisir un nouveau groupe de ressources sous lequel créer la machine virtuelle après le basculement.         |
-|Réseau virtuel cible     | Le réseau ne peut pas être modifié pendant la reprotection. Pour modifier le réseau, refaites le mappage réseau.         |
+|Réseau virtuel cible     | Le réseau ne peut pas être modifié pendant le travail de reprotection. Pour modifier le réseau, refaites le mappage réseau.         |
 |Stockage cible     | Vous pouvez modifier le compte de stockage sur lequel créer la machine virtuelle après basculement.         |
 |Stockage du cache     | Vous pouvez spécifier un compte de stockage de cache à utiliser lors de la réplication. Si poursuivez avec les valeurs par défaut, un nouveau compte de stockage de cache est créé s’il n’en existe pas.         |
 |Groupe à haute disponibilité     |Si la machine virtuelle en Asie-Pacifique fait partie d’un groupe à haute disponibilité, vous pouvez choisir un groupe à haute disponibilité pour la machine virtuelle cible en Asie du Sud-est. Le comportement par défaut consiste à chercher le groupe à haute disponibilité d’Asie du Sud-est et à tenter de l’utiliser. Au cours de personnalisation, vous pouvez spécifier un nouveau groupe à haute disponibilité.         |
@@ -88,7 +88,7 @@ Tout comme après la première activation de la protection, voici les artefacts 
 
 Voici la liste des étapes qui se produisent lorsque vous déclenchez un travail de reprotection. Ceci est dans le cas où la machine virtuelle côté cible existe.
 
-1. Les artefacts requis sont créés dans le cadre de la reprotection. S’ils existent déjà, ils sont réutilisés.
+1. Les artefacts nécessaires sont créés pendant la reprotection. S’ils existent déjà, ils sont réutilisés.
 2. La machine virtuelle côté cible (Asie du Sud-est) est tout d’abord mise hors tension si elle est en cours d’exécution.
 3. Le disque de la machine virtuelle côté cible est copié par Azure Site Recovery dans un conteneur en tant qu’objet blob d’amorçage.
 4. La machine virtuelle côté cible est ensuite supprimée.

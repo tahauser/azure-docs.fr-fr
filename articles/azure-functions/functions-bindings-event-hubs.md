@@ -1,5 +1,5 @@
 ---
-title: "Liaisons d’Event Hubs Azure Functions"
+title: Liaisons Azure Event Hubs pour Azure Functions
 description: "Découvrez comment utiliser des liaisons Azure Event Hubs dans Azure Functions."
 services: functions
 documentationcenter: na
@@ -7,7 +7,7 @@ author: wesmc7777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: functions
 ms.devlang: multiple
@@ -16,19 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-event-hubs-bindings"></a>Liaisons d’Event Hubs Azure Functions
+# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
 Cet article explique comment utiliser des liaisons [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) pour Azure Functions. Azure Functions prend en charge des liaisons de déclencheur et de sortie pour des Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="event-hubs-trigger"></a>Déclencheur Event Hubs
+## <a name="trigger"></a>Déclencheur
 
 Utilisez le déclencheur Event Hubs pour répondre à un événement envoyé à un flux d’événements d’un hub d’événements. Vous devez disposer de l’accès en lecture au hub d’événements pour configurer le déclencheur.
 
@@ -176,7 +176,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Déclencheur - Attributs pour C# précompilé
+## <a name="trigger---attributes"></a>Déclencheur - attributs
 
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -185,7 +185,12 @@ Le constructeur de l’attribut prend le nom du hub d’événements, le nom du 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+{
+    ...
+}
 ```
+
+Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Déclencheur - configuration
 
@@ -198,7 +203,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name** | n/a | Nom de la variable qui représente l’élément d’événement dans le code de la fonction. | 
 |**path** |**EventHubName** | Nom du hub d’événements. | 
 |**consumerGroup** |**ConsumerGroup** | Propriété facultative qui définit le [groupe de consommateurs](../event-hubs/event-hubs-features.md#event-consumers) utilisé pour l’abonnement à des événements dans le hub. En cas d’omission, le groupe de consommateurs `$Default` est utilisé. | 
-|**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.<br/>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
@@ -206,7 +213,7 @@ Le fichier [host.json](functions-host-json.md#eventhub) contient les paramètres
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="event-hubs-output-binding"></a>Liaison de sortie Event Hubs
+## <a name="output"></a>Sortie
 
 Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 
@@ -262,7 +269,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Voici le code Script C# qui crée plusieurs messages :
+Voici le code de script C# qui crée plusieurs messages :
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -341,7 +348,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Sortie - Attributs pour C# précompilé
+## <a name="output---attributes"></a>Sortie - attributs
 
 Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -351,7 +358,12 @@ Le constructeur de l’attribut prend le nom du hub d’événements, le hub d�
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+{
+    ...
+}
 ```
+
+Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -360,10 +372,12 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur eventHub. |
-|**direction** | n/a | Doit être défini sur out. Ce paramètre est défini automatiquement lorsque vous créez la liaison dans le portail Azure. |
+|**direction** | n/a | Doit être défini sur « out ». Ce paramètre est défini automatiquement lorsque vous créez la liaison dans le portail Azure. |
 |**name** | n/a | Nom de variable utilisé dans le code de la fonction qui représente l’événement. | 
 |**path** |**EventHubName** | Nom du hub d’événements. | 
-|**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements.<br/>Lorsque vous développez localement, les paramètres d’application passent dans les valeurs du [fichier local.settings.json](functions-run-local.md#local-settings-file).|
+|**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Sortie - utilisation
 

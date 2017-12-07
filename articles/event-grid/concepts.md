@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -20,7 +20,7 @@ Voici les principaux concepts utilisés dans Azure Event Grid :
 
 ## <a name="events"></a>Événements
 
-Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système.  Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique.  Chaque événement comporte également des informations spécifiques qui se rapportent uniquement à l’événement en question. Par exemple, un événement concernant un nouveau fichier en cours de création dans le stockage Azure contient des informations détaillées sur le fichier, telles que la valeur lastTimeModified. Ou bien, un événement concernant une machine virtuelle en cours de redémarrage contient le nom de la machine virtuelle et le motif du redémarrage. Chaque événement est limité à 64 Ko de données.
+Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système.  Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique.  Chaque événement comporte également des informations spécifiques qui se rapportent uniquement au type d’événement en question. Par exemple, un événement concernant un nouveau fichier en cours de création dans le Stockage Azure contient des informations détaillées sur le fichier, et notamment la valeur `lastTimeModified`. Ou bien, un événement concernant une machine virtuelle en cours de redémarrage contient le nom de la machine virtuelle et le motif du redémarrage. Chaque événement est limité à 64 Ko de données.
 
 ## <a name="event-sourcespublishers"></a>Sources d’événement/éditeurs
 
@@ -46,7 +46,7 @@ Lors de l’abonnement à une rubrique, vous pouvez filtrer les événements qui
 
 ## <a name="security"></a>Sécurité
 
-L’événement assure une sécurité lors de l’abonnement à des rubriques et la publication de rubriques. Lors de l’abonnement, vous devez disposer des autorisations appropriées sur la ressource ou la rubrique. Lors de la publication, vous devez disposer d’un jeton SAS ou d’une clé d’authentification pour la rubrique. Pour en savoir plus, consultez la page [Sécurité et authentification pour Event Grid](security-authentication.md).
+Event Grid assure la sécurité lors de l’abonnement et de la publication de rubriques. Lors de l’abonnement, vous devez disposer des autorisations appropriées sur la ressource ou la rubrique. Lors de la publication, vous devez disposer d’un jeton SAS ou d’une clé d’authentification pour la rubrique. Pour en savoir plus, consultez la page [Sécurité et authentification pour Event Grid](security-authentication.md).
 
 ## <a name="failed-delivery"></a>Échec de la distribution
 

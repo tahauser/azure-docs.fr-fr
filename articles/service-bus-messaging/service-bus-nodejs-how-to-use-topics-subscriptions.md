@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5e758e831765ba2762b7efe7c3a10f10e59a5ddc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9e463273fff0ecc198b0574443c4241dde7be79
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Utilisation des rubriques et abonnements Service Bus avec Node.js
 
@@ -61,7 +61,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configuration d’une connexion Service Bus
-Le module Azure lit les variables d’environnement `AZURE_SERVICEBUS_NAMESPACE` et `AZURE_SERVICEBUS_ACCESS_KEY` pour obtenir les informations nécessaires pour se connecter à Service Bus. Si ces variables d’environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l’appel de `createServiceBusService`.
+Le module Azure lit la variable d’environnement `AZURE_SERVICEBUS_CONNECTION_STRING` pour la chaîne de connexion que vous avez obtenue à l’étape précédente, « Obtenir les informations d’identification ». Si cette variable d’environnement n’est pas définie, vous devez spécifier les informations de compte lors de l’appel de `createServiceBusService`.
 
 Pour obtenir un exemple de paramétrage des variables d’environnement pour un service cloud Azure, consultez [Service cloud Node.js avec stockage][Node.js Cloud Service with Storage].
 

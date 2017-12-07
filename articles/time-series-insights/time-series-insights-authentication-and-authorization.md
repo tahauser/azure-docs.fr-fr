@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour authentifier et autoriser des API dans Azure Time Series Insights
+title: Guide pratique pour authentifier et autoriser par API dans Azure Time Series Insights
 description: "Cet article décrit comment configurer l’authentification et l’autorisation pour une application personnalisée qui appelle l’API Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -32,7 +32,7 @@ Lorsque vous avez une application qui doit accéder à Time Series Insights, vou
 * Il est inutile de modifier les informations d’identification de l’application si vos responsabilités évoluent.
 * Vous pouvez utiliser un certificat ou une clé d’application pour automatiser l’authentification lorsque vous exécutez un script sans assistance.
 
-Cette rubrique vous explique comment effectuer ces étapes via le portail Azure. Elle se concentre sur une application à client unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à client unique sont généralement utilisées pour des applications métier exécutées au sein de votre organisation.
+Cet article explique comment effectuer ces étapes dans le portail Azure. Elle se concentre sur une application à client unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à client unique sont généralement utilisées pour des applications métier exécutées au sein de votre organisation.
 
 Le flux d’installation se compose de trois étapes principales :
 

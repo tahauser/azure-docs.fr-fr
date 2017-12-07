@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.lasthandoff: 10/11/2017
 
 Cet article décrit comment préparer votre environnement Azure de manière à lancer la réplication de machines virtuelles VMware vers Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-Cet article part des principes suivants :
+L’article suppose que :
 - Vous avez créé un coffre Recovery Services pour protéger vos machines virtuelles VMware. Vous pouvez créer un coffre Recovery Services dans le [portail Azure](http://portal.azure.com "portail Azure").
 - Vous avez [configuré votre environnement local](./site-recovery-set-up-vmware-to-azure.md) pour répliquer les machines virtuelles VMware vers Azure.
 
@@ -46,7 +46,7 @@ Selon le modèle de déploiement choisi, une validation est exécutée pour vér
 
 Une fois les validations terminées avec succès, cliquez sur OK pour passer à l’étape suivante.
 
-Si vous n’avez pas de compte de stockage Resource Manager ou réseau virtuel compatible, ou si vous souhaitez en ajouter d’autres, vous pouvez le faire en cliquant sur les boutons **+ Compte de stockage** ou **+ Réseau** en haut du panneau.
+Si vous n’avez pas de compte de stockage Resource Manager ou de réseau virtuel compatible, vous pouvez en créer un en cliquant sur le bouton **+ Compte de stockage** ou sur le bouton **+ Réseau** en haut de la page.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Configurer les paramètres de réplication](./site-recovery-setup-replication-settings-vmware.md)

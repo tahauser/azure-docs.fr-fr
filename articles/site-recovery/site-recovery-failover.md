@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Basculement via Microsoft Azure Site Recovery
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
@@ -70,7 +70,7 @@ Cette procédure explique comment exécuter un basculement dans le cadre d’un 
 1. Si vous êtes satisfait de la machine vers laquelle est effectué le basculement, vous pouvez **Valider** le basculement. La validation supprime tous les points de récupération disponibles avec le service. Par ailleurs, l’option **Changer le point de récupération** n’est plus disponible.
 
 ## <a name="planned-failover"></a>Basculement planifié
-Les machines virtuelles/serveurs physiques protégés à l’aide de Site Recovery prennent également en charge le **basculement planifié**. Ce basculement planifié évite toute perte de données. Lorsqu’un basculement planifié se déclenche, les machines virtuelles sources sont arrêtées, les données à synchroniser sont synchronisées, puis le basculement est effectué.
+Les machines virtuelles/serveurs physiques protégés à l’aide de Site Recovery prennent également en charge le **basculement planifié**. Ce basculement planifié évite toute perte de données. Lorsqu’un basculement planifié se déclenche, les machines virtuelles sources sont arrêtées, les données les plus récentes sont synchronisées, puis un basculement est effectué.
 
 > [!NOTE]
 > Lorsque vous basculez des machines virtuelles Hyper-v d’un site local vers un autre site local, pour revenir au site local principal vous devez d’abord exécuter une **réplication inverse** de la machine virtuelle vers le site principal, puis déclencher un basculement. Si la machine virtuelle principale n’est pas disponible, avant de commencer la **réplication inversée** vous devez restaurez la machine virtuelle à partir d’une sauvegarde.   

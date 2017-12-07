@@ -13,44 +13,33 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/14/2017
+ms.date: 07/15/2017
 ms.author: carlrab
-ms.openlocfilehash: b7617d8f4cfe09052204182b40f6e5f7d46087b8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3427d216540451bc10b968f866d0fce0f6df3c54
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Utilisation de Ruby pour interroger une base de données SQL Azure
 
-Ce didacticiel de démarrage rapide indique comment utiliser [Ruby](https://www.ruby-lang.org) pour créer un programme qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
+Ce didacticiel de démarrage rapide montre comment utiliser [Ruby](https://www.ruby-lang.org) pour créer un programme qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous disposez des éléments prérequis suivants :
+Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
-- base de données SQL Azure. Ce guide de démarrage rapide utilise les ressources créées dans l’une de ces instructions de démarrage rapide : 
-
-   - [Créer une base de données - Portail](sql-database-get-started-portal.md)
-   - [Créer une base de données - CLI](sql-database-get-started-cli.md)
-   - [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce didacticiel de démarrage rapide.
-- Vous avez installé Ruby et les logiciels connexes pour votre système d’exploitation.
+
+- Installé Ruby et les logiciels connexes sur votre système d’exploitation :
     - **MacOS** : installez Homebrew installez rbenv et ruby-build, installez Ruby, puis installez FreeTDS. Consultez les [étapes 1.2, 1.3, 1.4 et 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
     - **Ubuntu** : installez les éléments requis pour Ruby, installez rbenv et ruby-build, installez Ruby, puis installez FreeTDS. Consultez les [étapes 1.2, 1.3, 1.4 et 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
 
 ## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
-Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Sur la page **Aperçu** de votre base de données, vérifiez le nom complet du serveur. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**, comme illustré sur l’image suivante :
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Si vous avez oublié vos informations de connexion à votre serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur et, si nécessaire, réinitialiser le mot de passe.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
 > Une règle de pare-feu doit être en place pour l’adresse IP publique de l’ordinateur sur lequel vous effectuez ce didacticiel. Si vous êtes sur un autre ordinateur ou si vous avez une autre adresse IP publique, créez une [règle de pare-feu au niveau du serveur à l’aide du portail Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 

@@ -13,46 +13,37 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: 5fc50c78af7c88cc2d0c537456cb8323002f8696
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 913055fca46580d870dc2e015f442b431c9ff6e0
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Utilisation de NET (C#) avec Visual Studio pour se connecter à une base de données SQL Azure et l’interroger
 
-Ce didacticiel de démarrage rapide indique comment utiliser [.NET Framework](https://www.microsoft.com/net/) pour créer un programme C# avec Visual Studio qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
+Ce didacticiel de démarrage rapide indique comment utiliser le [.NET Framework](https://www.microsoft.com/net/) pour créer un programme C# avec Visual Studio qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Composants requis
 
-Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous disposez des éléments suivants :
+Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
-- base de données SQL Azure. Ce guide de démarrage rapide utilise les ressources créées dans l’une de ces instructions de démarrage rapide : 
-
-   - [Créer une base de données - Portail](sql-database-get-started-portal.md)
-   - [Créer une base de données - CLI](sql-database-get-started-cli.md)
-   - [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Une [règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce didacticiel de démarrage rapide.
+
 - Une installation de [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="sql-server-connection-information"></a>Informations de connexion SQL Server
 
-Obtenez les informations de connexion requises pour la connexion à la base de données SQL Azure. Vous aurez besoin du nom du serveur complet, du nom de la base de données et des informations de connexion dans les procédures suivantes.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Sur la page **Vue d’ensemble** de votre base de données, vérifiez le nom complet du serveur, comme indiqué dans l’image suivante. Vous pouvez pointer sur le nom du serveur pour afficher l’option **Cliquez pour copier**. 
+#### <a name="for-adonet"></a>Pour ADO.NET
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Continuez en cliquant sur **Afficher les chaînes de connexion de la base de données**.
 
-4. Si vous avez oublié vos informations de connexion au serveur Azure SQL Database, accédez à la page du serveur SQL Database pour afficher le nom de l’administrateur du serveur. Vous pouvez réinitialiser le mot de passe si nécessaire.
-
-5. Cliquez sur **Afficher les chaînes de connexion de la base de données**.
-
-6. Passez en revue la chaîne de connexion **ADO.NET** complète.
+2. Passez en revue la chaîne de connexion **ADO.NET** complète.
 
     ![Chaîne de connexion ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
@@ -142,3 +133,10 @@ namespace sqltest
 - En savoir plus sur la [prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli).
 - Découvrez comment [concevoir votre première base de données SQL Azure à l’aide de SSMS](sql-database-design-first-database.md) ou [concevoir votre première base de données SQL Azure à l’aide de .NET](sql-database-design-first-database-csharp.md).
 - Pour plus d’informations sur .NET, consultez la [documentation .NET](https://docs.microsoft.com/dotnet/).
+- [Exemple de logique de nouvelle tentative : Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
