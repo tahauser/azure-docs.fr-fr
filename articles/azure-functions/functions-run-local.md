@@ -65,7 +65,7 @@ Lorsque vous effectuez une installation sur Ubuntu, utilisez `sudo` comme suit 
 sudo npm install -g azure-functions-core-tools@core
 ```
 
-Lorsque vous procédez à une installation sur macOS et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
+Lorsque vous procédez à une installation sur OSX et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
