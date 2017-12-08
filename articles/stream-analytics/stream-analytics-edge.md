@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics sur IoT Edge (version préliminaire)
 
@@ -35,7 +35,7 @@ Cette fonctionnalité est en préversion, si vous avez des questions ou des comm
 * **Contrôle et commande de faible latence**: par exemple, les systèmes de sécurité de fabrication doivent répondre aux données opérationnelles avec une latence très faible. Avec ASA sur IoT Edge, vous pouvez analyser les données de capteur quasiment en temps réel et émettre des commandes lorsque vous détectez des anomalies pour arrêter une machine ou déclencher des alertes.
 *   **Connectivité au cloud limitée** : les systèmes stratégiques, tels que les équipements miniers à distance, les navires connectés ou les installations de forage offshore, ont besoin d’analyser les données et d’y réagir, même lorsque la connectivité au cloud est intermittente. Avec ASA, votre logique de diffusion en continu s’exécute indépendamment de la connectivité réseau et vous pouvez choisir ce que vous envoyez sur le cloud pour un traitement ultérieur ou pour y être stocké.
 * **Bande passante limitée** : le volume de données produites par les moteurs à réaction ou par les voitures connectées peut être tellement important que les données doivent être filtrées ou traitées au préalable avant d’être envoyées vers le cloud. À l’aide de ASA, vous pouvez filtrer ou agréger les données qui doivent être envoyés vers le cloud.
-* **Conformité** : pour obtenir une conformité réglementaire, certaines données peuvent être rendues anonymes localement ou agrégées avant d’être envoyés vers le cloud. Avec ASA, vous 
+* **Conformité** : pour obtenir une conformité réglementaire, certaines données peuvent être rendues anonymes localement ou agrégées avant d’être envoyés vers le cloud.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Tâches de périphérie dans Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Qu’est-ce qu’une tâche de périphérie ?
@@ -92,9 +92,9 @@ Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée
 #### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>Configurer votre environnement IoT Edge sur vos appareils
 Les tâches de périphérie peuvent être déployées sur les appareils exécutant Azure IoT Edge.
 Pour ce faire, vous devez procéder comme suit :
-- Créez un hub Iot.
-- Installez le runtime Docker et IoT Edge sur vos appareils de périphérie.
-- Définissez vos appareils comme « Appareils IoT Edge » dans le hub IoT.
+- Créez un Iot Hub ;
+- Installez le runtime Docker et IoT Edge sur vos appareils de périphérie ;
+- Définissez vos appareils comme « Appareils IoT Edge » dans le IoT Hub.
 
 Ces étapes sont décrites dans la documentation IoT Edge pour [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 
