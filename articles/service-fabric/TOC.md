@@ -101,7 +101,6 @@
 
 ## Gérer les applications
 ### [Vue d'ensemble](service-fabric-application-lifecycle.md)
-### [Le paramètre ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Mise à niveau de l’application
 #### [Vue d'ensemble](service-fabric-application-upgrade.md)
 #### [Configuration](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Sérialisation de données lors des mises à niveau de d’application](service-fabric-application-upgrade-data-serialization.md)
 #### [Rubriques avancées sur la mise à niveau d’application](service-fabric-application-upgrade-advanced.md)
 ### [Présentation du service d’analyse des erreurs](service-fabric-testability-overview.md)
+### [Le paramètre ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
 ## Créer et gérer des clusters
 ### [Vue d'ensemble](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Limitation](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Mouvement de service](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Intégration avec la gestion des API](service-fabric-api-management-overview.md)
-
 ## Surveiller et diagnostiquer
 ### [Surveiller et diagnostiquer des applications](service-fabric-diagnostics-overview.md)
 ### Générer des événements
@@ -164,13 +162,14 @@
 #### [Analyser des événements avec OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Résoudre les problèmes de votre cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Intégration avec la gestion des API](service-fabric-api-management-overview.md)
+
 # Procédures
 ## Configuration de l'environnement de développement
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Configurer l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
+### [Configurer l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
 ## Générer une application
 ### [Créer votre première application C# dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
