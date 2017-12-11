@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -230,7 +230,7 @@ Pour plus d'informations, consultez la page [Reformation des modèles Machine Le
 
 **Comment puis-je surveiller mon service web déployé en production ?**
 
-Une fois que vous déployez un modèle prédictif, vous pouvez le surveiller à partir du portail Azure Classic (services web Classic uniquement) ou du portail des services web Azure Machine Learning. Chaque service déployé dispose de son propre tableau de bord, à partir duquel vous pouvez consulter les informations de surveillance correspondant à ce service. Pour plus d’informations sur la gestion de vos services web déployés, voir [Gestion d’un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md) et [Gestion d’un espace de travail Azure Machine Learning](manage-workspace.md).
+Une fois que vous déployez un modèle prédictif, vous pouvez le surveiller à partir du portail des services web Azure Machine Learning. Chaque service déployé dispose de son propre tableau de bord, à partir duquel vous pouvez consulter les informations de surveillance correspondant à ce service. Pour plus d’informations sur la gestion de vos services web déployés, voir [Gestion d’un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md) et [Gestion d’un espace de travail Azure Machine Learning](manage-workspace.md).
 
 **Existe-t-il un endroit où je peux voir le résultat de mon service RRS/BES ?**
 
@@ -285,7 +285,7 @@ Non.
 ## <a name="security-and-availability"></a>Sécurité et disponibilité
 **Qui a accès au point de terminaison http pour le service web par défaut ? Comment puis-je limiter l’accès au point de terminaison ?**
 
-Après le déploiement d’un service web, un point de terminaison par défaut est créé pour ce service. Le point de terminaison par défaut peut être appelé à l’aide de sa clé API. Il est possible d’ajouter des points de terminaison supplémentaires avec leurs propres clés à partir du portail Azure Classic ou par le biais d’un programme, à l’aide des API Gestion des services web. Des clés d’accès sont nécessaires pour effectuer des appels au service web. Pour plus d’informations, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning](consume-web-services.md).
+Après le déploiement d’un service web, un point de terminaison par défaut est créé pour ce service. Le point de terminaison par défaut peut être appelé à l’aide de sa clé API. Il est possible d’ajouter des points de terminaison supplémentaires avec leurs propres clés à partir du portail des services web ou par le biais d’un programme, à l’aide des API Gestion des services web. Des clés d’accès sont nécessaires pour effectuer des appels au service web. Pour plus d’informations, consultez [Utilisation d’un service Web Microsoft Azure Machine Learning](consume-web-services.md).
 
 **Que se passe-t-il si mon compte de stockage Azure est introuvable ?**
 
@@ -297,7 +297,7 @@ Si vous avez supprimé par inadvertance le compte de stockage, vous devez recré
 
 Machine Learning Studio s’appuie sur un compte de stockage Azure fourni par l’utilisateur pour enregistrer les données intermédiaires au moment de l’exécution du workflow. Ce compte de stockage est fourni à Machine Learning Studio au moment de la création d’un espace de travail et les clés d’accès sont associées à cet espace de travail. Si les clés d’accès sont modifiées après la création de l’espace de travail, celui-ci ne pourra plus accéder au compte de stockage. Il cessera de fonctionner, et toutes les expériences dans cet espace de travail échoueront.
 
-Si vous avez modifié les clés d’accès du compte de stockage, resynchronisez-les dans l’espace de travail à l’aide du portail Azure Classic.  
+Si vous avez modifié les clés d’accès du compte de stockage, resynchronisez-les dans l’espace de travail à l’aide du portail Azure.  
 
 ## <a name="support-and-training"></a>Support et formations
 **Où puis-je obtenir des formations pour Azure Machine Learning ?**
@@ -509,7 +509,7 @@ Vous avez besoin uniquement d'un compte Microsoft. Accédez à la [page d’accu
 
 **Comment s’inscrire au niveau Standard d’Azure Machine Learning ?**
 
-Tout d’abord, vous devez avoir accès à un abonnement Azure pour créer un espace de travail Machine Learning Standard. Vous pouvez vous souscrire pour un abonnement Azure gratuit de 30 jours, puis migrer vers un abonnement Azure payant ou acheter directement ce dernier. Vous pouvez ensuite créer un espace de travail Machine Learning à partir du portail de gestion Microsoft Azure Classic, après avoir obtenu l’accès à l’abonnement. Veuillez consulter [les instructions pas à pas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Tout d’abord, vous devez avoir accès à un abonnement Azure pour créer un espace de travail Machine Learning Standard. Vous pouvez vous souscrire pour un abonnement Azure gratuit de 30 jours, puis migrer vers un abonnement Azure payant ou acheter directement ce dernier. Vous pouvez ensuite créer un espace de travail Machine Learning à partir du portail de gestion Microsoft Azure, après avoir obtenu l’accès à l’abonnement. Veuillez consulter [les instructions pas à pas](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 En outre, vous pouvez être invité par un propriétaire à accéder à son espace de travail Machine Learning Standard.
 

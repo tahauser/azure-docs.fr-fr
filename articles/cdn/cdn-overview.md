@@ -3,7 +3,7 @@ title: "Vue d’ensemble d’Azure CDN | Microsoft Docs"
 description: "Découvrez le réseau de distribution de contenu (CDN) Azure et comment l'utiliser pour diffuser du contenu haut débit en mettant en cache les objets blob et le contenu statique."
 services: cdn
 documentationcenter: 
-author: smcevoy
+author: dksimpson
 manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -12,20 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/08/2017
+ms.date: 11/10/2017
 ms.author: v-semcev
-ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: cdcf07b6af2bd915345361c0bda2dcd9abe5486e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Vue d'ensemble du réseau de distribution de contenu (CDN) Azure
-Le réseau de distribution de contenu (CDN) Azure met en cache le contenu web statique à des emplacements stratégiques afin de fournir un débit maximal pour la distribution de contenu aux utilisateurs. Le CDN offre aux développeurs une solution globale pour la distribution de contenu haut débit en mettant en cache le contenu sur des nœuds physiques dans le monde entier. 
+# <a name="overview-of-the-azure-content-delivery-network"></a>Vue d'ensemble d'Azure Content Delivery Network
+
+Le réseau de distribution de contenu (CDN) Azure met en cache le contenu web statique à des emplacements stratégiques afin de fournir un débit maximal pour la distribution sécurisée de contenu aux utilisateurs. Le CDN offre aux développeurs une solution globale pour la distribution rapide de contenu haut débit en mettant en cache le contenu sur des nœuds physiques dans le monde entier. 
 
 > [!NOTE]
 > Cet article décrit le réseau de distribution de contenu Azure, son fonctionnement et les fonctionnalités de chaque produit Azure CDN. Pour passer ces informations et suivre un didacticiel sur la création d’un point de terminaison de réseau de distribution de contenu, [Prise en main d’Azure CDN](cdn-create-new-endpoint.md). Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page [Emplacements des points de présence CDN Azure](cdn-pop-locations.md).
-> 
 
 Les avantages de l’utilisation d’un CDN pour mettre en cache les ressources de site web incluent :
 
@@ -33,23 +33,22 @@ Les avantages de l’utilisation d’un CDN pour mettre en cache les ressources 
 * Une mise à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple le début de l’événement de lancement d’un produit.
 * La distribution des requêtes utilisateur et la diffusion de contenu directement depuis des serveurs Edge sont là pour que le trafic transmis à l’origine soit moins important.
 
-
 ## <a name="how-it-works"></a>Fonctionnement
 ![Présentation du CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple `<endpointname>.azureedge.net`.  Le DNS achemine la demande à l’emplacement du point de présence (POP) le plus performant.  Il s’agit en général du point de présence le plus proche géographiquement de l'utilisateur.
+1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple `<endpointname>.azureedge.net`. Le DNS achemine la requête vers l’emplacement du meilleur point de présence (POP), généralement le POP géographiquement le plus proche de l’utilisateur.
 2. Si les serveurs Edge du point de présence ne disposent pas du fichier dans leur cache, le serveur Edge demande le fichier à l'origine.  L'origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
 3. L'origine renvoie les fichiers sur le serveur Edge, notamment les en-têtes HTTP facultatifs décrivant la durée de vie du fichier.
 4. Le serveur Edge met en cache le fichier et le renvoie au demandeur d'origine (Alice).  Le fichier reste en cache sur le serveur Edge jusqu’à la fin de la durée de vie.  Si l’origine n’a pas spécifié de durée de vie, elle est par défaut de 7 jours.
 5. Des utilisateurs supplémentaires peuvent demander le même fichier à l’aide de la même URL et peuvent également être dirigés vers ce même point de présence.
-6. Si la durée de vie du fichier n'a pas expiré, le serveur Edge renvoie le fichier à partir du cache.  L’expérience utilisateur est en conséquence plus rapide et plus réactive.
+6. Si la durée de vie du fichier n'a pas expiré, le serveur Edge renvoie le fichier à partir du cache. L’expérience utilisateur est en conséquence plus rapide et plus réactive.
 
 ## <a name="azure-cdn-features"></a>Fonctionnalités d’Azure CDN
 Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**.  Le tableau suivant répertorie les fonctionnalités disponibles avec chaque produit.
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Fonctionnalités de performance et optimisations__ |
+| __Fonctionnalités de performance et optimisations__ |
 | [Accélération de site dynamique](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&amp;#x2713;**  | **&amp;#x2713;** | **&amp;#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Accélération de Site dynamique - Compression d’Image adaptative](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&amp;#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Accélération de Site dynamique - Récupération de l’objet](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&amp;#x2713;**  |  |  |
@@ -58,26 +57,30 @@ Il existe trois produits Azure CDN :  **Azure CDN Standard fourni par Akamai**, 
 | [Équilibrage de charge du serveur global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Purge rapide](cdn-purge-endpoint.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Préchargement de ressources](cdn-preload-endpoint.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
+| Paramètres du cache/des en-têtes (à l’aide des [règles de mise en cache](cdn-caching-rules.md)) |**&amp;#x2713;** |**&amp;#x2713;** | |
+| Paramètres du cache/des en-têtes (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
 | [Mise en cache des chaînes de requête](cdn-query-string.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | Double pile IPv4/IPv6 |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Assistance HTTP/2](cdn-http2.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Sécurité__ |
+| __Sécurité__ |
 | Prise en charge HTTPS avec un point de terminaison CDN |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | [HTTPS sur un domaine personnalisé](cdn-custom-ssl.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Prise en charge du nom de domaine personnalisé](cdn-map-content-to-custom-domain.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Filtrage géographique](cdn-restrict-access-by-country.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Jeton d’authentification](cdn-token-auth.md)|  |  |**&amp;#x2713;**| 
 | [Protection DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Analyse et création de rapports__ |
-| [Analyse principale](cdn-analyze-usage-patterns.md) | **&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| __Analyse et création de rapports__ |
+| [Journaux de diagnostic Azure](cdn-azure-diagnostic-logs.md) | **&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Rapports principaux de Verizon](cdn-analyze-usage-patterns.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Rapports personnalisés de Verizon](cdn-verizon-custom-reports.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Rapports HTTP avancés](cdn-advanced-http-reports.md) | | |**&amp;#x2713;** |
 | [Statistiques en temps réel](cdn-real-time-stats.md) | | |**&amp;#x2713;** |
+| [Performances de nœuds Edge](cdn-edge-performance.md) | | |**&amp;#x2713;** |
 | [Alertes en temps réel](cdn-real-time-alerts.md) | | |**&amp;#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Simplicité d’utilisation__ |
+| __Simplicité d'utilisation__ |
 | Intégration simple des services Azure tels que [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) et [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | Gestion via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) ou [PowerShell](cdn-manage-powershell.md). |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
 | [Moteur de distribution de contenu personnalisable et basé sur des règles](cdn-rules-engine.md) | | |**&amp;#x2713;** |
-| Paramètres du cache/des en-têtes (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
 | Redirection/réécriture d’URL (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
 | Règles d’appareil mobile (à l’aide du [moteur de règles](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
 

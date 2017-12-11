@@ -1,29 +1,29 @@
 ---
-title: "Index, requêtes et filtres dans les pages du portail Recherche Azure | Microsoft Docs"
-description: "Dans le Portail Azure, utilisez les exemples de données prédéfinis pour générer un index. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage."
+title: "Didacticiel Recherche Azure sur l’indexation, l’interrogation et le filtrage à l’aide du portail | Microsoft Docs"
+description: "Dans le portail Azure, utilisez les exemples de données prédéfinis pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Créer, interroger et filtrer un index Recherche Azure dans le portail
 
-Dans le Portail Azure, partez d’un exemple de jeu de données prédéfini pour générer rapidement un index à l’aide de l’Assistant **Importer des données**. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**.  
+Dans le portail Azure, partez d’un exemple de jeu de données prédéfini pour générer rapidement un index Recherche Azure à l’aide de l’Assistant **Importer des données**. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**.  
 
 Cette présentation dénuée de code est destinée à vous familiariser avec les données prédéfinies pour vous permettre d’écrire immédiatement des requêtes intéressantes. Bien que les outils du portail ne puissent pas se substituer au code, ils se révèlent utiles pour les tâches suivantes :
 

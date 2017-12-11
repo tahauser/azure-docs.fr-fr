@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Intégrer System Center Configuration Manager avec OMS Update Management [Préversion]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Intégrer System Center Configuration Manager avec OMS Update Management
 
 Les clients qui ont investi dans System Center Configuration Manager pour gérer des PC, serveurs et autres appareils mobiles s’appuient aussi sur sa puissance et sa maturité pour gérer les mises à jour logicielles dans le cadre de leur cycle de gestion des mises à jour logicielles.  
 
@@ -42,12 +42,13 @@ La façon dont vous gérez les clients hébergés dans Azure IaaS avec votre env
 Si vous avez l’intention de continuer à gérer les déploiements de mises à jour à partir de Configuration Manager, effectuez les étapes suivantes.  OMS se connecte à Configuration Manager pour appliquer les mises à jour aux ordinateurs clients connectés à votre espace de travail Log Analytics. Le contenu des mises à jour est disponible dans le cache de l’ordinateur client comme si le déploiement était géré par Configuration Manager.  
 
 1. Créez un déploiement de mises à jour logicielles à partir du site situé en haut de votre hiérarchie Configuration Manager en suivant le processus décrit dans [Déployer des mises à jour logicielles](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  Le seul paramètre qui doit être configuré différemment par rapport à un déploiement standard est l’option **Ne pas installer les mises à jour logicielles** pour contrôler le comportement de téléchargement du package de déploiement. Ce comportement est géré par la solution OMS Update Management en créant un déploiement de mises à jour planifié à l’étape suivante.  
-2. Dans le portail Azure, sélectionnez votre compte Automation dans l’écran **Compte Automation**, puis créez une variable de type booléen nommée **UseOMSForSCCMUpdates** avec la valeur **true** en suivant les instructions dans [Création d’une variable avec le portail Azure](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal).
-3. Dans le portail OMS, ouvrez le tableau de bord Update Management.  Créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), puis sélectionnez le regroupement Configuration Manager approprié représenté sous la forme d’un groupe d’ordinateurs OMS dans la liste déroulante.  Gardez à l’esprit les points importants suivants :
+
+1. Dans le portail OMS, ouvrez le tableau de bord Update Management.  Créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), puis sélectionnez le regroupement Configuration Manager approprié représenté sous la forme d’un groupe d’ordinateurs OMS dans la liste déroulante.  Gardez à l’esprit les points importants suivants :
     1. Si une fenêtre de maintenance est définie dans le regroupement d’appareils Configuration Manager sélectionné, les membres du regroupement la respectent au détriment du paramètre **Durée** défini dans le déploiement planifié dans OMS.
-    2. Les membres du regroupement cible doivent disposer d’une connexion Internet (qu’elle soit directe, via un serveur proxy ou via la passerelle OMS).  
+    1. Les membres du regroupement cible doivent disposer d’une connexion Internet (qu’elle soit directe, via un serveur proxy ou via la passerelle OMS).  
 
 À l’issue du déploiement des mises à jour avec la solution d’OMS, les ordinateurs cibles membres du groupe d’ordinateurs sélectionné installent les mises à jour à l’heure planifiée à partir de leur cache client local.  Vous pouvez [consulter l’état du déploiement des mises à jour](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) pour surveiller les résultats de votre déploiement.  
+
 
 ### <a name="manage-software-updates-from-oms"></a>Gérer les mises à jour logicielles à partir d’OMS
 

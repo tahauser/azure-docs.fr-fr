@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: a1ea4007f7399dff6da9d66931e1f5366942be0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure
 Ce document est conçu pour vous aider à utiliser Azure Security Center afin de gérer et résoudre les alertes de sécurité.
@@ -57,6 +57,10 @@ Les détails de chaque alerte sont affichés au bas de la page. Pour les organis
 * **État**: état actuel de l’alerte. Il existe deux types d’état :
   * **Active**: l’alerte de sécurité a été détectée.
 * **Gravité**: niveau de gravité (élevé, moyen ou bas).
+
+> [!NOTE]
+> Les alertes de sécurité générés par Security Center seront également affichées dans le journal d’activité Azure. Pour plus d’informations sur l’accès au journal d’activité Azure, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+>
 
 ### <a name="filtering-alerts"></a>Filtrage des alertes
 Vous pouvez filtrer les alertes en fonction de la date, de l’état et du niveau de gravité. Le filtrage des alertes peut être utile quand vous avez besoin de restreindre le nombre d’alertes de sécurité qui s’affichent. Supposons que vous souhaitiez vérifier les alertes de sécurité qui se sont produites au cours des dernières 24 heures, car vous recherchez une violation de sécurité potentielle du système.

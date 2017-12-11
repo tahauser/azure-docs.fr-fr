@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -41,15 +41,23 @@ Les étapes mentionnées dans cet article s’appliquent au modèle de déploiem
 
 ## <a name="about"></a>À propos de la connexion de réseaux virtuels
 
-La connexion entre deux réseaux virtuels est semblable à la création d’une connexion IPsec dans un emplacement sur site. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE et communiquent de la même façon. La différence entre ces types de connexion se trouve dans la configuration de la passerelle réseau locale. Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, vous ne voyez pas l’espace d’adressage de la passerelle réseau locale. L’espace est créé et rempli automatiquement. Si vous mettez à jour l’espace d’adressage pour un réseau virtuel, l’autre réseau virtuel acheminera automatiquement le trafic vers le nouvel espace d’adressage.
+Il existe plusieurs manières de se connecter à des réseaux virtuels. Les sections ci-dessous décrivent les différentes manières de se connecter à des réseaux virtuels.
 
-Si vous utilisez des configurations complexes, il se peut que vous préfériez utiliser une connexion IPsec plutôt qu’une connexion de réseau virtuel à réseau virtuel. Ainsi, vous pourrez spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si vous connectez vos réseaux virtuels avec une connexion IPsec, vous devez créer et configurer la passerelle réseau locale manuellement. Pour plus d’informations, consultez [Configurations d’une connexion de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+### <a name="vnet-to-vnet"></a>Connexion entre deux réseaux virtuels
 
-De plus, si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être les connecter à l’aide de l’homologation de réseaux virtuels. L’homologation de réseaux virtuels n’utilise pas de passerelle VPN, et son prix et sa fonctionnalité sont quelque peu différents. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+La configuration d’une connexion de réseau virtuel à réseau virtuel est un bon moyen de se connecter facilement à des réseaux virtuels. La connexion entre deux réseaux virtuels est semblable à la création d’une connexion IPsec de site à site dans un emplacement local. Ces deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE et communiquent de la même façon. La différence entre ces types de connexion se trouve dans la configuration de la passerelle réseau locale. Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, vous ne voyez pas l’espace d’adressage de la passerelle réseau locale. L’espace est créé et rempli automatiquement. Si vous mettez à jour l’espace d’adressage pour un réseau virtuel, l’autre réseau virtuel achemine automatiquement le trafic vers le nouvel espace d’adressage. La création d’une connexion de réseau virtuel à réseau virtuel est généralement plus rapide et plus simple que la création d’une connexion de site à site entre des réseaux virtuels.
 
-### <a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
+### <a name="site-to-site-ipsec"></a>Site à site (IPsec)
 
-Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
+Si vous travaillez avec une configuration réseau complexe, vous pouvez connecter vos réseaux virtuels à l’aide des étapes [site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Lorsque vous utilisez les étapes IPsec de site à site, vous créez et configurez manuellement les passerelles réseau locales. La passerelle de réseau local pour chaque réseau virtuel traite l’autre réseau virtuel comme un site local. Ainsi, vous pourrez spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si l’espace d’adressage pour un réseau virtuel est modifié, vous devez mettre à jour la passerelle réseau local correspondante pour le refléter. Elle n’est pas automatiquement mise à jour.
+
+### <a name="vnet-peering"></a>Homologation de réseaux virtuels
+
+Vous envisagerez probablement de connecter vos réseaux virtuels à l’aide de VNet Peering. VNet Peering n’utilise pas une passerelle VPN et possède d’autres contraintes. En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
+
+Vous pouvez décider de connecter des réseaux virtuels à l’aide d’une connexion de réseau virtuel à réseau virtuel pour les raisons suivantes :
 
 * **Géo-redondance et présence géographique dans plusieurs régions**
 

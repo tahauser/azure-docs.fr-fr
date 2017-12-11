@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Solution de gestion des mises à jour dans OMS
 
@@ -57,7 +57,7 @@ Vous pouvez déployer et installer des mises à jour logicielles sur des ordinat
 À la date et l’heure spécifiées dans le déploiement de mises à jour, les ordinateurs cibles exécutent le déploiement en parallèle.  Une analyse est tout d’abord effectuée pour vérifier si les mises à jour sont toujours obligatoires et les installe.  Il est important de noter que, pour les ordinateurs clients WSUS, si les mises à jour ne sont pas approuvées dans WSUS, le déploiement de mises à jour échoue.  Les résultats des mises à jour appliquées sont transmis à OMS pour être traités et résumés dans les tableaux de bord ou en recherchant les événements.     
 
 ## <a name="prerequisites"></a>Composants requis
-* La solution prend en charge les évaluations de mise à jour sur Windows Server 2008 et les versions ultérieures, ainsi que les déploiements de mises à jour sur Windows Server 2008 R2 SP1 et les versions ultérieures.  Les options d’installation Server Core et Nano Server ne sont pas prises en charge.
+* La solution prend en charge les évaluations de mise à jour sur Windows Server 2008 et les versions ultérieures, ainsi que les déploiements de mises à jour sur Windows Server 2008 R2 SP1 et les versions ultérieures.  Nano Server n’est pas pris en charge.
 
     > [!NOTE]
     > La prise en charge du déploiement des mises à jour vers Windows Server 2008 R2 SP1 nécessite .NET Framework 4.5 et WMF 5.0 ou une version ultérieure.

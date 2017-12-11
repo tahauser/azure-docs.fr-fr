@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b8c30a2fd68178ddd2bfb3ff079c47ba00928855
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Ce didacticiel
-
-> [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure. Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 
@@ -39,6 +31,8 @@ Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azur
 > * Surveiller l’exécution du pipeline. 
 > * Vérifier la sortie. 
 
+> [!NOTE]
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -71,22 +65,32 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
    FROM hivesampletable
    ```
 2. Dans votre stockage Blob Azure, créez un conteneur nommé **adftutorial** s’il n’existe pas.
-3. Créez un dossier intitulé `hivescripts`.
-4. Téléchargez le fichier `hivescript.hql` dans le sous-dossier `hivescripts`.
+3. Créez un dossier nommé **hivescripts**.
+4. Téléchargez le fichier **hivescript.hql** dans le sous-dossier **hivescripts**.
 
  
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
 
-1. Définissez les variables une par une.
+1. Définissez le nom du groupe de ressources. Vous créez un groupe de ressources dans le cadre de ce didacticiel. Vous pouvez toutefois utiliser un groupe de ressources existant si vous le souhaitez. 
 
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
-    $pipelineName = "MyHivePipeline" # Name of the pipeline
-    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+2. Spécifiez le nom de la fabrique de données. Il doit être globalement unique.
+
+    ```powershell
+    $dataFactoryName = "MyDataFactory09142017"
+    ```
+3. Spécifiez le nom du pipeline. 
+
+    ```powershell
+    $pipelineName = "MyHivePipeline" # 
+    ```
+4. Spécifiez le nom du runtime d’intégration autohébergé. Vous avez besoin d’un runtime d’intégration autohébergé lorsque Data Factory doit accéder à des ressources (comme Azure SQL Database) dans un réseau virtuel. 
+    ```powershell
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
 2. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes. À l’heure actuelle, Data Factory version 2 vous permet de créer des fabriques de données uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et Europe de l’Ouest. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
@@ -226,17 +230,23 @@ Mettez à jour les valeurs des propriétés suivantes dans la définition de ser
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-Basculez sur le dossier dans lequel vous avez créé des fichiers JSON et exécutez la commande suivante pour déployer les services liés : 
+## <a name="create-linked-services"></a>Créez des services liés
+Dans PowerShell, basculez vers le dossier dans lequel vous avez créé des fichiers JSON et exécutez la commande suivante pour déployer les services liés : 
 
+1. Dans PowerShell, basculez vers le dossier dans lequel vous avez créé des fichiers JSON.
+2. Exécutez la commande suivante pour créer un service lié Stockage Azure. 
 
-```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+3. Exécutez la commande suivante pour créer un service lié Azure HDInsight. 
 
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
-```
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    ```
 
 ## <a name="author-a-pipeline"></a>Créer un pipeline
-Au cours de cette étape, vous allez créer un pipeline avec une activité Hive. L’activité exécute le script Hive en vue de renvoyer des données à partir d’un exemple de table et de les enregistrer sur un chemin d’accès que vous avez défini. Créez un fichier JSON dans votre éditeur favori, copiez la définition JSON suivante d’une définition de pipeline et enregistrez-la sous **MyHiveOnDemandPipeline.json**.
+Au cours de cette étape, vous allez créer un pipeline avec une activité Hive. L’activité exécute le script Hive en vue de renvoyer des données à partir d’un exemple de table et de les enregistrer sur un chemin d’accès que vous avez défini. Créez un fichier JSON dans votre éditeur favori, copiez la définition JSON suivante d’une définition de pipeline et enregistrez-la sous **MyHivePipeline.json**.
 
 
 ```json

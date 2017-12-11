@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -150,7 +150,7 @@ Une adresse IP privée est allouée à partir de la plage d’adresses du sous-r
 Il existe deux méthodes d’allocation d’adresses IP :
 
 - **Dynamique** : Azure attribue la première adresse IP non attribuée ou non réservée de la plage d’adresses du sous-réseau. Par exemple, Azure attribue l’adresse 10.0.0.10 à une nouvelle ressource si les adresses 10.0.0.4 à 10.0.0.9 sont déjà attribuées à d’autres ressources. La méthode d’allocation par défaut est dynamique. Une fois assignées, les adresses IP dynamiques ne sont libérées que si l’interface réseau est supprimée, assignée à un sous-réseau différent au sein du même réseau virtuel ou bien si la méthode d’allocation devient statique et qu’une adresse IP différente est spécifiée. Par défaut, Azure définit l’adresse statique sur l’adresse dynamique attribuée précédemment quand vous sélectionnez la méthode d’allocation statique à la place de la méthode dynamique.
-- **Statique** : vous sélectionnez et attribuez n’importe quelle adresse IP non attribuée ou non réservée de la plage d’adresses du sous-réseau. Par exemple, si la plage d’adresses d’un sous-réseau est 10.0.0.0/16 et que les adresses 10.0.0.4 à 10.0.0.9 sont déjà attribuées à d’autres ressources, vous pouvez attribuer n’importe quelle adresse de la plage 10.0.0.10 - 10.0.255.254. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous sélectionnez la méthode d’allocation statique à la place de la méthode dynamique, Azure définit l’adresse dynamique sur l’adresse IP statique précédemment attribuée, même si celle-ci n’est pas la première adresse disponible de la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
+- **Statique** : vous sélectionnez et attribuez n’importe quelle adresse IP non attribuée ou non réservée de la plage d’adresses du sous-réseau. Par exemple, si la plage d’adresses d’un sous-réseau est 10.0.0.0/16 et que les adresses 10.0.0.4 à 10.0.0.9 sont déjà attribuées à d’autres ressources, vous pouvez attribuer n’importe quelle adresse de la plage 10.0.0.10 - 10.0.255.254. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous changez la méthode d’allocation en dynamique, Azure définit l’adresse dynamique sur l’adresse IP statique précédemment attribuée, même si celle-ci n’est pas la première adresse disponible de la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 

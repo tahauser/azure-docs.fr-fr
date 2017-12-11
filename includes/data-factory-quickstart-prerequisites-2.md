@@ -1,13 +1,13 @@
-### <a name="windows-powershell"></a>Windows PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 #### <a name="install-powershell"></a>Installer PowerShell
 Installez la dernière version de PowerShell, si elle n’est pas installée sur votre ordinateur. 
 
-1. Dans votre navigateur web, accédez à la page [Téléchargez les Kits de développement logiciel et les outils Azure](https://azure.microsoft.com/downloads/). 
+1. Dans votre navigateur web, accédez à la page [Téléchargements Azure](https://azure.microsoft.com/downloads/). 
 2. Cliquez sur **Installation Windows** dans la section **Outils de ligne de commande** -> **PowerShell**. 
 3. Pour installer PowerShell, exécutez le fichier **MSI**. 
 
-Pour des instructions détaillées, consultez [Installation et configuration de PowerShell](/powershell/azure/install-azurerm-ps). 
+Pour des instructions détaillées, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-powershell"></a>Se connecter à PowerShell
 
@@ -19,12 +19,12 @@ Pour des instructions détaillées, consultez [Installation et configuration de 
     ```powershell
     Login-AzureRmAccount
     ```        
-2. Si vous avez plusieurs abonnements Azure, exécutez la commande suivante pour afficher tous les abonnements de ce compte :
+2. Exécutez la commande suivante pour afficher tous les abonnements de ce compte :
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
+3. Si plusieurs abonnements sont associés à votre compte, exécutez la commande suivante pour sélectionner l’abonnement avec lequel vous souhaitez travailler. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
