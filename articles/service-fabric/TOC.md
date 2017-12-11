@@ -50,14 +50,11 @@
 ## [Terminologie](service-fabric-technical-overview.md)
 
 ## Générer des applications et des services
-### Modèles de programmation pris en charge
-#### [Vue d'ensemble](service-fabric-choose-framework.md)
-#### Conteneurs
-##### [Vue d'ensemble](service-fabric-containers-overview.md)
+### [Modèles de programmation pris en charge](service-fabric-choose-framework.md)
+#### [Conteneurs](service-fabric-containers-overview.md)
 ##### [Docker Compose (version préliminaire)](service-fabric-docker-compose.md)
 ##### [Gouvernance des ressources](service-fabric-resource-governance.md)
-#### Services fiables (Reliable Services)
-##### [Vue d'ensemble](service-fabric-reliable-services-introduction.md)
+#### [Services fiables (Reliable Services)](service-fabric-reliable-services-introduction.md)
 ##### [Cycle de vie des Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Cycle de vie des Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Collections fiables](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Gestionnaire d’état fiable et éléments internes de collections fiables](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [Utilisateurs avancés](service-fabric-reliable-services-advanced-usage.md)
 
-#### Acteurs fiables (Reliable Actors)
-##### [Vue d'ensemble](service-fabric-reliable-actors-introduction.md)
+#### [Acteurs fiables (Reliable Actors)](service-fabric-reliable-actors-introduction.md)
 ##### [Architecture](service-fabric-reliable-actors-platform.md)
 ##### [Cycle de vie et garbage collection](service-fabric-reliable-actors-lifecycle.md)
 ##### [Gestion des états](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [État du service](service-fabric-concepts-state.md)
 #### [Partitionnement du service](service-fabric-concepts-partitioning.md)
 #### [Disponibilité des services](service-fabric-availability-services.md)
-#### [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md)
+#### [Cycle de vie de l’instance et du réplica](service-fabric-concepts-replica-lifecycle.md)
 #### [Reconfiguration](service-fabric-concepts-reconfiguration.md)
-#### Communication de service
-##### [Vue d'ensemble](service-fabric-connect-and-communicate-with-services.md)
+#### [Modèle de communication de service](service-fabric-connect-and-communicate-with-services.md)
 ##### [Service DNS](service-fabric-dnsservice.md)
 ##### [Proxy inversé](service-fabric-reverseproxy.md)
 ##### [Configurer le proxy inverse pour une communication sécurisée](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,10 +94,8 @@
 
 ### [Planifier la capacité d’application](service-fabric-capacity-planning.md)
 
-## Gérer les applications
-### [Vue d'ensemble](service-fabric-application-lifecycle.md)
-### Mise à niveau de l’application
-#### [Vue d'ensemble](service-fabric-application-upgrade.md)
+## [Gérer des applications](service-fabric-application-lifecycle.md)
+### [Mise à niveau de l’application](service-fabric-application-upgrade.md)
 #### [Configuration](service-fabric-visualstudio-configure-upgrade.md)
 #### [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)
 #### [Sérialisation de données lors des mises à niveau de d’application](service-fabric-application-upgrade-data-serialization.md)
@@ -110,8 +103,7 @@
 ### [Présentation du service d’analyse des erreurs](service-fabric-testability-overview.md)
 ### [Le paramètre ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## Créer et gérer des clusters
-### [Vue d'ensemble](service-fabric-deploy-anywhere.md)
+## [Créer et gérer des clusters](service-fabric-deploy-anywhere.md)
 ### Planifier et préparer
 #### [Planification de la capacité](service-fabric-cluster-capacity.md)
 #### [Récupération d’urgence](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Clusters sur Azure
 #### [Types de nœud et groupes de machines virtuelles identiques dans le cluster](service-fabric-cluster-nodetypes.md)
 #### [Modèles de mise en réseau de cluster](service-fabric-patterns-networking.md)
-### Gestionnaire de ressources de cluster
-#### [Vue d'ensemble](service-fabric-cluster-resource-manager-introduction.md)
+### [Gestionnaire de ressources de cluster](service-fabric-cluster-resource-manager-introduction.md)
 #### [Architecture](service-fabric-cluster-resource-manager-architecture.md)
 #### [Décrire un cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Vue d’ensemble des groupes d’applications](service-fabric-cluster-resource-manager-application-groups.md)
@@ -230,7 +221,7 @@
 #### [Gérer des secrets d’application](service-fabric-application-secret-management.md)  
 #### [Configurer les stratégies de sécurité de votre application](service-fabric-application-runas-security.md)
 
-## Travailler dans un environnement de développement Windows
+## Travailler dans un environnement de développement Windows/VS
 ### [Gérer des applications dans Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configurer des connexions sécurisées dans Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Configurer votre application pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -239,7 +230,7 @@
 ### [Surveiller et diagnostiquer localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Configurer un cluster Linux sur Windows](service-fabric-local-linux-cluster-windows.md)
 
-## Travailler dans un environnement de développement Linux
+## Travailler dans un environnement de développement Linux/Eclipse
 ### [Prise en main du plug-in Eclipse pour le développement Java](service-fabric-get-started-eclipse.md)
 ### [Déboguer un service Java dans Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Surveiller et diagnostiquer localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
