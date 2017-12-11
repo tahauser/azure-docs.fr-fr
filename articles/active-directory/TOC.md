@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Résolution des problèmes](active-directory-application-proxy-troubleshoot.md)
-#### Utiliser le portail Classic
-##### [Télécharger des connecteurs](application-proxy-enable-classic-portal.md)
-##### [Publiez des applications](active-directory-application-proxy-publish.md)
-##### [Utiliser les connecteurs](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Accès conditionnel](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Gérer les applications d’entreprise
 #### [Affecter des utilisateurs](active-directory-coreapps-assign-user-azure-portal.md)
@@ -286,7 +281,7 @@
 ## Sécuriser vos identités
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Bien démarrer](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### Tâches
