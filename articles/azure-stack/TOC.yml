@@ -45,6 +45,8 @@
       items:
         - name: Composants requis
           href: azure-stack-deploy.md
+        - name: Télémétrie
+          href: azure-stack-telemetry.md
         - name: Déployer
           href: azure-stack-run-powershell-script.md
         - name: Installer PowerShell

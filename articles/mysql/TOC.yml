@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Développement d’applications
           href: concepts-database-application-development.md
-    - name: Migrer votre base de données
-      items:
-        - name: Vider et restaurer
-          href: concepts-migrate-dump-restore.md
-        - name: Importer et exporter
-          href: concepts-migrate-import-export.md
 - name: Procédures
   items:
     - name: Gérer un serveur
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Interface de ligne de commande Azure
           href: howto-restore-server-cli.md
+    - name: Migrer une base de données
+      items:
+        - name: Vider et restaurer
+          href: concepts-migrate-dump-restore.md
+        - name: Importer et exporter
+          href: concepts-migrate-import-export.md
     - name: Connecter des applications
       items:
         - name: Créer des utilisateurs
@@ -161,3 +161,5 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Témoignages client
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: Guide pour la migration de base de données
+      href: 'https://datamigration.microsoft.com/'

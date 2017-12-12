@@ -219,7 +219,6 @@
 ### [Configurer l’accélération automatique de la connexion à l’aide de la stratégie HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
-#### [Accès libre-service](active-directory-self-service-application-access.md)
 #### [Accès par authentification unique](active-directory-appssoaccess-whatis.md)
 #### [Certificats pour authentification unique](active-directory-sso-certs.md)
 #### [Restrictions du client](active-directory-tenant-restrictions.md)
@@ -281,7 +280,7 @@
 ## Sécuriser vos identités
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Bien démarrer](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### Tâches
