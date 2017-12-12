@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentation Azure Container Registry
 metadata:
   title: Documentation Azure Container Registry - Didacticiels | Microsoft Docs
-  description: 'Azure Container Registry vous permet de stocker et gérer des images pour tous les types de déploiement de conteneur. Découvrez comment utiliser Azure Container Registry avec ces guides de démarrage rapide, didacticiels et exemples.'
+  description: "Azure Container Registry vous permet de stocker et gérer des images pour tous les types de déploiement de conteneur. Découvrez comment utiliser Azure Container Registry avec ces guides de démarrage rapide, didacticiels et exemples."
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,47 +13,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Azure Container Registry vous permet de stocker et gérer des images pour tous les types de déploiement de conteneur. Découvrez comment utiliser Azure Container Registry avec ces guides de démarrage rapide, didacticiels et exemples.'
+  description: "Azure Container Registry vous permet de stocker et gérer des images pour tous les types de déploiement de conteneur. Découvrez comment utiliser Azure Container Registry avec ces guides de démarrage rapide, didacticiels et exemples."
 sections:
-  - title: "Démarrages en 5\_minutes"
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment déployer un registre Azure Container Registry."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Découvrez comment déployer un registre Azure Container Registry.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Interface de ligne de commande Azure
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Portail Azure
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: "Azure\_PowerShell"
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: Didacticiels pas à pas
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: Interface de ligne de commande Azure
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: Portail Azure
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: "Azure PowerShell"
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: "Didacticiels pas à pas"
+  items:
+  - type: paragraph
+    text: "Découvrez comment utiliser Azure Container Registry avec ces didacticiels."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Découvrez comment utiliser Azure Container Registry avec ces didacticiels.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Géoréplication de registre de conteneurs (préversion)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry avec Azure Container Instances</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry avec Azure Container Service (AKS)</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry avec Service Fabric</a>
-  - title: Référence
+    - html: "<a href=\"/azure/container-registry/container-registry-tutorial-prepare-registry\">Géoréplication de registre de conteneurs (préversion)</a>"
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry avec Azure Container Instances</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry avec Azure Container Service (AKS)</a>
+    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry avec Service Fabric</a>
+- title: "Référence"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: <p><a href="/cli/azure/acr">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-          - title: REST
-            html: "<p><a href=\"/rest/api/containerregistry\">Référence d’API\_REST</a></p>"
+    - title: Ligne de commande
+      html: <p><a href="/cli/azure/acr">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: Langues
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.JS</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/containerregistry\">Référence d’API REST</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">modèle Azure Resource Manager</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Schéma du Webhook</a></p>"

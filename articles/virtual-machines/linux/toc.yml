@@ -124,6 +124,8 @@
       items:
         - name: Instructions pour les infrastructures
           href: infrastructure-example.md
+        - name: Quotas de processeurs virtuels
+          href: quotas.md
 - name: Procédures
   items:
     - name: Créer des machines virtuelles

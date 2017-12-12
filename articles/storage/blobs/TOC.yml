@@ -60,6 +60,8 @@
       items:
         - name: Réplication
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Options de compte de stockage
+          href: storage-account-options.md
         - name: 'À chaud, à froid et niveaux d’archivage'
           href: storage-blob-storage-tiers.md
         - name: Réaction aux événements

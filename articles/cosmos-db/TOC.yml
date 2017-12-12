@@ -9,7 +9,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Base de données de documents
+    - name: SQL
       items:
         - name: .NET
           href: create-documentdb-dotnet.md
@@ -71,7 +71,7 @@
   items:
     - name: 1 - Créer
       items:
-        - name: Base de données de documents
+        - name: SQL
           href: tutorial-develop-documentdb-dotnet.md
         - name: MongoDB avec .NET
           href: tutorial-develop-mongodb.md
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: 2 - Importer
       items:
-        - name: Base de données de documents
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,7 +97,7 @@
           href: cassandra-import-data.md
     - name: 3 - Interroger
       items:
-        - name: Base de données de documents
+        - name: SQL
           href: tutorial-query-documentdb.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
@@ -107,7 +107,7 @@
           href: tutorial-query-graph.md
     - name: 4 - Distribuer mondialement
       items:
-        - name: Base de données de documents
+        - name: SQL
           href: tutorial-global-distribution-documentdb.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
@@ -147,7 +147,7 @@
       href: request-units.md
     - name: API multi-modèles
       items:
-        - name: Base de données de documents
+        - name: SQL
           href: documentdb-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
@@ -170,7 +170,7 @@
   items:
     - name: Développement
       items:
-        - name: API DocumentDB
+        - name: API SQL
           href: documentdb-index.md
           items:
             - name: Ressources
@@ -239,8 +239,6 @@
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Mises à jour de service
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: Portail de la communauté
-                  href: community.md
                 - name: Livre blanc sur l’indexation sans schéma
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 'Mettre hors service S1, S2, S3'
@@ -378,13 +376,13 @@
           href: powerbi-visualize.md
         - name: "Tirer parti du pilote\_ODBC pour la visualisation des données"
           href: odbc-driver.md
-        - name: Utilisez Spring Boot Starter avec les API DocumentDB
+        - name: UtiliserSpring Boot Starter avec les API SQL
           href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: API DocumentDB
+    - name: API SQL
       items:
         - name: Java
           href: documentdb-sdk-java.md
