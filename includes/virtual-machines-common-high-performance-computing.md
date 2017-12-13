@@ -66,11 +66,12 @@ Exécuter des applications HPC commerciales ou personnalisées dans Azure. Plusi
 
 * [Autodesk Maya, 3ds Max et Arnold](../articles/batch/batch-rendering-service.md) sur Azure Batch (préversion)
 
-### <a name="ai-and-deep-learning"></a>Intelligence artificielle et apprentissage approfondi
+### <a name="ai-and-deep-learning"></a>Intelligence artificielle et apprentissage profond
 
+* Formation [Batch AI](../articles/batch-ai/overview.md) pour les modèles d’apprentissage profond
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [Kit d’apprentissage approfondi pour machine virtuelle de science des données](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
-* [Recettes Batch Shipyard pour l’apprentissage approfondi](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
+* [Machine virtuelle d’apprentissage profond](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [Recettes Batch Shipyard pour l’apprentissage profond](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
 
@@ -104,7 +105,7 @@ Découvrez comment :
 
 * [Commencer à développer avec Batch](../articles/batch/batch-dotnet-get-started.md)
 * [Utiliser les exemples de code Azure Batch](https://github.com/Azure/azure-batch-samples)
-* [Utiliser des machines virtuelles de faible priorité avec Batch (préversion)](../articles/batch/batch-low-pri-vms.md)
+* [Utiliser des machines virtuelles de faible priorité avec Batch](../articles/batch/batch-low-pri-vms.md)
 * [Exécuter des charges de travail HPC en conteneur avec Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Utiliser le langage R avec Batch](https://github.com/Azure/doAzureParallel)
 
@@ -138,7 +139,7 @@ La plupart des solutions HPC Azure reposent sur les machines virtuelles Azure, l
 * [Stockage Fichier](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Données et analyse
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) pour les clusters Hadoop sur Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) pour les clusters Hadoop sur Azure
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

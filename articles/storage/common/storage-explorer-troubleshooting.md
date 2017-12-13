@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -172,6 +172,14 @@ Si vous vous connectez à un service à l’aide d’une URL SAP et que vous ren
 - Vérifiez que l’URL n’a pas expiré.
 
 - Si l’URL SAP est basée sur une stratégie d’accès, vérifiez que cette dernière n’a pas été révoquée.
+
+Si vous avez accidentellement attaché une URL SAS non valide et que vous n’avez pas pu la détacher, effectuez les étapes suivantes :
+1.  Lors de l’exécution de l’Explorateur de stockage, appuyez sur F12 pour ouvrir la fenêtre Outils de développement.
+2.  Cliquez sur l’onglet Application, puis cliquez sur Stockage local > file:// dans l’arborescence à gauche.
+3.  Recherchez la clé associée au type de service de l’URI SAS problématique. Par exemple, si l’URI SAS incorrecte concerne un conteneur d’objets blob, recherchez la clé nommée « StorageExplorer_AddStorageServiceSAS_v1_blob ».
+4.  La valeur de la clé doit être un tableau JSON. Recherchez l’objet associé à l’URI incorrecte, et supprimez-le.
+5.  Appuyez sur Ctrl+R pour recharger l’Explorateur de stockage.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

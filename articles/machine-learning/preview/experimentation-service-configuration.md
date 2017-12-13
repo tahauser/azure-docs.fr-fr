@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuration du service d’expérimentation Azure Machine Learning
 
@@ -198,7 +198,7 @@ Une machine virtuelle distante doit remplir les conditions suivantes :
 Vous pouvez utiliser la commande suivante afin de créer la définition de cible de calcul et la configuration de série de tests pour des exécutions basées sur un Docker distant.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 Une fois la cible de calcul configurée, vous pouvez utiliser la commande suivante pour exécuter votre script.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 Le processus de construction du Docker pour les machines virtuelles distantes étant exactement le même que pour les séries de tests du Docker local, vous devez vous attendre à une expérience d’exécution similaire.
 
 >[!TIP]
->Si vous préférez éviter la latence résultant de la création de l’image Docker pour votre première série de tests, vous pouvez utiliser la commande suivante pour préparer la cible de calcul avant l’exécution de votre script. az ml experiment prepare -c <remotedocker>
+>Si vous préférez éviter la latence résultant de la création de l’image Docker pour votre première série de tests, vous pouvez utiliser la commande suivante pour préparer la cible de calcul avant l’exécution de votre script. az ml experiment prepare -c remotedocker
 
 
 _**Présentation de l’exécution de machine virtuelle distante pour un script Python :**_
@@ -226,7 +226,7 @@ HDInsight est une plateforme populaire pour l’analytique du Big Data qui prend
 Pour créer une cible de calcul et une configuration de série de tests pour un cluster Azure HDInsight Spark, vous pouvez utiliser la commande suivante :
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Présentation de l’exécution d’un script PySpark basée sur HDInsight**_
 ## <a name="running-a-script-on-gpu"></a>Exécution d’un script sur GPU
 Pour exécuter vos scripts sur des GPU, vous pouvez suivre les instructions du [Guide pratique pour utiliser des GPU dans Azure Machine Learning](how-to-use-gpu.md).
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Utilisation de l’authentification par clé SSH pour créer et utiliser des cibles de calcul
+Azure Machine Learning Workbench vous permet de créer et d’utiliser des cibles de calcul à l’aide de l’authentification par clé SSH en plus du schéma par nom d’utilisateur/mot de passe. Vous pouvez utiliser cette fonctionnalité lorsque vous utilisez remotedocker ou d’un cluster comme cible de calcul. Lorsque vous utilisez ce schéma, Workbench crée une paire de clés publique/privée et rapporte la clé publique. Vous ajoutez la clé publique aux fichiers ~/.ssh/authorized_keys de votre nom d’utilisateur. Azure Machine Learning Workbench utilise ensuite l’authentification par clé SSH pour accéder à et exécuter sur cette cible de calcul. Étant donné que la clé privée de la cible de calcul est enregistrée dans le magasin de clés pour l’espace de travail, d’autres utilisateurs de l’espace de travail peuvent utiliser la cible de calcul de la même façon en fournissant le nom d’utilisateur indiqué pour la création de la cible de calcul.  
+
+Vous suivez ces étapes pour utiliser cette fonctionnalité. 
+
+- Créez une cible de calcul en utilisant l’une des commandes suivantes.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+ou
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- Ajoutez la clé publique générée par le Workbench aux fichiers ~/.ssh/authorized_keys sur la cible de calcul associée. 
+
+[!IMPORTANT] Vous devez vous connecter à la cible de calcul à l’aide du même nom d’utilisateur que celui utilisé pour créer la cible de calcul. 
+
+- Vous pouvez maintenant préparer et utiliser la cible de calcul à l’aide de l’authentification par clé SSH.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Créer et installer Azure Machine Learning](quickstart-installation.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Optimiser la distribution de contenu Azure pour votre scénario
 
@@ -103,7 +103,7 @@ Si vous utilisez le réseau Azure Content Delivery Network d’Akamai, vous deve
 
 Si vous utilisez le réseau Azure Content Delivery Network d’Akamai, les téléchargements de fichiers volumineux sont optimisés pour du contenu d’une taille supérieure à 10 Go. Si la taille moyenne des fichiers est inférieure à 10 Mo, vous pouvez utiliser une livraison web générale. Si la taille moyenne de vos fichiers est constamment supérieure à 10 Mo, il peut être plus efficace de créer un point de terminaison distinct pour les fichiers volumineux. Par exemple, les mises à jour de microprogrammes ou de logiciels sont généralement des fichiers volumineux.
 
-Le réseau Azure Content Delivery Network de Verizon utilise le type d’optimisation de livraison web générale pour distribuer du contenu multimédia en diffusion continue.
+Le réseau Azure Content Delivery Network de Verizon utilise le type d’optimisation de livraison web générale pour distribuer du contenu téléchargé de fichiers volumineux.
 
 Pour en savoir plus sur l’optimisation des fichiers volumineux, voir [Optimisation des fichiers volumineux](cdn-large-file-optimization.md).
 

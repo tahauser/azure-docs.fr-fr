@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: "Appeler les packages\_SSIS à l’aide d’une activité de procédure stockée"
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Référence
   items:
     - name: Exemples de code

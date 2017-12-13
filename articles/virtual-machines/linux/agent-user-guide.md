@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Présentation et utilisation de l’agent Linux Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Les diverses options de configuration sont décrites de manière détaillée ci-dessous. Elles sont de trois types : Boolean, String ou Integer. Les options de configuration Boolean peuvent être spécifiées à l'aide de « y » (oui) ou « n » (non). Le mot clé « None » (Aucun) peut être utilisé dans le cas de certaines entrées de type chaîne comme décrit ci-dessous.
 
@@ -209,8 +211,12 @@ Par défaut : n
 
 Si ce paramètre est défini, waagent exécute CustomData après l’approvisionnement.
 
+**Provisioning.AllowResetSysUser** Type : Boolean Par défaut : n
+
+Cette option permet de réinitialiser le mot de passe de l’utilisateur sys. Par défaut, elle est désactivée.
+
 **Provisioning.PasswordCryptId**  
-Type : chaîne  
+Type : string  
 Par défaut : 6
 
 Algorithme utilisé par crypt lors de la génération du hachage de mot de passe.  
@@ -220,8 +226,8 @@ Algorithme utilisé par crypt lors de la génération du hachage de mot de passe
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Type : chaîne  
-Par défaut : 10
+Type : string  
+Valeur par défaut : 10
 
 Longueur de la chaîne salt aléatoire utilisée lors de la génération du hachage de mot de passe.
 
@@ -290,6 +296,12 @@ Type : string
 Par défaut : aucun
 
 Si ce paramètre est défini, l’agent utilisera ce serveur proxy pour accéder à internet. 
+
+**AutoUpdate.Enabled** Type : Boolean Par défaut : y
+
+Activer ou désactiver la mise à jour automatique du traitement de l’état de l’objectif. Par défaut : activé.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Images cloud Ubuntu
 Notez que les images cloud Ubuntu utilisent [Cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) pour exécuter les tâches de configuration qui pourraient être gérées par l’agent Linux Azure.  Notez les différences suivantes :

@@ -29,7 +29,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 |-|-|-|-|
 |/Role|Obligatoire|Spécifie si le service Mobilité (MS) doit être installé ou si MasterTarget(MT) doit être installé|MS </br> MT|
 |/InstallLocation|Facultatif|Emplacement où est installé le service Mobilité|N’importe quel dossier sur l’ordinateur|
-|/Platform|Obligatoire|Spécifie la plateforme sur laquelle le service Mobilité est installé </br> </br>- **VMware** : utilisez cette valeur si vous installez le service Mobilité sur une machine virtuelle exécutée sur des *hôtes VMware vSphere ESXi*, des *hôtes Hyper-V* et des *serveurs physiques* </br> - **Azure** : utilisez cette valeur si vous installez l’agent sur une machine virtuelle Azure IaaS| VMware </br> Les tables Azure|
+|/Platform|Obligatoire|Spécifie la plateforme sur laquelle le service Mobilité est installé </br> </br>- **VMware** : utilisez cette valeur si vous installez le service Mobilité sur une machine virtuelle exécutée sur des *hôtes VMware vSphere ESXi*, des *hôtes Hyper-V* et des *serveurs physiques* </br> - **Azure** : utilisez cette valeur si vous installez l’agent sur une machine virtuelle Azure IaaS| VMware </br> Les tables Azure|
 |/Silent|Facultatif|Précise d’exécuter le programme d’installation en mode silencieux| N/D|
 
 >[!TIP]
@@ -39,7 +39,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 ```
 Usage :
-UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
   | Paramètre|Type|Description|Valeurs possibles|

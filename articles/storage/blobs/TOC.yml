@@ -24,6 +24,8 @@
       href: storage-quickstart-blobs-python.md
     - name: Utiliser le stockage Blob - .Node.js
       href: storage-quickstart-blobs-nodejs.md
+    - name: "Utiliser le stockage\_Blob\_: Explorateur\_Stockage"
+      href: storage-quickstart-blobs-storage-explorer.md
 - name: Didacticiels
   items:
     - name: Télécharger et traiter une image

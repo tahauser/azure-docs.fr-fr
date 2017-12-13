@@ -1,6 +1,6 @@
 ---
 title: "Créer une fonction déclenchée par Azure Cosmos DB | Microsoft Docs"
-description: "Utilisez Azure Functions pour créer une fonction sans serveur qui est appelée quand des données sont ajoutées à une base de données dans Azure Cosmos DB."
+description: "Utilisez Azure Functions pour créer une fonction serverless qui est appelée quand des données sont ajoutées à une base de données dans Azure Cosmos DB."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -13,18 +13,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/02/2017
+ms.date: 12/05/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d2c83b1ce718e6954e908beb9080ace12a12a34
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
-Découvrez comment créer une fonction qui est déclenchée quand des données sont ajoutées à Azure Cosmos DB ou y sont changées. Pour découvrir plus en détail Azure Cosmos DB, consultez [Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions](..\cosmos-db\serverless-computing-database.md).
+Découvrez comment créer une fonction qui est déclenchée quand des données sont ajoutées à Azure Cosmos DB ou y sont changées. Pour découvrir plus en détail Azure Cosmos DB, consultez [Azure Cosmos DB : traitement de base de données serverless à l’aide d’Azure Functions](..\cosmos-db\serverless-computing-database.md).
 
 ![Affichage du message dans les journaux.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -40,13 +40,13 @@ Pour suivre ce didacticiel :
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-Créez ensuite une fonction dans la nouvelle Function App.
+Créez ensuite une fonction dans la nouvelle application de fonction.
 
 <a name="create-function"></a>
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Créer le déclencheur Azure Cosmos DB
 
-1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre Function App, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction.
+1. Développez votre application de fonction, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction.
 
     ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
@@ -149,4 +149,4 @@ Vous avez créé une fonction qui s’exécute quand un document est ajouté ou 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Pour en savoir plus sur les déclencheurs de stockage en file d’attente, consultez la page [Liaisons de file d’attente de stockage Azure Functions](functions-bindings-storage-queue.md).
+Pour plus d’informations sur les déclencheurs Azure Cosmos DB, consultez [Liaisons Azure Cosmos DB pour Azure Functions](functions-bindings-documentdb.md).

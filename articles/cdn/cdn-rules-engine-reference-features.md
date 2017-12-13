@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cette rubrique répertorie les descriptions détaillées des fonctionnalités disponibles pour le [moteur de règles](cdn-rules-engine.md)Azure Content Delivery Network (CDN).
@@ -644,7 +644,7 @@ Désactivé|L’en-tête de réponse X-EC-Debug est exclu de la réponse.
 
 **Comportement par défaut** : Désactivé.
 
-###<a name="modify-client-response-header"></a>Modifier l’en-tête de réponse client
+###<a name="modify-client-request-header"></a>Modifier l’en-tête de requête client
 **Objectif :** chaque requête contient un ensemble d’[en-têtes de requête]() qui le décrivent. Cette fonctionnalité peut soit :
 
 - Ajouter ou remplacer la valeur affectée à un en-tête de requête. Si l’en-tête de requête spécifié n’existe pas, cette fonctionnalité l’ajoute à la requête.
@@ -689,9 +689,9 @@ Une des actions suivantes peut être effectuée sur un en-tête de réponse :
 
 Option|Description|Exemple
 -|-|-
-Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/> **Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value1Value2
-Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/>**Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value2 <br/>
-Supprimer|Supprime l’en-tête de requête spécifié.|**Valeur d’en-tête de requête (Client) :**Value1 <br/> **Modifier la configuration de l’en-tête de requête Client :** supprime l’en-tête de réponse en question. <br/>**Résultat :** l’en-tête de requête spécifié ne sera pas transféré vers le demandeur.
+Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/> **Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value1Value2
+Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/>**Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value2 <br/>
+Supprimer|Supprime l’en-tête de réponse spécifiée.|**Valeur d’en-tête de réponse (Client) :** Value1 <br/> **Modifier la configuration de l’en-tête de réponse client :** supprime l’en-tête de réponse en question. <br/>**Résultat :** l’en-tête de requête spécifié ne sera pas transféré vers le demandeur.
 
 Informations essentielles :
 

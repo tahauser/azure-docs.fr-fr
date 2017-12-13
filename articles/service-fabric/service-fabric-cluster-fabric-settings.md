@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personnaliser les paramètres de cluster Service Fabric et la stratégie de mise à niveau de la structure
-Ce document vous explique comment personnaliser les différents paramètres et la stratégie de mise à niveau de la structure pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
+Ce document décrit comment personnaliser différents paramètres de structure et la stratégie de mise à niveau pour votre cluster Service Fabric. Vous pouvez les personnaliser sur le [portail Azure](https://portal.azure.com) ou à l’aide d’un modèle Azure Resource Manager.
 
 > [!NOTE]
 > Tous les paramètres ne sont pas disponibles dans le portail. Si un paramètre répertorié ci-dessous n’est pas disponible via le portail, personnalisez-le à l’aide d’un modèle Azure Resource Manager.
@@ -772,8 +772,8 @@ PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique| |
 |MaxPrimaryReplicationQueueMemorySize|uint, valeur par défaut : 0|statique|Valeur maximale de la file d’attente de réplication principale en octets.|
 |MaxSecondaryReplicationQueueSize|uint, valeur par défaut : 2048|statique|Nombre maximum d’opérations pouvant exister dans la file d’attente de réplication secondaire. Ce nombre doit être une puissance de 2.|
 |MaxSecondaryReplicationQueueMemorySize|uint, valeur par défaut : 0|statique|Valeur maximale de la file d’attente de réplication secondaire en octets.|
-|QueueHealthMonitoringInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(30)|statique|Spécifiez la durée en secondes. Cette valeur détermine la période de temps utilisée par le réplicateur pour surveiller tous les événements de contrôle d’intégrité d’erreur/avertissement dans les files d’attente des opérations de réplication. Une valeur '0' désactive le contrôle d’intégrité |
-|QueueHealthWarningAtUsagePercent|uint, valeur par défaut : 80|statique|Cette valeur détermine l’utilisation de la file d’attente de réplication (en pourcentage) après laquelle nous envoyons un avertissement pour utilisation intensive de la file d’attente. Nous effectuons cette opération après un délai de grâce de QueueHealthMonitoringInterval. Si l’utilisation de la file d’attente est inférieure au pourcentage de ce délai de grâce|
+|QueueHealthMonitoringInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(30)|statique|Spécifiez la durée en secondes. Cette valeur détermine la période de temps utilisée par le réplicateur pour surveiller tous les événements de contrôle d’intégrité d’erreur/avertissement dans les files d’attente des opérations de réplication. Une valeur « 0 » désactive le contrôle d’intégrité. |
+|QueueHealthWarningAtUsagePercent|uint, valeur par défaut : 80|statique|Cette valeur détermine l’utilisation de la file d’attente de réplication (en pourcentage) après laquelle nous envoyons un avertissement pour utilisation intensive de la file d’attente. Nous effectuons cette opération après un délai de grâce de QueueHealthMonitoringInterval. Si l’utilisation de la file d’attente est inférieure au pourcentage de ce délai de grâce, l’avertissement n’est pas signalé.|
 |RetryInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(5)|statique|Spécifiez la durée en secondes. Lorsqu’une opération est perdue ou rejetée, cette minuterie détermine la fréquence à laquelle le réplicateur réessaiera d’envoyer l’opération.|
 
 ### <a name="section-name-transport"></a>Nom de la section : Transport

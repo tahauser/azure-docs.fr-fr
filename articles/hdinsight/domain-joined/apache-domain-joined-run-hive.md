@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 9523c008d509647c6e578bc9ca9bb88b348d6ebf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 812acea414096880c2b80958cb7c6f410f0d9c98
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Configuration de stratégies Hive dans HDInsight joint à un domaine (version préliminaire)
+# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurer les stratégies Hive dans HDInsight joint à un domaine
 Découvrez comment configurer des stratégies Apache Ranger pour Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
 
 ## <a name="prerequisites"></a>Composants requis

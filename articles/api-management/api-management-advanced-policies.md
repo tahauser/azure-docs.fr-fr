@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a> Stratégies avancées  
   
 -   [Control flow](api-management-advanced-policies.md#choose) : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions](api-management-policy-expressions.md) booléennes.  
-  
 -   [Forward request](#ForwardRequest) : transfère la demande vers le service principal.
-
 -   [Limit concurrency](#LimitConcurrency) : empêche les stratégies incluses d’exécuter plus de requêtes simultanées que le nombre spécifié.
-  
 -   [Log to Event Hub](#log-to-eventhub) : envoie des messages au format spécifié à un Event Hub défini par une entité Enregistreur d’événements. 
-
 -   [Mock response](#mock-response) : abandonne l’exécution du pipeline et renvoie une réponse factice indiquée directement à l’appelant.
-  
 -   [Retry](#Retry) : effectue une nouvelle tentative d’exécution des instructions de stratégie incluses, si la condition est remplie et jusqu’à ce qu’elle le soit. L’exécution se répète à intervalles réguliers et ce jusqu’au nombre de tentatives défini.  
-  
 -   [Return response](#ReturnResponse) : abandonne l’exécution du pipeline et renvoie la réponse indiquée directement à l’appelant. 
-  
 -   [Send one way request](#SendOneWayRequest) : envoie une demande à l’URL indiquée sans attendre de réponse.  
-  
 -   [Send request](#SendRequest) : envoie une demande à l’URL indiquée.  
-
 -   [Définir le proxy HTTP](#SetHttpProxy) : vous permet de router les demandes transférées via un proxy HTTP.  
-
 -   [Set request method](#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.  
-  
 -   [Set status code](#SetStatus) : permet de donner la valeur spécifiée au code d’état HTTP.  
-  
 -   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de [contexte](api-management-policy-expressions.md#ContextVariables) nommée pour permettre d’y accéder ultérieurement.  
-
 -   [Trace](#Trace) : ajoute une chaîne à la sortie de l’[inspecteur d’API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
-  
 -   [Wait](#Wait) : attend l’exécution des stratégies incluses [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) et [Control flow](api-management-advanced-policies.md#choose) pour continuer.  
   
 ##  <a name="choose"></a> Control flow  
@@ -264,7 +249,6 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** backend  
-  
 -   **Étendues de la stratégie :** toutes les étendues  
   
 ##  <a name="LimitConcurrency"></a> Limit concurrency  
@@ -807,7 +791,6 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** outbound, backend, on-error  
-  
 -   **Étendues de la stratégie :** toutes les étendues  
 
 ##  <a name="set-variable"></a> Set variable  
@@ -843,72 +826,41 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error  
-  
 -   **Étendues de la stratégie :** toutes les étendues  
   
 ###  <a name="set-variableAllowedTypes"></a> Types autorisés  
  Les expressions utilisées dans la stratégie `set-variable` doivent renvoyer un des types de base suivants.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a> Trace  
@@ -1004,13 +956,16 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 |for|Détermine si la stratégie `wait` attend la fin de toutes les stratégies enfants immédiates ou d’une seule. Les valeurs autorisées sont les suivantes :<br /><br /> -   `all` : attend la fin de toutes les stratégies enfants immédiates.<br />- any : attend la fin d’une stratégie enfant immédiate. Une fois la première stratégie enfant immédiate terminée, la stratégie `wait` se termine et l’exécution de toutes les autres stratégies enfants immédiates est arrêtée.|Non|tout|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ 
+Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend  
-  
 -   **Étendues de la stratégie :** toutes les étendues  
   
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
--   [Stratégies dans Gestion des API](api-management-howto-policies.md) 
--   [Expressions de stratégie](api-management-policy-expressions.md)
++ [Stratégies dans Gestion des API](api-management-howto-policies.md) 
++ [Expressions de stratégie](api-management-policy-expressions.md)
++ [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
++ [Exemples de stratégie](policy-samples.md)   

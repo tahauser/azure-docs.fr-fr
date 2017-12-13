@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Mettre à l’échelle un cluster Service Fabric
 
@@ -30,6 +30,13 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Lire le nombre de nœuds de cluster
 > * Ajouter des nœuds de cluster (scale out)
 > * Supprimer des nœuds de cluster (scale in)
+
+Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+> [!div class="checklist"]
+> * créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle ;
+> * Mettre à l’échelle un cluster
+> * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
 
 ## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel :
@@ -250,8 +257,8 @@ Dans ce didacticiel, vous avez appris à :
 > * Supprimer des nœuds de cluster (scale in)
 
 
-Ensuite, passez au didacticiel suivant pour apprendre à déployer une application et à utiliser la gestion des API.
+Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau le runtime d’un cluster.
 > [!div class="nextstepaction"]
-> [Déployer la gestion des API](service-fabric-tutorial-deploy-api-management.md)
+> [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

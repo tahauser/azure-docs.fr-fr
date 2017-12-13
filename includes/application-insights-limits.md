@@ -2,7 +2,7 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
 | **Ressource** | **Limite par défaut** | **Remarque :**
 | --- | --- | --- |
-| Total des données par jour | 500 Go | Vous pouvez réduire les données en définissant une limite. S’il vous faut une plus grande quantité, envoyez un e-mail à l’adresse suivante : AIDataCap@microsoft.com.
+| Total des données par jour | 100 Go | Vous pouvez réduire les données en définissant une limite. Si nécessaire, vous pouvez augmenter la limite jusqu’à 1 000 Go à partir du portail. Pour une capacité supérieure à 1 000 Go, envoyez un e-mail à AIDataCap@microsoft.com.
 | Données gratuites par mois<br/> (plan tarifaire de base) | 1 Go | Données supplémentaires payantes par gigaoctet.
 | Limitation | 32 000 événements par seconde | La limite est mesurée par minute.
 | Conservation des données | 90 jours | Cette ressource est pour [Recherche](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) et [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).

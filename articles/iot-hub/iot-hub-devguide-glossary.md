@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -35,9 +35,6 @@ Cet article répertorie certains termes courants utilisés dans les articles rel
 
 ## <a name="azure-iot-device-sdks"></a>Kits Azure IoT device SDK
 Des kits _device SDK_ sont disponibles pour plusieurs langages et permettent de créer des [applications pour appareils](#device-app) qui interagissent avec un hub IoT. Les didacticiels sur IoT Hub expliquent comment utiliser ces kits device SDK. Le code source et des informations supplémentaires sur les kits device SDK sont disponibles dans ce [dépôt](https://github.com/Azure/azure-iot-sdks) GitHub.
-
-## <a name="azure-iot-edge"></a>Azure IoT Edge
-Azure IoT Edge déplace l’analytique et la logique métier personnalisée du cloud vers les appareils, afin que votre organisation puisse se concentrer sur les perspectives commerciales plutôt que sur la gestion des données. Permettez à votre solution de mettre réellement à l’échelle en configurant votre logiciel IoT, en le déployant sur des appareils grâce à des conteneurs standard et en le surveillant à partir du cloud. Prise en main avec un didacticiel qui vous montre comment installer et utiliser Azure IoT Edge sur un appareil [Linux](../iot-edge/tutorial-simulate-device-linux.md) ou [Windows](../iot-edge/tutorial-simulate-device-windows.md).
 
 ## <a name="azure-iot-service-sdks"></a>Kits Azure IoT service SDK
 Des kits _service SDK_ sont disponibles pour plusieurs langages et permettent de créer des [applications principales](#back-end-app) qui interagissent avec un hub IoT. Les didacticiels sur IoT Hub expliquent comment utiliser ces kits service SDK. Le code source et des informations supplémentaires sur les Kits de développement logiciel de services sont disponibles dans ce [dépôt](https://github.com/Azure/azure-iot-sdks) GitHub.
@@ -164,6 +161,49 @@ Le [registre des identités](iot-hub-devguide-identity-registry.md) est le compo
 ## <a name="interactive-message"></a>Message interactif
 Un message interactif est un message [cloud-à-appareil](#cloud-to-device) qui déclenche une action immédiate dans le serveur principal de solution. Par exemple, un appareil peut envoyer une alarme concernant une défaillance qui devrait être journalisée automatiquement dans un système CRM.
 
+## <a name="iot-edge"></a>IoT Edge
+Azure IoT Edge permet d’effectuer un déploiement basé sur le cloud de services Azure et de code spécifique de solution sur des appareils locaux. Les appareils IoT Edge peuvent agréger des données d’autres appareils afin d’effectuer un calcul et une analyse avant d’envoyer les données vers le cloud. Pour plus d’informations, consultez [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/).
+
+## <a name="iot-edge-agent"></a>Agent IoT Edge
+Partie du runtime IoT Edge responsable des modules de déploiement et de surveillance.
+
+## <a name="iot-edge-device"></a>Appareil IoT Edge
+Un runtime IoT Edge doit être installé sur les appareils IoT Edge et ces derniers doivent être marqués comme « Appareil IoT Edge » dans les détails de l’appareil. En savoir plus sur [Déployer Azure IoT Edge sur un appareil simulé dans Linux - préversion](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
+
+## <a name="iot-edge-deployment"></a>Déploiement IoT Edge
+Un déploiement IoT Edge configure un ensemble cible d’appareils IoT Edge pour exécuter un ensemble de modules IoT Edge. Chaque déploiement s’assure en permanence que tous les appareils qui correspondent à la condition cible exécutent l’ensemble spécifié de modules, même lorsque de nouveaux appareils sont créés ou modifiées pour correspondre à la condition cible. Chaque appareil IoT Edge ne reçoit que le déploiement de priorité la plus élevée pour lequel il répond à la condition cible. Pour en savoir plus sur le [Déploiement IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+
+## <a name="iot-edge-deployment-manifest"></a>Manifeste de déploiement IoT Edge
+Document JSON contenant les informations à copier dans une ou plusieurs représentations de modules d’appareils IoT Edge pour déployer un ensemble de modules, itinéraires et propriétés souhaitées de module associé.
+
+## <a name="iot-edge-gateway-device"></a>Appareil de passerelle IoT Edge
+Appareil IoT Edge avec appareil en aval. L’appareil en aval peut être un appareil IoT Edge ou non IoT Edge.
+
+## <a name="iot-edge-hub"></a>Hub IoT Edge
+Partie du runtime IoT Edge responsable des communications entre modules, des communications en amont (vers IoT Hub) et en aval (depuis IoT Hub). 
+
+## <a name="iot-edge-leaf-device"></a>Appareil de nœud terminal IoT Edge
+Appareil IoT Edge avec aucun appareil en aval. 
+
+## <a name="iot-edge-module"></a>Module IoT Edge
+Un module IoT Edge est un conteneur Docker que vous pouvez déployer sur des appareils IoT Edge. Il effectue une tâche spécifique, comme l’ingestion de messages provenant d’appareils, la transformation de messages ou l’envoi de messages à un IoT Hub. Il communique avec d’autres modules et envoie des données au runtime IoT Edge. [Comprendre les exigences et outils de développement de modules IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/module-development).
+
+## <a name="iot-edge-module-identity"></a>Identité de module IoT Edge
+Enregistrement dans le registre d’identités de module IoT Hub détaillant les informations d’identification d’existence et de sécurité utilisées par un module pour s’authentifier à Edge Hub ou un IoT Hub.
+
+## <a name="iot-edge-module-image"></a>Image de module IoT Edge
+Image Docker utilisée par le runtime IoT Edge pour instancier des instances de module.
+
+## <a name="iot-edge-module-twin"></a>Représentation de module IoT Edge
+Document JSON permanent dans l’IoT Hub qui stocke les informations d’état d’une instance de module. 
+
+## <a name="iot-edge-runtime"></a>Runtime IoT Edge
+Le runtime IoT Edge inclut tout ce que Microsoft distribue pour l’installation sur un appareil IoT Edge. Il inclut l’agent Edge, Edge Hub et l’outil Edge CTL.
+
+## <a name="iot-edge-set-modules-to-a-single-device"></a>Modules d’ensemble IoT Edge sur un seul appareil
+Opération qui copie le contenu d’un manifeste IoT Edge sur une représentation de module d’appareil. L’API sous-jacente est de type « appliquer la configuration » générique, qui utilise simplement un manifeste IoT Edge en tant qu’entrée.
+s
+
 ## <a name="iot-hub"></a>IoT Hub
 IoT Hub est un service Azure entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un back-end de solution. Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md). Votre [abonnement Azure](#subscription) vous permet de créer des hubs IoT pour gérer vos charges de travail de messagerie IoT.
 
@@ -188,9 +228,6 @@ Votre serveur principal de solution peut utiliser des [travaux](iot-hub-devguide
 ## <a name="jobs-rest-api"></a>API REST Travaux
 L’[API REST Travaux](https://docs.microsoft.com/rest/api/iothub/jobapi) vous permet de gérer les [travaux](#job) en cours d’exécution dans votre hub IoT.
 
-## <a name="module"></a>Module
-Dans [Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md), un [module](../iot-edge/iot-edge-modules.md) est un composant qui effectue une tâche spécifique. Les tâches incluent l’ingestion de messages provenant d’appareils, la transformation de messages, ou l’envoi de messages à un IoT Hub. Un répartiteur est chargé du transfert des messages entre les modules. Azure IoT Edge inclut un ensemble d’exemples de modules. Vous pouvez également créer vos propres modules personnalisés.
-
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) est l’un des protocoles de messagerie qu’[IoT Hub](#iot-hub) prend en charge pour communiquer avec des appareils. Pour plus d’informations sur les protocoles de messagerie pris en charge par IoT Hub, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
 
@@ -202,6 +239,9 @@ Un appareil physique est un appareil réel, par exemple un Raspberry Pi, qui se 
 
 ## <a name="primary-and-secondary-keys"></a>Clés primaires et secondaires
 Lorsque vous vous connectez à un point de terminaison visible par l’appareil ou par le service sur un hub IoT, votre [chaîne de connexion](#connection-string) inclut la clé vous permettant d’accéder. Lorsque vous ajoutez un appareil au [registre des identités](#identity-registry) ou une [stratégie d’accès partagé](#shared-access-policy) à votre hub, le service génère une clé primaire et une clé secondaire. Le fait de disposer de deux clés vous permet de passer d’une clé à un autre lorsque vous mettez à jour une clé sans perdre l’accès au hub IoT.
+
+## <a name="priority"></a>Priorité
+Lorsque deux déploiements IoT Edge ciblent le même appareil, le déploiement avec la priorité plus élevée est appliqué. Si les deux déploiements ont la même priorité, le déploiement avec la date de création la plus tardive est appliqué. En savoir plus sur la [priorité](#https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## <a name="protocol-gateway"></a>Passerelle de protocole
 Une passerelle de protocole est généralement déployée dans le cloud. Elle fournit des services de traduction de protocole pour les appareils qui se connectent à [IoT Hub](#iot-hub). Pour plus d’informations, voir [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md).
@@ -247,6 +287,9 @@ Dans le contexte d’un [jumeau d’appareil](iot-hub-devguide-device-twins.md),
 
 ## <a name="tags"></a>Balises
 Dans le contexte d’un [jumeau d’appareil](iot-hub-devguide-device-twins.md), les balises sont des métadonnées d’appareil stockées et récupérées par le back-end de solution sous la forme d’un document JSON. Les balises ne sont pas visibles pour les applications sur un appareil.
+
+## <a name="target-condition"></a>Condition cible
+Dans un déploiement IoT Edge, la condition cible est une condition booléenne sur les balises des représentations d’appareil afin de sélectionner les appareils cibles du déploiement, par exemple, « tag.environment = prod ». La condition cible est évaluée en permanence pour inclure les nouveaux appareils qui répondent aux exigences ou pour supprimer les appareils qui n’y répondent plus. En savoir plus sur la [condition cible](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>Télémétrie
 Les appareils collectent des données de télémétrie, telles que la vitesse du vent ou la température, et utilisent des [messages de point de données](#data-point-messages) pour envoyer les données de télémétrie à un hub IoT.

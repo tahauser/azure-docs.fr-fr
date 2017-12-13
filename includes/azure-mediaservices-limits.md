@@ -18,15 +18,15 @@
 | Unités de diffusion en continu par point de terminaison de diffusion en continu  |10 |
 | Comptes de stockage | 1 000<sup>(5)</sup> (fixe) |
 | Stratégies | 1,000,000<sup>(6)</sup> |
-| Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>7</sup> |
+| Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>7</sup> |
   
-<sup>1</sup> Les unités réservées S3 ne sont pas disponibles en Inde-Ouest. Les limites d’unités réservées maximales sont réinitialisées si le client change le type (par exemple, en passant de S2 à S1). 
+<sup>1</sup> Les unités réservées S3 ne sont pas disponibles en Inde-Ouest. Si vous changez le type (par exemple, de S2 à S1), les limites d’unités réservées maximales sont réinitialisées.
 
 <sup>2</sup> Ce nombre comprend les travaux en file d’attente, terminés, actifs et annulés. Il n’inclut pas les travaux supprimés. Vous pouvez supprimer les anciens travaux à l’aide de **IJob.Delete** ou de la requête HTTP **DELETE**.
 
-À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit [ici](../articles/media-services/media-services-dotnet-manage-entities.md).
+Depuis le 1er avril 2017, les enregistrements de travaux de votre compte qui ont plus de 90 jours sont automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximal. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit [ici](../articles/media-services/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Lors d’une requête visant à répertorier les entités de travail, un maximum de 1 000 est renvoyé par requête. Si vous souhaitez effectuer le suivi de l’ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> Lors d’une requête visant à lister les entités de travail, un maximum de 1 000 travaux sont retournés par requête. Si vous souhaitez effectuer le suivi de l’ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](http://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez [cette](../articles/media-services/media-services-content-protection-overview.md) section.
 
@@ -37,11 +37,11 @@
 >[!NOTE]
 > Vous devez appliquer le même ID de stratégie si vous utilisez toujours le même nombre de jours, les mêmes autorisations d’accès, etc. Pour plus d’informations et un exemple, consultez [cette](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) section.
 
-<sup>7</sup>Si vous chargez du contenu dans une ressource dans Azure Media Services dans l’objectif de le traiter avec des processeurs multimédias de notre service (par exemple, des encodeurs comme Media Encoder Standard et le workflow d’encodeur multimédia premium, ou des moteurs d’analyse comme Face Detector), vous devez être conscient de la limite de taille maximale suivante. 
+<sup>7</sup>Si vous chargez du contenu dans un actif dans Azure Media Services afin de le traiter avec l’un des processeurs multimédias du service (c’est-à-dire des encodeurs comme Media Encoder Standard et Media Encoder Premium Workflow, ou des moteurs d’analyse comme Face Detector), vous devez connaître les tailles de fichiers maximales prises en charge. 
 
-À compter du 15 mai 2017, la taille maximale prise en charge pour un seul objet blob est 195 To. Si vos fichiers sont d’une taille supérieure à cette limite, la tâche échouera. Nous sommes en train de développer un correctif pour résoudre ce problème de limite. En outre, la limite de taille maximale de l’élément multimédia est la suivante.
+La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Toutefois, des limites supplémentaires sont applicables dans Azure Media Services en fonction des tailles de machine virtuelle utilisées par le service. Le tableau suivant indique les limites pour chacune des unités réservées Multimédia (S1, S2, S3). Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez du contenu 4K qui dépasse la limite de 260 Go sur les unités réservées Multimédia S3, contactez-nous à l’adresse amshelp@microsoft.com afin d’identifier des solutions d’atténuation potentielles permettant de prendre en charge votre scénario.
 
-| Types d’unités réservées de média | Taille maximale en entrée (Go)| 
+| Types d’unité réservée Multimédia | Taille maximale en entrée (Go)| 
 | --- | --- | 
 |S1 | 325|
 |S2 | 640|

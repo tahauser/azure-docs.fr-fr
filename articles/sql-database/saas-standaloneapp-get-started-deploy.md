@@ -14,13 +14,13 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: sstein
-ms.openlocfilehash: 2ca290dfcb23215ffd727500e76076ae8b14fa6f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/30/2017
+ms.author: genemi
+ms.openlocfilehash: d38cd108821bce05824732bbdbdd322ae8563bde
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 
@@ -28,9 +28,9 @@ Dans ce didacticiel, vous allez déployer et explorer l’application autonome S
 
 Le modèle d’application autonome déploie un groupe de ressources Azure contenant une application à locataire unique et une base de données locataire unique pour chaque client.  Plusieurs instances de l’application peuvent être configurées pour fournir une solution mutualisée.
 
-Alors que, dans ce didacticiel, vous allez déployer des groupes de ressources pour plusieurs clients dans votre abonnement Azure, ce modèle permet aux groupes de ressources d’être déployés dans un abonnement de client Azure.  Azure propose des programmes partenaires qui permettent à ces groupes de ressources d’être gérés par un fournisseur au nom du client en tant qu’administrateur dans le l’abonnement du client.
+Dans ce didacticiel, vous déployez des groupes de ressources pour plusieurs clients dans votre abonnement Azure.  Ce modèle permet aux groupes de ressources d’être déployés dans l’abonnement Azure d’un locataire. Azure propose des programmes partenaires qui permettent à ces groupes de ressources d’être gérés par un fournisseur de services pour le compte du locataire. Le fournisseur de services est un administrateur dans l’abonnement du locataire.
 
-Dans la section de déploiement ci-dessous, vous trouverez trois boutons Déployer sur Azure, chacun d’eux déployant une autre instance de l’application personnalisée pour un client spécifique. Lorsque vous appuyez sur chacun de ces boutons, l’application correspondante est entièrement déployée cinq minutes plus tard.  Les applications sont déployées dans votre abonnement Azure.  Vous avez un accès complet pour explorer et utiliser les composants d’application individuels.
+Dans la section suivante sur le déploiement, il existe trois boutons bleus **Déployer sur Azure**. Chaque bouton déploie une instance différente de l’application. Chaque instance est personnalisée pour un locataire spécifique. Lorsque vous appuyez sur chacun de ces boutons, l’application correspondante est entièrement déployée en cinq minutes.  Les applications sont déployées dans votre abonnement Azure.  Vous avez un accès complet pour explorer et utiliser les composants d’application individuels.
 
 Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp).
 
@@ -38,23 +38,22 @@ Le code source de l’application et les scripts de gestion sont disponibles dan
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
+> * Déployer l’application autonome SaaS Wingtip Tickets.
+> * Obtenir le code source de l’application et les scripts de gestion.
+> * Explorer les serveurs et les bases de données qui composent l’application.
 
-> * Guide de déploiement de l’Application Wingtip Tickets SaaS autonome
-> * Obtenir le code source de l’application et les scripts de gestion
-> * Explorer les serveurs et les bases de données qui composent l’application
-
-D’autres didacticiels seront publiés en temps voulu pour vous permettre d’explorer un éventail de scénarios de gestion basés sur ce modèle d’application.   
+D’autres didacticiels seront publiés. Ils vous permettront d’explorer un éventail de scénarios de gestion basés sur ce modèle d’application.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Déployer l’exemple d’application autonome SaaS Wingtip Tickets
 
 Déployez l’application pour les trois clients fournis :
 
-1. Cliquez sur chaque bouton **Déployer sur Azure** pour ouvrir le modèle de déploiement dans le portail Azure. Chaque modèle nécessite deux valeurs de paramètre ; le nom d’un nouveau groupe de ressources et un nom d’utilisateur qui distingue ce déploiement des autres déploiements de l’application. L’étape suivante fournit des détails sur la définition de ces valeurs.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>     &nbsp;&nbsp;**Salle de concert Contoso**
+1. Cliquez sur chaque bouton bleu **Déployer sur Azure** pour ouvrir le modèle de déploiement dans le [portail Azure](https://portal.azure.com). Chaque modèle nécessite deux valeurs de paramètre ; le nom d’un nouveau groupe de ressources et un nom d’utilisateur qui distingue ce déploiement des autres déploiements de l’application. L’étape suivante fournit des détails sur la définition de ces valeurs.<br><br>
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Salle de concert Contoso**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp;&nbsp;**Dogwood Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dojo Dogwood**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>    &nbsp;&nbsp;**Fabrikam Jazz Club**
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Club de jazz Fabrikam**
 
 2. Entrez les valeurs de paramètre requises pour chaque déploiement.
 
@@ -62,67 +61,72 @@ Déployez l’application pour les trois clients fournis :
     > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. **Créez un groupe de ressources** pour chaque déploiement d’application.  N’utilisez pas un groupe de ressources existant. N’utilisez pas cette application, ni les ressources qu’elle crée, pour la production. Supprimez tous les groupes de ressources lorsque vous en avez terminé avec les applications pour interrompre la facturation associée.
 
     Il est préférable d’utiliser uniquement des lettres minuscules, des chiffres et des traits d’union dans les noms de ressource.
-    * Pour **Groupe de ressources** : sélectionnez Création et indiquez un Nom pour le groupe de ressources (sensible à la casse).
-        * Nous recommandons que toutes les lettres du nom de votre groupe de ressources soient en minuscules.
-        * Nous vous recommandons d’inclure un tiret, suivi de vos initiales, puis d’un chiffre : par exemple, _wingtip-sa-af1_.
-        * Sélectionnez un Emplacement dans la liste déroulante.
+    * Pour **Groupe de ressources**, sélectionnez **Création** et indiquez un **nom** en minuscules pour le groupe de ressources.
+        * Nous vous recommandons d’inclure un tiret, suivi de vos initiales, puis d’un chiffre : par exemple, *wingtip-sa-af1*.
+        * Sélectionnez un **Emplacement** dans la liste déroulante.
 
-    * Pour **Utilisateur**, nous vous recommandons de choisir une valeur courte, comme vos initiales plus un chiffre : par exemple, _af1_.
+    * Pour **Utilisateur**, nous vous recommandons de choisir une valeur d’utilisateur courte, comme vos initiales plus un chiffre : par exemple, *af1*.
 
 
-1. **Déployez l’application**.
+3. **Déployez l’application**.
 
     * Cliquez pour accepter les conditions générales.
     * Cliquez sur **Achat**.
 
-1. Surveiller l’état du déploiement des trois déploiements en cliquant sur **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement de l’application dure environ cinq minutes.
+4. Surveillez l’état du déploiement des trois déploiements en cliquant sur **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement de l’application dure cinq minutes.
 
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-L’application présente des lieux, comme des salles de concert, des clubs de jazz ou des salles de sport qui accueillent des événements. Les lieux sont inscrits en tant que clients de Wingtip Tickets, offrant ainsi un moyen simple de répertorier les événements et de vendre des tickets. Chaque lieu obtient un site web personnalisé pour gérer et répertorier ses événements, ainsi que pour vendre des billets indépendamment des autres locataires. Dans le système, chaque client obtient une instance d’application distincte et une base de données SQL autonome.
+L’application présente les lieux qui hébergent des événements. Les types de lieu incluent des salles de concert, des clubs de jazz et des salles de sport. Les lieux sont les clients de l’application Wingtip Tickets. Dans Wingtip Tickets, les lieux sont enregistrés en tant que *locataires*. En étant locataire, un lieu obtient un moyen simple de répertorier des événements et de vendre des billets à ses clients. Chaque lieu obtient un site web personnalisé pour répertorier ses événements et vendre des billets. Chaque locataire est isolé des autres locataires et est indépendant. Dans le système, chaque locataire obtient une instance d’application distincte et sa propre base de données SQL autonome.
 
 1. Ouvrez la page d’événements pour chacun des trois clients dans des onglets de navigateur distincts :
 
-    http://events.contosoconcerthall.&lt;Utilisateur&gt;.trafficmanager.net <br>
-    http://events.dogwooddojo.&lt;Utilisateur&gt;.trafficmanager.net<br>
-    http://events.fabrikamjazzclub.&lt;Utilisateur&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt;Utilisateur&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;Utilisateur&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;Utilisateur&gt;.trafficmanager.net
 
-    (remplacez &lt;Utilisateur&gt; avec la valeur Utilisateur de votre déploiement).
+    (Dans chaque URL, remplacez &lt;Utilisateur&gt; avec la valeur d’utilisateur de votre déploiement.)
 
    ![Événements](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
+Pour contrôler la distribution des demandes entrantes, l’application utilise [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Chaque instance d’application propre au locataire comprend le nom du locataire en tant que partie du nom de domaine dans l’URL. Toutes les URL de locataire comprennent votre valeur **Utilisateur** spécifique. Les URL respectent le format suivant :
+- http://events.&lt;venuename&gt;.&lt;USER&gt;.trafficmanager.net
 
-Pour contrôler la distribution des demandes entrantes, l’application utilise [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview). Chaque application propre au client comprend le nom du client en tant que partie du nom de domaine dans l’URL. Toutes les URL de locataires incluent votre propre valeur *Utilisateur* et respectent le format suivant : http://events.&lt;emplacement&gt;.&lt;UTILISATEUR&gt;.trafficmanager.net/. L’emplacement de base de données de chaque client est inclus dans les paramètres d’application de l’application déployée correspondante.
+**L’emplacement** de base de données de chaque locataire est inclus dans les paramètres d’application de l’application déployée correspondante.
 
-Dans un environnement de production, vous créez généralement un enregistrement DNS CNAME pour [*pointer un domaine Internet d’entreprise*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) vers l’URL du profil Traffic Manager.
+Dans un environnement de production, vous créez généralement un enregistrement DNS CNAME pour [*pointer un domaine Internet d’entreprise*](../traffic-manager/traffic-manager-point-internet-domain.md) vers l’URL du profil Traffic Manager.
 
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>Explorer les serveurs et les bases de données de locataires
 
 Examinons quelques-unes des ressources qui ont été déployées :
 
-1. Dans le [portail Azure](http://portal.azure.com), accédez à la liste des groupes de ressources.  Vous devez voir le groupe de ressources **wingtip-sa-catalog-&lt;Utilisateur&gt;** dans lequel le serveur **catalog-sa-&lt;Utilisateur&gt;** est déployé avec la base de données **tenantcatalog**. Vous devriez également voir trois groupes de ressources client.
+1. Dans le [portail Azure](http://portal.azure.com), accédez à la liste des groupes de ressources.
+2. Consultez le groupe de ressources **wingtip-sa-catalog-&lt;USER&gt;**.
+    - Dans ce groupe de ressources, le serveur **catalog-sa-&lt;USER&gt;** est déployé. Le serveur contient la base de données **tenantcatalog**.
+    - Vous devriez également voir trois groupes de ressources client.
+3. Ouvrez le groupe de ressources **wingtip-sa-fabrikam-&lt;Utilisateur&gt;** qui contient les ressources pour le déploiement du Fabrikam Jazz Club.  Le serveur **fabrikamjazzclub-&lt;Utilisateur&gt;** contient la base de données **fabrikamjazzclub**.
 
-1. Ouvrez le groupe de ressources **wingtip-sa-fabrikam-&lt;Utilisateur&gt;** qui contient les ressources pour le déploiement du Fabrikam Jazz Club.  Le serveur **fabrikamjazzclub-&lt;Utilisateur&gt;** contient la base de données **fabrikamjazzclub**.
+Chaque base de données est une base de données 50 DTU *autonome*.
 
+## <a name="additional-resources"></a>Ressources supplémentaires
 
-Chaque base de données est une base de données 50 DTU _autonome_.
+<!--
+* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
+-->
+
+- Pour de plus amples informations sur les applications SaaS mutualisées, consultez [Modèles de location de base de données SaaS multi-locataire](saas-tenancy-app-design-patterns.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
+> * Déployer l’application autonome SaaS Wingtip Tickets.
+> * Explorer les serveurs et les bases de données qui composent l’application.
+> * Comment supprimer les exemples de ressources pour arrêter la facturation associée.
 
-> * Guide de déploiement de l’Application Wingtip Tickets SaaS autonome
-> * Explorer les serveurs et les bases de données qui composent l’application
-> * Supprimer les exemples de ressources pour arrêter la facturation associée
-
-
-## <a name="additional-resources"></a>Ressources supplémentaires
-
-<!--* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
-* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview) -->
-* Pour de plus amples informations sur les applications SaaS mutualisées, consultez [*Modèles de conception pour les applications SaaS mutualisées et Base de données SQL Azure*](saas-tenancy-app-design-patterns.md).

@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: a56a5af171eaca259db29f25fee4331a77313420
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a71892296c82e3655a75ca3e863539cc19ea998
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Didacticiel : Intégration d'Azure Active Directory à Dropbox for Business
 
@@ -25,9 +26,9 @@ Dans ce didacticiel, vous allez apprendre à intégrer Dropbox for Business à A
 
 L’intégration de Dropbox for Business à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Dropbox for Business
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Dropbox for Business (par le biais de l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Dans Azure AD, vous pouvez contrôler qui a accès à Dropbox for Business.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Dropbox for Business (par le biais de l’authentification unique) avec leur compte Azure AD.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ Pour configurer l’intégration d’Azure AD avec Dropbox for Business, vous av
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
@@ -53,46 +54,43 @@ Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un e
 2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Ajout de Dropbox for Business à partir de la galerie
-Pour configurer l’intégration de Dropbox for Business à Azure AD, vous devez ajouter Dropbox for Business depuis la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Dropbox for Business à Azure AD, vous devez ajouter Dropbox for Business depuis la galerie à votre liste d’applications SaaS managées.
 
 **Pour ajouter Dropbox for Business à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![Panneau Applications d’entreprise][2]
     
-3. Cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Dropbox for Business**.
+4. Dans la zone de recherche, tapez **Dropbox for Business**, sélectionnez **Dropbox for Business** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_search.png)
+    ![Dropbox for Business dans la liste des résultats](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
-5. Dans le volet des résultats, sélectionnez **Dropbox for Business**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Dropbox for Business, en tirant parti d’un utilisateur de test appelé « Britta Simon ».
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Dropbox for Business équivalent dans Azure AD. En d’autres termes, un lien entre un utilisateur Azure AD et l’utilisateur Dropbox for Business associé doit être établi.
 
-Pour ce faire, assignez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Dropbox for Business.
+Dans Dropbox for Business, assignez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **Nom d’utilisateur** pour établir la relation.
 
 Pour configurer et tester l’authentification unique Azure AD avec Dropbox for Business, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Dropbox for Business](#creating-a-dropbox-for-business-test-user)** pour avoir un équivalent de Britta Simon dans Dropbox for Business lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test Dropbox for Business](#create-a-dropbox-for-business-test-user)** pour avoir un équivalent de Britta Simon dans Dropbox for Business lié à la représentation Azure AD associée.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Dropbox for Business.
 
@@ -100,13 +98,37 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Dropbox for Business**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
 3. Dans la section **Domaine et URL Dropbox for Business**, effectuez les étapes suivantes :
+
+    ![Informations d’authentification unique dans la section Domaine et URL Dropbox for Business](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
+
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.dropbox.com/sso/<id>`
+
+    b. Dans la zone de texte **Identificateur**, tapez une valeur : `Dropbox`
+
+    > [!NOTE] 
+    > La valeur URL de connexion ci-dessus n’est pas une valeur réelle. Vous mettrez à jour la valeur avec l’URL de connexion réelle. La procédure est expliquée plus loin dans le didacticiel. Contactez [l’équipe de prise en charge des clients Dropbox for Business ](https://www.dropbox.com/business/contact) pour obtenir la valeur. 
+ 
+
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
+
+5. Cliquez sur le bouton **Enregistrer** .
+
+    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_400.png)
+
+6. Dans la section **Configuration de Dropbox for Business**, cliquez sur **Configurer Dropbox for Business** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+
+    ![Configuration de Dropbox for Business](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
+
+7. Pour configurer l’authentification unique du côté de **Dropbox for Business**, accédez à votre locataire Dropbox for Business.
 
     a. Connectez-vous à votre abonné Dropbox for Business. 
    
@@ -124,38 +146,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769512.png "Configurer l’authentification unique")
    
-    e. Copiez l’URL en regard de **Les utilisateurs peuvent se connecter en entrant leur adresse e-mail ou accéder directement à**. 
+    e. Copiez l’URL en regard de **Users can sign in by entering their email address or they can go directly to** (Les utilisateurs peuvent se connecter en entrant leur adresse e-mail ou ils peuvent accéder directement à) et collez-la dans la zone de texte **URL de connexion** de la section **Domaine et URL Dropbox for Business** sur le portail Azure. 
     
     ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769513.png)
     
-    f. Sur le portail Azure, dans la zone de texte **URL de connexion**, collez l’URL.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url.png)
-
-     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.dropbox.com/sso/<id>`
-
-    > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle que vous obtenez à partir de la section Authentification unique. Contactez [l’équipe de prise en charge des clients Dropbox for Business ](https://www.dropbox.com/business/contact) pour obtenir cette valeur. 
- 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
-
-5. Cliquez sur le bouton **Enregistrer** .
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_400.png)
-
-6. Dans la section **Configuration de Dropbox for Business**, cliquez sur **Configurer Dropbox for Business** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
-
-7. Pour configurer l’authentification unique coté **Dropbox for Business**, accédez à votre abonné Dropbox for Business, dans la section **Authentification unique** de la page **Authentification**, effectuez les étapes suivantes : 
+8. Dans la section **Authentification unique** de la page **Authentification**, effectuez les étapes suivantes : 
    
     ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Configurer l’authentification unique")
    
     a. Cliquez sur **Obligatoire**.
    
-    b. Sur le portail Azure, dans la fenêtre **Configurer l’authentification**, copiez la valeur **URL du service d’authentification unique SAML**, puis collez-la dans la zone de texte **URL de connexion**.
+    b. Dans la zone de texte **URL de connexion**, collez la valeur de **URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
 
     c. Cliquez sur **Choisir un certificat**, puis recherchez votre **fichier de certificat codé en base 64**.
 
@@ -163,39 +164,41 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][100]
+   ![Créer un utilisateur de test Azure AD][100]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_01.png) 
+    ![Bouton Azure Active Directory](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_01.png)
 
-2.  Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_02.png) 
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
-3. En haut de la boîte de dialogue, cliquez sur **Ajouter** pour ouvrir la boîte de dialogue **Utilisateur**.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_03.png) 
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_02.png)
+
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+
+    ![Bouton Ajouter](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_03.png)
 
 4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+
+    ![Boîte de dialogue Utilisateur](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_04.png)
+
+    a. Dans la zone **Nom**, tapez **BrittaSimon**.
+
+    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+
+    d. Cliquez sur **Créer**.
  
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_04.png) 
-
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
-
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
-
-    d. Cliquez sur **Create**.
- 
-### <a name="creating-a-dropbox-for-business-test-user"></a>Création d’un utilisateur de test Dropbox for Business
+### <a name="create-a-dropbox-for-business-test-user"></a>Créer un utilisateur de test Dropbox for Business
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans Dropbox for Business. Dropbox for Business prend en charge l’approvisionnement juste-à-temps, option activée par défaut.
 
@@ -204,11 +207,11 @@ Vous n’avez aucune opération à effectuer dans cette section. Si un utilisate
 >[!Note]
 >Si vous devez créer un utilisateur manuellement, contactez l’[équipe de prise en charge des clients Dropbox for Business](https://www.dropbox.com/business/contact). 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Dropbox for Business.
 
-![Affecter des utilisateurs][200] 
+![Attribuer le rôle utilisateur][200] 
 
 **Pour assigner des utilisateurs à Dropbox for Business, effectuez les étapes suivantes :**
 
@@ -218,15 +221,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **Dropbox for Business**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png) 
+    ![Lien Dropbox for Business dans la liste Applications](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png)  
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Lien « Utilisateurs et groupes »][202]
 
 4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![Affecter des utilisateurs][203]
+    ![Volet Ajouter une attribution][203]
 
 5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
@@ -234,17 +237,19 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
     
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette Dropbox for Business dans le volet d’accès, vous devez obtenir la page de connexion de votre application Dropbox for Business.
+ 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-* [Configurer l’approvisionnement de l’utilisateur](active-directory-saas-dropboxforbusiness-provisioning-tutorial.md)
+
+
 
 <!--Image references-->
 

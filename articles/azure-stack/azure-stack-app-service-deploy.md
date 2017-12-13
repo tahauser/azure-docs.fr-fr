@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
@@ -73,7 +73,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     ![Programme d’installation App Service](media/azure-stack-app-service-deploy/image04.png)
 
 8. Sur la page suivante :
-    1. Dans la zone **ID d’Application d’identité** , entrez le GUID de l’application que vous utilisez pour l’identité.
+    1. Dans la zone **ID d’application d’identité**, entrez le GUID de l’application que vous utilisez pour l’identité (à partir d’Azure AD).
     2. Dans la zone **fichier de certificat d’application d’identité**, entrez (ou accédez à) l’emplacement du fichier de certificat.
     3. Dans la zone **Mot de passe du certificat d’application d’identité**, entrez le mot de passe du certificat. Ce mot de passe est celui que vous avez noté lorsque vous avez utilisé le script pour créer les certificats.
     4. Dans la zone **fichier de certificat racine Azure Resource Manager**, entrez (ou accédez à) l’emplacement du fichier de certificat.
@@ -157,7 +157,7 @@ Après avoir déployé et inscrit le fournisseur de ressources App Service, test
 >
 Vous *devez* disposer d’un abonnement locataire pour créer des applications qui utilisent App Service sur Azure Stack. Les seules fonctionnalités qu’un administrateur de service peut effectuer dans le portail d’administration sont liées à l’administration du fournisseur de ressources App Service. Ces fonctionnalités incluent l’ajout de capacité, la configuration de sources de déploiement, l’ajout de niveaux Worker et de références.
 >
-À compter de la troisième préversion technique, vous devez utiliser le portail du locataire et disposer d’un abonnement locataire pour créer des applications web, d’API et Azure Functions.
+Pour créer des applications web, d’API et Azure Functions, vous devez utiliser le portail du locataire et disposer d’un abonnement locataire.
 
 1. Dans le portail du locataire Azure Stack, cliquez sur **Nouveau** > **Web + Mobile** > **Application web**.
 

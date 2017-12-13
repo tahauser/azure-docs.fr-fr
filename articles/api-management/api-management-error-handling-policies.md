@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestion des erreurs dans les stratégies de la Gestion des API
 La Gestion des API Azure permet aux éditeurs de répondre aux conditions d’erreur qui peuvent se produire lors du traitement des demandes au proxy en fournissant un objet `ProxyError`. L’objet `ProxyError` est accessible par la propriété [context.LastError](api-management-policy-expressions.md#ContextVariables) et peut être utilisé par les stratégies dans la section de stratégie `on-error`. Cette rubrique est une ressource de référence au sujet des fonctionnalités de gestion des erreurs dans la Gestion des API Azure.  
@@ -56,27 +56,16 @@ La Gestion des API Azure permet aux éditeurs de répondre aux conditions d’er
  Les stratégies suivantes peuvent être utilisées dans la section de stratégie `on-error`.  
   
 -   [choose](api-management-advanced-policies.md#choose)  
-  
 -   [set-variable](api-management-advanced-policies.md#set-variable)  
-  
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [set-status](api-management-advanced-policies.md#SetStatus)  
-  
 -   [send-request](api-management-advanced-policies.md#SendRequest)  
-  
 -   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -128,4 +117,10 @@ La Gestion des API Azure permet aux éditeurs de répondre aux conditions d’er
 |validate-jwt|Autres échecs de validation.|JwtInvalid|<message from jwt library\>|
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
+
+Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
+
++ [Stratégies dans Gestion des API](api-management-howto-policies.md)
++ [Transformer des API](transform-api.md)
++ [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
++ [Exemples de stratégie](policy-samples.md)   

@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure
 Créez un rôle personnalisé dans le contrôle d’accès en fonction du rôle (RBAC) Azure si aucun des rôles intégrés ne répond à vos besoins d’accès spécifiques. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](role-based-access-control-manage-access-powershell.md), de [l’interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md) et de [l’API REST](role-based-access-control-manage-access-rest.md). Comme avec les rôles intégrés, vous pouvez affecter des rôles personnalisés à des utilisateurs, des groupes et des applications dans l’étendue des abonnements, des groupes de ressources et des ressources. Les rôles personnalisés sont stockés dans un client Azure AD et peuvent être partagés entre les abonnements.
@@ -28,7 +28,7 @@ Chaque locataire peut créer jusqu’à 2 000 rôles personnalisés.
 
 Voici un exemple de rôle personnalisé pour surveiller et redémarrer des machines virtuelles :
 
-```
+```json
 {
   "Name": "Virtual Machine Operator",
   "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
@@ -67,7 +67,7 @@ La propriété **Actions** d’un rôle personnalisé spécifie les opérations 
 
 Utilisez `Get-AzureRmProviderOperation` (dans PowerShell) ou `azure provider operations show` (dans l’interface de ligne de commande Azure) pour répertorier les opérations des fournisseurs de ressources Azure. Vous pouvez également utiliser ces commandes pour vérifier qu’une chaîne d’opération est valide et pour développer les chaînes d’opération génériques.
 
-```
+```powershell
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
@@ -75,7 +75,7 @@ Get-AzureRMProviderOperation Microsoft.Network/*
 
 ![Capture d’écran PowerShell - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
-```
+```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
 
 azure provider operations show "Microsoft.Network/*"
@@ -117,7 +117,8 @@ La propriété **AssignableScopes** du rôle personnalisé contrôle également 
     Tous les rôles intégrés dans le contrôle d’accès en fonction du rôle Azure permettent d’afficher les rôles pouvant être affectés. Les utilisateurs qui peuvent effectuer l’opération `Microsoft.Authorization/roleDefinition/read` dans une étendue sont autorisés à afficher les rôles RBAC pouvant être affectés dans cette étendue.
 
 ## <a name="see-also"></a>Voir aussi
-* [Utiliser les attributions de rôle pour gérer l’accès à vos ressources Azure Active Directory](role-based-access-control-configure.md): découvrez le contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+* [Contrôle d’accès en fonction du rôle Azure](role-based-access-control-configure.md): découvrez le Contrôle d’accès en fonction du rôle Azure dans le portail Azure.
+* Pour obtenir la liste des opérations disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Interface de ligne de commande Azure](role-based-access-control-manage-access-azure-cli.md)

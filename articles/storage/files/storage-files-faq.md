@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles par le biais du [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard du secteur (également connu sous le nom de Common Internet File System ou CIFS). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync (préversion) pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 Cet article répond à des questions courantes sur les fonctionnalités d’Azure Files, notamment concernant l’utilisation d’Azure File Sync avec Azure Files. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
 
 1. La section Commentaires de cet article
-2. [Forum du Stockage Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata)
+2. [Forum du Stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
 
@@ -147,6 +147,9 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* <a id="afs-effective-vfs"></a>**Comment *l’espace libre du volume* est-il interprété quand il y a plusieurs points de terminaison de serveur sur un volume ?**  
+    Quand il y a plusieurs point de terminaison de serveur sur un volume, le seuil d’espace libre de volume effectif est l’espace libre de volume le plus élevé spécifié sur tous les points de terminaison de serveur sur ce volume. Les fichiers sont hiérarchisés en fonction de leurs modèles d’utilisation, quel que soit le point de terminaison de serveur auquel ils appartiennent. Par exemple, si vous avez deux points de terminaison de serveur sur un volume, Point1 et Point2, où Point1 a un seuil d’espace libre de volume de 25 % et Point2 a un seuil d’espace libre de volume de 50 %, le seuil d’espace libre de volume pour les deux points de terminaison de serveur est de 50 %.
 
 * <a id="afs-files-excluded"></a>**Quels fichiers ou dossiers sont automatiquement exclus par Azure File Sync ?**  
     Par défaut, la synchronisation de fichiers Azure exclut les fichiers suivants :

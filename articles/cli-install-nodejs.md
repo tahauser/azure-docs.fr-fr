@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Installer l’interface de ligne de commande Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 > * [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> Cette rubrique explique comment installer l’interface de ligne de commande Azure CLI 1.0, qui est basée sur nodeJs et prend en charge tous les appels d’API de déploiement classique ainsi qu’un grand nombre d’activités de déploiement Resource Manager. Vous devez utiliser l’[interface de ligne de commande Azure CLI 2.0](/cli/azure/overview) pour les déploiements et la gestion, nouveaux et prospectifs, des interfaces de ligne de commande Azure.
+> Cette rubrique décrit comment installer Azure CLI 1.0. Cette interface est dépréciée et doit être utilisée uniquement pour la prise en charge avec le modèle Azure Service Management (ASM) avec des ressources « classiques ».
+> Pour les déploiements Azure Resource Manager (ARM), utilisez [Azure CLI 2.0](/cli/azure/overview).
 
 Installez rapidement l’interface de ligne de commande Azure (Azure CLI 1.0) pour bénéficier d’un ensemble de commandes shell open source permettant de créer et de gérer les ressources dans Microsoft Azure. Vous avez plusieurs options pour installer ces outils multiplateformes sur votre ordinateur :
 
@@ -129,7 +130,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Se connecter à partir de l’interface de ligne de commande à votre abonnement Azure](xplat-cli-connect.md) pour créer et gérer des ressources Azure.
-* Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli)(en anglais).
+* Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir le [Dépôt GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli).
 * Si vous avez des questions sur l’utilisation de l’interface de ligne de commande Azure ou sur l’utilisation d’Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
 

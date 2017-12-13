@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
-ms.openlocfilehash: 39ae2aa7217b45e8fab77f528b27b77a1b1256bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a0985cd993c53dcf75d3b29e57598e72908163b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analyse des sentiments à l’aide de l’apprentissage profond dans Azure Machine Learning
 
@@ -67,10 +67,9 @@ Pour mener à bien la solution, vous devez effectuer les exercices pratiques dan
 | Ordre| Nom de fichier | Fichiers associés |
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | « data/sampleReviews.txt » |
-| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | « SentimentExtraction.py » |
-| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | « SentimentExtractionDocker.py » |
+| 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | « SentimentExtraction.py » |
 | 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | « Operationalization » |
 
 ## <a name="conclusion"></a>Conclusion
 
-En conclusion, la solution présentée vous montre comment utiliser l’apprentissage profond pour effectuer une analyse des sentiments avec Azure Machine Learning Workbench. Cette solution flexible permet l’utilisation de CNTK/Tensorflow comme outil principal avec Keras. De plus, elle est également implémentée avec des modèles HDF5.
+En conclusion, la solution présentée vous montre comment utiliser l’apprentissage profond pour effectuer une analyse des sentiments avec Azure Machine Learning Workbench. De plus, nous opérationnalisons également à l’aide de modèles HDF5.

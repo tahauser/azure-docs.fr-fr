@@ -146,6 +146,12 @@
               href: app-insights-proactive-trace-severity.md
             - name: Volume des exceptions
               href: app-insights-proactive-exception-volume.md
+            - name: Fuite de mémoire
+              href: app-insights-proactive-potential-memory-leak.md
+            - name: Utilisation des ressources
+              href: app-insights-proactive-low-utilization-cloud-resources.md
+            - name: Détection de la sécurité
+              href: app-insights-proactive-application-security-detection-pack.md
         - name: Créer une ressource
           href: app-insights-create-new-resource.md
     - name: Analyser

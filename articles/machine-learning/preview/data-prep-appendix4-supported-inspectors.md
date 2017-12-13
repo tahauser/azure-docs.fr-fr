@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspecteurs pris en charge pour la préversion de préparation des données Azure Machine Learning
 Ce document décrit le jeu d’inspecteurs disponibles dans cette préversion.
@@ -99,7 +99,7 @@ Graphique linéaire avec reconnaissance du temps sur l’axe X.
 Cet inspecteur prend en charge le filtrage par le biais d’une méthode de sélection de type « cliquez et faites glisser » afin de sélectionner une plage sur le graphique. Une fois la sélection terminée, appliquez les filtres comme indiqué précédemment.
 
 
-## <a name="map"></a>Carte 
+## <a name="map"></a>Mappage 
 Carte avec des points tracés, en partant du principe que la latitude et la longitude ont été spécifiées. La latitude doit être sélectionnée en premier.
 
 ### <a name="options"></a>Options
@@ -113,3 +113,18 @@ Carte avec des points tracés, en partant du principe que la latitude et la long
 Cet inspecteur prend en charge le filtrage par sélection de point sur la carte. Appuyez sur la touche **Ctrl**, puis cliquez et faites glisser la souris pour former un carré autour des points. Ensuite, appliquez les filtres comme indiqué précédemment.
 
 Vous pouvez redimensionner rapidement la carte pour afficher uniquement les points possibles en appuyant sur le **E** sur le côté gauche de la carte.
+
+
+## <a name="pattern-frequency"></a>Fréquence de motifs 
+
+Cet inspecteur montre une liste de motifs dans la colonne de type chaîne sélectionnée. Les motifs sont représentés à l’aide d’une expression régulière comme la syntaxe. En pointant sur le motif vous faites apparaître les exemples de valeurs représentées par ce motif. Accompagnant les motifs, les couvertures approximatives en termes de pourcentage sont également ressorties.
+
+![Image de l’inspecteur de motifs](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Options
+- Nombre de premières valeurs affichées
+- Tri décroissant
+- Afficher le halo
+
+### <a name="actions"></a>Actions
+Cet inspecteur prend en charge le filtrage reposant sur les motifs affichés. Appuyez sur la touche **Ctrl**, puis sélectionnez les barres remplies dans l’inspecteur de motifs. Ensuite, appliquez les filtres comme indiqué précédemment. Suite à l’action de l’utilisateur, une étape de filtre avancé est ajoutée. Vous pouvez afficher et modifier le code Python généré en appelant l’option de modification de l’étape de filtre avancé.

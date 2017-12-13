@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   Stratégies de mise en cache des réponses  
   
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.  
-  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.  
   
 -   Stratégies de mise en cache des valeurs  
-  
-    -   [Get value from cache](#GetFromCacheByKey) : récupère un élément mis en cache par clé.  
-  
-    -   [Store value in cache](#StoreToCacheByKey) : stocke un élément mis en cache par clé.  
-  
+
+    -   [Get value from cache](#GetFromCacheByKey) : récupère un élément mis en cache par clé. 
+    -   [Store value in cache](#StoreToCacheByKey) : stocke un élément mis en cache par clé. 
     -   [Remove value from cache](#RemoveCacheByKey) : supprime un élément du cache par clé.  
   
 ##  <a name="GetFromCache"></a> Get from cache  
@@ -54,7 +51,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -119,14 +116,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |allow-private-response-caching|Lorsque l’attribut est défini sur `true`, permet la mise en cache des requêtes qui contiennent un en-tête d’autorisation.|Non|false|  
 |downstream-caching-type|Cet attribut doit avoir l’une des valeurs suivantes.<br /><br /> - none : la mise en cache en aval n’est pas autorisée.<br />- private : la mise en cache privée en aval est autorisée.<br />- public : la mise en cache privée et partagée en aval est autorisée.|Non|Aucun|  
 |must-revalidate|Lorsque la mise en cache en aval est activée, cet attribut active ou désactive la directive de contrôle de cache `must-revalidate` dans les réponses de la passerelle.|Non|true|  
-|vary-by-developer|Attribut défini sur `true` pour mettre en cache des réponses par clé de développeur.|Non|false|  
-|vary-by-developer-groups|Attribut défini sur `true` pour mettre en cache des réponses par rôle d’utilisateur.|Non|false|  
+|vary-by-developer|Attribut défini sur `true` pour mettre en cache des réponses par clé de développeur.|Oui||  
+|vary-by-developer-groups|Attribut défini sur `true` pour mettre en cache des réponses par rôle d’utilisateur.|Oui||  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound (entrant)  
-  
 -   **Étendues de la stratégie :** API, operation, product (API, opération, produit)  
   
 ##  <a name="StoreToCache"></a> Store to cache  
@@ -198,8 +194,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.  
   
--   **Sections de la stratégie :** outbound (sortant)  
-  
+-   **Sections de la stratégie :** outbound (sortant)    
 -   **Étendues de la stratégie :** API, operation, product (API, opération, produit)  
   
 ##  <a name="GetFromCacheByKey"></a> Get value from cache  
@@ -244,7 +239,6 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error (entrant, sortant, principal, en cas d’erreur)  
-  
 -   **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)  
   
 ##  <a name="StoreToCacheByKey"></a> Store value in cache  
@@ -287,11 +281,10 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error (entrant, sortant, principal, en cas d’erreur)  
-  
 -   **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)  
   
 ###  <a name="RemoveCacheByKey"></a> Remove value from cache  
- La stratégie `cache-remove-value` supprime un élément mis en cache identifié par sa clé. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
+La stratégie `cache-remove-value` supprime un élément mis en cache identifié par sa clé. La clé peut avoir une valeur de chaîne arbitraire. Elle est généralement fournie à l’aide d’une expression de stratégie.  
   
 #### <a name="policy-statement"></a>Déclaration de stratégie  
   
@@ -325,9 +318,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error (entrant, sortant, principal, en cas d’erreur)  
-  
 -   **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)  
-  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
+
+Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
+
++ [Stratégies dans Gestion des API](api-management-howto-policies.md)
++ [Transformer des API](transform-api.md)
++ [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
++ [Exemples de stratégie](policy-samples.md)   

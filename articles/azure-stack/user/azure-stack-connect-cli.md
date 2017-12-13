@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installer et configurer l’interface CLI pour une utilisation avec Azure Stack
 
 Dans cet article, nous vous guidons tout au long du processus d’utilisation de l’interface de ligne de commande (CLI) Azure pour gérer les ressources du Kit de développement Azure Stack à partir des plateformes clientes Linux et Mac. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Exporter le certificat racine d’autorité de certification Azure Stack
-
-Si vous utilisez l’interface CLI à partir d’une machine virtuelle qui s’exécute dans l’environnement du Kit de développement Azure Stack, le certificat racine d’Azure Stack est déjà installé sur la machine virtuelle. Vous pouvez donc le récupérer directement. Si vous utilisez l’interface CLI à partir d’une station de travail à l’extérieur du Kit de développement, vous devez exporter le certificat racine d’autorité de certification Azure Stack à partir du Kit de développement et l’ajouter au magasin de certificats Python de votre station de travail de développement (plateforme Linux ou Mac externe). 
-
-Pour exporter le certificat racine Azure Stack au format PEM, connectez-vous à votre kit de développement et exécutez le script suivant :
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>Installer l’interface CLI
 
@@ -59,7 +36,7 @@ Vous devriez voir la version d’Azure CLI et d’autres bibliothèques dépenda
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Approuver le certificat racine d’autorité de certification Azure Stack
 
-Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au certificat Python existant. Si vous exécutez l’interface CLI sur une machine Linux créée dans l’environnement Azure Stack, exécutez la commande bash suivante :
+Récupérez le certificat racine d’autorité de certification Azure Stack auprès de l’opérateur Azure Stack et approuvez-le. Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au certificat Python existant. Si vous exécutez l’interface CLI sur une machine Linux créée dans l’environnement Azure Stack, exécutez la commande bash suivante :
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurer le point de terminaison des alias de machines virtuelles
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Obtenir le point de terminaison des alias de machines virtuelles
 
-Pour que les utilisateurs puissent créer des machines virtuelles à l’aide de l’interface CLI, l’administrateur de cloud doit d’abord configurer un point de terminaison accessible publiquement qui contienne les alias d’images de machines virtuelles et inscrire ce point de terminaison sur le cloud. Le paramètre `endpoint-vm-image-alias-doc` dans la commande `az cloud register` est utilisé à cet effet. Les administrateurs de cloud doivent télécharger l’image sur la Place de marché Azure Stack avant de l’ajouter au point de terminaison des alias d’images.
+Avant de pouvoir créer des machines virtuelles à l’aide de CLI, les utilisateurs doivent contacter l’opérateur Azure Stack et obtenir l’URI du point de terminaison des alias de machines virtuelles. Par exemple, Azure utilise l’URI suivant : https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. L’administrateur de cloud doit configurer un point de terminaison similaire pour Azure Stack avec les images disponibles dans la Place de marché Azure Stack. Les utilisateurs doivent passer l’URI du point de terminaison au paramètre `endpoint-vm-image-alias-doc` à la commande `az cloud register` comme indiqué dans la section suivante. 
    
-Par exemple, Azure utilise l’URI suivant : https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. L’administrateur de cloud doit configurer un point de terminaison similaire pour Azure Stack avec les images disponibles dans la Place de marché Azure Stack.
 
 ## <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack
 

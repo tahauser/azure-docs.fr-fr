@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pour Visual Studio  
 
@@ -32,6 +32,9 @@ Azure Functions Tools propose les avantages suivants :
 * Coder vos fonctions en C# tout en bénéficiant de tous les avantages du développement Visual Studio. 
 
 Cette rubrique vous montre comment utiliser Azure Functions Tools pour Visual Studio 2017 afin de développer vos fonctions en C#. Vous apprenez également à publier votre projet sur Azure en tant qu’assembly .NET.
+
+> [!IMPORTANT]
+> Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Lorsque vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
 ## <a name="prerequisites"></a>Composants requis
 

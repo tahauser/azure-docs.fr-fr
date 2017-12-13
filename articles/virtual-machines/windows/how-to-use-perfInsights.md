@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights 
 
@@ -30,7 +30,7 @@ Nous vous recommandons d’exécuter ce script avant d’ouvrir un ticket de sup
 
 PerfInsights peut collecter et analyser plusieurs types d’informations qui sont regroupés dans des scénarios uniques.
 
-### <a name="collect-disk-configuration"></a>Collecter la configuration de disque 
+### <a name="collect-basic-configuration"></a>Collecte de la configuration de base 
 
 Ce scénario collecte la configuration de disque et d’autres informations importantes, y compris les éléments suivants :
 
@@ -57,7 +57,7 @@ Il s’agit d’une collecte passive d’informations qui ne sont pas censées a
 >[!Note]
 >Ce scénario est automatiquement inclus dans les scénarios suivants.
 
-### <a name="benchmarkstorage-performance-test"></a>Test de performances de stockage/d’évaluation
+### <a name="benchmarking"></a>Benchmarking
 
 Ce scénario exécute le test d’évaluation [diskspd](https://github.com/Microsoft/diskspd) (E/S par seconde et Mbits/s) pour tous les disques joints à la machine virtuelle. 
 
@@ -65,11 +65,11 @@ Ce scénario exécute le test d’évaluation [diskspd](https://github.com/Micro
 > Ce scénario peut affecter le système et ne doit pas être exécuté sur un système de production en direct. Si nécessaire, exécutez ce scénario dans une fenêtre de maintenance dédiée pour éviter tout problème. Une charge de travail accrue qui est provoquée par un test d’évaluation ou un suivi peut nuire aux performances de votre machine virtuelle.
 >
 
-### <a name="general-vm-slow-analysis"></a>Analyse lente de machine virtuelle générale 
+### <a name="slow-vm-analysis"></a>Analyse lente de machine virtuelle 
 
 Ce scénario exécute un suivi du [compteur de performances](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) en utilisant les compteurs spécifiés dans le fichier Generalcounters.txt. Si la machine virtuelle est identifiée en tant que serveur qui exécute SQL Server, elle exécute un suivi du compteur de performances en utilisant les compteurs du fichier Sqlcounters.txt. Cela inclut également des données de diagnostics de performances.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>Évaluation et analyse lente de la machine virtuelle
+### <a name="slow-vm-analysis-and-benchmarking"></a>Évaluation et analyse lente de machine virtuelle
 
 Ce scénario exécute un suivi du [compteur de performances](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx), puis un test d’évaluation [diskspd](https://github.com/Microsoft/diskspd). 
 
@@ -99,9 +99,9 @@ Ce scénario exécute une capture du compteur de performances spéciale ainsi qu
 |              | Avg. Longueur de la file d’attente d’écriture       |
 |              | Avg. Longueur de la file d’attente de données        |
 
-### <a name="custom-configuration"></a>Configuration personnalisée 
+### <a name="custom-slow-vm-analysis"></a>Analyse lente personnalisée de machine virtuelle 
 
-Lorsque vous exécutez une configuration personnalisée, vous exécutez tous les suivis (diagnostics de performances, compteur de performances, xperf, réseau, storport) en parallèle, selon le nombre de suivis sélectionné. Une fois le suivi terminé, l’outil exécute l’évaluation de diskspd, si elle est sélectionnée. 
+Lorsque vous exécutez une analyse lente personnalisée de machine virtuelle, vous exécutez tous les suivis (compteur de performances, xperf, réseau, storport) en parallèle, selon le nombre de suivis sélectionné. Une fois le suivi terminé, l’outil exécute l’évaluation de diskspd, si elle est sélectionnée. 
 
 > [!Note]
 > Ce scénario peut affecter le système et ne doit pas être exécuté sur un système de production en direct. Si nécessaire, exécutez ce scénario dans une fenêtre de maintenance dédiée pour éviter tout problème. Une charge de travail accrue qui est provoquée par un test d’évaluation ou un suivi peut nuire aux performances de votre machine virtuelle.
@@ -113,7 +113,7 @@ Les informations portant sur la configuration de la machine virtuelle Windows, d
 
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Collecter la configuration de disque | Test de performances de stockage/d’évaluation | Analyse lente de machine virtuelle générale | Évaluation et analyse lente de la machine virtuelle | Analyse de fichiers Azure | Configuration personnalisée |
+|                              | Collecte de la configuration de base | Benchmarking | Analyse lente de machine virtuelle | Évaluation et analyse lente de machine virtuelle | Analyse de fichiers Azure | Analyse lente personnalisée de machine virtuelle |
 | Informations tirées des journaux d’événements      | Oui                        | Oui                                | Oui                      | Oui                            | Oui                  | Oui                  |
 | Informations système               | Oui                        | Oui                                | Oui                      | Oui                            | Oui                  | Oui                  |
 | Mappage de volume                       | Oui                        | Oui                                | Oui                      | Oui                            | Oui                  | Oui                  |
@@ -127,7 +127,7 @@ Les informations portant sur la configuration de la machine virtuelle Windows, d
 | Configuration réseau            | Oui                        | Oui                                | Oui                      | Oui                            | Oui                  | Oui                  |
 | Configuration du pare-feu           | Oui                        | Oui                                | Oui                      | Oui                            | Oui                  | Oui                  |
 | Configuration de SQL Server         | Oui                        | Oui                                | Oui                      | Oui                            | Oui                  | Oui                  |
-| Suivis des diagnostics de performances* |                            |                                    | Oui                      |                                |                      | Oui                  |
+| Suivis des diagnostics de performances* | Oui                        | Oui                                | Oui                      |                                | Oui                  | Oui                  |
 | Suivi du compteur de performances**     |                            |                                    |                          |                                |                      | Oui                  |
 | Suivi du compteur SMB**             |                            |                                    |                          |                                | Oui                  |                      |
 | Suivi du compteur SQL Server**      |                            |                                    |                          |                                |                      | Oui                  |
@@ -180,9 +180,9 @@ Tests de charge de travail d’E/S Diskspd [disque de système d’exploitation 
 
 **Problèmes possibles lorsque vous exécutez le script sur des machines virtuelles de production :**
 
-1.  Le script peut nuire aux performances de la machine virtuelle quand elle est utilisée avec le scénario « Évaluation » ou « Personnalisé » qui est configuré à l’aide de XPerf ou DiskSpd. Soyez prudent lorsque vous exécutez le script dans un environnement de production.
+1.  Lorsque vous utilisez des scénarios d’évaluation ou d’analyse lente personnalisée de machine virtuelle configurés pour utiliser XPerf ou DiskSpd, le script peut nuire aux performances de la machine virtuelle. Il est déconseillé d’exécuter ces scénarios dans un environnement de production sans la surveillance d’un ingénieur CSS.
 
-2.  Lorsque vous utilisez le script avec le scénario « Évaluation » ou « Personnalisé » qui est configuré à l’aide de DiskSpd, assurez-vous qu’aucune autre activité d’arrière-plan n’interfère avec la charge de travail d’E/S sur les disques testés.
+2.  Lorsque vous utilisez les scénarios d’évaluation ou d’analyse lente personnalisée de machine virtuelle configurés pour utiliser DiskSpd, assurez-vous qu’aucune autre activité d’arrière-plan n’interfère avec la charge de travail d’E/S sur les disques testés.
 
 3.  Par défaut, le script utilise le disque de stockage temporaire pour collecter les données. Si le suivi est activé sur une durée plus longue, la quantité de données collectées peut être pertinente. Cela peut réduire la disponibilité de l’espace sur le disque temporaire, et donc affecter toute application s’appuyant sur ce disque.
 
@@ -236,7 +236,7 @@ Pour exécuter le script PerfInsights, suivez ces étapes :
 
 8.  Vous pouvez également exécuter PerfInsights sans interface utilisateur.
 
-    La commande suivante exécute le scénario de dépannage « Analyse lente de machine virtuelle générale » sans invite de l’interface utilisateur ou données de capture pendant 30 secondes. Vous êtes invité à accepter les mêmes exclusion de responsabilité et CLUF qu’à l’étape 4.
+    La commande suivante exécute le scénario de dépannage d’analyse lente de machine virtuelle sans invite de l’interface utilisateur ou données de capture pendant 30 secondes. Vous êtes invité à accepter les mêmes exclusion de responsabilité et CLUF qu’à l’étape 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Si vous rencontrez un échec de script même après plusieurs tentatives, nous v
 
 Après la défaillance, copiez la sortie complète de la console PowerShell, puis envoyez-la à l’agent du Support technique Microsoft qui vous aidera à résoudre ce problème.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Comment exécuter le script en mode de configuration personnalisée ?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>Comment exécuter le script en mode d’analyse lente personnalisée de machine virtuelle ?
 
-En sélectionnant la configuration **Personnalisé**, vous pouvez activer plusieurs suivis en parallèle (maintenez la touche Maj enfoncée pour sélectionner plusieurs suivis) :
+En sélectionnant **l’analyse lente personnalisée de machine virtuelle**, vous pouvez activer plusieurs suivis en parallèle (maintenez la touche Maj enfoncée pour sélectionner plusieurs suivis) :
 
 ![sélectionner des scénarios](media/how-to-use-perfInsights/select-scenario.png)
 
-Lorsque vous sélectionnez les scénarios portant sur les diagnostics de performances, le suivi du compteur de performances, le suivi XPerf, le suivi réseau ou le suivi Storport, référez-vous aux instructions indiquées dans les boîtes de dialogue et essayez de reproduire le problème de ralentissement des performances après avoir lancé les suivis.
+Lorsque vous sélectionnez les scénarios portant sur le suivi du compteur de performances, le suivi XPerf, le suivi réseau ou le suivi Storport, référez-vous aux instructions indiquées dans les boîtes de dialogue et essayez de reproduire le problème de ralentissement des performances après avoir lancé les suivis.
 
 La boîte de dialogue ci-dessous vous permet de lancer un suivi :
 
@@ -289,21 +289,22 @@ Le fichier **CollectedData\_aaaa-MM-jj\_hh\_mm\_ss.zip** généré par PerfInsig
 
 Sélectionnez l’onglet **Conclusions**.
 
-![onglet Rechercher](media/how-to-use-perfInsights/findingtab.png)
+![onglet rechercher](media/how-to-use-perfInsights/findingtab.png)
+![conclusions](media/how-to-use-perfInsights/findings.PNG)
 
 **Remarques**
 
--   Les messages qui s’affichent en rouge sont des problèmes de configuration connus qui peuvent provoquer des problèmes de performances.
+-   Les conclusions identifiées comme étant critiques sont des problèmes connus qui peuvent conduire à des problèmes de performances.
 
--   Messages qui s’affichent en jaune sont des avertissements qui représentent des configurations non optimales ne provoquant pas forcément de problèmes de performances.
+-   Les conclusions identifiées comme étant importantes représentent des configurations non optimales ne provoquant pas forcément de problèmes de performances.
 
--   Les messages qui s’affichent en bleu sont présentés à titre informatif uniquement.
+-   Les conclusions identifiées comme étant informatives sont des instructions données à titre informatif uniquement.
 
-Passez en revue les liens HTTP de tous les messages d’erreur en rouge afin d’obtenir des informations plus détaillées sur les conclusions et leurs répercussions sur les performances ou les meilleures pratiques associées aux configurations optimisées pour les performances.
+Passez en revue les recommandations et les liens de toutes les conclusions importantes et critiques afin d’obtenir des informations plus détaillées et leurs répercussions sur les performances ou les meilleures pratiques associées aux configurations optimisées pour les performances.
 
-### <a name="disk-configuration-tab"></a>Onglet Configuration du disque
+### <a name="storage-tab"></a>Onglet Stockage
 
-La section **Vue d’ensemble** affiche plusieurs vues de la configuration de stockage, y compris des informations tirées de Diskpart et des espaces de stockage
+La section **Conclusions** affiche les différentes conclusions et recommandations relatives au stockage.
 
 Les sections **DiskMap** et **VolumeMap** offrent un double point de vue sur les liens entre volumes logiques et disques physiques.
 
@@ -315,21 +316,24 @@ Dans la perspective Volume (*VolumeMap*), les tables affichent tous les disques 
 
 ![onglet Volume](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>Onglet Serveur SQL
+### <a name="sql-tab"></a>Onglet SQL
 
-Si la machine virtuelle cible héberge toutes les instances de SQL Server, un onglet supplémentaire appelé **SQL Server** apparaît dans le rapport :
+Si la machine virtuelle cible héberge toutes les instances de SQL Server, un onglet supplémentaire appelé **SQL** apparaît dans le rapport :
 
 ![onglet sql](media/how-to-use-perfInsights/sqltab.png)
 
-Cette section contient une « vue d’ensemble » et des sous-onglets supplémentaires pour chacune des instances de SQL Server hébergées sur la machine virtuelle.
+Cette section contient un onglet « Conclusions » et des sous-onglets supplémentaires pour chacune des instances de SQL Server hébergées sur la machine virtuelle.
 
-La section « Vue d’ensemble » contient une table utile qui récapitule tous les disques physiques (disques système et disques de données) en cours d’exécution et qui contiennent un mélange de fichiers de données et de fichiers journaux des transactions.
+L’onglet « Conclusions » contient une liste de tous les problèmes de performances relatifs à SQL trouvés, ainsi que les recommandations correspondantes.
 
 Dans l’exemple suivant, *PhysicalDrive0* (qui exécute le disque C) est affiché, car les fichiers *modeldev* et *modellog* se trouvent sur le disque C, et ils sont de types différents (par exemple, fichier de données et journal des transactions, respectivement) :
 
 ![loginfo](media/how-to-use-perfInsights/loginfo.png)
 
 Les onglets spécifiques de l’instance de SQL Server contiennent une section générale qui affiche des informations de base sur l’instance sélectionnée, et d’autres sections pour plus d’informations, y compris les paramètres, les configurations et les options de l’utilisateur.
+
+### <a name="diagnostic-tab"></a>Onglet Diagnostic
+L’onglet Diagnostic contient des informations sur les principaux consommateurs d’UC, de disque et de mémoire sur la boîte de dialogue pour la durée de l’exécution de PerfInsights. Vous pouvez également obtenir d’autres informations utiles comme les correctifs critiques non présents dans le système, la liste des tâches et les événements système importants. 
 
 ## <a name="references-to-the-external-tools-used"></a>Références aux outils externes utilisés
 
