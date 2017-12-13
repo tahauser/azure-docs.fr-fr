@@ -11,7 +11,8 @@
 ## [Prise en main du conseiller](advisor-get-started.md)
 
 # Référence
-## [REST](https://docs.microsoft.com/rest/api/advisor)
+## [API REST](https://docs.microsoft.com/rest/api/advisor)
+## [INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/cli/azure/advisor)
 
 # Rubriques connexes
 ## [Centre de sécurité](https://azure.microsoft.com/services/security-center/)

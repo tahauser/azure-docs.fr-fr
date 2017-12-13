@@ -11,7 +11,6 @@
 ## Créer une zone et un enregistrement DNS
 ### [Portail Azure](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Interface de ligne de commande Azure](dns-getstarted-cli.md)
 
 ## Créer une zone DNS privée et un enregistrement
@@ -24,13 +23,11 @@
 ## Gestion des zones DNS
 ### [Portail Azure](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
 
 ## Gestion des enregistrements DNS
 ### [Portail Azure](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
 
 ## Gérer des enregistrements DNS inversés

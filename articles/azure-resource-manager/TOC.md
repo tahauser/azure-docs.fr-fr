@@ -12,6 +12,8 @@
 # Procédures
 ## Créer des modèles
 ### [Sections du modèle](resource-group-authoring-templates.md)
+#### [Paramètres](resource-manager-templates-parameters.md)
+#### [Variables](resource-manager-templates-variables.md)
 ### [Meilleures pratiques relatives aux modèles](resource-manager-template-best-practices.md)
 ### [Lier à d’autres modèles](resource-group-linked-templates.md)
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)

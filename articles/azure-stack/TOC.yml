@@ -233,6 +233,10 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Rubriques connexes
+  items:
+    - name: Documentation sur les utilisateurs Azure Stack
+      href: /azure/azure-stack/user/
 - name: Ressources
   items:
     - name: Feuille de route Azure
