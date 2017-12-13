@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Didacticiel : configurer Google Apps pour l’approvisionnement automatique des utilisateurs
 
@@ -90,6 +90,10 @@ Cette section vous guide tout au long du processus de connexion de votre annuair
      ![Domaine](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Répétez la procédure précédente pour tous les domaines que vous souhaitez ajouter à votre répertoire.
+
+    > [!NOTE]
+    Pour l’attribution d’utilisateurs, le domaine personnalisé de Google Apps doit correspondre au nom de domaine de l’annuaire Azure AD source. S’ils ne correspondent pas, vous pouvez peut-être résoudre le problème en mettant en œuvre une personnalisation du mappage des attributs.
+
 
 5. Maintenant que vous avez vérifié tous vos domaines avec Azure AD, vous devez les revérifier avec Google Apps. Pour chaque domaine qui n’est pas encore inscrit auprès de Google Apps, effectuez les étapes suivantes :
    

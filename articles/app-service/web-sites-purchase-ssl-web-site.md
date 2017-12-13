@@ -1,11 +1,10 @@
 ---
-title: "Ajouter un certificat SSL à votre application Azure App Service | Microsoft Docs"
-description: "Découvrez comment ajouter un certificat SSL à votre application App Service."
+title: Acheter et configurer un certificat SSL pour votre service Azure App Service | Microsoft Docs
+description: "Découvrez comment acheter un certificat App Service et le lier à votre application App Service"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acheter et configurer un certificat SSL pour votre service Azure App Service
 
@@ -74,12 +73,16 @@ Une fois que le référentiel Key Vault où stocker le certificat est sélection
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Étape 4 : Vérifier la propriété du domaine
 
-> [!NOTE]
-> Il existe 3 types de vérification du domaine pris en charge par les certificats App Service : domaine, e-mail et manuelle. Ces types de vérification sont décrits plus en détail dans la [section Avancé](#advanced).
-
 Dans la même page **Configuration du certificat** utilisée à l’étape 3, cliquez sur **Étape 2 : Vérifier**.
 
-**Vérification du domaine** Il s’agit du processus le plus pratique **seulement si** vous avez **[acheté votre domaine personnalisé à partir d’Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+Choisissez la méthode de vérification de domaine par défaut. 
+
+Il existe quatre types de vérification de domaine pris en charge par App Service Certificates : la vérification App Service, la vérification de domaine, la vérification par e-mail et la vérification manuelle. Ces types de vérification sont décrits plus en détail dans la [section Avancé](#advanced).
+
+> [!NOTE]
+> La **Vérification App Service** est l’option la plus pratique lorsque le domaine à vérifier est déjà mappé à une application App Service dans le même abonnement. Elle profite du fait que l’application App Service a déjà vérifié la propriété du domaine.
+>
+
 Cliquez sur le bouton **Vérifier** pour terminer cette étape.
 
 ![insérer une image de vérification du domaine](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -142,6 +145,10 @@ Pour terminer l’étape de vérification par e-mail, ouvrez l’e-mail, puis cl
 
 Si vous avez besoin de renvoyer l’e-mail de vérification, cliquez sur le bouton **Renvoyer le message**.
 
+#### <a name="domain-verification"></a>Vérification de domaine
+
+Choisissez cette option uniquement pour [un domaine App Service que vous avez acheté sur Azure.](custom-dns-web-site-buydomains-web-app.md). Azure ajoute automatiquement l’enregistrement TXT de vérification pour vous et effectue le processus.
+
 #### <a name="manual-verification"></a>Vérification manuelle
 
 > [!IMPORTANT]
@@ -197,6 +204,7 @@ Si votre certificat SSL est configuré pour le renouvellement automatique et qu�
 - GoDaddy, qui génère des certificats App Service, nécessite une vérification de domaine une fois tous les trois ans. L’administrateur de domaine reçoit un e-mail une fois tous les trois ans pour vérifier le domaine. Si vous ignorez cet e-mail ou si vous ne vérifiez pas votre domaine, vous bloquez le renouvellement automatique du certificat App Service. 
 - Pour tous les certificats App Service émis avant le 31 mars 2017, une revérification du domaine est obligatoire au moment du renouvellement suivant (même si le renouvellement automatique est activé pour le certificat). Une modification dans la stratégie de GoDaddy en est la cause. Prenez connaissance de cet e-mail et procédez à cette vérification de domaine ponctuelle pour continuer le renouvellement automatique du certificat App Service. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="more-resources"></a>Autres ressources
 
-* [Ajouter un réseau de distribution de contenu](app-service-web-tutorial-content-delivery-network.md)
+* [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](app-service-web-ssl-cert-load.md)
+* [Questions fréquentes : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

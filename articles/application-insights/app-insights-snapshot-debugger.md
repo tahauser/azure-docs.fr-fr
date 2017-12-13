@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
@@ -27,6 +27,16 @@ Vous pouvez afficher les captures instantanées de débogage dans le portail pou
 La collecte de captures instantanées est disponible pour :
 * les applications .NET framework et ASP.NET exécutant .NET Framework 4.5 ou version ultérieure ;
 * les applications .NET core 2.0 et ASP.NET Core 2.0 s’exécutant sous Windows.
+
+Les environnements suivants sont pris en charge :
+* Azure App Service
+* Service Cloud Azure exécutant la famille de systèmes d’exploitation 4 ou ultérieur
+* Services Azure Service Fabric exécutant Windows Server 2012 R2 ou ultérieur
+* Machines virtuelles Azure exécutant Windows Server 2012 R2 ou ultérieur
+* Machine locale physique ou virtuelle exécutant Windows Server 2012 R2 ou ultérieur
+
+> [!NOTE]
+> Les applications clientes (par exemple, WPF, Windows Forms ou UWP) ne sont pas prises en charge.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurer la collecte de captures instantanées pour les applications ASP.NET
 

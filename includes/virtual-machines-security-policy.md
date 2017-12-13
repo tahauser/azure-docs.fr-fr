@@ -24,7 +24,7 @@ Lorsque vous vous connectez à des machines virtuelles, vous devez utiliser un c
 
 ## <a name="policies"></a>Stratégies
 
-Il es possible d’utiliser des [stratégies de gestion de ressources Azure](../articles/azure-resource-manager/resource-manager-policy.md) pour définir le comportement souhaité des machines virtuelles [Windows](../articles/virtual-machines/windows/policy.md) et [Linux](../articles/virtual-machines/linux/policy.md) de votre organisation. Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation.
+Vous pouvez utiliser des [stratégies Azure](../articles/azure-policy/azure-policy-introduction.md) pour définir le comportement souhaité des machines virtuelles [Windows](../articles/virtual-machines/windows/policy.md) et [Linux](../articles/virtual-machines/linux/policy.md) de votre organisation. Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 

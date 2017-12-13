@@ -12,11 +12,11 @@ Les machines virtuelles de la série F sont un excellent choix pour les charges 
 
 La série Fs propose tous les avantages de la série F, en plus du stockage Premium.
 
-## <a name="fsv2-series"></a>Série Fsv2
+## <a name="fsv2-series"></a>Série Fsv2*
 
 ACU : 195 - 210
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | SSD local = Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Modéré                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Modéré                                       |
@@ -25,7 +25,7 @@ ACU : 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extrêmement élevée                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extrêmement élevée                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extrêmement élevée                                 |
-
+*Machines virtuelles de série Fsv2 dotées de la technologie Hyper-Threading d’Intel®
 
 ## <a name="fs-series"></a>Série Fs*
 

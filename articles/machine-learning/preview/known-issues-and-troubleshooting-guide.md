@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -112,6 +112,19 @@ Malheureusement, il n’existe aucune solution simple pour résoudre ce problèm
    - Supprimer le script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - Supprimer le raccourci du Bureau qui lance le script ci-dessus
    - Télécharger le programme d’installation https://aka.ms/azureml-wb-msi et réinstaller.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Vous êtes bloqué à l'écran « Vérification du compte d'expérimentation » après vous être connecté
+Une fois la connexion établie, l'application Workbench peut rester bloquée sur un écran vide avec un message indiquant « Vérification du compte d'expérimentation » avec une roue en rotation. Pour résoudre ce problème, procédez comme suit :
+1. Arrêt de l'application
+2. Supprimez le fichier suivant :
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Redémarrez l’application.
 
 ## <a name="cant-delete-experimentation-account"></a>Impossible de supprimer un compte d’expérimentation
 Vous pouvez utiliser l’interface CLI pour supprimer un compte Expérimentation, mais vous devez supprimer au préalable les espaces de travail enfants et les projets enfants au sein de ces espaces de travail enfants. Dans le cas contraire, une erreur s’affiche.

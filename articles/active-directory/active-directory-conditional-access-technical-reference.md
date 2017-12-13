@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique de Azure Active Directory Conditional Access
 
@@ -70,15 +70,15 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 
 Outre les applications cloud Microsoft, vous pouvez affecter une stratégie d’accès conditionnel aux types d’applications cloud suivants :
 
-- Applications connectées à Azure AD
+- applications connectées à Azure AD ;
 
-- Application SaaS (software as a service) fédérée préintégrée
+- application software as a service (SaaS) fédérée préintégrée ;
 
-- Applications qui utilisent l’authentification unique (SSO) par mot de passe
+- applications qui utilisent l’authentification unique (SSO) par mot de passe ;
 
-- Applications métier
+- applications métier ;
 
-- Applications utilisant le proxy d’application Azure AD
+- applications utilisant le proxy d’application Azure AD.
 
 
 ## <a name="device-platform-condition"></a>Condition de plateforme d’appareil
@@ -106,7 +106,7 @@ Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition
 
 Dans votre stratégie d’accès conditionnel, vous pouvez configurer la condition [Applications clientes](active-directory-conditional-access-azure-portal.md#client-apps) pour lier la stratégie à l’application cliente à l’origine d’une tentative d’accès. Configurez la condition d’applications clientes afin d’accorder ou de bloquer l’accès en cas de tentative d’accès à partir des types d’applications clientes suivantes :
 
-- Navigateur
+- Browser
 - Applications mobiles et de bureau
 
 ![Contrôler l’accès pour les applications clientes](./media/active-directory-conditional-access-technical-reference/03.png)
@@ -117,27 +117,30 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Navig
 
 ![Contrôler l’accès pour les navigateurs pris en charge](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Ce paramètre a un impact sur les tentatives d’accès provenant des navigateurs suivants : 
+Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire à une stratégie d’appareil, telle qu’une exigence d’appareil conforme, les systèmes d’exploitation et navigateurs suivants sont pris en charge :
 
 
-| Système d’exploitation                     | Navigateurs                            | Prise en charge     |
+| SE                     | Navigateurs                            | Support     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Coche][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Coche][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Coche][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Coche][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Coche][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![Coche][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![Coche][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Vérification][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Vérification][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Vérification][1] |
+| iOS                    | Safari, Intune Managed Browser      | ![Vérification][1] |
+| Android                | Chrome, Intune Managed Browser      | ![Vérification][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![Vérification][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Vérification][1] |
 | Windows Server 2016    | Chrome                              | Bientôt disponible |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Coche][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Coche][1] |
-| macOS                  | Chrome, Safari                      | ![Coche][1] |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Vérification][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Vérification][1] |
+| macOS                  | Chrome, Safari                      | ![Vérification][1] |
 
 
 > [!NOTE]
 > La prise en charge de Chrome nécessite l’installation de Windows 10 Creators Update (version 1703) ou version ultérieure.<br>
 > Vous pouvez installer [cette extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Ces navigateurs prennent en charge l’authentification des appareils, ce qui permet de les identifier et de les valider par rapport à une stratégie. La vérification de l’appareil échoue si le navigateur est en cours d’exécution en mode privé. 
+
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Applications mobiles et clients de bureau pris en charge
 
@@ -201,11 +204,11 @@ Ce paramètre s’applique aux applications clientes suivantes :
 
 - Exigence **Nécessite une application cliente approuvée** :
 
-    - Elle prend uniquement en charge iOS et Android pour la [condition de plateforme d’appareil](#device-platforms-condition).
+    - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platforms-condition).
 
-    - Elle ne prend pas en charge l’option **Navigateur** pour la [condition d’applications clientes](#supported-browsers).
+    - elle ne prend pas en charge l’option **Navigateur** pour la [condition d’applications clientes](#supported-browsers).
     
-    - Elle remplace l’option **Applications mobiles et clients de bureau** pour la [condition d’applications clientes](#supported-mobile-apps-and-desktop-clients) lorsque cette option est sélectionnée.
+    - elle remplace l’option **Applications mobiles et clients de bureau** pour la [condition d’applications clientes](#supported-mobile-apps-and-desktop-clients) lorsque cette option est sélectionnée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

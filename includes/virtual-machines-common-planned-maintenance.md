@@ -47,4 +47,4 @@ Au sein d’un groupe à haute disponibilité, les machines virtuelles individue
 
 Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques en tant que ressource unique. Le groupe identique est automatiquement déployé dans les domaines de mise à jour, comme les machines virtuelles dans un groupe à haute disponibilité. Comme pour les groupes à haute disponibilité, un seul domaine de mise à jour n’est impacté à la fois dans des groupes identiques.
 
-Pour en savoir plus sur la configuration des machines virtuelles pour une haute disponibilité, voir Gestion de la disponibilité des machines virtuelles pour Windows (../articles/virtual-machines/windows/manage-availability.md) ou pour [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Pour plus d’informations sur la configuration des machines virtuelles pour une haute disponibilité, consultez Gérer la disponibilité de vos machines virtuelles pour [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).

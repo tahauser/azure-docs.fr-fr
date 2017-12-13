@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -51,10 +51,11 @@ Si vous avez utilisé une version antérieure de l’API Batch pour créer un co
 | Packages d’applications par application |40 |
 | Taille de package d’application (individuel) |Environ 195 Go<sup>1</sup> |
 | Taille maximale de la tâche de début | 32 768 caractères<sup>2</sup> |
+| Durée de vie maximale de la tâche | 7 jours<sup>3</sup> |
 
 <sup>1</sup> Limite Azure Storage pour la taille d’objet blob de blocs maximale<br />
-<sup>2</sup> inclut les fichiers de ressources et les variables d’environnement
-
+<sup>2</sup> Inclut les fichiers de ressources et les variables d’environnement<br />
+<sup>3</sup> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 7 jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
 
 
 ## <a name="view-batch-quotas"></a>Afficher les quotas Batch

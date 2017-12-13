@@ -1,6 +1,6 @@
 ---
 title: "Emplacements nommés dans Azure Active Directory | Documents Microsoft"
-description: "En configurant des emplacements nommés, vous pouvez éviter que des adresses IP appartenant à votre organisation ne génèrent de faux positifs pour le type d’événement à risque Voyage impossible vers des emplacements inhabituels."
+description: "Découvrez ce que représentent les emplacements nommés et comment les configurer."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Emplacements nommés dans Azure Active Directory
 
-Grâce à la fonctionnalité des emplacements nommés Azure Active Directory, vous pouvez désigner des plages d’adresses IP approuvées au sein d’une organisation. Dans votre environnement, vous pouvez utiliser les emplacements nommés dans le cadre de la détection d’[événements à risque](active-directory-reporting-risk-events.md). Cette fonction permet de réduire le nombre de faux-positifs signalés pour le type d’événement à risque *Voyage impossible vers des emplacements inhabituels*. 
+Les emplacements nommés vous permettent d’étiqueter des plages d’adresses IP approuvées dans votre entreprise. Azure Active Directory utilise des emplacements nommés dans le contexte suivant :
 
-## <a name="configuration"></a>Configuration
+- La détection [d’événements à risque](active-directory-reporting-risk-events.md) pour réduire le nombre de faux positifs reportés.  
 
-Pour configurer un emplacement nommé :
+- [Accès conditionnel en fonction des emplacements](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Cet article explique comment configurer des emplacements nommés dans votre environnement.
+
+
+## <a name="entry-points"></a>Points d’entrée
+
+Vous pouvez accéder à la page de configuration des emplacements nommés dans la section **Sécurité** de la page Azure Active Directory en cliquant sur :
+
+![Points d’entrée](./media/active-directory-named-locations/34.png)
+
+- **Accès conditionnel :**
+
+    - Dans la section **Gérer**, cliquez sur **Emplacements nommés**.
+    
+        ![Commande Emplacements nommés](./media/active-directory-named-locations/06.png)
+
+- **Connexions risquées :**
+
+    - Dans la barre d’outils supérieure, cliquez sur **Ajouter des plages d’adresses IP connues**.
+
+       ![Commande Emplacements nommés](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Exemple de configuration
+
+**Pour configurer un emplacement nommé :**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général.
 
@@ -34,22 +62,22 @@ Pour configurer un emplacement nommé :
 
     ![Lien Azure Active Directory dans le volet gauche](./media/active-directory-named-locations/01.png)
 
-3. Dans le panneau **Azure Active Directory**, sous la section **Sécurité**, cliquez sur **Accès conditionnel**.
+3. Dans la page **Azure Active Directory**, dans la section **Sécurité**, cliquez sur **Accès conditionnel**.
 
     ![Commande Accès conditionnel](./media/active-directory-named-locations/05.png)
 
 
-4. Dans le panneau **Azure Active Directory**, sous la section **Gérer**, cliquez sur **Emplacements nommés**.
+4. Dans la page **Accès conditionnel**, dans la section **Gérer**, cliquez sur **Emplacements nommés**.
 
     ![Commande Emplacements nommés](./media/active-directory-named-locations/06.png)
 
 
-5. Dans le panneau **Emplacements nommés**, cliquez sur **Nouvel emplacement**.
+5. Dans la page **Emplacements nommés**, cliquez sur **Nouvel emplacement**.
 
     ![Commande Nouvel emplacement](./media/active-directory-named-locations/07.png)
 
 
-6. Dans le panneau **Nouveau**, procédez comme suit :
+6. Dans la page **Nouveau**, procédez comme suit :
 
     ![Panneau Nouveau](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Pour configurer un emplacement nommé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md).
+Pour en savoir plus sur :
 
+- **Événements à risque**, consultez [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- **Accès conditionnel**, consultez [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Rapports des connexions risquées**, consultez [Rapport des connexions risquées dans le portail Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

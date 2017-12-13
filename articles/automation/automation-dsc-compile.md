@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilation de configurations dans Azure Automation DSC
 
@@ -129,6 +129,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 Pour plus d’informations sur la transmission d’informations d’identification PowerShell en tant que paramètres, voir la section <a href="#credential-assets">**Ressources d’informations d’identification**</a> ci-dessous.
 
+## <a name="composite-resources"></a>Ressources composites
+
+Les **ressources composites** vous permettent d’utiliser des configurations DSC en tant que ressources imbriquées à l’intérieur d’une configuration.  Cela vous permet d’appliquer plusieurs configurations à une seule ressource.  Consultez [Ressources composites : Utilisation d’une configuration DSC en tant que ressource](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) pour en savoir plus sur les **Ressources composites**
+
+> [!NOTE]
+> Afin que la compilation réalisée par les **Ressources composites** se déroule normalement, vous devez en premier lieu vous assurer que toutes les ressources DSC sur lesquelles le composite s’appuie soient d’abord installées dans le dépôt Modules de compte Azure Automation, sinon l’importation sera incorrecte.
+
+Pour ajouter une **Ressource composite** DSC, vous devez ajouter le module de ressources à une archive (*.zip). Accédez au dépôt Modules sur votre compte Azure Automation.  Cliquez ensuite sur le bouton « Ajouter un module ».
+
+![Ajout d’un module](./media/automation-dsc-compile/add_module.png)
+
+Accédez au répertoire où se trouve votre archivage.  Sélectionnez le fichier d’archive et cliquez sur OK.
+
+![Sélection d’un module](./media/automation-dsc-compile/select_dscresource.png)
+
+Vous revenez alors au répertoire des modules, où vous pouvez surveiller l’état de votre **Ressource composite** pendant sa décompression et son inscription auprès d’Azure Automation.
+
+![Importation d’une ressource composite](./media/automation-dsc-compile/register_composite_resource.png)
+
+Une fois le module enregistré, vous pouvez cliquer dessus pour vérifier la disponibilité des **Ressources composites** qui peuvent désormais être utilisées dans une configuration.
+
+![Validation de la ressource composite](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Vous pouvez ainsi appeler la **Ressource composite** dans votre configuration de la manière suivante :
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
+
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** vous permet de séparer la configuration structurelle de toute configuration spécifique de l’environnement lors de l’utilisation de la configuration de l’état souhaité PowerShell. Consultez [Distinguer « objet » et « emplacement » dans la configuration de l’état souhaité PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) pour en savoir plus sur **ConfigurationData**.
 
@@ -183,9 +227,9 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ConfigurationDataSample" -ConfigurationData $ConfigData
 ```
 
-## <a name="assets"></a>Éléments multimédias
+## <a name="assets"></a>Actifs multimédias
 
-Les références de ressources sont les mêmes dans les configurations Azure Automation DSC et les runbooks. Consultez les liens suivants pour plus d’informations :
+Les références d’actifs sont les mêmes dans les configurations Azure Automation DSC et les runbooks. Consultez les liens suivants pour plus d’informations :
 
 * [Certificats](automation-certificates.md)
 * [Connexions](automation-connections.md)
@@ -243,7 +287,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ## <a name="importing-node-configurations"></a>Importation de configurations de nœuds
 
 Vous pouvez également importer des configurations de nœuds (MOF) que vous avez compilées en dehors d’Azure. Cette configuration de nœuds offre l’avantage de pouvoir être signée.
-Une configuration de nœuds signée est vérifiée localement sur un nœud géré par l’agent DSC, garantissant ainsi que la configuration appliquée au nœud provient d’une source autorisée.
+Une configuration de nœuds signée est vérifiée localement sur un nœud managé par l’agent DSC, garantissant ainsi que la configuration appliquée au nœud provient d’une source autorisée.
 
 > [!NOTE]
 > Vous pouvez importer des configurations signées dans votre compte Azure Automation, mais Azure Automation ne prend pas en charge la compilation de configurations signées.

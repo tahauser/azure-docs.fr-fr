@@ -41,21 +41,24 @@ Découvrez comment :
 
 
 ## <a name="cloud-init"></a>Cloud-Init
-[Cloud-init](https://cloudinit.readthedocs.io) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. Comme cloud-init s’exécute pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.
+[Cloud-init](https://cloudinit.readthedocs.io) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. cloud-init étant appelé pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.  Pour plus d’informations sur la façon de mettre correctement en forme vos fichiers `#cloud-config`, consultez le [site de documentation cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Les fichiers `#cloud-config` sont des fichiers texte encodés en base64.
 
-Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vous n’utilisez pas **apt-get install** ou **yum install** pour installer un package. À la place, vous pouvez définir une liste des packages à installer. après quoi cloud-init se charge d’utiliser automatiquement l’outil de gestion de package natif correspondant à la distribution que vous sélectionnez.
+Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vous n’utilisez pas **apt-get install** ou **yum install** pour installer un package. Au lieu de cela, vous pouvez définir une liste des packages à installer, après quoi cloud-init se charge d’utiliser automatiquement l’outil de gestion de package natif correspondant à la distribution que vous sélectionnez.
 
-Nous collaborons avec nos partenaires pour que cloud-init soit inclus et fonctionne dans les images qu’ils fournissent à Azure. Le tableau suivant présente la disponibilité actuelle de cloud-init sur les images de plateforme Azure :
+ Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettront à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
 
-| Alias | Éditeur | Offer | SKU | Version |
+| Éditeur | Offre | SKU | Version | Compatible avec cloud-init
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |le plus récent |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |le plus récent |
-| CoreOS |CoreOS |CoreOS |Stable |le plus récent |
+|Canonical |UbuntuServer |16.04-LTS |le plus récent |yes | 
+|Canonical |UbuntuServer |14.04.5-LTS |le plus récent |yes |
+|CoreOS |CoreOS |Stable |le plus récent |yes |
+|OpenLogic |CentOS |7-CI |le plus récent |preview |
+|Red Hat |RHEL |7-RAW-CI |le plus récent |preview |
 
-Découvrez comment :
+Pour en savoir plus sur cloud-init sur Azure :
 
-- [Personnaliser une machine virtuelle Linux avec cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Prise en charge de cloud-init pour les machines virtuelles Linux dans Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Essayez un didacticiel sur la configuration automatisée de machine virtuelle à l’aide de cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>DSC PowerShell
@@ -82,7 +85,7 @@ Découvrez comment :
 
 
 ## <a name="packer"></a>Packer
-[Packer](https://www.packer.io) automatise le processus de génération lorsque vous créez une image personnalisée de la machine virtuelle dans Azure. Grâce à Packer, vous pouvez définir le système d’exploitation et exécuter des scripts de post-configuration qui permettent de personnaliser la machine virtuelle pour vos besoins spécifiques. Une fois configurée, la machine virtuelle est ensuite capturée en tant qu’image d’un disque géré. Packer automatise le processus de création de la machine virtuelle source, les ressources réseau et de stockage, exécute des scripts de configuration, puis crée l’image de la machine virtuelle.
+[Packer](https://www.packer.io) automatise le processus de génération lorsque vous créez une image personnalisée de la machine virtuelle dans Azure. Grâce à Packer, vous pouvez définir le système d’exploitation et exécuter des scripts de post-configuration qui permettent de personnaliser la machine virtuelle pour vos besoins spécifiques. Une fois configurée, la machine virtuelle est ensuite capturée en tant qu’image d’un disque managé. Packer automatise le processus de création de la machine virtuelle source, les ressources réseau et de stockage, exécute des scripts de configuration, puis crée l’image de la machine virtuelle.
 
 Découvrez comment :
 

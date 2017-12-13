@@ -8,16 +8,16 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion)
 Search Service est un ensemble d’API RESTful destinées aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de lieux, de points d’intérêt, de listes d’entreprises et autres informations d’ordre géographique. Search Service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude retournées par les API Search Service peuvent être utilisées comme paramètres dans d’autres services Azure Location Based Services, tels que les API Route et Traffic Flow.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Installer [l’application Postman](https://www.getpostman.com/apps).
 
 Un compte et une clé d’abonnement Azure Location Based Services. Pour plus d’informations sur la création d’un compte et la récupération d’une clé d’abonnement, consultez [Guide pratique pour gérer vos compte et clés Azure Location Based Services](how-to-manage-account-keys.md). 
@@ -62,12 +62,11 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage « m
     
     Les résultats peuvent varier pour cette requête et ne sont pas liés à un emplacement de référence particulier. Vous pouvez utiliser le paramètre **countrySet** pour ne spécifier que les pays que votre application doit couvrir ; en effet, le comportement par défaut consiste à rechercher dans le monde entier, ce qui peut engendrer des résultats superflus.
 
-5. Ajoutez la valeur suivante à la chaîne de requête et cliquez sur **Send** (Envoyer) :
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Veillez à séparer par des virgules les paramètres d’URI supplémentaires dans la chaîne de requête.
+5. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+
+    | Clé | Valeur |
+    |------------------|-------------------------|
+    | countrySet | FR |
     
     Les résultats sont désormais délimités par le code de pays ; en l’occurrence, la requête retourne des pizzerias aux États-Unis.
     
@@ -116,10 +115,11 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
         400 Broad, Seattle
     ```
 
-5. Ajoutez la valeur suivante à la chaîne de requête et cliquez sur **Send** (Envoyer) :
-    ```
-        ,typeahead
-    ```
+5. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+
+    | Clé | Valeur |
+    |-----|------------|
+    | typeahead | true |
 
     L’indicateur **typeahead** indique à l’API Address Search de traiter la requête en tant qu’entrée partielle et de retourner un tableau de valeurs prédictives.
 
@@ -150,37 +150,43 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     
     La réponse inclut l’entrée de point d’intérêt Safeco Field avec la catégorie de point d’intérêt « stadium » (stade). 
     
-4. Ajoutez la valeur suivante à la chaîne de requête et cliquez sur **Send** (Envoyer) :
-    ```
-        ,number
-    ```
+4. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+
+    | Clé | Valeur |
+    |-----|------------|
+    | number | true |
+
     Si la requête comporte le paramètre [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la réponse peut inclure le côté de la rue (gauche/droite) et également une position de décalage par rapport à ce numéro.
     
-5. Ajoutez la valeur suivante à la chaîne de requête et cliquez sur **Send** (Envoyer) :
-    ```
-        ,spatialKeys
-    ```
+5. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+
+    | Clé | Valeur |
+    |-----|------------|
+    | spatialKeys | true |
 
     Si le paramètre de requête [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse contient les informations de clés géospatiales propriétaires d’un emplacement spécifié.
 
-6. Ajoutez la valeur suivante à la chaîne de requête et cliquez sur **Send** (Envoyer) :
-    ```
-        ,returnSpeedLimit
-    ```
+6. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+
+    | Clé | Valeur |
+    |-----|------------|
+    | returnSpeedLimit | true |
     
     Si le paramètre de requête [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne la vitesse maximale autorisée.
 
-7. Ajoutez la valeur suivante à la chaîne de requête et cliquez sur **Send** (Envoyer) :
-    ```
-        ,returnRoadUse
-    ```
+7. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+
+    | Clé | Valeur |
+    |-----|------------|
+    | returnRoadUse | true |
 
     Si le paramètre de requête [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne le tableau de l’état du trafic routier des géocodes inverses au niveau des rues.
 
-8. Ajoutez la valeur suivante à la chaîne de requête et cliquez sur **Send** (Envoyer) :
-    ```
-        ,roadUse
-    ```
+8. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+
+    | Clé | Valeur |
+    |-----|------------|
+    | roadUse | true |
 
     Vous pouvez limiter la requête de géocode inverse à un type spécifique de trafic routier à l’aide du paramètre de requête [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
     

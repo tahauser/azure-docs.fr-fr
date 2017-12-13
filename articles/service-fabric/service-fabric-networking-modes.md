@@ -14,28 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
-Le mode de mise en réseau par défaut proposé dans le cluster Service Fabric pour les services de conteneur est `nat`. Avec le mode de mise en réseau `nat`, plusieurs services de conteneurs sont à l’écoute des mêmes résultats de port dans les erreurs de déploiement. Pour exécuter plusieurs services à l’écoute sur le même port, Service Fabric prend en charge le mode de mise en réseau `Open` (version 5.7 ou ultérieure). Avec le mode de mise en réseau `Open`, chaque service de conteneur obtient une adresse IP affectée dynamiquement, permettant à plusieurs services d’être à l’écoute sur le même port.   
+Un cluster Azure Service Fabric pour les services de conteneur utilise le mode de mise en réseau **nat** par défaut. Lorsque plusieurs services de conteneur sont à l’écoute sur le même port et que le mode nat est utilisé, des erreurs de déploiement peuvent se produire. Pour prendre en charge plusieurs services de conteneur à l’écoute sur le même port, Service Fabric propose le mode de mise en réseau **Ouvert** (versions 5.7 et ultérieures). En mode Ouvert, chaque service de conteneur a une adresse IP interne attribuée de manière dynamique qui prend en charge plusieurs services à l’écoute sur le même port.  
 
-Par conséquent, avec un seul type de service disposant d’un point de terminaison statique défini dans le manifeste de service, de nouveaux services peuvent être créés et supprimés sans erreurs de déploiement à l’aide du mode de mise en réseau `Open`. De même, il est possible d’utiliser le fichier `docker-compose.yml` avec les mappages de ports statiques pour la création de plusieurs services.
+Si vous avez un service de conteneur avec un point de terminaison statique dans votre manifeste de service, vous pouvez créer et supprimer de nouveaux services à l’aide du mode Ouvert sans erreurs de déploiement. Le même fichier docker-compose.yml peut également être utilisé avec les mappages de ports statiques pour créer plusieurs services.
 
-Il n’est pas recommandé d’utiliser l’adresse IP assignée dynamiquement pour découvrir des services, car l’adresses IP change lorsque le service redémarre ou se déplace vers un autre nœud. Utilisez uniquement le **Service Fabric Naming Service** ou le **Service DNS** pour la découverte de service. 
+Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud du cluster, l’adresse IP change. Pour cette raison, nous ne recommandons pas l’utilisation de l’adresse IP attribuée de manière dynamique pour découvrir les services de conteneur. Seul le service d’affectation de noms de Service Fabric ou le service DNS doivent être utilisés pour la découverte de services. 
 
-
-> [!WARNING]
-> Au total, seules 4 096 adresses IP sont autorisées par réseau virtuel dans Azure. Par conséquent, la somme du nombre de nœuds et du nombre d’instances de service de conteneur (avec la mise en réseau `Open`) ne peut pas dépasser 4 096 dans un réseau virtuel. Pour de tels scénarios à haute densité, le mode de mise en réseau `nat` est recommandé.
+>[!WARNING]
+>Azure permet un total de 4 096 adresses IP par réseau virtuel. Par conséquent, la somme du nombre de nœuds et du nombre d’instances de service de conteneur (utilisant le mode Ouvert) ne peuvent pas dépasser 4,096 au sein d’un réseau virtuel. Pour les scénarios de haute densités, nous recommandons le mode de mise en réseau nat.
 >
 
-## <a name="setting-up-open-networking-mode"></a>Configuration du mode de mise en réseau ouvert
+## <a name="set-up-open-networking-mode"></a>Configurer le mode de mise en réseau Ouvert
 
-1. Définir le modèle Azure Resource Manager en activant le service DNS et le fournisseur IP sous `fabricSettings`. 
+1. Configurer le modèle Azure Resource Manager. Dans la section **fabricSettings**, activer le Service DNS et le fournisseur IP : 
 
     ```json
     "fabricSettings": [
@@ -78,7 +77,7 @@ Il n’est pas recommandé d’utiliser l’adresse IP assignée dynamiquement p
             ],
     ```
 
-2. Configurer la section de profil réseau pour autoriser la configuration de plusieurs adresses IP sur chaque nœud du cluster. L’exemple suivant définit cinq adresses IP par nœud (vous pouvez ainsi avoir cinq instances de service à l’écoute sur le port de chaque nœud) pour un cluster Service Fabric Windows/Linux.
+2. Configurer la section de profil réseau pour autoriser la configuration de plusieurs adresses IP sur chaque nœud du cluster. L’exemple suivant définit cinq adresses IP par nœud pour un cluster Windows/Linux Service Fabric. Vous pouvez avoir cinq instances de service à l’écoute sur le port de chaque nœud.
 
     ```json
     "variables": {
@@ -175,15 +174,19 @@ Il n’est pas recommandé d’utiliser l’adresse IP assignée dynamiquement p
               }
    ```
  
+3. Pour les clusters Windows uniquement, configurez une règle de groupe de sécurité réseau (NSG) Azure qui ouvre le port UDP/53 pour le réseau virtuel avec les valeurs suivantes :
 
-3. Pour les clusters Windows uniquement, configurez une règle de groupe de sécurité réseau ouvrant le port UDP/53 pour le réseau virtuel avec les valeurs suivantes :
+   |Paramètre |Valeur | |
+   | --- | --- | --- |
+   |Priorité |2000 | |
+   |Nom |Custom_Dns  | |
+   |Source |VirtualNetwork | |
+   |Destination | VirtualNetwork | |
+   |Service | DNS (UDP/53) | |
+   |Action | AUTORISER  | |
+   | | |
 
-   | Priorité |    Nom    |    Source      |  Destination   |   Service    | Action |
-   |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
-   |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | AUTORISER  |
-
-
-4. Spécifiez le mode de mise en réseau dans le manifeste d’application pour chaque service `<NetworkConfig NetworkType="Open">`.  Le mode `Open` permet au service d’obtenir une adresse IP dédiée. Si aucun mode n’est pas spécifié, la valeur par défaut est le mode de base `nat`. Ainsi, dans l’exemple de manifeste suivant, `NodeContainerServicePackage1` et `NodeContainerServicePackage2` peuvent chacun être à l’écoute sur le même port (les deux services sont à l’écoute sur `Endpoint1`). Quand le mode de mise en réseau `Open` est précisé, vous ne pouvez pas spécifier de configurations `PortBinding`.
+4. Spécifiez le mode de mise en réseau dans le manifeste d’application pour chaque service : `<NetworkConfig NetworkType="Open">`. Le mode **Ouvrir** permet au service d’obtenir une adresse IP dédiée. Si un mode n’est pas spécifié, par défaut, le service est en mode **nat**. Dans l’exemple de manifeste suivant, les services `NodeContainerServicePackage1` et `NodeContainerServicePackage2` peuvent chacun être à l’écoute sur le même port (les deux services sont à l’écoute sur `Endpoint1`). Quand le mode de mise en réseau Ouvert est spécifié, les configurations `PortBinding` ne peuvent pas être spécifiées.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -211,13 +214,15 @@ Il n’est pas recommandé d’utiliser l’adresse IP assignée dynamiquement p
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Vous pouvez combiner différents modes de mise en réseau entre les services au sein d’une application d’un cluster Windows. Par conséquent, vous pouvez avoir des services sur les modes de mise en réseau `Open` et `nat`. Lorsqu’un service est configuré avec le mode `nat`, son port d’écoute doit être unique. La combinaison de modes de mise en réseau pour différents services n’est pas prise en charge sur les clusters Linux. 
 
+    Vous pouvez combiner différents modes de mise en réseau entre les services au sein d’une application d’un cluster Windows. Certains services peuvent utiliser le mode Ouvert, tandis que d’autres utilisent le mode nat. Lorsqu’un service est configuré pour utiliser le mode nat, le port d’écoute du service doit être unique.
+
+    >[!NOTE]
+    >La combinaison de modes de mise en réseau pour différents services n’est pas prise en charge sur les clusters Linux. 
+    >
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez obtenu des informations sur les modes de mise en réseau offerts par Service Fabric.  
-
-* [Modèle d'application Service Fabric](service-fabric-application-model.md)
-* [Ressources du manifeste de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Modéliser une application dans Service Fabric](service-fabric-application-model.md)
+* [En savoir plus sur les ressources du manifeste du service Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-get-started-containers.md)
 * [Déployer un conteneur Docker sur Service Fabric sous Linux](service-fabric-get-started-containers-linux.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Faire expirer des données dans des collections Cosmos DB automatiquement avec la durée de vie
 Les applications peuvent générer et stocker de grandes quantités de données. Certaines de ces données, telles que les données d’événement générées par la machine, les journaux et les informations de session utilisateur, sont utiles uniquement pendant une certaine période. Une fois les données trop nombreuses par rapport aux besoins de l’application, vous pouvez les vider et réduire les besoins de stockage d’une application.
@@ -149,6 +149,8 @@ Pour désactiver la TTL entièrement sur une collection et arrêter la recherche
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>Interaction de la durée de vie et des index
+L’ajout ou la modification d’une durée de vie correspond à une modification de l’index sous-jacent. Lorsqu’il n’existe aucune durée de vie et que vous fournissez une valeur de durée de vie valide, ceci équivaut à une opération de réindexation. Pour un index cohérent : l’utilisateur ne voit pas aucune modification dans l’état de l’index. En cas d’index différé : l’index commence toujours par se mettre à jour et, suite à cette modification de la durée de vie, il est recréé à partir de zéro. Dans ce cas, les requêtes effectuées pendant la régénération de l’index retournent des résultats incomplets ou incorrects. Ne modifiez pas la durée de vie d’un index différé si vous avez, par exemple, besoin d’un nombre de données exact, car le mode d’indexation lui-même est différé.  Dans l’idéal, il faut toujours choisir un index cohérent. 
 
 ## <a name="faq"></a>Forum Aux Questions
 **Quel est le coût de la TTL ?**

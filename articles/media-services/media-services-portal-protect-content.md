@@ -14,36 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc766abb5df38813b3eb6dde98cdc9afd24ac6b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configuration des stratégies de protection du contenu à l’aide du portail Azure
-> [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
-> 
-> 
-
-## <a name="overview"></a>Vue d'ensemble
 Microsoft Azure Media Services (AMS) vous permet de sécuriser votre contenu multimédia dès lors qu’il quitte votre ordinateur via le stockage, le traitement et la remise. Media Services permet de transmettre un contenu chiffré dynamiquement avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et le chiffrement commun CENC (Common Encryption) en utilisant PlayReady et/ou Widevine DRM et Apple FairPlay. 
 
 AMS fournit un service de remise de licences DRM et de clés en clair AES aux clients autorisés. Le portail Azure vous permet de créer une **stratégie d’autorisation de clé/licence** pour tous les types de chiffrement.
 
-Cet article explique comment configurer des stratégies de protection du contenu avec le portail Azure. L’article explique également comment appliquer le chiffrement dynamique à vos ressources.
-
-
-> [!NOTE]
-> Si vous avez utilisé le portail Azure Classic pour créer des stratégies de protection, les stratégies peuvent être absentes du [portail Azure](https://portal.azure.com/). Toutefois, toutes les anciennes stratégies existent toujours. Vous pouvez les consulter à l’aide du SDK Azure Media Services .NET ou de l’outil [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases). Pour afficher les stratégies, cliquez avec le bouton droit sur l’élément multimédia -> Display information (F4) (Afficher les informations) -> cliquez sur l’onglet Content keys (Clés de contenu) -> cliquez sur la clé. 
-> 
-> Si vous souhaitez chiffrer votre ressource à l’aide des nouvelles stratégies, configurez-les avec le portail Azure, cliquez sur Enregistrer et appliquez de nouveau le chiffrement dynamique. 
-> 
-> 
+Cet article explique comment configurer une stratégie de protection du contenu avec le portail Azure. L’article explique également comment appliquer le chiffrement dynamique à vos ressources.
 
 ## <a name="start-configuring-content-protection"></a>Commencer à configurer la protection de contenu
 Pour utiliser le portail pour commencer à configurer la protection de contenu, de manière globale sur votre compte AMS, procédez comme suit :
-
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
 2. Sélectionnez **Paramètres** > **Protection du contenu**.
 
@@ -54,20 +39,20 @@ AMS prend en charge plusieurs méthodes d’authentification des utilisateurs ef
 
 Le portail Azure vous permet de créer une **stratégie d’autorisation de clé/licence** pour tous les types de chiffrement.
 
-### <a name="open"></a>Ouverts
+### <a name="open-authorization"></a>Autorisation ouverte
 La restriction ouverte signifie que le système fournira la clé à toute personne effectuant une demande de clé. Cette restriction peut être utile à des fins de test. 
 
-### <a name="token"></a>par jeton
+### <a name="token-authorization"></a>Autorisation de jeton
 La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats SWT (Simple Web Tokens) et JWT (JSON Web Token). Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé Media Services retourne la clé (ou licence) demandée au client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé (ou licence).
 
 Lorsque vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres principaux de clé de vérification, émetteur et public. La clé de vérification principale contient la clé utilisée pour signer le jeton, l’émetteur est le service de jeton sécurisé qui émet le jeton. Le public (parfois appelé l’étendue) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
 ![Protéger du contenu](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
-## <a name="playready-rights-template"></a>Modèle de droits PlayReady
-Pour plus d’informations sur le modèle de droits PlayReady, consultez [Présentation du modèle de licence PlayReady de Media Services](media-services-playready-license-template-overview.md).
+## <a name="playready-license-template"></a>Modèle de licence PlayReady
+Le modèle de licence PlayReady définit la fonctionnalité activée sur votre licence PlayReady. Pour plus d’informations sur le modèle de licence PlayReady, consultez [Vue d’ensemble du modèle de licence PlayReady de Media Services](media-services-playready-license-template-overview.md).
 
-### <a name="non-persistent"></a>Non persistante
+### <a name="non-persistent"></a>Non persistant
 Si vous configurez la licence comme étant non persistante, celle-ci est conservée uniquement en mémoire lors de son utilisation par le lecteur.  
 
 ![Protéger du contenu](./media/media-services-portal-content-protection/media-services-content-protection003.png)
@@ -77,19 +62,19 @@ Si vous configurez la licence comme étant persistante, celle-ci est enregistré
 
 ![Protéger du contenu](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
-## <a name="widevine-rights-template"></a>Modèle de droits Widevine
-Pour plus d’informations sur le modèle de droits Widevine, consultez [Présentation du modèle de licence Widevine](media-services-widevine-license-template-overview.md).
+## <a name="widevine-license-template"></a>Modèle de licence Widevine
+Le modèle de licence Widevine définit la fonctionnalité activée sur vos licences Widevine.
 
 ### <a name="basic"></a>De base
 Lorsque vous sélectionnez **De base**, le modèle est créé avec toutes les valeurs par défaut.
 
 ### <a name="advanced"></a>Avancé
-Pour obtenir une explication détaillée sur l’option avancée des configurations Widevine, consultez [cette](media-services-widevine-license-template-overview.md) rubrique.
+Pour plus d’informations sur le modèle de droits Widevine, consultez [Présentation du modèle de licence Widevine](media-services-widevine-license-template-overview.md).
 
 ![Protéger du contenu](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>Configuration de FairPlay
-Pour activer le chiffrement de FairPlay, vous devez fournir le certificat de l’application et le secret de l’application via l’option de configuration de FairPlay. Pour obtenir des informations détaillées sur la configuration de FairPlay et de la configuration requise, consultez [cet](media-services-protect-hls-with-fairplay.md) article.
+Pour activer le chiffrement de FairPlay, vous devez fournir le certificat de l’application et le secret de l’application via l’option de configuration de FairPlay. Pour obtenir des informations détaillées sur la configuration de FairPlay et de la configuration requise, consultez [cet](media-services-protect-hls-with-FairPlay.md) article.
 
 ![Protéger du contenu](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -125,7 +110,7 @@ Pour activer le chiffrement de FairPlay, vous devez fournir le certificat de l�
 Une fois le chiffrement sélectionné, appuyez sur **Appliquer**.
 
 >[!NOTE] 
->Si vous envisagez de lire un flux HLS chiffré par AES dans Safari, consultez [ce billet de blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Si vous envisagez de lire un flux HLS chiffré par AES dans Safari, consultez le [billet de blog HLS chiffré dans Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady
 Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) à l’aide des formats suivants :  
@@ -33,12 +33,12 @@ Azure Media Services vous permet de chiffrer dynamiquement votre contenu HTTP Li
 
 L’image suivante présente le flux de travail **HLS + FairPlay ou chiffrement dynamique PlayReady**.
 
-![Diagramme de flux de travail de chiffrement dynamique](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagramme de flux de travail de chiffrement dynamique](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Cette rubrique montre comment utiliser Media Services pour chiffrer dynamiquement votre contenu HLS avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients.
+Cet article montre comment utiliser Media Services pour chiffrer dynamiquement votre contenu HLS avec Apple FairPlay. Elle montre également comment utiliser le service de distribution de licences Media Services pour fournir des licences FairPlay aux clients.
 
 > [!NOTE]
-> Si vous souhaitez également chiffrer votre contenu HLS avec PlayReady, vous devez créer une clé de contenu commune et l’associer à votre élément multimédia. Vous devez également configurer la stratégie d’autorisation de la clé de contenu, comme décrit dans la rubrique [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md) (Utilisation du chiffrement commun dynamique PlayReady).
+> Si vous souhaitez également chiffrer votre contenu HLS avec PlayReady, vous devez créer une clé de contenu commune et l’associer à votre élément multimédia. Vous devez également configurer la stratégie d’autorisation de la clé de contenu, comme décrit dans la rubrique [Using PlayReady dynamic common encryption](media-services-protect-with-playready-widevine.md) (Utilisation du chiffrement commun dynamique PlayReady).
 >
 >
 
@@ -65,14 +65,14 @@ Les éléments suivants doivent être définis du côté de la remise de clé Me
         Accédez au dossier dans lequel se situent le certificat FairPlay et les autres fichiers fournis par Apple.
     2. Exécutez la commande suivante à partir de la ligne de commande. Elle permet de convertir le fichier .cer en fichier .pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        « C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Exécutez la commande suivante à partir de la ligne de commande. Elle permet de convertir le fichier .pem en fichier .pfx avec la clé privée. Le mot de passe du fichier .pfx est ensuite demandé par OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        « C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **App Cert password (Mot de passe du certificat d’application)** : mot de passe pour créer le fichier .pfx.
   * **App Cert password ID (ID de mot de passe du certificat d’application)** : vous devez charger le mot de passe comme vous chargez les autres clés Media Services. Utilisez la valeur d’énumération **ContentKeyType.FairPlayPfxPassword** pour obtenir l’ID Media Services. C’est ce que vous devez utiliser dans l’option de stratégie de remise de clé.
   * **iv** : valeur aléatoire de 16 octets. Elle doit correspondre au vecteur d’initialisation de la stratégie de distribution d’éléments multimédias. Vous générez le vecteur d’initialisation et le placez aux deux endroits : la stratégie de distribution d’éléments multimédias et l’option de stratégie de remise de clé.
-  * **ASK** : cette clé est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement recevra une ASK unique. Enregistrez une copie de la clé ASK et stockez-la dans un endroit sûr. Vous devrez configurer la clé ASK comme FairPlayAsk pour Media Services plus tard.
+  * **ASK** : cette clé est reçue lorsque vous générez la certification à l’aide du portail des développeurs Apple. Chaque équipe de développement reçoit une ASK unique. Enregistrez une copie de la clé ASK et stockez-la dans un endroit sûr. Vous devrez configurer la clé ASK comme FairPlayAsk pour Media Services plus tard.
   * **ASK ID (ID de clé ASK)** : cet ID est obtenu lorsque vous chargez la clé ASK dans Media Services. Vous devez charger la clé ASK à l’aide de la valeur d’énumération **ContentKeyType.FairPlayAsk**. L’ID Media Services est retourné dans le résultat. C’est cet ID qui doit être utilisé lors de la définition de l’option de stratégie de remise de clé.
 
 Les éléments suivants doivent être définis par FPS côté client :
@@ -125,7 +125,7 @@ Vous pouvez développer des applications de lecteur à l’aide du Kit de dével
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player ne prend pas en charge la lecture FairPlay dès le départ. Pour mettre en œuvre la lecture FairPlay sur MAC OS X, procurez-vous l’exemple de lecteur à partir du compte de développeur Apple.
+> Azure Media Player prend en charge la lecture de FairPlay. Consultez la [documentation Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) pour obtenir plus d’informations.
 >
 >
 
@@ -157,7 +157,7 @@ L’exemple suivant illustre la possibilité d’utiliser Media Services pour di
 Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
 
 >[!NOTE]
->Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
 

@@ -1,5 +1,5 @@
 ---
-title: "Comparaison des plans d’hébergement Azure Functions | Microsoft Docs"
+title: "Échelle et hébergement dans Azure Functions | Microsoft Docs"
 description: "Découvrez comment choisir entre le plan Consommation et le plan App Service d’Azure Functions."
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Comparaison des plans d’hébergement Azure Functions
+# <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
-Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez donc pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [serverless](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [serverless](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > Pour l’instant, l’hébergement de Linux est uniquement disponible dans un plan App Service.
@@ -76,7 +76,7 @@ Si vous prévoyez d’exécuter des fonctions JavaScript dans un plan App Servic
 <a name="always-on"></a>
 ### Toujours actif
 
-Si vous utilisez un plan App Service, vous devez activer le paramètre **Toujours actif** afin que l’application de fonction s’exécute correctement. Dans un plan App Service, comme le runtime des fonctions devient inactif après quelques minutes d’inactivité, seuls des déclencheurs HTTP « relancent » vos fonctions. Ce fonctionnement est semblable à celui du service WebJobs pour lequel le paramètre Toujours actif doit toujours être activé. 
+Si vous utilisez un plan App Service, vous devez activer le paramètre **Toujours actif** pour que l’application de fonction s’exécute correctement. Dans un plan App Service, comme le runtime des fonctions devient inactif après quelques minutes d’inactivité, seuls des déclencheurs HTTP « relancent » vos fonctions. Ce fonctionnement est semblable à celui du service WebJobs pour lequel le paramètre Toujours actif doit toujours être activé. 
 
 Le paramètre Toujours actif est disponible uniquement dans un plan App Service. Dans un plan Consommation, la plateforme active automatiquement les applications de fonction.
 
@@ -84,18 +84,20 @@ Le paramètre Toujours actif est disponible uniquement dans un plan App Service.
 
 Dans un plan Consommation ou un plan App Service, une application de fonction nécessite un compte de stockage Azure général prenant en charge les stockages Blob, File d’attente, Fichiers et Table Azure. En interne, Azure Functions utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication ZRS. Ces comptes sont filtrés à partir du panneau **Compte de stockage** quand vous créez une application de fonction.
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Fonctionnement du plan de consommation
 
-Dans le plan Consommation, le contrôleur de mise à l’échelle met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions en fonction du nombre d’événements en fonction desquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions est limitée à 1,5 Go de mémoire.
+Dans le plan Consommation, le contrôleur de mise à l’échelle met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions en fonction du nombre d’événements en fonction desquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions est limitée à 1,5 Go de mémoire.  Une instance de l’hôte est l’application de fonction, ce qui signifie que toutes les fonctions dans une application de fonction partagent des ressources au sein d’une instance et se redimensionnent en même temps.
 
 Quand vous utilisez le plan d’hébergement Consommation, les fichiers de code de fonction sont stockés dans des partages de fichiers Azure du compte de stockage principal de la fonction. Lorsque vous supprimez le compte de stockage principal de l’application de fonction, les fichiers de code de fonction sont supprimés et ne peuvent pas être récupérés.
 
 > [!NOTE]
 > Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les blobs sont traités immédiatement. Pour éviter ce délai initial, pensez à l’une des options suivantes :
 > - Utilisez l’application de fonction dans un plan App Service, avec le paramètre Toujours actif activé.
-> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un message de file d’attente qui contient le nom de l’objet blob. Pour obtenir un exemple, consultez [Exemples JavaScript et Script C# de liaisons d’entrée et de sortie blob](functions-bindings-storage-blob.md#input--output---example).
+> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un abonnement Event Grid ou un message de file d’attente qui contient le nom de l’objet blob. Pour obtenir un exemple, consultez [Exemples JavaScript et Script C# de liaisons d’entrée et de sortie blob](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 
@@ -104,6 +106,20 @@ Azure Functions utilise un composant appelé *contrôleur de mise à l’échel
 L’unité de mise à l’échelle est l’application de fonction. Quand les instances de l’application de fonction font l’objet d’une augmentation de taille, des ressources supplémentaires sont allouées pour exécuter plusieurs instances de l’hôte Azure Functions. À l’inverse, quand la demande de calcul est réduite, le contrôleur de mise à l’échelle supprime des instances de l’hôte de fonction. Le nombre d’instances est finalement réduit à zéro si aucune fonction n’est exécutée dans une application de fonction.
 
 ![Contrôleur de mise à l’échelle surveillant les événements et créant des instances](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>Présentation des comportements de mise à l’échelle
+
+La mise à l’échelle peut varier en fonction de certains facteurs et selon le déclencheur et le langage sélectionnés. Toutefois, quelques aspects de la mise à l’échelle sont notables dans le système aujourd’hui :
+* Une application de fonction unique ne peut évoluer que jusqu’à 200 instances maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.
+* Les nouvelles instances ne sont tout au plus allouées qu’une fois toutes les 10 secondes.
+
+Différents déclencheurs peuvent également avoir des limites de mise à l’échelle différentes, comme documentées ci-dessous :
+
+* [Hub d’événements](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bonnes pratiques et modèles pour les applications scalables
+
+Nombreux sont les aspects d’une application de fonction qui impactent sa bonne mise à l’échelle, notamment la configuration de l’hôte, l’encombrement du runtime et l’efficacité des ressources.  Pour plus d’informations, consultez la [section sur la scalabilité dans l’article Considérations relatives aux performances](functions-best-practices.md#scalability-best-practices).
 
 ### <a name="billing-model"></a>Modèle de facturation
 

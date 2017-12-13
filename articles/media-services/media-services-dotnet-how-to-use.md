@@ -1,6 +1,6 @@
 ---
 title: "Configuration de l’ordinateur pour le développement Media Services avec .NET"
-description: "Découvrez les prérequis de Media Services à l’aide du kit SDK Media Services pour .NET. Apprenez également à créer une application Visual Studio."
+description: "Familiarisez-vous avec les conditions préalables pour Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET. Apprenez également à créer une application Visual Studio."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: juliako
-ms.openlocfilehash: 024b4cbb13001d67e7c1f0b86a84dfb43478c49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="media-services-development-with-net"></a>Développement Media Services avec .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Cette rubrique explique comment commencer à développer des applications Media Services à l’aide de .NET.
 
-La bibliothèque du **kit SDK Azure Media Services pour .NET** permet de programmer pour Media Services à l'aide de .NET. Pour que le développement avec .NET soit encore plus simple, la bibliothèque des **extensions du kit SDK Azure Media Services pour .NET** est fournie. Cette bibliothèque contient un ensemble de méthodes d’extension et de fonctions d’assistance qui simplifient votre code .NET. Les deux bibliothèques sont disponibles par le biais de **NuGet** et de **GitHub**.
+La bibliothèque du **Kit de développement logiciel (SDK) Azure Media Services pour .NET** permet de programmer pour Media Services à l'aide de .NET. Pour que le développement avec .NET soit encore plus simple, la bibliothèque des **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET** est fournie. Cette bibliothèque contient un ensemble de méthodes d’extension et de fonctions d’assistance qui simplifient votre code .NET. Les deux bibliothèques sont disponibles par le biais de **NuGet** et de **GitHub**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Comment créer un compte Media Services](media-services-portal-create-account.md).
 * Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5.
@@ -36,13 +36,13 @@ La bibliothèque du **kit SDK Azure Media Services pour .NET** permet de program
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 Cette section vous montre comment créer un projet dans Visual Studio et le configurer pour le développement Media Services.  Dans ce cas, le projet est une application console C# Windows, mais les étapes de configuration présentées ici s’appliquent aux autres types de projets que vous pouvez créer pour les applications Media Services (par exemple, une application Windows Forms ou Web ASP.NET).
 
-Cette section montre comment utiliser **NuGet** pour ajouter des extensions du kit SDK Media Services pour .NET et d’autres bibliothèques dépendantes.
+Cette section montre comment utiliser **NuGet** pour ajouter des extensions de Kit de développement logiciel (SDK) Media Services pour .NET et d’autres bibliothèques dépendantes.
 
-Vous pouvez également obtenir les dernières informations relatives au kit SDK Media Services pour .NET à partir de GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) ou [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), générer la solution et ajouter les références au projet client. Toutes les dépendances nécessaires sont téléchargées et extraites automatiquement.
+Vous pouvez également obtenir les dernières informations relatives au Kit de développement logiciel (SDK) Media Services pour .NET à partir de GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) ou [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), générer la solution et ajouter les références au projet client. Toutes les dépendances nécessaires sont téléchargées et extraites automatiquement.
 
 1. Créez une application console C# dans Visual Studio. Entrez le **nom**, l’**emplacement** et le **nom de solution**, puis cliquez sur OK.
 2. Générez la solution.
-3. Utilisez **NuGet** pour installer et ajouter les **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET** (**windowsazure.mediaservices.extensions**). L'installation de ce package installe également le **kit SDK Media Services pour .NET** et ajoute toutes les autres dépendances requises.
+3. Utilisez **NuGet** pour installer et ajouter les **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET** (**windowsazure.mediaservices.extensions**). L'installation de ce package installe également le **Kit de développement logiciel (SDK) Media Services pour .NET** et ajoute toutes les autres dépendances requises.
    
     Assurez-vous que la version la plus récente de NuGet est installée. Pour obtenir des informations supplémentaires et des instructions relatives à l'installation, consultez la page [NuGet](http://nuget.codeplex.com/).
 
@@ -66,8 +66,11 @@ Vous pouvez également obtenir les dernières informations relatives au kit SDK 
 
     Si vous utilisez [l’authentification utilisateur](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication), votre fichier de configuration contiendra probablement des valeurs relatives au domaine de votre client Azure AD et au point de terminaison de l’API REST AMS.
     
+    >[!Note]
+    >La plupart des exemples de code de la documentation Azure Media Services utilisent une authentification de type utilisateur (interactif) pour se connecter à l’API AMS. Cette méthode d’authentification fonctionne bien avec les applications natives de gestion ou de surveillance : applications mobiles, applications Windows et applications de console.
+    
     >[!Important]
-    >La plupart des exemples de code de la documentation Azure Media Services utilisent une authentification de type utilisateur (interactif) pour se connecter à l’API AMS. Cette méthode d’authentification fonctionne bien avec les applications natives de gestion ou de surveillance : applications mobiles, applications Windows et applications de console. Cette méthode d’authentification ne convient pas aux applications de type serveur, services web et API.  Pour plus d’informations, consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+    > La méthode d’authentification **interactive** ne convient PAS aux applications de type serveur, services web et API. Pour ces types d’applications, utilisez la méthode d’authentification **Principal de service**. Pour plus d’informations, consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...

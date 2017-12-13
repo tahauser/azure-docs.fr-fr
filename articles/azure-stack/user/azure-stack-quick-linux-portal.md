@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Créer une machine virtuelle Linux avec le portail Azure Stack
 
@@ -26,7 +26,7 @@ Vous pouvez créer des machines virtuelles Azure Stack dans le portail Azure Sta
 
 * **Une image Linux dans la Place de Marché Azure Stack**
 
-   La Place de Marché Azure Stack ne contient pas d’image Linux par défaut. Par conséquent, avant de créer une machine virtuelle Linux, vérifiez que l’opérateur Azure Stack a téléchargé l’image **Ubuntu Server 16.04 LT** à l’aide de la procédure décrite dans la rubrique [Télécharger des éléments de la Place de Marché à partir d’Azure vers Azure Stack](../azure-stack-download-azure-marketplace-item.md).
+   La Place de Marché Azure Stack ne contient pas d’image Linux par défaut. Par conséquent, avant de créer une machine virtuelle Linux, vérifiez que l’opérateur Azure Stack a téléchargé l’image **Ubuntu Server 16.04 LTS** à l’aide de la procédure décrite dans la rubrique [Télécharger des éléments de la Place de Marché à partir d’Azure vers Azure Stack](../azure-stack-download-azure-marketplace-item.md).
 
 * **Accès à un client SSH**
 

@@ -1,5 +1,5 @@
 ---
-title: "Résoudre les problèmes avec Azure File Sync (préversion) | Microsoft Docs"
+title: "Résoudre les problèmes de synchronisation de fichiers Azure (préversion) | Microsoft Docs"
 description: "Découvrez comment résoudre les problèmes courants avec Azure File Sync."
 services: storage
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes avec Azure File Sync (préversion)
+# <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Cet article est destiné à vous aider à dépanner et à résoudre les problèmes que vous pouvez rencontrer avec le déploiement d’Azure File Sync. Nous vous y expliquons également comment collecter des journaux du système qui sont utiles pour analyser les problèmes rencontrés de manière plus approfondie. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
 
 1. La section Commentaires de cet article
-2. [Forum du Stockage Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata)
+2. [Forum du Stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
 
@@ -44,7 +44,7 @@ Examinez le fichier installer.log pour déterminer la cause de l’échec de l�
 > L’installation de l’agent échoue si votre machine est configurée pour utiliser le service Microsoft Update et que celui-ci n’est pas en cours d’exécution.
 
 <a id="server-registration-missing"></a>**Le serveur n’est pas listé sous Serveurs inscrits sur le Portail Azure**  
-Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de synchronisation de stockage :
+Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de synchronisation de stockage :
 1. Connectez-vous au serveur que vous souhaitez inscrire.
 2. Ouvrez l’Explorateur de fichiers, puis accédez au répertoire d’installation de l’agent de synchronisation de stockage (l’emplacement par défaut est C:\Program Files\Azure\StorageSyncAgent). 
 3. Exécutez ServerRegistration.exe, puis effectuez l’Assistant pour inscrire le serveur auprès d’un service de synchronisation de stockage.
@@ -55,7 +55,7 @@ Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de s
 
 Ce message s’affiche si le serveur a déjà été inscrit auprès d’un service de synchronisation de stockage. Pour désinscrire le serveur du service de synchronisation de stockage actuel et l’inscrire ensuite auprès d’un nouveau service de synchronisation de stockage, suivez les étapes décrites dans [Désinscrire un serveur d’Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-Si le serveur n’est pas répertorié sous **Serveurs inscrits** dans le service de synchronisation de stockage, sur le serveur à désinscrire, exécutez les commandes PowerShell suivantes :
+Si le serveur n’est pas répertorié sous **Serveurs inscrits** dans le service de synchronisation de stockage, sur le serveur à désinscrire, exécutez les commandes PowerShell suivantes :
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -69,10 +69,10 @@ Reset-StorageSyncServer
 Ce problème se produit quand la stratégie **Sécurité renforcée d’Internet Explorer** est activée pendant l’inscription du serveur. Pour plus d’informations sur la façon de désactiver correctement la stratégie **Sécurité renforcée d’Internet Explorer**, consultez [Préparer Windows Server pour une utilisation avec Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) et [Déployer Azure File Sync (préversion)](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Gestion du groupe de synchronisation
-<a id="cloud-endpoint-using-share"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « Le partage de fichiers Azure spécifié est déjà en cours d’utilisation par un autre point de terminaison cloud »**  
+<a id="cloud-endpoint-using-share"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « Le partage de fichiers Azure spécifié est déjà en cours d’utilisation par un autre point de terminaison cloud »**  
 Ce problème se produit si le partage de fichiers Azure est déjà en cours d’utilisation par un autre point de terminaison cloud. 
 
-Si vous voyez ce message et que le partage de fichiers Azure n’est pas en cours d’utilisation par un point de terminaison cloud, effectuez les étapes suivantes pour supprimer les métadonnées Azure File Sync sur le partage de fichiers Azure :
+Si vous voyez ce message et que le partage de fichiers Azure n’est pas en cours d’utilisation par un point de terminaison cloud, effectuez les étapes suivantes pour supprimer les métadonnées Azure File Sync sur le partage de fichiers Azure :
 
 > [!Warning]  
 > La suppression des métadonnées sur un partage de fichiers Azure en cours d’utilisation par un point de terminaison cloud entraîne l’échec des opérations Azure File Sync. 
@@ -81,7 +81,7 @@ Si vous voyez ce message et que le partage de fichiers Azure n’est pas en cour
 2. Cliquez avec le bouton droit sur le partage de fichiers Azure, puis sélectionnez **Modifier les métadonnées**.
 3. Cliquez avec le bouton droit sur **SyncService**, puis sélectionnez **Supprimer**.
 
-<a id="cloud-endpoint-authfailed"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « AuthorizationFailed »**  
+<a id="cloud-endpoint-authfailed"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « AuthorizationFailed »**  
 Ce problème se produit si votre compte d’utilisateur ne dispose pas des droits suffisants pour créer un point de terminaison cloud. 
 
 Pour créer un point de terminaison cloud, votre compte d’utilisateur doit disposer des autorisations Microsoft suivantes :  
@@ -102,18 +102,18 @@ Pour déterminer si votre rôle de compte d’utilisateur a les autorisations n�
     * **Attribution de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
     * **Définition de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**La suppression du point de terminaison cloud échoue, avec cette erreur : « MgmtInternalError »**  
+<a id="cloud-endpoint-deleteinternalerror"></a>**La suppression du point de terminaison cloud échoue, avec cette erreur : « MgmtInternalError »**  
 Ce problème peut se produire si le compte de stockage ou le partage de fichiers Azure est supprimé avant le point de terminaison cloud. Ce problème sera résolu dans une mise à jour ultérieure. Vous pourrez alors supprimer un point de terminaison cloud après avoir supprimé le compte de stockage ou le partage de fichiers Azure.
 
 Pour le moment, évitez ce problème en supprimant le point de terminaison cloud avant de supprimer le compte de stockage ou le partage de fichiers Azure.
 
 ## <a name="sync"></a>Synchronisation
-<a id="afs-change-detection"></a>**Après avoir créé un fichier directement dans mon partage de fichiers Azure sur SMB ou par le biais du portail, combien de temps faut-il pour synchroniser le fichier sur les serveurs du groupe de synchronisation ?**  
+<a id="afs-change-detection"></a>**Après avoir créé un fichier directement dans mon partage de fichiers Azure sur SMB ou par le biais du portail, combien de temps faut-il pour synchroniser le fichier sur les serveurs du groupe de synchronisation ?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="broken-sync"></a>**La synchronisation échoue sur un serveur**  
 Si la synchronisation échoue sur un serveur :
-1. Vérifiez qu’il existe un point de terminaison de serveur dans le Portail Azure pour le répertoire à synchroniser sur un partage de fichiers Azure :
+1. Vérifiez qu’il existe un point de terminaison de serveur dans le Portail Azure pour le répertoire à synchroniser sur un partage de fichiers Azure :
     
     ![Capture d’écran d’un groupe de synchronisation avec un point de terminaison cloud et un point de terminaison de serveur dans le Portail Azure](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
 
@@ -133,6 +133,28 @@ Si la synchronisation de certains fichiers échoue :
     > Azure File Sync capture régulièrement des instantanés VSS pour synchroniser les fichiers ayant des descripteurs ouverts.
 
 ## <a name="cloud-tiering"></a>Hiérarchisation cloud 
+Il existe deux chemins d’accès dédiés aux défaillances dans la hiérarchisation cloud :
+
+- La hiérarchisation des fichiers peut être mise en échec, auquel cas la tentative d’Azure File Sync de hiérarchiser un fichier sur Azure Files est elle aussi avortée.
+- Le rappel des fichiers peut être mis en échec, ce qui signifie que le filtre du système de fichiers Azure File Sync (StorageSync.sys) ne parvient pas à télécharger des données lorsqu’un utilisateur tente d’accéder à un fichier hiérarchisé.
+
+Il existe deux classes principales de défaillances pouvant se produire par le biais des deux chemins d’accès dédiés :
+
+- Défaillances de stockage cloud
+    - *Problèmes de disponibilité du service de stockage temporaire*. Pour plus d’informations, consultez [Service Level Agreement (SLA) for Azure Storage (Contrat de niveau de service pour Azure Storage)](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Inaccessibilité du partage de fichiers Azure*. Cet échec se produit généralement lorsque vous supprimez un partage de fichiers Azure qui est toujours un point de terminaison cloud d’un groupe de synchronisation.
+    - *Inaccessibilité d’un compte de stockage*. Cet échec se produit généralement lorsque vous supprimez un compte de stockage comportant un partage de fichiers Azure qui est un point de terminaison cloud d’un groupe de synchronisation. 
+- Défaillances de serveur 
+    - *Défaut de chargement du filtre du système de fichiers Azure File Sync (StorageSync.sys)*. Pour répondre aux requêtes de hiérarchisation/de rappel, il est nécessaire que le filtre du système de fichiers Azure File Sync soit chargé. Ce défaut de chargement peut s’expliquer de différentes manières. La raison la plus courante est le déchargement manuel par un administrateur. Le filtre du système de fichiers Azure File Sync doit être chargé à tout moment pour qu’un bon fonctionnement d’Azure File Sync soit garanti.
+    - *Défaut, corruption ou endommagement de point d’analyse*. Un point d’analyse est une structure de données spécifique d’un fichier qui est composée de deux parties distinctes :
+        1. Une balise d’analyse, qui indique au système d’exploitation que le filtre du système de fichiers Azure File Sync (StorageSync.sys) doit éventuellement effectuer une action sur les E/S du fichier. 
+        2. Les données d’analyse, qui indiquent au filtre du système de fichiers l’URI du fichier sur le point de terminaison associé du cloud (le partage de fichiers Azure). 
+        
+        La raison la plus courante de la corruption d’un point d’analyse est la tentative par un administrateur de modifier la balise ou ses données. 
+    - *Problèmes de connectivité réseau*. Pour hiérarchiser ou rappeler un fichier, le serveur doit disposer d’une connectivité Internet.
+
+Les sections suivantes vous indiquent comment résoudre les problèmes de hiérarchisation cloud et déterminer si un problème est lié au stockage cloud ou au serveur.
+
 <a id="files-fail-tiering"></a>**Résoudre les problèmes de hiérarchisation de fichiers**  
 Si la hiérarchisation des fichiers dans Azure Files échoue :
 

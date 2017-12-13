@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Hive et Pig dans HDInsight
 
@@ -178,7 +178,7 @@ Dans l’exemple Pig Latin, nous avons défini l’entrée `LINE` comme un table
 
 2. Ensuite, `def create_structure(input)` définit la fonction à laquelle Pig transmet les lignes.
 
-3. L'exemple de données, `sample.log`, respecte pour l'essentiel le schéma basé sur les champs date, time, classname, level et detail que nous voulons renvoyer. Toutefois, il contient quelques lignes qui commencent par `*java.lang.Exception*`. Ces lignes doivent être modifiées pour correspondre au schéma. L'instruction `if` recherche ces dernières, puis manipule les données d'entrée pour déplacer la chaîne `*java.lang.Exception*` à la fin, harmonisant les données avec notre schéma de sortie prévu.
+3. L'exemple de données, `sample.log`, respecte pour l'essentiel le schéma basé sur les champs date, time, classname, level et detail. Toutefois, il contient quelques lignes qui commencent par `*java.lang.Exception*`. Ces lignes doivent être modifiées pour correspondre au schéma. L'instruction `if` recherche ces dernières, puis manipule les données d'entrée pour déplacer la chaîne `*java.lang.Exception*` à la fin, harmonisant les données avec le schéma de sortie prévu.
 
 4. La commande `split` est ensuite utilisée pour fractionner les données aux quatre premiers caractères d'espacement. La sortie est assignée dans `date`, `time`, `classname`, `level`, et `detail`.
 
@@ -291,7 +291,7 @@ Après avoir téléchargé les fichiers, procédez comme suit pour exécuter les
     #from pig_util import outputSchema
     ```
 
-    Cette opération modifie le script Python pour le faire fonctionner avec C Python plutôt qu’avec Jython. Une fois la modification effectuée, utilisez **Ctrl+X** pour quitter l’éditeur. Sélectionnez **Y**, puis appuyez sur **Entrée** pour enregistrer les modifications.
+    Cette ligne modifie le script Python pour le faire fonctionner avec C Python plutôt qu’avec Jython. Une fois la modification effectuée, utilisez **Ctrl+X** pour quitter l’éditeur. Sélectionnez **Y**, puis appuyez sur **Entrée** pour enregistrer les modifications.
 
 6. Utilisez la commande `pig` pour relancer l’interpréteur de commandes. Une fois dans l’invite de commandes `grunt>` , utilisez les commandes suivantes pour exécuter le script Python à l’aide de l’interpréteur C Python.
 

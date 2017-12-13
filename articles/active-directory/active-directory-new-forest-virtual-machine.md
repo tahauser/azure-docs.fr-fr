@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure
-Cette rubrique explique comment créer un nouvel environnement Windows Server Active Directory sur un réseau virtuel Azure sur une machine virtuelle sur un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Dans ce cas, le réseau virtuel Azure n'est pas connecté à un réseau local.
+Cet article explique comment créer un environnement Windows Server Active Directory sur une machine virtuelle sur un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Dans ce cas, le réseau virtuel Azure n'est pas connecté à un réseau local.
 
 Les rubriques suivantes peuvent également vous intéresser :
 
@@ -46,7 +46,7 @@ Les différences entre l'installation d'un contrôleur de domaine dans Azure ou 
 
 ## <a name="create-an-azure-virtual-network"></a>Création d'un réseau virtuel Azure
 1. Connectez-vous à la version classique du portail Azure.
-2. Créez un réseau virtuel. Cliquez sur **Réseaux** > **Create a virtual network**. Utilisez les valeurs du tableau suivant pour compléter l'Assistant.
+2. Créez un réseau virtuel. Cliquez sur **Réseaux** > **Créer un réseau virtuel**. Utilisez les valeurs du tableau suivant pour compléter l'Assistant.
 
    | Sur cette page de l'Assistant... | Spécifiez les valeurs suivantes |
    | --- | --- |
@@ -87,7 +87,7 @@ Lorsque l'installation du contrôleur de domaine est terminée, connectez-vous �
    3. Sous l'onglet **Redirecteurs**, cliquez sur l'adresse IP du redirecteur, puis cliquez sur **Modifier**.  Sélectionnez l'adresse IP, puis cliquez sur **Supprimer**.
    4. Cliquez sur **OK** pour fermer l'éditeur, puis à nouveau sur **OK** pour fermer les propriétés du serveur DNS.
 2. Mettez à jour les paramètres du serveur DNS pour le réseau virtuel.
-   1. Cliquez sur **Réseaux virtuels** > cliquez avec le bouton droit sur le réseau virtuel que vous avez créé > **Configurer** > **Serveurs DNS**, tapez le nom et le DIP de l'une des machines virtuelles qui exécutent le rôle du serveur de contrôleur de domaine/DNS, puis cliquez sur **Enregistrer**.
+   1. Cliquez sur **Réseaux virtuels** > double-cliquez sur le réseau virtuel que vous avez créé > **Configurer** > **Serveurs DNS**, tapez le nom et l’adresse IP de l’une des machines virtuelles qui exécutent le rôle du serveur de contrôleur de domaine/DNS, puis cliquez sur **Enregistrer**.
    2. Sélectionnez la machine virtuelle et cliquez sur **Redémarrer** pour que la machine virtuelle configure les paramètres de résolution DNS avec l'adresse IP du nouveau serveur DNS.
 
 ## <a name="create-vms-for-domain-members"></a>Création de machines virtuelles pour les membres du domaine
@@ -115,7 +115,7 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 * [Présentation du réseau virtuel.](../virtual-network/virtual-networks-overview.md)
 * [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Guide de référence des cmdlets Azure](/powershell/azure/get-started-azureps)
+* [Guide de référence des applets de commande Azure](/powershell/azure/get-started-azureps)
 * [Définition de l'adresse IP statique d'une machine virtuelle Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 * [Attribution d'une adresse IP statique à une machine virtuelle Azure](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 * [Installation d'une nouvelle forêt Active Directory](https://technet.microsoft.com/library/jj574166.aspx)

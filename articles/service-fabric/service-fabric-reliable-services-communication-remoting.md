@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Communication à distance des services avec Reliable Services
 Pour les services qui ne sont pas liés à une pile ou un protocole de communication particulier, comme WebAPI, Windows Communication Foundation (WCF) ou autres, l’infrastructure Reliable Services fournit un mécanisme de communication à distance pour configurer rapidement et facilement un appel de procédure distante pour les services.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-L'infrastructure de communication à distance propage les exceptions levées au niveau du service au client. Par conséquent, la logique de gestion des exceptions au niveau du client à l’aide de `ServiceProxy` peut directement traiter les exceptions levées par le service.
+L'infrastructure de communication à distance propage les exceptions levées par le service au client. Par conséquent, lorsqu’il reçoit `ServiceProxy`, le client est responsable de la prise en charge des exceptions levées par le service.
 
 ## <a name="service-proxy-lifetime"></a>Durée de vie du proxy du service
-Comme la création de proxy de service est une opération légère, les utilisateurs peuvent en créer autant de fois que nécessaire. Les instances de proxy de service peuvent être réutilisées tant que les utilisateurs en ont besoin. Si un appel de procédure distante lève une exception, les utilisateurs peuvent toujours réutiliser la même instance de proxy. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’invocation d’appels distants, nous vérifions en interne que le client de communication est valide. Nous recréons le client de communication en fonction du résultat. De fait, si une exception est levée, les utilisateurs n’ont pas à recréer le proxy de service, car cela est fait de manière transparente.
+Comme la création de proxy de service est une opération légère, les utilisateurs peuvent en créer autant de fois que nécessaire. Les instances de proxy de service peuvent être réutilisées tant que les utilisateurs en ont besoin. Si un appel de procédure distante lève une exception, les utilisateurs peuvent toujours réutiliser la même instance de proxy. Chaque proxy de service contient un client de communication qui permet d’envoyer des messages sur le réseau. Lors de l’invocation d’appels distants, nous vérifions en interne que le client de communication est valide. Nous recréons le client de communication en fonction du résultat. De fait, si une exception se produit, les utilisateurs n’ont pas à recréer `ServiceProxy` car cela est fait de manière transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Durée de vie de la fabrique ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) est une fabrique qui crée des instances de proxy pour différentes interfaces de communication à distance. Si vous utilisez l’API `ServiceProxy.Create` pour créer un proxy, le framework crée un singleton ServiceProxy.
@@ -91,12 +91,13 @@ La création de fabrique est une opération coûteuse. ServiceProxyFactory conse
 Il est recommandé de mettre en cache ServiceProxyFactory aussi longtemps que possible.
 
 ## <a name="remoting-exception-handling"></a>Gestion des exceptions à distance
-Toutes les exceptions à distance levées par l’API de service sont envoyées au client en tant que AggregateException. Les exceptions à distance doivent être des contrats de données sérialisables. Sinon, une exception [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) est envoyée à l’API de proxy en indiquant l’erreur de sérialisation.
+Toutes les exceptions à distance levées par l’API de service sont envoyées au client en tant que AggregateException. Les exceptions à distance doivent être des contrats de données sérialisables. Sinon, l’API du proxy lève [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) en indiquant l’erreur de sérialisation.
 
-Le proxy de service gère toutes les exceptions de basculement pour la partition de service pour laquelle il a été créé. Il résout à nouveau les points de terminaison s’il existe des exceptions de basculement (non temporaires) et retente l’appel avec le point de terminaison correct. Le nombre de tentatives pour l’exception de basculement est illimité.
+Le proxy de service gère toutes les exceptions de basculement pour la partition de service pour laquelle il a été créé. Il résout à nouveau les points de terminaison s’il existe des exceptions de basculement (exceptions non temporaires) et retente l’appel avec le point de terminaison correct. Le nombre de nouvelles tentatives pour des exceptions de basculement est indéfini.
 En cas d’exceptions transitoires, le proxy retente l’appel.
 
-Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) L’utilisateur peut configurer ces valeurs en transmettant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
+Les paramètres de nouvelle tentative par défaut sont fournis par [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+L’utilisateur peut configurer ces valeurs en passant l’objet OperationRetrySettings au constructeur ServiceProxyFactory.
 ## <a name="how-to-use-remoting-v2-stack"></a>Utilisation de la pile Remoting V2
 Avec le package 2.8 NuGet Remoting, vous avez la possibilité d’utiliser la pile Remoting V2. La pile Remoting V2 est plus performante et fournit des fonctionnalités telles que des API sérialisables personnalisées et plus enfichables.
 Par défaut, si vous n’effectuez pas les modifications suivantes, la pile Remoting V1 continue d’être utilisée.

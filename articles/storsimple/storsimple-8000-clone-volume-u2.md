@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Utiliser le service StorSimple Device Manager dans le portail Azure pour cloner un volume
 
@@ -69,12 +69,7 @@ Procédez comme suit pour créer un clone de votre volume à partir du catalogue
    
     ![Liste des jeux de sauvegarde](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Développez le jeu de sauvegarde pour afficher les volumes associés. Ces volumes doivent être mis hors connexion sur l’hôte et l’appareil avant leur restauration. Accédez aux volumes dans le panneau **Volumes** de votre appareil, puis suivez les étapes de la rubrique [Mise hors connexion d’un volume](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) pour les mettre hors connexion.
-   
-   > [!IMPORTANT]
-   > Veillez à mettre les volumes hors connexion sur l’ordinateur hôte avant de les mettre hors connexion sur l’appareil. Sans quoi, vous vous exposez à un risque d’altération des données.
-   
-4. Revenez au **Catalogue de sauvegarde** et sélectionnez un volume dans un jeu de sauvegarde. Cliquez dessus avec le bouton droit puis sélectionnez **Cloner** dans le menu contextuel.
+3. Développez le jeu de sauvegarde pour afficher le volume associé et sélectionner un volume dans le jeu de sauvegarde. Cliquez dessus avec le bouton droit puis sélectionnez **Cloner** dans le menu contextuel.
 
    ![Liste des jeux de sauvegarde](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

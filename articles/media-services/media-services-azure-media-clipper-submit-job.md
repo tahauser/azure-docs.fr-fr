@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a142648793f934e939be26378504c19facf40e1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Envoyer des travaux de détourage d’Azure Media Clipper
 Azure Media Clipper nécessite une méthode **submitSubclipCallback** d’implémentation pour gérer la soumission de travaux de détourage. Cette fonction sert à implémenter une requête HTTP POST de la sortie Clipper à un service web. C’est dans ce service web que vous pouvez soumettre le travail d’encodage. La sortie du Clipper peut être une présélection d’encodage Media Encoder Standard pour les travaux rendus ou la charge utile API REST pour les appels filtrés du manifeste dynamique. Ce modèle de transmission directe est nécessaire, car les informations d’identification du compte Media Services ne sont pas sécurisées dans le navigateur du client.
 
-L’exemple de code suivant illustre un exemple de méthode **submitSubclipCallback**. Dans cette méthode, vous implémenterez la requête HTTP POST de la présélection d’encodage MES. Si la publication a réussi (**résultat**), la **promesse** est résolue, sinon elle est rejetée avec des détails de l’erreur.
+Le diagramme de séquences suivant illustre le flux de travail entre le navigateur client, votre service Web et Azure Media Services : ![diagramme de séquences Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+Dans le diagramme précédent, les quatre entités sont : le navigateur de l’utilisateur final, votre service Web, le point de terminaison CDN hébergeant les ressources Clipper et Azure Media Services. Lorsque l’utilisateur final navigue vers votre page Web, la page obtient les ressources Clipper JavaScript et CSS du point de terminaison CDN d’hébergement. L’utilisateur final configure le travail de détourage ou l’appel de création du filtre du manifeste dynamique depuis son navigateur. Lorsque l’utilisateur final soumet le travail ou l’appel de création du filtre, le navigateur place la charge utile du travail sur un service Web que vous devez déployer. Ce service Web soumet enfin le travail de détourage ou l’appel de création du filtre à Azure Media Services à l’aide des informations d’identification de votre compte de services multimédia.
+
+L’exemple de code suivant illustre un exemple de méthode **submitSubclipCallback**. Dans cette méthode, vous mettez en œuvre la requête HTTP POST de la présélection d’encodage Media Encoder Standard. Si la publication a réussi (**résultat**), la **promesse** est résolue, sinon elle est rejetée avec des détails de l’erreur.
 
 ```javascript
 // Submit Subclip Callback
@@ -49,9 +53,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-La sortie de la soumission des travaux peut être une présélection d’encodage MES pour les travaux rendus ou la charge utile API REST pour les filtres du manifeste dynamique.
+La sortie de la soumission des travaux peut être une présélection d’encodage Media Encoder Standard pour les travaux rendus ou la charge utile API REST pour les filtres du manifeste dynamique.
 
-## <a name="rendered-output"></a>Sortie rendue
+## <a name="submitting-encoding-job-to-create-video"></a>Soumission de travaux d’encodage pour la création de vidéo
+Vous pouvez soumettre un travail d’encodage Media Encoder Standard pour créer un clip vidéo suffisamment précis. Le travail d’encodage produit des vidéos rendues, un nouveau fichier MP4 fragmenté.
+
 Le contrat de sortie de travail pour détourage rendu est un objet JSON comprenant les propriétés suivantes :
 
 ```json
@@ -145,8 +151,10 @@ Le contrat de sortie de travail pour détourage rendu est un objet JSON comprena
 }
 ```
 
-## <a name="filter-output"></a>Sortie du filtre
-Le contrat de sortie pour détourage filtré est un objet JSON comprenant les propriétés suivantes :
+Afin d’exécuter le travail d’encodage, soumettez le travail d’encodage Media Encoder Standard avec la présélection associée. Consultez cet article pour obtenir des détails sur la soumission des travaux d’encodage à l’aide de [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## <a name="quickly-creating-video-clips-without-encoding"></a>Création rapide de clips vidéo sans encodage
+Plutôt que de créer un travail d’encodage, vous pouvez utiliser Azure Media Clipper pour créer des filtres de manifeste dynamique. Les filtres n’exigent pas d’encodage et peuvent être créés rapidement si un nouvel élément n’est pas créé. Le contrat de sortie pour détourage filtré est un objet JSON comprenant les propriétés suivantes :
 
 ```json
 {
@@ -218,3 +226,5 @@ Le contrat de sortie pour détourage filtré est un objet JSON comprenant les pr
   }
 }
 ```
+
+Pour soumettre l’appel REST pour créer un filtre de manifeste dynamique, soumettez la charge utile du filtre associé à l’aide de [l’API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).

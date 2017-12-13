@@ -3,75 +3,96 @@ title: "Comment lier un abonnement Azure à Azure AD B2C | Documents Microsoft"
 description: "Guide détaillé pour activer la facturation pour un client Azure AD B2C dans un abonnement Azure."
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
-manager: mbaldwin
+author: parakhj
+manager: krassk
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
-ms.author: joroja
-ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: parja
+ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Liaison d’un abonnement Azure à un client Azure B2C pour payer les frais d’utilisation
-
-Les frais d’utilisation courants pour Azure Active Directory B2C (ou Azure AD B2C) sont facturés à un abonnement Azure. L’administrateur du client doit lier explicitement le client Azure AD B2C à un abonnement Azure après avoir créé le client B2C lui-même.  Ce lien est obtenu en créant une ressource « Client B2C » Azure AD dans l’abonnement Azure cible. De nombreux clients B2C peuvent être liés à un abonnement Azure, ainsi qu’à d’autres ressources Azure (par exemple, machines virtuelles, stockage de données, LogicApps).
-
+# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Liaison d’un abonnement Azure à un locataire Azure AD B2C
 
 > [!IMPORTANT]
-> Les dernières informations sur la facturation à l’utilisation et la tarification de B2C sont disponibles sur la page suivante : [Azure Active Directory B2C Tarification](
-https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Les dernières informations sur la facturation à l’utilisation et la tarification d’Azure AD B2C sont disponibles sur la page suivante : [Azure Active Directory B2C Tarification](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Étape 1 - Création d’un client Azure AD B2C
-Le client B2C doit être créé en premier. Ignorez cette étape si vous avez déjà créé votre client B2C. [Prise en main d’Azure Active Directory B2C](active-directory-b2c-get-started.md)
+Les frais d’utilisation pour Azure AD B2C sont facturés à un abonnement Azure. Quand un locataire Azure AD B2C est créé, l’administrateur du locataire doit lier explicitement le locataire Azure AD B2C à un abonnement Azure. Cet article vous montre comment procéder.
 
-## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Étape 2 - Ouverture du portail Azure dans le client Azure AD qui affiche votre abonnement Azure
-Accédez au [portail Azure](https://portal.azure.com). Basculez vers le client Azure AD affichant l’abonnement Azure que vous souhaitez utiliser. Ce client Azure AD est différent du client B2C. Dans le portail Azure, cliquez sur le nom du compte dans le coin supérieur droit du tableau de bord pour sélectionner le client Azure AD. Un abonnement Azure est nécessaire pour continuer. [Obtenir un abonnement Azure](https://account.windowsazure.com/signup?showCatalog=True)
+> [!NOTE]
+> Un abonnement lié à un locataire Azure AD B2C peut uniquement être utilisé pour la facturation de l’utilisation d’Azure AD B2C. L’abonnement ne peut pas être utilisé pour ajouter d’autres services Azure ou licences Office 365 *au sein du locataire Azure AD B2C*.
 
-![Basculement vers votre client Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+ Le lien de l’abonnement est obtenu en créant une « ressource » Azure AD B2C dans l’abonnement Azure cible. De nombreuses « ressources » Azure AD B2C peuvent être créées dans à un abonnement Azure, ainsi que d’autres ressources Azure (par exemple, machines virtuelles, stockage de données, LogicApps). Vous pouvez voir toutes les ressources au sein de l’abonnement en accédant au locataire Azure AD auquel l’abonnement est associé.
 
-## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Étape 3 - Création d’une ressource Client B2C dans Azure Marketplace
-Ouvrez Marketplace en cliquant sur l’icône Marketplace ou en sélectionnant le « + » vert dans le coin supérieur gauche du tableau de bord.  Recherchez et sélectionnez Azure Active Directory B2C. Sélectionnez Créer.
+Un abonnement Azure valide est nécessaire pour continuer.
 
-![Sélectionnez Place de marché](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+## <a name="create-an-azure-ad-b2c-tenant"></a>Créer un client Azure AD B2C
 
-![Rechercher AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
+Vous devez d’abord [créer un locataire Azure AD B2C](active-directory-b2c-get-started.md) auquel vous souhaitez lier un abonnement. Ignorez cette étape si vous avez déjà créé un locataire Azure AD B2C.
 
-La boîte de dialogue de création de la ressource Azure AD B2C contient les paramètres suivants :
+## <a name="open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Ouvrir le portail Azure dans le locataire Azure AD qui affiche votre abonnement Azure
 
-1. Client Azure AD B2C – Sélectionnez un client Azure AD B2C dans la liste déroulante.  Seuls les clients Azure AD B2C éligibles s’affichent.  Les clients B2C éligibles remplissent les conditions suivantes : vous êtes l’administrateur global du client B2C, et le client B2C n’est pas associé à un abonnement Azure.
+Accédez au locataire Azure AD qui affiche votre abonnement Azure. Ouvrez le [portail Azure](https://portal.azure.com), puis basculez vers le locataire Azure AD affichant l’abonnement Azure que vous souhaitez utiliser.
 
-2. Nom de la ressource Azure AD B2C - Ce nom est présélectionné et correspond au nom de domaine du client B2C.
+![Basculement vers votre locataire Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
-3. Abonnement - Il s’agit d’un abonnement Azure actif dans lequel vous êtes un administrateur ou un coadministrateur.  Plusieurs clients Azure AD B2C peuvent être ajoutés à un abonnement Azure.
+## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Rechercher Azure AD B2C dans la Place de marché Microsoft Azure
 
-4. Groupe de ressources et emplacement du groupe de ressources - Cet artefact vous permet d’organiser plusieurs ressources Azure.  Ce choix n’a aucun impact sur l’emplacement, les performances ou l’état de facturation du client B2C.
+Cliquez sur le bouton **Nouveau**. Dans le champ **Rechercher dans le marketplace**, entrez `B2C`.
 
-5. Épinglez le client B2C au tableau de bord pour faciliter l’accès à ses informations de facturation et à ses paramètres. ![Créer une ressource B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Ajouter le bouton en surbrillance et le texte Azure AD B2C dans le champ Rechercher dans le marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-## <a name="step-4---manage-your-b2c-tenant-resources-optional"></a>Étape 4 - Gestion de vos ressources Client B2C (facultatif)
-Une fois le déploiement terminé, une nouvelle ressource « Client B2C » est créée dans le groupe de ressources cible et l’abonnement Azure concerné.  Une nouvelle ressource de type « Client B2C » s’affiche à côté de vos autres ressources Azure.
+Dans la liste des résultats, cliquez sur **Azure AD B2C**.
 
-![Créer une ressource B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcedashboard.png)
+![Azure AD B2C sélectionné dans la liste des résultats](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Lorsque vous cliquez sur la ressource Client B2C, vous pouvez :
-- cliquer sur le nom de l’abonnement et afficher les informations de facturation (consultez Facturation et utilisation) ;
-- cliquer sur Azure AD B2C Settings (Paramètres Azure AD B2C) pour ouvrir un nouvel onglet de navigateur directement dans le panneau Paramètres de votre client B2C ;
+Des informations détaillées sur Azure AD B2C sont affichées. Pour commencer la configuration de votre nouveau client Azure Active Directory B2C, cliquez sur le bouton **Créer**.
+
+Dans l’écran de création de ressources, sélectionnez **Lier un locataire Azure AD B2C existant à mon abonnement Azure**.
+
+## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Créer une ressource Azure AD B2C au sein de l’abonnement Azure
+
+Dans la boîte de dialogue de création de ressources, sélectionnez un locataire Azure AD B2C dans la liste déroulante. Apparaissent tous les locataires dont vous êtes administrateur général et ceux qui ne sont pas déjà liés à un abonnement.
+
+Le nom de la ressource Azure AD B2C est présélectionné et correspond au nom de domaine du locataire Azure AD B2C.
+
+Pour Abonnement, sélectionnez un abonnement Azure actif dont vous êtes administrateur.
+
+Sélectionnez un groupe de ressources et un emplacement de groupe de ressources. La sélection effectuée ici n’a aucun impact sur l’emplacement, les performances ou l’état de facturation du locataire Azure AD B2C.
+
+![Créer une ressource B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+
+## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Gérer vos ressources de locataire Azure AD B2C
+
+Une fois que vous avez correctement créé une ressource Azure AD B2C dans l’abonnement Azure, une nouvelle ressource de type « Locataire B2C » doit apparaître aux côtés de vos autres ressources Azure.
+
+Vous pouvez utiliser cette ressource pour :
+
+- accéder à l’abonnement pour afficher les informations de facturation ;
+- accéder à votre locataire Azure AD B2C ;
 - envoyer une demande de support ;
-- déplacer votre ressource de client B2C vers un autre abonnement Azure ou un autre groupe de ressources.  Ce choix modifie l’abonnement Azure qui reçoit les frais d’utilisation.
+- déplacer votre ressource de locataire Azure AD B2C vers un autre abonnement Azure ou un autre groupe de ressources.
 
 ![Paramètres de ressource B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Problèmes connus
-- Suppression d’un locataire B2C. Si un locataire B2C est créé, supprimé et recréé avec le même nom de domaine, vous devez aussi supprimer et recréer la ressource « Liaison » avec le même nom de domaine.  Vous pouvez trouver cette ressource « Liaison » sous « Toutes les ressources » dans le locataire de l’abonnement via le portail Azure.
-- Restrictions auto-imposées sur l’emplacement des ressources régionales.  Dans de rares cas, un utilisateur peut avoir établi une restriction régionale pour la création de ressources Azure.  Cette restriction peut empêcher la création de la liaison entre un abonnement Azure et un locataire B2C. Pour atténuer ce problème, assouplissez cette restriction.
+
+### <a name="csp-subscriptions"></a>Abonnements CSP
+
+Un locataire Azure AD B2C **ne peut pas** être lié à des abonnements CSP.
+
+### <a name="self-imposed-restrictions"></a>Restrictions imposées automatiquement
+
+Un utilisateur peut avoir établi une restriction régionale pour la création de ressources Azure. Cette restriction peut empêcher la création de ressources Azure AD B2C. Pour atténuer ce problème, assouplissez cette restriction.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois ces étapes effectuées pour chacun de vos clients B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
-- Consulter l’utilisation et la facturation dans l’abonnement Azure sélectionné
-- Consulter les rapports détaillés d’utilisation quotidienne à l’aide de [l’API Usage Reporting](active-directory-b2c-reference-usage-reporting-api.md)
+
+Une fois ces étapes effectuées pour chacun de vos locataires Azure AD B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
+
+Vous pouvez consulter les détails de l’utilisation et de la facturation dans l’abonnement Azure sélectionné. Vous pouvez également consulter les rapports détaillés d’utilisation quotidienne à l’aide de [l’API de création de rapports d’utilisation](active-directory-b2c-reference-usage-reporting-api.md).
