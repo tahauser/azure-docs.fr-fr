@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 47cdbf31e6b01055405cefedda11d5eeef82f32e
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b36e8064da2661e6424d68f11b1e08d5af96131f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery  
 
@@ -30,7 +30,7 @@ Le graphique affiche la vue Résumé du coût total estimé de la récupération
  
 Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [régions cibles prises en charge](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) et les [devises prises en charge](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Coût par composant** Le coût total de la récupération d’urgence est divisé en quatre composants : coût de la licence d’Azure Site Recovery, du stockage, du réseau et du calcul. Le coût est calculé en fonction de la consommation facturée pendant la réplication et au moment de l’extraction de la récupération d’urgence pour le calcul, le stockage (premium et standard), le ExpressRoute/VPN configuré entre le site local et Azure, et la licence d’Azure Site Recovery.
+**Coût par composant** Le coût total de la récupération d’urgence est divisé en quatre composants : coût de la licence d’Azure Site Recovery, du stockage, du réseau et du calcul. Le coût est calculé en fonction de la consommation facturée pendant la réplication et au moment de la récupération d’urgence pour le calcul, le stockage (premium et standard), le ExpressRoute/VPN configuré entre le site local et Azure, et la licence de Azure Site Recovery.
 
 **Coût par état** Le coût total de la récupération d’urgence (DR) est catégorisé selon deux états différents, la réplication et l’extraction de la récupération d’urgence. 
 
@@ -41,7 +41,7 @@ Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [région
 **Coût de stockage Azure par mois/année** Il montre le coût de stockage total qui sera engagé pour le stockage standard et premium pour la réplication et l’extraction de récupération d’urgence.
 
 ## <a name="detailed-cost-analysis"></a>Analyse du coût détaillée
-Les prix Azure de calcul, de stockage, de réseau, etc., varient entre les régions Azure. Vous pouvez générer un rapport d’estimation des coûts avec les prix Azure les plus récent selon votre abonnement, l’offre associée à votre abonnement et pour la région cible Azure dans la devise indiquée. Par défaut, l’outil utilise la région Azure Ouest des États-Unis 2 et devise dollar américain (USD). Si vous avez utilisé une autre région et devise, la prochaine fois que vous générez un rapport sans ID d’abonnement, ID d’offre, région cible et devise, il utilisera les prix de la dernière région cible utilisée et la dernière devise utilisée pour l’estimation des coûts.
+Les prix Azure de calcul, de stockage, de réseau, etc., varient entre les régions Azure. Vous pouvez générer un rapport d’estimation des coûts avec les prix Azure les plus récents selon votre abonnement, l’offre associée à votre abonnement et pour la région cible Azure dans la devise indiquée. Par défaut, l’outil utilise la région Azure Ouest des États-Unis 2 et la devise dollar américain (USD). Si vous avez utilisé une autre région et devise, la prochaine fois que vous générez un rapport sans ID d’abonnement, ID d’offre, région cible et devise, il utilisera les prix de la dernière région cible utilisée et la dernière devise utilisée pour l’estimation des coûts.
 Cette section présente l’ID d’abonnement et l’ID d’offre que vous avez utilisés pour la génération de rapports.  Si aucun n’a été utilisé, il est vide.
 
 Dans l’ensemble du rapport, les cellules marquées en gris sont en lecture seule. Les cellules en blanc peuvent être modifiées selon vos besoins.
@@ -51,12 +51,12 @@ Dans l’ensemble du rapport, les cellules marquées en gris sont en lecture seu
 ### <a name="overall-dr-cost-by-components"></a>Coût global de récupération d’urgence par composants
 La première section indique le coût global de récupération d’urgence par composants et le coût de récupération d’urgence par états. 
 
-**Calcul** : coût de machines virtuelles IaaS exécutées sur Azure pour les besoins de récupération d’urgence. Il inclut les machines virtuelles créées par Azure Site Recovery pendant les extractions de la récupération d’urgence (basculements de test) et les machines virtuelles exécutées sur Azure telles que SQL Server avec groupes de disponibilité AlwaysOn et contrôleurs de domaine/serveurs de noms de domaine.
+**Calcul** : coût de machines virtuelles IaaS exécutées sur Azure pour les besoins de récupération d’urgence. Il inclut les machines virtuelles créées par Azure Site Recovery pendant les extractions de la récupération d’urgence (basculements de test) et les machines virtuelles exécutées sur Azure telles que SQL Server avec groupes de disponibilité AlwaysOn et contrôleurs de domaine/serveurs de noms de domaine.
 
-**Stockage** : coût de consommation de stockage Azure pour les besoins de récupération d’urgence. Il inclut la consommation de stockage pour la réplication et pendant les extractions de la récupération d’urgence.
-Réseau : ExpressRoute et VPN site à site pour les besoins de récupération d’urgence. 
+**Stockage** : coût de consommation de stockage Azure pour les besoins de récupération d’urgence. Il inclut la consommation du stockage pour la réplication et au cours des exercices de récupération d’urgence.
+Réseau : ExpressRoute et coûts VPN de Site à Site pour les besoins de récupération d’urgence. 
 
-**Licence ASR** : coût de la licence d’Azure Site Recovery pour toutes les machines virtuelles compatibles. Si vous avez entré manuellement une machine virtuelle dans la table d’analyse des coûts détaillée, le coût de la licence d’Azure Site Recovery est également incluse pour cette machine virtuelle.
+**Licence ASR** : coût de la licence d’Azure Site Recovery pour toutes les machines virtuelles compatibles. Si vous avez saisi manuellement une machine virtuelle dans la table d’analyse des coûts détaillée, le coût de la licence Azure Site Recovery est également inclus pour cette machine virtuelle.
 
 ### <a name="overall-dr-cost-by-states"></a>Coût global de récupération d’urgence par états
 Le coût total de la récupération d’urgence est catégorisé selon deux états différents, la réplication et l’extraction de la récupération d’urgence.
@@ -66,17 +66,17 @@ Le coût total de la récupération d’urgence est catégorisé selon deux éta
 **Coût d’extraction de la récupération d’urgence** : coût engagé au moment des extractions de la récupération d’urgence. Azure Site Recovery prépare des machines virtuelles pendant les extractions de la récupération d’urgence. Le coût d’extraction de la récupération d’urgence couvre les coûts de calcul et de stockage des machines virtuelles en cours d’exécution.
 Extraction de la récupération d’urgence totale par an = Nombre d’extractions de la récupération d’urgence x Durée de chaque extraction de la récupération d’urgence (jours) Coût moyen d’extraction de la récupération d’urgence - Coût total de l’extraction de la récupération d’urgence / 12
 
-### <a name="storage-cost-table"></a>Table de coût de stockage :
-Ce tableau présente le coût de stockage premium et standard pour la réplication et les extractions de la récupération d’urgence avec et sans remise.
+### <a name="storage-cost-table"></a>Table des coûts de stockage :
+Ce tableau montre les coûts de stockage standard et premium liés à la réplication et aux extractions de la récupération d’urgence avec et sans remise.
 
-### <a name="site-to-azure-network"></a>Réseau Site vers Azure
+### <a name="site-to-azure-network"></a>Du site vers le réseau Azure
 Sélectionnez le paramètre approprié en fonction de vos besoins. 
 
-**ExpressRoute** : par défaut, l’outil sélectionne le plan ExpressRoute le plus proche qui correspond à la bande passante réseau requise pour la réplication delta. Vous pouvez modifier le plan en fonction de vos besoins.
+**ExpressRoute** : par défaut, l’outil sélectionne le plan ExpressRoute le plus proche qui correspond à la bande passante réseau requise pour la réplication delta. Vous pouvez modifier le plan en fonction de vos besoins.
 
-**Passerelle VPN** : sélectionnez la passerelle VPN si vous avez une dans votre environnement. Par défaut, N/A.
+**Passerelle VPN** : sélectionnez la passerelle VPN si vous en avez une dans votre environnement. Par défaut, N/A.
 
-**Région cible** : région Azure spécifiée pour la récupération d’urgence. Le prix utilisé dans le rapport pour le calcul, le stockage, le réseau et la licence est basé sur la tarification Azure pour cette région. 
+**Région cible** : région Azure spécifiée pour la récupération d’urgence. Le prix utilisé dans le rapport pour le calcul, le stockage, le réseau et la licence est basé sur la tarification Azure pour cette région. 
 
 ### <a name="vm-running-on-azure"></a>Machine virtuelle s’exécutant sur Azure
 Si vous disposez d’un contrôleur de domaine ou d’une machine virtuelle DNS ou SQL Server avec groupes de disponibilité AlwaysOn s’exécutant sur Azure pour la récupération d’urgence, vous pouvez indiquer le nombre de machines virtuelles et la taille à prendre en compte de leur coût de calcul dans le coût total de la récupération d’urgence. 
@@ -93,11 +93,11 @@ Ce tableau montre le nombre de machines virtuelles Windows et non Windows et le 
 **Devise** : devise dans laquelle le rapport est généré. Durée de coût : vous pouvez afficher tous les coûts pour le mois ou l’ensemble de l’année. 
 
 ## <a name="detailed-cost-analysis-table"></a>Tableau d’analyse du coût détaillée
-![Analyse du coût détaillée](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png) Le tableau répertorie la répartition des coûts pour chaque machine virtuelle compatible. Vous pouvez également utiliser ce tableau pour obtenir le coût estimé de récupération d’urgence Azure des machines virtuelles non profilées en ajoutant manuellement des machines virtuelles. Ceci est utile au cas où vous devriez estimer les coûts Azure pour un nouveau déploiement de récupération d’urgence sans profilage détaillé.
-Pour ajouter manuellement des machines virtuelles : 
-1.  Cliquez sur le bouton « Insérer une ligne » pour insérer une nouvelle ligne entre les lignes de début et de fin.
+![Analyse du coût détaillée](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png) Le tableau répertorie la répartition des coûts pour chaque machine virtuelle compatible. Vous pouvez également utiliser cette table pour obtenir le coût estimé de récupération d’urgence Azure des machines virtuelles non profilées en ajoutant manuellement des machines virtuelles. Elle est utile lorsque vous devez estimer les coûts Azure d’un nouveau déploiement de récupération d’urgence sans profilage détaillé.
+Pour ajouter manuellement des machines virtuelles : 
+1.  Cliquez sur le bouton « Ligne d’insertion » pour insérer une nouvelle ligne entre les lignes de début et de fin.
 
-2.  Remplissez les colonnes suivantes en fonction de la taille approximative de machine virtuelle et le nombre de machines virtuelles qui correspondent à cette configuration : 
+2.  Remplissez les colonnes suivantes en fonction de la taille approximative de la machine virtuelle et le nombre de machines virtuelles correspondant à cette configuration : 
 
 * Nombre de machines virtuelles, taille IaaS (votre sélection)
 * Type de stockage (Standard/Premium)
@@ -110,37 +110,37 @@ Pour ajouter manuellement des machines virtuelles :
 
 3.  Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton « Appliquer à tous » pour le nombre d’extraction de la récupération d’urgence par an, la durée de chaque extraction de la récupération d’urgence (en jours), la redondance des données et d’Azure Hybrid Use Benefit.
 
-4.  Cliquez sur « Recalculer le coût » pour mettre à jour le coût.
+4.  Cliquez sur « Recalculer le coût » pour mettre à jour le coût.
 
-**Nom de la machine virtuelle** : le nom de la machine virtuelle.
+**VMName** : nom de la machine virtuelle.
 
-**Nombre de machines virtuelles**: le nombre de machines virtuelles qui correspondent à la configuration. Vous pouvez mettre à jour le nombre de machines virtuelles existantes si des machines virtuelles de configuration similaires ne sont pas profilées mais seront protégées.
+**Nombre de machines virtuelles**: le nombre de machines virtuelles qui correspondent à la configuration. Vous pouvez mettre à jour le nombre de machines virtuelles existantes si des machines virtuelles de configuration similaire ne sont pas profilées mais sont protégées.
 
-**Taille IaaS (recommandation)** : il s’agit de la taille de rôle de machine virtuelle de la machine virtuelle compatible recommandée par l’outil. 
+**Taille de IaaS (recommandation)** : il s’agit du rôle de machine virtuelle de la machine virtuelle compatible recommandée par l’outil. 
 
-**Taille IaaS (votre sélection)** : par défaut, elle est identique à la taille de rôle de machine virtuelle recommandée. Vous pouvez changer le rôle selon vos besoins. Le coût de calcul est basé sur la taille de votre rôle de machine virtuelle sélectionné.
+**Taille IaaS (votre sélection)** : par défaut, elle est identique à la taille de rôle de machine virtuelle recommandée. Vous pouvez changer le rôle selon vos besoins. Le coût du calcul est basé sur la taille du rôle de machine virtuelle sélectionnée.
 
-**Type de stockage** : le type de stockage utilisé par la machine virtuelle. Il s’agit du stockage Standard ou Premium.
+**Type de stockage** : type de stockage utilisé par la machine virtuelle. Il s’agit du stockage Standard ou Premium.
 
-**Taille de stockage totale de machine virtuelle (en Go)** : le stockage total de la machine virtuelle.
+**Taille de stockage totale de machine virtuelle (en Go)** : stockage total de la machine virtuelle.
 
-**Nombre d’extractions de la récupération d’urgence par an** : le nombre de fois que vous effectuez des extractions de la récupération d’urgence en une année. Par défaut, il est de 4 fois par an. Vous pouvez modifier la période pour des machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles en saisissant la nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût d’extraction de la récupération d’urgence total est calculé sur la base du nombre d’extractions de la récupération d’urgence par an et de la durée de chaque extraction de la récupération d’urgence.  
+**Nombre d’extractions de la récupération d’urgence par an** : nombre de fois que vous effectuez des extractions de la récupération d’urgence en une année. Par défaut, il est de 4 fois par an. Vous pouvez modifier la période pour des machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles en saisissant la nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût total de l’extraction de la récupération d’urgence est calculé en fonction du nombre d’extractions de la récupération d’urgence et la période de cette dernière.  
 
-**Durée de chaque extraction de la récupération d’urgence (en jours)** : la durée de chaque extraction de la récupération d’urgence. Par défaut, elle est de 7 jours tous les 90 jours selon [Disaster Recovery Software Assurance benefit](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Vous pouvez modifier la période pour des machines virtuelles spécifiques ou vous pouvez appliquer une nouvelle valeur à toutes les machines virtuelles en saisissant une nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût d’extraction de la récupération d’urgence total est calculé sur la base du nombre d’extractions de la récupération d’urgence par an et de la durée de chaque extraction de la récupération d’urgence.
+**Durée de chaque extraction de la récupération d’urgence (en jours)** : durée de chaque extraction de la récupération d’urgence. Par défaut, elle est de 7 jours tous les 90 jours selon l’[avantage Récupération d’urgence de la Software Assurance](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Vous pouvez modifier la période pour des machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles en saisissant la nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût total de l’extraction de la récupération d’urgence est calculé en fonction du nombre d’extractions de la récupération d’urgence et la période de cette dernière.
   
-**Type de système d’exploitation** : le type de système d’exploitation de la machine virtuelle. Il peut s’agir de Windows ou de Linux. Si le type de système d’exploitation est Windows, Azure Hybrid Use Benefit peut être appliqué à cette machine virtuelle. 
+**Type de système d’exploitation** : type de système d’exploitation de la machine virtuelle. Il peut s’agir de Windows ou de Linux. Si le type de système d’exploitation est Windows, Azure Hybrid Use Benefit peut être appliqué à cette machine virtuelle. 
 
-**Redondance des données** : une des options suivantes est possible : stockage localement redondant (LRS), stockage géo-redondant (GRS) ou stockage géo-redondant avec accès en lecture (RA-GRS). La valeur par défaut est LRS. Vous pouvez modifier le type en fonction de votre compte de stockage pour des machines virtuelles spécifiques, ou vous pouvez appliquer un nouveau type à toutes les machines virtuelles en modifiant le type de la ligne du haut et en cliquant sur « Appliquer à tous ».  Le coût de stockage pour la réplication est calculé sur la base du prix de la redondance des données que vous avez sélectionnée. 
+**Redondance des données** : une des options suivantes est possible : stockage localement redondant (LRS), stockage géo-redondant (GRS) ou stockage géo-redondant avec accès en lecture (RA-GRS). La valeur par défaut est LRS. Vous pouvez modifier le type en fonction de votre compte de stockage pour les machines virtuelles spécifiques, ou appliquer le nouveau type à toutes les machines virtuelles en modifiant le type de la ligne du haut et en cliquant sur « Appliquer à tous ».  Le coût du stockage pour la réplication est calculé en fonction du prix de la redondance des données sélectionné. 
 
-**Azure Hybrid Use Benefit** : vous pouvez appliquer Azure Hybrid Use Benefit à des machines virtuelles Windows, le cas échéant.  La valeur par défaut est Oui. Vous pouvez modifier le paramètre pour des machines virtuelles spécifiques ou mettre à jour toutes les machines virtuelles en cliquant sur le bouton « Appliquer à tous ».
+**Azure Hybrid Use Benefit** : vous pouvez l’appliquer aux machines virtuelles Windows, le cas échéant.  La valeur par défaut est Oui. Vous pouvez modifier le paramètre pour les machines virtuelles spécifiques, ou mettre à jour toutes les machines virtuelles en cliquant sur le bouton « Appliquer à tous ».
 
-**Consommation Azure totale** : elle inclut le coût de calcul, de stockage et de licence d’Azure Site Recovery pour votre récupération d’urgence. Selon votre sélection, elle indique le coût mensuel ou annuel.
+**Consommation Azure totale** : elle inclut les coûts de calcul, de stockage et de licence Azure Site Recovery pour la récupération d’urgence. Selon votre sélection, cela indique le coût mensuel ou annuel.
 
-**Coût de réplication d’état stable** : il inclut le coût de stockage pour la réplication.
+**Coût de réplication d’état stable** : il inclut le coût de stockage pour la réplication.
 
-**Coût d’extraction de la récupération d’urgence total (moyenne)** : il inclut le coût de calcul et de stockage pour l’extraction de la récupération d’urgence.
+**Coût d’extraction de la récupération d’urgence total (moyenne)** : il inclut le coût de calcul et de stockage pour l’extraction de la récupération d’urgence.
 
-**Coût de licence ASR** : coût de la licence d’Azure Site Recovery.
+**Coût de licence ASR** : coût de la licence d’Azure Site Recovery.
 
 ## <a name="supported-target-regions"></a>Régions cibles prises en charge
 Le planificateur de déploiement Azure Site Recovery fournit une estimation de coût pour les régions Azure suivantes. Si votre région n’est pas répertoriée ci-dessous, vous pouvez utiliser une des régions suivantes dont la tarification se rapproche le plus de votre région.
@@ -148,7 +148,7 @@ Le planificateur de déploiement Azure Site Recovery fournit une estimation de c
 eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope, westeurope, eastasia, southeastasia, japaneast, japanwest, australiaeast, australiasoutheast, brazilsouth, southindia, centralindia, westindia, canadacentral, canadaeast, westus2, westcentralus, uksouth, ukwest, koreacentral, koreasouth 
 
 ## <a name="supported-currencies"></a>Devises prises en charge
-Le planificateur de déploiement Azure Site Recovery peut générer le rapport de coût avec une des devises suivantes.
+Le Planificateur de déploiement Azure Site Recovery peut générer le rapport de coût avec une des devises suivantes.
 
 |Devise|Nom||Devise|Nom||Devise|Nom|
 |---|---|---|---|---|---|---|---|
@@ -162,4 +162,4 @@ Le planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur la protection des [machines virtuelles de Hyper-V vers Azure à l’aide d’Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
+En savoir plus sur la protection des [machines virtuelles de Hyper-V vers Azure à l’aide d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-hyper-v-to-azure).

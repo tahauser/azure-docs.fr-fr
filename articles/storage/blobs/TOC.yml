@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Travailler avec des objets BLOB - Python
       href: storage-quickstart-blobs-python.md
+    - name: Travailler avec des objets BLOB - Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: Utiliser le stockage Blob - .Node.js
       href: storage-quickstart-blobs-nodejs.md
     - name: "Utiliser le stockage\_Blob\_: Explorateur\_Stockage"
@@ -46,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Rechercher des données non structurées dans le stockage cloud
       href: storage-unstructured-search.md
+    - name: Optimiser l’évolutivité et les performances des applications de stockage
+      items:
+        - name: Créer un compte de stockage et une machine virtuelle
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Charger des données volumineuses vers un compte de stockage Azure
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Télécharger des données volumineuses depuis un compte de stockage Azure
+          href: storage-blob-scalable-app-download-files.md
+        - name: Vérifier les mesures de débit et de latence
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Exemples
   items:
     - name: .NET

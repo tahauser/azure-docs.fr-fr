@@ -10,18 +10,19 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: fbde63a2fe986342026e2b9dca5db06ea667c8d6
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.custom: mvc
+ms.openlocfilehash: 08490af077ad92dfa8e4ec248a1416980ac400f3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-api-management"></a>Présentation de Gestion des API
 
-Gestion des API (API Management, APIM) aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services. Toutes les entreprises cherchent à étendre leurs opérations en tant que plateforme numérique, en créant de nouveaux canaux, en trouvant de nouveaux clients et en suscitant un engagement supérieur auprès de ceux existants. Gestion des API offre les compétences principales pour assurer un programme d'API réussi à travers l'engagement du développeur, les perspectives commerciales, l'analyse, la sécurité et la protection. Vous pouvez utiliser la gestion des API Azure pour prendre n’importe quel serveur principal et lancer un programme d’API à part entière qui repose sur ce dernier.
+Gestion des API (API Management, APIM) aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services. Toutes les entreprises cherchent à étendre leurs opérations en tant que plateforme numérique, en créant de nouveaux canaux, en trouvant de nouveaux clients et en suscitant un engagement supérieur auprès de ceux existants. Il offre les compétences essentielles qui garantissent un programme d’API réussi au travers de l’engagement des développeurs, des perspectives commerciales, de l’analytique, de la sécurité et de la protection. Vous pouvez utiliser la gestion des API Azure pour prendre n’importe quel serveur principal et lancer un programme d’API à part entière qui repose sur ce dernier.
 
 Regardez la vidéo qui suit pour obtenir une vue d’ensemble de la gestion des API Azure et apprendre à l’utiliser pour ajouter de nombreuses fonctionnalités à votre API, et notamment le contrôle d’accès, la limitation du débit, la surveillance, la journalisation des événements et la mise en mémoire cache de réponse, avec un minimum de travail de votre part.
 

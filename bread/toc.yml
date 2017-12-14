@@ -150,7 +150,7 @@
         - name: Face
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: LUIS (Language Understanding Intelligent Service)
+        - name: Compréhension de la langue (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Analyse de texte

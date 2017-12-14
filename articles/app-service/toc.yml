@@ -89,6 +89,8 @@
       items:
         - name: Déployer l’application
           items:
+            - name: Déployer un fichier Zip
+              href: app-service-deploy-zip.md
             - name: Déployer via FTP
               href: app-service-deploy-ftp.md
             - name: Déployer via la synchronisation avec le cloud

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Analyse et visualisation d’événements avec OMS
 
@@ -41,7 +41,7 @@ Pour utiliser cette solution avec votre cluster, consultez [Configurer OMS Log A
 
 ## <a name="using-the-oms-agent"></a>Utilisation de l’agent OMS
 
-Il est recommandé d’utiliser EventFlow et WAD comme solutions d’agrégation, car ils permettent d’adopter une approche plus modulable des diagnostics et du suivi. Par exemple si vous voulez changer vos sorties à partir d’EventFlow, aucune modification de votre instrumentation réelle n’est nécessaire, mais juste une simple modification de votre fichier de configuration. Toutefois, si vous décidez d’utiliser OMS Log Analytics, vous devez configurer [l’agent OMS](../log-analytics/log-analytics-windows-agents.md). Vous devez également utiliser l’agent OMS lors du déploiement de conteneurs sur votre cluster, comme indiqué ci-dessous. 
+Il est recommandé d’utiliser EventFlow et WAD comme solutions d’agrégation, car ils permettent d’adopter une approche plus modulable des diagnostics et du suivi. Par exemple si vous voulez changer vos sorties à partir d’EventFlow, aucune modification de votre instrumentation réelle n’est nécessaire, mais juste une simple modification de votre fichier de configuration. Toutefois, si vous décidez d’utiliser OMS Log Analytics, vous devez configurer [l’agent OMS](../log-analytics/log-analytics-windows-agent.md). Vous devez également utiliser l’agent OMS lors du déploiement de conteneurs sur votre cluster, comme indiqué ci-dessous. 
 
 Pour obtenir des instructions, consultez [Ajouter l’agent OMS à un cluster](service-fabric-diagnostics-oms-agent.md).
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3dfc5809344af920540a88e097ce399cce653363
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Effectuer une surveillance avancée à l’aide de la solution de surveillance à distance
 
@@ -90,9 +90,6 @@ La carte met en évidence les appareils du filtre actif associés à des **alarm
 Vous pouvez utiliser le filtre des **alarmes du système** pour ajuster la période des alarmes récentes. Par défaut, le panneau affiche les alarmes de la dernière heure écoulée :
 
 ![Filtrer les alarmes par période](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
-
-> [!NOTE]
-> Faites défiler vers la droite pour voir le filtre de période.
 
 ## <a name="view-the-system-kpis"></a>Affichage des KPI du système
 

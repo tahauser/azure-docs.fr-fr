@@ -1,0 +1,34 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Microsoft Genomics
+metadata:
+  title: Documentation Microsoft Genomics
+  meta.description: Learn how to use the Microsoft Genomics service.
+  services: microsoft-genomics
+  author: grhuynh
+  manager: jhubbard
+  editor: jasonwhowell
+  ms.author: grhuynh
+  ms.service: microsoft-genomics
+  ms.workload: genomics
+  ms.topic: landing-page
+  ms.date: 12/07/2017
+  ms.openlocfilehash: 8a86847a27981ef814efc74755796c31fde85acc
+  ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/13/2017
+abstract:
+  description: "Découvrez comment Microsoft Genomics peut optimiser le séquençage du génome à l’aide d’une implémentation cloud de Burrows-Wheeler Aligner (BWA) et de Genome Analysis Toolkit (GATK) pour une analyse secondaire."
+sections:
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: Soumettez un workflow via le service Microsoft Genomics.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/helix-blue-orange.svg
+      text: Soumettre un workflow
+      href: quickstart-run-genomics-workflow-portal

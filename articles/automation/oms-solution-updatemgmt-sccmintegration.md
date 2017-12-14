@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Intégrer System Center Configuration Manager avec OMS Update Management
 
@@ -41,7 +41,7 @@ La façon dont vous gérez les clients hébergés dans Azure IaaS avec votre env
 
 Si vous avez l’intention de continuer à gérer les déploiements de mises à jour à partir de Configuration Manager, effectuez les étapes suivantes.  OMS se connecte à Configuration Manager pour appliquer les mises à jour aux ordinateurs clients connectés à votre espace de travail Log Analytics. Le contenu des mises à jour est disponible dans le cache de l’ordinateur client comme si le déploiement était géré par Configuration Manager.  
 
-1. Créez un déploiement de mises à jour logicielles à partir du site situé en haut de votre hiérarchie Configuration Manager en suivant le processus décrit dans [Déployer des mises à jour logicielles](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  Le seul paramètre qui doit être configuré différemment par rapport à un déploiement standard est l’option **Ne pas installer les mises à jour logicielles** pour contrôler le comportement de téléchargement du package de déploiement. Ce comportement est géré par la solution OMS Update Management en créant un déploiement de mises à jour planifié à l’étape suivante.  
+1. Créez un déploiement de mises à jour logicielles à partir du site situé en haut de votre hiérarchie Configuration Manager en suivant le processus décrit dans [Déployer des mises à jour logicielles](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  Le seul paramètre qui doit être configuré différemment par rapport à un déploiement standard est l’option **Ne pas installer les mises à jour logicielles** pour contrôler le comportement de téléchargement du package de déploiement. Ce comportement est géré par la solution OMS Update Management en créant un déploiement de mises à jour planifié à l’étape suivante.  
 
 1. Dans le portail OMS, ouvrez le tableau de bord Update Management.  Créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), puis sélectionnez le regroupement Configuration Manager approprié représenté sous la forme d’un groupe d’ordinateurs OMS dans la liste déroulante.  Gardez à l’esprit les points importants suivants :
     1. Si une fenêtre de maintenance est définie dans le regroupement d’appareils Configuration Manager sélectionné, les membres du regroupement la respectent au détriment du paramètre **Durée** défini dans le déploiement planifié dans OMS.

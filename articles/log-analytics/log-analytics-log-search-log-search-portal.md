@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Créer des recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux
 
@@ -34,7 +34,7 @@ Pour créer des recherches dans le portail Advanced Analytics plutôt que dans l
 Ce didacticiel part du principe que vous disposez déjà d’un espace de travail Log Analytics avec au moins une source connectée qui génère des données pour les requêtes à analyser.  
 
 - Si vous n’avez pas d’espace de travail, vous pouvez en créer un gratuitement à l’aide de la procédure décrite dans [Prise en main d’un espace de travail Log Analytics](log-analytics-get-started.md).
-- Connectez au moins un [agent Windows](log-analytics-windows-agents.md) ou un [agent Linux](log-analytics-linux-agents.md) à l’espace de travail.  
+- Connectez au moins un [agent Windows](log-analytics-windows-agent.md) ou un [agent Linux](log-analytics-linux-agents.md) à l’espace de travail.  
 
 ## <a name="open-the-log-search-portal"></a>Ouvrir le portail Recherche dans les journaux
 Commencez par ouvrir le portail Recherche dans les journaux.  Vous pouvez y accéder dans le portail Azure ou le portail OMS.
