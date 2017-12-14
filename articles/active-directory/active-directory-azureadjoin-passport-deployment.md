@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 keywords: "configurer le déploiement Microsoft Passport, Microsoft Windows Hello Entreprise"
 author: MarkusVi
-manager: femila
+manager: mtillman
 tags: azure-classic-portal
 ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 8fd9f3a51651fc163abd79aaf21ec3dd92502bb5
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Activer Microsoft Windows Hello Entreprise dans votre organisation
 Après avoir [connecté les appareils du domaine Windows 10 à Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), procédez comme suit pour activer Microsoft Windows Hello Entreprise dans votre organisation :
@@ -64,7 +64,7 @@ Il est conseillé d’utiliser System Center Configuration Manager lorsque vous 
 ### <a name="configure-windows-hello-for-business-using-system-center-configuration-manager"></a>Configurer Windows Hello Entreprise à l’aide de System Center Configuration Manager
 **Étapes** :
 
-1. Ouvrez **System Center Configuration Manager**, puis accédez à **Actifs et compatibilité > Paramètres de compatibilité > Accès aux ressources de l’entreprise > Profils Windows Hello Entreprise**.
+1. Ouvrez **System Center Configuration Manager**, puis accédez à **Actifs et compatibilité > Paramètres de conformité > Accès aux ressources de l’entreprise > Profils Windows Hello Entreprise**.
    
     ![Configurer Windows Hello Entreprise](./media/active-directory-azureadjoin-passport-deployment/01.png)
 2. Dans la barre d’outils en haut, cliquez sur **Créer un profil Windows Hello Entreprise**.
@@ -100,7 +100,7 @@ Il est conseillé d’utiliser System Center Configuration Manager lorsque vous 
 ## <a name="configure-the-certificate-profile"></a>Configurer le profil de certificat
 Si vous utilisez l’authentification basée sur un certificat pour l’authentification locale, vous devez configurer et déployer un profil de certificat. Pour ce faire, vous devez configurer un serveur NDES et le rôle de site Point d’enregistrement de certificat dans System Center Configuration Manager. Pour plus d’informations, consultez [Configuration requise pour les profils de certificat dans Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).
 
-1. Ouvrez **System Center Configuration Manager**, puis accédez à **Actifs et compatibilité > Paramètres de compatibilité > Accès aux ressources de l’entreprise > Profils de certificat**.
+1. Ouvrez **System Center Configuration Manager**, puis accédez à **Actifs et compatibilité > Paramètres de conformité > Accès aux ressources de l’entreprise > Profils de certificat**.
 2. Sélectionnez un modèle qui dispose d’une ouverture de session avec carte à puce EKU.
 
 Sur la page **Enregistrement SCEP** du profil de certificat, vous devez choisir **Installer dans Passport for Work, sinon mettre en échec** en tant que **Fournisseur de stockage de clés**.

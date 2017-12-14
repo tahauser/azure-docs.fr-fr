@@ -14,15 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.custom: mvc
+ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Mettre à niveau le runtime d’un cluster Service Fabric
 
-Ce didacticiel est la quatrième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric auto-hébergés.
+Ce didacticiel est la troisième partie d’une série de didacticiels et vous montre comment mettre à niveau le runtime Service Fabric sur un cluster Azure Service Fabric. Cette partie du didacticiel concerne les clusters Service Fabric s’exécutant sur Azure ; elle ne s’applique pas aux clusters Service Fabric autonomes.
 
 > [!WARNING]
 > Cette partie du didacticiel nécessite PowerShell. Les outils Azure CLI n’assurent pas la prise en charge de la mise à niveau du runtime d’un cluster. Cependant, vous pouvez mettre à niveau un cluster dans le portail. Pour plus d’informations, consultez [Mettre à niveau un cluster Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -35,7 +36,14 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Obtenir la version du cluster
 > * Définir la version du cluster
 
-## <a name="prerequisites"></a>Prérequis
+Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
+> [!div class="checklist"]
+> * créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle ;
+> * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
+> * Mettre à niveau le runtime d’un cluster
+> * [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).
+
+## <a name="prerequisites"></a>Composants requis
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -190,3 +198,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Obtenir la version du runtime du cluster
 > * Mettre à niveau le runtime du cluster
 > * Surveiller la mise à niveau
+
+Ensuite, passez au didacticiel suivant pour apprendre à déployer la Gestion des API avec un cluster Service Fabric.
+> [!div class="nextstepaction"]
+> [déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md).

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Déployer votre application sur des machines virtuelles Linux à l’aide de Jenkins et Team Services
 
@@ -26,7 +26,7 @@ L’intégration continue (CI) et le déploiement continu (CD) constituent un pi
 
 Dans ce didacticiel, vous allez utiliser Jenkins pour générer une application web Node.js. Vous utiliserez ensuite Team Services ou Team Foundation Server pour la déployer dans un [groupe de déploiement](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) qui contient des machines virtuelles Linux.
 
-Vous allez effectuer les étapes suivantes :
+Vous allez :
 
 > [!div class="checklist"]
 > * Obtenir l’exemple d’application.
@@ -40,7 +40,7 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-* Vous devez avoir accès à un serveur Jenkins. Si vous n’avez pas encore créé de serveur Jenkins, consultez [Créer un serveur Jenkins sur une machine virtuelle Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Vous devez avoir accès à un serveur Jenkins. Si vous n’avez pas encore créé de serveur Jenkins, consultez [Créer un serveur Jenkins sur une machine virtuelle Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Connectez-vous à votre compte Team Services (**https://{votrecompte}.visualstudio.com**). 
   Vous pouvez obtenir un [compte Team Services gratuit](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,14 +48,14 @@ Vous allez effectuer les étapes suivantes :
   > [!NOTE]
   > Pour plus d’informations, consultez [Connect to Visual Studio Team Services from Eclipse, Xcode, Visual Studio, and more](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) (Se connecter à Visual Studio Team Services depuis Eclipse, Xcode, Visual Studio, etc.).
 
-*  Vous avez besoin d’une machine virtuelle Linux pour une cible de déploiement.  Pour plus d’informations, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Vous avez besoin d’une machine virtuelle Linux pour une cible de déploiement.  Pour plus d’informations, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Ouvrez le port d’entrée 80 pour votre machine virtuelle. Pour plus d’informations, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Ouvrez le port d’entrée 80 pour votre machine virtuelle. Pour plus d’informations, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Obtenir l’exemple d’application
 
 Vous devez déployer une application, stockée dans un dépôt Git.
-Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’application disponible sur GitHub](https://github.com/azooinmyluggage/fabrikam-node). Ce didacticiel contient un exemple de script qui est utilisé pour l’installation de Node.js et d’une application. Si vous souhaitez utiliser votre propre dépôt, vous devez configurer un exemple similaire.
+Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’application disponible sur GitHub](https://github.com/azooinmyluggage/fabrikam-node). Ce didacticiel contient un exemple de script qui est utilisé pour l’installation de Node.js et d’une application. Si vous souhaitez utiliser votre propre référentiel, vous devez configurer un exemple similaire.
 
 Dupliquez cette application et notez son emplacement (URL) pour pouvoir l’utiliser ultérieurement dans ce didacticiel. Pour plus d’informations, consultez [Fork a repo](https://help.github.com/articles/fork-a-repo/) (Dupliquer un dépôt).    
 
@@ -85,7 +85,7 @@ Tout d’abord, vous devez configurer deux plug-ins Jenkins : **NodeJS** et **V
 1. Sélectionnez **Nouvel élément**. Entrez un nom d’élément.
 2. Sélectionnez **Freestyle project** (Projet libre). Sélectionnez **OK**.
 3. Sous l’onglet **Source Code Management** (Gestion du code source), sélectionnez **Git** et entrez les détails du dépôt et de la branche où se trouve le code de votre application.    
-    ![Ajouter un dépôt à votre build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
+    ![Ajouter un référentiel à votre build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
 4. Sous l’onglet **Build Triggers** (Générer des déclencheurs), sélectionnez **Poll SCM** (Interroger SCM) et entrez la planification `H/03 * * * *` pour interroger le dépôt Git sur les modifications toutes les trois minutes. 
 5. Sous l’onglet **Build Environment** (Générer un environnement), sélectionnez **Provide Node &amp; npm bin/ folder PATH** (Fournir le CHEMIN D’ACCÈS au dossier npm bin/ et à Node) et sélectionnez la valeur**NodeJS Installation** (Installation NodeJS). Laissez **npmrc file** (fichier npmrc) défini sur **use system default** (utiliser les valeurs système par défaut).
 6. Sous l’onglet **Build** (Générer), sélectionnez **Execute shell** (Exécuter Shell) et entrez la commande `npm install` pour vous assurer que toutes les dépendances sont mises à jour.

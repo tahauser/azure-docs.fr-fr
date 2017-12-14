@@ -1,26 +1,19 @@
 ---
-title: Principal du service de cluster Azure Kubernetes | Microsoft Docs
+title: Principal de service de cluster Azure Kubernetes
 description: "Créer et gérer un principal de service Azure Active Directory pour un cluster Kubernetes dans Azure Container Service"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurer un principal de service Azure Active Directory pour un cluster Kubernetes dans Container Service
 
@@ -36,11 +29,11 @@ Cet article indique les différentes options permettant de configurer un princip
 
 Vous pouvez utiliser un principal de service Azure AD existant qui répond aux exigences ci-dessous ou en créer un.
 
-* **Portée** : le groupe de ressources utilisé pour déployer le cluster.
+* **Portée** : groupe de ressources
 
-* **Rôle** : **Collaborateur**
+* **Rôle** : collaborateur
 
-* **Clé secrète client** : doit être un mot de passe. Actuellement, vous ne pouvez pas utiliser de principal du service configuré pour l’authentification par certificat.
+* **Clé secrète client** : doit être un mot de passe. Actuellement, vous ne pouvez pas utiliser de principal du service configuré pour l’authentification par certificat.
 
 > [!IMPORTANT]
 > Pour créer un principal de service, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si voir si vous disposez des autorisations requises, [procédez à une vérification dans le portail](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 Le résultat est semblable à ce qui suit (illustré ici de manière rédigée) :
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Lorsque vous spécifiez **l’ID Client** du principal de service, vous pouvez utiliser la valeur de `appId` (comme indiqué dans cet article) ou le principal de service correspondant `name` (par exemple, `https://www.contoso.org/example`).
 
-* Sur les machines virtuelles principales et d’agent du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier /etc/kubernetes/azure.json.
+* Sur les machines virtuelles principales et d’agent du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`.
 
-* Si vous utilisez la commande `az acs create` pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier ~/.azure/acsServicePrincipal.json sur la machine utilisée pour exécuter la commande.
+* Si vous utilisez la commande `az acs create` pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/acsServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
 
 * Si vous utilisez la commande `az acs create` pour générer automatiquement le principal de service, ce dernier peut également s’authentifier auprès d’un registre [Azure Container Registry](../../container-registry/container-registry-intro.md) créé dans le même abonnement.
+
+* Les informations d’identification du principal de service peuvent expirer, vos nœuds de cluster passent alors à l’état **NotReady**. Consultez la section [Expiration des informations d’identification](#credential-expiration) pour plus d’informations d’atténuation.
+
+## <a name="credential-expiration"></a>Expiration des informations d’identification
+
+Sauf si vous spécifiez une fenêtre de validité personnalisée avec le paramètre `--years` lorsque vous créez un principal de service, ses informations d’identification sont valides pendant 1 an à compter de la création. Lorsque les informations d’identification expirent, vos nœuds de cluster peuvent passer à l’état **NotReady**.
+
+Pour vérifier la date d’expiration d’un principal de service, exécutez la commande [az ad app show](/cli/azure/ad/app#az_ad_app_show) avec le paramètre `--debug`, puis recherchez la valeur `endDate` de `passwordCredentials` au bas de la sortie :
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Sortie (tronquée ici) :
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Si les informations d’identification de votre principal de service ont expiré, utilisez la commande [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) pour mettre à jour les informations d’identification :
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Output:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Ensuite, mettez `/etc/kubernetes/azure.json` à jour avec les nouvelles informations d’identification sur tous les nœuds de cluster et redémarrez les nœuds.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

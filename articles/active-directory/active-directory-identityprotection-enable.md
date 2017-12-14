@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff75a7e50142888e4cff4acd40bbdbee31c0e29d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: f68c37c4ceeec9a3447ba224fb051ea786de9997
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Activer Azure Active Directory Identity Protection
 Active Directory Azure Identity Protection est une nouvelle fonctionnalité qui offre une vue consolidée des activités de connexion suspectes et des vulnérabilités potentielles, avec des notifications, des recommandations de correction et des stratégies basées sur les risques pour vous aider à protéger votre entreprise. 

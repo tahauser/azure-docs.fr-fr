@@ -3,7 +3,7 @@ title: "Gérer des zones DNS dans Azure DNS - Azure CLI 2.0 | Microsoft Docs"
 description: "Vous pouvez gérer des zones DNS à l’aide d’Azure CLI 2.0. Cet article explique comment mettre à jour, supprimer et créer des zones DNS sur Azure DNS."
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,30 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Gérer des zones DNS dans Azure DNS à l’aide d’Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Portail](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 Ce guide montre comment gérer vos zones DNS à l’aide de l’interface de ligne de commande Azure interplateforme, qui est disponible pour Windows, Mac et Linux. Vous pouvez également gérer vos zones DNS à l’aide [d’Azure PowerShell](dns-operations-dnszones.md) ou du portail Azure.
-
-## <a name="cli-versions-to-complete-the-task"></a>Versions de l’interface de ligne de commande permettant d’effectuer la tâche
-
-Vous pouvez exécuter la tâche en utilisant l’une des versions suivantes de l’interface de ligne de commande (CLI) :
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) : notre interface de ligne de commande pour les modèles de déploiement Classique et Resource Manager.
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) : notre interface de ligne de commande nouvelle génération pour le modèle de déploiement Resource Manager.
 
 ## <a name="introduction"></a>Introduction
 
@@ -49,7 +41,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 * Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-* Installez la dernière version d’Azure CLI 2.0, disponible pour Windows, Linux ou MAC. Pour plus d’informations, consultez la page [Installer Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+* Installez la dernière version d’Azure CLI 2.0, disponible pour Windows, Linux ou MAC. Pour plus d’informations, consultez la page [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Connexion à votre compte Azure
 

@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/10/2017
-ms.openlocfilehash: 60db74535edd09841a1b660c2bf832af65fbfcad
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2c1f566afdbaad719c4abacdd89c2f8c96dc97de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Déployer un modèle Azure Machine Learning sur un appareil Azure IoT Edge
 
 Tous les modèles Azure Machine Learning placés dans des conteneurs en tant que services web Docker peuvent également s’exécuter sur des appareils Azure IoT Edge. Vous trouverez des scripts et des instructions supplémentaires dans le [Kit AI pour Azure IoT Edge](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Opérationnaliser le modèle
-Opérationnalisez votre modèle en suivant les instructions fournies dans [Déploiement d’un modèle d’apprentissage automatique comme service web](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy) afin de créer une image Docker avec votre modèle.
+Opérationnalisez votre modèle en suivant les instructions fournies dans [Déploiement d’un modèle d’apprentissage automatique comme service web](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy) afin de créer une image Docker avec votre modèle.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Déployer sur Azure IoT Edge
 Azure IoT Edge déplace l’analytique et la logique métier personnalisée du cloud vers les appareils. Tous les modèles Machine Learning peuvent s’exécuter sur des appareils IoT Edge. La documentation pour configurer un appareil IoT Edge et créer un déploiement est disponible à l’adresse [aka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc).

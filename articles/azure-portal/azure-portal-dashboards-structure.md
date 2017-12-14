@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Structure des tableaux de bord Azure
 Ce document décrit la structure d’un tableau de bord Azure, en utilisant le tableau de bord suivant comme exemple :
 
 ![exemple de tableau de bord](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Étant donné que les [tableaux de bord Azure sont des ressources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), ce tableau de bord peut être représenté au format JSON.  Le document JSON suivant représente le tableau de bord visualisé ci-dessus.
+Étant donné que les [tableaux de bord Azure sont des ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), ce tableau de bord peut être représenté au format JSON.  Le document JSON suivant représente le tableau de bord visualisé ci-dessus.
 
 ```json
 
@@ -294,7 +294,7 @@ Analysons les sections appropriées du document JSON.  Les propriétés de nivea
 
 ### <a name="the-id-property"></a>Propriété id
 
-ID de ressource Azure, soumis aux [conventions d’affectation de noms des ressources Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Quand le portail crée un tableau de bord, il choisit généralement un ID sous la forme d’un GUID, mais libre à vous d’utiliser tout nom valide quand vous les créez par programmation. 
+ID de ressource Azure, soumis aux [conventions d’affectation de noms des ressources Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quand le portail crée un tableau de bord, il choisit généralement un ID sous la forme d’un GUID, mais libre à vous d’utiliser tout nom valide quand vous les créez par programmation. 
 
 ### <a name="the-name-property"></a>Propriété name
 Le nom est le segment de l’ID de ressource qui n’inclut pas l’abonnement, le type de ressource ou les informations du groupe de ressources. En gros, il s’agit du dernier segment de l’ID de ressource.
@@ -303,7 +303,7 @@ Le nom est le segment de l’ID de ressource qui n’inclut pas l’abonnement, 
 Tous les tableaux de bord sont de type __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Propriété location
-Contrairement à d’autres ressources, les tableaux de bord n’ont pas de composant d’exécution.  Pour les tableaux de bord, la propriété location indique l’emplacement géographique principal qui stocke la représentation JSON du tableau de bord. La valeur doit correspondre à l’un des codes d’emplacement que vous pouvez extraire à l’aide de l’[API des emplacements sur la ressource des abonnements](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Contrairement à d’autres ressources, les tableaux de bord n’ont pas de composant d’exécution.  Pour les tableaux de bord, la propriété location indique l’emplacement géographique principal qui stocke la représentation JSON du tableau de bord. La valeur doit correspondre à l’un des codes d’emplacement que vous pouvez extraire à l’aide de l’[API des emplacements sur la ressource des abonnements](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Propriété tags
 Les étiquettes (tags) sont une fonctionnalité commune des ressources Azure qui vous permettent d’organiser vos ressources dans des paires nom/valeur arbitraires. Pour les tableaux de bord, il existe une étiquette spéciale appelée __hidden-title__. Si cette propriété est renseignée pour votre tableau de bord, elle lui sert aussi de nom d’affichage dans le portail. Vous ne pouvez pas renommer des ID de ressources Azure, mais vous pouvez renommer des étiquettes. Cette étiquette permet de disposer d’un nom d’affichage modifiable pour votre tableau de bord.

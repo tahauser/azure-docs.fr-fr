@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Événement au niveau de la plateforme et génération de journal
 
@@ -105,7 +105,7 @@ Pour obtenir la liste des compteurs de performances à collecter lors de l’uti
 
 Voici deux manières fréquentes de configurer la collecte des compteurs de performances pour votre cluster :
 
-* À l’aide d’un agent : il s’agit du meilleur moyen pour collecter des performances à partir d’une machine, dans la mesure où les agents ont généralement une liste des mesures de performances possibles qui peuvent être collectées et le choix ou la modification des mesures que vous voulez collecter sont des processus relativement simples. Lisez les articles sur la [configuration d’OMS pour Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) et la [configuration de l’agent Windows OMS](../log-analytics/log-analytics-windows-agents.md) pour en savoir plus sur l’agent OMS, un agent de surveillance qui est en mesure de récupérer les données de performances des machines virtuelles de cluster et des conteneurs déployés.
+* À l’aide d’un agent : il s’agit du meilleur moyen pour collecter des performances à partir d’une machine, dans la mesure où les agents ont généralement une liste des mesures de performances possibles qui peuvent être collectées et le choix ou la modification des mesures que vous voulez collecter sont des processus relativement simples. Lisez les articles sur la [configuration d’OMS pour Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) et la [configuration de l’agent Windows OMS](../log-analytics/log-analytics-windows-agent.md) pour en savoir plus sur l’agent OMS, un agent de surveillance qui est en mesure de récupérer les données de performances des machines virtuelles de cluster et des conteneurs déployés.
 
 * Configuration des diagnostics pour écrire les compteurs de performances dans une table : pour les clusters sur Azure, cela implique de modifier Azure Diagnostics pour récupérer les compteurs de performances appropriés à partir des machines virtuelles de votre cluster et de lui permettre de récupérer les statistiques de docker, si vous souhaitez déployer des conteneurs. Lisez l’article sur les [compteurs de performances dans WAD](service-fabric-diagnostics-event-aggregation-wad.md) dans Service Fabric pour configurer la collecte des compteurs de performances.
 

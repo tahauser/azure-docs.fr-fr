@@ -1,27 +1,19 @@
 ---
-title: "Démarrage rapide : Cluster Azure Docker Swarm pour Linux | Microsoft Docs"
+title: "Démarrage rapide - Azure Docker Swarm cluster pour Linux"
 description: "Découvrez rapidement comment créer un cluster Docker Swarm pour des conteneurs Linux dans Azure Container Service, avec Azure CLI."
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, Docker, Swarm
-keywords: 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 08/14/2017
 ms.author: nepeters
-ms.custom: 
-ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 180a476445760930ab4f3505e0e6e9474e404445
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Déployer le cluster Docker Swarm
 

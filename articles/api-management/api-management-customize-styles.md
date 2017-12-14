@@ -1,89 +1,87 @@
 ---
-title: "Personnaliser les styles dans le portail des développeurs dans Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment modifier les styles utilisés pour n’importe quelle page dans le portail des développeurs dans Gestion des API Azure."
+title: "Personnaliser le style des pages du portail des développeurs Gestion des API Azure | Microsoft Docs"
+description: "Suivez les étapes de ce démarrage rapide pour personnaliser le style des éléments du portail des développeurs Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: vlvinogr
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
+ms.author: apimpm
+ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Personnaliser le style du portail des développeurs dans Gestion des API Azure
-Il existe trois manières principales pour personnaliser le portail des développeurs dans Gestion des API Azure :
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Personnaliser le style des pages du portail des développeurs
 
-* [Modifier le contenu des pages statiques et des éléments de mise en page][modify-content-layout]
-* [Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs][customize-styles] (procédure expliquée dans ce guide)
-* [Modifier les modèles utilisés pour les pages générées par le portail][portal-templates] (par exemple, documents API, produits, authentification des utilisateurs, etc.)
+Il existe essentiellement trois manières courantes de personnaliser le portail des développeurs dans la Gestion des API Azure :
+ 
+* [Modifier le contenu des pages statiques et des éléments de mise en page](api-management-modify-content-layout.md)
+* Mettre à jour les styles utilisés pour les éléments de page dans le portail des développeurs (procédure expliquée dans ce guide)
+* [Modifier les modèles utilisés pour les pages générées par le portail](api-management-developer-portal-templates.md) (par exemple, documents API, produits, authentification des utilisateurs.)
 
-## <a name="change-headers-styling"></a>Modifier le style des éléments de page
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
-Les couleurs, polices, tailles, espacements et autres éléments liés au style de chaque page sur le portail sont définis par des règles de style. 
+> [!div class="checklist"]
+> * Personnaliser le style des éléments des pages du portail des **développeurs**
+> * Afficher votre modification
 
-La modification des règles de style s’effectue à partir du **portail des développeurs** lorsque vous êtes connecté en tant qu’administrateur. Pour y accéder, ouvrez tout d’abord le portail Azure et cliquez sur **Portail des éditeurs** à partir de la barre d’outils de services de votre instance de gestion des API.
+![Personnaliser le style](./media/modify-developer-portal-style/developer_portal.png)
 
-![Portail des éditeurs][api-management-management-console]
+## <a name="prerequisites"></a>Composants requis
 
-Cliquez ensuite sur le **portail des développeurs** en haut à droite. 
++ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
 
-![Lien vers le portail des développeurs dans le portail des éditeurs][api-management-pp-dp-link]
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Pour ouvrir la barre d’outils de personnalisation, déplacez votre souris sur l’icône de personnalisation (ou sélectionnez-la) et cliquez sur « styles » dans la barre d’outils.
+## <a name="customize-the-developer-portal"></a>Personnaliser le portail des développeurs
 
-![Bouton de la barre d’outils de personnalisation][api-management-customization-toolbar-button]
+1. Sélectionnez **Vue d’ensemble**.
+2. Cliquez sur le bouton **Portail des développeurs** en haut de la fenêtre **Vue d’ensemble**. Vous pouvez également cliquer sur le lien **URL du portail des développeurs**.
+3. Sur le côté supérieur gauche de l’écran, une icône composée de deux pinceaux apparaît. Placez le curseur de la souris au-dessus de cette icône pour ouvrir le menu de personnalisation du portail.
 
-Il existe principalement deux méthodes pour modifier les règles de style : vous pouvez parcourir la liste de toutes les règles de style utilisées, sachant qu’elle s’affiche par défaut, puis modifier un style selon vos besoins, ou vous pouvez choisir **Select an element on the page** (Sélectionner un élément sur la page), puis cliquez n’importe où sur la page pour afficher uniquement les styles de cet élément.
+    ![Personnaliser le style](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. Sélectionnez **Styles** dans le menu pour ouvrir le volet de personnalisation du style.
 
-![Customization toolbar][api-management-customization-toolbar]
+    Tous les éléments que vous pouvez personnaliser à l’aide de **Styles** apparaissent dans la page.
+5. Entrez « headings-color » dans le champ **Changez les valeurs des variables pour personnaliser l’apparence du portail des développeurs**.
 
-Cliquez sur l’option **Select an element on the page** (Sélectionner un élément sur la page) pour cet exemple.  Les éléments sont mis en évidence quand vous les survolez avec la souris, indiquant quels styles d’élément vous allez commencer à modifier si vous avez cliqué. Déplacez la souris sur le texte dans l’en-tête (en général, le nom de la société se trouve là), puis cliquez dessus. Un ensemble de règles de style nommées et catégorisées s’affiche dans l’éditeur de style. Chaque règle représente une propriété de style de l'élément sélectionné. Par exemple, pour le texte d’en-tête sélectionné ci-dessus, la taille du texte est en @font-size-h1, tandis que le nom de la police avec d’autres options est en @headings-font-family.
+    L’élément **@headings-color** apparaît dans la page. Cette variable contrôle la couleur du texte.
 
-> Si vous connaissez [l'amorçage][bootstrap], ces règles sont en fait des [variables LESS][LESS variables] dans le thème d'amorçage utilisé par le portail des développeurs.
-> 
-> 
+    ![Personnaliser le style](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
+    
+6. Cliquez sur le champ associé à la variable **@headings-color**. 
+    
+    Une liste déroulante de sélecteur de couleurs s’ouvre.
+7. Dans cette liste déroulante, sélectionnez une nouvelle couleur.
 
-Modifions la couleur du texte d'en-tête. Sélectionnez l’entrée dans le champ **@headings-color** , puis tapez **#000000**. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, un indicateur de couleur carré apparaît à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permet de faire votre choix.
+    > [!TIP]
+    > Un aperçu en temps réel est disponible pour toutes les modifications. Un indicateur de progression s’affiche en haut du volet de personnalisation. Après quelques secondes, la couleur nouvellement sélectionnée est appliquée au texte d’en-tête.
 
-![Color picker][api-management-customization-toolbar-color-picker]
+8. Sélectionnez **Publier** dans la partie inférieure gauche du menu du volet de personnalisation.
+9. Sélectionnez **Publier les personnalisations** pour publier les modifications.
 
-Un aperçu des modifications apportées est disponible en temps réel. Toutefois, seuls les administrateurs y ont accès. Pour rendre ces modifications visibles pour tout le monde, cliquez sur le bouton **Publier** dans l’éditeur de style et confirmez les modifications.
+## <a name="view-your-change"></a>Afficher votre modification
 
-![Publish menu][api-management-customization-toolbar-publish-form]
-
-> Pour modifier les règles de style qui s’appliquent à tout autre élément de la page, suivez la même procédure que pour l’en-tête. Cliquez sur **Select an element on the page** (Sélectionner un élément sur la page) dans l’éditeur de style, sélectionnez l’élément qui vous intéresse et commencez à modifier les valeurs des règles de style affichées à l’écran.
-> 
-> 
-
+1. Accédez au portail des développeurs.
+2. Vous pouvez voir la modification que vous avez apportée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment personnaliser le contenu des pages du portail des développeurs à l’aide de [modèles](api-management-developer-portal-templates.md).
 
-[Change the styling of the headers]: #change-headers-styling
-[Next steps]: #next-steps
+Dans ce didacticiel, vous avez appris à :
 
-[Azure Classic Portal]: https://manage.windowsazure.com/
+> [!div class="checklist"]
+> * Personnaliser le style des éléments des pages du portail des **développeurs**
+> * Afficher votre modification
 
-[api-management-management-console]: ./media/api-management-customize-styles/api-management-management-console.png
-[api-management-pp-dp-link]: ./media/api-management-customize-styles/api-management-pp-dp-link.png
-[api-management-customization-toolbar-button]: ./media/api-management-customize-styles/api-management-customization-toolbar-button.png
-[api-management-customization-toolbar]: ./media/api-management-customize-styles/api-management-customization-toolbar.png
-[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-styles/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-styles/api-management-customization-toolbar-publish-form.png
-
-[modify-content-layout]: api-management-modify-content-layout.md
-[customize-styles]: api-management-customize-styles.md
-[portal-templates]: api-management-developer-portal-templates.md
-
-[bootstrap]: http://getbootstrap.com/
-[LESS variables]: http://getbootstrap.com/css/
+> [!div class="nextstepaction"]
+> [Personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md)

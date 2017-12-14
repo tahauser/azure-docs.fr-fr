@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
 Cette rubrique décrit les représentations de type et d’entité des éléments courants utilisés dans les modèles de données pour les modèles du portail des développeurs dans la Gestion des API Azure.  
@@ -332,7 +332,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 |DelegationEnabled|booléenne|Indique si la connexion déléguée est activée.|  
 |DelegationUrl|string|URL de la connexion déléguée, si elle est activée.|  
 |SsoSignUpUrl|string|URL d’authentification unique de l’utilisateur, le cas échéant.|  
-|AuxServiceUrl|string|Si l’utilisateur actuel est un administrateur, lien vers l’instance de service dans le Portail Azure Classic.|  
+|AuxServiceUrl|string|Si l’utilisateur actuel est administrateur, lien vers l’instance de service dans le portail Azure.|  
 |Fournisseurs|Collection d’entités [Provider](#Provider).|Fournisseurs d’authentification de cet utilisateur.|  
 |UserRegistrationTerms|string|Conditions qu’un utilisateur doit accepter pour pouvoir se connecter.|  
 |UserRegistrationTermsEnabled|booléenne|Indique si les conditions sont activées.|  

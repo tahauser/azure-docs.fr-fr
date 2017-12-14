@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
-Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates) lorsque vous utilisez le portail Azure Classic et non classique). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les [déployer](#deploy) dans Azure.
+Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les [déployer](#deploy) dans Azure.
 
 Les certificats utilisés dans Azure sont des certificats x.509 v3 et peuvent être signés par un autre certificat approuvé ou être auto-signés. Un certificat auto-signé est signé par son propre créateur et n’est donc pas approuvé par défaut. La plupart des navigateurs peuvent ignorer ce problème. Les certificats auto-signés ne doivent être utilisés que par vous au moment où vous développez et testez vos services cloud. 
 
@@ -30,7 +30,7 @@ Les certificats utilisés par Azure peuvent contenir une clé privée ou publiqu
 ## <a name="what-are-service-certificates"></a>Que sont les certificats de service ?
 Les certificats de service sont associés aux services cloud et sécurisent les communications à destination et en provenance du service. Par exemple, si vous avez déployé un rôle web, vous pouvez fournir un certificat qui peut authentifier un point de terminaison HTTPS exposé. Les certificats de service, définis dans votre définition de service, sont déployés automatiquement sur la machine virtuelle qui exécute une instance de votre rôle. 
 
-Vous pouvez charger les certificats de service dans le portail Azure Classic par l’intermédiaire de ce portail ou à l’aide du modèle de déploiement classique. Les certificats de service sont associés à un service cloud spécifique. Ils sont attribués à un déploiement dans le fichier de définition de service.
+Vous pouvez charger les certificats de service dans Azure par l’intermédiaire du portail Azure ou à l’aide du modèle de déploiement classique. Les certificats de service sont associés à un service cloud spécifique. Ils sont attribués à un déploiement dans le fichier de définition de service.
 
 Les certificats de service peuvent être gérés séparément de vos services et par différentes personnes. Par exemple, un développeur peut charger un package de services qui fait référence à un certificat précédemment chargé dans Azure par un responsable informatique. Un responsable informatique peut gérer et renouveler ce certificat (en modifiant la configuration du service) sans avoir à charger un nouveau package de services. La mise à jour sans nouveau package de service est possible par le fait que le nom logique, ainsi que le nom et l’emplacement du magasin du certificat sont spécifiés dans le fichier de définition de service, alors que l’empreinte numérique du certificat est spécifiée dans le fichier de configuration de service. Pour mettre à jour le certificat, il est uniquement nécessaire de charger un nouveau certificat et de modifier la valeur d’empreinte numérique dans le fichier de configuration de service.
 
@@ -71,7 +71,7 @@ Cet utilitaire a été déconseillé et n’est plus documenté ici. Pour plus d
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 2048 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
@@ -95,5 +95,5 @@ De nombreuses pages sur Internet vous expliquent comment procéder avec IIS. [ic
 ## <a name="next-steps"></a>Étapes suivantes
 [Pour télécharger votre certificat de service sur le portail Azure](cloud-services-configure-ssl-certificate-portal.md).
 
-Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure Classic. Le portail Azure n’utilise pas de certificats de gestion pour l’authentification.
+Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure.
 

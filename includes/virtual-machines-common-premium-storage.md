@@ -26,7 +26,7 @@ Pour la prise en main du Stockage Premium, [Créez votre compte Azure gratuit](h
 Pour plus d’informations sur la migration de vos machines virtuelles existantes vers le stockage Premium, consultez [Convertir une machine virtuelle à partir de disques non gérés vers des disques gérés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) ou [Convertir une machine virtuelle Linux à partir de disques non gérés vers des disques gérés](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Le stockage Premium est disponible dans la plupart des régions. Pour obtenir la liste des régions disponibles, dans [Services Azure par région](https://azure.microsoft.com/regions/#services), examinez les régions dans lesquelles des machines virtuelles support Premium de tailles appropriées (machines virtuelles de séries DS, DSV2, GS et Fs) sont prises en charge.
+> Le stockage Premium est disponible dans la plupart des régions. Pour obtenir la liste des régions disponibles, consultez la ligne dédiée au **Stockage sur disque** de la section [Disponibilité des produits par région](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Caractéristiques

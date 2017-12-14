@@ -4,7 +4,7 @@ description: "Découvrez comment configurer l’authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 67534da42ac27989a8b08cec4d6f9f9c31774264
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 733eff519f75368fd78824deea56f63940c0b49f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d’Azure Active Directory avec Pingboard
 
@@ -201,7 +201,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Pingboard, vous deve
 
     b. Dans la zone de texte **E-mail**, tapez l’adresse e-mail d’un utilisateur, par exemple, **brittasimon@contoso.com**.
 
-    c. Dans la zone de texte **Fonction**, tapez la fonction de Britta Simon.
+    c. Dans la zone de texte **Poste**, tapez le poste de Britta Simon.
 
     d. Dans la liste déroulante **Emplacement**, sélectionnez l’emplacement de Britta Simon.
     

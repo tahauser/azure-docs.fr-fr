@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 87c2aece68c5de06d683abf971b6c7ccf7f67a54
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8c8cda26f2b9b564dee330e4883ec12f39feb652
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
 
@@ -361,7 +361,7 @@ Pour écrire dans HBase à partir du cluster Storm , vous devez fournir le bolt 
     > [!NOTE]
     > Remplacez `votre_HDInsight_cluster_name par le nom de votre cluster HDInsight. Lorsque vous y êtes invité, entrez le mot de passe de connexion administrateur HDInsight.
     >
-    > Cet exemple nécessite Azure PowerShell. Pour plus d’informations sur l’utilisation d’Azure PowerShell, voir [Prise en main d’Azure PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
+    > Cet exemple nécessite Azure PowerShell. Pour plus d’informations sur l’utilisation d’Azure PowerShell, voir [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
 
     Les informations renvoyées par ces exemples sont semblables au texte suivant :
 

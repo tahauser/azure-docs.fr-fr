@@ -1,7 +1,7 @@
 ---
 title: "Mettre à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Docs"
-description: "Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de streaming d’un travail."
-keywords: "streaming de données, traitement de données de streaming, régler l’analytique"
+description: "Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail."
+keywords: "diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse"
 services: stream-analytics
 documentationcenter: 
 author: JSeb225
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: a38394d825c9a9b3007b30f598b37caa08f7325f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
 Comme prérequis, vous devrez peut-être consulter les articles suivants :
--   [Comprendre et ajuster les unités de streaming](stream-analytics-streaming-unit-consumption.md)
+-   [Comprendre et ajuster les unités de diffusion en continu](stream-analytics-streaming-unit-consumption.md)
 -   [Créer des travaux parallélisables](stream-analytics-parallelization.md)
 
 
@@ -86,7 +86,7 @@ Pour certains cas d’usage d’éditeurs de logiciels indépendants, où il est
 ## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Exemple de débit Stream Analytics à l’échelle
 Pour vous aider à comprendre comment les travaux Stream Analytics sont mis à l’échelle, nous avons effectué une expérience basée sur l’entrée d’un appareil Raspberry Pi. Cette expérience nous permet d’observer l’effet de plusieurs unités SU et partitions sur le débit.
 
-Dans ce scénario, l’appareil envoie des données de capteur (clients) à un hub d’événements. Stream Analytics traite les données et envoie une alerte ou des statistiques en tant que sortie à un autre hub d’événements. 
+Dans ce scénario, l’appareil envoie des données de capteur (clients) à un concentrateur Event Hub. Stream Analytics traite les données et envoie une alerte ou des statistiques en tant que sortie à un autre concentrateur Event Hub. 
 
 Le client envoie des données de capteur au format JSON. La sortie des données est également au format JSON. Voici à quoi ressemblent les données :
 
@@ -101,12 +101,12 @@ La requête suivante permet d’envoyer une alerte quand lorsqu’une lumière e
 
 ### <a name="measure-throughput"></a>Mesurer le débit
 
-Dans ce contexte, le débit correspond à la quantité de données d’entrée traitées par Stream Analytics au cours d’une durée fixe. (Nous avons mesuré le débit pendant 10 minutes.) Pour obtenir le meilleur débit de traitement pour les données d’entrée, l’entrée de flux de données et la requête ont été partitionnées. Nous avons inclus **COUNT()** dans la requête pour mesurer le nombre d’événements d’entrée traités. Pour vous assurer que le travail n’attende pas simplement les événements d’entrée, chaque partition du hub d’événements d’entrée a été préchargée avec environ 300 Mo de données d’entrée.
+Dans ce contexte, le débit correspond à la quantité de données d’entrée traitées par Stream Analytics au cours d’une durée fixe. (Nous avons mesuré le débit pendant 10 minutes.) Pour obtenir le meilleur débit de traitement pour les données d’entrée, l’entrée de flux de données et la requête ont été partitionnées. Nous avons inclus **COUNT()** dans la requête pour mesurer le nombre d’événements d’entrée traités. Pour vous assurer que le travail n’attende pas simplement les événements d’entrée, chaque partition du concentrateur Event Hub d’entrée a été préchargée avec environ 300 Mo de données d’entrée.
 
-Le tableau suivant montre les résultats que nous avons observés lorsque nous avons augmenté le nombre d’unités de streaming et le nombre de partitions correspondant dans les hubs d’événements.  
+Le tableau suivant montre les résultats que nous avons observés lorsque nous avons augmenté le nombre d’unités SU et le nombre de partitions correspondant dans les concentrateurs d’événements.  
 
 <table border="1">
-<tr><th>Partitions d'entrée</th><th>Partitions de sortie</th><th>Unités de streaming</th><th>Débit soutenu
+<tr><th>Partitions d'entrée</th><th>Partitions de sortie</th><th>Unités de diffusion en continu</th><th>Débit soutenu
 </th></td>
 
 <tr><td>12</td>
@@ -170,7 +170,6 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

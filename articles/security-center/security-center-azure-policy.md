@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Intégrer des stratégies de sécurité Security Center avec Azure Policy
 Cet article est conçu pour vous aider à configurer les stratégies de sécurité Azure Security Center offertes par Azure Policy. 
@@ -30,7 +30,7 @@ Security Center crée automatiquement une stratégie de sécurité par défaut, 
 * Surveiller la conformité à la stratégie.
 
 > [!NOTE]
-> La stratégie Azure est disponible en préversion limitée. Pour s’inscrire, accédez à [S’inscrire à Azure Policy](https://aka.ms/getpolicy). Pour plus d’informations sur Azure Policy, consultez [Créer et gérer des stratégies pour mettre en vigueur la conformité](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> La stratégie Azure est disponible en préversion limitée. Pour s’inscrire, accédez à [S’inscrire à Azure Policy](https://aka.ms/getpolicy). Pour plus d’informations sur Azure Policy, consultez [Créer et gérer des stratégies pour mettre en vigueur la conformité](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Modifier des stratégies de sécurité
 Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos abonnements Azure dans Security Center. Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’administrateur de la sécurité, de propriétaire ou de collaborateur pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve. Pour afficher vos stratégies de sécurité dans Security Center, procédez comme suit :

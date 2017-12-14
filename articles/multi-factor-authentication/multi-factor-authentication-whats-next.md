@@ -4,7 +4,7 @@ description: "Voici la page Multi-Factor Authentication qui vous indique ce qu�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,18 +14,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 4dc029e01762d9ab6eb1c930f2941d0c1ac8ed7d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurer les paramètres d’Azure Multi-Factor Authentication - Préversion publique
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
 Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant que vous êtes opérationnel.  Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication.  Ces fonctionnalités ne sont pas disponibles dans toutes les [versions d’Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
-
->[!NOTE]
->Ces paramètres sont en préversion publique dans le portail Azure. Pour obtenir de la documentation sur la façon de gérer les paramètres d’Azure Multi-Factor Authentication dans le portail pfweb, consultez [Configurer les paramètres d’Azure Multi-Factor Authentication](multi-factor-authentication-whats-next-pfweb.md).
 
 | Fonctionnalité | Description | 
 |:--- |:--- |
@@ -290,7 +287,7 @@ La mémorisation de MFA sur les appareils fiables réduit donc le nombre d’aut
 ### <a name="enable-remember-multi-factor-authentication"></a>Activer Mémoriser Multi-Factor Authentication
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
-3. Sélectionnez **Multi-Factor Authentication**.
+3. Sélectionnez **Authentification multifacteur**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 5. Dans la page Paramètres de service, sous **Mémoriser Multi-Factor Authentication**, cochez la case **Permettre aux utilisateurs de mémoriser l’authentification multifacteur sur des appareils de confiance**.
 
@@ -320,7 +317,7 @@ Lorsque vos utilisateurs inscrivent leurs comptes à MFA, ils choisissent la mé
 ### <a name="how-to-enabledisable-authentication-methods"></a>Comment activer/désactiver les méthodes d'authentification
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
-3. Sélectionnez **Multi-Factor Authentication**.
+3. Sélectionnez **Authentification multifacteur**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 5. Dans les **options de vérification** de la page Paramètres de service, sélectionnez/désélectionnez les options que vous souhaitez utiliser.
 

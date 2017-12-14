@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -35,12 +35,16 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-- **VMware** : vous avez besoin d’au moins une machine virtuelle VMware sur un cluster ou hôte ESXi exécutant la version 5.0 ou supérieure. L’hôte ou le cluster doit être managé par un serveur vCenter exécutant la version 5.5, 6.0 ou 6.5.
-- **Compte de vCenter** : vous avez besoin d’un compte en lecture seule doté d’informations d’identification d’administrateur pour le serveur vCenter. Azure Migrate utilise ce compte pour découvrir les machines virtuelles.
+- **VMware** : les machines virtuelles à migrer doivent être gérées par un serveur vCenter exécutant la version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d'un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur. 
+ 
+> [!NOTE]
+> La prise en charge pour Hyper-V fait partie de la feuille de route et sera activée prochainement. 
+
+- **Compte de serveur vCenter** : vous avez besoin d'un compte en lecture seule pour accéder au serveur vCenter. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
 - **Autorisations** : sur le serveur vCenter, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format .OVA. 
-- **Paramètres de statistiques** : vous devez définir les paramètres de statistiques pour le serveur vCenter sur le niveau 3 avant de commencer le déploiement. Si le niveau appliqué est inférieur à 3, l’évaluation fonctionne, mais les données de performances pour le stockage et le réseau ne sont pas collectées.
+- **Paramètres de statistiques** : vous devez définir les paramètres de statistiques pour le serveur vCenter sur le niveau 3 avant de commencer le déploiement. Si le niveau appliqué est inférieur à 3, l’évaluation fonctionne, mais les données de performances pour le stockage et le réseau ne sont pas collectées. Dans ce cas, les recommandations de taille seront effectuées selon les données de performances pour le processeur et la mémoire, et selon les données de configuration pour les adaptateurs de disque et réseau. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Connectez-vous au [portail Azure](https://portal.azure.com).
@@ -51,7 +55,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Recherchez **Azure Migrate**, puis sélectionnez le service **Azure Migrate (préversion)** dans les résultats de la recherche. Cliquez ensuite sur **Créer**.
 3. Spécifiez un nom de projet et l’abonnement Azure pour le projet.
 4. Créez un groupe de ressources.
-5. Spécifiez la région dans laquelle créer le projet, puis cliquez sur **Créer**. Les métadonnées collectées à partir des machines virtuelles locales seront stockées dans cette région. Vous ne pouvez créer un projet Azure Migrate que dans la région Centre des États-Unis pour cette préversion. Toutefois, vous pouvez évaluer des machines virtuelles pour un autre emplacement.
+5. Spécifiez la région dans laquelle créer le projet, puis cliquez sur **Créer**. Les métadonnées collectées à partir des machines virtuelles locales seront stockées dans cette région. Vous ne pouvez créer un projet Azure Migrate que dans la région Centre des États-Unis pour cette préversion. Toutefois, vous pouvez toujours planifier votre migration pour n'importe quel emplacement Azure cible. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -59,7 +63,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="download-the-collector-appliance"></a>Télécharger l’appliance collecteur
 
-Azure Migrate crée une machine virtuelle locale connue en tant qu’appliance collecteur. Cette machine virtuelle découvre les machines virtuelles VMware locales et envoie les métadonnées les concernant au service Azure Migrate. Pour configurer l’appliance collecteur, vous téléchargez un fichier .OVA, puis vous l’importez dans le serveur vCenter local pour créer la machine virtuelle.
+Azure Migrate crée une machine virtuelle locale connue en tant qu’appliance collecteur. Cette machine virtuelle découvre les machines virtuelles VMware sur site et envoie les métadonnées les concernant au service Azure Migrate. Pour configurer l’appliance collecteur, vous téléchargez un fichier .OVA, puis vous l’importez dans le serveur vCenter local pour créer la machine virtuelle.
 
 1. Dans le projet Azure Migrate, cliquez sur **Démarrage** > **Découvrir et évaluer** > **Découvrir des machines**.
 2. Dans **Découvrir des machines**, cliquez sur **Télécharger** pour télécharger le fichier .OVA.
@@ -143,7 +147,7 @@ La durée de la découverte varie selon le nombre de machines virtuelles découv
 Une fois les machines virtuelles découvertes, vous les regroupez pour créer une évaluation. 
 
 1. Dans la page **Vue d’ensemble** du projet, cliquez sur **Créer une évaluation**.
-2. Cliquez sur **Tout afficher** pour passer en revue les paramètres de l’évaluation.
+2. Cliquez sur **Tout afficher** pour passer en revue les propriétés de l’évaluation.
 3. Créez le groupe et spécifiez un nom de groupe.
 4. Sélectionnez les machines que vous souhaitez ajouter au groupe.
 5. Cliquez sur **Créer une évaluation** pour créer le groupe et l’évaluation.
@@ -168,13 +172,16 @@ Cet affichage indique l’état de préparation pour chaque machine.
 
 #### <a name="monthly-cost-estimate"></a>Estimation des coûts mensuels
 
-Cet affichage présente l’évaluation des coûts de calcul et de stockage pour chaque machine. Les estimations des coûts sont calculées à partir des recommandations de taille pour une machine et ses disques suivant leurs performances et des propriétés de l’évaluation.
+Cette vue affiche le coût total du calcul et du stockage de l'exécution des machines virtuelles dans Azure avec les détails pour chaque machine. Les estimations des coûts sont calculées à partir des recommandations de taille pour une machine et ses disques suivant leurs performances et des propriétés de l’évaluation. 
 
-L’estimation des coûts mensuels de calcul et de stockage est agrégée pour toutes les machines virtuelles dans le groupe. Vous pouvez cliquer sur chaque machine pour afficher les détails correspondants. 
+> [!NOTE]
+> L'estimation des coûts fournie par Azure Migrate s'applique à l'exécution des machines virtuelles sur site en tant que machines virtuelles Azure Infrastructure as a service (IaaS). Elle ne tient pas compte des coûts Platform as a service (PaaS) ou Software as a service (SaaS). 
+
+L’estimation des coûts mensuels de calcul et de stockage est agrégée pour toutes les machines virtuelles dans le groupe. 
 
 ![Évaluation des coûts pour les machines virtuelles](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Vous pouvez explorer les coûts pour une machine spécifique.
+Vous pouvez explorer les détails d'une machine spécifique.
 
 ![Évaluation des coûts pour les machines virtuelles](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

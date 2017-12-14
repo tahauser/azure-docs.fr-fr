@@ -16,6 +16,7 @@
 ## [Tâche 5 : Activer la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md)
 
 # Procédures
+## [Utiliser Azure Active Directory Domain Services dans les abonnements Azure CSP](active-directory-ds-csp.md)
 ## [Activer les services de domaine Azure AD à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Joindre un domaine géré
 ### [Machine virtuelle Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: "Prérequis d’OpenShift | Microsoft Docs"
-description: "Prérequis au déploiement d’OpenShift dans Azure."
+title: "Conditions préalables à l’utilisation d’OpenShift | Microsoft Docs"
+description: "Conditions préalables requises au déploiement d’OpenShift dans Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: c6758e8e1a9d9595ae8efb0b8c5aba0b81b0dc38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: eb2bdd203bfbd170992358f48cde6f7b5c0bdf16
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prérequis courants pour déployer OpenShift dans Azure
 
@@ -123,7 +123,7 @@ Prenez note de la propriété appId renvoyée par la commande :
  > [!WARNING] 
  > Veillez à créer un mot de passe sécurisé. Suivez les conseils en matière de [Stratégies et restrictions de mot de passe dans Azure Active Directory](/azure/active-directory/active-directory-passwords-policy).
 
-Pour plus d’informations sur les principaux de service, consultez [Créer un principal du service avec Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Pour plus d’informations sur les principaux de service, consultez [Créer un principal du service avec Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

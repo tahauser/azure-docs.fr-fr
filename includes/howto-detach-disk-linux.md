@@ -6,7 +6,7 @@ Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à 
 ## <a name="find-the-disk"></a>Recherche du disque
 Avant de pouvoir détacher un disque d'une machine virtuelle, vous devez rechercher le nombre LUN (numéro d’unité logique), qui est un identificateur pour le disque à détacher. Pour ce faire, procédez comme suit :
 
-1. Ouvrez l’interface de ligne de commande (CLI) Azure, puis [connectez-vous à votre abonnement Azure](../articles/xplat-cli-connect.md). Assurez-vous que vous êtes en mode Azure Service Management (`azure config mode asm`).
+1. Ouvrez l’interface de ligne de commande (CLI) Azure, puis [connectez-vous à votre abonnement Azure](/cli/azure/authenticate-azure-cli). Assurez-vous que vous êtes en mode Azure Service Management (`azure config mode asm`).
 2. Recherchez les disques attachés à votre machine virtuelle. L’exemple ci-après répertorie les disques de la machine virtuelle nommée `myVM` :
 
     ```azurecli

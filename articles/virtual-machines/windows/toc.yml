@@ -66,6 +66,9 @@
         - name: Optimisé pour le calcul
           href: sizes-compute.md
         - name: Mémoire optimisée
+          items:
+            - name: Processeurs virtuels avec contraintes
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Optimisé pour le stockage
           href: sizes-storage.md
@@ -113,6 +116,8 @@
       items:
         - name: Instructions pour les infrastructures
           href: infrastructure-example.md
+        - name: Quotas de processeurs virtuels
+          href: quotas.md
 - name: Procédures
   items:
     - name: Créer des machines virtuelles
@@ -164,6 +169,8 @@
       items:
         - name: Prépayer les machines virtuelles - Instances réservées
           href: prepay-reserved-vm-instances.md
+        - name: Utilisation de machines virtuelles
+          href: vm-usage.md
         - name: Tâches PowerShell courantes
           href: ps-common-ref.md
         - name: Déplacer une machine virtuelle

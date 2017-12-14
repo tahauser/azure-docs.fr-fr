@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -47,9 +47,9 @@ Cet article explique les fonctions suivantes dans l’exemple d’application :
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-Les sections suivantes décrivent la configuration et le code utilisés pour le développement du portail Azure. Le code pour le développement de Visual Studio est indiqué à la fin de l’article.
+Les sections suivantes décrivent la configuration et le code utilisés pour le développement du portail Azure. Le code de développement de Visual Studio est affiché à la fin de l’article.
 
-## <a name="the-cloud-backup-orchestration"></a>L’orchestration de sauvegarde cloud
+## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de la sauvegarde dans le cloud (Visual Studio Code et exemple de code du portail Azure)
 
 La fonction `E2_BackupSiteContent` utilise le fichier *function.json* standard pour les fonctions d’orchestrateur.
 

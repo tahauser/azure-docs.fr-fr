@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: 12250adbfaf8621b80acd5de5de06b21e05ef07c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurer les informations d’authentification nommées
 
@@ -42,6 +42,6 @@ Si vous souhaitez créer vous-même un certificat, vous pouvez consulter les ins
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble de Web Apps](https://docs.microsoft.com/azure/app-service/)
-- [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
-- [Déployer des tâches web à l’aide de Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+- [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 
+- [Déployer des tâches web à l’aide de Visual Studio](https://docs.microsoft.com/azure/app-service/websites-dotnet-deploy-webjobs)
 - [Création et déploiement d’un service cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

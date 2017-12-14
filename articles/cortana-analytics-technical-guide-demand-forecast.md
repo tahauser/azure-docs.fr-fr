@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
 ## <a name="overview"></a>**Vue d’ensemble**
@@ -82,7 +82,7 @@ Dans le cas du modèle de solution de prévision de la demande énergétique, la
 
 Pour accéder à la requête [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) :
 
-* Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+* Connectez-vous au [portail Azure](https://portal.azure.com/).
 * Recherchez les travaux Stream Analytics ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) qui ont été générés au moment du déploiement de la solution. L’un effectue un Push des données vers le stockage blob (par exemple, mytest1streaming432822asablob), et l’autre vers Power BI (par exemple, mytest1streaming432822asapbi).
 * Sélectionnez
 
@@ -117,17 +117,17 @@ Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-s
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Ce [pipeline](data-factory/concepts-pipelines-activities.md) contient deux activités :
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour agréger les données de demande d’historique horaire au niveau de la sous-station en données horaires au niveau de la région et les placer dans Stockage Azure pendant le travail Azure Stream Analytics
-* [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), qui déplace les données agrégées du stockage blob Azure vers la base de données Azure SQL Database provisionnée dans le cadre de l’installation du modèle de solution.
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour agréger les données de demande d’historique horaire au niveau de la sous-station en données horaires au niveau de la région et les placer dans Azure Storage pendant le travail Azure Stream Analytics
+* [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) , qui déplace les données agrégées de l’objet blob Azure Storage vers la base de données SQL Microsoft Azure approvisionnée dans le cadre de l’installation du modèle de solution.
 
 Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) pour cette tâche est ***AggregateDemandHistoryRegion.hql***.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
-Ces [pipelines](data-factory/concepts-pipelines-activities.md) comprennent plusieurs activités dont le résultat final contient les prédictions notées à partir de l’expérimentation Azure Machine Learning associée à ce modèle de solution. Ils sont quasiment identiques : ce qui les différencie, c’est qu’ils gèrent chacun une région différente. Pour cela, un RegionID différent est passé dans le pipeline ADF et le script Hive pour chaque région.  
+Ces [pipelines](data-factory/concepts-pipelines-activities.md) comprennent plusieurs activités dont le résultat final contient les prédictions notées à partir de l’expérience Azure Machine Learning associée à ce modèle de solution. Ils sont quasiment identiques : ce qui les différencie, c’est qu’ils gèrent chacun une région différente. Pour cela, un RegionID différent est passé dans le pipeline ADF et le script Hive pour chaque région.  
 Ce pipeline contient les activités suivantes :
 
-* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour effectuer les agrégations et l’ingénierie de fonctionnalités nécessaires pour l’expérimentation Azure Machine Learning. Les scripts Hive pour cette tâche sont le ***PrepareMLInputRegionX.hql*** respectif.
-* Activité [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) qui déplace les résultats de l’activité [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) vers un objet blob Stockage Azure unique, accessible à l’activité [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
+* [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour effectuer les agrégations et l’ingénierie de fonctionnalités nécessaires pour l’expérience Azure Machine Learning. Les scripts Hive pour cette tâche sont le ***PrepareMLInputRegionX.hql*** respectif.
+* Activité [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) qui déplace les résultats de l’activité [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) vers un objet blob Azure Storage unique, accessible à l’activité [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) qui appelle l’expérimentation Azure Machine Learning pour placer les résultats dans un objet blob Stockage Azure unique.
 
 #### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
@@ -140,12 +140,12 @@ Ce [pipeline](data-factory/concepts-pipelines-activities.md) contient une seule 
 Ce [pipeline](data-factory/concepts-pipelines-activities.md) contient une seule activité, [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx). Cette activité déplace les données de référence de Region/Substation/Topologygeo chargées dans l’objet blob de stockage Azure dans le cadre de l’installation du modèle de solution vers la base de données Azure SQL Database approvisionnée dans le cadre de l’installation du modèle de solution.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-L’expérimentation [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) utilisée pour ce modèle de solution fournit la prédiction de la demande de la région. L’expérimentation est spécifique au jeu de données consommé et doit donc être modifiée ou remplacée compte tenu des données qui y sont importées.
+L’expérience [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) utilisée pour ce modèle de solution fournit la prédiction de la demande de la région. L’expérimentation est spécifique au jeu de données consommé et doit donc être modifiée ou remplacée compte tenu des données qui y sont importées.
 
 ## <a name="monitor-progress"></a>**Surveiller la progression**
 Une fois le Générateur de données lancé, l’alimentation du pipeline commence et les différents composants de votre solution entrent en action selon les commandes émises par la fabrique de données. Il existe deux méthodes de surveillance du pipeline.
 
-1. Vérifiez les données à partir de Stockage Blob Azure.
+1. Vérifiez les données à partir d’Azure Blob Storage.
 
     Un des travaux Stream Analytics enregistre les données brutes entrantes dans le stockage blob. Si vous cliquez sur le composant **Stockage Blob Azure** de votre solution dans l’écran à partir duquel vous avez déployé la solution, puis cliquez sur **Ouvrir** dans le volet droit, vous accédez au [portail Azure](https://portal.azure.com). Une fois dans le portail, cliquez sur **Objets BLOB**. Dans le panneau suivant figure la liste des conteneurs. Cliquez sur **energysadata**. Le panneau suivant affiche le dossier **demandongoing**. Le dossier rawdata comprend des dossiers nommés par exemple date=2016-01-28, etc. Si vous voyez ces dossiers, cela signifie que les données brutes sont correctement générées sur votre ordinateur et stockées dans des objets blob. Vous devriez voir des fichiers avec des tailles finies en Mo dans ces dossiers.
 2. Vérifiez les données à partir d’Azure SQL Database.
@@ -171,7 +171,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
    * Ajoutez une sortie PowerBI pour le travail ASA. Définissez l’**alias de sortie** sur **PBIoutput**. Dans **Nom du jeu de données** et **Nom de la table**, entrez **EnergyStreamData**. Une fois que vous avez ajouté la sortie, cliquez sur **Démarrer** en bas de la page pour démarrer le travail Stream Analytics. Un message de confirmation doit s’afficher (par exemple : « La tâche Stream Analytics ’myteststreamingjob12345asablob’ a bien démarré »).
 2. Se connecter à [Power BI en ligne](http://www.powerbi.com)
 
-   * Dans la section Jeux de données du volet gauche de Mon espace de travail, un nouveau jeu de données doit apparaître dans le volet gauche de Power BI. Il s'agit des données de streaming qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente.
+   * Dans la section Jeux de données du volet gauche de Mon espace de travail, un nouveau jeu de données doit apparaître dans le volet gauche de Power BI. Il s'agit des données de diffusion en continu qui ont fait l’objet d’un Push à partir d'Azure Stream Analytics au cours de l'étape précédente.
    * Assurez-vous que le volet ***Visualisations*** est ouvert et qu’il s’affiche à droite de l’écran.
 3. Créez la vignette Demand by Timestamp :
 

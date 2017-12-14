@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Répliquer une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery
 
@@ -71,6 +71,7 @@ Pour les besoins de création de cet article, des machines virtuelles VMware ave
 **Hyper-V** | Oui | Oui
 **VMware** | Oui | Oui
 **Serveur physique** | Non | Oui
+**Microsoft Azure**|N/D|Oui
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 

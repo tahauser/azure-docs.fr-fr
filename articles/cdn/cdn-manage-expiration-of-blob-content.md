@@ -14,27 +14,29 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gérer l’expiration de contenu web dans Azure Content Delivery Network
 > [!div class="op_single_selector"]
 > * [Contenu web Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Stockage Blob Azure](cdn-manage-expiration-of-blob-content.md)
+> * [stockage d’objets blob Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-Le [service Stockage Blob](../storage/common/storage-introduction.md#blob-storage) dans Stockage Azure fait partie des différentes origines Azure intégrées à Azure Content Delivery Network (CDN). Tout contenu d’objet blob publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie. La durée de vie est déterminée par l’en-tête `Cache-Control`dans la réponse HTTP du serveur d’origine. Cet article décrit plusieurs façons de définir l’en-tête `Cache-Control` d’un blob dans Stockage Azure.
+Le [service Stockage Blob](../storage/common/storage-introduction.md#blob-storage) dans Stockage Azure fait partie des différentes origines Azure intégrées à Azure Content Delivery Network (CDN). Tout contenu d’objet BLOB publiquement accessible peut être mis en cache dans Azure CDN jusqu’à l’expiration de sa durée de vie. La durée de vie est déterminée par l’en-tête `Cache-Control`dans la réponse HTTP du serveur d’origine. Cet article décrit plusieurs façons de définir l’en-tête `Cache-Control` d’un blob dans Stockage Azure.
+
+Vous pouvez également contrôler les paramètres de cache à partir du portail Azure, en définissant les [règles de mise en cache CDN](cdn-caching-rules.md). Si vous avez configuré une ou plusieurs règles de mise en cache, puis défini leur comportement sur **Remplacer** ou **Ignorer le cache**, les paramètres de mise en cache fournis à l’origine décrits dans cet article sont ignorés. Pour plus d’informations sur les concepts généraux de mise en cache, consultez la section [Fonctionnement de la mise en cache](cdn-how-caching-works.md).
 
 > [!TIP]
-> Vous pouvez choisir de ne pas définir de durée de vie sur un objet blob. Dans ce cas, Azure CDN applique automatiquement une durée de vie de sept jours par défaut. Cette valeur TTL par défaut s’applique uniquement aux optimisations de remise web générales. Pour optimiser les fichiers volumineux, la durée de vie par défaut est de 1 jour, et pour les optimisations du streaming multimédia, la durée de vie par défaut est de 1 an.
+> Vous pouvez choisir de ne pas définir de durée de vie sur un objet blob. Dans ce cas, Azure CDN applique automatiquement une durée de vie par défaut de sept jours, sauf si vous avez configuré des règles de mise en cache dans le portail Azure. Cette valeur TTL par défaut s’applique uniquement aux optimisations de remise web générales. Pour optimiser les fichiers volumineux, la durée de vie par défaut est de 1 jour, et pour les optimisations du streaming multimédia, la durée de vie par défaut est de 1 an.
 > 
 > Pour plus d’informations sur la façon dont Azure CDN accélère l’accès aux fichiers et à d’autres ressources, consultez [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md).
 > 
-> Pour plus d’informations sur le stockage Blob Azure, consultez [Présentation du Stockage Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+> Pour plus d’informations sur le stockage Blob Azure, consultez [Présentation du Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Définition d’en-têtes Cache-Control à l’aide de PowerShell
@@ -99,7 +101,7 @@ class Program
 
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>Définition d’en-têtes Cache-Control à l’aide d’autres méthodes
 
-### <a name="azure-storage-explorer"></a>Explorateur Stockage Azure
+### <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 Avec l’[Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/en-us/features/storage-explorer/), vous pouvez afficher et modifier vos ressources de stockage blob, y compris les propriétés telles que *CacheControl*. 
 
 Pour mettre à jour la propriété *CacheControl* d’un objet blob avec l’Explorateur Stockage Azure :
@@ -111,9 +113,9 @@ Pour mettre à jour la propriété *CacheControl* d’un objet blob avec l’Exp
 ![Propriétés de l’Explorateur Stockage Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interface de ligne de commande Azure
-Lorsque vous chargez un objet blob, vous pouvez définir la propriété *cacheControl* avec le commutateur `-p` dans l’[Interface de ligne de commande Azure](../cli-install-nodejs.md). L’exemple suivant montre comment définir la durée de vie sur 1 heure (3 600 secondes) :
+Avec l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), vous pouvez gérer des ressources blob Azure à partir de la ligne de commande. Pour définir l’en-tête cache-control lorsque vous téléchargez un objet blob avec l’interface de ligne de commande Azure, définissez la propriété *cacheControl* à l’aide du `-p` commutateur. L’exemple suivant montre comment définir la durée de vie sur 1 heure (3 600 secondes) :
   
-```command
+```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
 ```
 
@@ -129,4 +131,5 @@ Vous pouvez facilement vérifier la durée de vie de vos objets blob. Avec les [
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Comment gérer l’expiration des contenus de service cloud dans Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+* [En savoir plus sur les concepts de mise en cache](cdn-how-caching-works.md)
 

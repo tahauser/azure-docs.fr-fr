@@ -4,21 +4,21 @@ description: FAQ sur les rapports Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a39183e65306ddc7cb81825b7abf27677339a3ba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
 
@@ -119,5 +119,11 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 **Q : Comment les adresses IP sont-elles calculées dans le rapport des connexions et des connexions à risque ?**
 
 **R :** les adresses IP sont émises de manière à ce qu’il n’existe aucune connexion définitive entre une adresse IP et l’endroit où se trouve physiquement l’ordinateur avec cette adresse. Ceci est compliqué par des facteurs tels que les fournisseurs mobiles et les VPN qui émettent des adresses IP à partir de pools centraux souvent très éloignés de l’endroit où l’appareil client est réellement utilisé. Étant donné ce qui précède, la conversion de l’adresse IP en un emplacement physique constitue la meilleure solution pour les suivis, les données de registre, les recherches inversées et d’autres informations. 
+
+---
+
+**Q : Que signifie l’événement à risque « Connexion avec un risque supplémentaire détectée » ?**
+
+**R :** Pour vous donner une idée de toutes les connexions à risque dans votre environnement, nous montrons l’événement à risque « Connexion avec un risque supplémentaire détectée » pour les connexions considérées comme présentant un risque en raison de détections propres aux abonnés d’Azure Active Directory Identity Protection.
 
 ---

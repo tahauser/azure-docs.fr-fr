@@ -1,26 +1,19 @@
 ---
-title: "Déployer des conteneurs avec Helm dans Kubernetes sur Azure | Microsoft Docs"
+title: "Déployer des conteneurs avec Helm dans Kubernetes sur Azure"
 description: "Utilisez l’outil d’empaquetage Helm pour déployer des conteneurs sur un cluster Kubernetes dans AKS"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: de52c2aad0f74b59970234872dfa3e4136929915
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Utiliser Helm avec Azure Container Service (AKS)
 
@@ -30,7 +23,7 @@ Ce document explique comment configurer et utiliser Helm dans un cluster Kuberne
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans ce document supposent que vous ayez créé un cluster AKS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [guide de démarrage rapide d’AKS](./kubernetes-walkthrough.md).
+Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [guide de démarrage rapide d’AKS](./kubernetes-walkthrough.md).
 
 ## <a name="install-helm-cli"></a>Installer l’interface de ligne de commande (CLI) Helm
 

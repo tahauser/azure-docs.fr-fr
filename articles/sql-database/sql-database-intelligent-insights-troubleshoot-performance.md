@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
@@ -52,7 +52,7 @@ Intelligent Insights détecte automatiquement les problèmes de performances li�
 | [Passage à un niveau tarifaire inférieur](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Le passage à un niveau tarifaire inférieur a diminué les ressources disponibles, ce qui affecte les performances de SQL Database. |
 
 > [!TIP]
-> Pour optimiser en continu les performances de SQL Database, activez le [paramétrage automatique d’Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). Il s’agit d’une fonctionnalité unique de l’intelligence intégrée de SQL Database qui surveille en permanence votre base de données SQL, paramètre automatiquement les index et applique les corrections du plan d’exécution de requêtes.
+> Pour optimiser en continu les performances de SQL Database, activez le [paramétrage automatique d’Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Il s’agit d’une fonctionnalité unique de l’intelligence intégrée de SQL Database qui surveille en permanence votre base de données SQL, paramètre automatiquement les index et applique les corrections du plan d’exécution de requêtes.
 >
 
 La section suivante décrit plus en détail les modèles de performances détectables précédemment listés.
@@ -63,7 +63,7 @@ La section suivante décrit plus en détail les modèles de performances détect
 
 Ce modèle de performances détectables combine les problèmes de performances liés à l’atteinte des limites de ressources, de threads de travail et de sessions disponibles. Une fois que ce problème de performances a été détecté, un champ de description du journal de diagnostic indique si le problème est lié aux limites de ressources, de threads de travail ou de sessions.
 
-Les ressources de SQL Database sont généralement appelées des [ressources DTU](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Il s’agit d’une mesure fusionnée des ressources d’UC et d’E/S (E/S des journaux de données et des transactions). Le modèle lié à l’atteinte des limites de ressources est reconnu quand une détérioration des performances de requête est détectée et qu’elle est due à l’atteinte de l’une des limites de ressources mesurées.
+Les ressources de SQL Database sont généralement appelées des [ressources DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Il s’agit d’une mesure fusionnée des ressources d’UC et d’E/S (E/S des journaux de données et des transactions). Le modèle lié à l’atteinte des limites de ressources est reconnu quand une détérioration des performances de requête est détectée et qu’elle est due à l’atteinte de l’une des limites de ressources mesurées.
 
 La ressource relative aux limites de sessions indique le nombre de connexions simultanées disponibles à SQL Database. Ce modèle de performances est reconnu quand des applications connectées à des bases de données SQL ont atteint le nombre de connexions simultanées disponibles à la base de données. Si les applications essaient d’utiliser plus de sessions que le nombre disponible sur une base de données, les performances des requêtes sont affectées.
 
@@ -75,7 +75,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes qui ont aff
 
 Si vous avez atteint les limites de sessions disponibles, vous pouvez optimiser vos applications en réduisant le nombre de connexions à la base de données. Si vous ne parvenez pas à réduire le nombre de connexions de vos applications à la base de données, augmentez éventuellement le niveau tarifaire de votre base de données. Vous pouvez également fractionner et déplacer votre base de données vers plusieurs bases de données pour obtenir une distribution plus équilibrée de la charge de travail.
 
-Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour connaître les limites de ressources disponibles de votre niveau d’abonnement, consultez [Limites de ressources de SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour connaître les limites de ressources disponibles de votre niveau d’abonnement, consultez [Limites de ressources de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Augmentation de la charge de travail
 
@@ -145,7 +145,7 @@ L’option de configuration de serveur MAXDOP est utilisée sur SQL Database pou
 
 Le journal de diagnostic génère les codes de hachage des requêtes dont la durée d’exécution a augmenté en raison d’une parallélisation trop importante. Le journal génère également des temps d’attente CXP. Ce temps représente la durée pendant laquelle un thread organisateur/coordinateur unique (thread 0) attend que tous les autres threads aient terminé avant de fusionner les résultats et de continuer. De plus, le journal de diagnostic génère les temps d’attente d’exécution globale des requêtes peu performantes. Vous pouvez utiliser ces informations comme base pour la résolution des problèmes.
 
-Commencez par optimiser ou simplifier les requêtes complexes. Une bonne pratique consiste à diviser les longs programmes de traitement par lots en plus petits programmes. De plus, vérifiez que vous avez créé des index pour prendre en charge vos requêtes. Vous pouvez également appliquer manuellement l’option MAXDOP (degré maximal de parallélisme) à une requête identifiée comme étant peu performante. Pour configurer cette opération à l’aide de T-SQL, consultez [Configurer l’option de configuration de serveur MAXDOP](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Commencez par optimiser ou simplifier les requêtes complexes. Une bonne pratique consiste à diviser les longs programmes de traitement par lots en plus petits programmes. De plus, vérifiez que vous avez créé des index pour prendre en charge vos requêtes. Vous pouvez également appliquer manuellement l’option MAXDOP (degré maximal de parallélisme) à une requête identifiée comme étant peu performante. Pour configurer cette opération à l’aide de T-SQL, consultez [Configurer l’option de configuration de serveur MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Si la valeur zéro (0) est affectée à l’option de configuration de serveur MAXDOP en tant que valeur par défaut, cela indique que SQL Database peut utiliser tous les cœurs d’UC logiques disponibles pour paralléliser les threads afin d’exécuter une seule requête. Si la valeur un (1) est affectée à MAXDOP, cela indique qu’un seul cœur peut être utilisé pour l’exécution d’une seule requête. En pratique, cela signifie que le parallélisme est désactivé. En fonction de votre situation, du nombre de cœurs disponibles pour la base de données et des informations du journal de diagnostic, vous pouvez paramétrer l’option MAXDOP sur le nombre de cœurs à utiliser pour une exécution parallèle optimale des requêtes.
 
@@ -231,7 +231,7 @@ Ce modèle de performances détectables indique un problème au niveau des perfo
 
 Le journal de diagnostic génère des détails sur la contention de tempDB. Vous pouvez utiliser ces informations comme point de départ pour la résolution des problèmes. Il existe deux choses que vous pouvez faire pour limiter ce genre de contention et augmenter le débit de la charge de travail globale. Tout d’abord, vous pouvez arrêter d’utiliser les tables temporaires. Ensuite, vous pouvez utiliser des tables à mémoire optimisée. 
 
-Pour plus d’informations, consultez [Introduction aux tables à mémoire optimisée](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Pour plus d’informations, consultez [Introduction aux tables à mémoire optimisée](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Pénurie de DTU du pool élastique
 
@@ -328,10 +328,10 @@ Accédez à Intelligent Insights via le portail Azure et Azure SQL Analytics. Es
 > [!TIP]
 > Sélectionnez l’organigramme pour télécharger sa version PDF.
 
-Intelligent Insights a généralement besoin d’une heure pour effectuer l’analyse de la cause racine du problème de performances. Si vous ne parvenez pas à localiser votre problème dans Intelligent Insights et s’il s’agit d’un problème critique, utilisez le Magasin des requêtes pour identifier manuellement la cause racine du problème de performances. (En règle générale, ces problèmes ont moins d’une heure.) Pour plus d’informations, consultez [Analyser les performances à l’aide du Magasin des requêtes](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights a généralement besoin d’une heure pour effectuer l’analyse de la cause racine du problème de performances. Si vous ne parvenez pas à localiser votre problème dans Intelligent Insights et s’il s’agit d’un problème critique, utilisez le Magasin des requêtes pour identifier manuellement la cause racine du problème de performances. (En règle générale, ces problèmes ont moins d’une heure.) Pour plus d’informations, consultez [Analyser les performances à l’aide du Magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez les concepts [Intelligent Insights](sql-database-intelligent-insights.md).
 - Utilisez le [journal de diagnostic Intelligent Insights des performances d’Azure SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Surveillez [Azure SQL Database avec Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Surveillez [Azure SQL Database avec Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

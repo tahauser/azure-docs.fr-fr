@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Fonctionnalités et outils pour PowerShell dans Azure Cloud Shell (préversion)
 
@@ -47,7 +47,7 @@ Chaque requête pour Cloud Shell allouant une machine temporaire, les fichiers q
 
 PowerShell dans Cloud Shell (préversion) vous démarre dans le lecteur Azure (`Azure:`).
 Le lecteur Azure facilite la détection et la navigation de ressources Azure telles que les ressources de calcul, réseau, de stockage etc. similaires à la navigation de système de fichiers.
-Vous pouvez continuer à utiliser les [applets de commande Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) que vous connaissez pour gérer ces ressources.
+Vous pouvez continuer à utiliser les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure) que vous connaissez pour gérer ces ressources.
 Toutes les modifications apportées aux ressources Azure, effectuées directement dans le portail Azure ou via les applets de commande Azure PowerShell, sont immédiatement répercutées dans le lecteur Azure.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ Ces commandes s’appuient sur la communication à distance PowerShell et néces
 
 |**Catégorie**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Outils Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Interface de ligne de commande Azure (2.0.21)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Outils Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Éditeurs de texte    |vim<br> nano                             |
 |Gestionnaire de package |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Contrôle de code source  |git                                      |

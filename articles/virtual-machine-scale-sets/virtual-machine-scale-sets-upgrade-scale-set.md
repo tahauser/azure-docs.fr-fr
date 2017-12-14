@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Mettre à niveau un jeu de mise à l’échelle de machines virtuelles
 Cet article décrit comment déployer une mise à jour de système d’exploitation sur un jeu de mise à l’échelle de machines virtuelles Azure sans interruption de service. Dans ce contexte, une mise à jour de système d’exploitation implique la modification de la version ou de la référence (SKU) du système d’exploitation, ou la modification de l’URI d’une image personnalisée. Une mise à jour sans interruption de service consiste à mettre à jour des machines virtuelles une par une, ou dans des groupes (par exemple, un domaine d’erreur à la fois), plutôt que toutes simultanément. En procédant de la sorte, les machines virtuelles qui ne sont pas mises à niveau peuvent continuer à opérer.
@@ -31,7 +31,7 @@ Pour éviter l’ambiguïté, nous allons distinguer quatre types de mises à jo
 * Changez la référence de l’image d’un groupe identique qui a été créé à l’aide d’Azure Managed Disks.
 * Application de correctifs au système d’exploitation à partir d’une machine virtuelle (par exemple, installation d’un correctif de sécurité et exécution de Windows Update). Ce scénario est pris en charge mais n’est pas traité dans cet article.
 
-Les jeux de mise à l’échelle de machine virtuelle déployés en tant que partie d’un cluster [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) ne sont pas abordés ici. Pour plus d’informations sur la mise à jour corrective de Service Fabric, consultez [Application pour appliquer des correctifs au système d’exploitation Windows dans votre cluster Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application).
+Les jeux de mise à l’échelle de machine virtuelle déployés en tant que partie d’un cluster [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) ne sont pas abordés ici. Pour plus d’informations sur la mise à jour corrective de Service Fabric, consultez [Application pour appliquer des correctifs au système d’exploitation Windows dans votre cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application).
 
 La séquence de base pour la modification de la version du système d’exploitation ou de la référence (SKU) d’une image de plateforme ou de l’URI d’une image personnalisée se présente comme suit :
 

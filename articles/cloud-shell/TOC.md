@@ -17,7 +17,7 @@
 # Exemples
 ## [Déployer des ressources Windows Azure avec Terraform dans un interpréteur de commandes Bash](example-terraform-bash.md)
 
-# [Tarification](pricing.md)
+# [Intégrer Cloud Shell](embed-cloud-shell.md)
 
 # [Dépannage](troubleshooting.md)
 

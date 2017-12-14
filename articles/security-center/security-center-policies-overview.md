@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Vue d’ensemble des stratégies de sécurité
 Cet article offre une vue d’ensemble des stratégies de sécurité dans Security Center.
@@ -26,10 +26,10 @@ Cet article offre une vue d’ensemble des stratégies de sécurité dans Securi
 ## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
 Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Security Center, vous pouvez définir les stratégies de vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. 
 
-Les stratégies Security Center comprennent les composants suivants :
+Les stratégies Security Center comprennent les composants suivant :
 
 - **Collecte de données**, pour déterminer le provisionnement d’agent et les paramètres de la [collecte de données](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Stratégie de sécurité**, pour déterminer quels contrôles Security Center surveille et recommande. Vous pouvez modifier la [stratégie de sécurité](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) dans Security Center. Vous pouvez également utiliser [Azure Policy](security-center-azure-policy.md) (en préversion limitée) pour créer de nouvelles définitions, définir des stratégies supplémentaires et affecter les stratégies dans des groupes d’administration.
+- **Stratégie de sécurité**, pour déterminer quels contrôles Security Center surveille et recommande. Vous pouvez modifier la [stratégie de sécurité](https://docs.microsoft.com/azure/security-center/security-center-policies) dans Security Center. Vous pouvez également utiliser [Azure Policy](security-center-azure-policy.md) (en préversion limitée) pour créer de nouvelles définitions, définir des stratégies supplémentaires et affecter les stratégies dans des groupes d’administration.
 - **Notifications par e-mail**, pour déterminer les contacts de sécurité et les paramètres des [notifications par e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 - **Niveau tarifaire**, pour définir la [sélection d’un tarif](https://docs.microsoft.com/azure/security-center/security-center-pricing) gratuit ou standard. Le niveau que vous choisissez détermine les fonctionnalités de Security Center qui sont disponibles pour les ressources visées. Vous pouvez spécifier un niveau pour les abonnements, les groupes de ressources et les espaces de travail. 
 

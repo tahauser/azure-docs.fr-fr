@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacité et performances (version préliminaire)
 
@@ -45,7 +45,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Support | Description |
 |---|---|---|
-| [Agents Windows](log-analytics-windows-agents.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
+| [Agents Windows](log-analytics-windows-agent.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non    | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Aucune connexion directe entre l’agent SCOM et OMS n’est obligatoire. Les données sont transférées du groupe d’administration au référentiel OMS.|
 | [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | Le stockage Azure n’inclut pas de données de performances ni de capacité.|

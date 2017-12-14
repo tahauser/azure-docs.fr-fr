@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -99,24 +99,20 @@ Oui. Les environnements à plusieurs forêts sont pris en charge s’il existe d
 
 L’installation de plusieurs agents d’authentification directe assure une [haute disponibilité](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Mais cela ne fournit pas un équilibrage de charge déterministe entre les agents d’authentification.
 
-Envisagez la charge moyenne et les pics de charge lors des demandes de connexion que vous attendez de la part de votre locataire. À titre de référence, un seul agent d’authentification peut gérer entre 300 000 et 400 000 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM. Pour la plupart des clients, deux ou trois agents d’authentification au total suffisent à offrir la haute disponibilité et suffisamment de capacité.
+Envisagez la charge moyenne et les pics de charge lors des demandes de connexion que vous attendez de la part de votre locataire. À titre de référence, un seul agent d’authentification peut gérer entre 300 et 400 authentifications par seconde sur un serveur doté d’un CPU à 4 cœurs et de 16 Go de RAM.
 
-Vous devriez installer des agents d’authentification près de vos contrôleurs de domaine pour améliorer la latence de connexion.
+Pour estimer le trafic réseau, suivez les instructions de dimensionnement suivantes :
+- Chaque requête a une taille de charge utile de (0,5 K + 1 K * num_of_agents) octets. Ceci concerne les données d’Azure AD vers l’agent d’authentification. Ici, « num_of_agents » indique le nombre d’agents d’authentification inscrit sur votre abonné.
+- Chaque réponse a une taille de charge utile de 1 kilooctet. Ceci concerne les données de l’agent d’authentification vers Azure AD.
+
+Pour la plupart des clients, deux ou trois agents d’authentification au total suffisent à offrir la haute disponibilité et suffisamment de capacité. Vous devriez installer des agents d’authentification près de vos contrôleurs de domaine pour améliorer la latence de connexion.
+
+>[!NOTE]
+>Il existe une limite système de 12 agents d’authentification par client.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Puis-je installer le premier agent d’authentification directe sur un serveur autre que celui qui exécute Azure AD Connect ?
 
 Non, ce scénario n’est _pas_ pris en charge.
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>Combien d’agents d’authentification directe dois-je installer ?
-
-Nous vous recommandons :
-
-- d’installer deux ou trois agents d’authentification au total. Cette configuration est suffisante pour la plupart des clients.
-- Installez des agents d’authentification sur vos contrôleurs de domaine (ou aussi près que possible) pour améliorer la latence de connexion.
-- Veillez à ajouter les serveurs sur lesquels vous avez installé les agents d'authentification à la même forêt Active Directory que les utilisateurs dont vous avez besoin de valider les mots de passe.
-
->[!NOTE]
->Il existe une limite système de 12 agents d’authentification par client.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Comment désactiver l’authentification directe ?
 

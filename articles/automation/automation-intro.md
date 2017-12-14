@@ -3,7 +3,7 @@ title: "Présentation d’Azure Automation | Microsoft Docs"
 description: "Découvrez les avantages d’Azure Automation et obtenez des réponses aux questions courantes afin de commencer à créer et à utiliser des Runbooks et Azure Automation DSC."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "présentation d’automatisation, azure automation, exemples d’applications d’azure automation"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Vue d’ensemble d’Azure Automation
 Microsoft Azure Automation permet aux utilisateurs d'automatiser les tâches répétitives, manuelles, de longue durée et susceptibles d'engendrer des erreurs, qui sont communément exécutées dans un environnement cloud et d’entreprise. Il fait gagner du temps, accroît la fiabilité des tâches d'administration récurrentes et planifie même leur exécution automatique à intervalles réguliers. Vous pouvez automatiser les processus à l'aide de Runbooks ou automatiser la gestion de configuration avec la Configuration de l'état souhaité (DSC, Desired State Configuration). Cet article propose une brève présentation d’Azure Automation et apporte des réponses à certaines questions courantes. Vous pouvez vous référer à d'autres articles de cette bibliothèque pour des informations plus détaillées sur les différentes rubriques.

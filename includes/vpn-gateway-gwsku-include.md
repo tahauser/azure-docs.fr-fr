@@ -22,7 +22,7 @@ Les nouvelles références SKU de passerelle rationalisent les ensembles de fonc
 
 | **Référence (SKU)**| **Caractéristiques**|
 | ---    | ---         |
-|**De base**   | **VPN basés sur un itinéraire** : 10 tunnels avec P2S ; aucune authentification RADIUS ; aucune IKEv2<br>**VPN basés sur les stratégies** : (IKEv1) : 1 itinéraire; aucune P2S|
+|**De base**   | **VPN basés sur un itinéraire** : 10 tunnels avec P2S ; aucune authentification RADIUS pour P2S ; aucune IKEV2 pour P2S<br>**VPN basés sur les stratégies** : (IKEv1) : 1 itinéraire; aucune P2S|
 | **VpnGw1, VpnGw2 et VpnGw3** | **VPN basés sur le routage** : jusqu’à 30 itinéraires (*), P2S, BGP, actif/passif, stratégie IPsec/IKE personnalisée, coexistence ExpressRoute/VPN |
 |        |             |
 

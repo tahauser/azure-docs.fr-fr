@@ -4,7 +4,7 @@ description: "Une description de l’autorisation dans le point de terminaison v
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Étendues, autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
 Les applications intégrées à Azure Active Directory (Azure AD) suivent un modèle d’autorisation, qui permet aux utilisateurs de contrôler le mode d’accès d’une application à leurs données. L’implémentation v2.0 de ce modèle d’autorisation a été mise à jour, et elle modifie la façon dont une application doit interagir avec Azure AD. Cet article aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et le consentement.
@@ -46,8 +46,8 @@ En définissant ces types d’autorisation, la ressource dispose d’un contrôl
 
 Dans Azure AD et OAuth, ces types d’autorisation sont appelés des *étendues*. Ils sont également parfois désignés sous le nom *d’autorisations oAuth2*. Une étendue est représentée dans Azure AD en tant que valeur de chaîne. Toujours dans l’exemple Microsoft Graph, la valeur d’étendue pour chaque autorisation est la suivante :
 
-* Lire le calendrier d’un utilisateur en utilisant `Calendar.Read`
-* Écrire dans le calendrier d’un utilisateur en utilisant `Mail.ReadWrite`
+* Lire le calendrier d’un utilisateur en utilisant `Calendars.Read`
+* Écrire dans le calendrier d’un utilisateur en utilisant `Calendars.ReadWrite`
 * Envoi de messages en tant qu’utilisateur en utilisant `Mail.Send`
 
 Une application peut demander ces autorisations en spécifiant les étendues dans les requêtes dirigées vers le point de terminaison v2.0.
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Déploiement dans Azure App Service avec Jenkins et l’interface CLI Azure
 Pour déployer une application web Java dans Azure, vous pouvez utiliser l’interface CLI Azure dans le [pipeline Jenkins](https://jenkins.io/doc/book/pipeline/). Dans ce didacticiel, vous créez un pipeline CI/CD sur une machine virtuelle Azure et apprenez notamment comment :
@@ -56,7 +56,7 @@ sudo apt-get install -y maven
 Les informations d’identification Azure sont nécessaires pour exécuter l’interface CLI Azure.
 
 * Dans le tableau de bord Jenkins, cliquez sur **Informations d’identification > Système**. Cliquez sur **Informations d’identification globales (sans restriction)**.
-* Cliquez sur **Ajouter des informations d’identification** pour ajouter un [principal de service Microsoft Azure](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) en renseignant les valeurs suivantes : ID d’abonnement, ID de client, secret client et point de terminaison de jeton OAuth 2.0. Fournissez un ID qui sera utilisé dans une étape ultérieure.
+* Cliquez sur **Ajouter des informations d’identification** pour ajouter un [principal de service Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) en renseignant les valeurs suivantes : ID d’abonnement, ID de client, secret client et point de terminaison de jeton OAuth 2.0. Fournissez un ID qui sera utilisé dans une étape ultérieure.
 
 ![Ajout d’informations d'identification](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 

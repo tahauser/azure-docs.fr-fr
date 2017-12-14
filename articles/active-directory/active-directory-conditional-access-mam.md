@@ -5,7 +5,7 @@ services: active-directory
 keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf2da57d8653371ab0b46e47474442aa4be1d65
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Accès conditionnel basé sur les applications Azure Active Directory  
 
@@ -86,7 +86,7 @@ Ce scénario part du principe qu’un utilisateur :
 
 - Ouvre l’application Outlook et se connecte avec les informations d’identification Azure AD
 
-- Est invité à installer Authenticor (iOS) ou le Portail d’entreprise (Android) pour continuer
+- Est invité à installer Authenticator (iOS) ou le Portail d’entreprise (Android) pour continuer
 
 - Installe l’application et peut revenir à l’application Outlook pour continuer
 

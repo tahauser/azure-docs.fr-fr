@@ -4,7 +4,7 @@ description: "Prendre en charge plusieurs expériences de personnalisation avec 
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configuration de l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile. 
@@ -80,7 +80,7 @@ Lors de cette procédure pas à pas, vous allez effectuer les opérations suivan
 
     ![Sélectionnez le modèle Application web.](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
-6. Sélectionnez **OK** pour créer le projet.
+6. Cliquez sur **OK** pour créer le projet.
 
 ## <a name="step-2-create-mvc-view"></a>Étape 2 : Créer une vue MVC
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Étape 2.1 : Télécharger le modèle HTML5 intégré à B2C
@@ -152,10 +152,10 @@ Recherchez l’élément `<img>` qui contient la valeur `ID` *background_backgro
 
     ![Créer un Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish2.png)
 
-    La fenêtre **Créer App Service**s’ouvre. Vous pouvez commencer à y créer toutes les ressources Azure nécessaires pour exécuter l’application web ASP.NET dans Azure.
+    La fenêtre **Créer App Service** s’ouvre. Vous pouvez commencer à y créer toutes les ressources Azure nécessaires pour exécuter l’application web ASP.NET dans Azure.
 
     > [!NOTE]
-    > Pour plus d’informations sur la publication, consultez : [Création d’une application web ASP.NET dans Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Pour plus d’informations sur la publication, consultez : [Création d’une application web ASP.NET dans Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. Dans la zone **Nom de l’application web**, tapez un nom d’application unique (les caractères autorisés sont les plages a-z, A-Z, 0-9, et le trait d’union (-)). L’URL de l’application web est `http://<app_name>.azurewebsites.NET`, où `<app_name>` correspond au nom de votre application web. Vous pouvez accepter le nom généré automatiquement, qui est unique.
 
@@ -216,7 +216,7 @@ Pour configurer `ContentDefinition`, effectuez les opérations suivantes :
     ![Votre définition de contenu](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Étape 6 : Charger la stratégie sur votre locataire
-1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et sélectionnez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
 
 2. Sélectionnez **Infrastructure d’expérience d’identité**.
 
@@ -226,13 +226,13 @@ Pour configurer `ContentDefinition`, effectuez les opérations suivantes :
 
 5. Activez la case à cocher **Remplacer la stratégie si elle existe**.
 
-6. Chargez le fichier *TrustFrameworkExtensions.xml*, puis vérifiez que sa validation réussit.
+6. Chargez le fichier *TrustFrameworkExtensions.xml*, puis assurez-vous que sa validation réussit.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Étape 7 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
 1. Sélectionnez **Paramètres Azure AD B2C**, puis **Infrastructure d’expérience d’identité**.
 
     >[!NOTE]
-    >Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
+    >L’option Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
 
 2. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.  
     Vous devez être en mesure de voir votre HTML5 personnalisé avec l’arrière-plan que vous avez créé précédemment.

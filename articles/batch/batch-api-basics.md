@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -56,10 +56,8 @@ Certaines des ressources suivantes (comptes, nœuds de calcul, pools, travaux et
 * [Nœud de calcul](#compute-node)
 * [Pool](#pool)
 * [Travail](#job)
-
   * [Planifications de travaux](#scheduled-jobs)
 * [Tâche](#task)
-
   * [Tâche de démarrage](#start-task)
   * [Tâche du gestionnaire de travaux](#job-manager-task)
   * [Tâches de préparation et lancement](#job-preparation-and-release-tasks)
@@ -264,6 +262,9 @@ Lorsque vous créez une tâche, vous pouvez spécifier les éléments suivants :
 * **Packages d’applications** à déployer sur le nœud de calcul sur lequel l’exécution de la tâche est planifiée. [Application packages](#application-packages) permettent le déploiement simplifié et le contrôle de version des applications exécutées par vos tâches. Les packages d’applications au niveau des tâches sont particulièrement utiles dans les environnements de pool partagé, où différentes tâches sont exécutées sur un même pool et le pool n’est pas supprimé lorsqu’un travail est terminé. Si votre travail présente moins de tâches que le pool ne contient de nœuds, les packages d’applications au niveau des tâches peuvent réduire le transfert de données, votre application n’étant déployée que sur les nœuds exécutant les tâches.
 * Une référence d’**image de conteneur** dans Docker Hub ou bien un registre privé et des paramètres supplémentaires pour créer un conteneur Docker dans lequel la tâche s’exécute sur le nœud. Vous spécifiez uniquement ces informations si le pool est configuré avec une configuration de conteneur.
 
+> [!NOTE]
+> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 7 jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
+
 Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœud, les tâches spéciales suivantes sont également fournies par le service Batch :
 
 * [Tâche de démarrage](#start-task)
@@ -273,7 +274,7 @@ Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœ
 * [Dépendances de la tâche](#task-dependencies)
 
 ### <a name="start-task"></a>Tâche de démarrage
-En associant une **tâche de démarrage** à un pool, vous pouvez préparer l’environnement d’exploitation de ses nœuds. Par exemple, vous pouvez effectuer des opérations telles que l’installation des applications que vos tâches exécuteront ou le démarrage des processus d’arrière-plan. La tâche de démarrage s’exécute à chaque démarrage d’un nœud tant qu’il reste dans le pool, notamment lorsque le nœud est ajouté au pool en premier lieu, redémarré ou réinitialisé.
+En associant une **tâche de démarrage** à un pool, vous pouvez préparer l’environnement d’exploitation de ses nœuds. Par exemple, vous pouvez effectuer des opérations comme l’installation des applications que vos tâches exécuteront ou le démarrage des processus d’arrière-plan. La tâche de démarrage s’exécute à chaque démarrage d’un nœud tant qu’il reste dans le pool, notamment lorsque le nœud est ajouté au pool en premier lieu, redémarré ou réinitialisé.
 
 Le principal avantage de la tâche de démarrage est qu’elle peut contenir toutes les informations nécessaires pour configurer un nœud de calcul et installer les applications requises pour l’exécution de la tâche. L’augmentation du nombre de nœuds dans un pool revient donc tout simplement à spécifier le nouveau nombre de nœuds cible. La tâche de démarrage fournit au service Batch les informations nécessaires pour la configuration des nouveaux nœuds et pour leur préparation à l’acceptation des tâches.
 

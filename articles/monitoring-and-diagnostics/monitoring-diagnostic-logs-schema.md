@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -29,6 +29,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 
 | Service | Schéma et documentation |
 | --- | --- |
+| Analysis Services | Schéma non disponible. |
 | API Management | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,8 +46,8 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Group |[Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protection DDOS | Schéma non disponible. |
-| Recovery Services | Schéma non disponible.|
-| Recherche |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../search/search-traffic-analytics.md) |
+| Recovery Services | [Modèle de données pour la sauvegarde Azure](../backup/backup-azure-reports-data-model.md)|
+| Search |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../search/search-traffic-analytics.md) |
 | Gestion de serveur | Schéma non disponible. |
 | Service Bus |[Journaux de diagnostic Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Base de données SQL | [Journalisation de diagnostic de base de données SQL Azure](../sql-database/sql-database-metrics-diag-logging.md) |
@@ -56,6 +57,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
 |Type de ressource|Catégorie|Nom d’affichage de la catégorie|
 |---|---|---|
+|microsoft.aadiam/tenants|SignIn|SignIn|
 |Microsoft.AnalysisServices/servers|Engine (Moteur)|Engine (Moteur)|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Journaux relatifs à la passerelle ApiManagement|
@@ -63,6 +65,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|État du nœud DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Journaux de service|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtient les métriques du point de terminaison, par exemple, la bande passante, la sortie, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Journal d’exécutions d’activités de pipeline|
 |Microsoft.DataFactory/factories|PipelineRuns|Journal d’exécutions de pipeline|
@@ -77,7 +80,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Devices/IotHubs|DeviceIdentityOperations|Opérations d’identité des appareils|
 |Microsoft.Devices/IotHubs|FileUploadOperations|Opérations de chargement de fichier|
 |Microsoft.Devices/IotHubs|Itinéraires|Itinéraires|
-|Microsoft.Devices/IotHubs|D2CTwinOperations|Opérations de jumeaux D2C|
+|Microsoft.Devices/IotHubs|Opérations de jumeaux D2C|Opérations de jumeaux D2C|
 |Microsoft.Devices/IotHubs|C2DTwinOperations|Opérations de jumeaux C2D|
 |Microsoft.Devices/IotHubs|TwinQueries|Requêtes de jumeaux|
 |Microsoft.Devices/IotHubs|JobsOperations|Opérations de travaux|

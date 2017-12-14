@@ -28,6 +28,7 @@
 ### [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Interface de ligne de commande Azure](howto-linkvnet-cli.md)
+## [Configurer un réseau VPN de site à site via l’homologation Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Configurer une passerelle de réseau virtuel pour ExpressRoute
 ### [Portail Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)

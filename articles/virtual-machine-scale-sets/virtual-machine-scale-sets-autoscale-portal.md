@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie.
@@ -122,7 +122,7 @@ Les exemples précédents ont automatiquement mis à l’échelle un groupe iden
 
     ![Créer des règles de mise à l’échelle automatique basée sur une planification](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Pour voir comment vos règles de mise à l’échelle automatique sont appliquées, sélectionnez **Historique des exécutions** en haut de la fenêtre **Mise à l’échelle**. Le graphique et la liste des événements indiquent les déclenchements des règles de mise à l’échelle automatique ainsi que les augmentations ou diminutions du nombre d’instances de machine virtuelle.
+Pour voir comment vos règles de mise à l’échelle automatique sont appliquées, sélectionnez **Historique des exécutions** en haut de la fenêtre **Mise à l’échelle**. Le graphe et la liste des événements indiquent les déclenchements des règles de mise à l’échelle automatique ainsi que les augmentations ou diminutions du nombre d’instances de machines virtuelles dans votre groupe identique.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

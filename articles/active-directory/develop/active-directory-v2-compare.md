@@ -4,7 +4,7 @@ description: "Une comparaison entre la version Azure AD d’origine et les point
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Quelles sont les particularités du point de terminaison v2.0 ?
 Si vous connaissez bien le service Azure Active Directory ou si vous avez déjà intégré des applications à Azure AD dans le passé, il peut exister des différences dans le point de terminaison v2.0 auxquelles vous ne vous attendiez pas.  Pour votre bonne compréhension, ce document énumère ces différences.

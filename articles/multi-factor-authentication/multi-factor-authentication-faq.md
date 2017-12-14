@@ -1,10 +1,10 @@
 ---
-title: "Questions fréquentes (FAQ) sur Azure Multi-Factor Authentication | Microsoft Docs"
-description: "Questions fréquentes et réponses sur Azure Multi-Factor Authentication. Multi-Factor Authentication est une méthode permettant de vérifier l’identité d’un utilisateur en exigeant plus que le nom d’utilisateur et le mot de passe. Ce service fournit une couche de sécurité supplémentaire pour la connexion et les transactions de l’utilisateur."
+title: FAQ Multi-Factor Authentication Azure | Microsoft Docs
+description: "Questions fréquentes et réponses relatives à Azure Multi-Factor Authentication. Multi-Factor Authentication est une méthode permettant de vérifier l’identité d’un utilisateur qui requiert d’autres méthodes que le nom d’utilisateur et le mot de passe. Ce service fournit une couche de sécurité supplémentaire pour la connexion et les transactions de l’utilisateur."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 4532cbab7f727e71908d5a2da43a11351f7aeeb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes (FAQ) sur Azure Multi-Factor Authentication
-Ce FAQ répond aux questions courantes sur Azure Multi-Factor Authentication et sur l’utilisation du service Multi-Factor Authentication. Il s’articule autour de questions sur le service en général, les modèles de facturation, les expériences utilisateur et le dépannage.
+# <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
+Ce forum aux questions répond aux questions courantes sur Azure Multi-Factor Authentication et sur l’utilisation du service Multi-Factor Authentication. Il est divisé en questions relatives au service en général, aux modèles de facturation, aux expériences utilisateur et au dépannage.
 
 ## <a name="general"></a>Généralités
 **Q : Comment les données utilisateur sont-elles gérées par le serveur Azure Multi-Factor Authentication ?**
@@ -33,7 +33,7 @@ Lorsque les demandes d’authentification sont envoyées au service cloud, les d
 
 * **ID unique** (soit le nom d’utilisateur soit l’ID de serveur Multi-Factor Authentication local)
 * **Prénom et nom** (facultatif)
-* **Adresse e-mail** (facultatif)
+* **Adresse de messagerie** (facultatif)
 * **Numéro de téléphone** (en cas d’utilisation de l’authentification par appel vocal ou SMS)
 * **Jeton de l’appareil** (en cas d’utilisation de l’authentification par application mobile)
 * **Mode d'authentification**
@@ -63,7 +63,7 @@ Au Canada, Microsoft utilise les codes courts SMS suivants :
 Microsoft ne garantit pas que les notifications Multi-Factor Authentication envoyées par SMS ou message vocale proviennent systématiquement du même numéro. Dans l’intérêt de ses utilisateurs, Microsoft peut à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires dans le but d’améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts en dehors des États-Unis et du Canada.
 
 ## <a name="billing"></a>Facturation
-Vous trouverez les réponses à la plupart des questions de facturation en consultant la [page de tarification relative à Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) ou la documentation portant sur la [manière d’obtenir Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Il est possible de trouver les réponses à la plupart des questions de facturation en consultant la [page de tarification relative à Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) ou la documentation portant sur la [manière d’obtenir Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
 **Q : L’envoi des appels téléphoniques et des SMS utilisés pour l’authentification est-il facturé à mon organisation ?**
 
@@ -81,7 +81,7 @@ Lorsque vous créez un fournisseur MFA par utilisateur ou par authentification, 
 
 Lorsque vous achetez un abonnement pour Microsoft Azure Multi-Factor Authentication, votre organisation paie uniquement les frais de licence annuels pour chaque utilisateur. Les licences MFA et Office 365, Azure AD Premium ou les offres groupées Enterprise Mobility + Security sont facturés de cette manière. 
 
-Pour plus d’informations sur les options disponibles, consultez [Comment obtenir Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Pour plus d’informations sur les options disponibles, consultez [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md) (Comment obtenir Azure Multi-Factor Authentication).
 
 **Q : Existe-t-il une version gratuite d’Azure Multi-Factor Authentication ?**
 
@@ -141,9 +141,9 @@ Si votre organisation ne comporte pas de clients hérités, vous ne devez pas au
 > [!NOTE]
 > Authentification moderne pour les clients Office 2013
 >
-> Les mots de passe d’application sont nécessaires uniquement pour les applications ne prenant pas en charge l’authentification moderne. Les clients Office 2013 prennent en charge les protocoles d’authentification modernes, mais doivent être configurés. Les nouveaux clients Office prennent automatiquement en charge les protocoles d’authentification moderne. Pour plus d’informations, consultez [l’annonce de la préversion publique de l’authentification moderne Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Les mots de passe d’application sont nécessaires uniquement pour les applications ne prenant pas en charge l’authentification moderne. Les clients Office 2013 prennent en charge les protocoles d’authentification modernes, mais doivent être configurés. Les nouveaux clients Office prennent automatiquement en charge les protocoles d’authentification moderne. Pour plus d’informations, consultez [l’annonce de la version préliminaire publique de l’authentification moderne Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-**Q : Mes utilisateurs disent qu’ils ne reçoivent parfois pas le SMS ou qu’ils répondent à des SMS bidirectionnels, alors que la vérification a expiré.**
+**Q : Mes utilisateurs disent que parfois ils ne reçoivent pas de SMS, ou qu’ils répondent à des SMS bidirectionnels, tandis que la vérification a expiré.**
 
 La remise de SMS et la réception de réponses à des SMS bidirectionnels ne sont pas garanties, en raison de facteurs incontrôlables susceptibles d’affecter la fiabilité du service. Sont notamment en cause le pays de destination, l’opérateur de téléphonie mobile et la puissance du signal.
 
@@ -165,7 +165,7 @@ Pour les SMS unidirectionnels avec un serveur Azure MFA en version 7.0 ou supé
 
 Pour les SMS bidirectionnels avec un serveur Azure MFA, vous pouvez configurer le paramètre de délai d’expiration dans le Portail de gestion MFA. Si les utilisateurs ne répondent pas au SMS avant la fin du délai d’expiration défini, leur authentification est refusée. 
 
-Pour les SMS unidirectionnels avec Azure MFA dans le cloud, notamment l’adaptateur AD FS ou l’extension de serveur NPS (Network Policy Server), vous ne pouvez pas configurer le paramètre de délai d’expiration. Azure AD stocke le code de vérification pendant 180 secondes. 
+Pour les SMS unidirectionnels avec Azure MFA dans le cloud (y compris l’adaptateur AD FS ou l’extension de serveur NPS (Network Policy Server)), vous ne pouvez pas configurer le paramètre de délai d’expiration. Azure AD stocke le code de vérification pendant 180 secondes. 
 
 **Q : Puis-je utiliser des jetons matériels avec le serveur Azure Multi-Factor Authentication ?**
 

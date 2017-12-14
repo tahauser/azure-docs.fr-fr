@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Réglage distribué d’hyperparamètres à l’aide d’Azure Machine Learning Workbench
 
@@ -27,21 +27,29 @@ Le lien vers le dépôt GitHub public est le suivant :
 
 De nombreux algorithmes Machine Learning ont un ou plusieurs « boutons », appelés hyperparamètres. Ces boutons permettent le réglage d’algorithmes pour optimiser leurs performances sur de futures données, mesurées en fonction des indicateurs de performance spécifiés par l’utilisateur (par exemple, la précision, AUC, RMSE). Le scientifique des données doit fournir des valeurs d’hyperparamètres durant la création d’un modèle à partir des données d’apprentissage et avant de voir les futures données de test. Comment pouvons-nous, à partir des données d’apprentissage connues, définir les valeurs d’hyperparamètres de manière à ce que le modèle offre de bonnes performances sur les données de test inconnues ? 
 
-Une technique courante de réglage d’hyperparamètres consiste à combiner une *recherche par grille* avec une *validation croisée*. La validation croisée est une technique qui évalue les performances de prédiction sur un jeu de test d’un modèle formé sur un jeu d’apprentissage. Avec cette technique, nous divisons d’abord le jeu de données en K plis, puis effectuons l’apprentissage de l’algorithme K fois, par tourniquet (round robin), sur tous les plis sauf un, appelé pli récupéré. Nous calculons la valeur moyenne des indicateurs de performance de K modèles sur K plis récupérés. Cette valeur moyenne, appelée *estimation des performances de validation croisée*, dépend des valeurs d’hyperparamètres utilisées au cours de la création de K modèles. Durant le réglage d’hyperparamètres, nous recherchons dans l’espace de valeurs d’hyperparamètres candidates celles qui optimisent l’estimation des performances de validation croisée. La recherche par grille est une technique de recherche courante, où l’espace de valeurs candidates de plusieurs hyperparamètres est un produit croisé d’ensembles de valeurs candidates d’hyperparamètres individuels. 
+Une technique courante de réglage d’hyperparamètres consiste à combiner une *recherche par grille* avec une *validation croisée*. La validation croisée est une technique qui évalue les performances de prédiction sur un jeu de test d’un modèle formé sur un jeu d’apprentissage. Avec cette technique, nous divisons d’abord le jeu de données en K plis, puis effectuons l’apprentissage de l’algorithme K fois, par tourniquet (round robin). Nous le faisons sur tous les plis sauf un, appelé pli récupéré. Nous calculons la valeur moyenne des indicateurs de performance de K modèles sur K plis récupérés. Cette valeur moyenne, appelée *estimation des performances de validation croisée*, dépend des valeurs d’hyperparamètres utilisées au cours de la création de K modèles. Durant le réglage d’hyperparamètres, nous recherchons dans l’espace de valeurs d’hyperparamètres candidates celles qui optimisent l’estimation des performances de validation croisée. La recherche par grille est une technique de recherche courante. Dans la recherche par grille, l’espace de valeurs candidates de plusieurs hyperparamètres est un produit croisé d’ensembles de valeurs candidates d’hyperparamètres individuels. 
 
-La recherche par grille à l’aide de la validation croisée peut être longue. Si un algorithme a 5 hyperparamètres (chacune des 5 valeurs candidates) et que nous utilisions K = 5 plis, pour effectuer la recherche par grille, nous devons effectuer l’apprentissage de 5<sup>6</sup> = 15 625 modèles. La recherche par grille à l’aide de la validation croisée est heureusement une procédure excessivement parallèle, ce qui permet un apprentissage en parallèle de tous ces modèles.
+La recherche par grille à l’aide de la validation croisée peut être longue. Si un algorithme comprend cinq hyperparamètres ayant chacun cinq valeurs candidates, nous utilisons K = 5 plis. Nous effectuons ensuite une recherche par grille en apprenant 5<sup>6</sup>= 15625 modèles. La recherche par grille à l’aide de la validation croisée est heureusement une procédure excessivement parallèle, ce qui permet un apprentissage en parallèle de tous ces modèles.
 
 ## <a name="prerequisites"></a>Composants requis
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie d’[Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée conformément au [guide de démarrage rapide d’installation et de création](./quickstart-installation.md) pour installer Workbench et créer des comptes.
 * Ce scénario part du principe que vous exécutez Azure ML Workbench sur Windows 10 ou MacOS avec le moteur Docker installé localement. 
-* Pour exécuter le scénario avec un conteneur Docker distant, configurez la machine virtuelle de science des données (DSVM) Ubuntu en suivant ces [instructions](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 28 Go de mémoire. Les instances D4 de machines virtuelles ont cette capacité. 
-* Pour exécuter ce scénario avec un cluster Spark, configurez le cluster HDInsight en suivant ces [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Nous recommandons d’utiliser un cluster avec au moins six nœuds Worker et au moins 8 cœurs et 28 Go de mémoire dans les nœuds d’en-tête et Worker. Les instances D4 de machines virtuelles ont cette capacité. Pour optimiser les performances du cluster, nous recommandons de modifier les paramètres spark.executor.instances, spark.executor.cores et spark.executor.memory en suivant ces [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) et en modifiant les définitions dans la section « Custom spark-defaults ».
+* Pour exécuter le scénario avec un conteneur Docker distant, configurez la machine virtuelle de science des données (DSVM) Ubuntu en suivant ces [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 28 Go de mémoire. Les instances D4 de machines virtuelles ont cette capacité. 
+* Pour exécuter ce scénario avec un cluster Spark, configurez le cluster Azure HDInsight en suivant ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Nous vous recommandons d’avoir un cluster avec au moins 
+- six nœuds de travail
+- huit cœurs
+- 28 Go de mémoire dans les nœuds d’en-tête et de travail. Les instances D4 de machines virtuelles ont cette capacité. Nous vous recommandons de modifier les paramètres suivants pour optimiser les performances du cluster.
+- spark.executor.instances
+- spark.executor.cores
+- spark.executor.memory 
 
-     **Résolution des problèmes** : votre abonnement Azure peut avoir un quota défini quant au nombre de cœurs pouvant être utilisés. Le portail Azure ne permet pas de créer un cluster avec un nombre total de cœurs dépassant ce quota. Pour connaître ce quota, dans le portail Azure, accédez à la section des abonnements, cliquez sur l’abonnement utilisé pour déployer un cluster, puis cliquez sur **Utilisation+quotas**. Les quotas sont généralement définis par région Azure. Vous pouvez choisir de déployer le cluster Spark dans une région dans laquelle vous disposez de cœurs libres suffisants. 
+Vous pouvez suivre ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) et modifier les définitions dans la section « Valeurs Spark par défaut personnalisées ».
 
-* Créez un compte de stockage Azure utilisé pour stocker le jeu de données. Suivez ces [instructions](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage.
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+
+* Créez un compte de stockage Azure utilisé pour stocker le jeu de données. Suivez ces [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage.
 
 ## <a name="data-description"></a>Description des données
 
@@ -72,7 +80,7 @@ Nous utilisons les packages [scikit-learn](https://anaconda.org/conda-forge/scik
 
 Le fichier conda\_dependencies.yml est stocké dans le répertoire aml_config du didacticiel. 
 
-Dans les étapes suivantes, nous connectons l’environnement d’exécution au compte Azure. Ouvrez la fenêtre de ligne de commande (CLI) en cliquant sur le menu Fichier dans le coin supérieur gauche d’AML Workbench et en sélectionnant « Ouvrir l’invite de commandes ». Exécutez ensuite dans l’interface CLI
+Dans les étapes suivantes, nous connectons l’environnement d’exécution au compte Azure. Cliquez sur le menu Fichier dans le coin supérieur gauche d’AML Workbench. Puis choisissez « Ouvrir l’invite de commandes ». Exécutez ensuite dans l’interface CLI
 
     az login
 
@@ -96,7 +104,7 @@ Dans les deux sections suivantes, nous expliquerons comment effectuer la configu
 
  Pour configurer un conteneur Docker distant, exécutez dans l’interface CLI
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 avec l’adresse IP, le nom d’utilisateur et le mot de passe de la machine virtuelle de science des données. L’adresse IP de la machine virtuelle de science des données est disponible dans la section Vue d’ensemble de la page de votre machine virtuelle de science des données sur le portail Azure :
 
@@ -106,7 +114,7 @@ avec l’adresse IP, le nom d’utilisateur et le mot de passe de la machine vir
 
 Pour configurer l’environnement Spark, exécutez dans l’interface CLI
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 avec le nom, le nom d’utilisateur SSH et le mot de passe du cluster. La valeur par défaut du nom d’utilisateur SSH est `sshuser`, sauf si vous l’avez modifiée durant la configuration du cluster. Le nom du cluster est disponible dans la section Propriétés de la page de votre cluster sur le portail Azure :
 
@@ -136,13 +144,13 @@ Pour télécharger des données à partir du site de Kaggle, accédez à la [pag
 ![Ouvrir l’objet blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![Ouvrir le conteneur](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-Sélectionnez ensuite le conteneur du jeu de données dans la liste et cliquez sur le bouton Charger. Le portail Azure permet de charger plusieurs fichiers simultanément. Dans la section « Charger l’objet blob », cliquez sur le bouton de dossier, sélectionnez tous les fichiers du jeu de données et cliquez sur Ouvrir, puis sur Charger. La capture d’écran ci-dessous illustre ces étapes :
+Sélectionnez ensuite le conteneur du jeu de données dans la liste et cliquez sur le bouton Charger. Le portail Azure vous permet de charger plusieurs fichiers simultanément. Dans la section « Charger l’objet blob », cliquez sur le bouton de dossier, sélectionnez tous les fichiers du jeu de données et cliquez sur Ouvrir, puis sur Charger. La capture d’écran suivante illustre ces étapes :
 
 ![Charger l’objet blob](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 Le chargement des fichiers prend plusieurs minutes, en fonction de votre connexion Internet. 
 
-Dans notre code, nous utilisons le kit [SDK Stockage Azure](https://azure-storage.readthedocs.io/en/latest/) pour télécharger le jeu de données à partir du stockage blob dans l’environnement d’exécution actuel. Le téléchargement est effectué dans la fonction load\_data() à partir du fichier load_data.py. Pour utiliser ce code, vous devez remplacer <ACCOUNT_NAME> et <ACCOUNT_KEY> par le nom et la clé primaire de votre compte de stockage qui héberge le jeu de données. Le nom du compte est affiché dans le coin supérieur gauche de la page Azure de votre compte de stockage. Pour obtenir la clé du compte, sélectionnez Clés d’accès dans la page Azure du compte de stockage (voir la première capture d’écran dans la section Ingestion de données), puis copiez la longue chaîne dans la première ligne de la colonne des clés :
+Dans notre code, nous utilisons le kit [SDK Stockage Azure](https://azure-storage.readthedocs.io/en/latest/) pour télécharger le jeu de données à partir du stockage blob dans l’environnement d’exécution actuel. Le téléchargement est effectué dans la fonction load\_data() à partir du fichier load_data.py. Pour utiliser ce code, vous devez remplacer <ACCOUNT_NAME> et <ACCOUNT_KEY> par le nom et la clé primaire de votre compte de stockage qui héberge le jeu de données. Le nom du compte apparaît dans le coin supérieur gauche de la page Azure de votre compte de stockage. Pour obtenir la clé du compte, sélectionnez Clés d’accès dans la page Azure du compte de stockage (voir la première capture d’écran dans la section Ingestion de données), puis copiez la longue chaîne dans la première ligne de la colonne des clés :
  
 ![Clé d’accès](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ Le code suivant dans la fonction load_data() télécharge un fichier unique :
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Notez que vous n’avez pas besoin d’exécuter manuellement le fichier load_data.py. Il sera appelé ultérieurement à partir d’autres fichiers.
+Notez que vous n’avez pas besoin d’exécuter manuellement le fichier load_data.py. Il est appelé à partir d’autres fichiers ultérieurement.
 
 ### <a name="feature-engineering"></a>Ingénierie des caractéristiques
 Le code pour toutes les fonctionnalités de calcul se trouve dans le fichier feature\_engineering.py. Vous n’avez pas besoin d’exécuter manuellement le fichier feature_engineering.py. Il sera appelé ultérieurement à partir d’autres fichiers.
@@ -190,7 +198,7 @@ dans la fenêtre de l’interface CLI.
 Nous utilisons l’implémentation [xgboost](https://anaconda.org/conda-forge/xgboost) [1] de boosting d’arbres de décision. Nous utilisons le package [scikit-learn](http://scikit-learn.org/) pour régler les hyperparamètres de xgboost. Bien que xgboost ne fasse pas partie du package scikit-learn, il implémente l’API scikit-learn et peut donc être utilisé conjointement avec les fonctions de réglage d’hyperparamètres de scikit-learn. 
 
 Xgboost a huit hyperparamètres :
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,7 +206,10 @@ Xgboost a huit hyperparamètres :
 * learning_rate
 * colsample\_by_level
 * subsample
-* Vous trouverez une description de ces hyperparamètres [ici](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) et [ici](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). Nous commençons par utiliser une machine virtuelle de science des données et régler les hyperparamètres à partir d’une petite grille de valeurs candidates :
+* Vous trouverez une description de ces hyperparamètres à l’adresse
+- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
+- 
+Nous commençons par utiliser une machine virtuelle de science des données et régler les hyperparamètres à partir d’une petite grille de valeurs candidates :
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
@@ -224,7 +235,7 @@ Après avoir créé le modèle, nous enregistrons les résultats du réglage des
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-Nous créons également un fichier sweeping_results.txt avec les pertes logarithmiques négatives de validation croisée de toutes les combinaisons de valeurs d’hyperparamètres de la grille :
+Nous créons également un fichier sweeping_results.txt avec les pertes logarithmiques négatives de validation croisée de toutes les combinaisons de valeurs d’hyperparamètres de la grille.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Cette commande s’effectue en 1 heure et 38 minutes quand la machine virtuelle 
 
 ![Historique des exécutions](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-Par défaut, la fenêtre d’historique des exécutions affiche les valeurs et graphiques des 1-2 premières valeurs enregistrées. Pour afficher la liste complète des valeurs d’hyperparamètres choisies, cliquez sur l’icône des paramètres signalée par un encadré rouge dans la capture d’écran précédente et sélectionnez les hyperparamètres à afficher dans le tableau. De même, pour sélectionner les graphiques à afficher dans la partie supérieure de la fenêtre d’historique des exécutions, cliquez sur l’icône des paramètres signalée par un encadré bleu et sélectionnez les graphiques dans la liste. 
+Par défaut, la fenêtre d’historique des exécutions affiche les valeurs et graphiques des 1-2 premières valeurs enregistrées. Pour afficher la liste complète des valeurs d’hyperparamètres choisies, cliquez sur l’icône des paramètres signalée par un encadré rouge dans la capture d’écran précédente. Sélectionnez ensuite les hyperparamètres à afficher dans le tableau. De même, pour sélectionner les graphiques à afficher dans la partie supérieure de la fenêtre d’historique des exécutions, cliquez sur l’icône des paramètres signalée par un encadré bleu et sélectionnez les graphiques dans la liste. 
 
 Les valeurs d’hyperparamètres choisies peuvent également être consultées dans la fenêtre des propriétés d’exécution : 
 
 ![Propriétés d’exécution](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-Dans le coin supérieur droit de la fenêtre des propriétés d’exécution se trouve une section pour les fichiers de sortie avec la liste de tous les fichiers ayant été créés dans le dossier « .\output » dans l’environnement d’exécution. Vous pouvez télécharger le fichier sweeping\_results.txt à partir de cette section en le sélectionnant et en cliquant sur le bouton Télécharger. Le fichier sweeping_results.txt devrait présenter la sortie suivante :
+Dans le coin supérieur droit de la fenêtre des propriétés d’exécution se trouve une section pour les fichiers de sortie avec la liste de tous les fichiers ayant été créés dans le dossier « .\output ». Vous pouvez télécharger le fichier sweeping\_results.txt à partir de cette section en le sélectionnant et en cliquant sur le bouton Télécharger. Le fichier sweeping_results.txt devrait présenter la sortie suivante :
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -297,15 +308,15 @@ dans les fenêtres de l’interface CLI. L’installation prend plusieurs minute
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-Cette commande s’effectue en 1 heure et 6 minutes quand le cluster Spark a 6 nœuds Worker avec 28 Go de mémoire. Les résultats du réglage d’hyperparamètres dans un cluster Spark, à savoir les journaux, les meilleures valeurs d’hyperparamètres et le fichier sweeping_results.txt, sont disponibles dans Azure Machine Learning Workbench comme pour l’exécution d’une machine virtuelle de science des données distante. 
+Cette commande s’effectue en 1 heure et 6 minutes quand le cluster Spark a 6 nœuds Worker avec 28 Go de mémoire. Les résultats du réglage d’hyperparamètres est accessible dans Azure Machine Learning Workbench de la même façon que l’exécution DSVM distante. (à savoir les journaux, les meilleures valeurs d’hyperparamètres et le fichier sweeping_results.txt)
 
 ### <a name="architecture-diagram"></a>Diagramme de l’architecture
 
-Le diagramme suivant illustre le flux de travail de bout en bout : ![Architecture](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+Le diagramme suivant illustre le flux de travail global : ![architecture](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>Conclusion 
 
-Dans ce scénario, vous avez appris à utiliser Azure Machine Learning Workbench pour effectuer un réglage d’hyperparamètres sur une machine virtuelle distante et un cluster Spark distant. Nous avons vu qu’Azure Machine Learning Workbench fournit des outils pour configurer facilement des environnements d’exécution et basculer entre eux. 
+Dans ce scénario, vous avez appris à utiliser Azure Machine Learning Workbench pour effectuer un réglage d’hyperparamètres sur des machines virtuelles distante et des clusters Spark. Nous avons vu qu’Azure Machine Learning Workbench fournit des outils pour configurer facilement des environnements d’exécution. Il permet également de basculer facilement entre eux. 
 
 ## <a name="references"></a>Références
 

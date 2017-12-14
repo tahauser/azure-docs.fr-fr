@@ -4,7 +4,7 @@ description: "Voici la page Azure Multi-Factor Authentication qui explique la pr
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2a4f64524f94a782434306f89f6ad1034297c4cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -45,7 +45,7 @@ Quel que soit le scénario, si le Kit de développement logiciel (SDK) Azure Mul
 3. À moins que vous n’ayez besoin de les modifier, terminez l’installation à l’aide des paramètres par défaut.
 4. Lier un certificat SSL personnalisé à un site avec IIS.
 
-Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Le Kit de développement logiciel (SDK) Web Service doit être sécurisé avec un certificat SSL. Un certificat auto-signé peut être ajouté à cet effet. Importez le certificat dans le magasin « Racine des autorités de certification approuvée » du compte Ordinateur local sur le serveur Web du portail de l’utilisateur afin qu’il approuve ce certificat lors de l’initialisation de la connexion SSL.
 
@@ -73,7 +73,7 @@ Pour déployer le portail de l’utilisateur, procédez comme suit :
 
 ![Installation du portail de l’utilisateur du serveur MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
-Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Déploiement du portail de l’utilisateur sur un serveur distinct
 
@@ -110,7 +110,7 @@ Une installation du portail de l'utilisateur sur un serveur autre que le serveur
 
 6. Ouvrez un navigateur web sur un ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
-Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configuration les paramètres du portail de l’utilisateur dans le serveur Azure Multi-Factor Authentication
 

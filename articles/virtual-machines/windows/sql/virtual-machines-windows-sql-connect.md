@@ -12,26 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/14/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Se connecter à une machine virtuelle SQL Server sur Azure (Resource Manager)
-> [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](virtual-machines-windows-sql-connect.md)
-> * [Classique](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Se connecter à une machine virtuelle SQL Server sur Azure
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Cette rubrique décrit comment se connecter à votre instance de SQL Server exécuté sur une machine virtuelle Azure. Elle aborde certains [scénarios de connectivité générale](#connection-scenarios) et fournit une [procédure détaillée pour configurer la connectivité à SQL Server dans une machine virtuelle Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+Cette rubrique décrit comment se connecter à votre instance de SQL Server exécuté sur une machine virtuelle Azure. Elle traite certains [scénarios de connectivité généraux](#connection-scenarios) et fournit des [étapes dans le portail pour modifier les paramètres de connectivité](#change). Si vous devez résoudre un problème ou configurer la connectivité en dehors du portail, consultez la [configuration manuelle](#manual) à la fin de cette rubrique. 
 
 Si vous préférez suivre une procédure pas-à-pas complète d’approvisionnement et de connectivité, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -121,17 +114,34 @@ Lors de la configuration des paramètres de connectivité de SQL Server, Azure n
 
 Connectez-vous d’abord à la machine virtuelle à l’aide du Bureau à distance.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 Ensuite, activez le protocole TCP/IP avec le **gestionnaire de configuration SQL Server**.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a name="connect-with-ssms"></a>Connexion avec SSMS
 
 Les étapes suivantes décrivent comment créer un nom DNS pour votre machine virtuelle Azure et vous connecter à SQL Server Management Studio (SSMS).
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+
+## <a id="manual"></a> Configuration manuelle et résolution des problèmes
+
+Bien que le portail offre des options de configuration automatique de la connectivité, il est utile de savoir comment configurer manuellement la connectivité. Comprendre la configuration requise peut également faciliter la résolution des problèmes.
+
+Le tableau suivant répertorie la configuration requise pour se connecter à SQL Server s’exécutant dans une machine virtuelle Azure.
+
+| Prérequis | Description |
+|---|---|
+| [Activer le mode d’authentification SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | L’authentification SQL Server est nécessaire pour se connecter à distance à la machine virtuelle, sauf si vous avez configuré Active Directory sur un réseau virtuel. |
+| [Créer une connexion SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Si vous utilisez l’authentification SQL, vous avez besoin d’une connexion SQL avec un nom d’utilisateur et un mot de passe qui dispose également d’autorisations sur votre base de données cible. |
+| [Activer le protocole TCP/IP](#manualTCP) | SQL Server doit autoriser les connexions sur TCP. |
+| [Activer la règle de pare-feu pour le port SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Le pare-feu sur la machine virtuelle doit autoriser le trafic entrant sur le port SQL Server (1433 par défaut). |
+| [Créer une règle de groupe de sécurité pour TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Vous devez autoriser la machine virtuelle à recevoir le trafic sur le port SQL Server (1433 par défaut) si vous souhaitez vous connecter par Internet. Ceci n’est pas nécessaire pour les connexions locales et réseau virtuel uniquement. Il s’agit de la seule étape requise dans le portail Azure. |
+
+> [!TIP]
+> Les étapes décrites dans le tableau ci-dessus sont effectuées pour vous lorsque vous configurez la connectivité dans le portail. N’utilisez ces étapes que pour vérifier votre configuration ou pour configurer manuellement la connectivité pour SQL Server.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Déployer et surveiller des modules IoT Edge à l’échelle : aperçu
 
@@ -40,21 +40,23 @@ Pour plus d’informations sur les balises et les jumeaux d’appareils, consult
 
 ## <a name="create-a-deployment"></a>Créer un déploiement
 
-1. Connectez-vous au [portail Azure][lnk-portal] et accédez à votre hub IoT. 
+1. Connectez-vous au [portail Azure][lnk-portal] et accédez à votre IoT Hub. 
 1. Sélectionnez **IoT Edge (préversion)**.
-1. Sélectionnez **Créer un déploiement de périphérie**.
+1. Sélectionnez **Ajouter le déploiement IoT Edge**.
 
 La création d’un déploiement nécessite cinq étapes. Les sections suivantes les décrivent en détail. 
 
-### <a name="step-1-label-deployment"></a>Étape 1 : Déploiement d’étiquettes
+### <a name="step-1-name-and-label"></a>Étape 1 : nom et étiquette
 
-1. Donnez à votre déploiement un ID unique. Évitez les espaces et les caractères non valides suivants : `& ^ [ ] { } \ | " < > /`.
+1. Donnez à votre déploiement un nom unique. Évitez les espaces et les caractères non valides suivants : `& ^ [ ] { } \ | " < > /`.
 1. Ajoutez des étiquettes pour faciliter le suivi de vos déploiements. Les étiquettes sont des paires **Nom**, **Valeur** qui décrivent votre déploiement. Par exemple, `HostPlatform, Linux` ou `Version, 3.0.1`.
 1. Sélectionnez **Suivant** pour passer à l’étape 2. 
 
-### <a name="step-2-add-modules"></a>Étape 2 : Ajouter des modules
+### <a name="step-2-add-modules-optional"></a>Étape 2 : ajouter des modules (facultatif)
 
 Vous pouvez ajouter deux types de modules à un déploiement. Le premier est un module basé sur un service Azure, tel que Compte de stockage ou Stream Analytics. Le deuxième est un module basé sur votre propre code. Vous pouvez ajouter plusieurs modules de chaque type à un déploiement. 
+
+Si vous créez un déploiement sans module, il supprime tous les modules existants des appareils. 
 
 >[!NOTE]
 >Azure Machine Learning et Azure Functions ne prennent pas encore en charge le déploiement de service Azure automatisé. Utilisez un déploiement de module personnalisé pour ajouter manuellement ces services à votre déploiement. 
@@ -83,11 +85,11 @@ Pour ajouter du code personnalisé en tant que module, ou pour ajouter manuellem
 
 Une fois que vous avez configuré tous les modules pour un déploiement, sélectionnez **Suivant** pour passer à l’étape 3.
 
-### <a name="step-3-specify-routes-optional"></a>Étape 3 : Spécifier des itinéraires (facultatif)
+### <a name="step-3-specify-routes-optional"></a>Étape 3 : spécifier des itinéraires (facultatif)
 
 Les itinéraires définissent comment les modules communiquent les uns avec les autres dans un déploiement. Spécifiez tous les itinéraires pour votre déploiement, puis sélectionnez **Suivant** pour passer à l’étape 4. 
 
-### <a name="step-4-target-devices"></a>Étape 4 : Cibler des appareils
+### <a name="step-4-target-devices"></a>Étape 4 : cibler des appareils
 
 Utilisez la propriété tags à partir de vos appareils pour cibler des appareils spécifiques qui doivent recevoir ce déploiement. 
 
@@ -97,7 +99,7 @@ Utilisez la propriété tags à partir de vos appareils pour cibler des appareil
 1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'`. 
 1. Sélectionnez **Suivant** pour passer à l’étape finale.
 
-### <a name="step-5-review-template"></a>Étape 5 : Vérifier le modèle
+### <a name="step-5-review-template"></a>Étape 5 : vérifier le modèle
 
 Passez en revue les informations de votre déploiement, puis sélectionnez **Envoyer**.
 

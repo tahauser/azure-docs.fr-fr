@@ -1,24 +1,16 @@
 ---
 title: "Migrer des machines après l’évaluation avec Azure Migrate | Microsoft Docs"
 description: "Explique comment obtenir des recommandations pour migrer des machines après l’exécution d’une évaluation avec le service Azure Migrate."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 809c6e85-0928-45e2-a7c7-6824d860e134
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 083e614628645d2eb94b7d84f4127b690865d770
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrer des machines après évaluation
 

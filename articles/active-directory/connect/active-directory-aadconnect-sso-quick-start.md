@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -127,7 +127,7 @@ Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet
 
 ### <a name="browser-considerations"></a>Considérations sur le navigateur
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (toutes les plateformes)
 
 Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Chaque utilisateur doit ajouter manuellement les URL Azure AD à ses paramètres Firefox en procédant comme suit :
 1. Exécutez Firefox et entrez `about:config` dans la barre d’adresses. Ignorez les notifications que vous voyez.
@@ -136,11 +136,15 @@ Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Cha
 4. Entrez https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net dans le champ.
 5. Sélectionnez **OK** puis rouvrez le navigateur.
 
-#### <a name="safari-on-mac-os"></a>Safari sur Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Assurez-vous que l’ordinateur utilisant Mac OS est connecté à Azure AD. Pour obtenir des instructions sur la façon de rejoindre Azure AD, voir [Meilleures pratiques pour intégrer OS X dans Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome sur Mac
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
+
+Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) dans votre environnement, veillez à y ajouter également les URL d’Azure AD (https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net).
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (Mac OS uniquement)
 
 Pour ce qui est de Google Chrome sur Mac OS et sur les autres plateformes autres que Windows, reportez-vous à l'article [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) pour obtenir plus d’informations sur l’ajout des URL Azure AD à la liste approuvée pour l’authentification intégrée.
 
@@ -149,9 +153,6 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 #### <a name="known-browser-limitations"></a>Limitations connues du navigateur
 
 L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
-
->[!IMPORTANT]
->Nous avons récemment restauré la prise en charge de Edge afin d’examiner les problèmes signalés par le client.
 
 ## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 

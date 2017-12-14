@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
 
@@ -43,7 +43,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Support | Description |
 | --- | --- | --- |
-| [Agents Windows](log-analytics-windows-agents.md) | Non | Les agents directs Windows ne sont pas utilisés par la solution. |
+| [Agents Windows](log-analytics-windows-agent.md) | Non | Les agents directs Windows ne sont pas utilisés par la solution. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non | Les agents directs Linux ne sont pas utilisés par la solution. |
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne valorise aucune connexion directe entre l’agent SCOM et Log Analytics. |
 | [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | Log Analytics ne lit pas les données du compte de stockage. |

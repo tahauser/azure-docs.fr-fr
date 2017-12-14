@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-stack-1711-update"></a>Mise à jour 1711 d’Azure Stack
 
@@ -31,11 +31,11 @@ Cet article décrit les améliorations et correctifs contenus dans cette mise à
 
 ## <a name="build-reference"></a>Référence de build
 
-Le numéro de build de mise à jour d’Azure Stack 1711 est **20171122.1**.
+Le numéro de build de mise à jour d’Azure Stack 1711 est **171201.3**.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Composants requis
 
 Vous devez installer la [mise à jour 1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) d’Azure Stack avant d’appliquer cette mise à jour.
 
@@ -85,7 +85,7 @@ Cette section énumère des problèmes connus que vous pouvez rencontrer lors de
 
 ### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
-Cette section énumère des problèmes connus après l’installation de la build **20171122.1**.
+Cette section énumère des problèmes connus après l’installation de la build **20171201.3**.
 
 #### <a name="portal"></a>Portail
 
@@ -108,7 +108,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 
 - Si vous redémarrez une instance de rôle d’infrastructure, il se peut que vous receviez un message indiquant que le redémarrage a échoué. Pour tant, en réalité, le redémarrage a réussi.
 
-#### <a name="marketplace"></a>Place de marché
+#### <a name="marketplace"></a>Marketplace
 - Lorsque vous tentez d’ajouter des éléments à la Place de marché d’Azure Stack à l’aide de l’option **Ajouter à partir d’Azure**, certains éléments disponibles en téléchargement peuvent ne pas être visibles.
 - Les utilisateurs ont la possibilité de parcourir entièrement la Place de marché, et peuvent voir des éléments administratifs, tels que des plans et des offres, qui ne sont pas fonctionnels pour eux.
 

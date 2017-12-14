@@ -12,14 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Une nouvelle version améliorée du [Planificateur de déploiement Azure Site Recovery de Hyper-V vers Azure](site-recovery-hyper-v-deployment-planner.md) est désormais disponible. Celle-ci remplace l’ancien outil. Utilisez le nouvel outil pour la planification de votre déploiement. L’outil vous guide sur les points suivants :
+* Évaluation de l’éligibilité de la machine virtuelle en fonction du nombre de disques, de la taille du disque, des E/S par seconde, de l’activité et de quelques caractéristiques de machine virtuelle.
+* Besoin de bande passante réseau et évaluation de RPO.
+* Exigences de l’infrastructure Azure.
+* Exigences de l’infrastructure locale.
+* Conseils de traitement par lot de réplication initiale.
+* Estimation du coût total de récupération d’urgence vers Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planifier la capacité de la protection des machines virtuelles Hyper-V avec Site Recovery
 
 L’outil Azure Site Recovery Capacity Planner vous aide à prévoir vos besoins en capacité pour la réplication de machines virtuelles Hyper-V avec Azure Site Recovery.

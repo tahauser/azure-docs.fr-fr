@@ -3,7 +3,7 @@ title: "Vue d’ensemble d’Azure Automation DSC | Microsoft Docs"
 description: "Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus"
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 keywords: "PowerShell DSC, Desired State Configuration, configuration d'état souhaité PowerShell DSC Azure"
 ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
-ms.author: eslesar
-ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Vue d'ensemble d'Azure Automation DSC
 

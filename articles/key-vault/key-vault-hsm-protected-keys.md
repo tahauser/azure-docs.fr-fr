@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Génération et transfert de clés HSM protégées pour Azure clé de coffre
 ## <a name="introduction"></a>Introduction
@@ -82,10 +82,14 @@ Pour connaître la procédure d’installation, consultez l’article [Installat
 ### <a name="step-12-get-your-azure-subscription-id"></a>Étape 1.2 : Obtenez votre ID d’abonnement Azure.
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure en utilisant la commande suivante :
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Utilisez ensuite la commande [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) :
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 Dans le résultat, recherchez l’ID de l’abonnement que vous utiliserez pour le coffre de clés Azure. Vous aurez besoin cet ID d’abonnement ultérieurement.
 
 Ne fermez pas la fenêtre Azure PowerShell.
@@ -188,7 +192,9 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 Pour valider l’intégrité de votre jeux d’outils BYOK, dans votre session Azure PowerShell, utilisez l’applet de commande [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) .
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 Le jeux d’outils contient les éléments suivants :
 
@@ -208,7 +214,9 @@ Installer le logiciel de support nCipher (Thales) sur un ordinateur Windows, pui
 
 Assurez-vous que les outils Thales se trouvent dans votre chemin d’accès (**%nfast_home%\bin**). Tapez ensuite la commande suivante :
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 Pour plus d’informations, consultez le guide de l’utilisateur inclus dans le module de sécurité matériel Thales.
 
@@ -229,7 +237,9 @@ Si vous utilisez Thales nShield Edge, pour modifier le mode, procédez comme sui
 ### <a name="step-32-create-a-security-world"></a>Étape 3.2 : Créez un monde de sécurité
 Démarrez une invite de commande et exécutez le programme de nouveau monde Thales.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 Ce programme crée un fichier **Security World** à l’emplacement %NFAST_KMDATA%\local\world, qui correspond au dossier C:\ProgramData\nCipher\Key Management Data\local. Vous pouvez utiliser des valeurs différentes pour le quorum, mais dans notre exemple, vous êtes invité à entrer trois cartes vierges et codes confidentiels pour chacune d’elles. Par la suite, chacune des deux cartes offre un accès total au monde de sécurité. Ces cartes constituent l’ **ensemble de cartes administrateur** pour le nouveau monde de sécurité.
 
@@ -293,6 +303,10 @@ Pour valider le package téléchargé :
    * Pour l’Inde :
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * Pour le Royaume-Uni :
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > Le logiciel Thales inclut un python dans %NFAST_HOME%\python\bin
      >
@@ -370,6 +384,9 @@ Ouvrez une nouvelle invite de commandes et remplacez le répertoire actuel par l
 * Pour l’Inde :
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* Pour le Royaume-Uni :
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 Quand vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’**Étape 3.5 : Créez une clé** de l’opération [Générer votre clé](#step-3-generate-your-key).
 
@@ -426,6 +443,9 @@ Exécutez l’un des commandes suivantes, en fonction de votre région géograph
 * Pour l’Inde :
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Pour le Royaume-Uni :
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Lorsque vous exécutez cette commande, utilisez ces instructions :
 
@@ -441,7 +461,9 @@ Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Étape 5 : Transférez votre clé vers le coffre de clés Azure
 Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) pour télécharger le package de transfert de clé copié à partir de la station de travail de la station de travail non connectée vers le module de sécurité matériel (HSM) d’Azure Key Vault :
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 Si le téléchargement réussit, les propriétés de la clé que vous venez de créer s’afficheront.
 

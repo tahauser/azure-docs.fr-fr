@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
-ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Configurer un pare-feu d’application web sur une passerelle Application Gateway nouvelle ou existante avec Azure CLI
 
@@ -47,7 +47,7 @@ Cet article explique comment [ajouter un pare-feu d’applications web à une pa
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Condition préalable : installer Azure CLI 2.0
 
-Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure (Azure CLI) pour Mac, Linux et Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer l’interface de ligne de commande Azure (Azure CLI) pour Mac, Linux et Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## <a name="waf-configuration-differences"></a>Différences de configuration WAF
 

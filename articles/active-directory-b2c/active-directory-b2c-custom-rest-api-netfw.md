@@ -4,7 +4,7 @@ description: "Intégrer les échanges de revendications de l’API REST dans vot
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 Avec l’infrastructure d’expérience d’identité, sur laquelle repose Azure Active Directory B2C (Azure AD B2C), vous pouvez intégrer une API RESTful à un parcours utilisateur. Dans cette procédure pas à pas, vous allez étudier la façon dont Azure AD B2C interagit avec les services RESTful de .NET Framework (API web).
@@ -215,7 +215,7 @@ Dans l’API web, un _contrôleur_ est un objet qui gère les requêtes HTTP. Le
     La fenêtre **Créer App Service** s’ouvre. Vous y créez toutes les ressources Azure nécessaires pour exécuter l’application web ASP.NET dans Azure.
 
     > [!NOTE]
-    >Pour plus d’informations sur la publication, consultez : [Création d’une application web ASP.NET dans Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Pour plus d’informations sur la publication, consultez : [Création d’une application web ASP.NET dans Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. Dans la zone **Nom de l’application web**, tapez un nom d’application unique (les caractères autorisés sont les plages a-z, 0-9, et les traits d’union (-)). L’URL de l’application web est http://<nom_app>.azurewebsites.NET, où *nom_app* est le nom de votre application web. Vous pouvez accepter le nom généré automatiquement, qui est unique.
 

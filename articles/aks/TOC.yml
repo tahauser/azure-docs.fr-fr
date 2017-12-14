@@ -41,6 +41,8 @@
       href: kubernetes-draft.md
     - name: Conserver les données avec Azure Files
       href: azure-files.md
+    - name: Intégrer avec Azure à l’aide d’OSBA
+      href: integrate-azure.md
     - name: Utiliser le tableau de bord Kubernetes
       href: kubernetes-dashboard.md
     - name: Créer un principal du service

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Démarrage rapide du déploiement du Kit de développement Azure Stack
 
@@ -31,9 +31,9 @@ Le [Kit de développement Azure Stack](azure-stack-poc.md) est un environnement 
 
 2. [**Téléchargez et extrayez le package de déploiement**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Vous pouvez télécharger le package de déploiement sur l’hôte du Kit de développement ou sur un autre ordinateur. Une fois extraits, les fichiers de déploiement occupent jusqu’à 60 Go d’espace disque. L’utilisation d’un autre ordinateur peut vous permettre d’avoir une configuration matérielle moins exigeante pour l’hôte du Kit de développement.
 
-3. [**Préparez l’hôte du Kit de développement**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) en utilisant le programme d’installation. Après cette étape, l’hôte du Kit de développement démarrera sur Cloudbuilder.vhdx (disque dur virtuel qui contient un système d’exploitation démarrable et les fichiers d’installation d’Azure Stack).
+3. [**Préparez l’hôte du Kit de développement**](azure-stack-run-powershell-script.md) en utilisant le programme d’installation. Après cette étape, l’hôte du Kit de développement démarrera sur Cloudbuilder.vhdx (disque dur virtuel qui contient un système d’exploitation démarrable et les fichiers d’installation d’Azure Stack).
 
-4. [**Déployez le Kit de développement**](azure-stack-run-powershell-script.md#deploy-the-development-kit) sur l’hôte du Kit de développement.
+4. [**Déployez le Kit de développement**](azure-stack-run-powershell-script.md) sur l’hôte du Kit de développement.
 
 5. Si votre déploiement Azure Stack utilise Azure Active Directory, vous devez [inscrire Azure Stack auprès d’Azure](azure-stack-register.md) pour pouvoir ensuite [télécharger des éléments de la Place de marché Azure](azure-stack-download-azure-marketplace-item.md) dans Azure Stack.
 

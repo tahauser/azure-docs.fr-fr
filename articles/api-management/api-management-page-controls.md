@@ -3,27 +3,26 @@ title: "Contrôles de page Gestion des API Azure | Microsoft Docs"
 description: "Découvrez les contrôles de page disponibles pour une utilisation dans les modèles du portail des développeurs dans Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Contrôles de page Gestion des API Azure
 Gestion des API Azure fournit les contrôles suivants à utiliser dans les modèles du portail des développeurs.  
   
- Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modèle du portail des développeurs. Certains contrôles, tels que [app-actions](#app-actions), ont des paramètres, comme illustré dans l’exemple suivant.  
+Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modèle du portail des développeurs. Certains contrôles, tels que [app-actions](#app-actions), ont des paramètres, comme illustré dans l’exemple suivant :  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
 ## <a name="developer-portal-template-page-controls"></a>Contrôles de page du modèle dans le portail des développeurs  
   
 -   [app-actions](#app-actions)  
-  
 -   [basic-signin](#basic-signin)  
-  
 -   [paging-control](#paging-control)  
-  
 -   [fournisseurs](#providers)  
-  
 -   [search-control](#search-control)  
-  
 -   [sign-up](#sign-up)  
-  
 -   [subscribe-button](#subscribe-button)  
-  
 -   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> app-actions  
@@ -69,7 +61,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
 |appId|ID de l’application.|  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `app-actions` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `app-actions` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Applications](api-management-user-profile-templates.md#Applications)  
   
@@ -88,7 +80,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
  Aucune.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `basic-signin` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `basic-signin` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Connexion](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
  Aucune.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `paging-control` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `paging-control` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Liste d’API](api-management-api-templates.md#APIList)  
   
@@ -130,7 +122,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
  Aucune.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `providers` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `providers` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Connexion](api-management-page-templates.md#SignIn)  
   
@@ -149,7 +141,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
  Aucune.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `search-control` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `search-control` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Liste d’API](api-management-api-templates.md#APIList)  
   
@@ -170,7 +162,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
  Aucune.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `sign-up` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `sign-up` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Inscription](api-management-page-templates.md#SignUp)  
   
@@ -189,7 +181,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
  Aucune.  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `subscribe-button` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `subscribe-button` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Produit](api-management-product-templates.md#Product)  
   
@@ -214,7 +206,7 @@ Gestion des API Azure fournit les contrôles suivants à utiliser dans les modè
 |cancelUrl|URL permettant d’annuler l’abonnement.|  
   
 ### <a name="developer-portal-templates"></a>Modèles du portail des développeurs  
- Le contrôle `subscription-cancel` peut être utilisé dans les modèles suivants du portail des développeurs.  
+ Le contrôle `subscription-cancel` peut être utilisé dans les modèles suivants du portail des développeurs :  
   
 -   [Produit](api-management-product-templates.md#Product)
 

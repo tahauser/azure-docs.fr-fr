@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e9296241b2128c9abe762f595161895948c8f70c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Capture d'une machine virtuelle Linux classique en tant qu'image
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
    > [!NOTE]
    > Les étapes restantes supposent que vous avez déjà [installé l’interface CLI Azure](../../../cli-install-nodejs.md) sur votre ordinateur client. Toutes les étapes suivantes peuvent également être effectuées dans le [Portail Azure](http://portal.azure.com).
 
-5. À partir de votre ordinateur client, ouvrez la CLI Azure et connectez-vous à votre abonnement Azure. Pour plus d’informations, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../../../xplat-cli-connect.md).
+5. À partir de votre ordinateur client, ouvrez la CLI Azure et connectez-vous à votre abonnement Azure. Pour plus d’informations, consultez [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](/cli/azure/authenticate-azure-cli).
 
    > [!NOTE]
    > Connectez-vous au Portail Azure.

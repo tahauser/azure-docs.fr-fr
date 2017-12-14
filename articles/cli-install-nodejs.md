@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Installer l’interface de ligne de commande Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 > * [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> Cette rubrique explique comment installer l’interface de ligne de commande Azure CLI 1.0, qui est basée sur nodeJs et prend en charge tous les appels d’API de déploiement classique ainsi qu’un grand nombre d’activités de déploiement Resource Manager. Vous devez utiliser l’[interface de ligne de commande Azure CLI 2.0](/cli/azure/overview) pour les déploiements et la gestion, nouveaux et prospectifs, des interfaces de ligne de commande Azure.
+> Cette rubrique décrit comment installer Azure CLI 1.0. Cette interface est dépréciée et doit être utilisée uniquement pour la prise en charge avec le modèle Azure Service Management (ASM) avec des ressources « classiques ».
+> Pour les déploiements Azure Resource Manager (ARM), utilisez [Azure CLI 2.0](/cli/azure/overview).
 
 Installez rapidement l’interface de ligne de commande Azure (Azure CLI 1.0) pour bénéficier d’un ensemble de commandes shell open source permettant de créer et de gérer les ressources dans Microsoft Azure. Vous avez plusieurs options pour installer ces outils multiplateformes sur votre ordinateur :
 
@@ -38,7 +39,7 @@ Installez rapidement l’interface de ligne de commande Azure (Azure CLI 1.0) p
 
 Pour obtenir davantage d’options générales et de contexte, consultez le référentiel du projet sur [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Une fois l’interface de ligne de commande Azure CLI 1.0 installée, [connectez-vous à l’aide de votre abonnement Azure](xplat-cli-connect.md) et exécutez les commandes **azure** depuis votre interface de ligne de commande (Bash, Terminal, invite de ligne de commande, etc.) pour travailler avec vos ressources Azure.
+Une fois l’interface de ligne de commande Azure CLI 1.0 installée, [connectez-vous à l’aide de votre abonnement Azure](/cli/azure/authenticate-azure-cli) et exécutez les commandes **azure** depuis votre interface de ligne de commande (Bash, Terminal, invite de ligne de commande, etc.) pour travailler avec vos ressources Azure.
 
 ## <a name="option-1-install-an-npm-package"></a>Option 1 : Installer un package npm
 Pour installer l’interface CLI à partir d’un package npm, vérifiez que vous avez téléchargé et installé les [derniers fichiers Node.js et npm](https://nodejs.org/en/download/package-manager/). Ensuite, exécutez **npm install** pour installer le package azure-cli :
@@ -98,7 +99,7 @@ Pour afficher la version de l’interface Azure CLI 1.0 que vous avez installé
 azure --version
 ```
 
-Vous avez terminé l’installation. Pour accéder à toutes les commandes de l’interface de ligne de commande et travailler avec vos propres ressources, [connectez-vous à votre abonnement Azure à partir de l’interface de ligne de commande Azure](xplat-cli-connect.md).
+Vous avez terminé l’installation. Pour accéder à toutes les commandes de l’interface de ligne de commande et travailler avec vos propres ressources, [connectez-vous à votre abonnement Azure à partir de l’interface de ligne de commande Azure](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > Lorsque vous utilisez l’interface de ligne de commande Azure pour la première fois, vous voyez un message vous demandant si vous souhaitez autoriser Microsoft à recueillir des informations d’utilisation. La participation se fait sur la base du volontariat. Si vous choisissez de participer, vous pouvez arrêter à tout moment en exécutant `azure telemetry --disable`. Pour activer la participation, exécutez `azure telemetry --enable`.
@@ -128,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Se connecter à partir de l’interface de ligne de commande à votre abonnement Azure](xplat-cli-connect.md) pour créer et gérer des ressources Azure.
+* [Se connecter à partir de l’interface de ligne de commande à votre abonnement Azure](/cli/azure/authenticate-azure-cli) pour créer et gérer des ressources Azure.
 * Pour plus d'informations sur l'interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir [Référentiel GitHub pour l'interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli)(en anglais).
 * Si vous avez des questions sur l’utilisation de l’interface de ligne de commande Azure ou sur l’utilisation d’Azure, consultez les [forums Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 

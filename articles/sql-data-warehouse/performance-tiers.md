@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Niveaux de performance d’Azure SQL Data Warehouse (préversion)
 SQL Data Warehouse offre deux niveaux de performance optimisés pour les charges de travail analytiques. Cet article explique les concepts des niveaux de performance pour vous aider à choisir celui qui est le plus approprié pour votre charge de travail. 
 
-
 ## <a name="what-is-a-performance-tier"></a>Qu’est-ce qu’un niveau de performance ?
 Un niveau de performance est une option déterminant la configuration de votre entrepôt de données. Cette option est l’un des premiers choix que vous opérez lors de la création d’un entrepôt de données.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - Le **niveau de performance Optimisé pour l’élasticité** sépare les couches de calcul et de stockage dans l’architecture. Cette option convient parfaitement à des charges de travail qui peuvent exploiter au maximum la séparation entre le calcul et le stockage en effectuant des mises à l’échelle régulières pour prendre en charge de brèves périodes de pic d’activité. Ce niveau de calcul est proposé à un prix très attractif, et peut être mis à l’échelle pour prendre en charge la majorité des charges de travail des clients.
 

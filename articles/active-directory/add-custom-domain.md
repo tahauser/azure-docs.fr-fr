@@ -3,7 +3,7 @@ title: "Ajouter un domaine personnalisé à Azure AD | Microsoft Docs"
 description: "Explique comment ajouter un domaine personnalisé dans Azure Active Directory."
 services: active-directory
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 27e7449f039da8f7661d113999e1c4e5d76c3cf6
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e7b85d5f4cd19c94fe904f16090e174d87ea120b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Démarrage rapide : Ajouter un nom de domaine personnalisé dans Azure Active Directory
 

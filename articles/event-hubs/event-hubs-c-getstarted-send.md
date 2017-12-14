@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 25311958314cca049d109ecbe3f46aaaa36b694d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envoyer des événements vers Azure Event Hubs avec C
 
@@ -27,16 +27,16 @@ Les concentrateurs d’événements représentent un système d’ingestion à l
 
 Pour plus d’informations, consultez la [Vue d’ensemble des concentrateurs d’événements][Vue d’ensemble des concentrateurs d’événements].
 
-Dans ce didacticiel, vous allez apprendre à envoyer des événements à un Event Hub à l’aide d’une application console en C. Pour recevoir des événements, cliquez sur le langage de réception approprié dans la table des matières de gauche.
+Ce didacticiel explique comment envoyer des événements à un hub d’événements à l’aide d’une application console en C. Pour en savoir plus sur la réception d’événements, cliquez sur le langage de réception approprié dans la table des matières de gauche.
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC est sur une machine virtuelle Linux Azure dotée du système d’exploitation Ubuntu 14.04.
+* Un environnement de développement en C. Ce didacticiel présuppose que la pile GCC est sur une machine virtuelle Linux Azure dotée du système d’exploitation Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Envoi de messages vers Event Hubs
-Dans cette section, nous allons écrire une application en C pour envoyer des événements à votre concentrateur d’événements. Le code utilise la bibliothèque Proton AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l’utilisation des rubriques et des files d’attente Service Bus avec AMQP en partant du langage C comme indiqué [ici](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d’informations, consultez la [documentation Qpid Proton](http://qpid.apache.org/proton/index.html).
+Cette section explique comment écrire une application en C pour envoyer des événements à votre hub d’événements. Le code utilise la bibliothèque Proton AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l’utilisation de rubriques et de files d’attente Service Bus avec AMQP en partant du langage C comme indiqué dans [cet exemple](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d’informations, consultez la [Documentation Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. Dans la [page Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html), suivez les instructions d’installation de Qpid Proton correspondant à votre environnement.
 2. Pour compiler la bibliothèque Proton, installez les packages suivants :
@@ -59,7 +59,7 @@ Dans cette section, nous allons écrire une application en C pour envoyer des é
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. Dans le répertoire de travail, créez un fichier nommé **sender.c** avec le code suivant. N’oubliez pas de remplacer la valeur du nom de votre concentrateur d’événements et du nom de votre espace de noms. Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Dans le répertoire de travail, créez un fichier nommé **sender.c** avec le code suivant. N’oubliez pas de remplacer les valeurs pour votre nom/clé SAS, votre nom de hub d’événements et votre espace de noms. Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -147,15 +147,13 @@ Dans cette section, nous allons écrire une application en C pour envoyer des é
     ```
 
     > [!NOTE]
-    > Dans ce code, nous utilisons une fenêtre sortante de 1 pour forcer l’envoi des messages dès que possible. En général, votre application doit essayer d’envoyer les messages par lot pour augmenter le débit. Consultez la [page Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) pour plus d’informations sur l’utilisation de la bibliothèque Qpid Proton dans l’ensemble des environnements et à partir des plateformes pour lesquelles des liaisons sont fournies (actuellement Perl, PHP, Python et Ruby).
+    > Ce code utilise une fenêtre sortante de 1 pour forcer l’envoi des messages dès que possible. Il est recommandé que votre application essaie d’envoyer les messages par lot pour augmenter le débit. Consultez la [page Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) pour plus d’informations sur l’utilisation de la bibliothèque Qpid Proton dans l’ensemble des environnements et à partir des plateformes pour lesquelles des liaisons sont fournies (actuellement Perl, PHP, Python et Ruby).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md
-)
-* [Créer un concentrateur d’événements](event-hubs-create.md)
+* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)
 
 <!-- Images. -->

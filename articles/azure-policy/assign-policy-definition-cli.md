@@ -5,42 +5,27 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant l’interface de ligne de commande Azure
 
 La première étape pour comprendre la conformité dans Azure est de savoir où vous en êtes avec vos propres ressources actuelles. Ce démarrage rapide vous guide pas à pas dans le processus de création d’une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques gérés.
 
 À la fin de ce processus, vous aurez identifié correctement les machines virtuelles qui n’utilisent pas de disques gérés et qui sont par conséquent *non conformes*.
-.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="opt-in-to-azure-policy"></a>Choisir Azure Policy
-
-Azure Policy est désormais disponible en préversion publique et vous devez vous inscrire pour en demander l’accès.
-
-1. Accédez à Azure Policy sur https://aka.ms/getpolicy et sélectionnez **S’inscrire** dans le volet gauche.
-
-   ![Rechercher une stratégie](media/assign-policy-definition/sign-up.png)
-
-2. Acceptez Stratégie Azure en sélectionnant dans la liste **Abonnement** les abonnements que vous voulez utiliser. Sélectionnez ensuite **Inscription**.
-
-   ![Accepter l’utilisation d’Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Votre requête est approuvée automatiquement pour la préversion. Patientez 30 minutes pour que le système traite votre inscription.
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
@@ -66,7 +51,7 @@ Fournissez ensuite les informations suivantes et exécutez la commande suivante 
 - **Stratégie** : c’est la définition de stratégie, que vous utilisez comme base pour créer l’affectation. Dans ce cas, il s’agit de la définition de stratégie *Audit Virtual Machines without Managed Disks (Auditer des machines virtuelles sans disques gérés)*.
 - Une **étendue** : une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources.
 
-  Utilisez l’abonnement (ou le groupe de ressources) que vous avez enregistré précédemment lorsque vous avez accepté Stratégie Azure. Dans cet exemple, nous utilisons l’ID d’abonnement **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** et le nom de groupe de ressources **FabrikamOMS**. Veillez à remplacer ces paramètres par l’ID d’abonnement et le nom du groupe de ressources que vous utilisez.
+  Utilisez l’abonnement (ou le groupe de ressources) précédemment enregistré. Dans cet exemple, nous utilisons cet ID d’abonnement : **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** et le nom de groupe de ressources : **FabrikamOMS**. Veillez à remplacer ces paramètres par l’ID d’abonnement et le nom du groupe de ressources que vous utilisez.
 
 La commande doit ressembler à ceci :
 

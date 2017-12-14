@@ -19,17 +19,17 @@ ms.date: 11/03/2017
 ms.author:
 - kraigb
 - justcla
-ms.openlocfilehash: 5a0dd3d123cb0d580ea753cebc36ebcdb7084db9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
 
 Ce document décrit comment publier une application web ASP.NET sur une machine virtuelle Azure à l’aide de la fonctionnalité de publication **Machines virtuelles Microsoft Azure** dans Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Pour pouvoir publier un projet ASP.NET sur une machine virtuelle Azure à l’aide de Visual Studio, vous devez configurer la machine virtuelle correctement.
 
 - Elle doit être configurée pour exécuter une application web ASP.NET et WebDeploy doit être installé.
@@ -119,7 +119,7 @@ Vos paramètres doivent ressembler à ce qui suit :
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Configurer l’intégration continue/la livraison continue pour le déploiement automatisé sur Machines virtuelles Azure
 
-Pour configurer un pipeline de livraison continue avec Visual Studio Team Service, consultez [Déployer sur une machine virtuelle Windows](https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Pour configurer un pipeline de livraison continue avec Visual Studio Team Service, consultez [Déployer sur une machine virtuelle Windows](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

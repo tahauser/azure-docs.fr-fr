@@ -19,7 +19,7 @@ Les comptes de stockage d’objets blob exposent l’attribut **Access Tier** , 
 * Un niveau d’accès **chaud** qui indique que les objets du compte de stockage seront sollicités plus fréquemment. Il permet de stocker des données moyennant un coût d’accès inférieur.
 * Un niveau d’accès **froid** qui indique que les objets du compte de stockage seront sollicités moins fréquemment. Il permet de stocker des données moyennant un coût de stockage inférieur.
 
-Si le modèle d’utilisation de vos données est modifié, vous pouvez également basculer entre ces niveaux d’accès à tout moment. La modification du niveau d’accès peut entraîner des frais supplémentaires. Consultez [Comptes de stockage d’objets blob - Tarification et facturation](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) pour plus de détails.
+Si le modèle d’utilisation de vos données est modifié, vous pouvez également basculer entre ces niveaux d’accès à tout moment. La modification du niveau d’accès peut entraîner des frais supplémentaires. Consultez [Comptes de stockage d’objets blob - Tarification et facturation](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) pour plus de détails.
 
 Pour plus d’informations sur les comptes de stockage d’objets blob, voir [Stockage d’objets blob Azure : niveaux froid et chaud](../articles/storage/blobs/storage-blob-storage-tiers.md)
 

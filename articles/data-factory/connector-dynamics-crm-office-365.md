@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copier des données vers et depuis Dynamics CRM et 365 à l’aide d’Azure Data Factory
 
@@ -30,14 +30,20 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 
 Vous pouvez copier des données de Dynamics 365/Dynamics CRM vers toute banque de données réceptrice prise en charge, et de toute banque de données source prise en charge vers Dynamics 365/Dynamics CRM. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs pour l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Plus précisément, ce connecteur Dynamics prend en charge les versions et les types d’authentification de Dynamics ci-dessous :
+Ce connecteur Dynamics prend en charge les versions et les types d’authentification de Dynamics ci-dessous (*IFD, pour Internet Facing Deployment*) :
 
 | Versions de Dynamics | Types d’authentification | Exemples de services liés |
 |:--- |:--- |:--- |
 | Dynamics 365 (en ligne) <br> Dynamics CRM (en ligne) | office365 | [Dynamics en ligne + authentification Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 local avec IFD <br> Dynamics CRM 2016 local avec IFD <br> Dynamics CRM 2015 local avec IFD | IFD | [Dynamics local avec IFD + authentification IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD sont les initiales de « Internet Facing Deployment » (déploiement avec accès via Internet).*
+Plus spécifiquement pour Dynamics 365, les types d’applications suivants sont pris en charge :
+
+- Dynamics 365 pour les ventes
+- Dynamics 365 pour le service client
+- Dynamics 365 pour le service après-vente
+- Dynamics 365 pour l’automatisation de service de projet
+- Dynamics 365 pour le marketing
 
 > [!NOTE]
 > Pour utiliser le connecteur Dynamics, stockez votre mot de passe dans Azure Key Vault et laissez l’activité de copie d’Azure Data Factory le récupérer lors de l’exécution d’une copie de données. Découvrez comment configurer dans la section relative aux [propriétés de service lié](#linked-service-properties).
@@ -62,7 +68,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 | authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | Oui |
 | username | Spécifiez le nom d’utilisateur pour la connexion à Dynamics. | Oui |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous devez placer le mot de passe dans Azure Key Vault et le configurer en tant que « AzureKeyVaultSecret ». Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| connectVia | [Integration Runtime](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime Azure Integration Runtime par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
 >[!IMPORTANT]
 >Pour copier des données dans Dynamics, vous devez [créer un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) explicitement à un emplacement proche de Dynamics et l’associer au service lié, comme dans l’exemple suivant.
@@ -111,7 +117,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 | authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | Oui |
 | username | Spécifiez le nom d’utilisateur pour la connexion à Dynamics. | Oui |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Notez que vous devez placer le mot de passe dans Azure Key Vault et le configurer en tant que « AzureKeyVaultSecret ». Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| connectVia | [Integration Runtime](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime Azure Integration Runtime par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
 >[!IMPORTANT]
 >Pour copier des données dans Dynamics, vous devez [créer un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) explicitement à un emplacement proche de Dynamics et l’associer au service lié, comme dans l’exemple suivant.

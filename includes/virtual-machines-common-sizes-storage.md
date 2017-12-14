@@ -8,10 +8,10 @@ ACU : 180-240
  
 | Taille          | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max : E/S par seconde / Mbits/s | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standard_L4s   | 4    | 32   | 678   | 8    | 20,000 / 200   | 10 000 / 250        | 2 / 4,000  | 
-| Standard_L8s   | 8    | 64   | 1,388 | 16   | 40,000 / 400   | 20 000 / 500       | 4 / 8,000  | 
-| Standard_L16s  | 16   | 128  | 2,807 | 32   | 90.000 / 800   | 10,000 / 1,000       | 8 / 6,000 - 16,000 &#8224; | 
-| Standard_L32s* | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 90,000 / 2,000     | 8 / 20,000 | 
+| Standard_L4s   | 4    | 32   | 678   | 16    | 20 000 / 200   | 10 000 / 250        | 2 / 4,000  | 
+| Standard_L8s   | 8    | 64   | 1 388 | 32   | 40 000 / 400   | 20 000 / 500       | 4 / 8 000  | 
+| Standard_L16s  | 16   | 128  | 2 807 | 64   | 80 000 / 800   | 40 000 / 1 000       | 8 / 6 000 - 16 000 &#8224; | 
+| Standard_L32s* | 32   | 256  | 5,630 | 64   | 160 000 / 1 600   | 80 000 / 2 000     | 8 / 20 000 | 
  
 
 Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md). 

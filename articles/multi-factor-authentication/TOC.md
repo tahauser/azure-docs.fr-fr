@@ -13,7 +13,6 @@
 # Procédures
 ## Déployer et utiliser
 ### [Configurer les paramètres](multi-factor-authentication-whats-next.md)
-#### [Utiliser le portail phonefactor](multi-factor-authentication-whats-next-pfweb.md)
 ### [Rapports dans MFA](multi-factor-authentication-manage-reports.md)
 ### [Utiliser des serveurs de stratégie réseau existants](multi-factor-authentication-nps-extension.md)
 #### [Configuration avancée pour l’extension NPS](nps-extension-advanced-configuration.md)

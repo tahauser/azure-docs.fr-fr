@@ -12,22 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="azure-api-management-developer-portal-templates"></a>Modèles du portail des développeurs Gestion des API Azure
+# <a name="developer-portal-templates"></a>Modèles du portail des développeurs
+
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
   
- Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).  
+Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).  
 
-
-
-  
 ##  <a name="DeveloperPortalTemplates"></a> Modèles du portail des développeurs  
   
 -   [API](api-management-api-templates.md)  
@@ -60,9 +58,9 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
     -   [Inscription](api-management-page-templates.md#SignUp)  
     -   [Page introuvable](api-management-page-templates.md#PageNotFound)
 
-
 ## <a name="next-steps"></a>Étapes suivantes  
--   [Référence de modèle](api-management-developer-portal-templates-reference.md)  
--   [Référence du modèle de données](api-management-template-data-model-reference.md)  
--   [Contrôles de page](api-management-page-controls.md)  
--   [Ressources de modèle](api-management-template-resources.md)
+
++ [Référence de modèle](api-management-developer-portal-templates-reference.md)  
++ [Référence du modèle de données](api-management-template-data-model-reference.md)  
++ [Contrôles de page](api-management-page-controls.md)  
++ [Ressources de modèle](api-management-template-resources.md)

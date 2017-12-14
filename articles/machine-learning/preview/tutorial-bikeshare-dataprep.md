@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Didacticiel BikeShare : Préparation de données avancée avec Azure Machine Learning Workbench
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -201,7 +201,7 @@ Pour retourner dans la __vue de données__, sélectionnez __Données__ dans l’
    ![Image de la boîte de dialogue de filtrage](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM-15 est un type de rapport d’observation météorologique pour l’aviation (METAR). Les rapports FM-15 sont les observations empiriques les plus complètes, auxquelles il manque le moins de données.
+   > FM-15 est un type de rapport d’observation météorologique pour l’aviation (METAR). Les rapports FM 15 sont observés de manière empirique afin d’être les plus complets possible, avec peu de données manquantes.
 
 ## <a name="remove-a-column"></a>Supprimer une colonne
 

@@ -4,7 +4,7 @@ description: "Instructions détaillées sur la configuration et l’utilisation 
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: bryanla
-ms.openlocfilehash: 25bbe7bbfbc32441cd3dbbb1e213fdce556b410b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configurer l’identité du service administré (MSI) d’une machine virtuelle à l’aide d’un Kit de développement logiciel (SDK) Azure
 

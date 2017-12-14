@@ -3,7 +3,7 @@ title: Prise en main de Azure Active Directory | Microsoft Docs
 description: "Obtenir des licences, ajouter un nom de domaine, créer une page de connexion personnalisée et ajouter la réinitialisation du mot de passe libre-service dans Azure Active Directory"
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Prise en main de Azure AD
 La gestion moderne des identités requiert une fiabilité évolutive et cohérente pour garantir la disponibilité des applications et des services uniquement aux utilisateurs authentifiés. Pour prendre correctement en charge les besoins de gestion d’identité des utilisateurs, le service informatique doit disposer d’un moyen de fournir un accès aux applications SaaS publics approuvées, un moyen d’accueillir une ligne interne d’applications métiers et même des moyens pour améliorer le développement et l’utilisation d’applications locales. Toutes ces exigences montrent la nécessité de disposer d’une solution de gestion d’identité basée sur le cloud.      

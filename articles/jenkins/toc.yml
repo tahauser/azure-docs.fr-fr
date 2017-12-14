@@ -26,6 +26,9 @@
     - name: Mettre à l’échelle avec les agents de machines virtuelles Azure
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
+    - name: Génération à l’aide d’Azure Container Instances
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      maintainContext: true
 - name: Procédure
   items:
     - name: Jenkins sécurisé sur Azure

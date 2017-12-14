@@ -6,19 +6,18 @@ documentationcenter:
 author: antonba
 manager: erikre
 editor: 
-ms.assetid: 64b58f7b-ca22-47dc-89c0-f6bb0af27a48
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
@@ -100,7 +99,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 * **Configuration du serveur DNS personnalisée** : le service de la gestion des API dépend de plusieurs services Azure. Si la gestion des API est hébergée dans un réseau virtuel comportant un serveur DNS personnalisé, il doit résoudre les noms d’hôte de ces services Azure. Veuillez suivre [ce](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guide sur la configuration de serveurs DNS personnalisée. Consultez le tableau des ports ci-dessous et les autres exigences en matière de réseau pour référence.
 
 > [!IMPORTANT]
-> Si vous utilisez des serveurs DNS personnalisés pour le réseau virtuel, nous vous recommandons de le configurer **avant** d’y déployer un service Gestion des API. Sinon, vous devez mettre à jour le service Gestion des API chaque fois que vous changez les serveurs DNS en exécutant l’[opération Appliquer une configuration réseau](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Si vous utilisez des serveurs DNS personnalisés pour le réseau virtuel, nous vous recommandons de le configurer **avant** d’y déployer un service Gestion des API. Sinon, vous devez mettre à jour le service Gestion des API chaque fois que vous changez les serveurs DNS en exécutant l’[opération Appliquer une configuration réseau](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Ports requis pour la gestion des API** : le trafic entrant et sortant dans un sous-réseau dans lequel est déployée la gestion des API peut être contrôlé à l’aide du [groupe de sécurité réseau][Network Security Group]. Si ces ports ne sont pas disponibles, la gestion des API risque de ne pas fonctionner correctement et d’être inaccessible. Le blocage d’un ou plusieurs de ces ports constitue un autre problème de configuration courant lorsque vous utilisez la gestion des API dans un réseau virtuel.
 
@@ -110,11 +109,11 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Communication client avec Gestion des API|Externe |
 | * / 3443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Point de terminaison de gestion pour le portail Azure et Powershell |Interne |
-| * / 80, 443 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès aux points de terminaison de stockage Azure** |Externe et interne |
+| * / 80, 443 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance envers Stockage Azure, Azure Service Bus et Azure Active Directory (le cas échéant).|Externe et interne | 
 | * / 1433 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès aux points de terminaison de SQL Azure** |Externe et interne |
 | * / 11000 - 11999 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès à SQL Azure V12** |Externe et interne |
 | * / 14000 - 14999 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès à SQL Azure V12** |Externe et interne |
-| * / 5671 |Règle de trafic sortant |AMQP |VIRTUAL_NETWORK / INTERNET|Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |Externe et interne |
+| * / 5671, 5672 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |Externe et interne |
 | * / 445 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance sur le partage de fichiers Azure pour GIT |Externe et interne |
 | * / 25028 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Se connecter au relais SMTP pour envoyer des e-mails |Externe et interne |
 | * / 6381 - 6383 |Trafic entrant et sortant |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Accès aux instances de cache Redis entre instances de rôle |Externe et interne |
@@ -135,6 +134,8 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
  * L’itinéraire défini par l'utilisateur appliqué au sous-réseau contenant la gestion des API Azure définit 0.0.0.0/0 avec un type de tronçon Internet suivant.
  Le résultat est que l’itinéraire défini par l'utilisateur au niveau du sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir de la gestion des API Azure.
 
+**Acheminement via des appliances virtuelles réseau** : les configurations utilisant un routage défini par l’utilisateur avec un itinéraire par défaut (0.0.0.0/0) pour acheminer le trafic destiné à Internet à partir du sous-réseau de gestion des API via une appliance virtuelle réseau s’exécutant dans Azure empêcheront une communication complète entre la gestion des API et les services requis. Cette configuration n’est pas prise en charge. 
+
 >[!WARNING]  
 >La gestion des API Azure n’est pas prise en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d’adresses sont incorrectement publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’instance de la gestion des API Azure sont incorrectement acheminés de force vers l’infrastructure réseau sur site d’un client. Ce flux réseau interrompt la gestion des API Azure. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.
 
@@ -147,7 +148,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
  > [!IMPORTANT]
  > Après avoir validé la connectivité, veillez à supprimer toutes les ressources déployées sur le sous-réseau avant d’y déployer le service Gestion des API.
 
-* **Mises à jour incrémentielles** : quand vous modifiez votre réseau, consultez [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus) pour vérifier que le service Gestion des API n’a pas perdu l’accès aux ressources critiques dont il dépend. L’état de connectivité doit être mis à jour toutes les 15 minutes.
+* **Mises à jour incrémentielles** : quand vous modifiez votre réseau, consultez [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus) pour vérifier que le service Gestion des API n’a pas perdu l’accès aux ressources critiques dont il dépend. L’état de connectivité doit être mis à jour toutes les 15 minutes.
 
 * **Liens de navigation de ressources** : pendant le déploiement sur le sous-réseau de réseau virtuel de type Gestionnaire des ressources, le service Gestion des API réserve le sous-réseau, en créant un lien de navigation de ressource. Si le sous-réseau contient déjà une ressource d’un autre fournisseur, le déploiement **échoue**. De même, quand vous déplacez un service Gestion des API vers un autre sous-réseau ou que vous le supprimez, nous supprimons ce lien de navigation de ressource. 
 

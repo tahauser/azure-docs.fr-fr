@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 42a0e7a3816e0f1d96951feac210e5770add4fe1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Déployer Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Nous vous recommandons fortement de lire les articles [Planification d’un déploiement Azure Files](storage-files-planning.md) et [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) avant d’effectuer les étapes décrites dans cet article.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 * Avoir un compte de stockage Azure et un partage de fichiers Azure dans la même région où vous souhaitez déployer Azure File Sync. Pour plus d'informations, consultez les pages suivantes :
     - [Disponibilité des régions](storage-sync-files-planning.md#region-availability) pour Azure File Sync.
     - [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour obtenir une procédure pas à pas de la création d’un compte de stockage.
@@ -118,6 +118,22 @@ Pour ajouter le point de terminaison de serveur, sélectionnez **Créer**. Vos f
 
 > [!Important]  
 > Vous pouvez apporter des modifications à un point de terminaison cloud ou un point de terminaison de serveur dans le groupe de synchronisation, et synchroniser vos fichiers avec les autres points de terminaison du groupe de synchronisation. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
+
+## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrer un déploiement de la réplication DFS (DFS-R) vers Azure File Sync
+Pour migrer un déploiement de DFS-R vers Azure File Sync :
+
+1. Créez un groupe de synchronisation pour représenter la topologie DFS-R que vous remplacez.
+2. Démarrez sur le serveur contenant le jeu de données complet de votre topologie DFS-R à migrer. Installez Azure File Sync sur ce serveur.
+3. Inscrivez ce serveur et créez un point de terminaison de serveur pour le premier serveur à migrer. N’activez pas la hiérarchisation cloud.
+4. Laissez l’ensemble de la synchronisation des données sur votre partage de fichiers Azure (point de terminaison de cloud).
+5. Installez et inscrivez l’agent Azure File Sync sur tous les autres serveurs DFS-R.
+6. Désactivez DFS-R. 
+7. Créez un point de terminaison de serveur sur tous les serveurs DFS-R. N’activez pas la hiérarchisation cloud.
+8. Vérifiez la synchronisation est terminée et testez votre topologie comme vous le souhaitez.
+9. Mettez DFS-R hors service.
+10. La hiérarchisation cloud peut maintenant être activée sur n’importe quel point de terminaison de serveur souhaité.
+
+Pour plus d’informations, consultez [Interopérabilité d’Azure File Sync avec le système de fichiers DFS](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Ajouter ou supprimer un point de terminaison de serveur pour Azure File Sync](storage-sync-files-server-endpoint.md)

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>À quoi correspondent les groupes de machines virtuelles identiques dans Azure ?
 Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques. Toutes les machines virtuelles étant configurées de la même façon, les groupes identiques sont conçus pour prendre en charge une véritable mise à l’échelle automatique (aucun pré-approvisionnement de machine virtuelle n’est nécessaire). Ainsi, il est plus facile de créer des services à grande échelle pour le Big Compute, le Big Data et les charges de travail en conteneurs.
@@ -124,7 +124,7 @@ Cette section répertorie quelques scénarios de groupe identique classiques. Ce
 * Un groupe identique prend en charge jusqu'à 1 000 machines virtuelles. Si vous créez et chargez vos propres images de machine virtuelle personnalisées, la limite est de 300. Pour connaître les aspects à prendre en compte en matière d’utilisation de grands groupes identiques, voir [Utilisation de grands groupes de machines virtuelles identiques](virtual-machine-scale-sets-placement-groups.md).
 * Vous n’êtes pas obligé de créer au préalable des comptes Azure Storage pour utiliser les groupes identiques. Les groupes identiques prennent en charge Azure Managed Disks, qui élimine les problèmes de performances liés au nombre de disques par compte de stockage. Pour plus d’informations, voir [Groupes de machines virtuelles identiques et disques gérés Azure](virtual-machine-scale-sets-managed-disks.md).
 * Envisagez d’utiliser Azure Premium Storage plutôt que le stockage Azure afin d’optimiser les temps d’approvisionnement des machines virtuelles et les performances d’E/S.
-* Le quota de processeurs virtuels dans la région dans laquelle vous effectuez le déploiement limite le nombre de machines virtuelles que vous pouvez créer. Vous devrez peut-être contacter le support technique pour augmenter votre limite de quota de calcul, même si votre limite actuelle de processeurs virtuels utilisables avec Azure Cloud Services est élevée. Pour interroger votre quota, exécutez cette commande de l’interface de ligne de commande Azure : `azure vm list-usage`. Ou bien, exécutez cette commande PowerShell : `Get-AzureRmVMUsage`.
+* Le quota de processeurs virtuels dans la région dans laquelle vous effectuez le déploiement limite le nombre de machines virtuelles que vous pouvez créer. Vous devrez peut-être contacter le support technique pour augmenter votre limite de quota de calcul, même si votre limite actuelle de processeurs virtuels utilisables avec Azure Cloud Services est élevée. Pour interroger votre quota, exécutez cette commande de l’interface de ligne de commande Azure : `az vm list-usage`. Ou bien, exécutez cette commande PowerShell : `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Forum Aux Questions (FAQ) pour les groupes identiques
 **Q.** Combien de machines virtuelles peut-il y avoir dans un groupe identique ?

@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Résolution des problèmes](active-directory-application-proxy-troubleshoot.md)
-#### Utiliser le portail Classic
-##### [Télécharger des connecteurs](application-proxy-enable-classic-portal.md)
-##### [Publiez des applications](active-directory-application-proxy-publish.md)
-##### [Utiliser les connecteurs](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Accès conditionnel](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Gérer les applications d’entreprise
 #### [Affecter des utilisateurs](active-directory-coreapps-assign-user-azure-portal.md)
@@ -224,7 +219,6 @@
 ### [Configurer l’accélération automatique de la connexion à l’aide de la stratégie HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
-#### [Accès libre-service](active-directory-self-service-application-access.md)
 #### [Accès par authentification unique](active-directory-appssoaccess-whatis.md)
 #### [Certificats pour authentification unique](active-directory-sso-certs.md)
 #### [Restrictions du client](active-directory-tenant-restrictions.md)
@@ -289,8 +283,9 @@
 #### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
+#### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
 #### Tâches
-##### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
+##### [Migrer une stratégie MFA classique](active-directory-conditional-access-migration-mfa.md)
 ##### [Configurer l’accès conditionnel basé sur les appareils](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configurer l’accès conditionnel basé sur les applications](active-directory-conditional-access-mam.md)
 ##### [Fournir des conditions d’utilisation pour les utilisateurs et les applications](active-directory-tou.md)

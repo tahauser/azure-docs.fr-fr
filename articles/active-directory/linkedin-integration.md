@@ -3,7 +3,7 @@ title: "Configurer l’intégration de LinkedIn dans Azure AD | Microsoft Docs"
 description: "Explique comment activer et désactiver l’intégration LinkedIn aux applications Microsoft dans Azure Active Directory."
 services: active-directory
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 48b26bfcce67ce915c404a0ab2ac0f399c3b821d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c161542d6826e6aeb5f708a0d9c3fa1f1885e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enabling-linkedin-integration-in-azure-active-directory"></a>Activation de l’intégration LinkedIn dans Azure Active Directory
 L’activation de l’intégration LinkedIn permet aux utilisateurs d’accéder aux données LinkedIn publiques et, s’ils le souhaitent, d’accéder à leur réseau LinkedIn personnel à partir d’applications Microsoft. Chaque utilisateur peut choisir de connecter son compte professionnel à son compte LinkedIn.

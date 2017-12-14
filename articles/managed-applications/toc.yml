@@ -12,8 +12,6 @@
   items:
     - name: Créer l’application de catalogue de services
       href: publish-service-catalog-app.md
-    - name: Créer l’application de la Place de marché
-      href: publish-marketplace-app.md
 - name: Exemples
   items:
     - name: Interface de ligne de commande Azure

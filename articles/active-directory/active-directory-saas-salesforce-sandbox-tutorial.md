@@ -4,7 +4,7 @@ description: "Découvrez comment configurer une authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 128d04fdf191b60441b695efef2bf602920d80e6
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 16b60342106c69cb9959aad539b794cb8003acda
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
 
@@ -133,7 +133,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-sandbox-tutorial/configure1.png)
 
-9. Faites défiler jusqu'à **SETTINGS** dans le volet de navigation, et cliquez sur **Identity** pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique**.
+9. Dans le volet de navigation, accédez à **SETTINGS** et cliquez sur **Identity** pour développer la section associée. Puis cliquez sur **Paramètres de l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso.png)
 
@@ -157,9 +157,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     d. Dans **Identity Provider Certificate**, cliquez sur **Choose File** pour sélectionner le fichier de certificat que vous avez téléchargé à partir du portail Azure.  
 
-    e. Comme **SAML Identity Type**, choisissez l’une des options suivantes :
+    e. Comme **SAML Identity Type**, choisissez l’une des options suivantes :
     
-      * Sélectionnez **Assertion contains the User's Salesforce username** si le Salesforce Username de l’utilisateur est passé dans l’assertion SAML.
+      * Sélectionnez **Assertion contains the User’s Salesforce username** si le Salesforce Username de l’utilisateur est passé dans l’assertion SAML.
 
       * Sélectionnez **Assertion contains the Federation ID from the User object** si le Federation ID de l’objet User est passé dans l’assertion SAML.
 

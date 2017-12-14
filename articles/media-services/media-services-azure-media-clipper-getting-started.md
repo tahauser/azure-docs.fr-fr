@@ -1,6 +1,6 @@
 ---
 title: "Bien démarrer avec Azure Media Clipper | Microsoft Docs"
-description: "Bien démarrer avec Azure Media Clipper, outil de création de clips multimédias à partir d’actifs."
+description: "Bien démarrer avec Azure Media Clipper, outil de création de clips vidéo à partir d’éléments AMS"
 services: media-services
 keywords: "clip;sous-clip;encodage;média"
 author: dbgeorge
@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8a4f2c79131664ca0d078fa58c6a75b54243e705
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Créer des clips avec Azure Media Clipper
 Cette section montre les étapes de base permettant de bien démarrer avec Azure Media Clipper. Les sections qui suivent fournissent des détails sur la configuration d’Azure Media Clipper.
@@ -102,9 +102,9 @@ Les paramètres de l’appel de méthode d’initialisation sont les suivants :
 - `speedLevels` (FACULTATIF, array) : ce paramètre vous permet de définir différents niveaux de vitesse pour le lecteur vidéo. Pour plus d’informations, consultez la [documentation d’Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions).
 - `resetOnJobDone` (FACULTATIF, valeur booléenne) : ce paramètre permet à Clipper de réinitialiser le sous-découpage à l’état initial quand un travail est envoyé avec succès.
 - `autoplayVideo` (FACULTATIF, valeur booléenne) : ce paramètre permet à Clipper de lire automatiquement la vidéo lors de son chargement. La valeur par défaut est true.
-- `language` {FACULTATIF, chaîne} : définit la langue du widget. Si vous ne spécifiez pas ce paramètre, le widget tente de localiser les messages conformément à la langue du navigateur. Si aucune langue n’est détectée dans le navigateur, le widget utilise l’anglais par défaut. Pour plus d’informations, consultez la section sur les langues prises en charge.
-- `languages`{FACULTATIF, JSON} : ce paramètre remplace le dictionnaire de langues par défaut par un dictionnaire personnalisé défini par l’utilisateur. Pour plus d’informations, consultez la section sur les langues prises en charge.
-- `extraLanguages`(Facultatif, JSON) : ce paramètre ajoute de nouvelles langues au dictionnaire par défaut. Pour plus d’informations, consultez la section sur les langues prises en charge.
+- `language` {FACULTATIF, chaîne} : définit la langue du widget. Si vous ne spécifiez pas ce paramètre, le widget tente de localiser les messages conformément à la langue du navigateur. Si aucune langue n’est détectée dans le navigateur, le widget utilise l’anglais par défaut. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
+- `languages`{FACULTATIF, JSON} : ce paramètre remplace le dictionnaire de langues par défaut par un dictionnaire personnalisé défini par l’utilisateur. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
+- `extraLanguages`(Facultatif, JSON) : ce paramètre ajoute de nouvelles langues au dictionnaire par défaut. Pour plus d’informations, consultez la section [Configurer la localisation](media-services-azure-media-clipper-localization.md).
 
 ## <a name="typescript-definition"></a>Définition de TypeScript
 Vous trouverez un fichier de définition de [TypeScript](https://www.typescriptlang.org/) pour Clipper [ici](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
@@ -112,133 +112,15 @@ Vous trouverez un fichier de définition de [TypeScript](https://www.typescriptl
 ## <a name="azure-media-clipper-api"></a>API Azure Media Clipper
 Cette section décrit la surface d’API fournie par Clipper.
 
-- `load(assets)` : charge une liste d’actifs dans le volet d’actifs (ne doit pas être utilisé avec `assetsPanelLoaderCallback`). Pour plus d’informations sur la façon de charger des actifs dans Clipper, consultez [cet article](media-services-azure-media-clipper-load-assets.md).
+- `ready(handler)` : offre un mode d’exécution de JavaScript dès que le Clipper est complètement chargé et prêt à être utilisé.
+- `load(assets)` : charge une liste d’éléments dans la chronologie d’éléments (ne doit pas être utilisé avec assetsPanelLoaderCallback). Pour plus d’informations sur la façon de charger des actifs dans Clipper, consultez [cet article](media-services-azure-media-clipper-load-assets.md).
 - `setLogLevel(level)` : définit le niveau de journalisation à afficher dans la console du navigateur. Les valeurs possibles sont `info`, `warn` et `error`.
 - `setHeight(height)` : définit la hauteur totale du widget en pixels (la hauteur minimale est de 600 px sans le volet d’actifs, et de 850 px avec le volet d’actifs).
 - `version` : obtient la version de widget.
 
-## <a name="configuring-azure-media-clipper"></a>Configuration d’Azure Media Clipper
+## <a name="next-steps"></a>Étapes suivantes
 Consultez les étapes suivantes pour configurer Azure Media Clipper :
 - [Chargement d’actifs dans Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
 - [Configuration de raccourcis clavier personnalisés](media-services-azure-media-clipper-keyboard-shortcuts.md)
 - [Envoi des travaux de découpage à partir de Clipper](media-services-azure-media-clipper-submit-job.md)
-
-## <a name="supported-languages"></a>Langues prises en charge
-Le widget Clipper est disponible dans 18 langues. Pour définir la langue du widget, vous devez définir le paramètre `language` lors de l’initialisation. Passez la chaîne de code de langue parmi celles de la liste suivante :
-- Chinois (simplifié) : zh-hans
-- Chinois (traditionnel) : zh-hant
-- Tchèque : cs
-- Néerlandais, flamand : nl
-- Anglais : en
-- Français : fr
-- Allemand : de
-- Hongrois : hu
-- Italien : it
-- Japonais : ja
-- Coréen : ko
-- Polonais : pl
-- Portugais (Brésil) : pt-br
-- Portugais (Portugal) : pt-pt
-- Russe : ru
-- Espagnol : es
-- Suédois : sv
-- Turc : tr
-
-Pour définir un dictionnaire personnalisé ou étendre le dictionnaire de langue par défaut, vous devez définir respectivement le paramètre `languages` ou `extraLanguages`. Passez un dictionnaire personnalisé à l’aide du format JSON suivant :
-
-```javascript
-{
-      "{language-code}":
-          "{message-id}": "{message}"
-          ...
-      }
-      ...
-}
-```
-
-Par exemple, l’exemple suivant définit les chaînes localisées en anglais :
-
-```javascript
-export default {
-  'VideoPlayer.noPreview': 'No video preview',
-  'VideoPlayer.loadAsset': 'You must provide a valid asset',
-  'AssetsPanel.name': 'Name',
-  'AssetsPanel.type': 'Asset type',
-  'AssetsPanel.actions': 'Actions',
-  'AssetsPanel.loading': 'Loading...',
-  'AssetsPanel.duration': 'Duration',
-  'AssetsPanel.resolution': 'Resolution',
-  'AssetsPanel.pluralFiles': '{0} assets',
-  'AssetsPanel.searchFiles': 'Search assets',
-  'AssetsPanel.showTypes': 'Show:',
-  'AssetsPanel.typesInfo': 'Rendered assets are actual MP4 files. Dynamic manifest filters are filters applied to a parent asset\'s video segment playlist.',
-  'AssetsPanel.filterTypes': 'Filters',
-  'AssetsPanel.assetTypes': 'Assets',
-  'AssetsPanel.assetsAll': 'All',
-  'AssetsPanel.addAsset': 'Add asset to the end',
-  'AssetsPanel.addFilter': 'Add filter to the timeline',
-  'AssetsPanel.invalidAsset': 'The metadata of this asset is not compatible with the other assets in the timeline',
-  'AssetsPanel.addAssetWarning': 'Subclipping on assets with different resolutions may cause resolution autoscaling.',
-  'AssetsPanel.live': 'LIVE',
-  'AssetsPanel.unknown': 'UNKNOWN',
-  'AssetsPanel.minimGapNotMet': 'The asset duration must be greater than the minimum clip duration ({0} seconds)',
-  'VideoPlayer.openAdvancedSettings': 'Advanced settings',
-  'VideoPlayer.singleBitrate': 'Single-bitrate MP4 (rendered)',
-  'VideoPlayer.multiBitrate': 'Multi-bitrate MP4 (rendered)',
-  'VideoPlayer.dynamicManifest': 'Dynamic manifest filter',
-  'VideoPlayer.ErrorWithMessage': 'There was an error in the video player, code {0}, message: {1}',
-  'Common.cancel': 'Cancel',
-  'Common.OK': 'OK',
-  'AdvancedSettings.framerate': 'Frame rate',
-  'Dropdown.select': 'Select an option...',
-  'InputAsset.RemoveInput': 'Remove source',
-  'Zoom.startTime': 'Start time',
-  'Zoom.endTime': 'End time',
-  'VideoPlayer.subclips': 'Subclips:',
-  'VideoPlayer.length': 'Clip length:',
-  'Accordion.scrollLeft': 'Scroll to the left',
-  'Accordion.scrollRight': 'Scroll to the right',
-  'AdvancedSettings.title': 'Advanced settings',
-  'AdvancedSettings.subclipName': 'Subclip name',
-  'AdvancedSettings.subclipType': 'Subclipping mode',
-  'AdvancedSettings.includeAudioTracks': 'Include audio tracks',
-  'AdvancedSettings.subclipTypeInfo': 'Single-bitrate and multi-bitrate MP4s are frame accurate rendered assets. Dynamic manifest filters are group-of-pictures (GOP) accurate filters applied to a parent asset. Creating filters does not create a new asset and does not require encoding. Subclipping jobs on live assets are valid as long as their mark times are within the archive window of the parent asset. Filters are valid as long as the parent asset exists and mark times are within its archive window.',
-  'AdvancedSettings.frameRateInfo': 'We autodetect frame rate under most scenarios. however, If we cannot autodetect, choose a frame rate from the dropdown for the selected asset(s).',
-  'AdvancedSettings.frameRateError': 'Unable to determine frame rate',
-  'AdvancedSettings.subclipNameInfo': 'Choose a name for your subclip.',
-  'AdvancedSettings.singleAudioTrack': '1 audio track selected',
-  'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
-  'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
-  'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-  'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
-  'AssetsPanel.retry': 'Retry?',
-  'CommandBar.prevFrameTitle': 'Back up one frame',
-  'CommandBar.prevKeyFrameTitle': 'Back up one GOP',
-  'CommandBar.cleanJob': 'Remove all assets',
-  'CommandBar.cleanJobTitle': 'Remove all assets from timeline',
-  'CommandBar.cleanJobMessage': 'This will empty all video clips from your timeline.',
-  'CommandBar.update': 'Update filter',
-  'CommandBar.createFilter': 'Create filter',
-  'CommandBar.submit': 'Submit subclipper job',
-  'CommandBar.jobErrorTitle': 'Operation failed',
-  'CommandBar.jobErrorMessage': 'Your subclip failed to submit. Please try again.',
-  'CommandBar.markInTitle': 'Set in at playhead',
-  'CommandBar.markInPosition': 'Mark in timecode',
-  'CommandBar.markOutTitle': 'Set out at playhead',
-  'CommandBar.markOutPosition': 'Mark out timecode',
-  'CommandBar.nextFrameTitle': 'Advance one frame',
-  'CommandBar.nextKeyFrameTitle': 'Advance one GOP',
-  'CommandBar.play': 'Play video',
-  'CommandBar.pause': 'Pause video',
-  'CommandBar.playPreviewTitle': 'Play subclip preview',
-  'CommandBar.pausePreviewTitle': 'Pause subclip preview',
-  'CommandBar.redoTitle': 'Redo last action',
-  'CommandBar.removeAsset': 'Remove current asset',
-  'CommandBar.undoTitle': 'Undo last action',
-  'VideoPlayer.errorTitle': 'Error',
-  'VideoPlayer.errorMessage': 'There was an error loading the selected asset.',
-  'Timeline.markIn': 'Mark in bracket',
-  'Timeline.markOut': 'Mark out bracket',
-  'Timeline.playHead': 'Play head',
-};
-```
+- [Configuration de la localisation](media-services-azure-media-clipper-localization.md)

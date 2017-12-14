@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Présentation de la référence Standard d’Azure Load Balancer (préversion)
 
@@ -68,7 +68,7 @@ Les groupes à haute disponibilité ne sont plus requis. Cependant, vous pouvez 
 
 La référence Standard de Load Balancer offre de nouvelles fonctionnalités de diagnostic multidimensionnel pour les configurations Load Balancer publiques et internes. Ces nouvelles métriques sont fournies par le biais d’Azure Monitor (préversion) et utilisent toutes les fonctions connexes, y compris la possibilité d’intégration à divers consommateurs en aval.
 
-| Mesure | Description |
+| Métrique | Description |
 | --- | --- |
 | Disponibilité VIP | La référence Standard de Load Balancer teste en continu le chemin de données d’une région vers le serveur frontal Load Balancer, jusqu’à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.|
 | Disponibilité DIP | La référence Standard de Load Balancer utilise un service de détection d’intégrité distribué qui surveille l’intégrité du point de terminaison de votre application en fonction de vos paramètres de configuration. Cette métrique fournit un agrégat ou une vue filtrée par point de terminaison de chaque point de terminaison d’instance dans le pool Load Balancer.  Vous pouvez observer comment Load Balancer voit l’intégrité de votre application comme indiqué par votre configuration de sonde d’intégrité.
@@ -335,7 +335,7 @@ La référence Standard de Load Balancer est actuellement disponible dans ces r�
 
 ## <a name="sku-service-limits-and-abilities"></a>Fonctions et limites de service des références SKU
 
-[Les limites de service pour la mise en réseau Azure](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) s’appliquent par région et par abonnement. 
+[Les limites de service pour la mise en réseau Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) s’appliquent par région et par abonnement. 
 
 Le tableau suivant compare les limites et fonctions des références SKU De base et Standard de Load Balancer :
 

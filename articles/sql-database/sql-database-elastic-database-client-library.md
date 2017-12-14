@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Conception de bases de données cloud évolutives
 La montée en charge des bases de données peut être aisément accomplie à l’aide de fonctionnalités et d’outils évolutifs de bases de données SQL Azure. En particulier, vous pouvez utiliser la **Bibliothèque cliente de bases de données élastiques** pour créer et gérer des bases de données avec montée en charge. Cette fonctionnalité vous permet de développer facilement des applications partitionnées à l'aide de centaines, voire de milliers, de bases de données SQL Azure. [tâches élastiques](sql-database-elastic-jobs-powershell.md) pour faciliter la gestion de ces bases de données.
 
 Pour télécharger :
-* la version .NET de la bibliothèque, consultez [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 * la version Java de la bibliothèque, consultez le dépôt [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* la version .NET de la bibliothèque, consultez [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Documentation
 1. [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md)
@@ -60,11 +60,11 @@ De manière générale, les clients utilisant les outils de base de données él
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Bibliothèque cliente de bases de données élastiques ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) : pour **télécharger** la bibliothèque.
+- Bibliothèque cliente de bases de données élastiques ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) : pour **télécharger** la bibliothèque.
 
 - [Bien démarrer avec les outils de bases de données élastiques](sql-database-elastic-scale-get-started.md) : Pour obtenir un **exemple d’application** illustrant les fonctions des clients.
 
-- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) : pour contribuer au code.
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.NET](https://github.com/Azure/elastic-db-tools)) : pour contribuer au code.
 - [Vue d’ensemble des requêtes élastiques dans Azure SQL Database](sql-database-elastic-query-overview.md) pour utiliser des requêtes élastiques.
 
 - [Déplacement de données entre bases de données cloud mises à l’échelle](sql-database-elastic-scale-overview-split-and-merge.md) pour obtenir des instructions sur l’utilisation de **l’outil de fractionnement et de fusion**.

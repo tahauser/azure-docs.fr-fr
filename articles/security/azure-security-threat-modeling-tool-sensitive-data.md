@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Mesures de correction 
 | Produit/Service | Article |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Application web** | <ul><li>[S’assurer que le contenu sensible n’est pas mis en cache dans le navigateur](#cache-browser)</li><li>[Chiffrer les sections des fichiers de configuration de l’application web qui contiennent des données sensibles](#encrypt-data)</li><li>[Désactiver explicitement l’attribut HTML de saisie semi-automatique dans les formulaires et les entrées sensibles](#autocomplete-input)</li><li>[S’assurer que les données sensibles affichées sur l’écran de l’utilisateur sont masquées](#data-mask)</li></ul> | 
 | **Base de données** | <ul><li>[Implémenter le masquage des données dynamiques pour limiter l’exposition de données sensibles aux utilisateurs non privilégiés](#dynamic-users)</li><li>[S’assurer que les mots de passe sont stockés dans un format de hachage salé](#salted-hash)</li><li>[S’assurer que les données sensibles des colonnes de la base de données sont chiffrées](#db-encrypted)</li><li>[S’assurer que le chiffrement au niveau de la base de données est activé](#tde-enabled)</li><li>[S’assurer que les sauvegardes de base de données sont chiffrées](#backup)</li></ul> | 
 | **API Web** | <ul><li>[S’assurer que les données sensibles concernant l’API Web ne sont pas stockées dans le navigateur](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[Chiffrer les données sensibles stockées dans DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Chiffrer les données sensibles stockées dans Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Délimitation d’approbation de machine virtuelle Azure IaaS** | <ul><li>[Utiliser Azure Disk Encryption pour chiffrer les disques utilisés par les machines virtuelles](#disk-vm)</li></ul> | 
 | **Délimitation d’approbation Service Fabric** | <ul><li>[Chiffrer les secrets dans les applications Service Fabric](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Effectuer la modélisation de sécurité et utiliser les divisions/équipes si nécessaire](#modeling-teams)</li><li>[Réduire l’accès pour partager la fonctionnalité sur les entités critiques](#entities)</li><li>[Former les utilisateurs aux risques liés à la fonctionnalité de partage Dynamics CRM et aux bonnes pratiques de sécurité](#good-practices)</li><li>[Inclure une règle de normes de développement interdisant l’affichage des détails de configuration dans la gestion des exceptions](#exception-mgmt)</li></ul> | 

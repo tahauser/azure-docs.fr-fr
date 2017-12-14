@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Déploiement d’un service web Azure Machine Learning
 Microsoft Azure Machine Learning vous permet de générer, tester et déployer des solutions d’analyse prédictive.
@@ -108,8 +108,8 @@ Dans la page **CONFIGURATION**, vous pouvez modifier la description et le titre,
 Une fois que vous avez déployé le service web, vous pouvez :
 
 * **y accéder** via l’API du service web
-* **le gérer** via le portail de services web Azure Machine Learning ou le portail Azure Classic
-* **le mettre à jour** si vous modifiez votre modèle
+* **le gérer** via le portail des services web Azure Machine Learning
+* **le mettre à jour** si vous modifiez votre modèle.
 
 #### <a name="access-your-new-web-service"></a>Accès à votre nouveau service web
 Une fois que vous avez déployé votre service web à partir de Machine Learning Studio, vous pouvez envoyer des données au service et recevoir des réponses par programme.
@@ -141,7 +141,7 @@ Pour tester le service d’exécution de lots, cliquez sur le lien d’aperçu *
 
 ![Test du service web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Dans la page **CONFIGURATION**, vous pouvez modifier le nom d’affichage du service et lui donner une description. Le nom et la description s’affichent dans le [portail Azure Classic](http://manage.windowsazure.com/) où vous gérez vos services web.
+Dans la page **CONFIGURATION**, vous pouvez modifier le nom d’affichage du service et lui donner une description. Le nom et la description s’affichent dans le [portail Azure](https://portal.azure.com/) où vous gérez vos services web.
 
 Vous pouvez fournir une description de vos données d’entrée, de vos données de sortie et des paramètres de service web en saisissant une chaîne pour chaque colonne sous **SCHÉMA D’ENTRÉE**, **SCHÉMA DE SORTIE** et **PARAMÈTRE DU SERVICE WEB**. Ces descriptions sont utilisées dans la documentation relative à l'exemple de code fournie pour le service web.
 

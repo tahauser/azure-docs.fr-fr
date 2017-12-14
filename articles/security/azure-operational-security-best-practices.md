@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Azure Operational Security renvoie aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. Azure Operational Security repose sur une infrastructure qui intègre les connaissances acquises via différentes fonctionnalités spécifiques de Microsoft, y compris Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces.
@@ -156,7 +156,7 @@ Les clients créent un réseau de bout en bout dans Azure en orchestrant et comp
 Surveillez et diagnostiquez les problèmes réseau sans vous connecter à vos machines virtuelles à l’aide de Network Watcher. Déclenchez la [capture de paquets](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) en définissant des alertes et bénéficiez d’un accès à des informations en temps réel sur le niveau de performance au niveau du paquet. Quand vous identifiez un problème, vous pouvez l’examiner en détail pour effectuer de meilleurs diagnostics.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Obtenez des insights sur votre trafic réseau à l’aide des journaux de flux
-Acquérez une meilleure compréhension du modèle de trafic de votre réseau à l’aide des [journaux de flux de groupes de sécurité réseau](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Les informations fournies par les journaux de flux vous aident à recueillir des données sur la conformité, l’audit et la surveillance de votre profil de sécurité réseau.
+Acquérez une meilleure compréhension du modèle de trafic de votre réseau à l’aide des [journaux de flux de groupes de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Les informations fournies par les journaux de flux vous aident à recueillir des données sur la conformité, l’audit et la surveillance de votre profil de sécurité réseau.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>Diagnostiquez les problèmes de connectivité d’un VPN
 Network Watcher vous permet de [diagnostiquer les problèmes courants liés aux connexions et à la passerelle VPN](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Vous pouvez ainsi identifier le problème, mais également utiliser les journaux détaillés créés pour un examen plus poussé du problème.

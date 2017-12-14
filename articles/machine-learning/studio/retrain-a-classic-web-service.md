@@ -3,7 +3,7 @@ title: Reformer un service web classique | Microsoft Docs
 description: "Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Reformer un service web Classic
 Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web. 
@@ -33,7 +33,7 @@ Vous devez avoir configuré une expérience de formation et une expérimentation
 
 Pour plus d’informations sur le déploiement de services web, consultez [Déployer un service web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-## <a name="add-a-new-endpoint"></a>Ajouter un nouveau point de terminaison
+## <a name="add-a-new-endpoint"></a>Ajouter un point de terminaison
 Le service web prédictif que vous avez déployé contient un point de terminaison de notation par défaut qui est synchronisé avec le modèle formé pour les expériences de formation et de notation d’origine. Pour mettre à jour votre service web avec un nouveau modèle formé, vous devez créer un point de terminaison de notation. 
 
 Pour créer un nouveau point de terminaison de notation, sur le service web prédictif pouvant être mis à jour avec le modèle entraîné :
@@ -43,11 +43,10 @@ Pour créer un nouveau point de terminaison de notation, sur le service web pré
 > 
 > 
 
-Pour ajouter un nouveau point de terminaison à un service web, trois options s’offrent à vous :
+Pour ajouter un point de terminaison à un service web, deux options s’offrent à vous :
 
 1. Par programmation
 2. Utilisation du portail de services web Microsoft Azure
-3. Utilisation du portail Azure Classic
 
 ### <a name="programmatically-add-an-endpoint"></a>Ajouter un point de terminaison par programmation
 Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exemple de code fourni dans ce [référentiel GitHub](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -58,18 +57,10 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 3. Cliquez sur **Add**.
 4. Tapez un nom et une description pour le point de terminaison. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](web-services-logging.md).
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Utiliser le portail Azure Classic pour ajouter un point de terminaison
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Dans le menu de gauche, cliquez sur **Machine Learning**.
-3. Sous Nom, cliquez sur votre espace de travail, puis sur **Services web**.
-4. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]**.
-5. En bas de la page, cliquez sur **Ajouter un point de terminaison**. Pour plus d’informations sur l’ajout de points de terminaison, consultez [Création de points de terminaison](create-endpoint.md). 
-
 ## <a name="update-the-added-endpoints-trained-model"></a>Mettre à jour le modèle entraîné du point de terminaison ajouté
 Pour terminer le processus de nouvel entraînement, vous devez mettre à jour le modèle entraîné du nouveau point de terminaison que vous avez ajouté.
 
-* Si vous avez ajouté le nouveau point de terminaison à l’aide du portail Azure Classic, vous pouvez cliquer sur le nom du nouveau point de terminaison dans le portail, puis sur le lien **UpdateResource** pour obtenir l’URL dont vous avez besoin pour mettre à jour le modèle du point de terminaison.
-* Si vous avez ajouté le point de terminaison à l’aide de l’exemple de code, cela inclut l’emplacement de l’URL d’aide identifiée par la valeur *HelpLocationURL* dans la sortie.
+Si vous avez ajouté le point de terminaison à l’aide de l’exemple de code, cela inclut l’emplacement de l’URL d’aide identifiée par la valeur *HelpLocationURL* dans la sortie.
 
 Pour récupérer l’URL du chemin d’accès :
 

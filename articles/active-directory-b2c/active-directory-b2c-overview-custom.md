@@ -4,7 +4,7 @@ description: "Une rubrique sur les stratégies personnalisées Azure Active Dire
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C : stratégies personnalisées
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="what-are-custom-policies"></a>Que sont les stratégies personnalisées ?
 
-Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure AD B2C. Si les **stratégies prédéfinies** sont prédéfinies sur le Portail Azure AD B2C pour les tâches d’identité les plus courantes, les stratégies personnalisées, elles, peuvent être entièrement modifiées par un développeur d’identité pour effectuer un nombre quasiment illimité de tâches. Lisez la suite pour déterminer si les stratégies personnalisées vous conviennent et sont adaptées à votre scénario d’identité.
+Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure AD B2C. Si les **stratégies prédéfinies** sont prédéfinies sur le Portail Azure AD B2C pour les tâches d’identité les plus courantes, les stratégies personnalisées, elles, peuvent être entièrement modifiés par un développeur d’identité pour effectuer un nombre quasiment illimité de tâches. Lisez la suite pour déterminer si les stratégies personnalisées vous conviennent et sont adaptées à votre scénario d’identité.
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Comparaison des stratégies prédéfinies et des stratégies personnalisées
 

@@ -60,9 +60,8 @@
 - name: Concepts
   items:
     - name: Fonctionnalités du service
+      href: sql-database-servers-databases.md
       items:
-        - name: Vue d'ensemble
-          href: sql-database-servers-databases.md
         - name: Niveaux de service
           href: sql-database-service-tiers.md
         - name: Limites des ressources
@@ -106,9 +105,8 @@
         - name: Fonctionnalités communes de SQL Server
           href: sql-database-features.md
     - name: Sécurité
+      href: sql-database-security-overview.md
       items:
-        - name: Vue d’ensemble
-          href: sql-database-security-overview.md
         - name: Contrôle d’accès
           href: sql-database-control-access.md
         - name: "Azure\_AD"
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Masquage de données
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: Haute disponibilité
+      href: sql-database-high-availability.md
     - name: Continuité de l’activité
+      href: sql-database-business-continuity.md
       items:
-        - name: Vue d'ensemble
-          href: sql-database-business-continuity.md
         - name: Récupération des bases de données
           href: sql-database-recovery-using-backups.md
         - name: Configurer la sécurité
@@ -140,9 +139,8 @@
         - name: Effectuer un exercice de récupération
           href: sql-database-disaster-recovery-drills.md
     - name: Migrer vers SQL Database
+      href: sql-database-cloud-migrate.md
       items:
-        - name: Migrer une base de données SQL
-          href: sql-database-cloud-migrate.md
         - name: Modifications de T-SQL
           href: sql-database-transact-sql-information.md
         - name: Gérer une base de données après la migration
@@ -158,9 +156,8 @@
         - name: Synchroniser les données
           href: sql-database-sync-data.md
     - name: Surveiller et régler
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: Vue d'ensemble
-          href: sql-database-troubleshoot-performance.md
         - name: Analyse des performances
           href: sql-database-single-database-monitor.md
         - name: Recommandations en matière de performances
@@ -180,9 +177,8 @@
         - name: Surveiller en mémoire
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Montée en charge
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: Vue d'ensemble
-          href: sql-database-elastic-scale-introduction.md
         - name: Cartes de partition
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routage des requêtes
@@ -203,6 +199,8 @@
       items:
         - name: Modèles de conception SaaS
           href: saas-tenancy-app-design-patterns.md
+        - name: Video Indexer SaaS
+          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: Sécurité des applications SaaS
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Développer des bases de données
@@ -218,9 +216,8 @@
         - name: Configurer In-Memory
           href: sql-database-in-memory-oltp-migration.md
     - name: Développement d'applications
+      href: sql-database-develop-overview.md
       items:
-        - name: Vue d'ensemble
-          href: sql-database-develop-overview.md
         - name: Connectivité
           href: sql-database-libraries.md
         - name: Authentifier l’application

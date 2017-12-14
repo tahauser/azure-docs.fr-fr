@@ -4,7 +4,7 @@ description: "Sécuriser vos échanges de revendications d’API REST dans votre
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Sécuriser votre service RESTful à l’aide de certificats clients
 Dans un article connexe, vous [créez un service RESTful](active-directory-b2c-custom-rest-api-netfw.md) qui interagit avec Azure Active Directory B2C (Azure AD B2C).
@@ -41,7 +41,7 @@ Cet article explique comment :
 Pour configurer **Azure App Service** afin d’exiger des certificats clients, définissez le paramètre de site de l’application web `clientCertEnabled` sur *true*. Pour ce faire, vous devez utiliser l’API REST. Le paramètre est disponible via l’expérience de gestion dans le portail Azure. Pour localiser le paramètre, dans le menu **Paramètres** de votre application RESTful, sous **Outils de développement**, sélectionnez **Explorateur de ressources**.
 
 >[!NOTE]
->Assurez-vous que votre plan Azure App Service est Standard ou supérieur. Pour plus d’informations, consultez la rubrique [Présentation détaillée des plans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Assurez-vous que votre plan Azure App Service est Standard ou supérieur. Pour plus d’informations, consultez la rubrique [Présentation détaillée des plans Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Utilisez [Azure Resource Explorer (préversion)](https://resources.azure.com) pour définir la propriété **clientCertEnabled** sur la valeur *true*, comme l’illustre l’image suivante :
@@ -49,7 +49,7 @@ Utilisez [Azure Resource Explorer (préversion)](https://resources.azure.com) po
 ![Définition de la propriété clientCertEnabled par le biais d’Azure Resource Explorer](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Pour plus d’informations sur la définition de la propriété **clientCertEnabled**, consultez [Configurer l’authentification mutuelle TLS pour des applications web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Pour plus d’informations sur la définition de la propriété **clientCertEnabled**, consultez [Configurer l’authentification mutuelle TLS pour des applications web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Vous pouvez également faciliter l’élaboration de l’appel de l’API REST à l’aide de l’outil [ARMClient](https://github.com/projectkudu/ARMClient).
@@ -107,7 +107,7 @@ Pour prendre en charge l’authentification par certificat client dans votre str
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>Étape 4 : Charger la stratégie sur votre locataire
 
-1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et sélectionnez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
 
 2. Sélectionnez **Infrastructure d’expérience d’identité**.
 
@@ -123,7 +123,7 @@ Pour prendre en charge l’authentification par certificat client dans votre str
 1. Ouvrez **Paramètres Azure AD B2C**, puis sélectionnez **Infrastructure d’expérience d’identité**.
 
     >[!NOTE]
-    >Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
+    >L’option Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
 
 2. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.
 
@@ -165,7 +165,7 @@ Le certificat client envoyé par Azure AD B2C à votre service RESTful ne fait p
 Dans cette section, vous ajoutez un exemple de code ASP.NET qui valide les propriétés du certificat pour l’authentification.
 
 > [!NOTE]
->Pour plus d’informations sur la configuration d’Azure App Service pour l’authentification par certificat client, consultez [Configurer l’authentification mutuelle TLS pour des applications web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Pour plus d’informations sur la configuration d’Azure App Service pour l’authentification par certificat client, consultez [Configurer l’authentification mutuelle TLS pour des applications web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 Ajouter des paramètres d’application au fichier web.config de votre projet
 Dans le projet Visual Studio que vous avez créé, ajoutez les paramètres d’application suivants au fichier *web.config* après l’élément `appSettings` :

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -81,6 +81,19 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 ## <a name="password-reset"></a>Réinitialisation de mot de passe
 
+* **Q : Empêchez-vous les utilisateurs d’effectuer plusieurs tentatives de réinitialisation de mot de passe dans un bref laps de temps ?**
+
+  > **R :** Oui, il existe des fonctionnalités de sécurité intégrées à la réinitialisation de mot de passe pour empêcher toute utilisation malveillante. 
+  >
+  > Les utilisateurs peuvent faire cinq tentatives d’entrée du mot de passe seulement dans une période de 24 heures, avant qu’elle ne soit verrouillée pendant 24 heures. 
+  >
+  > Les utilisateurs peuvent tenter de valider un numéro de téléphone, envoyer un SMS ou valider des questions et réponses de sécurité cinq fois seulement dans un délai d’une heure avant que la validation ne soit verrouillée pendant 24 heures. 
+  >
+  > Les utilisateurs peuvent envoyer un e-mail 10 fois maximum dans un délai de 10 minutes avant que l’envoi ne soit verrouillé pendant 24 heures.
+  >
+  > Les compteurs sont réinitialisés dès que l’utilisateur réinitialise son mot de passe.
+  >
+  >
 * **Q : Combien de temps dois-je attendre avant de recevoir un e-mail, un SMS ou un appel téléphonique de la réinitialisation du mot de passe ?**
 
   > **R :** Les e-mails, messages SMS et appels téléphoniques doivent arriver en moins d’une minute. Le cas normal est de 5 à 20 secondes.
@@ -163,11 +176,6 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 * **Q : Si un utilisateur a inscrit plus de questions que le nombre maximal requis pour la réinitialisation, comment les questions de sécurité sont-elles sélectionnées lors de la réinitialisation ?**
 
   > **R :** *N* questions de sécurité sont sélectionnées au hasard parmi le nombre total de questions qu’un utilisateur a inscrit, *N* correspondant à l’option **Nombre de questions requises pour la réinitialisation**. Par exemple, si un utilisateur a inscrit cinq questions de sécurité, mais que seules trois sont requises pour réinitialiser un mot de passe, trois des cinq questions sont sélectionnées au hasard et sont présentées lors de la réinitialisation. Pour éviter de poser toujours les mêmes questions, si l’utilisateur ne répond pas correctement aux questions, le processus de sélection recommence.
-  >
-  >
-* **Q : Empêchez-vous les utilisateurs d’effectuer plusieurs tentatives de réinitialisation de mot de passe dans un bref laps de temps ?**
-
-  > **R :** Oui, il existe des fonctionnalités de sécurité intégrées à la réinitialisation de mot de passe pour empêcher toute utilisation malveillante. Les utilisateurs peuvent uniquement tenter cinq réinitialisations de mot de passe en une heure, après quoi leur compte est verrouillé pendant 24 heures. Les utilisateurs peuvent tenter de valider un numéro de téléphone uniquement cinq fois en une heure, après quoi leur compte est verrouillé pendant 24 heures. Les utilisateurs peuvent tenter une même méthode d’authentification seulement cinq fois en une heure, après quoi leur compte est verrouillé pendant 24 heures.
   >
   >
 * **Q : Quelle est la durée de validité des codes secrets à usage unique pour les e-mails et les SMS ?**

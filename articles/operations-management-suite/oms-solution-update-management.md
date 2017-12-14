@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Solution de gestion des mises à jour dans OMS
 
@@ -57,7 +57,7 @@ Vous pouvez déployer et installer des mises à jour logicielles sur des ordinat
 À la date et l’heure spécifiées dans le déploiement de mises à jour, les ordinateurs cibles exécutent le déploiement en parallèle.  Une analyse est tout d’abord effectuée pour vérifier si les mises à jour sont toujours obligatoires et les installe.  Il est important de noter que, pour les ordinateurs clients WSUS, si les mises à jour ne sont pas approuvées dans WSUS, le déploiement de mises à jour échoue.  Les résultats des mises à jour appliquées sont transmis à OMS pour être traités et résumés dans les tableaux de bord ou en recherchant les événements.     
 
 ## <a name="prerequisites"></a>Composants requis
-* La solution prend en charge les évaluations de mise à jour sur Windows Server 2008 et les versions ultérieures, ainsi que les déploiements de mises à jour sur Windows Server 2008 R2 SP1 et les versions ultérieures.  Les options d’installation Server Core et Nano Server ne sont pas prises en charge.
+* La solution prend en charge les évaluations de mise à jour sur Windows Server 2008 et les versions ultérieures, ainsi que les déploiements de mises à jour sur Windows Server 2008 R2 SP1 et les versions ultérieures.  Nano Server n’est pas pris en charge.
 
     > [!NOTE]
     > La prise en charge du déploiement des mises à jour vers Windows Server 2008 R2 SP1 nécessite .NET Framework 4.5 et WMF 5.0 ou une version ultérieure.
@@ -81,7 +81,7 @@ Vous pouvez déployer et installer des mises à jour logicielles sur des ordinat
     > Un agent OMS pour Linux configuré pour rapporter à plusieurs espaces de travail OMS n’est pas pris en charge avec cette solution.  
     >
 
-Pour plus d’informations sur l’installation de l’agent OMS pour Linux et le téléchargement de la dernière version, consultez [Operations Management Suite Agent pour Linux](https://github.com/microsoft/oms-agent-for-linux).  Pour plus d’informations sur l’installation de l’agent OMS pour Windows, consultez [Operations Management Suite Agent pour Windows](../log-analytics/log-analytics-windows-agents.md).  
+Pour plus d’informations sur l’installation de l’agent OMS pour Linux et le téléchargement de la dernière version, consultez [Operations Management Suite Agent pour Linux](https://github.com/microsoft/oms-agent-for-linux).  Pour plus d’informations sur l’installation de l’agent OMS pour Windows, consultez [Operations Management Suite Agent pour Windows](../log-analytics/log-analytics-windows-agent.md).  
 
 ### <a name="permissions"></a>Autorisations
 Pour créer des déploiements de mise à jour, vous devez disposer du rôle de contributeur dans votre compte Automation et votre espace de travail Log Analytics.  
@@ -126,7 +126,7 @@ Sur un ordinateur Windows, vous pouvez observer les informations suivantes pour 
 1.  Ouvrez Microsoft Monitoring Agent dans le Panneau de configuration puis, dans l’onglet **Azure Log Analytics (OMS)**, l’agent affiche un message indiquant : **Microsoft Monitoring Agent est bien connecté au service Microsoft Operations Management Suite**.   
 2.  Ouvrez le journal des événements Windows, accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du connecteur de service source.  Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail OMS et qu’il reçoit la configuration.  
 
-Si l’agent ne parvient pas à communiquer avec le service OMS et qu’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy sont correctement configurés en consultant la [configuration réseau de l’agent Windows](../log-analytics/log-analytics-windows-agents.md#network) ou la [configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md#network).
+Si l’agent ne parvient pas à communiquer avec le service OMS et qu’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy sont correctement configurés en consultant la [configuration réseau de l’agent Windows](../log-analytics/log-analytics-windows-agent.md) ou la [configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou une passerelle OMS et que vous intégrez cette solution, mettez à jour les autorisations *proxy.conf* pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier en exécutant les commandes suivantes :  

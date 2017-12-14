@@ -6,18 +6,18 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -27,7 +27,7 @@ Ce document vous guide tout au long des processus de création par programmation
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), l’[interface de ligne de commande Azure](https://docs.microsoft.com/en-us/cli/azure/overview), les [commandes Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
+Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/overview), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
 
 Chacun de ces outils et API offre des moyens de créer, répertorier, récupérer, modifier et supprimer des ressources.  Étant donné que les tableaux de bord sont des ressources, vous pouvez choisir l’API/outil que vous préférez utiliser.
 
@@ -55,7 +55,7 @@ Une fois que vous avez configuré le tableau de bord selon vos besoins, les éta
 
 ![commande Partager](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Quand vous cliquez sur la commande Partager, une boîte de dialogue vous invite à choisir l’abonnement et le groupe de ressources dans lesquels publier. N’oubliez pas que [vous devez avoir accès en écriture](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) à l’abonnement et au groupe de ressources choisis.
+Quand vous cliquez sur la commande Partager, une boîte de dialogue vous invite à choisir l’abonnement et le groupe de ressources dans lesquels publier. N’oubliez pas que [vous devez avoir accès en écriture](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) à l’abonnement et au groupe de ressources choisis.
 
 ![partage et accès](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Il n’est pas nécessaire de comprendre entièrement la structure JSON du table
 
 Pour publier ce tableau de bord pour toutes les prochaines machines virtuelles, vous devez paramétrer chaque occurrence de cette chaîne dans le document JSON. 
 
-Il existe deux types d’API qui créent des ressources dans Azure. Les [API impératives](https://docs.microsoft.com/en-us/rest/api/resources/resources) qui créent une seule ressource à la fois et un système de [déploiement basé sur un modèle](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) capable d’orchestrer la création de plusieurs ressources dépendantes avec un seul appel d’API. Ce dernier prend en charge de manière native le paramétrage et la création de modèles ; c’est pour cela que nous l’utilisons pour notre exemple.
+Il existe deux types d’API qui créent des ressources dans Azure. Les [API impératives](https://docs.microsoft.com/rest/api/resources/resources) qui créent une seule ressource à la fois et un système de [déploiement basé sur un modèle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) capable d’orchestrer la création de plusieurs ressources dépendantes avec un seul appel d’API. Ce dernier prend en charge de manière native le paramétrage et la création de modèles ; c’est pour cela que nous l’utilisons pour notre exemple.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Créer par programmation un tableau de bord à partir de votre modèle à l’aide d’un déploiement de modèle
 
-Azure offre la possibilité d’orchestrer le déploiement de plusieurs ressources. Vous créez un modèle de déploiement qui exprime l’ensemble des ressources à déployer, ainsi que les relations qui existent entre elles.  Le format JSON de chaque ressource est le même que si vous les créiez une par une. La différence est que le [langage de modèle](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) ajoute quelques concepts comme les variables, les paramètres, les fonctions de base, etc. Cette syntaxe étendue est uniquement prise en charge dans le contexte d’un déploiement de modèle ; elle ne fonctionne pas si vous l’utilisez avec les API impératives mentionnées plus tôt.
+Azure offre la possibilité d’orchestrer le déploiement de plusieurs ressources. Vous créez un modèle de déploiement qui exprime l’ensemble des ressources à déployer, ainsi que les relations qui existent entre elles.  Le format JSON de chaque ressource est le même que si vous les créiez une par une. La différence est que le [langage de modèle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) ajoute quelques concepts comme les variables, les paramètres, les fonctions de base, etc. Cette syntaxe étendue est uniquement prise en charge dans le contexte d’un déploiement de modèle ; elle ne fonctionne pas si vous l’utilisez avec les API impératives mentionnées plus tôt.
 
 Si vous faites ce choix, alors le paramétrage doit être effectué à l’aide de la syntaxe de paramètre du modèle.  Vous remplacez toutes les instances de l’ID de ressource que nous avons trouvé précédemment, comme indiqué ici.
 
@@ -119,7 +119,7 @@ Vous devez également déclarer certaines métadonnées de modèle requises et l
 
 __Vous pouvez voir le modèle complet à la fin de ce document.__
 
-Une fois que vous avez créé votre modèle, vous pouvez le déployer à l’aide des [API REST](https://docs.microsoft.com/en-us/rest/api/resources/deployments), de [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), de l’[interface de ligne de commande Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) ou de la [page de déploiement de modèle du portail](https://portal.azure.com/#create/Microsoft.Template).
+Une fois que vous avez créé votre modèle, vous pouvez le déployer à l’aide des [API REST](https://docs.microsoft.com/rest/api/resources/deployments), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) ou de la [page de déploiement de modèle du portail](https://portal.azure.com/#create/Microsoft.Template).
 
 Voici deux versions de notre exemple de document JSON de tableau de bord. La première est la version que nous avons exportée à partir du portail et qui était déjà liée à une ressource. La seconde est la version de modèle que vous pouvez lier par programmation à toute machine virtuelle et déployer à l’aide d’Azure Resource Manager.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 82b6002557431f87de8fd206b4d7f4a07dec08b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
 
@@ -152,4 +152,4 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les utilisateurs peuvent désormais utiliser les sources de déploiement pour le [déploiement continu](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-continuous-deployment), le [déploiement Git local](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-local-git), et la [synchronisation de dossiers de cloud](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-content-sync).
+Les utilisateurs peuvent désormais utiliser les sources de déploiement pour le [déploiement continu](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), le [déploiement Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), et la [synchronisation de dossiers de cloud](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

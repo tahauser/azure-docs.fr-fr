@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
-Cet article explique comment configurer un cluster Azure Service Fabric autonome à l’aide du fichier ClusterConfig.JSON. Vous pouvez utiliser ce fichier pour spécifier des informations telles que les nœuds Service Fabric et leurs adresses IP, ainsi que les différents types de nœuds composant le cluster. Vous pouvez également spécifier des configurations de sécurité, ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau pour votre cluster autonome.
+Cet article explique comment configurer un cluster Azure Service Fabric autonome à l’aide du fichier ClusterConfig.json. Utilisez ce fichier pour spécifier les informations sur les nœuds de cluster, les configurations de la sécurité ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau.
 
-Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), quelques exemples de fichier ClusterConfig.JSON sont téléchargés sur votre ordinateur de travail. Les exemples comprenant DevCluster dans leurs noms vous permettent de créer un cluster avec les trois nœuds sur le même ordinateur, comme des nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce cluster est utile dans un environnement de développement ou de test. Il n’est pas pris en charge comme un cluster de production. Les exemples comprenant MultiMachine dans leurs noms vous permettent de créer un cluster de niveau de production, avec chaque nœud sur un ordinateur distinct. Le nombre de nœuds principaux pour ces clusters dépend du [niveau de fiabilité](#reliability). Dans la version de l’API 5.7 de mai 2017, nous avons supprimé la propriété du niveau de fiabilité. À la place, notre code calcule le niveau de fiabilité le plus optimisé pour votre cluster. N’utilisez pas cette propriété dans la version de code 5.7 et les versions ultérieures.
+Lorsque vous [téléchargez le package Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md#downloadpackage),les exemples ClusterConfig.json sont également inclus. Les exemples comprenant « DevCluster » dans leurs noms créent un cluster avec les trois nœuds sur le même ordinateur, à l’aide de nœuds logiques. Parmi ces nœuds, au moins un doit être marqué comme nœud principal. Ce type de cluster est utile dans des environnements de développement ou de test. Il n’est pas pris en charge comme un cluster de production. Les exemples comprenant « MultiMachine » dans leurs noms vous permettent de créer des clusters de niveau de production, avec chaque nœud sur un ordinateur distinct. Le nombre de nœuds principaux pour ces clusters dépend du [niveau de fiabilité](#reliability) du cluster. Dans la version de l’API 5.7 de mai 2017, nous avons supprimé la propriété du niveau de fiabilité. À la place, notre code calcule le niveau de fiabilité le plus optimisé pour votre cluster. N’essayez pas de définir la valeur de cette propriété à partir des versions 5.7.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON et ClusterConfig.Unsecure.MultiMachine.JSON montrent comment créer, respectivement, un cluster de test ou de production non sécurisé.
+* ClusterConfig.Unsecure.DevCluster.json et ClusterConfig.Unsecure.MultiMachine.json montrent comment créer, respectivement, un cluster de test ou de production non sécurisé.
 
-* ClusterConfig.Windows.DevCluster.JSON et ClusterConfig.Windows.MultiMachine.JSON montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json et ClusterConfig.Windows.MultiMachine.json montrent comment créer des clusters de test ou de production sécurisés en utilisant la [sécurité Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON et ClusterConfig.X509.MultiMachine.JSON montrent comment créer un cluster de test ou de production sécurisé à l’aide de la [sécurité basée sur un certificat X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.JSON et ClusterConfig.X509.MultiMachine.JSON montrent comment créer des clusters de test ou de production sécurisés à l’aide de la [sécurité basée sur un certificat X509](service-fabric-windows-cluster-x509-security.md).
 
-Nous allons maintenant examiner les différentes sections d’un fichier ClusterConfig.JSON.
+Nous allons maintenant examiner les différentes sections d’un fichier ClusterConfig.json.
 
 ## <a name="general-cluster-configurations"></a>Configurations de cluster générales
 Cette section couvre les configurations spécifiques à de larges clusters, comme indiqué dans l’extrait de code JSON suivant :
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 Vous pouvez attribuer un nom convivial à votre cluster Service Fabric en lui assignant la variable name. La valeur clusterConfigurationVersion représente le numéro de version de votre cluster. Elle augmente à chaque fois que vous mettez à niveau votre cluster Service Fabric. Conservez la valeur par défaut pour le champ apiVersion.
 
+## <a name="nodes-on-the-cluster"></a>Nœuds sur le cluster
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Nœuds sur le cluster
 Vous pouvez configurer les nœuds de votre cluster Service Fabric à l’aide de la section nœuds, comme le montre l’extrait de code suivant :
 
     "nodes": [{
@@ -79,12 +82,12 @@ Un cluster Service Fabric doit contenir au moins trois nœuds. Vous pouvez ajout
 | upgradeDomain |Les domaines de mise à niveau décrivent des ensembles de nœuds qui sont arrêtés pour les mises à niveau Service Fabric, à peu près au même moment. Vous pouvez choisir les nœuds à attribuer aux domaines de mise à niveau car ils ne sont pas limités par des exigences physiques. |
 
 ## <a name="cluster-properties"></a>Propriétés du cluster
-La section properties du fichier ClusterConfig.JSON permet de configurer le cluster comme indiqué ci-dessous :
-
-    <a id="reliability"></a>
+La section Propriétés du fichier ClusterConfig.json permet de configurer le cluster comme indiqué :
 
 ### <a name="reliability"></a>Fiabilité
 Le concept de reliabilityLevel définit le nombre de répliques ou instances des services système Service Fabric qui peuvent s’exécuter sur les nœuds principaux du cluster. Il détermine augmente la fiabilité de ces services et, par conséquent, du cluster. La valeur est calculée par le système au moment de la création et de la mise à niveau du cluster.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Diagnostics
 La section diagnosticsStore vous permet de configurer des paramètres pour activer les diagnostics et corriger les défaillances de nœud ou du cluster, comme illustré dans l’extrait de code suivant : 
@@ -119,9 +122,10 @@ La section security est nécessaire pour garantir la sécurité d’un cluster S
 
 La section metadata est une description de votre cluster sécurisé et peut être définie selon votre installation. Les propriétés ClusterCredentialType et ServerCredentialType déterminent le type de sécurité que le cluster et les nœuds implémenteront. Elles peuvent avoir la valeur *X509* pour une sécurité basée sur un certificat, ou *Windows* pour une sécurité basée sur Azure Active Directory. Le reste de la section security varie selon le type de sécurité. Pour plus d’informations sur la façon de remplir le reste de la section security, consultez les rubriques [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md) ou [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md).
 
+### <a name="node-types"></a>Types de nœuds
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Types de nœuds
 La section nodeTypes décrit le type des nœuds de votre cluster. Au moins un type de nœud doit être spécifié pour un cluster, comme indiqué dans l’extrait de code suivant : 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Pour activer le support pour les conteneurs Windows Server et Hyper-V pour les c
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous avez configuré un fichier ClusterConfig.JSON complet adapté à votre installation de cluster autonome, vous pouvez déployer votre cluster. Suivez les étapes décrites dans [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md). Consultez ensuite la section [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) et suivez toute la procédure.
+Une fois que vous avez configuré un fichier ClusterConfig.json complet adapté à votre installation de cluster autonome, vous pouvez déployer votre cluster. Suivez les étapes décrites dans [Créer un cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md). Consultez ensuite la section [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) et suivez toute la procédure.
 

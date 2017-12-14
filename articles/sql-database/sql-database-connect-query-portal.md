@@ -14,14 +14,14 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/02/2017
 ms.author: ayolubek
-ms.openlocfilehash: ae7ce2c138a9948654d96e018c167d12356ae93d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7f85d569fee4e13c28a09347159f16fc4b4ae626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portail Azure : utilisez l’éditeur de requête SQL pour vous connecter et effectuer des requêtes de données
 
@@ -29,7 +29,7 @@ L’éditeur de requête SQL est un outil de requête de navigateur qui offre un
 
 ## <a name="prerequisites"></a>Composants requis
 
-Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’une de ces instructions de démarrage rapide :
+Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides de démarrage rapide :
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 

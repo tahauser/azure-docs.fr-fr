@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 2f3ca2e694fd9952319a70477e9887c332b08044
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Persistance des changements et utilisation de fichiers volumineux
-Le service Azure Machine Learning - Expérimentation vous permet de configurer des cibles d’exécution variées. Certaines cibles sont locales, comme un ordinateur local ou un conteneur Docker sur un ordinateur local. D’autres sont distantes, comme un conteneur Docker sur un ordinateur distant ou un cluster HDInsight. Pour plus d’informations, consultez [Présentation du service d’exécution d’expérience Azure Machine Learning](experiment-execution-configuration.md). 
+Le service Azure Machine Learning - Expérimentation vous permet de configurer des cibles d’exécution variées. Certaines cibles sont locales, comme un ordinateur local ou un conteneur Docker sur un ordinateur local. D’autres sont distantes, comme un conteneur Docker sur un ordinateur distant ou un cluster HDInsight. Pour plus d’informations, consultez [Présentation du service d’exécution d’expérience Azure Machine Learning](experimentation-service-configuration.md). 
 
 Pour exécuter des scripts sur une cible, vous devez au préalable copier le dossier du projet dans la cible de calcul. Cette opération est obligatoire, même si vous avez une exécution locale qui utilise un dossier temporaire local à cet effet. 
 
@@ -143,7 +143,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 Vous pouvez placer les données d’entrée directement dans ces dossiers en vue de leur récupération éventuelle par vos exécutions locales ou Docker sur l’ordinateur. Vous pouvez également, à partir de vos exécutions locales ou Docker, écrire des fichiers dans ce dossier afin qu’ils y soient rendus persistants, survivant ainsi au cycle de vie de l’exécution.
 
-Pour plus d’informations, consultez [Fichiers de configuration de l’exécution Azure Machine Learning Workbench](experiment-execution-configuration-reference.md).
+Pour plus d’informations, consultez [Fichiers de configuration de l’exécution Azure Machine Learning Workbench](experimentation-service-configuration-reference.md).
 
 >[!NOTE]
 >La variable d’environnement `AZUREML_NATIVE_SHARE_DIRECTORY` n’est pas prise en charge dans un contexte de calcul HDInsight. Toutefois, vous pouvez facilement obtenir le même résultat en utilisant explicitement un chemin de stockage d’objets blob Azure absolu pour lire et écrire dans le stockage d’objets blob lié.
@@ -195,5 +195,5 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 Étant donné qu’Azure Machine Learning exécute des scripts en copiant le dossier de projet entier dans le contexte de calcul cible, vous devez accorder une attention particulière aux fichiers d’entrée, de sortie et intermédiaires volumineux. Pour les transactions impliquant des fichiers volumineux, vous pouvez utiliser le dossier outputs spécial, le dossier partagé accessible par le biais de la variable d’environnement `AZUREML_NATIVE_SHARE_DIRECTORY` ou un stockage durable externe. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Passez en revue l’article [Fichiers de configuration de l’exécution Azure Machine Learning Workbench](experiment-execution-configuration-reference.md).
+- Passez en revue l’article [Fichiers de configuration de l’exécution Azure Machine Learning Workbench](experimentation-service-configuration-reference.md).
 - Découvrez comment le projet de didacticiel [Classifying Iris](tutorial-classifying-iris-part-1.md) utilise le dossier outputs pour rendre persistant un modèle formé.

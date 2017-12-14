@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migration de base de données SQL Server vers SQL Database dans le cloud
 Cet article décrit les deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
@@ -39,11 +39,11 @@ La liste suivante contient le workflow général pour la migration d’une base 
 
   ![Schéma de migration VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Évaluez](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) la compatibilité de la base de données à l’aide de la dernière version de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Évaluez](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) la compatibilité de la base de données à l’aide de la dernière version de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Préparez les corrections nécessaires en tant que scripts Transact-SQL.
 3. Faites une copie cohérente au niveau transactionnel de la base de données source à migrer et vérifiez qu’aucune modification supplémentaire n’est apportée à cette dernière (ou vous pouvez appliquer les modifications requises manuellement une fois la migration terminée). Il existe de nombreuses méthodes pour suspendre une base de données, que ce soit en désactivant la connectivité des clients ou en créant un [instantané de base de données](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Déployez les scripts Transact-SQL pour appliquer les correctifs à la copie de base de données.
-5. [Migrez](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) la copie de base de données vers une nouvelle base de données SQL Azure à l’aide de Data Migration Assistant.
+5. [Migrez](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) la copie de base de données vers une nouvelle base de données SQL Azure à l’aide de Data Migration Assistant.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimisation des performances de transfert de données pendant la migration 
 

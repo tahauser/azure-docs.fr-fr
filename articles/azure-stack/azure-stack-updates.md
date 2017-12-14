@@ -3,8 +3,8 @@ title: "Gérer les mises à jour dans Azure Stack - Vue d’ensemble | Microsof
 description: "Découvrez la gestion des mises à jour pour les systèmes intégrés Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Microsoft publie des packages de mise à jour pour les systèmes intégrés Azure Stack de manière régulière. Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez facilement importer, installer et surveiller la progression de l’installation de ces packages de mise à jour à partir du portail administrateur. 
+Microsoft publie des packages de mises à jour pour les systèmes intégrés Azure Stack de manière régulière, généralement le quatrième mardi de chaque mois à compter de la disponibilité générale. Demandez à votre fabricant OEM quel est son processus de notification, afin d’être sûr que votre organisation reçoit les notifications de mise à jour, ou consultez Concepts\Notes de mise à jour\Notes de mise à jour de systèmes intégrés pour obtenir plus d’informations sur les versions spécifiques.
+
+Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez facilement importer, installer et surveiller la progression de l’installation de ces packages de mise à jour à partir du portail administrateur. 
 
 Votre fabricant de matériel OEM publie également des mises à jour, par exemple pour les pilotes et le microprogramme. Ces mises à jour sont fournies sous forme de packages distincts par votre fabricant de matériel OEM, et sont gérées séparément des mises à jour Microsoft.
 

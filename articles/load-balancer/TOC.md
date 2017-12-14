@@ -1,7 +1,7 @@
 # Vue d'ensemble
 ## [Qu’est-ce que l’équilibrage de charge ?](load-balancer-overview.md)
 ## [Qu’est-ce qu’un équilibreur de charge standard ?](load-balancer-standard-overview.md)
-## [Équilibrage de charge Internet](load-balancer-internet-overview.md)
+## [Équilibreur de charge public](load-balancer-internet-overview.md)
 ## [Équilibreur de charge interne](load-balancer-internal-overview.md)
 ## [Comprendre les sondes de l’équilibrage de charge](load-balancer-custom-probe-overview.md)
 ## [Comprendre les ports à haute disponibilité](load-balancer-ha-ports-overview.md)
@@ -12,31 +12,23 @@
 
 # Prise en main
 
-## [Configurer l’équilibrage de charge interne](load-balancer-get-started-ilb-arm-portal.md)
-### [Configurer l’équilibrage de charge interne (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
-### [Configurer l’équilibrage de charge interne (interface de ligne de commande)](load-balancer-get-started-ilb-arm-cli.md)
-### [Configurer l’équilibrage de charge interne (modèle)](load-balancer-get-started-ilb-arm-template.md)
+## [Configuration de l’équilibreur de charge interne](load-balancer-get-started-ilb-arm-portal.md)
+### [Configuration de l’équilibreur de charge interne (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
+### [Configuration de l’équilibreur de charge interne (interface de ligne de commande)](load-balancer-get-started-ilb-arm-cli.md)
+### [Configuration de l’équilibreur de charge interne (modèle)](load-balancer-get-started-ilb-arm-template.md)
 
-## [Configurer l’équilibrage de charge interne pour Services cloud](load-balancer-get-started-ilb-classic-cloud.md)
-### [Configurer l’équilibrage de charge interne pour Services cloud (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [Configurer l’équilibrage de charge interne pour Services cloud (interface de ligne de commande)](load-balancer-get-started-ilb-classic-cli.md)
+## [Configuration de l’équilibreur de charge public](load-balancer-get-started-internet-portal.md)
+### [Configuration de l’équilibreur de charge public (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [Configuration de l’équilibreur de charge public (interface de ligne de commande)](load-balancer-get-started-internet-arm-cli.md)
+### [Configuration de l’équilibreur de charge public (modèle)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configurer l’équilibrage de charge Internet](load-balancer-get-started-internet-portal.md)
-### [Configurer l’équilibrage de charge Internet (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [Configurer l’équilibrage de charge Internet (interface de ligne de commande)](load-balancer-get-started-internet-arm-cli.md)
-### [Configurer l’équilibrage de charge Internet (modèle)](load-balancer-get-started-internet-arm-template.md)
+## [Créer un équilibreur de charge public avec IPv6](load-balancer-ipv6-internet-ps.md)
+### [Créer un équilibreur de charge public avec IPv6 (interface de ligne de commande)](load-balancer-ipv6-internet-cli.md)
+### [Créer un équilibreur de charge public avec IPv6 (modèle)](load-balancer-ipv6-internet-template.md)
 
-## [Configurer un équilibreur de charge accessible sur Internet : (PowerShell classique)](load-balancer-get-started-internet-classic-ps.md)
-### [Configurer l’équilibrage de charge Internet (cloud classique)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configurer l’équilibrage de charge Internet (interface de ligne de commande classique)](load-balancer-get-started-internet-classic-cli.md)
-
-## [Créer un équilibrage de charge Internet avec IPv6](load-balancer-ipv6-internet-ps.md)
-### [Créer un équilibrage de charge Internet avec IPv6 (interface de ligne de commande)](load-balancer-ipv6-internet-cli.md)
-### [Créer un équilibrage de charge Internet avec IPv6 (modèle)](load-balancer-ipv6-internet-template.md)
-
-## [Créer un niveau Standard d’équilibrage de charge publique et redondant dans une zone](load-balancer-get-started-internet-az-portal.md)
-### [Créer un niveau Standard d’équilibrage de charge publique et redondant dans une zone (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Créer un niveau Standard d’équilibrage de charge publique et redondant dans une zone (interface CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Créer un niveau Standard d’équilibreur de charge public et redondant dans une zone](load-balancer-get-started-internet-az-portal.md)
+### [Créer un niveau Standard d’équilibreur de charge publique et redondant dans une zone (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Créer un niveau Standard d’équilibreur de charge publique et redondant dans une zone (interface de ligne de commande)](load-balancer-get-started-internet-az-cli.md)
 
 # Procédures
 ## [Configurer un délai d’inactivité TCP pour l’équilibrage de charge](load-balancer-tcp-idle-timeout.md)
@@ -50,11 +42,17 @@
 ## [Analyse des journaux de l'équilibreur de charge Azure](load-balancer-monitor-log.md)
 ## [Configuration de DHCPv6 pour les machines virtuelles Linux](load-balancer-ipv6-for-linux.md)
 ## [Configurer des ports à haute disponibilité pour l’équilibrage de charge interne](load-balancer-configure-ha-ports.md)
-## [Créer une adresse IP publique dans une zone de disponibilité](../virtual-network/create-public-ip-availability-zone-portal.md)
-## [Créer une adresse IP publique dans une zone de disponibilité (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
-## [Créer une adresse IP publique dans une zone de disponibilité (interface CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
+
 ## Résolution des problèmes
 ### [Résolution des problèmes de l’équilibrage de charge Azure](load-balancer-troubleshoot.md)
+
+## Articles sur le modèle de déploiement classique
+### [Configurer l’équilibreur de charge interne pour les Services cloud](load-balancer-get-started-ilb-classic-cloud.md)
+#### [Configurer l’équilibreur de charge interne pour les Services cloud (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [Configurer l’équilibreur de charge interne pour les Services cloud (interface de ligne de commande)](load-balancer-get-started-ilb-classic-cli.md)
+### [Configuration de l’équilibreur de charge public (Classic PowerShell)](load-balancer-get-started-internet-classic-ps.md)
+#### [Configuration de l’équilibreur de charge public (Classic Cloud)](load-balancer-get-started-internet-classic-cloud.md)
+#### [Configuration de l’équilibreur de charge public (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 # Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)

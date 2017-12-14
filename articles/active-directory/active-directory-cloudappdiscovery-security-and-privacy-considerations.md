@@ -4,7 +4,7 @@ description: "Cette rubrique décrit les considérations de sécurité et de con
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ebcb5b3b4a84f7a5c25caa3f6b245f97bc8049f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Considérations relatives à la confidentialité et à la sécurité de Cloud App Discovery
 Cette rubrique explique comment les données sont collectées, traitées et sécurisées dans Azure Active Directory Cloud App Discovery. Microsoft s’engage à protéger la confidentialité de vos données et à les sécuriser. Microsoft fournit des services dans le respect des pratiques de sécurisation du cycle de vie du développement de logiciels. La sécurisation et la protection des données constituent une priorité de premier plan pour Microsoft.

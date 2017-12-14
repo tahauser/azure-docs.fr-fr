@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="traffic-manager-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Traffic Manager
+# <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
 ## <a name="traffic-manager-basics"></a>Concepts de base de Traffic Manager
 
@@ -179,10 +179,10 @@ Si le script JavaScript de mesure fourni est utilisé, Traffic Manager peut voir
 Non, l’utilisation de Traffic Manager n’est pas obligatoire. La partie routage de Traffic Manager fonctionne séparément de la partie Mesures des utilisateurs réels. Elles ne doivent pas nécessairement se trouver dans la même propriété web, même si cela est une bonne idée.
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>Dois-je héberger un service sur les régions Azure à utiliser avec la fonctionnalité Mesures des utilisateurs réels ?
-Non, la fonctionnalité Mesures des utilisateurs réels ne nécessite pas de composant côté serveur pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et managée par Azure. 
+Non, la fonctionnalité Mesures des utilisateurs réels ne nécessite pas de composant côté serveur pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et gérée par Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>L’utilisation de la bande passante Azure augmente-t-elle quand j’utilise la fonctionnalité Mesures des utilisateurs réels ?
-Comme indiqué dans la réponse précédente, les composants côté serveur de la fonctionnalité Mesures des utilisateurs réels sont hébergés et managés par Azure. La fonctionnalité Mesures des utilisateurs réels n’entraîne donc pas une augmentation de la bande passante Azure utilisée. Notez que ceci n’inclut pas l’utilisation de la bande passante au-delà de ce que facture Azure. Pour minimiser la bande passante utilisée, nous téléchargeons une image à pixel unique pour mesurer la latence jusqu’à une région Azure. 
+Comme indiqué dans la réponse précédente, les composants côté serveur de la fonctionnalité Mesures des utilisateurs réels sont hébergés et gérés par Azure. La fonctionnalité Mesures des utilisateurs réels n’entraîne donc pas une augmentation de la bande passante Azure utilisée. Notez que ceci n’inclut pas l’utilisation de la bande passante au-delà de ce que facture Azure. Pour minimiser la bande passante utilisée, nous téléchargeons une image à pixel unique pour mesurer la latence jusqu’à une région Azure. 
 
 ## <a name="traffic-view"></a>Affichage du trafic
 
@@ -368,7 +368,7 @@ Le nombre de contrôles d’intégrité de Traffic Manager qui atteignent votre 
 
 ### <a name="how-do-i-configure-nested-profiles"></a>Comment configurer des profils imbriqués ?
 
-Des profils Traffic Manager imbriqués peuvent être configurés tant à l’aide d’Azure Resource Manager, qu’à l’aide des API REST Azure classiques, d’applets de commande PowerShell et de commandes d’interface de ligne de commande Azure multiplateformes. Ils sont également pris en charge via le nouveau portail Azure. Ils ne sont pas pris en charge dans le portail Classic.
+Des profils Traffic Manager imbriqués peuvent être configurés tant à l’aide d’Azure Resource Manager, qu’à l’aide des API REST Azure classiques, d’applets de commande PowerShell et de commandes d’interface de ligne de commande Azure multiplateformes. Ils sont également pris en charge via le nouveau portail Azure.
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Combien de couches d’imbrication Traffic Manager prend-il en charge ?
 

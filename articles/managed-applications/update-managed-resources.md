@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59dce2fe7d91cc80f991e5ff298be7757ae19ef4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Utiliser des ressources dans le groupe de ressources managé pour une application managée Azure
 
@@ -95,6 +95,5 @@ L’attribution de stratégie s’affiche dans le portail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour voir une présentation des applications managées, consultez [Vue d’ensemble des applications managées](overview.md).
+* Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées](overview.md).
 * Pour voir des exemples de projets, consultez [Exemples de projets pour des applications managées Azure](sample-projects.md).
-* Pour plus d’informations sur la publication d’applications managées sur la Place de marché Azure, consultez [Applications managées sur la Place de marché](publish-marketplace-app.md).

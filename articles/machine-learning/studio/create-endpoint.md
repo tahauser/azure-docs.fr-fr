@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
 ms.author: himad
-ms.openlocfilehash: 821ad87fc10b2380e5ed89c037c335bc7747009e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6de83042779a1a4edae57499f108dcddc9d68309
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="creating-endpoints"></a>Création de points de terminaison
 > [!NOTE]
@@ -33,11 +33,10 @@ Lorsque vous créez des services web que vous vendez à vos clients, vous devez 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Ajout de points de terminaison à un service web
-Il existe trois façons d’ajouter un point de terminaison à un service web.
+Il existe deux façons d’ajouter un point de terminaison à un service web.
 
 * Par programmation
 * Via le portail des services web Azure Machine Learning
-* Via le portail Azure Classic
 
 Une fois le point de terminaison créé, vous pouvez l’exploiter via des API synchrones, des API de lot et des feuilles de calcul Microsoft Excel. Outre l'ajout de points de terminaison via cette interface utilisateur, vous pouvez également utiliser les API de gestion de point de terminaison pour ajouter de manière programmée des points de terminaison.
 
@@ -54,20 +53,6 @@ Vous pouvez ajouter un point de terminaison à votre service web par programme e
 2. En bas du tableau de bord du service web, cliquez sur **Gérer les points de terminaison**. Le portail des services web Azure Machine Learning s’ouvre sur la page des points de terminaison pour le service web.
 3. Cliquez sur **Nouveau**.
 4. Tapez un nom et une description pour le point de terminaison. Les noms de point de terminaison doivent compter au maximum 24 caractères, et doivent être composés de lettres minuscules ou de chiffres. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, voir [Activation de la journalisation pour les services web Machine Learning](web-services-logging.md).
-
-## <a name="adding-an-endpoint-using-the-azure-classic-portal"></a>Ajout d’un point de terminaison via le portail Azure Classic
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com), puis cliquez sur **Machine Learning** dans la colonne de gauche. Cliquez sur l’espace de travail contenant le service web qui vous intéresse.
-   
-    ![Accès à l’espace de travail](./media/create-endpoint/figure-1.png)
-2. Cliquez sur **Services web**.
-   
-    ![Accéder aux services web](./media/create-endpoint/figure-2.png)
-3. Cliquez sur le service web qui vous intéresse pour afficher la liste des points de terminaison disponibles.
-   
-    ![Accès au point de terminaison](./media/create-endpoint/figure-3.png)
-4. En bas de la page, cliquez sur **Ajouter un point de terminaison**. Tapez un nom et une description, en vérifiant qu’il n’existe aucun point de terminaison du même nom dans ce service web. Conservez le niveau de limitation défini par défaut, sauf si vous avez des exigences particulières. Pour en savoir plus sur la limitation, voir [Mise à l’échelle de points de terminaison des API](scaling-webservice.md).
-   
-    ![Création d’un point de terminaison](./media/create-endpoint/figure-4.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Utilisation d’un service web Azure Machine Learning déployé à partir d’une expérience Machine Learning](consume-web-services.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
@@ -68,7 +68,7 @@ Azure Cosmos DB prend en charge trois modes d’indexation qui peuvent être con
 
 **Cohérent** : si la stratégie d’une collection Azure Cosmos DB est désignée comme « cohérente », les requêtes sur une collection Azure Cosmos DB donnée suivent le même niveau de cohérence que celui spécifié pour les lectures ponctuelles (c.-à-d., fort, en fonction de l’obsolescence, session ou éventuel). L’index est mis à jour de façon synchrone lors de la mise à jour du document (par ex. l’insertion, le remplacement, la mise à jour et la suppression d’un document dans une collection Azure Cosmos DB).  L’indexation cohérente prend en charge des requêtes cohérentes au détriment de la réduction éventuelle du débit d'écriture. Cette réduction dépend des chemins d'accès uniques qui doivent être indexés et du « niveau de cohérence ». Le mode d’indexation Cohérent est conçu pour les charges de travail « écrire rapidement, interroger immédiatement ».
 
-**Différé** : pour offrir un débit maximal d’ingestion de documents, une collection Azure Cosmos DB peut être configurée avec une cohérence différée, ce qui veut dire que les requêtes sont cohérentes. L’index est mis à jour de façon asynchrone lorsqu’une collection Azure Cosmos DB est inactive. En d’autres termes, la capacité de débit de la collection n’est pas entièrement exploitée pour traiter les requêtes de l’utilisateur. Pour les charges de travail « ingérer maintenant, interroger plus tard » nécessitant une ingestion libre des documents, le mode d'indexation « différé » peut être approprié.
+**Différé** : l’index est mis à jour de façon asynchrone lorsqu’une collection Azure Cosmos DB est inactive. En d’autres termes, la capacité de débit de la collection n’est pas entièrement exploitée pour traiter les requêtes de l’utilisateur. Pour les charges de travail « ingérer maintenant, interroger plus tard » nécessitant une ingestion des documents, le mode d'indexation « différé » peut être approprié. Veuillez noter que vous pourriez obtenir des résultats incohérents, car les données sont ingérées et indexées lentement. Il n’est pas garanti que les résultats de vos requêtes de comptage ou requêtes spécifiques soient corrects ou répétables jusqu’à ce que les données soient indexées. L’index est en général en mode de rattrapage. Indexation différée WRT : la modification TTL entraîne l’abandon et la recréation de l’index, donc cette activité peut entraîner des résultats inattendus. La plupart des clients doit utiliser l’indexation cohérente.
 
 **Aucun**: une collection en mode « Aucun » ne comporte aucun index associé. Ce mode est souvent employé si Azure Cosmos DB est utilisé en tant que stockage de clés-valeurs et si les documents ne sont accessibles que via leur propriété ID. 
 

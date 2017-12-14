@@ -14,130 +14,69 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
 Les opérations dans Gestion des API Azure peuvent être configurées pour mettre en cache la réponse. La mise en cache de la réponse peut réduire de façon importante la latence de l'API, la consommation de bande passante et la charge du service web pour les données qui ne changent pas fréquemment.
+ 
+Pour plus d’informations sur la mise en cache, consultez [Stratégies de mise en cache dans Gestion des API](api-management-caching-policies.md) et [Mise en cache personnalisée dans Gestion des API Azure](api-management-sample-cache-by-key.md).
 
-Ce guide vous montre comment ajouter une mise en cache de la réponse pour votre API et configurer des stratégies pour les exemples d’opérations de l’API Echo. Vous pouvez ensuite appeler l’opération depuis le portail des développeurs pour vérifier l’action de mise en cache.
+![stratégies de cache](media/api-management-howto-cache/cache-policies.png)
 
-> [!NOTE]
-> Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
-> 
-> 
+Ce que vous allez apprendre :
+
+> [!div class="checklist"]
+> * Ajouter une mise en cache des réponses pour votre API
+> * Vérifier l’action de mise en cache
 
 ## <a name="prerequisites"></a>Composants requis
-Avant de suivre la procédure décrite dans ce guide, vous devez disposer d’une instance de service de Gestion des API avec une API et un produit configurés. Si vous n’avez pas encore créé une instance de service Gestion des API, consultez la page de [création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel de [prise en main de Gestion des API Azure][Get started with Azure API Management].
 
-## <a name="configure-caching"></a>Configuration d’une opération de mise en cache
-Dans cette étape, vous allez consulter les paramètres de mise en cache de l’opération **GET Resource (cached)** de l’exemple d’API Echo.
+Pour suivre ce didacticiel :
 
-> [!NOTE]
-> Chaque instance du service Gestion des API est préconfigurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. Pour plus d'informations, consultez la page [Prise en main de Gestion des API Azure][Get started with Azure API Management].
-> 
-> 
++ [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
++ [Importer et publier une API](import-and-publish.md)
 
-Pour commencer, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+## <a name="caching-policies"> </a>Ajouter les stratégies de mise en cache
 
-![Portail des éditeurs][api-management-management-console]
+Avec les stratégies de mise en cache montrées dans cet exemple, la première requête envoyée à l’opération **GetSpeakers** renvoie une réponse du service principal. Cette réponse est mise en cache, du fait des en-têtes et des paramètres de chaîne de requête spécifiés. Les autres appels à l'opération comportant des paramètres correspondants recevront la réponse mise en cache, jusqu'à expiration de la durée de mise en cache.
 
-Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **API Echo**.
+1. Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+2. Accédez à votre instance APIM.
+3. Sélectionnez l’onglet **API**.
+4. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
+5. Sélectionnez **GetSpeakers**.
+6. Sélectionnez l’onglet **Conception** en haut de l’écran.
+7. Dans la fenêtre **Traitement entrant**, cliquez sur le triangle (à côté du crayon).
 
-![API Echo][api-management-echo-api]
+    ![éditeur de code](media/api-management-howto-cache/code-editor.png)
+8. Sélectionnez **Éditeur de Code**.
+9. Dans l’élément **entrant**, ajoutez la stratégie suivante :
 
-Cliquez sur l’onglet **Opérations**, puis sur l’opération **GET Resource (cached)** dans la liste **Opérations**.
-
-![Echo API operations][api-management-echo-api-operations]
-
-Cliquez sur l’onglet **Mise en cache** pour consulter les paramètres de mise en cache de cette opération.
-
-![Caching tab][api-management-caching-tab]
-
-Pour activer la mise en cache pour une opération, sélectionnez la case à cocher **Activer** . Dans cet exemple, la mise en cache est activée.
-
-Chaque réponse de l’opération est générée en fonction des valeurs des champs **Variation par paramètres de chaîne de requête** et **Variation par en-têtes**. Si vous souhaitez mettre en cache plusieurs réponses en fonction des paramètres ou des en-têtes de la chaîne de requête, vous pouvez les configurer dans ces deux champs.
-
-**Durée** spécifie l'intervalle d'expiration des réponses mises en cache. Dans cet exemple, l’intervalle est de **3600** secondes, ce qui équivaut à une heure.
-
-Selon la configuration de mise en cache de cet exemple, la première demande envoyée à l’opération **GET Resource (cached)** renvoie une réponse du service principal. Cette réponse sera mise en cache, du fait des en-têtes et des paramètres de chaîne de requête spécifiés. Les autres appels à l'opération comportant des paramètres correspondants recevront la réponse mise en cache, jusqu'à expiration de la durée de mise en cache.
-
-## <a name="caching-policies"></a>Révision des stratégies de mise en cache
-Dans cette étape, vous allez consulter les paramètres de mise en cache de l’opération **GET Resource (cached)** de l’exemple d’API Echo.
-
-Lorsque les paramètres de mise en cache sont configurés pour une opération dans l'onglet **Mise en cache** , les stratégies de mise en cache sont ajoutées pour cette opération. Ces stratégies peuvent être consultées et modifiées dans l'éditeur de stratégies.
-
-Cliquez sur **Stratégies** dans le menu **Gestion des API** à gauche, puis sélectionnez **Echo API / GET Resource (cached)** dans la liste déroulante **Opération**.
-
-![Policy scope operation][api-management-operation-dropdown]
-
-Affiche les stratégies de cette opération dans l'éditeur de stratégies.
-
-![API Management policy editor][api-management-policy-editor]
-
-La définition de stratégie de cette opération comprend les stratégies qui définissent la configuration de la mise en cache que nous avons vues dans l'onglet **Mise en cache** lors de l'étape précédente.
-
-```xml
-<policies>
-    <inbound>
-        <base />
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
             <vary-by-header>Accept-Charset</vary-by-header>
+            <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
-        <rewrite-uri template="/resource" />
-    </inbound>
-    <outbound>
-        <base />
-        <cache-store caching-mode="cache-on" duration="3600" />
-    </outbound>
-</policies>
-```
 
-> [!NOTE]
-> Les modifications apportées aux stratégies de mise en cache dans l’éditeur de stratégies sont affichées sous l’onglet **Mise en cache** d’une opération, et vice-versa.
-> 
-> 
+10. Dans l’élément **sortant**, ajoutez la stratégie suivante :
+
+        <cache-store caching-mode="cache-on" duration="20" />
+
+    **Durée** spécifie l'intervalle d'expiration des réponses mises en cache. Dans cet exemple, l’intervalle est de **20** secondes.
 
 ## <a name="test-operation"></a>Appel d’une opération et test de la mise en cache
-Pour voir la mise en cache en action, nous pouvons appeler l'opération depuis le portail des développeurs. Cliquez sur **Portail de développement** dans le menu supérieur droit.
+Pour voir la mise en cache en action, appelez l'opération depuis le portail des développeurs.
 
-![Portail des développeurs][api-management-developer-portal-menu]
-
-Cliquez sur **API** dans le menu supérieur, puis sélectionnez **API Echo**.
-
-![API Echo][api-management-apis-echo-api]
-
-> Si vous n'avez qu'une API configurée ou visible dans votre compte, cliquez sur des API pour accéder directement aux opérations associées.
-> 
-> 
-
-Sélectionnez l’opération **Ressource GET (cached)**, puis cliquez sur **Ouvrir la console**.
-
-![Open console][api-management-open-console]
-
-La console vous permet d'appeler des opérations directement depuis le portail des développeurs.
-
-![Console][api-management-console]
-
-Conservez les valeurs par défaut de **param1** et **param2**.
-
-Sélectionnez la clé souhaitée dans la liste déroulante **subscription-key** . Si votre compte n’a qu’un abonnement, celui-ci est déjà sélectionné.
-
-Entrez **sampleheader:value1** dans la zone de texte des **en-têtes de la demande**.
-
-Cliquez sur **HTTP Get** et notez les en-têtes de réponse.
-
-Entrez **sampleheader:value2** dans la zone de texte des **en-têtes de la demande**, puis cliquez sur **HTTP Get**.
-
-Notez que la valeur de **sampleheader** est toujours **value1** dans la réponse. Essayez d'autres valeurs. Vous constatez que la réponse mise en cache lors du premier appel est renvoyée.
-
-Entrez **25** dans le champ **param2**, puis cliquez sur **HTTP Get**.
-
-Notez que la valeur de **sampleheader** dans la réponse est désormais **value2**. Comme les résultats de l'opération dépendent de la chaîne de requête, la réponse précédemment mise en cache n'est pas renvoyée.
+1. Dans le portail Azure, accédez à votre instance APIM.
+2. Sélectionnez l’onglet **API**.
+3. Sélectionnez l’API à laquelle vous avez ajoutée des stratégies de mise en cache.
+4. Sélectionnez l’opération **GetSpeakers**.
+5. Cliquez sur l’onglet **Test** dans le menu supérieur droit.
+6. Appuyez sur **Envoyer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur les stratégies de mise en cache, voir la section [Stratégies de mise en cache][Caching policies] dans [Référence de stratégie de Gestion des API][API Management policy reference].
@@ -160,12 +99,12 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies

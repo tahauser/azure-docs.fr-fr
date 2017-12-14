@@ -4,7 +4,7 @@ description: "Rubrique montrant comment configurer un changement de mot de passe
 services: active-directory-b2c
 documentationcenter: 
 author: vigunase
-manager: ajalexander
+manager: mtillman
 ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
 ms.author: vigunase
-ms.openlocfilehash: b152c22c96da38f8724010504cc2711ab82af00a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C : Configurer la modification du mot de passe dans des stratégies personnalisées  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 763e690cac06fc321f7d1f873da7405c44c02b80
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Service de métadonnées Azure : Événements planifiés (préversion) pour les machines virtuelles Linux
 
@@ -52,7 +52,7 @@ Le service Événements planifiés fournit des événements dans les cas d’usa
 
 Le service de métadonnées Azure expose des informations sur les machines virtuelles en cours d’exécution en utilisant un point de terminaison REST accessible depuis la machine virtuelle. Les informations sont disponibles via une adresse IP non routable, de façon à ce qu’elles ne soient pas exposées en dehors de la machine virtuelle.
 
-### <a name="scope"></a>Étendue
+### <a name="scope"></a>Scope
 Les événements planifiés sont remis à :
 - Toutes les machines virtuelles d’un service cloud
 - Toutes les machines virtuelles d’un groupe à haute disponibilité
@@ -68,7 +68,7 @@ Pour les machines virtuelles compatibles avec le réseau virtuel, le point de te
 Si une machine virtuelle est créée au sein d’un réseau virtuel (VNet), le service de métadonnées est disponible à partir d’une adresse IP statique non routable, `169.254.169.254`.
 Si la machine virtuelle n’est pas créée au sein d’un réseau virtuel, les cas par défaut pour les services cloud et les machines virtuelles classiques, une logique supplémentaire est nécessaire pour découvrir l’adresse IP à utiliser. Reportez-vous à cet exemple pour savoir comment [découvrir le point de terminaison hôte](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### <a name="versioning"></a>Gestion de versions 
+### <a name="versioning"></a>Contrôle de version 
 Les versions du service Événements planifiés sont gérées. Les versions sont obligatoires et la version actuelle est `2017-08-01`.
 
 | Version | Notes de publication | 
@@ -78,7 +78,7 @@ Les versions du service Événements planifiés sont gérées. Les versions sont
 
 
 > [!NOTE] 
-> Les préversions précédentes des événements planifiés prenaient en charge {dernière version} en tant que version de l’api. Ce format n’est plus pris en charge et va être déprécié.
+> Les préversions précédentes des événements planifiés prenaient en charge {dernière version} en tant que version de l’api. Ce format n’est plus pris en charge et sera déconseillé à l’avenir.
 
 ### <a name="using-headers"></a>Utilisation d’en-têtes
 Quand vous interrogez le service de métadonnées, vous devez fournir l’en-tête `Metadata:true` pour garantir que la demande n’a pas été redirigée involontairement. L’en-tête `Metadata:true` est obligatoire pour toutes les requêtes d’événements planifiés. L’absence d’en-tête dans la requête génère une réponse « Requête incorrecte » du service de métadonnées.

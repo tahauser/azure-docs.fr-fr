@@ -4,7 +4,7 @@ description: "Explique comment ajouter, modifier, analyser et supprimer des volu
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
@@ -119,11 +119,7 @@ Vous [avez créé un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6
       
        Si vous configurez un volume épinglé localement de 8,5 To (taille maximale autorisée) sur votre appareil 8100, vous avez utilisé tout l’espace local disponible sur l’appareil. Vous ne pourrez donc pas créer de volume à plusieurs niveaux, puisque l’espace local de l’appareil sera insuffisant pour héberger la plage de travail du volume en question. Les volumes à plusieurs niveaux existants affectent également l’espace disponible. Par exemple, si vous avez un appareil 8100 qui possède déjà des volumes à plusieurs niveaux de 106 To, seuls 4 To d’espace sont disponibles pour les volumes épinglés localement.
 
-    6. Cliquez sur la flèche du champ **Hôtes connectés**. 
-
-        ![Hôtes connectés](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. Dans le panneau **Hôtes connectés**, sélectionnez un ACR existant ou ajoutez un nouvel ACR. Si vous choisissez un nouvel ACR, indiquez un **nom** pour votre ACR, ainsi que le **nom complet iSCSI** (IQN) de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host). Cliquez sur **Create**. Un volume est créé avec les paramètres spécifiés.
+    6. Cliquez sur la flèche du champ **Hôtes connectés**. Dans le panneau **Hôtes connectés**, sélectionnez un ACR existant ou ajoutez un nouvel ACR. Si vous choisissez un nouvel ACR, indiquez un **nom** pour votre ACR, ainsi que le **nom complet iSCSI** (IQN) de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host). Cliquez sur **Create**. Un volume est créé avec les paramètres spécifiés.
 
         ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -26,22 +26,6 @@ Il est important de comprendre comment créer et gérer des stratégies dans Azu
 > * Implémenter une nouvelle stratégie dans l’ensemble de l’entreprise
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-## <a name="opt-in-to-azure-policy"></a>Choisir Azure Policy
-
-Azure Policy est désormais disponible en préversion limitée : vous devez donc vous inscrire pour en demander l’accès.
-
-1. Accédez à Azure Policy sur https://aka.ms/getpolicy et sélectionnez **S’inscrire** dans le volet gauche.
-
-   ![Rechercher une stratégie](media/assign-policy-definition/sign-up.png)
-
-2. Choisissez Azure Policy en sélectionnant les abonnements que vous voulez utiliser dans la liste **Abonnement**. Sélectionnez ensuite **Inscription**.
-
-   Votre liste d’abonnements inclut tous vos abonnements Azure.
-
-   ![Accepter l’utilisation d’Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   En fonction de la demande, quelques jours peuvent nous être nécessaires pour accepter votre demande d’inscription. Une fois que votre demande est acceptée, vous êtes averti par e-mail que vous pouvez commencer à utiliser le service.
 
 ## <a name="assign-a-policy"></a>Attribution d’une stratégie
 
@@ -69,7 +53,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Étant donné qu’il s’agit d’une préversion limitée, nous n'avons pas encore publié de modèle tarifaire. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Sélectionnez l**’étendue** : l’abonnement (ou le groupe de ressources) enregistré précédemment quand vous avez choisi Azure Policy. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources.
+8. Sélectionnez **l’étendue** : l’abonnement (ou le groupe de ressources) précédemment enregistré. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources.
 
    Pour cet exemple, nous utilisons l’abonnement suivant : **Azure Analytics Capacity Dev**. Votre abonnement sera différent.
 
@@ -94,9 +78,9 @@ Maintenant que nous avons attribué la définition de stratégie, nous allons cr
       - Les règles/conditions de la stratégie, dans ce cas : la taille de la référence (SKU) de la machine virtuelle est égale à la série G
       - L’effet de la stratégie, dans ce cas – **Refuser**.
 
-   Voici à quoi le fichier json devrait ressembler
+    Voici à quoi le fichier json devrait ressembler
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Maintenant que nous avons attribué la définition de stratégie, nous allons cr
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Pour afficher des exemples de code json, consultez cet article : [Modèles pour Azure Policy](json-samples.md)
+    Pour afficher des exemples de code json, consultez l’article : [Modèles pour Azure Policy](json-samples.md).
 
 4. Sélectionnez **Enregistrer**.
 

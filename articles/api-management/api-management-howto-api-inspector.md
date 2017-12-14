@@ -1,268 +1,71 @@
 ---
-title: "Suivre les appels avec l’inspecteur d’API - Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment suivre les appels à l'aide de l'inspecteur d'API dans Gestion des API Azure."
+title: "Déboguer vos API à l’aide du suivi des demandes dans la Gestion des API Azure | Microsoft Docs"
+description: "Suivez les étapes de ce didacticiel pour apprendre à inspecter les étapes du traitement des demandes dans la Gestion des API Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 4b222327-c8a4-4f33-9a06-adff2a9834d9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 8090b22b63dda6f67e321867977d5dece3d72132
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7b9bec7927169b9d820c095a7d11705264e7dcfe
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Utilisation de l'inspecteur d'API pour le suivi des appels dans Gestion des API Azure
-Gestion des API Azure fournit un outil Inspecteur d’API pour vous aider au débogage et à la résolution des problèmes de vos API. L'inspecteur d'API peut être utilisé par programme et directement depuis le portail des développeurs. 
+# <a name="debug-your-apis-using-request-tracing"></a>Déboguer vos API à l’aide du suivi des demandes
 
-En plus des opérations de suivi, l'inspecteur d’API assure également le suivi des évaluations d’ [expression de stratégie](https://msdn.microsoft.com/library/azure/dn910913.aspx) . Pour une démonstration, consultez l'épisode [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) , à partir de la 21e minute.
+Ce didacticiel explique comment inspecter le traitement des demandes pour mieux déboguer et résoudre les problèmes liés à votre API. 
 
-Ce guide contient une procédure détaillée pour l'utilisation de l'inspecteur d'API.
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
-> [!NOTE]
-> Le suivi de l’inspecteur d’API n’est généré et mis à disposition que pour les demandes contenant des clés d’abonnement qui appartiennent au compte [administrateur](api-management-howto-create-groups.md) .
-> 
-> 
+> [!div class="checklist"]
+> * Suivre un appel
 
-## <a name="trace-call"></a> Utilisation de l’inspecteur d’API pour suivre un appel
-Pour utiliser l’inspecteur d’API, ajoutez un en-tête de demande **ocp-apim-trace: true** à l’appel de l’opération, puis téléchargez et inspectez le suivi avec l’URL indiquée par l’en-tête de réponse **ocp-apim-trace-location**. Cette opération peut se faire par programme ou directement depuis le portail des développeurs.
+![Inspecteur d’API](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-Ce didacticiel montre comment utiliser l’inspecteur d’API pour suivre les opérations à l’aide de l’API Basic Calculator qui est configurée dans le didacticiel de prise en main [Gestion de votre première API](api-management-get-started.md). Si vous n'avez pas effectué ce didacticiel, prenez quelques minutes pour importer l'API Basic Calculator. Vous pouvez également utiliser une autre API, par exemple l'API Echo. Chaque instance du service Gestion des API est pré-configurée avec une API Echo qui peut être utilisée pour faire des expériences et en savoir plus sur la gestion des API. L'API Echo renvoie ce qui lui est fourni. Pour l'utiliser, vous pouvez appeler un verbe HTTP, et la valeur de retour sera simplement ce que vous avez envoyé. 
+## <a name="prerequisites"></a>Prérequis
 
-Pour commencer, cliquez sur **Portail des développeurs** dans le portail Azure de votre service Gestion des API. Les opérations peuvent être appelées directement depuis le portail des développeurs, ce qui permet d'afficher et de tester les opérations d'une API.
++ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
 
-> Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel [Prise en main de Gestion des API Azure][Get started with Azure API Management].
-> 
-> 
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-![Portail des développeurs Gestion des API][api-management-developer-portal-menu]
+## <a name="trace-a-call"></a>Suivre un appel
 
-Cliquez sur **API** dans le menu supérieur et sélectionnez **Basic Calculator**.
+1. Sélectionnez **API**.
+2. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
+3. Sélectionnez l’opération **GetSpeakers**.
+4. Basculez vers l’onglet **Test**.
+5. Veillez à inclure un en-tête HTTP nommé **Ocp-Apim-Trace** dont la valeur est définie sur **true**.
+6. Cliquez sur **Envoyer** pour effectuer un appel d’API. 
+7. Attendez la fin de l’appel. 
+8. Accédez à l’onglet **Trace** dans la **console d’API**. Vous pouvez cliquer sur les liens suivants pour accéder aux informations de suivi détaillées : **Entrant**, **Principal**, **Sortant**.
 
-![API Echo][api-management-api]
+    La section **Entrant** contient la demande d’origine reçue par le service Gestion des API de la part de l’appelant et toutes les stratégies appliquées à la demande, y compris les stratégies rate-limit et set-header que nous avons ajoutées à l’étape 2.
 
-Cliquez sur **Essayer** pour essayer l’opération **Ajouter deux entiers**.
-
-![Essayer][api-management-open-console]
-
-Conservez les valeurs de paramètres par défaut et sélectionnez la clé d'abonnement du produit à utiliser dans la liste déroulante **subscription-key** .
-
-Par défaut, dans le portail des développeurs, l’en-tête **Ocp-Apim-Trace** est déjà défini sur **true**. Il indique si un suivi est généré.
-
-![Envoyer][api-management-http-get]
-
-Cliquez sur **Envoyer** pour appeler l'opération.
-
-![Envoyer][api-management-send-results]
-
-Les en-têtes de réponse contiennent un élément **ocp-apim-trace-location** avec une valeur similaire à celle de l'exemple qui suit.
-
-```
-ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
-```
-
-Le suivi peut être téléchargé depuis l'emplacement spécifié et examiné, comme indiqué dans l'étape suivante. Notez que seules les 100 dernières entrées de journal sont stockées et que les emplacements de journal sont réutilisés en rotation. Par conséquent, si vous effectuez plus de 100 appels en gardant le suivi activé, vous finirez par remplacer les premières entrées.
-
-## <a name="inspect-trace"></a>Inspection du suivi
-Pour examiner les valeurs du suivi, téléchargez le fichier de suivi à partir de l’URL **ocp-apim-trace-location**. Il s'agit d'un fichier texte au format JSON. Il se présente comme l'exemple ci-dessous.
-
-```json
-{
-    "traceId": "abcd8ea63d134c1fabe6371566c7cbea",
-    "traceEntries": {
-        "inbound": [
-            {
-                "source": "handler",
-                "timestamp": "2015-06-23T19:51:35.2998610Z",
-                "elapsed": "00:00:00.0725926",
-                "data": {
-                    "request": {
-                        "method": "GET",
-                        "url": "https://contoso5.azure-api.net/calc/add?a=51&b=49",
-                        "headers": [
-                            {
-                                "name": "Ocp-Apim-Subscription-Key",
-                                "value": "5d7c41af64a44a68a2ea46580d271a59"
-                            },
-                            {
-                                "name": "Connection",
-                                "value": "Keep-Alive"
-                            },
-                            {
-                                "name": "Host",
-                                "value": "contoso5.azure-api.net"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "source": "mapper",
-                "timestamp": "2015-06-23T19:51:35.2998610Z",
-                "elapsed": "00:00:00.0726213",
-                "data": {
-                    "configuration": {
-                        "api": {
-                            "from": "/calc",
-                            "to": {
-                                "scheme": "http",
-                                "host": "calcapi.cloudapp.net",
-                                "port": 80,
-                                "path": "/api",
-                                "queryString": "",
-                                "query": {},
-                                "isDefaultPort": true
-                            }
-                        },
-                        "operation": {
-                            "method": "GET",
-                            "uriTemplate": "/add?a={a}&b={b}"
-                        },
-                        "user": {
-                            "id": 1,
-                            "groups": [
-                                "Administrators",
-                                "Developers"
-                            ]
-                        },
-                        "product": {
-                            "id": 1
-                        }
-                    }
-                }
-            },
-            {
-                "source": "handler",
-                "timestamp": "2015-06-23T19:51:35.2998610Z",
-                "elapsed": "00:00:00.0727522",
-                "data": {
-                    "message": "Request is being forwarded to the backend service.",
-                    "request": {
-                        "method": "GET",
-                        "url": "http://calcapi.cloudapp.net/api/add?a=51&b=49",
-                        "headers": [
-                            {
-                                "name": "Ocp-Apim-Subscription-Key",
-                                "value": "5d7c41af64a44a68a2ea46580d271a59"
-                            },
-                            {
-                                "name": "X-Forwarded-For",
-                                "value": "33.52.215.35"
-                            }
-                        ]
-                    }
-                }
-            }
-        ],
-        "outbound": [
-            {
-                "source": "handler",
-                "timestamp": "2015-06-23T19:51:35.4256650Z",
-                "elapsed": "00:00:00.1960601",
-                "data": {
-                    "response": {
-                        "status": {
-                            "code": 200,
-                            "reason": "OK"
-                        },
-                        "headers": [
-                            {
-                                "name": "Pragma",
-                                "value": "no-cache"
-                            },
-                            {
-                                "name": "Content-Length",
-                                "value": "124"
-                            },
-                            {
-                                "name": "Cache-Control",
-                                "value": "no-cache"
-                            },
-                            {
-                                "name": "Content-Type",
-                                "value": "application/xml; charset=utf-8"
-                            },
-                            {
-                                "name": "Date",
-                                "value": "Tue, 23 Jun 2015 19:51:35 GMT"
-                            },
-                            {
-                                "name": "Expires",
-                                "value": "-1"
-                            },
-                            {
-                                "name": "Server",
-                                "value": "Microsoft-IIS/8.5"
-                            },
-                            {
-                                "name": "X-AspNet-Version",
-                                "value": "4.0.30319"
-                            },
-                            {
-                                "name": "X-Powered-By",
-                                "value": "ASP.NET"
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                "source": "handler",
-                "timestamp": "2015-06-23T19:51:35.4256650Z",
-                "elapsed": "00:00:00.1961112",
-                "data": {
-                    "message": "Response headers have been sent to the caller. Starting to stream the response body."
-                }
-            },
-            {
-                "source": "handler",
-                "timestamp": "2015-06-23T19:51:35.4256650Z",
-                "elapsed": "00:00:00.1963155",
-                "data": {
-                    "message": "Response body streaming to the caller is complete."
-                }
-            }
-        ]
-    }
-}
-```
+    La section **Principal** affiche les demandes envoyées par le service Gestion des API au backend d’API et la réponse qu’il a reçue.
+    
+    La section **Sortant** présente toutes les stratégies appliquées à la réponse avant son envoi à l’appelant.
+ 
+    > [!TIP]
+    > Chaque étape indique également le temps écoulé depuis la réception de la demande par le service Gestion des API.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour une démonstration du suivi des expressions de stratégie, regardez la vidéo [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avancez à la 21e minute pour voir la démonstration.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Cloud+Cover/Episode-177-More-API-Management-Features-with-Vlad-Vinogradsky/player]
-> 
-> 
+Dans ce didacticiel, vous avez appris à :
 
-[Use API Inspector to trace a call]: #trace-call
-[Inspect the trace]: #inspect-trace
-[Next steps]: #next-steps
+> [!div class="checklist"]
+> * Suivre un appel
 
-[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-[Responses]: api-management-howto-add-operations.md#responses
-[How create and publish a product]: api-management-howto-add-products.md
+Passez au didacticiel suivant :
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Azure Classic Portal]: https://manage.windowsazure.com/
-
-
-[api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
-[api-management-api]: ./media/api-management-howto-api-inspector/api-management-api.png
-[api-management-echo-api-get]: ./media/api-management-howto-api-inspector/api-management-echo-api-get.png
-[api-management-developer-key]: ./media/api-management-howto-api-inspector/api-management-developer-key.png
-[api-management-open-console]: ./media/api-management-howto-api-inspector/api-management-open-console.png
-[api-management-http-get]: ./media/api-management-howto-api-inspector/api-management-http-get.png
-[api-management-send-results]: ./media/api-management-howto-api-inspector/api-management-send-results.png
-
-
-
-
+> [!div class="nextstepaction"]
+> [Utiliser des révisions](api-management-get-started-revise-api.md)

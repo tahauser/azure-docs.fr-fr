@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
@@ -27,6 +27,16 @@ Vous pouvez afficher les captures instantanées de débogage dans le portail pou
 La collecte de captures instantanées est disponible pour :
 * les applications .NET framework et ASP.NET exécutant .NET Framework 4.5 ou version ultérieure ;
 * les applications .NET core 2.0 et ASP.NET Core 2.0 s’exécutant sous Windows.
+
+Les environnements suivants sont pris en charge :
+* Azure App Service
+* Service Cloud Azure exécutant la famille de systèmes d’exploitation 4 ou ultérieur
+* Services Azure Service Fabric exécutant Windows Server 2012 R2 ou ultérieur
+* Machines virtuelles Azure exécutant Windows Server 2012 R2 ou ultérieur
+* Machine locale physique ou virtuelle exécutant Windows Server 2012 R2 ou ultérieur
+
+> [!NOTE]
+> Les applications clientes (par exemple, WPF, Windows Forms ou UWP) ne sont pas prises en charge.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurer la collecte de captures instantanées pour les applications ASP.NET
 
@@ -289,6 +299,6 @@ Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela si
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Définir des points de capture instantanée dans votre code](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
+* [Définir des points de capture instantanée dans votre code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
 * [Diagnostiquer des exceptions dans vos applications web](app-insights-asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions. 
 * [Détection intelligente](app-insights-proactive-diagnostics.md) permet de détecter automatiquement les anomalies relatives aux performances.

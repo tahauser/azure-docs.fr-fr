@@ -4,7 +4,7 @@ description: "Prise en main de l'API de création de rapports Azure Active Dire
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Prise en main de l’API de création de rapports Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory vous fournit plusieurs rapports. Les données de ces rapp
 Cet article vous fournit les informations dont vous avez besoin pour vous familiariser avec l’API de création de rapports Azure AD.
 Dans la section suivante, vous trouverez plus d’informations sur l’utilisation des API d’audit et de connexion. 
 
-Pour consulter les questions les plus fréquentes, lisez notre [FAQ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). En cas de problème, [Envoyez un ticket de support](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+Pour consulter les questions les plus fréquentes, lisez notre [FAQ](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq). En cas de problème, [Envoyez un ticket de support](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="learning-map"></a>Carte d’apprentissage
 1. **Préparer** : avant de pouvoir tester les exemples d’API, vous devez respecter la [configuration requise pour accéder à l’API de création de rapports Azure AD](active-directory-reporting-api-prerequisites-azure-portal.md).

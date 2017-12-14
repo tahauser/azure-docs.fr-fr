@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
 ## <a name="summary"></a>Résumé
-L’extension de diagnostic de performance des machines virtuelles Azure pour Windows permet de collecter des données de diagnostic de performance auprès de machines virtuelles Windows, d’effectuer une analyse et de fournir un rapport de résultats et recommandations pour identifier et résoudre les problèmes de performance sur les machines virtuelles. Cette extension installe un outil de résolution des problèmes appelé [PerfInsights](http://aka.ms/perfinsights).
+L’extension de diagnostic de performance des machines virtuelles Azure permet de collecter des données de diagnostic de performance auprès de machines virtuelles Windows, d’effectuer une analyse et de fournir un rapport de résultats et recommandations pour identifier et résoudre les problèmes de performance sur les machines virtuelles. Cette extension installe un outil de résolution des problèmes appelé [PerfInsights](http://aka.ms/perfinsights).
 
 ## <a name="prerequisites"></a>Composants requis
 ### <a name="operating-systems"></a>Systèmes d’exploitation
@@ -46,7 +46,6 @@ Le code JSON suivant montre le schéma de l’extension de diagnostic de perform
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -72,13 +71,11 @@ Le code JSON suivant montre le schéma de l’extension de diagnostic de perform
 |typeHandlerVersion|1.0|Version du gestionnaire de l’extension
 |performanceScenario|basic|Scénario de performances pour lequel capturer les données. Les valeurs valides sont : **basic**, **vmslow**, **azurefiles** et **custom**.
 |traceDurationInSeconds|300|Durée des traces si l’une des options de trace est sélectionnée.
-|DiagnosticsTrace|d|Option permettant d’activer le suivi des diagnostics. Les valeurs valides sont **d** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |perfCounterTrace|p|Option permettant d’activer la trace du compteur de performances. Les valeurs valides sont **p** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |networkTrace|n|Option permettant d’activer la trace Netmon. Les valeurs valides sont **n** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |xperfTrace|x|Option permettant d’activer la trace XPerf. Les valeurs valides sont **x** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |storPortTrace|s|Option permettant d’activer la trace StorPort. Les valeurs valides sont s ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |srNumber|123452016365929|Numéro de ticket de support si disponible. Ne le renseignez pas si vous ne l’avez pas.
-|requestTimeUtc|9/2/2017 11:06:00 PM|Date et heure actuelles UTC. Vous n’avez pas besoin de fournir cette valeur si vous utilisez le portail pour installer cette extension.
 |storageAccountName|mystorageaccount|Nom du compte de stockage pour stocker les journaux et les résultats de diagnostic.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Clé du compte de stockage.
 
@@ -153,10 +150,6 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour déployer l’ext
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `

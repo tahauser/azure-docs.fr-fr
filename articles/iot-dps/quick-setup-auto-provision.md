@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Configurer le service d’approvisionnement d’appareil IoT Hub (préversion) avec le portail Azure
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure
 
 Ces étapes indiquent comment configurer les ressources cloud Azure dans le portail pour l’approvisionnement de vos appareils. Cela inclut la création de votre IoT hub et d’un service d’approvisionnement d’appareil IoT Hub, ainsi que la liaison des deux services. 
 
@@ -46,7 +46,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
 
-2. *Faites des recherches sur la Place de marché* concernant le **service d’approvisionnement d’appareil**. Sélectionnez le **service d’approvisionnement d’appareil IoT (préversion)** et cliquez sur le bouton **Créer**. 
+2. *Faites des recherches sur la Place de marché* concernant le **service d’approvisionnement d’appareil**. Sélectionnez le **service d’approvisionnement d’appareil IoT** et cliquez sur le bouton **Créer**. 
 
 3. **Nommez** votre instance de service d’approvisionnement d’appareil. Sélectionnez l’abonnement à utiliser pour cette instance et nommez un groupe de ressources existant ou nouveau. Sélectionnez l’emplacement. Lorsque vous avez terminé, cliquez sur **Créer**.
 

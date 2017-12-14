@@ -1,5 +1,5 @@
 ---
-title: "Utilisation d’Azure Media Services pour fournir des licences DRM ou des clés AES"
+title: "Utilisation d’Azure Media Services pour fournir des licences DRM ou des clés AES | Microsoft Docs"
 description: "Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir des licences PlayReady et/ou Widevine et des clés AES, et comment exécuter les autres opérations (encodage, chiffrement, diffusion en continu) à l’aide de vos serveurs locaux."
 services: media-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb39b6a737aab3fe5ba477cc4aee601954d16247
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilisation d’Azure Media Services pour fournir des licences DRM ou des clés AES
-Azure Media Services (AMS) vous permet de recevoir, d’encoder, d’ajouter une protection de contenu et de diffuser votre contenu (voir [cet](media-services-protect-with-drm.md) pour plus de détails). Toutefois, il existe des clients qui souhaitent seulement utiliser AMS pour fournir des licences et/ou des clés et faire de l’encodage, du chiffrement et de la diffusion en continu à l’aide de leurs serveurs locaux. Cet article décrit comment vous pouvez utiliser AMS pour fournir des licences PlayReady et/ou Widevine et exécuter les autres opérations avec vos serveurs locaux. 
+Azure Media Services (AMS) vous permet de recevoir, d’encoder, d’ajouter une protection de contenu et de diffuser votre contenu (voir [cet](media-services-protect-with-playready-widevine.md) pour plus de détails). Toutefois, il existe des clients qui souhaitent seulement utiliser AMS pour fournir des licences et/ou des clés et faire de l’encodage, du chiffrement et de la diffusion en continu à l’aide de leurs serveurs locaux. Cet article décrit comment vous pouvez utiliser AMS pour fournir des licences PlayReady et/ou Widevine et exécuter les autres opérations avec vos serveurs locaux. 
 
 ## <a name="overview"></a>Vue d'ensemble
 Media Services fournit un service de remise de licences DRM PlayReady et Widevine, et de clés AES-128. Media Services fournit également des API qui vous permettent de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM, qui s’appliquent lorsqu’un utilisateur lit un contenu DRM protégé. Lorsqu’un utilisateur demande le contenu protégé, l’application de lecteur demande une licence du service de licence AMS. Le service de licence AMS émet la licence pour le lecteur (s’il est autorisé). Les licences PlayReady et Widevine contiennent la clé de déchiffrement qui peut être utilisée par le lecteur client pour déchiffrer et diffuser le contenu.
@@ -43,7 +43,6 @@ Vous pouvez télécharger l’exemple décrit dans cet article à partir d’ [i
     <add key="Issuer" value="http://testacs.com"/><add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>Exemple de code .NET
-
 L’exemple de code suivant montre comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Vous devez obtenir les informations suivantes à partir d’AMS et configurer votre serveur local : **clé de contenu**, **ID de clé**, **URL d’acquisition de licence**. Une fois votre serveur local configuré, vous pouvez diffuser à partir de votre propre serveur de diffusion en continu. Étant donné que le flux chiffré pointe vers le serveur de licences AMS, votre lecteur demande une licence à AMS. Si vous choisissez l’authentification par jeton, le serveur de licences AMS validera le jeton que vous avez envoyé via HTTPS et (s’il est valide) fournira la licence à votre lecteur. (L’exemple de code montre seulement comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Si vous souhaitez fournir des clés AES-128, vous devez créer une clé de contenu d’enveloppe et obtenir une URL d’acquisition de clé ; [cet](media-services-protect-with-aes128.md) vous explique comment procéder).
 
     using System;
@@ -332,9 +331,6 @@ L’exemple de code suivant montre comment créer une clé de contenu courante e
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Voir aussi
-[Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
+[Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-playready-widevine.md)
 
 [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-protect-with-aes128.md)
-
-[Utilisation de partenaires pour fournir des licences Widevine à Azure Media Services](media-services-licenses-partner-integration.md)
-

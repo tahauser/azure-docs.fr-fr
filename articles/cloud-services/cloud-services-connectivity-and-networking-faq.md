@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -48,8 +48,8 @@ Vous pouvez aussi créer une tâche de démarrage pour bloquer de manière séle
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Quand j’essaie de me connecter à mon instance de service cloud via RDP, j’obtiens le message, « Le compte d’utilisateur a expiré ».
 Vous pouvez obtenir le message d’erreur « Ce compte d’utilisateur a expiré » quand vous ne tenez pas compte de la date d’expiration configurée dans vos paramètres RDP. Vous pouvez modifier la date d’expiration à partir du portail en procédant comme suit :
-1. Connectez-vous à la console de gestion Azure (https://manage.windowsazure.com), accédez à votre service cloud, puis sélectionnez l’onglet **Configurer**.
-2. Sélectionnez **Accès distant**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), naviguez jusqu’à votre service cloud et sélectionnez l’onglet **Bureau à distance**.
+2. Sélectionnez l’emplacement de déploiement **Production** ou **Intermédiaire**.
 3. Modifiez la date dans le champ « Expire le », puis enregistrez la configuration.
 
 Vous devriez maintenant pouvoir vous connecter à votre machine via RDP.

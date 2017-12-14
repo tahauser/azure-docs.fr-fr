@@ -7,7 +7,7 @@ author: wesmc7777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -33,6 +33,27 @@ Cet article explique comment utiliser des liaisons [Azure Event Hubs](../event-h
 Utilisez le déclencheur Event Hubs pour répondre à un événement envoyé à un flux d’événements d’un hub d’événements. Vous devez disposer de l’accès en lecture au hub d’événements pour configurer le déclencheur.
 
 Quand une fonction de déclenchement Event Hubs est déclenchée, le message qui le déclenche est passé à la fonction en tant que chaîne.
+
+## <a name="trigger---scaling"></a>Déclencheur - mise à l'échelle
+
+Chaque instance d'une fonction déclenchée par un hub d'événements est sauvegardée par 1 instance EventProcessorHost (EPH). Event Hubs garantit que 1 seule instance EPH peut obtenir un bail sur une partition donnée.
+
+Par exemple, considérons la configuration et les hypothèses suivantes pour un hub d'événements :
+
+1. 10 partitions.
+1. 1 000 événements répartis uniformément sur toutes les partitions => 100 messages dans chaque partition.
+
+Lorsque votre fonction est activée pour la première fois, il n'y a que 1 seule instance de la fonction. Appelons cette instance de fonction Function_0. Function_0 aura 1 EPH qui obtiendra un bail sur les 10 partitions. Elle commencera à lire les événements des partitions 0-9. À partir de ce point, l'un des événements suivants se produira :
+
+* **1 seule instance de fonction est nécessaire** : Function_0 est capable de traiter l'ensemble des 1 000 événements avant que la logique de mise à l'échelle d'Azure Functions ne se déclenche. Par conséquent, tous les 1 000 messages sont traités par Function_0.
+
+* **Ajouter 1 instance de fonction supplémentaire** : la logique de mise à l'échelle d'Azure Functions détermine que Function_0 reçoit plus de messages qu'elle ne peut traiter, et une nouvelle instance Function_1 est créée. Event Hubs détecte qu'une nouvelle instance EPH tente de lire des messages. Event Hubs démarre l'équilibrage de charge des partitions sur les instances EPH, par exemple, les partitions 0-4 sont affectées à Function_0 et les partitions 5 à 9 sont affectées à Function_1. 
+
+* **Ajouter N autres instances de fonction** : la logique de mise à l'échelle d'Azure Functions détermine que Function_0 et Function_1 reçoivent plus de messages qu'elles ne peuvent traiter. Une nouvelle mise à l'échelle sera effectuée pour Function_2...N, où N est supérieur aux partitions du hub d'événements. Event Hubs équilibrera les partitions entre les instances Function_0...9.
+
+La logique actuelle de mise à l'échelle d'Azure Functions est unique car N est supérieur au nombre de partitions. Cela permet de s'assurer qu'il y a toujours des instances EPH disponibles pour verrouiller rapidement les partitions à mesure qu'elles deviennent disponibles à partir d'autres instances. Les utilisateurs ne sont facturés que pour les ressources utilisées lors de l'exécution de l'instance de la fonction. Ils ne sont pas facturés pour ce surprovisionnement.
+
+Si toutes les exécutions de fonction réussissent sans erreurs, des points de contrôle sont ajoutés au compte de stockage associé. Une fois les points de contrôle correctement créés, tous les 1 000 messages ne devraient plus jamais être récupérés.
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 

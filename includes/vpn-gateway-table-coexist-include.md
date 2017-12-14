@@ -1,1 +1,4 @@
-|**Modèle/méthode de déploiement** | **Portail Azure** | **PowerShell** | |---|---|---| | Gestionnaire des ressources | **Non pris en charge** | [Article](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)| | Classic | **Non pris en charge** | [Article](../articles/expressroute/expressroute-howto-coexist-classic.md) |
+| **Modèle/méthode de déploiement** | **portail Azure** | **PowerShell** | 
+| --- | --- | --- |
+| Gestionnaire de ressources | **Non pris en charge** | [Article](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
+| Classique | **Non pris en charge** | [Article](../articles/expressroute/expressroute-howto-coexist-classic.md) |

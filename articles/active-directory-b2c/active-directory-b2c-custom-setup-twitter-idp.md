@@ -4,7 +4,7 @@ description: "Utiliser Twitter en tant que fournisseur d’identité à l’aide
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
-ms.openlocfilehash: f3a7936a468df7b0a2713f1f30c5b91e74d1d917
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : ajoutez Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Cet article indique comment activer la connexion pour les utilisateurs d’un compte Twitter à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-twitter-account-application"></a>Étape 1 : Créer une application de compte Twitter
@@ -54,7 +54,7 @@ Pour utiliser Twitter en tant que fournisseur d’identité dans Azure Active Di
     ![Compte Twitter - Définir les propriétés de l’application](media/active-directory-b2c-custom-setup-twitter-idp/adb2c-ief-setup-twitter-idp-new-app3.png)
 
     >[!NOTE]
-    >Le secret de consommateur est une information d'identification de sécurité importante. Ne partagez pas ce secret avec quiconque et ne le distribuez pas avec votre application.
+    >La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
 
 ## <a name="step-2-add-your-twitter-account-application-key-to-azure-ad-b2c"></a>Étape 2 : Ajouter votre clé d’application de compte Twitter à Azure AD B2C
 La fédération avec les comptes Twitter nécessite un secret de consommateur pour que le compte Twitter accorde la confiance à Azure AD B2C au nom de l’application. Pour stocker le secret de consommateur de l’application Twitter dans votre locataire Azure AD B2C, effectuez les opérations suivantes : 
@@ -179,7 +179,7 @@ Un bouton étant maintenant en place, vous devez le lier à une action. L’acti
     >* Vérifiez que l’ID `TechnicalProfileReferenceId` est défini sur le profil technique que vous avez créé plus haut (Twitter-OAUTH1).
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Étape 5 : Charger la stratégie sur votre locataire
-1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et sélectionnez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
 
 2. Sélectionnez **Infrastructure d’expérience d’identité**.
 
@@ -196,7 +196,7 @@ Un bouton étant maintenant en place, vous devez le lier à une action. L’acti
 1. Sélectionnez **Paramètres Azure AD B2C**, puis **Infrastructure d’expérience d’identité**.
 
     >[!NOTE]
-    >Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
+    >L’option Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
 
 2. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.  
     Vous devriez maintenant être en mesure de vous connecter à l’aide du compte Twitter.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configuration d’un cluster Linux RDMA pour exécuter des applications MPI
 Découvrez comment configurer un cluster RDMA Linux dans Azure avec des [tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour exécuter des applications MPI (Message Passing Interface) parallèles. Cet article explique comment préparer une image Linux HPC pour exécuter Intel MPI sur un cluster. Après la préparation, vous déployez un cluster de machines virtuelles à l’aide de cette image et d’une des tailles de machine virtuelle Azure prenant en charge RDMA (actuellement H16r, H16mr, A8 ou A9). Utilisez le cluster pour exécuter des applications MPI communiquant efficacement avec un réseau haut débit basé sur la technologie d’accès direct à la mémoire à distance (RDMA) à faible latence.
@@ -47,7 +47,7 @@ Les étapes suivantes montrent comment utiliser la CLI Azure pour déployer une 
 * **Abonnement Azure** : si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/) en quelques minutes. Pour les clusters de grande taille, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat.
 * **Disponibilité de taille de machine virtuelle** : les tailles d’instance prenant en charge RDMA sont les suivantes : H16r, H16mr, A8 et A9. Pour connaître la disponibilité dans les différentes régions Azure, voir [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/) .
 * **Quota de cœurs** : il se peut que vous deviez augmenter le quota de cœurs pour déployer un cluster de machines virtuelles nécessitant beaucoup de ressources système. Par exemple, vous devez avoir au moins 128 cœurs si vous souhaitez déployer 8 machines virtuelles A9, comme indiqué dans cet article. Votre abonnement peut également limiter le nombre de cœurs, que vous pouvez déployer dans certaines familles de taille de machine virtuelle, dont la série H. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../../../azure-supportability/how-to-create-azure-support-request.md) gratuitement.
-* **CLI Azure** : [installez](../../../cli-install-nodejs.md) la CLI Azure et [connectez-vous à votre abonnement Azure](../../../xplat-cli-connect.md) sur l’ordinateur client.
+* **CLI Azure** : [installez](../../../cli-install-nodejs.md) la CLI Azure et [connectez-vous à votre abonnement Azure](/cli/azure/authenticate-azure-cli) sur l’ordinateur client.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Configurer une machine virtuelle SLES 12 SP1 HPC
 Après la connexion à Azure avec la CLI Azure, exécutez la commande `azure config list` pour confirmer que la sortie affiche le mode Service Management. Si ce n’est pas le cas, définissez le mode en exécutant la commande suivante :

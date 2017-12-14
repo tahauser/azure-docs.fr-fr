@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Gestion des services cloud
-Dans la zone **Services cloud (classique)** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d’étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
+Dans la zone **Services cloud** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d’étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
 Vous trouverez plus d’informations sur la mise à l’échelle de votre service cloud [ici](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Notez que les mises à jour du système d’exploitation invité et les opérati
 **Un échange implique-t-il un temps d’arrêt pour mon application ? Comment dois-je le gérer ?**
 
 Comme décrit dans la dernière section, un échange de déploiements est généralement rapide puisqu’il s’agit simplement d’une modification de configuration d’Azure Load Balancer. Toutefois, dans certains cas, il peut prendre au moins dix secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Liaison d’une ressource à un service cloud
-Le portail Azure ne lie pas les ressources comme le fait le portail Azure Classic actuel. Déployez plutôt des ressources supplémentaires vers le même groupe de ressources que celui utilisé par le service cloud.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Suppression de déploiements et d’un service cloud
 Avant de pouvoir supprimer un service cloud, vous devez supprimer tous les déploiements existants.

@@ -139,24 +139,24 @@
           items:
             - name: Vue d’ensemble et conditions préalables
               href: site-recovery-deployment-planner.md
-            - name: Exécuter Deployment planner
+            - name: Exécuter le Planificateur de déploiement
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Analyser le rapport généré
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Analyser le rapport d’estimation des coûts liés à la récupération d’urgence
+            - name: Analyser le rapport d’estimation des coûts
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Augmenter la taille des instances des serveurs de processus pour la réplication de VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Planification du déploiement et outil pour la réplication d’Hyper-V vers Azure
+        - name: Planificateur de déploiement pour la réplication Hyper-V vers Azure
           href: null
           items:
             - name: Vue d’ensemble et conditions préalables
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: Exécuter Deployment planner
+            - name: Exécuter le Planificateur de déploiement
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Analyser le rapport généré
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Analyser le rapport d’estimation des coûts liés à la récupération d’urgence
+            - name: Analyser le rapport d’estimation des coûts
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Tests de mise à l’échelle des performances pour la réplication d’Hyper-V entre des sites locaux
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Configurer les paramètres de réplication pour VMware vers Azure
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: Exclure les disques de la réplication
+        - name: Exclure les disques de la réplication de VMware vers Azure
           href: site-recovery-exclude-disk.md
+        - name: Exclure les disques de la réplication de Hyper-V vers Azure
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: Déployer le service Mobilité pour la réplication VMware
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:

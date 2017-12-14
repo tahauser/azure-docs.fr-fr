@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure
 La première étape pour comprendre la conformité dans Azure est de savoir où vous en êtes avec vos propres ressources actuelles. Ce démarrage rapide vous guide pas à pas dans le processus de création d’une affectation de stratégie pour identifier les machines virtuelles qui n’utilisent pas de disques gérés.
@@ -21,20 +21,6 @@ La première étape pour comprendre la conformité dans Azure est de savoir où 
 À la fin de ce processus, vous aurez identifié correctement les machines virtuelles qui n’utilisent pas de disques gérés et qui sont donc *non conformes*.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-## <a name="opt-in-to-azure-policy"></a>Choisir Azure Policy
-
-Azure Policy est désormais disponible en préversion publique et vous devez vous inscrire pour en demander l’accès.
-
-1. Accédez à Azure Policy sur https://aka.ms/getpolicy et sélectionnez **S’inscrire** dans le volet gauche.
-
-   ![Rechercher une stratégie](media/assign-policy-definition/sign-up.png)
-
-2. Choisissez Azure Policy en sélectionnant les abonnements que vous voulez utiliser dans la liste **Abonnement**. Sélectionnez ensuite **Inscription**.
-
-   ![Accepter l’utilisation d’Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Votre requête est approuvée automatiquement pour la préversion. Patientez 30 minutes pour que le système traite votre inscription.
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
@@ -65,7 +51,7 @@ Dans ce guide de démarrage rapide, nous créons une affectation de stratégie e
    Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Étant donné qu’il s’agit d’une préversion limitée, nous n'avons pas encore publié de modèle tarifaire. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Sélectionnez l’**étendue** d’application souhaitée de la stratégie.  Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources.
-8. Sélectionnez l’abonnement (ou le groupe de ressources) enregistré précédemment quand vous avez choisi Azure Policy. Dans cet exemple, nous utilisons l’abonnement suivant - **Azure Analytics Capacity Dev**, mais vos options peuvent différer.
+8. Sélectionnez l’abonnement (ou le groupe de ressources) précédemment enregistré. Dans cet exemple, nous utilisons l’abonnement suivant - **Azure Analytics Capacity Dev**, mais vos options peuvent différer.
 
    ![Rechercher la définition de stratégie appropriée](media/assign-policy-definition/assign-policy.png)
 

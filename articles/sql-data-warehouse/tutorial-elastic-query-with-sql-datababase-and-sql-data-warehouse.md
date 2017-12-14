@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>Configurer la fonctionnalité de requête élastique avec SQL Data Warehouse
 
@@ -39,9 +39,9 @@ Avant de commencer le didacticiel, vous devez satisfaire aux prérequis suivants
 
 2. Créez une connexion et un utilisateur représentant la connexion entre la base de données SQL et l’entrepôt de données.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. À l’aide de SSMS ou d’un autre client de requête, ouvrez une nouvelle requête pour **l’instance SQL Data Warehouse** sur votre serveur logique.
 
@@ -75,14 +75,14 @@ Avant de commencer le didacticiel, vous devez satisfaire aux prérequis suivants
 
 9. Créez une source de données externe qui pointe vers l’instance de l’entrepôt de données.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. Vous pouvez à présent créer des tables externes qui référencent cette source de données externe. Les requêtes qui utilisent ces tables sont envoyées à l’instance de l’entrepôt de données afin d’être traitées, puis elles sont renvoyées à l’instance de la base de données.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Utilisation d’un service web Azure Machine Learning
 
@@ -64,18 +64,11 @@ Pour récupérer la clé API pour un service web Machine Learning classique :
 5. Copiez et enregistrez la **clé primaire**.
 
 ### <a name="classic-web-service"></a>Service web classique
- Vous pouvez également récupérer une clé pour un service web classique par le biais de Machine Learning Studio ou du portail Azure Classic.
+ Vous pouvez également récupérer une clé pour un service web classique par le biais de Machine Learning Studio.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. Dans Machine Learning Studio, cliquez sur l’option **SERVICES WEB** figurant sur la gauche.
 2. Cliquez sur un service web. La **clé API** figure sur l’onglet **TABLEAU DE BORD**.
-
-#### <a name="azure-classic-portal"></a>Portail Azure Classic
-1. Cliquez sur l’option **MACHINE LEARNING** figurant sur la gauche.
-2. Cliquez sur l’espace de travail dans lequel se trouve votre service web.
-3. Cliquez sur **SERVICES WEB**.
-4. Cliquez sur un service web.
-5. Cliquez sur un point de terminaison. La « CLÉ API » se trouve sur la partie inférieure droite de la fenêtre.
 
 ## <a id="connect"></a>Se connecter à un service web Machine Learning
 Vous pouvez vous connecter à un service web Machine Learning à l’aide de n’importe quel langage de programmation qui prend en charge les requêtes et réponses HTTP. Vous pouvez consulter des exemples en C#, Python et R sur l’une des pages d’aide du service web Machine Learning.

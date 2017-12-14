@@ -4,7 +4,7 @@ description: "Guide pratique pour configurer les exigences de complexité des mo
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
 ms.service: active-directory-b2c
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: c28a1d30127956f6cc589b1efef6bff12117e3f1
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configurer la complexité du mot de passe dans les stratégies personnalisées
 
 > [!NOTE]
-> **Cette fonctionnalité est en version préliminaire.**  Contactez [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) pour que votre locataire de test soit activé avec cette fonctionnalité.
+> **Cette fonctionnalité est en version préliminaire.**  Contactez [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) pour que votre locataire de test soit activé avec cette fonctionnalité.  Ne testez pas cette fonctionnalité sur des locataires de production.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

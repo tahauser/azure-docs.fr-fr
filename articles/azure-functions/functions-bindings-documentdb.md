@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a725d6e08721107ddd83999dac85dddb88896ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 91289507b9989da9d5c36628fe25cd2e60b8814d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Liaisons Azure Cosmos DB pour Azure Functions
 
@@ -170,9 +170,49 @@ La liaison d’entrée de l’API DocumentDB récupère un ou plusieurs document
 
 Consultez l’exemple propre au langage, qui lit un document unique :
 
+* [C# précompilé](#input---c-example)
 * [Script C#](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example"></a>Entrée - exemple C#
+
+L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui récupère un document unique depuis une base de données et une collection spécifiques. D’abord, les valeurs `Id` et `Maker` pour une instance `CarReview` sont passées dans la file d’attente. 
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
+
+La liaison Cosmos DB utilise `Id` et `Maker` du message de file d’attente pour récupérer le document de la base de données.
+
+```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Azure.WebJobs.Extensions.DocumentDB;
+
+    namespace CosmosDB
+    {
+        public static class SingleEntry
+        {
+            [FunctionName("SingleEntry")]
+            public static void Run(
+                [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                TraceWriter log)
+            {
+                log.Info( $"Selected Review - {document?.Review}"); 
+            }
+        }
+    }
+```
 
 ### <a name="input---c-script-example"></a>Entrée - exemple de script C#
 
@@ -234,7 +274,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-Cet exemple requiert un fichier `project.json` qui spécifie les dépendances NuGet `FSharp.Interop.Dynamic` et `Dynamitey` :
+Cet exemple nécessite un fichier `project.json` qui spécifie les dépendances NuGet `FSharp.Interop.Dynamic` et `Dynamitey` :
 
 ```json
 {
@@ -575,7 +615,7 @@ Cet exemple nécessite un fichier `project.json` qui spécifie les dépendances 
 }
 ```
 
-Pour ajouter un fichier `project.json`, consultez [Gestion des packages F#](functions-reference-fsharp.md#package).
+Pour ajouter un fichier `project.json`, consultez [F# package management](functions-reference-fsharp.md#package) (Gestion des packages F#).
 
 ### <a name="output---javascript-example"></a>Sortie - exemple JavaScript
 

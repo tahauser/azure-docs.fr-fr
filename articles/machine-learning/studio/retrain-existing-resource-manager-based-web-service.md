@@ -3,7 +3,7 @@ title: "Reformer un service web prédictif | Microsoft Docs"
 description: "Apprenez à reformer un modèle et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6d96d173928fa18a3ab4f3086e5971ad1927df89
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reformer un service web prédictif existant
 Ce document décrit le processus de reformation pour le scénario suivant :
@@ -86,20 +86,19 @@ Dans la section des **informations de base sur la consommation** de la page **Ut
 ### <a name="update-the-azure-storage-information"></a>Mettre à jour les informations Azure Storage
 L’exemple de code BES charge un fichier à partir d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers le Stockage Azure, le traite, réécrit les résultats dans le Stockage Azure.  
 
-Pour mettre à jour les informations sur le service Stockage Azure, vous devez récupérer les informations de nom de compte, de clé et de conteneur de stockage de votre compte de stockage depuis le portail Azure Classic, puis mettre à jour les valeurs correspondantes dans le code.
 Après que vous avez exécuté cette procédure, le flux de travail obtenu doit être semblable à ce qui suit :
 
 ![Flux de travail obtenu après l’exécution][4]
 
-1. Connectez-vous à la version classique du portail Azure.
-2. Dans la colonne de navigation de gauche, cliquez sur **Stockage**.
+1. Connectez-vous au portail Azure.
+2. Dans la colonne de navigation de gauche, cliquez sur **Autres services**, recherchez **Comptes de stockage** et sélectionnez-le.
 3. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle reformé.
-4. En bas de la page, cliquez sur **Gérer les clés d’accès**.
-5. Copiez et enregistrez la **clé d’accès primaire** , puis fermez la boîte de dialogue.
-6. En haut de la page, cliquez sur **Conteneurs**.
+4. Dans la colonne de navigation de gauche, cliquez sur **Clés d’accès**.
+5. Copiez et enregistrez la **Clé d’accès primaire**.
+6. Dans la colonne de navigation de gauche, cliquez sur **Conteneurs**.
 7. Sélectionnez un conteneur existant ou créez-en un et enregistrez le nom.
 
-Localisez les déclarations *StorageAccountName*, *StorageAccountKey* et *StorageContainerName*, puis mettez à jour les valeurs que vous avez enregistrées à partir du portail Azure Classic.
+Localisez les déclarations *StorageAccountName*, *StorageAccountKey* et *StorageContainerName*, puis mettez à jour les valeurs que vous avez enregistrées à partir du portail.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

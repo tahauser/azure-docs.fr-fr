@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solution Application Insights Connector (préversion) dans Operations Management Suite (OMS)
 
@@ -39,7 +39,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
-| [Agents Windows](log-analytics-windows-agents.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
+| [Agents Windows](log-analytics-windows-agent.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |

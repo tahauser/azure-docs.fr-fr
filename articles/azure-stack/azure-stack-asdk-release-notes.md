@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du kit de développement Azure Stack
 
@@ -56,7 +56,7 @@ Ces notes de publication fournissent des informations sur les améliorations, le
    Pour contourner les deux derniers problèmes, vous pouvez taper le nom de l’abonnement ou du groupe de ressources (si vous les connaissez), ou utiliser PowerShell à la place.
 
 - Le message d’avertissement **Activation requise** s’affichera pour vous inviter à enregistrer votre kit de développement Azure Stack. Il s’agit du comportement attendu.
-- Dans les détails du message d’avertissement **Activation requise**, ne cliquez pas sur le lien vers le composant **AzureBridge**. Si vous faites cela, le panneau **Vue d’ensemble** ne se chargera pas et le délai d’expiration ne sera pas activé.
+- Si vous cliquez sur le lien **Composant** à partir de n'importe quelle alerte **Rôle d'infrastructure**, le panneau **Vue d'ensemble** qui en résulte essaie de se charger et échoue. De plus, le panneau **Vue d'ensemble** n'expire pas.
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 - Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack. Pour contourner ce problème, vous pouvez vérifier les autorisations à l’aide de PowerShell.
  
@@ -134,7 +134,7 @@ Les correctifs suivants ont également été appliqués :
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 - Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack. Pour contourner ce problème, vous pouvez vérifier les autorisations à l’aide de PowerShell.
  
-#### <a name="marketplace"></a>Place de marché
+#### <a name="marketplace"></a>Marketplace
 - Lorsque vous tentez d’ajouter des éléments à la Place de marché d’Azure Stack à l’aide de l’option **Ajouter à partir d’Azure**, certains éléments disponibles en téléchargement peuvent ne pas être visibles.
 - Les utilisateurs ont la possibilité de parcourir entièrement la Place de marché, et peuvent voir des éléments administratifs, tels que des plans et des offres, qui ne sont pas fonctionnels pour eux.
  

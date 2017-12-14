@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -46,7 +46,7 @@ Dans la référence ci-dessus, plusieurs serveurs de fichiers, appelés « membr
 
     Cette approche est conseillée dans le cas où les configurations de vos machines virtuelles ne sont pas prises en charge par Azure Site Recovery, par exemple pour un disque de cluster partagé (qui est parfois couramment utilisé dans les environnements de serveur de fichiers).  DFSR fonctionne également bien dans des environnements à faible bande passante avec un taux de variation moyen. Le coût supplémentaire que représente le fait d’avoir une machine virtuelle Azure opérationnelle en permanence doit également être compensé ainsi.  
 
-3.  Utilisez le service Azure File Sync pour répliquer vos fichiers : Si vous préparez votre migration vers le cloud, ou que vous utilisez déjà une machine virtuelle Azure, nous vous suggérons d’utiliser le service Azure File Sync, qui offre une synchronisation de partages de fichiers entièrement managés dans le cloud qui sont accessibles par le biais du protocole [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Les partages de fichiers Azure peuvent ensuite être montés simultanément par des déploiements cloud ou locaux de Windows, Linux et MacOS. 
+3.  Utilisez le service Azure File Sync pour répliquer vos fichiers : Si vous préparez votre migration vers le cloud, ou que vous utilisez déjà une machine virtuelle Azure, nous vous suggérons d’utiliser le service Azure File Sync, qui offre une synchronisation de partages de fichiers entièrement gérés dans le cloud qui sont accessibles par le biais du protocole [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Les partages de fichiers Azure peuvent ensuite être montés simultanément par des déploiements cloud ou locaux de Windows, Linux et MacOS. 
 
 Le schéma suivant donne une représentation graphique destinée à simplifier le choix de la stratégie à utiliser dans votre environnement de serveur de fichiers.
 
@@ -145,7 +145,7 @@ L’approche conseillée pour l’intégration d’Azure File Sync à Azure Site
 
 Les étapes suivantes décrivent en détail l’utilisation du service Azure File Sync :
 
-1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture (RA-GRS) (recommandé) pour vos comptes de stockage, vous bénéficiez d’un accès en lecture à vos données à partir de la région secondaire en cas de sinistre. Pour plus d’informations, reportez-vous aux [stratégies de récupération d’urgence des partages de fichiers Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture (RA-GRS) (recommandé) pour vos comptes de stockage, vous bénéficiez d’un accès en lecture à vos données à partir de la région secondaire en cas de sinistre. Pour plus d’informations, reportez-vous aux [stratégies de récupération d’urgence des partages de fichiers Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 2. [Créer un partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Déployez Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) dans votre serveur de fichiers local.
 4. Créez un groupe de synchronisation : les points de terminaison se trouvant dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir au moins un point de terminaison cloud, qui représente un partage de fichiers Azure, et un point de terminaison de serveur, qui représente un chemin sur le serveur Windows Server local.

@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gérer les ressources du cluster Apache Spark dans Azure HDInsight 
 
-Dans cet article, vous découvrez comment accéder aux interfaces comme l’IU d’Ambari et l’IU de YARN, ainsi qu’au serveur d’historique Spark associé à votre cluster Spark. Vous découvrez également comment ajuster la configuration du cluster afin d’optimiser les performances.
+Découvrez comment accéder aux interfaces, telles que les interfaces utilisateur Ambari et YARN, ainsi qu’au serveur d’historique Spark associé à votre cluster Spark, et comment ajuster la configuration du cluster afin d’optimiser les performances.
 
 **Configuration requise :**
 
-* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Comment lancer l’interface utilisateur web Ambari ?
+## <a name="open-the-ambari-web-ui"></a>Ouvrir l’interface utilisateur Web d’Ambari
 1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.
 2. Pour votre cluster Spark, cliquez sur **Tableau de bord**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
@@ -40,7 +39,7 @@ Dans cet article, vous découvrez comment accéder aux interfaces comme l’IU d
 
     ![Interface utilisateur web Ambari](./media/apache-spark-resource-manager/ambari-web-ui.png "Interface utilisateur web Ambari")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Comment lancer le serveur d’historique Spark ?
+## <a name="open-the-spark-history-server"></a>Ouvrir le serveur d’historique Spark
 1. Dans le tableau d’accueil du [portail Azure](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous l’avez épinglé au tableau d’accueil).
 2. Dans le panneau du cluster, sous **Liens rapides**, cliquez sur **Tableau de bord du cluster**. Dans le panneau **Tableau de bord du cluster** , cliquez sur **Serveur d’historique Spark**.
 
@@ -48,7 +47,7 @@ Dans cet article, vous découvrez comment accéder aux interfaces comme l’IU d
 
     Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Comment lancer l’interface utilisateur web Yarn ?
+## <a name="open-the-yarn-ui"></a>Ouvrir l’interface utilisateur YARN
 Vous pouvez utiliser l’interface utilisateur YARN pour surveiller les applications en cours d’exécution sur le cluster Spark.
 
 1. Dans le panneau du cluster, cliquez sur **Tableau de bord du cluster**, puis sur **YARN**.
@@ -60,7 +59,7 @@ Vous pouvez utiliser l’interface utilisateur YARN pour surveiller les applicat
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Quelle est la configuration de cluster optimale pour l’exécution des applications Spark ?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>La configuration de cluster optimale pour l’exécution des applications Spark
 Les trois paramètres clés pouvant être utilisés pour la configuration de Spark selon la configuration requise pour l’application sont `spark.executor.instances`, `spark.executor.cores` et `spark.executor.memory`. Un exécuteur est un processus lancé pour une application Spark. Il s’exécute sur le nœud de travail et est chargé d’effectuer les tâches de l’application. Le nombre d’exécuteurs par défaut et les tailles d’exécuteur de chaque cluster sont calculés en fonction du nombre de nœuds de travail et de leur taille. Ces informations sont stockées dans `spark-defaults.conf` sur les nœuds principaux du cluster.
 
 Les trois paramètres de configuration peuvent être configurés au niveau du cluster (pour toutes les applications qui s’exécutent sur le cluster) ou spécifiés pour chaque application.
@@ -158,7 +157,7 @@ Lancez l’interface utilisateur web Yarn comme indiqué ci-dessus. Dans la tabl
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight telemetry data analysis using Spark in HDInsight (Analyse des données de télémétrie Application Insight à l’aide de Spark dans HDInsight)](apache-spark-analyze-application-insight-logs.md)
-* [Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée](apache-spark-deep-learning-caffe.md)
+* [Utiliser Caffe sur Azure HDInsight Spark pour un apprentissage profond distribué](apache-spark-deep-learning-caffe.md)
 
 ### <a name="for-spark-developers"></a>Pour les développeurs Spark
 
@@ -166,8 +165,8 @@ Lancez l’interface utilisateur web Yarn comme indiqué ci-dessus. Dans la tabl
 * [Exécuter des tâches à distance avec Livy sur un cluster Spark](apache-spark-livy-rest-interface.md)
 * [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](apache-spark-eventhub-streaming.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely) (Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance)](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA pour déboguer des applications Spark à distance](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utiliser des bloc-notes Zeppelin avec un cluster Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
 * [Noyaux disponibles pour le bloc-notes Jupyter dans un cluster Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)
+* [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](apache-spark-jupyter-notebook-install-locally.md)

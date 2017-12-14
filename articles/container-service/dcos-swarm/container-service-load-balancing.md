@@ -1,28 +1,22 @@
 ---
-title: "Équilibrer la charge des conteneurs dans un cluster DC/OS Azure | Microsoft Docs"
+title: "Équilibrer la charge des conteneurs dans un cluster DC/OS Azure"
 description: "Équilibrer la charge de plusieurs conteneurs dans un cluster DC/OS Azure Container Service."
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Conteneurs, micro-services, DC/OS, Azure
 ms.service: container-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f5467d0fbcc577a548f1100ed6e4d380fe38759
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Équilibrer la charge des conteneurs dans un cluster DC/OS Azure Container Service
+
 Dans cet article, nous étudions comment créer un équilibreur de charge interne dans un cluster Azure Container Service géré par DC/OS à l’aide de Marathon-LB. Cette configuration vous permet de mettre à l’échelle vos applications horizontalement. Elle vous permet également de tirer parti des clusters d’agents publics et privés en plaçant vos équilibreurs de charge sur le cluster public et vos conteneurs d’applications sur le cluster privé. Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

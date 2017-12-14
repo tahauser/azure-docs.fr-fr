@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -30,7 +30,7 @@ Pour effectuer ce démarrage rapide :
 - Installez l’[Environnement de développement intégré Eclipse gratuit pour développeurs Java EE](http://www.eclipse.org/downloads/). Ce guide de démarrage rapide utilise Eclipse Oxygen (4.7).
 - Vous avez besoin d’un abonnement Azure et d’un projet web dynamique Java existant.
  
-Si vous n’avez pas de projet web dynamique Java, vous pouvez en créer un à l’aide du [guide de démarrage rapide pour la création d’une application web Java](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
+Si vous n’avez pas de projet web dynamique Java, vous pouvez en créer un à l’aide du [guide de démarrage rapide pour la création d’une application web Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -138,4 +138,4 @@ Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les did
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Rechercher et diagnostiquer des problèmes de performances](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Rechercher et diagnostiquer des problèmes de performances](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

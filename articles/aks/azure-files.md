@@ -1,26 +1,19 @@
 ---
-title: Utiliser Azure Files avec AKS | Microsoft Docs
+title: Utiliser Azure Files avec AKS
 description: Utiliser des disques Azure avec AKS
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 12c5d4985260c734ba813ace3143433883966712
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Utilisation d’Azure Files avec Kubernetes
 
@@ -55,7 +48,7 @@ az storage share create -n $AKS_PERS_SHARE_NAME
 STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
-## <a name="create-kubernetes-secret"></a>Créer un secret Kubernetes
+## <a name="create-kubernetes-secret"></a>Créer une clé secrète Kubernetes
 
 Kubernetes a besoin d’informations d’identification pour accéder au partage de fichiers. Ces informations d’identification sont stockées dans un [secret Kubernetes][kubernetes-secret], qui est référencé lors de la création d’un module Kubernetes.
 

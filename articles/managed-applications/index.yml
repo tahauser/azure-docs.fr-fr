@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentation Azure Managed Applications
 metadata:
-  title: 'Documentation Azure Managed Applications - Didacticiels, informations de référence sur les API'
-  description: Utilisez Azure Managed Applications pour publier des solutions Cloud plus faciles à gérer pour les utilisateurs.
+  title: "Documentation Azure Managed Applications - Didacticiels, informations de référence sur les API"
+  description: "Utilisez Azure Managed Applications pour publier des solutions Cloud plus faciles à gérer pour les utilisateurs."
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -13,38 +13,43 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
+  ms.openlocfilehash: a51f2d028dc09bfe8d58357d2ade7c3dfa6e3fef
+  ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/08/2017
 abstract:
-  description: Azure Managed Applications vous permet de proposer vos solutions Cloud à des utilisateurs internes et externes. Vous définissez l’infrastructure de la solution et les conditions de gestion continue de la solution. La facturation pour votre solution est gérée via la facturation Azure.
+  description: "Azure Managed Applications vous permet de proposer vos solutions Cloud à des utilisateurs internes et externes. Vous définissez l’infrastructure de la solution et les conditions de gestion continue de la solution. La facturation pour votre solution est gérée via la facturation Azure."
 sections:
-  - title: "Démarrages en 5\_minutes"
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment publier et déployer une application managée."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Découvrez comment publier et déployer une application managée.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/managed-applications/media/index/cli.svg
-            text: Interface de ligne de commande Azure
-            href: /azure/managed-applications/managed-apps-quickstart-cli
-  - title: Didacticiels pas à pas
+    - image:
+        src: /azure/managed-applications/media/index/cli.svg
+      text: Interface de ligne de commande Azure
+      href: /azure/managed-applications/managed-apps-quickstart-cli
+- title: "Didacticiels pas à pas"
+  items:
+  - type: paragraph
+    text: "Apprenez à développer des applications managées et à les proposer via la Place de marché Microsoft Azure."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Apprenez à développer des applications managées et à les proposer via la Place de marché Microsoft Azure.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publier une application managée pour des utilisateurs internes</a>
-          - html: <a href="/azure/managed-applications/publish-marketplace-app">Publier une application managée pour des utilisateurs externes</a>
-  - title: Référence
+    - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">Publier une application managée pour des utilisateurs internes</a>"
+- title: "Référence"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: <p><a href="/cli/azure/managedapp">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
-          - title: API REST
-            html: <p><a href="/rest/api/resources/">REST</a></p>
-          - title: Interface utilisateur
-            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Éléments d’interface utilisateur</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Fonctions de l’interface utilisateur</a></p>
+    - title: Ligne de commande
+      html: <p><a href="/cli/azure/managedapp">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+    - title: API REST
+      html: <p><a href="/rest/api/resources/">REST</a></p>
+    - title: Interface utilisateur
+      html: "<p><a href=\"/azure/managed-applications/create-uidefinition-elements\">Éléments d’interface utilisateur</a></p><p><a href=\"/azure/managed-applications/create-uidefinition-functions\">Fonctions de l’interface utilisateur</a></p>"

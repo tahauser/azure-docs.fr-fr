@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
 
-Dans la plupart des scénarios IaaS (Infrastructure en tant que service), les [machines virtuelles Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/) représentent la principale charge de travail pour les organisations qui utilisent l’informatique cloud. Cela est particulièrement vrai dans les [scénarios hybrides](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) où les organisations souhaitent migrer lentement les charges de travail vers le cloud. Dans ces cas, suivez les [considérations générales de sécurité pour IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) et appliquez les meilleures pratiques de sécurité à toutes vos machines virtuelles.
+Dans la plupart des scénarios IaaS (Infrastructure en tant que service), les [machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/) représentent la principale charge de travail pour les organisations qui utilisent l’informatique cloud. Cela est particulièrement vrai dans les [scénarios hybrides](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) où les organisations souhaitent migrer lentement les charges de travail vers le cloud. Dans ces cas, suivez les [considérations générales de sécurité pour IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) et appliquez les meilleures pratiques de sécurité à toutes vos machines virtuelles.
 
 Cet article décrit différentes meilleures pratiques de sécurité qui sont le résultat de nos expériences ou de celles de nos clients avec les machines virtuelles.
 

@@ -73,6 +73,9 @@
           href: sizes-compute.md
         - name: Mémoire optimisée
           href: sizes-memory.md
+          items:
+            - name: Processeurs virtuels avec contraintes
+              href: constrained-vcpu.md
         - name: Optimisé pour le stockage
           href: sizes-storage.md
         - name: Optimisé pour le GPU
@@ -121,6 +124,8 @@
       items:
         - name: Instructions pour les infrastructures
           href: infrastructure-example.md
+        - name: Quotas de processeurs virtuels
+          href: quotas.md
 - name: Procédures
   items:
     - name: Créer des machines virtuelles
@@ -164,6 +169,8 @@
       items:
         - name: Prépayer les machines virtuelles - Instances réservées
           href: prepay-reserved-vm-instances.md
+        - name: Utilisation de machines virtuelles
+          href: vm-usage.md
         - name: Tâches d’interface de ligne de commande courantes
           href: cli-manage.md
         - name: Déplacer une machine virtuelle

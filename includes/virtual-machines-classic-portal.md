@@ -1,1 +1,1 @@
-Depuis le 15 novembre 2017, l’offre Machines virtuelles est disponible uniquement dans le [portail Azure](https://portal.azure.com). L’accès à partir du portail classique n’est plus pris en charge.
+Depuis le 15 novembre 2017, l’offre Machines virtuelles est disponible uniquement dans le [portail Azure](https://portal.azure.com). 

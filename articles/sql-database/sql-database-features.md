@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/25/2017
 ms.author: carlrab
-ms.openlocfilehash: dd78b1a8703f2e6aaa7854a7b3cb774d014e7270
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: a15c23683a3334328720e8ae4369b2495f9613de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-features"></a>Fonctionnalités Azure SQL Database
 
@@ -69,7 +69,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Déclencheurs DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Base de données uniquement |
 | [Transactions distribuées - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Non - voir [Transactions élastiques](sql-database-elastic-transactions-overview.md) |
 | [Instructions DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Oui |
-| [Déclencheurs DML](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | La plupart - voir Instructions individuelles | 
+| [Déclencheurs DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | La plupart - voir Instructions individuelles | 
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Certains - voir DMV individuels |
 |[Masquage des données dynamiques](/sql/relational-databases/security/dynamic-data-masking)|[Oui](sql-database-dynamic-data-masking-get-started.md)|
 | [Notifications d’événement](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Non - voir [Alertes](sql-database-insights-alerts-portal.md) |
@@ -95,7 +95,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Non |
 | [Gestion basée sur des stratégies](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Non |
 | [Prédicats](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Oui |
-| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Préversion ; consultez [Nouveautés de l’apprentissage automatique](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
+| [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Version préliminaire ; consultez [Nouveautés du Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
 | [Gouverneur de ressources](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Non |
 | [Instructions RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Non | 
 | [Restauration de la base de données à partir de la sauvegarde](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | À partir des sauvegardes intégrées uniquement - voir [Récupération de base de données SQL](sql-database-recovery-using-backups.md) |

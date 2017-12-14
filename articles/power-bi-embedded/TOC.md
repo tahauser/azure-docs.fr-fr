@@ -24,7 +24,7 @@
 
 # Référence
 ## API
-### [API REST de gestion des ressources Azure](/rest/api/powerbiembedded/)
+### [API REST de gestion des ressources Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [API REST](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## Kits de développement logiciel (SDK)
 ### [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

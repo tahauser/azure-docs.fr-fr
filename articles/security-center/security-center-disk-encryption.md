@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Chiffrement d’une machine virtuelle Azure
 Le Centre de sécurité Azure émet une alerte si certaines de vos machines virtuelles ne sont pas chiffrées. Ces alertes indiquant un niveau de gravité élevé, il est recommandé de chiffrer ces machines virtuelles.
@@ -26,7 +26,7 @@ Le Centre de sécurité Azure émet une alerte si certaines de vos machines virt
 ![Recommandation de chiffrement de disque](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Les informations contenues dans ce document concernent le chiffrement des machines virtuelles sans utiliser une clé de chiffrement à clé (requise pour la sauvegarde des machines virtuelles à l’aide d’Azure Backup). Consultez l’article [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) (Utilisation d’Azure Disk Encryption pour les machines virtuelles Azure exécutées sous Windows et Linux) pour plus d’informations sur l’utilisation d’une clé de chiffrement à clé pour prendre en charge Azure Backup pour les machines virtuelles Azure chiffrées.
+> Les informations contenues dans ce document concernent le chiffrement des machines virtuelles sans utiliser une clé de chiffrement à clé (requise pour la sauvegarde des machines virtuelles à l’aide d’Azure Backup). Consultez l’article [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) (Utilisation d’Azure Disk Encryption pour les machines virtuelles Azure exécutées sous Windows et Linux) pour plus d’informations sur l’utilisation d’une clé de chiffrement à clé pour prendre en charge Azure Backup pour les machines virtuelles Azure chiffrées.
 >
 >
 

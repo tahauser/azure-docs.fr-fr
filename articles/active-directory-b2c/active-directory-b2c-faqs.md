@@ -4,7 +4,7 @@ description: Forum aux questions sur Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: saeeda
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -37,7 +37,7 @@ Dans un locataire Azure AD B2C, la plupart des applications demandent que l’ut
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quels fournisseurs d’identité sociaux prenez-vous en charge maintenant ? Lesquels envisagez-vous de prendre en charge à l'avenir ?
 Nous prenons actuellement en charge Facebook, Google+, LinkedIn, Amazon, Twitter (aperçu), WeChat (aperçu), Weibo (aperçu) et QQ (aperçu). Nous ajouterons la prise en charge d’autres fournisseurs d’identité sociaux populaires en fonction de la demande des clients.
 
-Azure AD B2C a également ajouté la prise en charge des [stratégies personnalisées](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Ces [stratégies personnalisées](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) permettent au développeur de créer sa propre stratégie qui avec n’importe quel fournisseur d’identité prend en charge [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
+Azure AD B2C a également ajouté la prise en charge des [stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Ces [stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) permettent au développeur de créer sa propre stratégie qui avec n’importe quel fournisseur d’identité prend en charge [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
 
 Bien démarrer avec les stratégies personnalisées en consultant notre [pack de démarrage des stratégies personnalisées](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -87,7 +87,7 @@ Non, Azure AD Connect n'est pas conçu pour fonctionner avec Azure AD B2C. Utili
 Non, pour des raisons de sécurité, les pages Azure AD B2C ne peuvent pas être ouvertes dans un iFrame.  Notre service communique avec le navigateur pour interdire les iFrames.  La communauté de sécurité en général et la spécification OAUTH2 déconseillent d’utiliser des iFrames pour les expériences d’identité en raison du risque d’attaques par détournement de clics.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C fonctionne-t-il avec les systèmes CRM, tels que Microsoft Dynamics ?
-L’intégration avec le portail Microsoft Dynamics 365 est disponible.  Consultez [Configuration du portail Dynamics 365 pour utiliser Azure AD B2C pour l’authentification ](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+L’intégration avec le portail Microsoft Dynamics 365 est disponible.  Consultez [Configuration du portail Dynamics 365 pour utiliser Azure AD B2C pour l’authentification ](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C fonctionne-t-il avec SharePoint localement 2016 ou version antérieure ?
 Azure AD B2C n’est pas conçu pour le scénario de partage partenaire externe SharePoint ; consultez plutôt cet article sur [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).

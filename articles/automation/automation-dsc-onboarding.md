@@ -3,7 +3,7 @@ title: Gestion de machines avec Azure Automation DSC | Microsoft Docs
 description: "Comment configurer des machines pour les gérer avec Azure Automation DSC"
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
-ms.author: eslesar
-ms.openlocfilehash: 1a6355c18aed8a4040121e5af482328b70294b83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Gestion de machines avec Azure Automation DSC
 

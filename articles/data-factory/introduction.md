@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Une fois que les données brutes ont été affinées sous une forme utilisable p
 ### <a name="monitor"></a>Surveiller
 Une fois que vous avez créé et déployé votre pipeline d’intégration de données afin de bénéficier de la valeur commerciale fournie par les données affinées, surveillez les activités planifiées et les pipelines pour connaître les taux de réussite et d’échec. Azure Data Factory intègre une prise en charge de la surveillance des pipelines via Azure Monitor, les API, PowerShell, Microsoft Operations Management Suite et les panneaux de contrôle d’intégrité du portail Azure.
 
-## <a name="whats-different-in-version-2"></a>En quoi diffère la version 2 ?
-Azure Data Factory version 2 est fondé sur le service de déplacement et de transformation de données Azure Data Factory d’origine, mais a été développé pour offrir un ensemble plus vaste de scénarios d’intégration de données au cloud. Azure Data Factory version 2 présente les fonctionnalités suivantes :
-
-- Flux de contrôle et mise à l’échelle
-- Déployer et exécuter des packages SQL Server Integration Services (SSIS) dans Azure
-
-Après la sortie de la version 1, nous nous sommes rendu compte que les clients devaient concevoir des scénarios d’intégration de données hybrides complexes nécessitant le déplacement et le traitement des données dans le cloud, localement et sur des machines virtuelles dans le cloud. Ces exigences ont mis en évidence la nécessité de transférer et de traiter les données dans des environnements de réseau virtuel sécurisés et de permettre une montée en charge en fournissant une puissance de traitement à la demande.
-
-Puisque les pipelines de données deviennent des éléments essentiels de la stratégie d’analyse commerciale, nous avons constaté que ces activités de données cruciales avaient besoin d’une planification flexible pour prendre en charge les charges de données incrémentielles et les exécutions déclenchées par des événements. Enfin, à mesure que ces opérations gagnent en complexité, le service est également dans l’obligation de prendre en charge des paradigmes de flux de travail communs, tels que la création de branches, le bouclage et le traitement conditionnel.
-
-Avec la version 2, vous pouvez également migrer des packages SSIS existants vers le cloud. Vous pouvez promouvoir et insérer SSIS en tant que service Azure géré au sein d’ADF au moyen de la nouvelle fonctionnalité de « runtimes d’intégration ». L’ajout d’un runtime d’intégration SSIS dans la version 2, vous permet d’exécuter, de gérer, de surveiller et de générer des packages SSIS dans le cloud.
-
-### <a name="control-flow-and-scale"></a>Flux de contrôle et mise à l’échelle 
-Pour prendre en charge les divers flux d’intégration et modèles dans l’entrepôt de données moderne, Data Factory a mis en œuvre un nouveau modèle flexible de pipeline de données qui n’est plus lié à des données de série chronologique. Avec cette version, vous pouvez modéliser des instructions conditionnelles et créer une branche dans le flux de contrôle d’un pipeline de données afin de transmettre explicitement des paramètres dans et entre ces flux.
-
-Vous avez désormais la liberté de modéliser n’importe quel style de flux requis pour l’intégration des données qui peut être distribué à la demande ou de façon répétée selon une planification d’horloge. Quelques flux courants qui n’étaient pas possibles auparavant sont désormais activés :   
-
-- Control flow :
-    - Chaînage des activités en une séquence au sein d’un pipeline
-    - Création d’une branche d’activités au sein d’un pipeline
-    - parameters
-        - Les paramètres peuvent être définis au niveau du pipeline et les arguments transmis lorsque vous appelez le pipeline à la demande ou à partir d’un déclencheur.
-        - Les activités peuvent consommer les arguments transmis au pipeline.
-    - Transmission d’un état personnalisé
-        - Les sorties de l’activité, notamment l’état, peuvent être consommées par une activité ultérieure du pipeline.
-    - Bouclage des conteneurs
-        - ForEach 
-- Flux basés sur déclencheur
-    - Les pipelines peuvent être déclenchés à la demande ou selon une durée chronométrée.
-- Flux delta
-    - Utilisez des paramètres et définissez la marque de borne haute pour la copie delta lors du déplacement des tables de dimension ou de référence à partir d’un magasin relationnel, localement, ou dans le cloud pour charger les données dans le lac. 
-
-Pour plus d’informations, consultez [Activités de création de branches et chaînage dans un pipeline Azure Data Factory](tutorial-control-flow.md).
-
-### <a name="deploy-ssis-packages-to-azure"></a>Déployer des packages SSIS vers Azure 
-Si vous souhaitez déplacer vos charges de travail SSIS, vous pouvez créer une fabrique de données version 2 et approvisionner un runtime Azure-SSIS IR. Le runtime Azure-SSIS IR est un cluster entièrement géré de machines virtuelles Azure (nœuds) dédiées à l’exécution de vos packages SSIS dans le cloud. Pour obtenir des instructions pas à pas, consultez le didacticiel : [Déployer des packages SQL Server Integration Services vers Azure](tutorial-deploy-ssis-packages-azure.md). 
- 
-
-### <a name="sdks"></a>Kits de développement logiciel (SDK)
-Si vous êtes un utilisateur expérimenté et recherchez une interface de programmation, la version 2 offre un ensemble enrichi de kits de développement logiciel (SDK) qui peut être utilisé pour créer, gérer et surveiller les pipelines à l’aide de votre IDE favori.
-
-- *SDK .NET* : le Kit de développement logiciel (SDK) .NET est mis à jour pour la version 2. 
-- *PowerShell* : les applets de commande PowerShell sont mises à jour pour la version 2. Les noms des cmdlets version 2 contiennent **DataFactoryV2**. Exemple : Get-AzureRmDataFactoryV2. 
-- *SDK Python* : ce SDK est une nouveauté de la version 2.
-- *API REST* : l’API REST est mise à jour pour la version 2.  
-
-Les Kits de développement logiciel (SDK) mis à jour pour la version 2 ne sont pas compatibles avec les clients de la version 1. 
-
-### <a name="monitoring"></a>Surveillance
-Actuellement, la version 2 prend en charge la surveillance des fabriques de données uniquement avec les Kits de développement logiciel (SDK). Le portail n’assure pas encore cette prise en charge. 
-
-## <a name="load-the-data-into-a-lake"></a>Charger les données dans un lac
-Data Factory offre plus de 30 connecteurs permettant de charger des données d’environnements hybrides et hétérogènes dans Azure. Reportez-vous au [Guide des performances et réglages](copy-activity-performance.md) pour connaître les derniers résultats de performances issus de tests internes et obtenir des suggestions de paramétrage. 
-
-En outre, nous avons récemment activé la haute disponibilité et l’évolutivité pour le runtime d’intégration auto-hébergé que vous installez dans un environnement de réseau privé. Cela répond aux besoins de disponibilité et d’évolutivité des grandes entreprises de niveau 1.
-
-## <a name="top-level-concepts-in-version-2"></a>Concepts de niveau supérieur dans la version 2
+## <a name="top-level-concepts"></a>Concepts de niveau supérieur
 Un abonnement Azure peut contenir une ou plusieurs instances Azure Data Factory (ou fabriques de données). Azure Data Factory s’articule autour de quatre composants clés. Ces composants fonctionnent ensemble et vous dotent de la plateforme sur laquelle composer des flux de travail orientés données constitués d’étapes de déplacement et de transformation des données.
 
 ### <a name="pipeline"></a>Pipeline
@@ -147,8 +91,7 @@ Data Factory fait appel aux services liés pour deux raisons :
 - Pour représenter une **ressource de calcul** qui peut héberger l’exécution d’une activité. Par exemple, l’activité HDInsightHive s’exécute sur un cluster HDInsight Hadoop. Pour obtenir la liste des activités de transformation et des environnements Compute pris en charge, consultez l’article sur la [transformation des données](transform-data.md).
 
 ### <a name="triggers"></a>Déclencheurs
-Les déclencheurs correspondent à l’unité de traitement qui détermine le moment auquel une exécution de pipeline doit être lancée. Il existe différents types de déclencheurs pour différents types d’événements. Pour l’aperçu, nous prenons en charge le déclencheur par planificateur de temps horloge. 
-
+Les déclencheurs correspondent à l’unité de traitement qui détermine le moment auquel une exécution de pipeline doit être lancée. Il existe différents types de déclencheurs pour différents types d’événements. Pour l’aperçu, Data Factory prend en charge le déclencheur par planificateur de temps horloge. 
 
 ### <a name="pipeline-runs"></a>Exécutions de pipeline
 Une exécution du pipeline est une instance de l’exécution du pipeline. Les exécutions de pipeline sont généralement instanciées par la transmission des arguments aux paramètres définis dans les pipelines. Les arguments peuvent être transmis manuellement ou être inclus dans la définition du déclencheur.
@@ -179,6 +122,9 @@ Azure Data Factory ne permet pas en soi de stocker des données. Il vous permet 
 Même si Data Factory est disponible uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et en Europe de l'Ouest, le service de déplacement des données intégré à Data Factory est disponible mondialement dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’une passerelle de gestion des données installée dans votre environnement local.
 
 Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) s’exécutent hors de la région Europe de l’ouest. Vous pouvez dans ce cas créer et utiliser une instance Azure Data Factory en Europe du Nord et l’utiliser pour planifier des tâches sur vos environnements de calcul en Europe de l’ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
+
+## <a name="compare-with-version-2"></a>Comparer avec la version 2
+Pour obtenir la liste des différences entre les versions 1 et 2 du service Data Factory, consultez [Comparer avec la version 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment créer une fabrique de données en suivant les instructions détaillées fournies dans les démarrages rapides suivants : [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md) et le portail Azure. 

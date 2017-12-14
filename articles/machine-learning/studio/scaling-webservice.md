@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
-ms.openlocfilehash: eea085308a5ca755cbf570465b97019de800768e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b4fcef51b2704f07f5d1d08a4bd16970864b0fd
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Mise à l’échelle d’un service web Azure Machine Learning en ajoutant des points de terminaison
 > [!NOTE]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées, avec un maximum de 200 requêtes. Alors que le portail Azure Classic permet de définir cette valeur, Azure Machine Learning optimise automatiquement ce paramètre pour améliorer les performances de votre service web et la valeur de portail est ignorée. 
+Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées, avec un maximum de 200 requêtes. Azure Machine Learning optimise automatiquement ce paramètre pour améliorer les performances de votre service web et la valeur de portail est ignorée. 
 
 Si vous envisagez d’appeler l’API avec une charge supérieure à ce que le nombre maximal d’appels simultanés (200) prend en charge, vous devez créer plusieurs points de terminaison sur le même service web. Vous pouvez ensuite répartir la charge entre tous de façon aléatoire.
 
-La mise à l’échelle d’un service web est une tâche courante. Parmi les raisons d’effectuer une mise à l’échelle figurent la nécessité de prendre en charge plus de 200 demandes simultanées, d’augmenter la disponibilité via plusieurs points de terminaison, ou de fournir des points de terminaison distincts pour le service web. Vous pouvez augmenter l’échelle en ajoutant des points de terminaison supplémentaires pour le même service web via le [portail Azure Classic](https://manage.windowsazure.com/) ou le portail du [service web Azure Machine Learning](https://services.azureml.net/).
+La mise à l’échelle d’un service web est une tâche courante. Parmi les raisons d’effectuer une mise à l’échelle figurent la nécessité de prendre en charge plus de 200 demandes simultanées, d’augmenter la disponibilité via plusieurs points de terminaison, ou de fournir des points de terminaison distincts pour le service web. Vous pouvez augmenter l’échelle en ajoutant des points de terminaison supplémentaires pour le même service web via le portail du [service web Azure Machine Learning](https://services.azureml.net/).
 
 Pour plus d’informations sur l’ajout de points de terminaison, voir [Création de points de terminaison](create-endpoint.md).
 

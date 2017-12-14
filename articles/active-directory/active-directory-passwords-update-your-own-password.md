@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: b91902b13e7633a0724a57ff7fceb68e50abd13a
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
 
@@ -122,6 +122,7 @@ Vous devez maintenant être en mesure d’accéder à votre compte. Si ce n’es
 
 | Cas d’erreur| Quelle erreur voyez-vous ?| Solution |
 | --- | --- | --- |
+| Je vois une erreur quand j’essaie de changer mon mot de passe. | Malheureusement, votre mot de passe contient un mot, une expression ou un modèle qui rend votre mot de passe facile à deviner. Réessayez avec un autre mot de passe. | Choisissez un mot de passe qui est plus difficile à deviner. |
 | La page « Contactez votre administrateur. » s’affiche lorsque j’entre mon identifiant utilisateur | Contactez votre administrateur. <br> <br> Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par Microsoft. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe. <br> <br> Vous devez contacter votre service informatique pour obtenir de l’aide. | Ce message s’affiche parce que votre service informatique gère votre mot de passe dans votre environnement local. Vous ne pouvez pas réinitialiser votre mot de passe à partir du lien « Vous ne pouvez pas accéder à votre compte ». <br> <br> Pour réinitialiser votre mot de passe, contactez directement un membre de votre service informatique afin d’obtenir de l’aide et informez-le que vous souhaitez réinitialiser votre mot de passe pour qu’il puisse activer cette fonctionnalité pour vous.|
 | L’erreur « Votre compte n’est pas activé pour la réinitialisation de mot de passe » s’affiche lorsque j’entre mon identifiant utilisateur | Votre compte n’est pas activé pour la réinitialisation du mot de passe. <br> <br> Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que votre service informatique n’a pas activé la réinitialisation de mot de passe pour votre entreprise à partir du lien « Vous ne pouvez pas accéder à votre compte » ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise. Informez-le que vous souhaitez réinitialiser votre mot de passe afin qu’il puisse activer cette fonctionnalité pour vous. |
 | L’erreur « Nous n'avons pas pu vérifier votre compte » s’affiche lorsque j’entre mon identifiant utilisateur | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à http://aka.ms/ssprsetup une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise. |

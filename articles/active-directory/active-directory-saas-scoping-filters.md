@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser des filtres d’étendue pour empêche
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b38ccba1abb20ec88df8234ae9859caba19d43f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -57,7 +57,7 @@ D’après ce filtre d’étendue, les utilisateurs doivent satisfaire aux crit�
 * Ils doivent être de New York.
 * Ils doivent travailler dans le service Ingénierie.
 * Leur ID d’employé de leur société doit être compris entre 1 000 000 et 2 000 000.
-* Leur fonction ne doit être null ou vide.
+* Leur poste ne doit être null ou vide.
 
 ## <a name="create-scoping-filters"></a>Créer des filtres d’étendue
 Les filtres d’étendue sont configurés comme parties des mappages d’attributs pour chaque connecteur d’approvisionnement d’utilisateur Azure AD. La procédure suivante suppose que l’approvisionnement automatique soit déjà configuré pour [l’une des applications prises en charge](active-directory-saas-tutorial-list.md)et que vous lui ajoutez un filtre d’étendue.

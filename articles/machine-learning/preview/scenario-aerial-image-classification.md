@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="aerial-image-classification"></a>Classification d’images aériennes
 
@@ -59,10 +59,15 @@ Les instructions suivantes vous guident pendant le processus de configuration de
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Suivez le [guide de démarrage rapide Installer et créer](quickstart-installation.md) pour installer Azure Machine Learning Workbench et créer des comptes d’expérimentation et de gestion des modèles.
 - Kit de développement logiciel (SDK) Python [Batch AI](https://github.com/Azure/BatchAI) et Azure CLI 2.0
-    - Installer le Kit de développement logiciel (SDK) Batch AI et Azure CLI 2.0 en suivant les instructions de la [section sur les configurations requises des recettes](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - Au moment de l’écriture de cet article, Azure Machine Learning Workbench utilise une duplication distincte d’Azure CLI 2.0. Pour des soucis de clarté, nous faisons référence à la version Workbench de CLI en l’appelant « CLI lancée à partir d’Azure Machine Learning Workbench » et à la version généralement disponible (qui inclut Batch AI) en l’appelant « Azure CLI 2.0 ».
-    - Créez une application Azure Active Directory et un principal du service en suivant [ces instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Enregistrez l’ID du client, le secret et l’ID du locataire.
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), un utilitaire gratuit pour coordonner le transfert des fichiers entre les comptes de stockage Azure
+    - Consultez les sections suivantes du fichier [Lisezmoi des recettes Batch AI](https://github.com/Azure/BatchAI/tree/master/recipes) :
+        - « Configuration requise »
+        - « Créer et obtenir votre application Azure Active Directory (AAD) »
+        - « Inscrire des fournisseurs de ressources BatchAI » (sous « Exécuter des recettes à l’aide d’Azure CLI 2.0 »)
+        - « Installer le client de gestion Azure Batch AI »
+        - « Installer le Kit de développement logiciel (SDK) Python Azure »
+    - Notez l’ID client, le secret et ID de locataire de l’application Azure Active Directory que vous êtes invité à créer. Vous utiliserez ces informations d’identification ultérieurement dans ce didacticiel.
+    - Au moment de l’écriture de cet article, Azure Machine Learning Workbench et Azure Batch AI utilisent des duplications distinctes d’Azure CLI 2.0. Pour des soucis de clarté, nous faisons référence à la version Workbench de CLI en l’appelant « CLI lancée à partir d’Azure Machine Learning Workbench » et à la version généralement disponible (qui inclut Batch AI) en l’appelant « Azure CLI 2.0 ».
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), un utilitaire gratuit pour coordonner le transfert des fichiers entre les comptes de stockage Azure
     - Assurez-vous que le dossier contenant le fichier exécutable AzCopy est spécifié dans la variable d’environnement PATH de votre système. (Les instructions sur la modification des variables d’environnement sont disponibles [ici](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Un client SSH ; nous vous recommandons [PuTTY](http://www.putty.org/).
 
@@ -215,7 +220,7 @@ Votre cluster Batch AI accède à vos données de formation sur un serveur de fi
 1. Exécutez la commande suivante pour créer un serveur de fichiers réseau :
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Vérifiez l’état d’approvisionnement de votre serveur de fichiers réseau à l’aide de la commande suivante :

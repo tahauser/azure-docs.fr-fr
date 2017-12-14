@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Boucles, étendues et décomposition dans Logic Apps
   
@@ -26,7 +26,7 @@ Logic Apps permet d’utiliser les tableaux, collections, lots et boucles au se
   
 ## <a name="foreach-loop-and-arrays"></a>Boucle ForEach et tableaux
   
-Logic Apps vous permet de parcourir un jeu de données au moyen d’une boucle et d’effectuer une action pour chaque élément.  Cette opération est possible grâce à l’action `foreach` .  Dans le concepteur, vous pouvez choisir d’ajouter une boucle foreach.  Après avoir sélectionné le tableau à parcourir, vous pouvez commencer à ajouter des actions.  Actuellement, vous êtes limité à une seule action par boucle foreach, mais cette restriction sera levée dans les semaines à venir.  Une fois dans la boucle, vous pouvez commencer à spécifier ce qui doit se produire au niveau de chaque valeur du tableau.
+Logic Apps vous permet de parcourir un jeu de données au moyen d’une boucle et d’effectuer une action pour chaque élément.  Cette opération est possible grâce à l’action `foreach` .  Dans le concepteur, vous pouvez choisir d’ajouter une boucle foreach.  Après avoir sélectionné le tableau à parcourir, vous pouvez commencer à ajouter des actions.  Vous pouvez ajouter plusieurs actions par boucle foreach.  Une fois dans la boucle, vous pouvez commencer à spécifier ce qui doit se produire au niveau de chaque valeur du tableau.
 
 Si vous utilisez le mode code, vous pouvez spécifier une boucle foreach comme ci-dessous.  Dans cet exemple, une boucle foreach envoie un e-mail à chaque adresse contenant « microsoft.com » :
 

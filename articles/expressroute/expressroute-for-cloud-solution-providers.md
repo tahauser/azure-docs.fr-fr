@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 
@@ -30,13 +30,13 @@ ExpressRoute se compose d’un ensemble de circuits assurant la haute disponibil
 > 
 > 
 
-Microsoft Azure fournit un nombre croissant de services que vous pouvez proposer à vos clients.  Pour profiter au mieux de ces services, il est nécessaire d’utiliser des connexions ExpressRoute afin de fournir un accès à grande vitesse et faible latence à l’environnement Microsoft Azure.
+Microsoft Azure fournit un nombre croissant de services que vous pouvez proposer à vos clients. ExpressRoute vous aide, vous et vos clients, à tirer profit de ces services en fournissant un accès à grande vitesse et faible latence à l’environnement Microsoft Azure.
 
 ## <a name="microsoft-azure-management"></a>Gestion de Microsoft Azure
 Microsoft fournit des API aux fournisseurs de solutions Cloud afin de gérer les abonnements client Azure en permettant l’intégration de la programmation dans vos propres systèmes de gestion des services. Les fonctionnalités de gestion prises en charge sont indiquées [ici](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestion des ressources Microsoft Azure
-Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : « Connect-Through » ou « Direct-To ». Ces modèles sont décrits en détail dans les sections suivantes.  
+Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : « *Connect-Through* » ou « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
 ![alt text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -67,7 +67,7 @@ Le choix de l’une de ces deux options dépend des besoins de vos clients et de
 
 * **Contrôle d’accès basé sur les rôles (RBAC)** : RBAC repose sur Azure Active Directory.  Pour plus d’informations concernant Azure RBAC, cliquez [ici](../active-directory/role-based-access-control-configure.md).
 * **Mise en réseau** : couvre les différentes rubriques de mise en réseau dans Microsoft Azure.
-* **Azure Active Directory (AAD)** : AAD assure la gestion des identités pour Microsoft Azure et les applications SaaS tierces. Pour plus d’informations sur Azure AD, cliquez [ici](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** : Azure AD assure la gestion des identités pour Microsoft Azure et les applications SaaS tierces. Pour plus d’informations sur Azure AD, cliquez [ici](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Vitesses du réseau
 ExpressRoute prend en charge des vitesses de réseau comprises entre 50 Mo/s et 10 Go/s. Les clients peuvent ainsi acheter la quantité de bande passante réseau dont ils ont besoin pour leur environnement.

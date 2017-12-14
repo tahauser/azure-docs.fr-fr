@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.  
   
-> [!NOTE]
+> [!TIP]
 >  Pour plus d’informations sur les expressions de stratégie, regardez la vidéo [Expressions de stratégie](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/).  
 >   
 >  Pour une démonstration de la configuration des stratégies avec des expressions de stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky). Cette vidéo contient les démonstrations des expressions de stratégie suivantes.  
@@ -206,5 +206,15 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - texte à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />Renvoie un texte brut.|
 |byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - texte à déchiffrer<br /><br />alg - algorithme de chiffrement<br /><br />key - clé de chiffrement<br /><br />iv - vecteur d'initialisation<br /><br />Renvoie un texte brut.|
 
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation des stratégies, consultez la page [Stratégies dans la Gestion des API](api-management-howto-policies.md).  
+
+Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
+
++ [Stratégies dans Gestion des API](api-management-howto-policies.md)
++ [Transformer des API](transform-api.md)
++ [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
++ [Exemples de stratégie](policy-samples.md)   
