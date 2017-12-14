@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Utilisation de l’interface de ligne de commande Azure 1.0 avec Azure Storage
 
@@ -95,7 +95,7 @@ Après l’exécution du script, vous devez avoir un dossier local de destinatio
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>Gérer les comptes de stockage avec la CLI Azure
 ### <a name="connect-to-your-azure-subscription"></a>Connectez-vous à un abonnement Azure
-Bien que la plupart des commandes de stockage fonctionnent sans abonnement à Azure, nous vous recommandons de vous connecter à votre abonnement à partir de l’interface CLI Azure. Pour configurer l’interface de ligne de commande Azure avec votre abonnement, suivez les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface CLI Azure](../../xplat-cli-connect.md).
+Bien que la plupart des commandes de stockage fonctionnent sans abonnement à Azure, nous vous recommandons de vous connecter à votre abonnement à partir de l’interface CLI Azure. Pour configurer l’interface de ligne de commande Azure avec votre abonnement, suivez les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface CLI Azure](/cli/azure/authenticate-azure-cli).
 
 ### <a name="create-a-new-storage-account"></a>Création d’un nouveau compte de stockage
 Pour utiliser Azure Storage, vous avez besoin d’un compte de stockage. Vous pouvez créer un nouveau compte de stockage Azure après avoir configuré votre ordinateur pour qu’il se connecte à votre abonnement.

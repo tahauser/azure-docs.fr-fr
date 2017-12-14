@@ -4,7 +4,7 @@ description: "Abordez les principaux concepts et les concepts avancés de la mig
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : migration utilisateur
 Quand vous migrez votre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C), il se peut que vous deviez également migrer les comptes d’utilisateur. Cet article explique comment migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. L’article n’a pas vocation à être normatif, mais plutôt à décrire deux des approches qui existent. Le développeur est responsable du choix de l’approche adaptée.
 
 ## <a name="user-migration-flows"></a>Flux de migration utilisateur
-Avec Azure AD B2C, vous pouvez migrer des utilisateurs via l’[API Graph](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Le processus de migration utilisateur se divise en deux flux :
+Avec Azure AD B2C, vous pouvez migrer des utilisateurs via l’[API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Le processus de migration utilisateur se divise en deux flux :
 
 * **Prémigration** : ce flux s’applique quand avez librement accès aux informations d’identification d’un utilisateur (nom d’utilisateur et mot de passe) ou quand les informations d’identification sont chiffrées, mais que vous pouvez les déchiffrer. Le processus de prémigration implique la lecture des utilisateurs de l’ancien fournisseur d’identité et la création de comptes dans le répertoire Azure AD B2C.
 
@@ -100,7 +100,7 @@ Les autorisations Accéder en lecture et en écriture aux données de l’annuai
 > Vous devez utiliser un compte d’administrateur de locataire B2C qui est *local* pour le locataire B2C. La syntaxe du nom du compte est *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
-> Le script PowerShell suivant nécessite [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> Le script PowerShell suivant nécessite [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 Dans ce script PowerShell, procédez comme suit :
 1. Connectez-vous à votre service en ligne. Pour ce faire, exécutez la cmdlet `Connect-AzureAD` à l’invite de commandes Windows PowerShell, puis indiquez vos informations d’identification. 
@@ -278,7 +278,7 @@ Pour suivre la modification de mot de passe, vous utilisez une table Azure. Quan
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Étape 4.2 : Déployer votre application web dans Azure App Service
-Publiez votre service d’API dans Azure App Service. Pour plus d’informations, consultez [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Publiez votre service d’API dans Azure App Service. Pour plus d’informations, consultez [Déploiement de votre application dans Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Étape 4.3 : Ajouter un profil technique et une validation de profil technique à votre stratégie 
 1. Dans votre répertoire de travail, ouvrez le fichier de stratégie d’extension *TrustFrameworkExtensions.xml*. 
@@ -384,11 +384,11 @@ Vous pouvez afficher et surveiller les informations de journalisation en temps q
 
 6. Vérifiez la sortie de l’API RESTful.
 
-Pour plus d’informations, consultez [Journaux en continu et console](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Pour plus d’informations, consultez [Journaux en continu et console](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Utilisez les journaux de diagnostic uniquement pendant le développement et le test. La sortie de l’API RESTful peut contenir des informations confidentielles qui ne doivent pas être exposées en production.
 >
 
 ## <a name="optional-download-the-complete-policy-files"></a>(Facultatif) Télécharger les fichiers de stratégie complets
-Une fois que vous avez suivi la procédure pas à pas décrite dans l’article [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md), nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration) sont à votre disposition pour référence. 
+Une fois que vous avez [pris en main les stratégies personnalisées](active-directory-b2c-get-started-custom.md), nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration) sont à votre disposition pour référence. 

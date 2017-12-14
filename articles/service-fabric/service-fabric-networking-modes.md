@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -223,6 +223,6 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Modéliser une application dans Service Fabric](service-fabric-application-model.md)
-* [En savoir plus sur les ressources du manifeste du service Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [En savoir plus sur les ressources du manifeste du service Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-get-started-containers.md)
 * [Déployer un conteneur Docker sur Service Fabric sous Linux](service-fabric-get-started-containers-linux.md)

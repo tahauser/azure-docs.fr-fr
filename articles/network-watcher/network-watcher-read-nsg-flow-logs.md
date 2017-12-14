@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 1eea88827733e44bd0ebd88ab5179f4d3a7b6b04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: daf4e70767d59a602d7ff1a2099af904b314c5f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
@@ -35,7 +35,7 @@ Avant de commencer, la journalisation des flux de groupe de sécurité réseau d
 
 ## <a name="retrieve-the-block-list"></a>Récupérer la liste de blocs
 
-La commande PowerShell suivante définit les variables nécessaires pour interroger l’objet blob des journaux de flux de groupe de sécurité réseau et répertorier les blocs dans l’objet blob de blocs [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Mettez à jour le script pour contenir des valeurs valides pour votre environnement.
+La commande PowerShell suivante définit les variables nécessaires pour interroger l’objet blob des journaux de flux de groupe de sécurité réseau et répertorier les blocs dans l’objet blob de blocs [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Mettez à jour le script pour contenir des valeurs valides pour votre environnement.
 
 ```powershell
 # The SubscriptionID to use

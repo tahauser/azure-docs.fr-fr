@@ -4,7 +4,7 @@ description: "Découvrez comment configurer l’authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: jeedes
-ms.openlocfilehash: e8871ea9c3aa9f962bf961a8b44b748392a56ba7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Didacticiel : Intégration d’Azure Active Directory à GoToMeeting
 
@@ -32,7 +32,7 @@ L’intégration de GoToMeeting à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour configurer l’intégration d’Azure AD à GoToMeeting, vous avez besoin des éléments suivants :
 
@@ -279,7 +279,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
-* [Configurer l’approvisionnement de l’utilisateur](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Configurer l’approvisionnement de l’utilisateur](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->

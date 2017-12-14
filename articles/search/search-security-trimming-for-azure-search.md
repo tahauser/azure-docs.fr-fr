@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Filtrage de sécurité avec Recherche Azure
 
@@ -108,13 +108,13 @@ Si vous avez besoin de mettre à jour un document existant avec la liste des gro
 }
 ```
 
-Pour obtenir des informations détaillées sur l’ajout ou la mise à jour de documents, lisez [Modifier des documents](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Pour obtenir des informations détaillées sur l’ajout ou la mise à jour de documents, lisez [Modifier des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Appliquer le filtre de sécurité
 
 Pour filtrer des documents en fonction de l’accès de `group_ids`, vous devez émettre une requête de recherche avec un filtre `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, où « group_id1, group_id2,... » sont les groupes auxquels l’émetteur de la requête de recherche appartient.
 Ce filtre correspond à tous les documents dont le champ `group_ids` contient l’un des identificateurs donnés.
-Pour obtenir des informations détaillées sur la recherche de documents à l’aide de Recherche Azure, lisez [Recherche dans des documents](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Pour obtenir des informations détaillées sur la recherche de documents à l’aide de Recherche Azure, lisez [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Notez que cet exemple montre comment lancer une recherche dans des documents à l’aide d’une requête POST.
 
 Émettez la requête HTTP POST :

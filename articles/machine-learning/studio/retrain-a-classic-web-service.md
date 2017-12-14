@@ -3,7 +3,7 @@ title: Reformer un service web classique | Microsoft Docs
 description: "Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Reformer un service web Classic
 Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web. 

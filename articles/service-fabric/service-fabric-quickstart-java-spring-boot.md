@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 002841ff59e7b151ee2288ee4045de5c423df573
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: d34862d96744e038d7c1890f703ead79c416ddfa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-a-spring-boot-application"></a>Déployer une application Spring Boot
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
@@ -39,10 +39,10 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ## <a name="prerequisites"></a>Composants requis
 Pour effectuer ce démarrage rapide :
-1. [Installez le SDK Service Fabric et l’interface CLI Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Installez le SDK Service Fabric et l’interface CLI Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installez Git](https://git-scm.com/)
-3. [Installez Yeoman](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. [Configurez l’environnement Java](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+3. [Installez Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+4. [Configurez l’environnement Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## <a name="download-the-sample"></a>Téléchargez l’exemple
 Dans une fenêtre de commandes, exécutez la commande suivante pour cloner l’exemple Getting Started de Spring Boot sur votre ordinateur local.

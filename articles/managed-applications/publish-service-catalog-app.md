@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publier une application managée pour une utilisation interne
 
@@ -244,5 +244,4 @@ Une fois le déploiement terminé, l’application managée existe dans un group
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées](overview.md).
 * Pour voir des exemples de projets, consultez [Exemples de projets pour des applications managées Azure](sample-projects.md).
-* Pour plus d’informations sur la publication d’applications gérées sur la Place de marché, consultez l’article [Applications gérées sur la Place de marché](publish-marketplace-app.md).
 * Pour en savoir plus sur la création d’un fichier de définition de l’interface utilisateur pour une application gérée, consultez [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).

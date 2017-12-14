@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gérer l’expiration de contenu web dans Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Vous pouvez également contrôler les paramètres de cache à partir du portail 
 > 
 > Pour plus d’informations sur la façon dont Azure CDN accélère l’accès aux fichiers et à d’autres ressources, consultez [Vue d’ensemble d’Azure Content Delivery Network](cdn-overview.md).
 > 
-> Pour plus d’informations sur le stockage Blob Azure, consultez [Présentation du Stockage Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+> Pour plus d’informations sur le stockage Blob Azure, consultez [Présentation du Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Définition d’en-têtes Cache-Control à l’aide de PowerShell
@@ -113,7 +113,7 @@ Pour mettre à jour la propriété *CacheControl* d’un objet blob avec l’Exp
 ![Propriétés de l’Explorateur Stockage Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interface de ligne de commande Azure
-Avec l’[interface de ligne de commande Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), vous pouvez gérer des ressources blob Azure à partir de la ligne de commande. Pour définir l’en-tête cache-control lorsque vous téléchargez un objet blob avec l’interface de ligne de commande Azure, définissez la propriété *cacheControl* à l’aide du `-p` commutateur. L’exemple suivant montre comment définir la durée de vie sur 1 heure (3 600 secondes) :
+Avec l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), vous pouvez gérer des ressources blob Azure à partir de la ligne de commande. Pour définir l’en-tête cache-control lorsque vous téléchargez un objet blob avec l’interface de ligne de commande Azure, définissez la propriété *cacheControl* à l’aide du `-p` commutateur. L’exemple suivant montre comment définir la durée de vie sur 1 heure (3 600 secondes) :
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt

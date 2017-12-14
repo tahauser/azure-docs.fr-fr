@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Surveiller visuellement des fabriques de données Azure
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser.
@@ -114,4 +114,4 @@ Cliquez sur l’icône « Commentaires » pour nous envoyer vos commentaires sur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’article [Surveiller et gérer les pipelines par programmation](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) pour en savoir plus sur la surveillance et la gestion des pipelines.
+Consultez l’article [Surveiller et gérer les pipelines par programmation](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) pour en savoir plus sur la surveillance et la gestion des pipelines.

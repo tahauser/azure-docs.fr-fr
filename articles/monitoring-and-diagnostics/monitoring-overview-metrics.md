@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
@@ -89,11 +89,11 @@ Azure Monitor offre également une nouvelle expérience de graphes de métriques
 ## <a name="access-metrics-via-the-rest-api"></a>Accès aux mesures via l’API REST
 Les mesures Azure sont accessibles via les API Azure Monitor. Il existe deux API qui vous aident à découvrir et accéder aux mesures :
 
-* Utilisez [l’API REST de définitions de mesures Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) pour accéder à la liste des mesures et dimensions disponibles pour un service.
-* Utilisez [l’API REST Azure Monitor Metrics](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) pour segmenter, filtrer et accéder aux données de mesure elles-mêmes.
+* Utilisez [l’API REST de définitions de mesures Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) pour accéder à la liste des mesures et dimensions disponibles pour un service.
+* Utilisez [l’API REST Azure Monitor Metrics](https://docs.microsoft.com/rest/api/monitor/metrics) pour segmenter, filtrer et accéder aux données de mesure elles-mêmes.
 
 > [!NOTE]
-> Cet article décrit les mesures via la [nouvelle API pour les mesures](https://docs.microsoft.com/en-us/rest/api/monitor/) pour les ressources Azure. La version de l’API pour les nouvelles définitions de mesures est 2017-05-01-preview. Les définitions de mesures et les mesures sont accessibles avec la version 2014-04-01 de l’API.
+> Cet article décrit les mesures via la [nouvelle API pour les mesures](https://docs.microsoft.com/rest/api/monitor/) pour les ressources Azure. La version de l’API pour les nouvelles définitions de mesures est 2017-05-01-preview. Les définitions de mesures et les mesures sont accessibles avec la version 2014-04-01 de l’API.
 >
 >
 
