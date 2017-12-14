@@ -4,7 +4,7 @@ description: "Se connecter à la version d’évaluation, s’inscrire, modifier
 services: active-directory-b2c
 documentationcenter: .net
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 2ffb780d-2c51-4c2e-b8d6-39c40a81a77e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: patricka
-ms.openlocfilehash: 07f2c21409176d30f4570e267a4472745f843f85
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-an-azure-ad-b2c-enabled-web-app"></a>Évaluer une application web activée pour Azure AD B2C
 
@@ -83,7 +83,7 @@ Terminez le processus de connexion pour le fournisseur d’identité. Par exempl
 
 Les détails du profil de votre nouveau compte Azure AD B2C sont préremplis avec les informations de votre compte de réseau social.
 
-Mettez à jour les champs Nom d’affichage, Fonction et Ville, puis cliquez sur **Continuer**.  Les valeurs que vous entrez sont utilisées pour le profil de votre compte d’utilisateur Azure AD B2C.
+Mettez à jour les champs Nom d’affichage, Poste et Ville, puis cliquez sur **Continuer**.  Les valeurs que vous entrez sont utilisées pour le profil de votre compte d’utilisateur Azure AD B2C.
 
 ![Détails du profil d’inscription du nouveau compte](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
 

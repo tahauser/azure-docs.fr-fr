@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 Cet article présente les bonnes pratiques relatives à la mise à l’échelle automatique dans Azure. La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [services cloud](https://azure.microsoft.com/services/cloud-services/) et à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
@@ -44,9 +44,6 @@ Si vous mettez à jour manuellement le nombre d’instances avec une valeur inf�
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Utilisez toujours une combinaison de règle d’augmentation et de diminution de la taille des instances qui exécute une augmentation et une diminution
 Si vous n’utilisez qu’une partie de la combinaison, la mise à l’échelle automatique augmente ou diminue la taille des instances uniquement pour cette partie jusqu’à ce que la valeur maximum ou minimum soit atteinte.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Ne basculez pas entre le portail Azure et le portail Azure Classic lors de la gestion de la mise à l’échelle automatique.
-Pour Services cloud et App Services (Web Apps), utilisez le portail Azure (portal.azure.com) pour créer et gérer les paramètres de mise à l’échelle automatique. Pour Virtual Machine Scale Sets, utilisez PowerShell, l’interface de ligne de commande (CLI) ou l’API REST pour créer et gérer les paramètres de mise à l’échelle automatique. Ne basculez pas entre le portail Azure Classic (manage.windowsazure.com) et le portail Azure (portal.azure.com) lors de la gestion des configurations de mise à l’échelle automatique. Le portail Azure Classic et son serveur principal sous-jacent présentent des limitations. Accédez au portail Azure pour gérer la mise à l’échelle automatique à l’aide d’une interface utilisateur graphique. Les options disponibles sont : Autoscale PowerShell, l’interface de ligne de commande (CLI) ou l’API REST (via Azure Resource Explorer).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Sélection de la statistique appropriée pour votre mesure de diagnostic
 Pour les mesures de diagnostics, vous pouvez choisir entre *Moyen*, *Minimum*, *Maximum* et *Total* comme mesure de mise à l’échelle. La statistique la plus courante est *Moyen*.

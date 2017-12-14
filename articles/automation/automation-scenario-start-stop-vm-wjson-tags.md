@@ -3,7 +3,7 @@ title: "Utiliser des balises au format JSON pour planifier l’état des machine
 description: "Cet article explique comment utiliser des chaînes JSON sur des balises pour automatiser la planification du démarrage et de l’arrêt des machines virtuelles."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Scénario Azure Automation : utilisation de balises au format JSON afin de créer une planification pour le démarrage et l’arrêt de machines virtuelles Azure
 Dans la plupart des cas, les clients souhaitent planifier le démarrage et l’arrêt des machines virtuelles pour alléger les frais d’abonnement ou pour prendre en charge les exigences professionnelles et techniques.

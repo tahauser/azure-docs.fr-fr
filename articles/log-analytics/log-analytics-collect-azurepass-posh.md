@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 7bae18e151fbdccf95f3fe5f569041d6dd9c42eb
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: e818a1b94891e687d8aa5962092e0a577b0db356
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurer la collecte de métriques de ressources Azure PaaS avec Log Analytics
 
@@ -26,7 +26,7 @@ Les ressources PaaS (Platform as a Service) Azure, telles que SQL Azure et Sites
 
 À l’heure actuelle, il n’existe aucun moyen d’activer la journalisation des métriques pour les ressources PaaS par le biais du portail Azure. Vous devez donc utiliser un script PowerShell. Cette fonctionnalité de journalisation des métriques en mode natif, associée à la surveillance Log Analytics, vous permet de surveiller les ressources Azure à l’échelle. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 Vérifiez que les modules Azure Resource Manager suivants sont installés sur votre ordinateur avant de continuer :
 
 - AzureRM.Insights
@@ -37,7 +37,7 @@ Vérifiez que les modules Azure Resource Manager suivants sont installés sur vo
 >[!NOTE]
 >Nous vous recommandons de faire en sorte que tous vos modules Azure Resource Manager aient la même version, afin d’assurer la compatibilité quand vous exécutez des commandes Azure Resource Manager à partir de PowerShell.
 >
-Pour installer la dernière version des modules Azure Resource Manager sur votre ordinateur, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+Pour installer la dernière version des modules Azure Resource Manager sur votre ordinateur, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Activer Azure Diagnostics  
 Pour configurer Azure Diagnostics pour des ressources PaaS, vous devez exécuter le script **Enable-AzureRMDiagnostics.ps1**, qui est disponible dans la [Galerie PowerShell](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Ce script prend en charge les scénarios suivants :

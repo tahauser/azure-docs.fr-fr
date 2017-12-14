@@ -4,7 +4,7 @@ description: "La bibliothèque d'authentification Azure AD (ADAL) permet aux dé
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f017e3d323b98660fdee902770652b3165e70e5e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliothèques d’authentification d’Azure Active Directory
 La bibliothèque d’authentification Azure Active Directory (ADAL) permet aux développeurs d’applications d’authentifier les utilisateurs dans une instance locale d’Active Directory (AD) ou dans le cloud, puis d’obtenir des jetons pour sécuriser les appels d’API. La bibliothèque ADAL facilite l’authentification pour les développeurs grâce à des fonctionnalités comme :
@@ -29,7 +29,7 @@ La bibliothèque d’authentification Azure Active Directory (ADAL) permet aux d
  - Et bien plus
 
 > [!NOTE]
-> Vous recherchez les bibliothèques Azure AD v2.0 (MSAL) ? Consultez le [guide des bibliothèques MSAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> Vous recherchez les bibliothèques Azure AD v2.0 (MSAL) ? Consultez le [guide des bibliothèques MSAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries). 
 > 
 > 
 
@@ -59,7 +59,7 @@ La bibliothèque d’authentification Azure Active Directory (ADAL) permet aux d
 
 ### <a name="v20-client-libraries-msal"></a>Bibliothèques clientes v2.0 (MSAL)
 
-Le [point de terminaison Azure AD v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) combine Azure AD et des comptes Microsoft derrière un seul point de terminaison. Pour accéder à ce point de terminaison, les développeurs peuvent utiliser les [bibliothèques MSAL en préversion prises en charge pour la production](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) au lieu de la bibliothèque ADAL.
+Le [point de terminaison Azure AD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) combine Azure AD et des comptes Microsoft derrière un seul point de terminaison. Pour accéder à ce point de terminaison, les développeurs peuvent utiliser les [bibliothèques MSAL en préversion prises en charge pour la production](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) au lieu de la bibliothèque ADAL.
 
 | Plateforme | Bibliothèque | Télécharger | Code source | Exemple | Référence
 | --- | --- | --- | --- | --- | --- |

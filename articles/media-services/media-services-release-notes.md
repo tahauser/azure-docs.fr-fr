@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 Ces notes de publication récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.
@@ -58,7 +58,7 @@ Pour des informations sur l'historique des versions de l'API REST, consultez la 
 2.  Si vous utilisez une source vidéo encodée avec le codec vidéo H.265(HEVC), par exemple une vidéo capturée à l’aide d’iOS 11 ou de GoPro Heo 6, vous pouvez maintenant utiliser l’encodeur Premium ou l’encodeur Standard pour coder ces vidéos. Reportez-vous aux [Termes des services en ligne](https://azure.microsoft.com/support/legal/) pour lire une remarque importante concernant les licences de brevets.
 3.  Si vous avez des données contenant plusieurs pistes audio de langue, alors tant que les valeurs de langue sont correctement libellées selon la spécification de format de fichier correspondant (par exemple ISO MP4), vous pouvez utiliser l’encodeur Standard pour encoder ce contenu afin de le diffuser en continu. Le localisateur de diffusion en continu répertorie les langues audio disponibles.
 4.  L’encodeur Standard prend désormais en charge deux nouvelles présélections de système audio uniquement, « Audio AAC » et « Bonne qualité audio AAC ». Ces deux options génèrent une sortie stéréo AAC, à des débits de 128 kbit/s et 192 kbit/s, respectivement.
-5.  L’encodeur Premium prend désormais en charge les formats de fichier QuickTime/MOV en tant qu’entrée si le codec vidéo figure parmi les [versions Apple ProRes répertoriées ici](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), et que l’audio est au format AAC ou PCM.
+5.  L’encodeur Premium prend désormais en charge les formats de fichier QuickTime/MOV en tant qu’entrée si le codec vidéo figure parmi les [versions Apple ProRes répertoriées ici](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), et que l’audio est au format AAC ou PCM.
 
 > [!NOTE]
 > L’encodeur Premium ne prend pas en charge, par exemple, la vidéo DVC/DVCPro encapsulée dans des fichiers QuickTime/MOV, en tant qu’entrée.  Toutefois, l’encodeur Standard prend en charge ces codecs vidéo.
@@ -324,13 +324,6 @@ La dernière version du Kit de développement logiciel (SDK) de Media Services p
 * **Origin** a été renommée en [StreamingEndpoint].
 * Le comportement par défaut, lorsque le **portail Azure** est utilisé pour encoder puis publier les fichiers MP4, a changé.
 
-Auparavant, lorsque vous utilisiez le portail Azure Classic pour publier un élément multimédia vidéo MP4 correspondant à un seul fichier, une URL SAS était créée (les URL SAS vous permettent de télécharger la vidéo depuis un stockage d'objets blob). Aujourd'hui, lorsque vous vous servez du portail Azure Classic pour encoder, puis publier un élément multimédia vidéo MP4 correspondant à un seul fichier, l'URL générée pointe vers un point de terminaison de diffusion en continu Azure Media Services.  Cette modification n'a pas d'incidence sur les vidéos MP4 qui sont directement téléchargées vers Media Services et publiées sans être encodées par Azure Media Services.
-
-Actuellement, vous disposez des deux options suivantes pour résoudre le problème.
-
-* Activer les unités de diffusion en continu et utiliser la mise en package dynamique pour diffuser l'élément multimédia .mp4 sous forme d'une présentation de diffusion en continu lisse.
-* Créer une URL SAS pour télécharger (ou lire de manière progressive) le fichier .mp4. Pour plus d'informations sur la création d'un localisateur SAS, consultez la page [Distribution de contenu].
-
 ### <a id="sept_14_GA_changes"></a>Nouvelles fonctionnalités/nouveaux scénarios intégrés à la version grand public
 * **Processeur d'indexation multimédia**. Pour plus d'informations, consultez [Indexation des fichiers multimédias avec Azure Media Indexer].
 * L'entité [StreamingEndpoint] vous permet désormais d'ajouter des noms de domaine (d'hôte) personnalisés.
@@ -561,7 +554,7 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Tarification – Media Services]: http://azure.microsoft.com/pricing/details/media-services/
 [Métadonnées d’entrée]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Métadonnées de sortie]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[Distribution de contenu]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Indexation des fichiers multimédias avec Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Utilisation de la diffusion en continu Azure Media Services]: http://msdn.microsoft.com/library/azure/dn783466.aspx

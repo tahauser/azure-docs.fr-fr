@@ -4,7 +4,7 @@ description: "Article sur la procédure à suivre pour configurer une applicatio
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
-ms.openlocfilehash: f72fac677aa7d461f174b2b06db69df235273375
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : Ajout de LinkedIn en tant que fournisseur d’identités à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -58,7 +58,7 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
     ![Compte LinkedIn : définition des URL de redirection autorisées](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 
     >[!NOTE]
-    >Le secret de client est une information d'identification de sécurité importante. Ne partagez pas ce secret avec quiconque et ne le distribuez pas avec votre application.
+    >La clé secrète client est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
 
 5. Sélectionnez **Ajouter**.
 
@@ -194,7 +194,7 @@ Un bouton étant maintenant en place, vous devez le lier à une action. Dans ce 
     >* Vérifiez que l’ID `TechnicalProfileReferenceId` est défini sur le profil technique que vous avez créé plus haut (LinkedIn-OAuth).
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Étape 5 : Charger la stratégie sur votre locataire
-1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et sélectionnez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
 
 2. Sélectionnez **Infrastructure d’expérience d’identité**.
 
@@ -210,7 +210,7 @@ Un bouton étant maintenant en place, vous devez le lier à une action. Dans ce 
 1. Sélectionnez **Paramètres Azure AD B2C**, puis **Infrastructure d’expérience d’identité**.
 
     >[!NOTE]
-    >Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
+    >L’option Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
 
 2. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.  
     Vous devriez maintenant être en mesure de vous connecter à l’aide du compte LinkedIn.

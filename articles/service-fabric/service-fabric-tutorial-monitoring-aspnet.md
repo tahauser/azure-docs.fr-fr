@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
-Ce didacticiel est la quatrième partie d’une série d’étapes. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
+Ce didacticiel est la quatrième partie de la série. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
 
 Dans ce quatrième volet, vous apprenez à :
 > [!div class="checklist"]
 > * Configurer Application Insights pour votre application
 > * Collecter les données de télémétrie de réponse pour effectuer le suivi de la communication basée sur HTTP entre les services
-> * Utiliser la fonctionnalité de mise en correspondance d’applications dans Application Insights
+> * Utiliser la fonctionnalité de mappage des applications dans Application Insights
 > * Ajouter des événements personnalisés à l’aide de l’API Application Insights
 
 Cette série de didacticiels vous montre comment effectuer les opérations suivantes :
@@ -229,10 +229,10 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Configurer Application Insights pour votre application
 > * Collecter les données de télémétrie de réponse pour effectuer le suivi de la communication basée sur HTTP entre les services
-> * Utiliser la fonctionnalité de mise en correspondance d’applications dans Application Insights
+> * Utiliser la fonctionnalité de mappage des applications dans Application Insights
 > * Ajouter des événements personnalisés à l’aide de l’API Application Insights
 
 Maintenant que vous avez terminé la configuration de la surveillance et des diagnostics pour votre application ASP.NET, essayez ce qui suit :
 - [Explorer la surveillance et les diagnostics dans Service Fabric](service-fabric-diagnostics-overview.md)
 - [Analyse d’événement Service Fabric avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-- Pour en savoir plus sur Application Insights, consultez [Documentation Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/)
+- Pour en savoir plus sur Application Insights, consultez [Documentation Application Insights](https://docs.microsoft.com/azure/application-insights/)

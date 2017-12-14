@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Créer une machine virtuelle Linux avec le portail Azure Stack
 
@@ -30,7 +30,7 @@ Vous pouvez créer des machines virtuelles Azure Stack dans le portail Azure Sta
 
 * **Accès à un client SSH**
 
-   Si vous utilisez le Kit de développement Azure Stack (ASDK), vous n’aurez peut-être pas accès à un client SSH dans votre environnement. Si c’est le cas, vous pouvez choisir parmi plusieurs packages qui incluent un client SSH. Vous pouvez par exemple installer PuTTY, qui inclut un client SSH et un générateur de clé SSH (puttygen.exe). Pour plus d’informations sur les options possibles, consultez l’article suivant en rapport avec Azure : [Utilisation de clés SSH avec Windows sur Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Si vous utilisez le Kit de développement Azure Stack (ASDK), vous n’aurez peut-être pas accès à un client SSH dans votre environnement. Si c’est le cas, vous pouvez choisir parmi plusieurs packages qui incluent un client SSH. Vous pouvez par exemple installer PuTTY, qui inclut un client SSH et un générateur de clé SSH (puttygen.exe). Pour plus d’informations sur les options possibles, consultez l’article suivant en rapport avec Azure : [Utilisation de clés SSH avec Windows sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Ce guide de démarrage rapide utilise PuTTY pour générer des clés SSH et établir une connexion à la machine virtuelle Linux. Pour télécharger et installer PuTTY, accédez à [http://www.putty.org/](http://www.putty.org).
 

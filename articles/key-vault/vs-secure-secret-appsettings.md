@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
@@ -32,7 +32,7 @@ Pour garantir la sécurité des processus de développement, des bibliothèques 
 ## <a name="aspnet-and-net-core-applications"></a>Applications ASP.NET et .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Enregistrer les paramètres de secret dans le magasin de secrets utilisateur qui se trouve en dehors du dossier de contrôle de code source
-Si vous créez un prototype rapide ou que vous n’avez pas accès à Internet, commencez par déplacer vos paramètres de secret du dossier de contrôle de code source vers le magasin de secrets utilisateur. Le magasin de secrets utilisateur est un fichier enregistré sous le dossier du générateur de profils utilisateur ; les secrets ne sont donc pas archivés dans le contrôle de code source. Le diagramme suivant illustre le fonctionnement du [Secret utilisateur](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
+Si vous créez un prototype rapide ou que vous n’avez pas accès à Internet, commencez par déplacer vos paramètres de secret du dossier de contrôle de code source vers le magasin de secrets utilisateur. Le magasin de secrets utilisateur est un fichier enregistré sous le dossier du générateur de profils utilisateur ; les secrets ne sont donc pas archivés dans le contrôle de code source. Le diagramme suivant illustre le fonctionnement du [Secret utilisateur](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
 
 ![Le secret utilisateur stocke les paramètres de secret en dehors du contrôle de code source](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Si vous développez un projet d’équipe et que vous devez partager le code sou
 
     ![Créer un Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Accordez un accès au Key Vault à vous et aux membres de votre équipe. Si votre équipe est importante, vous pouvez créer un [groupe Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) et ajouter cet accès de groupe de sécurité au Key Vault. Dans la liste déroulante *Autorisations du secret*, vérifiez *Get* et *Liste* sous *Opérations de gestion des secrets*.
+2. Accordez un accès au Key Vault à vous et aux membres de votre équipe. Si votre équipe est importante, vous pouvez créer un [groupe Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) et ajouter cet accès de groupe de sécurité au Key Vault. Dans la liste déroulante *Autorisations du secret*, vérifiez *Get* et *Liste* sous *Opérations de gestion des secrets*.
 
     ![Ajouter une stratégie d’accès à Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

@@ -4,7 +4,7 @@ Pour plus d’informations sur les disques, consultez l’article [À propos des
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Attacher un disque vide
-1. Ouvrez l’interface Azure CLI 1.0, puis [connectez-vous à votre abonnement Azure](../articles/xplat-cli-connect.md). Vérifiez que vous êtes en mode Gestion des services Azure (`azure config mode asm`).
+1. Ouvrez l’interface Azure CLI 1.0, puis [connectez-vous à votre abonnement Azure](/cli/azure/authenticate-azure-cli). Vérifiez que vous êtes en mode Gestion des services Azure (`azure config mode asm`).
 2. Entrez `azure vm disk attach-new` pour créer et attacher un disque comme indiqué dans l’exemple ci-dessous. Remplacez *myVM* par le nom de votre machine virtuelle Linux et spécifiez la taille du disque en Go (*100 Go* dans cet exemple) :
 
     ```azurecli
@@ -37,7 +37,7 @@ Pour plus d’informations sur les disques, consultez l’article [À propos des
 ## <a name="attach-an-existing-disk"></a>Association d'un disque existant
 Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans un compte de stockage.
 
-1. Ouvrez l’interface Azure CLI 1.0, puis [connectez-vous à votre abonnement Azure](../articles/xplat-cli-connect.md). Vérifiez que vous êtes en mode Gestion des services Azure (`azure config mode asm`).
+1. Ouvrez l’interface Azure CLI 1.0, puis [connectez-vous à votre abonnement Azure](/cli/azure/authenticate-azure-cli). Vérifiez que vous êtes en mode Gestion des services Azure (`azure config mode asm`).
 2. Vérifiez si le disque dur virtuel que vous souhaitez attacher est déjà chargé dans votre abonnement Azure :
    
     ```azurecli

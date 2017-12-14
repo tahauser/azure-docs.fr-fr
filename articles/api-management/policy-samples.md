@@ -10,14 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: mvc
+ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="api-management-policy-samples"></a>Exemples de stratégie dans la Gestion des API
 
@@ -31,7 +32,7 @@ Les [stratégies](api-management-howto-policies.md) sont une fonctionnalité pui
 |[Ajouter des fonctionnalités à un service principal et mettre en cache la réponse](./policies/cache-response.md?toc=api-management/toc.json) |Montre comment ajouter des fonctionnalités à un service principal. Par exemple, accepter un nom d’emplacement au lieu des latitude et longitude dans une API de prévisions météorologiques.|
 |[Autoriser l’accès basé sur les revendications JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |Montre comment autoriser l’accès à des méthodes HTTP spécifiques sur une API basée sur les revendications JWT.|
 |[Autoriser l’accès à l’aide du jeton Google OAuth](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Montre comment autoriser l’accès à vos points de terminaison en utilisant Google comme fournisseur de jeton OAuth.|
-|[Générer une signature d’accès partagé et transférer la demande vers le stockage Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Montre comment générer une [signature d’accès partagé](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) à l’aide d’expressions et transférer la demande vers le stockage Azure avec une stratégie rewrite-uri. |
+|[Générer une signature d’accès partagé et transférer la demande vers le stockage Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Montre comment générer une [signature d’accès partagé](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) à l’aide d’expressions et transférer la demande vers le stockage Azure avec une stratégie rewrite-uri. |
 |[Obtenir un jeton d’accès OAuth2 d’AAD et le transférer au backend](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Fournit un exemple d’utilisation d’OAuth2 pour l’autorisation entre la passerelle et un backend. Il montre comment obtenir un jeton d’accès OAuth2 d’AAD et le transférer au backend.|
 |[Obtenir un jeton X-CSRF de la passerelle SAP à l’aide d’une stratégie send-request](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Montre comment implémenter un modèle X-CSRF utilisé par de nombreuses API. Cet exemple est spécifique de la passerelle SAP. |
 |[Router la demande en fonction de la taille de son corps](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Montre comment router les demandes en fonction de la taille de leurs corps.|

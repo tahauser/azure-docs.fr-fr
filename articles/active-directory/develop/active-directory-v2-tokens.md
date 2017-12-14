@@ -4,7 +4,7 @@ description: "Types de jeton et de revendication émis par le point de terminais
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informations de référence sur les jetons Azure Active Directory v2.0
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 émet plusieurs types de jeton de sécurité dans chaque [flux d’authentification](active-directory-v2-flows.md). Ces informations de référence décrivent le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.

@@ -3,7 +3,7 @@ title: "Paramètres d’entrée de runbook | Microsoft Docs"
 description: "Les paramètres d’entrée de Runbook augmentent la flexibilité des Runbooks en vous permettant de transmettre des données à un Runbook lors de son démarrage. Cet article décrit différents cas où des paramètres d’entrée sont utilisés dans des Runbooks."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: e5a2afdc0dbe6171b27c11400f460eac46147f37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
 

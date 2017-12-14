@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prérequis pour le déploiement Azure Stack
 
@@ -85,7 +85,7 @@ Pour déployer Azure Stack en utilisant un compte Azure AD, vous devez prépare
 
 1. Créez un compte Azure AD qui est administrateur d’au moins un annuaire Azure AD. Si vous en avez déjà un, vous pouvez l’utiliser. Sinon, créez gratuitement un compte Azure à partir de la page [http://azure.microsoft.com/fr-fr/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (en Chine, accédez à la page <http://go.microsoft.com/fwlink/?LinkID=717821>). Si vous prévoyez [d’inscrire Azure Stack auprès d’Azure](azure-stack-register.md) ultérieurement, vous devez également avoir un abonnement avec ce nouveau compte.
    
-    Enregistrez ces informations d’identification, car vous en aurez besoin à l’étape 6 de la procédure [Déployer le Kit de développement](azure-stack-run-powershell-script.md#deploy-the-development-kit). Vous pouvez utiliser ce compte *d’administrateur de services fédérés* pour configurer et gérer les clouds de ressources, les comptes d’utilisateur, les plans de locataire, les quotas et les tarifs. Dans le portail, il peut créer des clouds de sites web, des clouds privés de machine virtuelle, des plans et gérer les abonnements des utilisateurs.
+    Enregistrez ces informations d’identification, car vous en aurez besoin à l’étape 6 de la procédure [Déployer le Kit de développement](azure-stack-run-powershell-script.md). Vous pouvez utiliser ce compte *d’administrateur de services fédérés* pour configurer et gérer les clouds de ressources, les comptes d’utilisateur, les plans de locataire, les quotas et les tarifs. Dans le portail, il peut créer des clouds de sites web, des clouds privés de machine virtuelle, des plans et gérer les abonnements des utilisateurs.
 2. [Créez](azure-stack-add-new-user-aad.md) au moins un compte avec lequel vous pouvez vous connecter au Kit de développement en tant que locataire.
    
    | **Compte Active Directory Azure** | **Pris en charge ?** |
@@ -121,62 +121,6 @@ Assurez-vous que le serveur DHCP est disponible sur le réseau auquel la carte r
 
 ### <a name="internet-access"></a>Accès à Internet
 Azure Stack nécessite un accès à Internet, directement ou via un proxy transparent. Azure Stack ne prend pas en charge la configuration d’un proxy web pour l’accès à Internet. L’adresse IP de l’hôte et la nouvelle adresse IP assignée à MAS-BGPNAT01 (par DHCP ou IP statique) doivent pouvoir accéder à Internet. Les ports 80 et 443 sont utilisés sous les domaines graph.windows.net et login.microsoftonline.com.
-
-## <a name="telemetry"></a>Télémétrie
-
-La télémétrie nous aide à concevoir les versions futures d’Azure Stack. Elle nous permet de répondre rapidement aux commentaires des utilisateurs, de fournir de nouvelles fonctionnalités et d’améliorer la qualité du produit. Microsoft Azure Stack inclut Windows Server 2016 et SQL Server 2014. Ces deux produits sont fournis avec leurs paramètres par défaut et sont régis par la déclaration de confidentialité de Microsoft Enterprise. Azure Stack contient également des logiciels open source qui n’ont pas été modifiés pour envoyer des données de télémétrie à Microsoft. Voici quelques exemples de données de télémétrie collectées pour Azure Stack :
-
-- Informations sur l’inscription d’un déploiement
-- Date et heure de l’ouverture et la fermeture d’une alerte
-- Nombre de ressources réseau
-
-Pour prendre en charge le flux des données de télémétrie, le port 443 (HTTPS) doit être ouvert sur votre réseau. Le point de terminaison client est https://vortex-win.data.microsoft.com.
-
-Si vous ne souhaitez pas fournir de données de télémétrie pour Azure Stack, vous pouvez désactiver cette fonctionnalité sur l’hôte du Kit de développement et sur les machines virtuelles de l’infrastructure, comme expliqué ci-dessous.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Désactiver la télémétrie sur l’hôte du Kit de développement (facultatif)
-
->[!NOTE]
-Si vous souhaitez désactiver la télémétrie sur l’hôte du Kit de développement, vous devez le faire avant d’exécuter le script de déploiement.
-
-Avant [d’exécuter le script asdk-installer.ps1]() pour déployer l’hôte du Kit de développement, démarrez la machine sur CloudBuilder.vhdx et exécutez le script suivant dans une fenêtre PowerShell avec des privilèges élevés :
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Définissez le paramètre **AllowTelemetry** à la valeur 0 pour désactiver la télémétrie relative au déploiement Windows et Azure Stack. Seuls les événements de sécurité critiques du système d’exploitation seront envoyés. Le paramètre contrôle la télémétrie Windows sur tous les hôtes et toutes les machines virtuelles de l’infrastructure. Il est réappliqué aux nouveaux nœuds et machines virtuelles après une augmentation de la taille des instances.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Désactiver la télémétrie sur les machines virtuelles de l’infrastructure (facultatif)
-
-Quand vous avez terminé le déploiement, exécutez le script suivant dans une fenêtre PowerShell avec des privilèges élevés (en tant qu’utilisateur AzureStack\AzureStackAdmin) sur l’hôte du Kit de développement :
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Pour configurer la télémétrie SQL Server, consultez [Guide pratique pour configurer SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Rapports d’utilisation
-
-Lors de l’inscription, Azure Stack est également configuré pour transmettre certaines informations sur l’utilisation à Azure. Les rapports d’utilisation sont contrôlés indépendamment de la télémétrie. Vous pouvez désactiver les rapports d’utilisation au moment de [l’inscription](azure-stack-register.md) en utilisant le script sur Github. Définissez simplement le paramètre **$reportUsage** sur **$false**.
-
-Les données d’utilisation sont mises en forme comme cela est décrit dans [Envoyer des données sur l’utilisation d’Azure Stack à Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). L’utilisation du Kit de développement Azure Stack n’est pas soumise à facturation. Cette fonctionnalité est fournie dans le Kit de développement pour vous permettre de tester le fonctionnement des rapports d’utilisation. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

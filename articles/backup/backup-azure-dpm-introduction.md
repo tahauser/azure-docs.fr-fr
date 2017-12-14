@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Cet article présente l'utilisation de Microsoft Azure Backup pour protéger vos
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) sauvegarde les données des fichiers et des applications. Vous trouverez des informations supplémentaires sur les charges de travail prises en charge [ici](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). Les données sauvegardées dans DPM peuvent être stockées sur bande, sur disque, ou sauvegardées dans Azure avec Sauvegarde Microsoft Azure. DPM interagit avec Azure Backup comme suit :
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) sauvegarde les données des fichiers et des applications. Vous trouverez des informations supplémentaires sur les charges de travail prises en charge [ici](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Les données sauvegardées dans DPM peuvent être stockées sur bande, sur disque, ou sauvegardées dans Azure avec Sauvegarde Microsoft Azure. DPM interagit avec Azure Backup comme suit :
 
 * **DPM déployé comme un serveur physique ou une machine virtuelle en local** : si DPM est déployé comme un serveur physique ou comme une machine virtuelle Hyper-V en local, vous pouvez sauvegarder les données dans un coffre Recovery Services en plus d’une sauvegarde sur disque et sur bande.
 * **DPM déployé comme une machine virtuelle Azure** : depuis la mise à jour 3 de System Center 2012 R2, DPM peut être déployé comme une machine virtuelle Azure. Si DPM est déployé comme une machine virtuelle Azure, vous pouvez sauvegarder les données sur des disques Azure connectés à la machine virtuelle DPM Azure, ou décharger le stockage de données en les sauvegardant dans un coffre Recovery Services.
@@ -66,7 +66,7 @@ Voici quelques définitions clés concernant la sauvegarde vers Azure pour DPM :
 
 1. **Informations d’identification de coffre** : les informations d’identification de coffre sont nécessaires afin d’authentifier l’ordinateur pour envoyer des données de sauvegarde dans un coffre identifié dans le service Sauvegarde Azure. Elles peuvent être téléchargées à partir du coffre et sont valides pendant 48 heures.
 2. **Phrase secrète** : la phrase secrète est utilisée pour chiffrer les sauvegardes vers le cloud. Enregistrez le fichier dans un emplacement sécurisé, car il vous sera demandé pour les opérations de récupération.
-3. **Code PIN de sécurité** : si vous avez activé les [Paramètres de sécurité](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) du coffre, le code PIN de sécurité est nécessaire pour effectuer les opérations de sauvegarde critiques. Cette authentification multifacteur offre une couche de sécurité supplémentaire. 
+3. **Code PIN de sécurité** : si vous avez activé les [Paramètres de sécurité](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) du coffre, le code PIN de sécurité est nécessaire pour effectuer les opérations de sauvegarde critiques. Cette authentification multifacteur offre une couche de sécurité supplémentaire. 
 4. **Dossier de récupération** : il s’agit de l’emplacement où les sauvegardes à partir du cloud sont temporairement stockées lors des restaurations de cloud. Sa taille doit être à peu près égale à celle des éléments de sauvegarde que vous souhaitez récupérer en parallèle.
 
 

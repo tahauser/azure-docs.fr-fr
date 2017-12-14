@@ -1,5 +1,5 @@
 
-1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Connectez-vous à Azure à partir de l’interface de ligne de commande (CLI) Azure 1.0](../articles/xplat-cli-connect.md).
+1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Connectez-vous à Azure à partir de l’interface de ligne de commande (CLI) Azure 1.0](/cli/azure/authenticate-azure-cli).
 
 2. Vérifiez que vous êtes dans le mode de déploiement Classic comme suit :
 

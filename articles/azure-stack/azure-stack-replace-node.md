@@ -3,8 +3,8 @@ title: "Remplacer un nœud d’unité d’échelle sur un système intégré Azu
 description: "Découvrez comment remplacer un nœud d’unité d’échelle physique sur un système intégré Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: troettinger
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
-ms.openlocfilehash: 63ba6cedd32bcf6ea3039bc80cc4a3f3407adfa7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: mabrigg
+ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack
 
@@ -58,10 +58,10 @@ Les étapes suivantes fournissent une vue d’ensemble de la procédure de rempl
 
 1. Remplacez l’ordinateur physique. En règle générale, votre fournisseur de matériel OEM se charge de cette opération.
 2. Utilisez l’action [Réparer](azure-stack-node-actions.md#scale-unit-node-actions) pour ajouter le nouvel ordinateur physique à l’unité d’échelle.
-3. Utilisez le point de terminaison privilégié pour [vérifier l’état de réparation du disque virtuel](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Avec de nouveaux disques de données, une opération de réparation de stockage complète peut prendre plusieurs heures en fonction de la charge du système et de l’espace utilisé.
+3. Utilisez le point de terminaison privilégié pour [vérifier l’état de réparation du disque virtuel](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Avec de nouveaux lecteurs de données, une opération de réparation de stockage complète peut prendre plusieurs heures en fonction de la charge du système et de l’espace utilisé.
 4. Une fois la réparation terminée, vérifiez que toutes les alertes actives ont été automatiquement fermées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur le remplacement d’un disque physique échangeable à chaud, consultez [Remplacer un disque](azure-stack-replace-disk.md). 
+- Pour plus d’informations sur le remplacement d’un disque physique échangeable à chaud, voir [Remplacer un disque](azure-stack-replace-disk.md). 
 - Pour plus d’informations sur le remplacement d’un composant matériel non échangeable à chaud, consultez [Remplacer un composant matériel](azure-stack-replace-component.md). 

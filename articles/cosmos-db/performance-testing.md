@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche Base de données a un impact significatif sur les performances globales et la scalabilité. Il s’agit donc d’une composante essentielle des tests de performances. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) a été spécialement conçu pour offrir une mise à l’échelle élastique et des performances prévisibles. Ces capacités en font une solution de choix pour les applications qui ont besoin d’une couche Base de données hautement performante. 
 
 Cet article fournit des informations de référence pour les développeurs qui implémentent des suites de test de performances pour leurs charges de travail Azure Cosmos DB. Il permet aussi d’évaluer Azure Cosmos DB pour des scénarios d’applications à hautes performances. Il se concentre principalement sur les tests de performances isolés de la base de données, mais inclut également les meilleures pratiques relatives aux applications de production.
@@ -54,7 +57,7 @@ Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .N
 
 **Étape 3 :** compilez et exécutez l’application console à partir de la ligne de commande. Un résultat similaire à ce qui suit s’affiche normalement :
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

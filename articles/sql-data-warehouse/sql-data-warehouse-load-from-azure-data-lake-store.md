@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Chargement de données Azure Data Lake Store dans SQL Data Warehouse
 Ce document vous indique toutes les étapes nécessaires pour charger vos propres données d’Azure Data Lake Store (ADLS) dans SQL Data Warehouse à l’aide de PolyBase.
@@ -56,7 +56,7 @@ PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les 
 ###  <a name="create-a-credential"></a>Créer des informations d’identification
 Pour accéder à votre Azure Data Lake Store, vous devez créer une clé principale de base de données afin de chiffrer les informations secrètes d’identification au cours de l’étape suivante.
 Vous créez ensuite un fichier d’informations d’identification de niveau base de données, qui stocke les informations d’identification du principal du service configurées dans AAD. Pour ceux d'entre vous qui ont utilisé PolyBase pour se connecter à des objets blob Windows Azure Storage, notez que la syntaxe des informations d’identification est différente.
-Pour vous connecter à Azure Data Lake Store, vous devez **tout d’abord** créer une application Azure Active Directory, créer une clé d’accès et accorder l’accès aux applications à la ressource Azure Data Lake. Vous trouverez [ici](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory) des instructions pour effectuer ces étapes.
+Pour vous connecter à Azure Data Lake Store, vous devez **tout d’abord** créer une application Azure Active Directory, créer une clé d’accès et accorder l’accès aux applications à la ressource Azure Data Lake. Vous trouverez [ici](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory) des instructions pour effectuer ces étapes.
 
 ```sql
 -- A: Create a Database Master Key.

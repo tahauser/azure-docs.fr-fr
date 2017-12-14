@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage de code C# défini par l’utilisateur pour des travaux U-SQL ayant échoué
 
-U-SQL fournit un modèle d’extensibilité à l’aide de C#. Dans les scripts U-SQL, il est facile d’appeler des fonctions C# pour accomplir des fonctions d’analyse qu’un langage déclaratif apparenté à SQL ne prend pas en charge. Pour en savoir plus sur l’extensibilité U-SQL, consultez le [Guide de programmabilité U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL fournit un modèle d’extensibilité à l’aide de C#. Dans les scripts U-SQL, il est facile d’appeler des fonctions C# pour accomplir des fonctions d’analyse qu’un langage déclaratif apparenté à SQL ne prend pas en charge. Pour en savoir plus sur l’extensibilité U-SQL, consultez le [Guide de programmabilité U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 Dans la pratique, un code peut nécessiter un débogage, mais il est difficile de déboguer une tâche distribuée par le biais d’un code personnalisé sur le cloud avec des fichiers journaux limités. [Azure Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs) fournit une fonctionnalité appelée **Débogage d’échec du vertex** qui facilite le débogage des défaillances se produisant dans votre code personnalisé. En cas d’échec d’une tâche U-SQL, le service conserve l’état d’échec, et l’outil permet de télécharger l’environnement de défaillance du cloud sur l’ordinateur local en vue de l’opération de débogage. Le téléchargement local capture l’environnement cloud en entier, y compris les données d’entrée et le code utilisateur.
 

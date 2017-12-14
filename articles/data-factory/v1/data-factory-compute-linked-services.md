@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 > [!NOTE]
@@ -50,7 +50,7 @@ Après le 15 décembre 2017 :
 
 - Vous ne pourrez plus créer de clusters HDInsight Linux version 3.3 (ni des versions précédentes) à l’aide d’un service lié HDInsight à la demande dans Azure Data Factory v1. 
 
-- Si les [propriétés osType et/ou Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) ne sont pas explicitement spécifiées dans les définitions JSON existantes d’un service lié HDInsight à la demande d’Azure Data Factory v1, la valeur par défaut **Version=3.1, osType=Windows** sera remplacée par **Version=3.6, osType=Linux**.
+- Si les [propriétés osType et/ou Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) ne sont pas explicitement spécifiées dans les définitions JSON existantes d’un service lié HDInsight à la demande d’Azure Data Factory v1, la valeur par défaut **Version=3.1, osType=Windows** sera remplacée par **Version=3.6, osType=Linux**.
 
 Après le 31 juillet 2018 :
 
@@ -58,10 +58,10 @@ Après le 31 juillet 2018 :
 
  **Actions recommandées** 
 
-- Mettez à jour les [propriétés osType et/ou Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) des définitions du service lié HDInsight à la demande d’Azure Data Factory v1 vers de nouvelles versions de HDInsight basé sur Linux (HDInsight 3.6) afin de vous assurer de pouvoir utiliser les tout derniers correctifs et composants de l’écosystème Hadoop. 
-- Avant le 15 décembre 2017, testez les activités de diffusion en continu Hive, Pig, MapReduce et Hadoop d’Azure Data Factory v1 qui désignent le service lié impacté pour vous assurer qu’elles sont compatibles avec la nouvelle valeur par défaut des propriétés *osType* et/ou *Version* (Version=3.6, osType=Linux) ou les propriétés Version et osType explicites de HDInsight vers lesquelles vous procédez à la mise à niveau. Pour plus d’informations sur la compatibilité, consultez les pages web [Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) et [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) dans la documentation. 
+- Mettez à jour les [propriétés osType et/ou Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) des définitions du service lié HDInsight à la demande d’Azure Data Factory v1 vers de nouvelles versions de HDInsight basé sur Linux (HDInsight 3.6) afin de vous assurer de pouvoir utiliser les tout derniers correctifs et composants de l’écosystème Hadoop. 
+- Avant le 15 décembre 2017, testez les activités de diffusion en continu Hive, Pig, MapReduce et Hadoop d’Azure Data Factory v1 qui désignent le service lié impacté pour vous assurer qu’elles sont compatibles avec la nouvelle valeur par défaut des propriétés *osType* et/ou *Version* (Version=3.6, osType=Linux) ou les propriétés Version et osType explicites de HDInsight vers lesquelles vous procédez à la mise à niveau. Pour plus d’informations sur la compatibilité, consultez les pages web [Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) et [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) dans la documentation. 
 - Définissez explicitement la propriété osType sur Windows avant le 15 décembre 2017 si vous souhaitez continuer à utiliser un service lié HDInsight à la demande d’Azure Data Factory v1 pour créer des clusters HDInsight Windows. Toutefois, nous vous recommandons de procéder à la migration vers les clusters HDInsight Linux avant le 31 juillet 2018. 
-- Mettez à jour la définition JSON d’une activité personnalisée DotNet pour utiliser plutôt un service lié Azure Batch si vous utilisez un service lié HDInsight à la demande pour exécuter une activité personnalisée DotNet d’Azure Data Factory v1. Pour en savoir plus, consultez la page web [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) de la documentation. 
+- Mettez à jour la définition JSON d’une activité personnalisée DotNet pour utiliser plutôt un service lié Azure Batch si vous utilisez un service lié HDInsight à la demande pour exécuter une activité personnalisée DotNet d’Azure Data Factory v1. Pour en savoir plus, consultez la page web [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) de la documentation. 
 
 >[!Note]
 >Pour les clients utilisant votre service lié existant HDInsight avec apport de son propre cluster (BYOC, Bring Your Own Cluster) dans Azure Data Factory v1 ou ceux utilisant un service lié HDInsight à la demande et BYOC dans Azure Data Factory v2, la stratégie de prise en charge de la dernière version des clusters Azure HDInsight est déjà appliquée. Aucune action n’est donc requise. 

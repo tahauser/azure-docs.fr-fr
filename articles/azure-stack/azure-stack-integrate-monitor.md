@@ -3,8 +3,8 @@ title: "Intégrer une solution de surveillance externe à Azure Stack | Microsof
 description: "Découvrez comment intégrer Azure Stack à une solution de surveillance externe dans votre centre de données."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: twooley
-ms.openlocfilehash: 801e6be91f2b568ce51ec632bccef06a57d809f1
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: mabrigg
+ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de surveillance externe à Azure Stack
 
@@ -209,7 +209,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*name*     |     Nom interne de l’alerte.   |
 |*type*     |     Définition de la ressource.    |
 |*location*     |       Nom de la région.     |
-|*tags*     |   Balises de ressource.     |
+|*balises*     |   Balises de ressource.     |
 |*closedtimestamp*    |  Heure UTC à laquelle l’alerte a été fermée.    |
 |*createdtimestamp*     |     Heure UTC à laquelle l’alerte a été créée.   |
 |*description*     |    Description de l’alerte.     |
@@ -352,7 +352,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*name*     |     Nom interne de l’alerte.   |
 |*type*     |     Définition de la ressource.    |
 |*location*     |       Nom de la région.     |
-|*tags*     |   Balises de ressource.     |
+|*balises*     |   Balises de ressource.     |
 |*closedtimestamp*    |  Heure UTC à laquelle l’alerte a été fermée.    |
 |*createdtimestamp*     |     Heure UTC à laquelle l’alerte a été créée.   |
 |*Description*     |    Description de l’alerte.     |
@@ -438,7 +438,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*name*     |  Nom interne de l’alerte.       |
 |*type*     |  Définition de la ressource.       |
 |*location*     |  Nom de la région.       |
-|*tags*     |     Balises de ressource.    |
+|*balises*     |     Balises de ressource.    |
 |*registrationId*     |   Inscription unique pour le fournisseur de ressources.      |
 |*displayName*     |Nom complet du fournisseur de ressources.        |
 |*namespace*     |   Espace de noms API que le fournisseur de ressources implémente.       |
@@ -506,7 +506,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*name*     |  Nom interne de l’alerte.       |
 |*type*     |  Définition de la ressource.       |
 |*location*     |  Nom de la région.       |
-|*tags*     |     Balises de ressource.    |
+|*balises*     |     Balises de ressource.    |
 |*registrationId*     |   Inscription unique pour le fournisseur de ressources.      |
 |*resourceType*     |Type de ressource.        |
 |*resourceName*     |   Nom de la ressource.   |

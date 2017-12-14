@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solution Analyseur de performances réseau dans Log Analytics
 
@@ -46,7 +46,7 @@ Si vous souhaitez surveiller une application métier, vous pouvez utiliser la so
 Par ailleurs, si vous investissez déjà dans d’autres outils d’analyse de réseau, la solution peut compléter ceux-ci, car les solutions traditionnelles d’analyse réseau ne fournissent pas d’informations en rapport avec des mesures de performances réseau de bout en bout, telles que les pertes et la latence.  La solution Analyseur de performances réseau peut aider à combler cette lacune.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Installation et configuration des agents pour la solution
-Utilisez les procédures de base d’installation des agents décrites dans [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agents.md) et [Connexion d’Operations Manager à Log Analytics](log-analytics-om-agents.md).
+Utilisez les procédures de base d’installation des agents décrites dans [Connecter des ordinateurs Windows à Log Analytics](log-analytics-windows-agent.md) et [Connexion d’Operations Manager à Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Vous devez installer au moins 2 agents afin de disposer de suffisamment de données pour détecter et analyser vos ressources réseau. Autrement, la solution reste en état de configuration jusqu’à ce que vous installiez et configuriez des agents supplémentaires.

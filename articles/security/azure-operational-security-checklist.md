@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Liste de contrôle de la sécurité opérationnelle Azure
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer une application cloud en production, il peut être judicieux de disposer d’une liste de contrôle pour vous aider à évaluer votre application par rapport à une liste d’actions de sécurité opérationnelle essentielles et recommandées à prendre en compte.
@@ -52,6 +52,6 @@ De nombreuses organisations ont correctement déployé et utilisé leurs applica
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a présenté la solution de sécurité et d’audit d’OMS. Pour plus d’informations sur la sécurité OMS, consultez les articles suivants :
 
-- [Présentation d’Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview).
+- [Présentation d’Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Conception et sécurité opérationnelle](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Guide des opérations et de planification d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

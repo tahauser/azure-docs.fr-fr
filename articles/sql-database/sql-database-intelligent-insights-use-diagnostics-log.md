@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic Intelligent Insights des performances d’Azure SQL Database
 
@@ -139,13 +139,13 @@ La dernière partie du journal de diagnostic des performances Intelligent Insigh
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Vous pouvez utiliser le journal de diagnostic des performances Intelligent Insights avec [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) ou une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
+Vous pouvez utiliser le journal de diagnostic des performances Intelligent Insights avec [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez les concepts [Intelligent Insights](sql-database-intelligent-insights.md).
 - Découvrez comment [résoudre les problèmes de performances liés à Azure SQL Database avec Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Découvrez comment [surveiller Azure SQL Database avec Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Découvrez comment [surveiller Azure SQL Database avec Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

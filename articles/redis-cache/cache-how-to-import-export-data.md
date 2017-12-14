@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 5e6d731f0a1cecc1a191c74a45e37a9b94fd98ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 761c0d808eb787517473036e53992ff5e49b17fe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importer et exporter des données dans le Cache Redis Azure
 L’Importation/Exportation est une opération de gestion de données de Cache Redis Azure qui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Redis Azure, en important ou en exportant une capture instantanée de base de données du Cache Redis (RDB) depuis un cache Premium vers un objet blob dans un compte Azure Storage. 
@@ -77,7 +77,7 @@ L’exportation vous permet d’exporter les données stockées dans le Cache Az
 2. Cliquez sur **Choisir un conteneur de stockage** et sélectionnez le compte de stockage souhaité. Le compte de stockage doit être situé dans les mêmes région et abonnement que votre cache.
 
    > [!IMPORTANT]
-   > La fonctionnalité Exportation fonctionne avec les objets blob de pages, qui sont pris en charge par les comptes de stockage Resource Manager et classiques, mais pas par les [comptes de stockage d’objets Blob](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts) pour l’instant.
+   > La fonctionnalité Exportation fonctionne avec les objets blob de pages, qui sont pris en charge par les comptes de stockage Resource Manager et classiques, mais pas par les [comptes de stockage d’objets Blob](../storage/blobs/storage-account-options.md#blob-storage-accounts) pour l’instant.
    >
    >
 
@@ -155,7 +155,7 @@ Si vous restez sur le panneau **Importer des données** ou **Exporter des donné
 Pour résoudre ce problème, démarrez l’importation ou l’exportation avant que les 15 minutes ne se soient écoulées.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>J’ai obtenu une erreur en exportant mes données vers un stockage d’objets blob Azure. Que s’est-il passé ?
-L’exportation ne fonctionne qu’avec les fichiers RDB stockés sous la forme d’objets blob de pages. Les autres types d’objets blob ne sont pas pris en charge pour l’instant, y compris les comptes de stockage d’objets blob de niveaux chaud et froid. Pour plus d’informations, consultez [Comptes de stockage Blob](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts).
+L’exportation ne fonctionne qu’avec les fichiers RDB stockés sous la forme d’objets blob de pages. Les autres types d’objets blob ne sont pas pris en charge pour l’instant, y compris les comptes de stockage d’objets blob de niveaux chaud et froid. Pour plus d’informations, consultez [Comptes de stockage Blob](../storage/blobs/storage-account-options.md#blob-storage-accounts).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.

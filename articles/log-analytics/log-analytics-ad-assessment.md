@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution Active Directory Health Check dans Log Analytics
 
@@ -39,7 +39,7 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 
 ![image du tableau de bord AD Health Check](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * La solution Active Directory Health Check nécessite l’installation d’une version prise en charge du .NET Framework (version 4.5.2 ou ultérieure) sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics. 
 * La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.
@@ -52,7 +52,7 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 
 Pour que vous puissiez contrôler l’intégrité des contrôleurs de domaine qui sont membres du domaine à évaluer, ces derniers ont besoin d’un agent et d’une connectivité à Log Analytics faisant appel à l’une des méthodes prises en charge suivantes :
 
-1. Installez [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) si le contrôleur de domaine n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Installez [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si le contrôleur de domaine n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. S’il est surveillé avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2 et que le groupe d’administration n’est pas intégré au service Log Analytics, le contrôleur de domaine peut être hébergé de manière multiple avec Log Analytics pour collecter des données et les transférer au service, et toujours être surveillé par Operations Manager.  
 3. Sinon, si votre groupe d’administration Operations Manager est intégré au service, vous devez ajouter des contrôleurs de domaine pour la collecte de données par le service en suivant la procédure décrite dans [Ajout d’ordinateurs gérés par des agents](log-analytics-om-agents.md#connecting-operations-manager-to-oms) après avoir activé la solution dans votre espace de travail.  
 
@@ -109,11 +109,11 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
 1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
-2. Dans le portail Azure, cliquez sur **Autres services** en bas à gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur la vignette **Portail OMS**.  
 4. Dans la page **Vue d’ensemble**, cliquez sur la vignette **AD Health Check**. 
 5. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
-6. Les pages du domaine concerné répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations Health Check](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
+6. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations Health Check](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l’élément traité, les évaluations ultérieures indiquent que des mesures ont été prises et votre score de conformité augmente. Les éléments corrigés apparaissent comme **objets passés**.
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
@@ -131,7 +131,7 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
     >
     > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Voici une capture d’écran montrant la requête Recherche dans les journaux : <br><br> ![recommandations ayant échoué](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
+    Voici une capture d’écran montrant la requête Recherche de journal : <br><br> ![recommandations ayant échoué](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 
 3. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
@@ -146,13 +146,13 @@ Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier tex
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Pour vérifier que les recommandations sont ignorées
 Une fois le prochain contrôle d’intégrité planifié exécuté, par défaut tous les sept jours, les recommandations spécifiées sont marquées comme *Ignorées* et n’apparaissent pas dans le tableau de bord.
 
-1. Vous pouvez utiliser les requêtes Recherche dans les journaux suivantes pour lister toutes les recommandations ignorées.
+1. Vous pouvez utiliser les requêtes Recherche de journal suivantes pour répertorier toutes les recommandations ignorées.
 
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
     >[!NOTE]
-    > Si votre espace de travail est passé au [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
+    > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête dans Log Analytics](log-analytics-log-search-upgrade.md), remplacez la requête ci-dessus par la requête ci-dessous.
     >
     > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -189,7 +189,7 @@ Une fois le prochain contrôle d’intégrité planifié exécuté, par défaut 
 
 *Pourquoi afficher uniquement les 10 premières recommandations ?*
 
-* Au lieu d'exploiter une liste de tâches trop importante, nous vous recommandons de vous concentrer sur les recommandations prioritaires. Une fois que vous les aurez suivies, de nouvelles recommandations apparaîtront. Si vous préférez afficher la liste détaillée de toutes les recommandations, utilisez Recherche dans les journaux.
+* Au lieu d'exploiter une liste de tâches trop importante, nous vous recommandons de vous concentrer sur les recommandations prioritaires. Une fois que vous les aurez suivies, de nouvelles recommandations apparaîtront. Si vous préférez afficher la liste détaillée de toutes les recommandations, utilisez Recherche de journal.
 
 *Est-il possible d'ignorer une recommandation ?*
 

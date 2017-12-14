@@ -4,7 +4,7 @@ description: "Découvrez comment accorder une licence à vos utilisateurs et à 
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Guide de démarrage rapide : Utilisateurs sous licence dans Azure Active Directory
 Les services Azure AD basés sur des licences reposent sur l’activation d’un abonnement Azure Active Directory (Azure AD) dans votre client Azure. Une fois l’abonnement actif, les fonctionnalités de service sont gérées par des administrateurs Azure AD et utilisées par des utilisateurs sous licence. Quand vous achetez Enterprise Mobility + Security, Azure AD Premium ou Azure AD Basic, votre locataire est mis à jour avec l’abonnement, notamment sa période de validité et les licences prépayées. Les informations de votre abonnement, notamment le nombre de licences attribuées ou disponibles, sont accessibles par l’intermédiaire du portail Azure sous **Azure Active Directory** en ouvrant la vignette **Licences**. Le panneau **Licences** constitue également l’emplacement idéal pour gérer vos attributions de licence.
@@ -28,7 +28,7 @@ Bien qu’il suffise d’obtenir un abonnement pour configurer les fonctionnalit
 
 Vous pouvez utiliser l’[attribution de licence basée sur le groupe](active-directory-licensing-whatis-azure-portal.md) pour configurer des règles telles que les suivantes :
 * Tous les utilisateurs de votre annuaire obtiennent automatiquement une licence
-* Toute personne avec la fonction appropriée obtient une licence
+* Toute personne avec le poste approprié obtient une licence
 * Vous pouvez déléguer la décision à d’autres responsables au sein de l’organisation (à l’aide de [groupes en libre-service](active-directory-accessmanagement-self-service-group-management.md))
 
 > [!TIP]

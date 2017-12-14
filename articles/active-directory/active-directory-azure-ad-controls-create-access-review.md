@@ -3,7 +3,7 @@ title: "Créer une révision d’accès pour les membres d’un groupe ou des ut
 description: "Découvrez comment créer une révision d’accès pour les membres d’un groupe ou des utilisateurs ayant accès à une application."
 services: active-directory
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: ae926e8d3a856c9b488d46b481a1c7b5b581d532
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b2f8985f12e17ac69543cfb3a33725f796eedde8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Créer une révision d’accès des membres du groupe ou un accès aux applications avec Azure AD
 

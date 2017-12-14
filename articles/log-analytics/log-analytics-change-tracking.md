@@ -1,6 +1,6 @@
 ---
 title: Suivi des modifications avec Azure Log Analytics | Microsoft Docs
-description: "La solution Change Tracking dans Log Analytics permet d’identifier les modifications apportées aux logiciels et au service Windows qui se produisent dans votre environnement."
+description: "La solution de suivi des modifications dans Log Analytics permet d’identifier les modifications apportées aux logiciels et au service Windows qui se produisent dans votre environnement."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications
 
 ![Symbole Change Tracking](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
-Cet article vous permet d’utiliser la solution Change Tracking de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux clés de Registre, fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
+Cet article vous aidera à utiliser la solution de suivi des modifications de Log Analytics pour identifier facilement les modifications dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux clés de Registre, fichiers et services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
 
 Vous installez la solution pour mettre à jour le type d’agent que vous avez installé. Les modifications apportées aux logiciels, services Windows et démons Linux installés sur les serveurs analysés sont lues. Ensuite, les données sont envoyées au service Log Analytics dans le cloud pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
 
-* Vous devez disposer d’un agent [Windows](log-analytics-windows-agents.md), d'un [Operations Manager](log-analytics-om-agents.md) ou d'un agent [Linux](log-analytics-linux-agents.md) sur chaque ordinateur où vous souhaitez analyser les modifications.
+* Vous devez disposer d’un agent [Windows](log-analytics-windows-agent.md), d'un [Operations Manager](log-analytics-om-agents.md) ou d'un agent [Linux](log-analytics-linux-agents.md) sur chaque ordinateur où vous souhaitez analyser les modifications.
 * Ajoutez la solution Change Tracking à votre espace de travail OMS à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Vous pouvez également ajouter la solution en utilisant les informations contenues dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md). Aucune configuration supplémentaire n'est nécessaire.
 
 ### <a name="configure-linux-files-to-track"></a>Configuration des fichiers Linux à suivre

@@ -3,7 +3,7 @@ title: "Mon premier Runbook Python dans Azure Automation | Microsoft Docs"
 description: "Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook Python simple."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.author: gwallace
+ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-python-runbook"></a>Mon premier runbook Python
 
@@ -213,5 +213,5 @@ Cliquez sur **OK** pour démarrer le Runbook. Le Runbook s’exécute et démarr
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
 * Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
-* Pour en savoir plus sur le développement pour Azure avec Python, consultez [Azure pour les développeurs Python](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Pour afficher des exemples de runbooks Python 2, consultez [GitHub Azure Automation](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Pour en savoir plus sur le développement pour Azure avec Python, consultez [Azure pour les développeurs Python](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Pour afficher des exemples de runbooks Python 2, consultez [GitHub Azure Automation](https://docs.microsoft.com/python/azure/?view=azure-python).

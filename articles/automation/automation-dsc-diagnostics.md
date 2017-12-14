@@ -3,7 +3,7 @@ title: "Transférer des données de rapport Azure Automation DSC à OMS Log Anal
 description: "Cet article montre comment envoyer des données de rapport de configuration de l’état souhaité (DSC) à Microsoft Operations Management Suite Log Analytics, afin de fournir des informations supplémentaires et de simplifier la gestion."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Transférer des données de rapport Azure Automation DSC à OMS Log Analytics
 
@@ -43,7 +43,7 @@ Pour commencer à envoyer vos rapports Automation DSC à Log Analytics, vous dev
 
 Pour commencer l’importation des données à partir d’Azure Automation DSC dans Log Analytics, procédez comme suit :
 
-1. Dans PowerShell, connectez-vous à votre compte Azure. Consultez [Log in with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0) (Se connecter avec Azure PowerShell).
+1. Dans PowerShell, connectez-vous à votre compte Azure. Consultez [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0) (Se connecter avec Azure PowerShell).
 1. Obtenez le _ResourceId_ de votre compte Automation en exécutant la commande PowerShell suivante : (si vous avez plusieurs comptes Automation, choisissez le _ResourceID_ du compte que vous souhaitez configurer).
 
   ```powershell

@@ -3,7 +3,7 @@ title: "Migration d’un compte et de ressources Automation | Microsoft Docs"
 description: "Cet article décrit comment déplacer un compte Automation dans Azure Automation et les ressources associées d’un abonnement vers un autre."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9c2db4a2-f324-48dc-8ce7-3343bf7230d5
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 6a6765753e0dadf31692819a9d8f2ca7e77c7f10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c13ee767cc2a1fb7880e6d0491cd6a247c737c13
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migration d’un compte et de ressources Automation
 Pour les comptes Automation et les ressources associées (composants, Runbooks, modules, etc.) que vous avez créées dans le Portail Azure et que vous souhaitez migrer d’un groupe de ressources à un autre ou d’un abonnement à un autre, vous pouvez utiliser en toute simplicité la fonctionnalité [déplacer des ressources](../azure-resource-manager/resource-group-move-resources.md) disponible dans le Portail Azure. Toutefois, avant d’exécuter cette action, vous devez tout d’abord examiner cette [liste de vérification avant de déplacer des ressources](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) ainsi que la liste suivante, propre à Automation.   

@@ -1,3 +1,4 @@
+
 1. Une fois la machine virtuelle créée et en cours d’exécution, cliquez sur l’icône Machines virtuelles dans le portail Azure pour visualiser vos machines virtuelles.
 
 1. Cliquez sur les points de suspension, **...**, en regard de votre nouvelle machine virtuelle.

@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurer le service Azure Machine Learning - Expérimentation
 
 ## <a name="overview"></a>Vue d'ensemble
-Un espace de travail, un projet et un compte de service Azure Machine Learning - Expérimentation sont des ressources Azure. Vous pouvez donc les déployer à l’aide de modèles Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, consultez [Présentation d’Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Un espace de travail, un projet et un compte de service Azure Machine Learning - Expérimentation sont des ressources Azure. Vous pouvez donc les déployer à l’aide de modèles Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Déploiement d’un modèle
 Le déploiement d’un modèle ne nécessite que quelques étapes dans l’interface de ligne de commande Azure ou dans le portail Azure.
@@ -131,13 +131,13 @@ Créez un fichier appelé « template-file.json » avec le contenu ci-dessous.
 }
 ```
 
-### <a name="parameters"></a>Paramètres 
+### <a name="parameters"></a>parameters 
 Créez un fichier avec le contenu ci-dessous et enregistrez-le sous le nom <parameters.json>. 
 
 Vous pouvez changer trois valeurs. 
 * accountName : nom du compte Expérimentation.
 * location : une des régions Azure prises en charge.
-* storageAccountSku : Azure ML prend uniquement en charge le stockage standard, pas le stockage premium. Pour plus d’informations sur le stockage, consultez [Introduction au stockage](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* storageAccountSku : Azure ML prend uniquement en charge le stockage standard, pas le stockage premium. Pour plus d’informations sur le stockage, consultez [Introduction au stockage](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

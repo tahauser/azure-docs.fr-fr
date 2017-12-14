@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e20cf37f039f6bec32aee712a4d3c564d54cfc6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="about-azure-storage-accounts"></a>À propos des comptes de stockage Azure
 
@@ -99,7 +99,7 @@ Après avoir créé votre compte de stockage, vous pouvez modifier sa configurat
 
 La modification de l’option de réplication entraîne une modification de vos tarifs. Pour plus d’informations, voir [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/) .
 
-Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut entraîner des frais, outre la modification des prix appliqués. Pour plus d’informations, voir [Stockage des objets blob Azure - section Tarification et facturation](../blobs/storage-blob-storage-tiers.md#pricing-and-billing) .
+Pour les comptes de stockage d’objets blob, changer le niveau d’accès peut entraîner des frais, outre la modification des prix appliqués. Pour plus d’informations, voir [Stockage des objets blob Azure - section Tarification et facturation](../blobs/storage-account-options.md#pricing-and-billing) .
 
 ### <a name="manage-your-storage-access-keys"></a>Gérer vos clés d’accès de stockage
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.

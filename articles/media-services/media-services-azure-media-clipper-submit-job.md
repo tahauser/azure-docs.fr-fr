@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Envoyer des travaux de détourage d’Azure Media Clipper
 Azure Media Clipper nécessite une méthode **submitSubclipCallback** d’implémentation pour gérer la soumission de travaux de détourage. Cette fonction sert à implémenter une requête HTTP POST de la sortie Clipper à un service web. C’est dans ce service web que vous pouvez soumettre le travail d’encodage. La sortie du Clipper peut être une présélection d’encodage Media Encoder Standard pour les travaux rendus ou la charge utile API REST pour les appels filtrés du manifeste dynamique. Ce modèle de transmission directe est nécessaire, car les informations d’identification du compte Media Services ne sont pas sécurisées dans le navigateur du client.
@@ -151,7 +151,7 @@ Le contrat de sortie de travail pour détourage rendu est un objet JSON comprena
 }
 ```
 
-Afin d’exécuter le travail d’encodage, soumettez le travail d’encodage Media Encoder Standard avec la présélection associée. Consultez cet article pour obtenir des détails sur la soumission des travaux d’encodage à l’aide de [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+Afin d’exécuter le travail d’encodage, soumettez le travail d’encodage Media Encoder Standard avec la présélection associée. Consultez cet article pour obtenir des détails sur la soumission des travaux d’encodage à l’aide de [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>Création rapide de clips vidéo sans encodage
 Plutôt que de créer un travail d’encodage, vous pouvez utiliser Azure Media Clipper pour créer des filtres de manifeste dynamique. Les filtres n’exigent pas d’encodage et peuvent être créés rapidement si un nouvel élément n’est pas créé. Le contrat de sortie pour détourage filtré est un objet JSON comprenant les propriétés suivantes :
@@ -227,4 +227,4 @@ Plutôt que de créer un travail d’encodage, vous pouvez utiliser Azure Media 
 }
 ```
 
-Pour soumettre l’appel REST pour créer un filtre de manifeste dynamique, soumettez la charge utile du filtre associé à l’aide de [l’API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+Pour soumettre l’appel REST pour créer un filtre de manifeste dynamique, soumettez la charge utile du filtre associé à l’aide de [l’API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).

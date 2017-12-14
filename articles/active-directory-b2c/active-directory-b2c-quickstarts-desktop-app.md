@@ -4,7 +4,7 @@ description: "Utiliser un environnement de test Azure AD B2C pour évaluer les p
 services: active-directory-b2c
 documentationcenter: .net
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 86293627-26fb-4e96-a76b-f263f9a945bd
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: saraford
-ms.openlocfilehash: 9653d86dd5635016512bf6e6fafbf7195145ed07
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 51f5643f0bd975beb939c2d5a8853810fb609ec9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-a-desktop-application-configured-with-azure-ad-b2c"></a>Évaluer une application de bureau configurée avec Azure AD B2C
 
 Azure Active Directory B2C assure la gestion des identités cloud pour vous aider à protéger votre application, votre entreprise et vos clients.  Ce guide de démarrage rapide utilise un exemple d’application de bureau Windows Presentation Foundation (WPF) pour illustrer :
 
 * l’utilisation d’une stratégie **d’inscription ou de connexion** pour créer ou se connecter avec un fournisseur d’identité sociale ou un compte local à l’aide d’une adresse e-mail ; 
-* **l’appel d’une API** pour récupérer votre nom d’affichage à partir d’une ressource sécurisée d’Azure AD B2C.
+* **Appel d’une API** pour récupérer votre nom d’affichage à partir d’une ressource sécurisée Azure AD B2C.
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -56,11 +56,11 @@ Cliquez sur **Se connecter** pour démarrer le workflow **Inscription ou connexi
 
 Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser. Si vous préférez utiliser une adresse e-mail, passez à la section [S’inscrire au moyen d’une adresse e-mail](#sign-up-using-an-email-address).
 
-![Fournisseur de connexion ou d’inscription](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+![Fournisseur pour se connecter ou s’inscrire](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-Vous devez vous authentifier (vous connecter) à l’aide des informations d’identification de votre compte social et autoriser l’application à lire les informations de votre compte. En accordant l’accès à l’application, celle-ci peut extraire des informations de profil de votre compte de réseau social, par exemple votre nom et votre ville de résidence. 
+Vous devez vous authentifier (vous connecter) avec les informations d’identification de votre compte de réseau social et autoriser l’application à lire les informations depuis votre compte de réseau social. En accordant l’accès, l’application peut extraire des informations de profil du compte de réseau social, telles que votre nom et votre ville. 
 
-![Authentification et autorisation à l’aide d’un compte de réseau social](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
+![Authentification et autorisation au moyen d’un compte de réseau social](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
 
 Les informations de profil de votre nouveau compte sont déjà prérenseignées à partir des informations obtenues sur votre compte de réseau social. Modifier les détails si vous le souhaitez, puis cliquez sur **Continuer**.
 
@@ -74,7 +74,7 @@ Vous venez de créer un compte d’utilisateur Azure AD B2C qui utilise un fourn
 
 ### <a name="sign-up-using-an-email-address"></a>S’inscrire au moyen d’une adresse e-mail
 
-Si vous choisissez de ne pas vous authentifier à l’aide d’un compte de réseau social, vous pouvez créer un compte d’utilisateur Azure AD B2C en utilisant simplement une adresse e-mail valide. Un compte d’utilisateur local Azure AD B2C utilise Azure Active Directory comme fournisseur d’identité. Pour utiliser votre adresse e-mail, cliquez sur le lien **Vous ne possédez pas encore de compte ? Inscrivez-vous maintenant**.
+Si vous choisissez de ne pas vous authentifier à l’aide d’un compte de réseau social, vous pouvez créer un compte d’utilisateur Azure AD B2C en utilisant simplement une adresse e-mail valide. Un compte d’utilisateur local Azure AD B2C utilise Azure Active Directory comme fournisseur d’identité. Pour utiliser votre adresse e-mail, cliquez sur le lien **Vous ne possédez pas encore de compte ? Inscrivez-vous maintenant**.
 
 ![Connexion ou inscription au moyen d’une adresse e-mail](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-email-wpf.png)
 
@@ -84,7 +84,7 @@ Entrez le code de vérification reçu par e-mail, puis cliquez sur **Vérifier l
 
 Ajoutez vos informations de profil et cliquez sur **Créer**.
 
-![S’inscrire avec le nouveau compte à l’aide de la messagerie](media/active-directory-b2c-quickstarts-desktop-app/sign-up-new-account-profile-email-wpf.png)
+![Inscription avec un nouveau compte au moyen d’une adresse e-mail](media/active-directory-b2c-quickstarts-desktop-app/sign-up-new-account-profile-email-wpf.png)
 
 Vous venez de créer un nouveau compte d’utilisateur local Azure AD B2C. Après la connexion, le jeton d’accès apparaît dans la zone de texte *Informations sur le jeton*. Le jeton d’accès est utilisé lors de l’accès à la ressource de l’API.
 
@@ -118,7 +118,7 @@ L’application inclut dans la requête le jeton d’accès affiché dans la zon
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’étape suivante consiste à créer votre propre locataire Azure AD B2C et à configurer l’exemple pour qu’il s’exécute à l’aide de votre locataire. 
+L’étape suivante consiste à créer votre propre locataire Azure AD B2C et à configurer l’exemple pour qu’il s’exécute avec votre locataire. 
 
 > [!div class="nextstepaction"]
 > [Créer un locataire Azure Active Directory B2C dans le portail Azure](active-directory-b2c-get-started.md)

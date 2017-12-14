@@ -3,7 +3,7 @@ title: "Solution de démarrage/arrêt des machines virtuelles durant les heures 
 description: "Cette solution de gestion de machines virtuelles assure le démarrage et l’arrêt de vos machines virtuelles Azure Resource Manager selon une planification, et permet une surveillance proactive depuis Log Analytics."
 services: automation
 documentationCenter: 
-authors: eslesar
+authors: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: magoedte
-ms.openlocfilehash: 2ff2208f62c24c460c9d17533e28fd007549828b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: e6f1189b9729c57718a5cd6d6f6a583b94f6f142
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 

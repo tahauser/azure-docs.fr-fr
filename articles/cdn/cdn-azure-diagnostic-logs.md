@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 
@@ -261,7 +261,7 @@ Suivez ces étapes pour ajouter une solution de gestion :
 
 ### <a name="offers-and-pricing-tiers"></a>Offres et niveaux tarifaires
 
-Vous pouvez voir des offres et des niveaux tarifaires pour les solutions de gestion OMS [ici](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Vous pouvez voir des offres et des niveaux tarifaires pour les solutions de gestion OMS [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Personnalisation des vues
 
@@ -288,7 +288,7 @@ Nous proposons uniquement les journaux de l’analytique principale, qui contien
 Le tableau suivant répertorie les métriques disponibles dans les journaux de Core Analytics. Toutes les métriques ne sont pas disponibles auprès tous les fournisseurs, même si ces différences sont minimes. Le tableau suivant indique également si une métrique donnée est disponible à partir d’un fournisseur particulier. Notez que les métriques sont disponibles uniquement pour les points de terminaison CDN recevant du trafic.
 
 
-|Mesure                     | Description   | Verizon  | Akamai 
+|Métrique                     | Description   | Verizon  | Akamai 
 |---------------------------|---------------|---|---|
 | RequestCountTotal         |Nombre total d’occurrences de requêtes pendant cette période| Oui  |Oui   |
 | RequestCountHttpStatus2xx |Nombre de toutes les requêtes qui ont abouti à un code HTTP 2xx (par ex. 200, 202)              | Oui  |Oui   |
@@ -410,8 +410,8 @@ Exemple de propriétés :
 
 * [Journaux de diagnostic Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Core Analytics via le portail supplémentaire Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [API REST Azure Log Analytics](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [API REST Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

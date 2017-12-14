@@ -15,11 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB : Exécuter des analyses graphiques à l’aide de Spark et d’Apache TinkerPop Gremlin
 
@@ -176,7 +176,7 @@ Lorsque vous avez généré TinkerPop3 à l’étape précédente, le processus 
 
 ## <a name="get-the-azure-cosmos-db-spark-connector"></a>Obtenir le connecteur Spark Azure Cosmos DB
 
-1. Obtenez le connecteur Spark Azure Cosmos DB `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` et le Kit de développement logiciel (SDK) Java Cosmos DB `azure-documentdb-1.10.0.jar` à partir du [connecteur Spark Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Obtenez le connecteur Spark Azure Cosmos DB `azure-cosmosdb-spark-0.0.3-SNAPSHOT.jar` et le Kit de développement logiciel (SDK) Java Cosmos DB `azure-documentdb-1.12.0.jar` à partir du [connecteur Spark Azure Cosmos DB sur GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
 2. Sinon, vous pouvez le créer localement. Étant donné que la dernière version de Spark-Gremlin a été créée avec Spark 1.6.1 et qu’elle n’est pas compatible avec la version Spark 2.0.2 actuellement utilisée dans le connecteur Spark Azure Cosmos DB, vous pouvez générer le code TinkerPop3 le plus récent et installer manuellement les fichiers JAR. Effectuez les actions suivantes :
 

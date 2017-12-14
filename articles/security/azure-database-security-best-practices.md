@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
 
@@ -137,7 +137,7 @@ Si vous interagissez avec Azure Storage via le portail Azure, toutes les transac
 
 Les organisations qui ne parviennent pas à protéger les données en transit sont plus sensibles aux [attaques d’intercepteur](https://technet.microsoft.com/library/gg195821.aspx), aux [écoutes électroniques](https://technet.microsoft.com/library/gg195641.aspx) et au piratage de session. Ces attaques peuvent être la première étape d’un processus visant à accéder à des données confidentielles.
 
-Pour en savoir plus sur l’option de VPN Azure, consultez l’article [Planification et conception de la passerelle VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Pour en savoir plus sur l’option de VPN Azure, consultez l’article [Planification et conception de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Activer l’audit pour les bases de données
 L’audit d’une instance du moteur de base de données SQL Server ou d’une base de données individuelle implique le suivi et la journalisation des événements qui se produisent sur le moteur de base de données. L’audit SQL Server vous permet de créer des audits de serveur, qui peuvent contenir des spécifications d’audit de serveur pour les événements au niveau du serveur et des spécifications d’audit de base de données pour les événements au niveau de la base de données. Les événements audités peuvent être écrits dans les journaux d’événements ou les fichiers d’audit.

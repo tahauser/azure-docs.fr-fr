@@ -4,7 +4,7 @@ description: "Apprenez-en plus sur l’implémentation du flux d’octroi implic
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 241c744737515ee0c8d5d833a51121808877e559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)
 L’octroi implicite OAuth2 est connu pour présenter le plus grand nombre de problèmes de sécurité de la spécification OAuth2. Pourtant, c’est l’approche implémentée par ADAL JS et celle que nous recommandons pour l’écriture d’applications à page unique. Quelle en est la raison ? Tout est une question de compromis : il s’avère que l’octroi implicite est la meilleure approche vous pouvez adopter pour les applications qui utilisent une API web via JavaScript à partir d’un navigateur.

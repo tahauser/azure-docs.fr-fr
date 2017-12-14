@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="aerial-image-classification"></a>Classification d’images aériennes
 
@@ -67,7 +67,7 @@ Les instructions suivantes vous guident pendant le processus de configuration de
         - « Installer le Kit de développement logiciel (SDK) Python Azure »
     - Notez l’ID client, le secret et ID de locataire de l’application Azure Active Directory que vous êtes invité à créer. Vous utiliserez ces informations d’identification ultérieurement dans ce didacticiel.
     - Au moment de l’écriture de cet article, Azure Machine Learning Workbench et Azure Batch AI utilisent des duplications distinctes d’Azure CLI 2.0. Pour des soucis de clarté, nous faisons référence à la version Workbench de CLI en l’appelant « CLI lancée à partir d’Azure Machine Learning Workbench » et à la version généralement disponible (qui inclut Batch AI) en l’appelant « Azure CLI 2.0 ».
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), un utilitaire gratuit pour coordonner le transfert des fichiers entre les comptes de stockage Azure
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), un utilitaire gratuit pour coordonner le transfert des fichiers entre les comptes de stockage Azure
     - Assurez-vous que le dossier contenant le fichier exécutable AzCopy est spécifié dans la variable d’environnement PATH de votre système. (Les instructions sur la modification des variables d’environnement sont disponibles [ici](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Un client SSH ; nous vous recommandons [PuTTY](http://www.putty.org/).
 

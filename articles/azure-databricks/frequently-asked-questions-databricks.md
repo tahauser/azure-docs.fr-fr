@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
 
@@ -94,7 +94,7 @@ Si vous n’avez pas créé l’espace de travail et que vous êtes ajouté en t
 
 #### <a name="solution"></a>Solution
 
-Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Mise en réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
+Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Mise en réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Un second type d’échec du lancement du fournisseur de cloud lors de la configuration du cluster
 

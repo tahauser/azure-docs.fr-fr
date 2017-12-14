@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 57f9dae1b353b873fdc0ec5903018d160cfe384f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurer un cluster Linux Service Fabric sur votre machine de développement Windows
 
@@ -83,7 +83,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     > Le plug-in Eclipse n’est actuellement pas pris en charge sous Windows. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Prise en main d'[Eclipse](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse)
+* Prise en main d'[Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Consulter d’autres [exemples Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

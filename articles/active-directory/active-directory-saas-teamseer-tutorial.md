@@ -4,7 +4,7 @@ description: "Découvrez comment configurer l’authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 6ec4806f-fe0f-4ed7-8cfa-32d1c840433f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a5e8f6d1443681c43db95da5cef0b7f2ef92291
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b67b2e22d1b2b13ab0103d00ba6c1e62b2fdd17b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Didacticiel : Intégration d’Azure AD à TeamSeer
 
@@ -145,7 +145,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Paramètres SAML](./media/active-directory-saas-teamseer-tutorial/ic789637.png "Paramètres SAML")   
 
-    a. Collez la valeur de **l’URL du service d’authentification unique** dans la zone de texte **URL**.
+    a. Collez la valeur de **	l’URL du service d’authentification unique** dans la zone de texte **URL**.
           
     b. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Public Certificate** (Certificat public de fournisseur d’identité).
 

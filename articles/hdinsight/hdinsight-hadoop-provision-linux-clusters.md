@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore
 
@@ -98,15 +98,6 @@ Pour plus d’informations, consultez [Configuration des nœuds par défaut et t
 
 ### <a name="hdinsight-version"></a>Version de HDInsight
 Choisissez la version de HDInsight pour ce cluster. Pour plus d’informations, voir [Versions de HDInsight prises en charge](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Niveau de cluster : les niveaux de service HDInsight
-
-Azure HDInsight propose des offres de cloud Big Data sur deux niveaux : Standard et Premium.  Pour plus d’informations, consultez [HDInsight Standard et HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-La capture d’écran suivante présente les informations du portail Azure pour le choix des types de cluster.
-
-![Configuration de HDInsight Premium](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Connexion au cluster et nom d’utilisateur SSH
 Les clusters HDInsight vous permettent de configurer deux comptes d’utilisateur lors de la création :

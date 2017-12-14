@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migration de plateforme Azure Security Center
 
@@ -36,7 +36,7 @@ Auparavant, Security Center utilisait l’agent de surveillance Azure pour colle
 
 ## <a name="agent"></a>Agent
 
-Dans le cadre de la transition, l’agent Microsoft Monitoring Agent (pour [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) est installé sur toutes les machines virtuelles Azure à partir desquelles les données sont actuellement collectées.  Si Microsoft Monitoring Agent est déjà installé sur la machine virtuelle, Security Center utilise cet agent.
+Dans le cadre de la transition, l’agent Microsoft Monitoring Agent (pour [Windows](../log-analytics/log-analytics-windows-agent.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) est installé sur toutes les machines virtuelles Azure à partir desquelles les données sont actuellement collectées.  Si Microsoft Monitoring Agent est déjà installé sur la machine virtuelle, Security Center utilise cet agent.
 
 Pendant quelque temps (en général, quelques jours), les deux agents s’exécuteront côte à côte pour assurer une transition en douceur sans aucune perte de données. Cela permettra à Microsoft de vérifier que le nouveau pipeline de données est opérationnel avant de mettre fin à l’utilisation du pipeline actuel. Après vérification, l’agent de surveillance Azure sera retiré de vos machines virtuelles. Aucune action n’est requise de votre part. Un message électronique vous informera lorsque tous les clients auront été migrés.
  

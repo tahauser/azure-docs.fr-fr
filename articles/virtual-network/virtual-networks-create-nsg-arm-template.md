@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Créer des groupes de sécurité réseau à l’aide d’un modèle Azure Resource Manager
 
@@ -40,7 +40,7 @@ Vous pouvez afficher et télécharger les [exemples de modèles](https://raw.git
 La section suivante illustre la définition du groupe de sécurité réseau frontal sur la base du scénario.
 
 ```json
-"apiVersion": "2015-06-15",
+"apiVersion": "2017-03-01",
 "type": "Microsoft.Network/networkSecurityGroups",
 "name": "[parameters('frontEndNSGName')]",
 "location": "[resourceGroup().location]",

@@ -14,6 +14,7 @@
 ### [Sections du modèle](resource-group-authoring-templates.md)
 #### [Paramètres](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Ressources](resource-manager-templates-resources.md)
 ### [Meilleures pratiques relatives aux modèles](resource-manager-template-best-practices.md)
 ### [Lier à d’autres modèles](resource-group-linked-templates.md)
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)

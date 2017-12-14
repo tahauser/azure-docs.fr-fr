@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -71,7 +71,7 @@ Si le déploiement Git sur votre application web Linux échoue, vous pouvez choi
 
 - Utilisez la fonctionnalité de livraison continue (préversion) : vous pouvez stocker le code source de votre application dans un dépôt Git Team Services ou un dépôt GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Comment configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Utilisez l’[API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) et accédez au dossier où vous souhaitez déployer votre code. Exécutez la commande suivante :
+- Utilisez l’[API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) et accédez au dossier où vous souhaitez déployer votre code. Exécutez la commande suivante :
 
    ```
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy

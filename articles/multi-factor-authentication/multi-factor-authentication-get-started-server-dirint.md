@@ -4,7 +4,7 @@ description: "Il s'agit de la page d'authentification multifacteur Azure qui dé
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 93d9880caca78167d8ba10eeb0368febf75574b8
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9d06da0d15bfeffb17da81e4b5ae4423d01ed770
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
 Utilisez la section Intégration de répertoires du serveur Azure MFA pour l’intégrer à Active Directory ou un autre répertoire LDAP. Vous pouvez configurer des attributs pour correspondre au schéma du répertoire et configurer la synchronisation automatique des utilisateurs.

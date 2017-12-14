@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric
-Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-model.md#describe-an-application) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
+Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-and-service-manifests.md) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
 
 ## <a name="rolling-upgrades-overview"></a>Vue d'ensemble des mises à niveau propagées
 Une mise à niveau d'application propagée s'effectue par étapes. À chaque étape, la mise à niveau est appliquée à un sous-ensemble de nœuds du cluster, appelé domaine de mise à jour. Ainsi, l'application demeure disponible tout au long de la mise à niveau. Au cours de la mise à niveau, le cluster peut contenir une combinaison des versions ancienne et nouvelle.
@@ -47,14 +47,14 @@ Le mode que nous recommandons pour la mise à niveau d’application est le mode
 Le mode manuel non surveillé nécessite une intervention manuelle après chaque mise à niveau sur un domaine de mise à jour pour lancer la mise à niveau sur le domaine de mise à jour suivant. Aucune vérification de l'intégrité de Service Fabric n'est effectuée. L'administrateur effectue les vérifications d'intégrité ou d'état avant de commencer la mise à niveau dans le domaine de mise à jour suivant.
 
 ## <a name="upgrade-default-services"></a>Mettre à niveau les services par défaut
-Il est possible de mettre à niveau les services par défaut dans l’application Service Fabric pendant le processus de mise à niveau d’une application. Les services par défaut sont définis dans le [manifeste de l’application](service-fabric-application-model.md#describe-an-application). Les règles standard de mise à niveau des services par défaut sont les suivantes :
+Il est possible de mettre à niveau les services par défaut dans l’application Service Fabric pendant le processus de mise à niveau d’une application. Les services par défaut sont définis dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md). Les règles standard de mise à niveau des services par défaut sont les suivantes :
 
-1. Les services par défaut du nouveau [manifeste de l’application](service-fabric-application-model.md#describe-an-application) qui n’existent pas dans le cluster sont créés.
+1. Les services par défaut du nouveau [manifeste de l’application](service-fabric-application-and-service-manifests.md) qui n’existent pas dans le cluster sont créés.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) doit avoir la valeur true pour activer les règles suivantes. Cette fonctionnalité est prise en charge à partir de la version 5.5.
 
-2. Les services par défaut présents à la fois dans le [manifeste de l’application](service-fabric-application-model.md#describe-an-application) précédent et dans la nouvelle version sont mis à jour. Les descriptions de service dans la nouvelle version remplaceraient celles qui se trouvent déjà dans le cluster. La mise à niveau de l’application serait restaurée automatiquement en cas d’échec de mise à jour des services par défaut.
-3. Les services par défaut présents dans le [manifeste de l’application](service-fabric-application-model.md#describe-an-application) précédent et non dans la nouvelle version sont supprimés. **Notez qu’il n’est pas possible de rétablir les services par défaut supprimés.**
+2. Les services par défaut présents à la fois dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md) précédent et dans la nouvelle version sont mis à jour. Les descriptions de service dans la nouvelle version remplaceraient celles qui se trouvent déjà dans le cluster. La mise à niveau de l’application serait restaurée automatiquement en cas d’échec de mise à jour des services par défaut.
+3. Les services par défaut présents dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md) précédent et non dans la nouvelle version sont supprimés. **Notez qu’il n’est pas possible de rétablir les services par défaut supprimés.**
 
 Lorsqu’une mise à niveau d’application est restaurée, les services par défaut sont rétablis à l’état précédant le début de la mise à niveau. Mais les services supprimés ne peuvent plus être créés.
 

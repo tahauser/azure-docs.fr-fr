@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs
-[Les disques managés Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) gèrent les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.
+[Les disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gèrent les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.
 
 Cette fonctionnalité est pratique pour la gestion de stockage ou de logiciels en dehors de chaque machine virtuelle individuelle. Si les logiciels ou le stockage existent déjà à l’intérieur d’un disque de données, celui-ci peut être facilement attaché, détaché et rattaché à n’importe quelle machine virtuelle appartenant à l’utilisateur qui a ce disque de données.
 
 ## <a name="attach-a-data-disk"></a>Association d’un disque de données
 Avant d’attacher un disque de données, lisez les conseils suivants :
 
-- La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher. Pour en savoir plus, consultez [Tailles de machines virtuelles](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher. Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - Vous pouvez attacher un disque de données à une seule machine virtuelle en cours d’exécution. Assurez-vous que la machine virtuelle s’exécute avant d’essayer d’y attacher un disque de données.
 
 ### <a name="attach-a-new-disk"></a>Attacher un nouveau disque

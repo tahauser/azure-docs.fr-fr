@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solution Agent Health pour OMS
 La solution Agent Health pour OMS vous permet de savoir quels agents, au service de cet espace de travail ou d’un groupe d’administration System Center Operations Manager connecté à OMS, ne répondent pas et renvoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
 
 ## <a name="prerequisites"></a>Composants requis
-Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../log-analytics/log-analytics-windows-agents.md) au service de l’espace de travail OMS ou d’un [groupe d’administration Operations Manager](../log-analytics/log-analytics-om-agents.md) inclut dans l’espace de travail OMS.    
+Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../log-analytics/log-analytics-windows-agent.md) au service de l’espace de travail OMS ou d’un [groupe d’administration Operations Manager](../log-analytics/log-analytics-om-agents.md) inclut dans l’espace de travail OMS.    
 
 ## <a name="solution-components"></a>Composants de la solution
 Cette solution se compose des ressources suivantes qui sont ajoutées à votre espace de travail et d’agents directement connectés ou d’un groupe d’administration Operations Manager connecté.

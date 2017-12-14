@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Créer une passerelle Application Gateway à l’aide d’Azure CLI 2.0
 
@@ -42,7 +42,7 @@ Vous pouvez créer une passerelle Application Gateway en utilisant l’une des v
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Condition préalable : installer Azure CLI 2.0
 
-Pour exécuter la procédure indiquée dans cet article, vous devez [installer Azure CLI pour macOS, Linux et Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Pour exécuter la procédure indiquée dans cet article, vous devez [installer Azure CLI pour macOS, Linux et Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > Il vous faut un compte Azure pour créer une passerelle Application Gateway. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](../active-directory/sign-up-organization.md).

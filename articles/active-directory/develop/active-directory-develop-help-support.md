@@ -4,7 +4,7 @@ description: "Découvrir comment obtenir une assistance par rapport à des quest
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/27/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7c382da9bd9032b30f7c620e839c41c1756ba3f6
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 06da07aa699d19602449dc365abb971867214a31
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs 
 
@@ -33,7 +33,7 @@ Que vous implémentiez une nouvelle fonctionnalité dans votre application ou qu
 > * Enfin, si vous voulez vous entretenir avec une personne, ouvrez une demande de support
 
 
-## <a name="search"></a>Recherche
+## <a name="search"></a>Search
 
 Si votre question concerne le développement, la réponse peut se trouver dans notre documentation, nos [exemples github](https://github.com/azure-samples) ou dans les réponses aux questions posées sur [Stack Overflow](https://www.stackoverflow.com).
 
@@ -62,7 +62,7 @@ Stack Overflow est le canal de prédilection pour les questions liées au dével
 
 Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soumettez une nouvelle question à Stack Overflow : utilisez un des mots clés suivants lors de la formulation de votre question pour aider la Communauté à identifier rapidement votre problème et à le résoudre dans les meilleurs délais :
 
-|Composant/Zone  |Mots clés  |
+|Composant/Zone  |Tags  |
 |---------|---------|
 |Bibliothèque ADAL |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
 |Bibliothèque MSAL     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|

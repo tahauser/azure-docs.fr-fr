@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 06b4fe19b8c468b3fc98a5bb25ba9b1f169e529c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-database-threat-detection"></a>Détection de menaces pour les bases de données SQL
 
@@ -55,7 +55,7 @@ Pour obtenir un exemple de script, consultez [Configurer l’audit et la détect
    L’e-mail contient des informations sur l’événement de sécurité suspect, notamment la nature des activités anormales, le nom de la base de données, le nom du serveur, le nom de l’application et l’heure de l’événement. Il fournit également des informations sur les causes possibles et les mesures recommandées pour examiner et atténuer la menace potentielle pesant sur la base de données.<br/>
      
     ![Volet de navigation][4]
-2. L’alerte par e-mail inclut un lien direct vers le journal d’audit SQL. Lorsque vous cliquez sur ce lien, le portail Azure s’affiche et ouvre les enregistrements d’audit SQL au moment de l’événement suspect. Cliquez sur un enregistrement d’audit pour afficher plus de détails sur les activités de base de données suspectes. Vous pouvez ainsi plus facilement trouver les instructions SQL qui ont été exécutées (quel utilisateur, quelles actions et à quel moment) et déterminer si l’événement est légitime ou malveillant (par exemple, la vulnérabilité de l’application aux injections SQL a été exploitée, quelqu’un a opéré une violation des données sensibles, etc.).<br/>
+2. L’alerte par courrier inclut un lien direct vers le journal d’audit SQL. Lorsque vous cliquez sur ce lien, le portail Azure s’affiche et ouvre les enregistrements d’audit SQL au moment de l’événement suspect. Cliquez sur un enregistrement d’audit pour afficher plus de détails sur les activités de base de données suspectes. Vous pouvez ainsi plus facilement trouver les instructions SQL qui ont été exécutées (quel utilisateur, quelles actions et à quel moment) et déterminer si l’événement est légitime ou malveillant (par exemple, la vulnérabilité de l’application aux injections SQL a été exploitée, quelqu’un a opéré une violation des données sensibles, etc.).<br/>
    ![Volet de navigation][5]
 
 
@@ -78,7 +78,7 @@ SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](
 
 * Pour en savoir plus sur Threat Detection, visitez le [blog Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
-* En savoir plus sur [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+* En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Pour plus d’informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/en-us/pricing/details/sql-database/).  
 * Pour obtenir un exemple de script PowerShell, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

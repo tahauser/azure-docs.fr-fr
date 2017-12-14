@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b20c54660552f527ff403fb41f2a04e478832d43
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle OMS pour Linux
 
@@ -182,7 +182,7 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 | 10 | La machine virtuelle est déjà connectée à un espace de travail OMS | Pour connecter la machine virtuelle à l’espace de travail spécifié dans le schéma d’extension, définissez stopOnMultipleConnections sur la valeur false dans les paramètres publics ou supprimez cette propriété. Cette machine virtuelle est facturée une fois pour chaque espace de travail auquel elle est connectée. |
 | 11 | Configuration non valide fournie à l’extension | Suivez les exemples précédents pour définir toutes les valeurs de propriété du déploiement. |
 | 12 | Le gestionnaire de package dpkg est verrouillé | Vérifiez que toutes les opérations de mise à jour dpkg sur l’ordinateur sont terminées, puis réessayez. |
-| 20 | Activation appelée prématurément | [Mettez à jour l’agent Azure Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) à la dernière version disponible. |
+| 20 | Activation appelée prématurément | [Mettez à jour l’agent Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) à la dernière version disponible. |
 | 51 | Cette extension n’est pas prise en charge sur le système d’exploitation de la machine virtuelle | |
 | 55 | Connexion impossible au service Microsoft Operations Management Suite | Vérifiez que le système dispose d’un accès Internet ou qu’un proxy HTTP valide a été fourni. De plus, vérifiez que l’ID de l’espace de travail est correct. |
 

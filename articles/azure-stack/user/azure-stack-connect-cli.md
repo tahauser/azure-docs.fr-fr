@@ -3,8 +3,8 @@ title: "Se connecter à Azure Stack avec l’interface CLI | Microsoft Docs"
 description: "Découvrez comment utiliser l’interface de ligne de commande (CLI) multiplateforme pour gérer et déployer des ressources sur Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
-ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.author: mabrigg
+ms.openlocfilehash: 5d15815e9b1d20ab03b5716de45ad0fa77a11057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installer et configurer l’interface CLI pour une utilisation avec Azure Stack
 
@@ -145,7 +145,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
      --profile 2017-03-09-profile
    ```
 
-4. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Connexion en tant *qu’utilisateur* : vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login` ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte.
 
@@ -195,4 +195,3 @@ Il existe certains problèmes connus dont vous devez prendre connaissance quand 
 [Déployer des modèles avec l’interface de ligne de commande Azure](azure-stack-deploy-template-command-line.md)
 
 [Gérer les autorisations utilisateur](azure-stack-manage-permissions.md)
-

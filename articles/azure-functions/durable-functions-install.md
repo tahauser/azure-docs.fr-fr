@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
@@ -62,7 +62,7 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 
 * Installer la [dernière version de Visual Studio Code](https://code.visualstudio.com/Download) 
 
-* Suivez les instructions dans la section « Installer Azure Functions Core Tools » de la rubrique [Coder et tester Azure Functions localement](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+* Suivez les instructions dans la section « Installer Azure Functions Core Tools » de la rubrique [Coder et tester Azure Functions localement](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 
     >[!IMPORTANT]
     > Si vous possédez déjà les outils Azure Functions Cross Platform Tools, mettez-les à jour avec la dernière version disponible.

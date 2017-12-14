@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Mise à l’échelle du cluster pour gérer le débit des services web
 
@@ -55,7 +55,7 @@ La commande ci-après définit le nombre de nœuds d’agent dans le cluster :
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-L’exécution de cette opération nécessite quelques minutes. Pour plus d’informations sur la mise à l’échelle du nombre de nœuds dans le cluster, consultez l’article [Mettre à l’échelle des nœuds d’agent dans un cluster Container Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+L’exécution de cette opération nécessite quelques minutes. Pour plus d’informations sur la mise à l’échelle du nombre de nœuds dans le cluster, consultez l’article [Mettre à l’échelle des nœuds d’agent dans un cluster Container Service](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Mise à l’échelle du nombre de réplicas de pods Kubernetes dans un cluster
  

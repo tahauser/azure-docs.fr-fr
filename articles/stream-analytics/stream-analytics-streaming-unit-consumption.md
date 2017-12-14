@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -27,7 +27,7 @@ Azure Stream Analytics agrège la pondération des performances d’exécution d
 
 Afin d’obtenir un traitement du streaming à faible latence, les travaux Azure Stream Analytics effectuent tout le traitement en mémoire. Quand la mémoire devient insuffisante, le travail de streaming échoue. Par conséquent, pour un travail de production, il est important de surveiller l’utilisation des ressources d’un travail de streaming et de vérifier qu’il existe suffisamment de ressources allouées afin d’assurer l’exécution des travaux 24 heures sur 24 et 7 jours sur 7.
 
-La métrique correspond à un pourcentage compris entre 0 % et 100 %. Pour un travail de streaming avec un encombrement minimal, la métrique % d’utilisation de SU se situe généralement entre 10 et 20 %. Il est préférable de conserver la métrique sous 80 % pour prendre en compte les pics occasionnels.  Vous pouvez définir une alerte sur la métrique (reportez-vous [ici pour configurer des alertes de métriques](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+La métrique correspond à un pourcentage compris entre 0 % et 100 %. Pour un travail de streaming avec un encombrement minimal, la métrique % d’utilisation de SU se situe généralement entre 10 et 20 %. Il est préférable de conserver la métrique sous 80 % pour prendre en compte les pics occasionnels.  Vous pouvez définir une alerte sur la métrique (reportez-vous [ici pour configurer des alertes de métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ Afin d’atténuer les problèmes provoqués par une cardinalité élevée dans 
 
 Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœuds. Par conséquent, le nombre de clusterid arrivant dans chaque nœud est réduit, ce qui réduit d’autant la cardinalité du groupe par opérateur. 
 
-Les partitions Event Hub doivent être partitionnées par la clé de regroupement pour éviter une étape de réduction. Des détails supplémentaires sont couverts [ici](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Les partitions Event Hub doivent être partitionnées par la clé de regroupement pour éviter une étape de réduction. Des détails supplémentaires sont couverts [ici](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Jointure temporelle
 La taille de l’état d’une jointure temporelle est proportionnelle au nombre d’événements dans la marge de manœuvre temporelle de la jointure, qui est la vitesse d’entrée des événements multipliée par la taille de la marge de manœuvre. 
 

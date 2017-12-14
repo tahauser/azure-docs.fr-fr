@@ -12,11 +12,11 @@ ms.prod:
 ms.service: microsoft-keyvault
 ms.technology: 
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: f67f81aeee0775ea8d90e4459f2c46266a774786
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -28,7 +28,7 @@ Il est plus sûr d’utiliser les informations d’identification du développeu
 
 La bibliothèque `Microsoft.Azure.Services.AppAuthentication` gère l’authentification automatiquement, ce qui vous permet de vous concentrer sur votre solution, plutôt que sur vos informations d’identification.
 
-La bibliothèque `Microsoft.Azure.Services.AppAuthentication` prend en charge le développement local avec Microsoft Visual Studio, Azure CLI ou l’authentification intégrée Azure AD. Une fois déployée sur Azure App Services ou une machine virtuelle Azure, la bibliothèque utilise automatiquement la fonction [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). Aucune modification du code ou de la configuration n’est requise. La bibliothèque prend également en charge les [informations d’identification client](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) Azure AD lorsque la fonction MSI n’est pas disponible, ou lorsque le contexte de sécurité du développeur ne peut être déterminé pendant le développement local.
+La bibliothèque `Microsoft.Azure.Services.AppAuthentication` prend en charge le développement local avec Microsoft Visual Studio, Azure CLI ou l’authentification intégrée Azure AD. Une fois déployée sur Azure App Services ou une machine virtuelle Azure, la bibliothèque utilise automatiquement la fonction [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). Aucune modification du code ou de la configuration n’est requise. La bibliothèque prend également en charge les [informations d’identification client](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) Azure AD lorsque la fonction MSI n’est pas disponible, ou lorsque le contexte de sécurité du développeur ne peut être déterminé pendant le développement local.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Utilisation de la bibliothèque
@@ -57,7 +57,7 @@ Pour les applications .NET, la façon la plus simple d’utiliser Managed Servic
 
 La classe `AzureServiceTokenProvider` met en cache le jeton en mémoire et le récupère à partir d’Azure AD, juste avant l’expiration. Par la suite, vous n’aurez pas besoin de vérifier la date d’expiration avant d’appeler la méthode `GetAccessTokenAsync`. Il vous suffit d’appeler la méthode lorsque vous souhaitez utiliser le jeton. 
 
-La méthode `GetAccessTokenAsync` requiert un identificateur de ressource. Pour en savoir plus, voir [Quels services Azure prennent en charge l’identité du service administré ?](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+La méthode `GetAccessTokenAsync` requiert un identificateur de ressource. Pour en savoir plus, voir [Quels services Azure prennent en charge l’identité du service administré ?](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>

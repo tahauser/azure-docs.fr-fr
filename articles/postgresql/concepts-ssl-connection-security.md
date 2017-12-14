@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL
 La base de données Azure pour PostgreSQL préfère connecter vos applications clientes au service PostgreSQL via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Se connecter à la base de données Azure pour PostgreSQL avec authentification par certificat SSL
 Maintenant que vous avez correctement décodé votre certificat, vous pouvez vous connecter à votre serveur de base de données en toute sécurité via SSL. Pour qu’il puisse être vérifié, le certificat de serveur doit être placé dans le fichier ~/.postgresql/root.crt qui se trouve dans le répertoire de base de l’utilisateur. (Sous Microsoft Windows, le fichier se nomme %APPDATA%\postgresql\root.crt.). Vous trouverez ci-dessous les instructions pour se connecter à la base de données Azure pour PostgreSQL.
-
-> [!NOTE]
-> Il existe actuellement un problème connu. Si vous utilisez « sslmode=verify-full » dans votre connexion au service, la connexion échoue avec l’erreur suivante : _certificat de serveur pour "&lt;région&gt;. control.database.windows.net" (et 7 autres noms) ne correspond pas au nom de l’hôte "&lt;nom_serveur&gt;.postgres.database.azure.com"._
-> Si « sslmode=verify-full » est requis, utilisez la convention de nom de serveur  **&lt;nom_serveur&gt;.database.windows.net** en tant que nom hôte dans votre chaîne de connexion. Nous prévoyons de supprimer cette limitation dans le futur. Les connexions utilisant d’autres [modes SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) doivent continuer à utiliser la convention de nom d’hôte par défaut  **&lt;nom_serveur&gt;. postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Avec l’utilitaire de ligne de commande psql
 L’exemple suivant montre comment se connecter à votre serveur PostgreSQL à l’aide de l’utilitaire de ligne de commande psql. Utilisez le fichier créé `root.crt` et l’option `sslmode=verify-ca` ou `sslmode=verify-full`.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>technologies de chiffrement Azure : Protéger les données personnelles au repos avec un chiffrement
 
@@ -57,7 +57,7 @@ Les services Azure proposent plusieurs outils et technologies pour vous aider à
 
 ### <a name="azure-key-vault"></a>coffre de clés Azure
 
-[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) assure un stockage sécurisé des clés utilisées pour chiffrer les données au repos dans les services Azure et correspond à la solution recommandée de stockage et de gestion des clés. La gestion des clés de chiffrement est essentielle à la sécurisation des données stockées.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) assure un stockage sécurisé des clés utilisées pour chiffrer les données au repos dans les services Azure et correspond à la solution recommandée de stockage et de gestion des clés. La gestion des clés de chiffrement est essentielle à la sécurisation des données stockées.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Comment utiliser Azure Key Vault pour protéger les clés de chiffrement des données personnelles ?
 
@@ -79,13 +79,13 @@ Azure Key Vault peut vous fournir une clé protégée par un logiciel ou vous po
 
 Vous pouvez également générer une clé dans votre module de sécurité matériel local et la transférer vers les modules de sécurité matériels du service Key Vault, sans que la clé ne quitte la limite de ce module de sécurité matériel.
 
-Pour obtenir des instructions détaillées sur l’utilisation d’Azure Key Vault, suivez les étapes indiquées dans [Prise en main d’Azure Key Vault.](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+Pour obtenir des instructions détaillées sur l’utilisation d’Azure Key Vault, suivez les étapes indiquées dans [Prise en main d’Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-Pour obtenir la liste des applets de commande PowerShell utilisées avec Azure Key Vault, consultez [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Pour obtenir la liste des applets de commande PowerShell utilisées avec Azure Key Vault, consultez [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Azure Disk Encryption pour Windows
 
-[Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) protège les données au repos sur les machines virtuelles Azure et s’intègre à Azure Key Vault. Azure Disk Encryption utilise [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) dans Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) dans Linux pour chiffrer à la fois le système d’exploitation et les disques de données. Azure Disk Encryption est pris en charge sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 et sur les clients Windows 8 et Windows 10.
+[Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) protège les données au repos sur les machines virtuelles Azure et s’intègre à Azure Key Vault. Azure Disk Encryption utilise [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) dans Windows et [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) dans Linux pour chiffrer à la fois le système d’exploitation et les disques de données. Azure Disk Encryption est pris en charge sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 et sur les clients Windows 8 et Windows 10.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Comment utiliser Azure Disk Encryption pour protéger des données personnelles ?
 
@@ -103,11 +103,11 @@ Quand vous configurez votre coffre de clés pour prendre en charge Azure Disk En
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Des instructions détaillées propres à des scénarios de déploiement et des expériences utilisateur spécifiques sont incluses dans [Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux.](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+Des instructions détaillées propres à des scénarios de déploiement et des expériences utilisateur spécifiques sont incluses dans [Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux.](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="azure-storage-service-encryption"></a>Chiffrement du service de stockage Azure
 
-Le [Chiffrement du service de stockage Azure pour les données au repos](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Le stockage Azure chiffre automatiquement vos données à l’aide d’un chiffrement AES 256 bits avant de les rendre persistantes dans le stockage et les déchiffre avant la récupération. Ce service est disponible pour les fichiers et objets blob Azure.
+Le [Chiffrement du service de stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption) permet de protéger vos données pour garantir le respect des engagements de votre organisation en matière de sécurité et de conformité. Le stockage Azure chiffre automatiquement vos données à l’aide d’un chiffrement AES 256 bits avant de les rendre persistantes dans le stockage et les déchiffre avant la récupération. Ce service est disponible pour les fichiers et objets blob Azure.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Comment utiliser le Chiffrement du service de stockage pour protéger les données personnelles ?
 
@@ -129,13 +129,13 @@ Les nouvelles données sont chiffrées. Les données incluses dans les fichiers 
 
 Après avoir activé le chiffrement, copiez les données dans le compte de stockage à l’aide de l’une des méthodes suivantes :
 
-1. Copiez les objets blob ou les fichiers à l’aide de l’[utilitaire de ligne de commande AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Copiez les objets blob ou les fichiers à l’aide de l’[utilitaire de ligne de commande AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Montez un partage de fichiers à l’aide de SMB](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows) afin de pouvoir utiliser un utilitaire tel que Robocopy pour copier des fichiers.
+2. [Montez un partage de fichiers à l’aide de SMB](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows) afin de pouvoir utiliser un utilitaire tel que Robocopy pour copier des fichiers.
 
-3. Copiez les données d’objet blob ou de fichier vers et depuis le stockage blob ou entre des comptes de stockage à l’aide de [bibliothèques clientes de stockage telles que .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Copiez les données d’objet blob ou de fichier vers et depuis le stockage blob ou entre des comptes de stockage à l’aide de [bibliothèques clientes de stockage telles que .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Utilisez un [explorateur de stockage](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) pour télécharger des objets blob dans votre compte de stockage avec le chiffrement activé.
+4.  Utilisez un [explorateur de stockage](https://docs.microsoft.com/azure/storage/storage-explorers) pour télécharger des objets blob dans votre compte de stockage avec le chiffrement activé.
 
 ### <a name="transparent-data-encryption"></a>Chiffrement transparent des données
 
@@ -159,7 +159,7 @@ Vous pouvez configurer TDE dans le portail Azure à l’aide de l’API REST ou 
 
 ![Activation du chiffrement des données](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Des instructions sur l’activation de TDE et des informations sur le déchiffrement des bases de données protégées par chiffrement TDE sont entre autres disponibles dans l’article [Transparent Data Encryption avec Azure SQL Database.](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+Des instructions sur l’activation de TDE et des informations sur le déchiffrement des bases de données protégées par chiffrement TDE sont entre autres disponibles dans l’article [Transparent Data Encryption avec Azure SQL Database.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 
 ## <a name="summary"></a>Résumé
 
@@ -169,10 +169,10 @@ Pour protéger les clés utilisées pour chiffrer les données dans Azure, la co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide de dépannage Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Guide de dépannage Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Chiffrement d’une machine virtuelle Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Chiffrement d’une machine virtuelle Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Chiffrement des données dans Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Chiffrement des données dans Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Chiffrement de base de données Azure Cosmos DB au repos](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Chiffrement de base de données Azure Cosmos DB au repos](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

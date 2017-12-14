@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Réglage distribué d’hyperparamètres à l’aide d’Azure Machine Learning Workbench
 
@@ -36,8 +36,8 @@ La recherche par grille à l’aide de la validation croisée peut être longue.
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie d’[Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée conformément au [guide de démarrage rapide d’installation et de création](./quickstart-installation.md) pour installer Workbench et créer des comptes.
 * Ce scénario part du principe que vous exécutez Azure ML Workbench sur Windows 10 ou MacOS avec le moteur Docker installé localement. 
-* Pour exécuter le scénario avec un conteneur Docker distant, configurez la machine virtuelle de science des données (DSVM) Ubuntu en suivant ces [instructions](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 28 Go de mémoire. Les instances D4 de machines virtuelles ont cette capacité. 
-* Pour exécuter ce scénario avec un cluster Spark, configurez le cluster Azure HDInsight en suivant ces [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Nous vous recommandons d’avoir un cluster avec au moins 
+* Pour exécuter le scénario avec un conteneur Docker distant, configurez la machine virtuelle de science des données (DSVM) Ubuntu en suivant ces [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 28 Go de mémoire. Les instances D4 de machines virtuelles ont cette capacité. 
+* Pour exécuter ce scénario avec un cluster Spark, configurez le cluster Azure HDInsight en suivant ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Nous vous recommandons d’avoir un cluster avec au moins 
 - six nœuds de travail
 - huit cœurs
 - 28 Go de mémoire dans les nœuds d’en-tête et de travail. Les instances D4 de machines virtuelles ont cette capacité. Nous vous recommandons de modifier les paramètres suivants pour optimiser les performances du cluster.
@@ -45,11 +45,11 @@ La recherche par grille à l’aide de la validation croisée peut être longue.
 - spark.executor.cores
 - spark.executor.memory 
 
-Vous pouvez suivre ces [instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) et modifier les définitions dans la section « Valeurs Spark par défaut personnalisées ».
+Vous pouvez suivre ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) et modifier les définitions dans la section « Valeurs Spark par défaut personnalisées ».
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Créez un compte de stockage Azure utilisé pour stocker le jeu de données. Suivez ces [instructions](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage.
+* Créez un compte de stockage Azure utilisé pour stocker le jeu de données. Suivez ces [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage.
 
 ## <a name="data-description"></a>Description des données
 

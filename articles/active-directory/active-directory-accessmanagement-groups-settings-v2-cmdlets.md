@@ -5,7 +5,7 @@ keywords: Azure AD, Azure Active Directory, PowerShell, Groupes, Gestion des gro
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
 ms.service: active-directory
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 2e59528df6a66979c3fc2f596e3e94c1f51f0111
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Applets de commande Azure Active Directory version 2 pour la gestion de groupe
+# <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 > [!div class="op_single_selector"]
 > * [Portail Azure](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
@@ -47,26 +47,26 @@ Pour vérifier que le module a été installé, utilisez la commande suivante :
 Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne pour [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## <a name="connect-to-the-directory"></a>Se connecter à l’annuaire
-Avant de pouvoir gérer des groupes à l’aide des applets de commande Azure AD PowerShell, vous devez connecter votre session PowerShell à l’annuaire que vous voulez gérer. Utilisez la commande suivante :
+Avant de pouvoir gérer des groupes à l’aide des applets de commande Azure AD PowerShell, vous devez connecter votre session PowerShell au répertoire que vous voulez gérer. Utilisez la commande suivante :
 
     PS C:\Windows\system32> Connect-AzureAD
 
-L’applet de commande vous demande de fournir les informations d’identification à utiliser pour accéder à votre annuaire. Dans cet exemple, nous utilisons karen@drumkit.onmicrosoft.com pour accéder à l’annuaire de démonstration. L’applet de commande retourne une confirmation pour indiquer que la session a été correctement connectée à votre annuaire :
+L’applet de commande vous demande de fournir les informations d’identification à utiliser pour accéder à votre répertoire. Dans cet exemple, nous utilisons karen@drumkit.onmicrosoft.com pour accéder au répertoire de démonstration. L’applet de commande renvoie une confirmation pour indiquer que la session a été correctement connectée à votre répertoire :
 
     Account                       Environment Tenant
     -------                       ----------- ------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 
-À présent, vous pouvez commencer à utiliser les applets de commande Azure AD pour gérer les groupes de votre annuaire.
+À présent, vous pouvez commencer à utiliser les applets de commande Azure AD pour gérer des groupes dans votre répertoire.
 
 ## <a name="retrieve-groups"></a>Récupérer des groupes
 Pour récupérer des groupes existants à partir de votre annuaire, utilisez l’applet de commande Get-AzureADGroups. 
 
-Pour récupérer tous les groupes dans l’annuaire, utilisez l’applet de commande sans paramètres :
+Pour récupérer tous les groupes dans le répertoire, utilisez l’applet de commande sans paramètres :
 
     PS C:\Windows\system32> get-azureadgroup
 
-L’applet de commande retourne tous les groupes de l’annuaire connecté.
+L’applet de commande renvoie tous les groupes dans le répertoire connecté.
 
 Vous pouvez utiliser le paramètre -objectID pour récupérer un groupe spécifique pour lequel vous spécifiez le paramètre objectID du groupe :
 
@@ -113,7 +113,7 @@ Vous pouvez rechercher un groupe spécifique en utilisant le paramètre -filter.
 > Les applets de commande Azure AD PowerShell mettent en œuvre la norme de requête OData. Pour plus d’informations, consultez **$filter** dans [options de requête système OData à l’aide du point de terminaison OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
 ## <a name="create-groups"></a>Créer des groupes
-Pour créer un nouveau groupe dans votre annuaire, utilisez l’applet de commande New-AzureADGroup. Cette applet de commande crée un nouveau groupe de sécurité appelé « Marketing » :
+Pour créer un nouveau groupe dans votre répertoire, utilisez l’applet de commande New-AzureADGroup. Cette applet de commande crée un nouveau groupe de sécurité appelé « Marketing » :
 
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 
@@ -163,7 +163,7 @@ Ensuite, nous attribuons à la propriété Description la nouvelle valeur « Ad
     SecurityEnabled              : True
 
 ## <a name="delete-groups"></a>Supprimer des groupes
-Pour supprimer des groupes de votre annuaire, utilisez l’applet de commande Remove-AzureADGroup comme suit :
+Pour supprimer des groupes de votre répertoire, utilisez l’applet de commande Remove-AzureADGroup comme suit :
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 

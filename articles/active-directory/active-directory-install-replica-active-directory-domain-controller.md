@@ -4,7 +4,7 @@ description: "Guide pratique pour installer des contrôleurs de domaine de répl
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
 ms.service: active-directory
@@ -16,13 +16,13 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 60839f93954bfe38f0346b235259f68e479b8a00
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Installer un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure
+# <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Installation d’un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure
 Cet article explique comment installer des contrôleurs de domaine supplémentaires en vue de les utiliser comme contrôleurs de domaine de réplication pour un domaine Active Directory local sur des machines virtuelles Azure dans un réseau virtuel Azure. Vous pouvez également [installer une forêt Windows Server Active Directory sur un réseau virtuel Azure](active-directory-new-forest-virtual-machine.md). Pour savoir comment installer AD DS (Active Directory Domain Services) sur un réseau virtuel Azure, consultez [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Schéma du scénario
@@ -68,7 +68,7 @@ Connectez-vous à une machine virtuelle et vérifiez que vous disposez d'une con
   2. Sélectionnez les machines virtuelles, puis **Redémarrer**. 
   3. Attendez que la machine virtuelle soit de nouveau **en cours d’exécution**, puis connectez-vous-y.
 
-## <a name="create-vms-for-application-servers"></a>Créer des machines virtuelles pour les serveurs d'applications
+## <a name="create-vms-for-application-servers"></a>création de machines virtuelles pour les serveurs d'applications
 
 Pour créer des machines virtuelles afin d’héberger le rôle de serveur d’applications, répétez les étapes indiquées dans [Créer une machine virtuelle Windows avec le portail Azure](../virtual-machines/windows/quick-create-portal.md) en fonction des besoins. Pour créer les machines virtuelles à l’aide de Microsoft PowerShell au lieu du portail Azure, consultez [Utilisation d’Azure PowerShell pour créer et configurer des machines virtuelles basées sur Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Le tableau suivant contient les paramètres suggérés.
 

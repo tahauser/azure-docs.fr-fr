@@ -4,7 +4,7 @@ description: "Considérations relatives à la mise en réseau pour les services 
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: 537643f582f6cc3328bd1c098de03c4f6e07c113
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
@@ -30,7 +30,7 @@ Les instructions suivantes vous aident à sélectionner un réseau virtuel en vu
 * Vous pouvez connecter d’autres réseaux virtuels à celui dans lequel Azure AD Domain Services est activé. Pour plus d’informations, consultez la section [Connectivité réseau](active-directory-ds-networking.md#network-connectivity).
 
 ### <a name="azure-region-for-the-virtual-network"></a>Région Azure pour le réseau virtuel
-* Votre domaine managé par les services de domaine Azure AD est déployé dans la même région Azure que le réseau virtuel dans lequel vous choisissez d’activer le service.
+* Votre domaine géré par les services de domaine Azure AD est déployé dans la même région Azure que le réseau virtuel dans lequel vous choisissez d’activer le service.
 * Sélectionnez un réseau virtuel dans une région Azure prise en charge par les services de domaine Azure AD.
 * Pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles, consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) .
 
@@ -78,12 +78,12 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 * Il est utilisé pour effectuer des tâches de gestion à l’aide de la communication à distance PowerShell sur votre domaine managé.
 * Il est obligatoire pour autoriser l’accès via ce port dans votre groupe de sécurité réseau. Sans accès à ce port, votre domaine managé ne peut pas être mis à jour, configuré, sauvegardé ou surveillé.
 * Vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
-* Généralement, les contrôleurs de domaine pour votre domaine géré n’écoutent pas sur ce port. Le service ouvre ce port sur les contrôleurs de domaine gérés uniquement lorsqu’une opération de gestion ou de maintenance doit être effectuée pour le domaine géré. Une fois l’opération terminée, le service ferme ce port sur les contrôleurs de domaine managés.
+* Généralement, les contrôleurs de domaine pour votre domaine géré n’écoutent pas sur ce port. Le service ouvre ce port sur les contrôleurs de domaine gérés uniquement lorsqu’une opération de gestion ou de maintenance doit être effectuée pour le domaine géré. Une fois l’opération terminée, le service ferme ce port sur les contrôleurs de domaine gérés.
 
 **Port 3389 (Bureau à distance)** 
 * Il est utilisé pour les connexions Bureau à distance aux contrôleurs de domaine de votre domaine managé. 
 * L’ouverture de ce port via votre groupe de sécurité réseau est facultative. 
-* Ce port reste également désactivé en grande partie sur votre domaine managé. Ce mécanisme n’est pas utilisé de manière continue, car les tâches de gestion et de surveillance sont effectuées à l’aide de la communication à distance PowerShell. Ce port est utilisé uniquement dans les rares cas où Microsoft a besoin de se connecter à distance à votre domaine managé pour un dépannage avancé. Le port est fermé dès que l’opération de résolution des problèmes est terminée.
+* Ce port reste également désactivé en grande partie sur votre domaine géré. Ce mécanisme n’est pas utilisé de manière continue, car les tâches de gestion et de surveillance sont effectuées à l’aide de la communication à distance PowerShell. Ce port est utilisé uniquement dans les rares cas où Microsoft a besoin de se connecter à distance à votre domaine managé pour un dépannage avancé. Le port est fermé dès que l’opération de résolution des problèmes est terminée.
 
 **Port 636 (LDAP sécurisé)**
 * Il est utilisé pour activer ou désactiver l’accès LDAP sécurisé à votre domaine managé sur Internet.
@@ -91,7 +91,7 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 * Vous pouvez limiter l’accès entrant à ce port aux adresses IP sources à partir desquelles vous pensez vous connecter via un accès LDAP sécurisé.
 
 
-## <a name="network-security-groups"></a>Groupe de sécurité réseau
+## <a name="network-security-groups"></a>Network Security Group
 Un [groupe de sécurité réseau (NSG)](../virtual-network/virtual-networks-nsg.md) contient une liste des règles de liste de contrôle d’accès (ACL) qui autorise ou rejette les instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Exemple de groupe de sécurité réseau pour les réseaux virtuels avec Azure AD Domain Services

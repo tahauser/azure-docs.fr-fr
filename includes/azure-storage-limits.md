@@ -3,6 +3,7 @@
 | Nombre de comptes de stockage par abonnement | 200<sup>1</sup> |
 | Capacité maximale du compte de stockage | 500 Tio<sup>2</sup> |
 | Nombre maximal de conteneurs d'objets blob, de partages de fichiers, de tables, de files d'attente, d'entités ou de messages par compte de stockage | Aucune limite |
+| Taux de requête maximal par compte de stockage | 20 000 requêtes par seconde<sup>2</sup> |
 | Entrée max.<sup>3</sup> par compte de stockage (régions des États-Unis) | 10 Gbit/s si GRS/ZRS<sup>4</sup> est activé, 20 Gbit/s pour LRS<sup>2</sup> |
 | Sortie max.<sup>3</sup> par compte de stockage (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS/ZRS<sup>4</sup> est activé, 30 Gbit/s pour LRS<sup>2</sup> |
 | Entrée max.<sup>3</sup> par compte de stockage (régions hors États-Unis) | 5 Gbit/s si GRS/ZRS<sup>4</sup> est activé, 10 Gbit/s pour LRS<sup>2</sup> |

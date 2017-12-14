@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
 Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
@@ -318,7 +318,7 @@ Découvrez comment [télécharger les journaux de métriques et de diagnostics �
 |query_id_d|ID de la requête dans le magasin des requêtes.|
 |plan_id_d|ID du plan dans le magasin des requêtes.|
 
-En savoir plus sur les [données de statistiques d’exécution du magasin des requêtes](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+En savoir plus sur les [données de statistiques d’exécution du magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Statistiques d’attente du magasin des requêtes
 
@@ -356,7 +356,7 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 |query_id_d|ID de la requête dans le magasin des requêtes.|
 |plan_id_d|ID du plan dans le magasin des requêtes.|
 
-Découvrez-en davantage sur les [données des statistiques d’attente du magasin des requêtes](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Découvrez-en davantage sur les [données des statistiques d’attente du magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Jeu de données d’erreurs
 
@@ -414,7 +414,7 @@ En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.c
 |delta_wait_time_ms_d|Durée d’attente totale dans la période.|
 |delta_waiting_tasks_count_d|Nombre de tâches en attente.|
 
-Apprenez-en davantage sur les [statistiques d’attente de base de données](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Apprenez-en davantage sur les [statistiques d’attente de base de données](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Jeu de données d’expirations
 

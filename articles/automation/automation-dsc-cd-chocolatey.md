@@ -3,7 +3,7 @@ title: "Déploiement continu d’Azure Automation DSC avec Chocolatey | Microsof
 description: "Déploiement continu du DevOps à l’aide d’Azure Automation DSC et du gestionnaire de packages Chocolatey  Exemple avec modèle ARM JSON complet et source PowerShell."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemple d'utilisation : Déploiement continu sur des ordinateurs virtuels à l’aide d’Automation DSC et Chocolatey
 L’univers des opérations de développement offre de nombreux outils conçus pour aider les développeurs à franchir plus facilement différents stades dans le pipeline de l’intégration continue.  Le nouveau service Azure Automation Desired State Configuration (DSC) vient aujourd’hui enrichir la liste des options disponibles pour les équipes DevOps.  Cet article explique comment configurer le déploiement continu (CD) pour un ordinateur Windows.  Vous pouvez facilement étendre la technique afin d’inclure autant d’ordinateurs Windows que vous le souhaitez dans le rôle (par exemple, un site Web), puis dans des rôles supplémentaires.

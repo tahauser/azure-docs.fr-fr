@@ -12,14 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
+ms.author: sashan
+ms.reviewer: carlrab
 ms.workload: Inactive
-ms.date: 04/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: 03bc991d5c1f644b439e9ebfa0d750cbf0c56764
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques de bases de données SQL
 Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes avaient lieu. SQL Database offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données uniques prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.

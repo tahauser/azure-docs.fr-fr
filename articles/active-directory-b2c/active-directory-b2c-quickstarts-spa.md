@@ -4,7 +4,7 @@ description: "Se connecter à la version d’évaluation, s’inscrire, modifier
 services: active-directory-b2c
 documentationcenter: 
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: saraford
-ms.openlocfilehash: 22da1ae317ba685d32f93d3331cf794b568891ec
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: ba8ee4657309ab2a541f4c7b3fd4879542eee63c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-a-single-page-application-configured-with-azure-ad-b2c"></a>Évaluer une application à page unique configurée avec Azure AD B2C
 
@@ -29,20 +29,20 @@ Azure Active Directory B2C assure la gestion des identités cloud pour protéger
 * Utilisation de la stratégie **S’inscrire ou se connecter** pour créer ou se connecter à un fournisseur d’identité sociale, ou à un compte local avec une adresse e-mail. 
 * **Appel d’une API** pour récupérer votre nom d’affichage à partir d’une ressource sécurisée Azure AD B2C.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - **Développement web et ASP.NET**
 
 * Installez [Node.js](https://nodejs.org/en/download/)
 
-* Un compte social, au choix à partir de Facebook, Google, Microsoft ou Twitter. Si vous n’avez pas de compte de réseau social, une adresse e-mail valide est nécessaire.
+* Un compte de réseau social Facebook, Google, Microsoft ou Twitter. Si vous n’avez pas de compte de réseau social, une adresse de messagerie valide est nécessaire.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Téléchargez l’exemple
 
-[Télécharger ou cloner l’exemple d’application](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) à partir de GitHub.
+[Téléchargez ou clonez l’exemple d’application](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) à partir de GitHub.
 
 ## <a name="run-the-sample-application"></a>Exécuter l’exemple d’application
 
@@ -71,7 +71,7 @@ Cliquez sur le bouton **Connexion** pour démarrer le flux de travail **S’insc
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>S’inscrire au moyen d’un fournisseur d’identité sociale
 
-Pour vous inscrire avec un fournisseur d’identité sociale, cliquez sur le bouton du fournisseur d’identité à utiliser. Si vous préférez utiliser une adresse e-mail, passez à la section [S’inscrire au moyen d’une adresse e-mail](#sign-up-using-an-email-address).
+Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser. Si vous préférez utiliser une adresse e-mail, passez à la section [S’inscrire au moyen d’une adresse e-mail](#sign-up-using-an-email-address).
 
 ![Fournisseur pour se connecter ou s’inscrire](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
@@ -83,7 +83,7 @@ Les détails du profil de votre nouveau compte sont préremplis avec les informa
 
 ![Détails du profil d’inscription du nouveau compte](media/active-directory-b2c-quickstarts-spa/new-account-sign-up-profile-details-spa.png)
 
-Mettez à jour les champs Nom d’affichage, Fonction et Ville, puis cliquez sur **Continuer**.  Les valeurs que vous entrez sont utilisées pour le profil de votre compte d’utilisateur Azure AD B2C.
+Mettez à jour les champs Nom d’affichage, Poste et Ville, puis cliquez sur **Continuer**.  Les valeurs que vous entrez sont utilisées pour le profil de votre compte d’utilisateur Azure AD B2C.
 
 Vous avez créé un compte d’utilisateur Azure AD B2C qui utilise un fournisseur d’identité. 
 
@@ -91,13 +91,13 @@ Vous avez créé un compte d’utilisateur Azure AD B2C qui utilise un fournisse
 
 ### <a name="sign-up-using-an-email-address"></a>S’inscrire au moyen d’une adresse e-mail
 
-Si vous choisissez de ne pas utiliser un compte de réseau social pour fournir une authentification, vous avez la possibilité de créer un compte d’utilisateur Azure AD B2C avec une adresse e-mail valide. Un compte d’utilisateur local Azure AD B2C utilise Azure Active Directory comme fournisseur d’identité. Pour utiliser votre adresse e-mail, cliquez sur le lien **Vous n’avez pas de compte ? Inscrivez-vous maintenant**.
+Si vous choisissez de ne pas vous authentifier à l’aide d’un compte de réseau social, vous pouvez créer un compte d’utilisateur Azure AD B2C en utilisant simplement une adresse e-mail valide. Un compte d’utilisateur local Azure AD B2C utilise Azure Active Directory comme fournisseur d’identité. Pour utiliser votre adresse e-mail, cliquez sur le lien **Vous ne possédez pas encore de compte ? Inscrivez-vous maintenant**.
 
 ![Connexion ou inscription au moyen d’une adresse e-mail](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-email-spa.png)
 
-Entrez une adresse e-mail valide et cliquez sur **Envoyer le code de vérification**. Vous avez besoin d’une adresse e-mail valide pour recevoir le code de vérification d’Azure AD B2C. 
+Entrez une adresse e-mail valide et cliquez sur **Envoyer le code de vérification**. Une adresse e-mail valide est requise pour recevoir le code de vérification d’Azure AD B2C. 
 
-Entrez le code de vérification que vous recevez par e-mail et cliquez sur **Vérifier le code**.
+Entrez le code de vérification reçu par e-mail, puis cliquez sur **Vérifier le code**.
 
 Ajoutez vos informations de profil et cliquez sur **Créer**.
 

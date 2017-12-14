@@ -6,7 +6,7 @@ author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -478,7 +478,7 @@ Pour accéder à la surveillance en temps réel, cliquez sur **Flux d’événem
 > [!NOTE]
 > Il existe un problème connu qui peut provoquer l’échec du remplissage de vos données. Vous devrez peut-être fermer l’onglet du navigateur contenant le flux d’événements en direct, puis cliquer à nouveau sur **Flux d’événements en direct** pour lui permettre de remplir correctement vos données de flux de données d’événement. 
 
-Ces statistiques sont en temps réel, mais les graphes réels des données d’exécution peuvent avoir une latence d’environ 10 secondes.
+Ces statistiques sont en temps réel, mais les graphiques réels des données d’exécution peuvent avoir une latence d’environ 10 secondes.
 
 ### <a name="monitor-log-files-from-a-command-line"></a>Surveiller les fichiers journaux à partir d’une ligne de commande
 
@@ -486,7 +486,7 @@ Vous pouvez diffuser des fichiers journaux vers une session de ligne de commande
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Surveiller les fichiers journaux d’application de fonction avec Azure CLI 1.0
 
-Pour commencer, [installez Azure CLI 1.0](../cli-install-nodejs.md) et [connectez-vous à Azure](../xplat-cli-connect.md).
+Pour commencer, [installez Azure CLI 1.0](../cli-install-nodejs.md) et [connectez-vous à Azure](/cli/azure/authenticate-azure-cli).
 
 Utilisez les commandes suivantes pour activer le mode de gestion des services classique, choisir votre abonnement et diffuser les fichiers journaux :
 

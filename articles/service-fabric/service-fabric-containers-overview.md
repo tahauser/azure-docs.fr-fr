@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 > [!NOTE]
@@ -61,7 +61,7 @@ La figure suivante illustre les différents types de virtualisation et niveaux d
 ## <a name="scenarios-for-using-containers"></a>Scénarios d’utilisation des conteneurs
 Voici des exemples pour lesquels le conteneur est un bon choix :
 
-* **Opération lift-and-shift pour IIS** : si vous avez des applications [ASP.NET MVC](https://www.asp.net/mvc) et que vous souhaitez continuer à les utiliser, placez-les dans un conteneur au lieu de les migrer vers ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server).
+* **Opération lift-and-shift pour IIS** : si vous avez des applications [ASP.NET MVC](https://www.asp.net/mvc) et que vous souhaitez continuer à les utiliser, placez-les dans un conteneur au lieu de les migrer vers ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 * **Mélange de conteneurs et de microservices Service Fabric** : utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état pour les calculs les plus intenses du back-end.
 * **Réduction de l’impact des services de « voisins bruyants »** : vous pouvez utiliser la capacité de gouvernance des ressources des conteneurs pour limiter les ressources utilisées par un service sur un hôte. Si les services sont susceptibles de consommer un grand nombre de ressources et, de ce fait, d’affecter les performances d’autres services (opération de type requête exécutée sur le long terme, par exemple), vous pouvez envisager de les placer dans des conteneurs soumis à la gouvernance des ressources.
 
@@ -90,6 +90,6 @@ Dans cet article, vous avez appris ce qu’était un conteneur. Vous savez déso
 
 [Créer sa première application conteneur Service Fabric sous Linux](service-fabric-get-started-containers-linux.md)
 
-[En savoir plus sur les conteneurs Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[En savoir plus sur les conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
