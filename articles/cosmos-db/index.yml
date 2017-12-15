@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 12/05/2017
   ms.author: mimig
-  ms.openlocfilehash: 57e4d41efebea7bd836afafed7d0aae6baac8355
-  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.openlocfilehash: 4b9eb9a46924f7d4915c67cd8724d02ec3861d2c
+  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/11/2017
+  ms.lasthandoff: 12/14/2017
 abstract:
   description: "Azure Cosmos DB est un service de base de données multimodèle distribué à l’échelle mondiale. Utilisez ces guides de démarrage rapide, didacticiels et exemples pour développer des documents, des bases de données à colonne large, de graphiques et de clé/valeur. Découvrez ensuite comment répliquer vos données sur autant de régions Azure souhaitées et mettez à l’échelle votre débit sans tenir compte de votre stockage, tout en bénéficiant de contrats de niveau de service complets."
   aside:
@@ -51,10 +51,10 @@ sections:
     rows:
     - title: API SQL
       values:
-      - href: /azure/cosmos-db/create-documentdb-java
-      - href: /azure/cosmos-db/create-documentdb-dotnet
-      - href: /azure/cosmos-db/create-documentdb-nodejs
-      - href: /azure/cosmos-db/create-documentdb-python
+      - href: /azure/cosmos-db/create-sql-api-java
+      - href: /azure/cosmos-db/create-sql-api-dotnet
+      - href: /azure/cosmos-db/create-sql-api-nodejs
+      - href: /azure/cosmos-db/create-sql-api-python
       - href: 
     - title: API MongoDB
       values:
@@ -91,10 +91,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "Développer une application avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-develop-documentdb-dotnet\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>"
+    - html: "Développer une application avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-develop-sql-api-dotnet\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>"
     - html: "Importer des données dans DB&#58; <a href=\"import-data\">SQL</a> | <a href=\"mongodb-migrate\">MongoDB</a> | <a href=\"https://aka.ms/tableapiimporttool\">Table</a> | <a href=\"https://aka.ms/cassandraimport\">Cassandra</a>"
-    - html: "Interroger des données avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-query-documentdb\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>"
-    - html: "Réplication de base de données mondiale avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-global-distribution-documentdb\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>"
+    - html: "Interroger des données avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-query-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>"
+    - html: "Réplication de base de données mondiale avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-global-distribution-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>"
     - html: "<a href=\"local-emulator\">Développer votre application localement à l’aide de l’émulateur</a>"
     - html: "<a href=\"/azure/cosmos-db/tutorial-functions-http-trigger\">Créer un déclencheur HTTP avec une liaison d’entrée de base de données Azure Cosmos</a>"
 - title: Exemples
@@ -112,7 +112,7 @@ sections:
     className: cardsD
     items:
     - title: API SQL
-      html: <p><a href="/rest/api/documentdb/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="documentdb-sdk-dotnet-changefeed">Flux de modification .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.JS</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/documentdbresourceprovider/">API REST Resource Provider</a></p><p><a href="documentdb-sql-query-reference">SQL</a></p>
+      html: <p><a href="/rest/api/documentdb/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Flux de modification .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.JS</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/documentdbresourceprovider/">API REST Resource Provider</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
     - title: API MongoDB
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Protocole Wire</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.JS</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: API de table
