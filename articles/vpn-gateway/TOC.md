@@ -75,6 +75,7 @@
 ## Configurer des appareils VPN tiers
 ### [Vue d’ensemble et configuration d’Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Exemple : appareil Cisco ASA (IKEv2/sans BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Migration du modèle Classic vers le modèle Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## Résolution des problèmes
 ### [Valider le débit VPN sur un réseau virtuel](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Paramètres du VPN suggéré par la communauté ou du dispositif de pare-feu](vpn-gateway-third-party-settings.md)

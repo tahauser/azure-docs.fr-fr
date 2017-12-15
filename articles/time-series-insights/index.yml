@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentation Azure Time Series Insights
 metadata:
-  title: "Documentation Azure Time Series Insights - Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
-  description: 'Apprenez à exécuter des analyses IoT dans le cloud avec le traitement des événements entièrement géré. Analysez en temps réel des données d’applications, de détecteurs, d’appareils et autres.'
+  title: "Documentation Azure Time Series Insights - Didacticiels, informations de référence sur les API | Microsoft Docs"
+  description: "Apprenez à exécuter des analyses IoT dans le cloud avec le traitement des événements entièrement géré. Analysez en temps réel des données d’applications, de détecteurs, d’appareils et autres."
   services: time-series-insights
   author: kfile
   manager: jhubbard
@@ -13,25 +13,30 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/13/2017
   ms.author: kfile
+  ms.openlocfilehash: 3c181142dcdb4132964ba5da9582b9f2b1ad817e
+  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/14/2017
 abstract:
-  description: 'Découvrez comment configurer un environnement Time Series Insights, explorer et analyser les données chronologiques de vos solutions IoT ou de vos éléments connectés. La documentation détaille les conditions préalables, les procédures, les informations de référence sur les API et d’autres articles pour faciliter vos premiers pas en quelques minutes.'
+  description: "Découvrez comment configurer un environnement Time Series Insights, explorer et analyser les données chronologiques de vos solutions IoT ou de vos éléments connectés. La documentation détaille les conditions préalables, les procédures, les informations de référence sur les API et d’autres articles pour faciliter vos premiers pas en quelques minutes."
 sections:
-  - title: "Démarrages en 5\_minutes"
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment déployer Log Analytics et configurer la collection de données à partir d’Azure, d’autres fournisseurs de cloud et de ressources locales."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Découvrez comment déployer Log Analytics et configurer la collection de données à partir d’Azure, d’autres fournisseurs de cloud et de ressources locales.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg'
-            text: Explorer Azure Time Series Insights
-            href: /azure/time-series-insights/time-series-quickstart
-  - title: Référence
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg
+      text: Explorer Azure Time Series Insights
+      href: /azure/time-series-insights/time-series-quickstart
+- title: "Référence"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">API de requête</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Syntaxe de requête</a></p>
+    - title: API
+      html: "<p><a href=\"/rest/api/time-series-insights-management\">API de gestion des ressources</a></p>   <p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">API de requête</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Syntaxe de requête</a></p>"
