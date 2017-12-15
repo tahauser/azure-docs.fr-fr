@@ -71,6 +71,7 @@
 ### [Déployer une passerelle pour l’usine connectée](iot-suite-connected-factory-gateway-deployment.md)
 ### [Personnaliser la fabrique connectée](iot-suite-connected-factory-customize.md)
 ### [Utiliser le serveur de publication OPC de l’usine connecté](iot-suite-connected-factory-publisher.md)
+### [Configurer la fabrique connectée](iot-suite-connected-factory-configure.md)
 ## [Autorisations sur azureiotsuite.com](iot-suite-permissions.md)
 
 # Référence

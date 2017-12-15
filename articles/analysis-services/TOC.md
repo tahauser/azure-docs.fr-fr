@@ -21,6 +21,7 @@
 ## [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)
 ## [Sauvegarde et restauration](analysis-services-backup.md)
 ## [Configurer la montée en charge](analysis-services-scale-out.md)
+## [Configurer un alias de nom de serveur](analysis-services-server-alias.md)
 ## [Connexion avec Excel](analysis-services-connect-excel.md)
 ## [Connexion avec Power BI](analysis-services-connect-pbi.md)
 ## [Créer un fichier .odc](analysis-services-odc.md)

@@ -265,6 +265,7 @@
 #### [Affecter des rôles d’administrateur](active-directory-users-assign-role-azure-portal.md)
 ### [Unités administratives](active-directory-administrative-units-management.md)
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
+### [Gérer les comptes d’administration d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Révisions d’accès
 ### [Vue d’ensemble des révisions d’accès](active-directory-azure-ad-controls-access-reviews-overview.md)
