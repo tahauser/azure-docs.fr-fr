@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4bbac0e82181e46b84afee5ff7601da018226ec0
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1e58dd50931f994ca2c6233e3e97022957c85327
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Créer une fabrique de données Azure à l’aide de PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,27 @@ Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer u
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+#### <a name="log-in-to-powershell"></a>Se connecter à PowerShell
+
+1. Lancez **PowerShell** sur votre ordinateur. Gardez PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous la fermez, puis la rouvrez, vous devez réexécuter ces commandes.
+2. Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe Azure que vous utilisez pour vous connecter au portail Azure :
+       
+    ```powershell
+    Login-AzureRmAccount
+    ```        
+3. Exécutez la commande suivante pour afficher tous les abonnements de ce compte :
+
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+4. Si plusieurs abonnements sont associés à votre compte, exécutez la commande suivante pour sélectionner l’abonnement avec lequel vous souhaitez travailler. Remplacez **SubscriptionId** par l’ID de votre abonnement Azure :
+
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    ```
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) entre des guillemets doubles, puis exécutez la commande. Par exemple : `"adfrg"`. 
@@ -46,7 +66,7 @@ Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer u
 2. Pour créer le groupe de ressources Azure, exécutez la commande suivante : 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'East US'
     ``` 
     Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Affectez une valeur différente à la variable `$ResourceGroupName` et exécutez à nouveau la commande. 
 3. Définissez une variable pour le nom de la fabrique de données. 
@@ -55,7 +75,7 @@ Ce guide de démarrage rapide explique comment utiliser PowerShell pour créer u
     >  Mettez à jour le nom de la fabrique de données afin qu’il soit globalement unique. Par exemple, ADFTutorialFactorySP1127. 
 
     ```powershell
-    $DataFactoryName = "ADFQuickStartFactory";
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 
 5. Pour créer la fabrique de données, exécutez l’applet de commande suivante **Set-AzureRmDataFactoryV2**, à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp : 
@@ -100,10 +120,9 @@ Créez des services liés dans une fabrique de données pour lier vos magasins d
     Si vous utilisez Notepad, sélectionnez **Tous les fichiers** comme **Type d’enregistrement sous** renseigné dans la boîte de dialogue **Enregistrer sous**. Sinon, l’extension `.txt` pourrait être ajoutée au fichier. Par exemple, `AzureStorageLinkedService.json.txt`. Si vous créez le fichier dans l’Explorateur de fichiers avant de l’ouvrir dans Notepad, il se peut que l’extension `.txt` ne s’affiche pas car l’option **Masquer les extensions des types de fichiers connus** est définie par défaut. Supprimez l’extension `.txt` avant de passer à l’étape suivante.
 2. Dans **PowerShell**, basculez vers le dossier **ADFv2QuickStartPSH**.
 
-```powershell
-Set-Location 'C:\ADFv2QuickStartPSH'
-```
-
+    ```powershell
+    Set-Location 'C:\ADFv2QuickStartPSH'
+    ```
 3. Exécutez l’applet de commande **Set-AzureRmDataFactoryV2LinkedService** pour créer le service lié **AzureStorageLinkedService**. 
 
     ```powershell

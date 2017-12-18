@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f4fcc3eb0dac2c5796b0a291425ad17a60a5bae
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -29,7 +29,7 @@ Il existe deux types de tests de disponibilité :
 * [Test ping d’URL](#create): un test simple que vous pouvez créer dans le portail Azure.
 * [Test web multi-étapes](#multi-step-web-tests) : que vous créez dans Visual Studio Enterprise et que vous chargez sur le portail.
 
-Vous pouvez créer jusqu’à 25 tests de disponibilité par ressource d’application.
+Vous pouvez créer jusqu’à 100 tests de disponibilité par ressource d’application.
 
 ## <a name="create"></a>1. Ouvrir une ressource pour vos rapports de test de disponibilité
 

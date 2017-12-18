@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Contrôles d’application adaptative dans Azure Security Center (version préliminaire)
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -32,9 +32,6 @@ Les contrôles d’application adaptative vous aident à contrôler les applicat
 - Empêcher l’exécution des applications obsolètes et non prises en charge.
 - Bloquer des outils logiciels spécifiques qui ne sont pas autorisés dans votre organisation.
 - Autoriser le service informatique à contrôler l’accès aux données sensibles en utilisant l’application.
-
-> [!NOTE]
-> Les contrôles d’application adaptative sont disponibles pour les clients Azure Security Center Standard en tant que version préliminaire publique limitée. [Envoyez-nous](mailto:ASC_appcontrol@microsoft.com) un e-mail avec vos ID d’abonnement pour joindre la version préliminaire.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Comment activer les contrôles d’application adaptative ?
 Les contrôles d’application adaptative vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes de ressources configurés. Cette fonctionnalité est disponible uniquement pour les machines Windows (toutes les versions, Classic ou Azure Resource Manager). Vous pouvez suivre les étapes ci-dessous pour configurer la mise en liste verte des applications dans Security Center :
@@ -72,7 +69,7 @@ Dans **Sélectionner les machines virtuelles**, examinez la liste des machines v
 
 - **NOM** : le chemin d’accès complet de l’application
 - **PROCESSUS** : le nombre d’applications se trouvant dans chaque chemin d’accès
-- **COMMUN** : la valeur « true » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources.
+- **COMMUN** : la valeur « Yes » indique que ces processus ont été exécutés sur la plupart des machines virtuelles de ce groupe de ressources.
 - **EXPLOITABLE** : une icône d’avertissement indique si les applications peuvent être utilisées par une personne malveillante pour ignorer la liste verte d’application. Nous vous recommandons de vérifier ces applications avant de les valider. 
 
 Une fois que vous avez terminé vos sélections, cliquez sur le bouton **Créer**. Par défaut, Security Center autorise toujours le contrôle d’application dans le mode *Audit*. Après avoir confirmé que la liste verte n’a aucun effet négatif sur votre charge de travail, vous pouvez passer en mode *Appliquer*.

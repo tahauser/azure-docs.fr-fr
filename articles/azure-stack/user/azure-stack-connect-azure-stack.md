@@ -3,8 +3,8 @@ title: "Se connecter à Azure Stack | Microsoft Docs"
 description: "Découvrez comment vous connecter à Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Se connecter à Azure Stack
 
-Pour pouvoir gérer des ressources, vous devez vous connecter au Kit de développement Azure Stack. Cette rubrique explique en détail les étapes à suivre pour vous connecter à ce kit de développement. Vous avez le choix entre ces deux options de connexion :
+Pour pouvoir gérer des ressources, vous devez vous connecter au Kit de développement Azure Stack. Cet article explique en détail les étapes à suivre pour vous connecter à ce kit de développement. Vous avez le choix entre ces deux options de connexion :
 
 * [Bureau à distance](#connect-with-remote-desktop) : permet à un seul utilisateur à la fois de se connecter rapidement à partir du kit de développement.
 * [Réseau privé virtuel (VPN)](#connect-with-vpn) : permet à plusieurs utilisateurs de se connecter simultanément à partir de clients extérieurs à l’infrastructure Azure Stack (nécessite une configuration particulière).
@@ -51,7 +51,7 @@ Vous pouvez établir une connexion VPN avec tunneling fractionné à un Kit de d
 
 ### <a name="configure-vpn-connectivity"></a>Configurer la connectivité VPN
 
-Pour créer une connexion VPN au kit de développement, ouvrez une session PowerShell avec des privilèges élevés à partir de votre ordinateur Windows local, puis exécutez le script suivant (après avoir changé l’adresse IP et le mot de passe de manière appropriée pour votre environnement) :
+Pour créer une connexion VPN au kit de développement, ouvrez une session PowerShell avec des privilèges élevés à partir de votre ordinateur Windows local, puis exécutez le script suivant (après avoir changé l’adresse IP et le mot de passe de manière appropriée pour votre environnement) :
 
 ```PowerShell 
 # Configure winrm if it's not already configured

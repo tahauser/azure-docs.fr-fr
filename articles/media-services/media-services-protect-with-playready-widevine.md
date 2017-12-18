@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b30a444150c6ace87e9d506da9335373b5e017af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de595c8a840cd19b0f46071edd67c6cc1d32feb8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
 
@@ -39,7 +39,7 @@ Media Services prend en charge plusieurs méthodes d’autorisation des utilisat
 
 Pour tirer parti du chiffrement dynamique, vous devez avoir un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse (Smooth Streaming) à débit binaire multiple. Vous devez également configurer les stratégies de remise pour l’élément multimédia (décrites plus loin dans cette rubrique). Ensuite, en fonction du format spécifié dans l'URL de diffusion, le serveur de streaming à la demande s'assure que le flux est livré conformément au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Media Services se charge de créer et de fournir la réponse HTTP appropriée à chaque demande des clients.
 
-Cette rubrique peut être utile aux développeurs travaillant sur des applications qui fournissent un support protégé avec plusieurs DRM comme PlayReady et Widevine. La rubrique vous montre comment configurer le service de distribution des licences PlayReady avec des stratégies d’autorisation, afin que seuls les clients autorisés puissent recevoir les licences PlayReady ou Widevine. Il indique également comment utiliser le chiffrement de cryptage dynamique avec PlayReady ou Widevine DRM sur DASH.
+Cet article peut être utile aux développeurs travaillant sur des applications qui fournissent un support protégé avec plusieurs DRM comme PlayReady et Widevine. L’article vous montre comment configurer le service de distribution des licences PlayReady avec des stratégies d’autorisation, afin que seuls les clients autorisés puissent recevoir les licences PlayReady ou Widevine. Il indique également comment utiliser le chiffrement dynamique avec PlayReady ou Widevine DRM sur DASH.
 
 >[!NOTE]
 >Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
@@ -64,13 +64,13 @@ Voici les étapes générales que vous aurez à exécuter lors de la protection 
 
 6. Créer un localisateur à la demande afin d'obtenir une URL de diffusion en continu.
 
-Vous trouverez un exemple .NET complet à la fin de la rubrique.
+Vous trouverez un exemple .NET complet à la fin de l’article.
 
 L'illustration suivante montre le flux de travail décrit ci-dessus. Ici, le jeton est utilisé pour l'authentification.
 
 ![Protéger avec PlayReady](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Le reste de cette rubrique fournit des explications détaillées, des exemples de code et des liens vers des rubriques qui vous expliquent comment réaliser les tâches décrites ci-dessus.
+Le reste de cet article fournit des explications détaillées, des exemples de code et des liens vers des rubriques qui vous expliquent comment réaliser les tâches décrites ci-dessus.
 
 ## <a name="current-limitations"></a>Limitations actuelles
 Si vous ajoutez ou mettez à jour une stratégie de remise de ressource, vous devez supprimer le localisateur associé (le cas échéant) et en créer un nouveau.
@@ -83,7 +83,7 @@ Pour gérer, encoder et diffuser vos vidéos, vous devez d'abord télécharger v
 Pour plus d’informations, consultez [Charger des fichiers vers un compte Media Services](media-services-dotnet-upload-files.md).
 
 ## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Encoder l'élément multimédia contenant le fichier selon le débit binaire MP4 défini
-Avec le chiffrement dynamique, il vous suffit de créer un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse à débit binaire multiple. Ensuite, en fonction du format spécifié dans le manifeste et la demande de fragment, le serveur de diffusion en continu à la demande s’assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. Pour plus d’informations, consultez la rubrique [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md).
+Avec le chiffrement dynamique, il vous suffit de créer un élément qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse à débit binaire multiple. Ensuite, en fonction du format spécifié dans le manifeste et la demande de fragment, le serveur de diffusion en continu à la demande s’assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients. Pour plus d’informations, consultez l’article [Vue d’ensemble de l’empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 Pour savoir comment encoder, consultez [Encodage d’un élément multimédia à l’aide de Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -104,10 +104,10 @@ Configurez la stratégie de remise pour votre élément multimédia. Certains é
 * Le protocole de remise de l’élément multimédia (par exemple, MPEG DASH, HLS, Smooth Streaming ou tous).
 * Le type de chiffrement dynamique (dans ce cas, Common Encryption).
 
-Pour plus d’informations, consultez [Configurer la stratégie de distribution d’éléments multimédia ](media-services-rest-configure-asset-delivery-policy.md).
+Pour plus d’informations, consultez [Configuration des stratégies de remise de ressources].
 
 ## <a id="create_locator"></a>Créer un localisateur de diffusion en continu à la demande afin d’obtenir une URL de diffusion en continu
-Vous devrez fournir aux utilisateurs l'URL de diffusion en continu pour Smooth, DASH ou HLS.
+Vous devrez fournir aux utilisateurs l’URL de diffusion en continu pour Smooth, DASH ou HLS.
 
 > [!NOTE]
 > Si vous ajoutez ou mettez à jour la stratégie de remise de votre ressource, vous devez supprimer le localisateur existant (le cas échéant) et en créer un nouveau.
@@ -148,31 +148,36 @@ L’exemple suivant illustre la fonctionnalité présentée dans le kit de déve
 Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
 
 >[!NOTE]
->Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-    using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
-    using Newtonsoft.Json;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
+using Newtonsoft.Json;
 
-    namespace DynamicEncryptionWithDRM
+namespace DynamicEncryptionWithDRM
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly Uri _sampleIssuer =
             new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -190,7 +195,11 @@ Veillez à mettre à jour les variables pour pointer vers les dossiers où se tr
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -210,9 +219,9 @@ Veillez à mettre à jour les variables pour pointer vers les dossiers où se tr
             Console.WriteLine();
 
             if (tokenRestriction)
-            tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
+                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
             else
-            AddOpenAuthorizationPolicy(key);
+                AddOpenAuthorizationPolicy(key);
 
             Console.WriteLine("Added authorization policy: {0}", key.AuthorizationPolicyId);
             Console.WriteLine();
@@ -223,19 +232,19 @@ Veillez à mettre à jour les variables pour pointer vers les dossiers où se tr
 
             if (tokenRestriction && !String.IsNullOrEmpty(tokenTemplateString))
             {
-            // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
-            // back into a TokenRestrictionTemplate class instance.
-            TokenRestrictionTemplate tokenTemplate =
-                TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+                // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
+                // back into a TokenRestrictionTemplate class instance.
+                TokenRestrictionTemplate tokenTemplate =
+                    TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-            // Note, you need to pass the key id Guid because we specified
-            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
-            Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-            string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
-                                        DateTime.UtcNow.AddDays(365));
-            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-            Console.WriteLine();
+                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Note, you need to pass the key id Guid because we specified
+                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
+                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
+                                            DateTime.UtcNow.AddDays(365));
+                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+                Console.WriteLine();
             }
 
             // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
@@ -251,8 +260,8 @@ Veillez à mettre à jour les variables pour pointer vers les dossiers où se tr
         {
             if (!File.Exists(singleFilePath))
             {
-            Console.WriteLine("File does not exist.");
-            return null;
+                Console.WriteLine("File does not exist.");
+                return null;
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
@@ -465,8 +474,8 @@ Veillez à mettre à jour les variables pour pointer vers les dossiers où se tr
         {
             var template = new WidevineMessage
             {
-            allowed_track_types = AllowedTrackTypes.SD_HD,
-            content_key_specs = new[]
+                allowed_track_types = AllowedTrackTypes.SD_HD,
+                content_key_specs = new[]
             {
                     new ContentKeySpecs
                     {
@@ -475,12 +484,12 @@ Veillez à mettre à jour les variables pour pointer vers les dossiers où se tr
                     track_type = "SD"
                     }
                 },
-            policy_overrides = new
-            {
-                can_play = true,
-                can_persist = true,
-                can_renew = false
-            }
+                policy_overrides = new
+                {
+                    can_play = true,
+                    can_persist = true,
+                    can_renew = false
+                }
             };
 
             string configuration = JsonConvert.SerializeObject(template);
@@ -570,14 +579,14 @@ Veillez à mettre à jour les variables pour pointer vers les dossiers où se tr
             using (var rng =
             new System.Security.Cryptography.RNGCryptoServiceProvider())
             {
-            rng.GetBytes(returnValue);
+                rng.GetBytes(returnValue);
             }
 
             return returnValue;
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.

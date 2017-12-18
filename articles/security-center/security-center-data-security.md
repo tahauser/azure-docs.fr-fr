@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/06/2017
 ms.author: yurid
-ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: c41e233e177f540562d80649c7bffc15e208e870
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données du Centre de sécurité Azure
 Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Security Center collecte et traite des données de sécurité, notamment des informations de configuration, des métadonnées, des journaux d’événements et des fichiers de vidage sur incident. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
@@ -69,6 +69,16 @@ Lorsque vous activez Security Center dans Azure, la collecte de données est act
 
 Si vous utilisez Azure Security Center gratuitement, vous pouvez également désactiver la collecte de données à partir des machines virtuelles dans la stratégie de sécurité. La collecte de données est obligatoire pour les abonnements du niveau Standard. La collecte des artefacts et des captures instantanées des disques de machine virtuelle reste activée, même si la collecte de données est désactivée.
 
+## <a name="data-consumption"></a>Consommation des données
+
+Les clients peuvent consommer des données liées au Centre de sécurité à partir de différents flux de données, comme indiqué ci-dessous :
+
+* **Azure Activity** : toutes les alertes de sécurité, les requêtes approuvées [juste à temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) du Centre de sécurité, et toutes les alertes générées par les [contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Log Analytics** : toutes les alertes de sécurité.
+
+
+> [!NOTE]
+> Les recommandations de sécurité peuvent également être consommées via l’API REST. Voir [Référence d’API REST de fournisseur de ressources de sécurité](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) pour plus d’information. 
 
 ## <a name="see-also"></a>Voir aussi
 Ce document explique comment les données sont gérées et protégées dans le Centre de sécurité Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :

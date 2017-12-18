@@ -3,7 +3,7 @@ title: "Créer un compte d’utilisateur Azure AD | Microsoft Docs"
 description: "Cet article décrit comment créer les informations d’identification d’un compte d’utilisateur Azure AD pour les Runbooks dans Azure Automation pour l’authentification dans Azure et Azure Classic."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "utilisateur azure active directory, azure service management, compte d’utilisateur azure ad"
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Authentification des Runbooks avec le déploiement Azure Classic et Resource Manager
 Cet article décrit les étapes à effectuer pour configurer un compte d’utilisateur Azure AD pour les runbooks Azure Automation en cours d’exécution sur des ressources du modèle de déploiement Azure Classic ou Azure Resource Manager.  Même si cette procédure est toujours prise en charge comme identité d’authentification pour vos Runbooks Azure Resource Manager, il est recommandé d’utiliser un compte d’identification Azure.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Création d’un nouvel utilisateur Azure Active Directory
-1. Connectez-vous au portail Azure Classic en tant qu’administrateur de service pour l’abonnement Azure que vous souhaitez gérer.
+1. Connectez-vous au portail Azure Classic en tant qu’administrateur de services fédérés pour l’abonnement Azure que vous souhaitez gérer.
 2. Sélectionnez **Active Directory**, puis sélectionnez le nom du répertoire de votre organisation.
 3. Sélectionnez l’onglet **Utilisateurs**, puis, dans la zone de commande, sélectionnez **Ajouter un utilisateur**.
 4. Sur la page **Dites-nous en plus sur cet utilisateur**, sous **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
@@ -36,17 +36,17 @@ Cet article décrit les étapes à effectuer pour configurer un compte d’utili
 9. Sélectionnez **Paramètres > Administrateurs > Ajouter**.
 10. Tapez le nom d’utilisateur complet de l’utilisateur que vous avez créé.
 11. Sélectionnez l’abonnement que vous souhaitez gérer.
-12. Déconnectez-vous d’Azure et puis reconnectez-vous avec le compte que vous venez de créer. Vous serez invité à modifier le mot de passe de l’utilisateur.
+12. Déconnectez-vous d’Azure et puis reconnectez-vous avec le compte que vous venez de créer. Vous êtes invité à modifier le mot de passe de l’utilisateur.
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>Création d’un compte Automation dans le portail Azure Classic
 Dans cette section, vous effectuez les étapes suivantes pour créer un compte Azure Automation dans le portail Azure qui sera utilisé avec vos ressources de gestion des Runbooks dans le mode de déploiement Azure Classic.  
 
 > [!NOTE]
-> Les comptes Automation créés avec le portail Azure Classic peuvent être gérés par le portail Azure Classic et le portail Azure, et par le jeu d’applets de commande correspondant. Une fois que le compte est créé, la façon de créer et de gérer des ressources au sein du compte n'importe pas. Si vous envisagez de continuer à utiliser le portail Azure Classic, vous devez alors l’utiliser au lieu d’utiliser le portail Azure pour créer des comptes Automation.
+> Les comptes Automation créés avec le portail Azure Classic peuvent être gérés par le portail Azure Classic et le portail Azure, et par le jeu de cmdlets correspondant. Une fois que le compte est créé, la façon de créer et de gérer des ressources au sein du compte n'importe pas. Si vous envisagez de continuer à utiliser le portail Azure Classic, vous devez alors l’utiliser au lieu d’utiliser le portail Azure pour créer des comptes Automation.
 > 
 > 
 
-1. Connectez-vous au portail Azure Classic en tant qu’administrateur de service pour l’abonnement Azure que vous souhaitez gérer.
+1. Connectez-vous au portail Azure Classic en tant qu’administrateur de services fédérés pour l’abonnement Azure que vous souhaitez gérer.
 2. Sélectionnez **Automation**.
 3. Sur la page **Automation**, sélectionnez **Créer un compte Automation**.
 4. Dans la boîte de dialogue **Créer un compte Automation**, entrez un nom pour votre nouveau compte Automation et sélectionnez une **région** dans la liste déroulante.  

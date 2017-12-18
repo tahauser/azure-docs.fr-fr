@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Pour plus d’informations sur la sécurité Azure, consultez [Microsoft Trust C
 ## <a name="supports-the-latest-client-tools"></a>Prise en charge des derniers outils clients
 ![Visualisations de données](./media/analysis-services-overview/aas-overview-clients.png)
 
-Les outils modernes d’exploration et de visualisation de données comme Power BI, Excel et d’autres outils tiers fournissent aux utilisateurs des informations hautement interactives et visuellement riches sur vos données de modèles.
+Les outils modernes d’exploration et de visualisation de données comme Power BI, Excel, SQL Server 2017 Reporting Services et d’autres outils tiers sont tous pris en charge, fournissant aux utilisateurs des informations hautement interactives et visuellement riches sur vos données de modèles. 
 
 Les clients utilisent les [Bibliothèques clientes](analysis-services-data-providers.md) MSOLAP, AMO ou ADOMD pour se connecter aux serveurs Analysis Services. Les applications clientes Microsoft telles que Power BI Desktop et Excel installent les trois bibliothèques clientes. Mais gardez à l’esprit que selon la version ou la fréquence des mises à jour, les bibliothèques clientes peuvent ne pas être les dernières versions requises par Azure Analysis Services. Il en va de même pour les applications personnalisées ou d’autres interfaces telles que AsCmd, TOM, ADOMD.NET. Ces applications nécessitent généralement l’installation manuelle des bibliothèques en même temps que le reste du package.
 

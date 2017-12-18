@@ -27,17 +27,17 @@
 ### [Comprendre l’utilisation des instances réservées pour l’Entreprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Gérer les abonnements
+### [Trouver l’abonnement ou le groupe d’administration](billing-enterprise-mgmt-grp-find.md)
 ### [Gérer vos rôles d’administrateur](billing-add-change-azure-subscription-administrator.md)
 ### [Transférer la propriété de l’abonnement](billing-subscription-transfer.md)
 ### [Réactiver un abonnement désactivé](billing-subscription-become-disable.md)
 ### [Mettre à jour à partir de l’abonnement gratuit](billing-upgrade-azure-subscription.md)
 ### [Changer d’offre d’abonnement](billing-how-to-switch-azure-offer.md)
+### [Associer le locataire Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Annuler l’abonnement](billing-how-to-cancel-azure-subscription.md)
-### [Trouver l’abonnement ou le groupe d’administration](billing-enterprise-mgmt-grp-find.md)
 ## Gérer le compte
 ### [Modifier le profil](billing-how-to-change-azure-account-profile.md)
 ### [Mettre à jour les informations de paiement](billing-how-to-change-credit-card.md)
-### [Lier le client Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Payer pour les abonnements par facture](billing-how-to-pay-by-invoice.md)
 ## [Gérer des instances de machines virtuelles réservées](billing-manage-reserved-vm-instance.md)
 ## Résolution des problèmes

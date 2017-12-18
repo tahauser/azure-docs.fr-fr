@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 22d63ff5e9fd33db8711b0c5125ab0882b9f6a74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5529f67ac03fe5c9b09203556f365a6009cf579a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec .NET
 > [!div class="op_single_selector"]
@@ -74,14 +74,14 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 15. Supprimez le programme (et éventuellement la ressource).
 
 ## <a name="what-youll-learn"></a>Ce que vous allez apprendre
-Cette rubrique montre comment exécuter différentes opérations sur des canaux et des programmes à l’aide du Kit de développement logiciel (SDK) .NET Media Services. Bon nombre d'opérations étant de longue durée, les API .NET qui gèrent les opérations de ce type sont utilisées.
+Cet article montre comment exécuter différentes opérations sur des canaux et des programmes à l’aide du Kit de développement logiciel (SDK) .NET Media Services. Bon nombre d'opérations étant de longue durée, les API .NET qui gèrent les opérations de ce type sont utilisées.
 
-La rubrique montre comment effectuer les opérations suivantes :
+L’article montre comment effectuer les opérations suivantes :
 
 1. Créez et démarrez un canal. Des API de longue durée sont utilisées.
 2. Obtenir le point de terminaison de réception (entrée) du canal. Ce point de terminaison doit être fourni à l'encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
 3. Obtenir le point de terminaison d'aperçu. Ce point de terminaison permet d'afficher un aperçu de votre flux.
-4. Créer un élément multimédia qui sera utilisé pour stocker votre contenu. Les stratégies de remise d'éléments multimédias doivent également être configurées, comme le montre cet exemple.
+4. Créer un élément multimédia utilisé pour stocker votre contenu. Les stratégies de remise d'éléments multimédias doivent également être configurées, comme le montre cet exemple.
 5. Créer un programme et spécifier l'utilisation de l'élément multimédia créé précédemment. Démarrer le programme. Des API de longue durée sont utilisées.
 6. Créer un localisateur pour l'élément multimédia de manière à ce que le contenu puisse être publié et diffusé en continu à vos clients.
 7. Afficher et masquer des slates. Démarrer et arrêter des publicités. Des API de longue durée sont utilisées.
@@ -98,11 +98,11 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 ## <a name="considerations"></a>Considérations
 * Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l'adresse Microsoft.com si vous avez besoin d'exécuter un canal sur de plus longues périodes.
-* Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+* Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 ## <a name="download-sample"></a>Charger l’exemple
 
-Vous pouvez télécharger l’exemple décrit dans cet article à partir d’ [ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+Vous pouvez télécharger l’exemple décrit dans cet article à partir d’[ici](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Configurer le développement avec le Kit de développement logiciel (SDK) Media Services pour .NET
 
@@ -110,34 +110,43 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
 ## <a name="code-example"></a>Exemple de code
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Net;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-    namespace EncodeLiveStreamWithAmsClear
+namespace EncodeLiveStreamWithAmsClear
+{
+    class Program
     {
-        class Program
-        {
         private const string ChannelName = "channel001";
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -161,9 +170,9 @@ Configurez votre environnement de développement et ajoutez des informations de 
             // The thumbnail is exposed via the same end-point as the Channel Preview URL.
             string thumbnailUri = new UriBuilder
             {
-            Scheme = Uri.UriSchemeHttps,
-            Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
-            Path = "thumbnails/input.jpg"
+                Scheme = Uri.UriSchemeHttps,
+                Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
+                Path = "thumbnails/input.jpg"
             }.Uri.ToString();
 
             Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
@@ -191,11 +200,11 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
             ChannelCreationOptions options = new ChannelCreationOptions
             {
-            EncodingType = ChannelEncodingType.Standard,
-            Name = ChannelName,
-            Input = channelInput,
-            Preview = channePreview,
-            Encoding = channelEncoding
+                EncodingType = ChannelEncodingType.Standard,
+                Name = ChannelName,
+                Input = channelInput,
+                Preview = channePreview,
+                Encoding = channelEncoding
             };
 
             Log("Creating channel");
@@ -219,10 +228,10 @@ Configurez votre environnement de développement et ajoutez des informations de 
         {
             return new ChannelInput
             {
-            StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -231,7 +240,7 @@ Configurez votre environnement de développement et ajoutez des informations de 
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -243,9 +252,9 @@ Configurez votre environnement de développement et ajoutez des informations de 
         {
             return new ChannelPreview
             {
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -254,7 +263,7 @@ Configurez votre environnement de développement et ajoutez des informations de 
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -266,11 +275,11 @@ Configurez votre environnement de développement et ajoutez des informations de 
         {
             return new ChannelEncoding
             {
-            SystemPreset = "Default720p",
-            IgnoreCea708ClosedCaptions = false,
-            AdMarkerSource = AdMarkerSource.Api,
-            // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
-            AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+                SystemPreset = "Default720p",
+                IgnoreCea708ClosedCaptions = false,
+                AdMarkerSource = AdMarkerSource.Api,
+                // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
+                AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
             };
         }
 
@@ -383,35 +392,35 @@ Configurez votre environnement de développement et ajoutez des informations de 
             IAsset asset;
             if (channel != null)
             {
-            foreach (var program in channel.Programs)
-            {
-                asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                            .FirstOrDefault();
-
-                Log("Stopping program");
-                var programStopOperation = program.SendStopOperation();
-                TrackOperation(programStopOperation, "Program stop");
-
-                program.Delete();
-
-                if (asset != null)
+                foreach (var program in channel.Programs)
                 {
-                Log("Deleting locators");
-                foreach (var l in asset.Locators)
-                    l.Delete();
+                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                                .FirstOrDefault();
 
-                Log("Deleting asset");
-                asset.Delete();
+                    Log("Stopping program");
+                    var programStopOperation = program.SendStopOperation();
+                    TrackOperation(programStopOperation, "Program stop");
+
+                    program.Delete();
+
+                    if (asset != null)
+                    {
+                        Log("Deleting locators");
+                        foreach (var l in asset.Locators)
+                            l.Delete();
+
+                        Log("Deleting asset");
+                        asset.Delete();
+                    }
                 }
-            }
 
-            Log("Stopping channel");
-            var channelStopOperation = channel.SendStopOperation();
-            TrackOperation(channelStopOperation, "Channel stop");
+                Log("Stopping channel");
+                var channelStopOperation = channel.SendStopOperation();
+                TrackOperation(channelStopOperation, "Channel stop");
 
-            Log("Deleting channel");
-            var channelDeleteOperation = channel.SendDeleteOperation();
-            TrackOperation(channelDeleteOperation, "Channel delete");
+                Log("Deleting channel");
+                var channelDeleteOperation = channel.SendDeleteOperation();
+                TrackOperation(channelDeleteOperation, "Channel delete");
             }
         }
 
@@ -429,9 +438,9 @@ Configurez votre environnement de développement et ajoutez des informations de 
             Log("starting to track ", null, operation.Id);
             while (isCompleted == false)
             {
-            operation = _context.Operations.GetOperation(operation.Id);
-            isCompleted = IsCompleted(operation, out entityId);
-            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+                operation = _context.Operations.GetOperation(operation.Id);
+                isCompleted = IsCompleted(operation, out entityId);
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
             }
             // If we got here, the operation succeeded.
             Log(description + " in completed", operation.TargetEntityId, operation.Id);
@@ -456,20 +465,20 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
             switch (operation.State)
             {
-            case OperationState.Failed:
-                // Handle the failure. 
-                // For example, throw an exception. 
-                // Use the following information in the exception: operationId, operation.ErrorMessage.
-                Log("operation failed", operation.TargetEntityId, operation.Id);
-                break;
-            case OperationState.Succeeded:
-                completed = true;
-                entityId = operation.TargetEntityId;
-                break;
-            case OperationState.InProgress:
-                completed = false;
-                Log("operation in progress", operation.TargetEntityId, operation.Id);
-                break;
+                case OperationState.Failed:
+                    // Handle the failure. 
+                    // For example, throw an exception. 
+                    // Use the following information in the exception: operationId, operation.ErrorMessage.
+                    Log("operation failed", operation.TargetEntityId, operation.Id);
+                    break;
+                case OperationState.Succeeded:
+                    completed = true;
+                    entityId = operation.TargetEntityId;
+                    break;
+                case OperationState.InProgress:
+                    completed = false;
+                    Log("operation in progress", operation.TargetEntityId, operation.Id);
+                    break;
             }
             return completed;
         }
@@ -483,8 +492,9 @@ Configurez votre environnement de développement et ajoutez des informations de 
             entityId ?? string.Empty,
             operationId ?? string.Empty);
         }
-        }
     }
+}
+```
 
 ## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage de Media Services.

@@ -1,6 +1,6 @@
 ---
 title: "Exclure des disques de la protection à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Décrit pourquoi et comment exclure des disques de machine virtuelle de la réplication pour VMware vers Azure."
+description: "Décrit pourquoi et comment exclure des disques de machine virtuelle de la réplication pour Hyper-V vers Azure."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,24 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/12/2017
 ms.author: nisoneji
-ms.openlocfilehash: af3f934c0572b50b22cdfb99a8a94bb856042b1b
+ms.openlocfilehash: 17a7f8032cc40b8b4a18240e7d20570d73ec9c49
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Exclure des disques de la réplication pour un scénario de VMware vers Azure
-Cet article décrit comment exclure des disques de la réplication. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent. 
+# <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
+Cet article décrit comment exclure des disques de la réplication. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 **Fonctionnalité** | **VMware vers Azure** | **Hyper-V vers Azure** | **Azure vers Azure**| **Hyper-V vers Hyper-V** 
 --|--|--|--|--
 Exclure le disque | Oui | Oui | Non | Non
-
-## <a name="prerequisites"></a>Composants requis
-
-Par défaut, tous les disques d’une machine sont répliqués. Pour exclure un disque de la réplication, vous devez installer le service Mobilité manuellement sur la machine avant d’activer la réplication si vous procédez à une réplication de VMware vers Azure.
-
 
 ## <a name="why-exclude-disks-from-replication"></a>Pourquoi exclure des disques de la réplication ?
 L’exclusion de disques de la réplication se révèle souvent nécessaire pour les raisons suivantes :
@@ -51,23 +46,17 @@ De même, vous pouvez procéder comme suit pour optimiser un disque qui contient
 1. Stockez la base de données système et la base de données tempdb sur deux disques différents.
 2. Excluez le disque de base de données tempdb de la réplication.
 
-## <a name="how-to-exclude-disks-from-replication"></a>Comment exclure des disques de la réplication ?
+## <a name="how-to-exclude-disks"></a>Comment exclure des disques
+Pour protéger une machine virtuelle du portail Azure Site Recovery, suivez le workflow [Activer la réplication](site-recovery-hyper-v-site-to-azure.md). Dans la quatrième étape du workflow, utilisez la colonne **DISQUE À RÉPLIQUER** pour exclure des disques de la réplication. Par défaut, tous les disques sont sélectionnés pour la réplication. Décochez les cases correspondant aux disques que vous souhaitez exclure de la réplication, puis exécutez la procédure d’activation de la réplication.
 
-Pour protéger une machine virtuelle du portail Azure Site Recovery, suivez le workflow [Activer la réplication](site-recovery-vmware-to-azure.md). Dans la quatrième étape du workflow, utilisez la colonne **DISQUE À RÉPLIQUER** pour exclure des disques de la réplication. Par défaut, tous les disques sont sélectionnés pour la réplication. Décochez les cases correspondant aux disques que vous souhaitez exclure de la réplication, puis exécutez la procédure d’activation de la réplication.
-
-![Exclure les disques de la réplication et activer la réplication de la restauration automatique de VMware vers Azure](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
-
+![Exclure les disques de la réplication et activer la réplication de la restauration automatique de Hyper-V vers Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * Vous pouvez uniquement exclure des disques sur lesquels le service Mobilité est déjà installé. Vous devez installer le service Mobilité manuellement, car il n’est installé qu’à l’aide du mécanisme Push après l’activation de la réplication.
-> * Seuls les disques de base peuvent être exclus de la réplication. Vous ne pouvez pas exclure de système d’exploitation ni de disque dynamique.
-> * Une fois la réplication activée, vous ne pouvez pas ajouter ni supprimer de disques pour la réplication. Si vous voulez ajouter ou exclure un disque, vous devez désactiver la protection de la machine, puis la réactiver.
+> * Seuls les disques de base peuvent être exclus de la réplication. Vous ne pouvez pas exclure les disques de système d’exploitation. Nous vous recommandons de ne pas exclure de disques dynamiques. Azure Site Recovery ne peut pas identifier si les disques durs virtuels (VHD) sont de base ou dynamiques sur les machines virtuelles invitées.  Si tous les disques de volume dynamique dépendants ne sont pas exclus, le disque dynamique protégé devient un disque défectueux sur la machine virtuelle de basculement, et les données de ce disque ne sont pas accessibles.
+> * Une fois la réplication activée, vous ne pouvez pas ajouter ni supprimer de disques pour la réplication. Si vous voulez ajouter ou exclure un disque, vous devez désactiver la protection de la machine virtuelle, puis la réactiver.
 > * Si vous excluez un disque requis pour le bon fonctionnement d’une application, après le basculement vers Azure, vous devez créer manuellement le disque dans Azure afin que l’application répliquée puisse s’exécuter. Vous pouvez également intégrer Azure Automation dans un plan de récupération afin de créer le disque pendant le basculement de la machine.
-> * Machine virtuelle Windows : les disques que vous créez manuellement dans Azure ne sont pas restaurés automatiquement. Par exemple, si vous basculez trois disques et que vous en créez deux directement dans Azure Virtual Machines, seuls les trois disques qui ont été basculés sont restaurés automatiquement. Vous ne pouvez pas inclure de disques créés manuellement dans le processus de restauration automatique ou de reprotection à partir de l’hôte local vers Azure.
-> * Machine virtuelle Linux : les disques que vous créez manuellement dans Azure sont restaurés automatiquement. Par exemple, si vous basculez trois disques et créez deux disques directement dans Azure Virtual Machines, les cinq disques seront restaurés. Vous ne pouvez pas exclure de disques créés manuellement de la restauration automatique.
->
-
+> * Les disques que vous créez manuellement dans Azure ne seront pas restaurés automatiquement. Par exemple, si vous basculez trois disques et que vous en créez deux directement dans Azure Virtual Machines, seuls les trois disques qui ont été basculés seront restaurés automatiquement à partir d’Azure sur Hyper-V. Vous ne pouvez pas inclure de disques créés manuellement dans le processus de restauration automatique ou de réplication inverse d’Hyper-V vers Azure.
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>Scénarios d’exclusion de disques de bout en bout
 Pour vous aider à bien comprendre la fonctionnalité d’exclusion de disques, considérons deux scénarios :
@@ -75,7 +64,7 @@ Pour vous aider à bien comprendre la fonctionnalité d’exclusion de disques, 
 - Disque de base de données tempdb SQL Server
 - Disque de fichier d’échange (pagefile.sys)
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
 Considérons l’exemple d’une machine virtuelle SQL Server dotée d’un disque de base de données tempdb pouvant être exclu.
 
 Le nom du disque virtuel est SalesDB.
@@ -153,7 +142,7 @@ Consultez les recommandations Azure ci-après concernant le disque de stockage t
 * [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>Restauration automatique (d’Azure vers un hôte local)
-À présent, découvrons les disques qui sont répliqués lorsque vous procédez à un basculement d’Azure vers votre VMware local. Les disques que vous créez manuellement dans Azure ne seront pas répliqués. Par exemple, si vous basculez trois disques et que vous en créez deux directement dans Azure Virtual Machines, seuls les trois disques qui ont été basculés seront restaurés automatiquement. Vous ne pouvez pas inclure de disques créés manuellement dans le processus de restauration automatique à partir de l’hôte local vers Azure. En outre, le disque de stockage temporaire n’est pas répliqué vers les hôtes locaux.
+À présent, découvrons les disques qui sont répliqués lorsque vous procédez à un basculement d’Azure vers votre hôte Hyper-V local. Les disques que vous créez manuellement dans Azure ne seront pas répliqués. Par exemple, si vous basculez trois disques et que vous en créez deux directement dans Azure Virtual Machines, seuls les trois disques qui ont été basculés seront restaurés automatiquement. Vous ne pouvez pas inclure de disques créés manuellement dans le processus de restauration automatique à partir de l’hôte local vers Azure. En outre, le disque de stockage temporaire n’est pas répliqué vers les hôtes locaux.
 
 ### <a name="failback-to-original-location-recovery"></a>Restauration automatique pour la récupération à l’emplacement d’origine
 
@@ -166,15 +155,17 @@ Disk1 | E:\ | Stockage temporaire</br /> </br />Azure ajoute ce disque et lui at
 Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
 Disk3 | G:\ | Base de données utilisateur 2
 
-Lorsque la restauration automatique est effectuée à l’emplacement d’origine, la configuration des disques de la machine virtuelle de restauration automatique ne comporte aucun disque exclu. Les disques qui étaient exclus de VMware vers Azure ne seront pas disponibles sur la machine virtuelle de restauration automatique.
+Lorsque la restauration automatique est effectuée à l’emplacement d’origine, la configuration des disques de la machine virtuelle de restauration automatique reste la même que celle des disques de la machine virtuelle d’origine pour Hyper-V. Les disques qui étaient exclus de Hyper-V vers Azure sont disponibles sur la machine virtuelle de restauration automatique.
 
-Après le basculement planifié d’Azure vers l’hôte VMware local, les disques sur la machine virtuelle VMWare (emplacement d’origine) se présentent comme suit :
+Après le basculement planifié d’Azure vers l’hôte Hyper-V local, les disques sur la machine virtuelle Hyper-V (emplacement d’origine) se présentent comme suit :
 
-**Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | ---
-DISK0 | C:\ | Disque de système d’exploitation
-Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
-Disk2 | G:\ | Base de données utilisateur 2
+**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
+--- | --- | --- | ---
+DB-Disk0-OS | DISK0 |   C:\ | Disque de système d’exploitation
+DB-Disk1 | Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
+DB-Disk2 (disque exclu) | Disk2 | E:\ | Fichiers temporaires
+DB-Disk3 (disque exclu) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\)
+DB-Disk4 | Disk4 | G:\ | Base de données utilisateur 2
 
 ## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemple 2 : Exclure le disque de fichier d’échange (pagefile.sys)
 
@@ -195,8 +186,7 @@ Voici les paramètres du fichier d’échange sur la machine virtuelle source :
 
 ![Paramètres du fichier d’échange sur la machine virtuelle source](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
-
-Après le basculement de la machine virtuelle VMware vers Azure, les disques sur la machine virtuelle Azure se présentent comme suit :
+Après le basculement de la machine virtuelle Hyper-V vers Azure, les disques sur la machine virtuelle Azure se présentent comme suit :
 
 **Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | --- | ---
@@ -226,7 +216,7 @@ Voici les paramètres du fichier d’échange sur la machine virtuelle locale :
 
 ![Paramètres du fichier d’échange sur la machine virtuelle locale](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-Après le basculement de la machine virtuelle VMware vers Azure, les disques sur la machine virtuelle Azure se présentent comme suit :
+Après le basculement de la machine virtuelle Hyper-V vers Azure, les disques sur la machine virtuelle Azure se présentent comme suit :
 
 **Nom du disque**| **Numéro du disque du système d’exploitation invité**| **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | --- | ---

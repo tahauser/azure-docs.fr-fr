@@ -3,7 +3,7 @@ title: "Création d’un compte Azure Automation autonome | Microsoft Docs"
 description: "Ce didacticiel vous guide tout au long des procédures de création et de test d’une authentification de principal de sécurité dans Azure Automation. Il est complété par un exemple d’utilisation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 Cette rubrique montre comment créer un compte Automation à partir du portail Azure si vous souhaitez évaluer et apprendre Azure Automation sans inclure les solutions de gestion supplémentaires ou une intégration avec OMS Log Analytics pour fournir une surveillance avancée des travaux Runbook.  Vous pourrez ajouter ces solutions de gestion ou effectuer une intégration à Log Analytics ultérieurement.  Avec le compte Automation, vous avez la possibilité d’identifier les ressources de gestion des Runbooks dans Azure Resource Manager ou le modèle de déploiement Azure Classic.

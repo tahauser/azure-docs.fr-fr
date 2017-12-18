@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Prise en main de la solution préconfigurée d’usine connectée
 
@@ -27,20 +27,18 @@ Les [solutions préconfigurées][lnk-preconfigured-solutions] d’Azure IoT Suit
 
 Ce didacticiel montre comment configurer la solution préconfigurée d’usine connectée. Il présente également les fonctionnalités de base de la solution préconfigurée. Vous pouvez accéder à la plupart de ces fonctionnalités à partir du *tableau de bord* de solution déployé avec la solution préconfigurée :
 
-![tableau de bord de solution préconfigurée d’usine connectée][img-cf-home]
+![Tableau de bord de solution préconfigurée d’usine connectée][img-cf-home]
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte Azure actif.
 
 > [!NOTE]
 > Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la rubrique [Version d’évaluation gratuite d’Azure][lnk_free_trial].
-> 
-> 
 
 ## <a name="provision-the-solution"></a>Déployer la solution
 
 1. Connectez-vous à azureiotsuite.com à l’aide des informations d’identification de votre compte Azure, puis cliquez sur « **+** » pour créer une solution.
 2. Cliquez sur **Sélectionner** sur la vignette **Usine connectée**.
-3. Entrez un **Nom de solution** pour votre solution préconfigurée d’usine connectée.
+3. Saisissez un **Nom de solution** pour votre solution préconfigurée d’usine connectée.
 4. Sélectionnez l’**Abonnement** et la **Région** à utiliser pour configurer la solution.
 5. Cliquez sur **Créer une solution** pour commencer le processus de déploiement. L’exécution de ce processus prend généralement plusieurs minutes.
 
@@ -62,13 +60,13 @@ Lorsque vous déployez la solution préconfigurée d’usine connectée, elle es
 
 * Surveiller des valeurs d’usine, de lignes de production, OEE de poste et KPI
 * Analyser les données de télémétrie générées à partir de ces appareils à l’aide d’Azure Time Series Insights
-* Agir sur les alertes pour résoudre les problèmes
+* Agir sur les alarmes pour résoudre les problèmes
 
 Une fonctionnalité clé de ce scénario est que vous pouvez effectuer toutes ces actions à distance à partir du tableau de bord de solution. Vous n’avez pas besoin d’un accès physique aux appareils.
 
 ## <a name="view-the-solution-dashboard"></a>Afficher le tableau de bord de solution
 
-Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée. Il s’agit d’une représentation hiérarchique d’une configuration d’usine globale. Par exemple, vous pouvez afficher l’OEE et les KPI, publier de nouveaux nœuds pour la télémétrie et les alertes d’action.
+Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée. Il s’agit d’une représentation hiérarchique d’une configuration d’usine globale. Par exemple, vous pouvez afficher l’OEE et les KPI, publier de nouveaux nœuds pour la télémétrie et les alarmes d’action.
 
 1. Une fois que l’approvisionnement est terminé et que la vignette de votre solution préconfigurée indique **Prêt**, choisissez **Lancer** pour ouvrir le portail de votre solution d’usine connectée dans un nouvel onglet.
 
@@ -80,17 +78,17 @@ Grâce au tableau de bord de solution, vous pouvez gérer la solution déployée
 
 Le tableau de bord affiche les informations suivantes :
 
-* Un panneau **Liste d’usines** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
+* Un panneau **Emplacements d’usine** qui indique l’état, l’emplacement et la configuration de production actuelle dans la solution. Lors de la première exécution de la solution, il existe un nombre d’appareils simulés. La simulation de la ligne de production se compose de trois serveurs OPC UA réels par ligne de production qui effectuent des tâches simulées et partagent des données. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
 * Une **carte** qui affiche l’emplacement de chaque appareil connecté à la solution. La solution peut utiliser l’API Bing Maps pour tracer les informations sur la carte. Si votre abonnement est activé pour l’API Bing Maps Enterprise, cette fonctionnalité est automatiquement utilisée. Sinon, consultez le [FAQ][lnk-faq] pour savoir comment rendre le mappage dynamique.
-* Un panneau **Alertes** qui affiche les alertes générées lorsqu’une valeur de télémétrie ou d’OEE/KPI dépasse un seuil spécifique.
+* Un panneau **Alarmes** qui affiche les alarmes générées lorsqu’une valeur de télémétrie ou d’OEE/KPI dépasse un seuil spécifique.
 * Un panneau **Efficacité globale de l’équipement** qui affiche les valeurs OEE pour l’ensemble de l’entreprise, ou l’usine/la ligne de production/le poste que vous visualisez. Cette valeur est agrégée à partir de la vue du poste au niveau de l’entreprise. La données d’OEE et ses éléments constitutifs peuvent être analysés de manière plus approfondie.
 * Le panneau **Indicateurs de performance clés** qui affiche le nombre d’unités produites et l’énergie utilisée par l’ensemble de l’entreprise ou l’usine/la ligne de fabrication/le poste que vous visualisez. Ces valeurs est agrégées à partir d’une vue du poste au niveau de l’entreprise.
 
 ## <a name="view-factories"></a>Afficher les usines
 
-Le panneau *Usines* vous présente l’emplacement géographique de toutes les usines dans la solution, leur état et la configuration de production actuelle. À partir de la liste des emplacements, vous pouvez accéder aux autres niveaux de la hiérarchie de la solution. Les lignes de la liste sont des liens hypertexte vers des détails des lignes de production à cet emplacement. Il est ensuite possible d’accéder aux détails de la ligne de production et à la vue du poste. Vous pouvez également appliquer un filtre à la liste.
+Le panneau *Emplacements d’usine* vous présente l’emplacement géographique de toutes les usines dans la solution, leur état et la configuration de production actuelle. À partir de la liste des emplacements, vous pouvez accéder aux autres niveaux de la hiérarchie de la solution. Les lignes de la liste sont des liens hypertexte vers des détails des lignes de production à cet emplacement. Il est ensuite possible d’accéder aux détails de la ligne de production et à la vue du poste. Vous pouvez également appliquer un filtre à la liste.
 
-![Usines de la solution préconfigurée d’usine connectée][cf-img-factories] 
+![Usines de la solution préconfigurée d’usine connectée][cf-img-factories]
 
 1. Le **panneau Usines** affiche la liste des usines pour cette solution.
 
@@ -110,31 +108,31 @@ Si votre abonnement a accès à l’API Bing Maps, la carte *Usines* vous prése
 
 ![Carte de la solution préconfigurée d’usine connectée][cf-img-map]
 
-## <a name="view-alerts"></a>Afficher les alertes
+## <a name="view-alarms"></a>Afficher les alarmes
 
-Le panneau **Alertes** vous présente les alertes générées en raison d’une valeur rapportée ou d’une valeur d’OEE/KPI calculée dépassant son seuil configuré. Ce panneau affiche les alertes à chaque niveau de la hiérarchie, de la vue du niveau du poste à la vue globale. Les alertes contiennent une description de l’alerte, la date, l’heure, l’emplacement et le nombre d’occurrences. Vous pouvez obtenir un aperçu des données à l’origine de l’alerte à l’aide des données Time Series Insights. Les données Time Series Insights sont affichées dans les alertes, le cas échéant. Si vous êtes un administrateur, vous pouvez effectuer des actions par défaut sur les alertes telles que :
+Le panneau **Alarmes** vous présente les alarmes générées en raison d’une valeur rapportée ou d’une valeur d’OEE/KPI calculée dépassant son seuil configuré. Ce panneau affiche les alarmes à chaque niveau de la hiérarchie, de la vue du niveau du poste à la vue globale. Les alarmes contiennent une description de l’alarme, la date, l’heure, l’emplacement et le nombre d’occurrences. Vous pouvez obtenir un aperçu des données à l’origine de l’alarme à l’aide des données Time Series Insights. Les données Time Series Insights sont affichées dans les alarmes, le cas échéant. Si vous êtes un administrateur, vous pouvez effectuer des actions par défaut sur les alarmes telles que :
 
-* Fermer l’alerte.
-* Accuser réception de l’alerte.
+* Fermez l’alarme.
+* Accusez réception de l’alarme.
 
 Vous pouvez facultativement effectuer d’autres actions plus complexes. Par exemple, pour le nœud OPC UA Pressure de l’Assembly, vous pouvez :
 
 * Affichez des informations de support dans une page web dans une nouvelle fenêtre de navigateur.
-* Limiter la cause de l’alerte en appelant une méthode OPC UA sur l’appareil.
+* Limiter la cause de l’alarme en appelant une méthode OPC UA sur l’appareil.
 * Supprimer la disponibilité des actions par défaut.
 
-    ![Alertes de la solution préconfigurée d’usine connectée][cf-img-alerts]
+    ![Alarmes de la solution préconfigurée d’usine connectée][cf-img-alerts]
 
 > [!NOTE]
-> Ces alertes sont générées par des règles qui sont spécifiées dans un fichier de configuration de la solution préconfigurée. Ces règles peuvent générer des alertes lorsque les données d’OEE ou KPI ou les valeurs de nœud OPC UA dépassent leur seuil configuré.
+> Ces alarmes sont générées par des règles qui sont spécifiées dans un fichier de configuration de la solution préconfigurée. Ces règles peuvent générer des alarmes lorsque les données d’OEE ou KPI ou les valeurs de nœud OPC UA dépassent leur seuil configuré.
 
-1. Le **panneau Alertes** affiche les alertes générées dans cette solution.
+1. Le **panneau Alarmes** affiche les alarmes générées dans cette solution.
 
-2. Pour afficher les détails d’une alerte, cliquez sur l’alerte dans le panneau des alertes.
+2. Pour afficher les détails d’une alarme, cliquez sur l’alarme dans le panneau des alarmes.
 
-3. Pour approfondir l’analyse des données d’alerte, cliquez sur le graphique dans le panneau des alertes pour ouvrir l’environnement de l’explorateur Time Series Insights.
+3. Pour approfondir l’analyse des données d’alarme, cliquez sur le graphique dans le panneau des alarmes pour ouvrir l’environnement de l’explorateur Time Series Insights.
 
-4. Pour résoudre l’alerte, plusieurs actions sont disponibles dans le panneau des alertes. Choisissez l’option appropriée, puis cliquez sur le bouton de commande d’exécution de l’action.
+4. Pour résoudre l’alarme, plusieurs actions sont disponibles dans le panneau des alarmes. Choisissez l’option appropriée, puis cliquez sur le bouton de commande d’exécution de l’action.
 
 ## <a name="view-overall-equipment-efficiency"></a>Afficher l’efficacité globale de l’équipement
 
@@ -148,7 +146,7 @@ L’OEE évalue l’efficacité du processus de fabrication à l’aide de param
 
     ![Visualisation TSI de la solution préconfigurée d’usine connectée][cf-img-tsi-visualization]
 
-3. Pour approfondir l’analyse des données d’alerte, cliquez sur le graphique dans le panneau des alertes. Cette action ouvre l’environnement de l’explorateur Time Series Insights.
+3. Pour approfondir l’analyse des données d’alarme, cliquez sur le graphique dans le panneau des alarmes. Cette action ouvre l’environnement de l’explorateur Time Series Insights.
 
     ![Explorateur TSI de la solution préconfigurée d’usine connectée][cf-img-tsi-explorer]
 
@@ -164,7 +162,7 @@ La solution fournit deux indicateurs de performance clés : *unités par heure* 
 
 ## <a name="scenario-review"></a>Analyse du scénario
 
-Dans ce scénario, vous avez surveillé les valeurs OEE et KPI de vos usines dans le tableau de bord. Vous avez ensuite utilisé Time Series Insights pour fournir plus d’informations afin d’approfondir les données de télémétrie OEE et KPI pour pouvoir identifier des anomalies. Vous avez également utilisé le panneau des alertes pour consulter les problèmes liés à vos usines et vous avez utilisé les actions disponibles pour résoudre l’alerte.
+Dans ce scénario, vous avez surveillé les valeurs OEE et KPI de vos usines dans le tableau de bord. Vous avez ensuite utilisé Time Series Insights pour fournir plus d’informations afin d’approfondir les données de télémétrie OEE et KPI pour pouvoir identifier des anomalies. Vous avez également utilisé le panneau des alarmes pour consulter les problèmes liés à vos usines et vous avez utilisé les actions disponibles pour résoudre l’alarme.
 
 ## <a name="other-features"></a>Autres fonctionnalités
 
@@ -172,28 +170,28 @@ Les sections suivantes décrivent quelques fonctionnalités supplémentaires de 
 
 ## <a name="apply-filters"></a>Appliquer des filtres
 
-1. Cliquez sur le **chevron** pour afficher la liste des filtres disponibles dans le panneau des emplacements d’usine ou le panneau des alertes.
+1. Cliquez sur le **Entonnoir** pour afficher la liste des filtres disponibles dans le panneau des emplacements d’usine ou le panneau des alarmes.
 
-2. Le panneau des filtres s’affiche. 
+2. Le panneau des filtres s’affiche.
 
     ![Filtres de la solution préconfigurée d’usine connectée][cf-img-alert-filter]
 
 3. Choisissez le filtre nécessaire. Il est également possible d’entrer du texte libre dans les champs du filtre.
 
-4. Le filtre est ensuite appliqué pour vous. L’état du filtre apparaît également dans le tableau de bord sous la forme d’un entonnoir affiché dans les tables d’usines et d’alertes.
+4. Le filtre est ensuite appliqué pour vous. L’état du filtre apparaît également dans le tableau de bord sous la forme d’un entonnoir affiché dans les tables d’usines et d’alarmes.
 
     ![Filtres de la solution préconfigurée d’usine connectée][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Un filtre actif n’affecte pas les valeurs d’OEE et KPI affichées. Il filtre uniquement le contenu de la liste.
 
-5. Pour effacer un filtre, cliquez sur l’entonnoir, puis cliquez sur le filtre dans le panneau de contexte de filtre. Le texte **Tout** s’affiche dans les tables d’usines et d’alertes.
+5. Pour effacer un filtre, cliquez sur l’entonnoir, puis cliquez sur le filtre dans le panneau de contexte de filtre. Le texte **Tout** s’affiche dans les tables d’usines et d’alarmes.
 
 ## <a name="browse-an-opc-ua-server"></a>Parcourir un serveur OPC UA
 
 Lorsque vous déployez la solution préconfigurée, vous configurez automatiquement des serveurs OPC UA simulés auxquels vous pouvez accéder via l’explorateur de solutions. Ces serveurs sont des *serveurs OPC UA simulés*. Les serveurs simulés vous permettent d’expérimenter plus facilement la solution préconfigurée sans avoir à déployer des serveurs physiques réels. Si vous ne souhaitez pas connecter un serveur OPC UA réel à la solution, consultez le didacticiel [Connexion de votre appareil OPC UA à la solution préconfigurée d’usine connectée][lnk-connect-cf].
 
-1. Cliquez sur l’**icône d’usine** dans la barre de navigation du tableau de bord.
+1. Cliquez sur l’**icône de navigateur** dans la barre de navigation du tableau de bord.
 
     ![Explorateur de serveur de la solution préconfigurée d’usine connectée][cf-img-server-browser]
 
@@ -223,11 +221,11 @@ Lorsque vous parcourez un *serveur OPC UA simulé*, vous pouvez également chois
 
 4. Un panneau de contexte vous indiquant que la publication a réussi s’affiche. Le nœud s’affiche dans la vue du niveau poste avec une coche.
 
-    ![Réussite de la publication de la solution préconfigurée d’usine connectée][cf-img-publish-success]
+    ![Réussite de la publication préconfigurée d’usine connectée][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Commande et contrôle
 
-L’usine connectée vous permet de commander et de contrôler vos appareils industriels directement à partir du cloud. Vous pouvez utiliser cette fonctionnalité pour répondre aux alertes générées par l’appareil. Par exemple, vous pouvez envoyer une commande à l’appareil à partir du cloud. Vous pouvez rechercher les commandes disponibles dans le nœud **StationCommands** dans l’arborescence du navigateur de serveurs OPC UA. Dans ce scénario, vous ouvrez une soupape de décompression sur le poste d’assembly d’une ligne de production à Munich. Pour utiliser la fonctionnalité de commande et de contrôle, vous devez disposer du rôle **Administrateur** pour le déploiement de la solution préconfigurée.
+L’usine connectée vous permet de commander et de contrôler vos appareils industriels directement à partir du cloud. Vous pouvez utiliser cette fonctionnalité pour répondre aux alarmes générées par l’appareil. Par exemple, vous pouvez envoyer une commande à l’appareil à partir du cloud. Vous pouvez rechercher les commandes disponibles dans le nœud **StationCommands** dans l’arborescence du navigateur de serveurs OPC UA. Dans ce scénario, vous ouvrez une soupape de décompression sur le poste d’assembly d’une ligne de production à Munich. Pour utiliser la fonctionnalité de commande et de contrôle, vous devez disposer du rôle **Administrateur** pour le déploiement de la solution préconfigurée.
 
 1. Accédez au nœud **StationCommands** dans l’arborescence du navigateur de serveur OPC UA.
 
@@ -248,7 +246,6 @@ L’usine connectée vous permet de commander et de contrôler vos appareils ind
 7. Le panneau de contexte est mis à jour pour vous informer que l’appel de méthode a réussi. Vous pouvez vérifier que l’appel a réussi en lisant la valeur du nœud de pression mise à jour suite à l’appel.
 
     ![Réussite de l’appel de la solution préconfigurée d’usine connectée][cf-img-call-success]
-
 
 ## <a name="behind-the-scenes"></a>Dans les coulisses
 

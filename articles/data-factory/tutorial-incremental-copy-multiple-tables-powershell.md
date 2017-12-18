@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5472c41af9b0c524b931ed3e6b149270e17a633a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2d9213a74fd881a7be52f51ff8ebb49171c77283
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables dans SQL Server vers Azure SQL Database
 Dans ce didacticiel, vous allez créer une Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables dans le serveur SQL local vers une base de données Azure SQL.    
@@ -215,7 +215,8 @@ END
 
 ```
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) entre des guillemets doubles, puis exécutez la commande. Par exemple : `"adfrg"`. 
@@ -866,6 +867,6 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 Passez au didacticiel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
 
 > [!div class="nextstepaction"]
->[Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 
