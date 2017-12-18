@@ -3,7 +3,7 @@ title: "Prise en main d’Azure Automation | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble du service Azure Automation en examinant les détails de conception et d’implémentation dans l’optique d’intégrer l’offre à partir de la plateforme Place de marché Microsoft Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Prise en main d'Azure Automation
 
@@ -112,7 +112,7 @@ Le tableau suivant résume les différentes méthodes d’authentification pour 
 La section **Procédures\Authentication et sécurité** comprend des articles proposant une vue d’ensemble et des étapes d’implémentation, afin de configurer l’authentification pour ces environnements avec un compte existant ou un nouveau compte dédié à l’environnement.  L’article [Mise à jour d’un compte d’identification Automation](automation-create-runas-account.md) consacré aux comptes d’identification Azure et aux comptes d’identification Classic décrit comment mettre à jour votre compte Automation existant avec les comptes d’identification à l’aide du portail ou de PowerShell si ce compte n’a pas été initialement configuré avec un compte d’identification Azure ou un compte d’identification Classic. Si vous souhaitez créer un compte d’identification Azure ou un compte d’identification Classic avec un certificat émis par votre autorité de certification (CA) d’entreprise, consultez cet article pour découvrir comment créer les comptes à l’aide de cette configuration.     
  
 ## <a name="network-planning"></a>Planification réseau
-Pour que le Runbook Worker hybride se connecte à Microsoft Operations Management Suite (OMS) et soit inscrit, il doit avoir accès au numéro de port et aux URL décrits ci-dessous.  Il s’agit d’un ajout aux [ports et URL requis pour que Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) se connecte à OMS. Si vous utilisez un serveur proxy pour la communication entre l’agent et le service OMS, vous devez vous assurer que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès.
+Pour que le Runbook Worker hybride se connecte à Microsoft Operations Management Suite (OMS) et soit inscrit, il doit avoir accès au numéro de port et aux URL décrits ci-dessous.  Il s’agit d’un ajout aux [ports et URL requis pour que Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) se connecte à OMS. Si vous utilisez un serveur proxy pour la communication entre l’agent et le service OMS, vous devez vous assurer que les ressources appropriées sont accessibles. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès.
 
 Les informations ci-dessous répertorient le port et les URL requis pour que le Runbook Worker hybride communique avec Automation.
 
@@ -161,7 +161,7 @@ La méthode recommandée pour intégrer Automation est de sélectionner l’offr
 
 2. Cliquez sur **Nouveau**.<br><br> ![Sélection de l’option Nouveau dans le portail Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Recherchez **Automation**, puis dans les résultats de recherche, sélectionnez **Automation & Control***.<br><br> ![Recherche et sélection d’Automation &amp; Control dans la Place de marché](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Recherchez **Automation**, puis dans les résultats de recherche, sélectionnez **Automation & Control***.<br><br> ![Recherche et sélection d’Automation & Control dans la Place de marché](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
 4. Après avoir lu la description de l’offre, cliquez sur **Créer**.  
 

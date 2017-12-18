@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Présentation d’Apache Kafka sur HDInsight
 
@@ -62,6 +62,8 @@ Le logiciel Kafka sur HDInsight offre les fonctionnalités suivantes :
 ![Configuration de clusters Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
 
 Ce diagramme illustre une configuration Kafka typique qui utilise des groupes de consommateurs, un partitionnement et une réplication afin d’offrir une lecture parallèle des événements avec une tolérance de panne. Apache ZooKeeper est conçu pour les transactions simultanées, résilientes et à faible latence, car il gère l’état du cluster Kafka. Kafka stocke les enregistrements dans des *rubriques*. Les enregistrements sont produits par des *producteurs*, et utilisés par des *consommateurs*. Les producteurs récupèrent des enregistrements à partir des *répartiteurs* Kafka. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka. Une partition est créée pour chaque consommateur, permettant ainsi le traitement parallèle des données de diffusion en continu. La réplication est employée pour répartir les partitions sur les nœuds, offrant ainsi une protection contre les pannes de nœud (broker). Une partition indiquée par un *(L)* est le leader pour la partition donné. Le trafic de producteur est acheminé vers le leader de chaque nœud, en utilisant l’état géré par ZooKeeper.
+
+Chaque répartiteur Kafka utilise des disques gérés Azure. Le nombre de disques est défini par l’utilisateur et peut apporter un stockage allant jusqu’à 16 To par répartiteur.
 
 > [!IMPORTANT]
 > Kafka n’a pas connaissance du matériel sous-jacent (rack) dans le centre de données Azure. Pour vous assurer que les partitions sont correctement équilibrées sur le matériel sous-jacent, consultez [Configurer la haute disponibilité des données (Kafka)](apache-kafka-high-availability.md).

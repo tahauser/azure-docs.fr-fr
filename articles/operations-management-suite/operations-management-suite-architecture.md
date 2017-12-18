@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>Architecture OMS
-[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) est un ensemble de services informatiques destinés à gérer vos environnements locaux et de cloud.  Cet article décrit les différents composants OMS locaux et de cloud, ainsi que leur architecture de cloud computing de haut niveau.  Pour plus d’informations, vous pouvez consulter la documentation de chaque service.
+[Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) est un ensemble de services informatiques destinés à gérer vos environnements locaux et de cloud.  Cet article décrit les différents composants OMS locaux et de cloud, ainsi que leur architecture de cloud computing de haut niveau.  Pour plus d’informations, vous pouvez consulter la documentation de chaque service.
 
 ## <a name="log-analytics"></a>Log Analytics
 Toutes les données collectées par [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) sont stockées dans le référentiel OMS, qui est hébergé dans Azure.  Les Sources connectées génèrent des données collectées dans le référentiel OMS.  Actuellement, trois types de sources connectées sont pris en charge.
 
-* Un agent installé sur un ordinateur [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) directement connecté à OMS.
+* Un agent installé sur un ordinateur [Windows](../log-analytics/log-analytics-windows-agent.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) directement connecté à OMS.
 * Un groupe d’administration System Center Operations Manager (SCOM) [connecté à Log Analytics](../log-analytics/log-analytics-om-agents.md) .  Les agents SCOM continuent à communiquer avec les serveurs d’administration qui transmettent des événements et des données de performances à Log Analytics.
 * Un [compte de stockage Azure](../log-analytics/log-analytics-azure-storage.md) qui collecte les données [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) à partir d’un rôle de travail, d’un rôle Web ou d’une machine virtuelle dans Azure.
 
@@ -45,7 +45,7 @@ Azure Automation dispose d’une solution OMS qui affiche des statistiques et de
 
 ![Architecture Azure Automation haute performance](media/operations-management-suite-architecture/automation.png)
 
-## <a name="azure-backup"></a>Azure Backup
+## <a name="azure-backup"></a>Sauvegarde Azure
 Les données protégées dans [Azure Backup](http://azure.microsoft.com/documentation/services/backup) sont stockées dans un archivage de sauvegarde situé dans une zone géographique spécifique.  Les données sont répliquées au sein de cette région et, selon le type d’archivage, peuvent aussi être répliquées vers une autre région afin d’assurer une deuxième redondance.
 
 Dans Azure Backup, il existe trois scénarios fondamentaux.

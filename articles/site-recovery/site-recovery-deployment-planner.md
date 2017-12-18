@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planificateur de déploiement Azure Site Recovery de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -42,6 +42,8 @@ L’outil fournit les informations suivantes :
 * La bande passante réseau estimée requise pour la réplication différentielle
 * Le débit pouvant être obtenu par Site Recovery dans le scénario « local vers Azure »
 * Le nombre de machines virtuelles à traiter par lot en fonction de la bande passante estimée pour effectuer une réplication initiale pendant une durée donnée
+* RPO qui peut être obtenu pour une bande passante donnée
+* Impact sur le RPO souhaité si une bande passante inférieure est configurée.
 
 **Exigences de l’infrastructure Azure**
 
@@ -55,7 +57,7 @@ L’outil fournit les informations suivantes :
 **Exigences de l’infrastructure locale**
 * Le nombre requis de serveurs de configuration et de serveurs de processus à déployer en local
 
-**Estimation du coût de récupération d’urgence vers Azure** 
+**Estimation du coût de récupération d’urgence vers Azure**
 * Estimation du coût total de récupération d’urgence vers Azure : coût de calcul, stockage, réseau et de licence Azure Site Recovery
 * Analyse détaillée du coût par machine virtuelle
 

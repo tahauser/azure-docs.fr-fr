@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB : service connecté Visual Studio (version préliminaire)
 
@@ -119,8 +119,8 @@ Dans ce document, vous avez découverts les éléments suivants :
 
 Maintenant que les services connectés sont en cours d’exécution avec votre compte Azure Cosmos DB, passez à l’un des didacticiels pour commencer à développer votre solution :
 
-* [Développez avec l’API DocumentDB dans .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB : didacticiel sur la prise en main de l’API DocumentDB](documentdb-get-started.md).
+* [Azure CosmosDB: Develop with the SQL API in .NET](tutorial-develop-documentdb-dotnet.md) (Azure Cosmos DB : Développer avec l’API SQL dans .NET).
+* [Azure Cosmos DB: SQL API getting started tutorial](documentdb-get-started.md) (Azure Cosmos DB : didacticiel sur la prise en main de l’API SQL).
 * Vous voulez effectuer un test des performances et de la mise à l’échelle avec Azure Cosmos DB ? Consultez la page [Test des performances et de la mise à l’échelle avec Azure Cosmos DB](performance-testing.md).
 * Découvrez comment [surveiller un compte Azure Cosmos DB](monitor-accounts.md).
 

@@ -33,6 +33,10 @@
 ### [Limites du service](search-limits-quotas-capacity.md)
 ### [Évolutivité du service](search-capacity-planning.md)
 ### [Modèles de conception pour les architectures multi-locataires](search-modeling-multitenant-saas-applications.md)
+## Sécurité
+### [Données et sécurité opérationnelle](search-security-overview.md)
+### [Sécuriser avec des filtres d’identité](search-security-trimming-for-azure-search.md)
+### [Sécuriser avec Active Directory](search-security-trimming-for-azure-search-with-aad.md)
 ## Développement
 ### [Versions d’API](search-api-versions.md)
 ### [Développer dans Node.js](search-get-started-nodejs.md)
@@ -42,13 +46,6 @@
 ### [Modéliser les types de données complexes](search-howto-complex-data-types.md)
 ### [Gérer des mises à jour simultanées](search-howto-concurrency.md)
 ### [Exemples de code](https://azure.microsoft.com/resources/samples/?service=search)
-## Gérer
-### Administrer Recherche Azure
-#### [Portail Azure](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Surveiller l’utilisation et les statistiques](search-monitor-usage.md)
-### [Rechercher l’analyse du trafic](search-traffic-analytics.md)
-### [Performances et optimisation](search-performance-optimization.md)
 ## Charger des données
 ### [Présentation de l’indexeur](search-indexer-overview.md)
 ### [Indexeur Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Vue d'ensemble](search-filters.md)
 #### [Filtres de facette](search-filters-facets.md)
 #### [Filtres de langage](search-filters-language.md)
-#### [Filtres de sécurité (générique)](search-security-trimming-for-azure-search.md)
-#### [Filtres de sécurité (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [Référence de la syntaxe d’expression](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Résultats de pagination](search-pagination-page-layout.md)
 ### [Score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Navigation à facettes](search-faceted-navigation.md)
 ### [Version préliminaire des synonymes](search-synonyms.md)
 ### [moreLikeThis (préversion)](search-more-like-this.md)
+## Administration et analytique
+### [Gestion à l’aide du portail Azure](search-manage.md)
+### [Gestion à l’aide de PowerShell](search-manage-powershell.md)
+### [Surveiller l’utilisation et les statistiques](search-monitor-usage.md)
+### [Rechercher l’analyse du trafic](search-traffic-analytics.md)
+### [Performances et optimisation](search-performance-optimization.md)
 
 # Référence
 

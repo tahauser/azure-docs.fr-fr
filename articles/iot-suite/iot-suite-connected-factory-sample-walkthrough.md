@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procédure pas à pas de la solution préconfigurée d’usine connectée
 
-La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée IoT Suite est une implémentation d’une solution industrielle de bout en bout qui :
+La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée IoT Suite est une implémentation d’une solution industrielle de bout en bout qui :
 
 * Se connecte à la fois aux appareils industriels simulés fonctionnant sur des serveurs OPC UA dans des lignes de production simulées et aux appareils fonctionnant sur des serveurs OPC UA réels. Pour plus d’informations sur OPC UA, consultez les [questions fréquentes (FAQ) sur l’usine connectée](iot-suite-faq-cf.md).
 * Affiche les indicateurs de performance clé (KPI) opérationnels et les OEE de ces appareils et des lignes de production.
@@ -34,7 +34,7 @@ La [solution préconfigurée][lnk-preconfigured-solutions] d’usine connectée 
 
 Vous pouvez utiliser la solution comme point de départ pour votre propre implémentation et la [personnaliser][lnk-customize] pour répondre à vos propres exigences professionnelles.
 
-Cet article vous familiarise avec les éléments clés de la solution d’usine connectée pour vous permettre de comprendre son fonctionnement. Cet article décrit aussi le flux de données dans la solution. Ces connaissances vous aident à :
+Cet article vous présente quelques éléments clés de la solution d’usine connectée pour vous permettre de comprendre son fonctionnement. Cet article décrit aussi le flux de données dans la solution. Ces connaissances vous aident à :
 
 * Résoudre les problèmes dans la solution.
 * Adapter la solution à vos besoins professionnels.
@@ -166,11 +166,11 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
     - Utilise des communications sécurisées TCP/TLS.
     - Cette étape est interne au centre de données.
 
-11. Le navigateur web se connecte à l’application web de fabrique connectée.
-    - Affiche le tableau de bord de la fabrique connectée.
+11. Le navigateur web se connecte à l’application web d’usine connectée.
+    - Affiche le tableau de bord de l’usine connectée.
     - Se connecte via le protocole HTTPS.
-    - L’accès à l’application de fabrique connectée nécessite l’authentification de l’utilisateur via Azure Active Directory.
-    - Tous les appels WepApi dans les applications de fabrique connectée sont sécurisés par des jetons Anti-Forgery-Tokens.
+    - L’accès à l’application d’usine connectée nécessite l’authentification de l’utilisateur via Azure Active Directory.
+    - Tous les appels WepApi dans l’application d’usine connectée sont sécurisés par des jetons Anti-Forgery-Tokens.
 
 12. Lors de mises à jour des données, l’application web de fabrique connectée envoie des données mises à jour au navigateur web.
     - Utilise le protocole SignalR.
@@ -190,7 +190,7 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
     - Lit tous les périphériques connus de IoT Hub.
     - Utilise MQTT via Socket ou Secure Websocket.
 
-3. Le navigateur web se connecte à l’application web de fabrique connectée et affiche le tableau de bord de fabrique connectée.
+3. Le navigateur web se connecte à l’application web d’usine connectée et affiche le tableau de bord de l’usine connectée.
     - Utilise le protocole HTTPS.
     - Un utilisateur sélectionne un serveur UA OPC pour s’y connecter.
 
@@ -199,7 +199,7 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
 
 5. Le transport de proxy OPC reçoit une requête de la pile UA OPC pour établir une connexion socket TCP au serveur UA OPC.
     - Il récupère la charge utile TCP et l’utilise telle quelle.
-    - Cette étape est interne à l’application web de fabrique connectée.
+    - Cette étape est interne à l’application web d’usine connectée.
 
 6. Le proxy OPC (composant client) cherche le l’appareil proxy OPC (composant serveur) dans le registre de l’appareil IoT Hub. Il appelle ensuite une méthode d’appareil à l’appareil proxy OPC (composant serveur) dans IoT Hub.
     - Utilise le protocole HTTPS via TCP/TLS pour chercher le proxy OPC.
@@ -215,7 +215,7 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
 
 10. Le socket du proxy OPC (composant serveur) reçoit la réponse.
     - Le proxy OPC envoie les données en tant que valeur renvoyée de la méthode d’appareil à IoT Hub et au proxy OPC (composant client).
-    - Ces données sont fournies à la pile UA OPC dans l’application de fabrique connectée.
+    - Ces données sont fournies à la pile UA OPC dans l’application d’usine connectée.
 
 11. L’application web de fabrique connectée renvoie le navigateur OPC UX enrichi avec les informations spécifiques à UA OPC qu’elle a reçu du serveur UA OPC, vers le navigateur web et les affiche.
     - En naviguant dans l’espace d’adresse OPC et en appliquant les fonctions aux nœuds dans l’espace d’adresse OPC, le client UX du navigateur OPC utilise des appels AJAX via le protocole sécurisé HTTPS avec des jetons Anti-Forgery-Tokens pour obtenir des données de l’application web de fabrique connectée.
@@ -225,7 +225,7 @@ L’application web déployée dans le cadre de la solution préconfigurée comp
 > Le proxy OPC (composant serveur) et le proxy OPC (composant client) réalisent les étapes 4 à 10 pour tout trafic TCP relatifs aux communications UA OPC.
 
 > [!NOTE]
-> Pour le serveur UA OPC et la pile UA OPC au sein de l’application web de fabrique connectée, les communications du proxy OPC sont transparentes et toutes les fonctionnalités de sécurité UA OPC pour l’authentification et le chiffrement s’appliquent.
+> Pour le serveur UA OPC et la pile UA OPC au sein de l’application web d’usine connectée, les communications du proxy OPC sont transparentes et toutes les fonctionnalités de sécurité UA OPC pour l’authentification et le chiffrement s’appliquent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-log-analytics"></a>Présentation de Log Analytics
 Log Analytics est un service d’[Operations Management Suite \((OMS)\)](../operations-management-suite/operations-management-suite-overview.md) qui vous permet d’analyser votre cloud et de vos environnements locaux pour maintenir leur disponibilité et leurs performances.  Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.  Cet article traite brièvement de la valeur apportée par Log Analytics, fournit une vue d’ensemble de son fonctionnement et des liens vers des contenus plus détaillés pour aller plus loin.
@@ -30,9 +30,9 @@ Si vous souhaitez analyser votre environnement local ou si vous disposez déjà 
 
 
 ## <a name="using-log-analytics"></a>Utilisation de Log Analytics
-Vous pouvez accéder à Log Analytics via le portail OMS ou Azure qui s’exécute dans un navigateur et vous donne accès aux paramètres de configuration et à plusieurs outils pour analyser et agir sur les données collectées.  À partir du portail, vous pouvez utiliser des [recherches de journaux](log-analytics-log-searches.md) pour créer des requêtes et analyser les données collectées, des [tableaux de bord](log-analytics-dashboards.md) personnalisables avec des vues graphiques de vos recherches les plus précieuses, et des [solutions](log-analytics-add-solutions.md) intégrant des fonctionnalités et des outils d’analyse supplémentaires.
+Vous pouvez accéder à Log Analytics via le portail OMS ou Azure qui s’exécute dans un navigateur et vous donne accès aux paramètres de configuration et à plusieurs outils pour analyser et agir sur les données collectées.  À partir du portail, vous pouvez utiliser des [recherches dans les journaux](log-analytics-log-searches.md) pour créer des requêtes et analyser les données collectées, des [tableaux de bord](log-analytics-dashboards.md) personnalisables avec des vues graphiques de vos recherches les plus précieuses, et des [solutions](log-analytics-add-solutions.md) intégrant des fonctionnalités et des outils d’analyse supplémentaires.
 
-L’image ci-dessous provient du portail OMS qui affiche le tableau de bord affichant des informations résumées pour les [solutions](#add-functionality-with-management-solutions) installées dans l’espace de travail.  Vous pouvez cliquer sur n’importe quelle vignette pour explorer les données de cette solution.
+L’image ci-dessous provient du portail OMS qui affiche le tableau de bord présentant des informations résumées pour les [solutions](#add-functionality-with-management-solutions) installées dans l’espace de travail.  Vous pouvez cliquer sur n’importe quelle vignette pour explorer les données de cette solution.
 
 ![Portail OMS](media/log-analytics-overview/portal.png)
 
@@ -60,7 +60,7 @@ Au cœur de Log Analytics se trouve le référentiel OMS, qui est hébergé dans
 
 ![Référentiel OMS](media/log-analytics-overview/overview.png)
 
-Les sources connectées représentent les ordinateurs et autres ressources qui génèrent des données collectées par Log Analytics.  Cela peut inclure des agents installés sur des ordinateurs [Windows](log-analytics-windows-agents.md) et [Linux](log-analytics-linux-agents.md) directement connectés, ou des agents d’un [groupe d’administration System Center Operations Manager connecté](log-analytics-om-agents.md).  Pour les ressources Azure, Log Analytics collecte des données à partir d’[Azure Monitor et Azure Diagnostics](log-analytics-azure-storage.md).
+Les sources connectées représentent les ordinateurs et autres ressources qui génèrent des données collectées par Log Analytics.  Cela peut inclure des agents installés sur des ordinateurs [Windows](log-analytics-windows-agent.md) et [Linux](log-analytics-linux-agents.md) directement connectés, ou des agents d’un [groupe d’administration System Center Operations Manager connecté](log-analytics-om-agents.md).  Pour les ressources Azure, Log Analytics collecte des données à partir d’[Azure Monitor et Azure Diagnostics](log-analytics-azure-storage.md).
 
 [sources de données](log-analytics-data-sources.md) représentent les différents types de données collectées à partir de chaque source connectée.  Cela inclut les [événements](log-analytics-data-sources-windows-events.md) et les [données de performances](log-analytics-data-sources-performance-counters.md) d’agents [Windows](log-analytics-data-sources-windows-events.md) et Linux en plus des sources telles que les [journaux IIS](log-analytics-data-sources-iis-logs.md) et les [journaux de texte personnalisés](log-analytics-data-sources-custom-logs.md).  Vous configurez chaque source de données que vous souhaitez collecter, et la configuration est automatiquement remise à chaque source connectée.
 
@@ -69,7 +69,7 @@ Si vous avez des besoins spécifiques, vous pouvez utiliser l’[API de collecte
 ## <a name="log-analytics-architecture"></a>Architecture Log Analytics
 Les exigences de déploiement de Log Analytics sont minimes car les composants centraux sont hébergés dans le cloud Azure.  Cela inclut le référentiel en plus des services qui vous permettent de mettre en corrélation et d’analyser les données collectées.  Le portail étant accessible depuis n'importe quel navigateur, aucun logiciel client n’est requis.
 
-Vous devez installer les agents sur des ordinateurs [Windows](log-analytics-windows-agents.md) et [Linux](log-analytics-linux-agents.md), mais aucun agent supplémentaire n’est nécessaire pour les ordinateurs déjà membres d’un [groupe d’administration SCOM connecté](log-analytics-om-agents.md).  Les agents SCOM continueront à communiquer avec les serveurs d'administration qui transmettront leurs données à Log Analytics.  Certaines solutions nécessiteront cependant que les agents communiquent directement avec Log Analytics.  La documentation de chaque solution spécifie les besoins de communication.
+Vous devez installer les agents sur des ordinateurs [Windows](log-analytics-windows-agent.md) et [Linux](log-analytics-linux-agents.md), mais aucun agent supplémentaire n’est nécessaire pour les ordinateurs déjà membres d’un [groupe d’administration SCOM connecté](log-analytics-om-agents.md).  Les agents SCOM continueront à communiquer avec les serveurs d’administration qui transmettront leurs données à Log Analytics.  Certaines solutions nécessiteront cependant que les agents communiquent directement avec Log Analytics.  La documentation de chaque solution spécifie les besoins de communication.
 
 Lorsque vous vous [inscrivez à Log Analytics](log-analytics-get-started.md), vous créez un espace de travail OMS.  Considérez cet espace de travail comme un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Vous pouvez créer plusieurs espaces de travail dans votre abonnement afin de prendre en charge plusieurs environnements, par exemple de production et de test.
 

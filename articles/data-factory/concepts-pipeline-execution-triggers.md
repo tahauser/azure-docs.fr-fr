@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Consultez la rubrique relative à la [création d’une fabrique de données à 
 ## <a name="triggers"></a>Déclencheurs
 Les déclencheurs permettent aussi de lancer une exécution du pipeline. Ils correspondent à une unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Actuellement, Data Factory prend en charge un déclencheur qui appelle un pipeline selon un planning horaire. Il s’agit d’un **déclencheur Scheduler**. Actuellement, Data Factory ne prend pas en charge les déclencheurs basés sur des événements, par exemple lors de la réception d’un fichier.
 
-Les pipelines et les déclencheurs ont une relation « n-m ». En d’autres termes, plusieurs déclencheurs peuvent déclencher le même pipeline et le même déclencheur peut déclencher plusieurs pipelines. Dans cette définition JSON d’un déclencheur, la propriété **pipelines** fait référence à la liste des pipelines qui sont déclenchés par un déclencheur particulier, ainsi que les valeurs des paramètres du pipeline.
+Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plusieurs déclencheurs peuvent lancer un même pipeline et un seul déclencheur peut lancer plusieurs pipelines. Dans cette définition JSON d’un déclencheur, la propriété **pipelines** fait référence à la liste des pipelines qui sont déclenchés par un déclencheur particulier, ainsi que les valeurs des paramètres du pipeline.
 
 ### <a name="basic-trigger-definition"></a>Définition du déclencheur de base : 
 ```json
@@ -165,7 +165,7 @@ Le déclencheur Scheduler exécute les pipelines selon un planning horaire. Ce d
 ### <a name="scheduler-trigger-json-definition"></a>Définition JSON du déclencheur Scheduler
 Lorsque vous créez un déclencheur Scheduler, vous pouvez indiquer la planification et la périodicité en utilisant la définition JSON de l’exemple ci-dessous. 
 
-Pour que votre déclencheur Scheduler lance une exécution de pipeline, insérez la référence du pipeline concerné dans la définition du déclencheur. Les pipelines et les déclencheurs ont une relation « n-m ». Plusieurs déclencheurs peuvent exécuter le même pipeline. Le même déclencheur peut déclencher plusieurs pipelines.
+Pour que votre déclencheur Scheduler lance une exécution de pipeline, insérez la référence du pipeline concerné dans la définition du déclencheur. Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines.
 
 ```json
 {

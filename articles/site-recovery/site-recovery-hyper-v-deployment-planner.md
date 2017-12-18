@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planificateur de déploiement Azure Site Recovery de Hyper-V vers Azure
 Cet article est le guide de l’utilisateur du planificateur de déploiement Azure Site Recovery portant sur les déploiements de production de Hyper-V vers Azure.
@@ -40,6 +40,9 @@ L’outil fournit les informations suivantes :
 
 * La bande passante réseau estimée requise pour la réplication différentielle
 * Débit pouvant être obtenu par Azure Site Recovery dans le scénario « local vers Azure »
+* RPO qui peut être obtenu pour une bande passante donnée
+* Impact sur le RPO souhaité si une bande passante inférieure est configurée.
+
     
 **Exigences de l’infrastructure Azure**
 
@@ -52,6 +55,7 @@ L’outil fournit les informations suivantes :
 
 **Exigences de l’infrastructure locale**
 * Espace de stockage disponible requis sur chaque volume de stockage Hyper-V pour la réussite de la réplication initiale et de la réplication delta afin de s’assurer que la réplication de machine virtuelle n’entraînera pas de temps d’arrêt indésirables pour vos applications de production
+* Fréquence de copie maximale à définir pour la réplication Hyper-V
 
 **Conseils de traitement par lot de réplication initiale** 
 * Nombre de lots de machines virtuelles à utiliser pour la protection

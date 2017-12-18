@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -37,6 +37,10 @@ Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitia
 9. Déterminez quand vous voulez appliquer l’inscription. Vous pouvez choisir d’appliquer l’inscription à tout moment. Vous pouvez également demander aux utilisateurs de reconfirmer leurs informations d’authentification après un certain laps de temps.
 10. Utilisez la fonctionnalité de création de rapports. Vous pouvez passer en revue l’inscription et l’utilisation des utilisateurs au fil du temps avec la [fonctionnalité de création de rapports fournie par Azure AD](active-directory-passwords-reporting.md).
 11. Activez la réinitialisation du mot de passe. Lorsque vous êtes prêt, activez la réinitialisation du mot de passe pour tous les utilisateurs en définissant le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Tout le monde**. 
+
+   > [!NOTE]
+   > Modifier cette option de façon qu’elle passe d’un groupe sélectionné à tout le monde ne rend pas non valides les données d’authentification existantes qu’un utilisateur a enregistrées dans le cadre d’un groupe de test. Les utilisateurs qui sont configurés et qui possèdent des données d’authentification valides enregistrées continuent de fonctionner.
+
 12. [Permettez aux utilisateurs de Windows 10 de réinitialiser leur mot de passe sur l’écran de connexion](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ De nombreux clients estiment qu’une campagne par courrier électronique inclua
 
 Nombre de nos clients choisissent d’héberger une page web et de créer une entrée DNS racine, comme https://passwords.contoso.com. Ils remplissent cette page avec des liens vers les informations suivantes :
 
-* [Portail de réinitialisation du mot de passe Azure AD](https://aka.ms/sspr)
-* [Portail d’inscription à la réinitialisation de mot de passe Azure AD](http://aka.ms/ssprsetup)
-* [Portail de modification de mot de passe Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portail de réinitialisation de mot de passe Azure AD : https://aka.ms/sspr](https://aka.ms/sspr)
+* [Portail d’inscription à la réinitialisation de mot de passe Azure AD : http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portail de modification de mot de passe Azure AD : https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Autres informations spécifiques à l’organisation
 
 Dans toutes vos communications par courrier électronique ou prospectus, vous pouvez inclure une URL de marque, facile à retenir que les utilisateurs peuvent suivre quand ils doivent utiliser les services. Pour votre bénéfice, nous avons créé une [page d’exemple de réinitialisation du mot de passe](https://github.com/ajamess/password-reset-page) que vous pouvez utiliser et personnaliser pour les besoins de votre organisation.

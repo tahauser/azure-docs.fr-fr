@@ -10,7 +10,7 @@ Oui, vous pouvez utiliser vos propres NSA publics ou privés pour vos réseaux l
 ### <a name="are-there-asns-reserved-by-azure"></a>Existe-t-il des NSA réservés par Azure ?
 Oui. Les NSA suivants sont réservés par Azure pour les homologations internes et externes :
 
-* NSA publics : 8075, 8076, 12076
+* NSA publics : 8074, 8075, 12076
 * NSA privés : 65515, 65517, 65518, 65519, 65520
 
 Vous ne pouvez pas spécifier ces NSA pour vos périphériques VPN locaux lors de la connexion à des passerelles VPN Azure.
