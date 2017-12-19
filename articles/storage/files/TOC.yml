@@ -24,6 +24,8 @@
   items:
     - name: Planifier et concevoir
       items:
+        - name: Options de compte de stockage
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Planification d’un déploiement Azure Files
           href: storage-files-planning.md
         - name: Déploiement de fichiers Azure
