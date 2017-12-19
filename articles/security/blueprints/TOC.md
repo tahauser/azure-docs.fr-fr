@@ -54,6 +54,8 @@
 #### [Conformité - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Vue d'ensemble](uk-official-three-tier-applications-overview.md)
 ##### [Vue d’ensemble des principes](uk-official-three-tier-applications-principles-overview.md)
+#### [Conformité - Services financiers](financial-services-regulated-workloads.md)
+##### [Services financiers pour les charges de travail réglementées](financial-services-regulated-workloads.md)
 
 # Prise en main
 ## [Prise en main de la sécurité dans Azure](../azure-security-getting-started.md)

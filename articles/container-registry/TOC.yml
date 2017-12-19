@@ -47,6 +47,8 @@
       href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: S’authentifier avec un registre
       href: container-registry-authentication.md
+    - name: Mise à niveau d’un registre Classique
+      href: container-registry-upgrade.md
     - name: Utiliser des webhooks ACR
       href: ./container-registry-webhook.md
 - name: Référence

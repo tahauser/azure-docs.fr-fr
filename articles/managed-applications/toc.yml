@@ -6,11 +6,11 @@
       href: overview.md
 - name: Démarrages rapides
   items:
-    - name: "Créer une application managée avec l’interface CLI\r\nAzure"
+    - name: Créer une application gérée
       href: managed-apps-quickstart-cli.md
 - name: Didacticiels
   items:
-    - name: Créer l’application de catalogue de services
+    - name: Créer des fichiers d’application gérée
       href: publish-service-catalog-app.md
 - name: Exemples
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Mettre à jour les ressources managées
       href: update-managed-resources.md
-    - name: Publier l’application de catalogue de services - portail
+    - name: Utiliser le portail pour publier
       href: publish-portal.md
 - name: Référence
   items:
