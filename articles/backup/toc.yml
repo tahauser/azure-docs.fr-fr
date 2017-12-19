@@ -59,8 +59,6 @@
           items:
             - name: Préparer les charges de travail du serveur de sauvegarde Azure dans le portail Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Préparer les charges de travail du serveur de sauvegarde Azure dans le portail classique
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Ajouter du stockage à un serveur de sauvegarde Azure
               href: backup-mabs-add-storage.md
             - name: "Mettre à jour le serveur de sauvegarde Azure vers la version\_2"
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Sauvegardes cohérentes des applications des machines virtuelles Linux
               href: backup-azure-linux-app-consistent.md
-            - name: Préparer des machines virtuelles Azure
-              href: backup-azure-vms-prepare.md
         - name: Planifier votre environnement
           items:
             - name: Planifier l’infrastructure de sauvegarde de machines virtuelles
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Sauvegarder des machines virtuelles chiffrées
               href: backup-azure-vms-encryption.md
-            - name: Sauvegarde des machines virtuelles Azure
-              href: backup-azure-vms.md
         - name: Gestion et surveillance des machines virtuelles
           items:
             - name: Gérer les sauvegardes de machines Virtuelles Azure dans le portail Azure
               href: backup-azure-manage-vms.md
             - name: Surveiller des alertes pour les sauvegardes de machines virtuelles Azure dans le portail Azure
               href: backup-azure-monitor-vms.md
-            - name: Gérer et surveiller les sauvegardes de machines Virtuelles Azure dans le portail classique
-              href: backup-azure-manage-vms-classic.md
         - name: Restauration de données à partir de machines virtuelles
           items:
             - name: Récupérer des fichiers à partir de sauvegardes de machines virtuelles Azure
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Restaurer des machines virtuelles chiffrées
               href: backup-azure-vms-encryption.md
-            - name: Restauration de machines virtuelles dans Azure
-              href: backup-azure-restore-vms.md
             - name: Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées
               href: backup-azure-restore-key-secret.md
     - name: Configurer les rapports de la Sauvegarde Azure
@@ -135,8 +125,6 @@
       items:
         - name: Préparer les charges de travail DPM dans le portail Azure
           href: backup-azure-dpm-introduction.md
-        - name: Préparer les charges de travail DPM dans le portail classique
-          href: backup-azure-dpm-introduction-classic.md
         - name: Utiliser System Center DPM pour sauvegarder un serveur Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Récupérer des données sur un autre serveur DPM
@@ -149,16 +137,10 @@
       items:
         - name: Machines virtuelles Azure dans le portail Azure
           href: backup-azure-vms-automation.md
-        - name: Machines virtuelles Azure dans le portail classique
-          href: backup-azure-vms-classic-automation.md
         - name: DPM dans le portail Azure
           href: backup-dpm-automation.md
-        - name: DPM dans le portail classique
-          href: backup-dpm-automation-classic.md
         - name: Windows Server dans le portail Azure
           href: backup-client-automation.md
-        - name: Windows Server dans le portail classique
-          href: backup-client-automation-classic.md
     - name: Base de données SQL Azure
       items:
         - name: Configurer la rétention des sauvegardes à long terme
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Surveiller et gérer les coffres Recovery Services
           href: backup-azure-manage-windows-server.md
-        - name: Sauvegarder et restaurer à l’aide du portail classique
-          items:
-            - name: Windows Server avec le modèle de déploiement classique
-              href: backup-configure-vault-classic.md
-            - name: Gérer les coffres Sauvegarde à l’aide du modèle de déploiement classique
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Récupérer des fichiers sur un serveur Windows à l’aide du modèle de déploiement classique
-              href: backup-azure-restore-windows-server-classic.md
     - name: Coffre Recovery Services
       items:
         - name: Vue d’ensemble des coffres Recovery Services
@@ -201,8 +175,6 @@
       items:
         - name: Problèmes de sauvegarde de machines virtuelles Azure dans le portail Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: Problèmes de sauvegarde de machines virtuelles Azure dans le portail classique
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Échec de sauvegarde des machines virtuelles Azure : impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané ; la sous-tâche de capture instantanée de la machine virtuelle a expiré.'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Sauvegarde lente de fichiers et de dossiers dans Sauvegarde Azure
