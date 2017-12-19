@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: Alertes
           href: monitoring-overview-alerts.md
+        - name: Alertes (préversion)
+          href: monitoring-overview-unified-alerts.md
+        - name: Alertes de journal
+          href: monitor-alerts-unified-log.md
         - name: Autoscale
           href: monitoring-overview-autoscale.md
         - name: Journal d’activité
@@ -74,6 +78,8 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Configurer des alertes dans le portail Azure
           href: insights-alerts-portal.md
+        - name: Configurer des métriques ou des alertes de journaux dans Alertes (préversion) dans le portail Azure
+          href: monitor-alerts-unified-usage.md
         - name: Configurer des alertes avec l’interface de ligne de commande
           href: insights-alerts-command-line-interface.md
         - name: Configurer des alertes avec Azure PowerShell
