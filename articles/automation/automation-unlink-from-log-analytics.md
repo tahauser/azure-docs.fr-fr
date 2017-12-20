@@ -34,7 +34,7 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 ## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
 
-1. Dans le portail Azure, ouvrez votre compte Automation puis, dans le panneau de ce dernier, sélectionnez **	Dissocier l'espace de travail** dans la section **Ressources associées** sur la gauche.<br><br> ![Option Unlink workspace (Supprimer le lien de l’espace de travail)](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
+1. Dans le portail Azure, ouvrez votre compte Automation puis, dans le panneau de ce dernier, sélectionnez **Dissocier l'espace de travail** dans la section **Ressources associées** sur la gauche.<br><br> ![Option Unlink workspace (Supprimer le lien de l’espace de travail)](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
 2. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.<br><br> ![Page Dissocier l’espace de travail](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  Vous recevez une invite de confirmation de la suppression.<br><br>
 3. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
 
