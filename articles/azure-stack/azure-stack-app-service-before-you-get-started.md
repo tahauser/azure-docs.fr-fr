@@ -277,7 +277,7 @@ Procédez comme suit :
 5. Dans la fenêtre **Informations d’identification**, entrez votre compte administrateur et votre mot de passe pour le service Azure AD. Cliquez sur **OK**.
 6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
 7. Le script crée une application dans le locataire Azure AD. Notez l’ID d’application qui est retourné dans la sortie PowerShell. Vous avez besoin de ces informations lors de l’installation.
-8. Ouvrez une nouvelle fenêtre de navigateur et connectez-vous au portail Azure (portal.azure.com) en tant que **Administrateur du service Azure Active Directory**.
+8. Ouvrez une nouvelle fenêtre de navigateur et connectez-vous au [portail Azure] (https://portal.azure.com) en tant que **Administrateur du service Azure Active Directory**.
 9. Ouvrez le fournisseur de ressources Azure AD.
 10. Cliquez sur **Inscriptions des applications**.
 11. Recherchez **l’ID d’application** retourné à l’étape 7. Une application App Service est répertoriée.

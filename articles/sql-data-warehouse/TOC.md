@@ -32,7 +32,7 @@
 
 ## Chargement et transfert de données
 ### [Vue d'ensemble](design-elt-data-loading.md)
-### [Assistance](guidance-for-loading-data.md)
+### [meilleures pratiques](guidance-for-loading-data.md)
 
 
 ## Integrate
