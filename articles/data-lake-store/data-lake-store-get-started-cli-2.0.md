@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 431c974401c201a76b6d20de9837e44374716417
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Prise en main d’Azure Data Lake Store avec Azure CLI 2.0
 > [!div class="op_single_selector"]
@@ -233,7 +233,7 @@ az dls account delete --account mydatalakestore
 Quand vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
+* [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

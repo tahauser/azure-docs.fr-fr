@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 62cfc713c3b7ce8f7c0a7ff4dd5e80802f1843b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Opérations de gestion du système de fichiers sur Data Lake Store à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -40,8 +40,8 @@ Dans cet article, vous allez découvrir comment utiliser les API REST de WebHDFS
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Comment s’authentifier à l’aide d’Azure Active Directory ?
 Vous avez le choix entre deux méthodes pour vous authentifier à l’aide d’Azure Active Directory :
 
-* Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application (interactive), consultez la section relative à l’[authentification de l’utilisateur avec Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-rest-api.md).
-* Pour en savoir plus sur l’authentification entre les services pour votre application (non interactive), consultez la section relative à l’[authentification entre les services avec Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-rest-api.md).
+* Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application (interactive), consultez la section relative à l’[authentification de l’utilisateur avec Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-rest-api.md).
+* Pour en savoir plus sur l’authentification entre les services pour votre application (non interactive), consultez la section relative à l’[authentification entre les services avec Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 
 ## <a name="create-folders"></a>Créez les dossiers.

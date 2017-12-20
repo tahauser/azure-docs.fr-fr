@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
 ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -221,7 +221,7 @@ sudo apt-get install -f
 * [Créer et déployer votre première application Java Service Fabric sous Linux à l’aide du plug-in Service Fabric pour Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first Java application on Linux (Créer votre première application Java sur Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX (Préparer votre environnement de développement sur OSX)](service-fabric-get-started-mac.md)
-* [Préparer un environnement de développement sur Windows](service-fabric-local-linux-cluster-windows.md)
+* [Préparer un environnement de développement Linux sur Windows](service-fabric-local-linux-cluster-windows.md)
 * [Utilisez l’interface de ligne de commande Service Fabric pour gérer vos applications](service-fabric-application-lifecycle-sfctl.md)
 * [Différences entre Service Fabric Windows/Linux](service-fabric-linux-windows-differences.md)
 * [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)

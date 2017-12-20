@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4d3a5c0c49b881db69a9d5cccc65406322212a8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Prise en main d’Azure Data Lake Store à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ Pour supprimer un compte Azure Data Lake Store, cliquez sur **Supprimer**dans le
 ![Supprimer un compte Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Supprimer un compte Data Lake")
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
+* [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
