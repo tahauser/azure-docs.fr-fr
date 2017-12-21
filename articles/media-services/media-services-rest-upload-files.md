@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 955356ffe6fc524c1528364add7e2c2a336137b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f198de0bf212f4ae566193954a319bece1e421f6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Dans Media Services, vous téléchargez vos fichiers numériques dans une ressou
 > 
 > * Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d’URL pour le contenu de streaming (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété **Name** ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un ’.’ pour l’extension de nom de fichier.
 > * La longueur du nom ne doit pas dépasser 260 caractères.
-> * Une limite est appliquée à la taille maximale de fichier prise en charge pour le traitement dans Media Services. Consultez [cette rubrique](media-services-quotas-and-limitations.md) pour en savoir plus sur les limites de taille des fichiers.
+> * Une limite est appliquée à la taille maximale de fichier prise en charge pour le traitement dans Media Services. Consultez [cet](media-services-quotas-and-limitations.md) article pour en savoir plus sur les limites de taille des fichiers.
 > 
 
 Le flux de travail classique de téléchargement de ressources se divise en différentes parties, à savoir :
@@ -54,9 +54,6 @@ AMS vous permet également de télécharger des ressources en bloc. Pour plus d�
 
 Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
-
 ## <a name="upload-assets"></a>Téléchargement de ressources
 
 ### <a name="create-an-asset"></a>Créer une ressource
@@ -65,16 +62,16 @@ Une ressource est un conteneur pour plusieurs types ou ensembles d’objets dans
 
 L’une des propriétés que vous pouvez spécifier lors de la création d’un élément multimédia est **Options**. **Options** est une valeur d’énumération qui décrit les options de chiffrement permettant de créer un élément multimédia. Une valeur valide est une des valeurs de la liste ci-dessous, et non une combinaison de valeurs. 
 
-* **None** = **0** : Aucun chiffrement ne sera utilisé. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage.
+* **None** = **0** : aucun chiffrement. Il s’agit de la valeur par défaut. Quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage.
     Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
 * **StorageEncrypted** = **1** : spécifie si vous souhaitez que vos fichiers soient chiffrés avec le chiffrement AES-256 bits pour le chargement et le stockage.
   
     Si votre ressource est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md).
 * **CommonEncryptionProtected** = **2** : spécifie si vous téléchargez des fichiers protégés par une méthode de chiffrement commune (comme PlayReady). 
-* **EnvelopeEncryptionProtected** = **4** : indique si vous téléchargez un contenu au format HLS chiffré avec des fichiers AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+* **EnvelopeEncryptionProtected** = **4** : indique si vous téléchargez un contenu au format HLS chiffré avec des fichiers AES. Les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
 > [!NOTE]
-> Si votre élément multimédia utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme le décrit la rubrique suivante :[Création d’une ContentKey](media-services-rest-create-contentkey.md). Notez qu’après avoir téléchargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE** . 
+> Si votre élément multimédia utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme le décrit l’article suivant : [Création de clés de contenu avec REST](media-services-rest-create-contentkey.md). Après avoir chargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE** . 
 > 
 > 
 
@@ -89,7 +86,7 @@ L’exemple suivant montre comment créer une ressource.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
@@ -127,9 +124,9 @@ Si l’opération réussit, l’élément suivant est retourné :
 ### <a name="create-an-assetfile"></a>Création d’un AssetFile
 L’entité [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) représente un fichier audio ou vidéo stocké dans un conteneur d’objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs fichiers de ressources. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n’est pas associé à un fichier numérique dans un conteneur d’objets blob.
 
-Notez que l’instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
+L'instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
 
-Après avoir chargé votre fichier multimédia numérique dans un conteneur d’objets blob, vous utiliserez la demande HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme l’indique plus loin cette rubrique). 
+Après avoir chargé votre fichier de contenu multimédia numérique dans un conteneur d’objets blob, vous utiliserez la requête HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme l’indique plus loin cet article). 
 
 **Demande HTTP**
 
@@ -140,7 +137,7 @@ Après avoir chargé votre fichier multimédia numérique dans un conteneur d’
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 
@@ -189,7 +186,7 @@ Après avoir chargé votre fichier multimédia numérique dans un conteneur d’
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Création d’AccessPolicy avec autorisation d’écriture.
 
 >[!NOTE]
->Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cette rubrique](media-services-dotnet-manage-entities.md#limit-access-policies) .
+>Un nombre limite de 1 000 000 a été défini pour les différentes stratégies AMS (par exemple, pour la stratégie de localisateur ou pour ContentKeyAuthorizationPolicy). Vous devez utiliser le même ID de stratégie si vous utilisez toujours les mêmes jours / autorisations d’accès, par exemple, les stratégies pour les localisateurs destinées à demeurer en place pendant une longue période (stratégies sans chargement). Pour plus d’informations, consultez [cet](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d’accès pour l’écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d’entités AccessPolicies. N’oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d’erreur interne de serveur 500. Pour plus d’informations sur AccessPolicies, consultez [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
@@ -204,7 +201,7 @@ L’exemple suivant montre comment créer une stratégie AccessPolicy :
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -260,7 +257,7 @@ L’exemple suivant montre comment créer un localisateur d’URL SAS, tel que d
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {  
        "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -321,7 +318,7 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {  
@@ -346,7 +343,7 @@ Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **Réponse HTTP**
@@ -364,7 +361,7 @@ Si l’opération réussit, l’élément suivant est retourné :
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **Réponse HTTP**
@@ -385,7 +382,7 @@ IngestManifest est un conteneur pour un ensemble de ressources, de fichiers de r
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 36
@@ -394,7 +391,7 @@ IngestManifest est un conteneur pour un ensemble de ressources, de fichiers de r
     { "Name" : "ExampleManifestREST" }
 
 ### <a name="create-assets"></a>Création de ressources
-Avant de créer IngestManifestAsset, vous devez créer la ressource qui sera finalisée avec la réception en bloc. Une ressource est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande HTTP POST vers Microsoft Azure Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande. Dans cet exemple, la ressource est créée à l’aide de l’option StorageEncryption(1) incluse dans le corps de la demande.
+Avant de créer IngestManifestAsset, vous devez créer la ressource qui sera finalisée avec la réception en bloc. Une ressource est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l’API REST, la création d’une ressource nécessite d’envoyer une requête HTTP POST vers Microsoft Azure Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la requête. Dans cet exemple, la ressource est créée à l’aide de l’option StorageEncryption(1) incluse dans le corps de la requête.
 
 **Réponse HTTP**
 
@@ -403,7 +400,7 @@ Avant de créer IngestManifestAsset, vous devez créer la ressource qui sera fin
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 55
@@ -412,7 +409,7 @@ Avant de créer IngestManifestAsset, vous devez créer la ressource qui sera fin
     { "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
 
 ### <a name="create-the-ingestmanifestassets"></a>Création d’IngestManifestAssets
-IngestManifestAssets représente les ressources dans un IngestManifest qui sont utilisées avec la réception en bloc. Elles permettent essentiellement de lier la ressource au manifeste. Azure Media Services surveille en interne le téléchargement du fichier en fonction de la collection IngestManifestFiles associée à IngestManifestAsset. Une fois que ces fichiers sont chargés, la ressource est finalisée. Vous pouvez créer un IngestManifestAsset avec une demande HTTP POST. Dans le corps de la demande, indiquez l’ID d’IngestManifest et l’ID de la ressource qu’IngestManifestAsset doit lier ensemble pour la réception en bloc.
+IngestManifestAssets représente les ressources dans un IngestManifest qui sont utilisées avec la réception en bloc. Elles permettent essentiellement de lier la ressource au manifeste. Azure Media Services surveille en interne le téléchargement du fichier en fonction de la collection IngestManifestFiles associée à IngestManifestAsset. Une fois que ces fichiers sont chargés, la ressource est finalisée. Vous pouvez créer un IngestManifestAsset avec une requête HTTP POST. Dans le corps de la demande, indiquez l’ID d’IngestManifest et l’ID de la ressource qu’IngestManifestAsset doit lier ensemble pour la réception en bloc.
 
 **Réponse HTTP**
 
@@ -421,7 +418,7 @@ IngestManifestAssets représente les ressources dans un IngestManifest qui sont 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 152
@@ -430,7 +427,7 @@ IngestManifestAssets représente les ressources dans un IngestManifest qui sont 
 
 
 ### <a name="create-the-ingestmanifestfiles-for-each-asset"></a>Création d’IngestManifestFiles pour chaque ressource
-Un IngestManifestFile représente un objet blob réel vidéo ou audio qui sera téléchargé dans le cadre de la réception en bloc pour une ressource. Des propriétés liées au chiffrement ne sont pas requises, sauf si la ressource utilise une option de chiffrement. L’exemple utilisé dans cette section illustre la création d’un IngestManifestFile qui fait appel à StorageEncryption pour la ressource créée précédemment.
+Un IngestManifestFile représente un objet blob réel vidéo ou audio qui est chargé dans le cadre de l’ingestion en bloc pour une ressource. Des propriétés liées au chiffrement ne sont pas requises, sauf si la ressource utilise une option de chiffrement. L’exemple utilisé dans cette section illustre la création d’un IngestManifestFile qui fait appel à StorageEncryption pour la ressource créée précédemment.
 
 **Réponse HTTP**
 
@@ -439,7 +436,7 @@ Un IngestManifestFile représente un objet blob réel vidéo ou audio qui sera t
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 367
@@ -448,10 +445,10 @@ Un IngestManifestFile représente un objet blob réel vidéo ou audio qui sera t
     { "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
 
 ### <a name="upload-the-files-to-blob-storage"></a>Téléchargement des fichiers vers le stockage d’objets blob
-Vous pouvez utiliser n’importe quelle application cliente rapide capable de télécharger les fichiers de ressources sur l’URI du conteneur de stockage d’objets blob fourni par la propriété BlobStorageUriForUpload d’IngestManifest. [Aspera On Demand pour l'Application Azure](http://go.microsoft.com/fwlink/?LinkId=272001)est un service de téléchargement à grande vitesse intéressant.
+Vous pouvez utiliser n’importe quelle application cliente rapide capable de charger les fichiers de ressources sur l’URI du conteneur de stockage d’objets blob fourni par la propriété BlobStorageUriForUpload d’IngestManifest. [Aspera On Demand pour Azure Application](http://go.microsoft.com/fwlink/?LinkId=272001) est un service de chargement rapide intéressant.
 
 ### <a name="monitor-bulk-ingest-progress"></a>Surveillance de la progression de la réception en bloc
-Vous pouvez surveiller la progression des opérations de réception en bloc pour un IngestManifest en interrogeant la propriété Statistics d’IngestManifest. Cette propriété est de type complexe [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). Pour interroger la propriété Statistics, envoyez une demande HTTP GET en transmettant l’ID d’IngestManifest.
+Vous pouvez surveiller la progression des opérations de réception en bloc pour un IngestManifest en interrogeant la propriété Statistics d’IngestManifest. Cette propriété est de type complexe [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). Pour interroger la propriété Statistics, envoyez une requête HTTP GET en transmettant l’ID d’IngestManifest.
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Créer des ContentKeys utilisées pour le chiffrement
 Si votre ressource utilise le chiffrement, vous devez créer la ContentKey à utiliser pour le chiffrement avant de créer les fichiers de ressources. Pour le chiffrement du stockage, les propriétés suivantes doivent être incluses dans le corps de la demande.
@@ -460,7 +457,7 @@ Si votre ressource utilise le chiffrement, vous devez créer la ContentKey à ut
 | --- | --- |
 | Id |ID de ContentKey que nous générons nous-mêmes en utilisant le format suivant : « nb:kid:UUID:<NEW GUID> ». |
 | ContentKeyType |Il s’agit du type de clé de contenu en tant qu’entier pour cette clé de contenu. Nous transmettons la valeur 1 pour le chiffrement du stockage. |
-| EncryptedContentKey |Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une demande HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey. |
+| EncryptedContentKey |Nous créons une valeur de clé de contenu qui est une valeur de 256 bits (32 octets). La clé est chiffrée à l’aide du certificat X.509 de chiffrement du stockage que nous récupérons à partir de Microsoft Azure Media Services en exécutant une requête HTTP GET pour les méthodes GetProtectionKeyId et GetProtectionKey. |
 | ProtectionKeyId |Il s’agit de l’ID de clé de protection pour le certificat X.509 de chiffrement de stockage qui a été utilisé pour chiffrer notre clé de contenu. |
 | ProtectionKeyType |Il s’agit du type de chiffrement de la clé de protection qui a été utilisé pour chiffrer la clé de contenu. Cette valeur est StorageEncryption(1) dans notre exemple. |
 | Somme de contrôle |La somme de contrôle calculée MD5 pour la clé de contenu. Elle est calculée en chiffrant l’ID de contenu avec la clé de contenu. L’exemple de code montre comment calculer la somme de contrôle. |
@@ -472,7 +469,7 @@ Si votre ressource utilise le chiffrement, vous devez créer la ContentKey à ut
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 572
@@ -481,7 +478,7 @@ Si votre ressource utilise le chiffrement, vous devez créer la ContentKey à ut
     {"Id" : "nb:kid:UUID:316d14d4-b603-4d90-b8db-0fede8aa48f8", "ContentKeyType" : 1, "EncryptedContentKey" : "Y4NPej7heOFa2vsd8ZEOcjjpu/qOq3RJ6GRfxa8CCwtAM83d6J2mKOeQFUmMyVXUSsBCCOdufmieTKi+hOUtNAbyNM4lY4AXI537b9GaY8oSeje0NGU8+QCOuf7jGdRac5B9uIk7WwD76RAJnqyep6U/OdvQV4RLvvZ9w7nO4bY8RHaUaLxC2u4aIRRaZtLu5rm8GKBPy87OzQVXNgnLM01I8s3Z4wJ3i7jXqkknDy4VkIyLBSQvIvUzxYHeNdMVWDmS+jPN9ScVmolUwGzH1A23td8UWFHOjTjXHLjNm5Yq+7MIOoaxeMlKPYXRFKofRY8Qh5o5tqvycSAJ9KUqfg==", "ProtectionKeyId" : "7D9BB04D9D0A4A24800CADBFEF232689E048F69C", "ProtectionKeyType" : 1, "Checksum" : "TfXtjCIlq1Y=" }
 
 ### <a name="link-the-contentkey-to-the-asset"></a>Liaison de ContentKey à la ressource
-La ContentKey est associée à une ou plusieurs ressources en envoyant une demande HTTP POST. La demande suivante illustre la liaison de la ContentKey en exemple à la ressource en exemple par ID.
+La ContentKey est associée à une ou plusieurs ressources en envoyant une requête HTTP POST. La demande suivante illustre la liaison de la ContentKey en exemple à la ressource en exemple par ID.
 
 **Réponse HTTP**
 
@@ -490,7 +487,7 @@ La ContentKey est associée à une ou plusieurs ressources en envoyant une deman
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 113
@@ -505,7 +502,7 @@ La ContentKey est associée à une ou plusieurs ressources en envoyant une deman
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 
