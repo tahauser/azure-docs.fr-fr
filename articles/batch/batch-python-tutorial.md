@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Bien démarrer avec le Kit de développement logiciel (SDK)Batch pour Python
 
@@ -103,16 +103,16 @@ Le schéma suivant illustre les opérations principales effectuées par les scri
 ![Exemple de flux de travail Batch][8]<br/>
 
 [**Étape 1.**](#step-1-create-storage-containers) Créer des **conteneurs** dans le Stockage Blob Azure.<br/>
-[**Étape 2.**](#step-2-upload-task-script-and-data-files) Charger le script de tâche et les fichiers d’entrée dans les conteneurs.<br/>
-[**Étape 3.**](#step-3-create-batch-pool) Créer un **pool** Batch.<br/>
+[**Étape 2.**](#step-2-upload-task-script-and-data-files) Charger le script de tâche et les fichiers d’entrée dans les conteneurs.<br/>
+[**Étape 3.**](#step-3-create-batch-pool) Créer un **pool** Batch.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Le pool **StartTask** télécharge le script de tâche (python_tutorial_task.py) dans les nœuds lorsque ces derniers rejoignent le pool.<br/>
-[**Étape 4.**](#step-4-create-batch-job) Créer un **travail** Batch.<br/>
-[**Étape 5.**](#step-5-add-tasks-to-job) Ajoutez des **tâches** au travail.<br/>
+[**Étape 4.**](#step-4-create-batch-job) Créer un **travail** Batch.<br/>
+[**Étape 5.**](#step-5-add-tasks-to-job) Ajoutez des **tâches** au travail.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Les tâches sont planifiées pour s’exécuter sur des nœuds.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Chaque tâche télécharge ses données d’entrée depuis Stockage Azure, puis commence l’exécution.<br/>
-[**Étape 6.**](#step-6-monitor-tasks) Surveiller les tâches.<br/>
+[**Étape 6.**](#step-6-monitor-tasks) Surveiller les tâches.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Lorsque les tâches sont terminées, les résultats générés sont chargés dans Stockage Azure.<br/>
-[**Étape 7.**](#step-7-download-task-output) Télécharger la sortie des tâches à partir de Storage.
+[**Étape 7.**](#step-7-download-task-output) Télécharger la sortie des tâches à partir de Storage.
 
 Comme indiqué précédemment, certaines solutions Batch ne suivent pas exactement cette procédure et peuvent exécuter de nombreuses autres opérations ; toutefois, cet exemple illustre les processus fréquemment inclus dans une solution Batch.
 
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="step-1-create-storage-containers"></a>Étape 1 : créer des conteneurs de stockage
-![Créer des conteneurs dans le service Stockage Azure][1]
+![Créer des conteneurs dans le Stockage Azure][1]
 <br/>
 
 Batch prend en charge l’interaction avec Azure Storage. Les conteneurs présents dans votre compte de stockage fournissent les fichiers nécessaires aux tâches s’exécutant dans votre compte Batch. Les conteneurs fournissent également un emplacement pour stocker les données de sortie générées par les tâches. Le script *python_tutorial_client.py* commence par créer trois conteneurs dans [Stockage Blob Azure](../storage/common/storage-introduction.md#blob-storage) :
