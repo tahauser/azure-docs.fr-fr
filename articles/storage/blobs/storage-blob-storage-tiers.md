@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage chaud, froid et archive
 
@@ -32,7 +32,7 @@ Chacun des scénarios d’accès aux données peut bénéficier des avantages d�
 
 ## <a name="storage-accounts-that-support-tiering"></a>Comptes de stockage prenant en charge la hiérarchisation
 
-Vous pouvez uniquement hiérarchiser vos données de stockage d’objet sur chaud, froid ou archive dans des comptes de stockage d’objets blob ou Usage général v2 (GPv2). Les comptes Usage général v1 (GPv1) ne prennent pas en charge la hiérarchisation. Cependant, les clients peuvent facilement convertir leurs comptes de stockage GPv1 ou d’objets blob en des comptes GPv2 en un simple clic depuis le portail Azure. GPv2 fournit une nouvelle structure de tarification pour les objets blobs, les fichiers et les files d’attente, ainsi que l’accès à de nouvelles fonctionnalités de stockage. De plus, de nouvelles fonctionnalités à venir et des réductions des prix ne seront offerts qu’aux comptes GPv2. Par conséquent, les clients doivent considérer le fait d’utiliser des comptes GPv2, mais seulement après avoir examiné la tarification de tous les services car certaines charges de travail peuvent revenir plus chères sur GPv2 que sur GPv1. Voir [Options de compte de stockage Azure](storage-account-options.md) pour en savoir plus.
+Vous pouvez uniquement hiérarchiser vos données de stockage d’objet sur chaud, froid ou archive dans des comptes de stockage d’objets blob ou Usage général v2 (GPv2). Les comptes Usage général v1 (GPv1) ne prennent pas en charge la hiérarchisation. Cependant, les clients peuvent facilement convertir leurs comptes de stockage GPv1 ou d’objets blob en des comptes GPv2 en un simple clic depuis le portail Azure. GPv2 fournit une nouvelle structure de tarification pour les objets blobs, les fichiers et les files d’attente, ainsi que l’accès à de nouvelles fonctionnalités de stockage. De plus, de nouvelles fonctionnalités à venir et des réductions des prix ne seront offerts qu’aux comptes GPv2. Par conséquent, les clients doivent considérer le fait d’utiliser des comptes GPv2, mais seulement après avoir examiné la tarification de tous les services car certaines charges de travail peuvent revenir plus chères sur GPv2 que sur GPv1. Voir [Options de compte de stockage Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour en savoir plus.
 
 Les comptes de stockage d’objets blob et GPv2 expose l’attribut **Niveau d’accès** au niveau du compte, vous permettant de spécifier un niveau de stockage par défaut chaud ou froid pour tous les objets blob présents dans le compte de stockage et ne disposant pas déjà d’un niveau établi au niveau de l’objet. Le niveau du compte ne s’applique pas aux objets disposant d’un niveau établi au niveau de l’objet. Le niveau de stockage archive peut être appliqué uniquement au niveau de l’objet. Vous pouvez passer d’un niveau de stockage à un autre à tout moment.
 
@@ -139,7 +139,7 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 Nous vous recommandons d’utiliser des comptes GPv2 pour la hiérarchisation à la place des comptes de stockage d’objets blob. GPv2 prend en charge toutes les fonctionnalités prises en charge par les comptes de stockage d’objets blob, plus beaucoup d’autres. La tarification entre le stockage d’objets blob et GPv2 est presque identique, mais certaines nouvelles fonctionnalités et réduction de tarifs sont uniquement disponibles sur les comptes GPv2. Les comptes GPv1 ne prennent pas en charge la hiérarchisation.
 
-La structure de tarification entre des comptes GPv1 et GPv2 est différente et les clients doivent évaluer soigneusement le fait de passer à des comptes GPv2. Vous pouvez facilement convertir un compte de stockage d’objets blob ou GPv1 existant vers un compte GPv2 en un simple clic. Voir [Options de compte de stockage Azure](storage-account-options.md) pour en savoir plus.
+La structure de tarification entre des comptes GPv1 et GPv2 est différente et les clients doivent évaluer soigneusement le fait de passer à des comptes GPv2. Vous pouvez facilement convertir un compte de stockage d’objets blob ou GPv1 existant vers un compte GPv2 en un simple clic. Voir [Options de compte de stockage Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour en savoir plus.
 
 **Est-ce que je peux stocker des objets dans les trois niveaux de stockage (chaud, froid et archive) au sein d’un même compte ?**
 

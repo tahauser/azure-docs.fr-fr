@@ -3,7 +3,7 @@ Pour autoriser Mobile Engagement à envoyer des notifications push à votre plac
 
 1. Accédez au portail Mobile Engagement. Vérifiez que vous vous trouvez dans l’application utilisée pour ce projet, puis cliquez sur le bouton **Activer** situé en bas :
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Cliquez sur la page **Paramètres** de votre portail Engagement. Cliquez ensuite sur la section **Push natif** pour télécharger votre certificat p12 :
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

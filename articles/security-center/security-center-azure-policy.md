@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Intégrer des stratégies de sécurité Security Center avec Azure Policy
 Cet article est conçu pour vous aider à configurer les stratégies de sécurité Azure Security Center offertes par Azure Policy. 
@@ -39,14 +39,14 @@ Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos 
 
 2. Dans le tableau de bord **Security Center**,sous **Général**, sélectionnez **Stratégie de sécurité**.
 
-    ![Le volet Gestion des stratégies](./media/security-center-policies/security-center-policies-fig10.png)
+    ![Le volet Gestion des stratégies](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Sélectionnez l’abonnement pour lequel vous souhaitez activer une stratégie de sécurité.  
 
 4. Dans la section **Composants de la stratégie**, sélectionnez **Stratégie de sécurité**.  
     La fenêtre **Notions de base** s’ouvre.
 
-    ![Composants de la stratégie](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Composants de la stratégie](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Pour supprimer une définition de stratégie, sous **Stratégies et paramètres**, sélectionnez **Supprimer** en regard de la définition que vous voulez supprimer.
 
@@ -57,12 +57,12 @@ Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos 
 
     * Pour ajouter une définition de stratégie, sélectionnez le signe plus (+) en regard de la définition.
 
-    ![Définitions de stratégie disponibles](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Définitions de stratégie disponibles](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Pour obtenir une explication détaillée d’une stratégie, sélectionnez-la.  
     Une fenêtre **Aperçu** de la définition s’ouvre. Elle affiche une description de la définition et un lien vers le code JSON de la structure de la [Définition de stratégie](../azure-policy/policy-definition.md).
 
-    ![La fenêtre Aperçu de la définition](./media/security-center-policies/security-center-policies-fig14.png)
+    ![La fenêtre Aperçu de la définition](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Lorsque vous avez terminé, cliquez sur **Enregistrer**.
 
