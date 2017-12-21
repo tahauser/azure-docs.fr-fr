@@ -22,6 +22,8 @@
 
 # Procédures
 ## Planifier et concevoir
+### [Identité de service managée (préversion)](event-hubs-managed-service-identity.md)
+### [Contrôle d’accès en fonction du rôle (préversion)](event-hubs-role-based-access-control.md)
 ### [Récupération d’urgence et géo-réplication](event-hubs-geo-dr.md)
 ### [Concentrateurs d’événements dédiés](event-hubs-dedicated-overview.md)
 ### [Présentation du modèle de sécurité et de l’authentification](event-hubs-authentication-and-security-model-overview.md)

@@ -36,7 +36,11 @@
 - name: Procédures
   items:
     - name: Gérer les inscriptions d’appareils
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Gérer les inscriptions d’appareils avec le portail Azure
+          href: how-to-manage-enrollments.md
+        - name: Gérer les inscriptions d’appareils avec les Kits de développement logiciel (SDK) Service
+          href: how-to-manage-enrollments-sdks.md
     - name: Utiliser un HSM avec le Kit de développement logiciel (SDK)
       href: use-hsm-with-sdk.md
     - name: Contrôler l’accès à un service d’approvisionnement
