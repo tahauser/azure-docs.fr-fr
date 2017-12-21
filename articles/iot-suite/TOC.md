@@ -48,6 +48,10 @@
 ### [Présentation de la solution d’usine connectée](iot-suite-connected-factory-overview.md)
 ### [Procédure pas à pas de la solution d’usine connectée](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Simulation d’appareil
+### [Déployer une simulation d’appareil](iot-suite-device-simulation-deploy.md)
+### [Explorer une simulation d’appareil](iot-suite-device-simulation-explore.md)
+
 # Procédures
 ## Surveillance à distance
 ### [Effectuer la surveillance avancée](iot-suite-remote-monitoring-monitor.md)

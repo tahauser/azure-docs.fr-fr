@@ -313,6 +313,31 @@
     - name: Operations Management Suite
       tocHref: /azure/operations-management-suite/
       topicHref: /azure/operations-management-suite/
+    - name: Documentation sur les stratégies
+      tocHref: /azure/azure-policy/
+      topicHref: /azure/azure-policy/
+      items:
+        - name: Présentation de la stratégie Azure
+          tocHref: /azure/azure-policy/azure-policy-introduction/
+          topicHref: /azureazure-policy/azure-policy-introduction/
+        - name: Attribuer une stratégie - Portail
+          tocHref: /azure/azure-policy/assign-policy-definition/
+          topicHref: /azureazure-policy/assign-policy-definition/
+        - name: Attribuer une stratégie - PowerShell
+          tocHref: /azure/azure-policy/assign-policy-definition-ps/
+          topicHref: /azureazure-policy/assign-policy-definition-ps/
+        - name: Attribuer une stratégie - Azure CLI
+          tocHref: /azure/azure-policy/assign-policy-definition-cli/
+          topicHref: /azureazure-policy/assign-policy-definition-cli/
+        - name: Créer et gérer une stratégie Azure
+          tocHref: /azure/azure-policy/create-manage-polic/
+          topicHref: /azureazure-policy/create-manage-polic/
+        - name: Modèles de stratégie
+          tocHref: /azure/azure-policy/json-samples/
+          topicHref: /azureazure-policy/json-samples/
+        - name: Structure de définition Azure Policy
+          tocHref: /azure/azure-policy/policy-definition/
+          topicHref: /azureazure-policy/policy-definition/
     - name: PostgreSQL
       tocHref: /azure/postgresql/
       topicHref: /azure/postgresql/

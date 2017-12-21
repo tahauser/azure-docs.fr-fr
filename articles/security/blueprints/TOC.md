@@ -18,7 +18,8 @@
 ### [Gouvernance dans Azure](../governance-in-azure.md)
 ### [Chiffrement des données au repos](../azure-security-encryption-atrest.md)
 ### Plans d'architecture
-#### [Conformité - PCI DSS](payment-processing-blueprint.md)
+#### Conformité - PCI DSS
+##### [Traitement des paiements pour les environnements conformes à la norme PCI DSS](payment-processing-blueprint.md)
 ##### [Vue d’ensemble des conditions requises](pci-dss-requirements-overview.md)
 ##### [Condition 1 : pare-feux](pci-dss-requirement-1-firewall.md)
 ##### [Condition 2 : mots de passe](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Condition 10 : surveillance](pci-dss-requirement-10-monitoring.md)
 ##### [Condition 11 : test](pci-dss-requirement-11-testing.md)
 ##### [Condition 12 : stratégie](pci-dss-requirement-12-policy.md)
-#### [Conformité - FedRAMP ](fedramp.md)
+#### Conformité - FedRAMP
+##### [Applications web pour FedRAMP](fedramp.md)
 ##### [Vue d’ensemble des contrôles de sécurité](fedramp-controls-overview.md)
 ##### [Contrôle d’accès](fedramp-access-controls.md)
 ##### [Audit et responsabilité](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Protection du système et des communications](fedramp-system-communications-protection-controls.md)
 ##### [Intégrité du système et des informations](fedramp-system-information-integrity-controls.md)
 ##### [Acquisition du système et des services](fedramp-system-services-acquisition-controls.md)
-#### [Conformité - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### Conformité - UK-OFFICIAL
+##### [Applications web à trois couches pour la classification UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Vue d'ensemble](uk-official-three-tier-applications-overview.md)
 ##### [Vue d’ensemble des principes](uk-official-three-tier-applications-principles-overview.md)
-#### [Conformité - Services financiers](financial-services-regulated-workloads.md)
+#### Conformité - Services financiers
 ##### [Services financiers pour les charges de travail réglementées](financial-services-regulated-workloads.md)
 
 # Prise en main

@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 featureFlags: clicktale
-ms.openlocfilehash: 69213ca5c456f13b39c68eae2839329bfd05df6d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -110,6 +110,7 @@ ms.lasthandoff: 12/16/2017
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>

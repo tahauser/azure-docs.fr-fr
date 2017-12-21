@@ -26,6 +26,8 @@
 
 # Procédure
 ## Planifier et concevoir
+### [Identité de service managée (préversion)](service-bus-managed-service-identity.md)
+### [Contrôle d’accès en fonction du rôle (préversion)](service-bus-role-based-access-control.md)
 ### [Messagerie Premium](service-bus-premium-messaging.md)
 ### [Comparer les files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimiser les performances](service-bus-performance-improvements.md)

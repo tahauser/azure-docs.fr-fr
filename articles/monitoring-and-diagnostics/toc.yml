@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Utiliser la mise à l’échelle automatique
       items:
+        - name: Comprendre les paramètres de mise à l’échelle automatique
+          href: monitoring-understanding-autoscale-settings.md
         - name: Meilleures pratiques
           href: insights-autoscale-best-practices.md
         - name: Métriques courantes
