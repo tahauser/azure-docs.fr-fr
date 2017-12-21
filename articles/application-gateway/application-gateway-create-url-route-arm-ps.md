@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Créer une passerelle Application Gateway à l’aide du routage basé sur le chemin
 
@@ -55,7 +55,7 @@ Les demandes pour http://contoso.com/image* sont routées vers le pool de serveu
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-La différence entre l’utilisation du portail Azure classique et celle d’Azure Resource Manager réside dans l’ordre de création de la passerelle Application Gateway et des éléments à configurer.
+La différence entre l’utilisation du modèle de déploiement classique et celle d’Azure Resource Manager réside dans l’ordre de création de la passerelle d’application et des éléments à configurer.
 
 Avec Resource Manager, tous les éléments constitutifs d’une passerelle Application Gateway sont configurés individuellement, puis regroupés pour créer la ressource Application Gateway.
 

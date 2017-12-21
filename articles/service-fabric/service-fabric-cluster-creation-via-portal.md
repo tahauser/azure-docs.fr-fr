@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Ce guide vous mène pas à pas à travers les étapes de configuration d’un cl
 
 Un cluster sécurisé est un cluster qui empêche tout accès non autorisé à des opérations de gestion, notamment le déploiement, la mise à niveau et la suppression d’applications, de services et des données qu’ils contiennent. Un cluster non sécurisé est un cluster auquel toute personne peut se connecter à tout moment pour effectuer des opérations de gestion. Bien qu’il soit possible de créer un cluster non sécurisé, il est **vivement recommandé de créer un cluster sécurisé**. Un cluster non sécurisé **ne peut pas être sécurisé ultérieurement** , ce qui implique la création d’un nouveau cluster.
 
-Les concepts appliqués sont les mêmes pour la création de clusters sécurisés, qu’il s’agisse de clusters Linux ou Windows. Pour en savoir plus et pour accéder à des scripts d’assistance dédiés à la création de clusters Linux sécurisés, voir [Créer des clusters sécurisés sur Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Les paramètres obtenus par le script d’assistance peuvent être saisis directement dans le portail, comme indiqué dans la section [Création d’un cluster dans le portail Azure](#create-cluster-portal).
+Les concepts appliqués sont les mêmes pour la création de clusters sécurisés, qu’il s’agisse de clusters Linux ou Windows. Pour en savoir plus et pour accéder à des scripts d’assistance dédiés à la création de clusters Linux sécurisés, consultez [Créer un cluster Service Fabric à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Les paramètres obtenus par le script d’assistance peuvent être saisis directement dans le portail, comme indiqué dans la section [Création d’un cluster dans le portail Azure](#create-cluster-portal).
 
 ## <a name="configure-key-vault"></a>Configurer Key Vault 
 ### <a name="log-in-to-azure"></a>Connexion à Azure
@@ -114,7 +114,15 @@ Créez un coffre de clés dans le nouveau groupe de ressources. Le coffre de cl�
     Tags                             :
 ```
 
-Si vous avez un coffre de clés existant, vous pouvez l’activer pour le déploiement à l’aide de l’interface de ligne de commande :
+Si vous avez un coffre de clés existant, vous pouvez l’activer pour le déploiement à l’aide de l’une des méthodes suivantes :
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>Interface de ligne de commande Azure :
 
 ```cli
 > azure login

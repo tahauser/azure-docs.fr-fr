@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Contrôler le comportement de mise en cache d’Azure Content Delivery Network à l’aide de chaînes de requête
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ Trois modes de chaîne de requête sont disponibles :
    
    ![Points de terminaison du profil CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-2. Sous Paramètres, cliquez sur **Cache**.
+2. Dans le volet gauche, sous Paramètres, cliquez sur **Règles de mise en cache**.
    
-    ![Bouton Cache du profil CDN](./media/cdn-query-string/cdn-cache-btn.png)
+    ![Bouton Règles de mise en cache CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. Dans la liste **Comportement de mise en cache des chaînes de requête**, sélectionnez un mode de chaîne de requête, puis cliquez sur **Enregistrer**.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![Options de mise en cache des chaînes de requête CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > La propagation de l’inscription dans CDN prenant un certain temps, la modification des paramètres des chaînes mises en cache peut ne pas être visible immédiatement. Pour les profils du **CDN Azure fourni par Akamai** , la propagation s’effectue généralement dans un délai d’une minute. Pour les profils du **CDN Azure fourni par Verizon**, la propagation s’effectue généralement dans un délai de 90 minutes, mais elle peut prendre plus de temps dans certains cas.
