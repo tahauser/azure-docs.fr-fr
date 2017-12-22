@@ -1,6 +1,7 @@
 # Vue d'ensemble
 
 ## [À propos de SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Aide-mémoire](cheat-sheet.md)
 
 # Démarrages rapides
 

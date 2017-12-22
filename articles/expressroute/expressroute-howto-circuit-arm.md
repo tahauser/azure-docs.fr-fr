@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: ef092a48994b68268109cb98bd6cd4526e259d5b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Créer et modifier un circuit ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Cet article explique comment créer un circuit ExpressRoute à l’aide des appl
 * Examinez les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 
 
-## <a name="create"></a>Création et approvisionnement d’un circuit ExpressRoute
+## <a name="create"></a>Créer et approvisionner un circuit ExpressRoute
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Vous connecter à votre compte Azure et sélectionner votre abonnement
 Pour commencer votre configuration, connectez-vous à votre compte Azure. Utilisez les exemples suivants pour faciliter votre connexion :
 

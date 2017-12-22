@@ -286,6 +286,7 @@
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
+#### [Outil de simulation](active-directory-conditional-access-whatif.md)
 #### Tâches
 ##### [Migrer une stratégie MFA classique](active-directory-conditional-access-migration-mfa.md)
 ##### [Configurer l’accès conditionnel basé sur les appareils](active-directory-conditional-access-policy-connected-applications.md)
