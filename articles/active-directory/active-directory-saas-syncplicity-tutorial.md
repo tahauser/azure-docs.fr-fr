@@ -197,7 +197,7 @@ Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisi
 
 1. Connectez-vous à votre locataire **Syncplicity** (par exemple : `https://company.Syncplicity.com`).
 
-2. Cliquez sur **admin** et sélectionnez **	Comptes d’utilisateur**.
+2. Cliquez sur **admin** et sélectionnez **Comptes d’utilisateur**.
 
 3. Cliquez sur **AJOUTER UN UTILISATEUR**.
    

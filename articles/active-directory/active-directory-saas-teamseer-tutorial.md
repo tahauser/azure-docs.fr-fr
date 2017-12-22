@@ -145,7 +145,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Paramètres SAML](./media/active-directory-saas-teamseer-tutorial/ic789637.png "Paramètres SAML")   
 
-    a. Collez la valeur de **	l’URL du service d’authentification unique** dans la zone de texte **URL**.
+    a. Collez la valeur de **l’URL du service d’authentification unique** dans la zone de texte **URL**.
           
     b. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **IdP Public Certificate** (Certificat public de fournisseur d’identité).
 
