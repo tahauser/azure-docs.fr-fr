@@ -47,7 +47,7 @@ Parmi ces URL, le tableau suivant indique celles qui représentent le strict min
 | \*.entrust.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats pour MFA. |
 | \*.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilisé pour MFA. |
-| \**.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
+| \*.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
 ## <a name="errors-in-the-wizard"></a>Erreurs dans l’Assistant
 L’Assistant Installation utilise deux contextes de sécurité différents. Dans la page **Connexion à Azure AD**, il utilise l’utilisateur actuellement connecté. Dans la page **Configurer**, il passe au [compte exécutant le service pour le moteur de synchronisation](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). S’il existe un problème, il apparaît probablement déjà au niveau de la page **Connexion à Azure AD** page de l’Assistant car la configuration du proxy est globale.

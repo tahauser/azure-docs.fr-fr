@@ -7,7 +7,7 @@
   - **Nom :** spécifiez un nom pour votre objet de passerelle de réseau local. Dans la mesure du possible, utilisez un nom intuitif, tel que **RéseauVirtuelClassicLocal** ou **RéseauVirtuel1TestLocal**. Cette approche vous aidera à identifier plus facilement la passerelle de réseau local dans le portail.
   - **Adresse IP :** spécifiez une **adresse IP** publique valide pour la passerelle de réseau virtuel ou l’appareil VPN auquel vous souhaitez vous connecter.
 
-    * **Si ce réseau local représente un emplacement local:** spécifiez l’adresse IP publique de l’appareil VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure.
+    * **Si ce réseau local représente un emplacement local:** spécifiez l’adresse IP publique du périphérique VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure.
     * **Si ce réseau local représente un autre réseau virtuel :** spécifiez l’adresse IP publique qui a été affectée à la passerelle de réseau virtuel pour ce réseau virtuel.
     * **Si vous ne disposez pas encore de l’adresse IP :** vous pouvez créer une adresse IP avec espace réservé valide, puis réaccéder à ce panneau et modifier ce paramètre avant de vous connecter.
   - **Espace d’adressage** fait référence aux plages d’adresses du réseau qui représente ce réseau local. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne chevauchent pas les plages d’autres réseaux auxquels vous vous connectez.

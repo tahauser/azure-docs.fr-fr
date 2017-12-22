@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
 ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Gérer des zones DNS dans Azure DNS à l’aide d’Azure CLI 2.0
 

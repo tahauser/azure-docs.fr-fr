@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
 ms.openlocfilehash: 1097b853ca0f461300f294e9f5baabf2ae4e15a1
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API Table Azure Cosmos DB pour Node.js : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/20/2017
 |**Contribution au Kit de développement logiciel (SDK)**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
-> Si vous avez créé un compte d’API Table pendant la durée de la préversion, [créez un compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les kits SDK mis à la disposition générale pour l’API Table.
+> Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les Kits de développement logiciels (SDK) mis à la disposition générale pour l’API Table.
 >
 
 ## <a name="release-notes"></a>Notes de publication

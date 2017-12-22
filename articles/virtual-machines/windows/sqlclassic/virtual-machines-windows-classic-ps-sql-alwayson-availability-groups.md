@@ -16,15 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: b99cf767fb931d3f7fe14fcbe7990126244613ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurer le groupe de disponibilité Always On sur une machine virtuelle Azure avec PowerShell
 > [!div class="op_single_selector"]
 > * [Classic : interface utilisateur](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Classic : PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Classic : PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Avant de commencer, rappelez-vous que vous pouvez accomplir cette tâche dans le modèle Azure Resource Manager. Nous vous recommandons d’utiliser le modèle Azure Resource Manager pour les nouveaux déploiements. Consultez [Présentation des groupes de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).

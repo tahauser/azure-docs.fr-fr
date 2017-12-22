@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
-> [!div class="op_single_selector"]
-> * [Restaurer des machines virtuelles dans le portail classique](backup-azure-restore-vms.md)
-> * [Restaurer des machines virtuelles dans le portail Azure](backup-azure-arm-restore-vms.md)
->
->
-
 Protégez vos données en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. Lorsque vous restaurez un point de récupération, vous pouvez :
 
 * Créer une machine virtuelle en tant que représentation jusqu’à une date et une heure de votre machine virtuelle sauvegardée.

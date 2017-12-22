@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
 ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
@@ -33,13 +33,13 @@ Cet article vous explique comment connecter des réseaux virtuels classiques à 
 
 La connexion d’un réseau virtuel classique à un réseau virtuel Resource Manager est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents et des régions différentes. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article. 
 
-Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être plutôt utiliser VNet Peering pour les connecter. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). 
+Si vos réseaux virtuels sont situés dans la même région, vous souhaiterez peut-être plutôt utiliser VNet Peering pour les connecter. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). 
 
 ### <a name="before"></a>Avant de commencer
 
 * Ces étapes supposent que les deux réseaux virtuels ont déjà été créés. Si vous utilisez cet article en guise d’exercice et que vous ne disposez pas de réseaux virtuels, vous trouverez des liens dans les étapes pour vous aider à les créer.
 * Vérifiez que les plages d’adresses des réseaux virtuels ne se chevauchent pas ou ne chevauchent aucune des plages des autres connexions susceptibles d’être utilisées par les passerelles.
-* Installez les dernières applets de commande PowerShell pour le Gestionnaire de ressources et pour la Gestion des services (classique). Dans cet article, nous utilisons le portail Azure et PowerShell. PowerShell est requis pour créer la connexion à partir du réseau virtuel classique vers le réseau virtuel Resource Manager. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
+* Installez les dernières applets de commande PowerShell pour le Gestionnaire de ressources et pour la Gestion des services (classique). Dans cet article, nous utilisons le portail Azure et PowerShell. PowerShell est requis pour créer la connexion à partir du réseau virtuel classique vers le réseau virtuel Resource Manager. Pour plus d’informations, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="values"></a>Exemples de paramètres
 

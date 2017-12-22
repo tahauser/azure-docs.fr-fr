@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
-> [!div class="op_single_selector"]
-> * [Gestion des sauvegardes de machines virtuelles Azure](backup-azure-manage-vms.md)
-> * [Gestion des sauvegardes de machines virtuelles classiques](backup-azure-manage-vms-classic.md)
->
->
 
 Cet article fournit des conseils sur la gestion des sauvegardes de machines virtuelles et décrit les données d’alertes de sauvegarde disponibles dans le tableau de bord du portail. Les instructions contenues dans cet article s’appliquent à l’utilisation de machines virtuelles avec des coffres Recovery Services. Cet article ne couvre pas la création des machines virtuelles et n’explique pas comment protéger les machines virtuelles. Pour une introduction à la protection des machines virtuelles déployées via Azure Resource Manager dans Azure à l’aide d’un coffre Recovery Services, consultez la page [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md).
 
@@ -89,11 +84,11 @@ Dans la procédure précédente, vous avez ouvert le tableau de bord du coffre. 
 
     Le tableau de bord de l’élément du coffre vous permet d’accomplir plusieurs tâches de gestion essentielles, par exemple :
 
-   * Modification des stratégies ou création d’une stratégie de sauvegarde
+   * Modifier des stratégies ou créer une stratégie de sauvegarde
    * Affichage des points de restauration et vérification de leur état de cohérence
    * Sauvegarde à la demande d’une machine virtuelle
    * Arrêt de la protection des machines virtuelles
-   * Reprise de la protection d’une machine virtuelle
+   * Reprendre la protection d’une machine virtuelle
    * Suppression des données de sauvegarde (ou d’un point de récupération)
    * [Restauration des disques de sauvegarde](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
@@ -224,4 +219,4 @@ Pour supprimer les données de sauvegarde d’une machine virtuelle avec l’opt
     Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles Azure](backup-azure-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Pour plus d’informations sur la surveillance des événements, consultez [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md)(Surveiller les alertes des sauvegardes de machines virtuelles Azure).
+Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles Azure](backup-azure-arm-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Pour plus d’informations sur la surveillance des événements, consultez [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md)(Surveiller les alertes des sauvegardes de machines virtuelles Azure).

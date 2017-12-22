@@ -51,7 +51,7 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
 | \*.windows.net (requis pour la détection automatique d'un locataire de gouvernement Azure AD) |
-| \**.gov.us.microsoftonline.com |
+| \*.gov.us.microsoftonline.com |
 | + Listes de révocation de certificat |
 
 > [!NOTE]

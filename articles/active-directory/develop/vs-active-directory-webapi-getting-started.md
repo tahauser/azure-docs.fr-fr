@@ -16,10 +16,10 @@ ms.date: 03/19/2017
 ms.author: kraigb
 ms.custom: aaddev
 ms.openlocfilehash: 3d510c193ab8c7e65340275017cb2dcd4c76def0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>Prendre en main Azure Active Directory et les services connectés de Visual Studio (projets WebApi)
 > [!div class="op_single_selector"]
