@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
 ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour l’homologation Microsoft : portail Azure
 > [!div class="op_single_selector"]

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configuration avancée pour le SDK Android pour Azure Mobile Engagement
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble des API de nœud Azure Relay | Microsoft Docs"
-description: "Vue d’ensemble des API de nœud Relay"
+title: "Vue d’ensemble des API Node Azure Relay | Microsoft Docs"
+description: "Vue d’ensemble des API Node Relay"
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -20,11 +20,11 @@ ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="relay-hybrid-connections-node-api-overview"></a>Vue d’ensemble des API de nœud pour les connexions hybrides Relay
+# <a name="relay-hybrid-connections-node-api-overview"></a>Vue d’ensemble des API Node pour les connexions hybrides Relay
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Le package de nœud [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pour les connexions hybrides Azure Relay repose sur le package NPM [« ws »](https://www.npmjs.com/package/ws) ainsi qu’il l’étend. Ce package réexporte toutes les exportations du package de base et ajoute de nouvelles exportations qui permettent l’intégration avec la fonctionnalité de connexions hybrides du service Azure Relay. 
+Le package Node [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pour les connexions hybrides Azure Relay repose sur le package NPM [« ws »](https://www.npmjs.com/package/ws) ainsi qu’il l’étend. Ce package réexporte toutes les exportations du package de base et ajoute de nouvelles exportations qui permettent l’intégration avec la fonctionnalité de connexions hybrides du service Azure Relay. 
 
 Les applications existantes de type `require('ws')` peuvent également utiliser ce package avec `require('hyco-ws')`. Cela permet des scénarios hybrides dans lesquels une application écoute les connexions WebSocket en local depuis « l’intérieur du pare-feu » en même temps que via des connexions hybrides.
   
@@ -47,7 +47,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-Ces méthodes d’assistance doivent être utilisées avec ce package. Toutefois, elles peuvent également être utilisées par un serveur de nœud pour l’activation de clients web ou de périphérique et la création d’écouteurs ou d’expéditeurs. Le serveur utilise ces méthodes en leur transférant des URI qui intègrent des jetons de durée de vie limitée. Ces URI peuvent également être utilisés avec des piles WebSocket courantes qui ne prennent pas en charge la définition d’en-têtes HTTP pour le protocole de transfert WebSocket. L’intégration de jetons d’autorisation dans l’URI est principalement prise en charge pour les scénarios d’utilisation externes à la bibliothèque. 
+Ces méthodes d’assistance doivent être utilisées avec ce package. Toutefois, elles peuvent également être utilisées par un serveur Node pour l’activation de clients web ou de périphérique et la création d’écouteurs ou d’expéditeurs. Le serveur utilise ces méthodes en leur transférant des URI qui intègrent des jetons de durée de vie limitée. Ces URI peuvent également être utilisés avec des piles WebSocket courantes qui ne prennent pas en charge la définition d’en-têtes HTTP pour le protocole de transfert WebSocket. L’intégration de jetons d’autorisation dans l’URI est principalement prise en charge pour les scénarios d’utilisation externes à la bibliothèque. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 

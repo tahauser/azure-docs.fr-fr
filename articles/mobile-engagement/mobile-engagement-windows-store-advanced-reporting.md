@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Génération de rapports avancés avec le Kit de développement logiciel (SDK) des applications Windows Universal Engagement
 > [!div class="op_single_selector"]

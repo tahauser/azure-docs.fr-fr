@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
 ms.openlocfilehash: b54f7768e64e1689e5b25b94905beea6bd5471df
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Créer et modifier le routage d’un circuit ExpressRoute à l’aide de l’interface CLI
 
@@ -69,7 +69,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Créez un circuit ExpressRoute. Suivez les instructions permettant de [créer un circuit ExpressRoute](howto-circuit-cli.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation Microsoft pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit. 
+2. Créez un circuit ExpressRoute. Suivez les instructions permettant de [créer un circuit ExpressRoute](howto-circuit-cli.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation Microsoft pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit. 
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
@@ -181,7 +181,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
-### <a name="deletemsft"></a>Pour supprimer l’homologation Microsoft
+### <a name="deletemsft"></a>Pour supprimer une homologation Microsoft
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’exemple suivant :
 
