@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
 ms.openlocfilehash: 4d0f085423d5bd60b24d88649ee1d77bcd1d009f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Supprimer une passerelle de réseau virtuel avec PowerShell
 > [!div class="op_single_selector"]

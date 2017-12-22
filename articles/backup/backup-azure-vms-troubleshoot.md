@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
-> [!div class="op_single_selector"]
-> * [Coffre Recovery Services](backup-azure-vms-troubleshoot.md)
-> * [Archivage de sauvegarde](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
 
 ## <a name="backup"></a>Sauvegarde
@@ -137,7 +131,7 @@ Pour vérifier la version de l’agent de machine virtuelle sur les machines vir
 La sauvegarde de machines virtuelles émet des commandes de capture instantanée à destination du stockage sous-jacent. Le fait de ne pas avoir accès au stockage ou tout retard dans l’exécution d’une tâche de capture instantanée peut faire échouer le travail de sauvegarde. Voici les causes possibles de l’échec d’une tâche de capture instantanée.
 
 1. Accès réseau au stockage bloqué par l’utilisation du groupe de sécurité réseau<br>
-    Découvrez plus en détail comment [activer l’accès réseau](backup-azure-vms-prepare.md#network-connectivity) au stockage en utilisant une liste d’adresses IP approuvées ou via un serveur proxy.
+    Découvrez plus en détail comment [activer l’accès réseau](backup-azure-arm-vms-prepare.md#establish-network-connectivity) au stockage en utilisant une liste d’adresses IP approuvées ou via un serveur proxy.
 2. Les machines virtuelles sur lesquelles la sauvegarde SQL Server est configurée peuvent provoquer des retards de tâches d’instantanés <br>
    Par défaut, la sauvegarde de machines virtuelles exécute une sauvegarde complète VSS sur les machines virtuelles Windows. Sur les machines virtuelles qui exécutent des serveurs SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, cela peut occasionner des retards d’exécution des captures instantanées. Définissez la clé de Registre suivante si vous rencontrez des échecs de sauvegarde en raison de problèmes de capture instantanée.
 
@@ -169,7 +163,7 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
    * Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
    * Ajoutez des règles à un groupe de sécurité réseau (le cas échéant) pour autoriser l'accès aux adresses IP.
 2. Créez un chemin d'accès pour le trafic HTTP
-   * Si vous des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic. Les étapes du déploiement d’un serveur proxy HTTP sont expliquées [ici](backup-azure-vms-prepare.md#network-connectivity).
+   * Si vous des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic. Les étapes du déploiement d’un serveur proxy HTTP sont expliquées [ici](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * Ajoutez des règles à un groupe de sécurité réseau (le cas échéant) pour autoriser l'accès à Internet à partir du proxy HTTP.
 
 > [!NOTE]

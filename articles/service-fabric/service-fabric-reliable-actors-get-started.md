@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
 ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Prise en main de Reliable Actors
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/30/2017
 
 Cet article décrit la création et le débogage d'une simple application Reliable Actors dans Visual Studio. Pour plus d’informations sur Reliable Actors, consultez l’article [Présentation du modèle Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Avant de commencer, assurez-vous d’avoir configuré l’environnement de développement Service Fabric, y compris Visual Studio, sur votre ordinateur. Pour plus de détails, voir [Configuration de l’environnement de développement](service-fabric-get-started.md).
 
@@ -157,7 +157,7 @@ Si la sortie contient le texte *L'application est prête*, vous pouvez tester le
 > Le runtime Service Fabric Actors émet des [événements et compteurs de performances liés aux méthodes d’acteur](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Explorez [la façon dont les Reliable Actors utilisent la plateforme Service Fabric](service-fabric-reliable-actors-platform.md).
+En savoir plus sur [la façon dont les Reliable Actors utilisent la plateforme Service Fabric](service-fabric-reliable-actors-platform.md).
 
 
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG
