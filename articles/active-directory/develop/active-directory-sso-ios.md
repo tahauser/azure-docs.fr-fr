@@ -296,7 +296,7 @@ La bibliothèque ADAL utilise –canOpenURL: pour vérifier si le répartiteur e
 
 <key>LSApplicationQueriesSchemes</key>
 
-<array> <string>msauth</string>
+<array><string>msauth</string>
 </array>
 
 ### <a name="youve-configured-sso"></a>Vous avez configuré l’authentification unique !
