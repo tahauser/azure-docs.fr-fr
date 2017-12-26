@@ -15,67 +15,50 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66aa12431e39ce295ce76411693bd20535a5c70c
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Création d’un ticket de support pour SQL Data Warehouse
-Si vous rencontrez des problèmes avec SQL Data Warehouse, créez un ticket de support pour que notre équipe d’ingénierie puisse vous aider.
-
-> [!NOTE] 
-> À compter du 20/12/2016, le contrôle d’intégrité des ressources dans le portail Azure n’est pas exact. Nous travaillons à la résolution de ce problème. 
-
+Si vous rencontrez des problèmes avec SQL Data Warehouse, créez un ticket de support pour que l’équipe de support ingénierie puisse vous aider.
 
 ## <a name="create-a-support-ticket"></a>Création d’un ticket de support
 1. Ouvrez le [portail Azure][Azure portal].
-2. Dans l'écran d'accueil, cliquez sur la vignette **Aide + Support** .
+2. Dans l’écran d’accueil, cliquez sur l’onglet **Aide + support**.
    
-    ![Aide + Support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
-3. Dans le panneau Aide + Support, cliquez sur **Créer une demande de support**.
+    ![Aide + Support](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
+3. Dans le panneau Aide + support, cliquez sur **Nouvelle demande de support** et renseignez le panneau **De base**.
+
+   Sélectionnez votre [plan de support Azure][Azure support plan].
    
-    ![Nouvelle demande de support](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
-   
-    <a name="request-quota-change"></a> 
-4. Sélectionnez le **Type de demande**.
-   
-    ![Type de demande](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
-   
-   > [!NOTE]
-   > Par défaut, le **Quota de DTU** de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 45 000. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en créant un ticket de support et en sélectionnant *Quota* en tant que type de demande. Pour calculer vos besoins en matière de DTU, multipliez le nombre total de [DWU][DWU] nécessaires par 7,5. Si, par exemple, vous souhaitez héberger deux bases de données DW6000 sur un serveur SQL unique, vous devez demander un quota de DTU de 90 000.  Vous pouvez consulter votre consommation de DTU actuelle dans le panneau SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. 
-   > 
-   > 
-5. Sélectionnez l’ **abonnement** qui héberge la base de données présentant le problème que vous voulez signaler.
-   
-    ![abonnement](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
-6. Sélectionnez **SQL Data Warehouse** en tant que ressource.
-   
-    ![Ressource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Sélectionnez votre [plan de support Azure][Azure support plan].
-   
-   * **gestion de la facturation, des abonnements et des quotas** sont pris en charge à tous les niveaux de support.
+   * La **gestion de la facturation, des abonnements et des quotas** sont pris en charge à tous les niveaux de support.
    * Les problèmes **couverts par la garantie de réparation et d’assistance** sont pris en charge dans les plans de support suivants : [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] ou [Premier][Premier]. Les problèmes couverts par la garantie de réparation et d'assistance sont des problèmes rencontrés par les clients lors de l'utilisation d'Azure et qui peuvent être raisonnablement imputés à Microsoft.
    * Les **services de tutorat** et d’**expertise pour développeur** sont disponibles aux niveaux de support [Professional Direct][Professional Direct] et [Premier][Premier]. 
      
      Si vous avez un plan de support Premier, vous pouvez également signaler les problèmes liés à SQL Data Warehouse sur le [portail en ligne Microsoft Premier][Microsoft Premier online portal].  Consultez les [plans de support Azure][Azure support plan] pour en savoir plus sur les différents plans disponibles, y compris leur portée, leur temps de réponse, leur tarification, etc.  Pour accéder aux questions fréquemment posées sur le support Azure, consultez la page [FAQ du support Azure][Azure support FAQs].  
-     
-     ![Plan de support](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Sélectionnez le **type** et la **catégorie** de problème. Dans cet exemple, nous avons choisi le type de problème « Outils » et la catégorie « Outils clients ». 
+        
+    ![Panneau De base](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+    ![Panneau 1 De base](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+4. Renseignez le panneau **Problème**.
+    ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
-    ![Catégorie de type de problème](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
-9. Décrivez le problème et choisissez le niveau de l'impact commercial.
+   > [!NOTE]
+   > Par défaut, le **Quota DTU** de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 45 000. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en créant un ticket de support et en sélectionnant *Quota* en tant que type de demande. Pour calculer vos besoins en matière de DTU, multipliez le nombre total de [DWU][DWU] nécessaires par 7,5. Si, par exemple, vous souhaitez héberger deux bases de données DW6000 sur un serveur SQL unique, vous devez demander un quota de DTU de 90 000.  Vous pouvez consulter votre consommation de DTU actuelle dans le panneau SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. 
+   > 
+   > 
    
-    ![Description du problème](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
-10. Vos **informations de contact** pour ce ticket de support seront pré-remplies. Mettez-les à jour si nécessaire.
+5. Renseignez vos **coordonnées**.
+![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+
     
-    ![Informations de contact](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
-11. Cliquez sur **Créer** pour envoyer la demande de support.
+6. Cliquez sur **Créer** pour envoyer la demande de support.
 
 ## <a name="monitor-a-support-ticket"></a>Surveiller un ticket de support
-Une fois que vous avez envoyé la demande de support, vous serez contacté par l'équipe de support Azure. Pour vérifier le statut et les détails de votre demande, cliquez sur **Gérer les demandes de support** dans le tableau de bord.
+Une fois que vous avez envoyé la demande de support, vous serez contacté par l'équipe de support Azure. Pour vérifier l’état et les détails de votre demande, cliquez sur **Toutes les demandes de support** dans le tableau de bord.
 
-![Vérification du statut](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
+![Vérification du statut](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 
 ## <a name="other-resources"></a>Autres ressources
 En outre, vous pouvez contacter la communauté SQL Data Warehouse sur [Stack Overflow][Stack Overflow] ou le [forum MSDN Azure SQL Data Warehouse][Azure SQL Data Warehouse MSDN forum].

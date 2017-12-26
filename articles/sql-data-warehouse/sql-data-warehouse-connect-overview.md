@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Se connecter à Azure SQL Data Warehouse
 Cet article vous aidera à établir votre première connexion à SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Recherche du nom de serveur
-La première étape de connexion à SQL Data Warehouse consiste à déterminer le nom de votre serveur.  Dans l’exemple suivant, le nom du serveur est sample.database.windows.net. Pour rechercher le nom complet du serveur :
+La première étape de connexion à SQL Data Warehouse consiste à déterminer le nom de votre serveur.  Dans l’exemple suivant, le nom du serveur est samplesvr.database.windows.net. Pour rechercher le nom complet du serveur :
 
 1. Accédez au [portail Azure][Azure portal].
-2. Cliquez sur **Bases de données SQL** 
-3. Cliquez sur la base de données à laquelle vous souhaitez vous connecter.
+2. Cliquez sur **Entrepôts de données SQL**.
+3. Cliquez sur l’entrepôt de données auquel vous souhaitez vous connecter.
 4. Recherchez le nom complet du serveur.
    
     ![Nom complet du serveur][1]
@@ -93,6 +93,6 @@ Pour vous connecter à Visual Studio et l’utiliser pour lancer des requêtes,
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

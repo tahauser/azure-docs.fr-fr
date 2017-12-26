@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e4fc5c9eb031beef42b52c771ef88ea80dba068
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c676b0c9c8090fb9680bc71051a9247ed0a4574
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Référence pour la génération de rapports d’authentification multifacteur dans le portail Azure
 
@@ -27,7 +27,7 @@ Grâce à la [fonction de création de rapports Azure Active Directory (Azure AD
 
 Les [rapports d’activité de connexion](active-directory-reporting-activity-sign-ins.md) vous fournissent des informations sur l’utilisation des applications gérées et des activités de connexion des utilisateurs, y compris des informations sur l’utilisation de l’authentification multifacteur (MFA). 
 
-Les données d’authentification multifacteur vous donnent un aperçu du fonctionnement de l’authentification multifacteur dans votre organisation. Elles vous permettent de répondre aux questions telles que : 
+Les données d’authentification multifacteur vous donnent un aperçu du fonctionnement de l’authentification multifacteur dans votre organisation. Elles vous permettent de répondre aux questions telles que : 
 
 - La connexion a-t-elle été protégée avec l’authentification multifacteur ? 
 

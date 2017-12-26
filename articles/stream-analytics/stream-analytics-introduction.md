@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5747f2f1d3eed3905e0ae3123dab74287beccf66
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-stream-analytics"></a>Qu’est-ce que Stream Analytics ?
 
@@ -42,7 +42,7 @@ Le diagramme suivant illustre le pipeline Stream Analytics, en montrant comment 
 
 Stream Analytics démarre avec une source de données de diffusion en continu. Les données peuvent être ingérées dans Azure à partir d’un appareil à l’aide d’un concentrateur d’événements Azure ou d’un IoT Hub. Les données peuvent également être extraites d’un magasin de données, tel que le Stockage Blob Azure. 
 
-Pour examiner le flux de données, vous créez un *travail* Stream Analytics indiquant d’où proviennent les données. Le travail spécifie également une *transformation* comment rechercher des données, des modèles ou des relations. Pour cette tâche, Stream Analytics prend en charge un langage de requête de type SQL pour filtrer, trier, agréger et joindre les données de diffusion sur une période donnée.
+Pour examiner le flux de données, vous créez un *travail* Stream Analytics indiquant d’où proviennent les données. Le travail spécifie également une *transformation* ; comment rechercher des données, des modèles ou des relations. Pour cette tâche, Stream Analytics prend en charge un langage de requête de type SQL pour filtrer, trier, agréger et joindre les données de diffusion sur une période donnée.
 
 Enfin, le travail spécifie une sortie vers ces données transformées. Vous contrôlez les éléments à effectuer en réponse aux informations que vous avez analysées. Par exemple, en réponse à l’analyse, vous pouvez :
 

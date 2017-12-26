@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -32,7 +32,7 @@ Les organisations ont besoin d’une stratégie de continuité des activités et
 
 Site Recovery est un service Azure qui participe à votre stratégie de continuité des activités et de récupération d’urgence. À l’aide de Site Recovery, vous pouvez déployer une réplication compatible avec les applications vers le cloud ou un site secondaire. Qu’il s’agisse d’applications Windows ou Linux s’exécutant sur des serveurs physiques ou des machines virtuelles VMware ou Hyper-V, vous pouvez utiliser Site Recovery pour orchestrer la réplication, effectuer un test de récupération d’urgence et exécuter des opérations de basculement et de restauration automatique.
 
-Site Recovery s’intègre avec les applications Microsoft, y compris SharePoint, Exchange, Dynamics, SQL Server et Active Directory. Par ailleurs, Microsoft travaille en étroite collaboration avec les principaux fournisseurs, notamment Oracle, SAP et Red Hat. Vous pouvez personnaliser les solutions de réplication application par application.
+Site Recovery s’intègre à des applications Microsoft, notamment SharePoint, Exchange, Dynamics, SQL Server et Active Directory. Par ailleurs, Microsoft travaille en étroite collaboration avec les principaux fournisseurs, notamment Oracle, SAP et Red Hat. Vous pouvez personnaliser les solutions de réplication application par application.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Pourquoi utiliser Site Recovery pour la réplication des applications ?
 
@@ -47,23 +47,22 @@ Site Recovery contribue à la protection des applications et à la récupératio
 * Une bibliothèque d’automatisation avancée qui fournit des scripts spécifiques d’application prêts pour la production, qui peuvent être téléchargés et intégrés avec des plans de récupération.
 
 ## <a name="workload-summary"></a>Synthèse relative aux charges de travail
-Site Recovery permet de répliquer n’importe quelle application exécutée sur une machine prise en charge. En outre, nous collaborons avec les équipes produit pour effectuer des tests supplémentaires spécifiques à l’application.
+Site Recovery permet de répliquer n’importe quelle application exécutée sur une machine prise en charge. En outre, nous collaborons avec les équipes produit pour effectuer des tests supplémentaires propres à l’application.
 
-| **Charge de travail** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |O |O |O |O |
-| Applications web (IIS, SQL) |O |O |O |O |
-| System Center Operations Manager |O |O |O |O |
-| SharePoint |O |O |O |O |
-| SAP<br/><br/>Réplication d’un site SAP vers Microsoft Azure (aucun cluster) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |
-| Microsoft Exchange (aucun DAG) |O |O |O |O |
-| Bureau à distance/VDI |O |O |O |N/A |
-| Linux (système d’exploitation et applications) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |
-| Dynamics AX |O |O |O |O |
-| Dynamics CRM |O |Bientôt disponible |O |Bientôt disponible |
-| Oracle |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |
-| Serveur de fichiers Windows |O |O |O |O |
-| Citrix XenApp et XenDesktop |N/A |O |N/A |O |
+| **Charge de travail** |**Réplication de machines virtuelles Azure dans Azure** |**Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |O |O |O |O |O|
+| Applications web (IIS, SQL) |O |O |O |O |O|
+| System Center Operations Manager |O |O |O |O |O|
+| SharePoint |O |O |O |O |O|
+| SAP<br/><br/>Réplication d’un site SAP vers Microsoft Azure (aucun cluster) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft)|
+| Microsoft Exchange (aucun DAG) |O |O |O |O |O|
+| Bureau à distance/VDI |O |O |O |O |O|
+| Linux (système d’exploitation et applications) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft)|
+| Dynamics AX |O |O |O |O |O|
+| Oracle |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft)|
+| Serveur de fichiers Windows |O |O |O |O |O|
+| Citrix XenApp et XenDesktop |O|N/A |O |N/A |O |
 
 ## <a name="replicate-active-directory-and-dns"></a>Répliquer Active Directory et DNS
 Une infrastructure DNS et Active Directory sont essentiels pour la plupart des applications d’entreprise. Dans le cadre d’une récupération d’urgence, vous devez protéger et récupérer ces composants d’infrastructure avant de récupérer vos charges de travail et applications.
@@ -106,13 +105,16 @@ Azure Site Recovery vous permet de protéger votre solution Dynamics AX ERP à t
 RDS active l’infrastructure de bureau virtuel (VDI), les bureaux basés sur session et les applications, permettant aux utilisateurs de travailler n’importe où. Avec Azure Site Recovery, vous pouvez :
 
 * Répliquer des bureaux virtuels en pool gérés ou non gérés sur un site secondaire, ainsi que des applications et des sessions à distance sur un site secondaire ou sur Azure.
+
 * Voici ce que vous pouvez répliquer :
 
-| **RDS** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** | **Réplication de serveurs physiques vers un site secondaire** | **Répliquer des serveurs physiques dans Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Bureau virtuel en pool (non géré)** |Oui |Non |Oui |Non |Oui |Non |
-| **Bureau virtuel en pool (géré et sans UPD)** |Oui |Non |Oui |Non |Oui |Non |
-| **Applications à distance et sessions de bureau (sans UPD)** |Oui |Oui |Oui |Oui |Oui |Oui |
+| **RDS** |**Réplication de machines virtuelles Azure dans Azure** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** | **Réplication de serveurs physiques vers un site secondaire** | **Répliquer des serveurs physiques dans Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Bureau virtuel en pool (non géré)** |Non|Oui |Non |Oui |Non |Oui |Non |
+| **Bureau virtuel en pool (géré et sans UPD)** |Non|Oui |Non |Oui |Non |Oui |Non |
+| **Applications à distance et sessions de bureau (sans UPD)** |Oui|Oui |Oui |Oui |Oui |Oui |Oui |
+
+[Configurez la récupération d’urgence de RDS à l’aide d’Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [En savoir plus](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sur la protection de RDS.
 
@@ -138,7 +140,7 @@ Utilisez Site Recovery pour protéger votre déploiement SAP comme suit :
 ## <a name="protect-iis"></a>Protection IIS
 Utilisez Site Recovery pour protéger votre déploiement IIS comme suit :
 
-Azure Site Recovery assure la récupération d’urgence en répliquant les composants critiques de votre environnement vers un site distant à froid ou un cloud public comme Microsoft Azure. Étant donné que la machine virtuelle avec le serveur web et la base de données sont répliquées vers le site de récupération, il n’est pas obligatoire de sauvegarder séparément les fichiers de configuration ou les certificats. Les mappages et les liaisons d’application dépendant des variables d’environnement modifiées post-basculement peuvent être mis à jour via des scripts intégrés dans les plans de récupération d’urgence. Les machines virtuelles sont montées sur le site de récupération uniquement en cas de basculement. Azure Site Recovery vous aide également à orchestrer le basculement de bout en bout en mettant à disposition les fonctionnalités suivantes :
+Azure Site Recovery assure la récupération d’urgence en répliquant les composants critiques de votre environnement vers un site distant à froid ou un cloud public comme Microsoft Azure. Étant donné que les machines virtuelles avec le serveur web et la base de données sont répliquées vers le site de récupération, il n’est pas obligatoire de sauvegarder séparément les certificats ou les fichiers de configuration. Les mappages et les liaisons d’application dépendant des variables d’environnement modifiées post-basculement peuvent être mis à jour via des scripts intégrés dans les plans de récupération d’urgence. Les machines virtuelles sont montées sur le site de récupération uniquement en cas de basculement. Azure Site Recovery vous aide également à orchestrer le basculement de bout en bout en mettant à disposition les fonctionnalités suivantes :
 
 -   Séquencement de l’arrêt et du démarrage des machines virtuelles dans les différents niveaux.
 -   Ajout de scripts pour autoriser la mise à jour des liaisons et des dépendances d’applications sur les machines virtuelles après le démarrage. Les scripts peuvent également être utilisés pour mettre à jour le serveur DNS pour pointer vers le site de récupération.

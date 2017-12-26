@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 Dans ce didacticiel, vous créez un pipeline Data Factory qui présente certaines des fonctionnalités de flux de contrôle. Ce pipeline est une simple copie depuis un conteneur Stockage Blob Azure vers un autre conteneur dans le même compte de stockage. Si l’activité de copie réussit, vous envoyez les détails de l’opération de copie réussie (par exemple, la quantité de données écrites) dans un e-mail d’avis de réussite. Si l’activité de copie échoue, vous envoyez les détails de l’échec de la copie (par exemple, le message d’erreur) dans un e-mail d’avis d’échec. Tout au long de ce didacticiel, vous allez apprendre à passer des paramètres.
@@ -452,7 +452,7 @@ La première section de notre pipeline définit les paramètres.
 
 - sourceBlobContainer - paramètre dans le pipeline consommé par le jeu de données d’objet blob source.
 - sinkBlobContainer - paramètre dans le pipeline consommé par le jeu de données d’objet blob récepteur.
-- récepteur - paramètre dans le pipeline consommé par les deux activités web pour lesquelles l’adresse e-mail reçoit l’e-mail
+- receiver - ce paramètre est utilisé par les deux activités web dans le pipeline qui envoient des messages électroniques de réussite ou d’échec au récepteur dont l’adresse e-mail est spécifiée par ce paramètre.
 
 
 ```csharp

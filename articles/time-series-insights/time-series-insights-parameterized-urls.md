@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -72,6 +72,22 @@ Le paramètre `timeSeriesDefinitions=<collection of term objects>` indique les c
 - `predicate=<string>`
   - clause *where* pour le filtrage côté serveur.
 
+Le paramètre « multiChartStack=<true/false> » permet l’empilement dans le graphique et le paramètre « multiChartSameScale=<true/false> » permet d’appliquer la même échelle d’axe des ordonnées entre les termes au sein d’un paramètre facultatif.  
+
+- 'multiChartStack=false'
+  - « True » est activée par défaut donc passez sur « false » pour empiler.
+- 'multiChartStack=false&multiChartSameScale=true' 
+  - L’empilement doit être activé pour pouvoir utiliser la même échelle de l’axe des ordonnées entre les termes.  « False » est activé par défaut, donc passer sur « True » pour activer cette fonctionnalité.  
+  
+« timeBucketUnit=<Unit>&timeBucketSize=<integer> » permet d’ajuster le curseur intervalle pour générer une vue plus granulaire, plus simple, ou plus globale du graphique.  
+- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+  - Unités = jours, heures, minutes, secondes, millisecondes.  Mettez toujours les unités en majuscules.
+  - Définissez le nombre d’unités en passant l’entier souhaité pour timeBucketSize.  Notez que vous simplifiez jusqu'à 7 jours.  
+  
+Le paramètre « timezoneOffset =<integer> » vous permet de définir le fuseau horaire pour le graphique afin qu’il s’affiche en tant qu’offset de fuseau horaire UTC.  
+  - 'timezoneOffset=-<integer>'
+    - L’entier est toujours en millisecondes.  
+    - Notez que cette fonctionnalité est légèrement différente de celle que nous proposons dans l’Explorateur TSI, dans lequel nous vous permettons de choisir l’heure locale (l’heure du navigateur) ou l’heure UTC.  
  
 ### <a name="examples"></a>Exemples
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport d’Azure Site Recovery Deployment Planner
 Le rapport Microsoft Excel généré contient les feuilles suivantes :
@@ -122,9 +122,9 @@ Le graphique affiche la vue Résumé du coût estimé de la récupération d’u
  
 Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [régions cibles prises en charge](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) et les [devises prises en charge](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Coût par composant** Le coût total de la récupération d’urgence est divisé en quatre composants : coût de la licence de Azure Site Recovery, du stockage, du réseau et du calcul. Le coût est calculé en fonction de la consommation facturée pendant la réplication et au moment de la récupération d’urgence pour le calcul, le stockage (premium et standard), le ExpressRoute/VPN configuré entre le site local et Azure, et la licence de Azure Site Recovery.
+**Coût par composant** Le coût total de la récupération d’urgence est divisé en quatre composants : coût de la licence d’Azure Site Recovery, du stockage, du réseau et du calcul. Le coût est calculé en fonction de la consommation facturée pendant la réplication et au moment de la récupération d’urgence pour le calcul, le stockage (premium et standard), le ExpressRoute/VPN configuré entre le site local et Azure, et la licence de Azure Site Recovery.
 
-**Coût par état** Le coût de la récupération d’urgence total (DR) est catégorisé en selon deux états différents, la réplication et la récupération d’urgence. 
+**Coût par état** Le coût total de la récupération d’urgence (DR) est catégorisé selon deux états différents, la réplication et l’extraction de la récupération d’urgence. 
 
 **Coût de la réplication** : le coût qui sera engendré par la réplication. Il couvre le coût du stockage, du réseau et de la licence d’Azure Site Recovery. 
 
@@ -188,7 +188,7 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **Peak R/W IOPS (with Growth Factor)** : le taux maximal d’E/S par seconde en lecture/écriture sur le disque (la valeur par défaut est le 95e centile), comprenant le facteur de croissance futur (la valeur par défaut est 30 %). Notez que les E/S par seconde en lecture/écriture d’une machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Peak Data Churn in MBps (with Growth Factor)** : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
+**Peak Data Churn in MB/s (with Growth Factor)** : taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
 
 **Azure VM Size** : la taille de machine virtuelle d’Azure Cloud Services mappée idéale pour cette machine virtuelle locale. Le mappage est basé sur la mémoire, le nombre de disques/cœurs/cartes réseau de la machine virtuelle locale, et les E/S par seconde en lecture/écriture. La recommandation est toujours la plus petite taille de machine virtuelle Azure qui correspond à toutes les caractéristiques des machines virtuelles locales.
 
@@ -235,15 +235,15 @@ Le rapport Microsoft Excel généré par Azure Site Recovery Deployment Planner 
 
 * Les E/S par seconde source excèdent la limite des E/S par seconde prise en charge par le stockage qui est de 80 000 par machine virtuelle.
 
-* L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Azure Site Recovery, qui est de 10 Mbits/s pour la taille d’E/S moyenne de disque.
+* L’activité moyenne des données de la machine virtuelle source dépasse la limite d’activité des données prise en charge par Azure Site Recovery, qui est de 10 Mo/s pour la taille d’E/S moyenne.
 
-* Les E/S par seconde d’écriture moyennes effectives dépassent la limite IOPS prise en charge par Azure Site Recovery, qui est de 840 par disque.
+* Les E/S par seconde d’écriture moyennes effectives de la machine virtuelle source dépassent la limite d’E/S par seconde prise en charge par Azure Site Recovery, qui est de 840.
 
 * Le stockage calculé des captures instantanées dépasse la limite de stockage des captures instantanées prise en charge, qui est de 10 To.
 
 **Peak R/W IOPS (with Growth Factor)** : les opérations d’E/S par seconde de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que les E/S par seconde en lecture/écriture de la machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Peak Data Churn in MBps (with Growth Factor)** : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
+**Peak Data Churn in MB/s (with Growth Factor)** : taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
 
 **Number of Disks** : le nombre total de disques de machines virtuelles (VHD) sur la machine virtuelle.
 
@@ -260,14 +260,11 @@ Le rapport Microsoft Excel généré par Azure Site Recovery Deployment Planner 
 ## <a name="azure-site-recovery-limits"></a>Limites Azure Site Recovery
 Le tableau suivant présente les limites d’Azure Site Recovery. Les limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Pour de meilleurs résultats, même après la planification du déploiement, nous vous recommandons toujours d’effectuer des tests d’application approfondis à l’aide d’un test de basculement pour obtenir une image réelle des performances de l’application.
  
-**Stockage de réplication cible** | **Taille d’E/S moyenne de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
+**Stockage de réplication cible** | **Taille des E/S moyenne de la machine virtuelle source** |**Activité moyenne des données de la machine virtuelle source** | **Total de l’activité des données de la machine virtuelle source par jour**
 ---|---|---|---
-Stockage Standard | 8 Ko | 2 Mbits/s | 168 Go par disque
-Disque Premium P10 ou P15 | 8 Ko  | 2 Mbits/s | 168 Go par disque
-Disque Premium P10 ou P15 | 16 Ko | 4 Mbits/s |  336 Go par disque
-Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mbits/s | 672 Go par disque
-Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mbits/s | 421 Go par disque
-Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |10 Mbits/s | 842 Go par disque
+Stockage Standard | 8 Ko | 2 Mo/s par machine virtuelle | 168 Go par machine virtuelle
+Stockage Premium | 8 Ko  | 5 Mo/s par machine virtuelle | 421 Go par machine virtuelle
+Stockage Premium | 16 Ko ou plus| 10 Mo/s par machine virtuelle | 842 Go par machine virtuelle
 
 Ces limites représentent des moyennes en partant sur un chevauchement d’E/S de 30 pour cent. Azure Site Recovery est capable de gérer un débit plus élevé en fonction du ratio de chevauchement, de tailles d’écriture plus grandes et du comportement d’E/S des charges de travail réelles. Les valeurs précédentes supposent un retard de traitement typique de cinq minutes. Autrement dit, une fois que les données sont chargées, elles sont traitées, et un point de récupération est créé dans un délai de cinq minutes.
 
