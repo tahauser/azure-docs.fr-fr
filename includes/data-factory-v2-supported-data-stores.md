@@ -51,6 +51,7 @@
 | &nbsp; |[HubSpot (bêta)](../articles/data-factory/connector-hubspot.md) |✓ | |✓  |✓  |
 | &nbsp; |[Jira (bêta)](../articles/data-factory/connector-jira.md) |✓ | |✓  |✓  |
 | &nbsp; |[Magento (bêta)](../articles/data-factory/connector-magento.md) |✓ | |✓  |✓  |
+| &nbsp; |[Marketo (bêta)](../articles/data-factory/connector-marketo.md) |✓ | |✓  |✓  |
 | &nbsp; |[Oracle Eloqua (bêta)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓  |✓  |
 | &nbsp; |[PayPal (bêta)](../articles/data-factory/connector-paypal.md) |✓ | |✓  |✓  |
 | &nbsp; |[QuickBooks (bêta)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓  |✓  |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -35,7 +35,7 @@ Voici quelques-uns des avantages de l’homologation de réseaux virtuels :
 
 ## <a name="requirements-constraints"></a>Exigences et contraintes
 
-* L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels appartenant à des régions différentes est actuellement en préversion dans les régions États-Unis Centre-Ouest, Centre du Canada et Ouest des États-Unis 2. Avant de procéder à l’homologation de réseaux virtuels dans des régions différentes, vous devez d’abord [enregistrer votre abonnement](virtual-network-create-peering.md#register) pour la préversion. Toute tentative d’homologation entre des réseaux virtuels se trouvant dans des régions différentes échouera si vous n’avez pas suivi la procédure d’enregistrement pour la préversion.
+* L’appairage de réseaux virtuels au sein d’une même région est généralement possible. L’appairage de réseaux virtuels appartenant à des régions différentes est actuellement en préversion dans les régions États-Unis Centre-Ouest, Centre du Canada et Ouest des États-Unis 2. Avant de procéder à l’homologation de réseaux virtuels dans des régions différentes, vous devez d’abord [enregistrer votre abonnement](virtual-network-create-peering.md#register) pour la préversion. Toute tentative d’homologation entre des réseaux virtuels se trouvant dans des régions différentes échoue si vous n’avez pas suivi la procédure d’enregistrement pour la préversion.
     > [!WARNING]
     > Les homologations de réseaux virtuels créées entre les régions peuvent ne pas avoir le même niveau de disponibilité et de fiabilité que les homologations d’une version publique. Les appairages de réseaux virtuels peuvent avoir des fonctionnalités limitées et peuvent ne pas être disponibles dans toutes les régions Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -63,13 +63,15 @@ Lors de la configuration de l’homologation de réseaux virtuels, vous pouvez o
 
 ## <a name="service-chaining"></a>Chaînage de services
 
-Vous pouvez configurer des itinéraires définis par l’utilisateur qui pointent vers des machines virtuelles de réseaux virtuels homologués en tant qu’adresse IP du « tronçon suivant » pour activer le chaînage de services. Le chaînage de services vous permet de diriger le trafic d’un réseau virtuel vers une appliance virtuelle d’un réseau virtuel homologué via les itinéraires définis.
+Vous pouvez configurer des itinéraires définis par l’utilisateur qui pointent vers des machines virtuelles de réseaux virtuels homologués en tant qu’adresse IP du *tronçon suivant*, ou vers des passerelles de réseau virtuel, pour activer le chaînage de services. Le chaînage de services vous permet de diriger le trafic d’un réseau virtuel vers une appliance virtuelle, ou une passerelle de réseau virtuel, d’un réseau virtuel homologué via les itinéraires définis.
 
-Vous pouvez également déployer efficacement des environnements de type hub-and-spoke où le nœud peut héberger des composants d’infrastructure tels qu’une appliance virtuelle réseau. Tous les réseaux virtuels spoke peuvent ensuite être homologués avec le réseau virtuel hub. Le trafic peut passer par des appliances virtuelles réseau exécutées sur le réseau virtuel hub. En résumé, l’homologation de réseaux virtuels permet de définir l’adresse IP du tronçon suivant dans l’itinéraire défini par l’utilisateur sur l’adresse IP d’une machine virtuelle du réseau virtuel homologué. Pour en savoir plus sur les itinéraires définis par l’utilisateur, consultez [Itinéraires définis par l’utilisateur et transfert IP](virtual-networks-udr-overview.md). Pour découvrir comment créer une topologie de réseau de type hub et spoke, consultez [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implémenter une topologie de réseau de type hub et spoke dans Azure).
+Vous pouvez également déployer des réseaux de type hub-and-spoke où le nœud du réseau virtuel peut héberger des composants d’infrastructure tels qu’une appliance virtuelle réseau ou une passerelle VPN. Tous les réseaux virtuels spoke peuvent ensuite être homologués avec le réseau virtuel hub. Le trafic peut passer par des appliances virtuelles réseau ou des réseaux VPN sur le réseau virtuel hub. 
+
+L’homologation de réseaux virtuels permet de définir le tronçon suivant dans un itinéraire défini par l’utilisateur sur l’adresse IP d’une machine virtuelle du réseau virtuel homologué ou une passerelle VPN. Toutefois, vous ne pouvez pas définir d’itinéraires entre plusieurs réseaux virtuels avec un itinéraire défini par l’utilisateur en spécifiant une passerelle ExpressRoute comme type de tronçon suivant. Pour en savoir plus sur les routages définis par l’utilisateur, voir [Vue d’ensemble des routages définis par l’utilisateur](virtual-networks-udr-overview.md#user-defined). Pour découvrir comment créer une topologie de réseau de type hub et spoke, consultez [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implémenter une topologie de réseau de type hub et spoke dans Azure).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Passerelles et connectivité locale
 
-Chaque réseau virtuel, qu’il soit homologué ou non avec un autre réseau virtuel, peut posséder sa propre passerelle et l’utiliser pour se connecter à un réseau local. Vous pouvez également configurer des [connexions de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) à l’aide de passerelles, même si les réseaux virtuels sont homologués.
+Chaque réseau virtuel, qu’il soit homologué ou non avec un autre réseau virtuel, peut posséder sa propre passerelle et l’utiliser pour se connecter à un réseau local. Vous pouvez également configurer des [connexions de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à l’aide de passerelles, même si les réseaux virtuels sont homologués.
 
 Lorsque les deux options d’interconnexion de réseaux virtuels sont configurées, le trafic entre les réseaux virtuels transite via la configuration d’homologation (c’est-à-dire via le réseau principal Azure).
 
@@ -98,20 +100,17 @@ Par exemple, si vous homologuez des réseaux virtuels nommés myVirtualNetworkA 
 
 ## <a name="monitor"></a>Surveiller
 
-Lors de l’homologation de deux réseaux virtuels créés via le Gestionnaire de ressources, une homologation doit être configurée pour chaque réseau virtuel dans l’homologation.
-Vous ne pouvez pas surveiller le statut de votre connexion d’homologation. Les valeurs possibles pour l’état de l’homologation sont les suivantes :
+Lors de l’homologation de deux réseaux virtuels créés via le Gestionnaire de ressources, une homologation doit être configurée pour chaque réseau virtuel dans l’homologation. Vous ne pouvez pas surveiller le statut de votre connexion d’homologation. Les valeurs possibles pour l’état de l’homologation sont les suivantes :
 
-* **Initiée** : Lorsque vous créez l’homologation au deuxième réseau virtuel à partir du premier réseau virtuel, l’état d’homologation est Initiée.
-
-* **Connectée** : Lorsque vous créez l’homologation à partir du deuxième réseau virtuel au premier réseau virtuel, l’état d’homologation est Connectée. Si vous affichez l’état d’homologation pour le premier réseau virtuel, vous voyez que son état est passé de Initiée à Connectée. L’homologation n’est pas correctement établie tant que l’état d’homologation pour les deux homologations de réseau virtuel est Connectée.
-
-* **Déconnecté** : Si un de vos liens d’homologation est supprimé après qu’une connexion a été établie, l’état d’homologation est Déconnectée.
+* **Initiée** : état affiché lorsque vous créez l’homologation à partir du premier réseau virtuel au second réseau virtuel.
+* **Connectée** : état affiché lorsque vous avez créé l’homologation à partir du second réseau virtuel au premier réseau virtuel. L’état d’homologation du premier réseau virtuel passe de *Initiée* à *Connectée*. Une homologation de réseaux virtuels n’est pas correctement établie tant que l’état pour les deux homologations de réseau virtuel est *Connectée*.
+* **Déconnectée** : état affiché si une homologation à partir d’un réseau virtuel à un autre est supprimée après l’établissement d’une homologation entre deux réseaux virtuels.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-Pour résoudre les problèmes liés aux flux de trafic sur votre connexion d’homologation, vous pouvez [vérifier les routages effectifs](virtual-network-routes-troubleshoot-portal.md).
+Pour confirmer une homologation de réseaux virtuels, vous pouvez [vérifier les itinéraires effectifs](virtual-network-routes-troubleshoot-portal.md) pour une interface réseau dans n’importe quel sous-réseau d’un réseau virtuel. Si une homologation de réseaux virtuels existe, tous les sous-réseaux au sein du réseau virtuel ont des itinéraires avec le type de tronçon suivant *VNet Peering* pour chaque espace d’adressage de chaque réseau virtuel homologué.
 
-Vous pouvez aussi résoudre les problèmes de connectivité à une machine virtuelle d’un réseau virtuel homologué à l’aide de la [vérification de la connectivité](../network-watcher/network-watcher-connectivity-portal.md) de Network Watcher. La vérification de la connectivité affiche le routage directement depuis l’interface réseau de la machine virtuelle source jusqu’à l’interface réseau de la machine virtuelle de destination.
+Vous pouvez aussi résoudre les problèmes de connectivité à une machine virtuelle d’un réseau virtuel homologué à l’aide de la [vérification de la connectivité](../network-watcher/network-watcher-connectivity-portal.md) de Network Watcher. La vérification de la connectivité vous permet de voir comment le trafic est acheminé à partir de l’interface réseau d’une machine virtuelle source vers l’interface réseau d’une machine virtuelle de destination.
 
 ## <a name="limits"></a>limites
 

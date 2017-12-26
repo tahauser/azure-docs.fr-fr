@@ -1,6 +1,6 @@
 ---
 title: Forum Aux Questions sur Azure Active Directory | Microsoft Docs
-description: "Le Forum Aux Questions sur Azure Active Directory répond à des questions concernant l’accès à Azure et à Azure Active Directory, la gestion des mots de passe et l’accès aux applications."
+description: "Le Forum Aux Questions sur Azure Active Directory répond aux questions courantes concernant Azure et Azure Active Directory, la gestion des mots de passe et l’accès aux applications."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Forum Aux Questions sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -27,9 +27,9 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory 
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Accédez à Azure et à Azure Active Directory
-**Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure Classic ?**
+**Q : Pourquoi le message « Aucun abonnement trouvé » s’affiche-t-il lorsque j’essaie d’accéder à Azure AD dans le portail Azure ?**
 
-**R :** Pour accéder au portail Azure Classic, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous possédez un abonnement Office 365 ou Azure AD payant, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour procéder à une étape d’activation unique. Si ce n’est pas le cas, vous devez activer un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit ou un abonnement payant.
+**R :** Pour accéder au portail Azure, chaque utilisateur doit y être autorisé dans le cadre d’un abonnement Azure. Si vous possédez un abonnement Office 365 ou Azure AD payant, accédez à [http://aka.ms/accessAAD](http://aka.ms/accessAAD) pour procéder à une étape d’activation unique. Si ce n’est pas le cas, vous devez activer un [compte Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit ou un abonnement payant.
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -44,11 +44,9 @@ Pour plus d'informations, consultez les pages suivantes :
 Tous les utilisateurs autorisés à utiliser les services web sont définis en tant que comptes d’utilisateurs dans une ou plusieurs instances d’Azure AD. Vous pouvez configurer ces comptes pour des fonctionnalités Azure AD gratuites, par exemple l’accès aux applications cloud.
 
 Les services Azure AD payants comme Enterprise Mobility + Security complètent d’autres services web comme Office 365 et Microsoft Azure avec des solutions avancées de gestion et de sécurité à l’échelle de l’entreprise.
-- - -
-**Q : Pourquoi est-ce que je peux me connecter au portail Azure, mais pas au portail Azure Classic ?**
 
-**R :** Le portail Azure ne nécessite pas d’abonnement valide, à la différence du portail Azure Classic.  Si vous ne possédez pas d’abonnement, vous ne pouvez pas vous connecter au portail Azure Classic.
 - - -
+
 **Q : Quelles sont les différences entre l’administrateur de l’abonnement et l’administrateur du répertoire ?**
 
 **R :** Par défaut, le rôle d’administrateur d’abonnement vous est attribué dès lors que vous vous abonnez à Azure. Un administrateur d’abonnement peut utiliser un compte Microsoft ou un compte professionnel ou scolaire provenant du répertoire auquel l’abonnement Azure est associé.  Ce rôle est autorisé à gérer les services sur le portail Azure.
@@ -56,7 +54,7 @@ Les services Azure AD payants comme Enterprise Mobility + Security complètent 
 Si d’autres personnes doivent se connecter et accéder aux services à l’aide de l’abonnement, vous pouvez les ajouter en tant que coadministrateurs. Ce rôle possède les mêmes privilèges d’accès que l’administrateur de services fédérés, à ceci près qu’il ne peut pas modifier la manière dont les abonnements sont associés aux répertoires Azure.  Pour plus d’informations sur les administrateurs d’abonnements, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md) et [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD propose un autre ensemble de rôles administratifs pour gérer le répertoire et les fonctionnalités liées à l’identité.  Ces administrateurs ont accès à diverses fonctionnalités dans le portail Azure ou le portail Azure Classic. Le rôle de l’administrateur détermine les opérations qu’il peut effectuer : créer ou modifier des utilisateurs, attribuer des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.  Pour plus d’informations sur les administrateurs de répertoires Azure AD et leurs rôles, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Azure AD propose un autre ensemble de rôles administratifs pour gérer le répertoire et les fonctionnalités liées à l’identité.  Ces administrateurs ont accès à diverses fonctionnalités du portail Azure. Le rôle de l’administrateur détermine les opérations qu’il peut effectuer : créer ou modifier des utilisateurs, attribuer des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.  Pour plus d’informations sur les administrateurs de répertoires Azure AD et leurs rôles, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Par ailleurs, les services Azure AD payants comme Enterprise Mobility + Security complètent d’autres services web, tels qu’Office 365 et Microsoft Azure, avec des solutions avancées de gestion et de sécurité à l’échelle de l’entreprise.
 
@@ -137,16 +135,20 @@ Pour les comptes Azure AD, les administrateurs peuvent réinitialiser les mots d
 
 - - -
 ## <a name="security"></a>Sécurité
-**Q : Les comptes sont-ils verrouillés après un nombre spécifique de tentatives infructueuses, ou une stratégie plus élaborée est-elle utilisée ?**</br>
+**Q : Les comptes sont-ils verrouillés après un nombre spécifique de tentatives infructueuses, ou une stratégie plus élaborée est-elle utilisée ?**
+
 Nous appliquons une stratégie plus étoffée pour verrouiller les comptes.  Cette dernière repose sur l’adresse IP de la demande et sur les mots de passe entrés. La durée du verrouillage augmente également en fonction de la probabilité de l’existence d’une attaque.  
 
-**Q : Certains mots de passe (courants) sont rejetés avec un message du type : « Ce mot de passe a été utilisé trop souvent ». Ce message fait-il référence aux mots de passe utilisés dans l’instance Active Directory actuelle ?**</br>
+**Q : Certains mots de passe (courants) sont rejetés avec un message du type : « Ce mot de passe a été utilisé trop souvent ». Ce message fait-il référence aux mots de passe utilisés dans l’instance Active Directory actuelle ?**
+
 Ce message s’applique aux mots de passe couramment utilisés au niveau mondial, tels que toutes les variantes de « Password » et de « 123456 ».
 
-**Q : Une demande de connexion émanant de sources douteuses (botnets, point de terminaison Tor) sera-t-elle bloquée dans un client B2C ou nécessite-t-elle un client d’une édition De base ou Premium ?**</br>
+**Q : Une demande de connexion émanant de sources douteuses (botnets, point de terminaison Tor) sera-t-elle bloquée dans un client B2C ou nécessite-t-elle un client d’une édition De base ou Premium ?**
+
 Nous disposons d’une passerelle qui filtre les demandes et offre une certaine protection contre les botnets. Elle s’applique à tous les clients B2C.
 
 ## <a name="application-access"></a>Accès aux applications
+
 **Q : Où puis-je trouver une liste des applications qui sont déjà intégrées à Azure AD et leurs fonctionnalités ?**
 
 **R :** Azure AD offre plus de 2 600 applications pré-intégrées développées par Microsoft, des fournisseurs de services d’application et des partenaires. Toutes les applications pré-intégrées prennent en charge l’authentification unique (SSO). L’authentification unique vous permet d’utiliser vos informations d’identification professionnelles pour accéder à vos applications. Certaines applications prennent également en charge l’approvisionnement et l’annulation d’approvisionnement automatisés.

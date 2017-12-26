@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: jroth
-ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 95a18e4b2437ca628e84f6d6f580e12f2f26e111
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure ? (Windows)
 
@@ -42,12 +42,19 @@ Les machines virtuelles SQL Server Azure peuvent tirer parti de la fonctionnalit
 
 Si vous avez besoin d’une haute disponibilité, pensez à configurer les groupes de disponibilité SQL Server. Cela implique la présence de plusieurs machines virtuelles SQL Server Azure dans un réseau virtuel. Vous pouvez configurer votre solution de haute disponibilité manuellement, ou vous pouvez utiliser des modèles dans le portail Azure pour une configuration automatique. Pour une vue d’ensemble des options de haute disponibilité, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
+## <a name="performance"></a>Performances
+
+Les machines virtuelles Azure présentent différentes tailles pour répondre aux diverses demandes de charge de travail. Les machines virtuelles SQL fournissent également une configuration de stockage automatisée, qui est optimisée pour vos besoins en termes de performances. Pour plus d’informations sur la configuration du stockage des machines virtuelles SQL, consultez [Configuration du stockage pour les machines virtuelles SQL Server](virtual-machines-windows-sql-server-storage-configuration.md). Pour ajuster les performances, consultez [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
+
 ## <a name="get-started-with-sql-vms"></a>Bien démarrer avec les machines virtuelles SQL
 
 Pour commencer, choisissez une image de machine virtuelle SQL Server avec la version, l’édition et le système d’exploitation requis. Les sections suivantes fournissent des liens directs vers le portail Azure pour les images de la galerie de machines virtuelles SQL Server.
 
 > [!TIP]
 > Pour en savoir plus sur la tarification des machines virtuelles SQL pour ces images, consultez l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
+
+> [!TIP]
+> Pour comprendre la stratégie de cycle de vie et de mise à jour pour les images de la galerie de machines virtuelles SQL Server, consultez l’article [SQL Server VMs FAQ (Forum aux questions relatif aux machines virtuelles SQL Server)](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ### <a id="payasyougo"></a> Paiement à l’utilisation
 Le tableau suivant fournit une matrice des images SQL Server de paiement à l’utilisation.

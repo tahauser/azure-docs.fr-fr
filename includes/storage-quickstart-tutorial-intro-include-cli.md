@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage standard à usage général avec la commande [az storage account create](/cli/azure/storage/account#create). Le compte de stockage standard à usage général peut être utilisé pour les quatre services : objets blob, fichiers, tables et files d’attente. 
+Créez un compte de stockage à usage général avec la commande [az storage account create](/cli/azure/storage/account#create). Le compte de stockage à usage général peut être utilisé pour les quatre services : objets blob, fichiers, tables et files d’attente. 
 
 ```azurecli-interactive
 az storage account create \

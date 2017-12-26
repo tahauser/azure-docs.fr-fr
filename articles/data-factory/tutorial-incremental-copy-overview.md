@@ -1,6 +1,6 @@
 ---
 title: "Copier de façon incrémentielle des données en utilisant Azure Data Factory | Microsoft Docs"
-description: "Ces didacticiels vous montrent comment copier de façon incrémentielle des données d’un magasin de données source dans un magasin de données de destination. Dans le premier, les données sont copiées à partir d’une table. "
+description: "Ces didacticiels vous montrent comment copier de façon incrémentielle des données d’un magasin de données source dans un magasin de données de destination. Dans le premier, les données sont copiées à partir d’une table."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,29 +13,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: 2ae6cb42685dfb227bd75f83e73dfdf646ab909f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f23ca6862d0a0e67245f02dc723f61da8f41b6a0
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Charger de façon incrémentielle des données d’un magasin de données source vers un magasin de données de destination
 
 Dans une solution d’intégration de données, le chargement incrémentielle (ou delta) de données après un chargement initial complet de données est un scénario largement utilisé. Les didacticiels de cette section vous montrent différentes méthodes de chargement des données de façon incrémentielle à l’aide d’Azure Data Factory version 2.
 
-## <a name="delta-data-loading-using-a-watermark"></a>Chargement de données delta à l’aide d’un filigrane
-Dans ce cas, vous définissez un filigrane dans votre base de données source. Un filigrane est une colonne incluant le timestamp ou la clé d’incrémentation de la dernière mise à jour. La solution de chargement delta charge les données modifiées entre un ancien filigrane et un nouveau filigrane. Le flux de travail de cette approche est illustré dans le diagramme suivant : 
+## <a name="delta-data-loading-by-using-a-watermark"></a>Chargement de données delta à l’aide d’un filigrane
+Dans ce cas, vous définissez un filigrane dans votre base de données source. Un filigrane est une colonne incluant une clé d’incrémentation ou l’horodatage de la dernière mise à jour. La solution de chargement delta charge les données modifiées entre un ancien filigrane et un nouveau filigrane. Le flux de travail de cette approche est illustré dans le diagramme suivant : 
 
 ![Flux de travail d’utilisation d’un filigrane](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
 
 Pour des instructions pas à pas, consultez les didacticiels suivants : 
 
-- [Copier de façon incrémentielle les données d’une table dans Azure SQL Database dans un stockage Blob Azure](tutorial-incremental-copy-powershell.md)
-- [Copier de façon incrémentielle des données provenant de plusieurs tables dans un SQL Server local vers Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Copier de façon incrémentielle les données d’une table d’Azure SQL Database dans un stockage Blob Azure](tutorial-incremental-copy-powershell.md)
+- [Copier de façon incrémentielle des données provenant de plusieurs tables d’une base de données SQL Server locale vers Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
-## <a name="delta-data-loading-using-the-change-tracking-technology"></a>Chargement de données delta à l’aide de la technologie Change Tracking
-La technologie de suivi des modifications est une solution légère dans SQL Server et Azure SQL Database qui fournit un mécanisme de suivi des modifications efficace pour les applications. Il permet à une application d’identifier facilement les données qui ont été insérées, mises à jour ou supprimées. 
+## <a name="delta-data-loading-by-using-the-change-tracking-technology"></a>Chargement de données delta à l’aide de la technologie Change Tracking
+La technologie Change Tracking est une solution légère dans SQL Server et Azure SQL Database qui fournit un mécanisme de suivi des modifications efficace pour les applications. Elle permet à une application d’identifier facilement les données qui ont été insérées, mises à jour ou supprimées. 
 
 Le flux de travail de cette approche est illustré dans le diagramme suivant :
 
@@ -49,4 +49,4 @@ Pour des instructions pas à pas, consultez les didacticiels suivants : <br/>
 Accéder au didacticiel suivant : 
 
 > [!div class="nextstepaction"]
->[Copier de façon incrémentielle les données d’une table dans Azure SQL Database dans un stockage Blob Azure](tutorial-incremental-copy-powershell.md)
+>[Copier de façon incrémentielle les données d’une table d’Azure SQL Database dans un stockage Blob Azure](tutorial-incremental-copy-powershell.md)

@@ -16,7 +16,7 @@ Pour créer un espace de noms :
 ### <a name="obtain-the-management-credentials"></a>Obtenir les informations d’identification de gestion
 Créer un espace de noms génère automatiquement une règle de signature d’accès partagé (SAS) initiale comprenant une paire de clés primaire et secondaire qui vous offre un contrôle complet sur tous les aspects de l’espace de noms. Voir [Authentification et autorisation Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) pour plus d’information sur la façon de créer des règles supplémentaires avec des droits plus restreints pour les expéditeurs et les destinataires réguliers. Pour copier la règle initiale, effectuez les étapes suivantes : 
 
-1. Dans la liste des espaces de noms, cliquez sur le nom de l’espace de noms que vous venez de créer.
+1.  Cliquez sur **Toutes les ressources**, puis sur le nom de l’espace de noms que vous venez de créer.
 2. Dans la fenêtre Espace de noms, cliquez sur **Stratégies d’accès partagé**.
 3. Dans l’écran **Stratégies d’accès partagé**, cliquez sur **RootManageSharedAccessKey**.
    

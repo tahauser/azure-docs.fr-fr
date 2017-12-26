@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -31,7 +31,7 @@ Il existe deux types de tests de disponibilité :
 
 Vous pouvez créer jusqu’à 100 tests de disponibilité par ressource d’application.
 
-## <a name="create"></a>1. Ouvrir une ressource pour vos rapports de test de disponibilité
+## <a name="create"></a>Ouvrir une ressource pour vos rapports de test de disponibilité
 
 **Si vous avez déjà configuré Application Insights** pour votre application web, ouvrez sa ressource Application Insights dans le [portail Azure](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Vous pouvez créer jusqu’à 100 tests de disponibilité par ressource d’appl
 
 Cliquez sur **Toutes les ressources** pour ouvrir le panneau Vue d’ensemble de la nouvelle ressource.
 
-## <a name="setup"></a>2. Créer un test Ping d’URL
+## <a name="setup"></a>Créer un test Ping d’URL
 Ouvrez le panneau de disponibilité et ajoutez un test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l’URL.
 
 
-## <a name="monitor"></a>3. Consulter les résultats des tests de disponibilité
+## <a name="monitor"></a>Consulter les résultats des tests de disponibilité
 
 Au bout de quelques minutes, cliquez sur **Actualiser** pour afficher les résultats de test. 
 
@@ -102,14 +102,11 @@ Cliquez sur un point rouge.
 À partir d’un résultat de test de disponibilité, vous pouvez :
 
 * Vérifier la réponse reçue à partir de votre serveur.
-* Ouvrir la télémétrie envoyée par votre application serveur lors du traitement de l’instance de requête ayant échoué.
+* Diagnostiquer la défaillance à l’aide des données de télémétrie côté serveur collectées pendant le traitement de l’instance de requête en échec.
 * Enregistrer un problème ou un élément de travail dans Git ou VSTS pour suivre le problème. Le bogue contient un lien vers cet événement.
 * Ouvrir le résultat du test web dans Visual Studio.
 
-
-*Le résultat semble correct, mais une erreur est signalée ?* Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement.
-
-*Aucun élément connexe ?* Si Application Insights est défini pour votre application côté serveur, cela peut être en raison d’un [échantillonnage](app-insights-sampling.md) en cours. 
+*Le résultat semble correct, mais une erreur est signalée ?* Consultez le [FAQ](#qna) pour prendre connaissance des méthodes permettant de réduire le bruit.
 
 ## <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
@@ -256,6 +253,20 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 * Configurez un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée.
 
 ## <a name="qna"></a>Des questions ? Des problèmes ?
+* *Échecs intermittents des tests avec une erreur de violation de protocole.*
+
+    L’erreur (« violation de protocole... CR doit être suivi par LF ») indique un problème lié au serveur (ou aux dépendances). Il se produit lorsque des en-têtes mal formés sont définis dans la réponse. Ce problème peut être provoqué par des équilibreurs de charge ou des réseaux de distribution de contenu (CDN). Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui enfreint la spécification HTTP et entraîne donc l’échec de la validation au niveau WebRequest .NET. Examinez la réponse pour repérer les en-têtes qui peuvent ne pas être conformes.
+    
+    Remarque : l’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *Le site vous semble OK, mais vous observez des échecs des tests.*
+
+    * Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
+
+    * Pour réduire la probabilité de bruit des spots réseau temporaires, etc., vérifiez que la case à cocher de configuration « Permettre les nouvelles tentatives pour les échecs des tests web » est activée. Vous pouvez également procéder aux tests à partir de plusieurs emplacements et gérer le seuil de la règle d’alerte en conséquence afin d’empêcher des problèmes propres aux emplacements provoquant des alertes injustifiées.
+    
+* *Je ne vois pas les données de télémétrie côté serveur associées pour diagnostiquer les échecs des tests.*
+    
+    Si Application Insights est défini pour votre application côté serveur, cela peut être en raison d’un [échantillonnage](app-insights-sampling.md) en cours.
 * *Puis-je appeler du code à partir de mon test web ?*
 
     Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.

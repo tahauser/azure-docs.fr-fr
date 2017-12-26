@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory (préversion)
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux.  Cela permet de garantir qu’ils se voient présenter les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité.
@@ -52,14 +52,16 @@ Après avoir finalisé vos conditions d’utilisation, effectuez les étapes sui
 ### <a name="to-add-terms-of-use"></a>Pour ajouter des conditions d’utilisation
 1. Accédez au tableau de bord à l’adresse [https://aka.ms/catou](https://aka.ms/catou).
 2. Cliquez sur Ajouter.</br>
-![Ajouter des conditions d’utilisation](media/active-directory-tou/tou2.png)
+![Ajouter des conditions d’utilisation](media/active-directory-tou/tou12.png)
 3. Entrer le **nom** des conditions d’utilisation
 4. Entrez **Nom d’affichage**.  Cet en-tête correspond à ce que les utilisateurs voient quand ils se connectent.
 5. **Accédez** au fichier PDF finalisé de vos conditions et sélectionnez-le.  Il est recommandé d’utiliser une taille de police de 24.
-6. Vous pouvez **appliquer** les conditions d’utilisation chargées à l’aide d’un modèle ou d’une stratégie d’accès conditionnel personnalisée.  Les stratégies d’accès conditionnel personnalisées permettent de définir des conditions d’utilisation plus précises, jusqu’au niveau d’une application cloud ou d’un groupe d’utilisateurs.  Pour plus d’informations, consultez [Configuration de stratégies d’accès conditionnel personnalisées](active-directory-conditional-access-best-practices.md).
-7. Cliquez sur **Créer**.
-8. Si vous avez sélectionné un modèle d’accès conditionnel personnalisé, un nouvel écran s’affiche pour vous permettre de personnaliser la stratégie d’accès conditionnel.
-7. Vos nouvelles conditions d’utilisation doivent désormais s’afficher.</br>
+6. **Sélectionnez** la langue des conditions d’utilisation.  L’option de langue vous permet de charger plusieurs conditions d’utilisation, chacune dans une langue différente.  La version des conditions d’utilisation affichée pour l’utilisateur final dépend des préférences de son navigateur.
+7. Activez ou désactivez l’option **Demander aux utilisateurs d’étendre les conditions d’utilisation**.  Si cette option est activée, les utilisateurs finaux sont priés d’afficher les conditions d’utilisation avant de les accepter.
+8. Dans la section **Accès conditionnel**, vous pouvez **appliquer** les conditions d’utilisation chargées à l’aide d’un modèle ou d’une stratégie d’accès conditionnel personnalisée.  Les stratégies d’accès conditionnel personnalisées permettent de définir des conditions d’utilisation plus précises, jusqu’au niveau d’une application cloud ou d’un groupe d’utilisateurs.  Pour plus d’informations, consultez [Configuration de stratégies d’accès conditionnel personnalisées](active-directory-conditional-access-best-practices.md).
+9. Cliquez sur **Créer**.
+10. Si vous avez sélectionné un modèle d’accès conditionnel personnalisé, un nouvel écran s’affiche pour vous permettre de personnaliser la stratégie d’accès conditionnel.
+11. Vos nouvelles conditions d’utilisation doivent désormais s’afficher.</br>
 
 ![Ajouter des conditions d’utilisation](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Les utilisateurs dans l’étendue voient ce qui suit une fois les conditions d�
 ![Événement d’audit](media/active-directory-tou/tou10.png)
 -   L’écran apparaît comme suit sur les mobiles.</br></br>
 ![Événement d’audit](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Vérifier les conditions d’utilisation
+Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont acceptées.  Pour ce faire, procédez comme suit :
+
+1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
+2. Dans l’angle supérieur droit, cliquez sur votre nom, puis sélectionnez **Profil** dans la liste déroulante.
+![Profil](media/active-directory-tou/tou14.png)
+
+3. Dans votre profil, cliquez sur **Vérifier les conditions d’utilisation**.
+![Événement d’audit](media/active-directory-tou/tou13a.png)
+
+4.  C’est là que vous pouvez vérifier les conditions d’utilisation que vous avez acceptées. 
+
 
 ## <a name="additional-information"></a>Informations supplémentaires
 Tenez compte des points suivants pour faciliter la mise en place de conditions d’utilisation.

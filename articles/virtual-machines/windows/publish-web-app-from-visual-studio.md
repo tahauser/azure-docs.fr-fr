@@ -134,4 +134,4 @@ Pour configurer un pipeline de livraison continue avec Visual Studio Team Servic
 [Page Publier - Bouton Publier]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Page Publier - Bouton Paramètres]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Paramètres de publication - Page Connexion]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
-[Paramètres de publication - Page Paramètres ]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
+[Paramètres de publication - Page Paramètres]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
