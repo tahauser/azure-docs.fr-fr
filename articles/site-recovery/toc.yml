@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Configurer l’adressage IP pour l’accès à un site secondaire après le basculement
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Gestion de l’interface réseau pour les scénarios local vers Azure
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Récupération d'urgence
       items:
         - name: Machines virtuelles Hyper-V vers Azure
