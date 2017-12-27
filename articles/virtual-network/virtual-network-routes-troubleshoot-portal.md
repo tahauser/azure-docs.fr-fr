@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Résoudre des problèmes d’itinéraire à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Si l’exemple utilise uniquement les itinéraires système, les mêmes étapes 
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Afficher les itinéraires effectifs pour une machine virtuelle
 Pour afficher les itinéraires agrégés qui s’appliquent à une machine virtuelle, procédez comme suit :
 
-1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com. L’opération *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Cliquez sur **Autres services**, puis sur **Machines virtuelles** dans la liste qui s’affiche.
 3. Sélectionnez une machine virtuelle à dépanner dans la liste qui s’affiche. Un panneau de machine virtuelle avec des options s’affiche.
 4. Cliquez sur **Diagnostiquer et résoudre les problèmes**, puis sélectionnez un problème courant. Pour cet exemple, le problème **Je ne peux pas me connecter à ma machine virtuelle Windows** est sélectionné.

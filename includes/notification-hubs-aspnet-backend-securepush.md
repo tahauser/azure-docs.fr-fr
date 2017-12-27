@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>Projet WebAPI
 1. Dans Visual Studio, ouvrez le projet **AppBackend** que vous avez créé dans le didacticiel **Notification des utilisateurs**.
-2. Dans le fichier Notifications.cs, remplacez la totalité de la classe **Notifications** par le code suivant. Veillez à remplacer les espaces réservés par la chaîne de connexion (avec accès complet) de votre hub de notification et par le nom de celui-ci. Ces valeurs sont disponibles dans le [Portail Azure Classic](http://manage.windowsazure.com). Ce module représente maintenant les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplification, nous les stockons ici en mémoire.
+2. Dans le fichier Notifications.cs, remplacez la totalité de la classe **Notifications** par le code suivant. Veillez à remplacer les espaces réservés par la chaîne de connexion (avec accès complet) de votre hub de notification et par le nom de celui-ci. Ces valeurs sont disponibles dans le [portail Azure](http://portal.azure.com). Ce module représente maintenant les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplification, nous les stockons ici en mémoire.
    
         public class Notification
         {

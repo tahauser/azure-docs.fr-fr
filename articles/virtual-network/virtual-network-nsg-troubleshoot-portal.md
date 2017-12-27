@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Résoudre les problèmes relatifs aux groupes de sécurité réseau à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, pro
 
 Vous pouvez afficher la liste complète des règles de sécurité effectives sur une carte réseau à partir de la machine virtuelle elle-même. Vous pouvez également ajouter, modifier et supprimer les règles du groupe de sécurité réseau de carte réseau et de sous-réseau à partir du panneau des règles effectives si vous êtes autorisé à effectuer ces opérations.
 
-1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com avec un compte Azure. L’opération *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Cliquez sur **Autres services**, puis sur **Machines virtuelles** dans la liste qui s’affiche.
 3. Sélectionnez une machine virtuelle à dépanner dans la liste qui s’affiche. Un panneau de machine virtuelle avec des options s’affiche.
 4. Cliquez sur **Diagnostiquer et résoudre les problèmes**, puis sélectionnez un problème courant. Pour cet exemple, le problème **Je ne peux pas me connecter à ma machine virtuelle Windows** est sélectionné. 

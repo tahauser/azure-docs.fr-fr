@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -42,7 +40,7 @@ Cet article présente l'utilisation de Microsoft Azure Backup pour protéger vos
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) sauvegarde les données des fichiers et des applications. Vous trouverez des informations supplémentaires sur les charges de travail prises en charge [ici](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Les données sauvegardées dans DPM peuvent être stockées sur bande, sur disque, ou sauvegardées dans Azure avec Sauvegarde Microsoft Azure. DPM interagit avec Azure Backup comme suit :
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) sauvegarde les données des fichiers et des applications. Vous trouverez plus d’informations sur les charges de travail prises en charge [ici](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Les données sauvegardées dans DPM peuvent être stockées sur bande, sur disque, ou sauvegardées dans Azure avec Microsoft Azure Backup. DPM interagit avec Azure Backup comme suit :
 
 * **DPM déployé comme un serveur physique ou une machine virtuelle en local** : si DPM est déployé comme un serveur physique ou comme une machine virtuelle Hyper-V en local, vous pouvez sauvegarder les données dans un coffre Recovery Services en plus d’une sauvegarde sur disque et sur bande.
 * **DPM déployé comme une machine virtuelle Azure** : depuis la mise à jour 3 de System Center 2012 R2, DPM peut être déployé comme une machine virtuelle Azure. Si DPM est déployé comme une machine virtuelle Azure, vous pouvez sauvegarder les données sur des disques Azure connectés à la machine virtuelle DPM Azure, ou décharger le stockage de données en les sauvegardant dans un coffre Recovery Services.
@@ -113,7 +111,7 @@ Les informations d’identification de coffre sont utilisées uniquement pendant
 Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Azure. Le service Azure Backup n’a pas connaissance de la clé privée du certificat et cette dernière n’est pas conservée dans le portail ou le service. Procédez comme suit pour télécharger les informations d’identification de coffre sur un ordinateur local.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Ouvrez le coffre Recovery Services sur lequel vous voulez enregistrer l’ordinateur DPM.
+2. Ouvrez le coffre Recovery Services auprès duquel vous voulez inscrire l’ordinateur DPM.
 3. Le panneau Paramètres s’ouvre par défaut. S’il est fermé, cliquez sur **Paramètres** dans le tableau de bord du coffre pour ouvrir le panneau Paramètres. Dans le panneau Paramètres, cliquez sur **Propriétés**.
 
     ![Ouvrir le panneau de l’archivage](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -131,7 +129,7 @@ Le portail générera une information d'identification de coffre en combinant le
 ### <a name="3-install-backup-agent"></a>3. Installer l’agent de sauvegarde
 Après avoir créé l’archivage de sauvegarde Azure, un agent doit être installé sur chacune de vos machines Windows (Windows Server, client Windows, System Center Data Protection Manager ou Azure Backup Server) pour permettre la sauvegarde des données et des applications dans Azure.
 
-1. Ouvrez le coffre Recovery Services sur lequel vous voulez enregistrer l’ordinateur DPM.
+1. Ouvrez le coffre Recovery Services auprès duquel vous voulez inscrire l’ordinateur DPM.
 2. Le panneau Paramètres s’ouvre par défaut. S’il est fermé, cliquez sur **Paramètres** pour ouvrir le panneau Paramètres. Dans le panneau Paramètres, cliquez sur **Propriétés**.
 
     ![Ouvrir le panneau de l’archivage](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 
     ![Télécharger](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Une fois l’agent téléchargé, double-cliquez sur MARSAgentInstaller.exe pour lancer l’installation de l’agent Azure Backup. Choisissez le dossier d’installation et le dossier de travail requis pour l’agent. L’emplacement du cache spécifié doit avoir un espace libre équivalent à au moins 5 % du volume des données de sauvegarde.
+   Une fois l’agent téléchargé, exécutez MARSAgentInstaller.exe pour lancer l’installation de l’agent Azure Backup. Choisissez le dossier d’installation et le dossier de travail requis pour l’agent. L’emplacement du cache spécifié doit avoir un espace libre équivalent à au moins 5 % du volume des données de sauvegarde.
 4. Si vous utilisez un serveur proxy pour vous connecter à Internet, dans l’écran **Configuration du proxy** , entrez les détails du serveur proxy. Si vous utilisez un proxy authentifié, entrez les informations de nom d’utilisateur et mot de passe dans cet écran.
 5. L’agent Azure Backup installe .NET Framework 4.5 et Windows PowerShell (s’il n’est pas déjà disponible) pour terminer l’installation.
 6. Une fois l’agent installé, **fermez** la fenêtre.
