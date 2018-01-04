@@ -1,6 +1,10 @@
 - name: Documentation Site Recovery
   href: index.yml
-- name: Vue d'ensemble
+- name: Migration des ordinateurs locaux et des machines virtuelles Azure
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Récupération d’urgence depuis Azure vers Azure
+  href: azure-to-azure/azure-to-azure-quickstart.md
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Site Recovery\_?"
       href: site-recovery-overview.md
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Matrice de prise en charge sur site vers Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Matrice de prise en charge d’Hyper-V sur Azure
+      href: support-matrix-hyper-v-to-azure.md
     - name: Matrice de prise en charge sur site vers un site secondaire
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Récupération d’urgence pour les charges de travail
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Récupération d'urgence
       items:
+        - name: Préparer des ordinateurs Hyper-V pour la réplication vers Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Machines virtuelles Hyper-V vers Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Machines virtuelles Hyper-V sur des clouds VMM vers Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Serveurs physiques vers Azure
           href: tutorial-physical-to-azure.md
         - name: Machines virtuelles Hyper-V vers un site secondaire
@@ -104,7 +114,7 @@
           items:
             - name: Ajouter des Runbooks Azure à des plans de récupération
               href: site-recovery-runbook-automation.md
-        - name: Exécution d’un test de basculement
+        - name: Exécuter un test de basculement
           items:
             - name: Exécution d’un test de basculement vers Azure
               href: site-recovery-test-failover-to-azure.md
@@ -235,7 +245,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Autres charges de travail
           href: 'site-recovery-workload.md#workload-summary'
-    - name: Gérer
+    - name: gérer
       items:
         - name: Passer à un coffre Recovery Services
           href: upgrade-site-recovery-vaults.md
@@ -263,7 +273,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Collecter les journaux et résoudre les problèmes locaux
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: "Azure\_PowerShell"
       href: /powershell/module/azurerm.recoveryservices.siterecovery
@@ -285,7 +295,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'

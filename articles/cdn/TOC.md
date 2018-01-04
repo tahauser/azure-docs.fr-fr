@@ -7,8 +7,10 @@
 # Procédure
 ## Integrate
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Services Cloud](cdn-cloud-service-with-cdn.md)
-### [Stockage](cdn-create-a-storage-account-with-cdn.md)
+### [Cloud Services](cdn-cloud-service-with-cdn.md)
+### Stockage
+#### [Intégration d’un compte de stockage](cdn-create-a-storage-account-with-cdn.md)
+#### [Assistance relative au stockage SAS](cdn-sas-storage-support.md)
 ### [Partage de ressources cross-origin](cdn-cors.md)
 ### [Ajouter un domaine personnalisé à votre point de terminaison CDN](cdn-map-content-to-custom-domain.md)
 ### [Configurer le protocole HTTPS pour un domaine personnalisé](cdn-custom-ssl.md)
@@ -18,7 +20,7 @@
 ####[Optimisation du streaming multimédia](cdn-media-streaming-optimization.md)
 ####[Accélération de site dynamique](cdn-dynamic-site-acceleration.md)
  
-## Gérer
+## gérer
 ### [Gérer avec Azure PowerShell](cdn-manage-powershell.md)
 ### [Restreindre l’accès par pays](cdn-restrict-access-by-country.md)
 ### [Compression des fichiers pour améliorer les performances](cdn-improve-performance.md)
@@ -58,7 +60,7 @@
 ### [Statut 404](cdn-troubleshoot-endpoint.md)
 ### [Compression de fichiers](cdn-troubleshoot-compression.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -76,6 +78,6 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=cdn)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 

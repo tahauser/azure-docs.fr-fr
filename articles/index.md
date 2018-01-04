@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 featureFlags: clicktale
-ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/02/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -187,7 +187,7 @@ ms.lasthandoff: 12/20/2017
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Storage</h4>
+                                                <h4>Stockage</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Stockage d’objets blob</a></li>
                                                 </ul>
@@ -291,7 +291,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/app-service-web/">
                                                 <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>Applications Web</p>
+                                                <p>Web Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -303,7 +303,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Fonctions</p>
+                                                <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
@@ -333,7 +333,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
-                                                <p>Services cloud</p>
+                                                <p>Cloud Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -444,7 +444,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gestion des API</p>
+                                                <p>API Management</p>
                                             </a>
                                         </li>
                                         <li>
@@ -790,12 +790,12 @@ ms.lasthandoff: 12/20/2017
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Storage</h3>
+                                    <h3>Stockage</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>Storage</p>
+                                                <p>Stockage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -945,7 +945,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gestion des API</p>
+                                                <p>API Management</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1073,7 +1073,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API Apps</p>
+                                                <p>Applications API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1358,7 +1358,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Fonctions</h3>
+                                                    <h3>Functions</h3>
                                                     <p>Traitez les événements avec du code sans serveur</p>
                                                 </div>
                                             </div>
@@ -1453,7 +1453,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Services cloud</h3>
+                                                    <h3>Cloud Services</h3>
                                                     <p>Créez des API et des applications cloud hautement disponibles et évolutives à l’infini</p>
                                                 </div>
                                             </div>
@@ -1692,7 +1692,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage</h3>
+                                                    <h3>Stockage</h3>
                                                     <p>Stockage dans le cloud durable, hautement disponible et considérablement évolutif</p>
                                                 </div>
                                             </div>
@@ -1868,7 +1868,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Applications Web</h3>
+                                                    <h3>Web Apps</h3>
                                                     <p>Créez et déployez rapidement des applications web stratégiques à grande échelle</p>
                                                 </div>
                                             </div>
@@ -1925,7 +1925,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API Apps</h3>
+                                                    <h3>Applications API</h3>
                                                     <p>Générez et utilisez facilement des API cloud</p>
                                                 </div>
                                             </div>
@@ -2666,7 +2666,7 @@ ms.lasthandoff: 12/20/2017
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>language</h3>
+                                                        <h3>Langage</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Vérification orthographique Bing</a>
@@ -2715,7 +2715,7 @@ ms.lasthandoff: 12/20/2017
                                                                 <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommandations&nbsp;<sup style="font-size:70%">VERSION PRÉLIMINAIRE</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="media/index/API_Know_Academic.svg" alt="" /><span>Connaissances universitaires&nbsp;<sup style="font-size:70%">VERSION PRÉLIMINAIRE</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="media/index/API_Know_Academic.svg" alt="" /><span>Connaissances universitaires&nbsp;<sup style="font-size:70%">PRÉVERSION</sup></span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2728,7 +2728,7 @@ ms.lasthandoff: 12/20/2017
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Search</h3>
+                                                        <h3>action</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Actualités Bing</a>
@@ -3084,7 +3084,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gestion des API</h3>
+                                                    <h3>API Management</h3>
                                                     <p>Publiez des API en toute sécurité et à grande échelle pour les développeurs, les partenaires et les employés</p>
                                                 </div>
                                             </div>
@@ -3436,7 +3436,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gestion des API</h3>
+                                                    <h3>API Management</h3>
                                                     <p>Publiez des API en toute sécurité et à grande échelle pour les développeurs, les partenaires et les employés</p>
                                                 </div>
                                             </div>
@@ -4069,7 +4069,7 @@ Azure CLI 2.0 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Interface de ligne de commande Azure </h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Prise en main</a>
                                                 </p>
@@ -4161,6 +4161,34 @@ Interface de ligne de commande Azure </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Télécharger</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Outils SQL </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio : <sup>PRÉVERSION</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">Voir tous les outils SQL</a>
                                                 </p>
                                             </div>
                                         </div>

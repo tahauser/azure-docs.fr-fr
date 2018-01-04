@@ -1,6 +1,6 @@
 - name: Documentation pour opérateur Azure Stack
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack\_?"
       href: azure-stack-poc.md
@@ -43,7 +43,7 @@
   items:
     - name: Déployer
       items:
-        - name: Composants requis
+        - name: configuration requise
           href: azure-stack-deploy.md
         - name: Télémétrie
           href: azure-stack-telemetry.md
@@ -51,7 +51,7 @@
           href: azure-stack-run-powershell-script.md
         - name: Installer PowerShell
           href: azure-stack-powershell-install.md
-        - name: S’inscrire
+        - name: 'Register '
           href: azure-stack-register.md
         - name: Se connecter à Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -71,7 +71,7 @@
           href: azure-stack-integrate-monitor.md
         - name: Sécurité
           href: azure-stack-integrate-security.md
-    - name: Gérer
+    - name: gérer
       items:
         - name: Gestion des régions
           href: azure-stack-region-management.md
@@ -121,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: Remplacer le composant
               href: azure-stack-replace-component.md
+        - name: Sauvegarde d’Azure Stack
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Activer la sauvegarde d’Azure Stack à partir de la console d’administration
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Activer la sauvegarde d’Azure Stack avec PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Sauvegarde d’Azure Stack
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Récupérer des données suites à une perte catastrophique
+              href: azure-stack-backup-recover-data.md
+            - name: Meilleures pratiques en matière de sauvegarde
+              href: azure-stack-backup-best-practices.md
+            - name: Référence liée à la sauvegarde
+              href: azure-stack-backup-reference.md
     - name: 'Sécurité, conformité et identité'
       items:
         - name: Présentation de la sécurité
@@ -171,7 +186,7 @@
           items:
             - name: Vue d’ensemble d’App Service sur Azure Stack
               href: azure-stack-app-service-overview.md
-            - name: Planification de la capacité
+            - name: planification de la capacité
               href: azure-stack-app-service-capacity-planning.md
             - name: Avant de commencer
               href: azure-stack-app-service-before-you-get-started.md
@@ -205,7 +220,7 @@
               href: azure-stack-linux.md
         - name: Utilisation et facturation
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-billing-and-chargeback.md
             - name: Rapports des données d’utilisation
               href: azure-stack-usage-reporting.md
@@ -233,7 +248,7 @@
           href: azure-stack-diagnostics.md
         - name: Redéployer le Kit de développement Azure Stack
           href: azure-stack-redeploy.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9

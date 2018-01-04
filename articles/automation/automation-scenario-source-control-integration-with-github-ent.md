@@ -38,7 +38,7 @@ Ce scénario se compose de deux runbooks PowerShell que vous pouvez importer dir
 Runbook | Description| 
 --------|------------|
 Export-RunAsCertificateToHybridWorker | Ce runbook exporte un certificat d’identification (RunAs) d’un compte Automation vers un Worker hybride afin que les runbooks sur le Worker puissent s’authentifier auprès d’Azure pour pouvoir importer les runbooks dans le compte Automation.| 
-Sync-LocalGitFolderToAutomationAccount | Ce runbook synchronise le dossier Git local sur l’ordinateur hybride, puis importe les fichiers de runbook (*.ps1) dans le compte Automation.|
+Sync-LocalGitFolderToAutomationAccount | Ce runbook synchronise le dossier Git local sur l’ordinateur hybride, puis importe les fichiers de runbook ( * .ps1) dans le compte Automation.|
 
 ### <a name="credentials"></a>Informations d'identification
 

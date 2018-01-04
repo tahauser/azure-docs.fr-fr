@@ -1,6 +1,6 @@
 - name: Documentation Cosmos DB
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Cosmos DB
       href: introduction.md
@@ -127,7 +127,7 @@
           href: tutorial-functions-http-trigger.md
 - name: Exemples
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -143,7 +143,7 @@
       href: unique-keys.md
     - name: Cohérence
       href: consistency-levels.md
-    - name: Débit
+    - name: Throughput
       href: request-units.md
     - name: API multi-modèles
       items:
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Tests de performances
               href: performance-testing.md
-            - name: Conseils sur les performances
+            - name: Conseils en matière de performances pour .NET
               href: performance-tips.md
+            - name: Conseils en matière de performances pour Java
+              href: performance-tips-java.md
             - name: Configuration multimaître
               href: multi-region-writers.md
             - name: DateTimes
@@ -235,7 +237,7 @@
                   href: sql-api-sql-query-cheat-sheet.md
                 - name: Dépassement de capacité de la pile
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
-                - name: Vidéos
+                - name: vidéos
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Mises à jour de service
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
@@ -318,7 +320,7 @@
           href: indexing-policies.md
         - name: Service connecté dans Visual Studio
           href: connected-service.md
-    - name: Gérer
+    - name: gérer
       items:
         - name: Écritures et lectures rentables
           href: key-value-store-cost.md
@@ -378,7 +380,7 @@
           href: odbc-driver.md
         - name: UtiliserSpring Boot Starter avec les API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -422,7 +424,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: "Essayez gratuitement Azure Cosmos\_DB"
       href: 'https://azure.microsoft.com/try/cosmosdb/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Forum Aux Questions
       href: faq.md

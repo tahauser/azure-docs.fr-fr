@@ -1,6 +1,6 @@
 - name: Base de données Azure pour les documents MySQL
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Base de données Azure pour MySQL
       href: overview.md
@@ -37,7 +37,7 @@
       items:
         - name: Portail Azure
           href: tutorial-design-database-using-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: tutorial-design-database-using-cli.md
     - name: 2 - Créer une application web
       items:
@@ -47,7 +47,7 @@
           href: ../app-service/containers/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Exemples
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
@@ -93,13 +93,13 @@
       items:
         - name: Portail Azure
           href: howto-manage-firewall-using-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restaurer un serveur
       items:
         - name: Portail Azure
           href: howto-restore-server-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-restore-server-cli.md
     - name: Migrer une base de données
       items:
@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: Importer et exporter
           href: concepts-migrate-import-export.md
+        - name: Migration avec temps d’arrêt minimal
+          href: howto-migrate-online.md
     - name: Connecter des applications
       items:
         - name: Créer des utilisateurs
@@ -121,23 +123,23 @@
       items:
         - name: Portail Azure
           href: howto-server-parameters.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: Accéder aux journaux du serveur
       items:
         - name: Portail Azure
           href: howto-configure-server-logs-in-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
     - name: Surveiller
       items:
         - name: Créer des alertes sur les mesures
           href: howto-alert-on-metric.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/mysql
-    - name: API REST
+    - name: de l’API REST
       href: /rest/api/mysql
 - name: Ressources
   items:
@@ -145,13 +147,13 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
-    - name: Vidéos
+    - name: vidéos
       href: videos.md
     - name: Demander une fonctionnalité
       href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'

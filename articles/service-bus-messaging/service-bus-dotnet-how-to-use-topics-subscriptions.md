@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: ca771648e9be9b8fd2b5d930c65610311820c7ba
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
@@ -32,7 +32,7 @@ Ce didacticiel couvre les étapes suivantes :
 4. Écrivez une application de console .NET Core pour envoyer un ensemble de messages à la rubrique.
 5. Écrivez une application de console .NET Core pour recevoir ces messages de l’abonnement.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou version ultérieure.
 2. [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
@@ -377,7 +377,7 @@ Pour recevoir les messages que vous venez d’envoyer, créez une autre applicat
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
             {
-                // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
                 var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
                 {
                     // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
@@ -426,7 +426,7 @@ Pour recevoir les messages que vous venez d’envoyer, créez une autre applicat
 
 Félicitations ! Grâce à la bibliothèque .NET Standard, vous avez créé une rubrique et un abonnement, envoyé 10 messages et les avez reçus.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les [référentiels GitHub accompagnés d’exemples](https://github.com/Azure/azure-service-bus/tree/master/samples) qui illustrent certaines des fonctionnalités les plus avancées de la messagerie Service Bus.
 

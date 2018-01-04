@@ -152,7 +152,7 @@ Une fois le Générateur de données lancé, l’alimentation du pipeline commen
 
     La dernière étape du pipeline consiste à enregistrer des données (par exemple, les prédictions générées à partir de l’apprentissage automatique) dans SQL Database. Vous devrez peut-être attendre un maximum de deux heures pour que les données s’affichent dans SQL Database. Le [portail Azure](https://manage.windowsazure.com/) offre un moyen de surveiller la quantité de données disponible dans votre base de données SQL Database. Dans le volet gauche, identifiez les BASES DE DONNÉES SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) et cliquez dessus. Recherchez ensuite votre base de données (par exemple, demo123456db), puis cliquez dessus. Dans la page suivante, sous la section **Se connecter à votre base de données**, cliquez sur **Exécuter des requêtes Transact-SQL sur votre base de données SQL**.
 
-    Ici, vous pouvez cliquer sur Nouvelle requête et entrer une requête pour obtenir le nombre de lignes (par exemple, select count(*) from DemandRealHourly). À mesure que votre base de données augmente, le nombre de lignes de la table doit augmenter.
+    Ici, vous pouvez cliquer sur Nouvelle requête et entrer une requête pour obtenir le nombre de lignes (par exemple, select count( * ) from DemandRealHourly). À mesure que votre base de données augmente, le nombre de lignes de la table doit augmenter.
 3. Vérifiez les données à partir du tableau de bord Power BI.
 
     Vous pouvez configurer un tableau de bord de chemin à chaud Power BI pour surveiller les données brutes entrantes. Suivez les instructions contenues dans la section « Tableau de bord Power BI ».

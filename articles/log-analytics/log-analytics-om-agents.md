@@ -58,7 +58,7 @@ Les informations ci-dessous indiquent les informations de configuration de proxy
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| Oui|  
 |\*.ods.opinsights.azure.com| 443| Oui|  
-|*.azure-automation.net | 443| Oui|  
+|* .azure-automation.net | 443| Oui|  
 |**Console Operations Manager pour OMS**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
