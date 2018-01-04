@@ -4,16 +4,17 @@ description: "Cet article contient des questions fréquemment posées et les ré
 services: machine-learning
 author: serinakaye
 ms.author: serinak
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Forum aux questions sur Azure Machine Learning
 
@@ -214,7 +215,7 @@ Les factures sont calculées quotidiennement. Pour la facturation, un jour comme
 - Azure Container Registry 
 - un stockage Azure Blob
 - Application Insights
-- coffre de clés Azure
+- Azure Key Vault
 - Visual Studio Team Services
 - Azure Event Hub
 - Azure Stream Analytics Pour plus d’informations ou pour afficher un exemple de facture, visitez la page Tarification. 

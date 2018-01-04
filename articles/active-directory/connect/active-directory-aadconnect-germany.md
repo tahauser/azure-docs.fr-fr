@@ -28,8 +28,8 @@ Actuellement, la plupart des scénarios dans [Microsoft Cloud Germany](https://w
 
 * Les URL suivantes doivent être ouvertes sur un serveur proxy pour que la synchronisation réussisse :
   
-  * *.microsoftonline.de
-  * *.windows.net
+  * * .microsoftonline.de
+  * * .windows.net
   * * Listes de révocation de certificat
 * Lorsque vous vous connectez à votre annuaire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
 * Les fonctionnalités suivantes ne sont pas disponibles :

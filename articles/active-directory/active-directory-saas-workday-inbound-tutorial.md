@@ -341,7 +341,7 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Créer + mettre à jour |
 | **PostalCode**  |   postalCode  |     | Créer + mettre à jour |
 | **LocalReference** |  preferredLanguage  |     |  Créer + mettre à jour |
-| **Remplacer(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.) \*\$](file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
+| **Remplacer(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.) \*\$](file:///\\.)  *$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
 | **LastName**   |   sn   |     |  Créer + mettre à jour |
 | **CountryRegionReference** |  st     |     | Créer + mettre à jour |
 | **AddressLineData**    |  streetAddress  |     |   Créer + mettre à jour |

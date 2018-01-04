@@ -11,17 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: reference
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e68e9b4e6432d14c403e3532b934bfad58b35b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Net# est un langage développé par Microsoft qui définit les architectures de réseaux neuronaux. Vous pouvez utiliser Net# dans des modules de réseau neuronal dans Microsoft Azure Machine Learning.
 
 <!-- This function doesn't currentlyappear in the MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
@@ -86,16 +86,16 @@ Par exemple, l’instruction suivante définit une constante **x** :
 
     Const X = 28;  
 
-Pour définir simultanément deux constantes ou plus, mettez les noms d’identificateur et les valeurs associées entre accolades, en les séparant par des points-virgules. Par exemple :  
+Pour définir simultanément deux constantes ou plus, mettez les noms d’identificateur et les valeurs associées entre accolades, en les séparant par des points-virgules. Par exemple :   
 
     Const { X = 28; Y = 4; }  
 
-Le côté droit de chaque expression d’affectation peut être un entier, un nombre réel, une valeur booléenne (vrai/faux) ou une expression mathématique. Par exemple :  
+Le côté droit de chaque expression d’affectation peut être un entier, un nombre réel, une valeur booléenne (vrai/faux) ou une expression mathématique. Par exemple :   
 
     Const { X = 17 * 2; Y = true; }  
 
 ## <a name="layer-declaration"></a>Déclaration de couche
-La déclaration de couche est requise. Elle définit la taille et la source de la couche, y compris ses attributs et faisceaux de connexions. L’instruction de déclaration commence par le nom de la couche (d’entrée, masquée ou de sortie), suivi de ses dimensions (un tuple d’entiers positifs). Par exemple :  
+La déclaration de couche est requise. Elle définit la taille et la source de la couche, y compris ses attributs et faisceaux de connexions. L’instruction de déclaration commence par le nom de la couche (d’entrée, masquée ou de sortie), suivi de ses dimensions (un tuple d’entiers positifs). Par exemple :   
 
     input Data auto;
     hidden Hidden[5,20] from Data all;

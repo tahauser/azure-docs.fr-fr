@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
-Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cet article décrit les opérations de base dans Stockage Blob Azure, comme le chargement, le téléchargement et la suppression d’objets blob. Vous allez apprendre à effectuer les actions suivantes :
+Stockage Blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cet article décrit les opérations de base dans Stockage Blob Azure, comme le chargement, le téléchargement et la suppression d’objets blob. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créez un conteneur. 
 > * Charger des objets blob
-> * Création d'une liste d'objets blob dans un conteneur 
+> * Créer la liste des objets blob d’un conteneur 
 > * Télécharger des objets blob
 > * Copier des objets blob
 > * Suppression d’objets blob
@@ -89,7 +89,7 @@ Set-AzureStorageBlobContent -File $localFile `
 
 Chargez autant de fichiers que vous le souhaitez avant de continuer.
 
-## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
 Utilisez [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) pour obtenir la liste des objets blob dans le conteneur, puis sélectionnez le nom de l’objet blob à afficher.
 
@@ -152,7 +152,7 @@ Vous souhaitez peut-être copier un objet blob dans un compte de stockage distin
 Configurez un deuxième compte de stockage, récupérez le contexte, configurez un conteneur dans ce compte de stockage, puis effectuez la copie. Cette partie du script est quasiment identique au script ci-dessus, à la différence près qu’elle fait appel au deuxième compte de stockage au lieu du premier.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -365,14 +365,14 @@ Supprimez toutes les ressources que vous avez créées. Vous pouvez pour cela su
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a présenté les bases de la gestion de stockage d’objets blob. Vous avez notamment appris à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Créez un conteneur. 
 > * Charger des objets blob
-> * Création d'une liste d'objets blob dans un conteneur 
+> * Créer la liste des objets blob d’un conteneur 
 > * Télécharger des objets blob
 > * Copier des objets blob
 > * Suppression d’objets blob
@@ -382,5 +382,5 @@ Ce didacticiel vous a présenté les bases de la gestion de stockage d’objets 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Applets de commande Microsoft Azure PowerShell - Stockage
 * [Applets de commande PowerShell - Stockage](/powershell/module/azurerm.storage#storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Explorateur Microsoft Azure Storage
+### <a name="microsoft-azure-storage-explorer"></a>Explorateur Stockage Microsoft Azure
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

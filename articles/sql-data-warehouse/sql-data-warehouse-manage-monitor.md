@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
 Cet article décrit comment utiliser les vues de gestion dynamique (DMV) pour surveiller votre charge de travail et analyser l'exécution des requêtes dans Azure SQL Data Warehouse.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**.  Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## <a name="monitor-tempdb"></a>Surveiller tempdb
-Une utilisation élevée de tempdb peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Vérifiez tout d’abord si vous avez des problèmes d’asymétrie des données ou des rowgroups de mauvaise qualité et prenez les mesures nécessaires. Envisagez la mise à l’échelle de votre entrepôt de données si tempdb atteint ses limites lors de l’exécution de requêtes. La suite de cette rubrique décrit comment identifier l’utilisation de tempdb par requête sur chaque nœud. 
+Une utilisation élevée de tempdb peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Envisagez la mise à l’échelle de votre entrepôt de données si tempdb atteint ses limites lors de l’exécution de requêtes. La suite de cette rubrique décrit comment identifier l’utilisation de tempdb par requête sur chaque nœud. 
 
 Créez la vue suivante pour associer l’ID de nœud approprié à sys.dm_pdw_sql_requests. Cela vous permettra de tirer parti des autres vues de gestion dynamique directes et de joindre ces tables à sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Surveiller la mémoire
 
-La mémoire peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Vérifiez tout d’abord si vous avez des problèmes d’asymétrie des données ou des rowgroups de mauvaise qualité et prenez les mesures nécessaires. Envisagez la mise à l’échelle de votre entrepôt de données si l’utilisation de la mémoire SQL Server atteint ses limites lors de l’exécution de requêtes.
+La mémoire peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Envisagez la mise à l’échelle de votre entrepôt de données si l’utilisation de la mémoire SQL Server atteint ses limites lors de l’exécution de requêtes.
 
 La requête suivante renvoie des informations sur l’utilisation de la mémoire SQL Server et la saturation de la mémoire par nœud :   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Surveiller la taille du journal des transactions
-La requête suivante renvoie la taille du journal des transactions sur chaque distribution. Vérifiez si vous avez des problèmes d’asymétrie des données ou des rowgroups de mauvaise qualité et prenez les mesures nécessaires. Si un des fichiers journaux atteint 160 Go, vous devez envisager la mise à l’échelle de votre instance ou limiter la taille de votre transaction. 
+La requête suivante renvoie la taille du journal des transactions sur chaque distribution. Si un des fichiers journaux atteint 160 Go, vous devez envisager la mise à l’échelle de votre instance ou limiter la taille de votre transaction. 
 ```sql
 -- Transaction log size
 SELECT
@@ -284,7 +284,7 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les vues de gestion dynamique, consultez [Vues système][System views].
 Pour plus d’informations sur les bonnes pratiques, consultez [Bonnes pratiques pour SQL Data Warehouse][SQL Data Warehouse best practices].
 

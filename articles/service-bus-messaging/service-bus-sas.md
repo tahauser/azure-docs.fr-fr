@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Authentification de Service Bus avec les signatures d’accès partagé
 
@@ -49,7 +49,7 @@ Les autorisations disponibles pour une stratégie sont relativement explicites 
 
 * Envoyer
 * Écouter
-* Gérer
+* gérer
 
 Une fois la stratégie créée, une *clé primaire* et une *clé secondaire* lui sont affectées. Il s’agit de clés de chiffrement fortes. Ne les perdez pas et ne les diffusez pas ; elles seront toujours disponibles sur le [portail Azure][Azure portal]. Vous pouvez utiliser n’importe laquelle des clés générées et vous pouvez les régénérer à tout moment. Toutefois, si vous régénérez ou modifiez la clé primaire dans la stratégie, les signatures d’accès partagé créées à partir de celle-ci ne seront plus valides.
 
@@ -66,7 +66,7 @@ Dans cette figure, les règles d’autorisation *manageRuleNS*, *sendRuleNS* et 
 
 Les paramètres clés de [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sont les suivantes :
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 | --- | --- |
 | *Nom de clé* |Chaîne qui décrit la règle d’autorisation. |
 | *Clé primaire* |Clé principale cryptée en Base64 sur 256 bits pour signer et valider le jeton SAS. |
@@ -128,7 +128,7 @@ Le point de terminaison pour l’accès aux règles d’autorisation de l’acc�
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Pour créer un objet [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) dans un espace de noms Service Bus, exécutez une opération POST sur ce point de terminaison avec les informations de règle sérialisée JSON ou XML. Par exemple :
+Pour créer un objet [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) dans un espace de noms Service Bus, exécutez une opération POST sur ce point de terminaison avec les informations de règle sérialisée JSON ou XML. Par exemple : 
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -323,10 +323,10 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | Commencer à écouter sur un espace de noms |Écouter |N’importe quelle adresse d’espace de noms |
 | Envoyer des messages à un écouteur sur un espace de noms |Envoyer |N’importe quelle adresse d’espace de noms |
 | **File d'attente** | | |
-| Création d’une file d’attente |gérer |N’importe quelle adresse d’espace de noms |
+| Créer une file d’attente |gérer |N’importe quelle adresse d’espace de noms |
 | Suppression d'une file d'attente |gérer |N’importe quelle adresse de file d’attente valide |
 | Énumérer les files d’attente |gérer |/$Resources/Queues |
-| Obtenir la description de file d’attente |Gérer |N’importe quelle adresse de file d’attente valide |
+| Obtenir la description de file d’attente |gérer |N’importe quelle adresse de file d’attente valide |
 | Configure une règle d’autorisation pour une file d’attente |gérer |N’importe quelle adresse de file d’attente valide |
 | Envoyer dans la file d’attente |Envoyer |N’importe quelle adresse de file d’attente valide |
 | Réception des messages d'une file d'attente |Écouter |N’importe quelle adresse de file d’attente valide |
@@ -339,14 +339,14 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | Création d'une rubrique |gérer |N’importe quelle adresse d’espace de noms |
 | Supprimer une rubrique |gérer |N’importe quelle adresse de rubrique valide |
 | Énumérer les rubriques |gérer |/$Resources/Topics |
-| Obtenir la description de la rubrique |Gérer |N’importe quelle adresse de rubrique valide |
+| Obtenir la description de la rubrique |gérer |N’importe quelle adresse de rubrique valide |
 | Configure une règle d’autorisation pour une rubrique |gérer |N’importe quelle adresse de rubrique valide |
 | Envoyer à la rubrique |Envoyer |N’importe quelle adresse de rubrique valide |
 | **Abonnement** | | |
-| Création d'un abonnement |gérer |N’importe quelle adresse d’espace de noms |
+| Création d’un abonnement |gérer |N’importe quelle adresse d’espace de noms |
 | Supprimer l’abonnement |gérer |../myTopic/Subscriptions/mySubscription |
 | Énumérer les abonnements |gérer |../myTopic/Subscriptions |
-| Obtenir la description de l’abonnement |Gérer |../myTopic/Subscriptions/mySubscription |
+| Obtenir la description de l’abonnement |gérer |../myTopic/Subscriptions/mySubscription |
 | Abandonner ou terminer des messages après la réception du message en mode de verrouillage |Écouter |../myTopic/Subscriptions/mySubscription |
 | Différer un message pour une récupération ultérieure |Écouter |../myTopic/Subscriptions/mySubscription |
 | Mettre un message au rebut |Écouter |../myTopic/Subscriptions/mySubscription |
@@ -355,9 +355,9 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | **Règles** | | |
 | Créer une règle |gérer |../myTopic/Subscriptions/mySubscription |
 | Supprimer une règle |gérer |../myTopic/Subscriptions/mySubscription |
-| Énumérer des règles |Gérer ou écouter |../myTopic/Subscriptions/mySubscription/Rules 
+| Énumérer des règles |Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur la messagerie Service Bus, voir les rubriques suivantes.
 

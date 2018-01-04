@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Mise en correspondance des questions et réponses à l’aide d’Azure Machine Learning Workbench
 Répondre à des questions ouvertes est difficile et oblige souvent les experts techniques (SME) à effectuer des opérations manuelles. Pour alléger le travail des SME internes, les entreprises créent couramment des listes de questions fréquentes (FAQ) destinées à aider les utilisateurs. Cet exemple présente différentes méthodes d’apprentissage automatique performantes pour mettre en correspondance les questions ouvertes avec des paires Questions et réponses FAQ préexistantes. Il montre un processus de développement simple pour créer une solution d’apprentissage automatique à l’aide d’Azure Machine Learning Workbench. 
@@ -26,7 +27,7 @@ Répondre à des questions ouvertes est difficile et oblige souvent les experts 
 ## <a name="link-to-the-gallery-github-repository"></a>Lien vers le dépôt GitHub de la galerie
 [https://github.com/Azure/MachineLearningSamples-QnAMatching](https://github.com/Azure/MachineLearningSamples-QnAMatching)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet exemple expose le problème de la mise en correspondance des questions des utilisateurs avec des paires Questions et réponses préexistantes, qui sont généralement fournies sous forme de liste de questions fréquentes (FAQ) ou répertoriées sur certains sites web tels que [Stack Overflow](https://stackoverflow.com/). Il existe diverses approches pour établir une correspondance entre une question et une réponse appropriée. L’une d’elles consiste à rechercher la réponse qui est la plus similaire à la question. Toutefois, dans cet exemple, les questions ouvertes sont mises en correspondance avec des questions déjà posées en partant du principe que chaque réponse donnée dans le FAQ peut correspondre à plusieurs questions sémantiquement équivalentes.
 
@@ -38,7 +39,7 @@ Les principales étapes à prévoir pour cette solution sont les suivantes :
 4. Former des modèles de classification du texte et évaluer les performances du modèle.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Cet exemple nécessite les prérequis suivants :
 
@@ -79,18 +80,18 @@ La combinaison de ces trois jeux de données crée des paires Questions et répo
 
 Le schéma de données et les liens de téléchargement directs des trois jeux de données sont fournis dans le tableau suivant :
 
-| Jeu de données | Champ | Type | Description
+| Jeu de données | Champ | type | DESCRIPTION
 | ----------|------------|------------|--------
-| [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | String | ID unique de la question (clé primaire)
-|  | AnswerId | String | ID unique de la réponse à chaque question
-|  | Text0 | String | Données de texte brut, comprenant le titre et le corps de la question
+| [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | ID | Chaîne | ID unique de la question (clé primaire)
+|  | AnswerId | Chaîne | ID unique de la réponse à chaque question
+|  | Text0 | Chaîne | Données de texte brut, comprenant le titre et le corps de la question
 |  | CreationDate | Timestamp | Horodatage de la question posée
-| [dupes](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | String | ID unique de la duplication (clé primaire)
-|  | AnswerId | String | ID de la réponse associée à la duplication
-|  | Text0 | String | Données de texte brut, comprenant le titre et le corps de la duplication
+| [dupes](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | ID | Chaîne | ID unique de la duplication (clé primaire)
+|  | AnswerId | Chaîne | ID de la réponse associée à la duplication
+|  | Text0 | Chaîne | Données de texte brut, comprenant le titre et le corps de la duplication
 |  | CreationDate | Timestamp | Horodatage de la question dupliquée posée
-| [answers](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | String | ID unique de la réponse (clé primaire)
-|  | text0 | String | Données de texte brut de la réponse
+| [answers](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | ID | Chaîne | ID unique de la réponse (clé primaire)
+|  | text0 | Chaîne | Données de texte brut de la réponse
 
 
 ## <a name="scenario-structure"></a>Structure du scénario
@@ -99,7 +100,7 @@ L’exemple de mise en correspondance de questions et réponses est présenté �
 
 Les fichiers utilisés dans cet exemple sont structurés comme suit.
 
-| Nom de fichier | Type | Description
+| Nom de fichier | type | DESCRIPTION
 | ----------|------------|--------
 | `Image` | Dossier | Dossier utilisé pour enregistrer les images du fichier LISEZMOI
 | `notebooks` | Dossier | Dossier des notebooks Jupyter

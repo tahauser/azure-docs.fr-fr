@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>Solution de gestion des mises à jour dans OMS
 
@@ -56,7 +56,7 @@ Vous pouvez déployer et installer des mises à jour logicielles sur des ordinat
 
 À la date et l’heure spécifiées dans le déploiement de mises à jour, les ordinateurs cibles exécutent le déploiement en parallèle.  Une analyse est tout d’abord effectuée pour vérifier si les mises à jour sont toujours obligatoires et les installe.  Il est important de noter que, pour les ordinateurs clients WSUS, si les mises à jour ne sont pas approuvées dans WSUS, le déploiement de mises à jour échoue.  Les résultats des mises à jour appliquées sont transmis à OMS pour être traités et résumés dans les tableaux de bord ou en recherchant les événements.     
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * La solution prend en charge les évaluations de mise à jour sur Windows Server 2008 et les versions ultérieures, ainsi que les déploiements de mises à jour sur Windows Server 2008 R2 SP1 et les versions ultérieures.  Nano Server n’est pas pris en charge.
 
     > [!NOTE]
@@ -142,12 +142,12 @@ Pour vérifier qu’un groupe d’administration Operations Manager communique a
 ### <a name="supported-agents"></a>Agents pris en charge
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Pris en charge | Description |
+| Source connectée | Prise en charge | DESCRIPTION |
 | --- | --- | --- |
-| Agents Windows |Oui |La solution de collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |Oui |La solution collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
-| Groupe d’administration d’Operations Manager |Oui |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration au référentiel OMS. |
-| Compte Azure Storage |Non |Le stockage Azure n’inclut aucune information sur les mises à jour du système. |
+| Agents Windows |OUI |La solution de collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |OUI |La solution collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
+| Groupe d’administration d’Operations Manager |OUI |La solution collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté.<br>Une connexion directe entre l’agent Operations Manager et Log Analytics n’est pas obligatoire. Les données sont transférées du groupe d’administration au référentiel OMS. |
+| Compte Azure Storage |Non  |Le stockage Azure n’inclut aucune information sur les mises à jour du système. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 Pour chaque ordinateur Windows géré, une analyse est effectuée deux fois par jour. Les API Windows sont appelées toutes les 15 minutes pour rechercher l’heure de la dernière mise à jour afin de déterminer si l’état a changé et si une analyse de conformité est lancée.  Pour chaque ordinateur Linux géré, une analyse est effectuée toutes les 3 heures.
@@ -179,18 +179,18 @@ Cliquez sur la mosaïque **Déploiement de mises à jour** pour afficher la list
 
 Les propriétés affichées pour chaque déploiement de mises à jour sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| Nom |Nom du déploiement de mises à jour. |
+| NOM |Nom du déploiement de mises à jour. |
 | Planification |Type de planification.  Les options disponibles sont *une fois*, *hebdomadaire récurrente*, ou *mensuelle récurrente*. |
 | Heure de début |Date et heure de début planifiées pour le déploiement de mises à jour. |
-| Durée |Nombre de minutes pendant lequel le déploiement de mises à jour est autorisé à s’exécuter.  Si toutes les mises à jour ne sont pas installées pendant cette durée, les mises à jour restantes doivent attendre le prochain déploiement de mises à jour. |
+| Duration |Nombre de minutes pendant lequel le déploiement de mises à jour est autorisé à s’exécuter.  Si toutes les mises à jour ne sont pas installées pendant cette durée, les mises à jour restantes doivent attendre le prochain déploiement de mises à jour. |
 | Serveurs |Nombre d’ordinateurs affectés par le déploiement de mises à jour.  |
-| État |État actuel du déploiement de mises à jour.<br><br>Les valeurs possibles sont les suivantes :<br>- Non commencé<br>- Exécution en cours<br>- Terminé |
+| Statut |État actuel du déploiement de mises à jour.<br><br>Les valeurs possibles sont les suivantes :<br>- Non commencé<br>- Exécution en cours<br>- Terminé |
 
 Sélectionnez un déploiement de mises à jour terminé pour afficher la page de détails, qui inclut les colonnes indiquées dans le tableau suivant.  Ces colonnes ne sont remplies qu’une fois que le déploiement de mises à jour a commencé.<br><br> ![Vue d’ensemble des résultats d’un déploiement de mises à jour](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
 
-| Colonne | Description |
+| Colonne | DESCRIPTION |
 | --- | --- |
 | **Vue des ordinateurs** | |
 | Ordinateurs Windows |Répertorie le nombre d’ordinateurs Windows concernés par le déploiement de mises à jour, par état.  Cliquez sur un état pour exécuter une recherche de journal qui renvoie l’ensemble des enregistrements de mises à jour présentant cet état pour le déploiement de mises à jour. |
@@ -203,13 +203,13 @@ Sélectionnez un déploiement de mises à jour terminé pour afficher la page de
 ### <a name="creating-an-update-deployment"></a>Création d’un déploiement de mises à jour
 Pour créer un déploiement de mises à jour, cliquez sur le bouton **Ajouter** situé sur la partie supérieure de l’écran, afin d’ouvrir la page **New Update Deployment** (Nouveau déploiement de mises à jour).  Vous devez fournir des valeurs pour les propriétés dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| Nom |Nom unique identifiant le déploiement de mises à jour. |
+| NOM |Nom unique identifiant le déploiement de mises à jour. |
 | Time Zone (Fuseau horaire) |Fuseau horaire à utiliser pour l’heure de début. |
 | Type de planification | Type de planification.  Les options disponibles sont *une fois*, *hebdomadaire récurrente*, ou *mensuelle récurrente*.  
 | Heure de début |Date et heure de début du déploiement de mises à jour. **Remarque :** le délai le plus rapide d’exécution d’un déploiement est de 30 minutes à partir de l’heure actuelle si vous souhaitez déployer immédiatement. |
-| Durée |Nombre de minutes pendant lequel le déploiement de mises à jour est autorisé à s’exécuter.  Si toutes les mises à jour ne sont pas installées pendant cette durée, les mises à jour restantes doivent attendre le prochain déploiement de mises à jour. |
+| Duration |Nombre de minutes pendant lequel le déploiement de mises à jour est autorisé à s’exécuter.  Si toutes les mises à jour ne sont pas installées pendant cette durée, les mises à jour restantes doivent attendre le prochain déploiement de mises à jour. |
 | Ordinateurs |Noms d’ordinateurs ou de groupes d’ordinateurs à inclure et cibler dans le déploiement de mises à jour.  Sélectionnez une ou plusieurs entrées dans la liste déroulante. |
 
 <br><br> ![Page Nouveau déploiement de mises à jour](./media/oms-solution-update-management/update-newupdaterun-page.png)
@@ -225,9 +225,9 @@ La solution de gestion des mises à jour crée deux types d’enregistrements da
 ### <a name="update-records"></a>Enregistrements de mises à jour
 Un enregistrement présentant le type **Update** est créé pour chaque mise à jour installée ou requise sur chaque ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| Type |*Mettre à jour* |
+| type |*Mettre à jour* |
 | SourceSystem |Système source ayant approuvé l’installation de la mise à jour.<br>Les valeurs possibles sont les suivantes :<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Serveurs Linux (extraits des gestionnaires de packages) |
 | Approved |Indique si l’installation de la mise à jour a été approuvée.<br> Pour les serveurs Linux, cette opération est actuellement considérée comme facultative, car l’application de mises à jour corrective n’est pas gérée par OMS. |
 | Classification for Windows |Classification de la mise à jour.<br>Les valeurs possibles sont les suivantes :<br>-    Applications<br>- Mises à jour critiques<br>- Mises à jour de définitions<br>- Packs de fonctionnalités<br>- Mises à jour de sécurité<br>- Service Packs<br>- Correctifs cumulatifs<br>- Mises à jour |
@@ -266,9 +266,9 @@ Dans la vue **Liste**, cliquez sur le lien **Vue** en regard de la valeur KBID 
 ### <a name="updatesummary-records"></a>Enregistrements UpdateSummary
 Un enregistrement avec un type **UpdateSummary** est créé pour chaque ordinateur agent. Cet enregistrement est mis à jour chaque fois que l’ordinateur est analysé à des fins de mise à jour. Les propriétés des enregistrements **UpdateSummary** sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| Type |UpdateSummary |
+| type |UpdateSummary |
 | SourceSystem |OpsManager |
 | Ordinateur |Nom de l’ordinateur. |
 | CriticalUpdatesMissing |Nombre de mises à jour critiques manquantes sur l’ordinateur. |
@@ -286,10 +286,10 @@ Un enregistrement avec un type **UpdateSummary** est créé pour chaque ordinate
 | WindowsUpdateSetting |Paramètre définissant le mode d’installation des mises à jour importantes adopté par l’ordinateur.<br>Les valeurs possibles sont les suivantes :<br>- Désactivé<br>- Notify before installation (Notifier avant l’installation)<br>- Scheduled installation (Installation planifiée) |
 | WSUSServer |URL du serveur WSUS, si l’ordinateur est configuré pour en utiliser un. |
 
-## <a name="sample-log-searches"></a>Exemples de recherches de journaux
+## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements de mises à jour collectés par cette solution.
 
-| Requête | Description |
+| Requête | DESCRIPTION |
 | --- | --- |
 | Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Ordinateurs serveur Windows nécessitant des mises à jour |
 | Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Serveurs Linux nécessitant des mises à jour | 
@@ -319,7 +319,7 @@ Les clients qui ont investi dans System Center Configuration Manager pour gérer
 
 Pour découvrir comment intégrer la solution OMS Update Management avec System Center Configuration Manager, consultez l’article [Intégrer System Center Configuration Manager avec OMS Update Management](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Cette section fournit des informations pour vous aider à résoudre les problèmes liés à la solution de gestion de mises à jour.
 
@@ -339,7 +339,7 @@ Vous pouvez afficher les résultats du runbook chargé du déploiement des mises
 
 Pour plus d’informations, consultez [Sortie et messages de runbook Automation](../automation/automation-runbook-output-and-messages.md).   
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../log-analytics/log-analytics-dashboards.md) affichant la conformité des mises à jour de vos ordinateurs gérés.
 * [Créez des alertes](../log-analytics/log-analytics-alerts.md) lorsque des mises à jour critiques sont détectées comme manquantes sur des ordinateurs ou lorsque les mises à jour automatiques sont désactivées sur un ordinateur.  

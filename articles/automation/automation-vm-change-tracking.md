@@ -3,7 +3,7 @@ title: Suivi les modifications sur des machines virtuelles Azure | Microsoft Doc
 description: Utilisez le suivi des modifications pour suivre les modifications dans les fichiers et le Registre des machines virtuelles.
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 5c6e8390ec8533fc7ab281c212e47a6982b30f1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a661fada2e768c2206183c125593d019b557c1d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="track-changes-in-your-azure-virtual-machines"></a>Suivi les modifications sur des machines virtuelles Azure
 
@@ -31,7 +31,7 @@ Vous pouvez activer le suivi des modifications directement à partir de votre ma
 Si vous ne disposez pas d’une machine virtuelle Azure, vous pouvez en créer une en suivant les instructions du [guide de démarrage rapide Windows](../virtual-machines/windows/quick-create-portal.md) ou du [guide de démarrage rapide Linux](../virtual-machines/linux/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="enable-change-tracking-for-an-azure-virtual-machine"></a>Activer le suivi des modifications pour une machine virtuelle Azure
 
@@ -124,7 +124,7 @@ Le suivi des modifications génère des données de journal qui sont envoyées �
 
 Pour en savoir plus sur l’affichage et la recherche de fichiers journaux dans Log Analytics, consultez [Log Analytics](../log-analytics/log-analytics-overview.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur le suivi des modifications, consultez [Suivi des modifications apportées aux logiciels dans votre environnement grâce à la solution de suivi des modifications](../log-analytics/log-analytics-change-tracking.md).
 * Pour en savoir plus sur la gestion des mises à jour pour les machines virtuelles, consultez [Solution de gestion des mises à jour dans OMS](../operations-management-suite/oms-solution-update-management.md).

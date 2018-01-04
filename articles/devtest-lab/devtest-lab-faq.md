@@ -3,7 +3,7 @@ title: FAQ Azure DevTest Labs | Microsoft Docs
 description: "Trouvez des réponses aux questions les plus fréquentes sur Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
-ms.author: tarcher
-ms.openlocfilehash: 0a5e686a7f60b15b55d8f4365b73c71de02c4bad
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -140,7 +140,7 @@ Pour automatiser le chargement des fichiers de VHD afin de créer des images per
 
 Pour trouver le compte de stockage de destination associé à votre laboratoire :
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Dans le menu de gauche, sélectionnez **Groupes de ressources**.
 3. Recherchez et sélectionnez le groupe de ressources associé à votre laboratoire.
 4. Sous **Vue d’ensemble**, sélectionnez l’un des comptes de stockage.
@@ -216,7 +216,7 @@ Un compte Microsoft est un compte que vous utilisez pour la plupart des opérati
 >
 
 
-**Dépannage**
+**Résolution des problèmes**
 ## <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Mon artefact a échoué lors de la création d’une machine virtuelle. Comment puis-je résoudre ce problème ?
 Pour savoir comment récupérer les journaux relatifs à l’échec d’un artefact, consultez [Guide pratique pour diagnostiquer les échecs d’artefacts dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
 

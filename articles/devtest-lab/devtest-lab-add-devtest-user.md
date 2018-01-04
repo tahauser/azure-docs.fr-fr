@@ -3,7 +3,7 @@ title: "Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs |
 description: "Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs à l’aide du portail Azure ou de PowerShell"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -32,27 +32,27 @@ Il existe trois rôles principaux que vous pouvez attribuer à un utilisateur :
 
 * Propriétaire
 * Utilisateur de DevTest Labs
-* Collaborateur
+* Contributeur
 
 Le tableau suivant décrit les actions pouvant être effectuées par les utilisateurs dans chacun de ces rôles :
 
 | **Actions que les utilisateurs dans ce rôle peuvent effectuer** | **Utilisateur de DevTest Labs** | **Propriétaire** | **Collaborateur** |
 | --- | --- | --- | --- |
 | **Tâches de laboratoire** | | | |
-| Ajouter des utilisateurs à un laboratoire |Non |Oui |Non |
-| Mettre à jour les paramètres de coût |Non |Oui |Oui |
+| Ajouter des utilisateurs à un laboratoire |Non  |OUI |Non  |
+| Mettre à jour les paramètres de coût |Non  |OUI |OUI |
 | **Tâches de base de machine virtuelle** | | | |
-| Ajouter et supprimer des images personnalisées |Non |Oui |Oui |
-| Ajouter, mettre à jour et supprimer des formules |Oui |Oui |Oui |
-| Images Place de marché Azure de liste blanche |Non |Oui |Oui |
+| Ajouter et supprimer des images personnalisées |Non  |OUI |OUI |
+| Ajouter, mettre à jour et supprimer des formules |OUI |OUI |OUI |
+| Images Place de marché Azure de liste blanche |Non  |OUI |OUI |
 | **Tâches de machine virtuelle** | | | |
-| Créer des machines virtuelles |Oui |Oui |Oui |
-| Démarrer, arrêter et supprimer des machines virtuelles |Seules les machines virtuelles créées par l’utilisateur |Oui |Oui |
-| Mettre à jour les stratégies de machine virtuelle |Non |Oui |Oui |
-| Ajouter des disques de données à des machines virtuelles ou en supprimer de celles-ci |Seules les machines virtuelles créées par l’utilisateur |Oui |Oui |
+| Créer des machines virtuelles |OUI |OUI |OUI |
+| Démarrer, arrêter et supprimer des machines virtuelles |Seules les machines virtuelles créées par l’utilisateur |OUI |OUI |
+| Mettre à jour les stratégies de machine virtuelle |Non  |OUI |OUI |
+| Ajouter des disques de données à des machines virtuelles ou en supprimer de celles-ci |Seules les machines virtuelles créées par l’utilisateur |OUI |OUI |
 | **Tâches d’artefact** | | | |
-| Ajouter et supprimer des référentiels d’artefact |Non |Oui |Oui |
-| Appliquer des artefacts |Oui |Oui |Oui |
+| Ajouter et supprimer des référentiels d’artefact |Non  |OUI |OUI |
+| Appliquer des artefacts |OUI |OUI |OUI |
 
 > [!NOTE]
 > Lorsqu’un utilisateur crée une machine virtuelle, le rôle **Propriétaire** de la machine virtuelle créée est automatiquement attribué à cet utilisateur.
@@ -63,7 +63,7 @@ Le tableau suivant décrit les actions pouvant être effectuées par les utilisa
 Les propriétaires et les utilisateurs peuvent être ajoutés au niveau du laboratoire via le portail Azure. Cela comprend les utilisateurs externes qui disposent d’un [compte Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)valide.
 Les étapes suivantes vous guident dans le processus d’ajout d’un propriétaire ou d’un utilisateur à un laboratoire dans Azure DevTest Labs :
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 4. Dans le panneau du laboratoire, sélectionnez **Configuration**. 
@@ -117,7 +117,7 @@ Vous pouvez ajouter des propriétaires supplémentaires à un laboratoire via le
 
 Pour ajouter un propriétaire à un abonnement Azure, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Plus de services**, puis **Abonnements** dans la liste.
 3. Sélectionnez l’abonnement souhaité.
 4. Sélectionnez l’icône **Accès** . 

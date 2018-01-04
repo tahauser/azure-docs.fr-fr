@@ -11,20 +11,20 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/06/2017
 ms.author: genli
-ms.openlocfilehash: 35f52af5fbf0c945a766f5e5431c885d91df546a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: b50d139f62ef773fb5b9bb2638e40f8154e80979
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure à l’aide de la virtualisation imbriquée dans Azure
 
 Cet article explique comment créer un environnement de virtualisation imbriquée dans Microsoft Azure pour pouvoir ensuite monter le disque de la machine virtuelle à dépanner sur l’hôte Hyper-V (machine virtuelle de récupération).
 
-## <a name="prerequisite"></a>Prérequis
+## <a name="prerequisite"></a>Configuration requise
 
 Pour monter la machine virtuelle posant problème, la machine virtuelle de récupération doit remplir les prérequis suivants :
 
@@ -115,7 +115,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de récu
     ![image du montage du disque](./media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-17. Sélectionnez **Appliquer**, puis **OK**.
+17. Sélectionnez **Apply** (Appliquer), puis **OK**.
 
 18. Double-cliquez sur la machine virtuelle, puis démarrez-la.
 
@@ -137,6 +137,6 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de récu
 
 Vous pouvez également utiliser Azure PowerShell pour créer la machine virtuelle à partir du disque. Pour plus d’informations, consultez [Créer la machine virtuelle à partir d’un disque existant à l’aide de PowerShell](create-vm-specialized.md#create-the-new-vm). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez [Dépannage d’une connexion Bureau à distance à une machine virtuelle Azure](troubleshoot-rdp-connection.md). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Windows](troubleshoot-app-connection.md).

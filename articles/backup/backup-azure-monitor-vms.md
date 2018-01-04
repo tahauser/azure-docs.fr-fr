@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Suivez les alertes des sauvegardes de machines virtuelles Azure
 Les alertes sont des indications du service indiquant qu’un seuil d’événement a été atteint ou dépassé. Le fait de prendre connaissance d’un problème dès qu’il se produit peut être indispensable pour limiter les dépenses. Les alertes ne sont généralement pas planifiées. Il est donc utile de savoir aussi tôt possible lorsque des alertes sont générées. Par exemple, lorsqu’un travail de sauvegarde ou de restauration échoue, une alerte se produit dans les cinq minutes suivant l’échec. Dans le tableau de bord du coffre, la vignette Alertes de sauvegarde affiche des événements de niveaux Critique et Avertissement. Dans les paramètres des alertes de sauvegarde, vous pouvez afficher tous les événements. Mais que faire si une alerte se produit lorsque vous travaillez sur un autre problème ? Si vous ne savez pas quand l’alerte se produit, il peut s’agir d’un désagrément mineur, ou d’un problème entraînant des pertes de données. Pour vous assurer que les bonnes personnes sont prévenues en cas d’alerte, configurez le service de manière à envoyer des notifications d’alerte par e-mail. Pour plus d’informations sur la configuration des notifications par e-mail, consultez [Configurer les notifications](backup-azure-monitor-vms.md#configure-notifications).
@@ -65,7 +65,7 @@ Pour configurer des notifications par e-mail pour les alertes
 3. Dans la boîte de dialogue **Destinataires (e-mail)** , saisissez les adresses e-mail des personnes devant recevoir les notifications. Utilisez le format : username@domainname.com. Séparez les adresses e-mail par des point-virgule (;).
 4. Dans la zone **Notification**, choisissez **Par alerte** pour envoyer une notification lorsque l’alerte indiquée se produit ou **Synthèse horaire** pour envoyer un résumé de la dernière heure.
 5. Dans la boîte de dialogue **Gravité** , sélectionnez un ou plusieurs niveaux pour lesquels vous voulez envoyer des notifications par e-mail.
-6. Cliquez sur **Save**.
+6. Cliquez sur **Enregistrer**.
 
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Quels sont les types d’alertes disponibles pour la sauvegarde des machines virtuelles Azure IaaS ?
    | Niveau d’alerte | Alertes envoyées |
@@ -139,13 +139,13 @@ Utilisez **Filtre** pour ajuster ou choisir les informations qui apparaissent da
 3. Cliquez sur **Réinitialiser** pour réinitialiser la liste des attributs dans le panneau **Événements**. Après avoir ajouté ou supprimé des attributs de la liste, utilisez **Réinitialiser** pour afficher la nouvelle liste des attributs de l’événement.
 4. Cliquez sur **Mettre à jour** pour mettre à jour les données des attributs de l’événement. Le tableau suivant fournit des informations sur chaque attribut.
 
-| Nom de la colonne | Description |
+| Nom de la colonne | DESCRIPTION |
 | --- | --- |
 | Opération |Nom de l’opération |
-| Niveau |Le niveau de l’opération, dont les valeurs peuvent être : information, avertissement, erreur ou critique |
-| État |État descriptif de l’opération |
+| Level |Le niveau de l’opération, dont les valeurs peuvent être : information, avertissement, erreur ou critique |
+| Statut |État descriptif de l’opération |
 | Ressource |URL qui identifie la ressource ; également connu sous le nom d’identifiant de ressource |
-| Time |Heure, mesurée à partir de l’heure actuelle, à laquelle l’événement s’est produit |
+| Temps |Heure, mesurée à partir de l’heure actuelle, à laquelle l’événement s’est produit |
 | Appelant |Élément ou personne ayant déclenché l’événement ; il peut s’agir du système ou d’un utilisateur |
 | Timestamp |L’heure à laquelle l’événement a été déclenché |
 | Groupe de ressources |Le groupe de ressources associé |
@@ -168,11 +168,11 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **OperationName** : OperationName est au format « Microsoft.RecoveryServices/recoveryServicesVault/*EventName* » où *EventName* peut être :<br/>
 
-* S’inscrire <br/>
+* Register  <br/>
 * Unregister  <br/>
 * ConfigureProtection  <br/>
-* Backup  <br/>
-* Restore  <br/>
+* Sauvegarde <br/>
+* Restore <br/>
 * StopProtection  <br/>
 * DeleteBackupData  <br/>
 * CreateProtectionPolicy  <br/>
@@ -196,7 +196,7 @@ Les alertes basées sur des événements sont soumises aux limitations suivantes
 2. Cette fonctionnalité est en version préliminaire. [En savoir plus](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Les alertes sont envoyées par « alerts-noreply@mail.windowsazure.com ». Actuellement, vous ne pouvez pas modifier l’expéditeur de courrier électronique.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Les journaux d’événements activent l’assistance post mortem et d’audit des opérations de sauvegarde. Les opérations suivantes sont consignées :
 
 * Register 
@@ -213,4 +213,4 @@ Les journaux d’événements activent l’assistance post mortem et d’audit d
 
 Pour une explication générale des événements, des opérations et des journaux d’audit dans les services Azure, consultez l’article [Afficher les événements et les journaux d’audit](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles dans Azure](backup-azure-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Apprenez-en plus sur les tâches de gestion pour les sauvegardes de machines virtuelles dans l’article [Gérer les sauvegardes des machines virtuelles Azure](backup-azure-manage-vms.md).
+Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles dans Azure](backup-azure-arm-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Apprenez-en plus sur les tâches de gestion pour les sauvegardes de machines virtuelles dans l’article [Gérer les sauvegardes des machines virtuelles Azure](backup-azure-manage-vms.md).

@@ -3,7 +3,7 @@ title: "Créer des artefacts personnalisés pour votre machine virtuelle DevTest
 description: "Découvrez comment créer vos propres artefacts pour les utiliser avec Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
 
@@ -28,7 +28,7 @@ Regardez la vidéo suivante pour avoir une vue d’ensemble de la procédure dé
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez utiliser des *artefacts* pour déployer et configurer votre application après avoir approvisionné une machine virtuelle. Un artefact se compose d’un fichier de définition d’artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt Git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom d’un artefact, une commande à exécuter et des paramètres disponibles quand la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
 
 ## <a name="artifact-definition-file-format"></a>Format de fichier de définition d'artefact
@@ -52,15 +52,15 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
       }
     }
 
-| Nom de l'élément | Requis ? | Description |
+| Nom de l'élément | Requis ? | DESCRIPTION |
 | --- | --- | --- |
-| $schema |Non |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
-| title |Oui |Nom de l'artefact affiché dans le laboratoire. |
-| Description |Oui |Description de l'artefact affiché dans le laboratoire. |
-| iconUri |Non |URI de l’icône affichée dans le laboratoire. |
-| targetOsType |Oui |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
-| parameters |Non |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
-| runCommand |Oui |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
+| $schema |Non  |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
+| title |OUI |Nom de l'artefact affiché dans le laboratoire. |
+| description |OUI |Description de l'artefact affiché dans le laboratoire. |
+| iconUri |Non  |URI de l’icône affichée dans le laboratoire. |
+| targetOsType |OUI |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
+| parameters |Non  |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
+| runCommand |OUI |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
 
 ### <a name="artifact-parameters"></a>Paramètres d'artefact
 Dans la section des paramètres du fichier de définition, spécifiez les valeurs qu’un utilisateur peut entrer quand il installe un artefact. Vous pouvez faire référence à ces valeurs dans la commande d'installation d'artefact.
@@ -75,11 +75,11 @@ Pour définir des paramètres, utilisez la structure suivante :
         }
       }
 
-| Nom de l'élément | Requis ? | Description |
+| Nom de l'élément | Requis ? | DESCRIPTION |
 | --- | --- | --- |
-| type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
-| displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
-| Description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
+| Type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
+| displayName |OUI |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. | |
+| description |OUI |Description du paramètre qui est affiché dans le laboratoire. |
 
 Les types autorisés sont :
 
@@ -129,6 +129,6 @@ L’exemple suivant indique comment utiliser les fonctions et les expressions po
 * [Guide pratique pour diagnostiquer les échecs d’artefact dans DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
 * [Joindre une machine virtuelle à un domaine Active Directory existant à l’aide d’un modèle Resource Manager dans DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez comment [ajouter un dépôt d’artefacts Git à un laboratoire](devtest-lab-add-artifact-repo.md).
 

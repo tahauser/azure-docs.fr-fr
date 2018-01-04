@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Sources de données prises en charge disponibles pour la préparation des données Azure Machine Learning 
 Cet article présente les sources de données actuellement prises en charge pour la préparation des données Azure Machine Learning.
@@ -37,7 +37,7 @@ Lisez à partir du serveur SQL local ou de la base de données SQL Azure.
 - Base de données à laquelle se connecter
 - Requête SQL
 
-#### <a name="notes"></a>Remarques
+#### <a name="notes"></a>Notes
 - Les colonnes sql_variant ne sont pas prises en charge
 - La colonne Heure est convertie en datetime par l’ajout de l’heure depuis la base de données à la date 1970/1/1
 - Lors de l’exécution sur un cluster Spark, toutes les colonnes associées aux données (date, datetime, datetime2, datetimeoffset) évaluent des valeurs incorrectes pour les dates antérieures à 1583
@@ -111,6 +111,6 @@ Emplacement de stockage réseau mappé ou disque dur local.
 ### <a name="sql-server"></a>SQL Server
 Serveur SQL local, ou base de données SQL Azure.
 
-### <a name="azure-blob-storage"></a>Stockage Blob Azure
+### <a name="azure-blob-storage"></a>Stockage d'objets blob Azure
 Stockage Blob Azure qui nécessite un abonnement Azure.
 

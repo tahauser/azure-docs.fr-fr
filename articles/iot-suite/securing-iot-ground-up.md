@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sécurisation de l’Internet des objets de bout en bout
 L’Internet des objets (IoT, Internet of Things) confronte les entreprises du monde entier à des défis uniques en termes de sécurité, de confidentialité et de conformité. Contrairement à la technologie informatique traditionnelle où ces problèmes sont axés sur les logiciels et leur mode d’implémentation, l’IoT porte sur les effets de la convergence entre le monde informatique et le monde physique. La protection des solutions IoT implique un approvisionnement sécurisé des appareils, une connexion sécurisée entre ces appareils et le cloud et une protection efficace des données dans le cloud, dans le cadre du traitement et du stockage. Cependant, les appareils avec contraintes de ressources, la répartition géographique des déploiements et le grand nombre d’appareils inclus au sein d’une solution vont à l’encontre de ces fonctionnalités.
@@ -84,7 +84,7 @@ Des communications chiffrées au traitement des données dans le cloud, Azure Io
 
 Une fois les données dans le cloud, elles peuvent être traitées et stockées dans n’importe quel flux de travail défini par l’utilisateur. L’accès à chaque partie des données est contrôlé avec Azure Active Directory, en fonction du service de stockage utilisé.
 
-Toutes les clés utilisées par l’infrastructure IoT sont stockées dans le cloud de manière sécurisée. Les clés peuvent être substituées si un réapprovisionnement est nécessaire. Les données peuvent être stockées dans [Cosmos DB](../documentdb/documentdb-introduction.md) ou dans des [bases de données SQL](../sql-database/sql-database-faq.md), ce qui permet de définir le niveau de sécurité souhaité. En outre, Azure fournit un moyen de surveiller et d’auditer tous les accès à vos données pour vous informer de toute intrusion ou de tout accès non autorisé.
+Toutes les clés utilisées par l’infrastructure IoT sont stockées dans le cloud de manière sécurisée. Les clés peuvent être substituées si un réapprovisionnement est nécessaire. Les données peuvent être stockées dans [Cosmos DB](../cosmos-db/introduction.md) ou dans des [bases de données SQL](../sql-database/sql-database-faq.md), ce qui permet de définir le niveau de sécurité souhaité. En outre, Azure fournit un moyen de surveiller et d’auditer tous les accès à vos données pour vous informer de toute intrusion ou de tout accès non autorisé.
 
 ## <a name="conclusion"></a>Conclusion
 L’Internet des objets concerne avant tout vos propres activités, les choses essentielles pour l’entreprise. L’IoT peut apporter une formidable valeur ajoutée à une entreprise, en lui permettant de réduire ses coûts, d’augmenter son chiffre d’affaires et de transformer son activité. La réussite de cette transformation repose en grande partie sur le choix du fournisseur de logiciels et de services IoT approprié. Il s’agit de trouver un fournisseur qui va non seulement déclencher cette transformation en comprenant les besoins et les exigences de l’entreprise, mais également fournir des services et des logiciels intégrant la sécurité, la confidentialité, la transparence et la conformité comme éléments de conception essentiels. Fort d’une expérience incomparable en développement et déploiement de services et logiciels sécurisés, Microsoft continue de s’imposer comme véritable leader dans cette nouvelle ère de l’Internet des objets. 
@@ -101,7 +101,7 @@ Chaque solution préconfigurée Azure IoT Suite crée des instances de services 
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
 * [**Blob Storage**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur la sécurisation de votre solution IoT, consultez :
 
 * [Meilleures pratiques relatives à la sécurité IoT][lnk-security-best-practices]

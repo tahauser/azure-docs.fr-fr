@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6e8fadd54a78d432ed802f4c4880c2f77bb28c37
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure CLI 2.0
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie.
@@ -28,7 +28,7 @@ Cet article explique comment créer avec Azure CLI 2.0 des règles de mise à l
 
 
 ## <a name="prerequisites"></a>Composants requis
-Pour créer des règles de mise à l’échelle, vous avez besoin d’un groupe de machines virtuelles identiques. Vous pouvez créer un groupe identique avec le [portail Azure](virtual-machine-scale-sets-portal-create.md), [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli), ou [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell).
+Pour créer des règles de mise à l’échelle, vous avez besoin d’un groupe de machines virtuelles identiques. Vous pouvez créer un groupe identique avec le [portail Azure](virtual-machine-scale-sets-create-portal.md), [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), ou [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Pour faciliter la création des règles de mise à l’échelle, définissez des variables pour votre groupe identique. L’exemple suivant définit des variables pour le groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* et dans la région *eastus*. Votre ID d’abonnement est obtenu avec la commande [az account show](/cli/azure/account#az_account_show). Si plusieurs abonnements sont associés à votre compte, seul le premier est retourné. Ajustez les noms et l’ID d’abonnement comme suit :
 
@@ -73,7 +73,7 @@ Les paramètres suivants sont utilisés pour cette règle :
 | *threshold*       | Valeur qui amène la règle de mise à l’échelle automatique à déclencher une action.                                                      | 70 %             |
 | *direction*       | Définit si le groupe identique doit augmenter ou réduire l’échelle lorsque la règle s’applique.                                             | Augmenter        |
 | *type*            | Indique que le nombre d’instances de machine virtuelle doit être modifié d’un certain pourcentage.                                 | Pourcentage de modification  |
-| *value*           | Nombre d’instances machine virtuelle à ajouter ou à supprimer lorsque la règle s’applique.                                            | 20              |
+| *value*           | Nombre d’instances de machine virtuelle à ajouter ou à supprimer lorsque la règle s’applique.                                            | 20              |
 | *cooldown*        | Temps d’attente avant que la règle soit appliquée à nouveau afin que les actions de mise à l’échelle automatique aient le temps de porter effet. | 5 minutes       |
 
 L’exemple suivant définit la règle pour augmenter le nombre d’instances de machine virtuelle. La valeur *metricResourceUri* utilise les variables précédemment définies pour l’ID d’abonnement, le nom du groupe de ressources et le nom du groupe identique :
@@ -212,7 +212,7 @@ az vmss list-instances \
 
 
 ## <a name="autoscale-based-on-a-schedule"></a>Mise à l’échelle automatique en fonction d’une planification
-Les exemples précédents on automatiquement mis à l’échelle un groupe identique en fonction de métriques de base de l’ordinateur hôte, telles que l’utilisation du processeur. Vous pouvez également créer des règles de mise à l’échelle automatique basées sur des planifications. Ces règles basées sur une planification vous permettent d’augmenter automatiquement le nombre d’instances de machine virtuelle avant une augmentation anticipée de la demande d’une application, par exemple, aux heures de travail habituelles, et diminuer automatiquement le nombre d’instances aux heures auxquelles vous anticipez moins de demande, par exemple, durant le weekend.
+Les exemples précédents ont automatiquement mis à l’échelle un groupe identique en fonction de métriques de base de l’ordinateur hôte, telles que l’utilisation du processeur. Vous pouvez également créer des règles de mise à l’échelle automatique basées sur des planifications. Ces règles basées sur une planification vous permettent d’augmenter automatiquement le nombre d’instances de machine virtuelle avant une augmentation anticipée de la demande d’une application, par exemple, aux heures de travail habituelles, et diminuer automatiquement le nombre d’instances aux heures auxquelles vous anticipez moins de demande, par exemple, durant le weekend.
 
 Pour utiliser des règles de mise à l’échelle automatique basées sur une planification, créez un profil JSON qui définit le nombre d’instances de machine virtuelle à exécuter pour une fenêtre déterminée d’heures de début et de fin. L’exemple suivant définit une règle pour augmenter le nombre d’instances à *10* à *9* heures chaque jour de la semaine de travail (du lundi au vendredi).
 

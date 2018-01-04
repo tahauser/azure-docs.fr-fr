@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bbbee61d6cd67dd437e4fbcd7260d2f378531912
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 50d2d481b91199630bbfbf3cfdd21a1bf3062ff0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Exportations de données prises en charge pour cette version d’évaluation 
 Il est possible d’exporter vers différents formats. Vous pouvez utiliser ces formats pour conserver les résultats intermédiaires de la préparation des données avant leur intégration au reste du flux de travail Machine Learning.
@@ -61,6 +61,6 @@ Le format Parquet est relativement récent et son implémentation comporte certa
 ### <a name="local"></a>Local 
 Emplacement de stockage réseau mappé ou disque dur local
 
-### <a name="azure-blob-storage"></a>Stockage Blob Azure
+### <a name="azure-blob-storage"></a>Stockage d'objets blob Azure
 Le stockage Blob Azure nécessite un abonnement Azure.
 

@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="combine-columns-by-example-transformation"></a>Transformation Combiner des colonnes par exemple
 Cette transformation permet à l’utilisateur d’ajouter une nouvelle colonne en combinant les valeurs de plusieurs colonnes. L’utilisateur peut spécifier un séparateur ou fournir des exemples de valeurs combinées pour effectuer cette transformation. Quand l’utilisateur fournit des exemples de combinaison, la transformation est gérée par le même moteur **Par exemple** que celui utilisé avec la transformation **Dériver des colonnes par exemple**.
@@ -46,7 +46,7 @@ Un utilisateur peut modifier une transformation **Combiner des colonnes par exem
 
 Une virgule suivie d’un espace est utilisée comme séparateur dans cet exemple pour combiner les colonnes *Rue*, *Ville*, *État* et *Code postal*.
 
-|Rue|City|State|ZIP|Colonne|
+|Rue|City|État|ZIP|Colonne|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th Way|REDMOND|WA|98052|16011 N.E. 36th Way, REDMOND, WA, 98052|
 |16021 N.E. 36th Way|REDMOND|WA|98052|16021 N.E. 36th Way, REDMOND, WA, 98052|

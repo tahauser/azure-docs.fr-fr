@@ -1,7 +1,7 @@
 Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à [toutes les API][all APIs] (Web, SMTP, Event, Parse, etc.). Pour plus d’informations sur les services supplémentaires proposés par SendGrid, visitez la page [Solutions SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Création d’un compte SendGrid
-1. Connectez-vous au [portail de gestion Azure][Azure Management Portal].
+1. Connectez-vous au [portail Azure][Azure portal].
 2. Dans le menu de gauche, cliquez sur **Nouveau**.
 
     ![command-bar-new][command-bar-new]
@@ -33,7 +33,7 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
     Pour modifier votre plan d’abonnement ou voir les paramètres de contact de SendGrid, cliquez sur le nom du service SendGrid pour ouvrir le tableau de bord Marketplace SendGrid.
 
-    ![Paramètres][settings]
+    ![paramètres][settings]
 
     Pour envoyer un e-mail à l’aide de SendGrid, vous devez fournir votre clé API.
 
@@ -82,7 +82,7 @@ Pour gérer les paramètres de remise des courriers électroniques, cliquez sur 
 <!--Links-->
 
 [SendGrid Solutions]: https://sendgrid.com/solutions
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html

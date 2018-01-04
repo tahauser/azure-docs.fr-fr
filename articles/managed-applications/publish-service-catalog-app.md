@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publier une application managée pour une utilisation interne
 
@@ -91,6 +91,7 @@ Ajoutez le code JSON suivant au fichier.
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
     "handler": "Microsoft.Compute.MultiVm",
     "version": "0.1.2-preview",
     "parameters": {
@@ -226,11 +227,11 @@ Maintenant, nous allons utiliser le portail pour déployer l’application manag
 
    ![Rechercher l’application managée](./media/publish-service-catalog-app/find-application.png)
 
-1. Fournissez les informations de base nécessaires pour l’application managée. Spécifiez l’abonnement et un nouveau groupe de ressources devant contenir l’application managée. Sélectionnez **Ouest-Centre des États-Unis** comme emplacement. Une fois terminé, sélectionnez **OK**.
+1. Fournissez les informations de base nécessaires pour l’application managée. Spécifiez l’abonnement et un nouveau groupe de ressources devant contenir l’application managée. Sélectionnez **Ouest-Centre des États-Unis** comme emplacement. Lorsque vous avez terminé, sélectionnez **OK**.
 
    ![Spécifier les paramètres de l’application managée](./media/publish-service-catalog-app/provide-basics.png)
 
-1. Fournissez des valeurs propres aux ressources de l’application managée. Une fois terminé, sélectionnez **OK**.
+1. Fournissez des valeurs propres aux ressources de l’application managée. Lorsque vous avez terminé, sélectionnez **OK**.
 
    ![Fournir des paramètres de ressources](./media/publish-service-catalog-app/provide-resource-values.png)
 
@@ -240,7 +241,7 @@ Maintenant, nous allons utiliser le portail pour déployer l’application manag
 
 Une fois le déploiement terminé, l’application managée existe dans un groupe de ressources nommé applicationGroup. Le compte de stockage existe dans un groupe de ressources nommé applicationGroup plus une valeur de chaîne de hachage.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées](overview.md).
 * Pour voir des exemples de projets, consultez [Exemples de projets pour des applications managées Azure](sample-projects.md).

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 31404e9ae2dac559f6b4f9f8c0edd0a785142912
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Comment filtrer par langue dans Recherche Azure 
 
@@ -39,14 +39,14 @@ Dans Recherche Azure, les requêtes ciblent un index unique. Les développeurs q
 
 Dans nos exemples, y compris l’[exemple d’immobilier](search-get-started-portal.md) ci-dessous, il se peut que vous ayez vu des définitions de champ semblables à la capture d’écran suivante. Vous pouvez constater que l’exemple présente les assignations de l’analyseur de langue pour les champs de cet index. Les champs qui contiennent des chaînes produisent de meilleurs résultats en lien avec une recherche en texte intégral quand ils sont associés à un analyseur conçu pour traiter les règles linguistiques de la langue cible.
 
-  ![](./media/search-filters/lang-fields.png)
+  ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Pour des exemples de code montrant des définitions de champ avec des analyseurs de langue, voir [Définir un index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) et [Définir un index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
 
 ## <a name="build-and-load-an-index"></a>Créer et charger un index
 
-Une étape intermédiaire (et peut-être évidente) est qu’avant de formuler une requête, vous devez [créer et remplir l’index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index). Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
+La [création et le remplissage de l’index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Limiter la requête et réduire les résultats
 

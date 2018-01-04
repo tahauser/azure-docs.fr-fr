@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/25/2017
+ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Comment choisir les algorithmes dans Microsoft Azure Machine Learning
 La réponse à la question « Quel algorithme d’apprentissage automatique dois-je utiliser ? » est toujours « Cela dépend. ». Cela dépend de la taille, de la qualité et de la nature des données. Cela dépend de ce que vous voulez faire avec la réponse. Cela dépend de la conversion des calculs de l'algorithme en instructions pour l'ordinateur que vous utilisez. Et cela dépend du temps que vous avez. Même les scientifiques de données les plus expérimentés ne peuvent pas savoir quel algorithme fonctionnera le mieux avant d’en essayer.
@@ -105,29 +105,29 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 | **Algorithme** | **Précision** | **Durée d’apprentissage** | **Linéarité** | **Paramètres** | **Remarques** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Classification double classe.** | | | | | |
-| [régression logique](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
-| [forêt de décision](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
-| [jungle de décision](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Faible encombrement de mémoire |
-| [arbre de décision optimisé](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Encombrement de mémoire important |
-| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [régression logique](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5. | |
+| [forêt de décision](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6. | |
+| [jungle de décision](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6. |Faible encombrement de mémoire |
+| [arbre de décision optimisé](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6. |Encombrement de mémoire important |
+| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9. |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [perceptron moyenné](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
-| [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Idéal pour les ensembles de fonctionnalités de grande taille |
+| [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5. |Idéal pour les ensembles de fonctionnalités de grande taille |
 | [Machine à vecteurs de support localement profonde](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Idéal pour les ensembles de fonctionnalités de grande taille |
 | [Machine de point de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx) | |○ |● |3 | |
 | **Classification multiclasse.** | | | | | |
-| [régression logique](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
-| [forêt de décision](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [jungle de décision ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Faible encombrement de mémoire |
-| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [régression logique](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5. | |
+| [forêt de décision](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6. | |
+| [jungle de décision ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6. |Faible encombrement de mémoire |
+| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9. |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [un contre tous](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Consultez les propriétés de la méthode à deux classes sélectionnée |
 | **Régression** | | | | | |
 | [linéaire](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [linéaire bayésienne](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
-| [forêt de décision](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
-| [arbre de décision optimisé](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Encombrement de mémoire important |
-| [quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributions plutôt que prédictions de points |
-| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
-| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Techniquement journal linéaire. Pour les décomptes prévisionnels |
+| [forêt de décision](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6. | |
+| [arbre de décision optimisé](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5. |Encombrement de mémoire important |
+| [quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9. |Distributions plutôt que prédictions de points |
+| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9. |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5. |Techniquement journal linéaire. Pour les décomptes prévisionnels |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Pour la prédiction de rang |
 | **Détection des anomalies** | | | | | |
 | [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx) |○ |○ | |2 |Particulièrement adapté aux ensembles de caractéristiques de grande taille |
@@ -176,7 +176,7 @@ Ces performances élevées ont toutefois un prix. L’apprentissage des réseaux
 Et pour les perfectionnistes qui souhaitent [spécifier leur propre structure de réseau](http://go.microsoft.com/fwlink/?LinkId=402867), les possibilités sont infinies.
 
 ![Limites apprises par les réseaux neuronaux][6]
-***Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
+*** Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
 
 Le [perceptron moyenné à deux classes](https://msdn.microsoft.com/library/azure/dn906036.aspx) est le réseau neuronal idéal pour répondre à l’explosion des durées d'apprentissage. Il utilise une structure de réseau qui fournit des limites de la classe linéaire. Il est presque primitif au vu des normes actuelles, mais il a un long historique d'utilisation fiable et est suffisamment petit pour apprendre rapidement.
 

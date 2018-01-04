@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
 
@@ -29,7 +29,7 @@ Lorsque vous migrez un site actif et son nom de domaine DNS vers App Service, ce
 
 Si vous ne vous inquiétez pas des temps d’arrêt durant la résolution DNS, voir [Mapper un nom DNS personnalisé existant vers Azure Web Apps](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre cette procédure :
 
@@ -50,7 +50,7 @@ Lorsque vous migrez finalement votre nom DNS personnalisé de l’ancien site à
 
 Pour vérifier la propriété du domaine, ajoutez un enregistrement TXT. L’enregistrement TXT mappe de _awverify.&lt;sousdomaine>_ à _&lt;nomapplication>.azurewebsites.net_. 
 
-L’enregistrement TXT dont vous avez besoin dépend de l’enregistrement DNS que vous souhaitez migrer. Pour des exemples, consultez le tableau suivant (`@` représente généralement le domaine racine) :  
+L’enregistrement TXT dont vous avez besoin dépend de l’enregistrement DNS que vous souhaitez migrer. Pour des exemples, consultez le tableau suivant (`@` représente généralement le domaine racine) :
 
 | Exemple d’enregistrement DNS | Hôte TXT | Valeur TXT |
 | - | - | - |
@@ -122,7 +122,7 @@ Enregistrez vos paramètres.
 
 Les requêtes DNS doivent commencer à trouver votre application App Service immédiatement après la propagation DNS.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment lier un certificat SSL personnalisé à App Service.
 

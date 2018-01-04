@@ -6,7 +6,7 @@
 2. Entrez le nom DNS souhaité, puis sélectionnez **Enregistrer**.
    
    ![Entrer un nom DNS pour votre ressource IP publique](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
- 
+
 
 3. Pour revenir au panneau Présentation de machine virtuelle, fermez le panneau *Adresse IP publique*. Vérifiez que le *nom DNS* est désormais affiché.
    

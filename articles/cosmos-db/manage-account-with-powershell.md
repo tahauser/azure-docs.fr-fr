@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Créer un compte Azure Cosmos DB à l’aide de PowerShell
 
-Le guide suivant décrit les commandes permettant d’automatiser la gestion de vos comptes de base de données Azure Cosmos DB à l’aide d’Azure Powershell. Il inclut également des commandes dédiées à la gestion des clés de comptes et des priorités de basculement dans des [comptes de base de données multi-régions][scaling-globally]. La mise à jour de votre compte de base de données vous permet de modifier les stratégies de cohérence et d’ajouter/de supprimer des régions. Pour une gestion multiplateforme de votre compte de base de données Azure Cosmos DB, vous pouvez utiliser l’interface [Azure CLI](cli-samples.md), [l’API REST Resource Provider][rp-rest-api] ou le [portail Azure](create-documentdb-dotnet.md#create-account).
+Le guide suivant décrit les commandes permettant d’automatiser la gestion de vos comptes de base de données Azure Cosmos DB à l’aide d’Azure Powershell. Il inclut également des commandes dédiées à la gestion des clés de comptes et des priorités de basculement dans des [comptes de base de données multi-régions][scaling-globally]. La mise à jour de votre compte de base de données vous permet de modifier les stratégies de cohérence et d’ajouter/de supprimer des régions. Pour une gestion multiplateforme de votre compte de base de données Azure Cosmos DB, vous pouvez utiliser l’interface [Azure CLI](cli-samples.md), [l’API REST Resource Provider][rp-rest-api] ou le [portail Azure](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Mise en route
 
 Suivez les instructions de la page [Installation et configuration d’Azure PowerShell][powershell-install-configure] pour procéder à l’installation et vous connecter à votre compte Azure Resource Manager dans PowerShell.
 
-### <a name="notes"></a>Remarques
+### <a name="notes"></a>Notes
 
 * Si vous voulez exécuter les commandes suivantes sans demander la confirmation de l’utilisateur, ajoutez l’indicateur `-Force` à la commande.
 * L’ensemble des commandes suivantes sont synchrones.
@@ -62,7 +62,7 @@ Exemple :
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
-### <a name="notes"></a>Remarques
+### <a name="notes"></a>Notes
 * L’exemple précédent crée un compte de base de données avec deux régions. Il est également possible de créer un compte de base de données avec l’une des régions (désignée comme la région d’écriture, elle présente une valeur de priorité de basculement de 0) ou plus de deux régions. Pour plus d’informations, consultez la section des [comptes de base de données multi-régions][scaling-globally].
 * Les emplacements doivent correspondre à des régions dans lesquelles Azure Cosmos DB est généralement disponible. La liste actuelle des régions est présentée sur la [page Régions Azure](https://azure.microsoft.com/regions/#services).
 
@@ -192,10 +192,9 @@ Exemple :
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-* Pour vous connecter avec .NET, consultez la page [Connect and query with .NET (Se connecter et effectuer des requêtes avec .NET)](create-documentdb-dotnet.md).
-* Pour vous connecter avec .NET Core, consultez la page [Connect and query with .NET Core (Se connecter et effectuer des requêtes avec .NET Core)](create-documentdb-dotnet-core.md).
+* Pour vous connecter avec .NET, consultez la page [Connect and query with .NET (Se connecter et effectuer des requêtes avec .NET)](create-sql-api-dotnet.md).
 * Pour vous connecter avec Node.js, consultez [Connect and query with Node.js and a MongoDB app (Se connecter et exécuter des requêtes avec Node.js et une application MongoDB)](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

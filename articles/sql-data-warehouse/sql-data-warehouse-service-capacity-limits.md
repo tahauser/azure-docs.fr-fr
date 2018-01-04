@@ -13,29 +13,29 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Les tableaux suivants présentent les valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gestion des charges de travail
-| Catégorie | Description | Maximale |
+| Catégorie | DESCRIPTION | Maximale |
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |DWU max pour un SQL Data Warehouse unique | [Niveau de performance](performance-tiers.md) Optimisé pour l’élasticité : DW6000<br></br>[Niveau de performance](performance-tiers.md) Optimisé pour le calcul : DW30000c |
-| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support][creating a support ticket] et en sélectionnant *Quota* en tant que type de demande.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple :<br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
+| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support][creating a support ticket] et en sélectionnant *Quota* en tant que type de demande.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
 | Connexion de base de données |Sessions simultanées ouvertes |1 024<br/><br/>Chacune des 1024 sessions actives peut envoyer des requêtes à une base de données SQL Data Warehouse en même temps. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
 | [Gestion des charges de travail][Workload management] |Nombre maximal de requêtes concurrentes |32<br/><br/> Par défaut, SQL Data Warehouse peut exécuter un maximum de 32 requêtes et files d’attente simultanées.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont affectés à des classes de ressources plus élevées ou lorsque SQL Data Warehouse a un [niveau de service](performance-tiers.md#service-levels) inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter. |
 | [tempdb][Tempdb] |Go maximum |399 Go par DW100. Par conséquent, pour DWU1000, la taille de tempdb est 3,99 To |
 
 ## <a name="database-objects"></a>Objets de base de données
-| Catégorie | Description | Maximale |
+| Catégorie | DESCRIPTION | Maximale |
 |:--- |:--- |:--- |
 | Base de données |Taille maximale |240 To compressés sur disque<br/><br/>Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). |
 | Table |Taille maximale |60 To compressés sur disque |
@@ -56,19 +56,19 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | Affichage |Colonnes par vue |1 024 |
 
 ## <a name="loads"></a>Charges
-| Catégorie | Description | Maximale |
+| Catégorie | DESCRIPTION | Maximale |
 |:--- |:--- |:--- |
 | Charges Polybase |60 Mo par ligne |1<br/><br/>Polybase charge uniquement les lignes de moins de 1 Mo et ne peuvent pas charger vers VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Requêtes
-| Catégorie | Description | Maximale |
+| Catégorie | DESCRIPTION | Maximale |
 |:--- |:--- |:--- |
-| Interroger |Requêtes mises en file d’attente sur les tables utilisateur. |1 000 |
-| Interroger |Requêtes simultanées sur les vues système. |100 |
-| Interroger |Requêtes mises en file d’attente sur les vues système |1 000 |
-| Interroger |Nombre maximal de paramètres |2 098 |
+| Requête |Requêtes mises en file d’attente sur les tables utilisateur. |1 000 |
+| Requête |Requêtes simultanées sur les vues système. |100 |
+| Requête |Requêtes mises en file d’attente sur les vues système |1 000 |
+| Requête |Nombre maximal de paramètres |2 098 |
 | Batch |Taille maximale |65 536*4 096 |
-| Résultats SELECT |Colonnes par ligne |4 096<br/><br/>Une ligne ne peut pas contenir plus de 4 096 colonnes dans le résultat SELECT. Le nombre de 4 096 colonnes n’est pas toujours garanti. Si le plan de requête exige une table temporaire, le maximum de 1 024 colonnes par table peut s’appliquer. |
+| Résultats SELECT |Colonnes par ligne |4096<br/><br/>Une ligne ne peut pas contenir plus de 4 096 colonnes dans le résultat SELECT. Le nombre de 4 096 colonnes n’est pas toujours garanti. Si le plan de requête exige une table temporaire, le maximum de 1 024 colonnes par table peut s’appliquer. |
 | SELECT |Sous-requêtes imbriquées |32<br/><br/>Un instruction SELECT ne peut pas contenir plus de 32 sous-requêtes imbriquées. Le nombre de 32 sous-requêtes n’est pas toujours garanti. Par exemple, une instruction JOIN peut introduire une sous-requête dans le plan de requête. Le nombre de sous-requêtes peut aussi être limité par la mémoire disponible. |
 | SELECT |Colonnes par JOIN |1 024 colonnes<br/><br/>L’instruction JOIN ne peut pas contenir plus de 1 024 colonnes. Le nombre de 1024 colonnes n’est pas toujours garanti. Si le plan JOIN exige une table temporaire avec davantage de colonnes que le résultat JOIN, la limite de 1 024 s’applique à la table temporaire. |
 | SELECT |Octets par colonnes GROUP BY. |8 060<br/><br/>Les colonnes incluses dans la clause GROUP BY peuvent comporter un maximum de 8 060 octets. |
@@ -88,7 +88,7 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | sys.dm_pdw_os_event_logs |10 000 |
 | sys.dm_pdw_sql_requests |Les 1 000 dernières demandes SQL stockées dans sys.dm_pdw_exec_requests. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez la rubrique [Vue d’ensemble de référence de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->

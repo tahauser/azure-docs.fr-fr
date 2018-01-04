@@ -138,7 +138,7 @@ Utilisez les étapes suivantes pour activer les sauvegardes de vos machines virt
 
 4.  Vérifiez que l’agent de sauvegarde est installé sur la machine virtuelle. Si votre machine virtuelle est créée à l’aide d’une image de la galerie Azure, l’agent de sauvegarde est déjà installé. Sinon (autrement dit, si vous utilisez une image personnalisée), utilisez les instructions de la page [Installer l’agent de machine virtuelle sur une machine virtuelle](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Vérifiez que la machine virtuelle autorise la connectivité réseau pour que le service de sauvegarde fonctionne. Suivez les instructions relatives à la [connectivité réseau](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Vérifiez que la machine virtuelle autorise la connectivité réseau pour que le service de sauvegarde fonctionne. Suivez les instructions relatives à la [connectivité réseau](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Une fois les étapes précédentes terminées, la sauvegarde s’exécute à intervalles réguliers, comme spécifié dans la stratégie de sauvegarde. Si nécessaire, vous pouvez déclencher la première sauvegarde manuellement à partir du tableau de bord du coffre sur le portail Azure.
 
