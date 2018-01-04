@@ -1,6 +1,6 @@
 - name: Base de données Azure pour les documents PostgreSQL
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Base de données Azure pour PostgreSQL
       href: overview.md
@@ -33,13 +33,13 @@
       items:
         - name: Portail Azure
           href: tutorial-design-database-using-azure-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: tutorial-design-database-using-azure-cli.md
     - name: 2 - Concevoir une application web - Python
       href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
 - name: Exemples
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
@@ -81,13 +81,13 @@
       items:
         - name: Portail Azure
           href: howto-manage-firewall-using-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restaurer un serveur
       items:
         - name: Portail Azure
           href: howto-restore-server-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-restore-server-cli.md
     - name: Migrer une base de données
       items:
@@ -95,27 +95,29 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importer et exporter
           href: howto-migrate-using-export-and-import.md
+        - name: Migration avec temps d’arrêt minimal
+          href: howto-migrate-online.md
     - name: Configurer les paramètres du serveur
       items:
         - name: Portail Azure
           href: howto-configure-server-parameters-using-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: Accéder aux journaux du serveur
       items:
         - name: Portail Azure
           href: howto-configure-server-logs-in-portal.md
-        - name: Interface de ligne de commande Azure
+        - name: Azure CLI
           href: howto-configure-server-logs-using-cli.md
     - name: Surveiller
       items:
         - name: Créer des alertes sur les mesures
           href: howto-alert-on-metric.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/postgres
-    - name: API REST
+    - name: de l’API REST
       href: /rest/api/postgresql
 - name: Ressources
   items:
@@ -123,13 +125,13 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
-    - name: Vidéos
+    - name: vidéos
       href: videos.md
     - name: Forum de commentaires
       href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'

@@ -12,7 +12,7 @@
     - name: Installer des applications HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
-    - name: Planification de la capacité
+    - name: planification de la capacité
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
 - name: Procédures
@@ -98,6 +98,8 @@
         - name: Analyser à l’aide de Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Connecter Power BI à une requête interactive
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Connecter Power BI à Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
@@ -160,7 +162,7 @@
         - name: Autoriser les utilisateurs à accéder à Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-    - name: Gérer
+    - name: gérer
       items:
         - name: Créer des clusters
           href: ../hdinsight-hadoop-provision-linux-clusters.md
@@ -274,7 +276,7 @@
   items:
     - name: Sécurité d’entreprise
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planifier la sécurité d’entreprise
@@ -317,7 +319,7 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

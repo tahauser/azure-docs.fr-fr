@@ -40,7 +40,7 @@ Suivez les étapes ci-dessous pour configurer les fichiers à suivre sur les ord
 
 1. Dans le portail OMS, cliquez sur **Paramètres** (symbole d'engrenage).
 2. Sur la page **Paramètres** cliquez sur **Données**, puis sur **Suivi des fichiers Linux**.
-3. Sous Suivi des modifications des fichiers Linux, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : « /etc/*.conf »
+3. Sous Suivi des modifications des fichiers Linux, tapez le chemin d’accès complet, y compris le nom du fichier que vous souhaitez suivre, puis cliquez sur le symbole **Ajouter**. Par exemple : « /etc/* .conf »
 4. Cliquez sur **Enregistrer**.  
 
 > [!NOTE]

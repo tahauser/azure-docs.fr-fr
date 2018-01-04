@@ -105,7 +105,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
 Lorsque l’instance de service Gestion des API est hébergée dans un réseau virtuel, les ports du tableau suivant sont utilisés.
 
-| Port(s) source / de destination | Direction | Protocole de transfert | Source / Destination | Objectif (*) | Type de réseau virtuel |
+| Port(s) source / de destination | Direction | Protocole de transfert | Source / Destination | Objectif ( * ) | Type de réseau virtuel |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Communication client avec Gestion des API|Externe |
 | * / 3443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Point de terminaison de gestion pour le portail Azure et Powershell |Interne |
@@ -117,7 +117,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | * / 445 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance sur le partage de fichiers Azure pour GIT |Externe et interne |
 | * / 25028 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Se connecter au relais SMTP pour envoyer des e-mails |Externe et interne |
 | * / 6381 - 6383 |Trafic entrant et sortant |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Accès aux instances de cache Redis entre instances de rôle |Externe et interne |
-| * / * | Trafic entrant |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Équilibrage de charge de l’infrastructure Azure |Externe et interne |
+| * / *  | Trafic entrant |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Équilibrage de charge de l’infrastructure Azure |Externe et interne |
 
 >[!IMPORTANT]
 > * Les ports pour lesquels *l’objectif* est indiqué en **gras** sont nécessaires au déploiement du service Gestion des API. Toutefois, le blocage des autres ports entraîne une dégradation de la capacité à utiliser et à surveiller le service en cours d’exécution.

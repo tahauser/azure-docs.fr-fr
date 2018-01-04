@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -118,14 +118,14 @@ Sauvegarde Azure vous permet de restaurer une machine virtuelle complète avec 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Quelles sont les fonctionnalités de chaque composant Azure Backup ?
 Les sections suivantes comportent des tableaux qui résument la disponibilité ou la prise en charge de diverses fonctionnalités dans chaque composant Azure Backup. Pour un support ou des détails supplémentaires, consultez les informations après chaque tableau.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Stockage
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Coffre Recovery Services |![Oui][green] |![Oui][green] |![Oui][green] |![Oui][green] |
-| Stockage sur disque | |![Oui][green] |![Oui][green] | |
-| Stockage sur bande | |![Oui][green] | | |
-| Compression <br/>(dans un coffre Recovery Services) |![Oui][green] |![Oui][green] |![Oui][green] | |
-| Sauvegarde incrémentielle |![Oui][green] |![Oui][green] |![Oui][green] |![Oui][green] |
+| Coffre Recovery Services |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
+| Stockage sur disque | |![OUI][green] |![OUI][green] | |
+| Stockage sur bande | |![OUI][green] | | |
+| Compression <br/>(dans un coffre Recovery Services) |![OUI][green] |![OUI][green] |![OUI][green] | |
+| Sauvegarde incrémentielle |![OUI][green] |![OUI][green] |![OUI][green] |![OUI][green] |
 | Déduplication de disque | |![Partiellement][yellow] |![Partiellement][yellow] | | |
 
 ![clé de table](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -162,8 +162,8 @@ La **sauvegarde incrémentielle** permet d’obtenir une efficacité élevée en
 ### <a name="security"></a>Sécurité
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Sécurité du réseau<br/> (vers Azure) |![Oui][green] |![Oui][green] |![Oui][green] |![Partiellement][yellow] |
-| Sécurité des données<br/> (dans Azure) |![Oui][green] |![Oui][green] |![Oui][green] |![Partiellement][yellow] |
+| Sécurité du réseau<br/> (vers Azure) |![OUI][green] |![OUI][green] |![OUI][green] |![Partiellement][yellow] |
+| Sécurité des données<br/> (dans Azure) |![OUI][green] |![OUI][green] |![OUI][green] |![Partiellement][yellow] |
 
 ![clé de table](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -181,8 +181,8 @@ La sauvegarde des machines virtuelles Azure exige la configuration du chiffremen
 ### <a name="network"></a>Réseau
 | Fonctionnalité | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
-| Compression réseau <br/>(vers le **serveur de sauvegarde**) | |![Oui][green] |![Oui][green] | |
-| Compression réseau <br/>(vers le **coffre Recovery Services**) |![Oui][green] |![Oui][green] |![Oui][green] | |
+| Compression réseau <br/>(vers le **serveur de sauvegarde**) | |![OUI][green] |![OUI][green] | |
+| Compression réseau <br/>(vers le **coffre Recovery Services**) |![OUI][green] |![OUI][green] |![OUI][green] | |
 | Protocole réseau <br/>(vers le **serveur de sauvegarde**) | |TCP |TCP | |
 | Protocole réseau <br/>(vers le **coffre Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -211,7 +211,7 @@ La solution Sauvegarde Azure présente une limite de 9 999 points de récupérat
 
 ## <a name="what-is-a-protected-instance"></a>Qu’est-ce qu’une instance protégée ?
 Une instance protégée est une référence générique à un ordinateur Windows, à un serveur (physique ou virtuel) ou à une base de données SQL qui ont été configurés pour sauvegarder des données dans Azure. Une instance est protégée une fois que vous configurez une stratégie de sauvegarde pour l’ordinateur, le serveur ou la base de données et que vous créez une copie de sauvegarde des données. Les copies ultérieures des données de sauvegarde pour cette instance protégée (qui sont appelées points de récupération), augmentent la quantité de stockage consommée. Vous pouvez créer jusqu’à 9 999 points de récupération pour une instance protégée. Si vous supprimez un point de récupération du stockage, ce point n’entre pas dans le total des 9 999 points de récupération.
-Parmi les exemples d’instances protégées, citons les machines virtuelles, les serveurs d’applications, les bases de données et les ordinateurs personnels exécutant le système d’exploitation Windows. Par exemple :
+Parmi les exemples d’instances protégées, citons les machines virtuelles, les serveurs d’applications, les bases de données et les ordinateurs personnels exécutant le système d’exploitation Windows. Par exemple : 
 
 * Machine virtuelle exécutant la structure d’hyperviseur Hyper-V ou Azure IaaS. Les systèmes d’exploitation invités de cette machine virtuelle peuvent être Windows Server ou Linux.
 * Serveur d’applications : le serveur d’applications peut être une machine physique ou virtuelle exécutant Windows Server et des charges de travail impliquant des données à sauvegarder. Les charges de travail courantes sont Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server et le rôle Serveur de fichiers sur Windows Server. Pour sauvegarder ces charges de travail, vous avez besoin de System Center Data Protection Manager (DPM) ou du serveur de sauvegarde Azure.
@@ -244,7 +244,7 @@ Les concepts qui suivent vont vous aider à prendre des décisions importantes e
 | Objectif de délai de récupération (RTO) |Quantité de temps nécessaire pour effectuer une récupération ou une restauration complète. |Un RPO plus long est généralement synonyme pour la solution de sauvegarde d’une bien plus grande quantité de données à traiter, ce qui rallonge d’autant le RTO. Par exemple, il peut falloir plusieurs jours pour restaurer des données à partir de bandes, selon le temps nécessaire au transport de la bande depuis un site externe. |Les solutions de récupération d’urgence ont un RTO plus faible car elles sont davantage synchronisées avec la source et ont moins de modifications à traiter. |
 | Rétention |Durée pendant laquelle les données doivent être stockées |Pour les scénarios qui exigent une reprise des opérations (altération des données, suppression accidentelle de fichiers, défaillances du système d’exploitation), les données de sauvegarde sont généralement conservées pendant 30 jours au maximum.<br>Du point de vue de la conformité, il se peut que vous deviez stocker les données pendant des mois, voire des années. Dans ce cas, les données de sauvegarde sont parfaitement adaptées aux besoins d’archivage. |Une récupération d’urgence porte uniquement sur les données de récupération opérationnelle, soit en général quelques heures, sans dépasser une journée. Puisque les solutions de récupération d’urgence sont conçues pour capturer les données à un niveau extrêmement précis, l’utilisation des données de récupération d’urgence n’est pas recommandée dans le cadre d’une rétention à long terme. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Utilisez l’une des didacticiels suivants pour obtenir des instructions complètes détaillées pour protéger les données sur Windows Server, ou protéger une machine virtuelle (VM) dans Azure :
 
 * [Sauvegarde des fichiers et dossiers](backup-try-azure-backup-in-10-mins.md)
@@ -254,7 +254,7 @@ Pour plus d’informations sur la protection des autres charges de travail, cons
 
 * [Sauvegarder Windows Server](backup-configure-vault.md)
 * [Sauvegarder les charges de travail des applications](backup-azure-microsoft-azure-backup.md)
-* [Sauvegarde des machines virtuelles IaaS Azure](backup-azure-vms-prepare.md)
+* [Sauvegarde des machines virtuelles IaaS Azure](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

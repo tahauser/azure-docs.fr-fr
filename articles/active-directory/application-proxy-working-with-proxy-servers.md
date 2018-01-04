@@ -108,8 +108,8 @@ Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
 #### <a name="proxy-outbound-rules"></a>Règles sortantes du proxy
 Autorisez l’accès aux points de terminaison suivants pour l’accès au service de connecteur :
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+* * .msappproxy.net
+* * .servicebus.windows.net
 
 Pour l’inscription initiale, autorisez l’accès aux points de terminaison suivants :
 

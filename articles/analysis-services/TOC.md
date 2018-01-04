@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce qu’Azure Analysis Services ?](analysis-services-overview.md)
 ## [Sources de données prises en charge](analysis-services-datasource.md)
 ## [Authentification et autorisations utilisateur](analysis-services-manage-users.md)
@@ -23,6 +23,7 @@
 ### [Gérer les utilisateurs de base de données](analysis-services-database-users.md)
 ### [Gérer les administrateurs de serveur](analysis-services-server-admins.md)
 ### [Surveiller les indicateurs de performances du serveur](analysis-services-monitor.md)
+### [Configurer la journalisation de diagnostic](analysis-services-logging.md)
 ## Connecter
 ### [Obtenir les bibliothèques clientes](analysis-services-data-providers.md)
 ### [Connexion avec Excel](analysis-services-connect-excel.md)
@@ -47,7 +48,7 @@
 ### [Leçon supplémentaire – Sécurité dynamique](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [Leçon supplémentaire – Hiérarchies irrégulières](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# Référence
+# Informations de référence
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)

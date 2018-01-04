@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Créer des comptes en préversion Azure Machine Learning et installer Azure Machine Learning Workbench
 Azure Machine Learning Services (préversion) est une solution d’analytique avancée et de science des données de bout en bout intégrée. Cette solution permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -24,7 +24,7 @@ Ce guide de démarrage rapide vous montre comment créer des comptes Expériment
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Actuellement, vous pouvez uniquement installer l’application de bureau Azure Machine Learning Workbench sur les systèmes d’exploitation suivants : 
 - Windows 10
@@ -33,7 +33,7 @@ Actuellement, vous pouvez uniquement installer l’application de bureau Azure M
 - macOS High Sierra
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-azure-machine-learning-accounts"></a>Créer des comptes Azure Machine Learning
 Utilisez le portail Azure pour approvisionner les comptes Azure Machine Learning : 
@@ -49,7 +49,7 @@ Utilisez le portail Azure pour approvisionner les comptes Azure Machine Learning
 
 4. Remplissez le formulaire Expérimentation Machine Learning avec les informations suivantes :
 
-   Paramètre|Valeur suggérée|Description
+   Paramètre|Valeur suggérée|DESCRIPTION
    ---|---|---
    Nom du compte Expérimentation | _Nom unique_ |Choisissez un nom unique qui identifie votre compte. Vous pouvez utiliser votre propre nom, ou celui d’un service ou projet qui identifie le mieux l’expérimentation. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. 
    Abonnement | _Votre abonnement_ |Choisissez l’abonnement Azure que vous souhaitez utiliser pour votre expérimentation. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource est facturée.
@@ -167,7 +167,7 @@ Nous allons exécuter un script sur votre ordinateur local.
 
 3. Sélectionnez une exécution terminée pour obtenir des informations sur celle-ci. Vous obtiendrez notamment des métriques supplémentaires, les fichiers générés suite à l’exécution et d’autres journaux pouvant être utiles.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous avez maintenant créé un compte Expérimentation Azure Machine Learning et un compte Gestion des modèles Azure Machine Learning. Vous avez installé l’application de bureau Azure Machine Learning Workbench et une interface de ligne de commande. Vous avez créé un projet, créé un modèle en exécutant un script et exploré l’historique des exécutions du script.
 
 Pour obtenir une expérience plus approfondie de ce flux de travail, notamment la façon de déployer votre modèle Iris en tant que service web, suivez le didacticiel *Classifying Iris* (Classification d’iris) intégral. Ce dernier contient des étapes détaillées pour la [préparation des données](tutorial-classifying-iris-part-1.md), [l’expérimentation](tutorial-classifying-iris-part-2.md) et la [gestion des modèles](tutorial-classifying-iris-part-3.md). 

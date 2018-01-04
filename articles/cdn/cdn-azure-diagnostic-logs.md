@@ -318,7 +318,7 @@ Le tableau suivant répertorie les métriques disponibles dans les journaux de C
 | EgressCacheUncacheable | Transfert de données sortantes pour les ressources empêchées d’être mises en cache par les en-têtes Cache-Control et/ou Expires. Cela indique qu’elles ne doivent pas être mises en cache sur un point de présence ou par le client HTTP.                   |Oui   | Non  |
 | EgressCacheOthers |  Transfère les données sortantes pour d’autres scénarios de cache.             |Oui   | Non  |
 
-*Le transfert de données sortantes fait référence au trafic produit des serveurs POP CDN vers le client.
+* Le transfert de données sortantes fait référence au trafic produit des serveurs POP CDN vers le client.
 
 
 ### <a name="schema-of-the-core-analytics-logs"></a>Schéma des journaux Core Analytics 

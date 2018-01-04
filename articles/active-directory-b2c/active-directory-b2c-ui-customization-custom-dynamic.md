@@ -179,7 +179,7 @@ Recherchez l’élément `<img>` qui contient la valeur `ID` *background_backgro
 3. Dans la fenêtre **CORS**, dans la zone **Origines autorisées**, effectuez une des opérations suivantes :
 
     * Entrez la ou les URL depuis laquelle/lesquelles vous souhaitez autoriser les appels JavaScript.
-    * Entrez un astérisque (*) pour indiquer que tous les domaines d’origine sont acceptés.
+    * Entrez un astérisque ( * ) pour indiquer que tous les domaines d’origine sont acceptés.
 
 4. Sélectionnez **Enregistrer**.
 

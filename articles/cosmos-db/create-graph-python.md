@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 12/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 727e13669ec120bfa9c9da759316ed067be9aa82
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de graphiques à l’aide de Python et du portail Azure
 
@@ -30,7 +30,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 > [!NOTE]
 > Ce démarrage rapide nécessite un compte de base de données de graphiques créé après le 27 novembre 2017. Les comptes existants prendront en charge Python une fois la migration vers la disponibilité générale effectuée.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Vous pouvez également [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, ni frais ni engagement.
 
@@ -58,7 +58,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
 
 2. Dans la page **Ajouter un graphique**, entrez les paramètres relatifs au nouveau graphique.
 
-    Paramètre|Valeur suggérée|Description
+    Paramètre|Valeur suggérée|DESCRIPTION
     ---|---|---
     ID de base de données|sample-database|Entrez le nom *sample-database* pour la nouvelle base de données. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin.
     ID du graphique|sample-graph|Entrez le nom *sample-graph* pour votre nouvelle collection. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
@@ -89,7 +89,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-python-getting-started.git
     ```
 
-## <a name="review-the-code"></a>Examiner le code
+## <a name="review-the-code"></a>Vérifier le code
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Les extraits de code sont tirés du fichier `connect.py` dans le dossier C:\git-samples\azure-cosmos-db-graph-python-getting-started\. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information). 
 
@@ -158,7 +158,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
 5. Enregistrez le fichier `connect.py`.
 
-## <a name="run-the-console-app"></a>Exécuter l’application console
+## <a name="run-the-console-app"></a>Exécution de l’application console
 
 1. Dans la fenêtre de terminal git, exécutez la commande `cd` pour azure-cosmos-db-graph-python-getting-started.
 
@@ -205,7 +205,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
 
-    key|value|Remarques
+    key|value|Notes
     ----|----|----
     id|ashley|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|female| 
@@ -222,7 +222,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 9. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes :
 
-    key|value|Remarques
+    key|value|Notes
     ----|----|----
     id|rakesh|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|male| 
@@ -256,7 +256,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos D, à créer un graphique à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
 

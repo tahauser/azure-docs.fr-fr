@@ -1,6 +1,6 @@
 - name: Documentation Stockage Azure
   href: /azure/storage/
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Introduction
       href: storage-blobs-introduction.md
@@ -46,6 +46,8 @@
           href: storage-create-geo-redundant-storage.md
         - name: Simuler un échec avec le stockage RA-GRS
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: Migrer des données locales vers le cloud avec AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Rechercher des données non structurées dans le stockage cloud
       href: storage-unstructured-search.md
     - name: Optimiser l’évolutivité et les performances des applications de stockage
@@ -66,7 +68,7 @@
       href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: "Azure\_PowerShell"
       href: storage-samples-blobs-powershell.md
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: storage-samples-blobs-cli.md
 - name: Concepts
   items:
@@ -168,7 +170,7 @@
           href: storage-how-to-use-blobs-cli.md
         - name: REST
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Gérer
+    - name: gérer
       items:
         - name: PowerShell pour les objets Blob Azure
           href: storage-how-to-use-blobs-powershell.md
@@ -295,11 +297,11 @@
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: FAQ sur la migration du stockage
           href: ../common/storage-migration-faq.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/storage
     - name: .NET
       items:
@@ -345,7 +347,7 @@
       href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Forum
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -353,7 +355,7 @@
       href: 'https://azure.microsoft.com/updates/?product=storage'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Explorateur de stockage Azure
       items:
