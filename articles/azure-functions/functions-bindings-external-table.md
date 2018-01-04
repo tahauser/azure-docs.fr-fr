@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Liaisons de table externe Azure Functions (préversion)
 Cet article montre comment manipuler les données tabulaires sur des fournisseurs SaaS (par exemple, SharePoint, Dynamics) au sein de votre fonction en utilisant des liaisons intégrées. Azure Functions prend en charge des liaisons d’entrée et de sortie pour les tables externes.
@@ -139,7 +139,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
     ContinuationToken continuationToken = null;
     do
     {   
-        //retreive table values
+        //retrieve table values
         var contactsSegment = await table.ListEntitiesAsync(
             continuationToken: continuationToken);
 
@@ -197,7 +197,7 @@ Dans Google Docs, créez une feuille de calcul nommée `Contact`. Le connecteur 
 ### <a name="salesforce"></a>Salesforce
 dataSetName est défini sur « default ».
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

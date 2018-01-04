@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 5491548885709c1c1048e45d699ef385a7c49a74
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9139866b0dffd102f9b7c34835443d6337e7d39a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Exemple de transformations de flux de données personnalisées (Python) 
 Le nom de la transformation dans le menu est **Transformation d’un flux de données (Script)**. Avant de lire cette annexe, lisez la [présentation de l’extensibilité de Python](data-prep-python-extensibility-overview.md).
@@ -45,7 +45,7 @@ Reformule les données afin de réduire le nombre de valeurs hors norme dans une
 L’option de remplissage vers le bas requiert deux transformations, en partant du principe que les données ressemblent aux données suivantes :
 
 
-|State         |City       |
+|État         |City       |
 |--------------|-----------|
 |Washington    |Redmond    |
 |              |Bellevue   |
@@ -69,7 +69,7 @@ Ensuite, créez une transformation de flux de données (script) qui contient le 
 
 Les données ressemblent maintenant à ce qui suit :
 
-|State         |newState         |City       |
+|État         |newState         |City       |
 |--------------|--------------|-----------|
 |Washington    |Washington    |Redmond    |
 |              |Washington    |Bellevue   |

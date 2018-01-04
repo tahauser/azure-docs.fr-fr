@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
@@ -89,9 +89,6 @@ Les termes ci-après sont utilisés pour cette procédure :
 1. Ouvrez le composant logiciel enfichable **Sauvegarde Microsoft Azure** sur l’*Ordinateur cible*.
 2. Vérifiez que *l’ordinateur cible* et *l’ordinateur source* sont inscrits auprès du même coffre Recovery Services.
 3. Cliquez sur **Récupérer des données** pour lancer le flux de travail.
-
-    ![Récupérer des données](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Sélectionnez **Un autre serveur**
 
     ![Un autre serveur](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,12 +96,9 @@ Les termes ci-après sont utilisés pour cette procédure :
 5. Fournissez le fichier d’informations d’identification de coffre qui correspond à l’ *exemple d’archivage*. Si le fichier d’informations d’identification du coffre n’est pas valide (ou a expiré), téléchargez un nouveau fichier d’informations d’identification de coffre à partir de *l’Exemple de coffre* dans le Portail Azure. Une fois le fichier d’informations d’identification de coffre fourni, le coffre Recovery Services associé au fichier d’informations d’identification de coffre apparaît.
 
 6. Dans le volet Sélectionner un serveur de sauvegarde, sélectionnez l’*Ordinateur source* dans la liste des ordinateurs affichés.
-
-    ![Liste des ordinateurs](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. Dans le volet Sélectionnez le mode de récupération, choisissez **État du système**, puis cliquez sur **Suivant**. 
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![action](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. Sur le calendrier dans le volet **Sélectionner un volume et une date**, sélectionnez un point de récupération. Vous pouvez effectuer la restauration à partir du point de récupération de votre choix dans le temps. Les dates **en gras** indiquent la disponibilité d’au moins un point de récupération. Une fois que vous avez sélectionné une date, si plusieurs points de récupération sont disponibles, cliquez sur l’un d’entre eux dans le menu déroulant **Temps**. 
 
@@ -222,5 +216,5 @@ Si le processus précédent d’application de l’état du système ne se termi
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Maintenant que vous avez restauré vos fichiers et vos dossiers, vous pouvez [gérer vos sauvegardes](backup-azure-manage-windows-server.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
 
@@ -51,7 +51,7 @@ La première étape dans la protection de votre machine virtuelle consiste à vo
 
 Les machines virtuelles qui appartiennent à un groupe de ressources héritent naturellement ses stratégies. Si nous recommandons cette approche pour la gestion des machines virtuelles, vous pouvez également contrôler l’accès à chaque stratégie de machine virtuelle à l’aide du [contrôle d’accès basé sur les rôles (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Lorsque vous activez des stratégies Resource Manager et le contrôle RBAC pour contrôler l’accès aux machines virtuelles, vous renforcez la sécurité globale des machines virtuelles. Nous vous recommandons de consolider les machines virtuelles ayant le même cycle de vie, dans le même groupe de ressources. Les groupes de ressources vous aident à déployer et surveiller vos ressources, tout en compilant leur coût. Pour permettre aux utilisateurs de créer des machines virtuelles et d’y accéder, utilisez l’[approche du moindre privilège](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Et lorsque vous attribuez des privilèges aux utilisateurs, privilégiez les rôles Azure intégrés suivants :
+Lorsque vous activez des stratégies Resource Manager et le contrôle RBAC pour contrôler l’accès aux machines virtuelles, vous renforcez la sécurité globale des machines virtuelles. Nous vous recommandons de consolider les machines virtuelles ayant le même cycle de vie, dans le même groupe de ressources. Les groupes de ressources vous aident à déployer et surveiller vos ressources, tout en compilant leur coût. Pour permettre aux utilisateurs de créer des machines virtuelles et d’y accéder, utilisez l’[approche du moindre privilège](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Et lorsque vous attribuez des privilèges aux utilisateurs, privilégiez les rôles Azure intégrés suivants :
 
 - [Collaborateur de machine virtuelle](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) : peut gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
 - [Collaborateur de machine virtuelle classique](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) : peut gérer les machines virtuelles créées avec le modèle de déploiement classique, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
@@ -80,7 +80,7 @@ Le [chiffrement des données au repos](https://blogs.microsoft.com/cybertrust/20
 
 Azure Disk Encryption vous permet de protéger vos données selon les critères de sécurité et de conformité de votre organisation. Celle-ci doit envisager le chiffrement pour réduire les risques d’accès non autorisé aux données. Nous vous recommandons également de chiffrer vos lecteurs avant d’écrire des données sensibles dessus.
 
-Veillez à chiffrer les volumes de données de vos machines virtuelles afin de les protéger au repos dans votre compte de stockage Azure. Protégez les clés de chiffrement et les secrets avec [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Veillez à chiffrer les volumes de données de vos machines virtuelles afin de les protéger au repos dans votre compte de stockage Azure. Protégez les clés de chiffrement et les secrets avec [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Les organisations qui ne chiffrent pas leurs données sont plus exposées aux problèmes d’intégrité. Par exemple, les utilisateurs non autorisés ou non fiables peuvent voler des données dans des comptes compromis ou accéder indûment à des données codées en ClearFormat. Outre ces risques, pour se conformer aux réglementations en vigueur, les entreprises doivent prouver leur diligence et la mise en place de contrôles appropriés visant à améliorer la sécurité des données.
 
@@ -122,7 +122,7 @@ Les organisations qui n’appliquent pas une sécurité renforcée à leurs mach
 
 Parfois, une machine virtuelle consomme trop de ressources, ce qui peut poser problème. Une machine virtuelle insuffisamment performante peut entraîner une interruption de service, réduisant ainsi la disponibilité. C’est pourquoi il est impératif de surveiller l’accès aux machines virtuelles de façon réactive (lorsqu’un problème survient) et de façon proactive (par rapport à des performances de référence mesurées pendant un fonctionnement normal).
 
-En analysant les [fichiers journaux de diagnostic Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), vous pouvez surveiller les ressources de vos machines virtuelles et identifier les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances. L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostic pour les machines virtuelles Azure Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+En analysant les [fichiers journaux de diagnostic Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), vous pouvez surveiller les ressources de vos machines virtuelles et identifier les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances. L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostic pour les machines virtuelles Azure Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Vous pouvez également utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de votre ressource.
 

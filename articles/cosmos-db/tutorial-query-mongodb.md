@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: bdb68c4e68f6868c596d8e8410b94223cc5e535a
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB : Comment interroger avec l’API pour MongoDB ?
 
@@ -302,7 +302,7 @@ La requête suivante renvoie toutes les familles dont le nombre d’enfants est 
 
 Aucun résultat n’est renvoyé car aucune n’a plus de 2 enfants. Cette requête ne permet d’obtenir un résultat que lorsque le paramètre est 2, auquel cas l’ensemble du document est renvoyé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 
@@ -312,5 +312,5 @@ Dans ce didacticiel, vous avez appris à :
 Vous pouvez maintenant poursuivre avec le didacticiel suivant montrant comment distribuer vos données globalement.
 
 > [!div class="nextstepaction"]
-> [Distribuer vos données globalement](tutorial-global-distribution-documentdb.md)
+> [Distribuer vos données globalement](tutorial-global-distribution-sql-api.md)
 

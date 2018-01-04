@@ -1,6 +1,6 @@
 # Baie virtuelle StorSimple
 
-## Vue d'ensemble
+## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-ova-overview.md)
 ### [Disponibilité des régions](storsimple-regions.md)
 
@@ -38,7 +38,6 @@
 #### [Gérer les ACR](storsimple-virtual-array-manage-acrs.md)
 #### [Gestion des travaux](storsimple-virtual-array-manage-jobs.md)
 #### [Modifier le mot de passe d’un appareil](storsimple-virtual-array-change-device-admin-password.md)
-#### [Configurer MPIO sur un hôte Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Surveiller à l’aide d’alertes](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnostiquer et résoudre les problèmes](storsimple-virtual-array-diagnose-problems.md)
 #### [Créer une demande de support](storsimple-virtual-array-log-support-ticket.md)
@@ -56,7 +55,7 @@
 
 # Gamme StorSimple 8000 (portail Azure)
 
-## Vue d'ensemble
+## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-overview.md)
 ### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Sécurité](storsimple-8000-security.md)
@@ -88,7 +87,7 @@
 
 ## Procédures
 
-### Gérer
+### gérer
 
 #### [Utilisation du service StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Restaurer à partir d’une sauvegarde](storsimple-8000-restore-from-backup-set-u2.md)
@@ -198,7 +197,7 @@
 #### [Update 0.1](storsimple-october-2014-release-notes.md)
 #### [Version commerciale - GA](storsimple-july-2014-release-notes.md)
 
-## Référence
+## Informations de référence
 ### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell pour les applets de commande StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
@@ -218,7 +217,7 @@
 
 # StorSimple pour les partenaires
 
-## Vue d'ensemble
+## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-partner-csp-overview.md)
 
 ## Prise en main

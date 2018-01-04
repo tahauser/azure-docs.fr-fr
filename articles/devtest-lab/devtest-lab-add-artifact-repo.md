@@ -3,7 +3,7 @@ title: "Ajouter un dépôt Git à un laboratoire dans Azure DevTest Labs | Micro
 description: "Découvrez comment ajouter un dépôt GitHub ou Visual Studio Team Services Git pour vos sources d’artefacts personnalisés dans Azure DevTest Labs."
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 01b459f7-eaf2-45a8-b4b5-2c0a821b33c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 345d095762b75b7a177bf4c6e7a07360a9c14068
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
@@ -70,7 +70,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 10. Passez à la section [Connecter votre laboratoire au référentiel](#connect-your-lab-to-the-repository).
 
 ## <a name="connect-your-lab-to-the-repository"></a>Connecter votre laboratoire au référentiel
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste de services.
 3. Dans la liste de laboratoires, sélectionnez votre laboratoire. 
 4. Sélectionnez **Configuration et stratégies** > **Dépôts** > **+ Ajouter**.
@@ -92,7 +92,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Après avoir créé votre référentiel Git privé, vous pouvez effectuer au moins l’une des opérations suivantes, selon vos besoins :
 * Stocker vos [artefacts personnalisés](devtest-lab-artifact-author.md). Vous pouvez les utiliser ultérieurement pour créer des machines virtuelles.
 * [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS à l’aide des modèles Resource Manager](devtest-lab-create-environment-from-arm.md). Ensuite, vous pouvez stocker les modèles dans votre dépôt privé.

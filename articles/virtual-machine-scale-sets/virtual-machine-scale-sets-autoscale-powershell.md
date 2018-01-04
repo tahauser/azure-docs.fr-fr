@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1fbfbbc79a415af5e874c304412854849e134eb7
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie.
@@ -27,8 +27,8 @@ Lorsque vous créez un groupe identique, vous définissez le nombre d’instance
 Cet article explique comment créer avec Azure PowerShell des règles de mise à l’échelle automatique qui analysent les performances des instances de machine virtuelle dans votre groupe identique. Ces règles de mise à l’échelle augmentent ou réduisent le nombre d’instances de machine virtuelle en réponse à ces métriques de performances. Vous pouvez également accomplir ces étapes avec [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md) ou dans le [portail Azure](virtual-machine-scale-sets-autoscale-portal.md).
 
 
-## <a name="prerequisites"></a>Composants requis
-Pour créer des règles de mise à l’échelle, vous avez besoin d’un groupe de machines virtuelles identiques. Vous pouvez créer un groupe identique avec le [portail Azure](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) ou [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+## <a name="prerequisites"></a>configuration requise
+Pour créer des règles de mise à l’échelle, vous avez besoin d’un groupe de machines virtuelles identiques. Vous pouvez créer un groupe identique avec le [portail Azure](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) ou [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
 
 Pour faciliter la création des règles de mise à l’échelle, définissez des variables pour votre groupe identique. L’exemple suivant définit des variables pour le groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* et dans la région *East US*. Votre abonnement ID est obtenu avec l’applet de commande [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Si plusieurs abonnements sont associés à votre compte, seul le premier est retourné. Ajustez les noms et l’ID d’abonnement comme suit :
 
@@ -134,12 +134,12 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="autoscale-based-on-a-schedule"></a>Mise à l’échelle automatique en fonction d’une planification
-Les exemples précédents on automatiquement mis à l’échelle un groupe identique en fonction de métriques de base de l’ordinateur hôte, telles que l’utilisation du processeur. Vous pouvez également créer des règles de mise à l’échelle automatique basées sur des planifications. Ces règles basées sur une planification vous permettent d’augmenter automatiquement le nombre d’instances de machine virtuelle avant une augmentation anticipée de la demande d’une application, par exemple, aux heures de travail habituelles, et diminuer automatiquement le nombre d’instances aux heures auxquelles vous anticipez moins de demande, par exemple, durant le weekend.
+Les exemples précédents ont automatiquement mis à l’échelle un groupe identique en fonction de métriques de base de l’ordinateur hôte, telles que l’utilisation du processeur. Vous pouvez également créer des règles de mise à l’échelle automatique basées sur des planifications. Ces règles basées sur une planification vous permettent d’augmenter automatiquement le nombre d’instances de machine virtuelle avant une augmentation anticipée de la demande d’une application, par exemple, aux heures de travail habituelles, et diminuer automatiquement le nombre d’instances aux heures auxquelles vous anticipez moins de demande, par exemple, durant le weekend.
 
 Pour créer des règles de mise à l’échelle automatique basées sur une planification plutôt que sur des métriques de l’hôte, utilisez le portail Azure. Il n’est pas possible actuellement de créer des règles basées sur une planification avec Azure PowerShell.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à utiliser des règles de mise à l’échelle automatique pour mettre à l’échelle horizontalement, et augmenter ou diminuer le *nombre* d’instances de machine virtuelle dans votre groupe identique. Vous pouvez également mettre à l’échelle verticalement pour augmenter ou diminuer la *taille* d’instance de machine virtuelle. Pour plus d’informations, voir [Mise à l’échelle verticale avec des groupes de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Pour plus d’informations sur la gestion de vos instances de machine virtuelle, voir [Gérer les groupes de machines virtuelles identiques avec Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

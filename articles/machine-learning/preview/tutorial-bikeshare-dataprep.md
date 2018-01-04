@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Didacticiel BikeShare : Préparation de données avancée avec Azure Machine Learning Workbench
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée complète qui permet aux scientifiques des données professionnels de préparer des données, de développer des expérimentations et de déployer des modèles à l’échelle du cloud.
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous utilisez les services Azure Machine Learning (prévers
 >
 > Vous pouvez utiliser les données préparées pour former vos propres modèles de prévision. Par exemple, vous pouvez créer un modèle pour prévoir la demande de vélos pendant une période de 2 heures.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * Azure Machine Learning Workbench doit être installé localement. Pour plus d’informations, suivez le [Guide de démarrage rapide sur l’installation](quickstart-installation.md).
 * Vous devez savoir créer un projet dans Workbench.
 
@@ -647,7 +647,7 @@ df.to_csv('Your Training Data File Path here')
 
 Pour envoyer un nouveau travail, utilisez l’icône **Exécuter** située en haut de la page. Un **travail** est envoyé avec la nouvelle configuration. La sortie de ce travail correspond aux données d’apprentissage. Ces données sont créées à l’aide des mêmes étapes de préparation des données que vous avez créées précédemment. Quelques minutes peuvent être nécessaires pour terminer le travail.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous avez terminé le didacticiel de préparation des données BikeShare. Dans ce didacticiel, vous avez utilisé les services Azure Machine Learning (préversion) pour apprendre à effectuer les tâches suivantes :
 > [!div class="checklist"]
 > * Préparer des données de manière interactive avec l’outil de préparation des données Azure Machine Learning

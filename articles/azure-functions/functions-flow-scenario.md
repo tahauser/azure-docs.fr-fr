@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Appeler une fonction à partir de Microsoft Flow
 
@@ -39,7 +39,7 @@ Dans cette rubrique, vous allez apprendre à :
 > * Créer un flux pour envoyer un e-mail si une réparation est rentable
 > * Exécuter le flux
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 + Un [compte Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) actif avec les mêmes informations d’identification que votre compte Azure. 
 + SharePoint, que vous utilisez comme source de données pour ce flux. Inscrivez-vous à un [essai gratuit d’Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) si vous n’avez pas encore SharePoint.
@@ -48,7 +48,7 @@ Dans cette rubrique, vous allez apprendre à :
 ## <a name="create-a-sharepoint-list"></a>Créer une liste SharePoint
 Vous commencez par créer une liste à utiliser comme source de données pour le flux. La liste comporte les colonnes suivantes.
 
-| Colonne de liste     | Type de données           | Remarques                                    |
+| Colonne de liste     | Type de données           | Notes                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Titre**           | Ligne de texte unique | Nom de l’éolienne                      |
 | **Dernier entretien** | Date                |                                          |
@@ -232,7 +232,7 @@ Le flux étant complet, vous ajoutez une ligne à la liste SharePoint pour voir 
     | **Titre**           | Éolienne 60 |
     | **Dernier entretien** | 08/04/2017 |
     | **Production max.**       | 2 500 |
-    | **Entretien nécessaire** | Oui |
+    | **Entretien nécessaire** | OUI |
     | **Effort estimé** | 10 |
 
 3. Cliquez sur **Done**.
@@ -261,7 +261,7 @@ Le flux étant complet, vous ajoutez une ligne à la liste SharePoint pour voir 
 
     Comme vous pouvez le constater, les jetons ont été remplacés par les valeurs correctes à partir de la liste SharePoint et de la fonction.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette rubrique, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

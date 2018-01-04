@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 39836b207a84911d4749da8a084779d93949846b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gérer un groupe de machines virtuelles identique à l’aide d’Azure PowerShell
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des applets de commande Azure PowerShell courantes qui vous permettent d’effectuer ces tâches.
 
-Pour effectuer ces tâches de gestion, vous aurez besoin du dernier module Azure PowerShell. Pour plus d’informations sur l’installation et l’utilisation de la version la plus récente, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [Créer un jeu de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-portal-create.md).
+Pour effectuer ces tâches de gestion, vous aurez besoin du dernier module Azure PowerShell. Pour plus d’informations sur l’installation et l’utilisation de la version la plus récente, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [Créer un jeu de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Affichage des informations relatives à un groupe identique
-Pour afficher les informations générales sur un groupe identique, utilisez [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss). L’exemple suivant obtient des informations sur le groupe identique nommé *myScaleSet* dans le groupe de ressources *myResourceGroup*. Saisissez vos propres noms, comme suit :
+Pour afficher les informations générales sur un groupe identique, utilisez [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss). L’exemple suivant obtient des informations sur le groupe identique nommé *myScaleSet* dans le groupe de ressources *myResourceGroup*. Entrez vos propres noms, comme suit :
 
 ```powershell
 Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -42,7 +42,7 @@ Pour afficher une liste d’instances de machine virtuelle dans un groupe identi
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-Pour afficher des informations supplémentaires sur une instance spécifique de la machine virtuelle, ajoutez le paramètre `-InstanceId` à [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) et spécifiez une instance à afficher. L’exemple suivant affiche des informations sur l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Saisissez vos propres noms, comme suit :
+Pour afficher des informations supplémentaires sur une instance spécifique de la machine virtuelle, ajoutez le paramètre `-InstanceId` à [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) et spécifiez une instance à afficher. L’exemple suivant affiche des informations sur l’instance de machine virtuelle *0* dans le groupe identique nommé *myScaleSet* et le groupe de ressources *myResourceGroup*. Entrez vos propres noms, comme suit :
 
 ```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -60,10 +60,10 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
-Il faut quelques minutes pour mettre à jour de la capacité de votre groupe identique. Si vous réduisez la capacité d’un groupe identique, les machines virtuelles avec les ID d’instance les plus élevés sont supprimées en premier.
+Il faut quelques minutes pour mettre à jour de la capacité de votre groupe identique. Si vous réduisez la capacité d’un groupe identique, les machines virtuelles dont les ID d’instance sont les plus élevés sont supprimées en premier.
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrêter et démarrer des machines virtuelles dans un groupe identique
@@ -108,5 +108,5 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
-D’autres tâches courantes pour les groupes identiques comprennent le [déploiement d’une application](virtual-machine-scale-sets-deploy-app.md) et la [mise à niveau des instances de machine virtuelle](virtual-machine-scale-sets-upgrade-scale-set.md). Vous pouvez également utiliser Azure PowerShell pour [configurer des règles de mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md).
+## <a name="next-steps"></a>étapes suivantes
+D’autres tâches courantes pour les groupes identiques sont le [déploiement d’une application](virtual-machine-scale-sets-deploy-app.md) et la [mise à niveau d’instances de machine virtuelle](virtual-machine-scale-sets-upgrade-scale-set.md). Vous pouvez également utiliser Azure PowerShell pour [configurer des règles de mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md).

@@ -79,7 +79,7 @@ Créer le nouveau certificat de l’appareil :
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
-De nouveaux fichiers sont créés : .\certs\new-edge-device.*, qui contient la clé publique et le PFX, et .\private\new-edge-device.key.pem, qui contient la clé privée de l’appareil.
+De nouveaux fichiers sont créés : .\certs\new-edge-device.* , qui contient la clé publique et le PFX, et .\private\new-edge-device.key.pem, qui contient la clé privée de l’appareil.
  
 Dans le répertoire `certs`, exécutez la commande suivante pour obtenir la chaîne complète de la clé publique de l’appareil :
 

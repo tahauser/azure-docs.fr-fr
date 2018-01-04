@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 88851ed3ee5757f1ba635683fc00a5dde8b3b846
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bdb336b8aad0031412a31b58a10296242e7da18
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-messaging-samples"></a>Exemples de messagerie Service Bus
 
@@ -31,7 +31,7 @@ Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de 
 
 En outre, l’[Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) est un exemple hébergé sur GitHub qui vous permet de vous connecter à un espace de noms Service Bus et de gérer facilement les entités de messagerie. L’outil fournit des fonctionnalités avancées telles que les fonctionnalités d’importation/exportation et la possibilité de tester des entités de messagerie et des services de relais. Vous trouverez l’ensemble de la documentation et du code source de l’Explorateur Service Bus sur [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les emplacements des exemples sont ici :
 

@@ -4,7 +4,7 @@ description: "Vue d’ensemble des services d’hébergement DNS sur Microsoft A
 services: dns
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2017
+ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 890c00f3349abd52294e92d27f1b42ab38fe287a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f255fd9621ff90bfbb3ad193faa64495acf7ecd7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-dns-overview"></a>Vue d’ensemble d’Azure DNS
 
@@ -36,7 +36,7 @@ Le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site 
 
 Azure DNS ne prend actuellement pas en charge l'achat de noms de domaine. Si vous voulez acheter des domaines, vous devez utiliser un bureau d’enregistrement de noms de domaine tiers. Le bureau d’enregistrement facture généralement des frais annuels peu élevés. Les domaines peuvent être hébergés dans Azure DNS pour la gestion des enregistrements DNS. Pour plus d’informations, consultez [Déléguer un domaine à Azure DNS](dns-domain-delegation.md) .
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 
 La facturation DNS est basée sur le nombre de zones DNS hébergées dans Azure et le nombre de requêtes DNS. Pour en savoir plus sur la tarification, consultez [Tarification d’Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 
@@ -44,7 +44,7 @@ La facturation DNS est basée sur le nombre de zones DNS hébergées dans Azure 
 
 Pour les questions fréquemment posées sur Azure DNS, consultez le [FAQ sur Azure DNS](dns-faq.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Obteniez plus d’informations sur les zones et enregistrements DNS en consultant : [Vue d’ensemble des enregistrements et zones DNS](dns-zones-records.md).
 

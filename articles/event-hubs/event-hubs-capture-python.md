@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: sethm
-ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbb2baea2bc6c45908369ff821c264b66053d95
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Procédure pas à pas d’Event Hubs Capture : Python
 
@@ -34,10 +34,10 @@ Cet exemple utilise le [Kit de développement logiciel (SDK) Azure Python](https
 4. Envoyer des données au concentrateur d’événements avec un script Python.
 5. Lire les fichiers de la capture et les traiter avec un autre script Python.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 - Python 2.7x
-- Un abonnement Azure
+- Abonnement Azure
 - Un [espace de noms Event Hubs et un concentrateur d’événements actifs.](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -116,7 +116,8 @@ Cet exemple utilise le [Kit de développement logiciel (SDK) Azure Python](https
       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
       generator = block_blob_service.list_blobs(container)
       for blob in generator:
-          if blob.properties.content_length != 0:
+          #content_length == 508 is an empty file, so only process content_length > 508 i.e. skip  empty files
+          if blob.properties.content_length > 508:
               print('Downloaded a non empty blob: ' + blob.name)
               cleanName = string.replace(blob.name, '/', '_')
               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
@@ -158,7 +159,7 @@ Cet exemple utilise le [Kit de développement logiciel (SDK) Azure Python](https
 
    Ce processeur de capture utilise le répertoire local pour télécharger tous les objets blob à partir du compte de stockage / conteneur. Il traite tous ceux qui ne sont pas vides et écrit les résultats sous la forme de fichiers .csv dans le répertoire local.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 

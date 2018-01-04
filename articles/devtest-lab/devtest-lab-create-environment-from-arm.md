@@ -3,7 +3,7 @@ title: "Créer des environnements de plusieurs machines virtuelles et des ressou
 description: "Découvrez comment créer des environnements de plusieurs machines virtuelles et des ressources PaaS dans Azure DevTest Labs à partir d’un modèle Azure Resource Manager"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
-ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
@@ -64,7 +64,7 @@ Quelques règles sont à prendre en compte pour organiser vos modèles Azure Res
 
 Les étapes suivantes vous guident pour ajouter un dépôt dans votre laboratoire à l’aide du portail Azure. 
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.   
 1. Dans le panneau du laboratoire, sélectionnez **Configuration et stratégies**.
@@ -93,7 +93,7 @@ La section suivante vous guidera dans la création d’environnements à partir 
 
 Une fois qu’un dépôt de modèles Azure Resource Manager a été configuré dans le laboratoire, vos utilisateurs de laboratoire peuvent créer un environnement à l’aide du portail Azure en procédant comme suit :
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.   
 1. Dans le panneau du laboratoire, sélectionnez **Ajouter +**.
@@ -126,7 +126,7 @@ Une fois qu’un dépôt de modèles Azure Resource Manager a été configuré d
 
     ![Actions de l’environnement](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Après la création d’une machine virtuelle, vous pouvez vous connecter à celle-ci en sélectionnant **Connexion** dans le panneau de la machine virtuelle.
 * Vous pouvez afficher et gérer les ressources d’un environnement en sélectionnant celui-ci dans la liste **Mes machines virtuelles** de votre laboratoire. 
 * Explorez les [modèles Azure Resource Manager de la galerie de modèles Azure QuickStart](https://github.com/Azure/azure-quickstart-templates)

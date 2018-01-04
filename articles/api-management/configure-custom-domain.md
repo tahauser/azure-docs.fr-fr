@@ -9,20 +9,19 @@ editor:
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: a7abba87035016eee05b4ab663404f10127bba1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé 
 
 Lorsque vous créez une instance de gestion des API (APIM), Azure l’affecte à un sous-domaine d’azure-api.net (par exemple, `apim-service-name.azure-api.net`). Toutefois, vous pouvez également exposer vos points de terminaison APIM via votre propre nom de domaine, par exemple, **contoso.com**. Ce didacticiel explique comment mapper un nom DNS personnalisé existant à des points de terminaison exposés par une instance de gestion des API Azure.
 
-
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -50,7 +49,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 3. Sélectionnez le point de terminaison que vous souhaitez mettre à jour. 
 4. Dans la fenêtre de droite, cliquez sur **Personnalisé**.
 
-    + Dans la zone **Nom de domaine personnalisé**, spécifiez le nom que vous souhaitez utiliser. Par exemple, `api.contoso.com`. <br/>Les noms de domaine avec des caractères génériques (par exemple, *.domaine.com) sont également pris en charge.
+    + Dans la zone **Nom de domaine personnalisé**, spécifiez le nom que vous souhaitez utiliser. Par exemple : `api.contoso.com`. <br/>Les noms de domaine avec des caractères génériques (par exemple, *.domaine.com) sont également pris en charge.
     + Dans la zone **Certificat**, spécifiez un fichier .PFX valide à charger. 
     + Si le certificat est associé à un mot de passe, saisissez-le dans le champ **Mot de passe**.
 1. Cliquez sur Appliquer.
@@ -58,6 +57,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     >[!NOTE]
     >Le processus d’attribution du certificat peut prendre environ 15 minutes.
 
-## <a name="next-steps"></a>Étapes suivantes
+[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
+
+## <a name="next-steps"></a>étapes suivantes
 
 [Mettre à niveau votre service et le mettre à l’échelle](upgrade-and-scale.md)

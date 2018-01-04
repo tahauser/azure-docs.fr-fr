@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 Cet article vient s’ajouter à l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans le cadre du processus de mise en place de modèles Azure Machine Learning, votre modèle est formé et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles.
 
 Les modèles que vous créez à l’aide de Machine Learning ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle. Reportez-vous à [Reformer un modèle Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) pour plus d’informations sur la façon dont vous pouvez reformer un modèle dans Azure Machine Learning. 
@@ -60,15 +60,15 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 
 
-| Propriété                      | Description                              | Requis |
+| Propriété                      | DESCRIPTION                              | Obligatoire |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nom de l’activité dans le pipeline     | Oui      |
-| Description                   | Texte décrivant l’activité.  | Non       |
-| type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning, le type d’activité est **AzureMLUpdateResource**. | Oui      |
-| linkedServiceName             | Service lié Azure Machine Learning qui contient la propriété updateResourceEndpoint. | Oui      |
-| trainedModelName              | Nom du module de modèle formé dans l’expérience du service web à mettre à jour. | Oui      |
-| trainedModelLinkedServiceName | Nom du service lié de stockage Azure contenant le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
-| trainedModelFilePath          | Chemin relatif du fichier dans trainedModelLinkedService pour représenter le fichier ilearner chargé par l’opération de mise à jour. | Oui      |
+| Nom                          | Nom de l’activité dans le pipeline     | OUI      |
+| description                   | Texte décrivant l’activité.  | Non        |
+| Type                          | Pour l’activité des ressources de mise à jour Azure Machine Learning, le type d’activité est **AzureMLUpdateResource**. | OUI      |
+| linkedServiceName             | Service lié Azure Machine Learning qui contient la propriété updateResourceEndpoint. | OUI      |
+| trainedModelName              | Nom du module de modèle formé dans l’expérience du service web à mettre à jour. | OUI      |
+| trainedModelLinkedServiceName | Nom du service lié de stockage Azure contenant le fichier ilearner chargé par l’opération de mise à jour. | OUI      |
+| trainedModelFilePath          | Chemin relatif du fichier dans trainedModelLinkedService pour représenter le fichier ilearner chargé par l’opération de mise à jour. | OUI      |
 
 
 ## <a name="end-to-end-workflow"></a>Workflow de bout en bout
@@ -86,33 +86,6 @@ Pour que le flux de travail de bout en bout mentionné ci-dessus fonctionne, vou
 2. Un service lié Azure Machine Learning pour le point de terminaison des ressources de mise à jour du service web prédictif. Ce service lié est utilisé par l’activité des ressources de mise à jour pour mettre à jour le service web prédictif à l’aide du fichier iLearner retourné par l’étape ci-dessus. 
 
 Pour le second service lié Azure Machine Learning, la configuration est différente quand votre service web Azure Machine Learning est un service web classique ou un nouveau service web. Les différences sont expliquées distinctement dans les sections suivantes. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Le service web est un service web classique
-Si le service Web anticipé est un **service Web classique**, créez le second **point de terminaison non par défaut et modifiable** à l’aide du portail Azure. Pour connaître les étapes, consultez l’article [Créer des points de terminaison](../machine-learning/machine-learning-create-endpoint.md). Après avoir créé le point de terminaison non par défaut pouvant être mis à jour, procédez comme suit :
-
-* Cliquez sur **EXÉCUTION PAR LOT** pour obtenir la valeur d’URI pour la propriété JSON **mlEndpoint**.
-* Cliquez sur le lien **RESSOURCE DE MISE À JOUR** pour obtenir la valeur d’URI pour la propriété JSON **updateResourceEndpoint**. La clé API est sur la page du point de terminaison même (dans le coin inférieur droit).
-
-![point de terminaison pouvant être mis à jour](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Après cela, utilisez l’exemple de service lié suivant pour créer un service lié Azure Machine Learning. Le service lié utilise apiKey pour l’authentification.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Le service web est un nouveau service web Azure Resource Manager 
 
@@ -299,12 +272,12 @@ Le pipeline a deux activités : **AzureMLBatchExecution** et **AzureMLUpdateRes
     }
 }
 ```
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)
-* [Activité Pig](transform-data-using-hadoop-pig.md)
+* [Activité pig](transform-data-using-hadoop-pig.md)
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)

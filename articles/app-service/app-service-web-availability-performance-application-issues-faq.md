@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 
@@ -174,7 +174,7 @@ Ce problème est résolu dans Kestrel version 1.0.2. Cette version est incluse d
 
 La fonctionnalité Cache local d’App Service affecte la structure des dossiers LogFiles et Data de votre instance App Service. Lorsque la fonctionnalité Cache local est utilisée, des sous-dossiers sont créés dans les dossiers de données LogFiles et Data. Ces sous-dossiers utilisent le même modèle d’affectation de noms « identificateur unique » + horodatage. Chaque sous-dossier correspond à une instance de machine virtuelle dans laquelle l’application web est ou a été exécutée.
 
-Pour déterminer si vous utilisez Cache local, ouvrez l’onglet **Paramètres d’application** d’App Service. Si la fonctionnalité Cache local est utilisée, le paramètre d’application `WEBSITE_LOCAL_CACHE_OPTION` est défini sur `Always`. 
+Pour déterminer si vous utilisez Cache local, ouvrez l’onglet **Paramètres d’application** d’App Service. Si la fonctionnalité Cache local est utilisée, le paramètre d’application `WEBSITE_LOCAL_CACHE_OPTION` est défini sur `Always`.
 
 Si vous n’utilisez pas la fonctionnalité Cache local et que vous rencontrez ce problème, envoyez une demande de support.
 

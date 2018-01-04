@@ -11,19 +11,19 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solution Agent Health pour OMS
 La solution Agent Health pour OMS vous permet de savoir quels agents, au service de cet espace de travail ou d’un groupe d’administration System Center Operations Manager connecté à OMS, ne répondent pas et renvoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../log-analytics/log-analytics-windows-agent.md) au service de l’espace de travail OMS ou d’un [groupe d’administration Operations Manager](../log-analytics/log-analytics-om-agents.md) inclut dans l’espace de travail OMS.    
 
 ## <a name="solution-components"></a>Composants de la solution
@@ -45,17 +45,17 @@ Ajoutez la solution Agent Health à votre espace de travail OMS en suivant la pr
 ### <a name="supported-agents"></a>Agents pris en charge
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Pris en charge | Description |
+| Source connectée | Prise en charge | DESCRIPTION |
 | --- | --- | --- |
-| Agents Windows | Oui | Les événements de pulsation sont rassemblés par des agents Windows directs.|
-| Groupe d’administration Microsoft System Center Operations Manager | Oui | Les événements de pulsation sont rassemblés toutes les 60 secondes par les agents au service du groupe d’administration et sont ensuite transférés dans Log Analytics. Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données d’événement de pulsation sont transférées depuis le groupe d’administration dans le référentiel Log Analytics.|
+| Agents Windows | OUI | Les événements de pulsation sont rassemblés par des agents Windows directs.|
+| Groupe d’administration Microsoft System Center Operations Manager | OUI | Les événements de pulsation sont rassemblés toutes les 60 secondes par les agents au service du groupe d’administration et sont ensuite transférés dans Log Analytics. Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données d’événement de pulsation sont transférées depuis le groupe d’administration dans le référentiel Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 Quand vous ajoutez la solution à votre espace de travail OMS, la vignette **Agent Health** est ajoutée à votre tableau de bord OMS. La vignette indique le nombre total d’agents et le nombre d’agents inactifs au cours des dernières 24 heures.<br><br> ![Vignette de la solution Agent Health du tableau de bord](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent Health**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaque colonne répertorie les dix premiers événements, classés selon leur nombre, correspondant aux critères de cette colonne pour l’intervalle de temps spécifié. Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, sélectionnez **Afficher tout** dans l’angle inférieur droit de chaque colonne ou cliquez sur l’en-tête de colonne.
 
-| Colonne | Description |
+| Colonne | DESCRIPTION |
 |--------|-------------|
 | Nombre d’agents au fil du temps | Tendance du nombre d’agents sur une période de sept jours (agents Linux et Windows).|
 | Nombre d’agents inactifs | Liste des agents n’ayant émis aucune pulsation au cours des dernières 24 heures.|
@@ -74,9 +74,9 @@ La solution crée un type d’enregistrement dans OMS.
 ### <a name="heartbeat-records"></a>Enregistrements de pulsation
 L’enregistrement d’un type de **pulsation** est créé.  Les propriétés de ces enregistrements sont décrites dans le tableau suivant.  
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
-| Type | *Pulsation*|
+| type | *Pulsation*|
 | Catégorie | La valeur correspond à *Agent Direct*, *Agent SCOM*, ou *Serveur d’administration SCOM*.|
 | Ordinateur | Nom de l’ordinateur.|
 | Système d’exploitation | Système d’exploitation : Windows ou Linux.|
@@ -97,7 +97,7 @@ Tout agent au service d’un serveur d’administration Operations Manager émet
 ## <a name="sample-log-searches"></a>Exemples de recherches de journaux
 Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements collectés par cette solution.
 
-| Requête | Description |
+| Requête | DESCRIPTION |
 | --- | --- |
 | Type=Heartbeat &#124; distinct Computer |Nombre total d’agents |
 | Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Nombre d’agents inactifs au cours des dernières 24 heures |
@@ -114,9 +114,9 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 
 >[!NOTE]
-> Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), les requêtes ci-dessus sont remplacées par les requêtes ci-dessous.
+> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), les requêtes ci-dessus seront remplacées par les suivantes.
 >
->| Interroger | Description |
+>| Requête | DESCRIPTION |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Nombre total d’agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Nombre d’agents inactifs au cours des dernières 24 heures |
@@ -131,6 +131,6 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Géolocalisation des agents |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Nombre de passerelles OMS installées |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Consultez [Alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md) pour obtenir des informations sur la génération d’alertes à partir de Log Analytics.

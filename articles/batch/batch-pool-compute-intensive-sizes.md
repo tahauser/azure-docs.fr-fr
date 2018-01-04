@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utiliser des instances compatibles RDMA ou GPU dans les pools Batch
 
@@ -40,7 +40,7 @@ Si vous devez demander une augmentation de quota, [ouvrez gratuitement une deman
 * **Disponibilité de la région** - Les machines virtuelles nécessitant beaucoup de ressources système peuvent ne pas être disponibles dans les régions où vous créez vos comptes Batch. Pour vérifier qu’une taille est disponible, consultez [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 
 
-## <a name="dependencies"></a>Dépendances
+## <a name="dependencies"></a>Les dépendances
 
 Les fonctionnalités RDMA et GPU des tailles nécessitant beaucoup de ressources système sont prises en charge uniquement sur certains systèmes d’exploitation. En fonction de votre système d’exploitation, vous devrez peut-être installer ou configurer des pilotes supplémentaires ou d’autres logiciels. Les tableaux suivants listent ces dépendances. Pour plus de détails, consultez les articles associés. Pour connaître les options de configuration des pools Batch, voir plus loin dans cet article.
 
@@ -50,7 +50,7 @@ Les fonctionnalités RDMA et GPU des tailles nécessitant beaucoup de ressources
 | Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>HPC SUSE Linux Enterprise Server 12 ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5 | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
-| [Série NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>Basé sur CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA Toolkit 9.0 | N/A | 
+| [Série NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>Basé sur CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA Toolkit 9.0 | N/A | 
 | [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>Basé sur CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID 4.3 | N/A |
 
 *La connectivité RDMA sur les machines virtuelles NC24r est prise en charge sur Ubuntu 16.04 LTS ou HPC 7.3 basé sur CentOS (depuis la Place de marché Azure) avec Intel MPI.
@@ -109,20 +109,20 @@ Pour exécuter des applications MPI Windows sur un pool de nœuds Azure A8, vous
 
 | Paramètre | Valeur |
 | ---- | ----- | 
-| **Type d’image** | Services cloud |
+| **Type d’image** | Cloud Services |
 | **Famille de système d’exploitation** | Windows Server 2012 R2 (famille de système d’exploitation 4) |
 | **Taille du nœud** | A8 Standard |
-| **Communication entre les nœuds activée** | true |
+| **Communication entre les nœuds activée** | True |
 | **Nombre maximal de tâches par nœud** | 1 |
 | **Références du package d’application** | MSMPI |
-| **Tâche de démarrage activée** | true<br>**Ligne de commande** - `"cmd /c %AZ_BATCH_APP_PACKAGE_MSMPI#8.1%\\MSMpiSetup.exe -unattend -force"`<br/>**Identité de l’utilisateur** - Pool autouser, admin<br/>**Attente de la réussite** - True
+| **Tâche de démarrage activée** | True<br>**Ligne de commande** - `"cmd /c %AZ_BATCH_APP_PACKAGE_MSMPI#8.1%\\MSMpiSetup.exe -unattend -force"`<br/>**Identité de l’utilisateur** - Pool autouser, admin<br/>**Attente de la réussite** - True
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>Exemple : Pilotes NVIDIA Tesla sur un pool de machines virtuelles NC
 
 Pour exécuter des applications CUDA sur un pool de nœuds Linux NC, vous devez installer CUDA Toolkit 9.0 sur les nœuds. La boîte à outils installe les pilotes NVIDIA Tesla GPU nécessaires. Voici des exemples d’étapes permettant de déployer une image personnalisée d’Ubuntu 16.04 LTS avec les pilotes GPU :
 
 1. Déployez une machine virtuelle Azure NC6 exécutant Ubuntu 16.04 LTS. Par exemple, créez la machine virtuelle dans la région Sud-Centre des États-Unis. Assurez-vous que vous créez la machine virtuelle avec un disque géré.
-2. Suivez les étapes pour vous connecter à la machine virtuelle et [installer les pilotes CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+2. Suivez les étapes pour vous connecter à la machine virtuelle et [installer les pilotes CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
 3. Déprovisionnez l’agent Linux, puis [capturez l’image de machine virtuelle Linux](../virtual-machines/linux/capture-image.md).
 4. Créez un compte Batch dans une région qui prend en charge des machines virtuelles NC.
 5. En utilisant les API Batch ou le portail Azure, créez un pool [avec l’image personnalisée](batch-custom-images.md), et le nombre de nœuds et l’échelle souhaités. Le tableau suivant contient des exemples de paramètres de pool pour l’image :
@@ -136,7 +136,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds Linux NC, vous devez 
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour exécuter des travaux MPI sur un pool Azure Batch, consultez les exemples [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
 

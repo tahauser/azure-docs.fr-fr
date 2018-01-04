@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconnaissance d’entités biomédicales à l’aide du modèle Team Data Science Process (TDSP)
 
@@ -89,7 +90,7 @@ Le lien vers le dépôt GitHub public du scénario réel qui contient le code et
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>configuration requise 
 
 * Un abonnement [Azure](https://azure.microsoft.com/free/)
 * Azure Machine Learning Workbench. Consultez le [guide d’installation](quickstart-installation.md). Actuellement, Azure Machine Learning Workbench peut uniquement être installé sur les systèmes d’exploitation suivants : 
@@ -114,7 +115,7 @@ Toutes les dépendances requises sont définies dans le fichier aml_config/conda
 * Fastparquet
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Instructions de base pour Azure Machine Learning (AML) Workbench
-* [Vue d'ensemble](overview-what-is-azure-ml.md)
+* [Vue d’ensemble](overview-what-is-azure-ml.md)
 * [Installation](quickstart-installation.md)
 * [Utilisation de TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [Lecture et écriture de fichiers](how-to-read-write-files.md)

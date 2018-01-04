@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Utiliser PowerShell pour gérer des ressources Event Hubs
 
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell est un environnement de création de scripts vous per
 
 Vous pouvez également gérer les ressources Event Hubs avec des modèles Azure Resource Manager. Pour plus d’informations, consultez l’article [Créer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de débuter, vous avez besoin des éléments suivants :
 
@@ -103,7 +103,7 @@ else
 
 ### <a name="create-a-consumer-group"></a>Créer un groupe de consommateurs
 
-Pour créer un groupe de consommateurs au sein d’un concentrateur d’événements, vérifiez l’espace de noms et l’instance Event Hub à l’aide des scripts de la section précédente. Ensuite, utilisez l’applet de commande [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) pour créer le groupe de consommateurs dans le concentrateur d’événements. Par exemple :
+Pour créer un groupe de consommateurs au sein d’un concentrateur d’événements, vérifiez l’espace de noms et l’instance Event Hub à l’aide des scripts de la section précédente. Ensuite, utilisez l’applet de commande [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) pour créer le groupe de consommateurs dans le concentrateur d’événements. Par exemple : 
 
 ```powershell
 # Check if consumer group already exists
@@ -148,7 +148,7 @@ Remove-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace 
 Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $Namespace
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Consultez la documentation complète du module PowerShell du Gestionnaire de ressources Event Hubs [ici](/powershell/module/azurerm.eventhub). Cette page liste toutes les applets de commande disponibles.
 - Pour plus d’informations sur les modèles Azure Resource Manager, consultez l’article [Créer un espace de noms Event Hubs avec Event Hub et un groupe de consommateurs à l’aide d’un modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).

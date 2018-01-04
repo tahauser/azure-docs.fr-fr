@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications exécutées sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l'accès aux fichiers, l'accès réseau et l'accès au registre, ainsi que les journaux et événements de diagnostic. 
@@ -27,6 +27,8 @@ Cet article décrit les fonctionnalités de système d’exploitation communes d
 
 ## <a name="app-service-plan-tiers"></a>Niveaux des plans App Service
 App Service exécute les applications des clients dans un environnement d’hébergement mutualisé. Les applications déployées dans les niveaux **Gratuit** et **Partagé** sont exécutées dans des processus de travail sur des machines virtuelles partagées, alors que les applications déployées dans les niveaux **Standard** et **Premium** sont exécutées sur des machines virtuelles spécialement dédiées aux applications associées à un client individuel.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Dans la mesure où App Service offre une expérience de mise à l’échelle transparente entre différents niveaux, la configuration de sécurité appliquée aux applications App Service reste la même. Cela empêche les changements de comportement soudains des applications, qui peuvent se traduire par un échec imprévu quand un plan App Service passe d’un niveau à un autre.
 

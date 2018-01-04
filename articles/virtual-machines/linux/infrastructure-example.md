@@ -4,7 +4,7 @@ description: "Découvrez-en plus sur les principales instructions de conception 
 documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
@@ -13,19 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b18be0d81d6fad7328edb47c9b69af4eecd3b971
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae7df08e7502fbfd500944f89a3fa6ee4806522a
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
-
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
 
 ## <a name="example-workload"></a>Exemple de charge de travail
@@ -63,7 +60,7 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 ## <a name="azure-subscriptions-and-accounts"></a>Abonnements et comptes Azure
 Adventure Works Cycles utilise son abonnement d’entreprise, nommé Adventure Works Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Stockage
 Adventure Works Cycles a déterminé que des disques managés Azure doivent être utilisés. Lors de la création de machines virtuelles, les deux niveaux de stockage disponibles sont utilisés :
 
 * **Stockage standard** pour les serveurs web, les serveurs d’applications et les contrôleurs de domaine et leurs disques de données.
@@ -112,7 +109,7 @@ Cette configuration comprend :
 
 * un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
 * des disques managés Azure utilisant à la fois des disques Standard et Premium
-* quatre groupes à haute disponibilité, un pour chaque niveau du magasin en ligne
+* quatre groupes à haute disponibilité, un pour chaque niveau du magasin en ligne ;
 * les machines virtuelles pour les quatre niveaux ;
 * un jeu d’équilibrage de charge externe pour le trafic Web basé sur HTTPS depuis Internet vers les serveurs web ;
 * un jeu d’équilibrage de charge interne pour le trafic Web non crypté depuis les serveurs Web vers les serveurs d’applications.

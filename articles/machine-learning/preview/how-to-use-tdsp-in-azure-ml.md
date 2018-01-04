@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Structurer des projets avec le modèle de processus TDSP (Team Data Science Process)
 
@@ -109,7 +110,7 @@ Nous fournissons également un modèle [ProjectLearnings](https://aka.ms/tdspaml
 ### <a name="example-project-report"></a>Exemple de rapport de projet
 Un [exemple de rapport de projet](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md) est mis à votre disposition. Ce rapport concernant [l’exemple de projet de classification des revenus aux États-Unis](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) indique comment instancier et utiliser le modèle TDSP pour un projet de science des données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour vous aider à comprendre la procédure d’utilisation de la structure et des modèles TDSP dans des projets Machine Learning, nous fournissons plusieurs exemples de projets complets dans la documentation de Machine Learning :
 
 - Pour découvrir un exemple illustrant la création d’un projet TDSP dans Machine Learning, consultez [l’exemple de projet Team Data Science Process portant sur la classification des revenus à partir de données de recensement aux États-Unis dans Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).

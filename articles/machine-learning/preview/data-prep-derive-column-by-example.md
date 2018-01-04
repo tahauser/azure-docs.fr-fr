@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformation Dériver des colonnes par exemple
 
@@ -286,13 +286,13 @@ Nombre d’exemples qui ont été nécessaires pour ce cas : 1
 
 Ces parties de date ont été extraites à l’aide de différentes transformations par exemple sur le même jeu de données. Les chaînes en gras représentent les exemples qui ont été donnés dans leur transformation respective.
 
-|DateTime|Jour de la semaine|Date|Mois|Year|Hour|Minute|Seconde|
+|Datetime|Jour de la semaine|Date|Mois|Year|Hour|Minute|Seconde|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Ven**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Mer|17|Jan|1990|13.|32|01|
-|14-Fév-2034 05:36:07|Mars|14|Fév|2034|5|36|07|
+|14-Fév-2034 05:36:07|Mars|14|Fév|2034|5.|36|07|
 |14-Mars-2002 13:16:16|Jeu|14|Mars|2002|13.|16|16|
-|21-Jan-1985 05:44:43|Lun|21|Jan|1985|5|44|**43**|
+|21-Jan-1985 05:44:43|Lun|21|Jan|1985|5.|44|**43**|
 |16-Août-1985 01:11:56|Ven|16|Août|1985|1|11|56|
 |20-Déc-2033 18:36:29|Mars|20|Déc|2033|18|36|29|
 |16-Juil-1984 10:21:59|Lun|16|Juil|1984|10|21|59|
@@ -305,7 +305,7 @@ Ces parties de date ont été extraites à l’aide de différentes transformati
 |29-Jan-2032 02:38:36|Jeu|29|Jan|2032|2|38|36|
 |11-Mai-2028 15:31:52|Jeu|11|Mai|2028|15|31|52|
 |15-Juil-1977 12:45:39|Ven|15|Juil|1977|12|45|39|
-|27-Jan-2029 05:55:41|Sam|27|Jan|2029|5|55|41|
+|27-Jan-2029 05:55:41|Sam|27|Jan|2029|5.|55|41|
 |03-Mars-2024 10:17:49|Dim|3|Mars|2024|10|17|49|
 |14-Avr-2010 00:23:13|Mer|14|Avr|2010|0|23|13.|
 
@@ -313,7 +313,7 @@ Ces parties de date ont été extraites à l’aide de différentes transformati
 
 Ces mises en forme de dates ont été effectuées à l’aide de différentes transformations par exemple sur le même jeu de données. Les chaînes en gras représentent les exemples qui ont été donnés dans leur transformation respective.
 
-|DateTime|Format1|Format2|Format3|Format4|Format5|
+|Datetime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Vendredi 31 janvier 2031**|**01312031 5:54**|**31/1/2031 5:54 AM**|**Q1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Mercredi 17 janvier 1990|01171990 13:32|17/1/1990 1:32 PM|Q1 1990|
@@ -341,7 +341,7 @@ Ces mises en forme de dates ont été effectuées à l’aide de différentes tr
 
 Ces mappages entre des dates/heures et des périodes ont été effectués à l’aide de différentes transformations par exemple sur le même jeu de données. Les chaînes en gras représentent les exemples qui ont été donnés dans leur transformation respective.
 
-|DateTime|Période(secondes)|Période(minutes)|Période(deux heures)|Période(30 minutes)|
+|Datetime|Période(secondes)|Période(minutes)|Période(deux heures)|Période(30 minutes)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
@@ -385,5 +385,5 @@ Ces mappages entre des dates/heures et des périodes ont été effectués à l�
 ### <a name="conditional-transformations"></a>Transformations conditionnelles
 Dans certains cas, il est impossible de trouver une seule transformation qui satisfait aux exemples donnés. Dans ce cas, la transformation Dériver une colonne par exemple tente de grouper les entrées en fonction d’un modèle et d’apprendre une transformation distincte pour chaque groupe. Nous appelons cela la **transformation conditionnelle**. Une tentative de **transformation conditionnelle** est effectuée uniquement pour les transformations avec une seule colonne d’entrée. 
 
-### <a name="reference"></a>Référence
+### <a name="reference"></a>Informations de référence
 Vous trouverez plus d’informations sur la technologie de transformation de chaîne par exemple dans [cette publication](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

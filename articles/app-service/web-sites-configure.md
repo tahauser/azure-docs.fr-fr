@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
-Cet article explique comment configurer une application web à l’aide du [portail Azure].
+
+Cet article explique comment configurer une application web à l’aide du [portail Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>Paramètres de l’application
-1. Sur le [portail Azure], ouvrez le panneau de l’application Web.
+1. Sur le [portail Azure], ouvrez le panneau de l’application Web.
 3. Cliquez sur **Paramètres de l’application**.
 
 ![Paramètres de l’application][configure01]
@@ -45,6 +46,8 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 
 <a name="platform"></a>
 **Plateforme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web Sockets**. Sélectionnez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application web utilise [ASP.NET SignalR] ou [socket.io](https://socket.io/).
 
@@ -116,11 +119,11 @@ Pour afficher les fichiers journaux, vous devez créer des informations d’iden
 1. Dans le panneau de votre application Web, cliquez sur **Tous les paramètres**.
 2. Cliquez sur **Informations d’identification du déploiement**.
 3. Entrez un nom d'utilisateur et un mot de passe.
-4. Cliquez sur **Save**.
+4. Cliquez sur **Enregistrer**.
 
 ![Définir les informations d’identification de déploiement][configure03]
 
-Le nom d’utilisateur FTP complet est « app\username », où *app* représente le nom de votre application web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.  
+Le nom d’utilisateur FTP complet est « app\username », où *app* représente le nom de votre application web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
 
 ![Informations d’identification de déploiement FTP][configure02]
 
@@ -141,7 +144,7 @@ Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Doma
 
 Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
 
-### <a name="monitoring"></a>Analyse
+### <a name="monitoring"></a>Surveillance
 En mode De base ou Standard, vous pouvez tester la disponibilité des points de terminaison HTTP ou HTTPS à partir de trois emplacements géo-distribués au maximum. Un test de surveillance échoue si le code de réponse HTTP est une erreur (4xx ou 5xx) ou si la réponse prend plus de 30 secondes. Un point de terminaison est considéré comme disponible s'il passe avec succès les différents tests de surveillance à partir de tous les emplacements spécifiés. 
 
 Pour plus d’informations, consultez [Surveillance de l’état d’un point de terminaison Web].
@@ -151,7 +154,7 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Configuration d’un nom de domaine personnalisé dans Azure App Service]
 * [Activer le protocole HTTPS pour une application dans Azure App Service]
 * [Faire évoluer une application Web dans Azure App Service]
@@ -160,7 +163,7 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[portail Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
 [Activer le protocole HTTPS pour une application dans Azure App Service]: ./app-service-web-tutorial-custom-ssl.md

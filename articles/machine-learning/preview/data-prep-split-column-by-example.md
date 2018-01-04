@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="split-column-by-example-transformation"></a>Transformation Fractionner des colonnes par exemple
 Cette transformation fractionne de manière prédictive le contenu d’une colonne sur des limites significatives sans nécessiter d’intervention de l’utilisateur. L’algorithme de fractionnement sélectionne les limites après avoir analysé le contenu de la colonne. Ces limites peuvent être définies par
@@ -36,7 +36,7 @@ En théorie, les opérations de fractionnement peuvent également être effectu�
 
 La transformation vise à produire le même nombre de colonnes pour toutes les lignes. Si une ligne ne peut pas être fractionnée sur les limites déterminées, elle produit *null* pour toutes les colonnes par défaut. Ce comportement peut être changé en **Mode avancé**.
 
-### <a name="transform-editor-advanced-mode"></a>Éditeur de transformation : mode avancé
+### <a name="transform-editor-advanced-mode"></a>Éditeur de transformation : Mode avancé
 Le **Mode avancé** fournit une expérience de fractionnement de colonnes enrichie. 
 
 Si vous sélectionnez **Keep Delimiter Columns** (Conserver les colonnes de séparation), les délimiteurs sont inclus dans le résultat final. Les délimiteurs sont exclus par défaut.
@@ -144,7 +144,7 @@ Dans certains cas il n’y a aucun délimiteur réel, et les champs de données 
 |Montant|Montant_1|Montant_2|
 |:-----|:-----|:-----|
 |\$14|$|14|
-|£9|£|9|
+|£9|£|9.|
 |\$34|$|34|
 |€ 18|€ |18|
 |\$42|$|42|

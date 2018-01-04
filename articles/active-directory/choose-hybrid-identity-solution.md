@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Solutions d'identité hybride Microsoft
 Les solutions d’identité hybride [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permettent de synchroniser des objets de répertoire locaux avec Azure AD tout en gérant vos utilisateurs locaux. La première décision à prendre lorsque vous envisagez de synchroniser votre Active Directory Windows Server local avec Azure AD est de savoir si vous souhaitez utiliser une identité synchronisée ou une identité fédérée. Les identités synchronisées et éventuellement les hachages du mot de passe, permettent à vos utilisateurs d’utiliser le même mot de passe pour accéder aux ressources de l’organisation locales et sur le cloud. Pour obtenir des spécifications de scénario plus avancées, telles que l’authentification unique (SSO) ou l’authentification multifacteur locale, vous devez déployer Active Directory Federation Services (AD FS) pour fédérer les identités. 
@@ -50,9 +50,6 @@ L’authentification directe peut être configurée par le biais d’Azure AD Co
 
 - Windows Server 2012 R2 ou version ultérieure
 - Joint à un domaine dans la forêt dans laquelle les utilisateurs sont validés
-
-> [!NOTE]
-> L’authentification directe Azure AD est généralement en aperçu et est prise en charge par les clients basés sur le navigateur Web et les clients Office qui prennent en charge l’authentification moderne. Pour les clients qui ne sont pas pris en charge, par exemple les clients Office hérités et Exchange ActiveSync (y compris les clients de messagerie natifs sur des appareils mobiles), il est recommandé d’utiliser l’authentification moderne équivalente. L’authentification moderne permet non seulement l’authentification directe, mais également l’application de stratégies d’accès conditionnelles, comme par exemple l’authentification multifacteur. 
 
 L’authentification directe n’est pas prise en charge si vous utilisez les périphériques Windows 10 joints à Azure AD. Toutefois, vous pouvez utiliser la synchronisation du hachage du mot de passe comme solution de secours automatique pour prendre en charge Windows 10 et les clients hérités mentionnés précédemment. Lors de l’aperçu, la synchronisation du hachage du mot de passe est activée par défaut lorsque l’authentification directe est sélectionnée en tant qu’option de connexion dans Azure AD Connect.
 
@@ -91,7 +88,7 @@ Voici quelques scénarios courants de gestion des identités hybrides et des acc
 > <sup>4</sup> AD FS peut être intégré à l’infrastructure de clé publique (PKI) de votre entreprise pour permettre l’authentification à l’aide de certificats. Ces certificats peuvent être des certificats logiciels déployés via des canaux d’approvisionnement approuvés tels que les certificats de gestion des périphériques mobiles (GPM), d’objet de stratégie de groupe (GPO), de carte à puce (y compris les cartes PIV/CAC) ou Hello for Business (approbation de certificat). Pour plus d’informations sur la prise en charge de l’authentification par carte à puce, consultez [ce  blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [En apprendre davantage dans un environnement de preuve de concept Azure](https://aka.ms/aad-poc)
 
 [Installer Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)

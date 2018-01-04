@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -94,7 +94,7 @@ ACR commence la synchronisation des images entre les réplicas configurés. Une 
 
 ## <a name="geo-replication-pricing"></a>Tarification de la géoréplication
 
-La géoréplication est une fonctionnalité de la [Référence SKU Premium](container-registry-skus.md#premium) d’Azure Container Registry. Lorsque vous répliquez un registre dans les régions de votre choix, cela entraîne des frais de registre Premium pour chaque région.
+La géoréplication est une fonctionnalité de la [Référence SKU Premium](container-registry-skus.md) d’Azure Container Registry. Lorsque vous répliquez un registre dans les régions de votre choix, cela entraîne des frais de registre Premium pour chaque région.
 
 Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en ajoutant des réplicas dans l’Est des États-Unis, dans le centre du Canada et en Europe de l’Ouest. Contoso payerait le tarif Premium quatre fois par mois, sans configuration ni gestion supplémentaire. Chaque région extraie désormais ses images localement, ce qui améliore les performances et la fiabilité sans frais de sortie de réseau de l’Ouest des États-Unis au Canada en passant par l’Est des États-Unis.
 
@@ -102,7 +102,7 @@ Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en 
 
 Avec la géoréplication, vous pouvez gérer vos centres de données régionaux comme un cloud global. Comme les images sont utilisées dans de nombreux services Azure, vous pouvez bénéficier d’un plan de gestion unique tout en conservant des extractions d’images locales à proximité du réseau, rapides et fiables.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez la série de didacticiels en trois parties relative à la [géoréplication dans Azure Container Registry](container-registry-tutorial-prepare-registry.md). Découvrez les étapes permettant de créer un registre géorépliqué, de générer un conteneur, puis de le déployer avec une seule commande `docker push` vers plusieurs instances régionales de Web App pour conteneurs.
 

@@ -3,7 +3,7 @@ title: Activer une image sous licence dans votre laboratoire Azure DevTest Labs 
 description: "Découvrez comment activer une image sous licence dans Azure DevTest Labs à l’aide du portail Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 221390d2-8d3b-4e1f-b454-43d33f8072b7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: tarcher
-ms.openlocfilehash: a74eff05285602574e45703dbe5b6caf074adecd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Dans Azure DevTest Labs, une image sous licence est une image qui inclut des con
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Pour déterminer si une image sous licence est accessible aux utilisateurs
 La première étape pour permettre aux utilisateurs de créer des machines virtuelles à partir d’une image sous licence consiste à vérifier que les conditions générales ont été acceptées pour l’image sous licence. Les étapes suivantes montrent comment afficher l’état de l’offre d’une image sous licence et, si nécessaire, accepter les conditions générales.
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
 
@@ -81,6 +81,6 @@ Vous pouvez activer le déploiement par programmation pour une image sous licenc
 - [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Copie d’images personnalisées entre plusieurs Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-- [Ajout d’une machine virtuelle à votre laboratoire](./devtest-lab-add-vm-with-artifacts.md)
+- [Ajout d’une machine virtuelle à votre laboratoire](devtest-lab-add-vm.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>FAQ Azure Resource Health
 Découvrez les réponses aux questions courantes sur Azure Resource Health.
@@ -74,14 +74,12 @@ Lors de la vérification de l’intégrité d’une ressource, cliquez sur **Rap
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Resource Health est-il disponible pour toutes les régions Azure ? 
 Resource Health est disponible dans toutes les zones Azure, à l’exception des régions suivantes :
-- US Gov Virginia
+- Gouvernement américain - Virginie
 - US Gov Iowa
 - Est des États-Unis – US DoD
 - Centre des États-Unis – US DoD
 - Centre de l’Allemagne
 - Nord-Est de l’Allemagne
-- Chine orientale
-- Chine du Nord
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>En quoi Resource Health diffère-t-il du tableau de bord d’état du service ou des notifications de service de portail Azure ?
 Les informations fournies par Resource Health sont plus précises que celles du tableau de bord d’état du service Azure.
@@ -102,7 +100,7 @@ Oui.  Azure Resource Health est gratuit.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Quelles sont les recommandations que fournit Resource Health ?
 En fonction de l’état d’intégrité, Resource Health fournit des recommandations dans le but de réduire le temps passé à résolution les problèmes. Pour les ressources disponibles, les recommandations sont axées sur la façon de résoudre les principaux problèmes rencontrés par les clients. Si la ressource est indisponible en raison d’un événement Azure non planifié, l’objectif principal est de vous assister pendant et après le processus de récupération. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En savoir plus sur Resource Health :
 -  [Vue d’ensemble d’Azure Resource Health](Resource-health-overview.md)

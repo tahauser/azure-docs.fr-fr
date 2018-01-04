@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur le modèle Azure Resource Manager, voir [Capturer une image managée d’une machine virtuelle généralisée dans Azure](../capture-image-resource.md).
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour plus d’informations sur le modèle Azure Resource Manager, voir [Capturer une image managée d’une machine virtuelle généralisée dans Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows de façon à l’utiliser comme image pour créer d’autres machines virtuelles. Cette image contient le disque du système d’exploitation et les disques de données éventuellement associés à la machine virtuelle. Comme elle ne comporte pas de configurations de mise en réseau, vous devrez établir des configurations réseau quand vous créez les autres machines virtuelles à partir de l’image.
@@ -42,7 +42,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 >
 >
 
-Avant de capturer une image d’une machine virtuelle Azure, nous vous recommandons de sauvegarder la machine virtuelle cible. Les machines virtuelles Azure peuvent être sauvegardées à l’aide d’Azure Backup. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](../../../backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
+Avant de capturer une image d’une machine virtuelle Azure, nous vous recommandons de sauvegarder la machine virtuelle cible. Les machines virtuelles Azure peuvent être sauvegardées à l’aide d’Azure Backup. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](../../../backup/backup-azure-arm-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
 
 ## <a name="capture-the-virtual-machine"></a>Capture de la machine virtuelle
 1. Dans le [portail Azure](http://portal.azure.com), **connectez-vous** à la machine virtuelle. Pour obtenir des instructions, consultez la rubrique [Comment se connecter à une machine virtuelle exécutant Windows Server][How to sign in to a virtual machine running Windows Server].
@@ -72,7 +72,7 @@ Avant de capturer une image d’une machine virtuelle Azure, nous vous recommand
 
     ![Capture d’image réussie](./media/capture-image/VMCapturedImageAvailable.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 L’image est prête à être utilisée pour créer des machines virtuelles. Pour ce faire, vous allez créer une machine virtuelle en sélectionnant l’élément de menu **Plus de services** en bas du menu Services, puis **Images de machine virtuelle (classic)** dans le groupe **Compute**. Pour obtenir des instructions, consultez [Création d’une machine virtuelle à partir d’une image](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md

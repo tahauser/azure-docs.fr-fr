@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classification des revenus avec un projet Team Data Science Process (TDSP)
 
@@ -34,7 +35,7 @@ Vous trouverez des documents récapitulatifs sur l’exemple [ici](https://githu
 ### <a name="purpose"></a>Objectif
 L’objectif principal de cet exemple est de montrer comment instancier et exécuter un projet Machine Learning à l’aide de la structure et des modèles [Team Data Science Process (TDSP)](https://github.com/Azure/Microsoft-TDSP) dans Azure Machine Learning. Pour ce faire, nous utilisons les fameuses [données de recensement des États-Unis de 1994 disponibles dans le référentiel Machine Learning de l’UCI](https://archive.ics.uci.edu/ml/datasets/adult). La tâche de modélisation consiste à prédire les classes de revenus annuels des États-Unis à partir des informations de recensement des États-Unis (ex. âge, race, niveau d’éducation, pays d’origine, etc.).
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Étendue
  * Exploration de données, apprentissage et déploiement d’un modèle Machine Learning solutionnant le problème de prédiction décrit dans la vue d’ensemble du cas d’usage. 
  * Exécution du projet dans Azure Machine Learning à l’aide du modèle Team Data Science Process (TDSP) dans Azure Machine Learning pour ce projet. Pour l’exécution du projet et la génération des rapports correspondants, nous allons utiliser le cycle de vie TDSP.
  * Opérationnalisation de la solution directement à partir d’Azure Machine Learning dans Azure Container Service.
@@ -47,7 +48,7 @@ Consultez [Cycle de vie du processus TDSP (Team Data Science Process)](https://g
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 ### <a name="required-subscription-hardware-software"></a>Obligatoire : abonnement, matériel, logiciels
 1. Un [abonnement](https://azure.microsoft.com) Azure. Vous pouvez également obtenir un [abonnement gratuit](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) pour exécuter cet exemple.
 2. Une [machine virtuelle de science des données (DSVM) Azure Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm) (taille de la machine virtuelle : [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), avec 4 processeurs virtuels et 14 Go de RAM). Bien que testé sur une machine virtuelle de science des données Azure, cet exemple devrait fonctionner sur n’importe quelle machine Windows 10.
@@ -61,7 +62,7 @@ Si vous souhaitez enregistrer et gérer les versions de votre projet et son cont
 
 ### <a name="informational-about-azure-machine-learning"></a>Informations sur Azure Machine Learning
 * [FAQ - Guide pratique pour bien démarrer](frequently-asked-questions.md)
-* [Vue d'ensemble](overview-what-is-azure-ml.md)
+* [Vue d’ensemble](overview-what-is-azure-ml.md)
 * [Installation](quickstart-installation.md)
 * [Exécution](experimentation-service-configuration.md)
 * [Utilisation de TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
