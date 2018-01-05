@@ -3,7 +3,7 @@ title: "Azure Cosmos DB : Créer une application .NET Framework ou Core à l’a
 description: "Cet article présente un exemple de code .NET Framework/Core que vous pouvez utiliser pour vous connecter au service Azure Cosmos DB et pour l’interroger."
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB : Créer une application .NET Framework ou Core à l’aide de l’API Graph
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des bases de données de documents, de paires clé-valeur et de graphiques, qui bénéficient toutes des fonctionnalités de distribution mondiale et de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Ce guide de démarrage rapide explique comment créer un compte, une base de données et un graphique (conteneur) Azure Cosmos DB à l’aide du portail Azure. Vous créerez et exécuterez ensuite une application console basée sur l’[API Graph](graph-sdk-dotnet.md) (préversion).  
+Ce guide de démarrage rapide explique comment créer un compte, une base de données et un graphique (conteneur) Azure Cosmos DB à l’aide du portail Azure. Vous créerez et exécuterez ensuite une application console basée sur l’[API Graph](graph-sdk-dotnet.md).  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer **le développement Azure** lors de l’installation de Visual Studio.
 
@@ -61,9 +61,9 @@ Cet exemple de projet utilise le format .NET Core et a été configuré pour cib
 
 3. Ouvrez ensuite Visual Studio et le fichier de solution. 
 
-## <a name="review-the-code"></a>Examiner le code
+## <a name="review-the-code"></a>Vérifier le code
 
-Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fichier Program.cs ; vous pouvez constater que ces lignes de code créent les ressources Azure Cosmos DB. 
+Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le fichier Program.cs ; vous pouvez constater que ces lignes de code créent les ressources Azure Cosmos DB. 
 
 * Le DocumentClient est initialisé. Dans la préversion, nous avons ajouté une API d’extension graphique sur le client Azure Cosmos DB. Nous travaillons actuellement à la mise au point d’un client graphique autonome dissocié du client et des ressources Azure Cosmos DB.
 
@@ -108,23 +108,35 @@ Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fich
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans Visual Studio 2017, ouvrez le fichier appsettings.json. 
+1. Dans le [portail Azure](http://portal.azure.com/), cliquez sur **Clés**. 
 
-2. Dans le portail Azure, dans votre compte Azure Cosmos DB, cliquez sur **Clés** dans le volet de navigation gauche. 
+    Copiez la première partie de la valeur de l’URI.
 
-    ![Afficher et copier une clé primaire dans le portail Azure, dans la page Clés](./media/create-graph-dotnet/keys.png)
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-dotnet/keys.png)
 
-3. Copiez la valeur **URI** du portail et définissez-la comme valeur de la clé du point de terminaison dans le fichier appsettings.json. Vous pouvez utiliser le bouton de copie comme indiqué dans la capture d’écran précédente pour copier la valeur.
+2. Dans Visual Studio 2017, ouvrez le fichier appsettings.json et collez la valeur sur `FILLME` dans le `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    La valeur de point de terminaison doit maintenant ressembler à ceci :
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Si vous avez créé votre compte de base de données de graphique avant le 27 novembre 2017, remplacez `documents` par `graphs` dans la valeur `endpoint`. Si vous avez créé votre compte de base de données de graphique le 27 novembre 2017 ou à une date ultérieure, remplacez `documents` par `gremlin.cosmosdb` dans la valeur `endpoint`.
+
+    La valeur de point de terminaison doit maintenant ressembler à ceci :
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` ou `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Copiez votre valeur **CLÉ PRIMAIRE** à partir du portail et définissez-la comme la valeur de la clé AuthKey dans le fichier App.config., puis enregistrez vos changements. 
 
     `"authkey": "FILLME"`
 
+5. Enregistrez le fichier appsettings.json. 
+
 Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
-## <a name="run-the-console-app"></a>Exécuter l’application console
+## <a name="run-the-console-app"></a>Exécution de l’application console
 
 Avant d’exécuter l’application, il est recommandé de mettre à jour le package *Microsoft.Azure.Graphs* vers la dernière version.
 
@@ -152,7 +164,7 @@ Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail 
 
     ![Afficher le graphique dans l’Explorateur de données dans le portail Azure](./media/create-graph-dotnet/graph-explorer.png)
 
-## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
+## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
@@ -161,9 +173,9 @@ Vous pouvez maintenant retourner à l’Explorateur de données dans le Portail 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante : 
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos D, à créer un graphique à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
 

@@ -1,24 +1,16 @@
 ---
 title: "À propos d’Azure Migrate | Microsoft Docs"
 description: "Fournit une vue d’ensemble du service Azure Migrate."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -41,13 +33,12 @@ Azure Migrate vous aide à :
 - Actuellement, vous pouvez évaluer les machines virtuelles VMware locales pour la migration vers les machines virtuelles Azure.
 
 > [!NOTE]
-> La prise en charge pour Hyper-V fait partie de la feuille de route et sera activée dans les prochains mois. En attendant, nous vous recommandons d’utiliser le Planificateur de déploiement Azure Site Recovery pour planifier la migration des charges de travail Hyper-V. 
+> La prise en charge pour Hyper-V fait partie de la feuille de route et sera activée prochainement. En attendant, nous vous recommandons d’utiliser le [Planificateur de déploiement Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) pour planifier la migration des charges de travail Hyper-V. 
 
-- Vous pouvez évaluer jusqu’à 1 000 ordinateurs virtuels en une seule évaluation et jusqu’à 1 500 machines en un seul projet Azure Migrate. Si vous avez besoin d’évaluer davantage, vous pouvez augmenter le nombre de projets ou d’évaluations. [En savoir plus](how-to-scale-assessment.md).
+- Vous pouvez détecter jusqu’à 1 000 machines virtuelles par détection et jusqu’à 1 500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 400 machines virtuelles par évaluation. Si vous avez besoin de détecter ou d’évaluer davantage de machines virtuelles, vous pouvez augmenter le nombre de détections ou d’évaluations. [Plus d’informations](how-to-scale-assessment.md)
 - Les machines virtuelles que vous souhaitez évaluer doivent être gérées par un vCenter Server, version 5.5, 6.0 ou 6.5.
 - Vous ne pouvez créer un projet Azure Migrate que dans la région Centre-Ouest des États-Unis. Toutefois, cela n’affecte pas votre capacité à planifier la migration pour un autre emplacement Azure cible. L’emplacement du projet de migration est utilisé uniquement pour stocker les métadonnées détectées à partir de l’environnement local.
-- Le portail Azure Migrate est actuellement disponible en anglais uniquement. 
-- Actuellement, Azure Migrate ne prend en charge que la réplication de [Stockage localement redondant (LRS)](../storage/common/storage-introduction.md#replication).
+- Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pour quoi dois-je payer ?
 
@@ -60,7 +51,7 @@ Une évaluation vous permet de déterminer dans quelle mesure vos machines virtu
 
 **Propriété** | **Détails**
 --- | ---
-**Emplacement cible** | L’emplacement Azure vers lequel vous souhaitez migrer. Ouest des États-Unis 2 est l’emplacement cible par défaut. 
+**Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer. Ouest des États-Unis 2 est l’emplacement cible par défaut. 
 **Redondance du stockage** | Le type de stockage que les machines virtuelles Azure utiliseront après la migration. LRS est la valeur par défaut.
 **Plans de tarification** | L’évaluation prend en compte le fait que vous soyez inscrit Software Assurance et que vous puissiez utiliser [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Elle prend également en compte les offres Azure qui doivent être appliquées et vous permet d’indiquer des réductions spécifiques aux abonnements (%), que vous obtenez en plus de l’offre. 
 **Niveau tarifaire** | Vous pouvez spécifier le [niveau tarifaire (de base/standard)](../virtual-machines/windows/sizes-general.md) des machines virtuelles Azure. Cela vous aide à migrer vers une famille de machine virtuelle Azure appropriée, selon que vous soyez dans un environnement de production. Par défaut le niveau [standard](../virtual-machines/windows/sizes-general.md) est utilisé.
@@ -91,7 +82,7 @@ Le tableau récapitule les ports nécessaires pour les communications d’Azure 
 |-------------------|------------------------|---------------|---------|
 |Collecteur          |Service Azure Migrate   |TCP 443        |Le collecteur se connecte au service via le port SSL 443|
 |Collecteur          |Serveur vCenter          |Par défaut 9443   | Par défaut, le collecteur se connecte au serveur vCenter via le port 9443. Si le serveur écoute sur un port différent, il doit être configuré comme port sortant sur le collecteur de machine virtuelle. |
-|Machine virtuelle locale     | Espace de travail Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |L’agent MMA utilise le port TCP 443 pour se connecter à Log Analytics. Vous n’avez besoin de ce port que si vous utilisez la fonctionnalité de visualisation des dépendances et installez l’agent MMA (Microsoft Monitoring Agent). |
+|Machine virtuelle locale     | Espace de travail Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |L’agent MMA utilise le port TCP 443 pour se connecter à Log Analytics. Vous n’avez besoin de ce port que si vous utilisez la fonctionnalité de visualisation des dépendances et installez l’agent MMA (Microsoft Monitoring Agent). |
 
 
   
@@ -106,9 +97,9 @@ Une fois que vous avez évalué des machines locales pour la migration avec le s
   - Exécutez un basculement pour migrer des machines locales vers Azure. 
   - [En savoir plus](../site-recovery/tutorial-migrate-on-premises-to-azure.md) dans le didacticiel de migration de Site Recovery.
 
-- **Azure Database Migration**: si vos ordinateurs locaux sont en cours d’exécution sur une base de données telle que SQL Server, MySQL ou Oracle, vous pouvez utiliser Azure Database Migration Service pour les migrer vers Azure. [En savoir plus](https://azure.microsoft.com/campaigns/database-migration/).
+- **Azure Database Migration**: si vos ordinateurs locaux sont en cours d’exécution sur une base de données telle que SQL Server, MySQL ou Oracle, vous pouvez utiliser Azure Database Migration Service pour les migrer vers Azure. [Plus d’informations](https://azure.microsoft.com/campaigns/database-migration/)
 
 
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 [Suivre un didacticiel](tutorial-assessment-vmware.md) pour créer une évaluation pour une machine virtuelle VMware locale.
