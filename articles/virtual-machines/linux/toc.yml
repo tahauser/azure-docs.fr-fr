@@ -51,7 +51,7 @@
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: "Azure\_PowerShell"
       href: powershell-samples.md
@@ -94,7 +94,7 @@
     - name: Stockage sur disque
       href: about-disks-and-vhds.md
       items:
-        - name: Managed Disks
+        - name: "Managed\_Disks"
           href: managed-disks-overview.md
         - name: Stockage Premium
           href: premium-storage.md
@@ -191,12 +191,14 @@
               href: update-infrastructure-redhat.md
         - name: Agent de machine virtuelle Azure
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: agent-user-guide.md
             - name: Mise à jour de l’agent
               href: update-agent.md
         - name: Maintenance planifiée
           href: maintenance-notifications.md
+        - name: FAQ relative à la maintenance accélérée
+          href: accelerated-maintenance.md
         - name: Événements planifiés
           href: scheduled-events.md
         - name: Surveiller des métadonnées
@@ -296,7 +298,7 @@
       items:
         - name: Cloud Foundry
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: cloudfoundry-get-started.md
             - name: Déployer votre première application
               href: cloudfoundry-deploy-your-first-app.md
@@ -345,7 +347,7 @@
           href: faq-for-disks.md
         - name: Ajouter un disque
           items:
-            - name: Interface de ligne de commande Azure
+            - name: Azure CLI
               href: add-disk.md
             - name: Portail Azure
               href: attach-disk-portal.md
@@ -386,6 +388,8 @@
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Utiliser plusieurs cartes réseau
           href: multiple-nics.md
+        - name: Utiliser la mise en réseau accélérée
+          href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Assigner un nom DNS public
           href: portal-create-fqdn.md
         - name: Résolution DNS
@@ -462,13 +466,13 @@
           href: error-messages.md
         - name: Accès à la récupération d’une machine virtuelle
           items:
-            - name: Interface de ligne de commande Azure
+            - name: Azure CLI
               href: troubleshoot-recovery-disks.md
             - name: Portail Azure
               href: troubleshoot-recovery-disks-portal.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: PowerShell
       href: /powershell/azureps-cmdlets-docs
@@ -482,7 +486,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST
       href: /rest/api/compute
-- name: les ressources
+- name: Ressources
   items:
     - name: Créer des modèles
       href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
@@ -490,13 +494,13 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modèles fournis par la communauté
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Forum Aux Questions
       href: faq.md

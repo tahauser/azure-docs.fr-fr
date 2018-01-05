@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Windows
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -47,7 +47,7 @@
   items:
     - name: PowerShell
       href: powershell-samples.md
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
@@ -86,7 +86,7 @@
     - name: Stockage sur disque
       href: about-disks-and-vhds.md
       items:
-        - name: Managed Disks
+        - name: "Managed\_Disks"
           href: managed-disks-overview.md
         - name: Stockage Premium
           href: premium-storage.md
@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Maintenance planifiée
           href: maintenance-notifications.md
+        - name: FAQ relative à la maintenance accélérée
+          href: accelerated-maintenance.md
         - name: Événements planifiés
           href: scheduled-events.md
         - name: Surveiller des métadonnées
@@ -304,6 +306,8 @@
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Utiliser plusieurs cartes réseau
           href: multiple-nics.md
+        - name: Utiliser la mise en réseau accélérée
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Assigner un nom DNS public
           href: portal-create-fqdn.md
         - name: Résolution DNS
@@ -408,9 +412,9 @@
           href: performance-diagnostics-vm-extension.md
         - name: Utiliser la virtualisation imbriquée
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: "Azure\_PowerShell"
       href: /powershell/azureps-cmdlets-docs
@@ -426,7 +430,7 @@
       href: /rest/api/compute
     - name: Managed Disks REST
       href: /rest/api/manageddisks
-- name: les ressources
+- name: Ressources
   items:
     - name: Créer des modèles
       href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -434,13 +438,13 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modèles fournis par la communauté
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Forum Aux Questions
       href: faq.md

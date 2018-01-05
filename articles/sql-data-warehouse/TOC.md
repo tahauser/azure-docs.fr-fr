@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 
 ## [À propos de SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 ## [Aide-mémoire](cheat-sheet.md)
@@ -18,7 +18,7 @@
 ### [Sauvegardes d’entrepôts de données](sql-data-warehouse-backups.md)
 ### [Audit](sql-data-warehouse-auditing-overview.md)
 ### [Limites de capacité](sql-data-warehouse-service-capacity-limits.md)
-### [FAQ](sql-data-warehouse-overview-faq.md)
+### [FORUM AUX QUESTIONS](sql-data-warehouse-overview-faq.md)
 
 ## Sécurité
 ### [Vue d'ensemble](sql-data-warehouse-overview-manage-security.md)
@@ -32,7 +32,7 @@
 ### [Migration des données](sql-data-warehouse-migrate-data.md)
 
 ## Chargement et transfert de données
-### [Vue d'ensemble](design-elt-data-loading.md)
+### [Vue d’ensemble](design-elt-data-loading.md)
 ### [meilleures pratiques](guidance-for-loading-data.md)
 
 
@@ -91,11 +91,11 @@
 
 ## Chargement et transfert de données
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Données publiques de Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [Charger - PolyBase depuis le stockage blob](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [Charger - PolyBase depuis SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AZCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
@@ -116,7 +116,7 @@
 ### [Automatiser les niveaux de calcul](manage-compute-with-azure-functions.md)
 
 
-# Référence
+# Informations de référence
 
 
 ## T-SQL
@@ -124,7 +124,7 @@
 ### [Éléments de langage SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)
 ### [Instructions SQL DW](sql-data-warehouse-reference-tsql-statements.md)
 ## [Vues système](sql-data-warehouse-reference-tsql-system-views.md)
-## [Applets de commande PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [Applets de commande PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=databases)
@@ -133,7 +133,7 @@
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Support](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
