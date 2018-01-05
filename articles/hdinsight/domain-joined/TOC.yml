@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Sécurité d’entreprise
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: apache-domain-joined-introduction.md
     - name: Planifier des clusters joints à un domaine
       href: apache-domain-joined-architecture.md
@@ -12,8 +12,6 @@
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Configurer des stratégies Hive
       href: apache-domain-joined-run-hive.md
-    - name: Planification de la capacité
-      href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: Gérer des clusters joints à un domaine
       href: apache-domain-joined-manage.md
@@ -48,7 +46,7 @@
     - name: Surveiller les performances du cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
