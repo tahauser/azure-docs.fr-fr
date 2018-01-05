@@ -1,12 +1,11 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce que la messagerie Service Bus ?](service-bus-messaging-overview.md)
 ## [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-## [Architecture de Service Bus](service-bus-architecture.md)
+## [Architecture de Service Bus](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
 # Prise en main
 ## [Créer un espace de noms](service-bus-create-namespace-portal.md)
-### [Files d’attente, rubriques et abonnements.](service-bus-queues-topics-subscriptions.md)
 ## Files d’attente
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -37,6 +36,7 @@
 
 ## Développement
 ### Gestion des messages
+#### [Files d’attente, rubriques et abonnements](service-bus-queues-topics-subscriptions.md)
 #### [Messages, charges utiles et sérialisation](service-bus-messages-payloads.md)
 #### [Transferts de messages, verrous et règlement](message-transfers-locks-settlement.md)
 #### [Timestamps et séquencement de message](message-sequencing.md)
@@ -64,7 +64,7 @@
 #### [Chaîner des entités avec le transfert automatique](service-bus-auto-forwarding.md)
 #### [Traitement des transactions](service-bus-transactions.md)
 #### [Implémentation de l’espace de noms associé](service-bus-paired-namespaces.md)
-## Gérer
+## gérer
 ### [Analyser Service Bus avec la surveillance Azure](service-bus-metrics-azure-monitor.md)
 ### [Bibliothèques de gestion de Service Bus](service-bus-management-libraries.md)
 ### [Journaux de diagnostic](service-bus-diagnostic-logs.md)
@@ -78,7 +78,7 @@
 #### 
 ### [Utilisation d’Azure PowerShell pour approvisionner des entités](service-bus-manage-with-ps.md)
 
-# Référence
+# Informations de référence
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
@@ -101,7 +101,7 @@
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=service-bus)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azureservicebus)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

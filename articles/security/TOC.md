@@ -1,4 +1,4 @@
-# [Vue d'ensemble](azure-security.md)
+# [Vue d’ensemble](azure-security.md)
 ## [Sécurité du réseau](security-network-overview.md)
 ## [Sécurité de la base de données](azure-database-security-overview.md)
 ## [Sécurité du stockage](security-storage-overview.md)
@@ -52,8 +52,10 @@
 ##### [Intégrité du système et des informations](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [Acquisition du système et des services](./blueprints/fedramp-system-services-acquisition-controls.md)
 #### [Conformité - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
-##### [Vue d'ensemble](./blueprints/uk-official-three-tier-applications-overview.md)
+##### [Vue d’ensemble](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Vue d’ensemble des principes](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Conformité - Services financiers
+##### [Services financiers pour les charges de travail réglementées](./blueprints/financial-services-regulated-workloads.md)
 
 # Prise en main
 ## [Prise en main de la sécurité dans Azure](azure-security-getting-started.md)
