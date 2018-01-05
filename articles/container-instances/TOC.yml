@@ -1,6 +1,6 @@
 - name: Container Instances
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Container Instances
       href: container-instances-overview.md
@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Concepts
   items:
-    - name: Régions et disponibilité
-      href: container-instances-region-availability.md
+    - name: Quotas et limites régionales
+      href: container-instances-quotas.md
     - name: Relation aux utilisateurs d’Orchestrator
       href: container-instances-orchestrator-relationship.md
     - name: Groupes de conteneur
@@ -41,9 +41,9 @@
       href: container-instances-restart-policy.md
     - name: Dépanner les déploiements
       href: container-instances-troubleshooting.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances
@@ -63,7 +63,7 @@
   items:
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/container-instances/'
     - name: Feuille de route
       href: 'https://azure.microsoft.com/roadmap/'
@@ -71,5 +71,5 @@
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

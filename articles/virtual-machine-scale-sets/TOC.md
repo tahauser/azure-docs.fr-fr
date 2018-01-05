@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Que sont les groupes de machines virtuelles identiques ?](virtual-machine-scale-sets-overview.md)
 
 # Prise en main
@@ -22,20 +22,21 @@
 ## Déployer
 ### [Créer avec Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Groupe de machines virtuelles identiques avec des disques gérés](virtual-machine-scale-sets-managed-disks.md)
+### [Utiliser des zones de disponibilité](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Mettre à l’échelle un groupe identique](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Utiliser le portail Azure](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Utilisation d'Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Utilisation d’Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Mise à l’échelle automatique avancée](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applications dans les groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)
 ### [Utiliser des disques de données avec des groupes identiques](virtual-machine-scale-sets-attached-disks.md)
 ### [Travailler avec des groupes identiques de grande taille](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertir un modèle de groupe identique pour utiliser un disque géré](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Gérer
+## gérer
 ### Tâches de gestion courantes
 #### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
-#### [Utilisation d'Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
+#### [Utilisation d’Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Mise à l’échelle verticale dans un groupe de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Mises à niveau automatiques des systèmes d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [Mises à jour pour les groupes de machines virtuelles identiques](virtual-machine-scale-sets-upgrade-scale-set.md)
@@ -44,20 +45,20 @@
 ### [Convertir un modèle en disques gérés](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Résolution des problèmes
-### [Mise à l’échelle automatique](virtual-machine-scale-sets-troubleshoot.md)
+### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 ## Forum Aux Questions
 ### [FAQ sur le groupe identique](virtual-machine-scale-sets-faq.md)
 
-# Référence
+# Informations de référence
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interface de ligne de commande Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=compute)
-## Tarification 
+## Tarifs 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

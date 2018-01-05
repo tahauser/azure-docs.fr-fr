@@ -1,5 +1,5 @@
 # Vue d’ensemble
-## [Qu’est-ce qu’Azure Analysis Services ?](analysis-services-overview.md)
+## [À propos d’Azure Analysis Services](analysis-services-overview.md)
 ## [Sources de données prises en charge](analysis-services-datasource.md)
 ## [Authentification et autorisations utilisateur](analysis-services-manage-users.md)
 ## [Connexion à des sources de données locales](analysis-services-gateway.md)

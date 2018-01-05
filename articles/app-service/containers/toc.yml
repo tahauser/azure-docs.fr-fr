@@ -1,6 +1,6 @@
 - name: App Service sur Linux
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Web Apps
       href: ../app-service-web-overview.md
@@ -29,6 +29,8 @@
       items:
         - name: .NET Core avec SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
+        - name: Ruby avec MySQL
+          href: tutorial-ruby-mysql-app.md
         - name: PHP avec MySQL
           href: tutorial-php-mysql-app.md
         - name: Node.js avec MongoDB
@@ -45,7 +47,7 @@
       href: ../app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Exemples
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: "Azure\_PowerShell"
       href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -133,19 +135,19 @@
           href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Déplacer des ressources
           href: ../app-service-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/appservice
     - name: "Azure\_PowerShell"
       href: /powershell
-    - name: API REST
+    - name: de l’API REST
       href: /rest/api/appservice/
 - name: Ressources
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informations sur les quotas
       href: '../../azure-subscription-service-limits.md#app-service-limits'
@@ -181,7 +183,7 @@
       href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
     - name: Livres de recettes
       items:
@@ -189,7 +191,7 @@
           href: ../../guidance/guidance-ra-app-service.md
         - name: Scripts de déploiement
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Résolution des problèmes
+    - name: Résolution de problèmes
       items:
         - name: Résoudre les problèmes à l’aide de Visual Studio
           href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json

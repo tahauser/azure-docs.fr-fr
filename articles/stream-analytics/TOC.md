@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce que Stream Analytics ?](stream-analytics-introduction.md)
 ## [Comparer Storm et Stream Analytics](stream-analytics-comparison-storm.md)
 
@@ -49,9 +49,10 @@
 ### [Mettre à l’échelle pour augmenter le débit](stream-analytics-scale-jobs.md)
 ### [Mettre à l’échelle pour les fonctions Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 
-## Gérer
+## gérer
 ### [Remplacer les informations d’identification des entrées/sorties](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Fiabilité des travaux pendant les mises à jour](stream-analytics-job-reliability.md)
+### [Configurer le niveau de compatibilité](stream-analytics-compatibility-level.md)
 
 ## Résolution des problèmes
 ### [Guide de résolution des problèmes](stream-analytics-troubleshooting-guide.md)
@@ -66,7 +67,7 @@
 ### [Utiliser le kit de développement logiciel (SDK) .NET de gestion](stream-analytics-dotnet-management-sdk.md)
 ### [One-click Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
@@ -82,5 +83,5 @@
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Notes de publication](stream-analytics-release-notes.md)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=stream-analytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)

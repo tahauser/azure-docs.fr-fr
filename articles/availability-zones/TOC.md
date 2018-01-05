@@ -20,7 +20,7 @@
 #### [Ajouter un disque géré dans des zones de disponibilité à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Groupes identiques de machines virtuelles 
-#### [Créer un groupe de machines virtuelles identique à l’aide du portail Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Créer un groupe identique dans une zone de disponibilité](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Équilibrage de charge
 #### [Qu’est-ce qu’un équilibreur de charge ?](../load-balancer/load-balancer-standard-overview.md)

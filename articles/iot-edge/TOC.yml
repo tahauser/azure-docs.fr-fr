@@ -1,6 +1,6 @@
 - name: Documentation Azure IoT Edge
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure IoT Edge
       href: how-iot-edge-works.md
@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Procédures
   items:
-    - name: Créer une passerelle transparente
-      href: how-to-create-transparent-gateway.md
+    - name: Créer des passerelles
+      items:
+        - name: Créer une passerelle transparente
+          href: how-to-create-transparent-gateway.md
+        - name: Passerelle Modbus
+          href: deploy-modbus-gateway.md
     - name: Déployer et surveiller à l’échelle
       href: how-to-deploy-monitor.md
     - name: Provisionner un appareil IoT Core
@@ -81,7 +85,7 @@
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -91,5 +95,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: Études de cas techniques
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
