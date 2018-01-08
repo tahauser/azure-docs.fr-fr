@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour Services cloud Azure
 [Les applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillées par [Application Insights][start] pour la disponibilité, les performances, les défaillances et l’utilisation en combinant les données des kits de développement logiciel (SDK) d’Application Insights avec les données [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
-![Exemple](./media/app-insights-cloudservices/sample.png)
+![exemples](./media/app-insights-cloudservices/sample.png)
 
 ## <a name="before-you-start"></a>Avant de commencer
 Vous devez disposer des éléments suivants :
@@ -36,7 +36,7 @@ Vous devez disposer des éléments suivants :
 ## <a name="quick-start"></a>Démarrage rapide
 Le moyen le plus simple et le plus rapide pour surveiller votre service cloud avec Application Insights consiste à choisir cette option quand vous publiez votre service dans Azure.
 
-![Exemple](./media/app-insights-cloudservices/azure-cloud-application-insights.png)
+![exemples](./media/app-insights-cloudservices/azure-cloud-application-insights.png)
 
 Cette option instrumente votre application au moment de l’exécution, ce qui vous donne toute la télémétrie dont vous avez besoin pour surveiller les demandes, les exceptions et les dépendances dans votre rôle web, ainsi que les compteurs de performances de vos rôles de travail. Les traces de diagnostics générées par votre application sont également envoyées à Application Insights.
 
@@ -99,7 +99,7 @@ Cela a pour effet d’insérer vos clés d’instrumentation Application Insight
 
 Si vous souhaitez faire varier le niveau des informations de diagnostics envoyées à Application Insights, vous pouvez le faire en [modifiant directement les fichiers `.cscfg`](app-insights-azure-diagnostics.md).
 
-## <a name="sdk"></a>Installation du Kit SDK dans chaque projet
+## <a name="sdk"></a>Installation du Kit de développement logiciel (SDK) dans chaque projet
 Cette option ajoute la capacité à ajouter une télémétrie métier personnalisée à n’importe quel rôle, pour pouvoir analyser plus en détail l’utilisation et les performances de votre application.
 
 Dans Visual Studio, configurez le Kit de développement logiciel (SDK) Application Insights pour chaque projet d’application cloud.
@@ -187,7 +187,7 @@ Les compteurs suivants sont collectés par défaut :
     * \.Exceptions .NET CLR(??APP_CLR_PROC??)\# Nombre d'exceptions levées/s
     * \Processus(??APP_WIN32_PROC??)\Octets privés
     * \Processus(??APP_WIN32_PROC??)\Nombre d’octets de données E/S par s
-    * \Processus(_Total)\% Temps processeur
+    * \Processor(_Total)\% temps processeur
 
 Pour les rôles web, ces compteurs sont également collectés :
 
@@ -225,17 +225,17 @@ Si votre système utilise d’autres services Azure tels que Stream Analytics, i
 
 Si vous avez une application mobile cliente, insérez du code pour envoyer des événements personnalisés quand des opérations utilisateur clés se produisent, et créez un [pont HockeyApp](app-insights-hockeyapp-bridge-app.md). Créez des requêtes dans [Analytics](app-insights-analytics.md) pour afficher le nombre d’événements, et épinglez-les au tableau de bord.
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 [L'exemple](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) analyse un service qui dispose d’un rôle Web et de deux rôles de travail.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exception « méthode introuvable » lors de l’exécution dans Services cloud Azure
-Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiquement pris en charge dans les rôles Azure Cloud Services. [Installez la version 4.6 sur chaque rôle](../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.
+Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiquement pris en charge dans les rôles Azure Cloud Services. [Installez 4.6 sur chaque rôle](../cloud-services/cloud-services-dotnet-install-dotnet.md) avant d’exécuter votre application.
 
 ## <a name="video"></a>Vidéo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Configuration de l’envoi de diagnostics Azure à Application Insights](app-insights-azure-diagnostics.md)
 * [Automatiser la création des ressources Application Insights](app-insights-powershell.md)
 * [Automatiser les diagnostics Azure](app-insights-powershell-azure-diagnostics.md)

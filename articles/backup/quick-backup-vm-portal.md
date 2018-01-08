@@ -1,5 +1,5 @@
 ---
-title: "Démarrage rapide d’Azure : sauvegarder une machine virtuelle avec le portail Azure | Microsoft Docs"
+title: "Démarrage rapide d’Azure : Sauvegarder une machine virtuelle avec le portail Azure | Microsoft Docs"
 description: "Découvrez comment sauvegarder vos machines virtuelles avec le portail Azure"
 services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Sauvegarder une machine virtuelle dans Azure
 Les sauvegardes Azure peuvent être créées via le portail Azure. Cette méthode fournit une interface utilisateur basée sur un navigateur permettant de créer et configurer les sauvegardes Azure et toutes les ressources associées. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) avec le portail Azure. 
@@ -36,13 +36,13 @@ Créez une simple sauvegarde quotidienne planifiée dans un coffre Recovery Serv
 
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
 2. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez sauvegarder. Si vous avez utilisé les exemples de commandes de démarrage rapide de machine virtuelle, la machine virtuelle est nommée *myVM* dans le groupe de ressources *myResourceGroup*.
-3. Dans la section **Paramètres**, cliquez sur **Sauvegarder**. Le panneau **Activer la sauvegarde** s’ouvre.
+3. Dans la section **Opérations**, cliquez sur **Sauvegarder**. Le panneau **Activer la sauvegarde** s’ouvre.
 
 
 ## <a name="enable-backup-on-a-vm"></a>Activer la sauvegarde sur une machine virtuelle
 Un coffre Recovery Services est un conteneur logique qui stocke les données de sauvegarde de chaque ressource protégée, telles que des machines virtuelles Azure. Lorsque le travail de sauvegarde d’une ressource protégée s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
 
-1. Sélectionnez **Créer un nouveau** et indiquez un nom pour le nouveau coffre, par exemple **myRecoveryServicesVault**.
+1. Sélectionnez **Créer un nouveau** et indiquez un nom pour le nouveau coffre, par exemple *myRecoveryServicesVault*.
 2. Si cela n’est pas encore fait, choisissez **Utiliser existant**, puis sélectionnez le groupe de ressources de votre machine virtuelle dans le menu déroulant.
 
     ![Activer la sauvegarde de machine virtuelle dans le portail Azure](./media/quick-backup-vm-portal/enable-backup.png)
@@ -52,6 +52,8 @@ Un coffre Recovery Services est un conteneur logique qui stocke les données de 
     Vous créez et utilisez des stratégies pour définir l’exécution d’un travail de sauvegarde et la durée de stockage des points de récupération. La stratégie de protection par défaut exécute un travail de sauvegarde chaque jour, et conserve les points de récupération pendant 30 jours. Vous pouvez utiliser ces valeurs de stratégie par défaut pour protéger rapidement votre machine virtuelle. 
 
 3. Pour accepter les valeurs de stratégie de sauvegarde par défaut, sélectionnez **Activer la sauvegarde**.
+
+Il faut quelques instants pour créer le coffre Recovery Services.
 
 
 ## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
@@ -92,7 +94,7 @@ Si vous vous apprêtez à passer à un didacticiel de sauvegarde expliquant comm
     ![Supprimer le groupe de ressources à partir du portail Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de démarrage rapide, vous avez créé un coffre Recovery Services, activé la protection sur une machine virtuelle et créé le point de récupération initial. Pour en savoir plus sur la sauvegarde Azure et Recovery Services, passez aux didacticiels.
 
 > [!div class="nextstepaction"]

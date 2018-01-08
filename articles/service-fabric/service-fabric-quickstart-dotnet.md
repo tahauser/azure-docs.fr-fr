@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Créer une application Service Fabric dans Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -38,7 +38,7 @@ Cette application vous permet d’apprendre à :
 > * Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
 > * Effectuer une mise à niveau propagée d’application
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour effectuer ce démarrage rapide :
 1. [Installez Visual Studio 2017](https://www.visualstudio.com/) avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 2. [Installez Git](https://git-scm.com/)
@@ -54,7 +54,7 @@ Dans une fenêtre Commande, exécutez la commande suivante pour cloner le réfé
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="run-the-application-locally"></a>Exécution locale de l'application
+## <a name="run-the-application-locally"></a>Exécuter l’application localement
 Dans le Menu Démarrer, cliquez avec le bouton droit sur l’icône Visual Studio, puis choisissez **Exécuter en tant qu’administrateur**. Pour attacher le débogueur à vos services, vous devez exécuter Visual Studio en tant qu’administrateur.
 
 Ouvrez la solution Visual Studio **Voting.sln** à partir du référentiel que vous avez cloné.  
@@ -92,7 +92,7 @@ Lors du débogage d’application dans Visual Studio, vous utilisez un cluster d
 Pour examiner ce qui se produit dans le code, procédez comme suit :
 1. Ouvrez le fichier **/VotingWeb/Controllers/VotesController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 47). Vous pouvez rechercher le fichier dans l’Explorateur de solutions dans Visual Studio.
 
-2. Ouvrez le fichier **/VotingData/ControllersVoteDataController.c** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 50).
+2. Ouvrez le fichier **/VotingData/Controllers/VoteDataController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 50).
 
 3. Revenez en arrière dans le navigateur, puis cliquez sur une option de vote ou ajoutez une nouvelle option de vote. Vous avez atteint le premier point d’arrêt dans le contrôleur d’api du service frontal web.
     - Il s’agit de l’emplacement où le JavaScript dans le navigateur envoie une demande au contrôleur d’API web dans le service frontal.
@@ -134,7 +134,7 @@ Connectez-vous et [rejoignez un cluster Windows](http://aka.ms/tryservicefabric)
 
     ![Boîte de dialogue Publier](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Copiez le **point de terminaison de connexion** de la page du cluster Party dans le champ **Point de terminaison de connexion** et cliquez sur **Publier**. Par exemple, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copiez le **point de terminaison de connexion** de la page du cluster Party dans le champ **Point de terminaison de connexion** et cliquez sur **Publier**. Par exemple : `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
     Chaque application du cluster doit avoir un nom unique.  Toutefois, les clusters Party constituent un environnement public partagé et un conflit avec une application existante peut se présenter.  S’il existe un conflit de noms, renommez le projet Visual Studio et recommencez le déploiement.
 
@@ -171,7 +171,7 @@ Lors du déploiement de nouvelles mises à jour de votre application, Service Fa
 Pour mettre à niveau l'application, procédez comme suit :
 
 1. Ouvrez le fichier **/VotingWeb/Views/Home/Index.cshtml** dans Visual Studio.
-2. Modifiez l’en-tête <h2> de la page en ajoutant ou en mettant à jour le texte. Par exemple, remplacez l’en-tête par « Exemple de vote Service Fabric v2 ».
+2. Modifiez le titre sur la page en ajoutant ou en mettant à jour le texte. Par exemple, remplacez l’en-tête par « Exemple de vote Service Fabric v2 ».
 3. Enregistrez le fichier .
 4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis choisissez **Publier**. La boîte de dialogue Publier s’affiche.
 5. Cliquez sur le bouton **Version du manifeste** pour modifier la version du service et de l’application.
@@ -189,7 +189,7 @@ Pour mettre à niveau l'application, procédez comme suit :
 
 10. Pendant l’exécution de la mise à niveau, vous pouvez continuer à utiliser l’application. Étant donné que vous avez deux instances du service en cours d’exécution dans le cluster, certaines de vos demandes peuvent obtenir une version mise à niveau de l’application, et d’autres utilisateurs l’ancienne version.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 
 > [!div class="checklist"]

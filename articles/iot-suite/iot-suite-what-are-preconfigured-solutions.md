@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Qu’est-ce qu’Azure IoT Suite ?
 
@@ -30,6 +30,10 @@ Azure IoT Suite est un ensemble de *solutions préconfigurées* qui :
 * Vous pouvez le personnaliser pour satisfaire vos besoins spécifiques
 
 Les solutions préconfigurées de *IoT Suite* sont toutes conçues avec les mêmes principes et objectifs.
+
+La vidéo suivante présente une vue d’ensemble de la solution préconfigurée de surveillance à distance :
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Vue d’ensemble des solutions préconfigurées
 
@@ -56,9 +60,9 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 
 | Solution | Ingestion de données | Identité d’appareil | Gestion des appareils | Traitement Edge | Commande et contrôle | Règles et actions | Analyse prédictive |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [Surveillance à distance](iot-suite-remote-monitoring-explore.md)  |Oui |Oui |Oui |-   |Oui |Oui |-   |
-| [Maintenance prédictive](iot-suite-predictive-overview.md)   |Oui |Oui |-   |-   |Oui |Oui |Oui |
-| [Fabrique connectée](iot-suite-connected-factory-overview.md) |Oui |Oui |Oui |Oui |Oui |yes |-   |
+| [Surveillance à distance](iot-suite-remote-monitoring-explore.md)  |OUI |OUI |OUI |-   |OUI |OUI |-   |
+| [Maintenance prédictive](iot-suite-predictive-overview.md)   |OUI |OUI |-   |-   |OUI |OUI |OUI |
+| [Fabrique connectée](iot-suite-connected-factory-overview.md) |OUI |OUI |OUI |OUI |OUI |OUI |-   |
 
 * *Données*: entrer des données à l'échelle dans le cloud.
 * *Identité de l’appareil* : gérez les identités d’appareil uniques et contrôlez l’accès de l’appareil à la solution.
@@ -76,14 +80,14 @@ Lorsque vous déployez une solution préconfigurée, le processus de déploiemen
 
 |                      | Surveillance à distance  | Maintenance prédictive | Fabrique connectée |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| IoT Hub              | Oui                |                        | Oui               |
-| Event Hubs           |                    | Oui                    |                   |
-| Time Series Insights |                    |                        | Oui               |
-| Services de conteneur   | Oui                |                        | Oui               |
-| Stream Analytics     |                    | Oui                    |                   |
-| Web Apps             | Oui                | Oui                    | Oui               |
-| Cosmos DB            | Oui                | Oui                    | Oui               |
-| Tables Azure         |                    | Oui                    | Oui               |
+| IoT Hub              | OUI                |                        | OUI               |
+| Event Hubs           |                    | OUI                    |                   |
+| Time Series Insights |                    |                        | OUI               |
+| Services de conteneur   | OUI                |                        | OUI               |
+| Stream Analytics     |                    | OUI                    |                   |
+| Web Apps             | OUI                | OUI                    | OUI               |
+| Cosmos DB            | OUI                | OUI                    | OUI               |
+| Tables Azure         |                    | OUI                    | OUI               |
 
 > [!NOTE]
 > Pour plus d’informations sur les ressources déployées dans la solution préconfigurée de surveillance à distance, consultez cet [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) disponible sur GitHub.
@@ -142,7 +146,7 @@ Si vous souhaitez voir d’autres langages d’implémentation, faites une requ�
 
 L’interface utilisateur est générée à l’aide de la bibliothèque Javascript [React](https://facebook.github.io/react/). Le code source est open source, vous pouvez le télécharger et le personnaliser.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez une vue d’ensemble des solutions préconfigurées de IoT Suite, voici les étapes suggérées pour chacune d’elles :
 

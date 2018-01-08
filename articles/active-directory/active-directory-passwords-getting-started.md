@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Déploiement rapide de la réinitialisation de mot de passe en libre-service Azure AD
 
 > [!IMPORTANT]
-> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, consultez [J’ai oublié mon mot de passe Azure AD](active-directory-passwords-update-your-own-password.md).
+> **Rencontrez-vous des problèmes de connexion ?** Dans ce cas, consultez [J’ai oublié mon mot de passe Azure AD](active-directory-passwords-update-your-own-password.md).
 
 Grâce à la réinitialisation de mot de passe en libre-service, les administrateurs informatiques disposent d’un moyen simple pour permettre aux utilisateurs de réinitialiser ou de déverrouiller leurs comptes ou leurs mots de passe. Le système inclut des rapports détaillés de suivi d’accès au système, ainsi que des notifications pour vous prévenir de toute utilisation malveillante ou de tout abus.
 
@@ -36,35 +36,38 @@ Ce guide part du principe que vous avez déjà une version d’essai opérationn
 1. À partir de votre locataire Azure AD existant, sélectionnez **Réinitialisation de mot de passe**.
 
 2. Sur la page **Propriétés**, sous **Réinitialisation de mot de passe en libre-service activée**, choisissez l’une des options suivantes :
-    * **Aucun**: personne n’est en mesure d’utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service.
-    * **Sélectionné** : seuls les membres d’un groupe Azure AD que vous choisissez peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons de définir un groupe d’utilisateurs et d’utiliser ce paramètre lorsque vous déployez cette fonctionnalité pour une preuve de concept.
-    * **Tout le monde** : tous les utilisateurs disposant d’un compte dans votre locataire Azure AD peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons d’utiliser ce paramètre lorsque vous êtes prêt à déployer cette fonctionnalité pour l’ensemble de votre locataire après avoir effectué une preuve de concept.
+   * **Aucun**: personne n’est en mesure d’utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service.
+   * **Sélectionné** : seuls les membres d’un groupe Azure AD que vous choisissez peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons de définir un groupe d’utilisateurs et d’utiliser ce paramètre lorsque vous déployez cette fonctionnalité pour une preuve de concept.
+   * **Tout le monde** : tous les utilisateurs disposant d’un compte dans votre locataire Azure AD peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons d’utiliser ce paramètre lorsque vous êtes prêt à déployer cette fonctionnalité pour l’ensemble de votre locataire après avoir effectué une preuve de concept.
+
+   > [!IMPORTANT]
+   > Les comptes administrateur Azure auront toujours la possibilité de réinitialiser leurs mots de passe, quel que soit le réglage de cette option. 
 
 3. À partir de la page **Méthodes d’authentification**, choisissez les paramètres suivants :
-    * **Nombre de méthodes requis pour la réinitialisation** : nous prenons en charge une méthode minimum ou deux méthodes maximum.
-    * **Méthodes disponibles pour les utilisateurs** : nous avons besoin d’au moins une méthode, mais il peut être judicieux de disposer d’une méthode supplémentaire.
-        * **Messagerie** : envoie un message électronique avec un code à l’adresse de messagerie d’authentification configurée pour l’utilisateur.
-        * **Téléphone mobile** : offre à l’utilisateur la possibilité de recevoir un appel ou un SMS contenant un code sur son numéro de téléphone mobile configuré.
-        * **Téléphone de bureau** : appelle l’utilisateur avec un code sur son numéro de téléphone configuré.
-        * **Questions de sécurité** : nécessite que vous choisissiez les paramètres suivants :
-            * **Nombre de questions requises pour l’inscription**: la valeur minimale pour une inscription réussie. Un utilisateur peut choisir de répondre à davantage de questions afin de créer un pool de questions à partir desquelles extraire du contenu. Ce nombre doit comprendre entre trois et cinq questions, et il doit être supérieur ou égal au nombre de questions requises pour réinitialiser le passe de l’utilisateur. L’utilisateur peut ajouter des questions personnalisées en sélectionnant le bouton **Personnalisée** lorsqu’il sélectionne ses questions de sécurité.
-            * **Nombre de questions requises pour la réinitialisation** : peut indiquer de trois à cinq questions auxquelles il faut répondre correctement avant que vous n’autorisiez la réinitialisation et le déverrouillage des mots de passe utilisateur.
+   * **Nombre de méthodes requis pour la réinitialisation** : nous prenons en charge une méthode minimum ou deux méthodes maximum.
+   * **Méthodes disponibles pour les utilisateurs** : nous avons besoin d’au moins une méthode, mais il peut être judicieux de disposer d’une méthode supplémentaire.
+      * **Messagerie** : envoie un message électronique avec un code à l’adresse de messagerie d’authentification configurée pour l’utilisateur.
+      * **Téléphone mobile** : offre à l’utilisateur la possibilité de recevoir un appel ou un SMS contenant un code sur son numéro de téléphone mobile configuré.
+      * **Téléphone de bureau** : appelle l’utilisateur avec un code sur son numéro de téléphone configuré.
+      * **Questions de sécurité** : nécessite que vous choisissiez les paramètres suivants :
+         * **Nombre de questions requises pour l’inscription**: la valeur minimale pour une inscription réussie. Un utilisateur peut choisir de répondre à davantage de questions afin de créer un pool de questions à partir desquelles extraire du contenu. Ce nombre doit comprendre entre trois et cinq questions, et il doit être supérieur ou égal au nombre de questions requises pour réinitialiser le passe de l’utilisateur. L’utilisateur peut ajouter des questions personnalisées en sélectionnant le bouton **Personnalisée** lorsqu’il sélectionne ses questions de sécurité.
+         * **Nombre de questions requises pour la réinitialisation** : peut indiquer de trois à cinq questions auxquelles il faut répondre correctement avant que vous n’autorisiez la réinitialisation et le déverrouillage des mots de passe utilisateur.
             
     ![Authentification][Authentication]
 
 4. Recommandé : sous **Personnalisation**, vous pouvez modifier le lien **Contactez votre administrateur** afin qu’il redirige l’utilisateur vers une page ou une adresse de messagerie que vous avez définie. Nous vous recommandons de définir ce lien à une valeur telle qu’une adresse de messagerie ou un site Web que vos utilisateurs utilisent déjà pour des questions de support.
 
 5. Facultatif : la page **Inscription** permet aux administrateurs :
-    * D’obliger les utilisateurs à s’inscrire durant la connexion.
-    * De définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification.
+   * D’obliger les utilisateurs à s’inscrire durant la connexion.
+   * De définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification.
 
 6. Facultatif : la page **Notifications** permet aux administrateurs :
-    * De notifier les utilisateurs lors des réinitialisations de mot de passe.
-    * De notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe.
+   * De notifier les utilisateurs lors des réinitialisations de mot de passe.
+   * De notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe.
 
 À ce stade, vous avez configuré la réinitialisation de mot de passe en libre-service pour votre locataire Azure AD. Vos utilisateurs peuvent désormais utiliser les instructions figurant dans les articles [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md) et [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md) pour mettre à jour leur mot de passe sans intervention de l’administrateur. Vous pouvez vous arrêter ici si vous êtes un client cloud uniquement. Ou vous pouvez passer à la section suivante pour configurer la synchronisation des mots de passe sur un domaine Active Directory local.
 
-> [!IMPORTANT]
+> [!TIP]
 > Testez la réinitialisation de mot de passe en libre-service avec un utilisateur plutôt qu’un administrateur, car Microsoft applique des spécifications d’authentification forte pour les comptes d’administrateur Azure. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre article [Stratégie de mot de passe](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Configurer la synchronisation avec une source d’identité existante
@@ -107,7 +110,7 @@ Les liens suivants fournissent des informations supplémentaires sur la réiniti
 * [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
 * [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Avec ce guide de démarrage rapide, vous avez appris à configurer la réinitialisation de mot de passe en libre-service pour vos utilisateurs. Pour effectuer ces étapes, accédez au portail Azure :
 
