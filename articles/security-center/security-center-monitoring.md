@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
 Cet article a pour but de vous aider à utiliser les fonctionnalités de surveillance d’Azure Security Center, afin de contrôler la conformité aux stratégies.
@@ -45,13 +45,14 @@ Lorsque vous cliquez sur vignette **Compute**, trois onglets s’affichent :
 
 ![Mise à jour système manquante par machine virtuelle](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Chaque onglet peut contenir plusieurs sections, et dans chaque section vous pouvez sélectionner une option afin d’afficher plus de détails sur les étapes recommandées pour résoudre le problème en question. 
+Chaque onglet peut contenir plusieurs sections, et dans chaque section vous pouvez sélectionner une option afin d’afficher plus de détails sur les étapes recommandées pour résoudre le problème en question.
 
 #### <a name="monitoring-recommendations"></a>Recommandations concernant la surveillance
-Cette section indique le nombre total de machines virtuelles et d’ordinateurs qui ont été initialisés pour l’approvisionnement automatique et leurs états actuels. Lorsque vous cliquez sur cette entrée, le panneau **L’agent de machine virtuelle est absent ou ne répond pas** s’ouvre. 
+Cette section indique le nombre total de machines virtuelles et d’ordinateurs qui ont été initialisés pour l’approvisionnement automatique et leurs états actuels. Lorsque vous cliquez sur cette entrée, la page des **problèmes d’intégrité de l’agent de surveillance** s’ouvre.
 
-![Mise à jour système manquante par machine virtuelle](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Problèmes d’intégrité de l’agent de surveillance](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Les machines virtuelles et les ordinateurs que le Security Center ne peut pas surveiller correctement s’affichent ici. Pour plus d’informations, sélectionnez une machine virtuelle ou un ordinateur. La valeur **ÉTAT DE SURVEILLANCE** définit le problème.
 
 #### <a name="recommendations"></a>Recommandations
 Cette section contient un ensemble de [recommandations pour chacune des machines virtuelles et chacun des ordinateurs](security-center-virtual-machine-recommendations.md) surveillés par Azure Security Center. La première colonne indique la recommandation. La deuxième colonne indique le nombre total de machines virtuelles et d’ordinateurs qui sont affectés par cette recommandation. La troisième colonne indique la gravité du problème, comme illustré dans la capture d’écran suivante :
@@ -79,7 +80,7 @@ La section **Mises à jour système manquantes** contient un résumé des mises 
   * **Moyenne** : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
   * **Faible**: existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
-Pour afficher des informations détaillées sur les recommandations, cliquez sur le nom de la mise à jour manquante dans la liste. 
+Pour afficher des informations détaillées sur les recommandations, cliquez sur le nom de la mise à jour manquante dans la liste.
 
 ![Mise à jour système manquante pour une machine virtuelle spécifique](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ Si vous avez une recommandation (qui n’est pas le cas dans l’exemple précé
 
 ![Détails du service cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Pour voir une explication plus normative concernant cette recommandation, cliquez sur **Mettre à jour la version du système d’exploitation** sous la colonne **DESCRIPTION**. 
+Pour voir une explication plus normative concernant cette recommandation, cliquez sur **Mettre à jour la version du système d’exploitation** sous la colonne **DESCRIPTION**.
 
 ![Recommandations de services cloud](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 

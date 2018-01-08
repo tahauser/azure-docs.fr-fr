@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gérer votre répertoire Azure AD
 
@@ -80,7 +80,6 @@ Pour administrer un ou plusieurs abonnements de service de cloud Microsoft, vous
 * Configurer l’intégration locale avec les services d’identité et d’authentification Azure AD
 
 Le centre d’administration Azure AD, le centre d’administration Office 365, le portail du compte Microsoft Intune et les applets de commande Azure AD sont tous lus depuis et écrits vers une seule instance partagée d’Azure AD qui est associée au répertoire de votre organisation. Chacun de ces outils agit comme une interface frontale qui extrait ou modifie vos données d’annuaire.
-
 Lorsque vous modifiez les données de votre organisation à l’aide d’un des portails ou des applets de commande en étant connecté dans le contexte de l’un de ces services, les modifications sont également affichées dans les autres portails la prochaine fois que vous vous connectez. Ces données sont partagées entre les services de cloud computing Microsoft auxquels vous êtes abonné.
 
 Ainsi, le fait d’utiliser le centre d’administration Office 365 pour empêcher un utilisateur de se connecter empêche l’utilisateur de se connecter à tous les autres services auxquels votre organisation est abonnée. Si vous affichez le même compte d’utilisateur dans le portail de compte Microsoft Intune, vous constatez également que l’utilisateur est bloqué.
@@ -116,9 +115,9 @@ Les conditions à remplir sont les suivantes :
 * L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un répertoire auquel un autre utilisateur a associé un abonnement. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
-* [Forum Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Forum Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Questions relatives à Stack Overflow pour Azure](http://stackoverflow.com/questions/tagged/azure)
+## <a name="next-steps"></a>étapes suivantes
+* [Forum Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Forum Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [StackOverflow pour questions Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Attribution de rôles d’administrateur dans Azure AD](active-directory-assign-admin-roles-azure-portal.md)

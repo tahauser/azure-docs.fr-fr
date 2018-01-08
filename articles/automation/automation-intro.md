@@ -1,86 +1,83 @@
 ---
-title: "Présentation d’Azure Automation | Microsoft Docs"
-description: "Découvrez les avantages d’Azure Automation et obtenez des réponses aux questions courantes afin de commencer à créer et à utiliser des Runbooks et Azure Automation DSC."
+title: "Vue d’ensemble d’Azure Automation | Microsoft Docs"
+description: "Découvrez comment utiliser Azure Automation permet pour automatiser le cycle de vie de l’infrastructure et des applications."
 services: automation
+author: eamonoreilly
 documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "présentation d’automatisation, azure automation, exemples d’applications d’azure automation"
+keywords: "azure automation, DSC, powershell, configuration de l’état souhaité, gestion des mises à jour, suivi des modifications, inventaire, runbooks, python, graphique"
 ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/13/2017
+ms.author: eamono
+ms.openlocfilehash: aab15392187a00aebf707f553a097961ce438194
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="azure-automation-overview"></a>Vue d’ensemble d’Azure Automation
-Microsoft Azure Automation permet aux utilisateurs d'automatiser les tâches répétitives, manuelles, de longue durée et susceptibles d'engendrer des erreurs, qui sont communément exécutées dans un environnement cloud et d’entreprise. Il fait gagner du temps, accroît la fiabilité des tâches d'administration récurrentes et planifie même leur exécution automatique à intervalles réguliers. Vous pouvez automatiser les processus à l'aide de Runbooks ou automatiser la gestion de configuration avec la Configuration de l'état souhaité (DSC, Desired State Configuration). Cet article propose une brève présentation d’Azure Automation et apporte des réponses à certaines questions courantes. Vous pouvez vous référer à d'autres articles de cette bibliothèque pour des informations plus détaillées sur les différentes rubriques.
+# <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
-## <a name="automating-processes-with-runbooks"></a>Automatisation des processus avec des Runbooks
-Un Runbook est un ensemble de tâches qui exécutent des processus automatisés dans Azure Automation. Il peut s’agir d’un processus simple, comme le démarrage d’une machine virtuelle et la création d’une entrée de journal, ou d’un Runbook complexe combinant d’autres Runbooks plus petits pour effectuer un processus complexe sur plusieurs ressources, voire plusieurs clouds et environnements locaux.  
+Azure Automation offre un service d’automatisation et de configuration cloud permettant une gestion cohérente de vos environnements Azure et non-Azure. Il comporte des fonctionnalités d’automatisation des processus, de gestion des mises à jour et de configuration. Azure Automation permet de contrôler totalement le déploiement, les opérations et la désaffectation des charges de travail et des ressources.
+Cet article propose une brève présentation d’Azure Automation et apporte des réponses à certaines questions courantes. Pour plus d’informations sur les différentes fonctionnalités, consultez les liens que vous trouverez au fil de cette présentation.
 
-Par exemple, vous pouvez avoir un processus manuel existant, pour tronquer une base de données SQL si elle approche de la taille maximale, qui comprend plusieurs étapes comme la connexion au serveur, la connexion à la base de données, la récupération de la taille actuelle de la base de données, la vérification de dépassement du seuil, puis la troncation et la notification de l'utilisateur. Au lieu d'exécuter manuellement chacune de ces étapes, vous pouvez créer un Runbook qui effectue toutes ces tâches comme un processus unique. Vous démarrez le Runbook, fournissez les informations requises comme le nom du serveur SQL, le nom de la base de données et l’adresse électronique du destinataire, puis le processus s’occupe du reste. 
+## <a name="azure-automation-capabilities"></a>Fonctionnalités d’Azure Automation
 
-## <a name="what-can-runbooks-automate"></a>Que peuvent automatiser les Runbooks ?
-Comme les runbooks dans Azure Automation reposent sur PowerShell Workflow, ils peuvent accomplir tout ce que permet PowerShell. Un Runbook peut fonctionner avec toute application ou tout service disposant d'une API. Si vous avez un module PowerShell pour l’application, vous pouvez charger ce module dans Azure Automation et inclure ces applets de commande dans votre Runbook. Les Runbooks Azure Automation s’exécutent dans le cloud Azure et peuvent ainsi accéder à toutes les ressources du cloud ou à des ressources externes accessibles à partir du cloud. Grâce à un [Runbook Worker hybride](automation-hybrid-runbook-worker.md), les Runbooks peuvent s’exécuter sur votre centre de données local pour gérer des ressources locales. 
+![Fonctionnalités de présentation d’Automation](media/automation-overview/automation-overview.png)
 
-## <a name="getting-runbooks-from-the-community"></a>Obtention de Runbooks auprès de la communauté
-La [galerie de runbooks](automation-runbook-gallery.md#runbooks-in-runbook-gallery) contient des runbooks provenant de Microsoft et de la communauté, que vous pouvez utiliser tels quels dans votre environnement ou personnaliser selon vos besoins. Ils sont également utiles comme références pour apprendre à créer vos propres Runbooks. Vous pouvez même ajouter vos propres Runbooks à la galerie si vous pensez qu'ils peuvent être utiles à d'autres utilisateurs. 
+### <a name="process-automation"></a>Automatisation de processus
 
-## <a name="creating-runbooks-with-azure-automation"></a>Création de Runbooks avec Azure Automation
-Vous pouvez intégralement [créer vos runbooks](automation-creating-importing-runbook.md) ou modifier les runbooks à partir de la [galerie de runbooks](http://msdn.microsoft.com/library/azure/dn781422.aspx) selon vos besoins. Vous avez le choix entre trois [types de Runbooks](automation-runbook-types.md), en fonction de vos besoins et de votre expérience concernant PowerShell. Si vous préférez utiliser directement le code PowerShell, vous pouvez utiliser un [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) ou un [Runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) que vous modifiez en mode hors connexion ou avec [l’éditeur de texte](http://msdn.microsoft.com/library/azure/dn879137.aspx) du portail Azure. Si vous préférez modifier un Runbook sans passer par le code sous-jacent, vous pouvez créer un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) à l’aide de [l’éditeur graphique](automation-graphical-authoring-intro.md) du portail Azure. 
+Azure Automation permet d’automatiser les tâches de gestion de cloud fréquentes, longues et sujettes aux erreurs. Cette automatisation permet de vous concentrer sur des activités porteuses de valeur ajoutée. En diminuant le nombre d’erreurs et en augmentant l’efficacité, ce service vous permet également de réduire vos coûts d’exploitation. Vous pouvez intégrer des services Azure et d’autres systèmes publics requis pour le déploiement, la configuration et la gestion de vos processus de bout en bout. Le service vous permet de [créer des runbooks](automation-runbook-types.md) sous forme graphique dans PowerShell ou Python. L’utilisation d’un Runbook worker hybride permet d’unifier la gestion en assurant la coordination sur les environnements locaux. Les [Webhooks](automation-webhooks.md) permettent de répondre aux demandes et de garantir la continuité de la livraison et des opérations en déclenchant l’automatisation à partir des systèmes de gestion ITSM, DevOps et de surveillance.
 
-Lire de la documentation vous enchante moyennement ? Regardez la vidéo ci-dessous, tournée lors de la session Microsoft Ignite de mai 2015. Remarque : bien que les concepts et les fonctionnalités abordés dans cette vidéo soient corrects, Azure Automation a beaucoup évolué depuis l’enregistrement de cette vidéo. Son interface utilisateur sur le portail Azure s’est développée et l’outil prend en charge des fonctionnalités supplémentaires.
+### <a name="configuration-management"></a>Gestion des configurations
 
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3451/player]
-> 
-> 
+La [configuration de l’état souhaité](automation-dsc-overview.md) Azure Automation est une solution cloud pour DSC PowerShell qui fournit les services requis aux environnements d’entreprise. Gérez vos ressources DSC dans Azure Automation et appliquez des configurations aux machines virtuelles ou physiques à partir d’un serveur Pull DSC dans le cloud Azure. Il fournit également des rapports enrichis qui vous informent des événements importants, par exemple lorsque les nœuds s’écartent de leur configuration affectée. Vous pouvez surveiller et mettre à jour automatiquement la configuration de la machine sur divers ordinateurs physiques et machines virtuelles Windows ou Linux, dans le cloud ou localement.
 
-## <a name="automating-configuration-management-with-desired-state-configuration"></a>Automatisation de la gestion de configuration avec la Configuration d'état souhaité
-[PowerShell DSC](https://technet.microsoft.com/library/dn249912.aspx) est une plateforme de gestion qui permet de gérer, de déployer et d’appliquer la configuration d’hôtes physiques et de machines virtuelles avec une syntaxe PowerShell déclarative. Vous pouvez définir des configurations sur un serveur Pull DSC central que les machines cibles peuvent extraire et appliquer automatiquement. DSC fournit un ensemble d'applets de commande PowerShell que vous pouvez utiliser pour gérer les configurations et les ressources.  
+Vous pouvez obtenir l’inventaire relatif aux ressources intégrées pour voir les applications installées et d’autres éléments de configuration. Les fonctionnalités de recherche et de rapports vous permettent de trouver rapidement des informations détaillées permettant de comprendre ce qui est configuré dans le système d’exploitation. Vous pouvez suivre les modifications apportées aux services, démons, logiciels, fichiers et au registre de manière à identifier rapidement les fichiers pouvant causer des problèmes. DSC peut également vous aider à générer des diagnostics et des alertes lorsque des modifications indésirables se produisent dans votre environnement.
 
-[Azure Automation DSC](automation-dsc-overview.md) est une solution cloud pour DSC PowerShell qui fournit les services requis aux environnements d’entreprise.  Vous pouvez gérer vos ressources DSC dans Azure Automation et appliquer des configurations aux machines virtuelles ou physiques qui les récupèrent à partir d'un serveur Pull DSC dans le cloud Azure.  Il fournit également des services de création de rapports qui vous informent des événements importants, par exemple lorsque les nœuds s'écartent de leur configuration affectée et lorsqu'une nouvelle configuration a été appliquée. 
+### <a name="update-management"></a>Gestion des mises à jour
 
-## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Création de vos propres configurations DSC avec Azure Automation
-[configurations DSC](automation-dsc-overview.md) spécifient l’état souhaité d’un nœud.  Plusieurs nœuds peuvent appliquer la même configuration pour garantir qu'ils conservent un état identique.  Vous pouvez créer une configuration avec n'importe quel éditeur de texte sur votre machine locale, puis l'importer dans Azure Automation où vous pouvez la compiler et l'appliquer aux nœuds.
+Mettez à jour les systèmes Windows et Linux dans des environnements hybrides avec Azure Automation. Vous pouvez voir la conformité des mises à jour sur les clouds Azure, locaux ou sur d’autres clouds. Vous pouvez créer des déploiements de calendrier pour coordonner l’installation de mises à jour dans une fenêtre de maintenance définie. Si une mise à jour ne doit pas être installée sur une machine, vous pouvez exclure ces mises à jour d’un déploiement.
 
-## <a name="getting-modules-and-configurations"></a>Récupération de modules et de configurations
-Vous pouvez obtenir des [modules PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contenant des applets de commande que vous pouvez utiliser dans vos Runbooks et configurations DSC à partir de [PowerShell Gallery](http://www.powershellgallery.com/). Vous pouvez lancer cette galerie à partir du portail Azure et importer les modules directement dans Azure Automation, ou bien les télécharger et les importer manuellement. Vous ne pouvez pas installer les modules directement depuis le portail Azure, mais vous pouvez les télécharger et les installer comme vous le feriez avec tout autre module. 
+### <a name="shared-capabilities"></a>Fonctionnalités partagées
 
-## <a name="example-practical-applications-of-azure-automation"></a>Exemples d'applications pratiques d'Azure Automation
-Voici quelques exemples des types de scénarios d’automatisation que permet Azure Automation. 
+Azure Automation se compose d’un ensemble de ressources partagées qui facilitent l’automatisation et la configuration de vos environnements à grande échelle.
 
-* Créer et copier des machines virtuelles dans différents abonnements Azure. 
-* Programmer des copies de fichiers d'une machine locale vers un conteneur Azure Blob Storage. 
-* Automatiser les fonctions de sécurité, comme refuser les requêtes d'un client lors de la détection d'une attaque par déni de service. 
-* Vérifier que les machines s'alignent en permanence sur la stratégie de sécurité configurée.
-* Gérer le déploiement continu du code d'application sur le cloud et sur l'infrastructure locale. 
-* Créer une forêt Active Directory dans Azure pour votre environnement lab. 
-* Tronquer une table dans une base de données SQL si la base de données approche de la taille maximale. 
-* Mettre à jour à distance les paramètres de l’environnement d’un site web Azure. 
+* **[Contrôle d’accès basé sur le rôle](automation-role-based-access-control.md)** - Permet de contrôler l’accès au compte avec un rôle d’opérateur Automation qui permet l’exécution de tâches sans en permettre la création.
+* **[Variables](automation-variables.md)** - Permettent de stocker du contenu pouvant être utilisé dans des runbooks et des configurations. Vous pouvez modifier les valeurs sans avoir à modifier les runbooks et les configurations qui y font référence.
+* **[Informations d’identification](automation-credentials.md)** - Permettent de stocker en toute sécurité des informations sensibles pouvant être utilisées par des runbooks et des configurations lors de l’exécution.
+* **[Certificats](automation-certificates.md)** - Peuvent être stockés et mis à disposition lors de l’exécution pour qu’ils puissent être utilisés pour l’authentification et la sécurisation des ressources déployées.
+* **[Connexions](automation-connections.md)** - Permettent de stocker des paires nom/valeur d’informations contenant des informations courantes lors de la connexion à des systèmes dans des ressources de connexion. Les connexions sont définies par l’auteur du module en vue d’une utilisation lors de l’exécution dans des runbooks et des configurations.
+* **[Calendriers](automation-schedules.md)** - Utilisés dans le service pour déclencher l’automatisation à des heures prédéfinies.
+* **[Intégration au contrôle de code source](automation-source-control-integration.md)** -Permet de promouvoir la configuration en tant que code où les runbooks et les configurations peuvent être examinées dans un système de contrôle de code source.
+* **[Modules PowerShell](automation-integration-modules.md)** - Les modules permettent de gérer Azure et d’autres systèmes. Importez-les dans le compte d’automatisation de ressources DSC et d’applets de commande définis personnalisés de Microsoft, d’un tiers ou d’une communauté.
 
-## <a name="how-does-azure-automation-relate-to-other-automation-tools"></a>Quels sont les liens entre Azure Automation et d'autres outils d'automatisation ?
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) vise à automatiser les tâches de gestion dans le cloud privé. Il est installé localement dans votre centre de données en tant que composant de [Microsoft Azure Pack](https://www.microsoft.com/en-us/server-cloud/). SMA et Azure Automation utilisent le même format de Runbook basé sur Windows PowerShell et sur le workflow Windows PowerShell, mais SMA ne prend pas en charge les [Runbooks graphiques](automation-graphical-authoring-intro.md).  
+### <a name="windows-and-linux"></a>Windows et Linux
 
-[System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) est conçu pour l’automatisation de ressources locales. Il utilise un autre format de Runbooks qu'Azure Automation et Service Management Automation, et dispose d'une interface graphique permettant de créer des Runbooks sans aucun script. Ses Runbooks sont constitués d'activités provenant de packs d'intégration spécifiquement écrits pour Orchestrator. 
+Azure Automation est conçu pour fonctionner dans votre environnement de cloud hybride et également pour Windows et Linux. Il offre un moyen cohérent d’automatiser et de configurer les charges de travail déployées et le système d’exploitation sur lequel ils s’exécutent.
 
-## <a name="where-can-i-get-more-information"></a>Où puis-je obtenir plus d'informations ?
-De nombreuses ressources sont disponibles pour vous permettre d'en savoir plus sur Azure Automation et de créer vos propres Runbooks. 
+### <a name="community-gallery"></a>Galerie de la communauté
 
-* **bibliothèque Azure Automation** . Les articles de cette bibliothèque fournissent une documentation complète sur la configuration et l'administration d'Azure Automation et pour la création de vos propres Runbooks. 
-* [applets de commande Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) fournissent des informations sur les opérations d’automatisation Azure à l’aide de Windows PowerShell. Les Runbooks recourent à ces applets de commande pour utiliser les ressources Azure. 
-* [blog de gestion](https://azure.microsoft.com/blog/tag/azure-automation/) fournit les informations les plus récentes sur Azure Automation et d’autres technologies de gestion de Microsoft. Vous devriez vous abonner à ce blog pour rester à jour avec la dernière version de l'équipe Azure Automation. 
-* [forum forum Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) vous permet de publier des questions sur Azure Automation à destination de Microsoft et de la communauté Automation. 
-* [applets de commande Azure Automation](https://msdn.microsoft.com/library/mt244122.aspx) fournissent des informations pour l’automatisation des tâches d’administration. Il contient des applets de commande pour gérer les comptes Automation, les ressources, les Runbooks et DSC.
+Parcourez la [galerie Automation](automation-runbook-gallery.md) pour les runbooks et les modules afin de commencer rapidement à intégrer et à créer vos processus à partir de la galerie PowerShell et du Centre de scripts Microsoft.
 
-## <a name="can-i-provide-feedback"></a>Puis-je fournir des commentaires ?
-**Faites-nous part de vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci ! 
+## <a name="common-scenarios-for-automation"></a>Scénarios courants pour Automation
 
+Azure Automation effectue la gestion tout au long du cycle de vie de votre infrastructure et des applications. Transfert des connaissances relatives à la manière dont l’organisation fournit et gère les charges de travail vers le système. Création d’applications dans des langages courants tels que PowerShell, la configuration de l’état souhaité, Python et les runbooks graphiques. Obtention d’un inventaire complet des ressources déployées à des fins de ciblage, de création de rapports et de conformité. Identification des modifications pouvant entraîner une configuration incorrecte et amélioration de la conformité opérationnelle.
+
+* **Générer/déployer des ressources** - Permet de déployer des machines virtuelles dans un environnement hybride à l’aide de modèles de Runbooks et Azure Resource Manager. Intégration à des outils de développement, tels que Jenkins et Visual Studio Team services.
+* **Configurer des machines virtuelles** - Permet d’évaluer et de configurer des machines Windows et Linux avec la configuration souhaitée pour l’infrastructure et l’application.
+* **Surveiller** - Permet d’identifier les modifications apportées aux machines à l’origine des problèmes et de corriger ou de faire remonter les informations aux systèmes de gestion.
+* **Protéger** - Permet de mettre une machine virtuelle en quarantaine en cas de déclenchement de l’alerte de sécurité. Définition d’exigences intégrées.
+* **Gouverner** - Permet de configurer un contrôle d’accès en fonction du rôle pour les équipes. Récupération de ressources qui ne sont pas utilisées.
+
+## <a name="pricing-for-automation"></a>Tarif d’Automation
+
+Vous pouvez consulter le prix d’Azure Automation sur la page relative à la [tarification](https://azure.microsoft.com/pricing/details/automation/).
+
+## <a name="next-steps"></a>étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Créer un compte Automation](automation-quickstart-create-account.md)

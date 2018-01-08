@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Contrôles d’application adaptative dans Azure Security Center (version préliminaire)
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -36,12 +36,11 @@ Les contrôles d’application adaptative vous aident à contrôler les applicat
 ## <a name="how-to-enable-adaptive-application-controls"></a>Comment activer les contrôles d’application adaptative ?
 Les contrôles d’application adaptative vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes de ressources configurés. Cette fonctionnalité est disponible uniquement pour les machines Windows (toutes les versions, Classic ou Azure Resource Manager). Vous pouvez suivre les étapes ci-dessous pour configurer la mise en liste verte des applications dans Security Center :
 
-1.  Ouvrez le tableau de bord **Security Center**, puis cliquez sur **Vue d’ensemble**.
-2.  Dans **Défense de cloud avancée**, la vignette **Contrôles d’application adaptative** affiche le comparatif entre le nombre de machines virtuelles disposant du contrôle et le nombre de machines virtuelles. Il montre également le nombre de problèmes détectés cette semaine : 
+1.  Ouvrez le tableau de bord **Security Center**, puis cliquez sur l’option **Adaptive application controls** (Contrôles d’application adaptatifs) sous la section **Défense de cloud avancée**, dans le volet de navigation de gauche.
 
-    ![Contrôles d’application adaptative](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Défense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Cliquez sur la vignette **Contrôles d’application adaptative** pour afficher plus d’options.
+2. La page **Adaptive application controls** (Contrôles d’application adaptatifs) apparaît.
 
     ![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -144,7 +143,7 @@ La liste contient :
 - **NOM** : le nom de l’abonnement et des groupes de ressources.
 - **MACHINES VIRTUELLES** : le nombre de machines virtuelles dans le groupe de ressources.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce document, vous avez découvert comment utiliser les contrôles d’application adaptative dans Azure Security Center afin d’inclure dans une liste verte des applications s’exécutant sur les machines virtuelles Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.

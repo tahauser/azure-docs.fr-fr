@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 20f6899362420d96e7f03ea4dddeb6147a92f304
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b96896b22d406954e80d1df268f55c1c5a02ec6f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-azure-databricks"></a>Présentation d’Azure Databricks
 
@@ -73,7 +73,7 @@ Via un environnement collaboratif et intégré, Azure Databricks simplifie le pr
 
 * Déterminez comment utiliser les données avec une exploration des données facilitée.
 * Documentez votre progression dans des notebooks en R, Python, Scala ou SQL.
-* Visualisez les données en quelques clics et utilisez des outils répandus comme Matplotlib, ggoplot ou d3.
+* Visualisez les données en quelques clics et utilisez des outils répandus comme Matplotlib, ggplot ou d3.
 * Utilisez des tableaux de bord interactifs pour créer des rapports dynamiques.
 * Utilisez Spark et interagissez avec les données simultanément.
 
@@ -92,7 +92,7 @@ Databricks Azure s’intègre étroitement avec les bases de données et stores 
 ## <a name="integration-with-power-bi"></a>Intégration avec Power BI
 Grâce à une intégration étroite avec Power BI, Azure Databricks vous permet de découvrir et de partager de manière simple et rapide des insights importants. Vous pouvez aussi utiliser d’autres outils décisionnels, comme les logiciels de Tableau Software, via des points de terminaison de cluster JDBC/ODBC.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Démarrage rapide : Exécuter un travail Spark sur Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 * [Utiliser des clusters Spark](https://docs.azuredatabricks.net/user-guide/clusters/index.html)

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack
 
@@ -63,7 +63,7 @@ Une fois qu’un objet blob a été placé dans un conteneur, il peut se dévelo
 
 Les conteneurs ne sont pas limités à un seul partage. Lorsque les données d’objets blob combinées dans un conteneur augmentent et utilisent 80 % ou plus de l’espace disponible, le conteneur passe en mode *dépassement de capacité*. En mode dépassement de capacité, les nouveaux objets blob créés dans ce conteneur sont alloués à un autre volume disposant d’un espace suffisant. Au fil du temps, un conteneur en mode dépassement de capacité peut présenter des objets blob répartis sur plusieurs volumes.
 
-Lorsque 80 %, puis 90 % de l’espace disponible d’un volume sont utilisés, le système déclenche des alertes dans le portail d’administration d’Azure Stack. Les opérateurs de cloud doivent vérifier la capacité de stockage disponible et envisagez de rééquilibrer le contenu. Le service de stockage arrête de fonctionner si un disque est utilisé à 100 %, et aucune alerte supplémentaire n’est déclenchée.
+Lorsque 80 %, puis 90 % de l’espace disponible d’un volume sont utilisés, le système déclenche des alertes dans le portail d’administration d’Azure Stack. Les opérateurs de cloud doivent vérifier la capacité de stockage disponible et envisagez de rééquilibrer le contenu. Le service de stockage cesse de fonctionner si un disque est utilisé à 100 %, et aucune alerte supplémentaire n’est déclenchée.
 
 ### <a name="disks"></a>Disques
 Les disques de machine virtuelle sont ajoutés aux conteneurs par les locataires, et incluent un disque de système d’exploitation. Les machines virtuelles peuvent également posséder un ou plusieurs disques de données. Les deux types de disque sont stockés en tant qu’objets blob de pages. Il est conseillé aux locataires de placer chaque disque dans un conteneur distinct pour améliorer les performances de la machine virtuelle.

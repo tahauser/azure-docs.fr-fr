@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 5860c88b3b6c9f6f715c8e2d8ce667189f9b4438
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Créer une application web ASP.NET Core dans Azure
+
+> [!NOTE]
+> Cet article explique le déploiement d’une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer et déployer une application web .NET Core sur App Service sur Linux](./containers/quickstart-dotnetcore.md).
+>
 
 [Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques.  Ce guide de démarrage rapide montre comment déployer votre première application web ASP.NET Core sur Azure Web Apps. Lorsque vous aurez terminé, vous disposerez d’un groupe de ressources constitué d’un plan App Service et d’une application web Azure avec une application web déployée.
 
@@ -29,7 +33,7 @@ ms.lasthandoff: 12/05/2017
 > Si vous souhaitez savoir comment créer et déployer une application web ASP.NET Framework, consultez [cet article](app-service-web-get-started-dotnet-framework.md). 
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -55,7 +59,7 @@ Vous pouvez déployer n’importe quel type d’application web ASP.NET Core dan
       
 Sélectionnez **OK**.
 
-![Boîte de dialogue Nouveau projet ASP.NET](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
+![Boîte de dialogue New ASP.NET Project](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
 
 Une fois le projet ASP.NET Core créé, la page d’accueil ASP.NET Core s’affiche et fournit de nombreux liens vers des ressources pour vous aider à commencer. 
 
@@ -106,7 +110,7 @@ Dans la boîte de dialogue **Configurer le plan App Service**, utilisez les para
 
 ![Créer un plan App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
-| Paramètre | Valeur suggérée | Description |
+| Paramètre | Valeur suggérée | DESCRIPTION |
 |-|-|-|
 |Plan App Service| myAppServicePlan | Nom du plan App Service. |
 | Lieu | Europe de l'Ouest | Centre de données dans lequel l’application web est hébergée. |
@@ -167,7 +171,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [ASP.NET avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
