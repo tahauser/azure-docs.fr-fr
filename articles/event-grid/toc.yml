@@ -1,6 +1,6 @@
 - name: Event Grid
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Event Grid
       href: overview.md
@@ -36,9 +36,11 @@
   items:
     - name: Diffuser des données en continu sur l’entrepôt de données à partir d’Event Hubs
       href: event-grid-event-hubs-integration.md
-- name: Référence
+    - name: Modèles d’abonnement aux événements
+      href: event-subscription-template.md
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/eventgrid
     - name: PowerShell
       href: /powershell/module/azurerm.eventgrid
@@ -61,7 +63,7 @@
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/event-grid/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'

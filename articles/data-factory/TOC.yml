@@ -1,6 +1,6 @@
 - name: Documentation Data Factory V2
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de Data Factory
       href: introduction.md
@@ -124,7 +124,7 @@
               href: connector-google-bigquery.md
             - name: Greenplum
               href: connector-greenplum.md
-            - name: HBase
+            - name: hbase
               href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
@@ -303,13 +303,15 @@
       items:
         - name: Créer un déclencheur de planification
           href: how-to-create-schedule-trigger.md
-- name: Référence
+        - name: Créer un déclencheur de fenêtre bascule
+          href: how-to-create-tumbling-window-trigger.md
+- name: Informations de référence
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/azurerm.datafactoryv2/
-    - name: API REST
+    - name: de l’API REST
       href: /rest/api/datafactory
     - name: Python
       href: /python/api/overview/azure/datafactory?view=azure-python
@@ -319,7 +321,7 @@
       href: frequently-asked-questions.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'

@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce que l’Azure Security Center ?](security-center-intro.md)
 ## [Sécurité des données](security-center-data-security.md)
 ## Scénarios
@@ -20,7 +20,7 @@
 ### [Stratégie de sécurité](security-center-policies.md)
 ### [Stratégie de sécurité avec la stratégie Azure](security-center-azure-policy.md)
 ### [Notifications par e-mail](security-center-provide-security-contact-details.md)
-### [Niveau tarifaire](security-center-pricing.md)
+### [Niveau de tarification](security-center-pricing.md)
 
 ## [intégration](security-center-onboarding.md)
 ## [Événements](security-center-events-dashboard.md)
@@ -33,7 +33,7 @@
 #### [Connecter Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implémenter les recommandations en matière de sécurité](security-center-recommendations.md)
 ### [Recommandations relatives aux applications](security-center-application-recommendations.md)
-#### [Ajouter un pare-feu d’applications web](security-center-add-web-application-firewall.md)
+#### [Add a web application firewall](security-center-add-web-application-firewall.md)
 #### [Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Recommandations pour le réseau](security-center-network-recommendations.md)
@@ -82,7 +82,7 @@
 ## Résolution des problèmes
 ### [Guide de résolution des problèmes](security-center-troubleshooting-guide.md)
 
-# Référence
+# Informations de référence
 ## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Rubriques connexes
@@ -90,8 +90,9 @@
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Feuille de route de préparation de Security Center](security-center-readiness-roadmap.md)
 ## [Blog Azure sur la sécurité, la confidentialité et la conformité](http://blogs.msdn.com/b/azuresecurity/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-## [Présentation du service](https://azure.microsoft.com/services/security-center/)
+## [Vue d’ensemble du service](https://azure.microsoft.com/services/security-center/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=security-center)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
