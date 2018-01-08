@@ -44,6 +44,7 @@
 ### [Se connecter à un contrôleur de domaine personnalisé](cloud-services-connect-to-custom-domain.md)
 
 ## Gérer le service
+### [Atténuation de l’exécution spéculative] (mitigate-se.md}
 ### [Tâches de gestion courantes](cloud-services-how-to-manage-portal.md)
 ### [Configurer le service cloud](cloud-services-how-to-configure-portal.md)
 ### [Gérer un service cloud à l’aide d’Azure Automation](automation-manage-cloud-services.md)
@@ -92,7 +93,7 @@
 #### [FAQ sur la connectivité et la mise en réseau](cloud-services-connectivity-and-networking-faq.md)
 #### [FAQ sur le déploiement](cloud-services-deployment-faq.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [Schéma XML .csdef](schema-csdef-file.md)
 ### [Schéma LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)

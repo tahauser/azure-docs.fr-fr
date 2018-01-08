@@ -1,5 +1,5 @@
-# Vue d'ensemble
-## [Présentation de Power BI Embedded](what-is-power-bi-embedded.md)
+# Vue d’ensemble
+## [En savoir plus sur Power BI Embedded](what-is-power-bi-embedded.md)
 
 # Prise en main
 ## [Prise en main de Power BI Embedded](get-started.md)
@@ -21,22 +21,20 @@
 # Exemples
 ## [Exemples de code](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [Exemple de procédure pas à pas](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
+## [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-# Référence
+# Informations de référence
 ## API
 ### [API REST de gestion des ressources Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [API REST](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
-## Kits de développement logiciel (SDK)
-### [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-### [Téléchargement du kit de développement logiciel (SDK) JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+### [API REST de Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
 # Ressources
-## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Exemple d’incorporation JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Apiary](http://docs.powerbi.apiary.io/)
+## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Téléchargement du Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+## [Téléchargement du kit de développement logiciel (SDK) JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## Référentiel GitHub
-### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Communauté Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+### [.NET pour Power BI](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript pour Power BI](https://github.com/Microsoft/PowerBI-JavaScript)
+
 

@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 ## [À propos de la gestion des identités Azure](identity-fundamentals.md)
 ## [Comprendre les solutions d’identité Azure](understand-azure-identity-solutions.md)
@@ -62,7 +62,7 @@
 #### [Partage externe d’Office 365 et de B2B](active-directory-b2b-o365-external-user.md)
 #### [Licences B2B](active-directory-b2b-licensing.md)
 #### [Limitations actuelles](active-directory-b2b-current-limitations.md)
-#### [FAQ](active-directory-b2b-faq.md)
+#### [FORUM AUX QUESTIONS](active-directory-b2b-faq.md)
 #### [Résolution de problèmes B2B](active-directory-b2b-troubleshooting.md)
 #### [Comprendre l’utilisateur B2B](active-directory-b2b-user-properties.md)
 #### [Jeton utilisateur B2B](active-directory-b2b-user-token.md)
@@ -73,7 +73,7 @@
 
 ## [Gérer les groupes et les membres](active-directory-manage-groups.md)
 ### Gérer les groupes
-#### [Portail Azure](active-directory-groups-create-azure-portal.md)
+#### [Portail Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Sélectionner les membres du groupe](active-directory-groups-members-azure-portal.md)
 ### [Gérer les propriétaires de groupe](active-directory-accessmanagement-managing-group-owners.md)
@@ -90,10 +90,10 @@
 ### [Ajouter l’accès de groupe aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Restaurer un groupe Office 365 supprimé](active-directory-groups-restore-azure-portal.md)
 ### Gérer les paramètres de groupe
-#### [Portail Azure](active-directory-groups-settings-azure-portal.md)
+#### [Portail Azure](active-directory-groups-settings-azure-portal.md)
 #### [Applets de commande](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Créer des règles avancées
-#### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurer des groupes libre-service](active-directory-accessmanagement-self-service-group-management.md)
 ### [Résolution des problèmes](active-directory-accessmanagement-troubleshooting.md)
 
@@ -103,12 +103,12 @@
 ### [Utilisateurs à risque](active-directory-reporting-security-user-at-risk.md)
 ### [Connexions risquées](active-directory-reporting-security-risky-sign-ins.md)
 ### [Événements à risque](active-directory-reporting-risk-events.md)
-### [FAQ](active-directory-reporting-faq.md)
+### [FORUM AUX QUESTIONS](active-directory-reporting-faq.md)
 ### Tâches
 #### [Configurer des emplacements nommés](active-directory-named-locations.md)
 #### [Afficher les rapports d’activité](active-directory-reporting-migration.md)
 #### [Utiliser le pack de contenu Power BI Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Référence
+### Informations de référence
 #### [Rétention](active-directory-reporting-retention.md)
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -121,7 +121,7 @@
 ### [Accès par programme](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Référence d’audit](active-directory-reporting-api-audit-reference.md)
 #### [Référence de connexion](active-directory-reporting-api-sign-in-activity-reference.md)
-#### [Configuration requise](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Composants requis](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Exemples d’audit](active-directory-reporting-api-audit-samples.md)
 #### [Exemples de connexion](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Utilisation des certificats](active-directory-reporting-api-with-certificates.md)
@@ -140,7 +140,7 @@
 ### [Spécifications des données SSPR](active-directory-passwords-data.md)
 ### [SSPR Reporting](active-directory-passwords-reporting.md)
 ### Administrateurs informatiques : réinitialiser les mots de passe
-#### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
+#### [Portail Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Licence SSPR](active-directory-passwords-licensing.md)
 ### [Réécriture du mot de passe](active-directory-passwords-writeback.md)
 ### [Résolution des problèmes](active-directory-passwords-troubleshoot.md)
@@ -342,7 +342,7 @@
 ### [Manuel POC : Blocs de construction](active-directory-playbook-building-blocks.md)
 
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Applets de commande Azure PowerShell](/powershell/azure/overview)
 ## [Informations de référence sur l’API Java](/java/api)
@@ -357,11 +357,11 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Ressources
-## [Forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Forum de commentaires Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Tarification](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=active-directory)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

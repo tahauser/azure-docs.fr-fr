@@ -1,6 +1,6 @@
 - name: Azure Container Service (ACS)
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de ACS
       href: intro-kubernetes.md
@@ -39,17 +39,21 @@
       href: kubernetes-helm.md
     - name: Développer des applications avec Draft
       href: kubernetes-draft.md
-    - name: Conserver les données avec Azure Files
-      href: azure-files.md
     - name: Intégrer avec Azure à l’aide d’OSBA
       href: integrate-azure.md
     - name: Utiliser le tableau de bord Kubernetes
       href: kubernetes-dashboard.md
     - name: Créer un principal du service
       href: kubernetes-service-principal.md
-- name: Référence
+    - name: Configurer des volumes de données
+      items:
+        - name: Azure Files - volume persistant
+          href: azure-files-dynamic-pv.md
+        - name: Azure Files - volume
+          href: azure-files.md
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
@@ -57,7 +61,7 @@
   items:
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Feuille de route
       href: 'https://azure.microsoft.com/roadmap/'
@@ -65,5 +69,5 @@
       href: 'https://github.com/Azure/AKS/issues'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

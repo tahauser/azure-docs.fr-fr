@@ -197,6 +197,8 @@
               href: update-agent.md
         - name: Maintenance planifiée
           href: maintenance-notifications.md
+        - name: Atténuation de l’exécution spéculative
+          href: mitigate-se.md
         - name: FAQ relative à la maintenance accélérée
           href: accelerated-maintenance.md
         - name: Événements planifiés
