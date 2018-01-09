@@ -21,6 +21,7 @@
 ### [Stratégie de sécurité avec la stratégie Azure](security-center-azure-policy.md)
 ### [Notifications par e-mail](security-center-provide-security-contact-details.md)
 ### [Niveau de tarification](security-center-pricing.md)
+### [Configurations de sécurité](security-center-customize-os-security-config.md)
 
 ## [intégration](security-center-onboarding.md)
 ## [Événements](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [Activer l’agent de machine virtuelle](security-center-enable-vm-agent.md)
 #### [Installer Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Redémarrage après des mises à jour système](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Corriger des vulnérabilités du système d’exploitation](security-center-remediate-os-vulnerabilities.md)
+#### [Corriger les configurations de sécurité](security-center-remediate-os-vulnerabilities.md)
 #### [Mettre à jour la version du système d’exploitation](security-center-update-os-version.md)
 #### [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md)
 ### [Surveiller l’intégrité de la sécurité](security-center-monitoring.md)
@@ -90,7 +91,7 @@
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Feuille de route de préparation de Security Center](security-center-readiness-roadmap.md)
+## [Feuille de route de préparation](security-center-readiness-roadmap.md)
 ## [Blog Azure sur la sécurité, la confidentialité et la conformité](http://blogs.msdn.com/b/azuresecurity/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Vue d’ensemble du service](https://azure.microsoft.com/services/security-center/)
