@@ -1,5 +1,5 @@
-# Vue d'ensemble
-## [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
+# Vue d’ensemble
+## [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
 ## [Comparer Azure Data Lake Store et le stockage Azure](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store pour les données Big Data](data-lake-store-data-scenarios.md)
 ## [Applications open source qui fonctionnent avec Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
@@ -12,7 +12,7 @@
 
 # Procédures
 ## Charger et déplacer des données
-### [Utilisation d’Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Utilisation d’Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Utilisation d’AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Utilisation de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Utilisation de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -20,7 +20,7 @@
 ### [Migrer Azure Data Lake Store dans différentes régions](data-lake-store-migration-cross-region.md)
 
 ## Sécuriser les données
-### [Présentation de la sécurité](data-lake-store-security-overview.md)
+### [vue d’ensemble de la sécurité](data-lake-store-security-overview.md)
 ### [Contrôle d’accès dans Azure Data Lake Store](data-lake-store-access-control.md)
 ### [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 ### [Chiffrement](data-lake-store-encryption.md)
@@ -74,11 +74,11 @@
 ### [Utilisation avec SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Autres options d’intégration Azure](data-lake-store-integrate-with-other-services.md)
 
-## Gérer
+## gérer
 ### [Accéder aux journaux de diagnostic](data-lake-store-diagnostic-logs.md)
 ### [Planifier la haute disponibilité](data-lake-store-disaster-recovery-guidance.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
@@ -87,7 +87,7 @@
 ## [Python (gestion des comptes)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (gestion du système de fichiers)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/dls)
+## [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
