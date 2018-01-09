@@ -53,7 +53,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: sql-database-cli-samples.md
     - name: "Azure\_PowerShell"
       href: sql-database-powershell-samples.md
@@ -279,7 +279,7 @@
         - name: Chargement des données avec BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Chargement des données avec ADF
-          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md
         - name: Synchroniser les données
           href: sql-database-get-started-sql-data-sync.md
     - name: Surveiller et régler
@@ -385,7 +385,7 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: "Azure\_PowerShell"
       href: '/powershell/module/azurerm.sql/#sql'
@@ -442,13 +442,13 @@
       href: sql-database-public-data-sets.md
     - name: Résoudre les problèmes de connectivité
       href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?service=sql-database'

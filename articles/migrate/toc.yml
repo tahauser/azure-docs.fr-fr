@@ -1,6 +1,6 @@
 - name: Documentation Azure Migrate
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Migrate
       href: migrate-overview.md
@@ -22,8 +22,6 @@
       href: how-to-create-a-group.md
     - name: Regrouper des machines à l’aide de dépendances de machines
       href: how-to-create-group-machine-dependencies.md
-    - name: Regrouper des machines à l’aide du balisage VMware
-      href: how-to-tag-v-center.md
     - name: Affiner un groupe à l’aide de dépendances de groupes
       href: how-to-create-group-dependencies.md
     - name: Personnaliser une évaluation
