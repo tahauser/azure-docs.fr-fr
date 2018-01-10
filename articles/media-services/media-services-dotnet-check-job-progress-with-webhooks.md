@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET
-Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez surveiller les notifications de travaux Media Services à l’aide d’Azure WebHooks ou du [Stockage File d’attente Azure](media-services-dotnet-check-job-progress-with-queues.md). Cette rubrique vous montre comment utiliser Webhooks.
+Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez surveiller les notifications de travaux Media Services à l’aide d’Azure WebHooks ou du [Stockage File d’attente Azure](media-services-dotnet-check-job-progress-with-queues.md). Cet article vous montre comment utiliser webhooks.
 
-Cette rubrique explique comment effectuer les opérations suivantes
+Cet article montre comment
 
 *  Définir une fonction Azure personnalisée pour répondre à des webhooks. 
     
@@ -33,9 +33,9 @@ Cette rubrique explique comment effectuer les opérations suivantes
     >Avant de poursuivre, assurez-vous que vous comprenez le fonctionnement des [liaisons HTTP et webhook d’Azure Functions](../azure-functions/functions-bindings-http-webhook.md).
     >
     
-* Ajouter un webhook à votre tâche d’encodage et spécifier l’URL et la clé secrète du webhook auxquelles ce webhook répond. Vous trouverez à la fin de la rubrique un exemple qui ajoute un webhook à votre tâche d’encodage.  
+* Ajouter un webhook à votre tâche d’encodage et spécifier l’URL et la clé secrète du webhook auxquelles ce webhook répond. Vous trouverez à la fin de l’article un exemple qui ajoute un webhook à votre tâche d’encodage.  
 
-Vous trouverez la définition des différentes fonctions Media Services .NET Azure Functions (y compris celle dont il est question dans cette rubrique) [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Vous trouverez la définition des différentes fonctions Media Services .NET Azure Functions (notamment celle dont il est question dans cet article) [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -54,7 +54,7 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 
 Lorsque vous développez des fonctions Media Services, il est utile d’ajouter des variables d’environnement qui seront utilisées dans toutes vos fonctions. Pour configurer les paramètres d’application, cliquez sur le lien Configurer les paramètres de l’application. 
 
-La section [Paramètres de l’application](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) définit les paramètres utilisés dans le webhook défini dans cette rubrique. De même, ajoutez les paramètres suivants aux paramètres de l’application. 
+La section [Paramètres de l’application](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) définit les paramètres utilisés dans le webhook défini dans cet article. De même, ajoutez les paramètres suivants aux paramètres de l’application. 
 
 |Nom|Définition|Exemple| 
 |---|---|---|

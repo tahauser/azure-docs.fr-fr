@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jingwang
-ms.openlocfilehash: d0db2bd3a7e4d93a8d0690fcb4535c4552cef7ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Copier des données dans Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ Les propriétés prises en charge pour le service lié Salesforce sont les suiva
 | type |La propriété de type doit être définie sur **Salesforce**. |Oui |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
-| password |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). |Oui |
-| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API).<br/><br/>Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le jeton de sécurité dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). |Oui |
+| password |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). |Oui |
+| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API).<br/><br/>Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le jeton de sécurité dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). |Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
 >[!IMPORTANT]

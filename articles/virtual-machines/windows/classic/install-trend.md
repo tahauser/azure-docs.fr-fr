@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ Cet article décrit comment installer et configurer Trend Micro Deep Security co
 
 Le client est installé sous forme d’extension de sécurité via l’agent de machine virtuelle. Sur une nouvelle machine virtuelle, vous installez Deep Security Agent, car le portail Azure crée automatiquement l’agent de machine virtuelle.
 
-Il peut arriver qu’une machine virtuelle existante créée à l’aide du portail Azure Classic, d’Azure CLI ou de PowerShell n’ait pas d’agent de machine virtuelle. Sur une machine virtuelle existante dépourvue de l’agent de machine virtuelle, vous devez commencer par télécharger et installer celui-ci. Cet article aborde ces deux situations.
+Il peut arriver qu’une machine virtuelle existante créée à l’aide du portail Azure, d’Azure CLI ou de PowerShell n’ait pas d’agent de machine virtuelle. Sur une machine virtuelle existante dépourvue de l’agent de machine virtuelle, vous devez commencer par télécharger et installer celui-ci. Cet article aborde ces deux situations.
 
 Si vous disposez d’un abonnement Trend Micro pour une solution locale, vous pouvez l’utiliser pour protéger vos machines virtuelles Azure. Si vous n’êtes pas encore client, vous pouvez vous inscrire pour une version d’évaluation. Pour plus d’informations sur cette solution, consultez le billet de blog [Extension de l’agent de machine virtuelle Microsoft Azure pour Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

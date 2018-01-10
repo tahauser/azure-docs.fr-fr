@@ -1,24 +1,26 @@
 ---
-title: "Créer des rôles de contrôle d’accès en fonction du rôle personnalisés et les attribuer à des utilisateurs internes et externes dans Azure | Documents Microsoft"
+title: "Créer des rôles de contrôle d’accès en fonction du rôle personnalisés et les attribuer à des utilisateurs internes et externes dans Azure | Microsoft Docs"
 description: "Attribuer des rôles RBAC personnalisés créés à l’aide de PowerShell et d’Azure CLI à des utilisateurs internes et externes"
 services: active-directory
 documentationcenter: 
 author: andreicradu
-manager: catadinu
+manager: mtillman
 editor: kgremban
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Contrôle d’accès en fonction du rôle Azure
 
@@ -35,7 +37,7 @@ L’utilisation de la fonctionnalité RBAC dans l’environnement Windows Azure 
 * Avoir le fournisseur de ressources suivant inscrit pour l’abonnement de l’utilisateur : **Microsoft.Authorization**. Pour plus d’informations sur l’enregistrement des fournisseurs de ressources, voir [Fournisseurs, régions, schémas et versions d’API Resource Manager](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Ni les abonnements Office 365 ni les licences Azure Active Directory (par exemple, Accès à Azure Active Directory) approvisionnées à partir du portail O365 ne sont éligibles pour l’utilisation de la fonctionnalité RBAC.
+> Ni les abonnements Office 365 ni les licences Azure Active Directory (par exemple, Accès à Azure Active Directory) provisionnées à partir du Centre d’administration Office 365 ne sont éligibles pour l’utilisation de la fonctionnalité RBAC.
 
 ## <a name="how-can-rbac-be-used"></a>Comment la fonctionnalité RBAC peut être utilisée
 La fonctionnalité RBAC peut être appliquée à trois étendues différentes dans Azure. De la plus élevée à la plus basse, ces étendues sont les suivantes :
@@ -102,7 +104,7 @@ L’utilisateur « chessercarlton@gmail.com » a été invité à être **Prop
 
 ![e-mail d’invitation pour le rôle RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-L’utilisateur externe apparaît désormais dans le client Azure Active Directory en tant qu’utilisateur externe, et est visible tant sur le portail Azure que sur le portail Azure Classic.
+L’utilisateur externe apparaît désormais dans le locataire Azure Active Directory en tant qu’utilisateur externe, et est visible sur le portail Azure.
 
 
 
@@ -112,14 +114,7 @@ L’utilisateur externe apparaît désormais dans le client Azure Active Directo
 
 
 
-
-
-![panneau des utilisateurs azure active directory sur le portail azure classic](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-Dans l’affichage **Utilisateurs** sur les deux portails, les utilisateurs externes peuvent être identifiés comme suit :
-
-* par le type d’icône distinct sur le portail Azure ;
-* par le point d’approvisionnement sur le portail Azure Classic.
+Dans la vue **Utilisateurs**, les utilisateurs externes sont signalés par le type d’icône différent dans le portail Azure.
 
 Toutefois, l’octroi à un utilisateur externe d’un accès **Propriétaire** ou **Contributeur** à l’étendue **Abonnement** n’autorise pas l’accès à l’annuaire de l’utilisateur administrateur, sauf si l’**Administrateur général** l’autorise. Dans les propriétés de l’utilisateur, le **Type d’utilisateur** qui a deux paramètres communs, **Membre** et **Invité**, peut être identifié. Un membre est un utilisateur inscrit dans l’annuaire, tandis qu’un invité est un utilisateur invité dans l’annuaire à partir d’une source externe. Pour plus d’informations, voir [Comment les administrateurs Azure Active Directory ajoutent des utilisateurs B2B Collaboration](active-directory-b2b-admin-add-users.md).
 
@@ -145,9 +140,6 @@ L’attribution du rôle RBAC intégré **Contributeur de machines virtuelles** 
 * ne peut pas afficher d’autres types de ressources faisant partie de l’abonnement ;
 * ne peut apporter aucune modification sur le plan de la facturation.
 
-> [!NOTE]
-> La fonctionnalité RBAC étant une fonctionnalité exclusive du portail Azure, elle ne donne pas accès au portail Azure Classic.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Attribuer un rôle RBAC intégré à un utilisateur externe
 Pour un autre scénario dans ce test, l’utilisateur externe « alflanigan@gmail.com » est ajouté en tant que **Contributeur de machines virtuelles**.
 
@@ -156,9 +148,7 @@ Pour un autre scénario dans ce test, l’utilisateur externe « alflanigan@gma
 
 ![rôle prédéfini de contributeur de machines virtuelles](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Le comportement normal de cet utilisateur externe avec ce rôle intégré est de voir et gérer uniquement les machines virtuelles et uniquement les ressources adjacentes de Resource Manager nécessaires lors du déploiement. Par conception, ces rôles limités permettent d’accéder aux ressources correspondantes créées dans le portail Azure, même si certains peuvent encore être également déployés dans le portail Azure Classic (par exemple, les machines virtuelles).
-
-
+Le comportement normal de cet utilisateur externe avec ce rôle intégré est de voir et gérer uniquement les machines virtuelles et uniquement les ressources adjacentes de Resource Manager nécessaires lors du déploiement. Par défaut, ces rôles limités offrent accès uniquement à leurs ressources correspondantes créées dans le portail Azure.
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,6 +43,56 @@ Voici un exemple de scénario. Pour copier des données d’un stockage Blob Azu
 Le diagramme suivant montre la relation entre le pipeline, l’activité, le jeu de données et le service lié dans la fabrique de données :
 
 ![Relation entre le pipeline, l’activité, le jeu de données et les services liés](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>Service lié JSON
+Un service lié dans Data Factory se définit de la façon suivante au format JSON :
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+La table suivante décrit les propriétés dans le JSON ci-dessus :
+
+Propriété | Description | Requis |
+-------- | ----------- | -------- |
+name | Nom du service lié. Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  Oui |
+type | Type du service lié. Par exemple : AzureStorage (magasin de données) ou AzureBatch (calcul). Consultez la description de typeProperties. | Oui |
+typeProperties | Les propriétés type sont différentes pour chaque magasin de données et chaque unité de calcul. <br/><br/> Vous trouverez la liste des types de magasins de données pris en charge et leurs propriétés dans le tableau [type de jeu de données](#dataset-type) de cet article. Accédez à l’article sur le connecteur de magasin de données pour en savoir plus sur les propriétés de type propres à un magasin de données. <br/><br/> Vous trouverez la liste des types de calcul pris en charge et leurs propriétés sur la page [Services liés de calcul](compute-linked-services.md). | Oui |
+connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre magasin de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non
+
+## <a name="linked-service-example"></a>Exemple de service lié
+Le service lié suivant est un service lié Stockage Azure. Notez que le type est défini sur AzureStorage. Les propriétés de type du service lié Stockage Azure comprennent une chaîne de connexion. Le service Data Factory l’utilise pour se connecter au magasin de données à l’exécution. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>Jeu de données JSON
 Un jeu de données dans la fabrique de données est défini au format JSON comme suit :
@@ -72,12 +122,12 @@ Un jeu de données dans la fabrique de données est défini au format JSON comme
 ```
 La table suivante décrit les propriétés dans le JSON ci-dessus :
 
-Propriété | Description | Requis | Default
--------- | ----------- | -------- | -------
-name | Nom du jeu de données | Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). | Oui | N/D
-type | Type du jeu de données. | Spécifiez un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus de détails, voir [Types de jeux de données](#dataset-types). | Oui | N/D
-structure | Schéma du jeu de données. | Pour plus d’informations, consultez [Structure d’un jeu de données](#dataset-structure). | Non | N/D
-typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : Blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#dataset-type). | Oui | N/D
+Propriété | Description | Requis |
+-------- | ----------- | -------- |
+name | Nom du jeu de données Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  Oui |
+type | Type du jeu de données. Spécifiez un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus de détails, voir [Types de jeux de données](#dataset-types). | Oui |
+structure | Schéma du jeu de données. Pour plus d’informations, consultez [Structure d’un jeu de données](#dataset-structure). | Non |
+typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : Blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#dataset-type). | Oui |
 
 ## <a name="dataset-example"></a>Exemple de jeu de données
 Dans l’exemple suivant, le jeu de données représente une table nommée MyTable dans une base de données SQL.
@@ -104,28 +154,6 @@ Notez les points suivants :
 - Le type est défini sur AzureSQLTable.
 - La propriété de type tableName (propre au type AzureSqlTable) est définie sur MyTable.
 - linkedServiceName fait référence à un service lié de type AzureSqlDatabase, qui est défini dans l’extrait de code JSON suivant.
-
-## <a name="linked-service-example"></a>Exemple de service lié
-AzureSqlLinkedService est défini comme suit :
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-Dans l’extrait de code JSON précédent :
-
-- **type** est défini sur AzureSqlDatabase.
-- La propriété de type **connectionString** spécifie les informations nécessaires pour vous connecter à une base de données SQL.
-
-Comme vous pouvez le voir, le service lié définit la façon de se connecter à une base de données SQL. Le jeu de données définit quelle table est utilisée comme entrée et sortie de l’activité dans un pipeline.
 
 ## <a name="dataset-type"></a>Type de jeu de données
 Il existe différents types de jeux de données, selon la banque de données que vous utilisez. Consultez le tableau suivant pour obtenir la liste des magasins de données pris en charge par Data Factory. Cliquez sur un magasin de données pour savoir comment créer un service lié et un jeu de données pour ce magasin de données.

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Sauvegarde de machines virtuelles Windows dans Azure
 
@@ -78,7 +78,7 @@ Dans cet exemple, vous découvrirez comment récupérer le fichier image qui est
     ![Page web IIS par défaut](./media/tutorial-backup-vms/iis-broken.png)
 
 5. Sur votre ordinateur local, ouvrez un nouvel onglet et accédez au [portail Azure](https://portal.azure.com).
-6. Dans le menu de gauche, sélectionnez **machines virtuelles** et sélectionnez la machine virtuelle dans la liste.
+6. Dans le menu de gauche, sélectionnez **Machines virtuelles** et cliquez sur la machine virtuelle dans la liste.
 8. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
 9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier**. Le panneau **Récupération de fichier** s’affiche.
 10. Dans **Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.

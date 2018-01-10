@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Dépanner et corriger les problèmes d’un appareil
 
@@ -46,11 +46,7 @@ Pour examiner le problème, choisissez l’option **Explorer l’alarme** dispon
 
 ![Explorer l’alarme à partir du tableau de bord](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-Vous pouvez maintenant voir une liste des alarmes sur la page **Maintenance** :
-
-![Liste des alarmes sur la page maintenance](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-Pour afficher les détails de l’alarme, sélectionnez l’alarme à partir de la liste **Alarmes**. La vue détaillée montre :
+Des informations détaillées sur l’alerte s’affichent :
 
 * Lorsque l’alarme a été déclenchée
 * Informations d’état sur les appareils associés à l’alarme
@@ -70,7 +66,7 @@ Dans la liste, vous pouvez voir l’appareil **Prototype** chargé de déclenche
 
 Pour résoudre le problème avec l’appareil **Prototype**, vous devez appeler la méthode **DecreaseTemperature** sur l’appareil.
 
-Pour agir sur un appareil, sélectionnez-le dans la liste des appareils, puis choisissez **Planifier**. Le modèle d’appareil **Moteur** spécifie trois méthodes devant être prises en charge par un appareil :
+Pour agir sur un appareil, sélectionnez-le dans la liste des appareils, puis choisissez **Planifier**. Le modèle d’appareil **Prototype** définit quatre méthodes que doivent prendre en charge les appareils :
 
 ![Afficher les méthodes prises en charge par l’appareil](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Choisissez **DecreaseTemperature** et choisissez **DecreaseTemperature** comme l
 
 ![Créer le travail pour réduire la température](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-Pour effectuer le suivi de l’état du travail sur la page **Maintenance**, choisissez **État du système**. Utilisez la vue **État du système** pour effectuer le suivi de toutes les tâches et appels de méthode dans la solution :
+Pour suivre l’état du travail sur la page **Maintenance**, sélectionnez **Travaux**. Utilisez la vue **Travaux** pour effectuer le suivi de tous les travaux et appels de méthodes de la solution :
 
 ![Surveiller le travail pour réduire la température](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Pour afficher les détails d’un travail ou d’un appel de méthode spécifique, choisissez-le dans la liste au sein de la vue **État du système** :
+Pour afficher les détails d’un travail ou d’un appel de méthode en particulier, sélectionnez-le dans la liste au sein de la vue **Travaux** :
 
 ![Affichage des détails d’une tâche](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

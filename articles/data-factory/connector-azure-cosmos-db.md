@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copier des données depuis/vers Azure Cosmos DB à l’aide d’Azure Data Factory
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/10/2017
 > * [Version 1 - Disponibilité générale](v1/data-factory-azure-documentdb-connector.md)
 > * [Version 2 - Préversion](connector-azure-cosmos-db.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers Azure Cosmos DB (API DocumentDB). Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de/vers Azure Cosmos DB (API SQL). Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Azure Cosmos DB dans V1](v1/data-factory-azure-documentdb-connector.md).
@@ -36,7 +36,7 @@ Vous pouvez copier des données d’Azure Cosmos DB vers toute banque de donnée
 
 Plus précisément, ce connecteur Azure Cosmos DB prend en charge ce qui suit :
 
-- Cosmos DB [API DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- [API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) Cosmos DB.
 - Importation/exportation de documents JSON en l'état, ou copie de données depuis/vers un jeu de données tabulaire, par exemple, une base de données SQL, des fichiers CSV, etc.
 
 Pour copier des documents en l’état à partir/à destination de fichiers JSON ou d’une autre collection Cosmos DB, voir [Importer/Exporter des documents JSON](#importexport-json-documents).

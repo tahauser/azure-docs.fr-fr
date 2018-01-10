@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Gérer le nombre et la disponibilité des nœuds de calcul dans un cluster HPC Pack dans Azure
 Une fois un cluster HPC Pack 2012 R2 créé dans des machines virtuelles Azure, il peut s’avérer utile de pouvoir facilement ajouter, supprimer, démarrer (approvisionner) ou arrêter (annuler l’approvisionnement) certaines machines virtuelles à nœud de calcul dans le cluster. Pour effectuer ces tâches, exécutez des scripts Azure PowerShell qui sont installés sur la machine virtuelle à nœud principal. Ces scripts vous aident à contrôler le nombre et la disponibilité de vos ressources de cluster HPC Pack afin de contrôler les coûts.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Paramètres
 * **ServiceName** : nom du service cloud auquel les nouvelles machines virtuelles à nœud de calcul sont ajoutées.
-* **ImageName** : nom de l’image de machine virtuelle Azure, qui peut être obtenu par le biais du Portail Azure Classic ou de l’applet de commande Azure PowerShell **Get-AzureVMImage**. L’image doit répondre aux exigences suivantes :
+* **ImageName** : nom de l’image de machine virtuelle Azure, qui peut être obtenu par le biais du portail Azure ou de l’applet de commande Azure PowerShell **Get-AzureVMImage**. L’image doit répondre aux exigences suivantes :
   
   1. Un système d’exploitation Windows doit être installé.
   2. HPC Pack doit être installé dans le rôle de nœud de calcul.

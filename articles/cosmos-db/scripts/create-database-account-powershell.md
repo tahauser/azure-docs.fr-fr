@@ -1,6 +1,6 @@
 ---
-title: "Script Azure PowerShell - Créer un compte d’API DocumentDB Azure Cosmos DB | Microsoft Docs"
-description: "Exemple de script Azure PowerShell - Créer un compte d’API DocumentDB Azure Cosmos DB"
+title: "Script Azure PowerShell - Créer un compte d’API SQL Azure Cosmos DB | Microsoft Docs"
+description: "Exemple de script Azure PowerShell - Créer un compte d’API SQL Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 9b54236ce3446fe1c6a2a30b31f6d91ad43a92d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 060270f424cb3bbb984430d9e17656453fa30c4d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-a-documentdb-api-account-using-powershell"></a>Azure Cosmos DB : Créer un compte d’API DocumentDB avec PowerShell
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB : Créer un compte d’API SQL avec PowerShell
 
 Cet exemple de script PowerShell crée un compte d’API Azure Cosmos DB. 
 

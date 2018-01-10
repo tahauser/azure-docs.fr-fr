@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -73,7 +73,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Vérifications exécutées|
 |---|
-|<ul><li>Y a-t-il eu des demandes de base de données ou de collection non servies en raison d’une indisponibilité du service DocumentDB ?</li><li>Y a-t-il eu des demandes de document non servies en raison d’une indisponibilité du service DocumentDB ?</li></ul>|
+|<ul><li>Y a-t-il eu des demandes de base de données ou de collection non servies en raison d’une indisponibilité du service Azure Cosmos DB ?</li><li>Y a-t-il eu des demandes de document non servies en raison d’une indisponibilité du service Azure Cosmos DB ?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Vérifications exécutées|

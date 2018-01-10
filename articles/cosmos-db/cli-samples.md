@@ -13,22 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 11/02/2017
+ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 432ffc80d602a9e4eaf83fba15f0e6ebabd13603
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemples de CLI pour Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pour Azure Cosmos DB. Des pages de référence pour toutes les commandes CLI d’Azure Cosmos DB sont disponibles dans la [référence Azure CLI 2.0](https://docs.microsoft.com/cli/azure/cosmosdb).
 
 | |  |
 |---|---|
 |**Créer un compte, une base de données et des conteneurs Azure Cosmos DB**||
-|[Créer un compte d’API DocumentDB](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte unique d’API Azure Cosmos DB avec base de données et conteneur, à utiliser avec l’API DocumentDB. |
+|[Créer un compte d’API SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crée un compte unique d’API Azure Cosmos DB avec base de données et conteneur, à utiliser avec l’API SQL. |
 | [Créer un compte d’API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crée un compte unique d’API DocumentDB Azure MongoDB avec base de données et collection. |
 |**Mettre à l’échelle Azure Cosmos DB**||
 | [Mettre à l’échelle le débit d’un conteneur](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Modifie le débit configuré sur un conteneur.|

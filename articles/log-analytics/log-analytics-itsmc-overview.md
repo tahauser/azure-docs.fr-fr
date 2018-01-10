@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gérer de manière centralisée les éléments de travail ITSM à l’aide d’IT Service Management Connector (version préliminaire)
 
@@ -292,9 +292,11 @@ Lorsque vous créez/modifiez une règle d’alerte Azure, utilisez un groupe d�
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Dépanner des connexions ITSM dans OMS
 1.  Si la connexion échoue à partir de l’interface utilisateur de la source connectée avec un message **Erreur lors de l’enregistrement de la connexion**, procédez comme suit :
- - Pour les connexions ServiceNow, Cherwell et Provance, vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.
-        - vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.
- - Pour les connexions Service Manager, vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+ - Pour les connexions ServiceNow, Cherwell et Provance,  
+        - vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.  
+        - vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.  
+ - Pour les connexions Service Manager,  
+        - vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Si les données de ServiceNow ne sont pas synchronisées dans Log Analytics, vérifiez que l’instance ServiceNow n’est pas en état de veille. Parfois, les instances de développement ServiceNow entrent en veille quand elles restent longtemps inactives. Autrement, signalez le problème.
 3.  Si des alertes OMS se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM ou qu’aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations génériques, examinez les emplacements suivants :

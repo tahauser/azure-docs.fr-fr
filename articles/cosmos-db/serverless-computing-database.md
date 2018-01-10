@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
 
@@ -44,7 +44,7 @@ Le déclencheur Azure Cosmos DB, la liaison d’entrée et la liaison de sortie 
 * Une liaison d’entrée vers un conteneur Azure Cosmos DB peut être utilisée dans la même fonction en tant que déclencheur Azure Cosmos DB et peut également être utilisée avec ou sans liaison de sortie. Vous pouvez utiliser cette combinaison pour appliquer des informations de change à jour (extraites à l’aide d’une liaison d’entrée vers un conteneur de change) pour le flux de modification de nouvelles commandes dans votre service de panier. Le total du panier mis à jour, avec la conversion monétaire actuelle appliquée, peut être écrit dans un troisième conteneur à l’aide d’une liaison de sortie.
 
 > [!NOTE]
-> À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API DocumentDB, Table et Graph.
+> À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Graph.
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -86,14 +86,14 @@ Les illustrations suivantes montrent le code dans le portail Azure pour ce scén
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Cas d’usage de gaming - Déclencheur Azure Cosmos DB et liaison de sortie
 
-Dans le gaming, lorsqu’un nouvel utilisateur est créé, vous pouvez rechercher d’autres utilisateurs que vous connaissez peut-être à l’aide de l’[API Graph Azure Cosmos DB](graph-introduction.md). Vous pouvez ensuite écrire les résultats dans une [base de données de table Azure Cosmos DB](table-introduction.md) pour faciliter leur récupération.
+Dans le gaming, lorsqu’un nouvel utilisateur est créé, vous pouvez rechercher d’autres utilisateurs que vous connaissez peut-être à l’aide de l’[API Graph Azure Cosmos DB](graph-introduction.md). Vous pouvez ensuite écrire les résultats dans une [base de données SQL Azure Cosmos DB] pour faciliter leur récupération.
 
 **Implémentation :** Utiliser un déclencheur Azure Cosmos DB et une liaison de sortie
 
 1. À l’aide d’une [base de données de graphes](graph-introduction.md) Azure Cosmos DB pour stocker tous les utilisateurs, vous pouvez créer une nouvelle fonction avec un déclencheur Azure Cosmos DB. 
 2. Chaque fois qu’un nouvel utilisateur est inséré, la fonction est appelée, puis le résultat est stocké à l’aide d’une **liaison de sortie**.
 3. La fonction interroge la base de données des graphes pour rechercher tous les utilisateurs qui sont directement associés au nouvel utilisateur et retourne un jeu de données à la fonction.
-4. Ces données sont ensuite stockées dans une [base de données de table](table-introduction.md) Azure Cosmos DB comme un ensemble de paires clé-valeur, qui peut être facilement récupéré par la suite par toute application frontale qui montre au nouvel utilisateur ses amis connectés.
+4. Ces données sont ensuite stockées dans une base de données Azure Cosmos DB, qui peut être facilement récupérée par la suite par toute application frontale qui montre au nouvel utilisateur ses amis connectés.
 
 ### <a name="retail-use-case---multiple-functions"></a>Cas d’usage de vente au détail - Fonctions multiples
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
 
@@ -203,7 +203,7 @@ Ouvrez une connexion des tâches de bases de données élastiques :
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Informations d'identification chiffrées dans les tâches de bases de données élastiques
 Les informations d’identification de la base de données peuvent être insérées dans la *base de données de contrôle* des tâches avec un mot de passe chiffré. Il est nécessaire de stocker les informations d’identification pour activer des tâches à exécuter ultérieurement (à l’aide de planifications de tâches).
 
-Le chiffrement utilise un certificat créé dans le cadre du script d'installation. Le script d'installation crée et télécharge le certificat dans le Azure Cloud Service pour le déchiffrement des mots de passe chiffrés stockés. Azure Cloud Service stocke ultérieurement la clé publique dans la *base de données de contrôle* des tâches de bases de données, ce qui permet à l’interface de l’API PowerShell ou du portail Azure Classic de chiffrer un mot de passe fourni sans que l’installation locale du certificat ne soit requise.
+Le chiffrement utilise un certificat créé dans le cadre du script d'installation. Le script d'installation crée et télécharge le certificat dans le Azure Cloud Service pour le déchiffrement des mots de passe chiffrés stockés. Azure Cloud Service stocke ultérieurement la clé publique dans la *base de données de contrôle* des tâches de bases de données, ce qui permet à l’interface de l’API PowerShell ou du portail Azure de chiffrer un mot de passe fourni sans que l’installation locale du certificat ne soit requise.
 
 Les mots de passe des informations d’identification sont chiffrés et sécurisés auprès des utilisateurs ayant un accès en lecture seule aux objets des tâches de bases de données élastiques. Mais un utilisateur malveillant bénéficiant d’un accès en lecture-écriture aux objets de bases de données élastiques aura toujours la possibilité d’extraire un mot de passe. Les informations d’identification sont conçues pour être réutilisées lors des exécutions de tâches. Les informations d'identification sont transmises aux bases de données cibles lors de l'établissement des connexions. Il n’y a actuellement aucune restriction sur les bases de données cibles utilisées pour chaque information d’identification ; un utilisateur malveillant pourrait donc ajouter une cible de base de données pour une base de données dont il a le contrôle. L’utilisateur pourrait ensuite démarrer une tâche ciblant cette base de données afin d’obtenir le mot de passe associé aux informations d’identification.
 

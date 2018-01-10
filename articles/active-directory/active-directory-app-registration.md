@@ -4,7 +4,7 @@ description: "Cet article décrit comment utiliser le portail Azure pour inscrir
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Inscrire votre application avec un client Azure Active Directory
 
@@ -45,7 +45,7 @@ Vous pouvez facilement modifier les paramètres d’une application existante à
   * La page **Propriétés** vous permet de modifier les informations générales de l’application. Cela inclut le nom de l’application, l’URL de connexion et l’URL de déconnexion.
   * La page **URL de réponse** vous permet d’ajouter une URL de réponse, utilisée par Azure AD pour émettre des réponses de jeton.
   * La page **Propriétaires** vous permet d’ajouter des propriétaires d’applications.
-  * La page **Autorisations** vous permet de configurer des autorisations pour l’application. Par exemple, pour accéder à l’API Microsoft Graph, cliquez sur **Ajouter**, sélectionnez **Microsoft Graph** dans le sélecteur d’API, puis choisissez l’autorisation nécessaire, par exemple **Lire les données du répertoire**.
+  * La page **Autorisations requises** vous permet de configurer des autorisations pour l’application. Par exemple, pour accéder à l’API Microsoft Graph, cliquez sur **Ajouter**, sélectionnez **Microsoft Graph** dans le sélecteur d’API, puis choisissez l’autorisation nécessaire, par exemple **Lire les données du répertoire**.
   * La page **Clés** vous permet d’ajouter des secrets d’application. Le secret s’affichant une seule fois immédiatement après sa création, assurez-vous de le copier pour pouvoir l’utiliser ultérieurement.
 
 ## <a name="use-the-inline-manifest-editor"></a>Utiliser l’éditeur de manifeste en ligne

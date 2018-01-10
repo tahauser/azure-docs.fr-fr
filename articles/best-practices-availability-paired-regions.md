@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/11/2017
 ms.author: raynew
-ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure
 
@@ -39,6 +39,7 @@ Figure 1 – Diagramme de paire régionale Azure
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
 | Inde |Inde centrale |Inde du Sud |
+| Inde |Inde de l'Ouest (1) |Inde du Sud |
 | Japon |Est du Japon |Ouest du Japon |
 | Corée du Sud |Centre de la Corée |Corée du Sud |
 | Amérique du Nord |États-Unis - partie centrale septentrionale |Centre-Sud des États-Unis |
@@ -47,9 +48,9 @@ Figure 1 – Diagramme de paire régionale Azure
 | Amérique du Nord |Ouest des États-Unis 2 |Ouest-Centre des États-Unis |
 | Europe |Europe du Nord |Europe de l’Ouest |
 | Japon |Est du Japon |Ouest du Japon |
-| Brésil |Sud du Brésil (1) |États-Unis - partie centrale méridionale |
-| Gouvernement américain |Gouvernement des États-Unis – Iowa (2) |Gouvernement américain - Virginie |
-| Gouvernement américain |Gouvernement des États-Unis – Virginie (3) |Gouvernement des États-Unis – Texas |
+| Brésil |Sud du Brésil (2) |Centre-Sud des États-Unis |
+| Gouvernement américain |Gouvernement des États-Unis – Iowa (3) |Gouvernement américain - Virginie |
+| Gouvernement américain |Gouvernement des États-Unis – Virginie (4) |Gouvernement des États-Unis – Texas |
 | Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
@@ -57,11 +58,10 @@ Figure 1 – Diagramme de paire régionale Azure
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 
-> (1) La région Sud du Brésil est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. La région secondaire de la région Sud du Brésil est Sud-Centre des États-Unis mais la région secondaire de la région Sud-Centre des États-Unis n’est pas Sud du Brésil.
->
-> (2) La région secondaire de la région Gouvernement des États-Unis – Iowa est la région Gouvernement des États-Unis – Virginie, mais la région secondaire de la région Gouvernement des États-Unis – Virginie n’est pas la région Gouvernement des États-Unis – Iowa.
-> 
-> (3) La région secondaire de la région Gouvernement des États-Unis – Virginie est la région Gouvernement des États-Unis – Texas, mais la région secondaire de la région Gouvernement des États-Unis – Texas n’est pas la région Gouvernement des États-Unis – Virginie.
+- > (1) L’Inde de l’Ouest est différente, car elle est jumelée avec une autre région dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
+- > (2) La région Sud du Brésil est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. La région secondaire de la région Sud du Brésil est Sud-Centre des États-Unis mais la région secondaire de la région Sud-Centre des États-Unis n’est pas Sud du Brésil.
+- > (3) La région secondaire de la région Gouvernement des États-Unis– Iowa est la région Gouvernement des États-Unis – Virginie, mais la région secondaire de la région Gouvernement des États-Unis – Virginie n’est pas la région Gouvernement des États-Unis – Iowa.
+- > (4) La région secondaire de la région Gouvernement des États-Unis – Virginie est la région Gouvernement des États-Unis – Texas, mais la région secondaire de la région Gouvernement des États-Unis – Texas n’est pas la région Gouvernement des États-Unis – Virginie.
 
 
 Nous vous recommandons de répliquer les charges de travail sur les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité d’Azure. Par exemple, les mises à jour planifiées du système Azure sont déployées séquentiellement (pas en même temps) entre les régions jumelées. Cela signifie que même dans les rares cas de mise à jour défectueuse, les deux régions ne sont pas affectées simultanément. En outre, dans l’éventualité d’une défaillance générale, la récupération d’au moins une région de chaque paire est prioritaire.

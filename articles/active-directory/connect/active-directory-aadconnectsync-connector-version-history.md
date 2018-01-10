@@ -4,7 +4,7 @@ description: "Cette rubrique répertorie toutes les versions des connecteurs de 
 services: active-directory
 documentationcenter: 
 author: fimguy
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connector-version-release-history"></a>Historique de publication des versions du connecteur
 Les connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM) sont fréquemment mis à jour.

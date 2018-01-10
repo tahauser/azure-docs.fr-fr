@@ -4,7 +4,7 @@ description: "Cette rubrique décrit la fonctionnalité Prévention des suppress
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect Sync : Prévention des suppressions accidentelles
 Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
@@ -32,7 +32,7 @@ Voici quelques scénarios courants de nombreuses suppressions :
 * Tous les objets d’une unité d'organisation sont supprimés.
 * Une unité d'organisation est renommée et tous les objets qu'elle contient sont considérés comme hors de portée pour la synchronisation.
 
-La valeur par défaut de 500 objets peut être modifiée dans PowerShell à l'aide de `Enable-ADSyncExportDeletionThreshold`. Vous devez configurer cette valeur de manière à l’ajuster à la taille de votre organisation. Étant donné que le Planificateur de synchronisation est exécuté toutes les 30 minutes, la valeur est le nombre de suppressions détectées dans les 30 minutes.
+La valeur par défaut de 500 objets peut être modifiée avec PowerShell à l’aide de `Enable-ADSyncExportDeletionThreshold`, qui fait partie du module AD Sync installé avec Azure Active Directory Connect. Vous devez configurer cette valeur de manière à l’ajuster à la taille de votre organisation. Étant donné que le Planificateur de synchronisation est exécuté toutes les 30 minutes, la valeur est le nombre de suppressions détectées dans les 30 minutes.
 
 L’exportation s’arrête si le nombre de suppressions vers Azure AD est trop important et vous recevez un courrier électronique similaire à celui-ci :
 
