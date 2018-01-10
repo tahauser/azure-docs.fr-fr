@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Qu’est-ce que la messagerie Service Bus ?](service-bus-messaging-overview.md)
 ## [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Architecture de Service Bus](service-bus-architecture.md)
@@ -64,7 +64,8 @@
 #### [Chaîner des entités avec le transfert automatique](service-bus-auto-forwarding.md)
 #### [Traitement des transactions](service-bus-transactions.md)
 #### [Implémentation de l’espace de noms associé](service-bus-paired-namespaces.md)
-## gérer
+### [Diagnostics et suivi de bout en bout](service-bus-end-to-end-tracing.md)
+## Gérer
 ### [Analyser Service Bus avec la surveillance Azure](service-bus-metrics-azure-monitor.md)
 ### [Bibliothèques de gestion de Service Bus](service-bus-management-libraries.md)
 ### [Journaux de diagnostic](service-bus-diagnostic-logs.md)
@@ -78,7 +79,7 @@
 #### 
 ### [Utilisation d’Azure PowerShell pour approvisionner des entités](service-bus-manage-with-ps.md)
 
-# Informations de référence
+# Référence
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

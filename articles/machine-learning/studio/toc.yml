@@ -1,6 +1,6 @@
 - name: Documentation Machine Learning Studio
   href: index.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Présentation de Machine Learning
@@ -11,7 +11,7 @@
       href: studio-overview-diagram.md
     - name: Concepts de base de ML Studio (infographie)
       href: basics-infographic-with-algorithm-examples.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: faq.md
     - name: Nouveautés
       href: whats-new.md
@@ -57,7 +57,7 @@
           items:
             - name: Créer
               href: create-workspace.md
-            - name: Gérer
+            - name: gérer
               href: manage-workspace.md
             - name: Résolution des problèmes
               href: troubleshooting-creating-ml-workspace.md
@@ -69,7 +69,7 @@
       items:
         - name: Importer les données de formation
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: import-data.md
             - name: À partir d’un fichier local
               href: import-data-from-local-file.md
@@ -119,7 +119,7 @@
                   href: execute-python-scripts.md
     - name: Rendre les modèles opérationnels
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: deploy-consume-web-service-guide.md
         - name: Déployer des modèles
           items:
@@ -149,7 +149,7 @@
               href: scaling-webservice.md
         - name: Reformer des modèles
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: retrain-machine-learning-model.md
             - name: Reformer par programme
               href: retrain-models-programmatically.md
@@ -163,7 +163,7 @@
               href: troubleshooting-retraining-models.md
         - name: Consommer des modèles
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: consume-web-services.md
             - name: Utiliser Excel
               href: consuming-from-excel.md
@@ -181,7 +181,7 @@
           href: use-sample-datasets.md
         - name: Exemple d’évolution client
           href: azure-ml-customer-churn-scenario.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Module Azure PowerShell (nouveau)
       href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
@@ -195,13 +195,13 @@
       href: web-service-error-codes.md
 - name: Rubriques connexes
   items:
-    - name: galerie Cortana Intelligence
+    - name: Galerie Azure AI
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: gallery-how-to-use-contribute-publish.md
         - name: Secteurs d’activité
           href: gallery-industries.md
-        - name: Solutions
+        - name: solutions
           href: gallery-solutions.md
         - name: Expériences
           href: gallery-experiments.md
@@ -223,7 +223,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 'Langage de réseaux neuronaux Net#'
       href: azure-ml-netsharp-reference-guide.md
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=machine-learning'
@@ -233,7 +233,7 @@
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
     - name: Obtenir de l’aide de conversation en direct
       href: live-chat.md

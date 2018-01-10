@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Azure et IoT](iot-hub-what-is-azure-iot.md)
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
@@ -112,10 +112,10 @@
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 
-## Gérer
+## gérer
 ### Créer un hub IoT 
 #### [Utiliser le portail Azure](iot-hub-create-through-portal.md)
-#### [Utilisation d'Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Utilisation d’Azure PowerShell](iot-hub-create-using-powershell.md)
 #### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-create-using-cli.md)
 #### [Utiliser l’interface de ligne de commande](iot-hub-create-using-cli-nodejs.md)
 #### [Utiliser l’API REST](iot-hub-rm-rest.md)
@@ -123,7 +123,7 @@
 #### [Utiliser un modèle à partir de .NET](iot-hub-rm-template.md)
 ### Configurer le chargement de fichiers
 #### [Utiliser le portail Azure](iot-hub-configure-file-upload.md)
-#### [Utilisation d'Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Utilisation d’Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Utiliser l’interface de ligne de commande Microsoft Azure](iot-hub-configure-file-upload-cli.md)
 ### [Surveiller avec Diagnostics](iot-hub-monitor-resource-health.md)
 #### [Migrer vers les paramètres des diagnostics](iot-hub-migrate-to-diagnostics-settings.md)
@@ -143,9 +143,9 @@
 #### [Prise en main de la sécurité d’un certificat d’autorité de certification X.509](iot-hub-security-x509-get-started.md)
 ##### [Création de certificat - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
-## [Interface de ligne de commande Azure](/cli/azure/iot)
+## [interface de ligne de commande Azure](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (appareils)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (service)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -162,6 +162,7 @@
 
 # Rubriques connexes
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Service Azure IoT Hub Device Provisioning](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
@@ -173,11 +174,11 @@
 ## [Outil DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Outil iothub-diagnostics](https://github.com/Azure/iothub-diagnostics)
 ## [Outil iothub-explorer](https://github.com/Azure/iothub-explorer)
-## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
+## [Parcours de formation](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Tarification](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=iot-hub)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Études de cas techniques](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)

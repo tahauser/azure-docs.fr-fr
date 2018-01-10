@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 ## [À propos de la gestion des identités Azure](identity-fundamentals.md)
 ## [Comprendre les solutions d’identité Azure](understand-azure-identity-solutions.md)
@@ -8,7 +8,7 @@
 ## [Nouveautés](whats-new.md)
 
 
-# Prise en main
+# Bien démarrer
 ## [Prise en main d'Azure AD](get-started-azure-ad.md)
 ## [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md)
 ## [Ajouter un nom de domaine personnalisé](add-custom-domain.md)
@@ -44,6 +44,7 @@
 ### [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
 ### [Partager des comptes](active-directory-sharing-accounts.md)
 ### [Affecter des utilisateurs aux rôles d’administration](active-directory-users-assign-role-azure-portal.md)
+### [Restaurer un utilisateur supprimé](active-directory-users-restore.md)
 ### [Ajouter des utilisateurs invités à partir d’un autre répertoire (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Ajout d’utilisateurs B2B par des administrateurs](active-directory-b2b-admin-add-users.md)
 #### [Ajout d’utilisateurs B2B par des membres de l’équipe informatique](active-directory-b2b-iw-add-users.md)
@@ -108,13 +109,13 @@
 #### [Configurer des emplacements nommés](active-directory-named-locations.md)
 #### [Afficher les rapports d’activité](active-directory-reporting-migration.md)
 #### [Utiliser le pack de contenu Power BI Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Informations de référence
+### Référence
 #### [Rétention](active-directory-reporting-retention.md)
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Codes d’erreur de l’activité de connexion](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Authentification multifacteur](active-directory-reporting-activity-sign-ins-mfa.md)
-### Résolution des problèmes
+### Résoudre les problèmes
 #### [Données d’audit manquantes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Données manquantes dans les téléchargements](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Erreurs de pack de contenu des journaux d’activité Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
@@ -158,7 +159,7 @@
 #### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
-### Résolution des problèmes
+### Résoudre les problèmes
 #### [Appareils Windows 10 et Windows Server 2016 joints Azure AD hybrides](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Appareils Windows hérités joints Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
@@ -177,7 +178,7 @@
 
 
 ### [Accéder aux applications à distance avec le proxy d’application](active-directory-application-proxy-get-started.md)
-#### Prise en main
+#### Bien démarrer
 ##### [Activer le Proxy d’application](active-directory-application-proxy-enable.md)
 ##### [Publiez des applications](application-proxy-publish-azure-portal.md)
 ##### [Domaines personnalisés](active-directory-application-proxy-custom-domains.md)
@@ -342,7 +343,7 @@
 ### [Manuel POC : Blocs de construction](active-directory-playbook-building-blocks.md)
 
 
-# Informations de référence
+# Référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Applets de commande Azure PowerShell](/powershell/azure/overview)
 ## [Informations de référence sur l’API Java](/java/api)

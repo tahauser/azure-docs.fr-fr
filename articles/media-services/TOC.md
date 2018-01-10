@@ -15,30 +15,32 @@
 ### [Utiliser Azure PowerShell pour créer et configurer l’application AAD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Proposer la vidéo à la demande
-### [Portail Azure](media-services-portal-vod-get-started.md)
+### [Portail Azure](media-services-portal-vod-get-started.md)
 ### [Kit SDK .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Exécuter la vidéo en flux continu
-### [Portail Azure](media-services-portal-live-passthrough-get-started.md)
+### [Portail Azure](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Procédure
-## Gérer
+## gérer
 ### Entités
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Points de terminaison de streaming](media-services-streaming-endpoints-overview.md)
-#### [Portail Azure](media-services-portal-manage-streaming-endpoints.md)
+#### [Portail Azure](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### Storage
+### Stockage
 #### [Mettre à jour Media Services après la substitution de clés d’accès de stockage](media-services-roll-storage-access-keys.md)
 #### [Gérer les éléments multimédias de plusieurs comptes de stockage](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas et limitations](media-services-quotas-and-limitations.md)
-
+## [Configurer Postman](media-rest-apis-with-postman.md)
+### [Environment](postman-environment.md)
+### [Collection](postman-collection.md)
 ## Téléchargement de contenu
 ### Charger des fichiers dans un compte
-#### [Portail Azure](media-services-portal-upload-files.md)
+#### [Portail Azure](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Télécharger des fichiers volumineux avec Aspera](media-services-upload-files-with-aspera.md)
@@ -52,7 +54,7 @@
 #### [Codecs et formats standard de l’encodeur multimédia](media-services-media-encoder-standard-formats.md)
 #### [Utiliser MES pour générer automatiquement une échelle des vitesses de transmission](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Encoder avec Media Encoder Standard
-##### [Portail Azure](media-services-portal-encode.md)
+##### [Portail Azure](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Fonctionnalités d’encodage avancées avec MES](media-services-advanced-encoding-with-mes.md)
@@ -107,10 +109,10 @@
 ## [Diffuser en direct](media-services-manage-channels-overview.md)
 ### [Encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md)
 #### [Encodeurs locaux recommandés](media-services-recommended-encoders.md)
-#### [Portail Azure](media-services-portal-live-passthrough-get-started.md)
+#### [Portail Azure](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Streaming en direct à l’aide d’un encodeur cloud](media-services-manage-live-encoder-enabled-channels.md)
-#### [Portail Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Portail Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configurer des encodeurs locaux pour une utilisation avec un encodeur cloud](media-services-live-encoders-overview.md)
 #### [Encodeur Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -126,7 +128,7 @@
 ### [Configurer des raccourcis clavier](media-services-azure-media-clipper-keyboard-shortcuts.md)
 ### [Configurer la localisation](media-services-azure-media-clipper-localization.md)
 ### [Envoyer des travaux de découpage](media-services-azure-media-clipper-submit-job.md)
-### [Portail Azure](media-services-azure-media-clipper-portal.md)
+### [Portail Azure](media-services-azure-media-clipper-portal.md)
 
 ## [Protéger du contenu](media-services-content-protection-overview.md)
 ### [Chiffrement du stockage](media-services-rest-storage-encryption.md)
@@ -147,7 +149,7 @@
 #### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 #### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Configuration de la stratégie d’autorisation de clé de contenu
-#### [Portail Azure](media-services-portal-configure-content-key-auth-policy.md)
+#### [Portail Azure](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Passage de jetons d’authentification à AMS](media-services-pass-authentication-tokens.md)
@@ -174,10 +176,10 @@
 
 ## Mettre à l'échelle
 ### [Traitement multimédia](media-services-scale-media-processing-overview.md)
-#### [Portail Azure](media-services-portal-scale-media-processing.md)
+#### [Portail Azure](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Points de terminaison de diffusion en continu
-#### [Portail Azure](media-services-portal-scale-streaming-endpoints.md)
+#### [Portail Azure](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Distribuer le contenu](media-services-deliver-content-overview.md)
 ### [mise en package dynamique](media-services-dynamic-packaging-overview.md)
@@ -186,7 +188,7 @@
 #### [Créer des filtres avec REST](media-services-rest-dynamic-manifest.md)
 ### [Stratégie de mise en cache CDN dans l'extension Media Services](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publication de contenu
-#### [Portail Azure](media-services-portal-publish.md)
+#### [Portail Azure](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Distribuer par téléchargement](media-services-deliver-asset-download.md)
@@ -209,7 +211,7 @@
 ## Surveiller
 ### Vérifier la progression des travaux
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Portail Azure](media-services-portal-check-job-progress.md)
+#### [Portail Azure](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Surveiller les notifications de travaux avec le Stockage File d’attente](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Surveiller les notifications de travaux avec WebHooks](media-services-dotnet-check-job-progress-with-webhooks.md)
@@ -220,7 +222,7 @@
 ### [Codes d’erreur](media-services-error-codes.md)
 ### [Logique de nouvelle tentative](media-services-retry-logic-in-dotnet-sdk.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Gestion des services)](/powershell/module/azure/?view=azuresmps-3.7.0)

@@ -1,10 +1,6 @@
 - name: Documentation Site Recovery
   href: index.yml
-- name: Migration des ordinateurs locaux et des machines virtuelles Azure
-  href: migrate/tutorial-migrate-on-premises-to-azure.md
-- name: Récupération d’urgence depuis Azure vers Azure
-  href: azure-to-azure/azure-to-azure-quickstart.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Site Recovery\_?"
       href: site-recovery-overview.md
@@ -35,14 +31,30 @@
           href: tutorial-dr-drill-azure.md
         - name: Exécuter un basculement et une restauration automatique
           href: tutorial-vmware-to-azure-failover-failback.md
-    - name: Migrer vers Azure
+    - name: Machines virtuelles Hyper-V
       items:
         - name: Préparer Azure
+          href: tutorial-prepare-azure.md
+        - name: Préparer un Hyper-V local
+          href: tutorial-prepare-on-premises-hyper-v.md
+        - name: Configurer la récupération d'urgence pour les machines virtuelles Hyper-V
+          href: tutorial-hyper-v-to-azure.md
+        - name: Configurer la récupération d'urgence pour les machines virtuelles Hyper-V hébergées dans des clouds VMM
+          href: tutorial-hyper-v-vmm-to-azure.md
+        - name: Exécuter une simulation de récupération d'urgence
+          href: tutorial-dr-drill-azure.md
+        - name: Exécuter un basculement et une restauration automatique
+          href: tutorial-hyper-v-to-azure-failover-failback.md
+    - name: Migrer vers Azure
+      items:
+        - name: Préparer Azure pour la réplication d’un site local
           href: tutorial-prepare-azure.md
         - name: Migrer des machines sur site vers Azure
           href: tutorial-migrate-on-premises-to-azure.md
         - name: Migrer des instances AWS vers Azure
           href: tutorial-migrate-aws-to-azure.md
+        - name: Migrer des machines virtuelles Azure vers une autre région
+          href: tutorial-migrate-azure-to-azure.md
 - name: Concepts
   items:
     - name: Architecture Azure vers Azure
@@ -69,7 +81,7 @@
       href: site-recovery-migrate-to-azure.md
     - name: Autorisations d’accès en fonction du rôle
       href: site-recovery-role-based-linked-access-control.md
-    - name: Forum Aux Questions
+    - name: FAQ
       href: site-recovery-faq.md
 - name: Procédures
   items:
@@ -89,45 +101,36 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Récupération d'urgence
       items:
-        - name: Préparer des ordinateurs Hyper-V pour la réplication vers Azure
-          href: tutorial-prepare-on-premises-hyper-v.md
-        - name: Machines virtuelles Hyper-V vers Azure
-          href: tutorial-hyper-v-to-azure.md
-        - name: Machines virtuelles Hyper-V sur des clouds VMM vers Azure
-          href: tutorial-hyper-v-vmm-to-azure.md
-        - name: Serveurs physiques vers Azure
+        - name: Récupération d’urgence des machines virtuelles Azure après la migration vers Azure
+          href: site-recovery-azure-to-azure-after-migration.md
+        - name: Récupération d’urgence des serveurs physiques vers Azure
           href: tutorial-physical-to-azure.md
-        - name: Machines virtuelles Hyper-V vers un site secondaire
+        - name: Réplication de machines virtuelles Hyper-V vers un site secondaire
           href: tutorial-vmm-to-vmm.md
-        - name: Serveurs physiques et machines virtuelles VMware vers un site secondaire
+        - name: Répliquer des machines virtuelles VMware et des serveurs physiques vers un site secondaire
           href: tutorial-vmware-to-vmware.md
         - name: Effectuer un exercice de récupération d'urgence vers Azure
-          href: tutorial-dr-drill-azure.md
+          href: site-recovery-test-failover-to-azure.md
         - name: Exécuter une simulation de récupération d'urgence vers un site secondaire
-          href: tutorial-dr-drill-secondary.md
+          href: site-recovery-test-failover-vmm-to-vmm.md
         - name: Machines virtuelles VMware avec l’architecture multilocataires vers Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Basculement et restauration automatique
       items:
         - name: Configurer des plans de récupération
           href: site-recovery-create-recovery-plans.md
+        - name: Ajouter des Runbooks Azure à des plans de récupération
+          href: site-recovery-runbook-automation.md
+        - name: Effectuer un basculement
           items:
-            - name: Ajouter des Runbooks Azure à des plans de récupération
-              href: site-recovery-runbook-automation.md
-        - name: Exécuter un test de basculement
-          items:
-            - name: Exécution d’un test de basculement vers Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Exécuter un test de basculement entre des clouds VMM
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Basculer des machines protégées
-          href: site-recovery-failover.md
-        - name: Exécuter un basculement et une restauration automatique pour les serveurs physiques
-          href: tutorial-vmware-to-azure-failover-failback.md
-        - name: Exécuter un basculement et une restauration automatique pour les machines virtuelles Hyper-V
-          href: tutorial-hyper-v-to-azure-failover-failback.md
-        - name: Exécuter un basculement et une restauration automatique sur des sites locaux
-          href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: À propos du basculement
+              href: site-recovery-failover.md
+            - name: Exécuter un test de basculement vers un site secondaire
+              href: tutorial-dr-drill-secondary.md
+            - name: Exécuter un basculement et une restauration automatique pour les serveurs physiques
+              href: physical-to-azure-failover-failback.md
+            - name: Exécuter un basculement et une restauration automatique sur des sites locaux
+              href: tutorial-vmm-to-vmm-failover-failback.md
         - name: Restaurer la protection des machines après un basculement
           items:
             - name: Protéger de nouveau à partir d’une région secondaire Azure vers une région primaire
@@ -172,7 +175,7 @@
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Tests de mise à l’échelle des performances pour la réplication d’Hyper-V entre des sites locaux
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
-    - name: Configuration
+    - name: Configurer
       items:
         - name: Configurer l’environnement source
           items:
@@ -186,25 +189,28 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Environnement cible pour serveur physique vers Azure
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Configurer les paramètres de réplication pour VMware vers Azure
-          href: site-recovery-setup-replication-settings-vmware.md
-        - name: Exclure les disques de la réplication de VMware vers Azure
-          href: site-recovery-exclude-disk.md
-        - name: Exclure les disques de la réplication de Hyper-V vers Azure
-          href: site-recovery-hyper-v-exclude-disk.md
-        - name: Déployer le service Mobilité pour la réplication VMware
-          href: site-recovery-vmware-to-azure-install-mob-svc.md
+        - name: Configurer les paramètres de réplication
           items:
-            - name: Déployer le service Mobilité avec System Center Configuration Manager
-              href: site-recovery-install-mobility-service-using-sccm.md
-            - name: Déployer le service Mobilité avec Azure Automation DSC
-              href: site-recovery-automate-mobility-service-install.md
+            - name: Configurer les paramètres de réplication pour VMware vers Azure
+              href: site-recovery-setup-replication-settings-vmware.md
+            - name: Exclure les disques de la réplication de VMware vers Azure
+              href: site-recovery-exclude-disk.md
+            - name: Exclure les disques de la réplication de Hyper-V vers Azure
+              href: site-recovery-hyper-v-exclude-disk.md
         - name: Activer la réplication
           items:
             - name: Activer la réplication Azure vers Azure
               href: site-recovery-replicate-azure-to-azure.md
             - name: Activer la réplication VMware vers Azure
               href: site-recovery-replicate-vmware-to-azure.md
+        - name: Déployer le service Mobilité pour VMware
+          items:
+            - name: À propos du service Mobilité
+              href: site-recovery-vmware-to-azure-install-mob-svc.md
+            - name: Déployer le service Mobilité avec System Center Configuration Manager
+              href: site-recovery-install-mobility-service-using-sccm.md
+            - name: Déployer le service Mobilité avec Azure Automation DSC
+              href: site-recovery-automate-mobility-service-install.md
     - name: Automatisation
       items:
         - name: "Répliquer des machines virtuelles VMware sur Microsoft\_Azure à l’aide de PowerShell"
@@ -215,12 +221,6 @@
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: Configurer la réplication Hyper-V vers un site VMM secondaire à l’aide de PowerShell
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
-    - name: Migrer
-      items:
-        - name: Migrer des machines virtuelles Azure vers une autre région Azure
-          href: site-recovery-migrate-azure-to-azure.md
-        - name: Répliquer des ordinateurs sur une autre région Azure après migration
-          href: site-recovery-azure-to-azure-after-migration.md
     - name: Charges de travail
       items:
         - name: Active Directory et DNS
@@ -245,7 +245,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Autres charges de travail
           href: 'site-recovery-workload.md#workload-summary'
-    - name: gérer
+    - name: Gérer
       items:
         - name: Passer à un coffre Recovery Services
           href: upgrade-site-recovery-vaults.md
@@ -261,7 +261,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Supprimer un coffre
           href: delete-vault.md
-    - name: Résolution des problèmes
+    - name: Résoudre les problèmes
       items:
         - name: Problèmes de réplication Azure vers Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -273,7 +273,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Collecter les journaux et résoudre les problèmes locaux
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: "Azure\_PowerShell"
       href: /powershell/module/azurerm.recoveryservices.siterecovery
@@ -295,7 +295,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
-    - name: Tarifs
+    - name: Tarification
       href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'

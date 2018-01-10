@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: Passerelle OMS
               href: log-analytics-oms-gateway.md
-            - name: Résoudre les problèmes de l’agent Linux
-              href: log-analytics-agent-linux-support.md
         - name: Sources de données
           items:
             - name: Présentation des sources de données
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Champs personnalisés
               href: log-analytics-custom-fields.md
+            - name: API du collecteur de données
+              href: log-analytics-data-collector-api.md
     - name: Données de requête
       items:
         - name: Documentation sur le langage
@@ -148,7 +148,7 @@
           items:
             - name: Portail OMS
               href: log-analytics-alerts-creating.md
-            - name: API REST
+            - name: de l’API REST
               href: log-analytics-api-alerts.md
             - name: Modèle Resource Manager
               href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md
@@ -156,7 +156,7 @@
           href: log-analytics-alerts-webhooks.md
         - name: Solution Alert Management
           href: log-analytics-solution-alert-management.md
-    - name: Gérer
+    - name: gérer
       items:
         - name: Gestion des agents
           href: log-analytics-agent-manage.md
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Supprimer un espace de travail
           href: log-analytics-manage-del-workspace.md
+    - name: Résolution des problèmes
+      items:
+        - name: Résoudre les problèmes liés à l’extension de machine virtuelle
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Résoudre les problèmes de l’agent Linux
+          href: log-analytics-agent-linux-support.md
     - name: Utiliser des solutions
       items:
         - name: Présentation des solutions
           href: log-analytics-add-solutions.md
         - name: Solutions cibles
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Activity Log Analytics
-          href: log-analytics-activity.md
-        - name: Contrôle d’intégrité d’AD
+        - name: Journaux d’activité Azure
+          items:
+            - name: Analyse
+              href: log-analytics-activity.md
+            - name: Collection entre des abonnements
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: AD Assessment
           href: log-analytics-ad-assessment.md
         - name: AD Replication Status
           href: log-analytics-ad-replication-status.md
@@ -224,7 +234,7 @@
           items:
             - name: Service Fabric avec Azure Resource Manager
               href: log-analytics-service-fabric-azure-resource-manager.md
-        - name: Carte de service
+        - name: Service Map
           href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Contrôle d’intégrité de SQL
           href: log-analytics-sql-assessment.md
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: Développement
       items:
-        - name: API du collecteur de données
-          href: log-analytics-data-collector-api.md
         - name: "Applets de commande\_PowerShell"
           href: log-analytics-powershell-workspace-configuration.md
         - name: Modèles Resource Manager
@@ -269,7 +277,7 @@
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
