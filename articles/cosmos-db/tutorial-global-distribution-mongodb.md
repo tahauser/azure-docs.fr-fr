@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: a934643be02abeadecf9e8384e29bd3e0e1a36f5
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Comment configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB
 
@@ -101,7 +101,7 @@ Dans ce didacticiel, vous avez effectué les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer la distribution mondiale à l’aide du portail Azure
-> * Configurer la distribution mondiale à l’aide des API DocumentDB
+> * Configurer la distribution mondiale à l’aide des API SQL
 
 Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développer en local à l’aide de l’émulateur local Azure Cosmos DB.
 

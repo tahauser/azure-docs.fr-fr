@@ -10,23 +10,22 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: ad6469fcf86aeb7a0076ab5909fbe593596df695
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/13/2017
+ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrer l’instance SQL Server locale vers la base de données SQL Azure à l’aide d’Azure PowerShell
-Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell.  Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.
+Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.
 
 Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
-> * Créer un groupe de ressources.
+> * Créez un groupe de ressources.
 > * Créer une instance Azure Database Migration Service.
 > * Créer un projet de migration dans une instance Azure Database Migration Service.
 > * Exécuter la migration.
-
 
 ## <a name="prerequisites"></a>Composants requis
 Pour effectuer cette procédure, vous avez besoin de :
@@ -38,13 +37,13 @@ Pour effectuer cette procédure, vous avez besoin de :
 - [Assistant Migration des données](https://www.microsoft.com/download/details.aspx?id=53595) version 3.3 ou ultérieure.
 - Azure Database Migration Service nécessite un réseau virtuel créé à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux à l’aide de la fonction [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - L’évaluation de la base de données locale et de la migration de schéma à l’aide de Microsoft Data Migration Assistant, comme indiqué dans l’article relatif à [l’évaluation de la migration de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
-- Le téléchargement et l’installation du module AzureRM.DataMigration depuis PowerShell Gallery, à l’aide de la cmdlet [Install-Module PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
-- Les informations d’identification utilisées pour se connecter à une instance SQL Server source doivent disposer des autorisations de [CONTRÔLE DE SERVEUR](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Les informations d’identification utilisées pour se connecter à l’instance Azure SQL Database cible doivent disposer des autorisations de CONTRÔLE DE BASE DE DONNÉES concernant les bases de données SQL Azure Database cibles.
+- Téléchargez et installez le module AzureRM.DataMigration sur PowerShell Gallery avec la [cmdlet Install-Module PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+- Les informations d’identification utilisées pour se connecter à une instance SQL Server source doivent être associées à l’autorisation [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
+- Les informations d’identification utilisées pour se connecter à une instance Azure SQL DB cible doivent être associées à l’autorisation CONTROL DATABASE concernant les bases de données Azure SQL Database cibles.
+- Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Connexion à un abonnement Microsoft Azure
 Suivez les instructions de l’article [Se connecter avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) pour vous connecter à votre abonnement Azure à l’aide de PowerShell.
-
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources pour pouvoir créer une machine virtuelle.
@@ -56,7 +55,6 @@ L’exemple suivant permet de créer un groupe de ressources nommé *myResourceG
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## <a name="create-an-azure-database-migration-service-instance"></a>Créer une instance Azure Database Migration Service 
 Vous pouvez créer une instance Azure Database Migration Service à l’aide de l’applet de commande `New-AzureRmDataMigrationService`. Cette cmdlet attend les paramètres requis suivants :
 - *Nom du groupe de ressources Azure*. Vous pouvez utiliser la commande [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) pour créer le groupe de ressources Azure indiqué précédemment et indiquez son nom en tant que paramètre.
@@ -86,7 +84,7 @@ Vous pouvez créer un objet d’informations de connexion de base de données à
 - *AuthType*. Type d’authentification pour la connexion, qui peut être SqlAuthentication ou WindowsAuthentication.
 - Le paramètre *TrustServerCertificate* définit une valeur qui indique si le canal est chiffré tout en ignorant l’analyse de la chaîne de certificat pour valider l’approbation. La valeur doit être « true » ou « false ».
 
-L’exemple suivant crée l’objet d’information de connexion pour l’instance SQL Server source appelée MySQLSourceServer, à l’aide de l’authentification sql. 
+L’exemple suivant crée l’objet d’informations de connexion pour l’instance SQL Server source, appelée MySQLSourceServer, avec l’authentification SQL. 
 
 ```powershell
 $sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
@@ -130,11 +128,9 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Créer et démarrer une tâche de migration
-
 Enfin, créez et démarrez une tâche Azure Database Migration. La tâche Azure Database Migration nécessite des informations de connexion pour les systèmes source et cible, ainsi que la liste des tables de base de données à migrer, en plus des informations déjà fournies avec le projet créé, en tant que condition préalable. 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Créer des paramètres d’informations d’identification pour la source et la cible
-
 Vous pouvez créer des informations d’identification de sécurité de la connexion en tant qu’objet [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0). 
 
 L’exemple suivant illustre la création d’objets *PSCredential* pour les connexions source et cible, en fournissant des mots de passe en tant que variables de chaîne *$sourcePassword* et *$targetPassword*. 
@@ -200,11 +196,11 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 Vous pouvez surveiller la tâche de migration en cours d’exécution en interrogeant la propriété d’état de la tâche, comme indiqué dans l’exemple suivant :
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Passez en revue les conseils de migration du [guide de migration de base de données Microsoft](https://datamigration.microsoft.com/).
+- Lisez l’aide à la migration du [Guide de migration de bases de données](https://datamigration.microsoft.com/) de Microsoft.

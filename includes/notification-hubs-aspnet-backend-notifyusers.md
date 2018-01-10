@@ -148,7 +148,7 @@ Dans cette section, vous ajoutez un nouveau contrôleur au serveur principal Web
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Remplacez la définition de classe `Notifications` par le code suivant et les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre hub de notification et le nom du hub (disponible dans le [portail Azure Classic](http://manage.windowsazure.com)) :
+6. Remplacez la définition de classe `Notifications` par le code suivant et les deux espaces réservés par la chaîne de connexion (avec accès complet) de votre centre Notification Hubs et le nom du hub (disponible sur le [Portail Azure](http://portal.azure.com)) :
    
         public class Notifications
         {
@@ -287,7 +287,7 @@ Dans cette section, vous ajoutez un nouveau contrôleur au serveur principal Web
 12. Enregistrez vos modifications.
 
 ## <a name="send-notifications-from-the-webapi-back-end"></a>Envoyer des notifications depuis le serveur principal WebAPI
-Dans cette section, vous ajoutez un nouveau contrôleur qui montre aux appareils client comment envoyer une notification. La notification se base sur la balise du nom d’utilisateur qui utilise la bibliothèque de gestion du service d’Azure Notification Hubs dans le serveur principal WebAPI ASP.NET.
+Dans cette section, vous ajoutez un nouveau contrôleur qui montre aux appareils clients comment envoyer une notification. La notification se base sur la balise du nom d’utilisateur qui utilise la bibliothèque de gestion du service d’Azure Notification Hubs dans le serveur principal WebAPI ASP.NET.
 
 1. Créez un nouveau contrôleur nommé **NotificationsController**, de la même façon que vous avez créé **RegisterController** dans la section précédente.
 

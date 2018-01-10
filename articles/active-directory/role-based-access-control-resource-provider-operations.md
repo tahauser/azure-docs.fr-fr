@@ -4,7 +4,7 @@ description: "Décrit en détails les opérations disponibles sur les fournisseu
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
-Ce document répertorie les opérations disponibles pour chaque fournisseur de ressources Microsoft Azure Resource Manager. Celles-ci peuvent être utilisées dans des rôles personnalisés pour fournir des autorisations de contrôle d’accès en fonction du rôle (RBAC) granulaires aux ressources dans Azure. Notez que cette liste n’est pas exhaustive et que des opérations peuvent être ajoutées ou supprimées à mesure que chaque fournisseur est mis à jour. Les chaînes d’opération sont au format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Pour obtenir une liste complète et actuelle, utilisez `Get-AzureRmProviderOperation` (dans PowerShell) ou `azure provider operations show` (dans Azure CLI) pour répertorier les opérations des fournisseurs de ressources Azure.
+Ce document répertorie les opérations disponibles pour chaque fournisseur de ressources Microsoft Azure Resource Manager. Celles-ci peuvent être utilisées dans des rôles personnalisés pour fournir des autorisations de contrôle d’accès en fonction du rôle (RBAC) granulaires aux ressources dans Azure. Notez que cette liste n’est pas exhaustive et que des opérations peuvent être ajoutées ou supprimées à mesure que chaque fournisseur est mis à jour. Les chaînes d’opération sont au format `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Pour obtenir une liste complète et actuelle, utilisez `Get-AzureRmProviderOperation` (dans PowerShell) ou `az provider operation list` (dans Azure CLI v2) pour répertorier les opérations des fournisseurs de ressources Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -2194,7 +2197,6 @@ Ce fournisseur n’est pas un fournisseur ARM complet et ne fournit aucune opér
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [créer un rôle personnalisé](role-based-access-control-custom-roles.md).
-
 - Passez en revue les [rôles RBAC intégrés](role-based-access-built-in-roles.md).
-
 - Découvrez comment gérer les affectations d’accès [par utilisateur](role-based-access-control-manage-assignments.md) ou [par ressource](role-based-access-control-configure.md). 
+- Découvrez comment [afficher les journaux d’activité pour auditer les actions sur les ressources](~/articles/azure-resource-manager/resource-group-audit.md).

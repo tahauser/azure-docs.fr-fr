@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9dabf666c633b59c7d1f9478b0e9cfe9d313e129
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisation du déploiement de machine virtuelle Azure avec Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef est un excellent outil d’automatisation et de fourniture des configurations d’état souhaitées.
 
-Avec notre dernière version d’api-cloud, Chef assure l’intégration transparente avec Azure, ce qui vous donne la possibilité de configurer et de déployer les états de configuration via une commande unique.
+Avec la dernière version d’API cloud, Chef assure l’intégration transparente avec Azure, ce qui vous donne la possibilité de configurer et de déployer les états de configuration via une commande unique.
 
 Dans cet article, vous apprendrez à configurer votre environnement Chef pour configurer des machines virtuelles Azure et à créer une stratégie ou « Livre de recettes » avant de la déployer sur une machine virtuelle Azure.
 
 Commençons !
 
 ## <a name="chef-basics"></a>Principes fondamentaux de Chef
-Avant de commencer, nous vous suggérons de vous familiariser avec les principes fondamentaux de Chef. Des éléments très intéressants sont disponibles <a href="http://www.chef.io/chef" target="_blank">ici</a> et nous vous recommandons de les passer en revue avant de suivre ce guide. Nous récapitulerons les principes fondamentaux avant de commencer.
+Avant de commencer, [familiarisez-vous avec les principes fondamentaux de Chef](http://www.chef.io/chef). 
 
 Le schéma ci-dessous illustre l’architecture de Chef de haut niveau.
 
@@ -41,25 +41,24 @@ Le schéma ci-dessous illustre l’architecture de Chef de haut niveau.
 
 Chef présente trois principaux composants architecturaux : le serveur Chef, le client Chef (nœud) et la station de travail Chef.
 
-Le serveur Chef est notre point de gestion. Il existe deux options pour le serveur Chef : une solution hébergée ou une solution locale. Nous allons utiliser une solution hébergée.
+Le serveur Chef est le point de gestion. Il existe deux options pour le serveur Chef : une solution hébergée ou une solution locale. Nous allons utiliser une solution hébergée.
 
 Le client Chef (nœud) est l’agent qui se trouve sur les serveurs que vous gérez.
 
-La station de travail Chef est notre station de travail d’administration où nous créons nos stratégies et exécutons nos commandes de gestion. Nous exécutons la commande **knife** à partir de la station de travail Chef pour gérer notre infrastructure.
+La station de travail Chef est la station de travail d’administration où nous créons des stratégies et exécutons des commandes de gestion. Nous exécutons la commande **knife** à partir de la station de travail Chef pour gérer l’infrastructure.
 
-Les concepts de « Livres de recettes » et de « Recettes » existent aussi. Il s’agit des stratégies que nous définissons et qui s’appliquent à nos serveurs.
+Les concepts de « Livres de recettes » et de « Recettes » existent aussi. Il s’agit des stratégies que nous définissons et qui s’appliquent aux serveurs.
 
 ## <a name="preparing-the-workstation"></a>Préparation de la station de travail
-Tout d’abord, préparons la station de travail. J’utilise une station de travail Windows standard. Nous devons créer un répertoire pour stocker nos fichiers de configuration et nos livres de recettes.
+Tout d’abord, préparons la station de travail. J’utilise une station de travail Windows standard. Nous devons créer un répertoire pour stocker les fichiers de configuration et les livres de recettes.
 
 Commencez par créer un répertoire appelé C:\chef.
 
 Créez ensuite un second répertoire appelé c:\chef\cookbooks.
 
-Nous devons maintenant télécharger notre fichier de paramètres Azure pour que Chef puisse communiquer avec notre abonnement Azure.
+Nous devons maintenant télécharger le fichier de paramètres Azure pour que Chef puisse communiquer avec l’abonnement Azure.
 
-<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
-Télécharger vos paramètres de publication à l’aide de la commande PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0). 
+Télécharger vos paramètres de publication à l’aide de la commande PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0). 
 
 Enregistrez le fichier de paramètres de publications dans C:\chef.
 
@@ -147,13 +146,13 @@ Si tout est configuré correctement, vous verrez une liste d’images Azure disp
 Félicitations ! La station de travail est configurée !
 
 ## <a name="creating-a-cookbook"></a>Création d’un livre de recettes
-Dans Chef, un livre de recettes permet de définir un ensemble de commandes que vous souhaitez exécuter sur votre client managé. La création d’un livre de recettes est très simple et nous utilisons la commande **chef generate cookbook** pour générer notre modèle de livre de recettes. Nous appellerons notre livre de recettes webserver, étant donné que je souhaite disposer d’une stratégie qui déploie IIS automatiquement.
+Dans Chef, un livre de recettes permet de définir un ensemble de commandes que vous souhaitez exécuter sur votre client managé. La création d’un livre de recettes est très simple et nous utilisons la commande **chef generate cookbook** pour générer le modèle de livre de recettes. Nous appellerons notre livre de recettes webserver, étant donné que je souhaite disposer d’une stratégie qui déploie IIS automatiquement.
 
 Dans le répertoire C:\Chef, exécutez la commande suivante.
 
     chef generate cookbook webserver
 
-Cela génère un ensemble de fichiers dans le répertoire C:\Chef\cookbooks\webserver. Nous devons maintenant définir le jeu de commandes que notre client Chef doit exécuter sur nos ordinateurs virtuels gérés.
+Cela génère un ensemble de fichiers dans le répertoire C:\Chef\cookbooks\webserver. Nous devons maintenant définir le jeu de commandes que le client Chef doit exécuter sur la machine virtuelle managée.
 
 Les commandes sont stockées dans le fichier default.rb. Dans ce fichier, je vais définir un ensemble de commandes qui installe les services IIS, démarre IIS et copie un fichier de modèle dans le dossier wwwroot.
 
@@ -176,7 +175,7 @@ Modifiez le fichier C:\chef\cookbooks\webserver\recipes\default.rb et ajoutez le
 Enregistrez le fichier une fois que vous avez terminé.
 
 ## <a name="creating-a-template"></a>Création d’un modèle
-Comme nous l’avons mentionné précédemment, nous devons générer un fichier de modèle qui sera utilisé comme notre page default.html.
+Comme nous l’avons mentionné précédemment, nous devons générer un fichier de modèle qui sera utilisé comme la page default.html.
 
 Exécutez la commande suivante pour générer le modèle.
 
@@ -185,14 +184,14 @@ Exécutez la commande suivante pour générer le modèle.
 Maintenant, accédez au fichier C:\chef\cookbooks\webserver\templates\default\Default.htm.erb. Modifiez le fichier en y ajoutant le code html simple « Hello World », puis enregistrez-le.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Téléchargez le livre de recettes sur le serveur Chef
-Dans cette étape, nous allons faire une copie du livre de recettes que nous avons créé sur notre ordinateur local et le télécharger vers le serveur hébergé Chef. Une fois téléchargé, le livre de recettes apparaît sous l’onglet **Stratégie** .
+Dans cette étape, nous allons faire une copie du livre de recettes que nous avons créé sur l’ordinateur local et le télécharger vers le serveur hébergé Chef. Une fois téléchargé, le livre de recettes apparaît sous l’onglet **Stratégie** .
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Déployer une machine virtuelle avec Knife Azure
-Nous déploierons maintenant une machine virtuelle Azure et appliquerons le livre de recettes « Webserver » qui installera notre page web par défaut et notre service Web IIS.
+Nous allons maintenant déployer une machine virtuelle Azure et appliquerons le livre de recettes « Webserver » qui installera la page web par défaut et le service web IIS.
 
 Pour ce faire, utilisez la commande **knife azure server create** .
 

@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Forum aux Questions
 ## <a name="general"></a>Généralités
@@ -179,14 +179,14 @@ Si vous n’avez de serveur principal d’applications, lorsque l’application 
 Pendant une certaine période, les appareils sur lesquels aucune application n’est ouverte ne reçoivent pas de notifications.
 
 ### <a name="is-there-audit-log-capability"></a>Existe-t-il une fonctionnalité de journal d’audit ?
-Toutes les opérations de gestion concernant Notification Hubs sont enregistrées dans les journaux des opérations qui sont exposés dans le [portail Azure Classic].
+Toutes les opérations de gestion de Notification Hubs sont enregistrées dans les journaux des opérations, qui sont exposés sur le [portail Azure].
 
 ## <a name="monitoring-and-troubleshooting"></a>Surveillance et dépannage
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Quelles sont les fonctionnalités proposées pour faciliter la résolution des problèmes ?
 Azure Notification Hubs fournit plusieurs fonctionnalités de dépannage, en particulier pour la suppression de notifications, qui est le scénario le plus fréquent. Pour plus d’informations, consultez le livre blanc [Dépannage de Notification Hubs].
 
 ### <a name="what-telemetry-features-are-available"></a>Quelles sont les fonctionnalités de télémétrie proposées ?
-Azure Notification Hubs permet d’afficher des données de télémétrie dans le [portail Azure Classic]. Pour plus de détails sur les mesures disponibles, voir la page [Mesures de Notification Hubs].
+Azure Notification Hubs permet d’afficher des données de télémétrie sur le [portail Azure]. Pour plus de détails sur les mesures disponibles, voir la page [Mesures de Notification Hubs].
 
 > [!NOTE]
 > Quand des notifications sont réussies, cela signifie simplement que les notifications Push ont été remises au service de notification Push externe (par exemple, APNS pour Apple, GCM pour Google, etc.). Il est de la responsabilité du service de notification Push d’envoyer des notifications aux appareils cibles. En règle générale, le PNS n’expose pas les métriques de remise aux tiers.  
@@ -195,7 +195,7 @@ Azure Notification Hubs permet d’afficher des données de télémétrie dans l
 
 Nous offrons également la possibilité d’exporter les données de télémétrie par programme (au niveau de service Standard). Pour plus d’informations, consultez l’[Exemple de mesures de Notification Hubs].
 
-[portail Azure Classic]: https://manage.windowsazure.com
+[portail Azure]: https://portal.azure.com
 [Tarification de Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Étude de cas : Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Nous offrons également la possibilité d’exporter les données de télémétr
 [Mesures de Notification Hubs]: https://msdn.microsoft.com/library/dn458822.aspx
 [Exemple de mesures de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [Tarification de App Service]: https://azure.microsoft.com/pricing/details/app-service/

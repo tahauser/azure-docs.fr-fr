@@ -54,7 +54,7 @@ Pour trouver les informations d’identification que votre périphérique doit u
 
 1. Localisez le groupe de ressources qui contient les services Azure qu’utilise votre solution de surveillance à distance. Le groupe de ressources a le même nom que celui de la solution de surveillance à distance configurée.
 
-1. Naviguez jusqu'au concentrateur IoT dans ce groupe de ressources. Puis choisissez **Explorateur de périphérique** :
+1. Naviguez jusqu'au concentrateur IoT dans ce groupe de ressources. Ensuite, sélectionnez **Appareils IoT** :
 
     ![Explorateur d’appareils](media/iot-suite-selector-connecting/deviceexplorer.png)
 

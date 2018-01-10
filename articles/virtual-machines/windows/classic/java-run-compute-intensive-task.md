@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Création d’une machine virtuelle
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3. Dans la boîte de dialogue **Sélectionner une image de machine virtuelle**, sélectionnez **Windows Server 2012 JDK 7**.
    Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
@@ -74,7 +74,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
    2. Cliquez sur **Terminé**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Connexion distante à votre machine virtuelle
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
 4. Cliquez sur **Connecter**.
@@ -87,15 +87,15 @@ Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous deve
 
 Pour créer un espace de noms de service :
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. En bas du volet de navigation gauche du Portail Azure Classic, cliquez sur **Service Bus, Access Control et Cache**.
-3. Dans le volet supérieur gauche du Portail Azure Classic, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**.  
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. En bas du volet de navigation gauche du Portail Azure, cliquez sur **Service Bus, Access Control et Cache**.
+3. Dans le volet supérieur gauche du Portail Azure, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**.  
    ![Capture d'écran du nœud Service Bus][svc_bus_node]
 4. Dans la boîte de dialogue **Créer un espace de noms de service**, entrez un **Espace de noms**, puis vérifiez qu’il est unique en cliquant sur le bouton **Vérifier la disponibilité**.  
    ![Capture d'écran Créer un espace de noms][create_namespace]
 5. Après avoir vérifié que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms sera hébergé, puis cliquez sur le bouton **Créer un espace de noms** .  
    
-   L’espace de noms que vous avez créé apparaît alors dans le portail Azure Classic. Son activation peut prendre un peu de temps. Attendez que l’état **Actif** apparaisse avant de passer à l’étape suivante.
+   L’espace de noms que vous avez créé apparaît alors dans le portail Azure. Son activation peut prendre un peu de temps. Attendez que l’état **Actif** apparaisse avant de passer à l’étape suivante.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 Pour pouvoir effectuer des opérations de gestion telles que la création d'une file d'attente sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion associées.

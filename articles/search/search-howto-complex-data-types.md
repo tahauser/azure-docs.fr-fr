@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modélisation de types de données complexes dans Recherche Azure
 Les jeux de données externes utilisés pour remplir un index Recherche Azure inclut parfois des sous-structures hiérarchiques ou imbriquées qui ne sont pas réparties proprement en un ensemble de lignes tabulaire. Des exemples de telles structures incluent les emplacements et les numéros de téléphone multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de *types de données complexes*, *types de données composées*, *types de données composites* ou *types de données agrégées*, entre autres.
@@ -66,7 +66,7 @@ En règle générale, les données en question sont stockées sous la forme d’
 Bien que les champs nommés « id », « name » et « company » puissent facilement être mappés un à un en tant que champs au sein d’un index Recherche Azure, le champ « locations » contient un tableau d’emplacements, qui présentent chacun un ID et une description. Comme Recherche Azure ne propose pas de type de données prenant cette structure en charge, nous devons trouver un autre moyen pour la modéliser dans Recherche Azure. 
 
 > [!NOTE]
-> Cette technique est également décrite par Kirk Evans dans le billet de blog [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indexation de DocumentDB avec Recherche Azure), où il présente une technique appelée « aplatissement de données », qui consiste, dans notre exemple, à faire appel à des champs `locationsID` et `locationsDescription` qui sont tous deux des [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou un tableau de chaînes).   
+> Cette technique est également décrite par Kirk Evans dans le billet de blog [Indexing Azure Cosmos DB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indexation d’Azure Cosmos DB avec Recherche Azure), où il présente une technique appelée « aplatissement de données », qui consiste, dans notre exemple, à faire appel à des champs `locationsID` et `locationsDescription` qui sont tous deux des [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou un tableau de chaînes).   
 > 
 > 
 
