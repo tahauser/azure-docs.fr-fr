@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copier des données d’Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ Pour copier des données d’Amazon Redshift, définissez **AmazonRedshiftSource
 | type | La propriété type de la source d’activité de copie doit être définie sur **AmazonRedshiftSource** | Oui |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non (si « tableName » est spécifié dans dataset) |
 | redshiftUnloadSettings | Groupe de propriétés lors de l’utilisation du mécanisme UNLOAD d’Amazon Redshift. | Non |
-| s3LinkedServiceName | Fait référence à un service Amazon S3 à utiliser comme magasin temporaire en spécifiant un nom de service lié Azure Data Factory de type « AmazonS3 ». | Oui, en cas d’utilisation de UNLOAD |
+| s3LinkedServiceName | Fait référence à un service Amazon S3 à utiliser comme magasin temporaire en spécifiant un nom de service lié de type « AmazonS3 ». | Oui, en cas d’utilisation de UNLOAD |
 | bucketName | Indiquez le compartiment S3 pour stocker les données intermédiaires. S’il n’est pas spécifié, le service Data Factory le génère automatiquement.  | Oui, en cas d’utilisation de UNLOAD |
 
 **Exemple : source Amazon Redshift dans une activité de copie utilisant UNLOAD**
@@ -207,7 +207,7 @@ Dans cet exemple de cas d’utilisation, l’activité de copie décharge les do
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Mappage de type de données pour Amazon Redshift
 
-Lors de la copie de données de Teradata, les mappages suivants sont utilisés entre les types de données Teradata et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
+Lors de la copie de données à partir d’Amazon Redshift, les mappages suivants sont utilisés entre les types de données Amazon Redshift et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
 | Type de données d’Amazon Redshift | Type de données intermédiaires de Data Factory |
 |:--- |:--- |

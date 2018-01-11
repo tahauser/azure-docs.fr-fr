@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Utilisation de l’API REST du service Azure Import/Export
 
-Le service Microsoft Azure Import/Export expose une API REST pour activer le contrôle par programme des travaux d’importation/exportation. Vous pouvez utiliser l’API REST pour exécuter toutes les opérations d’importation/exportation que vous pouvez effectuer avec le [portail Azure](https://portal.azure.com/). Par ailleurs, vous pouvez utiliser l’API REST pour effectuer certaines opérations granulaires, comme demander le pourcentage d’achèvement d’un travail, qui ne sont pas disponibles actuellement dans le portail Azure Classic.
+Le service Microsoft Azure Import/Export expose une API REST pour activer le contrôle par programme des travaux d’importation/exportation. Vous pouvez utiliser l’API REST pour exécuter toutes les opérations d’importation/exportation que vous pouvez effectuer avec le [portail Azure](https://portal.azure.com/). Par ailleurs, vous pouvez utiliser l’API REST pour effectuer certaines opérations granulaires, comme le pourcentage d’achèvement d’un travail, qui ne sont pas disponibles actuellement dans le portail Azure.
 
-Consultez [Transfert de données vers le stockage Blob à l’aide du service Microsoft Azure Import/Export](../storage-import-export-service.md) pour une présentation du service Import/Export et un didacticiel qui explique comment utiliser le portail Classic pour créer et gérer les travaux d’importation et d’exportation.
+Consultez [Transfert de données vers le Stockage Blob à l’aide du service Microsoft Azure Import/Export](../storage-import-export-service.md) pour obtenir une présentation du service Import/Export et un didacticiel qui explique comment utiliser le portail Azure afin de créer et gérer les travaux d’importation et d’exportation.
 
 ## <a name="service-endpoints"></a>Points de terminaison de service
 

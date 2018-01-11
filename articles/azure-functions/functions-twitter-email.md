@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -72,28 +72,31 @@ Les API Cognitive Services sont disponibles dans Azure en tant que ressources in
  
     ![Clés](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Création de la fonction
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Créer l’application de fonction
 
 Les fonctions offrent un excellent moyen de se décharger des tâches de traitement dans un flux de travail d’applications logiques. Ce didacticiel utilise une fonction déclenchée via HTTP pour traiter des scores de sentiments de tweet à partir de Cognitive Services et renvoie une valeur de catégorie.  
 
-1. Cliquez sur le bouton **Nouveau** et sélectionnez **Calcul** > **Application de fonction**. Utilisez ensuite les paramètres spécifiés dans le tableau ci-dessous. Acceptez les conditions, puis sélectionnez **Épingler au tableau de bord**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Créer une application de fonction Azure](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Créer une fonction déclenchée via HTTP  
 
-    | Paramètre      |  Valeur suggérée   | Description       |
-    | --- | --- | --- |
-    | **Name** | MyFunctionApp | Choisissez un nom de compte unique. |
-    | **Groupe de ressources** | myResourceGroup | Utilisez le même groupe de ressources pour tous les services de ce didacticiel.|
-    | **Plan d’hébergement** | Plan de consommation | Définit les affectations des coûts et de l’utilisation.
-    | **Emplacement** | Ouest des États-Unis | Utilisez l’emplacement le plus proche de vous. |
-    | **Stockage** | Création | Génère automatiquement un nouveau compte de stockage.|
-    | **Niveau tarifaire** | F0 | Démarrez avec le niveau le plus bas. Si vous manquez d’appels, choisissez un niveau plus élevé.|
+1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre Function App, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction.
 
-2. Sélectionnez votre application de fonction dans votre tableau de bord et développez votre fonction, cliquez sur le bouton **+** situé en regard de **Fonctions**, cliquez sur **Webhook + API**,  **CSharp**, puis **Créer cette fonction**. Cette opération crée une fonction à l’aide du modèle C# HTTPTrigger. Votre code s’affiche dans une nouvelle fenêtre sous la forme `run.csx`
+    ![Page de démarrage rapide des fonctions sur le portail Azure](media/functions-twitter-email/add-first-function.png)
 
-    ![Panneau Function Apps, Fonctions +](media/functions-twitter-email/add_fun.png)
+2. Dans le champ Rechercher, tapez `http`, puis choisissez **C#** pour le modèle de déclencheur HTTP. 
 
-3. Remplacez le contenu du fichier `run.csx` par le code suivant, puis cliquez sur **Enregistrer** :
+    ![Choisir le déclencheur HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Tapez un **nom** à donner à votre fonction, choisissez `Function` pour le **[niveau d’authentification](functions-bindings-http-webhook.md#http-auth)**, puis sélectionnez **Créer**. 
+
+    ![Créer une fonction déclenchée via HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Cette opération crée une fonction de script C# à l’aide du modèle HTTP déclencheur. Votre code s’affiche dans une nouvelle fenêtre sous la forme `run.csx`.
+
+4. Remplacez le contenu du fichier `run.csx` par le code suivant, puis cliquez sur **Enregistrer** :
 
     ```csharp
     using System.Net;

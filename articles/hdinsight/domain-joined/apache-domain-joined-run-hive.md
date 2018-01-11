@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 812acea414096880c2b80958cb7c6f410f0d9c98
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurer les stratégies Hive dans HDInsight joint à un domaine
 Découvrez comment configurer des stratégies Apache Ranger pour Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
@@ -45,10 +45,10 @@ Découvrez comment configurer des stratégies Apache Ranger pour Hive. Dans cet 
     Actuellement, Ranger fonctionne uniquement avec Yarn et Hive.
 
 ## <a name="create-domain-users"></a>Création d’utilisateurs du domaine
-Dans [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad), vous avez créé hiveruser1 et hiveuser2. Vous allez utiliser les deux comptes utilisateur dans ce didacticiel.
+Dans [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md#optional-create-ad-users-and-groups), vous avez créé hiveruser1 et hiveuser2. Vous utilisez les deux comptes utilisateur dans ce didacticiel.
 
 ## <a name="create-ranger-policies"></a>Création de stratégies Ranger
-Dans cette section, vous allez créer deux stratégies Ranger pour accéder à hivesampletable. Vous accordez une autorisation select sur différents ensembles de colonnes. Les deux utilisateurs ont été créés dans [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).  Dans la section suivante, vous allez tester les deux stratégies dans Excel.
+Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesampletable. Vous accordez une autorisation select sur différents ensembles de colonnes. Les deux utilisateurs ont été créés dans [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md#optional-create-ad-users-and-groups).  Dans la section suivante, vous allez tester les deux stratégies dans Excel.
 
 **Pour créer des stratégies Ranger**
 
@@ -105,7 +105,7 @@ Dans la dernière section, vous avez configuré deux stratégies.  hiveuser1 a l
     ![Assistant Ouvrir la connexion de données][img-hdi-simbahiveodbc.excel.dataconnection]
 3. Sélectionnez **DSN ODBC** comme source de données, puis cliquez sur **Suivant**.
 4. Dans Sources de données ODBC, sélectionnez le nom de la source de données que vous avez créée à l’étape précédente, puis cliquez sur **Suivant**.
-5. Entrez à nouveau le mot de passe pour le cluster dans l’Assistant, puis cliquez sur **OK**. Attendez l'ouverture de la boîte de dialogue **Sélection d'une base de données et d'une table** . Cette opération peut prendre quelques secondes.
+5. Saisissez à nouveau le mot de passe pour le cluster dans l’Assistant, puis cliquez sur **OK**. Attendez l'ouverture de la boîte de dialogue **Sélection d'une base de données et d'une table** . Cette opération peut prendre quelques secondes.
 6. Sélectionnez **hivesampletable**, puis cliquez sur **Suivant**.
 7. Cliquez sur **Terminer**.
 8. Dans la boîte de dialogue **Importation de données** , vous pouvez modifier ou spécifier la requête. Pour cela, cliquez sur **Propriétés**. Cette opération peut prendre quelques secondes.
@@ -123,7 +123,7 @@ Dans la dernière section, vous avez configuré deux stratégies.  hiveuser1 a l
 Pour tester la deuxième stratégie (read-hivesampletable-devicemake) que vous avez créée dans la dernière section
 
 1. Ajoutez une nouvelle feuille dans Excel.
-2. Suivez la procédure précédente pour importer les données.  La seule modification à effectuer consiste à utiliser les informations d’identification de hiveuser2 au lieu de hiveuser1. Cette opération échouera, car hiveuser2 n’est autorisé à afficher que deux colonnes. Vous devez obtenir l’erreur suivante :
+2. Suivez la procédure précédente pour importer les données.  La seule modification à effectuer consiste à utiliser les informations d’identification de hiveuser2 au lieu de hiveuser1. Cette opération échoue, car hiveuser2 n’est autorisé à afficher que deux colonnes. Vous devez obtenir l’erreur suivante :
 
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Suivez la même procédure pour importer les données. Cette fois, utilisez les informations d’identification de hiveuser2 et modifiez également l’instruction select de :

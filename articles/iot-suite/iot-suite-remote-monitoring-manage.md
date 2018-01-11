@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Gérer et configurer vos appareils
 
@@ -38,15 +38,15 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous avez besoin d’une instance déployée de la solution de surveillance à distance dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez effectuer le didacticiel [Déployer la solution préconfigurée de surveillance à distance](iot-suite-remote-monitoring-deploy.md).
+Si vous n’avez pas encore déployé la solution de surveillance à distance, vous devez terminer le didacticiel [Déployer la solution de surveillance à distance préconfigurée](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="provision-a-simulated-device"></a>Provisionner un appareil simulé
+## <a name="add-a-simulated-device"></a>Utiliser un appareil simulé
 
-Accédez à la page **Appareils** dans la solution, puis choisissez **Approvisionner**. Dans le panneau **Approvisionner**, choisissez **Simulé** :
+Accédez à la page **Appareils** dans la solution, puis choisissez **Nouvel appareil**. Dans le panneau **Nouvel appareil**, choisissez **Simulé** :
 
 ![Provisionner un appareil simulé](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Laissez le nombre d’appareils à provisionner défini sur **1**. Choisissez **Moteur** comme **Modèle de l’appareil**, puis choisissez **Appliquer** pour créer l’appareil simulé :
+Laissez le nombre d’appareils à provisionner défini sur **1**. Choisissez **Faulty Engine (Moteur défaillant)** dans **Modèle de l’appareil**, puis choisissez **Appliquer** pour créer l’appareil simulé :
 
 ![Provisionner un appareil de moteur simulé](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Pour afficher les diagnostics détaillés, faites défiler jusqu’à **Diagnost
 
 ## <a name="act-on-a-device"></a>Agir sur un appareil
 
-Pour agir sur un appareil, sélectionnez-le dans la liste des appareils, puis choisissez **Planifier**. Le modèle d’appareil **Moteur** spécifie quatre méthodes devant être prises en charge par un appareil :
+Pour agir sur un ou plusieurs appareils, sélectionnez-les dans la liste, puis choisissez **Planifier**. Le modèle d’appareil **Moteur** spécifie quatre méthodes devant être prises en charge par un appareil :
 
 ![Méthodes de moteur](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Choisissez **Redémarrer**, définissez le nom du travail sur **RestartEngine**,
 
 ![Planifier la méthode de redémarrage](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-Pour effectuer le suivi de l’état du travail sur la page **Maintenance**, choisissez **État du système** :
+Pour suivre l’état du travail dans la page **Maintenance**, choisissez **Travaux** :
 
 ![Travail de surveillance des planifications](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Pour apporter une modification, ajoutez un nom pour le travail, mettez à jour l
 
 ![Mettre à jour une valeur de propriété d’appareil](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-Pour effectuer le suivi de l’état du travail dans la page **Maintenance**, choisissez **État du système**.
+Pour suivre l’état du travail dans la page **Maintenance**, choisissez **Travaux**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

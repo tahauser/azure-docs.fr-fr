@@ -4,7 +4,7 @@ description: "Connexion utilisateur Azure AD Connect pour une configuration pe
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
@@ -28,6 +28,10 @@ Si vous connaissez déjà le modèle d’identité Azure AD et que vous souhaite
 * [Synchronisation de hachage de mot de passe](#password-synchronization) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
 * [Synchronisation directe](active-directory-aadconnect-pass-through-authentication.md) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
 * [Authentification unique fédérée (avec Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> Il est important de vous rappeler qu’en configurant la fédération pour Azure AD, vous établissez l’approbation entre votre client Azure AD et vos domaines fédérés. Avec ce domaine d’approbation fédéré, les utilisateurs auront accès aux ressources cloud d’Azure AD au sein du client.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Choix de la méthode de connexion utilisateur pour votre organisation
 Pour la plupart des organisations qui souhaitent juste activer l’authentification utilisateur pour Office 365, les applications SaaS et d’autres ressources basées sur Azure AD, l’option de synchronisation de hachage de mot de passe par défaut est recommandée. Certaines organisations, toutefois, ne sont pas en mesure d’utiliser cette option pour une raison particulière. Elles peuvent choisir une option de connexion fédérée, comme AD FS, ou l’authentification directe. Vous pouvez utiliser le tableau suivant pour vous aider à faire le bon choix.

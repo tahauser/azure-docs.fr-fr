@@ -15,37 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 05fdf1e20efd129cdfc27e1d37bc9e124edf5dcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Comment créer une tâche de traitement d’analyse de données pour Stream Analytics
 La ressource de niveau supérieur dans Azure Stream Analytics est une tâche Stream Analytics.  Elle se compose d'une ou plusieurs sources de données d'entrée, une requête exprimant la transformation de données et une ou plusieurs cibles de sortie où les résultats sont écrits. Ensemble, ces éléments permettent à l’utilisateur de traiter l’analyse des données dans différents scénarios de données de diffusion en continu.
 
 Pour utiliser Stream Analytics, commencez par créer une tâche Stream Analytics.  Notez que cette action n'a aucune incidence de facturation tant que la tâche n'a pas démarré.
 
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com) en ligne ou au [portail Azure](https://portal.azure.com/).
-2. Dans le portail : cliquez successivement sur **Nouveau**, sur **Data Services** ou **Data Analytics** (selon votre portail), sur **Azure Stream Analytics** ou **Stream Analytics**, puis sur **Création rapide**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Sélectionnez **Nouveau** > **Données + Analytique** > **Tâche Stream Analytics**.
+3. Sélectionnez **Créer**.
    
-   ![Assistant Tâche de traitement d’analyse de données](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
-   
-   ![Créer une tâche de traitement d’analyse de données](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)  
 3. Spécifiez la configuration souhaitée pour la tâche Stream Analytics.
    
    * Dans la zone **Nom de la tâche** , entrez un nom pour identifier la tâche Stream Analytics. Une fois le **nom de la tâche** validé, une coche verte s’affiche dans la zone Nom de la tâche. Le **Nom de la tâche** ne peut contenir que des caractères alphanumériques et le caractère « - », et doit compter entre 3 et 63 caractères.
-   * Utilisez **Région** dans le portail Azure ou **Emplacement** dans le portail Azure pour spécifier l’emplacement géographique où vous souhaitez exécuter le travail.
-   * Si vous utilisez le portail Azure, sélectionnez ou créez un compte de stockage à utiliser comme **Compte de stockage de surveillance régionale**. Ce compte de stockage est utilisé pour stocker les données de surveillance de toutes les tâches Stream Analytics en cours d'exécution dans cette région.
-   * Si vous utilisez le portail Azure, indiquez un **groupe de ressources** nouveau ou existant contenant les ressources associées à votre application.
-4. Une fois les options de la nouvelle tâche Stream Analytics configurées, cliquez sur **Créer une tâche Stream Analytics**. La création de la tâche Stream Analytics peut prendre plusieurs minutes. Pour vérifier l'état, vous pouvez suivre l'avancement dans le hub de notifications.
-   
-   ![Hub de notification des tâches de traitement d’analyse de données](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
-   
+   * Utilisez **Emplacement** pour indiquer l’emplacement géographique d’où vous désirez exécuter la tâche.
+   * Indiquez un **groupe de ressources** nouveau ou existant contenant les ressources associées à votre application.
+4. Sélectionnez **Créer**.
+La création de la tâche Stream Analytics peut prendre plusieurs minutes. Pour vérifier l'état, vous pouvez suivre l'avancement dans le hub de notifications.
+    
    ![Créer une tâche de traitement d’analyse de données dans le portail Azure](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
 5. Le nouveau travail est affiché avec l’état **Créé**. Notez que le bouton **Démarrer** est désactivé. Avant de pouvoir démarrer la tâche, vous devez configurer son entrée, sa requête et sa sortie.
-   
-   ![Statut de la tâche de traitement d’analyse de données](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
+
    
    ![Statut de la tâche de traitement d’analyse de données dans le portail Azure](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 

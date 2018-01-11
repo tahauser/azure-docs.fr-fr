@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorer les fonctionnalités de la solution préconfigurée de surveillance à distance
 
@@ -101,11 +101,11 @@ En tant qu’opérateur, vous voyez dans le tableau de bord une alarme liée à 
 
 1. Fermer **Détails de l’appareil**.
 
-1. Pour accéder à la page **Maintenance**, cliquez sur **...** dans la colonne **Explore Alarm** (Explorer l’alarme) en regard de l’alarme dans la grille des alarmes.
+1. Pour accéder à la page **Maintenance**, choisissez **Maintenance** dans le menu de navigation.
 
 Dans la page **Maintenance**, vous pouvez afficher les détails de la règle qui a déclenché l’alarme de pression de refroidissement.
 
-1. Vous pouvez voir le nombre de fois où l’alarme s’est déclenchée, d’accusés de réception et d’alarmes ouvertes et fermées :
+1. La liste des notifications affiche le nombre de fois où l’alarme s’est déclenchée, d’accusés de réception et d’alarmes ouvertes et fermées :
 
     ![Page Maintenance affichant la liste des alarmes qui ont été déclenchées](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Vous avez désormais identifié le problème qui a déclenché l’alarme, ainsi
 
     ![Sélectionner l’appareil et planifier une action](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Pour afficher l’état du travail, revenez à la page **Maintenance** et affichez la liste des travaux dans la vue **État du système**. Vous pouvez voir que le travail a été exécuté pour libérer la pression de la soupape sur le refroidisseur :
+1. Pour afficher l’état du travail, revenez à la page **Maintenance** et affichez la liste des travaux dans la vue **Tâches**. Vous pouvez voir que le travail a été exécuté pour libérer la pression de la soupape sur le refroidisseur :
 
-    ![État des tâches dans État du système](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![État des tâches dans la vue Tâches](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Enfin, vérifiez que les valeurs de télémétrie issues du refroidisseur sont revenues à la normale.
 
@@ -159,7 +159,7 @@ Pour effectuer les tâches de gestion d’appareil nécessaires, utilisez la pag
     ![Planifier la mise à jour du microprogramme sur l’appareil](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Avec les appareils simulés, vous pouvez utiliser l’URL de votre choix dans le champ **Firemware URI** (URI du microprogramme). Les appareils simulés n’accèdent pas à l’URL.
+    > Avec les appareils simulés, vous pouvez utiliser l’URL de votre choix dans le champ **Firmware URI** (URI du microprogramme). Les appareils simulés n’accèdent pas à l’URL.
 
 1. Notez le nombre d’appareils concernés par le travail, puis choisissez **Appliquer** :
 
@@ -167,13 +167,13 @@ Pour effectuer les tâches de gestion d’appareil nécessaires, utilisez la pag
 
 Vous pouvez utiliser la page **Maintenance** pour suivre l’exécution du travail.
 
-1. Pour afficher la liste des travaux, accédez à la page **Maintenance**, puis cliquez sur **État du système**.
+1. Pour afficher la liste des travaux, accédez à la page **Maintenance**, puis cliquez sur **Tâches**.
 
 1. Recherchez l’événement associé au travail que vous avez créé. Vérifiez que le processus de mise à jour du microprogramme a été correctement lancé.
 
 Vous pouvez créer un filtre pour vérifier correctement la mise à jour de la version du microprogramme.
 
-1. Pour créer un filtre, accédez à la page **Appareil** et sélectionnez **Gérer** :
+1. Pour créer un filtre, accédez à la page **Appareil** et sélectionnez **Gérer les filtres** :
 
     ![Gérer les filtres d’appareils](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Vous pouvez créer des noms d’étiquette à utiliser avec les appareils.
 
     ![Sélectionner les appareils prototypage et camion](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Choisissez **Étiquette**, puis créez une étiquette de chaîne appelée **FieldService** avec comme valeur **ConnectedVehicle**. Choisissez un nom pour le travail. Cliquez alors sur **Appliquer** :
+1. Choisissez **Étiquette**, puis créez une étiquette appelée **FieldService** avec comme valeur **ConnectedVehicle**. Choisissez un nom pour le travail. Cliquez alors sur **Appliquer** :
 
     ![Ajouter une étiquette aux appareils prototypage et camion](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 

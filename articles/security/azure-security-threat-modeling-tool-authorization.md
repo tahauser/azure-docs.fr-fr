@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/service | Article |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Base de données** | <ul><li>[Vérifier que des comptes avec des privilèges minimum sont utilisés pour se connecter au serveur de base de données](#privileged-server)</li><li>[Implémenter la sécurité au niveau des lignes (RLS) pour empêcher les locataires d’accéder aux données des autres](#rls-tenants)</li><li>[Le rôle Administrateur système doit comporter uniquement des utilisateurs valides nécessaires](#sysadmin-users)</li></ul> |
 | **Passerelle de cloud IoT** | <ul><li>[Se connecter à la passerelle de cloud à l’aide de jetons avec des privilèges minimum](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Utiliser une clé SAP d’autorisations d’envoi seulement pour générer des jetons d’appareil](#sendonly-sas)</li><li>[Ne pas utiliser des jetons d’accès qui fournissent un accès direct au concentrateur d’événement](#access-tokens-hub)</li><li>[Se connecter au concentrateur d’événement à l’aide des clés SAP qui disposent des autorisations minimales requises](#sas-minimum-permissions)</li></ul> |
-| **Azure Document DB** | <ul><li>[Utiliser autant que possible des jetons de ressource pour se connecter à DocumentDB](#resource-docdb)</li></ul> |
+| **Azure Document DB** | <ul><li>[Utiliser des jetons de ressource pour se connecter à Azure Cosmos DB le cas échéant](#resource-docdb)</li></ul> |
 | **Délimitation d’approbation Azure** | <ul><li>[Activer la gestion des accès précis à un abonnement Azure à l’aide de RBAC](#grained-rbac)</li></ul> |
 | **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès client aux opérations de cluster à l’aide de RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Effectuer la modélisation de sécurité et utiliser la sécurité au niveau des champs si nécessaire](#modeling-field)</li></ul> |
@@ -224,7 +224,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
-| **Étapes** | Un jeton de ressource est associé à une ressource d'autorisation DocumentDB et capture la relation entre l'utilisateur d'une base de données et l'autorisation dont cet utilisateur dispose pour une ressource d'application DocumentDB spécifique (collection, document, etc.). Utilisez toujours un jeton de ressource pour accéder à DocumentDB si le client ne peut pas être approuvé avec la gestion des clés principales ou en lecture seule, par exemple une application d’utilisateur final comme un client mobile ou de bureau. Utilisez une clé principale ou des clés en lecture seule d’applications principales capables de stocker ces clés en toute sécurité.|
+| **Étapes** | Un jeton de ressource est associé à une ressource d’autorisation Azure Cosmos DB et capture la relation entre l’utilisateur d’une base de données et l’autorisation dont cet utilisateur dispose sur une ressource d’application Azure Cosmos DB (collection, document, etc.). Utilisez toujours un jeton de ressource pour accéder à Azure Cosmos DB si le client ne peut pas être approuvé avec la gestion des clés principales ou en lecture seule, par exemple une application d’utilisateur final comme un client mobile ou de bureau. Utilisez une clé principale ou des clés en lecture seule d’applications principales capables de stocker ces clés en toute sécurité.|
 
 ## <a id="grained-rbac"></a>Activer la gestion des accès précis à un abonnement Azure à l’aide de RBAC
 

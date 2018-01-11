@@ -4,7 +4,7 @@ description: "Découvrez comment ouvrir un port / créer un point de terminaison
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Guide d’ouverture de ports vers une machine virtuelle avec le portail Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Sélectionnez un nouveau groupe de sécurité réseau. Sélectionnez « Règles
 
 ![Ajouter une règle de trafic entrant](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Choisissez un **Service** courant dans le menu déroulant, tel que *HTTP*. Vous pouvez aussi sélectionner *Personnalisé* pour indiquer un port spécifique à utiliser. Si vous le souhaitez, modifiez la priorité ou le nom. La priorité affecte l’ordre dans lequel les règles sont appliquées (plus la valeur numérique est faible, plus la règle est appliquée précocement). Vous pouvez aussi sélectionner **Avancé** en haut de cet écran pour entrer un bloc d’adresses IP sources ou une plage de ports spécifique, par exemple. Quand vous êtes prêt, sélectionnez **OK** pour créer la règle :
+Pour créer une règle qui autorise le trafic :
+
+- Sélectionnez le bouton **De base**. Par défaut, la fenêtre **Avancé** fournit des options de configuration supplémentaires, comme la définition d’une plage de ports ou de blocs IP source.
+- Choisissez un **Service** courant dans le menu déroulant, tel que *HTTP*. Vous pouvez aussi sélectionner *Personnalisé* pour indiquer un port spécifique à utiliser. 
+- Si vous le souhaitez, modifiez la priorité ou le nom. La priorité affecte l’ordre dans lequel les règles sont appliquées (plus la valeur numérique est faible, plus la règle est appliquée précocement).
+- Quand vous êtes prêt, sélectionnez **OK** pour créer la règle :
 
 ![Créer une règle de trafic entrant](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

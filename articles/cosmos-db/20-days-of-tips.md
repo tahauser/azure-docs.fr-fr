@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 jours de conseils sur Azure Cosmos DB
 
@@ -103,7 +103,7 @@ Conseil 10 : Découvrez comment copier vos données MongoDB vers Azure Cosmos D
 
 Conseil 11 : Générez une application de suivi de héros à l’aide de React, Node.js et Azure Cosmos DB.
 
-Article : [Créer une application MongoDB avec React et Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Article : [Créer une application MongoDB avec React et Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Conseil 12 : Bénéficiez d’un accès sans serveur avec Azure #CosmosDB et @A
 
 Conseil 13 : de zéro à héros avec @John_Papa et Azure Cosmos DB. Découvrez comment créer une application MEAN à partir de zéro
 
-Article : [Créer une application MongoDB avec Angular et Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Article : [Créer une application MongoDB avec Angular et Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
@@ -177,7 +177,7 @@ Conseil 19 : Partition, encore et toujours ! Pourquoi et comment l’utiliser da
 
 Conseil 20 : Tout le monde apprécie un bon aide-mémoire. Azure #CosmosDB a en également un. Consultez-le sur le site [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
-Aide-mémoire : [Aide-mémoire pour les requêtes SQL API DocumentDB Azure Cosmos DB au format PDF](https://aka.ms/Nt01nl)
+Aide-mémoire : [Azure Cosmos DB : Aide-mémoire pour les requêtes SQL au format PDF](https://aka.ms/Nt01nl)
 
 [![Retweeter sur twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![Partager sur LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

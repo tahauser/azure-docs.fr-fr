@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB : Documentation relative à l’API MongoDB
 
 Cet article fournit des liens vers tous les contenus Azure Cosmos DB propres à l’API MongoDB.
 
-Ces articles ne s’appliquent pas à l’API DocumentDB, à l’API Graph ou à l’API Table. 
+Ces articles ne s’appliquent pas à l’API SQL, à l’API Graph ou à l’API Table. 
 
 ## <a name="introduction-and-concepts"></a>Présentation et concepts
 
@@ -31,20 +31,22 @@ Ces articles ne s’appliquent pas à l’API DocumentDB, à l’API Graph ou à
 
 - [Présentation de l’API MongoDB](mongodb-introduction.md)
 - [Se connecter à votre compte MongoDB](connect-mongodb-account.md)
+- [Prise en charge de la syntaxe et des fonctionnalités de MongoDB](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Démarrages rapides
 
-Les rubriques Démarrage rapide sont le moyen le plus rapide de créer une application fonctionnelle avec Azure Cosmos DB. Dans chaque Démarrage rapide, vous apprenez à utiliser le portail Azure avec son interface utilisateur, et votre langage de codage favori pour créer des solutions de base de données avec Azure Cosmos DB. Des applications web pouvant être clonées à partir de GitHub sont disponibles pour chaque rubrique Démarrage rapide. 
+Les rubriques Guide de démarrage rapide sont le moyen le plus rapide de créer une application fonctionnelle avec Azure Cosmos DB. Dans chaque guide de démarrage rapide, vous apprenez à utiliser le portail Azure avec son interface utilisateur et votre langage de codage favori pour créer des solutions de base de données avec Azure Cosmos DB. Des applications web pouvant être clonées à partir de GitHub sont disponibles pour chaque guide de démarrage rapide. 
 
 
-- [MongoDB + Express + AngularJS + Node.js + Applications Web](create-mongodb-nodejs.md)
-- [.NET + Portail Azure + Applications Web](create-mongodb-dotnet.md)
+- [Node.js + Express + AngularJS + Applications Web](create-mongodb-nodejs.md)
+- [.NET + Portail Azure + Applications web](create-mongodb-dotnet.md)
 - [Java + Portail Azure + Applications Web](create-mongodb-java.md)
 - [Go + Portail Azure + Go](create-mongodb-golang.md)
+- [Python + Flask + portail Azure](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Didacticiels
 
-Ces didacticiels sont d’un niveau plus poussé que les rubriques de démarrage rapide. Dans les didacticiels, vous créez des applications à partir de zéro, puis vous copiez et collez le code dans l’application. Vous découvrez également comment importer des données, interroger des données et distribuer vos bases de données à l’échelle mondiale.
+Ces didacticiels sont d’un niveau plus poussé que les guides de démarrage rapide. Dans les didacticiels, vous créez des applications à partir de zéro, puis vous copiez et collez le code dans l’application. Vous découvrez également comment importer des données, interroger des données et distribuer vos bases de données à l’échelle mondiale.
 
 ### <a name="create-a-console-app"></a>Créer une application console
 
