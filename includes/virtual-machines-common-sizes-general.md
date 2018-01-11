@@ -4,7 +4,7 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 
 - Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-processeur virtuel plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)(en anglais).
 
-- La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
+- Les séries Dv3 et Dv2, suites de la série D d’origine, comprennent un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
 - Les tailles du niveau De base sont principalement destinées aux charges de travail de développement et aux autres applications qui ne requièrent pas d’équilibrage de charge ou de mise à l’échelle automatique, ou aux machines virtuelles utilisant beaucoup de mémoire. Pour savoir quelles sont les tailles de machines virtuelles les plus appropriées pour les applications de production, consultez (Tailles des machines virtuelles)[virtual-machines-size-specs.md] et pour des informations sur la tarification des machines virtuelles, consultez [Tarification des machines virtuelles Linux](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
@@ -23,11 +23,11 @@ Les machines virtuelles extensibles de la série B sont idéales pour les charg
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Série Dsv3*
+## <a name="dsv3-series-sup1sup"></a>Série Dsv3 <sup>1</sup>
 
 ACU : 160-190
 
-Les tailles des machines virtuelles de la série Dsv3 sont basées sur le processeur Intel XEON® v4-2.0 5GHz (Broadwell) de 2673 GHz, peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0 et utilisent un stockage premium. Les tailles des machines virtuelles de la série Dsv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
+Les tailles des machines virtuelles de la série Dsv3 sont basées sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz ou sur le dernier processeur Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz qui peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0 et utilisent un stockage premium. Les tailles des machines virtuelles de la série Dsv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
 
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
@@ -38,13 +38,14 @@ Les tailles des machines virtuelles de la série Dsv3 sont basées sur le proce
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / Élevée                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8/Extrêmement élevée                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1 200                              | 8/Extrêmement élevée                                       |
-*Machines virtuelles de la série Dsv3 dotées de la technologie Hyper-Threading d’Intel®
 
-## <a name="dv3-series"></a>Série Dv3* 
+<sup>1</sup> Machines virtuelles de la série Dsv3 dotées de la technologie Hyper-Threading d’Intel®
+
+## <a name="dv3-series-sup1sup"></a>Série Dv3 <sup>1</sup>
 
 ACU : 160-190
 
-Les tailles des machines virtuelles de la série Dv3 sont basées sur le processeur Intel Xeon® v4-2.0 5GHz (Broadwell) de 2673 GHz et peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0. Les tailles des machines virtuelles de la série Dv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
+Les tailles des machines virtuelles de la série Dv3 sont basées sur le processeur Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz ou sur le processeur Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz qui peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0. Les tailles des machines virtuelles de la série Dv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
 
 Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format Dsv3. Les tarifs et compteurs de facturation pour les tailles Dsv3 sont identiques à celles de la série Dv3. 
 
@@ -57,7 +58,8 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / Élevée                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/Extrêmement élevée                     |
 | Standard_D64_v3 | 64        | 256          | 1 600            | 32             | 96000/1000/500                                            | 8/Extrêmement élevée                     |
-*Machines virtuelles de série Dv3 dotées de la technologie Hyper-Threading d’Intel®
+
+<sup>1</sup> Machines virtuelles de série Dv3 dotées de la technologie Hyper-Threading d’Intel®
 
 ## <a name="dsv2-series"></a>Séries DSv2
 
@@ -137,7 +139,7 @@ ACU : 50-100
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (HDD) : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2 x 500 |2 / 500  |
 | Standard_A2 |2 |3,5 |135 |4 |4 x 500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8 x 500 |2 / 1 000 |
@@ -147,7 +149,7 @@ ACU : 50-100
 | Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / 2 000 |
 <br>
 
-*La taille A0 est trop sollicitée sur le matériel physique. Pour cette taille spécifique uniquement, les autres déploiements de clients peuvent affecter les performances de la charge de travail en cours d’exécution. Les performances relatives sont décrites ci-dessous comme référence attendue, soumises à une variation approximative de 15 pour cent.
+<sup>1</sup> La taille A0 est trop sollicitée sur le matériel physique. Pour cette taille spécifique uniquement, les autres déploiements de clients peuvent affecter les performances de la charge de travail en cours d’exécution. Les performances relatives sont décrites ci-dessous comme référence attendue, soumises à une variation approximative de 15 pour cent.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0-A4 à l’aide de l’interface de ligne de commande et de Powershell
 Dans le modèle de déploiement classique, certains noms de tailles de machines virtuelles sont légèrement différents dans Powershell et dans l’interface de ligne de commande :

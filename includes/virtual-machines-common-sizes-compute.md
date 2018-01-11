@@ -12,7 +12,7 @@ Les machines virtuelles de la série F sont un excellent choix pour les charges 
 
 La série Fs propose tous les avantages de la série F, en plus du stockage Premium.
 
-## <a name="fsv2-series"></a>Série Fsv2*
+## <a name="fsv2-series-sup1sup"></a>Série Fsv2 <sup>1</sup>
 
 ACU : 195 - 210
 
@@ -25,9 +25,10 @@ ACU : 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extrêmement élevée                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extrêmement élevée                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extrêmement élevée                                 |
-*Machines virtuelles de série Fsv2 dotées de la technologie Hyper-Threading d’Intel®
 
-## <a name="fs-series"></a>Série Fs*
+<sup>1</sup>Machines virtuelles de série 1Fsv2 dotées de la technologie Hyper-Threading d’Intel®
+
+## <a name="fs-series-sup1sup"></a>Série Fs <sup>1</sup>
 
 ACU : 210-250
 
@@ -41,7 +42,7 @@ ACU : 210-250
 
 Mbits/s = 10^6 octets par seconde, et Gio = 1024^3 octets.
 
-* Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série Fs peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série Fs peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 
 <br>

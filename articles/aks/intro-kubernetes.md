@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 62cd20474e7770c30353fc74dfc67086593fca7a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2980d4733dcf138c3a9aa1713cff994bbf5a296c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Présentation d’Azure Container Service (AKS)
 
@@ -34,10 +34,10 @@ AKS permet de réduire la complexité et la surcharge opérationnelle de la gest
 Comme Azure gère la gestion des nœuds de votre cluster AKS, vous n’avez plus besoin d'effectuer les tâches manuellement, notamment les mises à niveau du cluster. Comme Azure gère ces tâches de maintenance critiques pour vous, AKS ne fournit pas d'accès direct (comme avec SSH) au cluster.
 
 ## <a name="using-azure-container-service-aks"></a>Utilisation d’Azure Container Service (AKS)
-L’objectif d’AKS est de proposer un environnement d’hébergement de conteneurs basé sur des outils et des technologies open source déjà bien connus de nos clients. Dans cette optique, nous présentons les points de terminaison standards de l’API Kubernetes. En utilisant ces points de terminaison standards, vous pouvez exploiter n’importe quel logiciel capable de communiquer avec un cluster Kubernetes. Par exemple, vous pourriez choisir [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/), ou [draft](https://github.com/Azure/draft).
+L’objectif d’AKS est de proposer un environnement d’hébergement de conteneurs basé sur des outils et des technologies open source déjà bien connus de nos clients. Dans cette optique, nous présentons les points de terminaison standards de l’API Kubernetes. En utilisant ces points de terminaison standards, vous pouvez exploiter n’importe quel logiciel capable de communiquer avec un cluster Kubernetes. Par exemple, vous pourriez choisir [kubectl][kubectl-overview], [helm][helm] ou [draft][draft].
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Création d’un cluster Kubernetes à l’aide d’Azure Container Service (AKS)
-Pour commencer à utiliser ACS, déploiement d’un cluster ACS avec la [CLI d’Azure](./kubernetes-walkthrough.md) ou via le portail (Rechercher sur le Marketplace pour **Service de conteneur Azure**). Si vous êtes un utilisateur expérimenté ayant désireux d’avoir davantage de contrôle sur les modèles Azure Resource Manager, vous pouvez utiliser le projet open source [acs-engine](https://github.com/Azure/acs-engine) pour générer votre propre cluster Kubernetes personnalisé et le déployer via `az` CLI.
+Pour commencer à utiliser AKS, déployez un cluster AKS avec la [CLI d’Azure][aks-quickstart] ou via le portail (recherchez **Azure Container Service** sur le marketplace). Si vous êtes un utilisateur expérimenté désireux d’avoir davantage de contrôle sur les modèles Azure Resource Manager, vous pouvez utiliser le projet open source [acs-engine][acs-engine] pour générer votre propre cluster Kubernetes personnalisé et le déployer via la CLI `az`.
 
 ### <a name="using-kubernetes"></a>Utilisation de Kubernetes
 Kubernetes automatise le déploiement, la mise à l’échelle et la gestion des applications en conteneur. Il possède un jeu complet de fonctionnalités, notamment :
@@ -67,4 +67,14 @@ Outils dédiés au développement et au déploiement d’applications sur Kubern
 En savoir plus sur le déploiement et la gestion des ACS avec ACS démarrage rapide.
 
 > [!div class="nextstepaction"]
-> [Didacticiel ACS](./kubernetes-walkthrough.md)
+> [Didacticiel AKS][aks-quickstart]
+
+<!-- LINKS - external -->
+[acs-engine]: https://github.com/Azure/acs-engine
+[draft]: https://github.com/Azure/draft
+[helm]: https://helm.sh/
+[kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+

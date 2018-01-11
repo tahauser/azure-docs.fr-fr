@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Créer une fonction déclenchée par un webhook générique
 
@@ -48,9 +48,13 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Sélectionnez le modèle **Webhook générique - C#**. Donnez un nom à votre fonction C#, puis sélectionnez **Créer**.
+2. Dans la zone de recherche, saisissez `generic`, puis sélectionnez la langue souhaitée pour le modèle déclencheur de Webhook générique. Cette rubrique utilise une fonction C#.
 
-     ![Créer une fonction déclenchée par un webhook générique dans le portail Azure](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Choisir le modèle déclencheur de Webhook générique](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Saisissez un **Nom** pour votre fonction, puis sélectionnez **Créer**. 
+
+     ![Créer une fonction déclenchée par un webhook générique dans le portail Azure](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de fonction**, puis copiez et enregistrez la valeur. Vous utilisez cette valeur pour configurer le webhook. 
 

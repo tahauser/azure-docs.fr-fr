@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/28/2017
-ms.openlocfilehash: 7fc4f8521afa41f21cda6576459a0794bef9ad3b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.date: 12/13/2017
+ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 Dans ce démarrage rapide, vous allez utiliser le portail Azure pour créer une instance d’Azure Database Migration Service.  Une fois le service créé, vous pouvez l’utiliser pour migrer des données entre une instance locale de SQL Server et une base de données SQL Azure.
@@ -23,7 +23,9 @@ Dans ce démarrage rapide, vous allez utiliser le portail Azure pour créer une 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-Ouvrez votre navigateur web et accédez au [portail Microsoft Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
+Ouvrez votre navigateur web, accédez au [portail Microsoft Azure](https://portal.azure.com/), puis saisissez vos informations de connexion au portail.
+
+Il s’ouvre par défaut sur le tableau de bord des services.
 
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 Avant de créer votre première instance Database Migration Service, vous devez inscrire le fournisseur de ressources Microsoft.DataMigration.

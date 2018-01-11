@@ -14,24 +14,24 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/1/2017
+ms.date: 12/11/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 
 Azure Functions vous permet d’exécuter votre code dans un environnement [sans serveur](https://azure.microsoft.com/overview/serverless-computing/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable.
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
-
 Dans cette rubrique, vous allez apprendre à vous servir des outils Visual Studio 2017 pour Azure Functions afin de créer et tester en local une fonction « Hello World ». Vous allez ensuite publier le code de la fonction vers Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2017version 15.3 ou ultérieure.
 
 ![Code Azure Functions dans un projet Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
+
+Si vous préférez, vous pouvez à la place [visionner la vidéo](#watch-the-video).
 
 ## <a name="prerequisites"></a>Composants requis
 
@@ -98,7 +98,11 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 2. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande distante GET : 
 
     ![Réponse de la fonction dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
- 
+
+## <a name="watch-the-video"></a>Regarder la vidéo
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez utilisé Visual Studio pour créer une application de fonction C# à l’aide d’une fonction HTTP déclenchée simple. 

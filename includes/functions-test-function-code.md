@@ -1,4 +1,4 @@
-## <a name="test-the-function"></a>Tester la fonction
+## <a name="test"></a>Tester la fonction
 
 Utilisez cURL pour tester la fonction déployée sur un ordinateur Mac ou Linux ou un interpréteur de commandes (Bash) sur Windows. Exécutez la commande cURL suivante, en remplaçant l’espace réservé `<app_name>` par le nom de votre Function App. Ajoutez la chaîne de requête `&name=<yourname>` à l’URL.
 

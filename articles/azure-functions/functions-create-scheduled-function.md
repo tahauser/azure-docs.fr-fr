@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 476e103c7101621e116c5155241f56f1cb9036df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
 
@@ -52,13 +52,17 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Sélectionnez le modèle **TimerTrigger** pour le langage de votre choix. Utilisez ensuite les paramètres spécifiés dans le tableau :
+2. Dans la zone de recherche, saisissez `timer`, puis sélectionnez la langue souhaitée pour le modèle déclencheur de minuteur. 
 
-    ![Créez une fonction déclenchée par un minuteur dans le portail Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Choisissez le modèle de fonction déclenchée de minuteur.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+
+3. Configurez le nouveau déclencheur avec les paramètres comme spécifié dans le tableau situé sous l’image.
+
+    ![Créez une fonction déclenchée par un minuteur dans le portail Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
-    | **Nommer votre fonction** | TimerTriggerCSharp1 | Définit le nom de votre fonction déclenchée par minuteur. |
+    | **Name** | Default | Définit le nom de votre fonction déclenchée par minuteur. |
     | **[Planification](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) qui planifie l’exécution de votre fonction chaque minute. |
 
 2. Cliquez sur **Create**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.

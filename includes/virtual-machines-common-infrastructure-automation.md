@@ -45,9 +45,9 @@ Découvrez comment :
 
 Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vous n’utilisez pas **apt-get install** ou **yum install** pour installer un package. Au lieu de cela, vous pouvez définir une liste des packages à installer, après quoi cloud-init se charge d’utiliser automatiquement l’outil de gestion de package natif correspondant à la distribution que vous sélectionnez.
 
- Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettront à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
+ Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettent à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
 
-| Éditeur | Offre | SKU | Version | Compatible avec cloud-init
+| Éditeur | Offer | SKU | Version | Compatible avec cloud-init
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |16.04-LTS |le plus récent |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |le plus récent |yes |
@@ -85,7 +85,7 @@ Découvrez comment :
 
 
 ## <a name="packer"></a>Packer
-[Packer](https://www.packer.io) automatise le processus de génération lorsque vous créez une image personnalisée de la machine virtuelle dans Azure. Grâce à Packer, vous pouvez définir le système d’exploitation et exécuter des scripts de post-configuration qui permettent de personnaliser la machine virtuelle pour vos besoins spécifiques. Une fois configurée, la machine virtuelle est ensuite capturée en tant qu’image d’un disque managé. Packer automatise le processus de création de la machine virtuelle source, les ressources réseau et de stockage, exécute des scripts de configuration, puis crée l’image de la machine virtuelle.
+[Packer](https://www.packer.io) automatise le processus de génération lorsque vous créez une image personnalisée de la machine virtuelle dans Azure. Grâce à Packer, vous pouvez définir le système d’exploitation et exécuter des scripts de post-configuration qui permettent de personnaliser la machine virtuelle pour vos besoins spécifiques. Une fois configurée, la machine virtuelle est ensuite capturée en tant qu’image d’un disque géré. Packer automatise le processus de création de la machine virtuelle source, les ressources réseau et de stockage, exécute des scripts de configuration, puis crée l’image de la machine virtuelle.
 
 Découvrez comment :
 

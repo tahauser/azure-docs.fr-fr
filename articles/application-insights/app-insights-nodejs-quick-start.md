@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Démarrer l’analyse de votre application web Node.js
 
@@ -28,7 +28,7 @@ Pour effectuer ce démarrage rapide :
 
 - Vous avez besoin d’un abonnement Azure et d’une application web Node.js existante.
 
-Si vous n’avez pas d’application web Node.js, vous pouvez en créer une en suivant le [guide de démarrage rapide de création d’une application web Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs) suivant.
+Si vous n’avez pas d’application web Node.js, vous pouvez en créer une en suivant le [guide de démarrage rapide de création d’une application web Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs) suivant.
  
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -67,11 +67,11 @@ Application Insights permet de recueillir les données de télémétrie à parti
    npm install applicationinsights --save
    ```
 
-3. Modifiez le premier fichier .js de votre application et ajoutez les deux lignes ci-dessous dans la partie supérieure de votre script. Si vous utilisez l’[application de démarrage rapide Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs), vous modifiez le fichier index.js. 
+3. Modifiez le premier fichier .js de votre application et ajoutez les deux lignes ci-dessous dans la partie supérieure de votre script. Si vous utilisez l’[application de démarrage rapide Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), vous modifiez le fichier index.js. Remplacez &lt;instrumentation_key&gt; par la clé d’instrumentation de votre application. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
-   appInsights.setup('<instrumentation_key').start();
+   appInsights.setup('<instrumentation_key>').start();
    ```
 
 4. Redémarrez votre application.
@@ -135,4 +135,4 @@ Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les did
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Rechercher et diagnostiquer des problèmes de performances](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Rechercher et diagnostiquer des problèmes de performances](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
