@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure et Azure Files en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans Stockage Blob Azure ou Azure Files. 
@@ -177,6 +177,8 @@ Emplacements d’expédition pris en charge :
 * Chine orientale
 * Chine du Nord
 * Sud du Royaume-Uni
+* Centre de l’Allemagne
+* Nord-Est de l’Allemagne
 
 ### <a name="shipping"></a>Expédition
 **Expédition de disques au centre de données :**
@@ -430,7 +432,7 @@ Les vérifications préalables suivantes sont recommandées pour préparer vos d
 
 6. Sur la page Résumé, cliquez sur OK pour terminer la création du travail d’exportation.
 
-7. Après l’envoi des disques, revenez sur la page **Importer/Exporter** du portail Azure : a) Accédez au travail d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés**. 
+7. Après l’envoi des disques, revenez sur la page **Importer/Exporter** du portail Azure : a) Accédez au travail d’importation et cliquez dessus. b) Cliquez sur **Mettez à jour l’état de la tâche et les informations de suivi une fois les lecteurs expédiés.**. 
      c) Cochez la case « Marquer comme expédié ». d) Indiquez le transporteur et le numéro de suivi.
     
    Si le numéro de suivi n'est pas mis à jour dans les 2 semaines de création de la tâche, cette dernière expirera.
@@ -493,7 +495,7 @@ Non. Vous devez expédier vos propres lecteurs, aussi bien pour les tâches d'im
 
 ** Comment accéder aux données importées par ce service**
 
-Les données de votre compte Stockage Azure sont accessibles via le portail Azure ou à l’aide d’un outil autonome nommé Explorateur de stockage. https://docs.Microsoft.com/fr-fr/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+Les données de votre compte Stockage Azure sont accessibles via le portail Azure ou à l’aide d’un outil autonome nommé Explorateur de stockage. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Une fois la tâche d’importation terminée, à quoi mes données ressembleront-elles dans le compte de stockage ? Mon arborescence sera-t-elle préservée ?**
 
