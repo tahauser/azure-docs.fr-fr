@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: eda3b0d37f670f179804442710784e18f46bd848
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -68,7 +68,7 @@ Voici les prérequis Azure pour ce scénario de migration :
 * Un réseau virtuel Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que celle dans laquelle s’exécute Site Recovery.
 * Un compte de stockage Azure standard pour stocker les journaux de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 * Identifiez les composants de scénario de migration pertinents de la section précédente.
 * Planifiez votre temps d’arrêt en vous familiarisant avec le [basculement dans Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -202,7 +202,7 @@ Site Recovery crée une instance de machine virtuelle dont le type est identique
    * Pour une machine virtuelle créée avec le modèle de déploiement Classic : ajoutez la machine virtuelle au groupe à haute disponibilité dans le portail Azure. Pour connaître les détails des étapes, accédez à [Ajout d’une machine virtuelle existante à un groupe à haute disponibilité](../linux/classic/configure-availability.md#addmachine).
    * Pour une machine virtuelle créée avec le modèle de déploiement Resource Manager : enregistrez la configuration de votre machine virtuelle, puis supprimez et recréez les machines virtuelles dans le groupe à haute disponibilité. Pour ce faire, utilisez le script figurant dans [Définir le groupe à haute disponibilité de machine virtuelle Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Avant d’exécuter ce script, vérifiez ses limites et planifiez votre temps d’arrêt.
 
-2. **Supprimer les anciennes machines virtuelles et les anciens disques**. Vérifiez que les disques Premium sont cohérents avec les disques sources et que les nouvelles machines virtuelles exécutent la même fonction que les machines virtuelles sources. Dans le modèle de déploiement Resource Manager, supprimez la machine virtuelle et les disques de vos comptes de stockage sources dans le portail Azure. Dans le modèle de déploiement Classic, vous pouvez supprimer la machine virtuelle et les disques dans le portail Classic ou dans le portail Azure. Si un problème survient et que le disque n’est pas supprimé même après la suppression de la machine virtuelle, consultez [Résoudre les erreurs quand vous supprimez des disques durs virtuels](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Supprimer les anciennes machines virtuelles et les anciens disques**. Vérifiez que les disques Premium sont cohérents avec les disques sources et que les nouvelles machines virtuelles exécutent la même fonction que les machines virtuelles sources. Supprimez la machine virtuelle et les disques de vos comptes de stockage sources dans le portail Azure. Si un problème survient et que le disque n’est pas supprimé même après la suppression de la machine virtuelle, consultez [Résoudre les erreurs quand vous supprimez des disques durs virtuels](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 3. **Nettoyer l’infrastructure Azure Site Recovery**. Si Site Recovery n’est plus nécessaire, vous pouvez nettoyer son infrastructure. Supprimez les éléments répliqués, le serveur de configuration et la stratégie de récupération, puis supprimez le coffre Azure Site Recovery.
 

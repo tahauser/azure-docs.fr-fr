@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Solutions de stockage Azure pour R Server sur HDInsight
 
@@ -43,19 +43,25 @@ Pour obtenir de l’aide sur la sélection de l’option de stockage la plus ada
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Utiliser des comptes de stockage Blob Azure avec R Server
 
-Si nécessaire, vous pouvez accéder à plusieurs conteneurs ou comptes de stockage Azure avec votre cluster HDI. Pour cela, vous devez spécifier les comptes de stockage supplémentaires dans l’interface utilisateur au moment de la création du cluster, puis suivre ces étapes pour les utiliser avec R Server.
+Si vous avez spécifié plusieurs comptes de stockage durant la création de votre cluster R Server, les instructions suivantes expliquent comment utiliser un compte secondaire pour l’accès aux données et les opérations liées à celles-ci sur R Server. Imaginons les éléments suivants : un compte de stockage **storage1**, un conteneur par défaut appelé **container1** et un compte de stockage **storage2**.
 
 > [!WARNING]
 > Pour des raisons de performances, le cluster HDInsight est créé dans le même centre de données que le compte de stockage principal que vous spécifiez. L’utilisation d’un compte de stockage dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
 
-1. Créez un cluster HDInsight avec un nom de compte de stockage **storage1** et un conteneur par défaut appelé **container1**.
-2. Spécifiez un compte de stockage supplémentaire appelé **storage2**.  
-3. Copiez le fichier mycsv.csv dans le répertoire /share et effectuez une analyse sur ce fichier.  
+1. À l’aide d’un client SSH, connectez-vous au nœud de périphérie de votre cluster en tant que remoteuser.  
+
+  + Dans Portail Azure > Page de service de cluster HDI > Vue d’ensemble, cliquez sur **Secure Shell (SSH)**.
+  + Dans Nom d’hôte, sélectionnez le nœud de périphérie (le nom contient *ed-ssh.azurehdinsight.net*).
+  + Copiez le nom d’hôte.
+  + Ouvrez un client SSH tel que PutTY ou SmartTY et entrez le nom d’hôte.
+  + Entrez remoteuser comme nom d’utilisateur, suivi du mot de passe du cluster.
+  
+2. Copiez le fichier mycsv.csv dans le répertoire /share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. Dans le code R, définissez le nœud du nom sur **par défaut** et définissez le répertoire et le fichier à traiter.  
+3. Dans R Studio ou une autre console R, écrivez le code R pour nommer le nœud **default** et définir l’emplacement du fichier auquel vous souhaitez accéder.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ Si nécessaire, vous pouvez accéder à plusieurs conteneurs ou comptes de stock
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)
@@ -183,7 +189,7 @@ Les commandes suivantes sont utilisées pour configurer le compte de stockage Da
 
 ## <a name="use-azure-file-storage-with-r-server"></a>Utiliser le Stockage Fichier Azure avec R Server
 
-Il existe également une option de stockage de données pratique qui peut s’utiliser sur le nœud périphérique ; elle se nomme [Fichiers Azure]((https://azure.microsoft.com/services/storage/files/). Elle vous permet de monter un partage de fichiers Azure Storage sur le système de fichiers Linux. Cette option peut être utile pour stocker des fichiers de données, des scripts R et des objets de résultats qui pourront se révéler nécessaires par la suite, lorsqu’il sera judicieux d’utiliser le système de fichiers natif sur le nœud périphérique plutôt que HDFS. 
+Il existe également une option de stockage de données pratique qui peut s’utiliser sur le nœud de périphérie ; elle se nomme [Fichiers Azure]((https://azure.microsoft.com/services/storage/files/). Elle vous permet de monter un partage de fichiers Azure Storage sur le système de fichiers Linux. Cette option peut être utile pour stocker des fichiers de données, des scripts R et des objets de résultats qui pourront se révéler nécessaires par la suite, lorsqu’il sera judicieux d’utiliser le système de fichiers natif sur le nœud de périphérie plutôt que HDFS. 
 
 Le principal avantage des fichiers Azure est que les partages de fichiers peuvent être montés et utilisés par tout système disposant d’un système d’exploitation pris en charge, tel que Windows ou Linux. Par exemple, ils peuvent être utilisés par un autre cluster HDInsight que vous ou un membre de votre équipe avez, par une machine virtuelle Azure ou même par un système local. Pour plus d'informations, consultez les pages suivantes :
 

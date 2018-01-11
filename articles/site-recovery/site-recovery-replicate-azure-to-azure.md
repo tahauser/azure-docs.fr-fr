@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles Azure vers une autre région Azure
 
@@ -76,19 +76,19 @@ Dans la section Paramètres, vous pouvez configurer les propriétés du site cib
     > [!TIP]
     > Nous vous recommandons de conserver le même emplacement cible que votre coffre Recovery services.
 
-2. **Groupe de ressources cible :** il s'agit du groupe de ressources auquel appartiendront toutes vos machines virtuelles répliquées. Par défaut, Azure Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». Si le groupe de ressources créé par Azure Site Recovery existe déjà, il sera réutilisé. Vous pouvez également choisir de le personnaliser, comme indiqué dans la section ci-dessous.    
+2. **Groupe de ressources cible :** il s’agit du groupe de ressources auquel appartiennent toutes vos machines virtuelles répliquées. Par défaut, Azure Site Recovery crée un groupe de ressources dans la région cible avec un nom comportant le suffixe « asr ». Si le groupe de ressources créé par Azure Site Recovery existe déjà, il sera réutilisé. Vous pouvez également choisir de le personnaliser, comme indiqué dans la section ci-dessous.    
 3. **Réseau virtuel cible :** par défaut, Azure Site Recovery crée un réseau virtuel dans la région cible avec un nom ayant le suffixe « asr ». Il sera mappé à votre réseau source et utilisé pour toute protection ultérieure.
 
     > [!NOTE]
     > Pour en savoir plus sur le mappage réseau, [consultez les détails sur la mise en réseau](site-recovery-network-mapping-azure-to-azure.md).
 
-4. **Comptes de stockage cibles :** par défaut, Azure Site Recovery crée le nouveau compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Dans le cas où le compte de stockage créé par Azure Site Recovery existe déjà, il est réutilisé.
+4. **Comptes de stockage cibles :** par défaut, Azure Site Recovery crée un compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Dans le cas où le compte de stockage créé par Azure Site Recovery existe déjà, il est réutilisé.
 
 5. **Comptes de stockage de cache :** Azure Site Recovery a besoin d’un compte de stockage supplémentaire appelé « stockage de cache » dans la région source. Toutes les modifications effectuées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache avant leur réplication vers l’emplacement cible.
 
-6. **Groupe à haute disponibilité :** par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom ayant le suffixe « asr ». Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il sera réutilisé.
+6. **Groupe à haute disponibilité :** par défaut, Azure Site Recovery crée un groupe à haute disponibilité dans la région cible avec un nom comportant le suffixe « asr ». Si le groupe à haute disponibilité créé par Azure Site Recovery existe déjà, il est réutilisé.
 
-7.  **Stratégie de réplication :** elle définit les paramètres de l’historique de rétention des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec des paramètres par défaut de « 24 heures » pour la rétention des points de récupération et « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
+7.  **Stratégie de réplication :** elle définit les paramètres de l’historique de rétention des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec les paramètres par défaut de « 24 heures » pour la rétention des points de récupération, et de « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
 
     ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -102,7 +102,7 @@ Si vous souhaitez changer les valeurs par défaut utilisées par Azure Site Reco
 
 3. **Réseau virtuel cible :** vous pouvez obtenir la liste de tous les réseaux virtuels à l’emplacement cible.
 
-4. **Groupe à haute disponibilité :** vous pouvez ajouter des paramètres de groupe à haute disponibilité uniquement aux machines virtuelles qui font partie de la disponibilité dans la région source.
+4. **Groupe à haute disponibilité :** vous pouvez uniquement ajouter des paramètres de groupe à haute disponibilité aux machines virtuelles qui font partie de la disponibilité dans la région source.
 
 5. **Comptes de stockage cibles :**
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques l’accès conditionnel dans Azure Active Directory
 
@@ -100,86 +100,18 @@ Dans votre environnement, vous devez éviter les configurations suivantes :
 
 ## <a name="policy-migration"></a>Migration des stratégies
 
-Si des stratégies sont configurées dans le portail Azure Classic, vous devez les migrer vers le portail Azure, car :
+Envisagez de migrer les stratégies que vous n’avez pas créées dans le portail Azure, car :
+
+- Vous pouvez maintenant résoudre des scénarios que vous ne pouviez pas gérer auparavant.
+
+- Vous pouvez réduire le nombre de stratégies que vous devez gérer en les consolidant.   
+
+- Vous pouvez gérer toutes vos stratégies d’accès conditionnel dans un emplacement central.
+
+- Le portail Azure Classic va être mis hors service.   
 
 
-- Un utilisateur qui figure dans une stratégie du portail Azure Classic et une stratégie du portail Azure doit remplir les conditions requises dans les deux stratégies 
-
-- Si vous ne migrez vos stratégies existantes, vous ne pourrez pas implémenter de stratégies qui accordent l’accès
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migration à partir du portail Azure Classic
-
-Dans ce scénario : 
-
-- Dans votre [portail Azure Classic](https://manage.windowsazure.com), vous avez configuré :
-
-    - SharePoint Online
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Une stratégie d’accès conditionnel basé sur l’appareil
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Vous souhaitez configurer une stratégie d’accès conditionnel de gestion des applications mobiles dans le portail Azure 
- 
-
-#### <a name="configuration"></a>Configuration 
-
-- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
-
-- Migrez-les vers le portail Azure 
-
-- Ajoutez des stratégies d’accès conditionnel de gestion des applications mobiles
-
-
-### <a name="migrating-from-intune"></a>Migration à partir d’Intune 
-
-Dans ce scénario :
-
-- Dans [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), vous avez configuré une stratégie d’accès conditionnel de gestion des applications mobiles pour Exchange Online ou SharePoint Online.
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Vous souhaitez migrer afin d’utiliser l’accès conditionnel de gestion des applications mobiles dans le portail Azure
-
-
-#### <a name="configuration"></a>Configuration 
- 
-- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
-
-- Migrez-les vers le portail Azure 
-
-- Passez en revue vos stratégies d’accès conditionnel de gestion des applications mobiles configurées pour Exchange Online ou SharePoint Online dans Intune
-
-- Ajoutez le contrôle pour **Exiger des applications approuvées** en plus du contrôle basé sur l’appareil 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migration à partir du portail Azure Classic et Intune
-
-Dans ce scénario :
-
-- Vous avez configuré ce qui suit :
-
-    - **Portail Azure Classic** : accès conditionnel basé sur l’appareil 
-
-    - **Intune** : stratégies d’accès conditionnel de gestion des applications mobiles 
-    
-- Vous souhaitez migrer les deux stratégies afin d’utiliser des stratégies d’accès conditionnel de gestion des applications mobiles dans le portail Azure
-
-
-#### <a name="configuration"></a>Configuration
-
-- Passez en revue vos stratégies d’accès conditionnel basé sur l’appareil
-
-- Migrez-les vers le portail Azure 
-
-- Passez en revue votre stratégie d’accès conditionnel de gestion des applications mobiles configurée pour Exchange Online ou SharePoint Online dans Intune
-
-- Ajoutez le contrôle pour **Exiger des applications approuvées** en plus du contrôle basé sur l’appareil 
-
-
+Pour plus d’informations, consultez [Migrer les stratégies classiques dans le portail Azure](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

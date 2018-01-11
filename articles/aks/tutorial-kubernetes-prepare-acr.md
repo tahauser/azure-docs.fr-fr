@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1283d3cff4edc0c99d22612c65fda48f9dddfbd3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -28,21 +28,21 @@ Dans les didacticiels suivants, cette instance ACR est intégrée avec un cluste
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans le [didacticiel précédent](./tutorial-kubernetes-prepare-app.md), une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur](./tutorial-kubernetes-prepare-app.md).
+Dans le [didacticiel précédent][aks-tutorial-prepare-app], une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
-Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.21 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.21 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
 Lorsque vous déployez un registre de conteneurs Azure, il vous faut tout d’abord un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `eastus`.
+Créez un groupe de ressources avec la commande [az group create][az-group-create]. Dans cet exemple, un groupe de ressources nommé `myResourceGroup` est créé dans la région `eastus`.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#create). Le nom d’un registre de conteneurs **doit être unique**.
+Créez un registre de conteneurs Azure à l’aide de la commande [az acr create][az-acr-create]. Le nom d’un registre de conteneurs **doit être unique**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ Dans le reste de ce didacticiel, nous utilisons `<acrName>` comme espace réserv
 
 ## <a name="container-registry-login"></a>Connexion au registre de conteneurs
 
-Utilisez la commande [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) pour vous connecter à l’instance ACR. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
+Utilisez la commande [az acr login][az-acr-login] pour vous connecter à l’instance ACR. Vous devez fournir le nom unique qui a été donné au Registre de conteneurs au moment de sa création.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ Après son exécution, la commande retourne le message « Connexion réussie ».
 
 ## <a name="tag-container-images"></a>Marquer les images de conteneur
 
-Pour afficher la liste des images actuelles, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/).
+Pour afficher la liste des images actuelles, utilisez la commande [docker images][docker-images].
 
 ```console
 docker images
@@ -91,7 +91,7 @@ Maintenant, marquez l’image `azure-vote-front` avec le loginServer du registre
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Une fois l’image marquée, exécutez [docker images] (https://docs.docker.com/engine/reference/commandline/images/) pour vérifier l’opération.
+Une fois le marquage effectué, exécutez [docker images][docker-images] pour vérifier l’opération.
 
 ```console
 docker images
@@ -121,13 +121,13 @@ Quelques minutes sont nécessaires pour achever l’opération.
 
 ## <a name="list-images-in-registry"></a>Créer la liste des images du registre
 
-Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list](/cli/azure/acr/repository#list). Mettez à jour la commande avec le nom d’instance ACR.
+Pour retourner une liste d’images qui ont été déplacées dans le registre de conteneurs Azure, utilisez la commande [az acr repository list][az-acr-repository-list]. Mettez à jour la commande avec le nom d’instance ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 Result
@@ -135,13 +135,13 @@ Result
 azure-vote-front
 ```
 
-Puis, pour afficher les balises d’une image spécifique, utilisez la commande [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
+Puis, pour afficher les balises d’une image spécifique, utilisez la commande [az acr repository show-tags][az-acr-repository-show-tags].
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 Result
@@ -163,4 +163,17 @@ Dans ce didacticiel, un Azure Container Registry a été préparé pour une util
 Passer à l’étape suivante du didacticiel pour en savoir plus sur le déploiement d’un cluster Kubernetes dans Azure.
 
 > [!div class="nextstepaction"]
-> [Déployer un cluster Kubernetes](./tutorial-kubernetes-deploy-cluster.md)
+> [Déployer un cluster Kubernetes][aks-tutorial-deploy-cluster]
+
+<!-- LINKS - external -->
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#create
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-group-create]: /cli/azure/group#az_group_create
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Créer un cluster autonome s’exécutant sur Windows Server
 Vous pouvez utiliser Azure Service Fabric pour créer des clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement contenant un ensemble d’ordinateurs Windows Server interconnectés, que ce soit en local ou avec un fournisseur cloud. Service Fabric fournit un package d’installation pour créer des clusters Service Fabric, appelé package Windows Server autonome.
@@ -36,7 +36,7 @@ Cet article vous guide tout au long du processus de création d’un cluster Ser
 * Interrogez la Communauté sur le package autonome Service Fabric pour Windows Server dans le [forum Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Ouvrez un ticket pour obtenir le [support professionnel Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  En savoir plus sur le support professionnel Microsoft [ici](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Vous pouvez également bénéficier du support pour ce package dans le cadre du [Support Premier Microsoft](https://support.microsoft.com/en-us/premier).
-* Pour plus d’informations, consultez [Options de support d’Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Pour plus d’informations, consultez [Options de support d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Pour collecter des journaux à des fins de support, exécutez le [collecteur de journaux de Service Fabric autonome](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -70,7 +70,7 @@ Si vous avez fini d’exécuter les scénarios de développement, vous pouvez su
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>Étape 1B : Créer un cluster de plusieurs ordinateurs
 Après avoir effectué les tâches de planification et de préparation détaillées par le lien ci-dessous, vous êtes prêt à créer votre cluster de production à l’aide de votre fichier de configuration de cluster. <br>
-[Planifier et préparer le déploiement de cluster](service-fabric-cluster-standalone-deployment-preparation.md)
+[Planifier et préparer le déploiement de clusters](service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. Validez le fichier de configuration que vous avez écrit en exécutant le script *TestConfiguration.ps1* à partir du dossier du package autonome :  
 

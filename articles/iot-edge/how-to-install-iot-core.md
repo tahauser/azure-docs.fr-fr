@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installer le runtime IoT Edge sur Windows IoT Standard - préversion
 
-Le runtime Azure IoT Edge peut s’exécuter même sur les tout petits appareils SBC (Single Board Computer) qui sont très répandus dans le domaine IoT. Cet article explique comment provisionner le runtime sur une carte de développement [MinnowBoard Turbot][lnk-minnow] exécutant Windows IoT Standard.
+Utilisés conjointement, Azure IoT Edge et [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) permettent de mettre en place une architecture de type « edge computing » (traitement des données à la périphérie du réseau) même sur des petits appareils. Le runtime Azure IoT Edge peut s’exécuter même sur les tout petits appareils SBC (Single Board Computer) qui sont très répandus dans le domaine IoT. 
+
+Cet article explique comment provisionner le runtime sur une carte de développement [MinnowBoard Turbot][lnk-minnow] exécutant Windows IoT Standard. Windows IoT Core prend uniquement en charge Azure IoT Edge sur les processeurs Intel x64. 
 
 ## <a name="install-the-runtime"></a>Installer le runtime
 

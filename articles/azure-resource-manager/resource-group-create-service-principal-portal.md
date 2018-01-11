@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
 
@@ -118,7 +118,7 @@ Lors d’une connexion par programmation, vous aurez besoin de l’ID de votre a
 
    ![sélectionner une application](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les applications de la section [Exemples d’applications](#sample-applications) font référence à cette valeur en tant qu’ID de client.
+1. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Certains [exemples d’applications](#log-in-as-the-application) font référence à cette valeur en tant qu’ID client.
 
    ![ID client](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 

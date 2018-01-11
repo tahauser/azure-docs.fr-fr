@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
-Ce didacticiel vous montre comment configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales exécutant Windows. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles VMware locales exécutant Windows. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer un coffre Recovery Services pour Site Recovery
-> * Configurer les environnements de réplication source et cible
+> * Spécifier la source et la cible de réplication.
+> * Configurer l’environnement de réplication source, y compris les composants Site Recovery locaux, et l’environnement de réplication cible.
 > * Créer une stratégie de réplication
 > * Activer la réplication pour une machine virtuelle
 
@@ -35,37 +35,28 @@ Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que
 
 Avant de commencer, il est utile [d’examiner l’architecture](concepts-vmware-to-azure-architecture.md) pour le scénario de récupération d’urgence.
 
-## <a name="configure-vmware-account-permissions"></a>Configurer les autorisations du compte VMware
 
-1. Créez un rôle au niveau du vCenter. Nommez le rôle **Azure_Site_Recovery**.
-2. Affectez des autorisations suivantes au rôle **Azure_Site_Recovery**.
+## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 
-   **Tâche** | **Rôle/Autorisations** | **Détails**
-   --- | --- | ---
-   **Détection des machines virtuelles** | Objet de centre de données -> Propager vers l’objet enfant, rôle = lecture seule | Au moins un utilisateur en lecture seule.<br/><br/> L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.<br/><br/> Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers enfant** aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
-   **Réplication complète, basculement, restauration automatique** |  Objet de centre de données -> Propager vers l’objet enfant, rôle = Azure_Site_Recovery<br/><br/> Banque de données -> Allouer de l’espace, parcourir la banque de données, opérations de fichier de bas niveau, supprimer le fichier, mettre à jour les fichiers de machine virtuelle<br/><br/> Réseau -> Attribution de réseau<br/><br/> Ressource -> Affecter les machines virtuelles au pool de ressources, migrer des machines virtuelles hors tension, migrer des machines virtuelles sous tension<br/><br/> Tâches -> Créer une tâche, Mettre à jour une tâche<br/><br/> Machine virtuelle -> Configuration<br/><br/> Machine virtuelle -> Interagir -> répondre à la question, connexion d’appareil, configurer un support de CD, configurer une disquette, mettre hors tension, mettre sous tension, installation des outils VMware<br/><br/> Machine virtuelle -> Stock -> Créer, inscrire, désinscrire<br/><br/> Machine virtuelle -> Approvisionnement -> Autoriser le téléchargement de machines virtuelles, autoriser le chargement de fichiers de machine virtuelle<br/><br/> Machine virtuelle -> Instantanés -> Supprimer les instantanés | L’utilisateur est affecté au niveau du centre de données et a accès à tous les objets dans le centre de données.<br/><br/> Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers enfant** aux objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
-
-3. Créez un utilisateur sur le serveur vCenter ou sur l’hôte vSphere. Affectez le rôle à l’utilisateur.
-
-## <a name="specify-what-you-want-to-replicate"></a>Spécifier ce que vous voulez répliquer
-
-Le service Mobility doit être installé sur chaque machine que vous souhaitez répliquer. Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte qui sera utilisé par Site Recovery pour accéder à la machine virtuelle.
-
-Vous pouvez utiliser un compte local ou de domaine. Pour les machines virtuelles Linux, le compte doit être root sur le serveur Linux source. Pour les machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale :
-
-  - Dans le Registre, sous **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** et définissez sa valeur sur 1.
+1. Dans **Coffres Recovery Services**, cliquez sur le nom du coffre, **ContosoVMVault**.
+2. Dans **Prise en main**, cliquez sur Site Recovery. Cliquez ensuite sur **Préparer l’infrastructure**.
+3. Dans **Objectif de protection** > **Où se trouvent vos machines**, sélectionnez **Local**.
+4. Dans **Sur quelle cible souhaitez-vous répliquer vos machines, sélectionnez **Sur Azure**.
+5. Dans **Vos machines sont-elles virtualisées**, sélectionnez **Oui, avec l’hyperviseur VMware vSphere**. Cliquez ensuite sur **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
 
-La configuration de l’environnement source consiste à télécharger le programme d’installation unifiée de Site Recovery, à configurer le serveur de configuration et à l’inscrire dans le coffre, et à découvrir les machines virtuelles.
+Pour configurer l’environnement source, vous téléchargez le fichier du programme d’installation unifiée de Site Recovery. Vous exécutez le programme d’installation pour installer les composants Site Recovery locaux, inscrivez les serveurs VMware dans le coffre et détectez les machines virtuelles locales.
 
-Le serveur de configuration est une machine virtuelle VMware locale qui héberge tous les composants de Site Recovery. Cette machine virtuelle exécute le serveur de configuration, le serveur de processus et le serveur cible maître.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Vérifier les conditions exigées pour Site Recovery au niveau local
+
+Vous avez besoin d’une seule machine virtuelle VMware locale à haut niveau de disponibilité pour héberger les composants Site Recovery locaux. Ces composants englobent le serveur de configuration, le serveur de processus et le serveur cible maître.
 
 - Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.
-- Le serveur de processus fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure. En outre, le serveur de traitement installe le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la découverte automatique des machines virtuelles sur les serveurs VMware locaux.
+- Le serveur de processus fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure. De plus, le serveur de processus installe le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la détection automatique sur les machines virtuelles VMware locales.
 - Le serveur cible maître gère les données de réplication pendant la restauration automatique à partir d’Azure.
 
-La machine virtuelle du serveur de configuration doit être une machine virtuelle VMware à haute disponibilité répondant aux spécifications suivantes :
+La machine virtuelle doit répondre aux exigences répertoriées ici.
 
 | **Prérequis** | **Détails** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ La machine virtuelle du serveur de configuration doit être une machine virtuell
 | Type d’adresse IP | statique |
 | Ports | 443 (Orchestration du canal de contrôle)<br/>9443 (Transport de données)|
 
-Sur la machine virtuelle du serveur de configuration, vérifiez que l’horloge système est synchronisée avec un serveur de temps.
-L’heure doit être synchronisée dans une plage de 15 minutes. Si la différence d’heure est supérieure à 15 minutes, l’installation échoue.
+Par ailleurs : 
+- Vérifiez que l’horloge système de la machine virtuelle est synchronisée avec un serveur de temps. L’heure doit être synchronisée dans une plage de 15 minutes. Si elle est supérieure, l’installation échoue.
+l’installation échoue.
+- Vérifiez que la machine virtuelle du serveur de configuration peut accéder à ces URL :
 
-Vérifiez que le serveur de configuration peut accéder à ces URL :
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser les communications vers Azure.
-
-- Autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).
+- Assurez-vous que les règles de pare-feu basées sur une adresse IP autorisent les communications vers Azure.
+    - Autorisez les [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), le port 443 (HTTPS) et le port 9443 (réplication de données).
     - Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
 
-Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser la communication aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), et aux ports 443 (HTTPS) et 9443 (réplication des données). Veillez à autoriser les plages d’adresses IP pour la région de votre abonnement Azure et pour la région des États-Unis de l’Ouest (utilisée pour la gestion du contrôle d’accès et des identités).
 
-### <a name="download-the-site-recovery-unified-setup"></a>Télécharger le programme d’installation unifiée de Site Recovery
+### <a name="download-the-site-recovery-unified-setup-file"></a>Télécharger le fichier du programme d’installation unifiée de Site Recovery
 
-1. Ouvrez le [portail Azure](https://portal.azure.com), puis cliquez sur **Toutes les ressources**.
-2. Cliquez sur le coffre Recovery Services nommé **ContosoVMVault**.
-3. Cliquez sur **Site Recovery** > **Préparer l’infrastructure** > **Objectif de protection**.
-4. Sélectionnez **Local** pour l’endroit où se trouvent vos machines, **Vers Azure** pour l’endroit où vous voulez répliquer vos machines, et **Oui, avec l’hyperviseur VMware vSphere**. Cliquez ensuite sur **OK**.
-5. Dans le volet Préparer la source, cliquez sur **+ Serveur de configuration**.
-6. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
-7. Téléchargez le fichier d’installation unifiée de Site Recovery.
-8. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
+1. Dans le coffre > **Préparer l’infrastructure**, cliquez sur **Source**.
+1. Dans **Préparer la source**, cliquez sur **+ Serveur de configuration**.
+2. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration** s’affiche dans **Type de serveur**.
+3. Téléchargez le fichier d’installation unifiée de Site Recovery.
+4. Téléchargez la clé d’inscription du coffre. Vous en aurez besoin lors de l’exécution du programme d’installation unifiée. Une fois générée, la clé reste valide pendant 5 jours.
 
    ![Configurer la source](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -128,7 +114,7 @@ Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser la c
 
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-   ![Composants requis](./media/tutorial-vmware-to-azure/combined-wiz5.png)
+   ![Prérequis](./media/tutorial-vmware-to-azure/combined-wiz5.png)
 
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
@@ -146,9 +132,11 @@ Toutes les règles de pare-feu basées sur une adresse IP doivent autoriser la c
 
 ### <a name="configure-automatic-discovery"></a>Configurer la découverte automatique
 
-Pour découvrir les machines virtuelles, le serveur de configuration doit se connecter aux serveurs VMware locaux. Pour les besoins de ce didacticiel, ajoutez le serveur vCenter ou les hôtes vSphere en utilisant un compte qui dispose des privilèges d’administrateur sur le serveur.
+Pour découvrir les machines virtuelles, le serveur de configuration doit se connecter aux serveurs VMware locaux. Pour les besoins de ce didacticiel, ajoutez le serveur vCenter ou les hôtes vSphere en utilisant un compte qui dispose des privilèges d’administrateur sur le serveur. Vous avez créé ce compte dans le [précédent didacticiel](tutorial-prepare-on-premises-vmware.md). 
 
-1. Sur votre serveur de configuration, lancez **CSPSConfigtool.exe**. Il est disponible sous forme de raccourci sur le bureau et situé dans le dossier *emplacement d’installation*\home\svsystems\bin.
+Pour ajouter le compte :
+
+1. Sur la machine virtuelle du serveur de configuration, lancez **CSPSConfigtool.exe**. Il est disponible sous forme de raccourci sur le bureau et situé dans le dossier *emplacement d’installation*\home\svsystems\bin.
 
 2. Cliquez sur **Gérer les comptes** > **Ajouter un compte**.
 
@@ -158,12 +146,12 @@ Pour découvrir les machines virtuelles, le serveur de configuration doit se con
 
    ![Détails](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Pour ajouter un serveur :
+Pour ajouter le serveur VMware :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com), puis cliquez sur **Toutes les ressources**.
 2. Cliquez sur le coffre Recovery Services nommé **ContosoVMVault**.
 3. Cliquez sur **Site Recovery** > **Préparer l’infrastructure** > **Source**.
-4. Sélectionnez **+ vCenter** pour vous connecter un serveur vCenter ou à un hôte ESXi vSphere.
+4. Sélectionnez **+vCenter** pour vous connecter à un serveur vCenter ou à un hôte ESXi vSphere.
 5. Dans **Ajouter un serveur vCenter**, spécifiez un nom convivial pour le serveur. Ensuite, spécifiez l’adresse IP ou le nom de domaine complet.
 6. Laissez le port défini sur 443, sauf si vos serveurs VMware écoutent les demandes sur un autre port.
 7. Sélectionnez le compte à utiliser pour la connexion au serveur. Cliquez sur **OK**.
@@ -179,7 +167,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 1. Cliquez sur **Préparer l’infrastructure** > **Cible** et sélectionnez l’abonnement Azure à utiliser.
 2. Spécifiez si votre modèle de déploiement cible est basé sur Resource Manager ou est de type classique.
-3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles.
+3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes de stockage Azure compatibles.
 
    ![Cible](./media/tutorial-vmware-to-azure/storage-network.png)
 

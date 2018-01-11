@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilisation d'Azure Key Vault à partir d'une application web
 
@@ -27,7 +27,7 @@ Utilisez ce didacticiel pour vous aider à comprendre comment utiliser Azure Ke
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -36,7 +36,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * une application web. Nous afficherons les étapes d'une application ASP.NET MVC déployée dans Azure en tant qu'application web.
 
 >[!IMPORTANT]
->* Cet exemple est basé sur une ancienne méthode d’approvisionnement manuel des identités AAD. Il existe à ce jour une nouvelle fonctionnalité en préversion, nommée [Identité du service administré (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), qui peut configurer automatiquement les identités AAD. Reportez-vous à l’exemple suivant sur [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) pour plus d’informations.
+>* Cet exemple est basé sur une ancienne méthode d’approvisionnement manuel des identités AAD. Il existe à ce jour une nouvelle fonctionnalité en préversion, nommée [Identité du service administré (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), qui peut configurer automatiquement les identités AAD. Pour plus d’informations, consultez l’exemple suivant sur [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/).
 
 > [!NOTE]
 >* Il est essentiel que vous ayez effectué les étapes répertoriées dans [Prise en main d'Azure Key Vault](key-vault-get-started.md) pour ce didacticiel afin que vous ayez l'URI pour une clé secrète et un ID client ainsi qu'une clé secrète client pour une application web.
@@ -46,7 +46,7 @@ L'application web qui accédera à Key Vault est celle qui est enregistrée dan
 
 Ce didacticiel est conçu pour les développeurs web qui comprennent les principes fondamentaux de création d'applications web sur Azure. Pour plus d'informations sur Azure Web Apps, consultez [Vue d'ensemble de Web Apps](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Ajout de packages NuGet
+## <a id="packages"></a>Ajouter des packages NuGet
 
 Deux packages doivent être installés pour votre application web.
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Actuellement, la fonctionnalité Managed Service Identity (MSI) constitue la façon la plus simple de s’authentifier. Pour en savoir plus, consultez le lien suivant vers l’exemple qui utilise [Key Vault avec MSI dans une application dans .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) et le [didacticiel pour MSI avec App Service et Functions](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
+>* Actuellement, la fonctionnalité Managed Service Identity (MSI) constitue la façon la plus simple de s’authentifier. Pour en savoir plus, consultez le lien suivant vers l’exemple qui utilise [Key Vault avec MSI dans une application dans .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) et le [didacticiel pour MSI avec App Service et Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 >* Pour authentifier une application Azure AD, il est également possible d’utiliser une clé secrète client et un ID client. L'utiliser dans votre application Web permet une séparation des tâches et davantage de contrôle sur la gestion de clés. Toutefois, vous devez pour cela placer la clé secrète client dans vos paramètres de configuration, ce qui, dans certains cas, peut s’avérer aussi dangereux que de placer le secret que vous souhaitez protéger dans vos paramètres de configuration. Vous trouverez ci-dessous des informations sur l’utilisation d’un ID client et d’un certificat, au lieu de l’ID client et de la clé secrète client, pour authentifier l’application Azure AD.
 
 ## <a id="appstart"></a>Récupération de la clé secrète dans Application Start
@@ -147,11 +147,11 @@ Il est également possible d'authentifier une application Azure AD à l'aide d
 Dans notre cas, nous créerons un certificat de test. Voici quelques exemples de commandes que vous pouvez utiliser dans une invite de commandes de développeur pour créer un certificat. Accédez au répertoire dans lequel vous souhaitez créer les fichiers de certificat.  En outre, pour les dates de début et de fin du certificat, utilisez la date actuelle plus un an.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Prenez note de la date de fin et du mot de passe pour le fichier .pfx (dans cet exemple : 31/07/2016 et test123). Vous en aurez besoin ultérieurement.
+Prenez note de la date de fin et du mot de passe pour le fichier.pfx (dans cet exemple : 31/07/2017 et test123). Vous en aurez besoin ultérieurement.
 
 Pour plus d’informations sur la création d’un certificat de test, consultez [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 

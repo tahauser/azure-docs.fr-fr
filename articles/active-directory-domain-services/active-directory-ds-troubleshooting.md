@@ -4,7 +4,7 @@ description: "Guide de dépannage pour les services de domaine Azure Active Dire
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
@@ -57,13 +57,10 @@ Vérifiez si votre répertoire Azure AD contient une application nommée « Sy
 
 Pour vérifier la présence de cette application et la supprimer le cas échant, procédez comme suit :
 
-1. Accédez au **portail Azure Classic** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. Sélectionnez le nœud **Active Directory** dans le volet gauche.
-3. Sélectionnez le client Azure AD (annuaire) pour lequel vous souhaitez activer les services de domaine Azure AD.
-4. Accédez à l’onglet **Applications** .
-5. Dans la liste déroulante, sélectionnez l’option **Applications que ma société possède** .
-6. Recherchez l’application **Synchronisation des services de domaine Azure AD**. Si cette application existe, supprimez-la.
-7. Une fois que vous avez supprimé l’application, essayez de nouveau d’activer les services de domaine Azure AD.
+1. Accédez à la section **Applications** de votre annuaire Azure AD dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Sélectionnez **Toutes les applications** dans la liste déroulante **Afficher**. Sélectionnez **Tout** dans la liste déroulante **État de l’application**. Sélectionnez **Tout** dans la liste déroulante **Visibilité de l’application**.
+3. Tapez **Azure AD Domain Services Sync** dans la zone de recherche. Si l’application existe, cliquez dessus, puis cliquez sur le bouton **Supprimer** dans la barre d’outils pour la supprimer.
+4. Une fois que vous avez supprimé l’application, essayez de nouveau d’activer les services de domaine Azure AD.
 
 ### <a name="invalid-configuration"></a>Configuration non valide
 **Message d’erreur :**
@@ -153,7 +150,7 @@ Azure AD vous protège contre la suppression accidentelle d’objets utilisateur
 
 Le compte d’utilisateur reste dans un état désactivé dans votre domaine managé, même si vous recréez un compte d’utilisateur avec le même nom d’utilisateur principal dans votre annuaire Azure AD. Pour supprimer le compte d’utilisateur de votre domaine managé, vous devez forcer sa suppression de votre locataire Azure AD.
 
-Pour supprimer complètement le compte d’utilisateur de votre domaine géré, supprimez définitivement l’utilisateur de votre client Azure AD. Utilisez l’applet de commande PowerShell Remove-MsolUser avec l’option « -RemoveFromRecycleBin », comme décrit dans cet [article MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Pour supprimer complètement le compte d’utilisateur de votre domaine géré, supprimez définitivement l’utilisateur de votre client Azure AD. Utilisez l’applet de commande PowerShell `Remove-MsolUser` avec l’option `-RemoveFromRecycleBin`, comme décrit dans cet [article MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Nous contacter
 Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](active-directory-ds-contact-us.md).

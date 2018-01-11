@@ -1,5 +1,5 @@
 ---
-title: Configuration de DHCPv6 pour les machines virtuelles Linux | Microsoft Docs
+title: Configurer DHCPv6 pour les machines virtuelles Linux | Microsoft Docs
 description: Configurer DHCPv6 pour la machines virtuelles Linux
 services: load-balancer
 documentationcenter: na
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 84558cb6e3a5524969f590eb0272a64ad8839ab5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="configuring-dhcpv6-for-linux-vms"></a>Configuration de DHCPv6 pour les machines virtuelles Linux
+# <a name="configure-dhcpv6-for-linux-vms"></a>Configurer DHCPv6 pour les machines virtuelles Linux
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Certaines des images de machines virtuelles Linux de la Place de marché Microsoft Azure ne présentent pas de configuration DHCPv6 par défaut. Pour prendre en charge IPv6, DHCPv6 doit être configuré dans la distribution du système d’exploitation Linux que vous utilisez. Différentes distributions Linux présentent des méthodes de configuration de DHCPv6 distinctes, car elles utilisent des packages non identiques.
+Certaines des images de machines virtuelles Linux de la Place de marché Microsoft Azure ne présentent pas de configuration DHCPv6 (Dynamic Host Configuration Protocol version 6) par défaut. Pour prendre en charge IPv6, DHCPv6 doit être configuré dans la distribution du système d’exploitation Linux que vous utilisez. Les distributions Linux configurent DHCPv6 de diverses façons, car elles utilisent différents packages.
 
 > [!NOTE]
-> Les images SUSE Linux et CoreOS récentes de la Place de marché Azure ont été préconfigurées avec DHCPv6. Aucune modification supplémentaire n’est requise pour l’utilisation de ces images.
+> Les images SUSE Linux et CoreOS récentes de la Place de marché Azure ont été préconfigurées avec DHCPv6. Aucun changement supplémentaire n’est exigé quand vous utilisez ces images.
 
 Ce document vous explique comment activer DHCPv6 pour que votre machine virtuelle Linux obtienne une adresse IPv6.
 
 > [!WARNING]
-> Une modification incorrecte des fichiers de configuration réseau peuvent vous faire perdre l’accès du réseau à votre machine virtuelle. Nous vous recommandons de tester vos modifications de configuration sur des systèmes hors production. Les instructions de cet article ont été testées sur les dernières versions des images Linux dans la Place de marché Azure. Consultez la documentation de votre version spécifique de Linux pour obtenir des instructions plus détaillées.
+> Toute modification incorrecte des fichiers de configuration réseau peut vous faire perdre l’accès réseau à votre machine virtuelle. Nous vous recommandons de tester vos modifications de configuration sur des systèmes hors production. Les instructions de cet article ont été testées sur les dernières versions des images Linux dans la Place de marché Azure. Pour obtenir des instructions plus détaillées, consultez la documentation propre à votre version de Linux.
 
 ## <a name="ubuntu"></a>Ubuntu
 
-1. Modifiez le fichier `/etc/dhcp/dhclient6.conf` , puis ajoutez la ligne suivante :
+1. Modifiez le fichier */etc/dhcp/dhclient6.conf* et ajoutez la ligne suivante :
 
         timeout 10;
 
 2. Modifiez la configuration du réseau pour l’interface eth0, selon la méthode suivante :
 
-   * Sur **Ubuntu 12.04 et 14.04**, modifiez le fichier `/etc/network/interfaces.d/eth0.cfg`.
-   * Sur **Ubuntu 16.04**, modifiez le fichier `/etc/network/interfaces.d/50-cloud-init.cfg`.
+   * Sur **Ubuntu 12.04 et 14.04**, modifiez le fichier */etc/network/interfaces.d/eth0.cfg*. 
+   * Sur **Ubuntu 16.04**, modifiez le fichier */etc/network/interfaces.d/50-cloud-init.cfg*.
 
          iface eth0 inet6 auto
              up sleep 5
@@ -58,11 +58,11 @@ Ce document vous explique comment activer DHCPv6 pour que votre machine virtuell
 
 ## <a name="debian"></a>Debian
 
-1. Modifiez le fichier `/etc/dhcp/dhclient6.conf` , puis ajoutez la ligne suivante :
+1. Modifiez le fichier */etc/dhcp/dhclient6.conf* et ajoutez la ligne suivante :
 
         timeout 10;
 
-2. Modifiez le fichier `/etc/network/interfaces` , puis ajoutez la configuration suivante :
+2. Modifiez le fichier */etc/network/interfaces*, puis ajoutez la configuration suivante :
 
         iface eth0 inet6 auto
             up sleep 5
@@ -74,13 +74,13 @@ Ce document vous explique comment activer DHCPv6 pour que votre machine virtuell
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="rhel--centos--oracle-linux"></a>RHEL / CentOS / Oracle Linux
+## <a name="rhel-centos-and-oracle-linux"></a>RHEL, CentOS et Oracle Linux
 
-1. Modifiez le fichier `/etc/sysconfig/network` , puis ajoutez le paramètre suivant :
+1. Modifiez le fichier */etc/sysconfig/network*, puis ajoutez le paramètre suivant :
 
         NETWORKING_IPV6=yes
 
-2. Modifiez le fichier `/etc/sysconfig/network-scripts/ifcfg-eth0` , puis ajoutez les deux paramètres suivants :
+2. Modifiez le fichier */etc/sysconfig/network-scripts/ifcfg-eth0*, puis ajoutez les deux paramètres suivants :
 
         IPV6INIT=yes
         DHCPV6C=yes
@@ -91,9 +91,9 @@ Ce document vous explique comment activer DHCPv6 pour que votre machine virtuell
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11--opensuse-13"></a>SLES 11 et openSUSE 13
+## <a name="sles-11-and-opensuse-13"></a>SLES 11 et openSUSE 13
 
-Les images SLES et openSUSE récentes d’Azure ont été préconfigurées avec DHCPv6. Aucune modification supplémentaire n’est requise pour l’utilisation de ces images. Si vous possédez une machine virtuelle basée sur une image SUSE plus ancienne ou personnalisée, appliquez les étapes suivantes :
+Les images SLES (SUSE Linux Enterprise Server) et openSUSE récentes d’Azure ont été préconfigurées avec DHCPv6. Aucun changement supplémentaire n’est exigé quand vous utilisez ces images. Si vous avez une machine virtuelle basée sur une image SUSE plus ancienne ou personnalisée, effectuez les étapes suivantes :
 
 1. Installez le package `dhcp-client` , si nécessaire :
 
@@ -101,7 +101,7 @@ Les images SLES et openSUSE récentes d’Azure ont été préconfigurées avec 
     sudo zypper install dhcp-client
     ```
 
-2. Modifiez le fichier `/etc/sysconfig/network/ifcfg-eth0` , puis ajoutez le paramètre suivant :
+2. Modifiez le fichier */etc/sysconfig/network/ifcfg-eth0*, puis ajoutez le paramètre suivant :
 
         DHCLIENT6_MODE='managed'
 
@@ -113,17 +113,13 @@ Les images SLES et openSUSE récentes d’Azure ont été préconfigurées avec 
 
 ## <a name="sles-12-and-opensuse-leap"></a>SLES 12 et openSUSE Leap
 
-Les images SLES et openSUSE récentes d’Azure ont été préconfigurées avec DHCPv6. Aucune modification supplémentaire n’est requise pour l’utilisation de ces images. Si vous possédez une machine virtuelle basée sur une image SUSE plus ancienne ou personnalisée, appliquez les étapes suivantes :
+Les images SLES et openSUSE récentes d’Azure ont été préconfigurées avec DHCPv6. Aucun changement supplémentaire n’est exigé quand vous utilisez ces images. Si vous avez une machine virtuelle basée sur une image SUSE plus ancienne ou personnalisée, effectuez les étapes suivantes :
 
-1. Modifiez le fichier `/etc/sysconfig/network/ifcfg-eth0` , puis remplacez ce paramètre
-
-        #BOOTPROTO='dhcp4'
-
-    avec la valeur suivante :
+1. Modifiez le fichier */etc/sysconfig/network/ifcfg-eth0*, puis remplacez le paramètre `#BOOTPROTO='dhcp4'` par la valeur suivante :
 
         BOOTPROTO='dhcp'
 
-2. Ajoutez le paramètre suivant à `/etc/sysconfig/network/ifcfg-eth0`:
+2. Ajoutez le paramètre suivant au fichier */etc/sysconfig/network/ifcfg-eth0* :
 
         DHCLIENT6_MODE='managed'
 
@@ -135,9 +131,9 @@ Les images SLES et openSUSE récentes d’Azure ont été préconfigurées avec 
 
 ## <a name="coreos"></a>CoreOS
 
-Les images CoreOS récentes d’Azure ont été préconfigurées avec DHCPv6. Aucune modification supplémentaire n’est requise pour l’utilisation de ces images. Si vous possédez une machine virtuelle basée sur une image CoreOS ancienne ou personnalisée, appliquez les étapes suivantes :
+Les images CoreOS récentes d’Azure ont été préconfigurées avec DHCPv6. Aucun changement supplémentaire n’est exigé quand vous utilisez ces images. Si vous avez une machine virtuelle basée sur une image CoreOS plus ancienne ou personnalisée, effectuez les étapes suivantes :
 
-1. Modifiez le fichier `/etc/systemd/network/10_dhcp.network`
+1. Modifiez le fichier */etc/systemd/network/10_dhcp.network* :
 
         [Match]
         eth0

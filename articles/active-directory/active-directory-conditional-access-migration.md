@@ -1,6 +1,6 @@
 ---
 title: "Migrer les stratégies classiques dans le portail Azure | Microsoft Docs"
-description: "Migrez les stratégies classiques dans le portail Azure."
+description: "Découvrez ce que vous devez savoir pour migrer les stratégies classiques dans le portail Azure."
 services: active-directory
 keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
 documentationcenter: 
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrer les stratégies classiques dans le portail Azure 
 
 
-[L’accès conditionnel](active-directory-conditional-access-azure-portal.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Si l’objectif est toujours le même, la publication du nouveau portail Azure a également introduit des améliorations significatives pour le fonctionnement de l’accès conditionnel. Les stratégies d’accès conditionnel que vous avez configurées à l’extérieur du portail Azure peuvent coexister avec les nouvelles stratégies que vous créez dans le portail Azure. Tant que vous ne les désactivez ou supprimez pas, elles restent appliquées dans votre environnement. Toutefois, nous recommandons que vous migriez vos stratégies classiques vers des stratégies d’accès conditionnel Azure Active Directory, car :
+[L’accès conditionnel](active-directory-conditional-access-azure-portal.md) est une fonctionnalité d’Azure Active Directory (Azure AD) qui vous permet de contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Si l’objectif est toujours le même, la publication du nouveau portail Azure a introduit des améliorations significatives pour le fonctionnement de l’accès conditionnel.
 
-- Les nouvelles stratégies vous permettent de répondre à des scénarios que vous ne pouvez pas gérer avec des stratégies classiques.
+Envisagez de migrer les stratégies que vous n’avez pas créées dans le portail Azure, car :
+
+- Vous pouvez maintenant résoudre des scénarios que vous ne pouviez pas gérer auparavant.
 
 - Vous pouvez réduire le nombre de stratégies que vous devez gérer en les consolidant.   
 
-Cette rubrique vous aide pour la migration de vos stratégies classiques existantes vers les nouvelles stratégies d’accès conditionnel Azure AD.
+- Vous pouvez gérer toutes vos stratégies d’accès conditionnel dans un emplacement central.
 
+- Le portail Azure Classic va être mis hors service.   
 
+Cet article explique ce que vous devez savoir pour migrer vos stratégies d’accès conditionnel existantes vers le nouveau framework.
+ 
 ## <a name="classic-policies"></a>Stratégies classiques
 
-Les stratégies d’accès conditionnel pour Azure AD et Intune que vous n’avez pas créées dans le portail Azure sont également appelées **stratégies classiques**. Pour migrer vos stratégies classiques, vous n’avez pas besoin d’accéder à votre portail Azure classique. Le portail Azure vous offre une vue [**Stratégies classiques (préversion)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) qui vous permet de passer en revue vos stratégies classiques.
+Dans le [portail Azure](https://portal.azure.com), la page [Accès conditionnel - Stratégies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) est votre point d’entrée aux stratégies d’accès conditionnel. Toutefois, dans votre environnement, vous pouvez également disposer de stratégies d’accès conditionnel que vous n’avez pas créées à l’aide de cette page. Ces stratégies sont appelées *stratégies classiques*. Les stratégies classiques sont des stratégies d’accès conditionnel, que vous avez créées dans :
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- Le Portail Azure Classic
+- Le Portail classique Intune
+- Le portail Intune App Protection
 
 
-### <a name="open-a-classic-policy"></a>Ouvrir une stratégie classique
+Dans la page **Accès conditionnel**, vous pouvez accéder à vos stratégies classiques en cliquant sur [**Stratégies classiques (préversion)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) dans la section **Gérer**. 
 
-**Pour ouvrir une stratégie classique :**
 
-1. Dans la barre de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur **Accès conditionnel**.
+L’affichage **Stratégies classiques** vous permet d’effectuer les opérations suivantes :
 
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/02.png)
+- Filtrer vos stratégies classiques.
  
-2. Dans la page **Accès conditionnel - Stratégies**, dans la section **Gérer**, cliquez sur **Stratégies classiques (préversion)**.
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. Dans la liste des stratégies classiques, sélectionnez la stratégie qui vous intéresse.   
+- Désactiver des stratégies classiques.
 
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Passer en revue les paramètres d’une stratégie classique (et la désactiver).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+Si vous désactivez une stratégie classique, vous ne pouvez plus annuler cette étape. C’est pourquoi vous pouvez modifier l’appartenance de groupe dans une stratégie classique à l’aide de l’affichage **Détails**. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+En modifiant les groupes sélectionnés ou en excluant des groupes spécifiques, vous pouvez tester l’effet d’une stratégie classique désactivée pour quelques utilisateurs de test avant de désactiver la stratégie pour tous les utilisateurs et groupes inclus. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Stratégies d’accès conditionnel Azure AD
 
-Cette rubrique fournit des instructions détaillées qui vous permettent de migrer vos stratégies classiques sans être familiarisé avec les stratégies d’accès conditionnel Azure AD. Toutefois, être familiarisé avec la terminologie et les concepts de base de l’accès conditionnel d’Azure AD vous aidera à améliorer votre expérience de la migration.
+Grâce à l’accès conditionnel dans le portail Azure, vous pouvez gérer toutes vos stratégies dans un emplacement central. Étant donné que l’implémentation de l’accès conditionnel a été considérablement modifiée, vous devez vous familiariser avec les concepts de base avant de migrer vos stratégies classiques.
 
 Consultez l'article :
 
-- [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md) pour en savoir plus sur les concepts de base et la terminologie
+- [Accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal.md) pour en savoir plus sur les concepts de base et la terminologie.
 
-- [Bien démarrer avec l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) pour vous familiariser avec l’interface utilisateur dans le portail Azure
+- [Bonnes pratiques pour l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md) pour obtenir des conseils sur le déploiement de l’accès conditionnel dans votre organisation.
+
+- [Bien démarrer avec l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) pour vous familiariser avec l’interface utilisateur dans le portail Azure.
 
 
  
+## <a name="migration-considerations"></a>Considérations relatives à la migration
+
+Dans cet article, les stratégies d’accès conditionnel Azure AD sont également appelées *nouvelles stratégies*.
+Vos stratégies classiques continuent de fonctionner aux côtés de vos nouvelles stratégies jusqu’à ce que vous les désactiviez ou supprimiez. 
+
+Les aspects suivants sont importants dans le contexte d’une consolidation de stratégies :
+
+- Alors que les stratégies classiques sont liées à une application cloud spécifique, vous pouvez sélectionner autant d’applications cloud que nécessaire dans une nouvelle stratégie.
+
+- Tous les contrôles d’une stratégie classique et d’une nouvelle stratégie pour une application cloud doivent être satisfaits (*AND*). 
+
+
+- Dans une nouvelle stratégie, vous pouvez :
+ 
+    - Combiner plusieurs conditions si votre scénario l’exige. 
+
+    - Sélectionner plusieurs exigences d’octroi en tant que contrôle d’accès et les combiner avec un opérateur logique *OR* (nécessitent un des contrôles sélectionnés) ou avec un opérateur logique *AND* (nécessitent tous les contrôles sélectionnés).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
 
-## <a name="multi-factor-authentication-policy"></a>Stratégie d’authentification multifacteur 
+Si vous souhaitez migrer des stratégies classiques pour **Office 365 Exchange Online** qui incluent **Exchange Active Sync** comme condition d’applications clientes, vous ne pourrez peut-être pas les consolider en une nouvelle stratégie. 
 
-Cet exemple montre comment migrer une stratégie classique qui nécessite l’authentification de multifacteur** pour une application cloud. 
+C’est, par exemple, le cas si vous souhaitez prendre en charge tous les types d’applications clientes. Dans une nouvelle stratégie qui a **Exchange Active Sync** comme condition d’applications clientes, vous ne pouvez pas sélectionner d’autres applications clientes.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+En outre, une consolidation en une nouvelle stratégie n’est pas possible si vos stratégies classiques contiennent plusieurs conditions. Une nouvelle stratégie pour laquelle **Exchange Active Sync** est configuré comme condition d’applications clientes ne prend pas en charge d’autres conditions :   
 
-**Pour migrer une stratégie classique :**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Ouvrez la stratégie classique](#open-a-classic-policy) pour obtenir les paramètres de configuration.
-2. Créez une nouvelle stratégie d’accès conditionnel Azure AD afin de remplacer votre stratégie classique. 
+Si vous avez une nouvelle stratégie pour laquelle **Exchange Active Sync** est configuré comme condition d’applications clientes, vous devez vous assurer que toutes les autres conditions ne sont pas configurées. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>Créer une nouvelle stratégie d’accès conditionnel
+Les stratégies classiques [basées sur une application](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) pour Office 365 Exchange Online qui incluent **Exchange Active Sync** comme condition d’applications clientes autorisent les [plateformes d’appareils](active-directory-conditional-access-technical-reference.md#device-platform-condition) **prises en charge** et **non prises en charge**. Bien que vous ne puissiez pas configurer de plateformes d’appareils individuelles dans une nouvelle stratégie connexe, vous pouvez limiter la prise en charge aux [plateformes d’appareils prises en charge](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. Dans la barre de navigation gauche du [portail Azure](https://portal.azure.com), cliquez sur **Azure Active Directory**.
+Vous pouvez consolider plusieurs stratégies classiques qui incluent **Exchange Active Sync** comme condition d’applications clientes si elles ont :
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- Uniquement **Exchange Active Sync** comme condition 
 
-2. Dans la page **Azure Active Directory**, dans la section **Gérer**, cliquez sur **Accès conditionnel**.
+- Plusieurs exigences d’octroi d’accès configurées
 
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/02.png)
+Un scénario courant est la consolidation des éléments suivants :
 
+- Une stratégie classique basée sur un appareil à partir du portail Azure Classic 
+- Une stratégie classique basée sur une application dans le portail Intune App Protection 
+ 
+Dans ce cas, vous pouvez consolider vos stratégies classiques en une nouvelle stratégie pour laquelle les deux exigences sont sélectionnées.
 
-
-3. Dans la page **Accès conditionnel**, pour ouvrir la page **Nouveau**, cliquez sur **Ajouter** dans la barre d’outils située en haut.
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/03.png)
-
-4. Dans la page **Nom** du panneau **Nouveau**, indiquez le nom de votre stratégie.
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/29.png)
-
-5. Dans la section **Affectations**, cliquez sur **Utilisateurs et groupes**.
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/05.png)
-
-    a. Si vous avez tous les utilisateurs sélectionnés dans votre stratégie classique, cliquez sur **Tous les utilisateurs**. 
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/35.png)
-
-    b. Si vous avez des groupes sélectionnés dans votre stratégie classique, cliquez sur **Sélectionner des utilisateurs et des groupes**, puis sélectionnez les groupes et utilisateurs requis.
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/36.png)
-
-    c. Si vous avez des groupes exclus, cliquez sur l’onglet **Exclure** et sélectionnez les groupes et utilisateurs requis. 
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/37.png)
-
-6. Dans la page **Nouveau**, pour ouvrir la page **Applications cloud**, cliquez sur **Applications cloud** dans la section **Affectation**.
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. Dans la page **Applications cloud**, procédez comme suit :
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/08.png)
-
-    a. Cliquez sur **Sélectionner les applications**.
-
-    b. Cliquez sur **Sélectionner**.
-
-    c. Dans la page **Sélectionner**, sélectionnez votre application cloud, puis cliquez sur **Sélectionner**.
-
-    d. Dans la page **Applications cloud**, cliquez sur **Terminé**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. Si vous avez sélectionné **Imposer l’authentification multifacteur** :
+### <a name="device-platforms"></a>Plateformes d’appareils
 
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/26.png)
+Les stratégies classiques dotées de [contrôles basés sur une application](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) sont préconfigurées avec iOS et Android en tant que [condition de plateforme d’appareil](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    a. Dans la section **Contrôles d’accès**, cliquez sur **Accorder**.
+Dans une nouvelle stratégie, vous devez sélectionner les [plateformes d’appareils](active-directory-conditional-access-technical-reference.md#device-platform-condition) à prendre en charge individuellement.
 
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/27.png)
-
-    b. Sur la page **Accorder**, cliquez sur **Accorder l’accès**, puis cliquez sur **Imposer l’authentification multifacteur**.
-
-    c. Cliquez sur **Sélectionner**.
-
-
-10. Cliquez sur **Activé** pour activer votre stratégie.
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/30.png)
-
-11. Désactivez la stratégie classique. 
-
-    ![Accès conditionnel](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

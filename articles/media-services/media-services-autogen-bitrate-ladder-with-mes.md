@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utilisation d’Azure Media Encoder Standard pour générer automatiquement une échelle des vitesses de transmission
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Cette rubrique explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie restera à 720p maximum démarrera à des vitesses inférieures à 3 Mbits/s.
+Cet article explique comment utiliser Media Encoder Standard (MES) pour générer automatiquement une échelle des vitesses de transmission (paires vitesse-résolution) basée sur la résolution d’entrée et la vitesse de transmission. La présélection générée automatiquement ne dépassera jamais la résolution d’entrée et la vitesse de transmission. Par exemple, si l’entrée est 720p à 3 Mbits/s, la sortie reste à 720p maximum et démarre à des vitesses inférieures à 3 Mbits/s.
 
 ### <a name="encoding-for-streaming-only"></a>Encodage pour la diffusion en continu uniquement
 
-Si votre objectif est d’encoder votre vidéo source uniquement pour la diffusion en continu, il vous faut alors utiliser la présélection « Diffusion adaptative en continu » lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Diffusion adaptative**, l’encodeur MES limitera intelligemment l’échelle de vitesse de transmission. Mais vous ne pourrez pas contrôler les frais d’encodage car le service détermine le nombre de couches à utiliser et à quelle résolution. Vous pouvez consulter des exemples de couches de sortie produites par MES suite à un encodage avec la présélection **Diffusion adaptative** à la fin de cette rubrique. L’élément multimédia de sortie contiendra des fichiers MP4 où les flux audio et vidéo ne sont pas entrelacés.
+Si votre objectif est d’encoder votre vidéo source uniquement pour la diffusion en continu, il vous faut alors utiliser la présélection « Diffusion adaptative en continu » lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Diffusion adaptative**, l’encodeur MES limitera intelligemment l’échelle de vitesse de transmission. Mais vous ne pourrez pas contrôler les frais d’encodage car le service détermine le nombre de couches à utiliser et à quelle résolution. À la fin de cet article, vous pouvez consulter des exemples de couches de sortie produites par MES et faisant suite à un encodage avec la présélection **Diffusion adaptative**. L’élément multimédia de sortie contient des fichiers MP4 où il n’y a pas d’entrelacement des flux audio et vidéo.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Encodage pour le téléchargement progressif et la diffusion en continu
 
-Si votre objectif est d’encoder votre vidéo source pour la diffusion en continu ainsi que pour produire des fichiers MP4 pour le téléchargement progressif, il vous faut utiliser la présélection « Contenu adaptatif MP4 à plusieurs débits » lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Contenu adaptative MP4 à plusieurs débits**, l’encodeur MES s’applique la même logique de codage que celle indiquée ci-dessus, mais maintenant la ressource en sortie contient des fichiers MP4 avec les flux audio et vidéo entrelacés. Vous pouvez utiliser un de ces fichiers MP4 (par exemple, la version la plus élevée à débit binaire) en tant que fichier de téléchargement progressif.
+Si vos objectifs sont d’encoder votre vidéo source pour la diffusion en continu et produire des fichiers MP4 pour le téléchargement progressif, il vous faut utiliser la présélection « Contenu adaptatif MP4 à plusieurs débits » lors de la création d’une tâche d’encodage. Lorsque vous utilisez la présélection **Contenu adaptative MP4 à plusieurs débits**, l’encodeur MES applique la même logique de codage que celle indiquée ci-dessus, mais désormais la ressource en sortie contient des fichiers MP4 pour les flux audio et vidéo entrelacés. Vous pouvez utiliser un de ces fichiers MP4 (par exemple, la version la plus élevée à débit binaire) en tant que fichier de téléchargement progressif.
 
 ## <a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
 
@@ -41,7 +40,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 - Création d’une tâche d’encodage.
 - Obtention d’une référence à l’encodeur Media Encoder Standard.
 - Ajout d’une tâche d’encodage au travail et spécification de l’option pour utiliser la présélection **Diffusion adaptative**. 
-- Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
+- Création d’un élément multimédia de sortie qui contient l’élément multimédia encodé.
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
 - Envoyez le travail.
 
@@ -51,28 +50,37 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
 #### <a name="example"></a>Exemple
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Configurez votre environnement de développement et ajoutez des informations de 
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Configurez votre environnement de développement et ajoutez des informations de 
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Sortie
 

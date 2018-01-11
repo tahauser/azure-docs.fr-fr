@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
@@ -45,7 +45,7 @@ Le projet comportait deux exigences principales :
 
 ## <a name="how-we-solved-the-problem"></a>Comment nous avons résolu le problème
 
-Nous avons choisi [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") comme référentiel pour les enregistrements de journal et d’erreur (Cosmos DB fait référence aux enregistrements en tant que documents). Comme Azure Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour **insérer** et**interroger** les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.  
+Nous avons choisi [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") comme référentiel pour les enregistrements de journal et d’erreur (Cosmos DB fait référence aux enregistrements en tant que documents). Comme Azure Logic Apps dispose d’un modèle standard pour toutes les réponses, nous n’avons pas à créer un schéma personnalisé. Nous pouvons créer une application API pour **insérer** et**interroger** les enregistrements d’erreur et de journal. Nous pouvons également définir un schéma pour chaque enregistrement au sein de l’application API.  
 
 Une autre exigence consistait à vider les enregistrements au-delà d’une certaine date. Cosmos DB possède une propriété [Durée de vie](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durée de vie") (TTL, Time To Live), qui nous a permis de définir une valeur **Durée de vie** pour chaque enregistrement ou pour toute une collection. Ainsi, nous n’avons plus à supprimer manuellement les enregistrements dans Cosmos DB.
 
@@ -107,7 +107,7 @@ Nous devons journaliser la source (requête) du dossier du patient à partir du 
    Le déclencheur provenant de CRM nous fournit les paramètres **ID de patient CRM****Type d’enregistrement**, **Enregistrement nouveau ou mis à jour** (valeur booléenne nouvelle ou mise à jour) et **ID Salesforce**. **L’ID Salesforce** peut être défini sur la valeur Null, car il est utilisé uniquement pour une mise à jour.
    Nous allons obtenir l’enregistrement CRM à l’aide du **PatientID** et du **type d’enregistrement**.
 
-2. Nous devons ensuite ajouter l’opération **InsertLogEntry** de notre application API DocumentDB, comme montré ici dans le concepteur d’application logique.
+2. Nous devons ensuite ajouter l’opération **InsertLogEntry** de notre application API SQL Azure Cosmos DB, comme montré ici dans le concepteur d’application logique.
 
    **Insérer une entrée de journal**
 
@@ -400,7 +400,7 @@ Lorsque vous disposez de la réponse, vous pouvez la transmettre à l’applicat
 
 ## <a name="cosmos-db-repository-and-portal"></a>Référentiel et portail Cosmos DB
 
-Notre solution a permis d’ajouter des fonctionnalités avec [Cosmos DB](https://azure.microsoft.com/services/documentdb).
+Notre solution a permis d’ajouter des fonctionnalités avec [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Portail de gestion des erreurs
 
@@ -430,14 +430,14 @@ Pour afficher les journaux, nous avons également créé une application web MVC
 
 Notre application API de gestion des exceptions Azure Logic Apps en open source fournit les fonctionnalités décrites ici (il y a deux contrôleurs) :
 
-* **ErrorController** insère un enregistrement d’erreur (document) dans une collection DocumentDB.
-* **LogController** insère un enregistrement de journal (document) dans une collection DocumentDB.
+* **ErrorController** insère un enregistrement d’erreur (document) dans une collection Azure Cosmos DB.
+* **LogController** insère un enregistrement de journal (document) dans une collection Azure Cosmos DB.
 
 > [!TIP]
-> Les deux contrôleurs utilisent des opérations `async Task<dynamic>`, ce qui permet des opérations à résoudre lors de l’exécution. Nous pouvons donc créer le schéma DocumentDB dans le corps de l’opération. 
+> Les deux contrôleurs utilisent des opérations `async Task<dynamic>`, ce qui permet la résolution des opérations au moment de l’exécution. Nous pouvons donc créer le schéma Azure Cosmos DB dans le corps de l’opération. 
 > 
 
-Chaque document de DocumentDB doit posséder un ID unique. Nous utilisons le paramètre `PatientId` et ajoutons un horodatage qui est converti en valeur d’horodatage Unix (double). Nous la tronquons la valeur pour supprimer la valeur fractionnaire.
+Chaque document dans Azure Cosmos DB doit avoir un ID unique. Nous utilisons le paramètre `PatientId` et ajoutons un horodatage qui est converti en valeur d’horodatage Unix (double). Nous la tronquons la valeur pour supprimer la valeur fractionnaire.
 
 Vous pouvez afficher le code source de notre API de contrôleur d’erreur [à partir de GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ L’expression de l’exemple de code ci-dessus vérifie que l’état de l’en
 ## <a name="summary"></a>Résumé
 
 * Vous pouvez facilement implémenter la journalisation et la gestion des erreurs dans une application logique.
-* Vous pouvez utiliser DocumentDB comme référentiel pour les enregistrements de journal et d’erreur (documents).
+* Vous pouvez utiliser Azure Cosmos DB comme référentiel pour les enregistrements de journal et d’erreur (documents).
 * Vous pouvez utiliser MVC pour créer un portail afin d’afficher les enregistrements de journal et d’erreur.
 
 ### <a name="source-code"></a>Code source

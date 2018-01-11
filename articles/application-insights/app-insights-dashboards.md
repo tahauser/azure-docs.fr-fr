@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigation et tableaux de bord dans le portail Application Insights
 Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
@@ -97,6 +97,9 @@ Lorsque vous avez créé un tableau de bord, vous pouvez le partager avec d’au
 ![Dans l’en-tête du tableau de bord, cliquez sur Partager](./media/app-insights-dashboards/41.png)
 
 Apprenez-en davantage sur [les rôles et le contrôle d’accès](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Créer des tableaux de bord par programmation
+Vous pouvez automatiser la création de tableaux de bord à l’aide [d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) et d’un simple éditeur JSON.
 
 ## <a name="app-navigation"></a>Navigation au sein d’une application
 Le panneau de vue d’ensemble constitue une passerelle permettant d’accéder à des informations supplémentaires sur votre application.

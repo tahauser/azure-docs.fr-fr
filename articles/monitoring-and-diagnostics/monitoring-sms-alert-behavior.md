@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportement des alertes SMS dans les groupes d’actions
 ## <a name="overview"></a>Vue d'ensemble ##
@@ -37,15 +37,15 @@ Un destinataire SMS, qui est configuré comme faisant partie d’un groupe d’a
 - Titre de l’alerte
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Désabonnement d’alertes SMS pour un groupe d’actions
-Un utilisateur peut se désabonner de SMS pour les alertes pour un groupe d’actions en répondant avec le code 20873 avec les mots-clés « Stop » avec les mots clés : « DISABLE &lt;Nom court du groupe d’actions&gt; ».
+Un utilisateur peut se désabonner des alertes par SMS pour un groupe d’actions en répondant au code court 29873 avec les mots clés : « DISABLE &lt;Nom court du groupe d’actions&gt; ».
 
-P. Un utilisateur souhaitant se désabonner des alertes pour un groupe d’actions avec le nom court « Azure », enverrait ainsi un SMS avec le code 20873 indiquant « DISABLE Azure »
+P. Un utilisateur souhaitant se désabonner des alertes pour un groupe d’actions au nom court « Azure » enverrait ainsi un SMS au code court 29873 en indiquant « DISABLE Azure »
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Annulation d’alertes SMS pour tous les groupes d’actions
-Un utilisateur peut se désabonner de toutes les alertes SMS pour tous les groupes d’actions en répondant avec le code 20873 accompagné d’un des mots-clés suivants :
+Un utilisateur peut se désabonner de toutes les alertes SMS pour tous les groupes d’actions en répondant au code court 29873 avec un des mot clés suivants :
 * STOP
 
-P. Un utilisateur souhaitant se désabonner de toutes les alertes SMS pour un groupe d’actions enverrait ainsi un SMS avec le code 20873 indiquant « STOP »
+P. Un utilisateur souhaitant se désabonner de toutes les alertes SMS pour un groupe d’actions enverrait ainsi un SMS au code court 29873 en indiquant « STOP »
 
 >[!NOTE]
 >Si un utilisateur a annulé son abonnement aux alertes SMS, mais est ensuite ajouté à un nouveau groupe d’actions ; il RECEVRA les alertes SMS pour ce nouveau groupe d’actions, mais restera désabonné de tous les groupes d’actions précédents.
@@ -53,19 +53,19 @@ P. Un utilisateur souhaitant se désabonner de toutes les alertes SMS pour un gr
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Réabonnement aux alertes SMS pour un groupe d’actions
-Un utilisateur peut se réabonner aux SMS pour les alertes pour un groupe d’actions en répondant avec le code 20873 avec les mots-clés « Stop » avec les mots clés : « ENABLE &lt;Nom court du groupe d’actions&gt; ».
+Un utilisateur peut se réabonner aux alertes par SMS pour un groupe d’actions en répondant au code court 29873 avec les mots clés : « ENABLE &lt;Nom court du groupe d’actions&gt; ».
 
-P. Un utilisateur souhaitant se réabonner aux alertes pour un groupe d’actions avec le nom court « Azure », enverrait ainsi un SMS avec le code 20873 indiquant « ENABLE Azure »
+P. Un utilisateur souhaitant se réabonner aux alertes pour un groupe d’actions au nom court « Azure » enverrait ainsi un SMS au code court 29873 en indiquant « ENABLE Azure »
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Réabonnement aux alertes SMS pour tous les groupes d’actions
-Un utilisateur peut se réabonner à toutes les alertes SMS pour tous les groupes d’actions en répondant avec le code 20873 accompagné d’un des mots-clés suivants :
+Un utilisateur peut se réabonner à toutes les alertes SMS pour tous les groupes d’actions en répondant au code court 29873 avec un des mots clés suivants :
 
 * START
 
-P. Un utilisateur souhaitant se réabonner à toutes les alertes SMS pour un groupe d’actions enverrait ainsi un SMS avec le code 20873 indiquant « START »
+P. Un utilisateur souhaitant se réabonner à toutes les alertes SMS pour tous les groupes d’actions enverrait ainsi un SMS au code court 29873 en indiquant « START »
 
 ### <a name="requesting-help-via-sms"></a>Demande d’aide via SMS
-Un utilisateur peut demander plus d’informations sur le SMS qu’ils ont reçu en répondant avec le code 20873 accompagné d’un des mots-clés suivants :
+Un utilisateur peut demander des renseignements complémentaires sur le SMS qu’il a reçu en répondant au code court 29873 avec un des mots clés suivants :
 * HELP
 
 Une réponse est envoyée à l’utilisateur avec un lien vers cet article.

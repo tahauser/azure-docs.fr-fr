@@ -1,6 +1,6 @@
 ---
-title: Application web avec Express (Node.js) | Microsoft Docs
-description: "Ce didacticiel poursuit le didacticiel relatif au service cloud et présente l’utilisation du module Express."
+title: "Création et déploiement d’une application Node.js Express dans Azure Cloud Services"
+description: "Création et déploiement d’une application Express.js dans Node.js sur Azure Cloud Services"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Création d'une application web Node.js avec Express sur un service cloud Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Création et déploiement d’une application web Node.js avec Express sur Azure Cloud Services
+
 Node.js inclut un ensemble minimal de fonctionnalités dans le runtime principal.
-Les développeurs utilisent souvent des modules tiers pour fournir des fonctionnalités supplémentaires lors du développement d'une application Node.js. Dans ce didacticiel, vous allez créer une application en utilisant le module [Express][Express], qui fournit une infrastructure MVC pour créer des applications web Node.js.
+Les développeurs utilisent souvent des modules tiers pour fournir des fonctionnalités supplémentaires lors du développement d'une application Node.js. Dans ce didacticiel, vous allez créer une application en utilisant le module [Express](https://github.com/expressjs/express), qui fournit un framework MVC pour la création d’applications web Node.js.
 
 Voici une capture d’écran de l’application terminée :
 

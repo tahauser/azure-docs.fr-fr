@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personnalisation des présélections de tâches Media Encoder Standard
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Cette rubrique explique comment exécuter un encodage avancé avec Media Encoder Standard (MES) en utilisant une présélection personnalisée. Elle décrit comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche.  
+Cet article explique comment exécuter un encodage avancé avec Media Encoder Standard (MES) en utilisant une présélection personnalisée. Il décrit comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche.  
 
-Dans cette rubrique, vous verrez comment personnaliser une présélection en utilisant la présélection [H264 - Vitesse de transmission multiple - 720 pixels](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) et en réduisant le nombre de couches. La rubrique [Personnalisation des présélections de tâches Media Encoder Standard](media-services-advanced-encoding-with-mes.md) présente des présélections personnalisées qui peuvent être utilisés pour effectuer les tâches d’encodage avancé.
+Cet article vous explique comment personnaliser une présélection en utilisant la présélection [H264 - Vitesse de transmission multiple - 720 pixels](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) et en réduisant le nombre de couches. L’article [Personnalisation des présélections de tâches Media Encoder Standard](media-services-advanced-encoding-with-mes.md) présente des présélections personnalisées qui peuvent être utilisées pour effectuer les tâches d’encodage avancées.
 
 ## <a id="customizing_presets"></a> Personnalisation d'une présélection MES
 
 ### <a name="original-preset"></a>Présélection d’origine
 
-Enregistrez l'élément JSON défini dans la rubrique [H264 - Vitesse de transmission multiple - 720 pixels](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) dans un fichier avec l’extension .json. Par exemple, **CustomPreset_JSON.json**.
+Enregistrez l’élément JSON défini dans l’article [H264 - Vitesse de transmission multiple - 720 pixels](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) dans un fichier avec l’extension .json. Par exemple, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Présélection personnalisée
 
@@ -109,7 +109,7 @@ Ouvrez le fichier **CustomPreset_JSON.json** et supprimez tout d’abord les tro
     }  
     
 
-## <a id="encoding_with_dotnet"></a>Encodage à l’aide du Kit de développement logiciel (SDK) .NET de Media Services
+## <a id="encoding_with_dotnet"></a>Encodage à l’aide du kit SDK .NET de Media Services
 
 Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Services pour effectuer les tâches suivantes :
 
@@ -122,7 +122,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 - Ajout d’une tâche d’encodage au travail. 
 - Spécification de l’élément multimédia d’entrée à encoder.
-- Création d’un élément multimédia de sortie qui contiendra l’élément multimédia encodé.
+- Création d’un élément multimédia de sortie qui contient l’élément multimédia encodé.
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
 - Envoyez le travail.
    
@@ -132,22 +132,27 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
 #### <a name="example"></a>Exemple   
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace CustomizeMESPresests
+namespace CustomizeMESPresests
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -160,7 +165,11 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -213,26 +222,26 @@ Configurez votre environnement de développement et ajoutez des informations de 
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -242,13 +251,14 @@ Configurez votre environnement de développement et ajoutez des informations de 
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
 
-        }
     }
+}
+```
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

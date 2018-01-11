@@ -1,6 +1,6 @@
 ---
 title: "Gérer les points de terminaison de streaming avec le SDK .NET. | Microsoft Docs"
-description: "Cette rubrique montre comment gérer les points de terminaison de streaming avec le Portail Azure."
+description: "Cet article indique comment gérer les points de terminaison de streaming avec le Portail Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -13,20 +13,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gérer les points de terminaison de streaming avec le SDK .NET
 
 >[!NOTE]
->Consultez la rubrique de [présentation](media-services-streaming-endpoints-overview.md). Consultez aussi [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Consultez l’article de [présentation](media-services-streaming-endpoints-overview.md). Consultez aussi [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-Le code de cette rubrique montre comment effectuer les tâches suivantes à l’aide du Kit de développement logiciel (SDK) Azure Media Services .NET :
+Le code de cet article montre comment effectuer les tâches suivantes à l’aide du kit SDK Azure Media Services pour .NET :
 
 - Examinez le point de terminaison de streaming par défaut.
 - Créez/ajoutez un nouveau point de terminaison.
@@ -45,7 +45,7 @@ Le code de cette rubrique montre comment effectuer les tâches suivantes à l’
     >[!NOTE]
     >Il n’est pas possible de supprimer le point de terminaison de streaming par défaut.
 
-Pour plus d’informations sur la mise à l’échelle du point de terminaison de streaming, consultez [cette](media-services-portal-scale-streaming-endpoints.md) rubrique.
+Pour plus d’informations sur la mise à l’échelle du point de terminaison de streaming, consultez [cet](media-services-portal-scale-streaming-endpoints.md) article.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Créer et configurer un projet Visual Studio
 
@@ -55,27 +55,37 @@ Configurez votre environnement de développement et ajoutez des informations de 
     
 Remplacez le contenu de Program.cs par le code suivant :
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.Live;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.Live;
 
-    namespace AMSStreamingEndpoint
+namespace AMSStreamingEndpoint
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -104,10 +114,10 @@ Remplacez le contenu de Program.cs par le code suivant :
             var name = "StreamingEndpoint" + DateTime.UtcNow.ToString("hhmmss");
             var option = new StreamingEndpointCreationOptions(name, 1)
             {
-            StreamingEndpointVersion = new Version("2.0"),
-            CdnEnabled = true,
-            CdnProfile = "CdnProfile",
-            CdnProvider = CdnProviderType.PremiumVerizon
+                StreamingEndpointVersion = new Version("2.0"),
+                CdnEnabled = true,
+                CdnProfile = "CdnProfile",
+                CdnProvider = CdnProviderType.PremiumVerizon
             };
 
             var streamingEndpoint = _context.StreamingEndpoints.Create(option);
@@ -118,7 +128,7 @@ Remplacez le contenu de Program.cs par le code suivant :
         static public void UpdateStreamingEndpoint(IStreamingEndpoint streamingEndpoint)
         {
             if (streamingEndpoint.StreamingEndpointVersion == "1.0")
-            streamingEndpoint.StreamingEndpointVersion = "2.0";
+                streamingEndpoint.StreamingEndpointVersion = "2.0";
 
             streamingEndpoint.CdnEnabled = false;
             streamingEndpoint.Update();
@@ -128,9 +138,9 @@ Remplacez le contenu de Program.cs par le code suivant :
         {
             streamingEndpoint.Delete();
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.

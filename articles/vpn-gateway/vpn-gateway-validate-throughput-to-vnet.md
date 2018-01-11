@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -53,7 +53,7 @@ Le diagramme suivant illustre la connectivité logique d’un réseau local vers
 4.  Déterminez la bande passante de votre fournisseur d’accès à Internet (FAI).
 5.  Calculez le débit prévu - Bande passante la plus basse entre machine virtuelle et passerelle FAI * 0,8.
 
-Si le débit calculé ne répond pas aux exigences de débit de base de votre application, vous devez augmenter la bande passante de la ressource que vous avez identifiée comme goulot d’étranglement. Pour redimensionner une passerelle VPN Azure, consultez [Modification d’une référence SKU de passerelle](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Pour redimensionner une machine virtuelle, consultez [Redimensionner une machine virtuelle](../virtual-machines/virtual-machines-windows-resize-vm.md). Si bande passante Internet n’est pas celle attendue, vous souhaiterez également contacter votre fournisseur d’accès à Internet.
+Si le débit calculé ne répond pas aux exigences de débit de base de votre application, vous devez augmenter la bande passante de la ressource que vous avez identifiée comme goulot d’étranglement. Pour redimensionner une passerelle VPN Azure, consultez [Modification d’une référence SKU de passerelle](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Pour redimensionner une machine virtuelle, consultez [Redimensionner une machine virtuelle](../virtual-machines/virtual-machines-windows-resize-vm.md). Si bande passante Internet n’est pas celle attendue, vous souhaiterez également contacter votre fournisseur d’accès à Internet.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Validation du débit réseau à l’aide d’outils de performances
 

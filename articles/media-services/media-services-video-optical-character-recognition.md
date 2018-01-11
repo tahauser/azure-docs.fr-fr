@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 43f5b3a9bbec243e668c79702045094fcfedbdda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique
 ## <a name="overview"></a>Vue d'ensemble
@@ -28,7 +28,7 @@ Lorsque vous l’utilisez conjointement avec un moteur de recherche, vous pouvez
 
 Le processeur multimédia **Azure Media OCR** est actuellement en version préliminaire.
 
-Cette rubrique donne des informations détaillées sur **Azure Media OCR** et montre comment l’utiliser avec le SDK Media Services pour .NET. Pour plus d’informations et d’exemples, consultez [ce blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Cet article donne des précisions sur **Azure Media OCR** et montre comment l’utiliser avec le kit SDK Media Services pour .NET. Pour plus d’informations et d’exemples, consultez [ce blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>Fichiers d'entrée OCR
 Fichiers vidéo. Les formats suivants sont actuellement pris en charge : MP4, MOV et WMV.
@@ -44,7 +44,7 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
 | Nom de l’attribut | Description |
 | --- | --- |
 |AdvancedOutput| Si vous définissez AdvancedOutput sur true, le résultat JSON contient les données sur la position de chaque mot unique (en plus des régions et des expressions). Si vous ne souhaitez pas voir ces détails, définissez l’indicateur sur False. La valeur par défaut est false. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| language |(facultatif) indique la langue du texte à rechercher. Une des valeurs suivantes : AutoDetect (par défaut), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
+| Langage |(facultatif) indique la langue du texte à rechercher. Une des valeurs suivantes : AutoDetect (par défaut), Arabic, ChineseSimplified, ChineseTraditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(facultatif) indique l’orientation du texte à rechercher.  « Left » signifie que la partie supérieure de toutes les lettres pointe vers la gauche.  Par défaut, le texte peut être affiché en mode « Up » (comme dans un livre).  Une des valeurs suivantes : AutoDetect (par défaut), Up, Right, Down, Left. |
 | TimeInterval |(facultatif) décrit le taux d’échantillonnage.  La valeur par défaut est chaque demie seconde.<br/>Format JSON – HH:mm:ss.SSS (par défaut : 00:00:00.500)<br/>Format XML – durée de la primitive W3C XSD (par défaut PT0.5) |
 | DetectRegions |(facultatif) Tableau d’objets DetectRegion spécifiant des zones au sein de l’image vidéo dans lesquelles détecter le texte.<br/>Un objet DetectRegion est constitué de quatre valeurs entières suivantes :<br/>Gauche – pixels à partir de la marge de gauche<br/>Haut – pixels à partir de la marge supérieure<br/>Largeur – largeur de la zone en pixels<br/>Height – hauteur de la zone en pixels |
@@ -69,7 +69,6 @@ Configuration de la tâche (préconfiguration). Lors de la création d’une tâ
              ]
         }
     }
-
 
 #### <a name="xml-preset-example"></a>Exemple de présélection XML
     <?xml version=""1.0"" encoding=""utf-16""?>
@@ -117,7 +116,7 @@ La sortie contient les attributs suivants :
 | texte |le texte réel |
 
 ### <a name="json-output-example"></a>Exemple de sortie JSON
-L’exemple de sortie suivant contient des informations générales sur la vidéo et plusieurs fragments vidéo. Chaque fragment vidéo contient toutes les régions détectées par le processeur multimédia OCR selon la langue et l’orientation du texte choisies. La région contient également chaque ligne de mot dans cette région, avec le texte et la position de cette ligne, et toutes les informations sur ce mot (contenu, position et niveau de confiance du mot). En voici un exemple (avec mes commentaires).
+L’exemple de sortie suivant contient des informations générales sur la vidéo et plusieurs fragments vidéo. Chaque fragment vidéo contient toutes les régions détectées par le processeur multimédia OCR selon la langue et l’orientation du texte choisies. La région contient également toutes les lignes de mots de cette région, avec le texte et la position de chaque ligne, et des informations sur chaque mot (contenu, position et niveau de confiance du mot). En voici un exemple (avec mes commentaires).
 
     {
         "version": 1, 
@@ -186,164 +185,174 @@ Configurez votre environnement de développement et ajoutez des informations de 
 
 #### <a name="example"></a>Exemple
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace OCR
+namespace OCR
+{
+    class Program
     {
-        class Program
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+
+        static void Main(string[] args)
         {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
 
-            // Field for service context.
-            private static CloudMediaContext _context = null;
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-            static void Main(string[] args)
-            {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+            // Run the OCR job.
+            var asset = RunOCRJob(@"C:\supportFiles\OCR\presentation.mp4",
+                                        @"C:\supportFiles\OCR\config.json");
 
-                // Run the OCR job.
-                var asset = RunOCRJob(@"C:\supportFiles\OCR\presentation.mp4",
-                                            @"C:\supportFiles\OCR\config.json");
-
-                // Download the job output asset.
-                DownloadAsset(asset, @"C:\supportFiles\OCR\Output");
-            }
-
-            static IAsset RunOCRJob(string inputMediaFilePath, string configurationFile)
-            {
-                // Create an asset and upload the input media file to storage.
-                IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
-                    "My OCR Input Asset",
-                    AssetCreationOptions.None);
-
-                // Declare a new job.
-                IJob job = _context.Jobs.Create("My OCR Job");
-
-                // Get a reference to Azure Media OCR.
-                string MediaProcessorName = "Azure Media OCR";
-
-                var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-
-                // Read configuration from the specified file.
-                string configuration = File.ReadAllText(configurationFile);
-
-                // Create a task with the encoding details, using a string preset.
-                ITask task = job.Tasks.AddNew("My OCR Task",
-                    processor,
-                    configuration,
-                    TaskOptions.None);
-
-                // Specify the input asset.
-                task.InputAssets.Add(asset);
-
-                // Add an output asset to contain the results of the job.
-                task.OutputAssets.AddNew("My OCR Output Asset", AssetCreationOptions.None);
-
-                // Use the following event handler to check job progress.  
-                job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-
-                // Launch the job.
-                job.Submit();
-
-                // Check job execution and wait for job to finish.
-                Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-
-                progressJobTask.Wait();
-
-                // If job state is Error, the event handling
-                // method for job progress should log errors.  Here we check
-                // for error state and exit if needed.
-                if (job.State == JobState.Error)
-                {
-                    ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-                    Console.WriteLine(string.Format("Error: {0}. {1}",
-                                                    error.Code,
-                                                    error.Message));
-                    return null;
-                }
-
-                return job.OutputMediaAssets[0];
-            }
-
-            static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
-            {
-                IAsset asset = _context.Assets.Create(assetName, options);
-
-                var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-                assetFile.Upload(filePath);
-
-                return asset;
-            }
-
-            static void DownloadAsset(IAsset asset, string outputDirectory)
-            {
-                foreach (IAssetFile file in asset.AssetFiles)
-                {
-                    file.Download(Path.Combine(outputDirectory, file.Name));
-                }
-            }
-
-            static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
-                var processor = _context.MediaProcessors
-                    .Where(p => p.Name == mediaProcessorName)
-                    .ToList()
-                    .OrderBy(p => new Version(p.Version))
-                    .LastOrDefault();
-
-                if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor",
-                                                               mediaProcessorName));
-
-                return processor;
-            }
-
-            static private void StateChanged(object sender, JobStateChangedEventArgs e)
-            {
-                Console.WriteLine("Job state changed event:");
-                Console.WriteLine("  Previous state: " + e.PreviousState);
-                Console.WriteLine("  Current state: " + e.CurrentState);
-
-                switch (e.CurrentState)
-                {
-                    case JobState.Finished:
-                        Console.WriteLine();
-                        Console.WriteLine("Job is finished.");
-                        Console.WriteLine();
-                        break;
-                    case JobState.Canceling:
-                    case JobState.Queued:
-                    case JobState.Scheduled:
-                    case JobState.Processing:
-                        Console.WriteLine("Please wait...\n");
-                        break;
-                    case JobState.Canceled:
-                    case JobState.Error:
-                        // Cast sender as a job.
-                        IJob job = (IJob)sender;
-                        // Display or log error details as needed.
-                        // LogJobStop(job.Id);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
+            // Download the job output asset.
+            DownloadAsset(asset, @"C:\supportFiles\OCR\Output");
         }
+
+        static IAsset RunOCRJob(string inputMediaFilePath, string configurationFile)
+        {
+            // Create an asset and upload the input media file to storage.
+            IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
+                "My OCR Input Asset",
+                AssetCreationOptions.None);
+
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("My OCR Job");
+
+            // Get a reference to Azure Media OCR.
+            string MediaProcessorName = "Azure Media OCR";
+
+            var processor = GetLatestMediaProcessorByName(MediaProcessorName);
+
+            // Read configuration from the specified file.
+            string configuration = File.ReadAllText(configurationFile);
+
+            // Create a task with the encoding details, using a string preset.
+            ITask task = job.Tasks.AddNew("My OCR Task",
+                processor,
+                configuration,
+                TaskOptions.None);
+
+            // Specify the input asset.
+            task.InputAssets.Add(asset);
+
+            // Add an output asset to contain the results of the job.
+            task.OutputAssets.AddNew("My OCR Output Asset", AssetCreationOptions.None);
+
+            // Use the following event handler to check job progress.  
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
+
+            // Launch the job.
+            job.Submit();
+
+            // Check job execution and wait for job to finish.
+            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+
+            progressJobTask.Wait();
+
+            // If job state is Error, the event handling
+            // method for job progress should log errors.  Here we check
+            // for error state and exit if needed.
+            if (job.State == JobState.Error)
+            {
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                                error.Code,
+                                                error.Message));
+                return null;
+            }
+
+            return job.OutputMediaAssets[0];
+        }
+
+        static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+        {
+            IAsset asset = _context.Assets.Create(assetName, options);
+
+            var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+            assetFile.Upload(filePath);
+
+            return asset;
+        }
+
+        static void DownloadAsset(IAsset asset, string outputDirectory)
+        {
+            foreach (IAssetFile file in asset.AssetFiles)
+            {
+                file.Download(Path.Combine(outputDirectory, file.Name));
+            }
+        }
+
+        static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors
+                .Where(p => p.Name == mediaProcessorName)
+                .ToList()
+                .OrderBy(p => new Version(p.Version))
+                .LastOrDefault();
+
+            if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                                           mediaProcessorName));
+
+            return processor;
+        }
+
+        static private void StateChanged(object sender, JobStateChangedEventArgs e)
+        {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+
+            switch (e.CurrentState)
+            {
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
+}
+```
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

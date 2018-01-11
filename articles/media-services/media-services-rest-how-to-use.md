@@ -12,36 +12,36 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: juliako
-ms.openlocfilehash: eada8f2bcd2488d5ed36b0c24aa3d1b917815517
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: juliako;johndeu
+ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-L’API **REST de Media Services Operations** est utilisée pour créer des tâches, des ressources, des stratégies d’accès et d’autres opérations sur les objets dans un compte Media Service. Pour plus d’informations, consultez [Référence de l’API REST Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+L’API **REST Media Services Operations** est utilisée pour créer des tâches, des éléments multimédias, des canaux directs et d’autres ressources dans un compte Media Services. Pour plus d’informations, consultez [Référence de l’API REST Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
-Microsoft Azure Media Services est un service qui accepte les demandes HTTP OData et peut répondre dans les formats JSON ou atom+pub détaillés. Étant donné que Media Services est conforme aux règles de conception Azure, il existe un ensemble d’en-têtes HTTP obligatoires que chaque client doit utiliser lors de la connexion à Media Services, ainsi qu’un jeu d’en-têtes facultatifs pouvant être utilisé. Les sections suivantes décrivent les en-têtes et verbes HTTP que vous pouvez utiliser lors de la création de requêtes et de la réception des réponses à partir de Media Services.
+Media Services fournit une API REST qui accepte les deux formats JSON et XML atom+pub. L’API REST Media Services nécessite des en-têtes HTTP spécifiques, que chaque client doit envoyer lors de la connexion à Media Services, ainsi qu’un ensemble d’en-têtes facultatifs. Les sections suivantes décrivent les en-têtes et verbes HTTP que vous pouvez utiliser lors de la création de requêtes et de la réception des réponses à partir de Media Services.
 
-Cette rubrique donne une vue d’ensemble de l’utilisation de REST v2 avec Media Services.
+L’authentification à l’API REST Media Services est effectuée par le biais de l’authentification Azure Active Directory qui est décrite dans l’article [Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST](media-services-rest-connect-with-aad.md)
 
 ## <a name="considerations"></a>Considérations
 
 Les considérations suivantes s'appliquent lors de l'utilisation de REST.
 
 * Lors de l'interrogation des entités, il existe une limite de 1 000 entités retournées simultanément car l'API REST v2 publique limite les résultats des requêtes à 1 000 résultats. Vous devez utiliser **Skip** et **Take** (.NET)/ **top** (REST) comme décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et cet exemple [d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* Lors de l’utilisation de JSON et de la spécification d’utilisation du mot clé **metadata** dans la demande (par exemple pour faire référence à un objet lié), vous DEVEZ définir l’en-tête **Accept** au [format JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (consultez l’exemple suivant). OData ne comprend pas la propriété **metadata** dans la demande, sauf si vous la définissez sur « verbose ».  
+* Lors de l’utilisation de JSON pour la spécification de l’utilisation du mot clé **__metadata** dans la requête (par exemple pour faire référence à un objet lié), vous DEVEZ définir l’en-tête **Accept** au [format JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (consultez l’exemple suivant). OData ne comprend pas la propriété **metadata** dans la demande, sauf si vous la définissez sur « verbose ».  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.11
+        x-ms-version: 2.17
         Authorization: Bearer <token> 
         Host: media.windows.net
   
@@ -52,17 +52,17 @@ Les considérations suivantes s'appliquent lors de l'utilisation de REST.
         . . . 
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>En-têtes de requête HTTP standard pris en charge par Media Services
-Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requis, que vous devez inclure dans votre requête, et un ensemble d’en-têtes facultatifs que vous pouvez également inclure. Le tableau suivant répertorie les en-têtes requis :
+Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requis, que vous devez inclure dans votre requête, et un ensemble d’en-têtes facultatifs que vous pouvez également inclure. Le tableau ci-dessous répertorie les en-têtes nécessaires :
 
 | En-tête | Type | Valeur |
 | --- | --- | --- |
-| Autorisation |Support |Le support est le seul mécanisme d’autorisation accepté. La valeur doit également inclure le jeton d’accès fourni par ACS. |
-| x-ms-version |Décimal |2.11 |
+| Autorisation |Support |Le support est le seul mécanisme d’autorisation accepté. La valeur doit également inclure le jeton d’accès fourni par Azure Active Directory. |
+| x-ms-version |Décimal |2.17 (ou version plus récente)|
 | DataServiceVersion |Décimal |3.0 |
 | MaxDataServiceVersion |Décimal |3.0 |
 
 > [!NOTE]
-> Étant donné que Media Services utilise OData pour exposer son référentiel de métadonnées de ressources sous-jacent via les API REST, les en-têtes DataServiceVersion et MaxDataServiceVersion doivent être inclus dans une requête. Toutefois, s’ils ne le sont pas, Media Services suppose que la valeur DataServiceVersion utilisée est 3.0.
+> Étant donné que Media Services utilise OData pour exposer ses API REST, les en-têtes DataServiceVersion et MaxDataServiceVersion doivent être inclus dans toutes les requêtes. Toutefois, s’ils ne le sont pas, Media Services suppose que la valeur DataServiceVersion utilisée est 3.0.
 > 
 > 
 
@@ -71,7 +71,7 @@ Voici un ensemble d’en-têtes facultatifs :
 | En-tête | Type | Valeur |
 | --- | --- | --- |
 | Date |Date RFC 1123 |Horodatage de la demande |
-| Acceptation |Type de contenu |Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contiendra le flux d’objets blob en tant que charge utile. |
+| Acceptation |Type de contenu |Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contient le flux d’objets blob en tant que charge utile. |
 | Accept-Encoding |Gzip, deflate |Codage GZIP et DEFLATE, le cas échéant. Remarque : pour les ressources volumineuses, Media Services peut ignorer cet en-tête et retourner des données non compressées. |
 | Accept-Language |« en », « es » et ainsi de suite. |Spécifie la langue préférée pour la réponse. |
 | Accept-Charset |Type de jeu de caractères comme « UTF-8 » |La valeur par défaut est UTF-8. |
@@ -86,7 +86,7 @@ Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la resso
 | --- | --- | --- |
 | request-id |String |Un identificateur unique pour l’opération actuelle, généré par le service. |
 | client-request-id |String |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
-| Date |Date RFC 1123 |La date à laquelle la requête a été traitée. |
+| Date |Date RFC 1123 |Les date et heure auxquelles la requête a été traitée. |
 | Content-Type |Varie |Le type de contenu du corps de la réponse. |
 | Content-Encoding |Varie |Gzip ou deflate, le cas échéant. |
 
@@ -102,18 +102,22 @@ Voici une liste complète des verbes HTTP pouvant être utilisés lors de requê
 | MERGE |Met à jour un objet existant avec des modifications de propriété nommées. |
 | HEAD |Retourne les métadonnées d’un objet d’une réponse GET. |
 
-## <a name="discover-media-services-model"></a>Découvrir le modèle Media Services
-Pour rendre les entités Media Services plus détectables, l’opération $metadata peut être utilisée. Elle vous permet de récupérer l’ensemble des types d’entité, des propriétés d’entité, des associations, des fonctions, des actions valides, etc. L’exemple suivant montre comment construire l’URI : https://media.windows.net/API/$metadata.
+## <a name="discover-and-browse-the-media-services-entity-model"></a>Découvrir et parcourir le modèle d’entité Media Services
+Pour rendre les entités Media Services plus détectables, l’opération $metadata peut être utilisée. Elle vous permet de récupérer l’ensemble des types d’entité, des propriétés d’entité, des associations, des fonctions, des actions valides, etc. En ajoutant l’opération $metadata à la fin du point de terminaison de votre API REST Media Services, vous pouvez accéder à ce service de découverte.
+
+ /api/$metadata.
 
 Vous devez ajouter « ?api-version=2.x » à la fin de l’URI si vous souhaitez afficher les métadonnées dans un navigateur ou n’incluez pas l’en-tête x-ms-version dans votre requête.
 
-## <a name="connect-to-media-services"></a>Connexion à Media Services
+## <a name="authenticate-with-media-services-rest-using-azure-active-directory"></a>S’authentifier sur REST Media Services en utilisant Azure Active Directory
 
-Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
+L’authentification à l’API REST s’effectue par le biais d’Azure Active Directory (AAD).
+Pour plus d’informations sur les précisions à obtenir concernant l’authentification exigée de votre compte Media Services à partir du portail Azure, consultez [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+
+Pour obtenir des précisions sur l’écriture du code de connexion à l’API REST en utilisant l’authentification Azure AD, consultez l’article [Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Pour savoir comment accéder aux API AMS avec REST, consultez [Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET](media-services-rest-connect-with-aad.md).
+Pour savoir comment utiliser l’authentification Azure AD avec l’API REST Media Services, consultez [Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

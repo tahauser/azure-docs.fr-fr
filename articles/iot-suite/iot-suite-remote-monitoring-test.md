@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Tester votre solution avec des appareils simulés
 
-Ce didacticiel montre comment personnaliser le microservice de simulateur d’appareil avec la solution préconfigurée de surveillance à distance. Pour illustrer les fonctionnalités de simulateur d’appareil, ce didacticiel utilise deux scénarios dans l’application IoT Contoso.
+Ce didacticiel montre comment personnaliser le microservice de simulateur d’appareil dans la solution préconfigurée de monitoring à distance. Pour illustrer les fonctionnalités de simulateur d’appareil, ce didacticiel utilise deux scénarios dans l’application IoT Contoso.
 
 Dans le premier scénario, Contoso souhaite tester un nouvel appareil d’éclairage connecté. Pour exécuter les tests, vous créez un appareil simulé ayant les caractéristiques suivantes :
 
@@ -177,7 +177,7 @@ Le fichier `lightbulb-01.json` définit les caractéristiques du type, telles qu
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ Pour tester et déboguer localement vos modifications, consultez [Device simulat
 
 Configurez le projet pour copier les nouveaux fichiers d’appareil **Lightbulb** dans le répertoire de sortie :
 
-* Si vous utilisez Visual Studio, veillez à ajouter les trois nouveaux fichiers lightbulb que vous avez créés dans la section précédente au projet **Services** dans la solution. Utilisez ensuite **l’Explorateur de solutions** pour les marquer pour la copie vers le répertoire de sortie.
+* Si vous utilisez Visual Studio, veillez à ajouter les quatre nouveaux fichiers lightbulb que vous avez créés dans la section précédente au projet **Services** dans la solution. Utilisez ensuite **l’Explorateur de solutions** pour les marquer pour la copie vers le répertoire de sortie.
 
-* Si vous utilisez Visual Studio Code, ouvrez le fichier **Services.csproj** et ajoutez les trois nouveaux fichiers lightbulb que vous avez créés dans la section précédente. Consultez les entrées existantes de fichier modèle d’appareil dans le fichier **Services.csproj** en guise d’exemples.
+* Si vous utilisez Visual Studio Code, ouvrez le fichier **Services.csproj** et ajoutez les quatre nouveaux fichiers lightbulb que vous avez créés dans la section précédente. Consultez les entrées existantes de fichier modèle d’appareil dans le fichier **Services.csproj** en guise d’exemples.
 
 Pour tester le nouvel appareil dans une solution déployée, consultez une des sources suivantes :
 

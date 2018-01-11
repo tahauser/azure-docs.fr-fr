@@ -4,7 +4,7 @@ description: "Découvrez comment configurer l’authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Cezanne HR Software
 
@@ -32,7 +32,7 @@ L’intégration de Cezanne HR Software dans Azure AD vous offre les avantages s
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 Pour configurer l’intégration d’Azure AD avec Cezanne HR Software, vous avez besoin des éléments suivants :
 
@@ -121,29 +121,33 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien de téléchargement du certificat](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-5. Cliquez sur le bouton **Enregistrer**.
+5. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Dans **Configuration de Cezanne HR Software**, cliquez sur **Configurer Cezanne HR Software** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+6. Dans **Configuration de Cezanne HR Software**, cliquez sur **Configurer Cezanne HR Software** pour ouvrir la fenêtre **Configurer l’authentification**.
 
-    ![Configuration Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Configuration Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous à votre client Cezanne HR Software en tant qu’administrateur.
+7. Faites défiler jusqu’à la section **Référence rapide**. Copiez **l’URL du service d’authentification unique SAML et l’ID d’entité SAML** à partir de la **section Référence rapide**.
 
-8. Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez aux **Paramètres de sécurité**. Accédez ensuite à **Configuration de l’authentification unique**.
+    ![Configuration Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. Dans une autre fenêtre de navigateur web, connectez-vous à votre client Cezanne HR Software en tant qu’administrateur.
+
+9. Dans le volet de navigation gauche, cliquez sur **Configuration système**. Accédez aux **Paramètres de sécurité**. Accédez ensuite à **Configuration de l’authentification unique**.
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. Dans le panneau **Autoriser les utilisateurs à se connecter à l’aide de l’authentification unique**, cochez la case **SAML 2.0** et sélectionnez l’option **Configuration avancée**.
+10. Dans le panneau **Autoriser les utilisateurs à se connecter à l’aide de l’authentification unique**, cochez la case **SAML 2.0** et sélectionnez l’option **Configuration avancée**.
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Cliquez sur le bouton **Ajouter nouveau** .
+11. Cliquez sur le bouton **Ajouter nouveau** .
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Dans la section **SAML 2.0 IDENTITY PROVIDERS** , procédez comme suit.
+12. Dans la section **SAML 2.0 IDENTITY PROVIDERS** , procédez comme suit.
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     g. Cliquez sur le bouton **OK** . 
 
-12. Cliquez sur le bouton **Enregistrer** .
+13. Cliquez sur le bouton **Enregistrer** .
 
     ![Configurer l’authentification unique côté application](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
@@ -213,11 +217,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
     ![Nouvel utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nouvel utilisateur")
 
-3.  Dans la section **Détails de la personne**, procédez comme suit :
+3.  À la section **Détails de la personne** , procédez comme suit :
 
     ![Nouvel utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nouvel utilisateur")
     
-    a. Désactivez l’option **Utilisateur interne**.
+    a. Désactivez l’option **Utilisateur interne** .
     
     b. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **Britta**.  
  
@@ -245,7 +249,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Cezanne HR Software,
 
     ![Utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utilisateur")
     
-7. Cliquez sur le bouton **Enregistrer**.
+7. Cliquez sur le bouton **Enregistrer** .
 
     ![Utilisateur](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utilisateur")
 

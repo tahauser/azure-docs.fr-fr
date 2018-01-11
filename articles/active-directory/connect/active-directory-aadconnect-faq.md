@@ -4,7 +4,7 @@ description: "Cette page comporte le Forum Aux Questions relatif à Azure AD C
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Forum Aux Questions sur Azure Active Directory Connect
 
@@ -35,6 +35,11 @@ Cela est pris en charge avec les builds de février 2016.
 Oui. Après avoir installé l’agent, vous pouvez terminer le processus d’inscription à l’aide de l’applet de commande PowerShell suivante : 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**Q : AADConnect prend-il en charge la synchronisation à partir de deux domaines vers Azure AD ?**</br>
+Oui, cette méthode est prise en charge. Reportez-vous à [Plusieurs domaines](active-directory-aadconnect-multiple-domains.md).
+ 
+**Q : Est-il possible d’avoir plusieurs connecteurs pour le même domaine Active Directory dans Azure AD Connect ?**</br> Non. Ce n’est pas possible. 
 
 ## <a name="network"></a>Réseau
 **Q : J’ai un pare-feu, un périphérique réseau ou autre chose qui limite la durée maximale pendant laquelle les connexions peuvent rester ouvertes sur mon réseau. Quel doit être le seuil de délai côté client lors de l’utilisation d’Azure AD Connect ?**  
@@ -78,8 +83,6 @@ Non, cela n’est pas pris en charge actuellement.
 **Q : Est-il possible de définir manuellement l’attribut ImmutableId sur des objets Groupe/Contact Azure AD existants pour la mise en correspondance exacte avec les objets Groupe/Contact locaux ?**  
 Non, cela n’est pas pris en charge actuellement.
 
-
-
 ## <a name="custom-configuration"></a>Configuration personnalisée
 **Q : Où réside la documentation sur les applets de commande PowerShell pour Azure Active Directory ?**  
 À l’exception des applets de commande décrites sur ce site, les autres applets de commande PowerShell disponibles dans Azure AD Connect ne sont pas prises en charge par le client.
@@ -95,8 +98,6 @@ Pour l’instant, nous ne prenons pas en charge la modification des attributs HT
 
 **Q : Existe-t-il un moyen d’empêcher les sessions simultanées ?**</br>
 Non.
-
-
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**

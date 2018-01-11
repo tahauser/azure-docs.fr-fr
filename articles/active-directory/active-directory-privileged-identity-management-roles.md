@@ -4,7 +4,7 @@ description: "Découvrez les rôles utilisés pour les identités dotées de pri
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Rôle d’administrateur différent dans Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/14/2017
 Vous pouvez affecter aux utilisateurs de votre organisation différents rôles administratifs dans Azure AD. Ces affectations de rôles contrôlent quelles tâches, telles que l’ajout/la suppression d’utilisateurs ou la modification des paramètres de service, les utilisateurs sont autorisés à effectuer sur Azure AD, Office 365 et autres services Microsoft Online Services et applications connectées.  
 
 > [!IMPORTANT]
-> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article.
+> Microsoft vous recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure.
 
-Un administrateur général peut mettre à jour les utilisateurs **définitivement** affectés aux rôles dans Azure AD à l’aide des applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`, ou via le portail classique, comme décrit à la rubrique [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Un administrateur général peut mettre à jour les utilisateurs **définitivement** affectés aux rôles dans Azure AD à l’aide des applets de commande PowerShell, telles que `Add-MsolRoleMember` et `Remove-MsolRoleMember`, ou par le biais du portail, comme décrit à la rubrique [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) gère les stratégies pour l’accès privilégié des utilisateurs dans Azure AD. PIM affecte aux utilisateurs un ou plusieurs rôles dans Azure AD, et vous pouvez affecter définitivement le rôle à une personne, ou la rendre éligible au rôle. Lorsqu’un utilisateur est définitivement affecté à un rôle ou qu’il active une affectation de rôle éligible, il peut alors gérer Azure Active Directory, Office 365 et d’autres applications avec les autorisations attribuées aux rôles.
 
@@ -75,15 +75,14 @@ Les groupes de ressources et les abonnements Azure ne sont pas représentés non
 ## <a name="user-roles-and-signing-in"></a>Rôles d’utilisateur et connexion
 Pour certains services et applications Microsoft, l’affectation d’un utilisateur à un rôle peut ne pas suffire pour permettre à cet utilisateur d’être un administrateur.
 
-L’accès au portail Azure Classic nécessite que l’utilisateur soit un administrateur de service ou un coadministrateur sur un abonnement Azure, même si l’utilisateur n’a pas besoin de gérer les abonnements Azure.  Par exemple, pour gérer les paramètres de configuration pour Azure AD dans le portail classique, un utilisateur doit être administrateur général dans Azure AD et coadministrateur des abonnements sur un abonnement Azure.  Pour savoir comment ajouter des utilisateurs aux abonnements Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+L’accès au portail Azure nécessite que l’utilisateur soit un administrateur de service ou un coadministrateur sur un abonnement Azure, même si l’utilisateur n’a pas besoin de gérer les abonnements Azure.  Par exemple, pour gérer les paramètres de configuration pour Azure AD, un utilisateur doit être administrateur général dans Azure AD et coadministrateur des abonnements sur un abonnement Azure.  Pour savoir comment ajouter des utilisateurs aux abonnements Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 L’accès à Microsoft Online Services peut nécessiter l’affectation d’une licence à l’utilisateur pour qu’il puisse ouvrir le portail du service ou effectuer des tâches administratives.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Attribution d’une licence à un utilisateur dans Azure AD
-1. Avec un compte d’administrateur général ou un compte de coadministrateur, connectez-vous au [portail Azure Classic](http://manage.windowsazure.com) .
-2. Sélectionnez **Tous les éléments** dans le menu principal.
-3. Sélectionnez l’annuaire que vous souhaitez utiliser et auquel des licences sont associées.
-4. Sélectionnez **Licences**. La liste des licences disponibles s’affiche.
+1. Avec un compte d’administrateur général ou un compte de coadministrateur, connectez-vous au [portail Azure](http://portal.azure.com).
+3. Sélectionnez Azure AD et l’annuaire que vous souhaitez utiliser et auquel des licences sont associées.
+4. Sélectionnez **Licences** sur la gauche. La liste des licences disponibles s’affiche.
 5. Sélectionnez le plan de licence contenant les licences que vous souhaitez distribuer.
 6. Sélectionnez **Affecter des utilisateurs**.
 7. Sélectionnez l’utilisateur auquel vous souhaitez affecter une licence.

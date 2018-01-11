@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Guide pratique pour utiliser la fonctionnalité de requête élastique avec SQL Data Warehouse
 
@@ -64,7 +64,7 @@ Pour plus d’informations sur la fonctionnalité de requête élastique avec la
 
 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 ### <a name="general"></a>Généralités
 
@@ -78,7 +78,7 @@ Pour plus d’informations sur la fonctionnalité de requête élastique avec la
 
 ### <a name="elastic-querying"></a>Interrogation élastique
 
-- La table externe et la table mise en cache en interne existent en tant qu’objets différents avec l’instance de la base de données SQL. Au-dessus de la partie en mémoire cache de la table et de la table externe, envisagez de créer une vue qui joint les deux tables et applique des filtres sur le point de limite de chaque table.
+- Dans de nombreux cas, il peut être souhaitable de gérer un type de table étendue. Une partie de votre table se trouve au sein de la base de données SQL Database sous la forme de données mises en cache pour améliorer les performances, tandis que les données restantes sont stockées dans SQL Data Warehouse. Vous devez disposer de deux objets dans SQL Database : une table externe au sein de SQL Database qui fait référence à la table de base dans SQL Data Warehouse et la partie « mise en cache » de la table dans la base de données SQL Database. Au-dessus de la partie mise en cache de la table et de la table externe, envisagez de créer une vue qui joint les deux tables et applique des filtres qui séparent les données matérialisées au sein de SQL Database et les données SQL Data Warehouse exposées par le biais de tables externes.
 
   Imaginez que nous souhaitions conserver l’année de données la plus récente dans une instance de la base de données SQL. Nous avons deux tables : **ext.Orders**, qui fait référence aux tables de commandes dans l’entrepôt de données, et **dbo.Orders**, qui représente les données des années les plus récentes au sein de l’instance de la base de données SQL. Au lieu de demander aux utilisateurs de décider s’il faut interroger une table ou une autre, nous créons une vue au-dessus des deux tables sur le point de la partition de l’année la plus récente.
 
@@ -135,13 +135,17 @@ Pour plus d’informations sur la fonctionnalité de requête élastique avec la
 
 ## <a name="faq"></a>Forum Aux Questions
 
-Q : Puis-je utiliser des bases de données au sein d’un pool de bases de données élastique avec une requête élastique ?
+Q : Puis-je utiliser des bases de données au sein d’un pool élastique avec une requête élastique ?
 
 R. : Oui. Les bases de données SQL au sein d’un pool élastique peuvent utiliser la fonctionnalité de requête élastique. 
 
 Q : Le nombre de bases de données utilisables avec la fonctionnalité de requête élastique est-il limité ?
 
-R : Les serveurs logiques sont soumis à des limites DTU afin que les clients évitent les dépenses excessives accidentelles. Si vous permettez à plusieurs bases de données d’exploiter la fonctionnalité de requête élastique parallèlement à une instance de l’entrepôt de données SQL, vous pouvez atteindre la limite brusquement. Si cela se produit, soumettez une demande pour augmenter la limite DTU sur votre serveur logique. Vous pouvez augmenter votre quota en [créant un ticket de support](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) et en sélectionnant *Quota* comme type de demande.
+R : Le nombre de bases de données utilisables avec la fonctionnalité de requête élastique n’est pas strictement limité. Toutefois, chaque requête élastique (requête accédant à SQL Data Warehouse) est comptabilisée dans les limites de concurrence normales.
+
+Q : La fonctionnalité de requête élastique implique-t-elle des limites DTU ?
+
+R : Les limites DTU ne sont pas imposées différemment avec la fonctionnalité de requête élastique. Selon la stratégie standard, les serveurs logiques sont soumis à des limites DTU afin que les clients évitent les dépenses excessives accidentelles. Si vous permettez à plusieurs bases de données d’exploiter la fonctionnalité de requête élastique parallèlement à une instance de l’entrepôt de données SQL, vous pouvez atteindre la limite brusquement. Si cela se produit, soumettez une demande pour augmenter la limite DTU sur votre serveur logique. Vous pouvez augmenter votre quota en [créant un ticket de support](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) et en sélectionnant *Quota* comme type de demande.
 
 Q : Puis-je utiliser la sécurité au niveau des lignes/Dynamic Data Masking avec la fonctionnalité de requête élastique ?
 

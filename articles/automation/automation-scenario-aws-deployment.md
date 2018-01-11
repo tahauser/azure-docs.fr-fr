@@ -3,7 +3,7 @@ title: "Automatisation du déploiement d’une machine virtuelle dans Amazon Web
 description: "Cet article explique comment utiliser Azure Automation pour automatiser la création d’une machine virtuelle Amazon Web Services"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: tiandert; bwren
-ms.openlocfilehash: 828f9e2cc9a39e54933cd0e0db7273efa460d0c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f81150a0ef60cbf10010374f1ec80b0c05b6c6f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Scénario Azure Automation – Approvisionner une machine virtuelle AWS
 Dans cet article, nous allons vous montrer comment approvisionner une machine virtuelle de votre abonnement Amazon Web Services (AWS) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique ; une opération appelée « balisage » dans AWS.

@@ -1,37 +1,36 @@
 ---
-title: "Trouver les rapports d’activité dans le Portail Azure | Microsoft Docs"
-description: "Découvrez comment trouver les rapports d’activité Azure Active Directory sur le Portail Azure."
+title: "Rechercher les rapports d’activité utilisateur Azure Active Directory dans le portail Azure | Microsoft Docs"
+description: "Découvrez où se trouvent les rapports d’activité utilisateur Azure Active Directory sur le portail Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
-Si vous passez du portail Azure Classic au portail Azure, vous voyez un nouvel aperçu des journaux d’activité Azure Active Directory (Azure AD). Dans un [billet de blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/) récent, nous expliquons comment afficher les journaux d’activité dans le contexte de la ressource que vous utilisez dans le portail Azure. Dans cet article, nous expliquons comment trouver les rapports que vous avez utilisés dans le portail Azure Classic sur le portail Azure.
+Dans cet article, nous expliquons comment trouver les rapports d’activité utilisateur Azure Active Directory sur le portail Azure.
 
 ## <a name="whats-new"></a>Nouveautés
 
-Dans le portail Azure Classic, les rapports sont répartis dans des catégories distinctes :
-
-1.  Rapports de sécurité
-2.  Rapports d’activité
-3.  Rapports d’application intégrée
+Dans le portail Azure Classic, les rapports ont été répartis dans des catégories distinctes :
+* Rapports de sécurité
+* Rapports d’activité
+* Rapports d’application intégrée
 
 ### <a name="activity-and-integrated-app-reports"></a>Rapports d’activité et d’application intégrée
 
@@ -43,14 +42,14 @@ Pour afficher cette vue, dans le panneau **Azure Active Directory**, sous **Acti
 
 Les rapports suivants sont consolidés dans cette vue :
 
--   Rapport d’audit
--   Activité de réinitialisation de mot de passe
--   Activité de l’enregistrement de la réinitialisation de mot de passe
--   Activité de groupes en libre-service
--   Changements de nom de groupe d’Office 365
--   Activité d’approvisionnement de compte
--   État de substitution de mot de passe
--   Erreurs de configuration de compte
+* Rapport d’audit
+* Activité de réinitialisation de mot de passe
+* Activité de l’enregistrement de la réinitialisation de mot de passe
+* Activité de groupes en libre-service
+* Changements de nom de groupe d’Office 365
+* Activité d’approvisionnement de compte
+* État de substitution de mot de passe
+* Erreurs de configuration de compte
 
 
 Le rapport d’utilisation de l’application a été amélioré et inclus dans la vue **Connexions**. Pour afficher cette vue, sur le panneau **Azure Active Directory**, sous **Activité**, sélectionnez **Connexions**.

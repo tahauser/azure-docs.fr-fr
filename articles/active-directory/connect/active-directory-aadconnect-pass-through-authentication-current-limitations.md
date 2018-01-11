@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/06/2017
 Les scénarios suivants sont entièrement pris en charge :
 
 - L’utilisateur se connecte dans toutes les applications basées sur un navigateur web
-- L’utilisateur se connecte dans les applications clientes Office 365 prenant en charge [l’authentification moderne](https://aka.ms/modernauthga)
-- Office 2016 et Office 2013 _avec_ authentification moderne
+- L’utilisateur se connecte aux applications Office prenant en charge [l’authentification moderne](https://aka.ms/modernauthga) : Office 2016 et Office 2013 _avec_ authentification moderne
+- L’utilisateur se connecte à Skype Entreprise, qui prend en charge l’authentification moderne, notamment les topologies Online et hybrides. Pour en savoir plus sur les topologies prises en charge, cliquez [ici](https://technet.microsoft.com/library/mt803262.aspx).
 - Jonctions de domaine Azure AD pour les appareils Windows 10
 - Prise en charge d’Exchange ActiveSync
 
@@ -40,11 +40,11 @@ Les scénarios suivants sont entièrement pris en charge :
 Les scénarios suivants ne sont _pas_ pris en charge :
 
 - L’utilisateur se connecte aux applications clientes Office héritées : Office 2010 et Office 2013 _sans_ authentification moderne. Nous recommandons aux entreprises de basculer si possible vers l’authentification moderne. L'authentification moderne permet la prise en charge de l'authentification directe. Elle vous aide à sécuriser vos comptes d'utilisateurs grâce à des fonctionnalités d'[accès conditionnel](../active-directory-conditional-access-azure-portal.md) comme Azure Multi-Factor Authentication.
-- Connexions des utilisateurs à des applications clientes Skype Entreprise, y compris Skype Entreprise 2016.
+- L’utilisateur se connecte à des applications clientes Skype Entreprise, _sans_ authentification moderne.
 - L'utilisateur se connecte à PowerShell version 1.0. Nous vous recommandons d’utiliser PowerShell version 2.0.
-- Azure Active Directory Domain Services.
 - Mots de passe d'application pour l’authentification multifacteur.
 - Détection des utilisateurs avec des [informations d’identification volées](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Azure AD Domain Services a besoin que la synchronisation du hachage de mot de passe soit activée sur le locataire. Ainsi, les locataires qui utilisent l’authentification directe _uniquement_ ne fonctionnent pas pour les scénarios qui ont besoin d’Azure AD Domain Services.
 
 >[!IMPORTANT]
 >Comme solution de contournement _uniquement_ pour les scénarios non pris en charge, activez la synchronisation du hachage de mot de passe dans la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) de l’Assistant Azure AD Connect.

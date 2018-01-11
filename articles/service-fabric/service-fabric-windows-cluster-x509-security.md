@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509
 Cet article vous explique comment sécuriser la communication entre les différents nœuds de votre cluster Windows autonome. Il décrit également comment authentifier les clients qui se connectent à ce cluster à l’aide de certificats X.509. L’authentification garantit que seuls les utilisateurs autorisés peuvent accéder au cluster et aux applications déployées, et effectuer des tâches de gestion. La sécurité par certificat doit être activée sur le cluster lors de sa création.  
@@ -255,7 +255,7 @@ Maintenant, exportez le certificat vers un fichier .pfx avec un mot de passe pro
    Write-Host $cert.ToString($true)
    ```
 
-Si vous avez un abonnement Azure, vous pouvez également suivre les étapes de la section [Ajout de certificats à Key Vault](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
+Si vous disposez d’un abonnement Azure, vous pouvez également suivre les étapes de [Créer un cluster Service Fabric à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Installer les certificats
 Une fois que vous avez les certificats, vous pouvez les installer sur les nœuds du cluster. La dernière version de Windows PowerShell 3.x doit être installée sur vos nœuds. Répétez cette procédure sur chaque nœud, pour les certificats de cluster et de serveur et chaque certificat secondaire éventuel.

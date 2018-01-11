@@ -1,6 +1,6 @@
 ---
 title: "Bibliothèques de connexions pour SQL Database | Microsoft Docs"
-description: "Fournit des liens de téléchargement de modules qui permettent de se connecter à SQL Server et SQL Database à partir d’un large éventail de langages de programmation côté client."
+description: "Fournit des liens de téléchargement de modules qui permettent de se connecter à SQL Server et SQL Database à partir d’un grand nombre de langages de programmation côté client."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Bibliothèques et infrastructures de connectivité pour Microsoft SQL Server
+# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Bibliothèques et frameworks de connectivité pour SQL Server
 
-Découvrez nos [Didacticiels de mise en route](http://aka.ms/sqldev) pour prendre en main rapidement des langages de programmation tels que C#, Java, Node.js, PHP et Python, et créer une application à l’aide de SQL Server sur Linux, Windows ou de Docker sur macOS.
+Découvrez nos [didacticiels de démarrage](http://aka.ms/sqldev) pour commencer rapidement à utiliser des langages de programmation comme C#, Java, Node.js, PHP et Python. Ensuite, créez une application à l’aide de SQL Server sur Linux, Windows ou Docker sur macOS.
 
-Le tableau ci-dessous répertorie les bibliothèques de connectivité ou *pilotes* que les applications clientes peuvent utiliser dans différents langages pour se connecter à Microsoft SQL Server localement ou dans le cloud, sur Linux, Windows ou Docker, ainsi qu’à Azure SQL Database et Azure SQL Data Warehouse. 
+Le tableau suivant répertorie les bibliothèques de connectivité ou *pilotes* que les applications clientes peuvent utiliser dans une variété de langages pour se connecter à SQL Server et l’utiliser localement ou dans le cloud. Vous pouvez les utiliser sur Linux, Windows ou Docker, pour vous connecter à Azure SQL Database et Azure SQL Data Warehouse. 
 
-| Langage | Plateforme | Ressources supplémentaires | Télécharger | Prise en main |
+| Langage | Plateforme | Ressources supplémentaires | Télécharger | Démarrer |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Télécharger](https://www.microsoft.com/net/download/) | [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Pilote JDBC Microsoft pour SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Télécharger](https://go.microsoft.com/fwlink/?linkid=852460) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Pilote PHP SQL pour SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Système d’exploitation : <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
-| Node.js | Windows, Linux, macOS | [Pilote Node.js pour SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installer](https://msdn.microsoft.com/library/mt652094.aspx) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Pilote SQL Python](http://msdn.microsoft.com/library/mt652092.aspx) | Choix d’installation : <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Pilote Ruby pour SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) | [Prise en main](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Pilote ODBC Microsoft pour SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Télécharger](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET pour SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Télécharger](https://www.microsoft.com/net/download/) | [Démarrer](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Pilote Microsoft JDBC pour SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Télécharger](https://go.microsoft.com/fwlink/?linkid=852460) |  [Démarrer](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Pilote PHP SQL pour SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Système d’exploitation : <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Démarrer](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Pilote Node.js pour SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installer](https://msdn.microsoft.com/library/mt652094.aspx) |  [Démarrer](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Pilote Python SQL](http://msdn.microsoft.com/library/mt652092.aspx) | Choix d’installation : <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Démarrer](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Pilote Ruby pour SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installer](https://msdn.microsoft.com/library/mt711041.aspx) | [Démarrer](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Pilote Microsoft ODBC pour SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Télécharger](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-Le tableau ci-dessous répertorie quelques infrastructures ORM (Object Relational Mapping) et web que les applications clientes peuvent utiliser avec Microsoft SQL Server localement ou dans le cloud, sur Linux, Windows ou Docker, ainsi qu’avec Azure SQL Database et Azure SQL Data Warehouse. 
+Le tableau suivant répertorie des exemples de frameworks de mappage relationnel objet (ORM) et de frameworks web que les applications clientes peuvent utiliser avec SQL Server exécuté localement ou dans le cloud. Vous pouvez utiliser les frameworks sur Linux, Windows ou Docker, pour vous connecter à SQL Database et SQL Data Warehouse. 
 
 | Langage | Plateforme | ORM(s) |
 | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/en-us/ef)<br>[Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/index) |
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[Hibernate ORM](http://hibernate.org/orm)|
 | PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
@@ -50,7 +50,7 @@ Le tableau ci-dessous répertorie quelques infrastructures ORM (Object Relationa
 ||||
 
 ## <a name="related-links"></a>Liens connexes
-- [Pilotes SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) pour se connecter à partir d’applications clientes
+- [Pilotes SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) utilisés pour se connecter à partir d’applications clientes
 - Se connecter à SQL Database :
     - [Connexion à SQL Database à l’aide de .NET (C#)](sql-database-connect-query-dotnet.md)
     - [Connexion à SQL Database à l’aide de PHP sur Windows](sql-database-connect-query-php.md)
