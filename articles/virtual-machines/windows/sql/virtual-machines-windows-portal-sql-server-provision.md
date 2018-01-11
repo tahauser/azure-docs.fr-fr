@@ -1,6 +1,6 @@
 ---
-title: "Créer une machine virtuelle Windows SQL Server 2017 dans Azure | Microsoft Docs"
-description: "Ce didacticiel montre comment créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure."
+title: Guide pratique pour configurer des machines virtuelles Windows SQL Server 2017 dans le portail Azure | Microsoft Docs
+description: "Ce guide pratique décrit les options disponibles pour créer des machines virtuelles Windows SQL Server 2017 dans le portail Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,39 +9,29 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Windows SQL Server dans le portail Azure
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour créer une machine virtuelle Windows SQL Server dans le portail Azure
 
-> [!div class="op_single_selector"]
-> * [Portail](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+Ce guide décrit les différentes options disponibles quand vous créez une machine virtuelle Windows SQL Server dans le portail Azure. Vous pouvez suivre les étapes pour créer votre propre machine virtuelle SQL Server tout en découvrant les différents choix disponibles. Vous pouvez également accéder à une section spécifique pour obtenir des informations sur une étape particulière dans le portail.
 
-Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une machine virtuelle Windows dans laquelle est installée SQL Server.
+> [!TIP]
+> Pour démarrer rapidement avec des valeurs de portail par défaut, consultez [Démarrage rapide Azure - Créer une machine virtuelle SQL Server dans le portail](quickstart-sql-vm-create-portal.md).
 
-Ce didacticiel présente les procédures suivantes :
-
-* [Sélectionner une image de machine virtuelle à partir de la galerie](#select)
-* [Configurer et créer la machine virtuelle](#configure)
-* [Ouvrir la machine virtuelle à l’aide du Bureau à distance](#remotedesktop)
-* [Se connecter à SQL Server à distance](#connect)
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a id="select"></a> Sélectionner une image de machine virtuelle SQL à partir de la galerie
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte.
-
-   > [!NOTE]
-   > Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 1. Dans le portail Azure, cliquez sur **Nouveau**. Le portail ouvre la fenêtre **Nouveau**.
 
@@ -277,19 +267,11 @@ Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **N
 
 Pour vous connecter à la machine virtuelle SQL Server à l’aide du Bureau à distance, procédez comme suit.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 Une fois que vous vous connectez à la machine virtuelle SQL Server, vous pouvez lancer SQL Server Management Studio et vous connecter avec l’authentification Windows à l’aide de vos informations d’identification d’administrateur local. Si vous avez activé l’authentification SQL Server, vous pouvez également vous connecter avec l’authentification SQL à l’aide de la connexion SQL et du mot de passe configuré lors de l’approvisionnement.
 
 L’accès à la machine permet de modifier directement les paramètres SQL Server et ceux de la machine en fonction de vos besoins. Par exemple, vous pourriez configurer les paramètres du pare-feu ou modifier les paramètres de configuration SQL Server.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>Activer TCP/IP pour les éditions Developer et Express
-
-Lors de la configuration d’une machine virtuelle SQL Server, Azure n’active pas automatiquement le protocole TCP/IP pour les éditions SQL Server Developer et Express. Les étapes ci-dessous expliquent comment activer manuellement TCP/IP pour vous connecter à distance via une adresse IP.
-
-Les étapes suivantes utilisent le **Gestionnaire de Configuration SQL Server** pour activer le protocole TCP/IP pour les éditions SQL Server Developer et Express.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> Se connecter à SQL Server à distance
 
@@ -300,7 +282,7 @@ Dans ce didacticiel, nous avons sélectionné l’accès **Public** pour la mach
 
 Les sections suivantes montrent comment se connecter à l’instance SQL Server sur votre machine virtuelle à partir d’une autre machine via Internet.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Recommandations en matière de performances
 
@@ -57,7 +57,12 @@ Pour vous aider à évaluer l’impact de cette recommandation, nous vous fourni
 
 Une fois appliquée, cette recommandation active en quelques minutes le paramétrage forcé sur votre base de données et démarre le processus de surveillance qui dure environ 24 heures. Après cette période, vous pourrez consulter le rapport de validation qui indique l’utilisation du processeur de votre base de données 24 heures avant et après l’application de la recommandation. SQL Database Advisor intègre un mécanisme de sécurité qui annule automatiquement la recommandation appliquée si une baisse des performances est détectée.
 
-## <a name="fix-schema-issues-recommendations"></a>Recommandations de résolution des problèmes de schéma
+## <a name="fix-schema-issues-recommendations-preview"></a>Recommandations liées à la résolution des problèmes de schéma (préversion)
+
+> [!IMPORTANT]
+> Microsoft est sur le point de déconseiller les recommandations liées à la « résolution des problèmes de schéma ». En effet, il est préférable d’utiliser [Intelligent Insights](sql-database-intelligent-insights.md) pour le monitoring automatique des problèmes de performances de base de données, lesquels incluent les problèmes de schéma auparavant couverts par les recommandations liées à la « résolution des problèmes de schéma ».
+> 
+
 Les recommandations liées à la **résolution des problèmes de schéma** s’affichent lorsque le service SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent dans Azure SQL Database. Cette recommandation s’affiche généralement lorsque votre base de données rencontre plusieurs erreurs liées au schéma (nom de colonne non valide, nom d’objet non valide, etc.) dans la même heure.
 
 Les « problèmes de schéma » représentent une catégorie d’erreurs de syntaxe dans SQL Server, qui se produisent lorsque la définition de la requête SQL et la définition du schéma de la base de données ne sont pas alignées. Par exemple, une des colonnes attendues par la requête est manquante dans la table cible, ou inversement. 

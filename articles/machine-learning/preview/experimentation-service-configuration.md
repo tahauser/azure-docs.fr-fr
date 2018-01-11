@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuration du service d’expérimentation Azure Machine Learning
 
@@ -221,7 +221,8 @@ _**Présentation de l’exécution de machine virtuelle distante pour un script 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Exécution d’un script sur un cluster HDInsight
 HDInsight est une plateforme populaire pour l’analytique du Big Data qui prend en charge Apache Spark. Workbench permet d’effectuer une expérimentation sur le Big Data à l’aide de clusters HDInsight Spark. 
 
->![REMARQUE] Le cluster HDInsight doit utiliser Stockage Blob Azure en tant que stockage principal. L’utilisation du stockage Azure Data Lake n’est pas encore prise en charge.
+>[!NOTE]
+>Le cluster HDInsight doit utiliser Stockage Blob Azure comme stockage principal. L’utilisation du stockage Azure Data Lake n’est pas encore prise en charge.
 
 Pour créer une cible de calcul et une configuration de série de tests pour un cluster Azure HDInsight Spark, vous pouvez utiliser la commande suivante :
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Ajoutez la clé publique générée par le Workbench aux fichiers ~/.ssh/authorized_keys sur la cible de calcul associée. 
 
-[!IMPORTANT] Vous devez vous connecter à la cible de calcul à l’aide du même nom d’utilisateur que celui utilisé pour créer la cible de calcul. 
+>[!IMPORTANT]
+>Vous devez vous connecter à la cible de calcul à l’aide du même nom d’utilisateur que celui utilisé pour créer la cible de calcul. 
 
 - Vous pouvez maintenant préparer et utiliser la cible de calcul à l’aide de l’authentification par clé SSH.
 

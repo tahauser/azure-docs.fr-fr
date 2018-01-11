@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Afficher les journaux d’activité pour auditer les actions sur les ressources
 Les journaux d’activité vous permettent de déterminer :
@@ -38,10 +38,10 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
    
     ![sélectionner les journaux d’activité](./media/resource-group-audit/select-monitor.png)
 
-   Pour afficher automatiquement le journal d’activité d’une ressource ou d’un groupe de ressources en particulier, sélectionnez **Journal d’activité** à partir du panneau correspondant. Notez que le journal d’activité est automatiquement filtré sur la dernière ressource sélectionnée.
+   Pour afficher automatiquement le journal d’activité d’une ressource ou d’un groupe de ressources en particulier, sélectionnez **Journal d’activité**. Notez que le journal d’activité est automatiquement filtré sur la dernière ressource sélectionnée.
    
     ![filtrer par ressource](./media/resource-group-audit/filtered-by-resource.png)
-2. Le panneau **Journal d’activité** affiche un résumé des opérations récentes.
+2. Le **Journal d’activité** affiche un résumé des opérations récentes.
    
     ![afficher des actions](./media/resource-group-audit/audit-summary.png)
 3. Pour limiter le nombre d’opérations affichées, sélectionnez d’autres conditions. Par exemple, l’illustration suivante indique les champs **Intervalle de temps** et **Événement lancé par** modifiés pour afficher les actions effectuées par un utilisateur ou une application au cours du mois passé. Sélectionnez **Appliquer** pour afficher les résultats de votre requête.
@@ -147,4 +147,5 @@ Les opérations REST à utiliser avec le journal d’activité font partie de l�
 * Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md).
 * Pour en savoir plus sur les commandes permettant d’afficher les opérations de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
+* Pour obtenir la liste des opérations disponibles pour chaque fournisseur Microsoft Azure Resource Manager, consultez [Opérations du fournisseur de ressources Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md).
 

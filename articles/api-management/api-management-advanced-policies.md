@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -242,7 +242,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Attribut|Description|Requis|Default|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="integer"|Délai d’expiration en secondes avant l’échec de l’appel au service principal.|Non|Aucun délai d’expiration|  
+|timeout="integer"|Délai d’expiration en secondes avant l’échec de l’appel au service principal.|Non|300 secondes|  
 |follow-redirects="true &#124; false"|Indique si les redirections à partir du service principal sont suivies par la passerelle ou renvoyées à l’appelant.|Non|false|  
   
 ### <a name="usage"></a>Usage  
@@ -968,4 +968,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 + [Stratégies dans Gestion des API](api-management-howto-policies.md) 
 + [Expressions de stratégie](api-management-policy-expressions.md)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [Exemples de stratégie](policy-samples.md)   
++ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)   

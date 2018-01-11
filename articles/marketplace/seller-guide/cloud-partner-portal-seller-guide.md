@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guide du vendeur Place de marché Azure
 
 Bienvenue dans le guide des vendeurs de la Place de marché Azure. Ce guide est conçu pour les utilisateurs professionnels et les chefs de produits travaillant pour des éditeurs de logiciels indépendants (ISV) qui souhaitent vendre leurs images de machines virtuelles certifiées Azure ainsi que des applications gérées à des développeurs et à des professionnels de l’informatique. Avec des clients Azure disséminés dans le monde entier, [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/) peut apporter à vos produits un maximum de portée et d’exposition.
 
 > [!NOTE]
-> Si vous souhaitez vendre votre [application gérée](https://docs.microsoft.com/en-us/azure/managed-applications/overview), vous devez suivre les instructions pour la faire figurer dans Place de marché Azure [ici](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Si vous souhaitez vendre votre [application gérée](https://docs.microsoft.com/azure/managed-applications/overview), vous devez suivre les instructions pour la faire figurer dans Place de marché Azure [ici](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Si vous souhaitez vendre vos produits SaaS (Software as a service) finis aux _professionnels de l’informatique et développeurs_, vous pouvez contacter saas-on-amp@microsoft.com pour en savoir plus sur vos options.
@@ -100,7 +100,7 @@ Figure 1 : processus de vente sur la Place de marché Azure
 En fonction de la charge de travail (machine virtuelle ou application gérée) que vous envisagez de publier, vous allez suivre un processus différent pour publier votre offre. Le contenu suivant est axé sur la publication des _offres de machines virtuelles_.
 
 > [!NOTE]
-> Si vous souhaitez vendre votre [application gérée](https://docs.microsoft.com/en-us/azure/managed-applications/overview), vous devez suivre les instructions pour la faire figurer dans Place de marché Azure [ici](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Si vous souhaitez vendre votre [application gérée](https://docs.microsoft.com/azure/managed-applications/overview), vous devez suivre les instructions pour la faire figurer dans Place de marché Azure [ici](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Si vous souhaitez vendre vos produits SaaS (Software as a service) finis aux _professionnels de l’informatique et développeurs_, vous pouvez contacter saas-on-amp@microsoft.com pour en savoir plus sur vos options.
@@ -209,7 +209,7 @@ Découvrez nos [programmes de commercialisation](https://partner.microsoft.com/g
 
 Avant le lancement, nous vous recommandons de prendre quelques mesures pour accélérer le pouvoir d’attraction de votre offre de la Place de marché. Utilisez cette liste de vérification pour savoir si vous êtes prêt :
 
-- **J’ai annoncé que mon offre était disponible sur la Place de marché** en publiant sur un blog, en envoyant des messages électroniques ou en publiant un communiqué de presse.
+- **J’ai annoncé que mon offre était disponible sur la Place de marché** en publiant un blog, en envoyant des e-mails ou en publiant un communiqué de presse.
 - **J’assure la promotion de mon offre sur mon site web** en proposant aux clients un lien vers mon offre sur la Place de marché.
 - **J’ai publié une version d’évaluation** afin que les clients puissent découvrir mon offre en direct sur Azure le temps d’une pause-café.
 - **J’ai activé la génération de prospects à la demande** afin que chaque fois qu’un client clique pour déployer mon application, j’obtienne son nom et ses coordonnées.

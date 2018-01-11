@@ -9,12 +9,12 @@ ms.reviewer:
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: cc4053ac2be7e3a7a45da9a2a55f32f68bd9e3a0
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.date: 12/13/2017
+ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Qu’est-ce qu’Azure Database Migration Service Preview ?
 Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Le service est actuellement en version préliminaire publique, avec des efforts de développement axés sur :
@@ -24,9 +24,9 @@ Azure Database Migration Service est un service entièrement géré conçu pour 
 - Investissement continu dans les migrations sans problèmes.
 
 ## <a name="use-familiar-tools"></a>Outils familiers
-Azure Database Migration Service intègre des fonctionnalités de nos services et outils existants.  Il fournit aux clients une solution complète hautement disponible. Le service utilise [l’Assistant de migration des données](http://aka.ms/dma) pour générer des rapports d’évaluation qui fournissent des recommandations concernant les modifications requises avant d’effectuer une migration. Libre à vous d’effectuer ou non une correction nécessaire. Lorsque vous êtes prêt à commencer le processus de migration, Azure Database Migration Service effectue toutes les étapes associées. Vous pouvez lancer et laisser vos projets de migration en toute tranquillité d’esprit car vous savez que le processus s’appuie sur les meilleures pratiques déterminées par Microsoft.
+Azure Database Migration Service intègre des fonctionnalités de nos services et outils existants.  Il fournit aux clients une solution complète hautement disponible. Le service utilise [l’Assistant de migration des données](http://aka.ms/dma) pour générer des rapports d’évaluation qui fournissent des recommandations concernant les modifications requises avant d’effectuer une migration. Libre à vous d’effectuer ou non une correction nécessaire. Lorsque vous êtes prêt à commencer le processus de migration, Azure Database Migration Service effectue toutes les étapes associées. Vous pouvez lancer vos projets de migration et ne plus vous en occuper, car vous savez que le processus s’appuie sur les bonnes pratiques déterminées par Microsoft.
 
-## <a name="regional-availabilty-during-public-preview"></a>Disponibilité régionale de la préversion publique
+## <a name="regional-availability-during-public-preview"></a>Disponibilité régionale de la préversion publique
 La préversion d’Azure Database Migration Service est actuellement disponible dans les régions suivantes :
 - Est des États-Unis
 - Centre-Sud des États-Unis

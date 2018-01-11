@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Test de pénétration
 L’un des avantages liés à l’utilisation d’Azure pour tester et déployer des applications est que vous pouvez créer rapidement des environnements.  Vous n’avez pas à vous soucier des aspects liés à la demande, à l’acquisition, à la mise en rack et à l’empilage de votre propre matériel en local.
@@ -29,11 +29,12 @@ Vous savez sans doute déjà que Microsoft effectue le [test de pénétration de
 
 Nous n’effectuons pas les tests de pénétration à votre place, mais nous savons parfaitement qu’il est important pour vous d’exécuter ces tests sur vos propres applications. Et nous ne pouvons que vous en remercier car, lorsque vous améliorez la sécurité de vos applications, vous renforcez la sécurité de l’ensemble de l’écosystème Azure.
 
-Or, lorsque vous soumettez vos applications à un test de pénétration, nous pouvons le percevoir comme une attaque. Nous [surveillons en permanence](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) les schémas d’attaque et initions un processus de réponse aux incidents si les circonstances nous y obligent. Mais lancer ce processus dans le cadre de vos propres tests de pénétration ne présente aucun intérêt, pour vous comme pour nous.
-
 Que faire, alors ?
 
-Quand vous êtes prêt à effectuer des tests de pénétration sur vos applications hébergées sur Azure, vous pouvez [nous en informer](https://portal.msrc.microsoft.com/en-us/engage/pentest). Une fois informé, Microsoft ne prendra aucune mesure à votre encontre (par exemple, en bloquant l’adresse IP à partir de laquelle vous effectuez vos tests). Vos tests doivent être conformes aux conditions de test de pénétration Azure décrites dans [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/en-us/mt784683) (Règles d’engagement pour les tests de pénétration unifiés du cloud Microsoft).
+Depuis le 15 juin 2017, une approbation préalable n’est plus exigée par Microsoft pour réaliser des tests d’intrusion sur les ressources Azure. Les clients qui souhaitent officiellement attester de leurs engagements relatifs aux tests d’intrusion à venir auprès de Microsoft Azure sont invités à remplir le [formulaire Azure Service Penetration Testing Notification](https://portal.msrc.microsoft.com/engage/pentest) (Notification de tests d’intrusion sur les services Azure). Ce processus concerne uniquement Microsoft Azure et ne s’applique à aucun autre service cloud de Microsoft. 
+
+>[!IMPORTANT] 
+>Même s’il n’est plus nécessaire de prévenir Microsoft d’une activité de test d’intrusion, les clients doivent toujours respecter les [Règles d’engagement pour les tests d’intrusion unifiés du cloud Microsoft](https://technet.microsoft.com/en-us/mt784683). 
 
 Vous avez la possibilité d’effectuer plusieurs tests :
 

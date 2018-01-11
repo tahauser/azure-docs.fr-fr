@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Guide pratique pour utiliser l’historique des exécutions et les métriques de modèles dans Azure Machine Learning Workbench
 
@@ -32,7 +32,7 @@ Pour parcourir ce guide pratique, vous devez :
 ## <a name="azure-ml-logging-api-overview"></a>Vue d’ensemble de l’API de journalisation Azure ML
 L’[API de journalisation Azure ML](reference-logging-api.md) est disponible par le biais du module **azureml.logging** dans Python (installé avec Azure Machine Learning Workbench). Après l’importation de ce module, vous pouvez utiliser la méthode **get_azureml_logger** pour instancier un objet **enregistreur d’événements**.
 Ensuite, vous pouvez utiliser la méthode **log** de l’enregistreur d’événements pour stocker les paires clé/valeur produites par vos scripts Python.
-Actuellement, la journalisation des métriques de modèles de type scalaire, dictionnaire, liste et cadre de données est prise en charge comme indiqué.
+Actuellement, la journalisation des métriques de modèles de types scalaire et liste est prise en charge comme indiqué.
 
 ```Python
 # create a logger instance in already set up environment 

@@ -4,7 +4,7 @@ description: "Activer la délégation Kerberos contrainte sur les domaines gér�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory-ds
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 0235944ef89cab7af152664651711edd5e80e632
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b09c725609fe866b0c9ba2f5b5789e00f808b1ab
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurer la délégation Kerberos contrainte (KCD) sur un domaine géré
+# <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurer la délégation Kerberos contrainte (KCD) sur un domaine managé
 De nombreuses applications doivent accéder à des ressources dans le contexte de l’utilisateur. Active Directory prend en charge un mécanisme, appelé délégation Kerberos, qui rend possible ce cas d’utilisation. En outre, vous pouvez limiter la délégation afin que seules des ressources spécifiques soient accessibles dans le contexte de l’utilisateur. Les domaines gérés des services de domaine Azure AD diffèrent des domaines Active Directory traditionnels dans la mesure où ils sont verrouillés de façon mieux sécurisée.
 
-Cet article vous montre comment configurer la délégation Kerberos contrainte sur un domaine géré de services de domaine Azure AD.
+Cet article vous montre comment configurer la délégation Kerberos contrainte sur un domaine managé Azure AD Domain Services.
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Délégation Kerberos contrainte (KCD)
 La délégation Kerberos contrainte permet à un compte d’emprunter l’identité d’un autre principal de sécurité (par exemple, un utilisateur) pour accéder aux ressources. Imaginez une application web qui accède à une API web principale dans le contexte d’un utilisateur. Dans cet exemple, l’application web (en cours d’exécution dans le contexte d’un compte de service ou d’un compte d’ordinateur) emprunte l’identité de l’utilisateur pour accéder à la ressource (API web principale). La délégation Kerberos n’est pas sécurisée, car elle ne limite pas les ressources auxquelles le compte d’emprunt peut accéder dans le contexte de l’utilisateur.
@@ -37,10 +37,10 @@ La KCD traditionnelle a également quelques problèmes qui lui sont associés. D
 >
 >
 
-## <a name="resource-based-kerberos-constrained-delegation"></a>Délégation Kerberos contrainte basée sur les ressources
-À partir de Windows Server 2012, les administrateurs de service peuvent configurer la délégation contrainte pour leur service. Dans ce modèle, l’administrateur de service principal peut octroyer ou refuser à des services frontaux spécifiques le droit d’utiliser la KCD. Ce modèle est appelé **délégation Kerberos contrainte basée sur la ressource**.
+## <a name="resource-based-kcd"></a>KCD basée sur la ressource
+À partir de Windows Server 2012, les administrateurs de service peuvent configurer la délégation contrainte pour leur service. Dans ce modèle, l’administrateur de service principal peut octroyer ou refuser à des services frontaux spécifiques le droit d’utiliser la KCD. Ce modèle est appelé **KCD basée sur la ressource**.
 
-La KCD basée sur la ressource est configurée à l’aide de PowerShell. Vous utilisez les applets de commande Set-ADComputer ou Set-ADUser, selon que le compte d’emprunt est un compte d’ordinateur ou un compte de service/compte utilisateur.
+La KCD basée sur la ressource est configurée à l’aide de PowerShell. Vous utilisez les applets de commande `Set-ADComputer` ou `Set-ADUser`, selon que le compte d’emprunt est un compte d’ordinateur ou un compte de service/compte utilisateur.
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>Configuration d’une KCD basée sur la ressource pour un compte d’ordinateur sur un domaine géré
 Supposons que vous ayez une application web en cours d’exécution sur l’ordinateur « contoso100-webapp.contoso100.com ». Elle doit accéder à la ressource (une API web s’exécutant sur « contoso100-api.contoso100.com ») dans le contexte des utilisateurs du domaine. Voici comment configurer une KCD basée sur les ressources pour ce scénario.

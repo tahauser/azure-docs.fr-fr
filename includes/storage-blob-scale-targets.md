@@ -5,8 +5,7 @@
 | Taille maximale d'un bloc dans un objet blob de blocs | 100 Mio |
 | Taille maximale d'un objet blob de blocs | 50 000 x 100 Mio (environ 4,75 Tio) |
 | Taille maximale d’un bloc dans un objet blob d’ajout | 4 Mio |
-| Taille maximale d’un objet blob d’ajout | 50 000 X 4 Mo (environ 195 Gio) |
+| Taille maximale d’un objet blob d’ajout | 50 000 x 4 Mio (environ 195 Gio) |
 | Taille maximale d'un objet blob de pages | 8 Tio |
 | Nombre maximal de stratégies d’accès stockées par conteneur d’objets blob | 5 |
-| Taux de requête maximal par compte de stockage | 20 000 requêtes par seconde<sup>2</sup> |
 | Débit cible pour un objet blob unique | Jusqu’à 60 Mio par seconde ou jusqu’à 500 requêtes par seconde |

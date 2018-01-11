@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -74,7 +74,7 @@ Pour utiliser la préversion de la fonctionnalité des ports haute disponibilit�
 
 Voici les configurations ou exceptions prises en charge pour la fonctionnalité des ports haute disponibilité :
 
-- Une même configuration IP frontale peut avoir une seule règle d’équilibreur de charge DSR avec des ports haute disponibilité ou une seule règle d’équilibreur de charge non-DSR avec des ports haute disponibilité. Elle ne peut pas comprendre les deux à la fois.
+- Une même configuration IP frontale peut avoir une seule règle d’équilibreur de charge DSR (Direct Server Return, adresse IP flottante dans Azure) avec des ports haute disponibilité ou une seule règle d’équilibreur de charge non-DSR avec des ports haute disponibilité. Elle ne peut pas comprendre les deux à la fois.
 - Une même configuration IP d’interface réseau ne peut avoir qu’une seule règle d’équilibreur de charge non-DSR avec des ports haute disponibilité. Vous ne pouvez pas configurer d’autres règles pour cette ipconfig.
 - Une même configuration IP d’interface réseau peut avoir une ou plusieurs règles d’équilibreur de charge DSR avec des ports haute disponibilité, du moment que toutes leurs configurations IP frontales respectives sont uniques.
 - Si toutes les règles d’équilibrage de charge ont des ports haute disponibilité (DSR uniquement), deux (ou plus) règles d’équilibreur de charge pointant vers le même pool principal peuvent coexister. Cela est vrai aussi si toutes les règles n’ont pas de port haute disponibilité (DSR et non-DSR). En cas de combinaison de règles avec et sans ports haute disponibilité, toutefois, les deux règles d’équilibrage de charge ne peuvent pas coexister.

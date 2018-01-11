@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 4b970341f9511a889bfcc288756b1be6a4f4647e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-data-factory-service-identity"></a>Identité de service Azure Data Factory
 
@@ -39,7 +39,7 @@ L’identité de service de fabrique de données présente des avantages pour le
 L’identité de service de fabrique de données est générée de la façon suivante :
 
 - Lors de la création d’une fabrique de données grâce au **Portail Azure ou à PowerShell**, l’identité du service est toujours créée automatiquement depuis la préversion publique ADF V2.
-- Lors de la création d’une fabrique de données grâce au kit **SDK**, l’identité du service n’est créée que si vous spécifiez « Identity = new FactoryIdentity() » durant la création de l’objet usine. Consultez l’exemple dans [Démarrage rapide .NET - Créer une fabrique de données](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Lors de la création d’une fabrique de données grâce au **kit de développement logiciel (SDK)**, l’identité du service n’est créée que si vous spécifiez « Identity = new FactoryIdentity() » durant la création de l’objet usine. Consultez l’exemple dans [Démarrage rapide .NET - Créer une fabrique de données](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Lors de la création d’une fabrique de données grâce à l’**API REST**, l’identité du service n’est créée que si vous le spécifiez la section « identity » dans le corps de la requête. Consultez l’exemple dans [Démarrage rapide REST - Créer une fabrique de données](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 Si vous constatez que votre fabrique de données n’est pas associée à une identité de service après l’instruction [retrieve service identity](#retrieve-service-identity), vous pouvez en générer une explicitement par programmation, en mettant à jour la fabrique de données avec l’initiateur d’identité :
@@ -172,3 +172,5 @@ Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’i
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copier des données depuis/vers Azure Data Lake Store à l’aide de l’authentification gérée d’identité de service](connector-azure-data-lake-store.md)
+
+Pour plus d’informations concernant Managed Service Identity, sur lequel est basée l’identité de service de fabrique de données, consultez [Présentation de Managed Service Identity](~/articles/active-directory/msi-overview.md). 

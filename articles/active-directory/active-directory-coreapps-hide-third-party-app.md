@@ -1,10 +1,10 @@
 ---
-title: "Masquer une application tierce de l’expérience utilisateur dans Azure Active Directory | Microsoft Docs"
-description: "Guide pratique pour masquer une application tierce de l’expérience utilisateur dans Azure Active Directory"
+title: "Masquer une application de l’expérience utilisateur dans Azure Active Directory | Microsoft Docs"
+description: "Guide pratique pour masquer une application de l’expérience utilisateur dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 667fdd45bc9eb1f01ce3883006bb29274478cb83
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Masquer une application tierce de l’expérience utilisateur dans Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Masquer une application de l’expérience utilisateur dans Azure Active Directory
 
-Si vous avez une application tierce (une application publiée par d’autres éditeurs que Microsoft) que vous ne souhaitez pas voir apparaître dans les panneaux d’accès des utilisateurs ou les lanceurs Office 365, une option vous permet de masquer sa vignette. En masquant l’application, les utilisateurs disposent toujours d’autorisations d’accès à cette application mais ils ne la voient pas dans leurs lanceurs d’applications. Vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
+Si vous avez une application que vous ne souhaitez pas voir apparaître dans les panneaux d’accès des utilisateurs ou les lanceurs Office 365, une option vous permet de masquer sa vignette. Cette option est uniquement disponible pour les applications tierces (applications non publiées par Microsoft). En masquant l’application, les utilisateurs disposent toujours d’autorisations d’accès à cette application mais ils ne la voient pas dans leurs lanceurs d’applications. Vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Masquer une application tierce à partir de l’expérience utilisateur
-Effectuez les étapes suivantes pour masquer une application tierce du panneau d’accès d’un utilisateur et des lanceurs d’applications Office 365.
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Masquage d’une application des expériences utilisateur final
+Effectuez les étapes suivantes pour masquer une application du panneau d’accès d’un utilisateur et des lanceurs d’applications Office 365.
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Comment faire pour masquer une application tierce du panneau d’accès d’un utilisateur et des lanceurs d’applications Office 365 ?
 

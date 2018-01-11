@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Utiliser Power BI avec SQL Data Warehouse
 À l’instar de la Base de données SQL Azure, la fonction de connexion directe de SQL Data Warehouse permet à l’utilisateur de tirer parti d’une capacité de transfert logique performante, ainsi que des fonctionnalités d’analyse de Power BI.  Grâce à la connexion directe, les requêtes sont renvoyées vers votre solution Azure SQL Data Warehouse en temps réel lorsque vous explorez les données.  Combinée à la puissance de SQL Data Warehouse, cette fonction permet aux utilisateurs de créer des rapports dynamiques en quelques minutes pour plusieurs téraoctets de données.  En outre, l’introduction du bouton Open in Power BI permet aux utilisateurs de connecter directement Power BI à leur solution SQL Data Warehouse sans collecter d’informations à partir d’autres sections d’Azure.
@@ -39,7 +39,7 @@ Ces restrictions et remarques sont susceptibles de changer, car nous améliorons
 ## <a name="using-the-open-in-power-bi-button"></a>Utilisation du bouton « Open in Power BI »
 La méthode la plus simple pour basculer entre SQL Data Warehouse et Power BI consiste à utiliser le bouton Open in Power BI. Ce bouton vous permet de commencer à créer des tableaux de bord en toute transparence dans Power BI.  
 
-1. Pour démarrer, accédez à votre instance SQL Data Warehouse dans le portail Azure Classic.
+1. Pour démarrer, accédez à votre instance de SQL Data Warehouse dans le portail Azure.
 2. Cliquez sur le bouton Open in Power BI.
 3. Si nous ne sommes pas en mesure de vous connecter directement, ou que vous ne disposez pas d’un compte Power BI, vous devrez vous connecter.  
 4. Vous serez alors dirigé vers la page de connexion SQL Data Warehouse, préremplie avec les informations de votre instance SQL Data Warehouse.

@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notes de publication pour Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Les notes de version des Services Microsoft Azure BizTalk reprennent les problèmes connus dans cette version.
 
@@ -34,8 +36,8 @@ Les notes de version des Services Microsoft Azure BizTalk reprennent les problè
 * Les comptes de société sont pris en charge :  
   * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte Microsoft (par exemple, user@live.com). Dans ce scénario, seuls des utilisateurs de compte Microsoft peuvent gérer le service BizTalk au moyen du portail BizTalk Services. Il est impossible d’utiliser un compte professionnel.  
   * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte professionnel dans Azure Active Directory (par exemple user@fabrikam.com ou user@contoso.com). Dans ce scénario, seuls des utilisateurs Azure Active Directory au sein de la même organisation peuvent gérer le service BizTalk par le biais du portail BizTalk Services. Il est impossible d’utiliser un compte Microsoft.  
-* Lorsque vous créez un service BizTalk dans le portail Azure classique, vous êtes automatiquement inscrit dans le portail BizTalk Services.
-  * **Scénario** : vous vous connectez au portail Azure Classic, créez un service BizTalk, puis sélectionnez **Gérer** pour la première fois. Lorsque le portail BizTalk Services s’ouvre, le service BizTalk est automatiquement inscrit et est prêt pour vos déploiements.  
+* Lorsque vous créez un service BizTalk, vous êtes automatiquement inscrit dans le portail BizTalk Services.
+  * **Scénario** : vous vous connectez à Azure, créez un service BizTalk, puis sélectionnez **Gérer** pour la première fois. Lorsque le portail BizTalk Services s’ouvre, le service BizTalk est automatiquement inscrit et est prêt pour vos déploiements.  
     Consultez [Enregistrement et mise à niveau d’un déploiement de service BizTalk sur le portail BizTalk Services](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Mise à jour du 14 août

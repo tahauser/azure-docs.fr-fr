@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-Cet article décrit comment déployer et configurer les machines virtuelles, installer l’infrastructure de cluster et installer et un système SAP NetWeaver 7.50 à haute disponibilité.
+Cet article décrit comment déployer et configurer les machines virtuelles, installer l’infrastructure de cluster et installer un système SAP NetWeaver 7.50 à haute disponibilité.
 Dans les exemples de configuration, commandes d’installation, et ainsi de suite, nous utilisons le numéro d’instance ASCS 00, le numéro d’instance ERS 02 et l’ID de système SAP NWS. Les noms des ressources (telles que les machines virtuelles et les réseaux virtuels) dans l’exemple partent du principe que vous avez utilisé le [modèle convergé][template-converged] avec l’ID de système SAP NWS pour créer les ressources.
 
 Commencez par lire les notes et publications SAP suivantes
@@ -142,7 +142,7 @@ Le serveur NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la b
 ### <a name="deploying-linux"></a>Déploiement de Linux
 
 La Place de marché Azure contient une image de SUSE Linux Enterprise Server for SAP Applications 12 que vous pouvez utiliser pour déployer de nouvelles machines virtuelles.
-Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources requises. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
+Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
 1. Ouvrez le [modèle de serveur de fichiers SAP][template-file-server] dans le portail Azure.   
 1. Entrez les paramètres suivants.
@@ -152,8 +152,8 @@ Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github
       Sélectionnez l’une des distributions Linux. Dans cet exemple, sélectionnez SLES 12.
    3. Nom d’utilisateur et mot de passe d’administrateur  
       Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
-   4. ID du sous-réseau  
-      ID du sous-réseau auquel les machines virtuelles doivent être connectées. Laissez vide si vous souhaitez créer un réseau virtuel, ou sélectionnez le sous-réseau de votre VPN ou réseau virtuel Express Route pour connecter la machine virtuelle à votre réseau local. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
+   4. ID de sous-réseau  
+      ID du sous-réseau auquel les machines virtuelles doivent être connectées. Laissez vide si vous souhaitez créer un réseau virtuel, ou sélectionnez le sous-réseau de votre VPN ou réseau virtuel Express Route pour connecter la machine virtuelle à votre réseau local. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
 
 ### <a name="installation"></a>Installation
 
@@ -254,7 +254,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configurer corosync pour utiliser les autres transports et ajouter la liste de nœuds Le cluster ne fonctionnera pas dans le cas contraire.
+1. **[A]** Configurer corosync pour utiliser les autres transports et ajouter la liste de nœuds Le cluster ne fonctionne pas dans le cas contraire.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -475,7 +475,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ L’appareil STONITH utilise un principal de service pour l’autorisation sur M
 
 1. Accédez à <https://portal.azure.com>
 1. Ouvrez le panneau Azure Active Directory  
-   Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID client**.
+   Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
 1. Cliquez sur Inscriptions d’applications
 1. Cliquez sur Ajouter.
 1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple, http://localhost) et cliquez sur Créer
@@ -523,13 +523,13 @@ Une fois que vous avez modifié les autorisations pour les machines virtuelles, 
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,7 +549,7 @@ sudo crm configure property stonith-enabled=true
 
 La Place de marché Azure contient une image de SUSE Linux Enterprise Server for SAP Applications 12 que vous pouvez utiliser pour déployer de nouvelles machines virtuelles. L’image Place de marché contient l’agent de ressource pour SAP NetWeaver.
 
-Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources requises. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
+Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
 1. Ouvrez le [modèle ASCS/SCS Multi SID][template-multisid-xscs] ou le [modèle convergé][template-converged] dans le portail Azure. Le modèle ASCS/SCS crée uniquement les règles d’équilibrage de charge pour les instances de SAP NetWeaver ASCS/SCS et ERS (Linux uniquement), tandis que le modèle convergé crée également les règles d’équilibrage de charge pour une base de données (par exemple Microsoft SQL Server ou SAP HANA). Si vous prévoyez d’installer un système SAP NetWeaver et que vous souhaitez également installer la base de données sur les mêmes machines, utilisez le [modèle convergé][template-converged].
 1. Entrez les paramètres suivants
@@ -564,13 +564,13 @@ Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github
    6. Type de base de données  
       Sélectionnez HANA
    7. Taille du système SAP  
-      Nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire SAP Technology ou à votre intégrateur système.
+      Nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont exigés par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
    8. Disponibilité du système  
       Sélectionnez la haute disponibilité (HA).
    9. Nom d’utilisateur et mot de passe d’administrateur  
       Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
-   10. ID du sous-réseau  
-   ID du sous-réseau auquel les machines virtuelles doivent être connectées.  Laissez vide si vous souhaitez créer un réseau virtuel, ou sélectionnez le même sous-réseau que celui que vous avez utilisé ou créé dans le cadre du déploiement de serveur NFS. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
+   10. ID de sous-réseau  
+   ID du sous-réseau auquel les machines virtuelles doivent être connectées.  Laissez vide si vous souhaitez créer un réseau virtuel, ou sélectionnez le même sous-réseau que celui que vous avez utilisé ou créé dans le cadre du déploiement de serveur NFS. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
 
 ### <a name="installation"></a>Installation
 
@@ -700,7 +700,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configurer corosync pour utiliser les autres transports et ajouter la liste de nœuds Le cluster ne fonctionnera pas dans le cas contraire.
+1. **[A]** Configurer corosync pour utiliser les autres transports et ajouter la liste de nœuds Le cluster ne fonctionne pas dans le cas contraire.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -967,7 +967,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1008,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[1]** Installer SAP NetWeaver ASCS  
 
-   Installez SAP NetWeaver ASCS en tant que racine sur le premier nœud à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend de l’équilibreur de charge pour l’ASCS, par exemple <b>nws-ascs</b>, <b>10.0.0.10</b>, et du numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>00</b>.
+   Installez SAP NetWeaver ASCS comme racine sur le premier nœud à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend de l’équilibreur de charge pour l’ASCS, par exemple <b>nws-ascs</b>, <b>10.0.0.10</b>, et du numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>00</b>.
 
    Vous pouvez utiliser le paramètre sapinst SAPINST_REMOTE_ACCESS_USER pour autoriser un utilisateur non racine à se connecter à sapinst.
 
@@ -1041,7 +1041,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1092,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[2]** Installer SAP NetWeaver ERS  
 
-   Installez SAP NetWeaver ERS en tant que racine sur le deuxième nœud à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend de l’équilibreur de charge pour l’ERS, par exemple <b>nws-ers</b>, <b>10.0.0.11</b>, et du numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>02</b>.
+   Installez SAP NetWeaver ERS comme racine sur le deuxième nœud à l’aide d’un nom d’hôte virtuel mappé à l’adresse IP de la configuration frontend de l’équilibreur de charge pour l’ERS, par exemple <b>nws-ers</b>, <b>10.0.0.11</b>, et du numéro d’instance que vous avez utilisé pour la sonde de l’équilibreur de charge, par exemple <b>02</b>.
 
    Vous pouvez utiliser le paramètre sapinst SAPINST_REMOTE_ACCESS_USER pour autoriser un utilisateur non racine à se connecter à sapinst.
 
@@ -1101,7 +1101,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    </code></pre>
 
    > [!NOTE]
-   > Utilisez SWPM SP 20 PL 05 ou ultérieur. Les versions antérieures ne définissent pas les autorisations correctement et l’installation échouera.
+   > Utilisez SWPM SP 20 PL 05 ou ultérieur. Les versions antérieures ne définissent pas les autorisations correctement et l’installation échouera.
    > 
 
 1. **[1]** Adapter les profils d’instance ASCS/SCS et ERS
@@ -1228,7 +1228,7 @@ L’appareil STONITH utilise un principal de service pour l’autorisation sur M
 
 1. Accédez à <https://portal.azure.com>
 1. Ouvrez le panneau Azure Active Directory  
-   Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID client**.
+   Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
 1. Cliquez sur Inscriptions d’applications
 1. Cliquez sur Ajouter.
 1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple, http://localhost) et cliquez sur Créer
@@ -1256,13 +1256,13 @@ Une fois que vous avez modifié les autorisations pour les machines virtuelles, 
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Installer la base de données
 
-Dans cet exemple, une réplication du système SAP HANA est installée et configurée. SAP HANA s’exécutera dans le même cluster que SAP NetWeaver ASCS/SCS et ERS. Vous pouvez également installer SAP HANA dans un cluster dédié. Consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].
+Dans cet exemple, une réplication du système SAP HANA est installée et configurée. SAP HANA s’exécute dans le même cluster que SAP NetWeaver ASCS/SCS et ERS. Vous pouvez également installer SAP HANA dans un cluster dédié. Pour plus d’informations, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Préparer l’installation de SAP HANA
 
@@ -1326,7 +1326,7 @@ En général, nous recommandons d’utiliser LVM pour les volumes qui stockent d
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ Les étapes suivantes se basent sur le chapitre 4 de la publication [SAP HANA S
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ Les étapes suivantes se basent sur le chapitre 4 de la publication [SAP HANA S
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

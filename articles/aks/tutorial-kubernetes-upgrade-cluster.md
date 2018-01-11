@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Mettre à niveau Kubernetes dans Azure Container Service (AKS)
 
-Un cluster Azure Container Service (AKS) peut être mis à niveau à l’aide d’Azure CLI. Pendant le processus de mise à niveau, les nœuds Kubernetes sont soigneusement [coordonnés et purgés](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) pour limiter les perturbations pour les applications en cours d’exécution.
+Un cluster Azure Container Service (AKS) peut être mis à niveau à l’aide d’Azure CLI. Pendant le processus de mise à niveau, les nœuds Kubernetes sont soigneusement [coordonnés et purgés][kubernetes-drain] afin de limiter les perturbations pour les applications en cours d’exécution.
 
 Dans ce didacticiel (le huitième d’une série de huit), un cluster Kubernetes est mis à niveau. Les tâches que vous effectuez sont les suivantes :
 
@@ -30,7 +30,7 @@ Dans ce didacticiel (le huitième d’une série de huit), un cluster Kubernetes
 
 Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé. L’application a ensuite été exécutée sur le cluster Kubernetes.
 
-Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur](./tutorial-kubernetes-prepare-app.md).
+Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Obtenir les versions du cluster
@@ -141,4 +141,11 @@ Dans ce didacticiel, vous avez mis à niveau Kubernetes dans un cluster AKS. Les
 Suivez ce lien pour en savoir plus sur AKS.
 
 > [!div class="nextstepaction"]
-> [Vue d’ensemble d’AKS](./intro-kubernetes.md)
+> [Vue d’ensemble d’AKS][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

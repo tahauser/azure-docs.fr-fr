@@ -1,5 +1,5 @@
 ---
-title: "Mise à niveau d’Azure Log Analytics avec la nouvelle recherche dans les journaux | Microsoft Docs"
+title: "Mise à niveau d’Azure Log Analytics pour la nouvelle fonctionnalité de recherche dans les journaux | Microsoft Docs"
 description: "Le nouveau langage de requête Log Analytics sera bientôt disponible. En attendant, vous pouvez participer à la préversion publique.  Cet article décrit les avantages du nouveau langage et explique comment convertir votre espace de travail."
 services: log-analytics
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux
 
@@ -39,7 +39,7 @@ Nous sommes conscients que toute transition implique des efforts. Sachez, toutef
 
 
 ## <a name="when-can-i-upgrade"></a>À quel moment puis-je effectuer la mise à niveau ?
-La mise à niveau va être déployée dans toutes les régions Azure et sera certainement disponible dans certaines régions avant d’autres.  Vous savez que votre espace de travail est prêt à être mis à niveau quand vous voyez une bannière en haut de votre espace de travail vous invitant à effectuer la mise à niveau.
+La mise à niveau va être déployée dans toutes les régions Azure, et peut être disponible dans certaines régions avant d’autres.  Vous savez que votre espace de travail est prêt à être mis à niveau quand vous voyez une bannière en haut de votre espace de travail vous invitant à effectuer la mise à niveau.
 
 ![Mise à niveau 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
 
@@ -52,13 +52,13 @@ Si votre espace de travail est automatiquement mis à niveau, une bannière s’
 Les changements suivants sont apportés à votre espace de travail quand il est converti :
 
 - Toutes les recherches enregistrées, les règles d’alerte et les vues que vous avez créées avec le Concepteur de vues sont automatiquement converties dans le nouveau langage.  Les recherches incluses dans les solutions de recherche ne sont pas automatiquement converties. Elles le sont, cependant, lorsque vous les ouvrez.  
-- La fonctionnalité [Mon tableau de bord](log-analytics-dashboards.md) est dépréciée. Elle va être remplacée par le [Concepteur de vues](log-analytics-view-designer.md) et les [tableaux de bord Azure](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Les vignettes que vous avez ajoutées à Mon tableau de bord sont toujours disponibles, mais elles sont en lecture seule.
+- La fonctionnalité [Mon tableau de bord](log-analytics-dashboards.md) est dépréciée. Elle va être remplacée par le [Concepteur de vues](log-analytics-view-designer.md) et les [tableaux de bord Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Les vignettes que vous avez ajoutées à Mon tableau de bord sont toujours disponibles, mais elles sont en lecture seule.
 - La fonctionnalité [Intégration Power BI](log-analytics-powerbi.md) est remplacée par un nouveau processus.  Toutes les planifications de Power BI existantes que vous avez créées sont désactivées, et vous devez les remplacer par le nouveau processus.
 - Les réponses des [actions d’alerte](log-analytics-alerts-actions.md) utilisant des webhooks et des runbooks ont un nouveau format qui va peut-être vous obliger à mettre à jour vos règles d’alerte.
 - Consultez les [questions fréquentes (FAQ) sur la recherche dans les journaux](log-analytics-log-search-faq.md) pour voir les questions couramment posées sur la mise à niveau.
 
 ## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>Comment savoir si des problèmes se sont produits pendant la mise à niveau ?
-Une fois la mise à niveau terminée, une section **Résumé de la mise à niveau** apparaît dans les paramètres de l’espace de travail.  Consultez cette section pour obtenir plus d’informations sur la mise à niveau et afficher le
+Une fois la mise à niveau terminée, une section **Résumé de la mise à niveau** apparaît dans les paramètres de l’espace de travail.  Consultez cette section pour obtenir des informations sur votre mise à niveau et afficher les éventuels problèmes rencontrés.
 
  ![Résumé de la mise à niveau](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

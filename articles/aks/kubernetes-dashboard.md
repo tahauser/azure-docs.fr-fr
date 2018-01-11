@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 75ee9cc7c4b40e9a724c8ce98d770a18ae654096
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Tableau de bord Kubernetes avec Azure Container Service (ACS)
 
-Vous pouvez utiliser Azure CLI pour démarrer le tableau de bord Kubernetes. Ce document décrit le démarrage du tableau de bord Kubernetes à l’aide d’Azure CLI, ainsi que certaines opérations de base exécutables à partir du tableau de bord. Pour plus d’informations sur le tableau de bord Kubernetes, voir [Tableau de bord de l’interface utilisateur web de Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+Vous pouvez utiliser Azure CLI pour démarrer le tableau de bord Kubernetes. Ce document décrit le démarrage du tableau de bord Kubernetes à l’aide d’Azure CLI, ainsi que certaines opérations de base exécutables à partir du tableau de bord. Pour plus d’informations sur le tableau de bord Kubernetes, consultez [Tableau de bord de l’interface utilisateur web de Kubernetes][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [démarrage rapide d’ACS](./kubernetes-walkthrough.md).
+Les étapes détaillées dans ce document supposent que vous ayez créé un cluster ACS et que vous ayez établi une connexion kubectl avec le cluster. Si vous avez besoin de ces éléments, reportez-vous au [démarrage rapide d’ACS][aks-quickstart].
 
-Vous devez également avoir installé et configuré Azure CLI version 2.0.21 ou ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez procéder à une installation ou à une mise à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+Vous devez également avoir installé et configuré Azure CLI version 2.0.21 ou ultérieure. Pour déterminer la version, exécutez la commande az--version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Démarrer le tableau de bord Kubernetes
 
@@ -76,4 +76,11 @@ Lorsque vous êtes prêt, sélectionnez **Mettre à jour**.
 Pour plus d’informations sur le tableau de bord Kubernetes, voir la documentation de Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Tableau de bord de l’interface utilisateur web de Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+> [Tableau de bord de l’interface utilisateur web de Kubernetes][kubernetes-dashboard]
+
+<!-- LINKS - external -->
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[install-azure-cli]: /cli/azure/install-azure-cli

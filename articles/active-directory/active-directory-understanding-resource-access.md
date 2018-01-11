@@ -4,21 +4,21 @@ description: "Cette rubrique explique les concepts relatifs à l’utilisation d
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/06/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.custom: it-pro;
+ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Présentation de l'accès aux ressources dans Azure
 
@@ -26,29 +26,24 @@ Le contrôle des accès dans Azure s’envisage d’abord dans une perspective d
 
 <br><br>![Comptes Azure][1]
 
-Les abonnements sont également associés à un répertoire. Le répertoire définit un ensemble d'utilisateurs. Ceux-ci peuvent être des utilisateurs professionnels ou scolaires qui ont créé le répertoire, ou bien des utilisateurs externes (autrement dit, des comptes Microsoft). Les abonnements sont accessibles par un sous-ensemble des utilisateurs du répertoire qui ont été affectés comme administrateur de service ou comme coadministrateur ; la seule exception est que, pour des raisons d'héritage, les comptes Microsoft (anciennement Windows Live ID) peuvent être affectés comme administrateur de service ou comme co-admistrateur sans être présents dans le répertoire.
+Les abonnements sont également associés à un répertoire. Le répertoire définit un ensemble d'utilisateurs. Il peut s’agir de professionnels ou d’étudiants qui ont créé l’annuaire, ou bien des utilisateurs invités externes. Les abonnements sont accessibles par une partie des utilisateurs de l’annuaire qui ont été affectés comme administrateur de service ou comme coadministrateur ; la seule exception est que, pour des raisons d’héritage, les comptes Microsoft (anciennement Windows Live ID) peuvent être affectés comme administrateur de service ou comme coadministrateur sans être présents dans l’annuaire.
 
-<br><br>![Contrôle des accès par rôle dans Azure][2]
+<br><br>![Contrôle des accès dans Azure][2]
 
-Fonctionnalité dans le portail Azure Classic permettant aux administrateurs de service connectés à l’aide d’un Account Microsoft de modifier l’annuaire associé à un abonnement à l’aide de la commande **Modifier l’annuaire** à la page **Abonnements** sous **Paramètres**. Notez que cette opération a des incidences sur le contrôle des accès de cet abonnement.
-
-> [!NOTE]
-> La commande **Modifier le répertoire** du portail de gestion Azure n’est pas disponible pour les utilisateurs connectés avec un compte professionnel ou scolaire parce que ces comptes peuvent se connecter uniquement au répertoire auquel ils appartiennent.
-> 
-> 
+Les fonctionnalités disponibles dans le portail Azure permettent aux administrateurs de service qui se connectent à l’aide d’un compte Microsoft de changer l’annuaire auquel un abonnement est associé. Cette opération a des incidences sur le contrôle des accès de cet abonnement.
 
 <br><br>![Flux de connexion utilisateur simple][3]
 
-Dans le cas le plus simple, une organisation (par exemple Contoso) applique la facturation et le contrôle des accès au même ensemble d'abonnements. Autrement dit, le répertoire est associé à des abonnements appartenant à un seul compte Azure. Une fois correctement connectés au portail Azure Classic, les utilisateurs voient deux collections de ressources (représentées en orange dans l’illustration précédente) :
+Dans le cas le plus simple, une organisation (par exemple Contoso) applique la facturation et le contrôle des accès au même ensemble d'abonnements. Autrement dit, l’annuaire est associé à des abonnements appartenant à un seul compte Azure. Une fois correctement connectés au portail Azure, les utilisateurs voient deux collections de ressources (représentées en orange dans l’illustration précédente) :
 
-* Répertoires où leur compte d'utilisateur existe (source ou ajouté comme principal étranger). Notez que le répertoire utilisé pour la connexion n'est pas approprié pour ce calcul. Ainsi, vos répertoires seront toujours affichés, où que vous soyez connecté.
-* Ressources qui font partie des abonnements associés au répertoire utilisé pour la connexion ET auxquelles l'utilisateur peut accéder (qu’ils soient administrateurs de service ou co-administrateurs).
+* Annuaires où leur compte d'utilisateur existe (source ou ajouté comme principal étranger). Notez que l’annuaire utilisé pour la connexion n'est pas approprié pour ce calcul. Ainsi, vos annuaires seront toujours affichés, où que vous soyez connecté.
+* Ressources qui font partie des abonnements associés à l’annuaire utilisé pour la connexion ET auxquelles l'utilisateur peut accéder (qu’ils soient administrateurs de service ou coadministrateurs).
 
-<br><br>![Utilisateur avec plusieurs abonnements et répertoires][4]
+<br><br>![Utilisateur avec plusieurs abonnements et annuaires][4]
 
-Les utilisateurs disposant d’abonnements sur plusieurs répertoires ont la possibilité de basculer le contexte actuel du portail Azure Classic à l’aide du filtre d’abonnement. En arrière-plan, il en résulte une connexion distincte à un répertoire différent, mais cela est effectué en toute transparence à l'aide de l’authentification unique.
+Les utilisateurs disposant d’abonnements sur plusieurs annuaires ont la possibilité de basculer le contexte actuel du portail Azure à l’aide du filtre d’abonnement. En arrière-plan, il en résulte une connexion distincte à un annuaire différent, mais cela est effectué en toute transparence à l'aide de l’authentification unique.
 
-Les opérations telles que le déplacement de ressources entre des abonnements peuvent être plus difficiles en raison de cet affichage unique des répertoires des abonnements. Pour effectuer le transfert de ressources, il peut être nécessaire de d’abord utiliser la commande **Modifier l’annuaire** commande de la page Abonnements sous **Paramètres** pour associer les abonnements au même annuaire.
+Les opérations telles que le déplacement de ressources entre des abonnements peuvent être plus difficiles en raison de cet affichage unique des annuaires des abonnements. Pour effectuer le transfert de ressources, il peut être nécessaire de d’abord utiliser la commande **Modifier l’annuaire** commande de la page Abonnements sous **Paramètres** pour associer les abonnements au même annuaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur la façon de modifier les administrateurs pour un abonnement Azure, voir [Comment ajouter ou modifier les rôles d’administrateur Azure](../billing/billing-add-change-azure-subscription-administrator.md)
