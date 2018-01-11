@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Choisir entre Flow, Logic Apps, Functions et WebJobs
 Cet article dresse une analyse comparative des services suivants de Microsoft Cloud ; ils permettent tous de résoudre des problèmes d’intégration et d’automatiser les processus métier :
@@ -41,18 +41,18 @@ Microsoft Flow et Azure Logic Apps peuvent être traités ensemble, puisqu’ils
 * Ils présentent le même concepteur de flux de travail.
 * [connecteurs](../connectors/apis-list.md) qui fonctionnent dans l’un fonctionnent également dans l’autre.
 
-Flow permet à n’importe quel employé de bureau d’effectuer des intégrations simples (par exemple recevoir des SMS pour des e-mails importants) sans faire appel à des développeurs ou au département informatique. Les applications de Logic Apps prennent quant à elles en charge des intégrations avancées ou stratégiques (par exemple des processus B2B) nécessitant des opérations de développement et des pratiques de sécurité au niveau de l’entreprise. Il est courant qu’un flux de travail métier se complexifie au fil du temps. Par conséquent, vous pouvez commencer par un flux et le convertir ensuite en application logique selon vos besoins.
+Flow permet à n’importe quel employé de bureau d’effectuer des intégrations simples (par exemple, un processus d’approbation dans une bibliothèque de documents SharePoint) sans solliciter les développeurs ni le service informatique. En revanche, les applications de Logic Apps prennent quant à elles en charge des intégrations avancées (par exemple des processus B2B) nécessitant des pratiques DevOps et de sécurité au niveau de l’entreprise. Il est courant qu’un flux de travail métier se complexifie au fil du temps. Par conséquent, vous pouvez commencer par un flux et le convertir ensuite en application logique selon vos besoins.
 
 Le tableau suivant vous aide à déterminer si Flow ou Logic Apps convient le mieux à une intégration donnée.
 
 |  | Flux | Logic Apps |
 | --- | --- | --- |
-| Public ciblé |Employés de bureau, utilisateurs professionnels |Professionnels de l’informatique, développeurs |
-| Scénarios |Libre-service |Intégration stratégique |
+| Public ciblé |Employés de bureau, utilisateurs de l’entreprise, administrateurs SharePoint |Intégrateurs et développeurs professionnels, professionnels de l’informatique |
+| Scénarios |Libre-service |Intégrations avancées |
 | Outil de conception |Dans le navigateur et application mobile, interface utilisateur uniquement |Dans le navigateur et [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [mode Code](../logic-apps/logic-apps-author-definitions.md) disponible |
-| DevOps |Ad hoc, développement en production |Contrôle de code source, tests, support, et automatisation et gestion simplifiée dans [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Expérience administrateur |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Sécurité |Pratiques standard : [souveraineté des données](https://wikipedia.org/wiki/Technological_Sovereignty), [chiffrement au repos](https://wikipedia.org/wiki/Data_at_rest#Encryption) pour les données sensibles, etc. |Garantie de sécurité d’Azure : [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [journaux d’audit](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), etc. |
+| Application Lifecycle Management (ALM) |Concevez et testez au sein d’environnements hors production, passez en production lorsque vous êtes prêt. |DevOps : contrôle de code source, tests, support, et automatisation et gestion simplifiée dans [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). |
+| Expérience administrateur |Gérez les stratégies des environnements Flow et de prévention contre la perte des données, suivez la gestion des licences [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com). |Gérez les groupes de ressources, les connexions, la gestion des accès et la connexion [https://portal.azure.com](https://portal.azure.com). |
+| Sécurité |Journaux d’audit de sécurité et conformité Office 365, prévention contre la perte de données, [chiffrement au repos](https://wikipedia.org/wiki/Data_at_rest#Encryption) pour les données sensibles, etc. |Garantie de sécurité d’Azure : [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [journaux d’audit](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), etc. |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ Le choix entre Functions et WebJobs dépend en définitive de l’utilisation qu
 Comme mentionné précédemment, le service qui vous convient le mieux dépend de votre situation. 
 
 * Pour une optimisation simple de votre activité, utilisez Flow.
-* Si votre scénario d’intégration est trop avancé pour Flow ou si vous avez besoin de fonctionnalités de développement et d’une conformité en matière de sécurité, utilisez Logic Apps.
+* Si votre scénario d’intégration est trop avancé pour Flow ou si vous avez besoin de fonctionnalités DevOps, utilisez Logic Apps.
 * Si une étape de votre scénario d’intégration nécessite une transformation hautement personnalisée ou du code spécialisé, écrivez une fonction et déclenchez cette fonction en tant qu’action dans votre application logique.
 
 Vous pouvez appeler une application logique dans un flux. Vous pouvez également appeler une fonction dans une application logique et une application logique dans une fonction. L’intégration entre Flow, Logic Apps et Functions continue de s’améliorer au fil du temps. Vous pouvez créer quelque chose dans un service et l’utiliser dans les autres services. Par conséquent, tout investissement dans ces trois technologies est pertinent.

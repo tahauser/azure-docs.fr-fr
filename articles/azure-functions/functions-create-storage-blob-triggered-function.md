@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Créer une fonction déclenchée par un stockage Blob Azure
 
@@ -51,19 +51,23 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Sélectionnez le modèle **BlobTrigger** de la langue de votre choix, puis utilisez les paramètres comme indiqué dans le tableau.
+2. Dans la zone de recherche, saisissez `blob`, puis sélectionnez la langue souhaitée pour le modèle déclencheur de stockage d’objets blob.
 
-    ![Création de la fonction déclenchée par le stockage Blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Sélectionnez le modèle déclencheur de stockage d’objets blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Utilisez les paramètres spécifiés dans le tableau sous l’image.
+
+    ![Création de la fonction déclenchée par le stockage Blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
-    | **Chemin d’accès**   | mycontainer/{name}    | Emplacement du stockage Blob analysé. Le nom de fichier de l’objet Blob est transmis dans la liaison en tant que paramètre _name_.  |
-    | **Connexion au compte de stockage** | AzureWebJobStorage | Vous pouvez utiliser la connexion au compte de stockage qui est déjà utilisée par votre Function App ou en créer une.  |
-    | **Nommer votre fonction** | Unique dans votre Function App | Nom de cette fonction déclenchée par l’objet Blob. |
+    | **Name** | Unique dans votre Function App | Nom de cette fonction déclenchée par l’objet Blob. |
+    | **Chemin d’accès**   | samples-workitems/{name}    | Emplacement du stockage Blob analysé. Le nom de fichier de l’objet Blob est transmis dans la liaison en tant que paramètre _name_.  |
+    | **Connexion au compte de stockage** | AzureWebJobsStorage | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction, ou créez-en une.  |
 
 3. Cliquez sur **Créer** pour créer votre fonction.
 
-Ensuite, connectez-vous à votre compte de stockage Azure et créez le conteneur **mycontainer**.
+Ensuite, vous vous connectez à votre compte Stockage Azure et créez le conteneur **samples-workitems**.
 
 ## <a name="create-the-container"></a>Créer le conteneur
 
@@ -79,7 +83,7 @@ Ensuite, connectez-vous à votre compte de stockage Azure et créez le conteneur
 
     ![Saisie des informations d’identification de stockage et connexion.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Développez le compte de stockage attaché, cliquez avec le bouton droit sur **Conteneurs d’objets Blob**, puis sur **Créer un conteneur d’objets blob**, tapez `mycontainer` et appuyez sur Entrée.
+1. Développez le compte de stockage attaché, cliquez avec le bouton droit sur **Conteneurs d’objets Blob**, puis sur **Créer un conteneur d’objets blob**, tapez `samples-workitems` et appuyez sur Entrée.
 
     ![Création d’une file d’attente de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ Une fois que vous avez un conteneur d’objets blob, vous pouvez tester la fonct
 
 1. Dans le portail Azure, accédez à votre fonction, développez les **Journaux** en bas de la page et vérifiez que la diffusion de journaux n’est pas suspendue.
 
-1. Dans l’Explorateur de stockage, développez votre compte de stockage, **Conteneurs d’objets Blob** et **mycontainer**. Cliquez sur **Charger**, puis sur **Charger des fichiers...**.
+1. Dans l’explorateur Stockage, développez votre compte de stockage, **Conteneurs d’objets Blob** et **samples-workitems**. Cliquez sur **Charger**, puis sur **Charger des fichiers...**.
 
     ![Chargement d’un fichier dans le conteneur d’objets blob.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

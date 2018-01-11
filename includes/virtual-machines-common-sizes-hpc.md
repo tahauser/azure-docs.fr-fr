@@ -17,10 +17,10 @@ ACU : 290-300
 | Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |
 | Standard_H8m |8 |112 |1 000 |32 |32 x 500 |2  |
 | Standard_H16m |16 |224 |2000 |64 |64 x 500 |4  |
-| Standard_H16r* |16 |112 |2000 |64 |64 x 500 |4  |
-| Standard_H16mr* |16 |224 |2000 |64 |64 x 500 |4 |
+| Standard_H16r <sup>1</sup> |16 |112 |2000 |64 |64 x 500 |4  |
+| Standard_H16mr <sup>1</sup> |16 |224 |2000 |64 |64 x 500 |4 |
 
-*Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
+<sup>1</sup> Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
 
 <br>
 
@@ -32,12 +32,12 @@ ACU : 225
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (HDD) : Gio | Disques de données max. | Débit de disque de données max : E/S par seconde | Nombre max de cartes réseau|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |32 |32 x 500 |2 |
-| Standard_A9* |16 |112 |382 |64 |64 x 500 |4 |
+| Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32 x 500 |2 |
+| Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64 x 500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32 x 500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64 x 500 |4 |
 
-*Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
+<sup>1</sup>Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.
 
 <br>
 
