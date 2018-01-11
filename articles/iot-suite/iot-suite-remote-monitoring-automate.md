@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Détecter les problèmes à l’aide de règles de seuil
 
@@ -40,7 +40,7 @@ Si vous n’avez pas encore déployé la solution de surveillance à distance, v
 
 ## <a name="view-the-rules-in-your-solution"></a>Afficher les règles dans votre solution
 
-La page des **règles et actions** de la solution affiche une liste de toutes les règles en cours :
+La page des **règles et actions** de la solution affiche la liste de toutes les règles en cours :
 
 ![Page des règles et actions](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -67,16 +67,16 @@ Utilisez les valeurs suivantes pour créer la règle :
 | Paramètre          | Valeur                                 |
 | ---------------- | ------------------------------------- |
 | Nom             | Avertissement de refroidissement                       |
-| Source           | Groupe d’appareils de **refroidissement**              |
-| Champ déclencheur    | Pression                              |
+| Source           | Groupe d’appareils de **refroidissement**             |
+| Champ déclencheur    | pressure                              |
 | Opérateur du déclencheur | Supérieur à                          |
 | Valeur de déclenchement    | 150                                   |
 | Niveau de gravité   | Avertissement                               |
-| Texte de l’événement d’alarme | Pression de refroidissement supérieure à 150 psi |
+| Description      | Pression de refroidissement supérieure à 150 psi |
 
 Pour enregistrer la nouvelle règle, choisissez **Appliquer**.
 
-Vous pouvez consulter le moment où la règle est déclenchée sur la page des **règles et actions** ou sur la page **Tableau de bord**.
+Vous pouvez connaître le déclenchement de la règle sur la page des **règles et actions** ou **Tableau de bord**.
 
 ## <a name="edit-an-existing-rule"></a>Modifier une règle existante
 

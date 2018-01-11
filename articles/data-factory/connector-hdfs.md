@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copier des données depuis/vers HDFS à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -162,7 +162,7 @@ Pour copier des données de HDFS, définissez le type de source dans l’activit
 | recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non |
 | distcpSettings | Groupe de propriétés lors de l’utilisation de HDFS DistCp. | Non |
 | resourceManagerEndpoint | Point de terminaison de Yarn ResourceManager | Oui, en cas d’utilisation de DistCp |
-| tempScriptPath | Chemin d’accès du dossier utilisé pour stocker le script de commande DistCp temporaire. Le fichier de script est généré par Azure Data Factory et supprimé une fois le travail de copie terminé. | Oui, en cas d’utilisation de DistCp |
+| tempScriptPath | Chemin d’accès du dossier utilisé pour stocker le script de commande DistCp temporaire. Le fichier de script est généré par Data Factory et supprimé une fois le travail de copie terminé. | Oui, en cas d’utilisation de DistCp |
 | distcpOptions | Options supplémentaires fournies à la commande DistCp. | Non |
 
 **Exemple : source HDFS dans une activité de copie utilisant UNLOAD**

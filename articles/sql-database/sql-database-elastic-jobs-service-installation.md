@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
-Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overview.md) peut être installée à l’aide de PowerShell ou du portail Azure Classic. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
+Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overview.md) peut être installée à l’aide de PowerShell ou du portail Azure. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
 Si vous avez déjà installé **Tâche de base de données élastique** via le portail à partir d’un **pool élastique** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guide architectural des notifications Push d’entreprise
 Les entreprises se tournent aujourd’hui progressivement vers la création d’applications mobiles pour leurs clients (externes) ou leurs collaborateurs (internes). Ils disposent de systèmes principaux, qu’il s’agisse de grands systèmes ou de certaines applications métiers, qui doivent être intégrés à l’architecture de l’application mobile. Ce guide vous présente comment réussir au mieux cette intégration, en recommandant des solutions possibles pour les scénarios habituels.
@@ -212,7 +212,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
    
     ![][3]
    
-    g. Configurez le travail sur « Exécuter en continu ». Ainsi, quand vous vous connectez au [Portail Azure Classic], vous devriez voir ce qui suit :
+    g. Configurez le travail sur « Exécuter en continu ». Ainsi, quand vous vous connectez au [portail Azure], vous devriez voir ce qui suit :
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 3. Exécutez l’application console **EnterprisePushBackendSystem** qui simule le serveur principal métier et enverra des messages. Vous devez voir apparaître des notifications toast similaires à celles-ci :
    
     ![][5]
-4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux WebJob pour confirmer le traitement quand vous accédez au lien Journaux dans le [Portail Azure Classic] pour votre tâche Web :
+4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux WebJob pour confirmer le traitement quand vous accédez au lien Journaux dans le [portail Azure] pour votre tâche Web :
    
     ![][6]
 
@@ -264,4 +264,4 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 [programmation Service Bus Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [tâche web Azure]: ../app-service/web-sites-create-web-jobs.md
 [Notification Hubs : didacticiel Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Portail Azure Classic]: https://manage.windowsazure.com/
+[portail Azure]: https://portal.azure.com/

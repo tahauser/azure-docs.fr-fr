@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -434,7 +434,7 @@ Dans l'Assistant Importation de certificat :
 9. Cliquez sur **OK** dans toutes les fenêtres des boîtes de dialogue.
 
 ## <a name="upload-certificate"></a>Téléchargement d’un certificat
-Dans le [portail Azure](https://portal.azure.com/)
+Dans le [portail Azure](https://portal.azure.com/) :
 
 1. Sélectionnez **Services Cloud**.
 2. Sélectionnez le service cloud.

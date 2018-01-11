@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Sortie de Stream Analytics Data Lake Store
 Les travaux Stream Analytics prennent en charge plusieurs méthodes de sortie, dont [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Data Lake Store vous permet de stocker des données de toute taille, de tout type et de toute vitesse d’ingestion en vue d’une analyse opérationnelle et exploratoire.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autoriser un compte Data Lake Store
-1. Quand vous sélectionnez Data Lake Store comme sortie dans le portail Azure, vous êtes invité à autoriser l’utilisation de votre Data Lake Store existant ou à demander l’accès au Data Lake Store via le portail Azure Classic.
+1. Quand vous sélectionnez Data Lake Store comme sortie dans le portail Azure, vous êtes invité à autoriser l’utilisation de votre Data Lake Store existant ou à demander l’accès au Data Lake Store.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    

@@ -4,8 +4,8 @@ description: "En savoir plus sur la configuration d’une connexion de données 
 keywords: "flux de données, connexion de données, flux d’événements"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
 La connexion de données à un travail Stream Analytics est un flux d’événements provenant d’une source de données, qui est appelée *entrée* du travail. Stream Analytics propose une intégration de pointe aux sources de flux de données Azure, notamment [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) et le [stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/). Ces sources d’entrée peuvent provenir du même abonnement Azure que votre travail d’analyse ou d’un autre abonnement.
@@ -37,9 +37,9 @@ Pour découvrir comment créer des entrées de données de référence, voir [Ut
 
 ## <a name="compression"></a>Compression
 
-Azure Stream Analytics prend en charge la compression pour toutes les sources d’entrée de flux de données (Event Hubs, IoT Hub et stockage Blob). Cette fonctionnalité ajoute une option de liste déroulante au panneau **Nouvelle entrée** dans le portail Azure pour vous permettre de choisir de compresser des flux de données. Les types actuellement pris en charge sont Aucun, GZip et Compression Deflate. 
+Azure Stream Analytics prend en charge la compression pour toutes les sources d’entrée de flux de données (Event Hubs, IoT Hub et stockage Blob). Cette fonctionnalité ajoute une option de liste déroulante au panneau **Nouvelle entrée** dans le portail Azure pour vous permettre de choisir de compresser des flux de données. Les types de référence actuellement pris en charge sont Aucun, GZip et Compression Deflate. La prise en charge de la compression n’est pas disponible pour les données de référence.
 
-La compression ne peut pas avoir lieu en même temps que la sérialisation Avro et ne s’applique pas aux données de référence. 
+Vous n’avez pas besoin de spécifier le type de compression avec la sérialisation Avro. Si les données d’entrée Avro sont compressées, elles sont gérées de façon transparente. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Créer une entrée de flux de données à partir de concentrateurs Event Hubs
 

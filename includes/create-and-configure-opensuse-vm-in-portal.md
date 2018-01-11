@@ -1,9 +1,7 @@
-1. Connectez-vous au [portail Azure Classic](http://manage.windowsazure.com).  
-2. Dans la barre de commandes en bas de la fenêtre, cliquez sur **Nouveau**.
-3. Sous **Calculer**, cliquez sur **Machine virtuelle**, puis sur **À partir de la galerie**.
+1. Connectez-vous au [portail Azure](http://portal.azure.com).  
+2. Cliquez sur **Nouveau** > **Compute** > **Afficher tout**, puis tapez **SUSE**.
    
-    ![Créer une machine virtuelle][Image1]
-4. Sous le groupe **SUSE** , sélectionnez une image de machine virtuelle OpenSUSE, puis cliquez sur la flèche pour continuer.
+3. Sélectionnez une image de machine virtuelle OpenSUSE, puis cliquez sur la flèche pour continuer.
 5. Sur la première page **Configuration de la machine virtuelle** :
    
    * Entrez le **Nom de la machine virtuelle**, par exemple, « testlinuxvm ». Le nom doit contenir entre 3 et 15 caractères, peut contenir uniquement des lettres, des chiffres et des traits d’union, et doit commencer par une lettre et se terminer par une lettre ou un chiffre.
@@ -49,7 +47,5 @@ Vous allez utiliser SSH ou PuTTY pour vous connecter à la machine virtuelle, se
 3. Une fois l’installation terminée, sélectionnez **Terminer**.  Votre système est maintenant à jour.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-
-[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 
@@ -29,6 +29,7 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | | |
 |-|-|
 |**Créer une application**||
+| [Créer une application web et déployer des fichiers par FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application web Azure et y déploie un fichier à l’aide de FTP. |
 | [Créer une application web et déployer le code à partir de GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application web Azure et déploie le code à partir d’un référentiel GitHub public. |
 | [Créer une application web avec un déploiement continu à partir de GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application web Azure avec la publication continue à partir d’un référentiel GitHub dont vous êtes le propriétaire. |
 | [Créer une application web et déployer le code à partir d’un référentiel Git](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application web Azure et configure la transmission de code de type push à partir d’un référentiel Git local. |
@@ -45,6 +46,10 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Connecter une application web à un compte de stockage](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application web Azure et un compte de stockage, puis ajoute la chaîne de connexion de stockage aux paramètres d’application. |
 | [Connecter une application web à un cache redis](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application web Azure et un cache redis, puis ajoute les détails de connexion redis aux paramètres d’application. |
 | [Connecter une application web à Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application web Azure et un Cosmos DB, puis ajoute les détails de connexion Cosmos DB aux paramètres d’application. |
+|**Sauvegarder et restaurer une app**||
+| [Sauvegarder une app web](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une app web Azure et une sauvegarde unique pour celle-ci. |
+| [Créer une sauvegarde planifiée pour une app web](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une app web Azure et une sauvegarde planifiée pour celle-ci. |
+| [Restaure une application web à partir d’une sauvegarde](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restaure une application web Azure à partir d’une sauvegarde. |
 |**Surveiller l’application**||
 | [Analyser une application web avec les journaux de serveur web](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application web Azure, active sa journalisation et télécharge les journaux sur votre ordinateur local. |
 | | |

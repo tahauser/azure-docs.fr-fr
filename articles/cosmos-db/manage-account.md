@@ -1,7 +1,7 @@
 ---
 title: "Gestion d’un compte Azure Cosmos DB via le portail Azure | Microsoft Docs"
 description: "Apprenez à gérer votre compte Azure Cosmos DB via le portail Azure. Trouvez un guide vous expliquant comment utiliser le portail Azure pour afficher, copier, supprimer et accéder aux comptes."
-keywords: Portail Azure, documentdb, azure, Microsoft azure
+keywords: Portail Azure, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Comment gérer un compte Azure Cosmos DB
 Découvrez comment définir la cohérence globale, utiliser les clés et supprimer un compte Azure Cosmos DB dans le portail Azure.
@@ -56,21 +56,21 @@ Dans la page **Clés** (ou la page **Chaîne de connexion** pour les comptes API
 Vous devez régulièrement modifier les clés d’accès (et les mots de passe pour les comptes API MongoDB) à votre compte Azure Cosmos DB pour garantir la sécurité des connexions. Deux clés d’accès/mots de passe vous sont affectés afin de vous permettre de conserver des connexions au compte Azure Cosmos DB à l’aide d’une clé d’accès lorsque vous regénérez l’autre clé.
 
 > [!WARNING]
-> La regénération de vos clés d'accès affecte toutes les applications qui dépendent de la clé actuelle. Tous les clients qui utilisent la clé d’accès pour accéder au compte Azure Cosmos DB doivent être mis à jour pour utiliser la nouvelle clé.
+> La régénération de vos clés d'accès affecte toutes les applications qui dépendent de la clé actuelle. Tous les clients qui utilisent la clé d’accès pour accéder au compte Azure Cosmos DB doivent être mis à jour pour utiliser la nouvelle clé.
 > 
 > 
 
-Si certains de vos services cloud ou applications utilisent le compte Azure Cosmos DB, vous perdrez les connexions en regénérant les clés, sauf si vous remplacez vos clés. Les étapes suivantes décrivent le processus de remplacement de vos clés/mots de passe.
+Si certains de vos services cloud ou applications utilisent le compte Azure Cosmos DB, vous perdrez les connexions en régénérant les clés, sauf si vous remplacez vos clés. Les étapes suivantes décrivent le processus de remplacement de vos clés/mots de passe.
 
 1. Mettez à jour la clé d’accès dans le code de votre application afin de référencer la clé d’accès secondaire du compte Azure Cosmos DB.
-2. Regénérez la clé d’accès principale de votre compte Azure Cosmos DB. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte Azure Cosmos DB.
+2. Régénérez la clé d’accès principale de votre compte Azure Cosmos DB. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte Azure Cosmos DB.
 3. Dans la page **Compte Azure Cosmos DB**, cliquez sur **Clés** (ou **Chaîne de connexion** pour les comptes MongoDB**).
 4. Dans la page **Clés**/**Chaîne de connexion**, cliquez sur le bouton Regénérer, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
     ![Régénération des clés d’accès](./media/manage-account/regenerate-keys.png)
 5. Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ cinq minutes après la regénération), mettez à jour la clé d’accès dans le code de votre application afin de référencer la nouvelle clé d’accès principale.
-6. Regénérez la clé d’accès secondaire.
+6. Régénérez la clé d’accès secondaire.
    
-    ![Regénération de clés d'accès](./media/manage-account/regenerate-secondary-key.png)
+    ![Régénération de clés d'accès](./media/manage-account/regenerate-secondary-key.png)
 
 > [!NOTE]
 > Il faut parfois attendre plusieurs minutes avant de pouvoir utiliser une clé qui vient d’être générée pour accéder à votre compte Azure Cosmos DB.

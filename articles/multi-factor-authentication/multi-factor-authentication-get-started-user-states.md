@@ -4,7 +4,7 @@ description: "En savoir plus sur l’état utilisateur dans Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: b7fb5135ac1ae776851d79f936eb860b4b121c71
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Comment exiger la vérification en deux étapes pour un utilisateur ou un groupe
 
@@ -40,11 +40,11 @@ Ces deux options invitent les utilisateurs à s’inscrire à l’authentificati
 
 Les comptes d'utilisateur dans Azure Multi-Factor Authentication peuvent présenter les trois états suivants :
 
-| État | Description | Applications affectées (autres que des navigateurs) | Applications de navigateur et authentification moderne affectés |
-|:---:|:---:|:---:|:--:|
-| Désactivé |État par défaut d’un nouvel utilisateur non inscrit dans l’authentification multifacteur Azure. |Non |Non |
-| Activé |L’utilisateur a été inscrit dans l’authentification multifacteur Azure, mais n’a pas été enregistré. Il sera invité à s’inscrire la prochaine fois qu’il se connectera. |Non.  Ils continuent de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Une fois que le jeton d’actualisation pour la session expire, l’inscription pour utiliser l’authentification multifacteur est nécessaire.|
-| Appliquée |L’utilisateur a été inscrit et a terminé le processus d’inscription pour utiliser l’authentification multifacteur Azure. |Oui.  Les applications requièrent des mots de passe d'application. |Oui. L’authentification multifacteur est requise à la connexion. |
+| État | Description | Applications affectées (autres que des navigateurs) | Applications du navigateur affectées | Authentification moderne affectée |
+|:---:|:---:|:---:|:--:|:--:|
+| Désactivé |État par défaut d’un nouvel utilisateur non inscrit dans l’authentification multifacteur Azure. |Non |Non |Non |
+| Activé |L’utilisateur a été inscrit dans l’authentification multifacteur Azure, mais n’a pas été enregistré. Il sera invité à s’inscrire la prochaine fois qu’il se connectera. |Non.  Ils continuent de fonctionner jusqu’à ce que le processus d’inscription soit terminé. | Oui. Une fois que la session expire, l’inscription pour utiliser l’authentification multifacteur est nécessaire.| Oui. Une fois que le jeton d’accès expire, l’inscription pour utiliser l’authentification multifacteur est nécessaire. |
+| Appliquée |L’utilisateur a été inscrit et a terminé le processus d’inscription pour utiliser l’authentification multifacteur Azure. |Oui.  Les applications requièrent des mots de passe d'application. |Oui. L’authentification multifacteur est requise à la connexion. | Oui. L’authentification multifacteur est requise à la connexion. |
 
 L’état d’un utilisateur indique si un administrateur l’a inscrit dans l’authentification multifacteur Azure et s’il a terminé le processus d’inscription.
 

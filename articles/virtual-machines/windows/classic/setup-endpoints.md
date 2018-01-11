@@ -1,6 +1,6 @@
 ---
 title: Configurer des points de terminaison sur une machine virtuelle Windows classique | Microsoft Docs
-description: "Apprenez à configurer des points de terminaison pour une machine virtuelle Windows dans le portail Azure Classic pour permettre la communication avec une machine virtuelle Windows dans Azure."
+description: "Apprenez à configurer des points de terminaison pour une machine virtuelle Windows classique dans le portail Azure pour permettre la communication avec une machine virtuelle Windows dans Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: bea2a30d67e47342616bbe00946b7c559c5e277b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Comment configurer des points de terminaison sur une machine virtuelle Windows classique dans Azure
 Toutes les machines virtuelles Windows créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer à travers un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur Internet ou d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Cet article est également disponible pour les [machines virtuelles Linux](../../linux/classic/setup-endpoints.md).

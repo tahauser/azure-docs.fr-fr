@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Utilisation de Notification Hubs pour diffuser les dernières nouvelles
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -278,7 +278,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 2. Activez une ou plusieurs bascules de catégories, puis cliquez sur **S'abonner**.
    
     L'application convertit les catégories sélectionnées en balises et demande une nouvelle inscription de l'appareil pour les balises sélectionnées depuis le Notification Hub. Les catégories inscrites sont renvoyées et affichées dans une notification toast.
-3. Envoyer une nouvelle notification en exécutant l’application Console .NET.  Vous pouvez également envoyer des notifications de modèle avec balises à l’aide de l’onglet de débogage de votre notification hub dans le [portail Azure Classic].
+3. Envoyer une nouvelle notification en exécutant l’application Console .NET.  Vous pouvez également envoyer des notifications de modèle avec balises à l’aide de l’onglet de débogage de votre notification hub dans le [portail Azure].
    
     Les notifications pour les catégories sélectionnées apparaissent comme notifications toast.
 
@@ -302,5 +302,5 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[portail Azure Classic]: https://manage.windowsazure.com
+[portail Azure]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
