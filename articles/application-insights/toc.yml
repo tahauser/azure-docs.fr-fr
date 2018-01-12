@@ -113,7 +113,7 @@
               href: app-insights-asp-net-trace-logs.md
             - name: Compteurs de performances
               href: app-insights-performance-counters.md
-            - name: Dépendances
+            - name: Les dépendances
               href: app-insights-asp-net-dependencies.md
             - name: Annotations de version
               href: app-insights-annotations.md
@@ -127,7 +127,7 @@
               href: app-insights-java-trace-logs.md
             - name: Mesures d’UNIX
               href: app-insights-java-collectd.md
-            - name: Dépendances
+            - name: Les dépendances
               href: app-insights-java-agent.md
             - name: Filtrer les données de télémétrie
               href: app-insights-java-filter-telemetry.md
@@ -162,13 +162,13 @@
           items:
             - name: Tableaux de bord
               href: app-insights-dashboards.md
-            - name: Search
+            - name: action
               href: app-insights-diagnostic-search.md
             - name: Mesures
               href: app-insights-metrics-explorer.md
             - name: Flux temps réel
               href: app-insights-live-stream.md
-            - name: Plan de l’application
+            - name: Mise en correspondance d'applications
               href: app-insights-app-map.md
             - name: Données HockeyApp
               href: app-insights-hockeyapp-bridge-app.md
@@ -226,7 +226,7 @@
           href: app-insights-api-filtering-sampling.md
         - name: échantillonnage
           href: app-insights-sampling.md
-    - name: Gérer
+    - name: gérer
       items:
         - name: Gérer la tarification et le volume des données
           href: app-insights-pricing.md
@@ -265,6 +265,10 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+- name: Exemples
+  items:
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
 - name: Référence
   items:
     - name: Langage de requête Analytics
@@ -280,7 +284,7 @@
     - name: Modèle de données
       href: application-insights-data-model.md
       items:
-        - name: Demande
+        - name: Requête
           href: application-insights-data-model-request-telemetry.md
         - name: Dépendance
           href: application-insights-data-model-dependency-telemetry.md
@@ -304,7 +308,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Langages et plates-formes
       href: app-insights-platforms.md
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/application-insights/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -330,5 +334,5 @@
           href: 'https://visualstudio.uservoice.com/forums/357324-application-insights'
         - name: Support
           href: 'https://azure.microsoft.com/support/'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=application-insights'

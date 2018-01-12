@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 12/08/2017
   ms.author: tamram
-  ms.openlocfilehash: 04198a4f256be34dc0b79413c792f2e979b918ed
-  ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+  ms.openlocfilehash: f19fc44c2d8f4a8af7f757983020eaee6f94b241
+  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/13/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Le stockage Microsoft Azure est un service cloud géré par Microsoft qui fournit un stockage hautement disponible, sécurisé, durable, évolutif et redondant. Le stockage Azure se compose du stockage d’objets blob, du stockage de fichiers et du stockage de files d’attente.  Découvrez comment tirer parti du stockage Azure dans vos applications grâce à nos guides de démarrage rapide et nos didacticiels."
 sections:
@@ -29,11 +29,14 @@ sections:
     style: dataMatrix
     columns:
     - image:
+        src: media/index/portal.svg
+        text: Portail
+    - image:
         src: media/index/logo_powershell.svg
         text: PowerShell
     - image:
         src: media/index/cli.svg
-        text: Interface de ligne de commande Azure
+        text: Azure CLI
     - image:
         src: media/index/logo_net.svg
     - image:
@@ -45,14 +48,16 @@ sections:
     rows:
     - title: "Créer un compte de stockage"
       values:
-      - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
+      - href: /azure/storage/common/storage-quickstart-create-account?tabs=powershell
+      - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
       - href: 
       - href: 
       - href: 
       - href: 
     - title: "Démarrage rapide concernant blob"
       values:
+      - href: /azure/storage/blobs/storage-quickstart-blobs-portal
       - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
       - href: /azure/storage/blobs/storage-quickstart-blobs-cli
       - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
@@ -94,7 +99,7 @@ sections:
     - html: ".NET &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet\">Blobs</a> | <a     href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet\">Fichiers</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet\">Files d’attente</a>"
     - html: "Java &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java\">Blobs</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java\">Fichiers</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java\">Files d’attente</a>"
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
-    - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Interface de ligne de commande Azure</a>
+    - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">interface de ligne de commande Azure</a>
 - title: "Formation vidéo gratuite Pluralsight"
   items:
   - type: list
@@ -118,7 +123,7 @@ sections:
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Interface de ligne de commande Azure</a></p>
+      html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">interface de ligne de commande Azure</a></p>
     - title: Langues
       html: <p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.JS</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST

@@ -1,6 +1,6 @@
 - name: Documentation des fonctions
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos des fonctions
       href: functions-overview.md
@@ -85,11 +85,11 @@
       href: functions-best-practices.md
     - name: Proxys de fonctions
       href: functions-proxies.md
-    - name: Fonctions Runtime
+    - name: Fonctions locales
       href: functions-runtime-overview.md
     - name: Fonctions durables
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: durable-functions-overview.md
         - name: Liaisons
           href: durable-functions-bindings.md
@@ -175,14 +175,14 @@
           href: durable-functions-counter.md
         - name: Interaction humaine
           href: durable-functions-phone-verification.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Liaisons
       items:
         - name: Stockage d'objets blob
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Fichier externe
