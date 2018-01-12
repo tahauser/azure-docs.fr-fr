@@ -1,6 +1,6 @@
 - name: Documentation pour opérateur Azure Stack
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack\_?"
       href: azure-stack-poc.md
@@ -45,7 +45,7 @@
   items:
     - name: Déployer
       items:
-        - name: configuration requise
+        - name: Conditions préalables
           href: azure-stack-deploy.md
         - name: Télémétrie
           href: azure-stack-telemetry.md
@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Activer l’architecture mutualisée
               href: azure-stack-enable-multitenancy.md
+        - name: Faire pivoter les clés secrètes
+          href: azure-stack-rotate-secrets.md
     - name: Proposer des services
       items:
         - name: Vue d’ensemble des services proposés
@@ -222,7 +224,7 @@
               href: azure-stack-linux.md
         - name: Utilisation et facturation
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: azure-stack-billing-and-chargeback.md
             - name: Rapports des données d’utilisation
               href: azure-stack-usage-reporting.md
@@ -248,9 +250,11 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnostics dans Azure Stack
           href: azure-stack-diagnostics.md
+        - name: "Validation pour Azure\_Stack"
+          href: azure-stack-diagnostic-test.md
         - name: Redéployer le Kit de développement Azure Stack
           href: azure-stack-redeploy.md
-- name: Informations de référence
+- name: Référence
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9

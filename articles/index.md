@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 featureFlags: clicktale
-ms.openlocfilehash: 2591fad9efd9dba2f53101a747bcf79a4d0bad4f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 56e50d633b29d2a5ce14fb50515407ac9d3bd821
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/11/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/10/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3> Sécurité et gestion des ressources</h3>
+                                                <h3>Sécuriser et gérer les ressources</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/security-center/">Centre de sécurité Azure</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
@@ -334,7 +334,7 @@ ms.lasthandoff: 01/10/2018
                                         <li>
                                             <a href="/azure/cloud-services/">
                                                 <img src="media/index/CloudService.svg" alt="" />
-                                                <p>Services cloud</p>
+                                                <p>Cloud Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -379,7 +379,7 @@ ms.lasthandoff: 01/10/2018
                                         <li>
                                             <a href="/azure/cosmos-db/table-storage-overview">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Stockage Table</p>
+                                                <p>Stockage de tables</p>
                                             </a>
                                         </li>
                                         <li>
@@ -463,7 +463,7 @@ ms.lasthandoff: 01/10/2018
                                         <li>
                                             <a href="/azure/data-catalog/">
                                                 <img src="media/index/data-catalog.svg" alt="" />
-                                                <p>Catalogue de données</p>
+                                                <p>Data Catalog</p>
                                             </a>
                                         </li>
                                         <li>
@@ -802,7 +802,7 @@ ms.lasthandoff: 01/10/2018
                                         <li>
                                             <a href="/azure/storage/blobs/storage-blobs-introduction/">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
-                                                <p>Stockage Blob</p>
+                                                <p>Stockage d’objets blob</p>
                                             </a>
                                         </li>
                                         <li>
@@ -907,7 +907,7 @@ ms.lasthandoff: 01/10/2018
                                         <li>
                                             <a href="/azure/data-catalog/">
                                                 <img src="media/index/data-catalog.svg" alt="" />
-                                                <p>Catalogue de données</p>
+                                                <p>Data Catalog</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1454,7 +1454,7 @@ ms.lasthandoff: 01/10/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Services cloud</h3>
+                                                    <h3>Cloud Services</h3>
                                                     <p>Créez des API et des applications cloud hautement disponibles et évolutives à l’infini</p>
                                                 </div>
                                             </div>
@@ -1712,7 +1712,7 @@ ms.lasthandoff: 01/10/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stockage Blob</h3>
+                                                    <h3>Stockage d’objets blob</h3>
                                                     <p>Stockage d’objets hautement évolutif pour les données non structurées</p>
                                                 </div>
                                             </div>
@@ -2278,7 +2278,7 @@ ms.lasthandoff: 01/10/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stockage Table</h3>
+                                                    <h3>Stockage de tables</h3>
                                                     <p>Base de données multimodèle, distribuée globalement pour toute échelle</p>
                                                 </div>
                                             </div>
@@ -2492,7 +2492,7 @@ ms.lasthandoff: 01/10/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Catalogue de données</h3>
+                                                    <h3>Data Catalog</h3>
                                                     <p>Activez la détection des sources de données libre-service au sein de l’entreprise</p>
                                                 </div>
                                             </div>
@@ -2531,7 +2531,7 @@ ms.lasthandoff: 01/10/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>Intégrez des visualisations de données totalement interactives dans vos applications</p>
+                                                    <p>Incorporez des visualisations de données totalement interactives et saisissantes dans vos applications</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2667,7 +2667,7 @@ ms.lasthandoff: 01/10/2018
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Langue</h3>
+                                                        <h3>Langage</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Vérification orthographique Bing</a>
@@ -2729,7 +2729,7 @@ ms.lasthandoff: 01/10/2018
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Rechercher</h3>
+                                                        <h3>action</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Actualités Bing</a>
@@ -3142,7 +3142,7 @@ ms.lasthandoff: 01/10/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Catalogue de données</h3>
+                                                    <h3>Data Catalog</h3>
                                                     <p>Activez la détection des sources de données libre-service au sein de l’entreprise</p>
                                                 </div>
                                             </div>

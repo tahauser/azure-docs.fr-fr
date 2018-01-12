@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Hadoop sur HDInsight
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: apache-hadoop-introduction.md
     - name: Composants Hadoop sur HDInsight
       href: ../hdinsight-component-versioning.md
@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Développement
       items:
+        - name: Exécuter des programmes MapReduce personnalisés
+          href: apache-hadoop-run-custom-programs.md
         - name: 'Développer des programmes MapReduce de streaming C#'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Développer des programmes Java MapReduce
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Utiliser Apache Hive comme un outil d’extraction, transformation et chargement (ETL)'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Extraire, transformer et charger à l’échelle'
+          href: apache-hadoop-etl-at-scale.md
         - name: Utiliser des nœuds de périmètre vides
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Analyser les journaux Application Insights Telemetry
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: Analytique avancée pour HDInsight
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Étendre des clusters
       items:
         - name: Personnaliser des clusters à l’aide de Bootstrap
@@ -335,7 +343,7 @@
   items:
     - name: Sécurité d’entreprise
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planifier la sécurité d’entreprise
@@ -378,7 +386,9 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Informations de référence
+        - name: Analyser les journaux Hadoop
+          href: apache-hadoop-debug-jobs.md
+- name: Référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

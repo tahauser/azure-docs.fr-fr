@@ -33,9 +33,9 @@
       href: how-to-search-for-address.md
 - name: Référence
   items:
-    - name: API fonctionnelle - REST
+    - name: API fonctionnelle
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
-    - name: API de gestion - REST
+    - name: API de gestion
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
     - name: API de contrôle de carte - Javascript
       href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
@@ -47,7 +47,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -57,5 +57,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
     - name: Études de cas techniques
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos'

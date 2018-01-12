@@ -8,7 +8,7 @@
 ## [Nouveautés](whats-new.md)
 
 
-# Bien démarrer
+# Prise en main
 ## [Prise en main d'Azure AD](get-started-azure-ad.md)
 ## [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md)
 ## [Ajouter un nom de domaine personnalisé](add-custom-domain.md)
@@ -115,7 +115,7 @@
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Codes d’erreur de l’activité de connexion](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Authentification multifacteur](active-directory-reporting-activity-sign-ins-mfa.md)
-### Résoudre les problèmes
+### Résolution des problèmes
 #### [Données d’audit manquantes](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Données manquantes dans les téléchargements](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Erreurs de pack de contenu des journaux d’activité Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
@@ -159,7 +159,7 @@
 #### [Configurer les appareils joints Azure AD hybrides](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Déployer en local](active-directory-device-registration-on-premises-setup.md)
 #### [Enregistrement dans Azure AD lors de la première exécution de Windows 10](device-management-azuread-joined-devices-frx.md)
-### Résoudre les problèmes
+### Résolution des problèmes
 #### [Appareils Windows 10 et Windows Server 2016 joints Azure AD hybrides](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Appareils Windows hérités joints Azure AD](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
@@ -178,7 +178,7 @@
 
 
 ### [Accéder aux applications à distance avec le proxy d’application](active-directory-application-proxy-get-started.md)
-#### Bien démarrer
+#### Prise en main
 ##### [Activer le Proxy d’application](active-directory-application-proxy-enable.md)
 ##### [Publiez des applications](application-proxy-publish-azure-portal.md)
 ##### [Domaines personnalisés](active-directory-application-proxy-custom-domains.md)
@@ -217,7 +217,7 @@
 #### [Gérer l’approvisionnement de comptes d’utilisateurs](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Gérer l’authentification unique pour les applications d’entreprise](active-directory-enterprise-apps-manage-sso.md)
 #### [Signature de certificat avancée pour les applications SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Masquer une application tierce à partir de l’expérience utilisateur](active-directory-coreapps-hide-third-party-app.md)
+#### [Masquer une application à partir de l’expérience utilisateur](active-directory-coreapps-hide-third-party-app.md)
 ### [Configurer l’accélération automatique de la connexion à l’aide de la stratégie HRD Policy](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## Sécuriser vos identités
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
+#### [Condition d’emplacement](active-directory-conditional-access-locations.md)
 #### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
