@@ -68,7 +68,7 @@
         - name: Utiliser le tunneling SSH
           href: ../hdinsight-linux-ambari-ssh-tunnel.md
           maintainContext: true
-    - name: Gérer
+    - name: gérer
       items:
         - name: Créer des clusters Linux
           href: ../hdinsight-hadoop-provision-linux-clusters.md
@@ -121,6 +121,8 @@
         - name: Charger des données pour les travaux Hadoop
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Charger des données en bloc dans Phoenix à l’aide de psql
+          href: apache-hbase-phoenix-psql.md
         - name: Plusieurs clusters HDInsight avec Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true

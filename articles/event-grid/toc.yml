@@ -1,6 +1,6 @@
 - name: Event Grid
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Event Grid
       href: overview.md
@@ -38,7 +38,9 @@
       href: event-grid-event-hubs-integration.md
     - name: Modèles d’abonnement aux événements
       href: event-subscription-template.md
-- name: Informations de référence
+    - name: Surveiller la remise d’événement
+      href: monitor-event-delivery.md
+- name: Référence
   items:
     - name: Azure CLI
       href: /cli/azure/eventgrid
