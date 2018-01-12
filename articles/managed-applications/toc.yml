@@ -12,9 +12,11 @@
   items:
     - name: Créer des fichiers d’application gérée
       href: publish-service-catalog-app.md
+    - name: Créer l’application de la Place de marché
+      href: publish-marketplace-app.md
 - name: Exemples
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: "Azure\_PowerShell"
       href: powershell-samples.md
@@ -30,7 +32,7 @@
       href: publish-portal.md
 - name: Référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell
       href: /powershell/module/azurerm.resources
@@ -69,7 +71,7 @@
               href: microsoft-network-publicipaddresscombo.md
             - name: Zone de liste modifiable Réseau virtuel
               href: microsoft-network-virtualnetworkcombo.md
-        - name: Storage
+        - name: Stockage
           items:
             - name: Zone de liste modifiable Compte de stockage multiple
               href: microsoft-storage-multistorageaccountcombo.md
@@ -79,7 +81,7 @@
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
