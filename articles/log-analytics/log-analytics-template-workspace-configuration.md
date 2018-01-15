@@ -14,11 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
 Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
@@ -43,7 +43,7 @@ L’exemple dans cet article porte sur un [espace de travail Log Analytics mis �
 | Ressource | Type de ressource | Version de l’API héritée | Version de l’API mise à niveau |
 |:---|:---|:---|:---|
 | Espace de travail   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
-| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| action      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
 | Source de données | datasources   | 2015-11-01-preview | 2015-11-01-preview |
 | Solution    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
 
@@ -63,7 +63,7 @@ L’exemple de modèle suivant illustre comment :
 10. Collecter un journal personnalisé 
 11. Collecter les journaux IIS et les journaux des événements Windows écrits par les diagnostics Azure dans un compte de stockage
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -469,10 +469,12 @@ Pour déployer l’exemple de modèle :
 3. Utilisez PowerShell ou la ligne de commande pour déployer le modèle.
 
 #### <a name="powershell"></a>PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### <a name="command-line"></a>Ligne de commande
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
@@ -489,6 +491,6 @@ La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles po
 * [Déployer un cluster Service Fabric et l’analyser avec un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
 * [Déployer un cluster Service Fabric et créer un espace de travail Log Analytics pour le surveiller](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Déployer des agents dans des machines virtuelles Azure en utilisant des modèles Resource Manager](log-analytics-azure-vm-extension.md)
 

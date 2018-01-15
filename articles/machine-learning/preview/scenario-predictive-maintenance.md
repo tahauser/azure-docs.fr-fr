@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Scénario réel de maintenance prédictive
 
@@ -32,11 +32,11 @@ Le lien vers le dépôt GitHub public est le suivant : [https://github.com/Azure
 
 L’un des problèmes majeurs auxquels sont confrontées les entreprises des secteurs gourmands en ressources n’est autre que les coûts importants associés aux retards dus à des problèmes mécaniques. La plupart des entreprises aimeraient être en mesure de prédire quand ces problèmes surviendront pour éviter de façon proactive qu’ils ne se produisent. Cela permet d’alléger les coûts en réduisant les temps d’arrêt et, dans certains cas, d’améliorer la sécurité. 
 
-Ce scénario s’appuie sur le [manuel de maintenance prédictive](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) afin d’illustrer la création d’un modèle prédictif pour un jeu de données simulé. Les données fournies à titre d’exemple proviennent d’éléments habituellement observés dans de nombreux cas d’utilisation de maintenance prédictive.
+Ce scénario s’appuie sur le [manuel de maintenance prédictive](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) afin d’illustrer la création d’un modèle prédictif pour un jeu de données simulé. Les données fournies à titre d’exemple proviennent d’éléments habituellement observés dans de nombreux cas d’utilisation de maintenance prédictive.
 
 Le problème métier pour ces données simulées consiste à prédire les problèmes causés par les échecs de composants. La question métier est par conséquent la suivante : « *Quelle est la probabilité qu’une machine tombe en panne en raison d’un échec de composant* ? » Ce problème est formulé sous forme de problème de classification multiclasse (plusieurs composants par machine) et un algorithme Machine Learning est utilisé pour créer le modèle prédictif. L’apprentissage du modèle est effectué à partir de données d’historique collectées sur des machines. Dans ce scénario, l’utilisateur réalise les différentes étapes d’implémentation d’un modèle de ce type dans l’environnement Azure Machine Learning Workbench.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un [compte Azure](https://azure.microsoft.com/en-us/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie [d’Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée selon les instructions du [guide d’installation et de démarrage rapide](./quickstart-installation.md) pour installer le programme et créer un espace de travail.
@@ -133,6 +133,6 @@ Ce cas d’usage a été précédemment développé sur plusieurs plateformes :
 * [Guide de modélisation de maintenance prédictive - Bloc-notes Python](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Maintenance prédictive avec PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Azure Machine Learning Workbench inclut de nombreux autres exemples de scénarios qui illustrent des fonctionnalités supplémentaires du produit. 

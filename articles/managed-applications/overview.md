@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -48,6 +48,8 @@ Pour plus d’informations sur la publication d’une application managée de ca
 
 Les fournisseurs souhaitant facturer leurs services peuvent mettre une application managée à disposition sur la Place de marché Azure. Une fois que le fournisseur a publié une application, les utilisateurs peuvent y accéder en dehors de l’organisation. Avec cette approche, les fournisseurs de services managés, les éditeurs de logiciels indépendants et les intégrateurs de système peuvent proposer leurs solutions à tous les clients Azure.
 
+Pour plus d’informations sur la publication d’une application managée sur la Place de marché, consultez [Créer une application de Place de marché](publish-marketplace-app.md).
+
 ## <a name="resource-groups-for-managed-applications"></a>Groupes de ressources pour les applications managées
 
 En règle générale, les ressources d’une application managée résident dans deux groupes de ressources. Le consommateur gère l’un des groupes de ressources, tandis que l’éditeur gère l’autre. Lors de la définition de l’application managée, l’éditeur spécifie les niveaux d’accès. L’illustration suivante montre un scénario dans lequel l’éditeur demande le rôle de propriétaire pour le groupe de ressources managé. L’éditeur a placé un verrou en lecture seule sur ce groupe de ressources pour le consommateur.
@@ -66,8 +68,8 @@ Ce groupe de ressources contient toutes les ressources exigées par l’applicat
 
 Quand le consommateur supprime l’application managée, le groupe de ressources managé est également supprimé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour obtenir une introduction à la définition et au déploiement d’une application managée, consultez [Créer et déployer une application managée avec Azure CLI](managed-apps-quickstart-cli.md).
 * Pour plus d’informations sur la publication d’une application interne, consultez [Créer une application de catalogue de services](publish-service-catalog-app.md).
-
+* Pour plus d’informations sur la publication d’applications managées sur la Place de marché, consultez [Créer une application de Place de marché](publish-marketplace-app.md).

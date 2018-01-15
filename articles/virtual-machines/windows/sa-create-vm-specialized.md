@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
 Créez une machine virtuelle en attachant un disque non géré spécialisé en tant que disque du système d’exploitation à l’aide de Powershell. Un disque spécialisé est une copie du disque dur virtuel d’une machine virtuelle existante qui gère les comptes d’utilisateurs, les applications et les autres données d’état à partir de votre machine virtuelle d’origine. 
 
 Deux options s'offrent à vous :
-* [Charger un disque dur virtuel](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copier le disque dur virtuel d’une machine virtuelle Azure existante](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Charger un disque dur virtuel](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Copier le disque dur virtuel d’une machine virtuelle Azure existante](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous utilisez PowerShell, assurez-vous que vous disposez de la dernière version du module PowerShell AzureRM.Compute. Exécutez la commande suivante pour l’installer.
@@ -190,7 +191,7 @@ Transfer failed:         0
 Elapsed time:            00.00:13:07
 ```
 
-### <a name="troubleshooting"></a>résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 * Lorsque vous utilisez AZCopy, si l’erreur « Le serveur n’a pas pu authentifier cette demande » s’affiche, vérifiez la valeur de l’en-tête d’autorisation : il doit être correctement formé et comporter notamment la signature. Si vous utilisez la clé 2 ou la clé de stockage secondaire, essayez d’utiliser la clé primaire ou la première clé de stockage.
 
 ## <a name="create-the-new-vm"></a>Créer la machine virtuelle 
@@ -318,6 +319,6 @@ $vmList = Get-AzureRmVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](connect-logon.md).
 

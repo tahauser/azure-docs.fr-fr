@@ -4,9 +4,8 @@ description: "Threat Detection permet de détecter les activités base de donné
 services: sql-database
 documentationcenter: 
 author: rmatchoro
-manager: jhubbard
+manager: shaik
 editor: v-romcal
-ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
 ms.custom: security
 ms.devlang: NA
@@ -14,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
-ms.author: ronmat; ronitr
-ms.openlocfilehash: 06b4fe19b8c468b3fc98a5bb25ba9b1f169e529c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ronmat
+ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-database-threat-detection"></a>Détection de menaces pour les bases de données SQL
 
 SQL Threat Detection détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à utiliser des bases de données ou à exploiter leurs failles de sécurité.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 SQL Threat Detection fournit une nouvelle couche de sécurité qui permet aux clients de détecter les menaces potentielles et d’y répondre à mesure qu’elles se présentent en générant des alertes de sécurité sur les activités anormales.  Les utilisateurs reçoivent une alerte en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes SQL Threat Detection fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et atténuer la menace. Les utilisateurs peuvent explorer les événements suspects à l’aide de l’[audit de base de données SQL](sql-database-auditing.md) pour déterminer s’ils sont le résultat d’une tentative d’accès, d’une violation ou d’une exploitation des données dans la base de données. Threat Detection vous permet de réagir facilement aux menaces potentielles à la base de données sans avoir à acquérir une expertise de la sécurité ou à gérer des systèmes de surveillance de la sécurité avancés.
 
@@ -74,7 +73,7 @@ SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](
   ![Volet de navigation][8]
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur Threat Detection, visitez le [blog Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
