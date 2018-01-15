@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Présentation de Resource Manager](resource-group-overview.md)
 ## [Fournisseurs et types de ressources](resource-manager-supported-services.md)
 ## [Déploiements Resource Manager et classiques](resource-manager-deployment-model.md)
@@ -16,7 +16,7 @@
 #### [Variables](resource-manager-templates-variables.md)
 #### [Ressources](resource-manager-templates-resources.md)
 #### [Sorties](resource-manager-templates-outputs.md)
-### [Lier à d’autres modèles](resource-group-linked-templates.md)
+### [Modèles liés et imbriqués](resource-group-linked-templates.md)
 ### [Définir la dépendance entre les ressources](resource-group-define-dependencies.md)
 ### [Créer plusieurs instances](resource-group-create-multiple.md)
 ### [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -28,7 +28,7 @@
 #### [Déployer un modèle](resource-group-template-deploy.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-powershell-sas-token.md)
 #### [Exporter un modèle et le redéployer](resource-manager-export-template-powershell.md)
-### Interface de ligne de commande Azure
+### Azure CLI
 #### [Déployer un modèle](resource-group-template-deploy-cli.md)
 #### [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md)
 #### [Exporter un modèle et le redéployer](resource-manager-export-template-cli.md)
@@ -40,10 +40,10 @@
 ### [Intégration continue avec Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Passage de valeurs sécurisées lors du déploiement](resource-manager-keyvault-parameter.md)
 
-## Gérer
+## gérer
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interface de ligne de commande Azure](xplat-cli-azure-resource-manager.md)
-### [Portail Azure](resource-group-portal.md)
+### [Portail Azure](resource-group-portal.md)
 ### [API REST](resource-manager-rest-api.md)
 ### [Utiliser des balises pour organiser les ressources](resource-group-using-tags.md)
 ### [Déplacer les ressources vers un nouveau groupe ou un nouvel abonnement](resource-group-move-resources.md)
@@ -54,8 +54,8 @@
 ## Contrôler l’accès
 ### Créer un principal du service
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
-#### [Interface de ligne de commande Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Portail Azure](resource-group-create-service-principal-portal.md)
+#### [interface de ligne de commande Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Portail Azure](resource-group-create-service-principal-portal.md)
 ### [API d’authentification pour l’accès aux abonnements](resource-manager-api-authentication.md)
 ### [Verrouiller des ressources](resource-group-lock-resources.md)
 
@@ -91,7 +91,7 @@
 ### [Fonctions de ressource](resource-group-template-functions-resource.md)
 ### [Fonctions de chaîne](resource-group-template-functions-string.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
-## [Interface de ligne de commande Azure](/cli/azure/resource)
+## [interface de ligne de commande Azure](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -101,7 +101,7 @@
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Demandes de limitation](resource-manager-request-limits.md)
 ## [Suivre les opérations asynchrones](resource-manager-async-operations.md)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

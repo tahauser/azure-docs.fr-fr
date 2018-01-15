@@ -1,18 +1,18 @@
 - name: Documentation Azure IoT Edge
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Démarrages rapides
   items:
-    - name: Déployer sur le routeur edge - Linux
+    - name: Déployer sur le routeur edge - Linux/Mac
       href: quickstart-linux.md
     - name: Déployer sur le routeur edge - Windows
       href: quickstart.md
 - name: Didacticiels
   items:
-    - name: Simuler un appareil Edge - Linux
+    - name: Simuler un appareil Edge - Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Simuler un appareil Edge - Windows
       href: tutorial-simulate-device-windows.md
