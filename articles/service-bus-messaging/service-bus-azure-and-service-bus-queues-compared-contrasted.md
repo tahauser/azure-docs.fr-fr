@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les ressemblances entre les deux types de file d’attente proposés aujourd’hui par Microsoft Azure : les files d’attente Azure et les files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -71,7 +71,7 @@ Cette section compare certaines des fonctionnalités de base fournies par les fi
 | Garantie de classement |**Non** <br/><br>Pour plus d’informations, consultez la première remarque dans la section « Informations supplémentaires ».</br> |**Oui - Premier entré premier sorti (PEPS)**<br/><br>(par le biais de l’utilisation de sessions de messagerie) |
 | Garantie de livraison |**Au moins une fois** |**Au moins une fois**<br/><br/>**Une fois au maximum** |
 | Prise en charge des opérations atomiques |**Non** |**Oui**<br/><br/> |
-| Comportement de réception |**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n’est trouvé) |**Blocage avec ou sans délai d’expiration**<br/><br/>(offre une interrogation longue, dite [« technique Comet »](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non bloquant**<br/><br/>(via l’utilisation d’une API managée .NET uniquement) |
+| Comportement de réception |**Non bloquant**<br/><br/>(se termine immédiatement si aucun nouveau message n’est trouvé) |**Blocage avec ou sans délai d’expiration**<br/><br/>(offre une interrogation longue, dite [« technique Comet »](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non bloquant**<br/><br/>(via l’utilisation d’une API gérée sur .NET uniquement) |
 | API style Push |**Non** |**Oui**<br/><br/>API .NET [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) et sessions **OnMessage**. |
 | Mode de réception |**Aperçu et attribution** |**Aperçu et verrouillage**<br/><br/>**Réception et suppression** |
 | Mode d'accès exclusif |**Basé sur attribution** |**Basé sur verrouillage** |
@@ -107,7 +107,7 @@ Cette section compare les fonctionnalités avancées des files d’attente Azure
 | Mise à jour sur place |**Oui** |**Oui** |
 | Journal des transactions côté serveur |**Oui** |**Non** |
 | Métriques de stockage |**Oui**<br/><br/>**Métriques par minute** : fournit des métriques en temps réel pour la disponibilité, le TPS, le nombre d’appels API, le nombre d’erreurs, etc., le tout en temps réel (métriques agrégées par minute et consignées en l’espace de quelques minutes à partir de ce qui vient de se passer en production). Pour plus d’informations, voir la page [À propos des mesures Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Oui**<br/><br/>(requêtes en bloc en appelant [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Gestion de l'état |**Non** |**Oui**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| Gestion de l'état |**Non** |**Oui**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Transfert automatique des messages |**Non** |**Oui** |
 | Fonction de purge de la file d'attente |**Oui** |**Non** |
 | Groupes de messages |**Non** |**Oui**<br/><br/>(par le biais de l’utilisation de sessions de messagerie) |
@@ -180,14 +180,14 @@ Cette section décrit les fonctionnalités d’authentification et d’autorisat
 
 ### <a name="additional-information"></a>Informations supplémentaires
 * Chaque requête à l'une des technologies de file d'attente doit être authentifiée. Les files d'attente publiques avec accès anonyme ne sont pas prises en charge. À l’aide de la [SAP](service-bus-sas.md), vous pouvez résoudre ce scénario en publiant une SAP en écriture seule, une SAP en lecture seule ou une SAP à accès total.
-* Le schéma d’authentification fourni par les files d’attente de stockage implique l’utilisation d’une clé symétrique, qui est un code d’authentification de message basé sur le hachage (HMAC), calculée avec l’algorithme SHA-256 et encodée comme une chaîne **Base64**. Pour plus d’informations sur le protocole respectif, consultez [Authentification pour les services de stockage Azure](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Les files d'attente Service Bus prennent en charge un modèle similaire utilisant des clés symétriques. Pour plus d’informations, consultez [Authentification par signature d’accès partagé avec Service Bus](service-bus-sas.md).
+* Le schéma d’authentification fourni par les files d’attente de stockage implique l’utilisation d’une clé symétrique, qui est un code d’authentification de message basé sur le hachage (HMAC), calculée avec l’algorithme SHA-256 et encodée comme une chaîne **Base64**. Pour plus d’informations sur le protocole respectif, consultez [Authentification pour les services Azure Storage](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Les files d'attente Service Bus prennent en charge un modèle similaire utilisant des clés symétriques. Pour plus d’informations, consultez [Authentification par signature d’accès partagé avec Service Bus](service-bus-sas.md).
 
 ## <a name="conclusion"></a>Conclusion
 En ayant une meilleure compréhension des deux technologies, vous serez en mesure de prendre une décision plus informée sur les technologies de file d'attente à utiliser et quand. La décision d’utiliser des files d’attente de stockage ou des files d’attente Service Bus dépend de plusieurs facteurs. Ces facteurs peuvent reposer largement sur les besoins spécifiques de votre application et de son architecture. Si votre application utilise déjà les principales fonctionnalités de Microsoft Azure, il peut être intéressant de choisir les files d’attente de stockage, surtout si vous avez besoin d’une communication et d’une messagerie de base entre les services ou si vous avez besoin de files d’attente dont la taille peut être supérieure à 80 Go.
 
 Étant donné que les files d'attente Service Bus fournissent plusieurs fonctionnalités avancées, comme les sessions, les transactions, la détection de doublons, la lettre morte automatique et des fonctions de publication/d'abonnement durables, elles peuvent constituer un meilleur choix si vous créez une application hybride ou si votre application nécessite ces fonctionnalités.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Les articles suivants fournissent des conseils et des informations sur l’utilisation des files d’attente de stockage ou Service Bus.
 
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)

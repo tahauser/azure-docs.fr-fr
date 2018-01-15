@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c852d07d771a1eef0e6c2e4ef27cd36f31d8ddd
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="low-utilization-of-cloud-resources-preview"></a>Faible utilisation des ressources cloud (version préliminaire)
 
 Application Insights analyse automatiquement la consommation du processeur de chaque instance de rôle dans votre application et détecte les instances qui utilisent peu le processeur. Cette détection permet de réduire les ressources Azure et les coûts, en diminuant le nombre d’instances de rôle utilisées par chaque rôle ou en diminuant le nombre de rôles.
 
-Cette fonctionnalité ne requiert aucune configuration spéciale, autre que la [configuration des compteurs de performances](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) pour votre application. Elle est active lorsque votre application génère suffisamment de télémétrie de compteur de performances du processeur (% de temps processeur).
+Cette fonctionnalité ne requiert aucune configuration spéciale, autre que la [configuration des compteurs de performances](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) pour votre application. Elle est active lorsque votre application génère suffisamment de télémétrie de compteur de performances du processeur (% de temps processeur).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quand pouvez-vous recevoir ce type de notification de détection intelligente ?
 Une notification type se produit lorsqu’un grand nombre de vos instances de rôle web/de travail présentent une faible utilisation du processeur.
@@ -35,4 +35,4 @@ Non, une notification ne signifie pas que votre application consomme vraiment tr
 Les notifications incluent des informations de diagnostic qui facilitent le processus de diagnostic :
 1. **Tri.** La notification affiche les rôles de votre application qui présentent une faible utilisation du processeur. Ceci vous permet d’attribuer une priorité au problème.
 2. **Portée.** Combien de rôles présentent une faible utilisation du processeur et combien d’instances de chaque rôle utilisent peu le processeur ? Ces informations peuvent être obtenues dans la notification.
-3. **Diagnostic.** La détection contient le pourcentage d’utilisation du processeur, indiquant l’utilisation du processeur par chaque instance au fil du temps. Pour mieux diagnostiquer le problème, vous pouvez également utiliser les éléments liés et les rapports pointant vers des informations de prise en charge, comme les centiles d’utilisation du processeur.
+3. **Diagnostic**. La détection contient le pourcentage d’utilisation du processeur, indiquant l’utilisation du processeur par chaque instance au fil du temps. Pour mieux diagnostiquer le problème, vous pouvez également utiliser les éléments liés et les rapports pointant vers des informations de prise en charge, comme les centiles d’utilisation du processeur.

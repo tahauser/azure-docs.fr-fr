@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les alertes liées au StorSimple Virtual Array
 
@@ -125,7 +125,6 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 * [Alertes d'échec de tâche](#job-failure-alerts)
 * [Alertes de performances](#performance-alerts)
 * [Alertes de sécurité](#security-alerts)
-* [Alertes de mise à jour](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertes de connectivité au cloud
 
@@ -165,14 +164,7 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 |:--- |:--- |:--- |
 | Le mot de passe pour <*nom de l’appareil*> expirera dans <*nombre*> jours. |Avertissement de mot de passe. |Votre mot de passe expire dans <nombre> jours. Pensez à le changer. Pour plus d’informations, accédez à [Modifier le mot de passe administrateur de l’appareil StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
-### <a name="update-alerts"></a>Alertes de mise à jour
-
-| Texte d'alerte | Événement | Plus d'informations/actions recommandées |
-|:--- |:--- |:--- |
-| De nouvelles mises à jour sont disponibles pour votre appareil. |Des mises à jour sont disponibles pour le StorSimple Virtual Array. |Vous pouvez installer les nouvelles mises à jour depuis la page **Maintenance** . |
-| Impossible de rechercher de nouvelles mises à jour sur <*nom de l’appareil*>. |Échec de la mise à jour. |Une erreur s’est produite lors de l’installation de nouvelles mises à jour. Vous pouvez installer les mises à jour manuellement. Si le problème persiste, contactez le [support technique de Microsoft](storsimple-contact-microsoft-support.md). |
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Découvrez le StorSimple Virtual Array](storsimple-ova-overview.md).
 

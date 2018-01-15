@@ -4,7 +4,7 @@ description: "Découvrez comment gérer votre appareil StorSimple à l’aide de
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
@@ -60,20 +60,20 @@ Assurez-vous d’utiliser les paramètres PuTTY suivants pour vous connecter à 
    | Élément du clavier | Sélectionnez |
    | --- | --- |
    | Touche Retour arrière |Ctrl+? (127) |
-   | Touches Origine et Fin |Standard |
+   | Touches Origine et Fin |standard |
    | Touches de fonction et pavé numérique |ÉCHAP[n~ |
    | État initial des touches de direction |Normal |
    | État initial du pavé numérique |Normal |
    | Activer des fonctionnalités supplémentaires du clavier |Ctrl+Alt est différent de AltGr |
    
     ![Paramètres de PuTTY pris en charge](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. Cliquez sur **Apply**.
+3. Cliquez sur **Appliquer**.
 4. Dans le volet **Catégorie**, sélectionnez **Traduction**.
 5. Dans la zone de liste **Jeu de caractères distant**, sélectionnez **UTF-8**.
 6. Sous **Gestion des caractères de dessin de ligne**, sélectionnez **Utiliser des points de code de dessin de ligne Unicode**. La capture d’écran suivante montre les sélections correctes de PuTTY.
    
     ![Paramètres puTTY pour UTF](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. Cliquez sur **Apply**.
+7. Cliquez sur **Appliquer**.
 
 Vous pouvez maintenant utiliser PuTTY pour vous connecter à la console série de l’appareil en procédant comme suit :
 
@@ -126,8 +126,8 @@ La langue d’affichage est indépendante de la langue que vous définissez à l
 
 Vous pouvez utiliser HTTP ou HTTPS pour vous connecter via l’accès distant Windows PowerShell. Utilisez les instructions des didacticiels suivants :
 
-* [Se connecter à distance en utilisant HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Se connecter à distance en utilisant HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Se connecter à distance en utilisant HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Se connecter à distance en utilisant HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Considérations sur la sécurité des connexions
 
@@ -182,7 +182,7 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 > Pour obtenir une liste de toutes les applets de commande disponibles dans une instance d’exécution, connectez-vous à l’option de menu correspondante et exécutez l’applet de commande `Get-Command`.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

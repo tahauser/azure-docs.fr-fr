@@ -14,11 +14,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 269e936cb79ba4138285f5dbd326413d70d5924d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Générer un projet dans Azure à l’aide de Jenkins et d’Azure Container Instances
 
@@ -30,7 +30,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Installer et configurer le plug-in Azure Container Agents pour Jenkins
 > * Utiliser Azure Container Instances pour générer l’[exemple d’application Spring PetClinic](https://github.com/spring-projects/spring-petclinic)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 - **Abonnement Azure** : pour en savoir plus sur les options d’achat d’Azure, consultez [Comment acheter Azure](https://azure.microsoft.com/pricing/purchase-options/) ou [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -327,6 +327,6 @@ Si vous n’avez plus besoin d’utiliser les ressources d’un groupe de ressou
 az group delete -n <resourceGroup>
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 > [!div class="nextstepaction"]
-> [Visitez le Hub Jenkins sur Azure pour découvrir les derniers articles et exemples](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [Visitez le Hub Jenkins sur Azure pour découvrir les derniers articles et exemples](https://docs.microsoft.com/azure/jenkins/)

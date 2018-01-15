@@ -6,15 +6,15 @@ keywords: inventaire, automatisation, suivi des modifications
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 49eedd975e456d97f9eee44f9b00993b115ad4fa
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Détecter les logiciels installés sur vos machines Azure et non-Azure
 
@@ -27,12 +27,12 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Afficher les logiciels installés
 > * Rechercher les journaux d’inventaire des logiciels installés
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d'actions ainsi que la tâche d'observateur.
+* Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche d’observateur.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à intégrer.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
@@ -53,8 +53,8 @@ Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
 Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un worker hybride.
-Cet agent est utilisé pour communiquer avec la machine virtuelle et pour obtenir des informations sur les logiciels installés.
-Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un runbook worker hybride de Automation.
+Cet agent sert à communiquer avec la machine virtuelle et à obtenir des informations sur les logiciels installés.
+Le processus de validation vérifie également que la machine virtuelle est configurée avec le Microsoft Monitoring Agent (MMA) et un Automation hybrid runbook worker.
 
 Si ces conditions préalables ne sont pas remplies, une bannière apparaît et vous donne la possibilité d’activer la solution.
 
@@ -67,12 +67,12 @@ Si la validation n’identifie pas l’un des prérequis suivants, il est automa
 * [Automation](./automation-offering-get-started.md)
 * Un [worker runbook hybride](./automation-hybrid-runbook-worker.md) est activé sur la machine virtuelle
 
-L’écran **Suivi des modifications et inventaire** s’ouvre. Configurez l’emplacement, un espace de travail Log Analytics et un compte Automation à utiliser puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
+L’écran **Change Tracking and Inventory** (Suivi des modifications et inventaire) s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
 
-![Fenêtre d’activation de la solution de suivi des modifications](./media/automation-tutorial-installed-software/installed-software-enable.png)
+![Fenêtre de la solution d’activation du suivi des modifications](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 L’activation de la solution peut prendre jusqu'à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
-Une fois la solution activée, des informations sur les logiciels installés et les modifications sur la machine virtuelle sont envoyées à Log Analytics.
+Une fois la solution activée, des informations sur les logiciels installés et les modifications apportées à la machine virtuelle sont envoyées à Log Analytics.
 Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 ## <a name="view-installed-software"></a>Afficher les logiciels installés
