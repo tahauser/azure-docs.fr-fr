@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -62,7 +62,7 @@ Site Recovery permet de répliquer n’importe quelle application exécutée sur
 | Dynamics AX |O |O |O |O |O|
 | Oracle |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft) |O (opération testée par Microsoft)|
 | Serveur de fichiers Windows |O |O |O |O |O|
-| Citrix XenApp et XenDesktop |O|N/A |O |N/A |O |
+| Citrix XenApp et XenDesktop |O|Non applicable |O |Non applicable |O |
 
 ## <a name="replicate-active-directory-and-dns"></a>Répliquer Active Directory et DNS
 Une infrastructure DNS et Active Directory sont essentiels pour la plupart des applications d’entreprise. Dans le cadre d’une récupération d’urgence, vous devez protéger et récupérer ces composants d’infrastructure avant de récupérer vos charges de travail et applications.
@@ -110,11 +110,11 @@ RDS active l’infrastructure de bureau virtuel (VDI), les bureaux basés sur se
 
 | **RDS** |**Réplication de machines virtuelles Azure dans Azure** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** | **Réplication de serveurs physiques vers un site secondaire** | **Répliquer des serveurs physiques dans Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Bureau virtuel en pool (non géré)** |Non|Oui |Non |Oui |Non |Oui |Non |
-| **Bureau virtuel en pool (géré et sans UPD)** |Non|Oui |Non |Oui |Non |Oui |Non |
+| **Bureau virtuel en pool (non géré)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
+| **Bureau virtuel en pool (géré et sans UPD)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
 | **Applications à distance et sessions de bureau (sans UPD)** |Oui|Oui |Oui |Oui |Oui |Oui |Oui |
 
-[Configurez la récupération d’urgence de RDS à l’aide d’Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
+[Configurez la récupération d’urgence de RDS à l’aide d’Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [En savoir plus](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sur la protection de RDS.
 
@@ -161,6 +161,6 @@ Site Recovery permet de protéger vos déploiements Citrix XenApp XenDesktop, 
 
 [Apprenez-en plus](site-recovery-citrix-xenapp-and-xendesktop.md) sur la protection des déploiements de Citrix XenApp et XenDesktop. Vous pouvez également consulter le [livre blanc de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) détaillant les mêmes informations.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Prise en main](azure-to-azure-quickstart.md) de la réplication d’une machine virtuelle Azure.

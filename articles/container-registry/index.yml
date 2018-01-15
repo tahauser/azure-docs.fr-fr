@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
-  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.openlocfilehash: d6f7bc786b4239f93983a039f2ae8b82ee90ed5b
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/07/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Container Registry vous permet de stocker et gérer des images pour tous les types de déploiement de conteneur. Découvrez comment utiliser Azure Container Registry avec ces guides de démarrage rapide, didacticiels et exemples."
 sections:
@@ -29,15 +29,15 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Interface de ligne de commande Azure
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
       href: /azure/container-registry/container-registry-get-started-azure-cli
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
       text: Portail Azure
       href: /azure/container-registry/container-registry-get-started-portal
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
       text: "Azure PowerShell"
       href: /azure/container-registry/container-registry-get-started-powershell
 - title: "Didacticiels pas à pas"
@@ -59,8 +59,8 @@ sections:
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/cli/azure/acr">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+      html: <p><a href="/cli/azure/acr">interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
     - title: Langues
       html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.JS</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/containerregistry\">Référence d’API REST</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">modèle Azure Resource Manager</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Schéma du Webhook</a></p>"
+      html: "<p><a href=\"/rest/api/containerregistry\">Référence d’API REST</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">modèle Azure Resource Manager</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Schéma du Webhook</a></p>"

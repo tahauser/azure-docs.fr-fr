@@ -3,8 +3,8 @@ title: "Migration à partir de Mobile Services vers une application App Service 
 description: "Découvrez comment migrer facilement votre application Mobile Services vers une application App Service Mobile App."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
-ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="article-top"></a>Migration de votre service mobile Azure existant vers Azure App Service
 Avec la [mise à la disposition générale d’Azure App Service], les sites Azure Mobile Services peuvent être facilement migrés sur place pour tirer parti de toutes les fonctionnalités d’Azure App Service.  Ce document explique ce qui se passe lors de la migration de votre site à partir d’Azure Mobile Services vers Azure App Service.
@@ -81,7 +81,7 @@ Pour commencer, nous recommandons les niveaux suivants :
 |:--- |:--- |
 | Gratuit |F1 Gratuit |
 | De base |B1 De base |
-| Standard |S1 Standard |
+| standard |S1 Standard |
 
 Il existe une flexibilité considérable dans le choix du niveau tarifaire approprié pour votre application.  Pour plus d’informations sur la tarification de votre nouvel App Service, voir [Tarification d’App Service] .
 
@@ -218,7 +218,7 @@ Tous les travaux du planificateur sont disponibles via la section Collections de
 1. Connectez-vous au [portail Azure].
 2. Sélectionnez **Parcourir >**, entrez **Planification** dans la zone *Filtre*, puis sélectionnez **Collections Scheduler**.
 3. Sélectionnez la Collection de tâches pour votre site.  Elle sera nommée *sitename*-Jobs.
-4. Cliquez sur **Paramètres**.
+4. Cliquez sur **Settings**.
 5. Cliquez sur **Tâches du planificateur** sous MANAGE.
 
 Les tâches planifiées sont affichées à la fréquence que vous avez spécifiée avant la migration.  Les tâches à la demande sont désactivées.  Pour exécuter une tâche sur demande :
@@ -233,7 +233,7 @@ Vos tâches à la demande se trouvent dans `App_Data/config/scripts/scheduler po
 ### <a name="notification-hubs"></a>Notification Hubs
 Mobile Services utilise Notification Hubs pour les notifications push.  Les paramètres de l’application utilisés pour lier le concentrateur de notification à votre service mobile après la migration sont les suivants :
 
-| Paramètre de l’application | Description |
+| Paramètre de l’application | DESCRIPTION |
 |:--- |:--- |
 | **MS\_PushEntityNamespace** |Espace de nom du concentrateur de notification |
 | **MS\_NotificationHubName** |Nom du concentrateur de notification |
@@ -266,7 +266,7 @@ Dans l’intervalle, tous les paramètres push hérités (à l’exception notab
 ### <a name="app-settings"></a>Autres paramètres d’application
 Les paramètres d’application supplémentaires suivants sont migrés à partir de votre service mobile, et disponibles sous *Paramètres* > *App Paramètres*:
 
-| Paramètre de l’application | Description |
+| Paramètre de l’application | DESCRIPTION |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Nom de votre application |
 | **MS\_MobileServiceDomainSuffix** |Préfixe du domaine. Par exemple, azure-mobile.net. |

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utiliser l’outil de diagnostic StorSimple pour résoudre les problèmes des appareils de la gamme 8000
 
@@ -32,17 +32,17 @@ L’outil de diagnostic est destiné principalement aux appareils locaux de la g
 
 Cet outil peut être exécuté à partir de l’interface Windows PowerShell de votre appareil StorSimple. Pour accéder à l’interface locale de votre appareil, deux options s’offrent à vous :
 
-* [Utiliser PuTTY pour vous connecter à la console série de l’appareil](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Accéder à l’outil à distance via Windows PowerShell pour StorSimple](storsimple-remote-connect.md).
+* [Utiliser PuTTY pour vous connecter à la console série de l’appareil](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Accéder à l’outil à distance via Windows PowerShell pour StorSimple](storsimple-8000-remote-connect.md).
 
 Dans cet article, nous partons du principe que vous vous êtes connecté à la console série de l’appareil via PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Pour exécuter l’outil de diagnostic
 
 Une fois que vous êtes connecté à l’interface Windows PowerShell de l’appareil, procédez comme suit pour exécuter l’applet de commande.
-1. Ouvrez une session sur la console série de l'appareil en suivant les étapes dans [Utilisation de PuTTY pour se connecter à la console série de l'appareil](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Ouvrez une session sur la console série de l'appareil en suivant les étapes dans [Utilisation de PuTTY pour se connecter à la console série de l'appareil](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Tapez la commande suivante : 
+2. Tapez la commande suivante :
 
     `Invoke-HcsDiagnostics`
 
@@ -85,11 +85,11 @@ Ce test permet de déterminer l’état des composants matériels, du microprogr
 * Les composants matériels signalés sont ceux pour lesquels le test a échoué ou qui ne sont pas présents dans le système.
 * Les versions du microprogramme USM et du microprogramme de disque sont indiquées pour le contrôleur 0, le contrôleur 1 et les composants partagés de votre système. Pour obtenir une liste complète des composants matériels, consultez :
 
-    * [Composants du boîtier principal](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Composants du boîtier EBOD](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Composants du boîtier principal](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Composants du boîtier EBOD](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Si le test du matériel signale des composants défectueux, [enregistrez une demande de service auprès du Support Microsoft](storsimple-contact-microsoft-support.md).
+> Si le test du matériel signale des composants défectueux, [enregistrez une demande de service auprès du Support Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Exemple de sortie du test du matériel sur un appareil 8100
 
@@ -210,7 +210,7 @@ Ce test fait état des informations système, des mises à jour disponibles, des
 * Les informations système incluent le modèle, le numéro de série de l’appareil, le fuseau horaire, l’état du contrôleur et le détail de la version du logiciel exécuté sur le système. Pour comprendre les différents paramètres du système signalés dans la sortie, consultez [Interprétation des informations système](#appendix-interpreting-system-information).
 
 * Les informations sur la disponibilité de mises à jour indiquent si des mises à jour sont disponibles pour les modes normal et maintenance et, le cas échéant, le nom des packages associés. Si `RegularUpdates` et `MaintenanceModeUpdates` présentent la valeur `false`, cela indique qu’aucune mise à jour n’est disponible. Votre appareil est à jour.
-* Les informations sur les clusters incluent des informations sur les différents composants logiques de l’ensemble des groupes de clusters HCS et sur leur état respectif. Si un groupe de clusters hors connexion apparaît dans cette section du rapport, [contactez le Support Microsoft](storsimple-contact-microsoft-support.md).
+* Les informations sur les clusters incluent des informations sur les différents composants logiques de l’ensemble des groupes de clusters HCS et sur leur état respectif. Si un groupe de clusters hors connexion apparaît dans cette section du rapport, [contactez le Support Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Les informations sur les services incluent le nom et l’état de tous les services HCS et CiS exécutés sur votre appareil. Ces informations aident le Support Microsoft à résoudre les problèmes d’appareil associés.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Exemple de sortie du test du système sur un appareil 8100
@@ -413,10 +413,10 @@ Controller0>
 
 Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dans les informations système. 
 
-| Paramètre PowerShell    | Description  |
+| Paramètre PowerShell    | DESCRIPTION  |
 |-------------------------|------------------|
 | ID de l’instance             | Un identificateur unique ou un GUID est associé à chaque contrôleur.|
-| Nom                    | Nom convivial configuré pour l’appareil via le portail Azure lors du déploiement de l’appareil. Le nom convivial par défaut est le numéro de série de l’appareil. |
+| NOM                    | Nom convivial configuré pour l’appareil via le portail Azure lors du déploiement de l’appareil. Le nom convivial par défaut est le numéro de série de l’appareil. |
 | Modèle                   | Modèle de votre appareil de la gamme StorSimple 8000. Il peut s’agir du modèle 8100 ou 8600.|
 | SerialNumber            | Le numéro de série de l’appareil est attribué en usine et comprend 15 caractères. Par exemple, 8600-SHX0991003G44HT indique :<br> 8600 : modèle de l’appareil.<br>SHX : site de fabrication.<br> 0991003 : produit spécifique. <br> G44HT : les 5 derniers chiffres sont incrémentés pour créer des numéros de série uniques. Il ne s’agit pas nécessairement d’une suite.|
 | TimeZone                | Fuseau horaire configuré pour l’appareil dans le portail Azure lors du déploiement de l’appareil.|
@@ -433,11 +433,11 @@ Le tableau ci-dessous décrit les différents paramètres Windows PowerShell dan
 | CisAgentVersion         | Version de l’agent Cis exécuté sur votre appareil StorSimple. Cet agent permet de communiquer avec le service StorSimple Manager exécuté dans Azure.|
 | MdsAgentVersion         | Version correspondant à l’agent Mds exécuté sur votre appareil StorSimple. Cet agent transfère des données au service de surveillance et de diagnostics (Monitoring and Diagnostics Service, ou MDS).|
 | Lsisas2Version          | Version correspondant aux pilotes LSI exécutés sur votre appareil StorSimple.|
-| Capacité                | Capacité totale de l’appareil en octets.|
+| Capacity                | Capacité totale de l’appareil en octets.|
 | RemoteManagementMode    | Indique si l’appareil peut être géré à distance via son interface Windows PowerShell. |
 | FipsMode                | Indique si le mode FIPS (Federal Information Processing Standard) est activé sur votre appareil. La norme FIPS 140 définit les algorithmes de chiffrement qui sont approuvés pour une utilisation sur les systèmes informatiques du gouvernement fédéral américain dans le but de protéger les données sensibles. Pour les appareils exécutant Update 4 ou version ultérieure, le mode FIPS est activé par défaut. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Découvrez la [syntaxe de l’applet de commande Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

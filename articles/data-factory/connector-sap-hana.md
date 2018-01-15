@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-sap-hana-connector.md)
-> * [Version 2 - Préversion](connector-sap-hana.md)
+> * [Version 2 - Préversion](connector-sap-hana.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données SAP HANA. Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données SAP HANA. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur SAP HANA dans V1](v1/data-factory-sap-hana-connector.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur SAP HANA dans V1](v1/data-factory-sap-hana-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -42,15 +42,16 @@ Plus précisément, ce connecteur SAP HANA prend en charge ce qui suit :
 > [!NOTE]
 > Pour copier des données **vers** une banque de données SAP HANA, utilisez le connecteur ODBC générique. Pour plus de détails, voir [Récepteur SAP HANA](connector-odbc.md#sap-hana-sink). Notez que les services liés pour les connecteurs SAP HANA et ODBC sont de types différents et qu’ils ne peuvent donc pas être réutilisées.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser ce connecteur SAP HANA, vous devez :
 
-- Configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md).
+- Configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
 - Installer le pilote ODBC de SAP HANA sur l’ordinateur exécutant le runtime d’intégration. Vous pouvez télécharger le pilote ODBC SAP HANA à partir du [Centre de téléchargement de logiciels SAP](https://support.sap.com/swdc). Faites une recherche avec le mot-clé **SAP HANA CLIENT for Windows**.
 
 ## <a name="getting-started"></a>Prise en main
-Vous pouvez créer un pipeline avec l’activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Consultez le [Didacticiel de l’activité de copie](quickstart-create-data-factory-dot-net.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des détails sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur SAP HANA.
 
@@ -58,16 +59,16 @@ Les sections suivantes fournissent des détails sur les propriétés utilisées 
 
 Les propriétés prises en charge pour le service lié SAP HANA sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **SapHana** | Oui |
+| Type | La propriété type doit être définie sur **SapHana** | Oui |
 | server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | Oui |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données SAP HANA.<br/>Valeurs autorisées : **De base** et **Windows** | Oui |
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ comme SecureString. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -97,7 +98,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de SAP HANA, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Aucune propriété propre à un type n’est prise en charge pour le type de jeu de données SAP HANA RelationalTable.
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -121,12 +122,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de SAP HANA, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
 | query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | Oui |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[
@@ -164,23 +165,23 @@ Lors de la copie de données de SAP HANA, les mappages suivants sont utilisés e
 
 | Type de données SAP HANA | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
-| ALPHANUM | String |
+| ALPHANUM | Chaîne |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATE | DateTime |
-| DÉCIMAL | DÉCIMAL |
+| DATE | Datetime |
+| DÉCIMAL | Décimal |
 | DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | String |
+| NVARCHAR | Chaîne |
 | REAL | Single |
-| SECONDDATE | DateTime |
+| SECONDDATE | Datetime |
 | SMALLINT | Int16 |
 | TEMPS | intervalle de temps |
-| TIMESTAMP | DateTime |
+| TIMESTAMP | Datetime |
 | TINYINT | Byte |
-| VARCHAR | String |
+| VARCHAR | Chaîne |
 
 ## <a name="known-limitations"></a>Limites connues
 
@@ -192,5 +193,5 @@ Il existe quelques limitations connues lors de la copie des données à partir d
 - Les dates valides sont celles comprises entre 1899/12/30 et 9999/12/31
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Reformer un service web Classic
 Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web. 
@@ -66,7 +66,7 @@ Pour récupérer l’URL du chemin d’accès :
 
 1. Copiez et collez l’URL dans votre navigateur.
 2. Cliquez sur le lien Mettre à jour les ressources.
-3. Copiez l’URL de la publication de la requête PATCH. Par exemple :
+3. Copiez l’URL de la publication de la requête PATCH. Par exemple : 
    
      URL DU CORRECTIF : https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
@@ -116,7 +116,7 @@ L’*apiKey* et l’*endpointUrl* pour l’appel sont figurent sur le tableau de
 
 La valeur du paramètre *Name* dans *Ressources* doit correspondre au nom de ressource du modèle formé enregistré dans l’expérience prédictive. Pour obtenir le nom de la ressource :
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, cliquez sur **Machine Learning**.
 3. Sous Nom, cliquez sur votre espace de travail, puis sur **Services web**.
 4. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]**.
@@ -134,6 +134,6 @@ Lorsque le code a été exécuté avec succès, le nouveau point de terminaison 
 * Nouvel apprentissage périodique d’un modèle avec de nouvelles données.
 * Distribution d’un modèle auprès des clients dans le but de leur permettre d’effectuer à nouveau l’apprentissage du modèle avec leurs propres données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Résolution des problèmes de reformation d’un service web Azure Machine Learning classique](troubleshooting-retraining-models.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 79fcbbf5f506858789a6bd1e6ad2e292c72b65a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1256e7f0286d9eb6ea6498b024fba41eb9f6a641
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations externes dans Fonctions durables (Azure Functions)
 
@@ -52,7 +52,7 @@ public static async Task Run(
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
     await context.CreateTimer<string>(nextCleanup);
 
-    context.ContinueAsNew();
+    context.ContinueAsNew(null);
 }
 ```
 
@@ -90,7 +90,7 @@ Si une fonction d’orchestrateur doit se terminer, il vous suffit de ne *pas* a
 
 Si une fonction d’orchestrateur entre dans une boucle infinie et doit être arrêtée, utilisez dans ce cas la méthode [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_). Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Apprendre à implémenter des orchestrations de singleton](durable-functions-singletons.md)

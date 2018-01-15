@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0716bc6697b8350ec3f6c890e5fb7a1eb743bdd2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Didacticiel : Intégration d’Azure AD à SCC LifeCycle
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et SCC LifeCycle.  
@@ -32,7 +32,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
 1. Activation de l’intégration d’applications pour SCC LifeCycle
-2. Configuration de l’authentification unique (SSO)
+2. Configuration de l'authentification unique (SSO)
 3. Configuration de l'approvisionnement des utilisateurs
 4. Affectation d’utilisateurs
 

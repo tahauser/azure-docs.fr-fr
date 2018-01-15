@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Écrire dans un stockage HDFS à partir d’Apache Storm sur HDInsight
 
@@ -34,7 +34,7 @@ Le projet contenant cette topologie est disponible en téléchargement à partir
 
 Pour compiler ce projet, utilisez la configuration suivante dans votre environnement de développement :
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou version ultérieure. HDInsight 3.5 ou les versions ultérieures requièrent Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou version ultérieure. HDInsight 3.5 ou les versions ultérieures requièrent Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -59,7 +59,7 @@ Le composant HdfsBolt utilise le schéma de fichier que vous fournissez pour sav
 
 Le tableau suivant fournit des exemples d’utilisation du schéma de fichier dans différents scénarios :
 
-| Schéma | Remarques |
+| Schéma | Notes |
 | ----- | ----- |
 | `wasb:///` | Le compte de stockage par défaut est un conteneur d’objets blob dans un compte de stockage Azure. |
 | `adl:///` | Le compte de stockage par défaut est un répertoire dans Azure Data Lake Store. Lors de la création du cluster, vous spécifiez le répertoire Data Lake Store qui sera la racine du stockage HDFS du cluster. Par exemple, le répertoire `/clusters/myclustername/`. |
@@ -140,7 +140,7 @@ Pour plus d’informations sur le framework Flux, consultez la page [https://sto
 
 Par défaut, Storm sur HDInsight n’inclut pas les composants utilisés par HdfsBolt pour communiquer avec le stockage Azure ou Data Lake Store dans le chemin de classe du cluster Storm. Utilisez l’action de script suivante pour ajouter ces composants au répertoire `extlib` de Storm sur votre cluster :
 
-* URI du script : `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* URI du script : `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Nœuds auxquels appliquer : Nimbus, Supervisor
 * Paramètres : aucun
 
@@ -222,7 +222,7 @@ Les topologies Storm s’exécutent jusqu’à ce qu’elles soient arrêtées o
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez appris à utiliser Storm pour écrire dans le stockage Azure et Azure Data Lake Store, découvrez d’autres [exemples Storm pour HDInsight](apache-storm-example-topology.md).
 

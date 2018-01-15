@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Contrôle d’accès dans Azure Data Lake Store
 
@@ -74,7 +74,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | Forme numérique | Forme abrégée |      Signification     |
 |--------------|------------|------------------------|
 | 7            | RWX        | Lecture + Écriture + Exécution |
-| 5            | R-X        | Lecture + Exécution         |
+| 5.            | R-X        | Lecture + Exécution         |
 | 4            | R--        | Lire                   |
 | 0            | ---        | | Aucune autorisation         |
 

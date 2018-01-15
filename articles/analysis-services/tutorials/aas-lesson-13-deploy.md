@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-13-deploy"></a>Leçon 13 : Déployer
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="deploy"></a>Déployer
 
 Dans cette leçon, vous allez configurer les propriétés de déploiement en spécifiant un serveur Azure Analysis Services sur lequel procéder au déploiement et en indiquant le nom du modèle. Ensuite, vous allez déployer le modèle sur cette instance. Une fois votre modèle déployé, les utilisateurs peuvent s’y connecter à l’aide d’une application cliente de création de rapports. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
 Durée estimée pour suivre cette leçon : **5 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  

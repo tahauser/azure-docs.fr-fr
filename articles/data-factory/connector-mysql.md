@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: d91ff1738f423928699f056a4d529d764889a6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-onprem-mysql-connector.md)
-> * [Version 2 - Préversion](connector-mysql.md)
+> * [Version 2 - Préversion](connector-mysql.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MySQL. Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MySQL. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur MySQL dans V1](v1/data-factory-onprem-mysql-connector.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur MySQL dans V1](v1/data-factory-onprem-mysql-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -35,7 +35,7 @@ Vous pouvez copier des données d’une base de données MySQL vers toute banque
 
 Plus précisément, ce connecteur MySQL prend en charge MySQL **version 5.1 et versions ultérieures**.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser ce connecteur MySQL, vous devez :
 
@@ -46,7 +46,8 @@ Pour utiliser ce connecteur MySQL, vous devez :
 > Si vous rencontrez l’erreur « Échec de l'authentification, car le site distant a fermé le flux de transport. », envisagez de mettre à niveau le connecteur MySQL/Net vers une version supérieure.
 
 ## <a name="getting-started"></a>Prise en main
-Vous pouvez créer un pipeline avec l’activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Consultez le [Didacticiel de l’activité de copie](quickstart-create-data-factory-dot-net.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur MySQL.
 
@@ -54,17 +55,17 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié MySQL sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **MySql** | Oui |
+| Type | La propriété type doit être définie sur **MySql** | Oui |
 | server | Nom du serveur MySQL. | Oui |
 | database | Nom de la base de données MySQL. | Oui |
-| schema | Nom du schéma dans la base de données. | Non |
+| schema | Nom du schéma dans la base de données. | Non  |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. | Oui |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. Marquez ce champ comme SecureString. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -94,9 +95,9 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de MySQL, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
 | TableName | Nom de la table dans la base de données MySQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -124,12 +125,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de MySQL, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[
@@ -208,5 +209,5 @@ Lors de la copie de données de MySQL, les mappages suivants sont utilisés entr
 | `year` |`Int` |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

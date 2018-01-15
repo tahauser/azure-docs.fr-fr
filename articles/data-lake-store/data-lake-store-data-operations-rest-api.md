@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 62cfc713c3b7ce8f7c0a7ff4dd5e80802f1843b7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a850b3fdff956abe41ac9a4af10a96dc119a75f4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Opérations de gestion du système de fichiers sur Data Lake Store à l’aide de l’API REST
 > [!div class="op_single_selector"]
-> * [Kit SDK .NET](data-lake-store-data-operations-net-sdk.md)
+> * [Kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Dans cet article, vous allez découvrir comment utiliser les API REST de WebHDFS et de Data Lake Store pour effectuer des opérations de gestion du système de fichiers sur Azure Data Lake Store. Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Store à l’aide de l’API REST, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Store à l’aide de l’API REST](data-lake-store-get-started-rest-api.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
@@ -159,7 +159,7 @@ Un résultat similaire à ce qui suit s’affiche normalement :
 
     {"boolean":true}
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Opérations de gestion des comptes sur  Data Lake Store à l’aide de l’API REST](data-lake-store-get-started-rest-api.md).
 
 ## <a name="see-also"></a>Voir aussi

@@ -3,9 +3,9 @@ title: "Ajout de notifications Push à votre application Android à l’aide de 
 description: "Découvrez comment utiliser Mobile Apps pour envoyer des notifications Push à votre application Android."
 services: app-service\mobile
 documentationcenter: android
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
-ms.author: glenga
-ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: crdun
+ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Ajout de notifications Push à votre application Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage r
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 Vous avez besoin des éléments suivants :
 
 * Un IDE, en fonction du serveur principal de votre projet :
@@ -69,7 +69,7 @@ Si vous procédez à un test avec un appareil ancien, consultez la rubrique [Ajo
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Test de l'application avec le service mobile publié
 Vous pouvez tester l’application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l’émulateur.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez terminé ce didacticiel, vous pouvez passer à l’un des didacticiels suivants :
 
 * [Ajout de l’authentification à votre application Android](app-service-mobile-android-get-started-users.md).

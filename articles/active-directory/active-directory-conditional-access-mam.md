@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: aaf2da57d8653371ab0b46e47474442aa4be1d65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Accès conditionnel basé sur les applications Azure Active Directory  
 
@@ -64,7 +64,7 @@ Cette rubrique part du principe que vous connaissez :
 - La [migration des stratégies d’accès conditionnel](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour créer une stratégie d’accès conditionnel basé sur les applications, vous devez avoir un abonnement à Enterprise Mobility + Security ou à Azure Active Directory Premium, et les utilisateurs doivent disposer d’une licence pour EMS ou Azure AD. 
 
@@ -389,9 +389,9 @@ Pour la stratégie d’accès conditionnel de cette étape, vous devez configure
 
     - **Demander une application cliente approuvée (préversion)**
 
-    - **Demander un des contrôles sélectionnés**   
+    - **Demander tous les contrôles sélectionnés**   
  
-    ![Accès conditionnel](./media/active-directory-conditional-access-mam/11.png)
+    ![Accès conditionnel](./media/active-directory-conditional-access-mam/13.png)
 
 
 
@@ -440,7 +440,7 @@ Pour plus d’informations, consultez [Protéger les données et les application
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

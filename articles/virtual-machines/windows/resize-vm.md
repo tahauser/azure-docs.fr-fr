@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d4b6e5db8835b23b014b344f0c9daae68adc09
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
 Cet article vous montre comment redimensionner une machine virtuelle Windows créée avec le modèle de déploiement Resource Manager à l’aide d’Azure PowerShell.
@@ -35,7 +35,7 @@ Une fois que vous avez créé une machine virtuelle, vous pouvez la mettre à l�
 2. Si la taille voulue n’est pas répertoriée, exécutez les commandes suivantes pour redimensionner la machine virtuelle. Si la taille souhaitée n’est pas répertoriée, passez à l’étape 3.
    
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
@@ -44,8 +44,8 @@ Une fois que vous avez créé une machine virtuelle, vous pouvez la mettre à l�
     ```powershell
     $rgname = "<resourceGroupName>"
     $vmname = "<vmName>"
-    Stop-AzureRmVM -ResourceGroupName $rgname -VMName $vmname -Force
-    $vm = Get-AzureRmVM -ResourceGroupName $rgname -VMName $vmname
+    Stop-AzureRmVM -ResourceGroupName $rgname -Name $vmname -Force
+    $vm = Get-AzureRmVM -ResourceGroupName $rgname -Name $vmname
     $vm.HardwareProfile.VmSize = "<newVMSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName $rgname
     Start-AzureRmVM -ResourceGroupName $rgname -Name $vmname
@@ -67,7 +67,7 @@ Si la nouvelle taille d’une machine virtuelle se trouvant dans un groupe à ha
 2. Si la taille voulue n’est pas répertoriée, exécutez les commandes suivantes pour redimensionner la machine virtuelle. Si elle n’est pas répertoriée, passez à l’étape 3.
    
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
@@ -101,6 +101,6 @@ Si la nouvelle taille d’une machine virtuelle se trouvant dans un groupe à ha
    }
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et augmentez leur taille. Pour plus d’informations, consultez [Mise à l’échelle automatique des machines Windows dans un groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

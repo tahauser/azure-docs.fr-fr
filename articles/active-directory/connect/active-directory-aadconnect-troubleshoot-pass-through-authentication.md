@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -41,7 +41,7 @@ Assurez-vous que la fonctionnalité d’authentification directe est toujours **
 
 Si l’utilisateur ne peut pas se connecter avec l’authentification directe, l’un des messages d’erreur suivants peut s’afficher sur l’écran de connexion Azure AD : 
 
-|Error|Description|Résolution :
+|Error|DESCRIPTION|Résolution :
 | --- | --- | ---
 |AADSTS80001|Impossible de se connecter à Active Directory|Assurez-vous que les serveurs des agents sont membres de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés, et qu’ils peuvent se connecter à Active Directory.  
 |AADSTS8002|Délai d’attente dépassé lors de la connexion à Active Directory|Vérifiez qu’Active Directory est disponible et répond aux demandes des agents.
@@ -165,7 +165,7 @@ Si la journalisation d’audit est activée, des informations complémentaires s
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Compteurs Analyseur de performances
+## <a name="performance-monitor-counters"></a>Compteurs Analyseur de performances
 
 Un autre moyen de surveiller les agents d’authentification consiste à effectuer un suivi de compteurs Analyseur de performances spécifiques sur chaque serveur où est installé l’agent d’authentification. Utilisez les compteurs globaux suivants (**#PTA Authentifications**, **#PTA Authentifications ayant échoué** et **#PTA Authentifications réussies**), ainsi que les compteurs d’erreurs (**#PTA Erreurs d’authentification**) :
 

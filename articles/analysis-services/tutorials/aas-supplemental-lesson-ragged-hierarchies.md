@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Leçon supplémentaire – Hiérarchies déséquilibrées
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Dans cette leçon supplémentaire, vous allez résoudre un problème courant se produisant lors de l’ajout d’un tableau croisé dynamique sur des hiérarchies qui contiennent des valeurs vides (membres) à différents niveaux. Par exemple, une organisation où un cadre a à la fois des responsables de département et des non-cadres comme collaborateurs. Ou bien des hiérarchies géographiques composées des éléments Pays-Région-Ville, où certaines villes n’ont pas d’état ou de région parent, par exemple Washington D.C. ou la Cité du Vatican. Quand une hiérarchie a des membres vides, elle descend souvent à des niveaux différents ou déséquilibrés.
 
@@ -33,7 +31,7 @@ Les modèles tabulaires de niveau de compatibilité 1400 disposent d’une prop
   
 Durée estimée pour suivre cette leçon : **20 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique de leçon supplémentaire fait partie d’un didacticiel de modélisation tabulaire. Avant d’effectuer les tâches de cette leçon supplémentaire, vous devez avoir effectué toutes les leçons précédentes ou disposer d’un exemple de projet de modèle de ventes sur Internet Adventure Works. 
 
 Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacticiel, votre modèle ne contient encore aucune donnée ou hiérarchie déséquilibrée. Pour suivre cette leçon supplémentaire, vous devez d’abord créer le problème en ajoutant des tables supplémentaires, puis créer des relations, des colonnes calculées, une mesure et une hiérarchie d’organisation. Cette partie prend environ 15 minutes. Ensuite, vous allez résoudre le problème en quelques minutes.  
@@ -52,10 +50,10 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
 
     | Table 1           | Colonne       | Direction du filtre   | Table 2     | Colonne      | Actif |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Par défaut            | DimDate     | Date        | Oui    |
-    | FactResellerSales | DueDate      | Par défaut            | DimDate     | Date        | Non     |
-    | FactResellerSales | ShipDateKey  | Par défaut            | DimDate     | Date        | Non     |
-    | FactResellerSales | ProductKey   | Par défaut            | DimProduct  | ProductKey  | Oui    |
+    | FactResellerSales | OrderDateKey | Default            | DimDate     | Date        | Oui    |
+    | FactResellerSales | DueDate      | Par défaut            | DimDate     | Date        | Non      |
+    | FactResellerSales | ShipDateKey  | Default            | DimDate     | Date        | Non      |
+    | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | Oui    |
     | FactResellerSales | EmployeeKey  | Vers les deux tables | DimEmployee | EmployeeKey | Oui    |
 
 5. Dans la table **DimEmployee**, créez les [colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md) suivantes : 

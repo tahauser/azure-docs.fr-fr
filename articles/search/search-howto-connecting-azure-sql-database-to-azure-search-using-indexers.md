@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs
 
@@ -26,11 +26,11 @@ Avant d’interroger un [index Recherche Azure](search-what-is-an-index.md), vou
 
 Cet article décrit l’utilisation des [indexeurs](search-indexer-overview.md), mais aussi les fonctionnalités propres aux bases de données Azure SQL Database (par exemple, le suivi intégré des modifications). 
 
-En plus des bases de données SQL Azure Database, Recherche Azure fournit des indexeurs pour [Azure Cosmos DB](search-howto-index-documentdb.md), le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md) et le [stockage de table Azure](search-howto-indexing-azure-tables.md). Pour obtenir de l’aide concernant d’autres sources de données, indiquez vos souhaits sur le [forum Recherche Azure](https://feedback.azure.com/forums/263029-azure-search/).
+En plus des bases de données SQL Azure Database, Recherche Azure fournit des indexeurs pour [Azure Cosmos DB](search-howto-index-cosmosdb.md), le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md) et le [stockage de table Azure](search-howto-indexing-azure-tables.md). Pour obtenir de l’aide concernant d’autres sources de données, indiquez vos souhaits sur le [forum Recherche Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexeurs et sources de données
 
-Une **source de données** spécifie les données à indexer, les informations d’identification pour accéder aux données, et les stratégies qui identifient efficacement les modifications apportées aux données (comme les lignes nouvelles, modifiées ou supprimées). Elle est définie comme une ressource indépendante utilisable par plusieurs indexeurs.
+Une **source de données** spécifie les données à indexer, les informations d’identification pour accéder aux données, et les stratégies qui identifient efficacement les modifications apportées aux données (comme les lignes nouvelles, modifiées ou supprimées). Elle est définie en tant que ressource indépendante utilisable par plusieurs indexeurs.
 
 Un **indexeur** est une ressource qui connecte une source de données unique à un index de recherche cible. Un indexeur est utilisé pour :
 
@@ -194,7 +194,7 @@ Si votre base de données SQL prend en charge le [suivi des modifications](https
 + Dans la base de données, [activez le suivi](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) de la table. 
 + Aucune clé primaire composite (clé primaire contenant plusieurs colonnes) dans la table.  
 
-#### <a name="usage"></a>Utilisation
+#### <a name="usage"></a>Usage
 
 Pour utiliser cette stratégie, créez ou mettez à jour votre source de données comme suit :
 
@@ -226,7 +226,7 @@ Cette stratégie de détection des modifications s’appuie sur une colonne « 
 > [!IMPORTANT] 
 > Nous vous recommandons d’utiliser le type de données [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) pour la colonne dédiée à la limite supérieure. Si un autre type de données est utilisé, il n’est pas garanti que le suivi des modifications capture toutes les modifications en présence de transactions qui s’exécutent en même temps qu’une requête de l’indexeur. Lorsque vous utilisez **rowversion** dans une configuration avec des réplicas en lecture seule, vous devez pointer l’indexeur sur le réplica principal. Seul un réplica principal peut être utilisé dans les scénarios de synchronisation de données.
 
-#### <a name="usage"></a>Utilisation
+#### <a name="usage"></a>Usage
 
 Pour utiliser une stratégie de limite supérieure, créez ou mettez à jour votre source de données comme suit :
 
@@ -283,7 +283,7 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mappage entre les types de données SQL et Recherche Azure
-| Type de données SQL | Types de champs d'index cible autorisés | Remarques |
+| Type de données SQL | Types de champs d'index cible autorisés | Notes |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
@@ -294,16 +294,16 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geography |Edm.GeographyPoint |Seules les instances Geography de type POINT avec SRID 4326 (valeur par défaut) sont prises en charge |
-| rowversion |N/A |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
-| time, timespan, binary, varbinary, image, xml, geometry, types CLR |N/A |Non pris en charge |
+| rowversion |Non applicable |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
+| time, timespan, binary, varbinary, image, xml, geometry, types CLR |Non applicable |Non pris en charge |
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 L’indexeur SQL expose plusieurs paramètres de configuration :
 
 | Paramètre | Type de données | Objectif | Valeur par défaut |
 | --- | --- | --- | --- |
-| queryTimeout |string |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |valeur booléenne |Indique que la requête SQL utilisée par la stratégie de limite supérieure doit omettre la clause ORDER BY. Consultez [Stratégie de limite supérieure](#HighWaterMarkPolicy) |false |
+| queryTimeout |chaîne |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
+| disableOrderByHighWaterMarkColumn |bool |Indique que la requête SQL utilisée par la stratégie de limite supérieure doit omettre la clause ORDER BY. Consultez [Stratégie de limite supérieure](#HighWaterMarkPolicy) |false |
 
 Ces paramètres sont utilisés dans l’objet `parameters.configuration`, dans la définition de l’indexeur. Par exemple, pour fixer un délai d’expiration de la requête de 10 minutes, créez ou mettez à jour l’indexeur avec la configuration suivante :
 

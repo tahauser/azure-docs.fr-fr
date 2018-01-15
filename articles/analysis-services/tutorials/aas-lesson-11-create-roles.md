@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-11-create-roles"></a>Leçon 11 : Créer des rôles
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-roles"></a>Créer des rôles
 
 Dans cette leçon, vous allez créer des rôles. Les rôles fournissent la sécurité des données et des objets d’une base de données de modèles en limitant l’accès aux utilisateurs qui en sont membres. Chaque rôle est défini avec une autorisation unique : aucune autorisation, autorisation de lecture, autorisation de lecture et de traitement, autorisation de traitement ou autorisation d’administrateur. Les rôles peuvent être définis lors de la création des modèles à l’aide du Gestionnaire de rôles. Une fois un modèle déployé, vous pouvez gérer des rôles à l’aide de SQL Server Management Studio (SSMS). Pour plus d’informations, consultez la rubrique [Rôles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
@@ -42,7 +40,7 @@ Vous devez créer trois rôles :
   
 Durée estimée pour suivre cette leçon : **15 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Créer des rôles  

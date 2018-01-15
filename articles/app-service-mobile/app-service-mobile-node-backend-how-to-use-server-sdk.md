@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -163,7 +163,7 @@ Si vous voulez que cette option soit disponible uniquement pour un développemen
 ## <a name="TableOperations"></a>Opérations de table
 Le Kit de développement logiciel Node.js Server azure-mobile-apps fournit des mécanismes permettant d’exposer les tables de données stockées dans la base de données SQL Azure sous la forme d’une WebAPI.  Cinq opérations sont fournies.
 
-| Opération | Description |
+| Opération | DESCRIPTION |
 | --- | --- |
 | GET /tables/*tablename* |Extraire tous les enregistrements de la table |
 | GET /tables/*tablename*/:id |Extraire un enregistrement spécifique de la table |
@@ -318,9 +318,9 @@ Nous vous recommandons d’ajouter *azureMobile.js* à votre fichier *.gitignore
 ### <a name="howto-appsettings"></a>Procédure : configuration des paramètres d’application pour votre application mobile
 La plupart des paramètres du fichier *azureMobile.js* ont un paramètre équivalent dans le [portail Azure].  Utilisez la liste suivante pour configurer votre application dans les paramètres d’application :
 
-| Paramètre d'application | *azureMobile.js* | Description | Valeurs valides |
+| Paramètre d'application | *azureMobile.js* | DESCRIPTION | Valeurs valides |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Nom de l’application |string |
+| **MS_MobileAppName** |Nom |Nom de l’application |chaîne |
 | **MS_MobileLoggingLevel** |logging.level |Niveau minimal de journal pour les messages à consigner |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |debug |Activer ou désactiver le mode débogage |true, false |
 | **MS_TableSchema** |data.schema |Nom de schéma par défaut pour les tables SQL |string (valeur par défaut : dbo) |
@@ -350,7 +350,7 @@ L’utilisation de la base de données SQL Azure en tant que datastore est ident
 2. Dans le coin supérieur gauche de la fenêtre, cliquez sur le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal d’application mobile.
 3. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
 4. Le plan App Service par défaut est sélectionné.  Pour modifier votre plan App Service, cliquez sur le plan App Service > **+ Créer nouveau**.  Indiquez le nom du nouveau plan App Service et sélectionnez un emplacement approprié.  Cliquez sur Niveau de tarification et sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**.  Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner** .  Retournez dans le panneau **Plan App Service**, puis cliquez sur **OK**.
-5. Cliquez sur **Create**. La configuration d’un serveur principal d’application mobile peut prendre quelques minutes.  Une fois le serveur principal d’application mobile configuré, le portail ouvre le panneau **Paramètres** correspondant au serveur principal d’application mobile.
+5. Cliquez sur **Créer**. La configuration d’un serveur principal d’application mobile peut prendre quelques minutes.  Une fois le serveur principal d’application mobile configuré, le portail ouvre le panneau **Paramètres** correspondant au serveur principal d’application mobile.
 
 Une fois le serveur principal d’application mobile créé, vous pouvez choisir de connecter une base de données SQL existante à votre serveur principal d’application mobile ou de créer une nouvelle base de données SQL.  Dans cette section, nous créons une base de données SQL.
 

@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
-  ms.openlocfilehash: d3a547418d9b5c412584aaa2f27a40024130335b
-  ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+  ms.openlocfilehash: 0b9146284f12cdb39edb870779d911053d1f233a
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/19/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Location Based Services (préversion) dote les développeurs de tous les secteurs de puissantes fonctionnalités géospatiales, avec des données de mappage actualisées nécessaires pour fournir un contexte géographique aux applications mobiles et web. Ce service est un jeu d’API REST conforme à l’API Azure One et s’accompagne d’un contrôle JavaScript web permettant un développement aisé, flexible et portable sur plusieurs supports."
 sections:
@@ -50,6 +50,6 @@ sections:
     className: cardsW
     items:
     - title: Langues
-      html: "<p><a href=\"https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/\">API de contrôle de carte - Javascript</a></p>"
+      html: "<p><a href=\"https://docs.microsoft.com/javascript/api/location-based-services-javascript/\">API de contrôle de carte - Javascript</a></p>"
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services/">API fonctionnelle - REST</a></p><p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services-management/">API de gestion - REST</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/location-based-services/">API fonctionnelle - REST</a></p><p><a href="https://docs.microsoft.com/rest/api/location-based-services-management/">API de gestion - REST</a></p>

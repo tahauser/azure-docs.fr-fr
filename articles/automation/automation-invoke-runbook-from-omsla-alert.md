@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a10be867965eef9746a0f4cc9b14c4fc429f6e35
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Appeler un runbook Azure Automation à partir d’une alerte Log Analytics
 
@@ -101,7 +101,7 @@ Si vous êtes dépourvu de compte Automation lié à votre espace de travail Ope
 >[!NOTE]
 > Si vous avez mis à niveau votre espace de travail vers le [nouveau langage de requête Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), la charge utile du Webhook a changé. Vous trouverez les détails du format dans la page [API REST Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur les alertes de Log Analytics et sur leur création, consultez [Alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md).
 

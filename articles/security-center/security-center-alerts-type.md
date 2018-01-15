@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
 Cet article vous aide à comprendre les différents types d’alertes de sécurité et les informations associées disponibles dans Azure Security Center. Pour plus d’informations sur la gestion des alertes et des incidents, consultez l’article [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Informations d’identification de document suspectes** : cette alerte indique qu’un hachage de mot de passe précalculé, commun et suspect est utilisé par des programmes malveillants pour exécuter un fichier.
 * **Construction de script dynamique PS**: cette alerte indique la construction dynamique d’un script PowerShell. Les attaquants utilisent cette technique pour générer un script progressivement afin d’échapper aux systèmes IDS.
 * **Indicateurs Metaploit** : cette alerte indique une activité associée à l’infrastructure Metasploit, qui fournit une gamme d’outils et de fonctionnalités à un attaquant.
-* **Falsification de SENSE** : cette alerte indique une tentative de désactivation de SENSE, le service de surveillance de sécurité de Windows Defender ATP.
 * **Activité de compte suspecte** : cette alerte indique une tentative de connexion à une machine à l’aide d’un compte récemment compromis.
 * **Accès suspect possible à des tâches de planification** : cette alerte indique l’exécution d’une tâche cron, pouvant être utilisée par des attaquants pour exécuter des logiciels malveillants selon une planification.
 * **Accès suspect possible d’un fichier d’historique de commandes** : cette alerte indique un accès anormal à un fichier d’historique de commandes.
@@ -189,7 +188,7 @@ La détection des menaces sur le réseau assurée par Azure Security Center fonc
 
 Dans Security Center, l’analyse des ressources se concentre sur les services PaaS, comme l’intégration avec la fonctionnalité de [détection des menaces de la base de données SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection). Selon les résultats de l’analyse de ces zones, Azure Security Center déclenche une alerte associée aux ressources.
 
-* **Injection SQL potentielle** : Une attaque par injection de code SQL est une attaque dans laquelle un code malveillant est inséré dans les chaînes transmises ultérieurement à une instance de SQL Server pour analyse et exécution. Toute procédure qui construit des instructions SQL doit être analysée pour rechercher les vulnérabilités d’injection, car SQL Server exécutera toutes les requêtes syntaxiquement valides qu’il reçoit. La fonctionnalité de détection des menaces SQL utilise l’apprentissage machine, l’analyse comportementale et la détection d’anomalie pour déterminer les événements suspects pouvant survenir dans les bases de données SQL Azure. Par exemple : 
+* **Injection SQL potentielle** : Une attaque par injection de code SQL est une attaque dans laquelle un code malveillant est inséré dans les chaînes transmises ultérieurement à une instance de SQL Server pour analyse et exécution. Toute procédure qui construit des instructions SQL doit être analysée pour rechercher les vulnérabilités d’injection, car SQL Server exécutera toutes les requêtes syntaxiquement valides qu’il reçoit. La fonctionnalité de détection des menaces SQL utilise l’apprentissage machine, l’analyse comportementale et la détection d’anomalie pour déterminer les événements suspects pouvant survenir dans les bases de données SQL Azure. Par exemple :  
     * Tentative d’accès à la base de données par un ancien employé
     * Attaques par injection de code SQL
     * Accès inhabituel à une base de données de production par un utilisateur à son domicile
@@ -208,8 +207,8 @@ Si des informations supplémentaires sont disponibles, elles s’affichent dans 
 ![Alerte d’accès inhabituel](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
 
 
-## <a name="next-steps"></a>Étapes suivantes
-Cet article vous a présenté les différents types d’alertes de sécurité dans Azure Security Center. Pour plus d’informations sur Security Center, consultez :
+## <a name="next-steps"></a>étapes suivantes
+Cet article vous a présenté les différents types d’alertes de sécurité dans Azure Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Gestion des incidents de sécurité dans Azure Security Center](security-center-incident.md)
 * [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md)

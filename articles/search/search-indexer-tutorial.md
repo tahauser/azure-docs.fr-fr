@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Comment analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
 
@@ -38,7 +38,7 @@ Dans ce didacticiel, vous effectuez les tâches suivantes à l’aide des [ bibl
 > * Rechercher l’index
 > * Afficher la configuration de l’indexeur dans le portail
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free/). 
 
@@ -119,7 +119,7 @@ Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l�
 
 L’exercice suivant suppose l’absence de serveur ou de base de données existante et vous invite à créer les deux lors de l’étape 2. Éventuellement, si vous disposez d’une ressource, vous pouvez y ajouter la table hôtels, en commençant à l’étape 4.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/). 
 
 2. Cliquez sur **Nouveau** > **Base de données SQL** pour créer une base de données, un serveur et un groupe de ressources. Vous pouvez utiliser les valeurs par défaut et le niveau de tarification le moins élevé. Un des avantages lié à la création d’un serveur est de pouvoir spécifier un nom d’utilisateur administrateur et le mot de passe nécessaire pour la création et le chargement des tables lors d’une étape ultérieure.
 
@@ -281,13 +281,13 @@ Si vous ne prévoyez pas de continuer à utiliser ces services, utilisez les ét
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
 2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer le groupe de ressources**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations et pour connaître les tâches spécifiques aux autres sources de données pris en charge, consultez les articles suivants :
 
 * [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Stockage Table Azure](search-howto-indexing-azure-tables.md)
 * [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexation d’objets blob CSV avec l’indexeur d’objets blob Recherche Azure](search-howto-index-csv-blobs.md)
 * [Indexation d’objets blob JSON avec l’indexeur d’objets blob Recherche Azure](search-howto-index-json-blobs.md)

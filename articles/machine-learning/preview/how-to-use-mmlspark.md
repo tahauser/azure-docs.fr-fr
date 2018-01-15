@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 01/12/2018
+ms.openlocfilehash: f978805f800a35908629a6febb59d7db50d14023
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Guide pratique pour utiliser la bibliothèque Microsoft Machine Learning pour Apache Spark
 
@@ -25,7 +25,7 @@ La [bibliothèque MMLSpark](https://github.com/Azure/mmlspark) (Microsoft Machin
  * Caractérisation des images et du texte à l’aide de modèles d’apprentissage profond préformés
  * Formez et évaluez des modèles de classification et de régression à l’aide d’une caractérisation implicite.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour parcourir ce guide pratique, vous devez :
 - [Installer Azure Machine Learning Workbench](quickstart-installation.md)
@@ -56,7 +56,7 @@ repositories:
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7.9"
+    version: "0.9.9"
 ```
 
 Vous pouvez également installer MMLSpark directement sur votre cluster HDInsight Spark à l’aide d’une [action de script](https://github.com/Azure/mmlspark#hdinsight).
@@ -83,7 +83,7 @@ Revenez au tableau de bord du projet de l’exemple « MMLSpark sur Adult Censu
 
 Azure Machine Learning Workbench soumet le travail Spark au cluster. Vous pouvez surveiller la progression et afficher les résultats dans la vue de l’historique des exécutions.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur la bibliothèque MMLSpark et pour obtenir des exemples, consultez [Dépôt GitHub MMLSpark](https://github.com/Azure/mmlspark).
 
 *Apache®, Apache Spark et Spark® sont soit des marques déposées, soit des marques commerciales d’Apache Software Foundation aux États-Unis et/ou dans d’autres pays.*

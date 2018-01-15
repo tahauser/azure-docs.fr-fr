@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modèles de page dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -32,7 +32,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 -   [Page introuvable](#PageNotFound)  
   
 > [!NOTE]
->  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="SignIn"></a> Connexion  
  Le modèle de **connexion** vous permet de personnaliser la page de connexion dans le portail des développeurs.  
@@ -108,16 +108,16 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a> Inscription  
@@ -223,13 +223,13 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 ### <a name="data-model"></a>Modèle de données  
   
-|Propriété|Type|Description|  
+|Propriété|type|DESCRIPTION|  
 |--------------|----------|-----------------|  
-|referenceCode|string|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|errorCode|string|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|emailBody|string|Corps d’e-mail généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|requestedUrl|string|URL demandée quand la page est introuvable.|  
-|referrerUrl|string|URL de point d’accès pointant vers l’URL demandée.|  
+|referenceCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|errorCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|emailBody|chaîne|Corps d’e-mail généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|requestedUrl|chaîne|URL demandée quand la page est introuvable.|  
+|referrerUrl|chaîne|URL de point d’accès pointant vers l’URL demandée.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   
@@ -243,5 +243,5 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 }  
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
+## <a name="next-steps"></a>étapes suivantes
+Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

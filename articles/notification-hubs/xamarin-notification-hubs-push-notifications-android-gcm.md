@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 4cb3aaa3d4e577e45f01f245d3898c033092f5a3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7f978ecd128115e5f2fe562da46d8b29324e3d04
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Prise en main de Notification Hubs pour les applications Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel vous montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Xamarin.Android. Vous allez créer une application Xamarin.Android vide qui reçoit des notifications Push à l’aide de Firebase Cloud Messaging (FCM). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application. Le code finalisé est disponible dans l’exemple [Application NotificationHubs][GitHub].
 
 Ce didacticiel présente un scénario de diffusion simple utilisant les Notification Hubs.
@@ -33,7 +33,7 @@ Ce didacticiel présente un scénario de diffusion simple utilisant les Notifica
 
 Le code complet de ce didacticiel est disponible sur GitHub [ici][GitHub].
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 Ce didacticiel requiert les éléments suivants :
 
 * [Visual Studio avec Xamarin] pour Windows ou [Visual Studio pour Mac] sur OS X.
@@ -304,7 +304,7 @@ Dans cet exemple simple, vous avez diffusé des notifications à tous vos appare
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio avec Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Visual Studio avec Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio pour Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
 [portail Azure]: https://portal.azure.com/

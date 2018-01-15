@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/30/2017
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser la gestion des mises à jour pour gérer les mises à jour 
 - Planifier l’installation des mises à jour requises.
 - Passer en revue les résultats du déploiement pour vérifier que les mises à jour ont été appliquées correctement à toutes les machines virtuelles pour lesquelles la gestion des mises à jour est activée.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser la gestion des mises à jour, vous devez avoir :
 
@@ -110,12 +110,12 @@ Les agents installés sur des machines et ordinateurs virtuels collectent des do
 
 Le tableau suivant décrit les sources connectées prises en charge par cette solution :
 
-| Source connectée | Pris en charge | Description |
+| Source connectée | Prise en charge | DESCRIPTION |
 | --- | --- | --- |
 | Agents Windows |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
 | Agents Linux |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
 | Groupe d’administration d’Operations Manager |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
-| Compte Azure Storage |Non |Le stockage Azure n’inclut aucune information sur les mises à jour du système. |
+| Compte Azure Storage |Non  |Le stockage Azure n’inclut aucune information sur les mises à jour du système. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 
@@ -180,7 +180,7 @@ Pour voir le flux des tâches du runbook qui gère le déploiement des mises à 
 
 Pour afficher les informations détaillées sur les erreurs du déploiement, sélectionnez **Erreurs**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur la gestion des mises à jour (y compris les journaux, la sortie et les erreurs), consultez [Solution de gestion des mises à jour dans OMS](../operations-management-suite/oms-solution-update-management.md).
 

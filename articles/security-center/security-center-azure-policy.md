@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Intégrer des stratégies de sécurité Security Center avec Azure Policy
-Cet article est conçu pour vous aider à configurer les stratégies de sécurité Azure Security Center offertes par Azure Policy. 
+Cet article est conçu pour vous aider à configurer les stratégies de sécurité Azure Security Center offertes par Azure Policy.
 
 ## <a name="how-security-policies-work"></a>Fonctionnement des stratégies de sécurité
 Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Vous pouvez modifier les stratégies dans Security Center ou utiliser [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) pour effectuer les opérations suivantes :
@@ -51,7 +51,7 @@ Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos 
 5. Pour supprimer une définition de stratégie, sous **Stratégies et paramètres**, sélectionnez **Supprimer** en regard de la définition que vous voulez supprimer.
 
 6. Cliquez sur **Enregistrer**.  
-    La fenêtre **Définitions disponibles** s’ouvre, affichant la stratégie par défaut qui est attribuée à Security Center via Azure Policy. 
+    La fenêtre **Définitions disponibles** s’ouvre, affichant la stratégie par défaut qui est attribuée à Security Center via Azure Policy.
 
 7. (Facultatif) Dans la fenêtre **Définitions disponibles**, effectuez l’une des opérations suivantes :
 
@@ -68,15 +68,15 @@ Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos 
 
 ## <a name="available-security-policy-definitions"></a>Définitions de stratégie de sécurité disponibles
 
-Référez-vous au tableau suivant afin de comprendre les définitions de stratégies qui sont disponibles dans la stratégie de sécurité par défaut : 
+Référez-vous au tableau suivant afin de comprendre les définitions de stratégies qui sont disponibles dans la stratégie de sécurité par défaut :
 
 | Stratégie | Ce que fait la stratégie activée |
 | --- | --- |
 | Mises à jour système |Une liste quotidienne des mises à jour de sécurité et critiques disponibles est récupérée à partir de Windows Update ou de Windows Server Update Services. La liste récupérée dépend du service configuré pour vos machines virtuelles et recommande d’appliquer les mises à jour manquantes. Pour les systèmes Linux, la stratégie utilise le système de gestion des packages fournis par un distributeur afin de déterminer pour quels packages des mises à jour sont disponibles. Elle vérifie également la disponibilité des mises à jour de sécurité et critiques à partir des machines virtuelles des [Services cloud Azure](../cloud-services/cloud-services-how-to-configure-portal.md). |
-| Vulnérabilités du système d’exploitation |Analyse les configurations de système d’exploitation tous les jours afin d’identifier les problèmes susceptibles de rendre la machine virtuelle vulnérable aux attaques. Cette stratégie recommande également des modifications de configuration pour résoudre ces vulnérabilités. Consultez la [liste des règles de base recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations spécifiques surveillées. (À ce stade, Windows Server 2016 n'est pas entièrement pris en charge.) |
+| Configurations de sécurité |Analyse les configurations de système d’exploitation tous les jours afin d’identifier les problèmes susceptibles de rendre la machine virtuelle vulnérable aux attaques. Cette stratégie recommande également des modifications de configuration pour résoudre ces vulnérabilités. Consultez la [liste des règles de base recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations spécifiques surveillées. (À ce stade, Windows Server 2016 n'est pas entièrement pris en charge.) |
 | Protection du point de terminaison |Recommande la configuration de la protection du point de terminaison pour toutes les machines virtuelles (VM) Windows afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants. |
 | Chiffrement de disque |Recommande d’activer le chiffrement de disque dans toutes les machines virtuelles pour améliorer la protection des données au repos. |
-| groupes de sécurité réseau ; |Recommande la configuration de [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour contrôler le trafic entrant et sortant vers les machines virtuelles dotées de points de terminaison publics. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. En plus de vérifier si un groupe de sécurité réseau a été configuré, cette stratégie évalue les règles de sécurité de trafic entrant afin d’identifier les règles autorisant le trafic entrant. |
+| Groupes de sécurité réseau |Recommande la configuration de [Groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour contrôler le trafic entrant et sortant vers les machines virtuelles dotées de points de terminaison publics. Les groupes de sécurité réseau configurés pour un sous-réseau sont hérités par toutes les interfaces réseau de machine virtuelle, sauf indication contraire. En plus de vérifier si un groupe de sécurité réseau a été configuré, cette stratégie évalue les règles de sécurité de trafic entrant afin d’identifier les règles autorisant le trafic entrant. |
 | Pare-feu d’application web |Recommande la configuration d’un pare-feu d’applications web sur les machines virtuelles lorsque l’une des conditions suivantes est remplie : <ul><li>Une [adresse IP publique de niveau d’instance](../virtual-network/virtual-networks-instance-level-public-ip.md) est utilisée et les règles de sécurité entrantes pour le groupe de sécurité réseau associé sont configurées pour autoriser l’accès au port 80/443.</li><li>Une adresse IP à équilibrage de charge est utilisée et les règles associées d’équilibrage de charge et NAT (Network Access Translation) de trafic entrant sont configurées pour autoriser l’accès au port 80 ou 443. Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](../load-balancer/load-balancer-arm.md).</li> |
 | Pare-feu de nouvelle génération |Étend les protections du réseau au-delà des groupes de sécurité réseau intégrés à Azure. Security Center détecte les déploiements pour lesquels un pare-feu de nouvelle génération est recommandé et vous permet ensuite de configurer une appliance virtuelle. |
 | Audit SQL et détection des menaces |Recommande l’activation de l’audit de l’accès à Azure SQL Database à des fins de conformité et de détection avancée des menaces et d’examen. |
@@ -86,7 +86,7 @@ Référez-vous au tableau suivant afin de comprendre les définitions de straté
 | Accès réseau JIT |Lorsque la fonctionnalité d’accès réseau Juste à temps est activée, Security Center verrouille le trafic entrant vers vos machines virtuelles Azure en créant une règle de groupe de sécurité réseau. Vous sélectionnez les ports de la machine virtuelle pour lesquels le trafic entrant doit être verrouillé. Pour plus d’informations, consultez [Gérer l’accès Juste à temps à la machine virtuelle](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à configurer des stratégies de sécurité dans le Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
 * [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) : découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync : Référence aux fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -103,7 +103,7 @@ Cette fonction convertit les deux paramètres de la représentation binaire et d
 
 En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits correspondants de ces deux paramètres sont définis sur 1.
 
-**Exemple :**  
+**Exemple :**  
 `BitAnd(&HF, &HF7)`  
 Renvoie 7, car les valeurs hexadécimales « F » ET « F7 » donnent cette valeur.
 
@@ -131,7 +131,7 @@ La fonction CBool renvoie une valeur booléenne basée sur l’expression évalu
 **Remarques :**  
 Si l’expression renvoie une valeur autre que zéro, CBool renvoie la valeur True, sinon elle renvoie False.
 
-**Exemple :**  
+**Exemple :**  
 `CBool([attrib1] = [attrib2])`  
 
 Retourne True si les attributs ont la même valeur.
@@ -149,18 +149,12 @@ La fonction CDate renvoie une valeur DateTime UTC à partir d’une chaîne. Dat
 **Remarques :**  
 La chaîne renvoyée est toujours au format UTC.
 
-**Exemple :**  
+**Exemple :**  
 `CDate([employeeStartTime])`  
 Renvoie une valeur DateTime à partir de l’heure de début de l’employé.
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Renvoie une valeur DateTime représentant « 2013-01-11 12:00 AM ».
-
-
-
-
-
-
 
 
 - - -
@@ -384,7 +378,7 @@ Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été
 Pour les attributs de chaîne à valeurs multiples, la recherche détecte des sous-chaînes dans les valeurs.  
 Pour les attributs de référence, la chaîne recherchée doit correspondre exactement à la valeur pour être considérée comme une correspondance.
 
-**Exemple :**  
+**Exemple :**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 Si l’attribut proxyAddresses a une adresse de messagerie principale (indiquée par « SMTP : »), cette fonction renvoie l’attribut proxyAddress. Sinon, elle renvoie une erreur.
 
@@ -420,7 +414,7 @@ La fonction ConvertFromUTF8Hex convertit la valeur encodée hexadécimale UTF8 s
 La différence entre cette fonction et ConvertFromBase64(,UTF8) est que le résultat est convivial pour l’attribut DN.  
 Ce format est utilisé par Azure Active Directory en tant que nom de domaine.
 
-**Exemple :**  
+**Exemple :**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 Renvoie «*Hello world!*».
 
@@ -433,7 +427,7 @@ Convertit la valeur d’un tableau d’entiers en sa représentation sous forme 
 **Syntaxe :**  
 `str ConvertToBase64(str source)`
 
-**Exemple :**  
+**Exemple :**  
 `ConvertToBase64("Hello world!")`  
 Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
 
@@ -448,7 +442,7 @@ La fonction ConvertToUTF8Hex convertit une chaîne en valeur hexadécimale encod
 **Remarques :**  
 Le format de sortie de cette fonction est utilisé par Azure Active Directory en tant que format d’attribut de nom de domaine.
 
-**Exemple :**  
+**Exemple :**  
 `ConvertToUTF8Hex("Hello world!")`  
 Renvoie 48656C6C6F20776F726C6421.
 
@@ -476,7 +470,7 @@ Convertit une chaîne en attribut de référence.
 **Syntaxe :**  
 `ref CRef(str value)`
 
-**Exemple :**  
+**Exemple :**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
 - - -
@@ -491,7 +485,7 @@ La fonction CStr convertit en un type de données de chaîne.
 
 * valeur : peut être une valeur numérique, un attribut de référence ou une valeur booléenne.
 
-**Exemple :**  
+**Exemple :**  
 `CStr([dn])`  
 Peut renvoyer « cn=Joe,dc=contoso,dc=com ».
 
@@ -517,7 +511,7 @@ Renvoie un objet Date contenant une date à laquelle un intervalle de temps spé
 * valeur : nombre d’unités que vous souhaitez ajouter. Elle peut être positive (pour obtenir des dates dans le futur) ou négative (pour obtenir des dates dans le passé).
 * date : DateTime représentant la date à laquelle l’intervalle est ajouté.
 
-**Exemple :**  
+**Exemple :**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 Ajoute 3 mois et renvoie une valeur DateTime représentant « 2001-04-01 ».
 
@@ -529,7 +523,7 @@ La fonction DateFromNum convertit une valeur au format de date AD en un type Dat
 **Syntaxe :**  
 `dt DateFromNum(num value)`
 
-**Exemple :**  
+**Exemple :**  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
 Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
@@ -545,8 +539,8 @@ La fonction DNComponent renvoie la valeur d’un composant de nom de domaine sp�
 * dn : attribut de référence à interpréter
 * ComponentNumber : composant du nom de domaine à renvoyer
 
-**Exemple :**  
-`DNComponent([dn],1)`  
+**Exemple :**  
+`DNComponent(CRef([dn]),1)`  
 Si dn est « cn=Joe,ou=… », la fonction renvoie Joe.
 
 - - -
@@ -562,10 +556,10 @@ La fonction DNComponentRev renvoie la valeur d’un composant de nom de domaine 
 * ComponentNumber - composant du nom de domaine à retourner
 * Options : contrôleur de domaine – ignorer tous les composants avec « dc = »
 
-**Exemple :**  
+**Exemple :**  
 Si le nom de domaine est « cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com », alors  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Renvoient US.
 
 - - -
@@ -576,7 +570,7 @@ La fonction Error sert à renvoyer une erreur personnalisée.
 **Syntaxe :**  
 `void Error(str ErrorMessage)`
 
-**Exemple :**  
+**Exemple :**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 Si l’attribut accountName n’est pas présent, renvoie une erreur sur l’objet.
 
@@ -588,7 +582,7 @@ La fonction EscapeDNComponent prend un composant de nom de domaine et l’isole 
 **Syntaxe :**  
 `str EscapeDNComponent(str value)`
 
-**Exemple :**  
+**Exemple :**  
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Permet de s’assurer que l’objet peut être créé dans un annuaire LDAP, même si l’attribut displayName comporte des caractères d’échappement dans LDAP.
 
@@ -606,7 +600,7 @@ La fonction FormatDateTime sert à mettre en forme une valeur DateTime en chaîn
 **Remarques :**  
 Vous trouverez les valeurs de format possibles ici : [Formats de date/heure définis par l’utilisateur (fonction Format)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
-**Exemple :**  
+**Exemple :**  
 
 `FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
 Renvoie comme résultat « 2007-12-25 ».
@@ -634,7 +628,7 @@ La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fon
 * valueIfTrue : la valeur renvoyée si la condition prend la valeur true.
 * valueIfFalse : la valeur renvoyée si la condition prend la valeur false.
 
-**Exemple :**  
+**Exemple :**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  Renvoie l’alias d’un utilisateur avec le préfixe « t- » si l’utilisateur est stagiaire. Sinon, l’alias reste inchangé.
 
@@ -657,7 +651,7 @@ La fonction InStr recherche la première occurrence d’une sous-chaîne dans un
 **Remarques :**  
 Renvoie la position à laquelle la sous-chaîne a été trouvée, ou 0 si elle est introuvable.
 
-**Exemple :**  
+**Exemple :**  
 `InStr("The quick brown fox","quick")`  
 Prend la valeur 5.
 
@@ -682,7 +676,7 @@ La fonction InStrRev recherche la dernière occurrence d’une sous-chaîne dans
 **Remarques :**  
 Renvoie la position à laquelle la sous-chaîne a été trouvée, ou 0 si elle est introuvable.
 
-**Exemple :**  
+**Exemple :**  
 `InStrRev("abbcdbbbef","bb")`  
 Renvoie 7.
 
@@ -696,7 +690,7 @@ La fonction IsBitSet vérifie si un bit est ou non défini.
 
 * value : valeur numérique évaluée. flag : valeur numérique contenant le bit à évaluer
 
-**Exemple :**  
+**Exemple :**  
 `IsBitSet(&HF,4)`  
 Renvoie True, car le bit « 4 » est défini dans la valeur hexadécimale « F ».
 
@@ -740,7 +734,7 @@ Un GUID est défini en tant que chaîne en fonction de l’un de ces modèles : 
 
 Utilisé pour déterminer si CGuid() peut aboutir.
 
-**Exemple :**  
+**Exemple :**  
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 Si StrAttribute est au format GUID, renvoie une représentation binaire. Sinon, renvoie la valeur Null.
 
@@ -755,7 +749,7 @@ La fonction IsNull renvoie true si l’expression correspond à la valeur Null.
 **Remarques :**  
 Dans le cas d’un attribut, la valeur Null est exprimée par l’absence de ce dernier.
 
-**Exemple :**  
+**Exemple :**  
 `IsNull([displayName])`  
 Renvoie True si l’attribut est absent dans CS ou MV.
 
@@ -771,7 +765,7 @@ La fonction IsNullOrEmpty renvoie la valeur true si l’expression a pour valeur
 Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.  
 L’inverse de cette fonction est nommé IsPresent.
 
-**Exemple :**  
+**Exemple :**  
 `IsNullOrEmpty([displayName])`  
 Renvoie True si l’attribut est absent dans CS ou MV ou s’il s’agit d’une chaîne vide.
 
@@ -808,7 +802,7 @@ La fonction IsPresent renvoie true si l’expression correspond à une chaîne q
 **Remarques :**  
 L’inverse de cette fonction est appelé IsNullOrEmpty.
 
-**Exemple :**  
+**Exemple :**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 - - -
@@ -827,7 +821,7 @@ la fonction Item est utile si utilisée avec la fonction Contains, car cette der
 
 Génère une erreur si l’index est hors limites.
 
-**Exemple :**  
+**Exemple :**  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Renvoie l’adresse de messagerie principale.
 
@@ -862,7 +856,7 @@ La fonction Join prend une chaîne à valeurs multiples et renvoie une chaîne �
 **Remarques**  
 Il existe une parité entre les fonctions Join et Split. La fonction Join prend un tableau de chaînes et les joint à l’aide d’une chaîne de délimiteur, pour renvoyer une chaîne unique. La fonction Split accepte une chaîne et la sépare au niveau du délimiteur, pour renvoyer un tableau de chaînes. Toutefois, la principale différence est que Join peut concaténer des chaînes avec n’importe quelle chaîne de délimiteur, Split peut uniquement séparer des chaînes à l’aide d’un délimiteur de caractère unique.
 
-**Exemple :**  
+**Exemple :**  
 `Join([proxyAddresses],",")`  
 Peut retourner : « SMTP:john.doe@contoso.com,smtp:jd@contoso.com »
 
@@ -874,7 +868,7 @@ La fonction LCase convertit tous les caractères d’une chaîne en minuscules.
 **Syntaxe :**  
 `str LCase(str value)`
 
-**Exemple :**  
+**Exemple :**  
 `LCase("TeSt")`  
 Renvoie « test ».
 
@@ -898,7 +892,7 @@ Chaîne contenant les numChars premiers caractères de la chaîne :
 
 Si la chaîne contient moins de caractères que le nombre spécifié dans numChars, une chaîne identique à la chaîne (c’est-à-dire, contenant tous les caractères du paramètre 1) est renvoyée.
 
-**Exemple :**  
+**Exemple :**  
 `Left("John Doe", 3)`  
 Renvoie « Joh ».
 
@@ -910,7 +904,7 @@ La fonction Len renvoie le nombre de caractères contenus dans une chaîne.
 **Syntaxe :**  
 `num Len(str value)`
 
-**Exemple :**  
+**Exemple :**  
 `Len("John Doe")`  
 Renvoie 8.
 
@@ -922,7 +916,7 @@ La fonction LTrim supprime les espaces blancs situés au début d’une chaîne.
 **Syntaxe :**  
 `str LTrim(str value)`
 
-**Exemple :**  
+**Exemple :**  
 `LTrim(" Test ")`  
 Renvoie « Test ».
 
@@ -950,7 +944,7 @@ Chaîne contenant numChars caractères à partir de la position de départ dans 
 
 S’il ne reste pas numChars caractères dans la chaîne à partir de la position de départ, autant de caractères que possible sont renvoyés.
 
-**Exemple :**  
+**Exemple :**  
 `Mid("John Doe", 3, 5)`  
 Renvoie « hn Do ».
 
@@ -973,7 +967,7 @@ La fonction NumFromDate renvoie une date au format de date AD.
 **Syntaxe :**  
 `num NumFromDate(dt value)`
 
-**Exemple :**  
+**Exemple :**  
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 Renvoie 129699324000000000.
 
@@ -998,7 +992,7 @@ La fonction PadLeft remplit par la gauche une chaîne sur une longueur spécifi�
 * Si la longueur de chaîne est inférieure à la longueur length, une nouvelle chaîne de longueur souhaitée est retournée, et contient une chaîne remplie avec un padCharacter.
 * Si la chaîne est null, la fonction retourne une chaîne vide.
 
-**Exemple :**  
+**Exemple :**  
 `PadLeft("User", 10, "0")`  
 Renvoie « 000000User ».
 
@@ -1023,7 +1017,7 @@ La fonction PadRight remplit par la droite une chaîne sur une longueur spécifi
 * Si la longueur de chaîne est inférieure à la longueur length, une nouvelle chaîne de longueur souhaitée est retournée, et contient une chaîne remplie avec un padCharacter.
 * Si la chaîne est null, la fonction retourne une chaîne vide.
 
-**Exemple :**  
+**Exemple :**  
 `PadRight("User", 10, "0")`  
 Renvoie « User000000 ».
 
@@ -1039,7 +1033,7 @@ La fonction PCase met en majuscule le premier caractère de chaque mot délimit�
 
 * Cette fonction ne fournit pas pour le moment de casse appropriée pour convertir un mot qui est entièrement en majuscules, par exemple un sigle.
 
-**Exemple :**  
+**Exemple :**  
 `PCase("TEsT")`  
 Renvoie « test ».
 
@@ -1057,7 +1051,7 @@ La fonction RandomNum renvoie un nombre aléatoire dans un intervalle spécifié
 * start : nombre identifiant la limite inférieure de la valeur aléatoire à générer
 * end : nombre identifiant la limite supérieure de la valeur aléatoire à générer
 
-**Exemple :**  
+**Exemple :**  
 `Random(100,999)`  
 Peut renvoyer 734.
 
@@ -1069,7 +1063,7 @@ La fonction RemoveDuplicates prend une chaîne à valeurs multiples et vérifie 
 **Syntaxe :**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
-**Exemple :**  
+**Exemple :**  
 `RemoveDuplicates([proxyAddresses])`  
 Renvoie un attribut proxyAddress expurgé duquel toutes les valeurs en double ont été supprimées.
 
@@ -1092,7 +1086,7 @@ La fonction reconnaît les monikers spéciaux suivants :
 * \r – Retour chariot
 * \t – Tabulation
 
-**Exemple :**  
+**Exemple :**  
 `Replace([address],"\r\n",", ")`  
 Remplace CRLF par une virgule et un espace, et peut générer « One Microsoft Way, Redmond, WA, USA ».
 
@@ -1120,7 +1114,7 @@ Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, 
 * La , (Virgule) et : (deux-points) sont des caractères réservés et ne peuvent pas être remplacés avec cette fonction.
 * Les espaces et autres caractères blancs dans la chaîne ReplacePattern sont ignorés.
 
-**Exemple :**  
+**Exemple :**  
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)`  
@@ -1151,7 +1145,7 @@ Chaîne contenant les numChars derniers caractères de la chaîne :
 
 Si la chaîne contient un nombre de caractères inférieur au nombre spécifié dans numChars, une chaîne identique est renvoyée.
 
-**Exemple :**  
+**Exemple :**  
 `Right("John Doe", 3)`  
 Renvoie « Doe ».
 
@@ -1163,7 +1157,7 @@ La fonction RTrim supprime les espaces blancs situés à la fin d’une chaîne.
 **Syntaxe :**  
 `str RTrim(str value)`
 
-**Exemple :**  
+**Exemple :**  
 `RTrim(" Test ")`  
 Renvoie « Test ».
 
@@ -1198,7 +1192,7 @@ La fonction Split prend une chaîne séparée par un délimiteur et en fait une 
 * delimiter : caractère unique à utiliser comme délimiteur.
 * limit : nombre maximal de valeurs qu’il est possible de renvoyer.
 
-**Exemple :**  
+**Exemple :**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 Renvoie une chaîne à valeurs multiples avec 2 éléments utiles pour l’attribut proxyAddress.
 
@@ -1243,7 +1237,7 @@ Switch évalue toutes les expressions, même si elle n’en renvoie qu’une. Po
 
 La valeur peut être également la fonction Error qui renvoie une chaîne personnalisée.
 
-**Exemple :**  
+**Exemple :**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 Renvoie la langue parlée dans certaines grandes villes ; sinon, renvoie une erreur.
 
@@ -1255,7 +1249,7 @@ La fonction Trim supprime les espaces blancs situés au début et à la fin d’
 **Syntaxe :**  
 `str Trim(str value)`  
 
-**Exemple :**  
+**Exemple :**  
 `Trim(" Test ")`  
 Renvoie « test ».
 
@@ -1270,7 +1264,7 @@ La fonction UCase convertit tous les caractères d’une chaîne en majuscules.
 **Syntaxe :**  
 `str UCase(str string)`
 
-**Exemple :**  
+**Exemple :**  
 `UCase("TeSt")`  
 Renvoie « test ».
 
@@ -1288,7 +1282,7 @@ Retourne un sous-ensemble de valeurs d’un attribut à valeurs multiples (ou la
 * condition : toute expression pouvant avoir la valeur true ou false
 * expression : expression qui retourne une collection de valeurs
 
-**Exemple :**  
+**Exemple :**  
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 Retourne les valeurs de certificat de l’attribut à valeurs multiples userCertificate qui n’ont pas expiré.
 
@@ -1303,7 +1297,7 @@ La fonction With permet de simplifier une expression complexe en utilisant une v
 * subExpression : sous-expression représentée par une variable.
 * complexExpression : expression complexe.
 
-**Exemple :**  
+**Exemple :**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
 Fonctionnellement équivalent à :  
 `IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
@@ -1330,7 +1324,7 @@ Chaque chaîne de caractères contenue dans la chaîne séparée par l’un des 
 
 Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par les séparateurs, une chaîne vide est renvoyée.
 
-**Exemple :**  
+**Exemple :**  
 `Word("The quick brown fox",3," ")`  
 Retourne « brown ».
 

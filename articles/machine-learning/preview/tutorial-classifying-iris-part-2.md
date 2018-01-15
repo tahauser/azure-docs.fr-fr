@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Classification d’Iris, partie 2 : générer un modèle
 Les services Azure Machine Learning (version préliminaire) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -34,7 +34,7 @@ Ce didacticiel est le deuxième d’une série de trois. Dans cette partie du di
 
 Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporel. Les captures d’écran sont spécifiques à Windows, mais l’expérience Mac OS est presque identique.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 Terminez la première partie de cette série de didacticiels. Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Azure Machine Learning et installer l’application Azure Machine Learning Workbench avant de commencer les étapes de ce didacticiel.
 
 Vous pouvez essayer d’exécuter des scripts dans un conteneur Docker local (facultatif). Pour ce faire, un moteur Docker (l’édition Community est suffisante) doit être installé et démarré en local sur votre machine Windows ou Mac OS. Pour plus d’informations sur l’installation de Docker, consultez les [Instructions d’installation de Docker](https://docs.docker.com/engine/installation/).
@@ -345,7 +345,8 @@ Pour exécuter votre script dans un conteneur Docker sur une machine Linux dista
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Exécuter le script dans un cluster HDInsight
 Vous pouvez également exécuter ce script dans un cluster HDInsight Spark. Découvrez [comment créer un cluster HDInsight Spark à utiliser dans Azure Machine Learning Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
->![REMARQUE] Le cluster HDInsight doit utiliser Stockage Blob Azure en tant que stockage principal. L’utilisation du stockage Azure Data Lake n’est pas encore prise en charge.
+>[!NOTE] 
+>Le cluster HDInsight doit utiliser Stockage Blob Azure comme stockage principal. L’utilisation du stockage Azure Data Lake n’est pas encore prise en charge.
 
 1. Si vous avez accès à un cluster Spark pour Azure HDInsight, générez une commande de configuration d’exécution HDInsight, comme indiqué ici. Indiquez comme paramètres le nom du cluster HDInsight, ainsi que vos nom d’utilisateur et mot de passe HDInsight. Utilisez la commande suivante :
 

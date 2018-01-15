@@ -3,7 +3,7 @@ title: "Recommandations en matière d’optimisation des performances pour l’u
 description: "Conseils en matière d’amélioration des performances lors de l’utilisation d’Azure PowerShell avec Data Lake Store"
 services: data-lake-store
 documentationcenter: 
-author: nitinme
+author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 49404c7df6423a20c71347e4a764d5626110310e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/09/2018
+ms.author: stewu
+ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Recommandations en matière d’optimisation des performances pour l’utilisation de PowerShell avec Azure Data Lake Store
 
@@ -25,7 +25,7 @@ Cet article répertorie les propriétés que vous pouvez ajuster pour optimiser 
 
 ## <a name="performance-related-properties"></a>Propriétés associées aux performances
 
-| Propriété            | Default | Description |
+| Propriété            | Default | DESCRIPTION |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Ce paramètre vous permet de choisir le nombre de threads parallèles pour charger ou télécharger chaque fichier. Cette valeur représente le nombre maximal de threads pouvant être alloués par fichier, mais il est possible que vous obteniez un nombre de threads inférieur en fonction du scénario (par exemple, si vous chargez un fichier de 1 Ko, vous n’obtenez qu’un seul thread, même si vous en demandez 20).  |
 | ConcurrentFileCount | 10      | Ce paramètre est spécifique au chargement ou au téléchargement des dossiers. Il détermine le nombre de fichiers simultanés pouvant être chargés ou téléchargés. Cette valeur représente le nombre maximal de fichiers simultanés pouvant être chargés ou téléchargés en une seule opération, mais il se peut que vous en obteniez moins en fonction du scénario (par exemple, si vous chargez deux fichiers, vous obtenez deux chargements de fichiers simultanés, même si vous en demandez 15). |
@@ -93,8 +93,8 @@ Vous pouvez continuer à ajuster ces paramètres en augmentant et en diminuant l
 
 * **Erreurs de limitation** : il se peut que vous rencontriez des erreurs de limitation si le nombre d’accès concurrentiels est trop élevé. En cas d’erreurs de limitation, vous devez réduire le nombre d’accès simultanés ou nous contacter.
 
-## <a name="next-steps"></a>Étapes suivantes
-* [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
+## <a name="next-steps"></a>étapes suivantes
+* [Utiliser Azure Data Lake Store pour les données volumineuses](data-lake-store-data-scenarios.md) 
 * [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
 * [Utiliser Azure Data Lake Analytics avec Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)

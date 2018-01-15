@@ -1,5 +1,5 @@
 ---
-title: "Principes de base de la gestion des identités Azure | Microsoft Docs"
+title: "Principes de base de la gestion des identités Azure"
 description: "Les identités informatiques sont désormais le moyen le plus efficace de garder le contrôle et une bonne visibilité sur quand et comment les utilisateurs accèdent aux données et aux applications d’entreprise."
 keywords: 
 author: jeffgilb
@@ -13,13 +13,14 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Principes de base de la gestion des identités Azure
+
 Dans un contexte où les ressources digitales d’entreprise sont de plus en plus souvent stockées en dehors du réseau d’entreprise, que ce soit sur le cloud ou sur des appareils, il devient nécessaire de développer les meilleures solutions d’identité informatique et de gestion d’accès possibles. Les identités informatiques sont désormais le moyen le plus efficace de garder le contrôle et une bonne visibilité sur quand et comment les utilisateurs accèdent aux données et aux applications d’entreprise.
 
 Microsoft sécurise les identités dans le cloud depuis plus de dix ans et désormais, avec [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), ces mêmes systèmes de protection vous sont proposés. Avec Azure AD, les administrateurs d’entreprise peuvent facilement responsabiliser les utilisateurs et les administrateurs et leur garantir une sécurité et une gouvernance sans égales.
@@ -27,7 +28,7 @@ Microsoft sécurise les identités dans le cloud depuis plus de dix ans et déso
 Azure AD Premium est une solution de gestion des identités et des accès dans le cloud dotée de puissantes fonctions de protection. Elle offre une même identité sécurisée pour toutes les applications, une protection des identités (renforcée par le [graphique de sécurité d’analyse décisionnelle Microsoft](https://www.microsoft.com/en-us/security/intelligence)) et Privileged Identity Management. Azure AD Premium n’est pas un outil de surveillance et de création de rapports de plus. Il peut protéger les identités de vos utilisateurs en temps réel et vous permet de créer des stratégies d’accès adaptatives basées sur les risques afin de préserver les données de votre entreprise.
 
 Regardez cette vidéo pour un aperçu rapide de la protection et de la gestion des identités Azure AD :
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 Microsoft vous fournit non seulement une identité qui vous permet d’aller où bon vous semble, mais également un ensemble d’outils permettant d’automatiser, de sécuriser et de gérer l’informatique au sein de votre entreprise. Même après l’émergence du cloud computing, il existe bel et bien encore une demande pour gérer et contrôler les tâches informatiques, par exemple les appels au support technique pour réinitialiser les mots de passe des utilisateurs, la gestion des groupes d’utilisateurs et les demandes d’application. Les choses se compliquent d’ailleurs puisque les employés apportent désormais leurs appareils personnels sur le lieu de travail et utilisent des applications SaaS facilement accessibles. À ce titre, garder le contrôle sur leurs applications dans les centres de données de l’entreprise et sur les plateformes de cloud public représente un défi de taille.
 
@@ -74,5 +75,5 @@ Avec la gestion des identités Azure, vous pouvez :
 
 -   tirer parti de la [haute disponibilité et fiabilité](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) d’une solution d’entreprise de gestion des identités et des accès basée sur le cloud de niveau international.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [En savoir plus sur les solutions d’identité Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

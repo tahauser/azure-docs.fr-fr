@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>Leçon 6 : Créer des mesures
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>Créer des mesures
 
 Dans cette leçon, vous allez créer des mesures à inclure dans votre modèle. Une mesure est un calcul créé à l’aide d’une formule DAX, comme les colonnes calculées que vous avez créées. Toutefois, contrairement aux colonnes calculées, les mesures sont évaluées sur la base d’un *filtre* sélectionné par l’utilisateur. Exemple : une colonne ou un slicer spécifiques ajoutés au champ Étiquettes de lignes d’un tableau croisé dynamique. Pour chaque cellule du filtre, une valeur est alors calculée par la mesure appliquée. Les mesures sont des calculs puissants et flexibles que vous pouvez inclure dans quasiment tous les modèles tabulaires, afin d’effectuer des calculs dynamiques à partir de données numériques. Pour plus d’informations, consultez [Mesures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
   
@@ -35,7 +33,7 @@ Dans cette leçon, vous allez créer des mesures en entrant une formule DAX dan
   
 Durée estimée pour suivre cette leçon : **30 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 5 : Créer des colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Créer des mesures  
@@ -46,7 +44,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
 2.  Dans la grille de mesures, cliquez sur la cellule vide située en haut à gauche.  
   
-3.  Dans la barre de formule, tapez la formule suivante :  
+3.  Dans la barre de formule, tapez la formule suivante :  
   
     ```
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
@@ -92,7 +90,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
     |des colonnes|Nom de la mesure|Somme automatique (∑)|Formule|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|Nombre|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|Count|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|Somme|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|Somme|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|Somme|=SUM([TotalProductCost])|  

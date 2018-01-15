@@ -3,8 +3,8 @@ title: "Utilisation de la bibliothèque cliente gérée App Service Mobile Apps 
 description: "Apprenez à utiliser un client .NET pour Azure App Service Mobile Apps avec des applications Windows et Xamarin."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: glenga
-ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: crdun
+ms.openlocfilehash: c80265432f4ee3120e3125b45712dc0e7a434708
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Utilisation du client géré pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -133,7 +133,7 @@ Cette section explique comment émettre des requêtes à destination du backend 
 > [!NOTE]
 > Une taille de page gérée par le serveur est imposée pour empêcher le renvoi de toutes les lignes.  La pagination permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service.  Pour obtenir le renvoi de plus de 50 lignes, utilisez les méthodes `Skip` et `Take`, comme décrit dans la section [Renvoyer les données dans les pages](#paging).
 
-### <a name="filtering"></a>Procédure : filtrage des données renvoyées
+### <a name="filtering"></a>Procédure de filtrage des données renvoyées
 Le code suivant montre comment filtrer des données en incluant une clause `Where` dans une requête. Il renvoie tous les éléments de `todoTable` dont la propriété `Complete` est égale à `false`. La fonction [Where] applique un prédicat de filtrage de ligne à la requête au niveau de la table.
 
 ```
@@ -244,7 +244,7 @@ Dans une application réelle, vous pouvez utiliser des requêtes semblables à c
 > `[EnableQuery(MaxTop=1000)]`
 
 
-### <a name="selecting"></a>Procédure : sélection de colonnes spécifiques
+### <a name="selecting"></a>Procédure de sélection de colonnes spécifiques
 Vous pouvez indiquer le jeu de propriétés à inclure dans les résultats en ajoutant une clause [Select] à la requête. Par exemple, le code suivant montre comment sélectionner un seul champ et comment sélectionner et mettre en forme plusieurs champs :
 
 ```
@@ -374,7 +374,7 @@ Plusieurs clients peuvent écrire à un même moment des modifications dans un m
 
 Mobile Apps prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément à l'aide de la colonne de la propriété système `version` définie pour chaque table de votre serveur principal Mobile Apps. Chaque fois qu’un enregistrement est mis à jour, Mobile Apps attribue une nouvelle valeur à la propriété `version` de cet enregistrement. À chaque demande de mise à jour, la propriété `version` de l'enregistrement inclus dans la demande est comparée à celle de l'enregistrement basé sur le serveur. Si la version transmise avec la demande ne correspond pas à celle du serveur principal, la bibliothèque cliente déclenche une exception `MobileServicePreconditionFailedException<T>` . Le type inclus avec l’exception est l’enregistrement du backend contenant la version serveur de l’enregistrement. À partir de cette information, l’application peut décider ou non d’exécuter à nouveau la requête de mise à jour avec la valeur `version` correcte du serveur principal pour valider les modifications.
 
-Pour activer l’accès concurrentiel optimiste, l’application définit une colonne sur la classe table de la propriété système `version` . Par exemple :
+Pour activer l’accès concurrentiel optimiste, l’application définit une colonne sur la classe table de la propriété système `version` . Par exemple : 
 
 ```
 public class TodoItem
@@ -428,7 +428,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),
@@ -612,7 +612,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Il s’agit d’un appel de méthode typé pour lequel le type de renvoi **MarkAllResult** doit être défini. Les méthodes typées et non typées sont toutes deux prises en charge.
 
 La méthode InvokeApiAsync() ajoute « /api/ » à l’API que vous souhaitez appeler, sauf si l’API commence par « / ».
-Par exemple :
+Par exemple : 
 
 * `InvokeApiAsync("completeAll",...)` appelle /api/completeAll sur le serveur principal
 * `InvokeApiAsync("/.auth/me",...)` appelle /.auth/me sur le serveur principal
@@ -620,14 +620,14 @@ Par exemple :
 Vous pouvez utiliser InvokeApiAsync pour appeler des API web, y compris si celles-ci ne sont pas définies avec Azure Mobile Apps.  Lorsque vous utilisez InvokeApiAsync(), les en-têtes appropriés, y compris les en-têtes d’authentification, sont envoyés avec la demande.
 
 ## <a name="authentication"></a>Authentification des utilisateurs
-Mobile Apps prend en charge l’authentification et l’autorisation des utilisateurs d’applications via divers fournisseurs d’identité externes : Facebook, Google, Microsoft Account, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d'informations, consultez le didacticiel [Ajout de l'authentification à votre application].
+Mobile Apps prend en charge l’authentification et l’autorisation des utilisateurs d’applications via divers fournisseurs d’identité externes : Facebook, Google, Microsoft Account, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez le didacticiel [Ajout d’une fonction d’authentification à votre application].
 
 Deux flux d’authentification sont pris en charge : le flux *géré par le client* et le flux *géré par le serveur*. Le flux géré par le serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. En revanche, le flux géré par le client est celui qui s'intègre le plus profondément aux fonctionnalités propres à l'appareil, car il s'appuie sur les Kits de développement logiciel (SDK) propres au fournisseur et à l'appareil.
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser un flux géré par le client dans vos applications de production.
 
-Pour configurer l’authentification, vous devez inscrire votre application avec un ou plusieurs fournisseurs d’identité.  Le fournisseur d’identité génère un ID client et une clé secrète client pour votre application.  Ces valeurs sont ensuite définies dans votre backend pour activer l’authentification/autorisation d’Azure App Service.  Pour plus d’informations, suivez les instructions détaillées dans le didacticiel [Ajout de l'authentification à votre application].
+Pour configurer l’authentification, vous devez inscrire votre application avec un ou plusieurs fournisseurs d’identité.  Le fournisseur d’identité génère un ID client et une clé secrète client pour votre application.  Ces valeurs sont ensuite définies dans votre backend pour activer l’authentification/autorisation d’Azure App Service.  Pour plus d’informations, suivez les instructions détaillées dans le didacticiel [Ajout d’une fonction d’authentification à votre application].
 
 Les rubriques traitées dans cette section sont les suivantes :
 
@@ -1092,7 +1092,7 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Ajout de l'authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Ajout d’une fonction d’authentification à votre application]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Ajout de notifications push à votre application]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Inscrire votre application pour utiliser un compte Microsoft pour l’authentification]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md

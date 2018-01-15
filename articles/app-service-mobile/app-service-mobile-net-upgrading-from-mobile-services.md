@@ -3,8 +3,8 @@ title: "Mettre à niveau à partir de Mobile Services vers Azure App Service"
 description: "Découvrez comment facilement mettre à niveau votre application Mobile Services vers App Service Mobile Apps"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
 App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, consultez [Que sont les applications Mobile Apps ?]
@@ -150,12 +150,12 @@ Si une application cliente est mise à niveau depuis Mobile Services vers Mobile
 
 Sur iOS, vous devez modifier votre schéma de base de données principal pour vos entités de données afin qu’il corresponde à ce qui suit. Notez que les propriétés `createdAt`, `updatedAt` et `version` n’ont plus de préfixe `ms_` :
 
-| Attribut | Type | Remarque |
+| Attribut | type | Remarque |
 | --- | --- | --- |
 | id |Chaîne, marquée requise |clé primaire dans le magasin distant |
 | createdAt |Date |(facultatif) correspond à la propriété système createdAt |
 | updatedAt |Date |(facultatif) correspond à la propriété système updatedAt |
-| version |String |(facultatif) permet de détecter les conflits, correspond à version |
+| version |Chaîne |(facultatif) permet de détecter les conflits, correspond à version |
 
 #### <a name="querying-system-properties"></a>Interrogation des propriétés système
 Dans Azure Mobile Services, les propriétés système ne sont pas envoyées par défaut, mais uniquement quand elles sont demandées à l’aide de la chaîne de requête `__systemProperties`. Par opposition, dans Azure Mobile Apps, les propriétés système sont **toujours sélectionnées** car elles font partie du modèle objet du SDK serveur.

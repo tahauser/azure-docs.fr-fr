@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6c43f2b341280731707e486ba6f22f11560102c6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5fafde870a01a6ceb5e86f7b00b0ca11b748c68a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Opérations de gestion des comptes sur Azure Data Lake Store à l’aide de L’API REST
 > [!div class="op_single_selector"]
-> * [Kit SDK .NET](data-lake-store-get-started-net-sdk.md)
+> * [Kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/18/2017
 
 Dans cet article, vous allez découvrir comment réaliser des opérations de gestion des comptes sur Data Lake Store avec l’API REST. Ces opérations incluent la création ou la suppression d’un compte Data Lake Store, etc. Pour obtenir des instructions sur l’exécution des opérations du système de fichiers sur Data Lake Store à l’aide de l’API REST, consultez la section relative aux [opérations du système de fichiers sur Data Lake Store à l’aide de l’API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="prerequisites"></a>Composants requis
-* **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>Conditions préalables
+* **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **[cURL](http://curl.haxx.se/)**. Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un compte Data Lake Store.
 
@@ -72,7 +72,7 @@ Un résultat similaire à l’extrait de code suivant doit s’afficher :
     ...
     ...
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Opérations du système de fichiers sur Data Lake Store à l’aide de l’API REST](data-lake-store-data-operations-rest-api.md)
 
 ## <a name="see-also"></a>Voir aussi

@@ -10,16 +10,16 @@ keywords: "rbac automation, contrôle d’accès en fonction du rôle, azure rba
 ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2016
 ms.author: magoedte;sngun
-ms.openlocfilehash: 59ec4000645583b8cd35f7e8e475b95ea5499232
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9a115301e173b3d5cb3a4ac527ed1b01bc9cc421
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
@@ -31,7 +31,7 @@ Dans Azure Automation, l’accès est octroyé en attribuant le rôle RBAC app
 | **Rôle** | **Description** |
 |:--- |:--- |
 | Propriétaire |Le rôle Propriétaire autorise l’accès à l’ensemble des ressources et actions d’un compte Automation, y compris l’accès aux autres utilisateurs, groupes et applications pour gérer le compte Automation. |
-| Collaborateur |Le rôle Collaborateur vous permet de gérer tous les éléments excepté la modification des autorisations d’accès des autres utilisateurs à un compte Automation. |
+| Contributeur |Le rôle Collaborateur vous permet de gérer tous les éléments excepté la modification des autorisations d’accès des autres utilisateurs à un compte Automation. |
 | Lecteur |Le rôle Lecteur vous permet d’afficher toutes les ressources d’un compte Automation, mais vous ne pouvez pas y apporter de modifications. |
 | Opérateur Automation |Le rôle Opérateur Automation vous permet d’effectuer des tâches opérationnelles ; vous pouvez notamment démarrer, arrêter, suspendre, reprendre et planifier des tâches. Ce rôle est utile si vous souhaitez protéger vos ressources de compte Automation telles que les ressources d’informations d’identification et les Runbooks et empêcher leur affichage ou leur modification, tout en autorisant les membres de votre organisation à exécuter ces Runbooks. |
 | Administrateur de l'accès utilisateur |Le rôle Administrateur de l’accès utilisateur vous permet de gérer l’accès utilisateur aux comptes Azure Automation. |

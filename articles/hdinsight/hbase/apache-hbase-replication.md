@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
 
@@ -43,7 +43,7 @@ Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 
 Vous pouvez répliquer des clusters à l’aide de scripts [d’action de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurer les environnements
@@ -283,4 +283,4 @@ Ce didacticiel a décrit la configuration de la réplication HBase dans un rése
 * [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux](./apache-hbase-tutorial-get-started-linux.md)
 * [Vue d’ensemble de HDInsight HBase](./apache-hbase-overview.md)
 * [Création de clusters HBase dans un réseau virtuel Azure](./apache-hbase-provision-vnet.md)
-* [Analyse des données de capteur avec Storm et HBase dans HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+
