@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
 
@@ -34,6 +34,9 @@ Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de donnée
 * Vous pouvez également lier une fonction Azure à une collection Azure Cosmos DB à l’aide d’une **liaison d’entrée**. Les liaisons d’entrée lisent les données d’un conteneur lorsqu’une fonction s’exécute.
 * Liez une fonction à une collection Azure Cosmos DB à l’aide d’une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
 
+> [!NOTE]
+> À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Graph.
+
 Le diagramme suivant illustre chacune de ces trois intégrations : 
 
 ![Mode d’intégration d’Azure Cosmos DB et d’Azure Functions](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ Le déclencheur Azure Cosmos DB, la liaison d’entrée et la liaison de sortie 
 * Un déclencheur Azure Cosmos DB peut être utilisé avec une liaison de sortie vers un autre conteneur Azure Cosmos DB. Une fois qu’une fonction a exécuté une action sur un élément dans le flux de modification, vous pouvez l’écrire dans un autre conteneur (son écriture dans le même conteneur d’origine créerait de fait une boucle récursive). Vous pouvez également utiliser un déclencheur Azure Cosmos DB pour migrer efficacement tous les éléments modifiés d’un conteneur à un autre conteneur à l’aide d’une liaison de sortie.
 * Les liaisons d’entrée et les liaisons de sortie pour Azure Cosmos DB peuvent être utilisées dans la même fonction Azure. Cela est utile quand vous souhaitez trouver certaines données avec la liaison d’entrée, les modifier dans la fonction Azure, puis les enregistrer dans le même conteneur ou dans un autre conteneur après la modification.
 * Une liaison d’entrée vers un conteneur Azure Cosmos DB peut être utilisée dans la même fonction en tant que déclencheur Azure Cosmos DB et peut également être utilisée avec ou sans liaison de sortie. Vous pouvez utiliser cette combinaison pour appliquer des informations de change à jour (extraites à l’aide d’une liaison d’entrée vers un conteneur de change) pour le flux de modification de nouvelles commandes dans votre service de panier. Le total du panier mis à jour, avec la conversion monétaire actuelle appliquée, peut être écrit dans un troisième conteneur à l’aide d’une liaison de sortie.
-
-> [!NOTE]
-> À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Graph.
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -146,14 +146,14 @@ Avantages d’Azure Functions :
 
 Si vous n’êtes pas sûr de la meilleure option entre Flow, Logic Apps, Azure Functions et WebJobs pour votre implémentation, consultez [Choisir entre Flow, Logic Apps, Functions et WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 À présent, connectons réellement Azure Cosmos DB et Azure Functions : 
 
 * [Créer un déclencheur Azure Cosmos DB dans le portail Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
 * [Stocker des données non structurées à l’aide d’Azure Functions et de Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Liaisons et déclencheurs Azure Cosmos DB](../azure-functions/functions-bindings-documentdb.md)
+* [Liaisons et déclencheurs Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

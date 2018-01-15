@@ -4,7 +4,7 @@ description: "Explique comment déballer, monter en rack et câbler votre appare
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
 ## <a name="overview"></a>Vue d'ensemble
@@ -38,21 +38,21 @@ Avant de déballer l’appareil, lisez les informations suivantes.
 Ensuite, procédez comme suit pour déballer votre appareil.
 
 #### <a name="to-unpack-your-device"></a>Pour déballer votre appareil
-1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le [support technique Microsoft](storsimple-contact-microsoft-support.md) pour savoir si l’appareil est en état de marche.
+1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le [support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour savoir si l’appareil est en état de marche.
 2. Ouvrez la boîte externe, puis sortez les deux emballages correspondant aux boîtiers principal et EBOD. Vous pouvez maintenant déballer le boîtier principal et le boîtier EBOD. L’illustration suivante représente la vue de l’un des boîtiers déballé.
    
     ![Déballage de votre appareil de stockage](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
     **Vue de votre appareil de stockage déballé**
    
-   | Étiquette | Description |
+   | Étiquette | DESCRIPTION |
    | --- | --- |
    |   1 |Carton d’emballage |
    |   2 |Câbles SAS (dans le carton des accessoires et des câbles) |
    |   3 |Polystyrène de protection inférieur |
    |   4 |Appareil |
-   |   5 |Polystyrène de protection supérieur |
-   |   6 |Carton contenant les accessoires |
+   |   5. |Polystyrène de protection supérieur |
+   |   6. |Carton contenant les accessoires |
 3. Une fois les cartons déballés, vérifiez que vous disposez des éléments suivants :
    
    * 1 boîtier principal (le boîtier principal et le boîtier EBOD sont dans deux cartons distincts)
@@ -66,7 +66,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    * 2 kits de montage en rack (4 rails latéraux avec matériel de montage, 2 pour chaque boîtier), 1 dans chaque carton
    * Documentation de mise en route
      
-     Si vous n’avez pas reçu l’un des éléments ci-dessus, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).  
+     Si vous n’avez pas reçu l’un des éléments ci-dessus, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md).  
 
 L’étape suivante consiste à monter votre appareil en rack.
 
@@ -109,7 +109,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    
     **Fixation des glissières de rail sur les côtés du boîtier**
    
-   | Étiquette | Description |
+   | Étiquette | DESCRIPTION |
    | --- | --- |
    |  1 |M 3 x 4 vis à tête ronde |
    |  2 |Glissières du châssis |
@@ -122,13 +122,13 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    
     **Fixation des rails au rack**
    
-   | Étiquette | Description |
+   | Étiquette | DESCRIPTION |
    | --- | --- |
    |   1 |Vis de serrage |
    |   2 |Ouverture carrée pour vis du poteau avant du rack |
    |   3 |Ergots de positionnement du rail avant gauche |
    |   4 |Vis de serrage |
-   |   5 |Ergots de positionnement du rail arrière gauche |
+   |   5. |Ergots de positionnement du rail arrière gauche |
 
 ### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montage du boîtier EBOD dans le rack
 À l’aide des rails du rack qui viennent d’être installés, procédez comme suit pour monter le boîtier EBOD dans le rack.
@@ -148,7 +148,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    
     **Installation des capuchons d’embase**
    
-   | Étiquette | Description |
+   | Étiquette | DESCRIPTION |
    | --- | --- |
    |   1 |Vis de fixation du boîtier |
 
@@ -201,20 +201,20 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    
     **Dos de votre appareil avec ports de données**
    
-   | Étiquette | Description |
+   | Étiquette | DESCRIPTION |
    | --- | --- |
    |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
    |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
-   |   6 |Ports série |
+   |   6. |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
 
 ![Câble réseau de votre appareil 4U](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
 **Branchement des câbles réseau de votre appareil**
 
-| Étiquette | Description |
+| Étiquette | DESCRIPTION |
 | --- | --- |
-| Une |LAN avec accès à Internet |
+| A |LAN avec accès à Internet |
 | B |Contrôleur 0 |
 | C |PCM 0 |
 | D |Contrôleur 1 |
@@ -223,7 +223,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 | G |Contrôleur 1 du boîtier EBOD |
 | H/I |Hôtes (par exemple, les serveurs de fichiers) |
 | 0-5 |Interfaces réseau |
-| 6 |Boîtier principal |
+| 6. |Boîtier principal |
 | 7 |Boîtier EBOD |
 
 Lors du câblage de l’appareil, la configuration minimale requiert les éléments suivants :
@@ -234,7 +234,7 @@ Lors du câblage de l’appareil, la configuration minimale requiert les éléme
 Gardez à l’esprit la disponibilité et les performances élevées :
 
 * Dans la mesure du possible, configurez une paire d’interface réseau pour l’accès au cloud (1 GbE) et une autre paire pour iSCSI (10 GbE recommandé) sur chaque contrôleur.
-* Dans la mesure du possible, connectez les interfaces réseau de chaque contrôleur à deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur. La figure illustre les deux interfaces réseau 10 GbE, DATA 2 et DATA 3, de chaque contrôleur connecté à deux commutateurs différents. Pour plus d’informations, reportez-vous à la section **Interfaces réseau** sous [Configuration requise pour la haute disponibilité de votre appareil StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Dans la mesure du possible, connectez les interfaces réseau de chaque contrôleur à deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur. La figure illustre les deux interfaces réseau 10 GbE, DATA 2 et DATA 3, de chaque contrôleur connecté à deux commutateurs différents. Pour plus d’informations, reportez-vous à la section **Interfaces réseau** sous [Configuration requise pour la haute disponibilité de votre appareil StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Si vous utilisez des transmetteurs SFP+ avec vos interfaces réseau de 10 GbE, utilisez les adaptateurs QSFP-SFP+ fournis. Pour plus d’informations, consultez [Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -265,6 +265,6 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 
 Vous avez terminé le branchement des câbles d’alimentation, d’accès réseau et de connexion en série de votre appareil. L’étape suivante consiste à configurer le logiciel sur votre appareil.
 
-## <a name="next-steps"></a>Étapes suivantes
-Vous êtes maintenant prêt à procéder au [déploiement et à la configuration de votre appareil StorSimple local](storsimple-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>étapes suivantes
+Vous êtes maintenant prêt à procéder au [déploiement et à la configuration de votre appareil StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

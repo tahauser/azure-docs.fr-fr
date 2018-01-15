@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -110,7 +110,7 @@ HealthEvents          :
 ### <a name="load-capacity-violation"></a>Violation de capacité de charge
 L’équilibrage de charge de Service Fabric indique un avertissement quand il détecte une violation de la capacité du nœud.
 
-* **SourceId**: System.PLB
+* **SourceId** : System.PLB
 * **Property** : commence par **Capacity**.
 * **Étapes suivantes**: contrôlez les mesures fournies et examinez la capacité actuelle sur le nœud.
 
@@ -124,7 +124,7 @@ System.Hosting transmet un avertissement si les capacités de nœud définies da
 ## <a name="application-system-health-reports"></a>Rapports d’intégrité du système sur les applications
 **System.CM**, qui représente le service Cluster Manager, est l’autorité qui gère les informations sur une application.
 
-### <a name="state"></a>State
+### <a name="state"></a>État
 System.CM consigne la valeur OK lorsque l’application a été créée ou mise à jour. Il informe le magasin d’intégrité lorsque l’application a été supprimée afin qu’elle puisse en être retirée.
 
 * **SourceId**: System.CM
@@ -157,7 +157,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Rapports d’intégrité du système sur les services
 **System.FM**, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les services.
 
-### <a name="state"></a>State
+### <a name="state"></a>État
 System.FM consigne la valeur OK lorsque le service a été créé. Il supprime l’entité du magasin d’intégrité lorsque le service a été supprimé.
 
 * **SourceId**: System.FM
@@ -192,14 +192,14 @@ HealthEvents          :
 ### <a name="service-correlation-error"></a>Erreur de corrélation de services
 **System.PLB** signale une erreur lorsqu’il détecte que la mise à jour d’un service est liée à un autre service qui crée une chaîne d’affinités. Le rapport est effacé lorsque la mise à jour est réussie.
 
-* **SourceId**: System.PLB
+* **SourceId** : System.PLB
 * **Property** : ServiceDescription.
 * **Étapes suivantes** : vérifiez les descriptions de service en corrélation.
 
 ## <a name="partition-system-health-reports"></a>Rapports d’intégrité du système sur les partitions
 **System.FM**, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les partitions de service.
 
-### <a name="state"></a>State
+### <a name="state"></a>État
 System.FM consigne la valeur OK lorsque la partition créée est intègre. Il élimine l’entité du magasin d’intégrité lorsque la partition est supprimée.
 
 Si la partition présente une valeur inférieure au nombre minimal de réplicas, une erreur est signalée. Si la partition présente une valeur supérieure au nombre minimum de réplicas, mais inférieure au nombre cible de réplicas, un avertissement est signalé. Si la partition subit une perte de quorum, System.FM indique une erreur.
@@ -370,13 +370,13 @@ Pour notre exemple, d’autres examens sont nécessaires. Examinez l’intégrit
 ### <a name="replica-constraint-violation"></a>Violation des contraintes de réplicas
 **System.PLB** indique un avertissement s’il détecte une violation des contraintes de réplicas et qu’il ne peut pas placer tous les réplicas de la partition. Les détails du rapport montrent quelles contraintes et quelles propriétés empêchent le placement des réplicas.
 
-* **SourceId**: System.PLB
+* **SourceId** : System.PLB
 * **Property** : commence par **ReplicaConstraintViolation**.
 
 ## <a name="replica-system-health-reports"></a>Rapports d’intégrité du système sur les réplicas
 **System.RA**, qui représente le composant Reconfiguration Agent, est l’autorité de l’état des réplicas.
 
-### <a name="state"></a>State
+### <a name="state"></a>État
 System.RA indique la valeur OK lorsque le réplica a été créé.
 
 * **SourceId**: System.RA
@@ -632,7 +632,7 @@ La propriété et le texte indiquent l’API qui est bloquée. Les étapes ulté
 
 - **IStatefulServiceReplica.ChangeRole(P)** : le cas le plus courant est que le service n’a pas renvoyé de tâche à partir de `RunAsync`.
 
-D’autres appels d’API qui peuvent être bloqués se trouvent dans l’interface **IReplicator**. Par exemple :
+D’autres appels d’API qui peuvent être bloqués se trouvent dans l’interface **IReplicator**. Par exemple : 
 
 - **IReplicator.CatchupReplicaSet** : cet avertissement indique l’une des deux choses suivantes : Soit qu’il n’y a pas assez de réplicas actifs, ce qui peut être déterminé en examinant l’état des réplicas dans la partition ou le rapport d’intégrité System.FM pour une reconfiguration bloquée. Soit que les réplicas n’accusent pas réception des opérations. La cmdlet PowerShell `Get-ServiceFabricDeployedReplicaDetail` peut être utilisée pour déterminer la progression de tous les réplicas. Le problème se situe dans les réplicas dans lesquels `LastAppliedReplicationSequenceNumber` se trouve derrière le `CommittedSequenceNumber` du réplica principal.
 
@@ -743,7 +743,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Télécharger
+### <a name="download"></a>Download
 System.Hosting indique une erreur en cas d’échec du téléchargement du package d’application.
 
 * **SourceId**: System.Hosting
@@ -821,7 +821,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Télécharger
+### <a name="download"></a>Download
 System.Hosting indique une erreur en cas d’échec du téléchargement du package de service.
 
 * **SourceId**: System.Hosting
@@ -842,7 +842,7 @@ System.Hosting transmet un avertissement si les capacités de nœud ne sont pas 
 * **Propriété :** ResourceGovernance
 * **Étapes suivantes**: la meilleure façon de résoudre ce problème consiste à modifier le manifeste de cluster pour activer la détection automatique des ressources disponibles. Une autre méthode consiste à mettre à jour le manifeste de cluster en indiquant les capacités de nœud appropriées pour ces mesures.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Affichage rapports d’intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Comment signaler et contrôler l’intégrité du service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

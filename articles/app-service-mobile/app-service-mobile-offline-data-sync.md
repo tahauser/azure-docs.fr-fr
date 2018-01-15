@@ -2,8 +2,8 @@
 title: "Synchronisation des données hors connexion dans Azure Mobile Apps | Microsoft Docs"
 description: "Référence conceptuelle et présentation de la fonctionnalité de synchronisation des données hors connexion pour Azure Mobile Apps"
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronisation des données hors connexion dans Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>Qu’est-ce que la synchronisation des données hors connexion ?
@@ -88,7 +88,7 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 
   Pour illustrer les données obsolètes sur le client, supposons que dans l’exemple de la liste de tâches, l’appareil 1 extrait uniquement les éléments qui ne sont pas terminés. Un élément de tâche « Acheter du lait » est marqué comme terminé sur le serveur par un autre appareil. Toutefois, l’appareil 1 a toujours l’élément de tâche « Acheter du lait » dans le magasin local, car il extrait uniquement les éléments qui ne sont pas marqués comme terminés. Une purge efface cet élément obsolète.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [iOS : activer la synchronisation hors connexion]
 * [Xamarin iOS : activer la synchronisation hors connexion]
 * [Xamarin Android : activer la synchronisation hors connexion]

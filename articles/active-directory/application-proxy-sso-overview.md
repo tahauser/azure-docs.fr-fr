@@ -3,7 +3,7 @@ title: "Gérer l’authentification unique pour le proxy d’application Azure A
 description: "Comprendre les bases de l’authentification unique avec le proxy d’application"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60422b4c8256df024bbc870fc43ec6b491f674f1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Comment le proxy d’application Azure AD fournit-il l’authentification unique ?
 
@@ -29,7 +29,7 @@ Pour utiliser Azure Active Directory pour l’authentification unique à vos app
 
 Pour afficher vos options d’authentification unique, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Accédez à **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
 3. Sélectionnez l’application dont vous souhaitez gérer les options d’authentification unique.
 4. Sélectionnez **Authentification unique**.
@@ -74,7 +74,7 @@ Si vos applications utilisent des en-têtes pour l’authentification, choisisse
 
 Pour plus d’informations sur la configuration de l’authentification basée sur l’en-tête, consultez la page [Authentification basée sur l’en-tête pour une authentification unique avec le Proxy d’application et PingAccess](application-proxy-ping-access.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Authentification unique avec le proxy d’application](application-proxy-sso-azure-portal.md)
 - [Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application](active-directory-application-proxy-sso-using-kcd.md)

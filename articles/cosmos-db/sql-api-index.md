@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB : Articles se rapportant à l’API SQL | Microsoft Docs"
+title: "Azure Cosmos DB : articles sur l’API SQL | Microsoft Docs"
 description: "Liste de tous les articles ayant trait à la création de bases de données de documents avec l’API SQL dans Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8de2a541f307adfed1125dbfc25825b3e28d9c48
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB : Documentation relative à l’API SQL
 
@@ -102,16 +102,16 @@ Azure Cosmos DB fournit un nombre de kits SDK qui permettent de développer des 
 - [Node.JS](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>Informations de référence
+## <a name="reference"></a>Référence
 
 - [REST](/rest/api/documentdb/)
 - [API REST Resource Provider](/rest/api/documentdbresourceprovider/)
 - [Informations de référence sur les requêtes SQL](sql-api-sql-query-reference.md)
-- [Informations de référence sur Azure Functions](../azure-functions/functions-bindings-documentdb.md)
+- [Informations de référence sur Azure Functions](../azure-functions/functions-bindings-cosmosdb.md)
 
 ## <a name="samples"></a>Exemples
 
-Ces exemples de pages fournissent des liens vers des exemples de code et du contenu de référence sur les tâches les plus courantes de l’API SQL.
+Ces exemples de pages fournissent des liens vers des exemples de code et du contenu de référence API sur les tâches les plus courantes de l’API SQL.
 
 - [.NET](sql-api-dotnet-samples.md)
 - [Node.JS](sql-api-nodejs-samples.md)

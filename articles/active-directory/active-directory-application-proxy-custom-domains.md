@@ -3,7 +3,7 @@ title: "Domaines personnalisés dans le proxy d’application Azure AD | Microso
 description: "Gérer les domaines personnalisés dans le proxy d’application Azure AD afin que l’URL de l’application soit identique quel que soit l’emplacement d’où vos utilisateurs y accèdent."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: billmath
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 48e074f3f7bd60bc02e26c4bd634ec646b1ff401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a5b7731cfd98a53f83a9882529a713381b4f848
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
 
@@ -34,7 +34,7 @@ Nous vous recommandons de définir des domaines personnalisés pour vos applicat
 
 ## <a name="configure-a-custom-domain"></a>Configuration d’un domaine personnalisé
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Conditions préalables
 
 Avant de configurer un domaine personnalisé, assurez-vous d’avoir rempli les exigences suivantes : 
 - La [vérification du domaine ajouté à Azure Active Directory](active-directory-domains-add-azure-portal.md).
@@ -45,7 +45,7 @@ Avant de configurer un domaine personnalisé, assurez-vous d’avoir rempli les 
 
 Lorsque vous avez rempli ces trois conditions, procédez comme suit pour configurer votre domaine personnalisé :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Accédez à **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications** et sélectionnez l’application que vous souhaitez gérer.
 3. Sélectionnez **Proxy d’application**. 
 4. Dans le champ URL externe, utilisez la liste déroulante pour sélectionner votre domaine personnalisé. Si vous ne voyez pas votre domaine dans la liste, il n’a pas encore été vérifié. 
@@ -80,7 +80,7 @@ Lorsqu’un certificat expire, vous obtenez un avertissement vous demandant de t
 
 La gestion des certificats s’effectue actuellement via les pages d’applications individuelles. Vous devez donc gérer les certificats dans le contexte des applications pertinentes. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
 * [Activer l’accès conditionnel](application-proxy-enable-remote-access-sharepoint.md) à vos applications publiées.
 * [Ajout de votre propre nom de domaine à Azure AD](active-directory-domains-add-azure-portal.md)

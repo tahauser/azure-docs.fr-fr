@@ -4,7 +4,7 @@ description: "Décrit comment retirer, remplacer et entretenir le module de batt
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Remplacer le module de batterie de secours sur votre appareil StorSimple
 
@@ -46,7 +46,7 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
    
     **Figure 1** Arrière de l’appareil principal avec les modules PCM et de contrôleur
    
-   | Étiquette | Description |
+   | Étiquette | DESCRIPTION |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -59,15 +59,15 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
    
     **Figure 2** Arrière du PCM avec les voyants LED de surveillance
    
-   | Étiquette | Description |
+   | Étiquette | DESCRIPTION |
    |:--- |:--- |
    | 1 |Panne d’alimentation secteur |
    | 2 |Panne de ventilateur |
    | 3 |Panne de batterie |
    | 4 |PCM OK |
-   | 5 |Panne d’alimentation secteur |
+   | 5. |Panne d’alimentation secteur |
    | 6 |Batterie saine |
-3. Pour retirer le PCM dont la batterie est défectueuse, suivez les étapes de la procédure [Retrait d’un PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. Pour retirer le PCM dont la batterie est défectueuse, suivez les étapes de la procédure [Retrait d’un PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. Une fois le PCM retiré, soulevez la poignée du module de batterie et faites-la pivoter vers le haut, comme l’illustre la figure ci-après, puis tirez dessus pour extraire la batterie.
    
     ![Retrait de la batterie du module PCM](./media/storsimple-battery-replacement/IC741019.png)
@@ -82,7 +82,7 @@ Procédez comme suit pour installer le module de batterie de remplacement dans l
 #### <a name="to-install-the-battery-module"></a>Pour installer le module de batterie
 1. Orientez correctement le module de batterie de secours dans le PCM.
 2. Appuyez sur la poignée du module de batterie jusqu’en bas pour placer le connecteur.
-3. Remplacez le PCM dans le boîtier principal en procédant de la manière décrite dans [Remplacement d’un module d’alimentation et de refroidissement (PCM) sur votre appareil StorSimple](storsimple-power-cooling-module-replacement.md).
+3. Remplacez le PCM dans le boîtier principal en procédant de la manière décrite dans [Remplacement d’un module d’alimentation et de refroidissement (PCM) sur votre appareil StorSimple](storsimple-8000-power-cooling-module-replacement.md).
 4. Une fois le remplacement terminé, accédez à voter appareil, puis accédez à **Surveiller** > **Intégrité matérielle** dans le portail Azure. Vérifiez l'état de la batterie pour vous assurer que l'installation a réussi. Un état vert indique que la batterie est saine.
 
 ## <a name="maintain-the-backup-battery-module"></a>Entretenir le module de batterie de secours
@@ -105,6 +105,6 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 > [!IMPORTANT]
 > Jetez la batterie en panne en respectant les réglementations nationales et locales applicables.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-8000-hardware-component-replacement.md).
 

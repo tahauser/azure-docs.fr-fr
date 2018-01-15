@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 
@@ -30,7 +30,7 @@ Ce didacticiel inclut des instructions détaillées pour créer et gérer le pac
 
 ## <a name="create-a-support-package"></a>Création d’un package de prise en charge
 
-Dans certains cas, vous devez créer manuellement le package de support via Windows PowerShell pour StorSimple. Par exemple :
+Dans certains cas, vous devez créer manuellement le package de support via Windows PowerShell pour StorSimple. Par exemple : 
 
 * Si vous devez supprimer des informations sensibles de vos fichiers journaux avant de le partager avec le support Microsoft.
 * Si vous rencontrez des difficultés à charger le package en raison de problèmes de connectivité.
@@ -71,10 +71,10 @@ Vous pouvez partager votre package de support généré manuellement avec le sup
 
 Vous pouvez utiliser les paramètres suivants avec l’applet de commande Export-HcsSupportPackage.
 
-| Paramètre | Obligatoire ou facultatif | Description |
+| Paramètre | Obligatoire ou facultatif | DESCRIPTION |
 | --- | --- | --- |
-| `-Path` |Requis |Permet d’indiquer l’emplacement du dossier réseau partagé dans lequel le package de support est placé. |
-| `-EncryptionPassphrase` |Requis |Permet de fournir une phrase secrète permettant de chiffrer le package de support. |
+| `-Path` |Obligatoire |Permet d’indiquer l’emplacement du dossier réseau partagé dans lequel le package de support est placé. |
+| `-EncryptionPassphrase` |Obligatoire |Permet de fournir une phrase secrète permettant de chiffrer le package de support. |
 | `-Credential` |Facultatif |Permet de fournir des informations d’identification d’accès pour le dossier réseau partagé. |
 | `-Force` |Facultatif |Permet d'ignorer l'étape de confirmation de la phrase secrète de chiffrement. |
 | `-PackageTag` |Facultatif |Permet de spécifier un répertoire sous *Chemin d’accès* dans lequel le package de support est placé. La valeur par défaut est [nom de l’appareil]-[date et heure actuelles : aaaa-MM-jj-HH-mm-ss]. |
@@ -144,9 +144,9 @@ L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un pac
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Apprenez-en davantage sur les [informations collectées dans le package de prise en charge](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs).
-* Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Découvrez comment [utiliser les packages de support et les journaux de l’appareil pour dépanner votre déploiement](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Découvrez comment [utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
 

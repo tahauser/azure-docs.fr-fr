@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Base de données Azure pour obtenir une Documentation PostgreSQL
+title: "Base de données Azure pour obtenir une Documentation PostgreSQL"
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: "Documentation Azure CDN\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
-  description: Base de données Azure pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs basés sur le moteur de base de données PostgreSQL open source.
+  title: "Documentation Azure CDN - Didacticiels, informations de référence sur les API | Microsoft Docs"
+  description: "Base de données Azure pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs basés sur le moteur de base de données PostgreSQL open source."
   services: postgresql
   author: czeumault
   manager: carolz
@@ -14,49 +14,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: ef78955bf3b7453702725d0899f3f6813fa29ef2
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Base de données Azure pour PostgreSQL est un service de base de données relationnelle basé sur le moteur de base de données Postgres open source.  Il est une base de données entièrement géré en tant que service capable de gérer des charges de travail critiques avec des performances prévisibles, la sécurité, haute disponibilité et l’évolutivité dynamique de l’offre.  Développer des applications avec la base de données Azure pour PostgreSQL en exploitant les outils open source et la plateforme de votre choix.  Découvrez comment utiliser Azure Web Apps avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
+  description: "Base de données Azure pour PostgreSQL est un service de base de données relationnelle basé sur le moteur de base de données Postgres open source.  Il est une base de données entièrement géré en tant que service capable de gérer des charges de travail critiques avec des performances prévisibles, la sécurité, haute disponibilité et l’évolutivité dynamique de l’offre.  Développer des applications avec la base de données Azure pour PostgreSQL en exploitant les outils open source et la plateforme de votre choix.  Découvrez comment utiliser Azure Web Apps avec nos guides de démarrage rapide, nos didacticiels et nos exemples."
 sections:
-  - title: "Démarrages en 5\_minutes"
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Découvrez comment créer une base de données PostgreSQL grâce à :"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: "Découvrez comment créer une base de données PostgreSQL grâce à\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: Portail Azure
-            href: /azure/postgresql/quickstart-create-server-database-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
-            text: Interface de ligne de commande Azure
-            href: /azure/postgresql/quickstart-create-server-database-azure-cli
-  - title: Didacticiels pas à pas
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Portail Azure
+      href: /azure/postgresql/quickstart-create-server-database-portal
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/postgresql/quickstart-create-server-database-azure-cli
+- title: "Didacticiels pas à pas"
+  items:
+  - type: paragraph
+    text: "Découvrez comment :"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Découvrez comment :'
-      - type: list
-        style: ordered
-        items:
-          - html: "Concevoir une base de données&#58\_; <a href=\"/azure/postgresql/tutorial-design-database-using-azure-portal\">Portail Azure</a> | <a href=\"/azure/postgresql/tutorial-design-database-using-azure-cli\">Azure\_CLI</a>"
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Créer une application web à l’aide de Python et de l’interface CLI</a>
-  - title: Exemples
+    - html: "Concevoir une base de données&#58 ; <a href=\"/azure/postgresql/tutorial-design-database-using-azure-portal\">Portail Azure</a> | <a href=\"/azure/postgresql/tutorial-design-database-using-azure-cli\">Azure CLI</a>"
+    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json\">Créer une application web à l’aide de Python et de l’interface CLI</a>"
+- title: Exemples
+  items:
+  - type: paragraph
+    text: "Trouvez des scripts pour gérer les tâches courantes."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Trouvez des scripts pour gérer les tâches courantes.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Interface de ligne de commande Azure</a>
-  - title: Référence
+    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">interface de ligne de commande Azure</a>
+- title: "Référence"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: <p><a href="/cli/azure">Interface de ligne de commande Azure</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/postgresql">API REST</a></p>
+    - title: Ligne de commande
+      html: <p><a href="/cli/azure">interface de ligne de commande Azure</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/postgresql">API REST</a></p>

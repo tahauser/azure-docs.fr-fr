@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Les annotations Java sont incluses dans le package `azure-functions-java-core`, 
 
 Liaison | Annotation
 ---|---
-CosmosDB | N/A
+CosmosDB | Non applicable
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | N/A
-Notification Hubs | N/A
+Mobile Apps | Non applicable
+Notification Hubs | Non applicable
 Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 File d’attente de stockage | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Table de stockage | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Minuteur | <ul><li>`TimerTrigger`</li></ul>
-Twilio | N/A
+Twilio | Non applicable
 
 Les entrées et sorties des déclencheurs peuvent également être définies dans le fichier [function.json](/azure/azure-functions/functions-reference#function-code) de votre application.
 
@@ -213,7 +213,7 @@ L’annotation `@BindingName` accepte une propriété `String` qui représente l
 
 Par conséquent, lorsque cette fonction est appelée, la charge utile des requêtes HTTP transmet un élément `String` facultatif pour l’argument `in` et un type `MyObject` du service Stockage Table Azure transmis à l’argument `obj`. Utilisez le type `Optional<T>` pour gérer les entrées dans vos fonctions qui peuvent être de valeur Null.
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Outputs
 
 Les sorties peuvent être exprimées en tant que paramètres de sortie ou de valeur renvoyée. S’il n’existe qu’une seule sortie, nous vous recommandons d’utiliser la valeur renvoyée. Lorsqu’il y a plusieurs sorties, vous devez utiliser les paramètres de sortie.
 
@@ -276,9 +276,9 @@ Parfois, une fonction doit disposer d’un contrôle détaillé sur les entrées
 | `HttpResponseMessage<T>` | Liaison de sortie HTTP | État de retour autre que 200   |
 
 > [!NOTE] 
-> Vous pouvez également utiliser l’annotation `@BindingName` pour obtenir des requêtes et en-têtes HTTP. Par exemple, `@Bind("name") String query` itère les en-têtes et requêtes des demandes HTTP et passe cette valeur à la méthode. Par exemple, l’élément `query` aura la valeur `"test"` si l’URL de la demande est la suivante : `http://example.org/api/echo?name=test`.
+> Vous pouvez également utiliser l’annotation `@BindingName` pour obtenir des requêtes et en-têtes HTTP. Par exemple, `@BindingName("name") String query` itère les en-têtes et requêtes des demandes HTTP et passe cette valeur à la méthode. Par exemple, l’élément `query` aura la valeur `"test"` si l’URL de la demande est la suivante : `http://example.org/api/echo?name=test`.
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>Métadonnées
 
 Les métadonnées proviennent de différentes sources, telles que les en-têtes HTTP, les requêtes HTTP et les [métadonnées de déclencheur](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Utilisez l’annotation `@BindingName` avec le nom des métadonnées pour obtenir cette valeur.
 
@@ -325,9 +325,9 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
-* [Référence du développeur Azure Functions](functions-reference.md)
-* [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
+* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
+* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)

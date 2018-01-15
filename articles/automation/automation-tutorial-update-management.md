@@ -11,14 +11,15 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
-ms.openlocfilehash: 3b1821a7a36a9d42cf6fd4bee5f3d85a07a17e0e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: ae53832d28af8a36e3a1dea67f6680906630a399
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gérer les mises à jour Windows avec Azure Automation
 
@@ -35,7 +36,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Planifier un déploiement de mises à jour
 > * Afficher les résultats d’un déploiement
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 

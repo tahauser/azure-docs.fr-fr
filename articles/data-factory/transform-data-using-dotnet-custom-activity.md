@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-use-custom-activities.md)
-> * [Version 2 - Préversion](transform-data-using-dotnet-custom-activity.md)
+> * [Version 2 - Préversion](transform-data-using-dotnet-custom-activity.md)
 
 Vous pouvez utiliser deux types d’activités dans un pipeline Azure Data Factory.
 
@@ -105,17 +105,17 @@ Dans cet exemple, le fichier helloworld.exe est une application personnalisée q
 
 Le tableau suivant indique les noms et les descriptions des propriétés qui sont spécifiques à cette activité. 
 
-| Propriété              | Description                              | Requis |
+| Propriété              | DESCRIPTION                              | Obligatoire |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nom de l’activité dans le pipeline     | Oui      |
-| Description           | Texte décrivant l’activité.  | Non       |
-| type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
+| Nom                  | Nom de l’activité dans le pipeline     | Oui      |
+| description           | Texte décrivant l’activité.  | Non        |
+| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
 | linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | Oui      |
 | command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
-| resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non       |
-| folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances. | Non       |
-| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non       |
-| extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non       |
+| resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non        |
+| folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances. | Non        |
+| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non        |
+| extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non        |
 
 ## <a name="executing-commands"></a>Exécution de commandes
 
@@ -331,7 +331,7 @@ Si vous souhaitez consommer le contenu de stdout.txt dans des activités en aval
    - Le package NuGet Microsoft.Azure.Management.DataFactories n’est plus nécessaire. 
    - Compilez votre code, chargez le fichier exécutable et les dépendances dans le Stockage Azure, et définissez le chemin dans la propriété folderPath. 
 
-Pour obtenir un exemple complet de la façon dont l’exemple de DLL et de pipeline de bout en bout décrit dans le document Data Factory V1 [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) peut être réécrit dans le style de l’activité personnalisée Data Factory V2, reportez-vous à [l’exemple d’activité personnalisée Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Pour obtenir un exemple complet de la façon dont l’exemple de DLL et de pipeline de bout en bout décrit dans le document Data Factory V1 [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) peut être réécrit dans le style de l’activité personnalisée Data Factory V2, reportez-vous à [l’exemple d’activité personnalisée Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Mise à l’échelle automatique d’Azure Batch
 Vous pouvez aussi créer un pool Azure Batch avec la fonctionnalité **autoscale** . Par exemple, vous pouvez créer un pool Azure Batch avec 0 machine virtuelle dédiée et une formule de mise à l’échelle automatique en fonction du nombre de tâches en attente. 
@@ -353,12 +353,12 @@ Pour plus d’informations, consultez [Mettre automatiquement à l’échelle le
 Si le pool utilise la valeur par défaut du paramètre [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), le service Batch peut mettre 15 à 30 minutes à préparer la machine virtuelle avant d’exécuter l’activité personnalisée.  Si le pool utilise une autre valeur pour autoScaleEvaluationInterval, le service Batch peut prendre la durée d’autoScaleEvaluationInterval + 10 minutes.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)
-* [Activité Pig](transform-data-using-hadoop-pig.md)
+* [Activité pig](transform-data-using-hadoop-pig.md)
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)

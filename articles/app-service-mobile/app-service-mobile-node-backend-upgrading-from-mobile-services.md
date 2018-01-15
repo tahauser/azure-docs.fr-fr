@@ -3,7 +3,7 @@ title: "Mettre à niveau à partir de Mobile Services vers Azure App Service - N
 description: "Découvrez comment facilement mettre à niveau votre application Mobile Services vers App Service Mobile Apps"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: crdun
+ms.openlocfilehash: 9a641bc667d07d1b674d2864c1f29151d527f46a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
 App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, consultez [Que sont les applications Mobile Apps ?]
@@ -67,7 +67,7 @@ Vous devez installer [Node] sur votre ordinateur local  ainsi que le package de 
 ```npm i -g azure-mobile-apps-compatibility```
 
 ## <a name="obtain-ams-scripts"></a> Obtenir vos scripts Azure Mobile Services
-* Connectez-vous au [Portail Azure].
+* Connectez-vous au [portail Azure].
 * Dans **Toutes les ressources** ou **App Services**, recherchez votre site Mobile Services.
 * Sur le site, cliquez sur **Outils** -> **Kudu** -> **Accéder** pour ouvrir le site Kudu.
 * Cliquez sur **Console de débogage** -> **PowerShell** pour ouvrir la console de débogage.
@@ -86,14 +86,14 @@ Un backend Azure Mobile Apps structuré est alors créé dans le répertoire `ou
 ## <a name="deploy-ama-app"></a> Déployer votre backend Azure Mobile Apps
 Au cours du déploiement, vous devez effectuer les opérations suivantes :
 
-1. Créer une application Mobile App dans le [Portail Azure].
+1. Créer une application Mobile App dans le [portail Azure].
 2. Exécuter le script `createViews.sql` sur votre base de données connectée.
 3. Lier la base de données liée à votre Mobile Service à votre nouvel App Service.
 4. Lier d’autres ressources (par exemple Notification Hubs) au nouvel App Service.
 5. Déployer le code généré sur votre nouveau site.
 
 ### <a name="create-a-new-mobile-app"></a>Créer une application Mobile App
-1. Connectez-vous au [Portail Azure].
+1. Connectez-vous au [portail Azure].
 2. Cliquez sur **+NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez le nom de votre serveur principal Mobile App.
 3. Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un (en utilisant le même nom que votre application).
 
@@ -110,7 +110,7 @@ Vous pouvez exécuter ce script à partir de SQL Server Management Studio ou de 
 ### <a name="link-the-database-to-your-app-service"></a>Lier la base de données à votre App Service
 Liez la base de données existante à votre App Service :
 
-* Dans le [Portail Azure], ouvrez votre App Service.
+* Dans le [portail Azure], ouvrez votre App Service.
 * Sélectionnez **Tous les paramètres** -> **Connexions de données**.
 * Cliquez sur **+ Ajouter**.
 * Dans la liste déroulante, sélectionnez **Base de données SQL**
@@ -164,7 +164,7 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [concepts d’authentification]: ../app-service/app-service-authentication-overview.md
 [démarrage rapide de l’authentification]: app-service-mobile-auth.md
 
-[Portail Azure]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

@@ -6,13 +6,13 @@ keywords: inventaire, automatisation, suivi des modifications
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -23,7 +23,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://az
 Si vous n’avez pas de machine virtuelle Azure, [créez-en une](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Activer la collecte d’inventaire à partir de la page de ressources de la machine virtuelle
 
@@ -63,7 +63,7 @@ Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procéde
 5. Dans la fenêtre de confirmation, cliquez sur **Oui**.  
     Cette action déconnecte la machine de la fonction de gestion.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur la gestion des modifications dans les paramètres de registre et les fichiers sur vos machines virtuelles, consultez l’article relatif au [suivi des modifications apportées à votre environnement logiciel avec la solution Change Tracking](../log-analytics/log-analytics-change-tracking.md).
 * Pour en savoir plus sur la gestion des mises à jour de package et Windows sur vos machines virtuelles, consultez la section relative à la [solution Update Management dans OMS](../operations-management-suite/oms-solution-update-management.md).

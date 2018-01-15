@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 10b18400e92c5a626cd1e6ce9a6d6bd56df57dc1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C : collecte des journaux
 
@@ -74,7 +74,7 @@ Exemple :
   >
     ...
     <RelyingParty>
-      <DefaultUserJourney ReferenceId="YourPolicyName" />
+      <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
       <UserJourneyBehaviors>
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
@@ -94,7 +94,7 @@ Exemple :
 1. Ouvrez un nouvel onglet dans Application Insights.
 1. Voici une liste de requêtes que vous pouvez utiliser pour afficher les journaux
 
-| Requête | Description |
+| Requête | DESCRIPTION |
 |---------------------|--------------------|
 traces | Consultez tous les journaux générés par Azure AD B2C |
 traces \| where timestamp > ago(1d) | Consultez tous les journaux générés par Azure AD B2C pour le dernier jour

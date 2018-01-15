@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simuler un échec d’accès au stockage redondant avec accès en lecture
 
@@ -33,7 +33,7 @@ Dans ce deuxième volet, vous apprenez à :
 > * Simuler une défaillance
 > * Simuler la restauration du point de terminaison principal
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel :
 
@@ -88,7 +88,7 @@ Accédez à Fiddler, puis sélectionnez **Rules** (Règles) -> **Customize Rules
 
 Pour permettre à l’application de reprendre son exécution, appuyez sur **une touche**.
 
-Une fois que l’application a repris son exécution, les demandes d’accès au point de terminaison principal n’aboutissent plus. L’application tente de se reconnecter au point de terminaison principal à 5 reprises. Après cinq tentatives non réussies, elle demande l’image au point de terminaison secondaire en lecture seule. Une fois que l’application a réussi à récupérer l’image à 20 reprises à partir du point de terminaison secondaire, elle tente de se connecter au point de terminaison principal. Si le point de terminaison principal est toujours inaccessible, l’application reprend sa lecture du point de terminaison secondaire. Ce modèle correspond au modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker.md) décrit dans le didacticiel précédent.
+Une fois que l’application a repris son exécution, les demandes d’accès au point de terminaison principal n’aboutissent plus. L’application tente de se reconnecter au point de terminaison principal à 5 reprises. Après cinq tentatives non réussies, elle demande l’image au point de terminaison secondaire en lecture seule. Une fois que l’application a réussi à récupérer l’image à 20 reprises à partir du point de terminaison secondaire, elle tente de se connecter au point de terminaison principal. Si le point de terminaison principal est toujours inaccessible, l’application reprend sa lecture du point de terminaison secondaire. Ce modèle correspond au modèle [Disjoncteur](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) décrit dans le didacticiel précédent.
 
 ![Coller la règle personnalisée](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
@@ -108,7 +108,7 @@ Une fois l’opération effectuée, appuyez sur **une touche** pour permettre à
 
 ![Reprendre l’exécution de l’application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce deuxième volet, vous avez appris à simuler une défaillance pour tester le stockage géoredondant avec accès en lecture. Vous avez notamment appris à :
 

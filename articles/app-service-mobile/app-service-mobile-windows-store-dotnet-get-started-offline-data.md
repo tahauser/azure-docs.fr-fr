@@ -2,8 +2,8 @@
 title: Activer la synchronisation hors connexion pour votre application de plateforme Windows universelle (UWP) avec Mobile Apps| Microsoft Docs
 description: "Découvrez comment utiliser une application Azure Mobile pour mettre en cache et synchroniser les données hors connexion dans votre application de plateforme Windows universelle (UWP)."
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 4b0a57c3bab688487eb9a50461b406e1a6e477c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a16de4cef82c29f9b6becfae1901662ee1936934
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Activation de la synchronisation hors connexion pour votre application Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -34,7 +34,7 @@ Pour plus d’informations sur la fonctionnalité de synchronisation hors connex
 Ce didacticiel nécessite les prérequis suivants :
 
 * Visual Studio 2013 s’exécutant sous Windows 8.1 ou version ultérieure.
-* finalisation de [Créer une application Windows][Créer une application Windows].
+* finalisation de [create a windows app][create a windows app].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite pour développement sur plateforme Windows universelle](http://www.sqlite.org/downloads)
 
@@ -105,7 +105,7 @@ Les rubriques suivantes fournissent des informations générales supplémentaire
 
 <!-- URLs. -->
 [Synchronisation des données hors connexion dans Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Créer une application Windows]: app-service-mobile-windows-store-dotnet-get-started.md
+[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921

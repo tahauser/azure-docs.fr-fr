@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Prise en main d'Azure Automation
 
@@ -41,7 +41,7 @@ Les Runbooks s’exécutant sur un Runbook Worker hybride s’exécutent dans le
 
 Les configurations de l’état souhaité stockées dans Azure Automation peuvent être directement appliquées aux machines virtuelles Azure. Les autres machines physiques et virtuelles peuvent demander des configurations du serveur d’extraction Azure Automation DSC.  Pour la gestion des configurations de vos systèmes Windows et Linux virtuels ou physiques, vous n’avez pas besoin de déployer d’infrastructure pour prendre en charge le serveur Pull Automation DSC. Vous avez uniquement besoin de l’accès Internet sortant de chaque système à gérer par Automation DSC, communiquant sur le port TCP 443 avec le service OMS.   
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="automation-dsc"></a>Automation DSC
 Azure Automation DSC peut servir à gérer diverses machines :
@@ -88,10 +88,6 @@ Toutes les tâches d’automatisation que vous effectuez sur les ressources à l
 
 Les ressources Automation de chaque compte Automation sont associées à une seule région Azure, mais les comptes Automation peuvent gérer toutes les ressources dans votre abonnement. Créez des comptes Automation dans différentes régions si vous avez des stratégies qui requièrent l’isolation des données et des ressources dans une région spécifique.
 
-> [!NOTE]
-> Les comptes Automation et les ressources qu’ils contiennent, créés dans le portail Azure, ne sont pas accessibles dans le portail Azure Classic. Si vous souhaitez gérer ces comptes ou leurs ressources avec Windows PowerShell, vous devez utiliser les modules Azure Resource Manager.
-> 
-
 Lorsque vous créez un compte Automation dans le portail Azure, deux entités d’authentification sont automatiquement créées :
 
 * Compte d’identification Azure. Ce compte crée un principal de service dans Azure Active Directory (Azure AD) et un certificat. Il affecte également le rôle RBAC (contrôle d’accès en fonction du rôle) de contributeur qui gère les ressources Resource Manager à l’aide de Runbooks.
@@ -123,7 +119,7 @@ Si vous avez un compte Automation défini pour une région spécifique et que vo
 
 | **Région** | **Enregistrement DNS** |
 | --- | --- |
-| Centre-Sud des États-Unis |scus-jobruntimedata-prod-su1.azure-automation.net |
+| États-Unis - partie centrale méridionale |scus-jobruntimedata-prod-su1.azure-automation.net |
 | Est des États-Unis 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Centre-Ouest des États-Unis | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | Europe de l'Ouest |we-jobruntimedata-prod-su1.azure-automation.net |
@@ -139,14 +135,14 @@ Si vous avez un compte Automation défini pour une région spécifique et que vo
 Pour obtenir la liste des adresses IP plutôt que celle des noms, téléchargez et consultez le fichier xml [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) à partir du Centre de téléchargement Microsoft. 
 
 > [!NOTE]
-> Ce fichier contient les plages d’adresses IP (y compris les plages de calcul, SQL et de stockage) utilisées dans les centres de données Microsoft Azure. Un fichier mis à jour est publié chaque semaine et reflète les plages actuellement déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne seront pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine et effectuez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’Express Route peuvent remarquer que ce fichier permet de mettre à jour la publication BGP de l’espace Azure la première semaine de chaque mois. 
+> Ce fichier contient les plages d’adresses IP (y compris les plages de calcul, SQL et de stockage) utilisées dans les centres de données Microsoft Azure. Un fichier mis à jour est publié chaque semaine et reflète les plages actuellement déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne seront pas utilisées dans les centres de données avant une semaine minimum. Téléchargez le nouveau fichier xml chaque semaine et effectuez les modifications nécessaires sur votre site pour identifier correctement les services qui s’exécutent dans Azure. Les utilisateurs d’Express Route peuvent remarquer ce fichier utilisé pour mettre à jour la publication BGP de l’espace Azure la première semaine de chaque mois. 
 > 
 
 ## <a name="creating-an-automation-account"></a>Création d’un compte Automation
 
 Différentes options s’offrent à vous pour créer un compte Automation dans le portail Azure.  Le tableau suivant présente chaque type d’expérience de déploiement et leurs différences.  
 
-|Méthode | Description |
+|Méthode | DESCRIPTION |
 |-------|-------------|
 | Sélectionner Automation & Control dans la Place de marché | Une offre qui crée un compte Automation et un espace de travail OMS liés entre eux dans le même groupe de ressources et la même région.  L’intégration à OMS offre également l’avantage d’utiliser Log Analytics pour surveiller et analyser l’état d’un travail de runbook et les flux de travaux au fil du temps et pour utiliser des fonctionnalités avancées d’escalade ou d’examen des problèmes. En outre, cette offre déploie les solutions Change Tracking et Update Management, qui sont activées par défaut. |
 | Sélectionner Automation dans la Place de marché | Crée un compte Automation dans un groupe de ressources nouveau ou existant qui n’est pas lié à un espace de travail OMS et qui n’inclut pas les solutions disponibles à partir de l’offre Automation & Control. Il s’agit d’une configuration de base qui vous présente Automation et peut vous aider à apprendre à écrire des runbooks, des configurations DSC et à utiliser les fonctionnalités du service. |
@@ -187,7 +183,7 @@ La méthode recommandée pour intégrer Automation est de sélectionner l’offr
 
 Une fois l’offre intégrée, vous pouvez commencer à créer des runbooks, à utiliser les solutions de gestion que vous avez activées, à déployer un rôle [Runbook Worker hybride](automation-hybrid-runbook-worker.md) ou à utiliser [Log Analytics](https://docs.microsoft.com/azure/log-analytics) pour collecter les données générées par les ressources de votre environnement cloud ou local.   
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Vous pouvez confirmer que votre nouveau compte Automation s’authentifie auprès de ressources Azure en consultant [Test Azure Automation Run As account authentication](automation-verify-runas-authentication.md) (Test d’authentification du compte d’identification Azure Automation).
 * Avant de procéder à la création de runbooks, commencez par examiner les [types de runbooks Automation](automation-runbook-types.md) pris en charge et les considérations associées.
 

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-odata-connector.md)
-> * [Version 2 - Préversion](connector-odata.md)
+> * [Version 2 - Préversion](connector-odata.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une source OData. Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une source OData. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur OData dans V1](v1/data-factory-odata-connector.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur OData dans V1](v1/data-factory-odata-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -39,7 +39,8 @@ Plus précisément, ce connecteur OData prend en charge ce qui suit :
 - Copie de données à l’aide des authentifications suivantes : **Anonyme**, **De base** et **Windows**.
 
 ## <a name="getting-started"></a>Prise en main
-Vous pouvez créer un pipeline avec l’activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Consultez le [Didacticiel de l’activité de copie](quickstart-create-data-factory-dot-net.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur OData.
 
@@ -47,14 +48,14 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié OData sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur **OData** |Oui |
+| Type | La propriété de type doit être définie sur **OData** |Oui |
 | url | URL racine du service OData. |Oui |
 | authenticationType | Type d’authentification utilisé pour se connecter à la source OData.<br/>Valeurs autorisées : **Anonyme**, **De base** et **Windows**. Notez Qu'OAuth n’est pas pris en charge. | Oui |
-| userName | Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. | Non |
-| password | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ comme SecureString. | Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| userName | Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. | Non  |
+| password | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ comme SecureString. | Non  |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 **Exemple 1 : utilisation d’une authentification anonyme**
 
@@ -129,10 +130,10 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de OData, affectez la valeur **ODataResource** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **ODataResource** | Oui |
-| path | Chemin d'accès de la ressource OData. | Non |
+| Type | La propriété type du jeu de données doit être définie sur **ODataResource** | Oui |
+| chemin d’accès | Chemin d'accès de la ressource OData. | Non  |
 
 **Exemple**
 
@@ -162,12 +163,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’OData, définissez **RelationalSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
-| query | Options de requête OData pour filtrer les données. Exemple : "?$select=Name,Description&$top=5".<br/><br/>Notez enfin que le connecteur OData copie des données de l’URL combinée : `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Voir [Composants d’URL d’OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
+| query | Options de requête OData pour filtrer les données. Exemple : "?$select=Name,Description&$top=5".<br/><br/>Notez enfin que le connecteur OData copie des données de l’URL combinée : `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Voir [Composants d’URL d’OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[
@@ -208,7 +209,7 @@ Lors de la copie de données d’OData, les mappages suivants sont utilisés ent
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
+| Edm.DateTime | Datetime |
 | Edm.Decimal | Décimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
@@ -217,13 +218,13 @@ Lors de la copie de données d’OData, les mappages suivants sont utilisés ent
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | String |
+| Edm.String | Chaîne |
 | Edm.Time | intervalle de temps |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.DateTimeOffset | DatetimeOffset |
 
 > [!Note]
 > Les types de données complexes OData (par exemple, Object), ne sont pas pris en charge.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
