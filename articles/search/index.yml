@@ -1,0 +1,74 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Recherche Azure
+metadata:
+  document_id: 
+  title: "Documentation Recherche Azure - Didacticiels, démarrages rapides, informations de référence sur les API"
+  meta.description: Learn how to create an enterprise search solution over private, heterogenous content using Azure Search. Tutorials, API references, and other docs show you how to  consolidate searchable content into a single fast index, queryable using simple-to-advanced syntax for a broad range of scenarios.
+  services: search
+  author: HeidiSteen
+  manager: cgronlun
+  ms.service: search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/04/2018
+  ms.author: heidist
+  ms.openlocfilehash: 046159c537d31579f0eb0dcd65c7fb8903dffd20
+  ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 01/13/2018
+abstract:
+  description: "Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les didacticiels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
+      width: 250
+    title: En savoir plus sur Recherche Azure (9:32)
+    href: https://channel9.msdn.com/Events/Connect/2016/138/player
+    width: 250
+sections:
+- title: "Démarrages en 5 minutes"
+  items:
+  - type: paragraph
+    text: "Démarrer avec un service de recherche dans le portail, puis définir, charger et interroger des index en C# ou REST."
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/search/media/index/portal.svg
+      text: Portail Azure
+      href: https://docs.microsoft.com/azure/search/search-create-service-portal
+    - image:
+        src: /azure/search/media/index/logo_Csharp.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
+    - image:
+        src: /azure/search/media/index/rest.svg
+      text: REST
+      href: https://docs.microsoft.com/azure/search/search-fiddler
+- title: "Didacticiels pas à pas"
+  items:
+  - type: paragraph
+    text: Codez dans .NET ou REST ou utilisez le portail pour tester rapidement le concept.
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"/azure/search/search-howto-dotnet-sdk\">Utilisation de Recherche Azure avec .NET</a>"
+    - html: "<a href=\"/azure/search/search-indexer-tutorial\">Indexer du contenu Azure SQL Database avec .NET</a>"
+    - html: "<a href=\"/azure/search/search-semi-structured-data\">Indexer des données semi-structurées dans le stockage Blob Azure avec REST</a>"
+    - html: "<a href=\"/azure/search/search-synonyms-tutorial-sdk\">Ajouter des synonymes pour retourner des résultats pour les termes équivalents</a>"
+    - html: "<a href=\"/azure/search/search-get-started-portal\">Utiliser le portail pour l’indexation et le test de requêtes</a>"
+- title: "Référence"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Langues
+      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Management)</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/searchservice\">Référence de l’API du service</a></p><p><a href=\"/rest/api/searchmanagement\">Référence de l’API de gestion</a></p>"
