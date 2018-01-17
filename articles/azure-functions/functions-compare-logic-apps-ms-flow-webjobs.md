@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Choisir entre Flow, Logic Apps, Functions et WebJobs
 Cet article dresse une analyse comparative des services suivants de Microsoft Cloud ; ils permettent tous de résoudre des problèmes d’intégration et d’automatiser les processus métier :
@@ -47,7 +47,7 @@ Le tableau suivant vous aide à déterminer si Flow ou Logic Apps convient le mi
 
 |  | Flux | Logic Apps |
 | --- | --- | --- |
-| Public ciblé |Employés de bureau, utilisateurs de l’entreprise, administrateurs SharePoint |Intégrateurs et développeurs professionnels, professionnels de l’informatique |
+| Audience |Employés de bureau, utilisateurs de l’entreprise, administrateurs SharePoint |Intégrateurs et développeurs professionnels, professionnels de l’informatique |
 | Scénarios |Libre-service |Intégrations avancées |
 | Outil de conception |Dans le navigateur et application mobile, interface utilisateur uniquement |Dans le navigateur et [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [mode Code](../logic-apps/logic-apps-author-definitions.md) disponible |
 | Application Lifecycle Management (ALM) |Concevez et testez au sein d’environnements hors production, passez en production lorsque vous êtes prêt. |DevOps : contrôle de code source, tests, support, et automatisation et gestion simplifiée dans [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). |
@@ -79,19 +79,19 @@ Le tableau suivant récapitule les différences entre Functions et WebJobs :
 |  | Functions | WebJobs |
 | --- | --- | --- |
 | Mise à l'échelle |Mise à l’échelle sans configuration |Mise à l’échelle avec un plan App Service |
-| Tarification |Paiement à l’utilisation ou dans le cadre d’un plan App Service |Dans le cadre d’un plan App Service |
+| Tarifs |Paiement à l’utilisation ou dans le cadre d’un plan App Service |Dans le cadre d’un plan App Service |
 | Type d’exécution |Déclenchée, planifiée (par un déclencheur de minuteur) |Déclenchée, continue, planifiée |
-| Événements déclencheurs |[Minuteur](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Files d’attente et objets Blob Stockage Azure](functions-bindings-storage-blob.md), [Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md) |[Files d’attente et objets Blob Stockage Azure](functions-bindings-storage-blob.md), [Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md) |
-| Développement dans le navigateur |Pris en charge |Non pris en charge |
-| C# |Pris en charge |Pris en charge |
-| F# |Pris en charge |Non pris en charge |
-| JavaScript |Pris en charge |Pris en charge |
+| Événements déclencheurs |[Minuteur](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-cosmosdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Files d’attente et objets Blob Stockage Azure](functions-bindings-storage-blob.md), [Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md) |[Files d’attente et objets Blob Stockage Azure](functions-bindings-storage-blob.md), [Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md) |
+| Développement dans le navigateur |Prise en charge |Non pris en charge |
+| C# |Prise en charge |Prise en charge |
+| F# |Prise en charge |Non pris en charge |
+| JavaScript |Prise en charge |Prise en charge |
 | Java |VERSION PRÉLIMINAIRE | Non pris en charge |
-| Bash |Expérimental |Pris en charge |
-| Écriture de scripts Windows (.cmd, .bat) |Expérimental |Pris en charge |
-| PowerShell |Expérimental |Pris en charge |
-| PHP |Expérimental |Pris en charge |
-| Python |Expérimental |Pris en charge |
+| Bash |Expérimental |Prise en charge |
+| Écriture de scripts Windows (.cmd, .bat) |Expérimental |Prise en charge |
+| PowerShell |Expérimental |Prise en charge |
+| PHP |Expérimental |Prise en charge |
+| Python |Expérimental |Prise en charge |
 | TypeScript |Expérimental |Non pris en charge |
 
 Le choix entre Functions et WebJobs dépend en définitive de l’utilisation que vous faites d’App Service. Si vous avez une application App Service pour laquelle vous souhaitez exécuter des extraits de code, et que vous voulez les gérer ensemble dans le même environnement DevOps, utilisez WebJobs. Dans les scénarios suivants, utilisez Functions.
@@ -111,7 +111,7 @@ Comme mentionné précédemment, le service qui vous convient le mieux dépend d
 
 Vous pouvez appeler une application logique dans un flux. Vous pouvez également appeler une fonction dans une application logique et une application logique dans une fonction. L’intégration entre Flow, Logic Apps et Functions continue de s’améliorer au fil du temps. Vous pouvez créer quelque chose dans un service et l’utiliser dans les autres services. Par conséquent, tout investissement dans ces trois technologies est pertinent.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Prenez en main chacun de ces services en créant votre premier flux, application logique, application de fonction ou tâche web. Cliquez sur l’un des liens suivants :
 
 * [Prise en main de Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)

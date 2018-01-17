@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Créer un runbook Azure Automation
 
@@ -71,7 +72,7 @@ Une fois le runbook créé, vous testez le runbook pour vérifier qu’il foncti
 
 1. Sur la page **Modifier un runbook PowerShell**, cliquez sur **Publier** pour publier le runbook en tant que version officielle du runbook au sein du compte.
 
-   ![Vue d’ensemble du runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Exécuter le runbook
 
@@ -83,11 +84,11 @@ Une fois le runbook publié, la page de vue d’ensemble apparaît.
 
 1. Laissez le **nom** vide afin que la valeur par défaut soit utilisée, puis cliquez sur **OK**. Le travail de runbook est soumis et la page du travail s’affiche.
 
-   ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Lorsque **l’état du travail** est **En cours d’exécution** ou **Terminé**, cliquez sur **Sortie** pour ouvrir le volet **Sortie** et afficher la sortie du runbook.
 
-    ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Travail de test de runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
