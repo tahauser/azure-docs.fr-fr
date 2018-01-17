@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: ashmaka
-ms.openlocfilehash: ebf7319f0017b4adef25fe5840864e002c88fea7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8394475572502df9d57256dc5123fcdfa72765a6
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="data-import-in-azure-search"></a>Importation de données dans Recherche Azure
+# <a name="indexing-in-azure-search"></a>Indexation dans Recherche Azure
 > [!div class="op_single_selector"]
 > * [Vue d'ensemble](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -51,7 +51,7 @@ Pour une présentation de chaque méthode, consultez [Importer des données à l
 ## <a name="pulling-data-into-an-index"></a>Extraction de données dans un index
 Le modèle d’extraction analyse une source de données prise en charge et charge automatiquement les données dans votre index. Dans Recherche Azure, cette fonctionnalité est implémentée via des *indexeurs*, actuellement disponibles pour ces plateformes :
 
-+ [Stockage d’objets blob](search-howto-indexing-azure-blob-storage.md)
++ [Stockage Blob](search-howto-indexing-azure-blob-storage.md)
 + [Stockage Table](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer)
 + [Base de données SQL Azure et SQL Server sur les machines virtuelles Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
