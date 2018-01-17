@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -34,7 +34,7 @@ Avant de télécharger le serveur Microsoft Azure Multi-Factor Authentication
 
 Le nombre d’utilisateurs que vous souhaitez authentifier, sur une base régulière, est une bonne ligne directrice pour avoir une idée de la quantité de mémoire nécessaire.
 
-| Users | RAM |
+| Utilisateurs | RAM |
 | ----- | --- |
 | 1-10,000 | 4 Go |
 | 10,001-50,000 | 8 Go |
@@ -94,7 +94,7 @@ Si vous n’utilisez pas la fonctionnalité de confirmation d’événement et q
 Procédez comme suit pour télécharger le serveur Azure Multi-Factor Authentication (MFA) à partir du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Sélectionnez **Active Directory** > **Multi-Factor Authentication**.
+2. Sélectionnez **Active Directory** > **Serveur MFA**.
 3. Sélectionnez **Paramètres du serveur**.
 4. Cliquez sur **Télécharger** et suivez les instructions de la page de téléchargement pour enregistrer le programme d’installation. 
 
@@ -187,7 +187,7 @@ Si une restauration est nécessaire, procédez comme suit :
 
 Le nouveau serveur est maintenant en place, avec les données d’utilisateur et de configuration d’origine que vous aviez sauvegardées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Installez et configurez le [portail utilisateur](multi-factor-authentication-get-started-portal.md) pour une utilisation en libre-service.
 - Installez et configurez le serveur Azure MFA avec [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md), [l’authentification RADIUS](multi-factor-authentication-get-started-server-radius.md) ou [l’authentification LDAP](multi-factor-authentication-get-started-server-ldap.md).

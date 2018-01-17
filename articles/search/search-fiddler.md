@@ -4,7 +4,7 @@ description: "Découvrez comment émettre des demandes HTTP et des appels d’AP
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,17 +12,17 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: d8da3f02fab90e0c690e320736409a4d113d634c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9a6bc035ba9f02057e3086a9682b54282da19f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Explorer les API REST de la Recherche Azure à l’aide de Fiddler ou Postman
 
-L’une des méthodes les plus simples pour explorer les [API REST de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice) consiste à tirer parti de Fiddler ou Postman pour formuler les demandes HTTP et inspecter les réponses. Dans cet article, effectuez des tests en tirant parti de charges utiles de demandes et de réponses, sans avoir à écrire du code.
+L’une des méthodes les plus simples pour explorer les [API REST de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice) consiste à tirer parti de Fiddler ou Postman pour formuler les demandes HTTP et inspecter les réponses. Avec les bons outils et ces instructions, vous pouvez envoyer des requêtes et afficher les réponses avant d’écrire un code.
 
 > [!div class="checklist"]
 > * Télécharger un outil de test d’API web
@@ -253,7 +253,7 @@ Pour en savoir plus sur cette API, consultez la section relative à [l’obtenti
 
 Dans Fiddler, cliquez sur l’onglet **Inspecteurs**, sur l’onglet **En-têtes**, puis sélectionnez le format JSON. Le nombre de documents et la taille de stockage (en Ko) doivent s'afficher.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les clients REST sont très utiles pour l’exploration ad hoc, mais vous connaissez le fonctionnement de l’API REST, donc vous pouvez avancer avec le code. Pour connaître les étapes suivantes, consultez les liens suivants :
 
