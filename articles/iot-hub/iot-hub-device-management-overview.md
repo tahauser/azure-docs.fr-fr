@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Vue d’ensemble de la gestion des appareils avec IoT Hub
 ## <a name="introduction"></a>Introduction
@@ -57,7 +57,7 @@ Dans chacune de ces cinq étapes, il existe plusieurs conditions destinées à l
     *Ressources supplémentaires* : [Prise en main des représentations d’appareils][lnk-twins-getstarted], [Comprendre les représentations d’appareils][lnk-twins-devguide], [Utilisation des propriétés des représentations][lnk-twin-properties].
 * **Approvisionnement** : approvisionner les nouveaux appareils en toute sécurité auprès d’IoT Hub et permettre aux opérateurs de détecter immédiatement les fonctionnalités des appareils.  Utilisez le registre des identités IoT Hub pour créer des informations d’identification et des identités d’appareils flexibles et effectuez cette opération en bloc à l’aide d’un travail. Créez les appareils afin qu’ils signalent leurs fonctionnalités et leur condition via les propriétés de l’appareil dans la représentation d’appareil.
   
-    *Ressources supplémentaires* : [Gérer les identités des appareils][lnk-identity-registry], [Gestion en bloc des appareils IoT][lnk-bulk-identity], [Utilisation des propriétés des représentations][lnk-twin-properties].
+    *Ressources supplémentaires* : [Gérer les identités des appareils][lnk-identity-registry], [Gestion en bloc des identités d’appareils][lnk-bulk-identity], [Comment : Utiliser des propriétés de jumeau d’appareil][lnk-twin-properties], [Service d’approvisionnement d’appareils IoT Hub Azure][lnk-dps].
 * **Configuration** : rendre possibles les modifications de configuration et les mises à jour de microprogramme en bloc sur les appareils, tout en assurant intégrité et sécurité. Effectuez ces opérations de gestion d’appareils en bloc à l’aide des propriétés requises ou de méthodes directes et de travaux de diffusion.
   
     *Ressources supplémentaires* :  [Utiliser des méthodes directes][lnk-c2d-methods], [Appeler des méthodes directes sur un appareil][lnk-methods-devguide], [Utilisation des propriétés des représentations][lnk-twin-properties], [Planifier et diffuser des travaux][lnk-jobs], [Planifier des travaux sur plusieurs appareils][lnk-jobs-devguide].
@@ -113,3 +113,4 @@ Pour plus d’informations sur les fonctionnalités de gestion des appareils dan
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

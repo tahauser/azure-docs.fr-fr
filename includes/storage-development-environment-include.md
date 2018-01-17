@@ -2,15 +2,15 @@
 Ensuite, configurez votre environnement de développement dans Visual Studio afin d’être prêt pour essayer les exemples de code fournis dans ce guide.
 
 ### <a name="create-a-windows-console-application-project"></a>Créer un projet d’application de console Windows
-Dans Visual Studio, créez une application de console Windows. Les étapes suivantes vous montrent comment créer une application de console dans Visual Studio 2017. Les étapes sont similaires à celles des autres versions de Visual Studio.
+Dans Visual Studio, créez une application de console Windows. Les étapes suivantes vous montrent comment créer une application de console dans Visual Studio 2017. Les étapes sont semblables pour d’autres versions de Visual Studio.
 
-1. Sélectionnez **Fichier** > **Nouveau** > **Projet**
-2. Sélectionnez **Installé** > **Modèles** > **Visual C#** > **Bureau classique Windows**
-3. Sélectionnez **Application console (.NET Framework)**
-4. Entrez un nom pour votre application dans le champ **Nom :**
+1. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
+2. Sélectionnez **Installé** > **Modèles** > **Visual C#** > **Bureau classique Windows**.
+3. Sélectionnez **Application console (.NET Framework)**.
+4. Saisissez un nom pour votre application dans le champ **Nom**.
 5. Sélectionnez **OK**.
 
-![Boîte de dialogue Création du projet dans Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Capture d’écran de la boîte de dialogue Nouveau projet dans Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 Tous les exemples de code figurant dans ce didacticiel peuvent être ajoutés à la méthode `Main()` du fichier `Program.cs` de votre application de console.
 
@@ -25,8 +25,8 @@ Vous devez référencer deux packages dans votre projet pour terminer ce didacti
 Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit :
 
 1. Cliquez avec le bouton droit sur votre projet dans **l’Explorateur de solutions**, puis sélectionnez **Gérer les packages NuGet**.
-2. Recherchez « WindowsAzure.Storage » en ligne, puis cliquez sur **Installer** pour installer la bibliothèque cliente Azure Storage et ses dépendances.
-3. Recherchez « WindowsAzure.ConfigurationManager » en ligne, puis cliquez sur **Installer** pour installer Azure Configuration Manager.
+2. Recherchez « WindowsAzure.Storage » en ligne, puis sélectionnez **Installer** pour installer la bibliothèque cliente Azure Storage et ses dépendances.
+3. Recherchez « WindowsAzure.ConfigurationManager » en ligne, puis sélectionnez **Installer** pour installer Azure Configuration Manager.
 
 > [!NOTE]
 > Le package de bibliothèque cliente Azure Storage est également disponible dans le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/). Toutefois, nous vous recommandons d’installer également la bibliothèque cliente Azure Storage à partir de NuGet pour vous assurer que vous avez toujours la dernière version de la bibliothèque cliente.
@@ -39,7 +39,7 @@ Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit�
 Vous avez le choix entre deux environnements pour exécuter les exemples de ce guide :
 
 * Vous pouvez exécuter votre code sur un compte Azure Storage dans le cloud. 
-* Vous pouvez exécuter votre code sur l’émulateur de stockage Azure. L’émulateur de stockage est un environnement local qui émule un compte Azure Storage dans le cloud. L’émulateur est une option gratuite permettant de tester et déboguer votre code lors du développement de votre application. L’émulateur utilise un compte et une clé connus. Pour plus d’informations, voir [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../articles/storage/common/storage-use-emulator.md)
+* Vous pouvez exécuter votre code sur l’émulateur de stockage Azure. L’émulateur de stockage est un environnement local qui émule un compte Azure Storage dans le cloud. L’émulateur est une option gratuite permettant de tester et déboguer votre code lors du développement de votre application. L’émulateur utilise un compte et une clé connus. Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../articles/storage/common/storage-use-emulator.md).
 
 Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, voir [Affichage et copie de clés d’accès de stockage](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -51,7 +51,7 @@ Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès pr
 ### <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 La bibliothèque du client de stockage Azure pour .NET prend en charge l’utilisation d’une chaîne de connexion de stockage pour la configuration de points de terminaison et d’informations d’identification permettant d’accéder aux services de stockage. La meilleure façon de conserver votre chaîne de connexion de stockage est dans un fichier de configuration. 
 
-Pour plus d’informations sur les chaînes de connexion, voir [Configuration d’une chaîne de connexion dans Azure Storage](../articles/storage/common/storage-configure-connection-string.md).
+Pour plus d’informations sur les chaînes de connexion, voir [Configuration d’une chaîne de connexion dans Stockage Azure](../articles/storage/common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Veillez toujours à protéger votre clé de compte de stockage. Évitez de la communiquer à d’autres utilisateurs, de la coder en dur ou de l’enregistrer dans un fichier texte brut accessible à d’autres personnes. Régénérez votre clé à l’aide du portail Azure si vous pensez que sa confidentialité est compromise.

@@ -13,28 +13,26 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>Leçon 2 : Obtenir des données
+# <a name="get-data"></a>Obtention des données
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-Dans cette leçon, vous allez utiliser l’option Obtenir des données de SSDT pour vous connecter à l’exemple de base de données AdventureWorksDW2014, sélectionner des données, filtrer et afficher un aperçu des données, puis les importer dans votre espace de travail de modèle.  
+Dans cette leçon, vous allez utiliser l’option Obtenir des données de SSDT pour vous connecter à l’exemple de base de données AdventureWorks, sélectionner des données, filtrer et afficher un aperçu des données, puis les importer dans votre espace de travail de modèle.  
   
 L’option Obtenir des données vous permet d’importer des données à partir d’une grande variété de sources : Azure SQL Database, Oracle, Sybase, flux OData, bases de données Teradata, fichiers, entre autres. Les données peuvent également être interrogées à l’aide d’une expression de formule M Power Query.
 
 > [!NOTE]
-> Les tâches et images de ce didacticiel montrent la connexion à une base de données AdventureWorksDW2014 sur un serveur local. Une base de données AdventureWorksDW2014 peut être différente sur Azure.
+> Les tâches et images de ce didacticiel montrent la connexion à une base de données AdventureWorksDW2014 sur un serveur local. Une base de données AdventureWorks peut être différente sur Azure.
   
-Durée estimée pour suivre cette leçon : **10 minutes**  
+Durée estimée pour suivre cette leçon : **10 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Créer une connexion  

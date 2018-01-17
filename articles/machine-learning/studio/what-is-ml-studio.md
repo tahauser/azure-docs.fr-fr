@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio - De quoi s'agit-il ?
 Microsoft Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d'analyse prédictive à partir de vos données. Machine Learning Studio publie des modèles en tant que services web pouvant facilement être consommés par des applications personnalisées ou des outils décisionnels tels qu'Excel.
@@ -64,9 +64,9 @@ Cliquez sur **Studio**. Vous êtes dirigé vers **Azure Machine Learning Studio*
 * **PARAMÈTRES** : ensemble des paramètres que vous pouvez utiliser pour configurer votre compte et vos ressources.
 
 ### <a name="gallery"></a>Galerie
-Cliquez sur **Galerie** pour accéder à la **[galerie Cortana Intelligence](http://gallery.cortanaintelligence.com/)**. La galerie est l’endroit où la communauté des développeurs et des chercheurs en science des données peut partager des solutions créées à l’aide des composants de Cortana Intelligence Suite.
+Cliquez sur **Galerie** pour accéder à la **[galerie Azure AI](http://gallery.cortanaintelligence.com/)**. La galerie est l’endroit où la communauté des développeurs et des chercheurs en science des données peut partager des solutions créées à l’aide des composants de Cortana Intelligence Suite.
 
-Pour plus d’informations sur la galerie, voir [Partager et découvrir des solutions dans la galerie Cortana Intelligence](gallery-how-to-use-contribute-publish.md).
+Pour plus d’informations sur la galerie, voir [Partager et découvrir des solutions dans la galerie Azure AI](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Composants d'une expérience
 Une expérience se compose de jeux de données qui fournissent des données aux modules d'analyse que vous connectez ensemble pour construire un modèle d'analyse prédictive. En particulier, une expérience valide a les caractéristiques suivantes :
@@ -83,7 +83,7 @@ Pour obtenir un exemple de création d'une expérience simple, consultez la rubr
 
 Pour une description plus complète de la création d'une solution d'analyse prédictive, consultez la rubrique [Développement d'une solution prédictive avec Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
-### <a name="datasets"></a>JEUX DE DONNÉES
+### <a name="datasets"></a>Groupes de données
 Un jeu de données représente des données téléchargées dans Machine Learning Studio de façon à les utiliser dans la procédure de modélisation. Machine Learning Studio fournit divers exemples de jeux de données utilisables pour vos expériences ; vous pouvez télécharger vers le serveur d'autres jeux de données si vous en avez besoin. Voici quelques exemples de jeux de données fournis :
 
 * **Données sur la quantité de litres au 100 pour différents véhicules automobiles** : valeurs de quantité de litres au 100 pour des automobiles identifiées par leur nombre de cylindres, leur puissance, etc.

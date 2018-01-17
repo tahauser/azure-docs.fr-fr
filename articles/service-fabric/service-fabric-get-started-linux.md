@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c59ad25294fe88f6145b6e55bb498cd958dbca2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Pour déployer et exécuter des [applications Azure Service Fabric](service-fabric-application-model.md) sur votre ordinateur de développement Linux, installez le runtime et le Kit de développement logiciel (SDK) courant. Vous pouvez également installer des Kits de développement logiciel (SDK) facultatifs pour le développement de Java et .NET Core.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
@@ -128,6 +128,10 @@ sudo apt-get install servicefabricsdkcommon
   > Les clusters autonomes ne sont pas pris en charge sous Linux.
   >
 
+
+>   [!TIP]
+    Si vous avez un produit de disque SSD disponible, il est recommandé de passer un chemin d’accès du dossier de disque SSD en utilisant `--clusterdataroot` avec devclustersetup.sh pour des performances supérieures.
+
 ## <a name="set-up-the-service-fabric-cli"></a>Configurer l’interface de ligne de commande Service Fabric
 
 L’[interface de ligne de commande Service Fabric](service-fabric-cli.md) inclut des commandes permettant d’interagir avec des entités Service Fabric, y compris des clusters et des applications.
@@ -215,7 +219,7 @@ sudo npm uninstall generator-azuresfguest
 sudo apt-get install -f
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créer et déployer votre première application Java Service Fabric sous Linux à l’aide de Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Créer et déployer votre première application Java Service Fabric sous Linux à l’aide du plug-in Service Fabric pour Eclipse](service-fabric-get-started-eclipse.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Guide pas à pas : développer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning
 
@@ -55,6 +55,6 @@ Pour créer cette solution d'évaluation des risques de crédit, nous suivons ce
 6. [Accéder au service web](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> Vous pouvez obtenir une copie de travail de l’expérience que nous développons lors de cette procédure pas à pas dans la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com). Accédez à **[Procédure pas à pas - Prédiction du risque de crédit](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
+> Vous pouvez obtenir une copie de travail de l’expérience que nous développons lors de cette procédure pas à pas dans la [galerie Azure AI](https://gallery.cortanaintelligence.com). Accédez à **[Procédure pas à pas - Prédiction du risque de crédit](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
 > 
 > Cette procédure pas à pas est basée sur une version simplifiée de l’exemple d’expérience [Classification binaire : prédiction du risque de crédit](http://go.microsoft.com/fwlink/?LinkID=525270) également disponible dans la [Galerie](http://gallery.cortanaintelligence.com/).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure
 
@@ -41,7 +41,7 @@ Le tableau suivant contient une liste des paramètres obligatoires et facultatif
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
-| Nom du paramètre | Description |
+| Nom du paramètre | DESCRIPTION |
 |---|---|
 | -Operation | GetVMList |
 | -User | Nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif.|
@@ -86,7 +86,7 @@ Le tableau suivant contient une liste des paramètres obligatoires et facultatif
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
-| Nom du paramètre | Description |
+| Nom du paramètre | DESCRIPTION |
 |---|---|
 | -Operation | StartProfiling |
 | -User | Nom d’utilisateur pour se connecter à l’hôte Hyper-V ou au cluster Hyper-V. L’utilisateur doit avoir un accès administratif.|
@@ -106,6 +106,15 @@ Nous vous recommandons de profiler vos machines virtuelles pendant plus de 7 jou
 Pendant le profilage, vous pouvez éventuellement transmettre un nom et une clé du compte de stockage pour déterminer le débit qu’Azure Site Recovery peut atteindre au moment de la réplication du serveur Hyper-V vers Azure. Si le nom et la clé du compte de stockage ne sont pas transmis au cours du profilage, l’outil ne calcule pas le débit réalisable.
 
 Vous pouvez exécuter plusieurs instances de l’outil pour différents ensembles de machines virtuelles. Veillez à ce que les noms des machines virtuelles ne soient pas répétés dans les ensembles de profilage. Par exemple, si vous avez profilé 10 machines virtuelles (VM1 à VM10) et que, après quelques jours, vous voulez profiler cinq autres machines virtuelles (VM11 à VM15), vous pouvez exécuter l’outil à partir d’une autre console de ligne de commande pour le second ensemble de machines virtuelles (VM11 à VM15). Assurez-vous que le second ensemble de machines virtuelles ne comporte pas de noms de machine virtuelle de la première instance de profilage ou utilisez un autre répertoire de sortie pour la seconde exécution. Si deux instances de l’outil sont utilisées pour profiler les mêmes machines virtuelles et que vous utilisez le même répertoire de sortie, le rapport généré sera incorrect. 
+
+Par défaut, l’outil est configuré pour profiler et générer un rapport comprenant jusqu'à 1000 machines virtuelles. Vous pouvez modifier la limite en modifiant la valeur de la clé MaxVMsSupported dans le fichier *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Avec les paramètres par défaut, pour profiler 1500 machines virtuelles, créez deux fichiers VMList.txt. Un fichier avec 1 000 machines virtuelles et un autre avec une liste de 500 machines virtuelles. Exécutez les deux instances du planificateur de déploiement ASR, une avec le fichier VMList1.txt et l’autre avec le fichier VMList2.txt. Vous pouvez utiliser le même chemin d’accès de répertoire pour stocker les données profilées des machines virtuelles correspondant aux deux fichiers VMList. 
+
+Nous avons vu que, selon la configuration matérielle et particulière en fonction de la mémoire RAM du serveur à partir duquel l’outil pour générer le rapport est exécuté, l’opération peut échouer à cause d’une quantité de mémoire insuffisante. Si vous avez un bon matériel, vous pouvez modifier la clé MaxVMsSupported avec n’importe quelle valeur supérieure.  
 
 Les configurations de machines virtuelles sont capturées une fois au début de l’opération de profilage et stockées dans un fichier appelé VMDetailList.xml. Ces informations sont utilisées lorsque le rapport est généré. Toute modification de configuration de machine virtuelle (par exemple, un nombre accru de cœurs, de disques ou de cartes réseau) du début à la fin du profilage n’est pas capturée. Si une configuration de machines virtuelles profilées est modifiée pendant le profilage, la solution de contournement consiste à obtenir les toutes dernières informations des machines virtuelles lorsque vous générez le rapport :
 
@@ -150,7 +159,7 @@ Le tableau suivant contient une liste des paramètres obligatoires et facultatif
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
-| Nom du paramètre | Description |
+| Nom du paramètre | DESCRIPTION |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | Le fichier qui contient la liste des machines virtuelles profilées pour lesquels le rapport va être généré. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle séparé par un \ par ligne. Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<ul>Exemple : le fichier « VMList.txt » contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -168,6 +177,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-TargetRegion|(Facultatif) La région Azure cible de la réplication. Étant donné qu’Azure possède différents coûts par région, utilisez ce paramètre pour générer des rapports avec une région cible Azure spécifique.<br>La valeur par défaut est WestUS2 (Ouest des États-Unis) ou la dernière région cible.<br>Reportez-vous à la liste des [régions cibles prises en charge](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Facultatif) L’offre associée à l’abonnement donné. La valeur par défaut est MS-AZR-0003P (paiement à l’utilisation).|
 |-Currency|(Facultatif) La devise dans laquelle le coût est indiqué dans le rapport généré. La valeur par défaut est le Dollar américain ($) ou la dernière devise utilisée.<br>Reportez-vous à la liste des [devises prises en charge](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Par défaut, l’outil est configuré pour profiler et générer un rapport comprenant jusqu'à 1000 machines virtuelles. Vous pouvez modifier la limite en modifiant la valeur de la clé MaxVMsSupported dans le fichier *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 ### <a name="examples"></a>Exemples
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemple 1 :générer un rapport contenant des valeurs par défaut lorsque les données profilées sont situées sur le lecteur local
@@ -206,6 +221,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Valeur de centile utilisée pour le calcul
 **Quelle valeur de centile par défaut des indicateurs de performance collectés pendant le profilage l’outil va-t-il utiliser au moment de la génération de rapport ?**
@@ -253,7 +269,7 @@ Ouvrez une console de ligne de commande et accédez au dossier du planificateur 
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
- Nom du paramètre | Description |
+ Nom du paramètre | DESCRIPTION |
 |---|---|
 | -Operation | GetThroughtput |
 |-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
@@ -268,7 +284,7 @@ L’outil crée plusieurs fichiers asrvhdfile<#>.vhd de 64 Mo (où # représent
 
 Le débit est mesuré à un moment donné et il s’agit du débit maximal qu’Azure Site Recovery peut atteindre lors d’une réplication, sous réserve que tous les autres facteurs restent identiques. Par exemple, si une application commence à consommer davantage de bande passante sur le même réseau, le débit réel varie pendant la réplication. Le résultat du débit mesuré est différent si l’opération GetThroughput est exécutée lorsque les machines virtuelles protégées présentent des taux d’activité élevés. Nous vous recommandons d’exécuter l’outil à différents moments dans le temps pendant le profilage pour comprendre les niveaux de débit pouvant être atteints à des moments différents. Dans le rapport, l’outil affiche le dernier débit mesuré.
     
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -286,5 +302,5 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 >  3. Vérifiez les caractéristiques de stockage local pour déterminer si vous pouvez améliorer le matériel (par exemple, passer d’un disque dur à un disque SSD).
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Analysez le rapport généré](site-recovery-hyper-v-deployment-planner-analyze-report.md).

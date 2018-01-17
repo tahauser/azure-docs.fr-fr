@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Surveillance de l’intégrité de la sécurité dans le Centre de sécurité Azure
 Cet article a pour but de vous aider à utiliser les fonctionnalités de surveillance d’Azure Security Center, afin de contrôler la conformité aux stratégies.
@@ -48,11 +48,11 @@ Lorsque vous cliquez sur vignette **Compute**, trois onglets s’affichent :
 Chaque onglet peut contenir plusieurs sections, et dans chaque section vous pouvez sélectionner une option afin d’afficher plus de détails sur les étapes recommandées pour résoudre le problème en question.
 
 #### <a name="monitoring-recommendations"></a>Recommandations concernant la surveillance
-Cette section indique le nombre total de machines virtuelles et d’ordinateurs qui ont été initialisés pour l’approvisionnement automatique et leurs états actuels. Lorsque vous cliquez sur cette entrée, la page des **problèmes d’intégrité de l’agent de surveillance** s’ouvre.
+Cette section indique le nombre total de machines virtuelles et d’ordinateurs qui ont été initialisés pour l’approvisionnement automatique et leurs états actuels. Cet exemple comprend une recommandation, **Problèmes d’intégrité de l’agent d’analyse**.  Sélectionnez cette recommandation.
 
 ![Problèmes d’intégrité de l’agent de surveillance](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Les machines virtuelles et les ordinateurs que le Security Center ne peut pas surveiller correctement s’affichent ici. Pour plus d’informations, sélectionnez une machine virtuelle ou un ordinateur. La valeur **ÉTAT DE SURVEILLANCE** définit le problème.
+**Problèmes d’intégrité de l’agent de surveillance** s’ouvre. Les machines virtuelles et les ordinateurs que le Security Center ne peut pas surveiller correctement s’affichent ici. Pour plus d’informations, sélectionnez une machine virtuelle ou un ordinateur. **MONITORING STATE** fournit une raison pour laquelle Security Center ne peut pas surveiller. Consultez le [guide de dépannage de Security Center](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) pour obtenir une liste de valeurs, de descriptions et d’étapes de résolution de **MONITORING STATE**.
 
 #### <a name="recommendations"></a>Recommandations
 Cette section contient un ensemble de [recommandations pour chacune des machines virtuelles et chacun des ordinateurs](security-center-virtual-machine-recommendations.md) surveillés par Azure Security Center. La première colonne indique la recommandation. La deuxième colonne indique le nombre total de machines virtuelles et d’ordinateurs qui sont affectés par cette recommandation. La troisième colonne indique la gravité du problème, comme illustré dans la capture d’écran suivante :

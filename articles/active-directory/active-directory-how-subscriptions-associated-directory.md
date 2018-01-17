@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Comment associer ou ajouter un abonnement Azure à Azure Active Directory
 
@@ -46,7 +46,7 @@ Tous les utilisateurs disposent d'un répertoire de base unique qui les authenti
 
     ![Capture d’écran affichant l’interface utilisateur Modifier le répertoire](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Cliquez sur **Modifier**.
-6. C’est terminé ! Utilisez le sélecteur de répertoire pour passer au nouveau répertoire.
+6. Vous avez réussi ! Utilisez le sélecteur de répertoire pour passer au nouveau répertoire. 10 minutes peuvent être nécessaire pour tout afficher correctement.
 
     ![Capture d’écran affichant la notification de réussite de modification du répertoire](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 
@@ -55,7 +55,7 @@ Tous les utilisateurs disposent d'un répertoire de base unique qui les authenti
 
 La modification du répertoire d’abonnement est une opération qui s’effectue au niveau du service. Elle n’affecte pas la propriété de facturation de l’abonnement, et l’administrateur de compte peut toujours changer l’administrateur du service dans le [Centre des comptes](https://account.azure.com/subscriptions). Si vous souhaitez supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour en savoir plus sur la création d’un annuaire Azure AD gratuit, consultez [Obtention d’un client Azure Active Directory](develop/active-directory-howto-tenant.md)
 * Pour en savoir plus sur le transfert de la propriété de facturation d’un abonnement Azure, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).

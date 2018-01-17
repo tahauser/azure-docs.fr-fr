@@ -2,7 +2,7 @@
 
 Pour permettre à Mobile Engagement d’envoyer des notifications Push en votre nom, vous devez lui accorder l’accès à votre clé d’API. Pour cela, vous devez configurer et entrer votre clé dans le portail Mobile Engagement.
 
-1. Dans votre portail Azure Classic, vérifiez que vous êtes bien dans l’application que nous utilisons pour ce projet, puis cliquez sur le bouton **Engager** en bas de l’écran :
+1. Dans le portail Azure, vérifiez que vous êtes bien dans l’application que nous utilisons pour ce projet, puis cliquez sur le bouton **Engager** en bas de l’écran :
 
     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 

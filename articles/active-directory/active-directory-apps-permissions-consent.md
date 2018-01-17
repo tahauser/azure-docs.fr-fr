@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Applications, autorisations et consentement dans Azure Active Directory
-Dans Azure Active Directory, vous pouvez ajouter des applications à votre répertoire.  Les types d’applications peuvent varier.  Pour afficher des applications dans le portail classique, sélectionnez un répertoire et choisissez-en quelques-unes.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+Dans Azure Active Directory, vous pouvez ajouter des applications à votre répertoire.  Les types d’applications peuvent varier.  Pour afficher des applications dans le portail, sélectionnez un répertoire et choisissez-en quelques-unes.
 
 > [!IMPORTANT]
-> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure classique référencé dans cet article.
+> Microsoft recommande de gérer Azure AD à l’aide du [Centre d’administration Azure AD](https://aad.portal.azure.com) dans le portail Azure au lieu d’utiliser le portail Azure référencé dans cet article.
 
 ## <a name="types-of-apps"></a>Types d’applications
 
@@ -73,9 +71,7 @@ En résumé :
 
 ## <a name="controls"></a>Commandes
 
-Voici une liste des différents contrôles d’administration disponibles pour tous ces comportements. Les contrôles d’administration sont accessibles dans le portail classique via Configure (Configurer) sous le répertoire.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Voici une liste des différents contrôles d’administration disponibles pour tous ces comportements.
 
 Dans le portail Azure, sous **manage** (gérer), choisissez **user settings** (paramètres utilisateur).
 
@@ -85,18 +81,14 @@ Dans le portail Azure, sous **manage** (gérer), choisissez **user settings** (p
 
 - Vous pouvez décider si les utilisateurs peuvent donner leur consentement pour des applications :
 
-Dans le portail classique, sélectionnez **Users may give applications permissions to access their data**
-![](media/active-directory-apps-permissions-consent/apps8.png) (Les utilisateurs peuvent autoriser les applications à accéder à leurs données).
-
 Dans le portail Azure, sélectionnez **Les utilisateurs peuvent autoriser les applications à accéder à leurs données**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Vous décider si les utilisateurs peuvent inscrire leurs propres applications métiers à locataire unique : dans le portail classique, sélectionnez **Les utilisateurs peuvent ajouter des applications intégrées**
-![](media/active-directory-apps-permissions-consent/apps9.png).
+- Vous pouvez contrôler l’inscription par les utilisateurs de leurs propres applications métiers à locataire unique :
 
-Dans le portail Azure, sélectionnez **Les utilisateurs peuvent autoriser les applications à accéder à leurs données**.
+Dans le portail Azure, sélectionnez **Les utilisateurs peuvent inscrire des applications**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -109,21 +101,7 @@ Dans le portail Azure, sélectionnez **Les utilisateurs peuvent autoriser les ap
 >- Les utilisateurs ne peuvent pas apporter de modifications aux applications dont ils sont propriétaires.
 
 
-
-- Vous pouvez décider si les utilisateurs peuvent eux-mêmes ajouter des applications pré-intégrées qui utilisent l’authentification unique par mot de passe (également appelée « mise au coffre des mots de passe ») ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Vous pouvez contrôler dans quelles conditions les applications sont accessibles (c’est-à-dire, définir un accès conditionnel). Notez que cela s’applique à l’application cliente et à l’application de ressource. Supposons que vous définissez une stratégie d’accès conditionnel spécifiant que l’application « Office 365 Exchange Online » est accessible seulement à partir des machines qui sont compatibles.  Cette stratégie s’applique également si un utilisateur tente d’utiliser une application cliente qui demande des autorisations à Exchange Online.
-
-
-
-- Vous avez une vue des applications qui ont été consenties et de celles qui sont utilisées.
-
-1.  Lorsqu’un utilisateur donne son consentement pour une application, un objet ServicePrincipal est créé dans le client. La création de ServicePrincipal est incluse dans le rapport d’audit.
-2.  Les rapports d’activité de connexion de l’utilisateur vous indiquent à quelle application l’utilisateur se connecte. 
-
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 
 Par exemple, prenons l’application « FabrikamMail pour Office 365 » à laquelle vous avez remarqué que les utilisateurs de votre client se connectent. « FabrikamMail » est une application de lecture de courriers pour Android, publiée par « Fabrikam, Inc. ». Elle correspond à la définition « Applications multi-locataires développées par d’autres personnes, pour lesquelles Contoso peut donner son consentement ».
 

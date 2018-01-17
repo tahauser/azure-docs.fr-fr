@@ -13,30 +13,28 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>Leçon 1 : Créer un projet de modèle tabulaire
+# <a name="create-a-tabular-model-project"></a>Créer un projet de modèle tabulaire
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-Dans cette leçon, vous utilisez SQL Server Data Tools (SSDT) pour créer un projet de modèle tabulaire au niveau de compatibilité 1400. Une fois votre nouveau projet créé, vous pouvez commencer à ajouter des données et à créer votre modèle. Cette leçon vous présente brièvement l’environnement de création de modèle tabulaire dans SSDT.  
+Dans cette leçon, vous utilisez Visual Studio avec SQL Server Data Tools (SSDT) pour créer un projet de modèle tabulaire au niveau de compatibilité 1400. Une fois votre nouveau projet créé, vous pouvez commencer à ajouter des données et à créer votre modèle. Cette leçon vous présente brièvement l’environnement de création de modèle tabulaire dans Visual Studio.  
   
-Durée estimée pour suivre cette leçon : **10 minutes**  
+Durée estimée pour suivre cette leçon : **10 minutes**  
   
-## <a name="prerequisites"></a>Prérequis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique est la première leçon d’un didacticiel de création de modèle tabulaire. Pour suivre cette leçon, un certain nombre de conditions préalables doivent être satisfaites. Pour en savoir plus, consultez [Azure Analysis Services -Didacticiel Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Créer un projet de modèle tabulaire  
   
 #### <a name="to-create-a-new-tabular-model-project"></a>Pour créer un projet de modèle tabulaire  
   
-1.  Dans SSDT, dans le menu **Fichier**, cliquez sur **Nouveau** > **Projet**.  
+1.  Dans Visual Studio, dans le menu **Fichier**, cliquez sur **Nouveau** > **Projet**.  
   
 2.  Dans la boîte de dialogue **Nouveau projet**, développez **Installé** > **Business Intelligence** > **Analysis Services**, puis cliquez sur **Projet tabulaire Analysis Services**.  
   
@@ -48,7 +46,7 @@ Cette rubrique est la première leçon d’un didacticiel de création de modèl
   
 5.  Dans la boîte de dialogue **Concepteur de modèles tabulaires**, sélectionnez **Espace de travail intégré**.  
   
-    L’espace de travail héberge une base de données de modèle tabulaire portant le même nom que le projet pendant la création du modèle. L’espace de travail intégré signifie que SSDT utilise une instance intégrée, ce qui supprime la nécessité d’installer une instance de serveur Analysis Services distincte uniquement pour la création de modèle.
+    L’espace de travail héberge une base de données de modèle tabulaire portant le même nom que le projet pendant la création du modèle. L’espace de travail intégré signifie que Visual Studio utilise une instance intégrée, ce qui supprime la nécessité d’installer une instance de serveur Analysis Services distincte uniquement pour la création de modèle.
       
 6.  Dans **Niveau de compatibilité**, sélectionnez **SQL Server 2017/Azure Analysis Services (1400)**.   
  
@@ -58,9 +56,9 @@ Cette rubrique est la première leçon d’un didacticiel de création de modèl
       
   
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Présentation de l’environnement de création de modèles tabulaires dans SSDT  
-Maintenant que vous avez créé un projet de modèle tabulaire, prenons un moment pour explorer l’environnement de création de modèles tabulaires dans SSDT.  
+Maintenant que vous avez créé un projet de modèle tabulaire, prenons un moment pour explorer l’environnement de création de modèles tabulaires dans Visual Studio.  
   
-Une fois votre projet créé, il s’ouvre dans SSDT. Sur le côté droit, dans l’**Explorateur de modèles tabulaires**, une arborescence des objets de votre modèle s’affiche. Étant donné que vous n’avez pas encore importé de données, les dossiers sont vides. Vous pouvez cliquer avec le bouton droit sur un dossier objet pour effectuer des actions, comme avec la barre de menus. À mesure que vous parcourez ce didacticiel, vous utilisez l’Explorateur de modèles tabulaires pour naviguer parmi les différents objets de votre projet de modèle.
+Une fois votre projet créé, il s’ouvre dans Visual Studio. Sur le côté droit, dans l’**Explorateur de modèles tabulaires**, une arborescence des objets de votre modèle s’affiche. Étant donné que vous n’avez pas encore importé de données, les dossiers sont vides. Vous pouvez cliquer avec le bouton droit sur un dossier objet pour effectuer des actions, comme avec la barre de menus. À mesure que vous parcourez ce didacticiel, vous utilisez l’Explorateur de modèles tabulaires pour naviguer parmi les différents objets de votre projet de modèle.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 

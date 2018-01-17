@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: e86fcb4dbf170e5bc07553165e09d6fc3d3cf283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ada47536dbd736386a4efc76249f4ff3a1cfd527
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Créer une machine virtuelle Windows dans une zone de disponibilité avec PowerShell
 
@@ -37,6 +37,34 @@ Connectez-vous à votre abonnement Azure avec la commande `Login-AzureRmAccount`
 ```powershell
 Login-AzureRmAccount
 ```
+
+## <a name="check-vm-sku-availability"></a>Vérifier la disponibilité de la référence SKU de machine virtuelle
+La disponibilité des tailles de machine virtuelle, ou des références SKU, peut varier selon la région et le fuseau horaire. Pour vous aider à planifier l’utilisation des Zones de disponibilité, vous pouvez répertorier les références SKU de machine virtuelle disponibles par zone et par région Azure. Cela permet de s’assure que vous choisissez une taille de machine virtuelle appropriée et obtenez la résilience de votre choix entre les zones. Pour plus d’informations sur les différents types de machine virtuelle et les tailles, consultez [Vue d’ensemble des tailles de machine virtuelle](sizes.md).
+
+Vous pouvez afficher les références SKU disponibles avec la commande [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). L’exemple suivant répertorie les références SKU de machine virtuelle disponibles dans la région *eastus2* :
+
+```powershell
+Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
+```
+
+La sortie est similaire à l’exemple condensé suivant, qui présente les Zones de disponibilité dans lesquelles chaque taille de machine virtuelle est disponible :
+
+```powershell
+ResourceType                Name  Location      Zones
+------------                ----  --------      -----
+virtualMachines  Standard_DS1_v2   eastus2  {1, 2, 3}
+virtualMachines  Standard_DS2_v2   eastus2  {1, 2, 3}
+[...]
+virtualMachines     Standard_F1s   eastus2  {1, 2, 3}
+virtualMachines     Standard_F2s   eastus2  {1, 2, 3}
+[...]
+virtualMachines  Standard_D2s_v3   eastus2  {1, 2, 3}
+virtualMachines  Standard_D4s_v3   eastus2  {1, 2, 3}
+[...]
+virtualMachines   Standard_E2_v3   eastus2  {1, 2, 3}
+virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
+```
+
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
@@ -149,6 +177,6 @@ Tags               : {}
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cet article, vous avez appris à créer une machine virtuelle dans une zone de disponibilité. Apprenez-en davantage sur les [régions et la disponibilité](regions-and-availability.md) des machines virtuelles Azure.

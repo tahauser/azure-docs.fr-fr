@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport de Azure Site Recovery Deployment Planner
 Le rapport Microsoft Excel généré contient les feuilles suivantes :
@@ -182,7 +182,7 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 
 **VM Name** : nom de la machine virtuelle ou adresse IP utilisés dans VMListFile lorsqu’un rapport est généré. Cette colonne répertorie également les disques (VMDK) qui sont attachés aux machines virtuelles. Pour distinguer les machines virtuelles vCenter avec des noms ou des adresses IP en double, les noms incluent le nom de l’hôte ESXi. L’hôte ESXi répertorié est celui dans lequel la machine virtuelle a été placée lors de la détection de l’outil pendant le profilage.
 
-**VM Compatibility** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée pour [le stockage Premium Azure](https://aka.ms/premium-storage-workload). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple :
+**VM Compatibility** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée pour [le stockage Premium Azure](https://aka.ms/premium-storage-workload). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple : 
 * < 128 Go : disque P10.
 * 128 Go à 256 Go : disque P15
 * 256 Go à 512 Go : disque P20.
@@ -214,9 +214,9 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
-**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles.
+**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.  Azure Site Recovery prend en charge les machines virtuelles EFI Windows Server (Windows Server 2012, 2012 R2 et 2016) si le nombre de partitions dans le disque de démarrage est inférieure à 4 et la taille du secteur de démarrage est de 512 octets. Pour protéger les machines virtuelles EFI, le service mobilité de Azure Site Recovery doit être la version 9.13 ou ultérieure. Seul le basculement est pris en charge pour les machines virtuelles EFI. La restauration automatique n’est pas prise en charge.  
 
-**OS Type** : type de système d’exploitation de la machine virtuelle. Ce type peut prendre la valeur Windows ou Linux.
+**OS Type** : le type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle.  
 
 ## <a name="incompatible-vms"></a>Machines virtuelles incompatibles
 
@@ -228,20 +228,31 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 **VM Compatibility** : indique pourquoi la machine virtuelle spécifiée est incompatible avec une utilisation avec Site Recovery. Les raisons sont décrites pour chaque disque incompatible de la machine virtuelle et, en fonction des [limites de stockage](https://aka.ms/azure-storage-scalbility-performance), peuvent figurer parmi les suivantes :
 
 * La taille du disque est > 4095 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de disques de données supérieures à 4095 Go.
+
 * Le disque du système d’exploitation est  > 2048 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de disques de systèmes d’exploitation supérieures à 2048 Go.
-* Le type de démarrage est EFI. Pour l’instant, Azure Site Recovery ne prend en charge que les machines virtuelles qui présentent le type de démarrage BIOS.
 
 * La taille totale de machine virtuelle (réplication + TFO) dépasse la limite de taille du compte de stockage prise en charge (35 To). Cette incompatibilité se produit généralement lorsqu’un seul disque de la machine virtuelle présente une caractéristique de performances dépassant les limites maximales prises en charge Azure ou Site Recovery pour le stockage standard. Une telle instance envoie la machine virtuelle dans la zone de stockage premium en mode Push. Néanmoins, la taille maximale prise en charge d’un compte de stockage premium est de 35 To, et une seule et même machine virtuelle protégée ne peut pas être protégée sur plusieurs comptes de stockage. Notez également que, lorsqu’un test de basculement est exécuté sur une machine virtuelle protégée, elle s’exécute dans le compte de stockage où la réplication est en cours. Dans ce cas, configurez 2 fois la taille du disque pour que la progression de la réplication et le test de basculement réussissent en parallèle.
-* Les E/S par seconde source excèdent la limite des E/S par seconde prise en charge par le stockage qui est de 5 000 par disque.
+
+* Les E/S par seconde source excèdent la limite des E/S par seconde prise en charge par le stockage qui est de 7 500 par disque.
+
 * Les E/S par seconde source excèdent la limite des E/S par seconde prise en charge par le stockage qui est de 80 000 par machine virtuelle.
+
 * L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 10 Mo/s pour la taille d’E/S moyenne du disque.
-* L’activité totale des données sur tous les disques de la machine virtuelle dépasse la limite d’activité des données maximale prise en charge par Site Recovery, qui est de 54 Mo/s par machine virtuelle.
+
+* L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 25 Mo/s pour la taille d’E/S moyenne de la machine virtuelle (sommes de toutes les activités de disque).
+
+* L’activité de pointe des données sur tous les disques de la machine virtuelle dépasse la limite d’activité des données maximale de pointe prise en charge par Site Recovery, qui est de 54 Mo/s par machine virtuelle.
+
 * Les E/S par seconde d’écriture moyennes effectives dépassent la limite des E/S par seconde prise en charge par Site Recovery, qui est de 840 par disque.
+
 * Le stockage calculé des captures instantanées dépasse la limite de stockage des captures instantanées prise en charge, qui est de 10 To.
 
-**R/W IOPS (with Growth Factor)** : les opérations d’E/S par seconde de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 pour cent par défaut). Notez que les E/S par seconde en lecture/écriture de la machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
+* L’activité totale des données par jour dépasse la limite d’activité des données prise en charge de 2 To par serveur de processus.
 
-**Data Churn in Mbps (with Growth Factor)** : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (par défaut : 30 pour cent). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
+
+**Peak R/W IOPS (with Growth Factor)** : les opérations d’E/S par seconde de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 pour cent par défaut). Notez que les E/S par seconde en lecture/écriture de la machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
+
+**Peak Data Churn in Mbps (with Growth Factor)** : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (par défaut : 30 pour cent). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
 
 **Number of Disks** : le nombre total de disques de machines virtuelles (VMDK) sur la machine virtuelle.
 
@@ -253,14 +264,13 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **NICs** : le nombre de cartes réseau de la machine virtuelle.
 
-**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI. Pour l’instant, Azure Site Recovery ne prend en charge que le type de démarrage BIOS. Toutes les machines virtuelles présentant le type de démarrage EFI sont répertoriées dans la feuille de calcul des machines virtuelles incompatibles.
+**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.  Azure Site Recovery prend en charge les machines virtuelles EFI Windows Server (Windows Server 2012, 2012 R2 et 2016) si le nombre de partitions dans le disque de démarrage est inférieure à 4 et la taille du secteur de démarrage est de 512 octets. Pour protéger les machines virtuelles EFI, le service mobilité de Azure Site Recovery doit être la version 9.13 ou ultérieure. Seul le basculement est pris en charge pour les machines virtuelles EFI. La restauration automatique n’est pas prise en charge.
 
-**OS Type** : type de système d’exploitation de la machine virtuelle. Ce type peut prendre la valeur Windows ou Linux.
-
+**OS Type** : le type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle. 
 
 ## <a name="azure-site-recovery-limits"></a>Limites Azure Site Recovery
 Le tableau suivant présente les limites d’Azure Site Recovery. Les limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Pour de meilleurs résultats, même après la planification du déploiement, nous vous recommandons toujours d’effectuer des tests d’application approfondis à l’aide d’un test de basculement pour obtenir une image réelle des performances de l’application.
- 
+
 **Stockage de réplication cible** | **Taille d’E/S moyenne de disque source** |**Activité des données moyenne de disque source** | **Total de l’activité des données de disque source par jour**
 ---|---|---|---
 Stockage Standard | 8 Ko | 2 Mo/s | 168 Go par disque
@@ -270,11 +280,18 @@ Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |10 Mo/s | 842 Go par disque
 
+**Activité de données sources** | **Limite maximale**
+---|---
+Activité moyenne des données par machine virtuelle| 25 Mo/s 
+Activité des données de pointe sur tous les disques d’une machine virtuelle | 54 Mo/s
+Activité des données maximale par jour prise en charge par un serveur de processus | 2 To 
+
 Il s’agit de moyennes en partant sur un chevauchement d’E/S de 30 pour cent. Site Recovery est capable de gérer un débit plus élevé en fonction du ratio de chevauchement, de tailles d’écriture plus grandes et du comportement d’E/S des charges de travail réelles. Les valeurs précédentes supposent un retard de traitement typique de cinq minutes. Autrement dit, une fois que les données sont chargées, elles sont traitées, et un point de récupération est créé dans un délai de cinq minutes.
+
 
 ## <a name="cost-estimation"></a>Estimation des coûts
 En savoir plus sur [l’estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md). 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur [l’estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md).

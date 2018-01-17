@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Chargement de fichiers dans un compte Media Services à l’aide du service Aspera Server On Demand dans Azure
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Charger des fichiers dans un compte Media Services à l’aide du service Aspera Server On Demand dans Azure
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 **Aspera** est un logiciel de transfert de fichiers à haut débit. Le service **Aspera Server On Demand** pour Azure permet de charger et télécharger rapidement des fichiers volumineux directement dans un espace de stockage d’objets blob Azure. Pour plus d’informations sur **Aspera On Demand**, consultez le site [Aspera Cloud](http://cloud.asperasoft.com/). 
   
 **Aspera Server On Demand** pour Azure est disponible à l’achat sur la [Place de marché Azure](https://azure.microsoft.com/en-us/marketplace/). Pour acheter **Aspera Server On Demand** pour Azure, veuillez vous connecter à la Place de marché Azure à l’aide de votre identifiant Windows Live.
 
-Ce didacticiel vous guide tout au long du processus de chargement de fichiers dans un compte de stockage associé à un compte Media Services à l’aide du service **Aspera Server On Demand** dans Azure. 
+Ce didacticiel vous guide tout au long du processus de chargement de fichiers dans un compte de stockage associé à un compte Media Services à l’aide du service **Aspera Server On Demand** dans Azure. 
 
 Vous trouverez un exemple qui montre comment utiliser les fonctions Azure avec Aspera et Media Services [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Une limite est appliquée à la taille maximale des fichiers pris en charge pour le traitement dans les processeurs multimédias Azure Media Services. Consultez [cette rubrique](media-services-quotas-and-limitations.md) pour en savoir plus sur les limites de taille des fichiers.
+>Une limite est appliquée à la taille maximale des fichiers pris en charge pour le traitement dans les processeurs multimédias Azure Media Services. Consultez [cet](media-services-quotas-and-limitations.md) article pour en savoir plus sur les limites de taille des fichiers.
 >
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -56,7 +56,7 @@ Une fois connecté à la Place de marché Azure, suivez ces étapes pour finalis
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Renseignez les détails de votre abonnement Server On Demand.
+3. Renseignez les détails pour votre abonnement Server On Demand.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
@@ -127,7 +127,7 @@ Les ressources suivantes ont été évoquées dans cet article.
 * [Client Aspera](http://downloads.asperasoft.com/en/downloads/2)
 * [Guide client](http://downloads.asperasoft.com/en/documentation/2)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez désormais [copier des objets blob d’un compte de stockage dans un compte AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
