@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Découvrez comment créer une fonction qui est déclenchée quand des données s
 
 ![Affichage du message dans les journaux.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -71,13 +71,13 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 6. Lorsque vous créez un compte Cosmos DB, utilisez les paramètres du **nouveau compte** comme indiqué dans la table.
 
-    | Paramètre      | Valeur suggérée  | Description                                |
+    | Paramètre      | Valeur suggérée  | DESCRIPTION                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Identifiant** | Nom de base de données | ID unique de la base de données Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Cette rubrique utilise l’API de base de données de document.  |
     | **Abonnement** | Abonnement Azure | Abonnement Azure  |
     | **Groupe de ressources** | myResourceGroup |  Utilisez le groupe de ressources existant qui contient votre application de fonction. |
-    | **Emplacement**  | WestEurope | Sélectionnez un emplacement près de votre application de fonction ou d’autres applications qui utilisent les documents stockés.  |
+    | **Lieu**  | WestEurope | Sélectionnez un emplacement près de votre application de fonction ou d’autres applications qui utilisent les documents stockés.  |
 
 6. Cliquez sur **OK** pour créer la base de données. La création de la base de données peut prendre quelques minutes. Une fois la base de données créée, la chaîne de connexion de base de données est stockée en tant que paramètre d’application de fonction. Le nom de ce paramètre d’application est inséré dans **Connexion au compte Azure Cosmos DB**. 
 
@@ -107,7 +107,7 @@ Ensuite, vous vous connectez à votre compte Azure Cosmos DB et créez la collec
  
     ![Définir la collection taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
  
-    | Paramètre|Valeur suggérée|Description |
+    | Paramètre|Valeur suggérée|DESCRIPTION |
     | ---|---|--- |
     | **ID de base de données** | Tâches |Nom de votre nouvelle base de données. Ce nom doit correspondre au nom défini dans votre liaison de fonction. |
     | **ID de la collection** | Éléments | Nom de la nouvelle collection. Ce nom doit correspondre au nom défini dans votre liaison de fonction.  |
@@ -143,10 +143,10 @@ Une fois créée la collection spécifiée dans la liaison de fonction, vous pou
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez créé une fonction qui s’exécute quand un document est ajouté ou modifié dans votre base de données Azure Cosmos DB.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Pour plus d’informations sur les déclencheurs Azure Cosmos DB, consultez [Liaisons Azure Cosmos DB pour Azure Functions](functions-bindings-documentdb.md).
+Pour plus d’informations sur les déclencheurs Azure Cosmos DB, consultez [Liaisons Azure Cosmos DB pour Azure Functions](functions-bindings-cosmosdb.md).
