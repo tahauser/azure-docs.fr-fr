@@ -1,5 +1,5 @@
 ---
-title: "Qu’est-ce que l’apprentissage automatique (Machine Learning) sur Azure ? | Microsoft Docs"
+title: "Qu’est-ce que l’apprentissage automatique (Machine Learning) sur Azure ? | Microsoft Docs"
 description: "Explique les concepts de base de l’apprentissage automatique dans le cloud, décrit à quoi il sert, et en définit les principaux termes."
 keywords: "qu’est-ce que l’apprentissage automatique,termes de l’apprentissage automatique,prédictive,qu’est-ce que l’analyse prédictive,termes de l’apprentissage automatique"
 services: machine-learning
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Présentation de Machine Learning dans le cloud Azure
 
@@ -33,7 +33,7 @@ Pour une vue d’ensemble rapide, visionnez la série de vidéos [Science des do
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Présentation de l’apprentissage automatique dans le cloud Microsoft Azure
 Azure Machine Learning est un service d’analyse prédictive sur le cloud qui permet de créer et de déployer rapidement des modèles prédictifs sous forme de solutions d’analyse.
 
-Vous pouvez exploiter une bibliothèque d’algorithmes prêts à l’emploi, les utiliser pour créer des modèles sur un ordinateur connecté à Internet et déployer votre solution prédictive rapidement. Commencez avec des solutions et des exemples prêts à l’emploi dans la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com/).
+Vous pouvez exploiter une bibliothèque d’algorithmes prêts à l’emploi, les utiliser pour créer des modèles sur un ordinateur connecté à Internet et déployer votre solution prédictive rapidement. Commencez avec des solutions et des exemples prêts à l’emploi dans la [galerie Azure AI](https://gallery.cortanaintelligence.com/).
 
 ![L’apprentissage automatique - De quoi s’agit-il ? Flux de travail de base pour configurer l'analyse prédictive dans Azure Machine Learning.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ Azure Machine Learning propose tout ce dont vous avez besoin pour créer des sol
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio : création de modèles prédictifs
 Dans [Machine Learning Studio](what-is-ml-studio.md), vous pouvez créer rapidement des modèles prédictifs, en déplaçant les modules et en les connectant les uns aux autres. Vous pouvez essayer différentes combinaisons et les [tester gratuitement](https://studio.azureml.net/?selectAccess=true&o=2).
 
-* Dans la [galerie Cortana Intelligence](gallery-how-to-use-contribute-publish.md), vous pouvez tester les solutions d’analyse créées par d’autres personnes ou créer la vôtre. Publiez vos questions ou commentaires sur vos expériences à l’intention de la communauté, ou partagez des liens vers des expériences via les réseaux sociaux tels que LinkedIn et Twitter.
+* Dans la [galerie Azure AI](gallery-how-to-use-contribute-publish.md), vous pouvez tester les solutions d’analyse créées par d’autres personnes ou créer la vôtre. Publiez vos questions ou commentaires sur vos expériences à l’intention de la communauté, ou partagez des liens vers des expériences via les réseaux sociaux tels que LinkedIn et Twitter.
 
-  ![Essayez des expériences prédictives ou proposez la vôtre dans la galerie Azure Cortana Intelligence](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Essayez des expériences prédictives ou proposez la vôtre dans la galerie Azure AI](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Utilisez une volumineuse bibliothèque d' [algorithmes et de modules Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) dans Machine Learning Studio afin de lancer vos modèles prédictifs. Faites votre choix parmi les exemples d’expérience, les packages R et Python, ainsi que les meilleurs algorithmes Microsoft tels que Xbox et Bing. Développez les modules Studio avec vos propres scripts personnalisés [R](extend-your-experiment-with-r.md) et [Python](execute-python-scripts.md).
 
   ![Qu’est-ce que l’analyse prédictive : exemple d’une expérience d’analyse prédictive dans Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
@@ -108,7 +108,7 @@ Une fois que votre modèle est formé, évaluez-le en utilisant les autres donn�
 * **Note**: valeur prédite générée à partir d'un modèle formé de régression ou de classification, à l'aide du module [Noter le modèle](https://msdn.microsoft.com/library/azure/dn905995.aspx) dans Machine Learning Studio. Les modèles de classification retournent également une note pour la probabilité de la valeur prédite. Une fois que vous avez généré les notes à partir d'un modèle, vous pouvez évaluer la précision du modèle à l'aide du module [Évaluer le modèle](https://msdn.microsoft.com/library/azure/dn905915.aspx).
 * **Échantillon**: partie d'un jeu de données destinée à être représentative de l'ensemble. Les échantillons peuvent être sélectionnés de manière aléatoire ou sur la base de fonctionnalités spécifiques du jeu de données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez apprendre les principes fondamentaux de l’analyse prédictive et de l’apprentissage automatique à l’aide d’un [didacticiel](create-experiment.md) et avec la [génération à partir d’exemples](sample-experiments.md).  
 
 <!-- Module References -->

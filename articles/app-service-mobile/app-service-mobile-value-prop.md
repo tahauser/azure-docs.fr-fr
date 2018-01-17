@@ -3,7 +3,7 @@ title: "À propos de Mobile Apps dans Azure App Service"
 description: "Découvrez les avantages qu’App Service apporte à vos applications mobiles d’entreprise."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"></a>À propos de Mobile Apps dans Azure App Service
 Azure App Service est une offre de [plateforme en tant que service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) entièrement gérée pour les développeurs professionnels. Ce service apporte un ensemble riche de fonctionnalités pour les scénarios web, mobiles et les scénarios d’intégration. 
@@ -65,7 +65,7 @@ Les fonctionnalités suivantes de la plate-forme sont utiles aux sites de produc
 
   Apprenez-en davantage sur les [Environnements intermédiaires].
 
-* **Déploiement continu** : App Service peut s’intégrer aux systèmes de gestion de la chaîne d’approvisionnement (SCM) courants afin de déployer automatiquement une nouvelle version de votre serveur principal en le transférant vers une branche de votre système SCM.
+* **Déploiement continu** : App Service peut s’intégrer aux systèmes de gestion de contrôle de code source courants afin de déployer automatiquement une nouvelle version de votre serveur principal en le transférant vers une branche de votre système SCM.
 
   Apprenez-en davantage sur les [options de déploiement](../app-service/app-service-deploy-local-git.md).
 
@@ -77,7 +77,7 @@ Les fonctionnalités suivantes de la plate-forme sont utiles aux sites de produc
 
   Apprenez-en davantage sur les [environnements App Service].
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour prendre en main Mobile Apps dans Azure App Service, terminez le didacticiel de [prise en main]. Le didacticiel explique les principes fondamentaux de la production d’un back end mobile et d’un client de votre choix. Il explique également comment intégrer l’authentification, la synchronisation hors connexion et les notifications push. Vous pouvez effectuer le didacticiel plusieurs fois, une fois pour chaque application cliente.
 

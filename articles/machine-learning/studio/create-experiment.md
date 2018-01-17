@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Didacticiel sur l’apprentissage automatique : Création de votre première expérience de science des données dans Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ Dans ce didacticiel dédié au machine learning, vous allez suivre cinq étapes 
 [Étape 5 : prédiction des nouveaux prix des voitures]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Vous pouvez obtenir une copie de travail de l’expérience suivante dans la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com). Accédez à **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Votre première expérience de science des données : prédiction sur les prix automobiles) et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
+> Vous pouvez obtenir une copie de travail de l’expérience suivante dans la [galerie Azure AI](https://gallery.cortanaintelligence.com). Accédez à **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Votre première expérience de science des données : prédiction sur les prix automobiles) et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Étape 1 : obtention des données
@@ -322,12 +322,12 @@ L’expérience finale doit ressembler à ceci :
 <br/>
 ***Expérience finale***
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 À présent que vous avez terminé le premier didacticiel sur le machine learning et que vous avez configuré votre expérience, vous pouvez continuer à améliorer le modèle, puis le déployer en tant que service web prédictif.
 
 - **Création d’une itération pour améliorer le modèle** : par exemple, vous pouvez modifier les fonctionnalités que vous utilisez dans votre prédiction. Ou vous pouvez modifier les propriétés de l'algorithme [Régression linéaire][linear-regression], ou essayer un autre algorithme. Vous pouvez même ajouter plusieurs algorithmes d'apprentissage automatique à la fois à votre expérience et comparer deux d’entre eux à l'aide du module [Evaluate Model][evaluate-model].
-Pour découvrir comment comparer plusieurs modèles dans le cadre d’une expérience unique, consultez [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Comparer les régresseurs) dans la [galerie Cortana Intelligence](https://gallery.cortanaintelligence.com).
+Pour découvrir comment comparer plusieurs modèles dans le cadre d’une expérience unique, consultez [Comparer les régresseurs](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) dans la [galerie Azure AI](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Pour copier une itération de votre expérience, utilisez le bouton **ENREGISTRER SOUS** au bas de la page. Vous pouvez afficher toutes les itérations de votre expérience en cliquant sur **AFFICHER L’HISTORIQUE D’EXÉCUTION** au bas de la page. Pour en savoir plus, consultez la section [Gérer les itérations des expériences dans Microsoft Azure Machine Learning Studio][runhistory].

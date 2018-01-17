@@ -1,6 +1,6 @@
 ---
 title: "Effectuer des opérations sur Stockage Blob Azure (stockage d’objets) avec Azure CLI | Microsoft Docs"
-description: "Découvrez comment charger et télécharger des objets blob dans Stockage Blob Azure, puis à créer une signature d’accès partagé (SAP) pour gérer l’accès à un objet blob dans votre compte de stockage."
+description: "Découvrez comment charger et télécharger des objets blob dans Stockage Blob Azure, puis créer une signature d’accès partagé (SAP) pour gérer l’accès à un objet blob dans votre compte de stockage."
 services: storage
 documentationcenter: na
 author: tamram
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: 0c3fc2d73a0caf0e0331cb9073bfcc0574240dac
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Effectuer des opérations de stockage d’objets blob avec Azure CLI
 
-Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Ce didacticiel décrit les opérations de base dans Stockage Blob Azure, notamment le chargement, le téléchargement et la suppression d’objets blob. Vous allez apprendre à effectuer les actions suivantes :
+Stockage Blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Ce didacticiel décrit les opérations de base dans Stockage Blob Azure, notamment le chargement, le téléchargement et la suppression d’objets blob. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créez un conteneur.
 > * Charger un fichier (objet blob) dans un conteneur
-> * Création d'une liste d'objets blob dans un conteneur
+> * Créer la liste des objets blob d’un conteneur
 > * Télécharger un objet blob depuis un conteneur
 > * Copier un objet blob entre des comptes de stockage
-> * Supprimer un objet blob
+> * Supprimer un objet blob
 > * Afficher et modifier les propriétés et métadonnées d’un objet blob
 > * Gérer la sécurité avec une signature d’accès partagé (SAP)
 
@@ -72,7 +72,7 @@ az storage container set-permission \
     --public-access container
 ```
 
-## <a name="upload-a-blob-to-a-container"></a>Chargement d’un objet blob dans un conteneur
+## <a name="upload-a-blob-to-a-container"></a>Charger un objet blob dans un conteneur
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Les objets blob de blocs sont les plus courants dans Stockage Azure. Les objets blob d’ajout sont utilisés quand les données doivent être ajoutées à un objet blob existant sans modifier son contenu existant, par exemple pour la journalisation. Les objets blob de pages stockent les fichiers de disque dur virtuel des machines virtuelles IaaS.
 
@@ -87,7 +87,7 @@ az storage blob upload \
 
 Cette opération crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe. Chargez plusieurs fichiers de manière à ce que plusieurs entrées apparaissent quand vous listez les objets blob à l’étape suivante.
 
-## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
 Listez les objets blob d’un conteneur avec la commande [az storage blob list](/cli/azure/storage/blob#list).
 
@@ -109,7 +109,7 @@ README.md       BlockBlob        6700  application/octet-stream  2017-04-21T18:2
 dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:32:51+00:00
 ```
 
-## <a name="download-a-blob"></a>Téléchargement d’un objet blob
+## <a name="download-a-blob"></a>Télécharger un objet blob
 
 Téléchargez l’objet blob que vous avez chargé dans une étape précédente à l’aide de la commande [az storage blob download](/cli/azure/storage/blob#download).
 
@@ -153,7 +153,7 @@ az storage blob copy start \
     --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-## <a name="delete-a-blob"></a>Supprimer un objet blob
+## <a name="delete-a-blob"></a>Supprimer un objet blob
 
 Supprimez l’objet blob du conteneur à l’aide de la commande [az storage blob delete](/cli/azure/storage/blob#delete).
 
@@ -272,24 +272,24 @@ Si vous n’avez plus besoin des ressources de votre groupe de ressources, notam
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez découvert les bases de l’utilisation d’objets blob dans Stockage Azure :
 
 > [!div class="checklist"]
 > * Créez un conteneur.
 > * Charger un fichier (objet blob) dans un conteneur
-> * Création d'une liste d'objets blob dans un conteneur
+> * Créer la liste des objets blob d’un conteneur
 > * Télécharger un objet blob depuis un conteneur
 > * Copier un objet blob entre des comptes de stockage
-> * Supprimer un objet blob
+> * Supprimer un objet blob
 > * Afficher et modifier les propriétés et métadonnées d’un objet blob
 > * Gérer la sécurité avec une signature d’accès partagé (SAP)
 
 Les ressources suivantes fournissent des informations supplémentaires sur l’utilisation d’Azure CLI et l’utilisation des ressources dans votre compte de stockage.
 
-* Interface de ligne de commande Azure
+* Azure CLI
   * [Se connecter avec Azure CLI 2.0](/cli/azure/authenticate-azure-cli) : découvrez les différentes méthodes d’authentification avec l’interface de ligne de commande, notamment la connexion non interactive par le biais du [principal de service](/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal) pour l’exécution de scripts Azure CLI sans assistance.
-  * [Référence des commandes Azure CLI 2.0](/cli/azure/)
-* Explorateur Microsoft Azure Storage
+  * [Informations de référence sur les commandes Azure CLI 2.0](/cli/azure/)
+* Explorateur Stockage Microsoft Azure
   * L’[Explorateur Stockage Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

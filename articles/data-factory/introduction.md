@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-introduction.md)
-> * [Version 2 - Préversion](introduction.md)
+> * [Version 2 - Préversion](introduction.md)
 
 Dans le monde des Big Data, les données brutes et désorganisées sont souvent enregistrées dans des systèmes de stockage relationnels, non-relationnels et autres systèmes. Toutefois, lorsqu’elles sont isolées, les données brutes n’ont pas le contexte ou la signification appropriés pour fournir des informations significatives aux analystes, aux scientifiques des données ou aux décideurs en entreprise. 
 
@@ -61,7 +61,7 @@ Avec Data Factory, vous pouvez utiliser l’[activité de copie](copy-activity-o
 ### <a name="transform-and-enrich"></a>Transformer et enrichir
 Une fois que les données sont présentes dans un magasin de données centralisé dans le cloud, traitez ou transformez les données collectées à l’aide de services de calcul tels que HDInsight Hadoop, Spark, Data Lake Analytics et Machine Learning. Vous souhaitez générer de manière fiable des données transformées selon une planification facile à gérer et contrôlée afin de fournir aux environnements de production des données approuvées.
 
-### <a name="publish"></a>Publier
+### <a name="publish"></a>Publish
 Une fois que les données brutes ont été affinées sous une forme utilisable par l’entreprise, chargez-les dans Azure Data Warehouse, Azure SQL Database, Azure CosmosDB ou n’importe quel moteur d’analyse auquel vos utilisateurs peuvent accéder à partir de leurs outils d’analyse décisionnelle.
 
 ### <a name="monitor"></a>Surveiller
@@ -78,7 +78,7 @@ L’avantage de cette opération, c’est que le pipeline vous permet de gérer 
 ### <a name="activity"></a>Activité
 Les activités représentent une étape de traitement dans un pipeline. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un magasin de données vers un autre. De même, vous pouvez utiliser une activité Hive qui exécute une requête Hive sur un cluster Azure HDInsight afin de convertir ou d’analyser vos données. Data Factory prend en charge trois types d’activités : les activités de déplacement des données, les activités de transformation des données et les activités de contrôle.
 
-### <a name="datasets"></a>JEUX DE DONNÉES
+### <a name="datasets"></a>Groupes de données
 Les jeux de données représentent les structures des données dans les magasins. Ils pointent vers ou référencent simplement en tant qu’entrées ou sorties les données que vous voulez utiliser dans vos activités. 
 
 ### <a name="linked-services"></a>Services liés
@@ -119,12 +119,12 @@ Actuellement, vous pouvez créer des fabriques de données aux États-Unis de l'
 
 Azure Data Factory ne permet pas en soi de stocker des données. Il vous permet de créer des flux de travail pilotés par les données afin d’orchestrer le déplacement de données entre les magasins de données pris en charge, ainsi que le traitement des données à l’aide des services de calcul situés dans d’autres régions ou dans un environnement local. Il vous permet également de surveiller et gérer des flux de travail au moyen de programmes et à l’aide des mécanismes de l’interface utilisateur.
 
-Même si Data Factory est disponible uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et en Europe de l'Ouest, le service de déplacement des données intégré à Data Factory est disponible mondialement dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’une passerelle de gestion des données installée dans votre environnement local.
+Même si Data Factory est disponible uniquement dans les régions Est des États-Unis, Est des États-Unis 2 et en Europe de l'Ouest, le service de déplacement des données intégré à Data Factory est disponible mondialement dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’un runtime d’intégration auto-hébergé installé dans votre environnement local.
 
-Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) s’exécutent hors de la région Europe de l’ouest. Vous pouvez dans ce cas créer et utiliser une instance Azure Data Factory en Europe du Nord et l’utiliser pour planifier des tâches sur vos environnements de calcul en Europe de l’ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
+Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) s’exécutent hors de la région Europe de l’ouest. Vous pouvez dans ce cas créer et utiliser une instance Azure Data Factory dans l’Est des États-Unis en ou l’Est des États-Unis 2 et l’utiliser pour planifier des tâches sur vos environnements de calcul en Europe de l’ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
 
 ## <a name="compare-with-version-2"></a>Comparer avec la version 2
 Pour obtenir la liste des différences entre les versions 1 et 2 du service Data Factory, consultez [Comparer avec la version 1](compare-versions.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez comment créer une fabrique de données en suivant les instructions détaillées fournies dans les démarrages rapides suivants : [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md) et le portail Azure. 

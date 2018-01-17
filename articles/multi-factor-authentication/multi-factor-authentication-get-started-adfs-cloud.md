@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 Si votre organisation est fédérée avec Azure Active Directory AD, utilisez l’authentification multifacteur Azure ou les services de fédération d’Active Directory (AD FS) pour sécuriser les ressources auxquelles Azure AD accède. Utilisez les procédures suivantes pour sécuriser les ressources Azure Active Directory avec l’authentification multifacteur Azure ou les services de fédération d’Active Directory.
@@ -76,23 +76,20 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
             => issue(claim = c);
     ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
 13. Cliquez sur **Terminer**.
-14. Cliquez sur **Apply**.
+14. Cliquez sur **Appliquer**.
 15. Cliquez sur **OK**.
 16. Fermez Gestion AD FS.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuration d'adresses IP de confiance Azure Multi-Factor Authentication avec des utilisateurs fédérés
 Maintenant que les revendications sont en place, nous pouvons configurer des adresses IP approuvées.
 
-1. Connectez-vous au [portail Azure Classic](https://manage.windowsazure.com).
-2. Cliquez à gauche sur **Active Directory**.
-3. Sous Annuaire, sélectionnez l’annuaire dans lequel vous souhaitez configurer les adresses IP approuvées.
-4. Dans l’annuaire que vous avez sélectionné, cliquez sur **Configurer**.
-5. Dans la section Authentification multifacteur, cliquez sur **Gérer les paramètres du service**.
-6. Sur la page Paramètres du service, sous Adresses IP approuvées, sélectionnez **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet**.  
+1. Connectez-vous au [Portail Azure](https://portal.com).
+2. Sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
+3. À partir du panneau **Accès conditionnel - Emplacements nommés**, sélectionnez **Configurer des adresses IP approuvées MFA**
 
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Cliquez sur **save**.
-8. Une fois les mises à jour appliquées, cliquez sur **Fermer**.
+   ![Azure AD accès conditionnel emplacements nommés Configurer des adresses IP approuvées MFA](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. Sur la page Paramètres du service, sous **Adresses IP approuvées**, sélectionnez **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet**.  
+5. Cliquez sur **save**.
 
 Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouvoir utiliser uniquement MFA lorsqu'une revendication provient de l'extérieur de l'intranet de l'entreprise.

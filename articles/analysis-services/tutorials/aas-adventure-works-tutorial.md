@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+Ce didacticiel fournit des leçons sur la façon de créer et de déployer un modèle tabulaire au niveau de compatibilité 1400 à l’aide de Visual Studio avec [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Ce didacticiel fournit des leçons sur la façon de créer et de déployer un modèle tabulaire au niveau de compatibilité 1400 à l’aide de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce didacticiel est la façon la plus rapide d’apprendre à créer et à déployer un modèle tabulaire de base. Une fois les conditions préalables satisfaites, cela vous prendra environ deux ou trois heures.  
+Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce didacticiel est la façon la plus rapide d’apprendre à créer et à déployer un modèle tabulaire de base en utilisant Visual Studio. Une fois les conditions préalables satisfaites, cela vous prendra environ deux ou trois heures.  
   
 ## <a name="what-you-learn"></a>Contenu   
   
--   Comment créer un projet de modèle tabulaire au **niveau de compatibilité 1400** dans SSDT.
+-   Comment créer un projet de modèle tabulaire au **niveau de compatibilité 1400** dans Visual Studio avec SSDT.
   
--   Comment importer des données à partir d’une base de données relationnelle dans un projet de modèle tabulaire.  
+-   Comment importer des données à partir d’une base de données relationnelle dans une base de données d’espace de travail d’un projet de modèle tabulaire.  
   
 -   Comment créer et gérer des relations entre les tables dans le modèle.  
   
@@ -47,16 +45,16 @@ Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce di
   
 -   Comment déployer un modèle tabulaire sur un serveur **Azure Analysis Services** ou un serveur SQL Server Analysis Services 2017 local.  
   
-## <a name="prerequisites"></a>Composants requis  
+## <a name="prerequisites"></a>Conditions préalables  
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :  
   
--   Une instance d’Azure Analysis Services ou de SQL Server Analysis Services 2017 sur laquelle déployer votre modèle. Inscrivez-vous pour bénéficier d’un [essai gratuit d’Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) et [créez un serveur](../analysis-services-create-server.md). Ou inscrivez-vous et téléchargez [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   Un serveur Azure Analysis Services. Inscrivez-vous pour bénéficier d’un [essai gratuit d’Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) et [créez un serveur](../analysis-services-create-server.md). 
 
--   Un entrepôt de données SQL Server ou Azure SQL Data Warehouse avec l’[exemple de base de données AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Cet exemple de base de données inclut les données nécessaires pour suivre ce didacticiel. Téléchargez les [éditions gratuites de SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Ou inscrivez-vous pour obtenir un [essai gratuit d’Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 
+-   [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) avec **l’exemple de base de données AdventureWorksDW**, ou SQL Server Data Warehouse avec [l’exemple de base de données Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
 
-    **Important** : Si vous installez l’exemple de base de données sur un serveur SQL Server local et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
+    **Important** : Si vous installez l’exemple de base de données sur un SQL Server Data Warehouse local et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
 
--   La dernière version de [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   La dernière version de [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) pour Visual Studio.
 
 -   La dernière version de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 
@@ -101,7 +99,7 @@ Il n’est pas obligatoire de suivre ces leçons pour terminer le didacticiel, m
 |[Hiérarchies déséquilibrées](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)|20 minutes| 
 
   
-## <a name="next-steps"></a>Étapes suivantes  
+## <a name="next-steps"></a>étapes suivantes  
 Pour commencer, consultez [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   

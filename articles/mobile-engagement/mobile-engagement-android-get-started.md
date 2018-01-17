@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 2c5d9c5458b77263a5d1da93e5305e61999f229f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Prise en main d’Azure Mobile Engagement pour les applications Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -32,7 +32,7 @@ Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Andro
 Le [Kit de développement logiciel (SDK) Mobile Engagement Android](https://aka.ms/vq9mfn)est également requis.
 
 > [!IMPORTANT]
-> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
+> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
 >
 >
 
@@ -91,7 +91,7 @@ Android Studio crée l’application de démonstration à laquelle nous allons i
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. De retour sur le portail Azure Classic, dans la page **Informations de connexion** de votre application, copiez la **chaîne de connexion**.
+3. De retour sur le portail Azure, dans la page **Informations de connexion** de votre application, copiez la **chaîne de connexion**.
 
       ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
@@ -156,7 +156,7 @@ La section suivante vous permet de configurer votre application pour la récepti
 
 [!INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Accédez au [Kit de développement logiciel (SDK) Android](mobile-engagement-android-sdk-overview.md) pour obtenir des informations détaillées sur l’intégration du kit de développement logiciel.
 
 <!-- Images. -->

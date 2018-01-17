@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2985ed0b4bf5d9525bc2274d71b703922524f5a8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planificateur de déploiement Azure Site Recovery de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -29,7 +29,7 @@ Avant de commencer à protéger les machines virtuelles VMware à l’aide de Si
 
 Vous devez également créer le type approprié et le nombre de comptes de stockage Azure cibles. Vous créez des comptes de stockage standard ou premium, en tenant compte de la croissance de vos serveurs de production sources en raison d’une utilisation accrue au fil du temps. Vous choisissez le type de stockage par machine virtuelle, en fonction des caractéristiques de charge de travail (par exemple, les opérations de lecture/écriture d’E/S par seconde, ou l’activité des données) et des limites Site Recovery.
 
-Le planificateur de déploiement Azure Site Recovery (version 2) est un outil de ligne de commande disponible pour les scénarios de récupération d’urgence de Hyper-V vers Azure et de VMware vers Azure. Vous pouvez profiler à distance vos machines virtuelles VMware à l’aide de cet outil (sans conséquences sur la production) pour comprendre les besoins de stockage Azure et de bande passante afin d’assurer la réussite de la réplication et du test de basculement. Vous pouvez exécuter l’outil sans installer les composants Site Recovery locaux. Cependant, pour obtenir des résultats de débit précis, nous vous recommandons d’exécuter l’outil sur un serveur Windows Server répondant à la configuration requise minimale du serveur de configuration Site Recovery que vous devrez finalement déployer dans les premières étapes du déploiement de production.
+Le planificateur de déploiement Azure Site Recovery est un outil de ligne de commande pour les scénarios de récupération d’urgence de Hyper-V vers Azure et de VMware vers Azure. Vous pouvez profiler à distance vos machines virtuelles VMware à l’aide de cet outil (sans conséquences sur la production) pour comprendre les besoins de stockage Azure et de bande passante afin d’assurer la réussite de la réplication et du test de basculement. Vous pouvez exécuter l’outil sans installer les composants Site Recovery locaux. Cependant, pour obtenir des résultats de débit précis, nous vous recommandons d’exécuter l’outil sur un serveur Windows Server répondant à la configuration requise minimale du serveur de configuration Site Recovery que vous devrez finalement déployer dans les premières étapes du déploiement de production.
 
 L’outil fournit les informations suivantes :
 
@@ -71,17 +71,17 @@ L’outil fournit les informations suivantes :
 
 | | **VMware vers Azure** |**Hyper-V vers Azure**|**Azure vers Azure**|**Hyper-V vers un site secondaire**|**VMware vers un site secondaire**
 --|--|--|--|--|--
-Scénarios pris en charge |Oui|Oui|Non|Oui*|Non
+Scénarios pris en charge |Oui|Oui|Non |Oui*|Non 
 Version prise en charge | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuration prise en charge|vCenter, ESXi| Cluster Hyper-V, hôte Hyper-V|N/D|Cluster Hyper-V, hôte Hyper-V|N/D|
 Nombre de serveurs pouvant être profilés par instance en cours d’exécution du planificateur de déploiement Azure Site Recovery |Unique (des machines virtuelles appartenant à un vCenter Server ou un serveur ESXi peuvent être profilées à la fois)|Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D |Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D
 
 * L’outil s’applique principalement au scénario de récupération d’urgence Hyper-V vers Azure. Pour la récupération d’urgence Hyper-V vers un site secondaire, il permet uniquement de disposer de recommandations côté source telles que la bande passante réseau requise, l’espace de stockage disponible requis sur chacun des serveurs Hyper-V source, et les numéros et définitions de lots de réplication initiale.  Ignorez les recommandations et coûts Azure dans le rapport. De plus, l’opération d’obtention du débit ne s’applique pas au scénario de récupération d’urgence Hyper-V vers un site secondaire.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 L’outil comporte deux phases principales : le profilage et la génération de rapport. En outre, une troisième option permet de calculer le débit uniquement. La configuration requise pour le serveur à partir de laquelle le profilage et la mesure du débit sont initiés est présentée dans le tableau suivant :
 
-| Configuration requise du serveur | Description|
+| Configuration requise du serveur | DESCRIPTION|
 |---|---|
 |Profilage et mesure du débit| <ul><li>Système d’exploitation : Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2<br>(dans l’idéal, correspondant au moins aux [recommandations de taille pour le serveur de configuration](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuration de la machine : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accès Internet à Azure à partir de ce serveur</li><li>Compte Azure Storage</li><li>Accès administrateur sur le serveur</li><li>Au minimum 100 Go d’espace disque disponible (en supposant que 1 000 machines virtuelles avec une moyenne de trois disques chacune, profilage pour 30 jours)</li><li>Les paramètres de niveau de statistiques de VMware vCenter doivent être définis sur le niveau 2 ou un niveau supérieur</li><li>Autoriser le port 443 : le planificateur de déploiement ASR se sert de ce port pour se connecter au serveur vCenter/à l’hôte ESXi</ul></ul>|
 | Génération de rapport | Un PC Windows ou serveur Windows Server doté de Microsoft Excel 2013 ou version ultérieure |
@@ -106,9 +106,9 @@ Le dossier contient plusieurs fichiers et sous-dossiers. Le fichier exécutable 
 
     Exemple :  
     Copiez le fichier .zip sur le lecteur E:\ et extrayez-le.
-   E:\ASR Deployment Planner_v2.0zip
+   E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Mise à jour vers la dernière version du planificateur de déploiement
 Si vous disposez d’une version précédente du planificateur de déploiement, effectuez l’une des actions suivantes :
@@ -122,5 +122,10 @@ Si vous disposez d’une version précédente du planificateur de déploiement, 
  >
  >Chaque nouveau deployment planner est une mise à jour cumulative du fichier .zip. Vous n’avez pas besoin de copier les fichiers les plus récents dans le dossier précédent. Vous pouvez créer un dossier et l’utiliser.
 
-## <a name="next-steps"></a>Étapes suivantes
+
+## <a name="version-history"></a>Historique des versions
+La dernière version de l’outil Planificateur de déploiement ASR est 2.1.
+Reportez-vous à la page [Historique des versions du planificateur de déploiement](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) pour voir les correctifs ajoutés à chaque mise à jour.
+
+## <a name="next-steps"></a>étapes suivantes
 * [Exécutez le planificateur de déploiement](site-recovery-vmware-deployment-planner-run.md).

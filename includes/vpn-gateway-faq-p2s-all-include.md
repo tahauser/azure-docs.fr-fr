@@ -59,6 +59,6 @@ Les utilisateurs peuvent se connecter à Azure à l’aide du client VPN Windows
 
 Azure prend en charge uniquement Windows et Mac pour le réseau VPN P2S.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>J’ai déjà une passerelle VPN Azure déployée. Puis-je activer RADIUS et/ou le réseau VPN IKEv2 sur celle-ci ?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>J’ai déjà une passerelle VPN Azure déployée. Puis-je activer RADIUS et/ou le réseau VPN IKEv2 sur celle-ci ?
 
-Oui, vous pouvez activer ces nouvelles fonctionnalités sur les passerelles déjà déployées, à la fois via Powershell et le portail Azure.
+Oui, vous pouvez activer ces nouvelles fonctionnalités sur les passerelles déjà déployées à l’aide de Powershell ou du portail Azure, pourvu que la référence SKU de passerelle utilisée prenne en charge RADIUS et/ou IKEv2. Par exemple, la référence SKU de base de passerelle VPN ne prend pas en charge RADIUS ou IKEv2.

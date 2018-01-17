@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: b32b06e9d6cbaacdfbdfe92e2c72cb6763c9eb52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Prise en main de Microsoft Power BI Embedded
 
@@ -47,9 +47,12 @@ Voici quelques exemples vous permettant de vous lancer. Pour une procédure pas 
 
 Créez la capacité Power BI Embedded dans Microsoft Azure pour déplacer votre application vers l’environnement de production. Pour savoir comment créer de la capacité, voir [Créer de la capacité Power BI Embedded dans le portail Azure](create-capacity.md).
 
+> [!IMPORTANT]
+> Étant donné que les jetons d’incorporation sont destinés uniquement à des tests de développement, le nombre de jetons d’incorporation qu’un compte principal Power BI peut générer est limité. Une [capacité doit être achetée](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) pour des scénarios d’incorporation de production. Il n’existe aucune limite à la génération de jetons d’incorporation quand une capacité est achetée.
+
 Gérez votre capacité dans le portail d’administration Power BI. Affectez le composant d’affectation de l’espace de travail pour faciliter la gestion de vos espaces de travail d’application. Pour en savoir plus, voir [Gérer les capacités dans Power BI Premium et Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour créer une capacité Power BI Embedded, voir [Créer de la capacité Power BI Embedded dans le portail Azure](create-capacity.md).
 

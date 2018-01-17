@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 7a77efb21d38c7c5ff5ca6e17757cbfa9e845ad7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 25e4475c77a25e4dcdcb90729f8633656bb186ff
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-3-mark-as-date-table"></a>Leçon 3 : Marquer en tant que Table de dates
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="mark-as-date-table"></a>Marquer comme table de dates
 
 Dans Leçon 2 : Obtenir les données, vous avez importé une table de dimension nommée DimDate. Dans votre modèle, cette table se nomme DimDate. Toutefois, elle peut également être appelée *Table de dates*, car elle contient des données de date et d’heure.  
   
@@ -35,7 +33,7 @@ Avant de marquer la table de dates et la colonne de date, il peut être intéres
   
 Durée estimée pour suivre cette leçon : **3 minutes**  
   
-## <a name="prerequisites"></a>Composants requis  
+## <a name="prerequisites"></a>Conditions préalables  
 Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 2 : Obtenir des données](../tutorials/aas-lesson-2-get-data.md). 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Pour renommer la colonne FullDateAlternateKey

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Créer un équilibreur de charge interne dans le portail Azure
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Portail Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modèle](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 
@@ -43,7 +43,7 @@ Pour créer un équilibreur de charge interne à partir du portail Azure, suivez
 1. Ouvrez un navigateur, accédez au [portail Azure](http://portal.azure.com) et connectez-vous avec votre compte Azure.
 2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Nouveau** > **Réseau** > **Équilibreur de charge**.
 3. Dans le panneau **Créer un équilibreur de charge**, tapez le **nom** de votre équilibreur de charge.
-4. Sous **Schéma**, cliquez sur **Interne**.
+4. Sous **Type**, cliquez sur **Interne**.
 5. Cliquez sur **Réseau virtuel**, puis sélectionnez le réseau virtuel dans lequel vous souhaitez créer l’équilibreur de charge.
 
    > [!NOTE]
@@ -56,7 +56,7 @@ Pour créer un équilibreur de charge interne à partir du portail Azure, suivez
    > Si vous choisissez d’utiliser une adresse IP statique, vous devez fournir une adresse pour l’équilibreur de charge.
 
 8. Sous **Groupe de ressources**, spécifiez le nom d’un nouveau groupe de ressources pour l’équilibreur de charge ou cliquez sur **Sélectionner** et choisissez un groupe de ressources existant.
-9. Cliquez sur **Create**.
+9. Cliquez sur **Créer**.
 
 ## <a name="configure-load-balancing-rules"></a>Configuration des règles d’équilibrage de la charge
 
@@ -66,16 +66,16 @@ Configurez un pool d’adresses principal, ainsi qu’une sonde avant de configu
 ### <a name="step-1-configure-a-backend-pool"></a>Étape 1 : Configurer un pool principal
 
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
-2. Dans le panneau **Paramètres**, cliquez sur **Pools principaux**.
-3. Dans le panneau **Pools d’adresses principales**, cliquez sur **Ajouter**.
-4. Dans le panneau **Ajouter un pool principal**, tapez le **nom** du pool principal, puis cliquez sur **OK**.
+2. Dans la page **Paramètres**, cliquez sur **Pools principaux**.
+3. Dans la page **Pools d’adresses principales**, cliquez sur **Ajouter**.
+4. Dans la page **Ajouter un pool principal**, tapez le **nom** du pool principal, puis cliquez sur **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Étape 2 : Configurer une sonde
 
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
-2. Dans le panneau **Paramètres**, cliquez sur **Sondes**.
-3. Dans le panneau **Sondes**, cliquez sur **Ajouter**.
-4. Dans le panneau **Ajouter une sonde**, tapez le **nom** de la sonde.
+2. Dans la page **Paramètres**, cliquez sur **Sondes d’intégrité**.
+3. Dans la page **Sondes d’intégrité**, cliquez sur **Ajouter**.
+4. Dans la page **Ajouter une sonde d’intégrité**, tapez le **nom** de la sonde.
 5. Sous **Protocole**, sélectionnez **HTTP** (pour les sites web) ou **TCP** (pour les autres applications basées sur TCP).
 6. Sous **Port**, spécifiez le port à utiliser pour accéder à la sonde.
 7. Sous **Chemin d’accès** (pour les sondes HTTP uniquement), spécifiez le chemin d’accès à utiliser comme sonde.
@@ -86,10 +86,10 @@ Configurez un pool d’adresses principal, ainsi qu’une sonde avant de configu
 ### <a name="step-3-configure-load-balancing-rules"></a>Étape 3 : Configurer les règles d’équilibrage de charge
 
 1. Dans le portail Azure, cliquez sur **Parcourir** > **Équilibreurs de charge**, puis cliquez sur l’équilibreur de charge créé précédemment.
-2. Dans le panneau **Paramètres**, cliquez sur **Règles d’équilibrage de la charge**.
-3. Dans le panneau **Règles d’équilibrage de la charge**, cliquez sur **Ajouter**.
-4. Dans le panneau **Ajouter une règle d’équilibrage de charge**, tapez le **nom** de la règle.
-5. Sous **Protocole**, sélectionnez **HTTP** (pour les sites web) ou **TCP** (pour les autres applications basées sur TCP).
+2. Dans la page **Paramètres**, cliquez sur **Règles d’équilibrage de la charge**.
+3. Dans la page **Règles d’équilibrage de la charge**, cliquez sur **Ajouter**.
+4. Dans la page **Ajouter une règle d’équilibrage de charge**, tapez le **nom** de la règle.
+5. Sous **Protocole**, sélectionnez **TCP** ou **UDP**.
 6. Sous **Port**, spécifiez le port auquel les clients se connectent dans l’équilibreur de charge.
 7. Sous **Port principal**, spécifiez le port à utiliser dans le pool principal (en règle générale, le port de l’équilibreur de charge et le port principal sont identiques).
 8. Sous **Pool principal**, sélectionnez le pool principal créé précédemment.
@@ -98,7 +98,7 @@ Configurez un pool d’adresses principal, ainsi qu’une sonde avant de configu
 11. Sous **Adresse IP flottante (retour serveur direct)**, cliquez sur **Désactivé** ou **Activé**.
 12. Cliquez sur **OK**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 

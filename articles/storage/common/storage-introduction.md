@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
 
@@ -35,9 +35,7 @@ Cet article vous détaillera :
 * comment transférer des données vers le stockage ou hors du stockage
 * les nombreuses bibliothèques de client de stockage disponibles.
 
-Pour être opérationnel et exécuter avec le stockage Azure rapidement, consultez l’un des démarrages rapides suivants :
-* [Créer un compte de stockage à l’aide de PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Créer un compte de stockage à l’aide de l’interface de ligne de commande](storage-quickstart-create-storage-account-cli.md)
+Pour démarrer et exécuter avec le stockage Azure, consultez la section [Créer un compte de stockage](storage-quickstart-create-account.md).
 
 ## <a name="introducing-the-azure-storage-services"></a>Présentation des services Azure Storage
 
@@ -194,7 +192,7 @@ AzCopy repose sur la [bibliothèque de déplacement de données Azure](https://w
 
 Le service d’importation/exportation d’Azure peut être utilisé pour importer ou exporter de grandes quantités de données d’objets blob vers ou depuis votre compte de stockage. Vous préparez et envoyez par courrier électronique plusieurs disques durs vers un centre de données Azure, puis ils transféreront les données vers ou depuis les disques durs avant de vous renvoyer les disques durs. Pour plus d’informations sur le service Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage-import-export-service.md).
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 
 Pour en savoir plus sur la tarification du stockage Azure, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -213,15 +211,13 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 * [Cmdlets de stockage pour PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
 * [Commandes de stockage pour CLI 2.0](/cli/azure/storage)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [En savoir plus sur le stockage d’objets blob](../blobs/storage-blobs-introduction.md)
 * [En savoir plus sur le stockage de fichiers](../storage-files-introduction.md)
 * [En savoir plus sur le stockage de file d’attente](../queues/storage-queues-introduction.md)
 
-Pour être opérationnel et exécuter avec le stockage Azure rapidement, consultez l’un des démarrages rapides suivants :
-* [Créer un compte de stockage à l’aide de PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Créer un compte de stockage à l’aide de l’interface de ligne de commande](storage-quickstart-create-storage-account-cli.md)
+Pour démarrer et exécuter avec le stockage Azure, consultez la section [Créer un compte de stockage](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

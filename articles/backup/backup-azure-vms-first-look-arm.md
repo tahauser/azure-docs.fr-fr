@@ -13,21 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Sauvegarde de machines virtuelles Azure dans des coffres Recovery Services
-> [!div class="op_single_selector"]
-> * [Protéger les machines virtuelles avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md)
-> * [Protéger les machines virtuelles avec un coffre de sauvegarde](backup-azure-vms-first-look.md)
->
->
 
 Ce didacticiel détaille les procédures de création d’un coffre Recovery Services et de sauvegarde d’une machine virtuelle Azure. Les coffres Recovery Services protègent :
 
@@ -48,15 +43,13 @@ Pour plus d’informations sur ce que vous pouvez ou non sauvegarder, consultez 
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 Votre point de départ varie selon le nombre de machines virtuelles que vous souhaitez protéger. Si vous voulez sauvegarder plusieurs machines virtuelles en une seule opération, accédez au coffre Recovery Services et [lancez la sauvegarde à partir du tableau de bord du coffre](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Si vous ne voulez sauvegarder qu’une seule machine virtuelle, vous pouvez effectuer la sauvegarde directement dans le panneau de gestion de la machine virtuelle.
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Configurer la sauvegarde à partir du panneau de gestion de la machine virtuelle
 
-La procédure ci-après vous guide dans la configuration du travail de sauvegarde à partir du panneau de gestion des machines virtuelles du portail Azure. Cette procédure ne s’applique pas aux machines virtuelles dans le Portail Azure Classic.
+La procédure ci-après vous guide dans la configuration du travail de sauvegarde à partir du panneau de gestion des machines virtuelles du portail Azure. Les étapes suivantes s’appliquent uniquement aux machines virtuelles dans le portail Azure.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le Menu hub, cliquez sur **Autres services** et, dans la boîte de dialogue Filtrer, tapez **Machines virtuelles**. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Dès que vous voyez apparaître le service Machines virtuelles, sélectionnez-le.
 
   ![Clic sur Autres services dans le Menu hub pour ouvrir une boîte de dialogue de texte et y taper Machines virtuelles](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
@@ -140,11 +133,11 @@ Pour créer un archivage de Recovery Services :
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
 2. Dans le Menu hub, cliquez sur **Autres services** et, dans la boîte de dialogue Filtrer, tapez **Recovery Services**. Lorsque vous tapez cette chaîne, la liste des ressources est filtrée en conséquence. Dès que vous voyez la ressource Archivages de Recovery Services apparaître dans la liste, cliquez dessus.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Créer un coffre Recovery Services - Étape 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
     Si l’abonnement inclut des coffres Recovery Services, ces derniers sont répertoriés.
 
-    ![Créer un archivage de Recovery Services - Étape 2](./media/backup-azure-vms-first-look-arm/list-of-rs-vault.png)
+    ![Créer un coffre Recovery Services - Étape 2](./media/backup-azure-vms-first-look-arm/list-of-rs-vault.png)
 3. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
     ![Créer un coffre Recovery Services - Étape 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
@@ -211,7 +204,7 @@ Avant d’enregistrer une machine virtuelle dans un coffre, lancez le processus 
 
 1. Si l’un de vos coffres Recovery Services est déjà ouvert, passez à l’étape 2. Dans le cas contraire, dans le Menu hub, cliquez sur **Autres services**, puis dans la liste des ressources, tapez **Recovery Services** et cliquez sur **Archivages de Recovery Services**.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Créer un coffre Recovery Services - Étape 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
     La liste des coffres Recovery Services s’affiche.
 
@@ -325,11 +318,11 @@ En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwL
 
 Le tableau suivant fournit des informations supplémentaires sur l’agent de machine virtuelle pour les machines virtuelles Windows et Linux.
 
-| **Opération** | **Windows** | **Linux** |
+| **opération** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installation de l’agent de machine virtuelle |<li>Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous avez besoin de privilèges d’administrateur pour terminer l’installation. <li>[Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé. |<li> Installez l’ [agent Linux](https://github.com/Azure/WALinuxAgent) le plus récent à partir de GitHub. Vous avez besoin de privilèges d’administrateur pour terminer l’installation. <li> [Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé. |
 | Mise à jour de l’agent de machine virtuelle |La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |Suivez les instructions fournies dans l’article [Mise à jour d’un agent de machine virtuelle Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Vérifiez qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle. |
-| Validation de l’installation de l’agent de machine virtuelle |<li>Accédez au dossier *C:\WindowsAzure\Packages* sur la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. |N/A |
+| Validation de l’installation de l’agent de machine virtuelle |<li>Accédez au dossier *C:\WindowsAzure\Packages* sur la machine virtuelle Azure. <li>Le fichier WaAppAgent.exe doit être présent.<li> Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**. Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure. |Non applicable |
 
 ### <a name="backup-extension"></a>Extension de sauvegarde
 Une fois l’agent de machine virtuelle installé sur la machine virtuelle, le service Azure Backup installe l’extension de sauvegarde vers l’agent de machine virtuelle. Le service Azure Backup met à niveau et corrige en toute transparence l'extension de sauvegarde sans intervention supplémentaire de l'utilisateur.
@@ -339,7 +332,7 @@ Le service de sauvegarde installe l’extension de sauvegarde, même si la machi
 ## <a name="troubleshooting-information"></a>Résolution de problèmes
 Si vous rencontrez des problèmes pour accomplir certaines tâches décrites dans cet article, consultez les [instructions pour la résolution des problèmes](backup-azure-vms-troubleshoot.md).
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 Le coût de la sauvegarde des machines virtuelles Azure dépend du nombre d’instances protégées. Pour obtenir une définition d’une instance protégée, voir [Qu’est-ce qu’une instance protégée](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Pour obtenir un exemple de calcul du coût de la sauvegarde d’une machine virtuelle, voir [Mode de calcul des instances protégées](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Pour plus d’informations sur la [tarification de la sauvegarde](https://azure.microsoft.com/pricing/details/backup/), voir la page de la tarification de la sauvegarde Azure.
 
 ## <a name="questions"></a>Des questions ?

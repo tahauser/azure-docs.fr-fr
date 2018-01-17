@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: f96aa9fe12aba28e1ac3429f012419341bdf92c1
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-azure-files"></a>Présentation d’Azure Files
 Azure Files offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard du secteur (également connu sous le nom de Common Internet File System ou CIFS). Azure Files peut être monté simultanément sur des déploiements cloud ou locaux de Windows, macOS et Linux. En outre, les partages Azure Files peuvent être mis en cache sur les serveurs Windows avec la synchronisation Azure Files (aperçu) pour un accès rapide à proximité de l’endroit où les données sont utilisées.
 
-## <a name="videos"></a>Vidéos
+## <a name="videos"></a>vidéos
 | Présentation d’Azure File Sync (2 min) | Azure Files et Sync (Ignite 2017) (85 min)  |
 |-|-|
 | [![Capture vidéo de la présentation d’Azure File Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Capture vidéo de la présentation d’Azure Files et Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
@@ -32,13 +32,13 @@ Azure Files offre des partages de fichiers managés dans le cloud qui sont acces
 Les partages de fichiers Azure peuvent être utilisés pour :
 
 * **Remplacer ou complémenter les serveurs de fichiers locaux** :  
-    Azure Files peut être utilisé pour remplacer complètement ou compléter les serveurs de fichiers locaux traditionnels ou les périphériques NAS. Les systèmes d’exploitation courants tels que Windows, Mac OS et Linux peuvent monter directement des partages Azure Files, n’importe où dans le monde. Azure Files peut également être répliqué avec la synchronisation de fichiers Azure vers des serveurs Windows, localement ou dans le cloud, pour une mise en cache performante et distribuée des données là où elles sont utilisées.
+    Azure Files peut être utilisé pour remplacer complètement ou compléter les serveurs de fichiers locaux traditionnels ou les périphériques NAS. Les systèmes d’exploitation courants tels que Windows, Mac OS et Linux peuvent monter directement des partages Azure Files, n’importe où dans le monde. Le partage de fichiers Azure peut également être répliqué avec la synchronisation de fichiers Azure vers des serveurs Windows, localement ou dans le cloud, pour une mise en cache performante et distribuée des données là où elles sont utilisées.
 
 * **Migration « lift-and-shift » des applications** :  
     Azure Files facilite le passage dans le cloud des applications qui exigent un partage de fichiers pour stocker les données utilisateur ou l’application de fichier. Azure Files permet une transition classique, où l’application et ses données sont déplacées vers Azure, ainsi qu’une transition hybride, où les données d’application sont déplacées vers Azure Files et l’application s’exécute toujours en local. 
 
 * **Simplifier le développement cloud** :  
-    Azure Files permet aussi de simplifier de plusieurs façons les nouveaux projets de développement cloud. Par exemple :
+    Azure Files permet aussi de simplifier de plusieurs façons les nouveaux projets de développement cloud. Par exemple : 
     * **Paramètres d’application partagés** :  
         Pour les applications distribuées, les fichiers de configuration sont souvent centralisés à un emplacement accessible par différentes instances d’application. Les instances de l’application peuvent charger leur configuration via l’API REST File et l’utilisateur peut y accéder en fonction des besoins en montant le partage SMB localement.
 

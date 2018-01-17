@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 38101134beb59d9cae46e8ca00354e14d5c16c54
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c3cba0c9ba38e7b0539fde7dc6460c76a47a19d6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="network-security"></a>Sécurité du réseau
 
 Vous pouvez limiter le trafic réseau vers les ressources d’un réseau virtuel à l’aide d’un groupe de sécurité réseau. Un groupe de sécurité réseau contient une liste de règles de sécurité qui autorisent ou refusent le trafic réseau entrant ou sortant en fonction de l’adresse IP source ou de destination, du port et du protocole. 
 
-## <a name="network-security-groups"></a>groupes de sécurité réseau ;
+## <a name="network-security-groups"></a>Groupes de sécurité réseau
 
 Chaque interface réseau est associée à zéro ou un groupe de sécurité réseau. Chaque interface réseau existe dans un sous-réseau de [réseau virtuel](virtual-networks-overview.md). Un sous-réseau peut aussi être associé à zéro ou un groupe de sécurité réseau. 
 
@@ -48,12 +48,12 @@ Un groupe de sécurité réseau contient le nombre des règles souhaité (ou auc
 
 |Propriété  |Explication  |
 |---------|---------|
-|Nom|Nom unique au sein du groupe de sécurité réseau.|
+|NOM|Nom unique au sein du groupe de sécurité réseau.|
 |Priorité | Nombre compris entre 100 et 4096. Les règles sont traitées dans l’ordre croissant, car les nombres les plus faibles sont prioritaires. Une fois que le trafic correspond à une règle, le traitement s’arrête. Par conséquent, les règles avec des priorités plus faibles (des nombres plus élevés) et ayant les mêmes attributs que les règles de priorité supérieure ne sont pas traitées.|
 |Source ou destination| Tout, ou adresse IP individuelle, bloc CIDR (10.0.0.0/24, par exemple), balise de service ou groupe de sécurité d’application. En savoir plus sur les [balises de service](#service-tags) et les [groupes de sécurité d’application](#application-security-groups). En spécifiant une plage, une balise de service ou un groupe de sécurité d’application, vous pouvez créer moins des règles de sécurité. La possibilité de spécifier plusieurs adresses IP individuelles et plages (vous ne pouvez pas spécifier plusieurs balises de service ou groupes d’applications) dans une règle est désignée sous le nom de règles de sécurité augmentée. Pour plus d’informations sur les règles de sécurité augmentée, consultez [cet article](#augmented-security-rules). Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs adresses IP et plages d’adresses IP dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique.|
 |Protocole     | TCP, UDP ou Tout, ce qui inclut TCP, UDP et ICMP. Vous ne pouvez pas spécifier ICMP seul. Si vous avez besoin d’ICMP, vous devez donc utiliser Tout. |
 |Direction| Indique si la règle s’applique au trafic entrant ou sortant.|
-|Plage de ports     |Vous pouvez spécifier un port individuel ou une plage de ports. Par exemple, indiquez 80 ou 10000-10005. La spécification de plages vous permet de créer moins de règles de sécurité. La possibilité de spécifier plusieurs ports individuels et plages de ports dans une règle est incluse dans la version préliminaire et il y est fait référence sous le nom de règles de sécurité augmentée. Avant d’utiliser les règles de sécurité augmentée, lisez les informations importantes sur les [fonctionnalités de la version préliminaire](#preview-features). Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs ports ou plages de ports dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique.   |
+|Plage de ports     |Vous pouvez spécifier un port individuel ou une plage de ports. Par exemple, indiquez 80 ou 10000-10005. La spécification de plages vous permet de créer moins de règles de sécurité. Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs ports ou plages de ports dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique.   |
 |Action     | Autoriser ou refuser        |
 
 Les règles de sécurité sont avec état. Si vous spécifiez une règle de sécurité sortante vers n’importe quelle adresse sur le port 80, par exemple, il n’est pas nécessaire d’indiquer une règle de sécurité entrante pour la réponse au trafic sortant. Vous devez uniquement spécifier une règle de sécurité entrante si la communication est établie en externe. Le contraire est également vrai. Si le trafic entrant est autorisé sur un port, il n’est pas nécessaire de spécifier une règle de sécurité sortante pour répondre au trafic sur ce port. Pour en savoir plus sur les limites lors de la création de règles de sécurité, vérifiez les [limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -74,19 +74,19 @@ Si un groupe de sécurité réseau n’est pas associé à une interface réseau
 
 |Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
 |---|---|---|---|---|---|---|
-|65 000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tout|AUTORISER|
+|65 000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tous|AUTORISER|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
 |Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
 |---|---|---|---|---|---|---|
-|65 001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tout|AUTORISER|
+|65 001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tous|AUTORISER|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
 |Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
 |---|---|---|---|---|---|---|
-|65 500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tout|REFUSER|
+|65 500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tous|Deny|
 
 ### <a name="outbound"></a>Règle de trafic sortant
 
@@ -94,19 +94,19 @@ Si un groupe de sécurité réseau n’est pas associé à une interface réseau
 
 |Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
 |---|---|---|---|---|---|---|
-| 65 000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tout | AUTORISER |
+| 65 000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tous | AUTORISER |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
 |Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
 |---|---|---|---|---|---|---|
-| 65 001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tout | AUTORISER |
+| 65 001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tous | AUTORISER |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
 |Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
 |---|---|---|---|---|---|---|
-| 65 500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tout | REFUSER |
+| 65 500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tous | Deny |
 
 Dans les colonnes **Source** et **Destination**, *VirtualNetwork*, *AzureLoadBalancer* et *Internet* sont des [balises de service](#tags), non des adresses IP. Dans la colonne de protocole, **Tout** englobe TCP, UDP et ICMP. Lorsque vous créez une règle, vous pouvez spécifier TCP, UDP ou Tout, mais vous ne pouvez pas indiquer uniquement ICMP. Par conséquent, si votre règle requiert ICMP, vous devez sélectionner *Tout* comme protocole. *0.0.0.0/0* dans les colonnes **Source** et **Destination** représente toutes les adresses.
  
@@ -144,8 +144,7 @@ Pour en savoir plus sur les limites lors de la création de groupes de sécurit�
 Les groupes de sécurité d’application sont disponibles dans la version préliminaire. Les fonctionnalités de la version préliminaire n’offrent pas le même niveau de disponibilité et de fiabilité que les fonctionnalités de la version générale. Avant d’utiliser des groupes de sécurité d’application, vous devez vous inscrire pour les utiliser en suivant les étapes 1 à 5 de la section Azure ou PowerShell dans le didacticiel de [création d’un groupe de sécurité réseau avec des groupes de sécurité d’application](create-network-security-group-preview.md). Les groupes de sécurité d’application ont les contraintes suivantes :
 
 -   Toutes les interfaces réseau au sein d’un groupe de sécurité d’application doivent exister dans le même réseau virtuel. Vous ne pouvez pas ajouter d’interfaces réseau à partir de différents réseaux virtuels au même groupe de sécurité d’application. Le réseau virtuel dans lequel la première interface réseau assignée au groupe de sécurité d’application se trouve définit le réseau virtuel dans lequel toutes les interfaces réseau assignées par la suite doivent se trouver.
-- Si vous spécifiez des groupes de sécurité d’application en tant que source et destination dans une règle de sécurité, les interfaces réseau dans les deux groupes de sécurité d’application doivent se trouver dans le même réseau virtuel. Par exemple, si ASG1 contient des interfaces réseau de VNet1 et si ASG2 contient des interfaces réseau de VNet2, vous ne pouvez pas assigner ASG1 en tant que source et ASG2 en tant que destination dans une règle. Toutes les interfaces réseaux doivent se trouver dans VNet1. 
-- Ils sont disponibles uniquement dans la région Centre-Ouest des États-Unis.
+- Si vous spécifiez des groupes de sécurité d’application en tant que source et destination dans une règle de sécurité, les interfaces réseau dans les deux groupes de sécurité d’application doivent se trouver dans le même réseau virtuel. Par exemple, si ASG1 contient des interfaces réseau de VNet1 et si ASG2 contient des interfaces réseau de VNet2, vous ne pouvez pas assigner ASG1 en tant que source et ASG2 en tant que destination dans une règle. Toutes les interfaces réseaux doivent se trouver dans VNet1.
 
 ## <a name="azure-platform-considerations"></a>Considérations relatives à la plateforme Azure
 
@@ -153,18 +152,18 @@ Les groupes de sécurité d’application sont disponibles dans la version prél
 - **Gestion des licences (service de gestion de clés)** : les images Windows en cours d’exécution sur les machines virtuelles doivent être acquises sous licence. Pour assurer la gestion des licences, une requête est envoyée aux serveurs hôtes du Service de gestion de clés qui gèrent les requêtes de ce type. La requête est effectuée en sortie par le biais du port 1688.
 - **Machines virtuelles dans des pools d’équilibrage de charge** : les plages de ports et d’adresses appliquées proviennent de l’ordinateur d’origine, pas l’équilibreur de charge. La plage de ports et d’adresses de destination sont ceux de l’ordinateur de destination, et non de l’équilibreur de charge.
 - **Instances de service Azure** : les instances de plusieurs services Azure, tels que HDInsight, les environnements de service d’application et les groupes de machines virtuelles identiques, sont déployées dans des sous-réseaux du réseau virtuel. Pour obtenir la liste complète des services que vous pouvez déployer sur des réseaux virtuels, consultez [Réseau virtuel pour les services Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Familiarisez-vous avec les exigences de port pour chaque service avant d’appliquer un groupe de sécurité réseau au sous-réseau dans lequel la ressource est déployée. Si vous refusez les ports requis par le service, ce dernier ne fonctionnera pas correctement.
-- **Envoi de courrier sortant** : Microsoft vous recommande l’utilisation de services de relais authentifiés SMTP (généralement connectés via le port TCP 587, mais parfois via d’autres) pour envoyer des messages électroniques depuis des machines virtuelles Azure. Les services de relais SMTP se spécialisent dans la réputation des expéditeurs, afin de minimiser les risques de renvoi de messages de la part de fournisseurs de messagerie électronique tiers. Ce type de services de relais SMTP incluent, sans s’y limiter, Exchange Online Protection et SendGrid. L’utilisation de services de relais SMTP n’est en aucun cas limitée dans Azure et ne tient pas compte de votre type d’abonnement. 
+- **Envoi de courrier sortant** : Microsoft vous recommande l’utilisation de services de relais authentifiés SMTP (généralement connectés via le port TCP 587, mais parfois via d’autres ports) pour envoyer des courriers électroniques depuis des machines virtuelles Azure. Les services de relais SMTP se spécialisent dans la réputation des expéditeurs, afin de minimiser les risques de renvoi de messages de la part de fournisseurs de messagerie tiers. Ce type de services de relais SMTP incluent, sans s’y limiter, Exchange Online Protection et SendGrid. L’utilisation de services de relais SMTP n’est en aucun cas limitée dans Azure et ne tient pas compte de votre type d’abonnement. 
 
   Si vous avez créé votre abonnement Azure avant le 15 novembre 2017, vous pouvez, en plus d’utiliser des services de relais SMTP, envoyer des messages électroniques via le port TCP 25 directement. Si vous avez créé votre abonnement après le 15 novembre 2017, vous ne serez peut-être pas en mesure d’envoyer des messages électroniques via le port TCP 25 directement. Le comportement des communications sortantes via le port 25 dépend de votre type d’abonnement :
 
      - **Contrat Entreprise** : Les communications sortantes via le port 25 sont autorisées. Vous êtes en mesure d’envoyer du courrier sortant directement depuis les machines virtuelles vers des fournisseurs de messagerie électronique externes, sans limitations de la plateforme Azure. 
-     - **Paiement à l’utilisation** : Les communications sortantes via le port 25 sont bloquées vers toutes les ressources. Si vous devez envoyer des messages électroniques directement depuis une machine virtuelle vers des fournisseurs de messagerie électronique externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les demandes sont étudiées et acceptées par Microsoft. Elles ne sont accordées qu’après des vérifications antifraude. Pour effectuer une requête, ouvrez un cas d’assistance avec pour type de problème *Technique*, *Connectivité du réseau virtuel*, *Envoi de messages électroniques impossible (SMTP/Port 25)*. Dans votre cas d’assistance, indiquez les raisons pour lesquelles votre abonnement doit être en mesure d’envoyer des messages électroniques directement aux fournisseurs, sans passer par un relais authentifié SMTP. Si votre abonnement est exempté, seules les machines virtuelles créées après la date d’exemption sont en mesure d’utiliser des communications sortantes via le port 25.
-     - **MSDN, Pass Azure, Azure dans Open, Éducation, BizSpark et essai gratuit** : Les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Aucune demande pour retirer la restriction ne peut être faite. Elles ne sont pas autorisées. Si vous devez envoyer des messages électroniques depuis votre machine virtuelle, vous devez utiliser un service de relais SMTP.
+     - **Paiement à l’utilisation** : Les communications sortantes via le port 25 sont bloquées vers toutes les ressources. Si vous devez envoyer des courriers électroniques directement depuis une machine virtuelle vers des fournisseurs de messagerie électronique externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les demandes sont étudiées et acceptées par Microsoft. Elles ne sont accordées qu’après des vérifications antifraude. Pour effectuer une requête, ouvrez un cas d’assistance avec pour type de problème *Technique*, *Connectivité du réseau virtuel*, *Envoi de messages électroniques impossible (SMTP/Port 25)*. Dans votre cas d’assistance, indiquez les raisons pour lesquelles votre abonnement doit être en mesure d’envoyer des courriers électroniques directement aux fournisseurs, sans passer par un relais authentifié SMTP. Si votre abonnement est exempté, seules les machines virtuelles créées après la date d’exemption sont en mesure d’utiliser des communications sortantes via le port 25.
+     - **Fournisseur de services cloud (CSP), MSDN, Pass Azure, Azure dans Open, Éducation, BizSpark et essai gratuit** : les communications sortantes via le port 25 sont bloquées pour toutes les ressources. Aucune demande pour retirer la restriction ne peut être faite. Elles ne sont pas autorisées. Si vous devez envoyer des courriers électroniques depuis votre machine virtuelle, vous devez utiliser un service de relais SMTP.
 
-  Si Azure vous permet d’envoyer des messages électroniques via le port 25, Microsoft ne peut vous garantir que les fournisseurs de messagerie électronique accepteront le message entrant en provenance de votre machine virtuelle. Si un fournisseur spécifique rejette les messages en provenance de votre machine virtuelle, vous devez vous arranger directement avec le fournisseur pour résoudre tout problème de livraison de messages ou de filtrage de spam, ou bien utiliser un service de relais SMTP authentifié. 
+  Si Azure vous permet d’envoyer des courriers électroniques via le port 25, Microsoft ne peut vous garantir que les fournisseurs de messagerie électronique accepteront le message entrant en provenance de votre machine virtuelle. Si un fournisseur spécifique rejette les messages en provenance de votre machine virtuelle, vous devez vous arranger directement avec le fournisseur pour résoudre tout problème de livraison de messages ou de filtrage de spam, ou bien utiliser un service de relais SMTP authentifié. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Suivre le didacticiel [Créer un groupe de sécurité réseau](virtual-networks-create-nsg-arm-pportal.md)
 * Suivre le didacticiel [Créer un groupe de sécurité réseau avec des groupes de sécurité d’application](create-network-security-group-preview.md)

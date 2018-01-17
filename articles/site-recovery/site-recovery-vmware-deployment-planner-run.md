@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: aee19cd515e1cb75dcd791363270e1b6a6d094e4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Exécuter Azure Site Recovery Deployment Planner pour le déploiement de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
 
 
-## <a name="modes-of-running-deployment-planner"></a>Modes d’exécution de Deployment Planner
+## <a name="modes-of-running-deployment-planner"></a>Modes d’exécution du planificateur de déploiement
 Vous pouvez exécuter l’outil en ligne de commande (ASRDeploymentPlanner.exe) dans l’un des trois modes suivants : 
 
 1.  [Profilage](#profile-vmware-vms)
 2.  [Génération de rapport](#generate-report)
-3.  [Getthroughput](#get-throughput)
+3.  [Obtenir le débit](#get-throughput)
 
 Tout d’abord, exécutez l’outil en mode profilage pour rassembler l’activité des données de machine virtuelle et les E/S par seconde. Ensuite, exécutez l’outil pour générer le rapport afin de déterminer les besoins de bande passante réseau et de stockage et les coûts de la récupération d’urgence.
 
@@ -63,6 +63,7 @@ Remplacez &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;passwo
 
     ![Liste des noms de machines virtuelles dans Deployment planner
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
+
 ### <a name="start-profiling"></a>Démarrer le profilage
 Après avoir établi la liste des machines virtuelles à profiler, vous pouvez exécuter l’outil en mode profilage. Voici la liste des paramètres obligatoires et facultatifs de l’outil à exécuter en mode profilage.
 
@@ -70,7 +71,7 @@ Après avoir établi la liste des machines virtuelles à profiler, vous pouvez e
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nom du paramètre | Description |
+| Nom du paramètre | DESCRIPTION |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | Le nom de domaine complet ou l’adresse IP du serveur vCenter/de l’hôte vSphere ESXi dont les machines virtuelles doivent être profilées.|
@@ -79,7 +80,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfMinutesToProfile|Le nombre de minutes pendant lesquelles le profilage doit être exécuté. La valeur minimale est de 30 minutes.|
 |-NoOfHoursToProfile|Le nombre d’heures pendant lesquelles le profilage doit être exécuté.|
 | -NoOfDaysToProfile | Le nombre de jours pendant lesquels le profilage doit être exécuté. Nous vous recommandons d’exécuter le profilage pendant plus de 7 jours pour vous assurer que le modèle de charge de travail de votre environnement sur la période spécifiée est observé et utilisé pour fournir une recommandation précise. |
-|-Virtualisation|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
+|-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
 | -Répertoire | (Facultatif) La convention d’appellation universelle (UNC) ou le chemin d’accès du répertoire local pour stocker les données de profilage générées pendant le profilage. Si aucun nom de répertoire n’est spécifié, le répertoire ProfiledData figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut. |
 | -Mot de passe | (Facultatif) Le mot de passe utilisé pour se connecter au serveur vCenter/à l’hôte vSphere ESXi. Si vous spécifiez aucun mot de passe maintenant, vous êtes invité à l’indiquer à l’exécution de la commande.|
 |-Port|(Facultatif) Numéro de port pour se connecter à l’hôte vCenter/ESXi. Le port par défaut est 443.|
@@ -89,11 +90,22 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Environment | (Facultatif) Votre environnement de compte Stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine. |
 
 
-Nous vous recommandons que de profilier vos machines virtuelles pendant plus de 7 jours. Si le modèle d’activité varie durant un mois, nous vous recommandons d’effectuer le profilage au cours de la semaine lors de l’activité maximale. La meilleure solution est d’effectuer le profilage pendant 31 jours pour obtenir de meilleures recommandations. Pendant la période de profilage, ASRDeploymentPlanner.exe continue de s’exécuter. Les entrées du temps de profilage de l’outil sont indiquées en jours. Pour un test rapide de l’outil ou pour des preuves de concept, vous pouvez faire un profilage pendant quelques heures ou minutes. Le temps de profilage minimum autorisé est de 30 minutes.
+Nous vous recommandons de profiler vos machines virtuelles pendant plus de 7 jours. Si le modèle d’activité varie durant un mois, nous vous recommandons d’effectuer le profilage au cours de la semaine lors de l’activité maximale. La meilleure solution est d’effectuer le profilage pendant 31 jours pour obtenir de meilleures recommandations. Pendant la période de profilage, ASRDeploymentPlanner.exe continue de s’exécuter. Les entrées du temps de profilage de l’outil sont indiquées en jours. Pour un test rapide de l’outil ou pour des preuves de concept, vous pouvez faire un profilage pendant quelques heures ou minutes. Le temps de profilage minimum autorisé est de 30 minutes.
 
 Pendant le profilage, vous pouvez éventuellement transmettre un nom et une clé du compte de stockage pour déterminer le débit que Site Recovery peut atteindre au moment de la réplication du serveur de configuration ou du serveur de processus vers Azure. Si la clé et le nom du compte de stockage ne sont pas transmis au cours du profilage, l’outil ne calcule pas le débit réalisable.
 
 Vous pouvez exécuter plusieurs instances de l’outil pour différents ensembles de machines virtuelles. Veillez à ce que les noms des machines virtuelles ne soient pas répétés dans les ensembles de profilage. Exemple : si vous avez profilé dix machines virtuelles (VM1 à VM10) et que, après quelques jours, vous voulez profiler cinq autres machines virtuelles (VM11 à VM15) ; vous pouvez exécuter l’outil à partir d’une autre console de ligne de commande pour le second ensemble de machines virtuelles (VM11 à VM15). Assurez-vous que le second ensemble de machines virtuelles ne comporte pas de noms de machine virtuelle de la première instance de profilage ou utilisez un autre répertoire de sortie pour la seconde exécution. Si deux instances de l’outil sont utilisées pour profiler les mêmes machines virtuelles et que vous utilisez le même répertoire de sortie, le rapport généré sera incorrect.
+
+Par défaut, l’outil est configuré pour profiler et générer un rapport comprenant jusqu'à 1000 machines virtuelles. Vous pouvez modifier la limite en modifiant la valeur de la clé MaxVMsSupported dans le fichier *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Avec les paramètres par défaut, pour profiler 1500 machines virtuelles, créez deux fichiers VMList.txt. Un fichier avec 1 000 machines virtuelles et un autre avec une liste de 500 machines virtuelles. Exécutez les deux instances du planificateur de déploiement ASR, une avec le fichier VMList1.txt et l’autre avec le fichier VMList2.txt. Vous pouvez utiliser le même chemin d’accès de répertoire pour stocker les données profilées des machines virtuelles correspondant aux deux fichiers VMList. 
+
+Nous avons vu que, selon la configuration matérielle et particulière en fonction de la mémoire RAM du serveur à partir duquel l’outil pour générer le rapport est exécuté, l’opération peut échouer à cause d’une quantité de mémoire insuffisante. Si vous avez un bon matériel, vous pouvez modifier la clé MaxVMsSupported avec n’importe quelle valeur supérieure.  
+
+Si vous avez plusieurs serveurs vCenter, vous devez exécuter une instance de ASRDeploymentPlanner pour le profilage de chaque serveur vCenter.
 
 Les configurations de machines virtuelles sont capturées une fois au début de l’opération de profilage et stockées dans un fichier appelé VMDetailList.xml. Ces informations sont utilisées lorsque le rapport est généré. Toute modification de configuration de machine virtuelle (par exemple, un nombre accru de cœurs, de disques ou de cartes réseau) du début à la fin du profilage n’est pas capturée. Si une configuration de machines virtuelles profilées est modifiée en cours de profilage, la solution de contournement dans la préversion publique consiste à obtenir les toutes dernières informations des machines virtuelles lorsque vous générez le rapport :
 
@@ -136,12 +148,12 @@ L’outil génère un fichier Microsoft Excel avec les macros activées (fichier
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Nom du paramètre | Description |
+|Nom du paramètre | DESCRIPTION |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  Le nom de domaine complet ou l’adresse IP du serveur vCenter/vSphere (utilisez le même nom ou la même adresse IP que ceux utilisés lors du profilage) sur lequel se trouvent les machines virtuelles profilées dont le rapport doit être généré. Notez que si vous avez utilisé un serveur vCenter au moment du profilage, vous ne pouvez pas utiliser un serveur vSphere pour la génération de rapport, et inversement.|
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles profilées pour lesquels le rapport va être généré. Le chemin d’accès du fichier peut être absolu ou relatif. Le fichier doit contenir un nom ou une adresse IP de machine virtuelle par ligne. Les noms de machines virtuelles spécifiés dans le fichier doivent être identiques à ceux des machines virtuelles sur le serveur vCenter/l’hôte vSphere ESXi, et ils correspondent à ce qui a été utilisé au moment du profilage.|
-|-Virtualisation|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
+|-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
 | -Répertoire | (Facultatif) UNC ou chemin d’accès du répertoire local où les données profilées (fichiers générés lors du profilage) sont stockées. Ces données sont requises pour générer le rapport. Si aucun nom n’est spécifié, le répertoire ProfiledData est utilisé. |
 | -GoalToCompleteIR | (Facultatif) Le nombre d’heures pendant lesquelles la réplication initiale des machines virtuelles profilées doit être effectuée. Le rapport généré indique le nombre de machines virtuelles pour lesquelles la réplication initiale peut être effectuée dans le délai spécifié. La valeur par défaut est 72 heures. |
 | -User | (Facultatif) Le nom d’utilisateur permettant de se connecter au serveur vCenter/vSphere. Le nom est utilisé pour extraire les dernières informations de configuration des machines virtuelles, comme le nombre de disques, le nombre de cœurs, le nombre de cartes réseau, etc. à utiliser dans le rapport. Si aucun nom n’est fourni, les informations de configuration collectées au début du profilage sont utilisées. |
@@ -155,9 +167,15 @@ L’outil génère un fichier Microsoft Excel avec les macros activées (fichier
 | -GrowthFactor | (Facultatif) Le facteur de croissance, exprimé en pourcentage. La valeur par défaut est 30 pour cent. |
 | -UseManagedDisks | (Facultatif) UseManagedDisks - Oui/Non. La valeur par défaut est Oui. Le nombre de machines qu’il est possible de placer dans un compte de stockage unique est calculé en fonction de si le basculement/test de basculement des machines virtuelles est effectué sur un disque managé au lieu d’un disque non managé. |
 |-SubscriptionId |(Facultatif) GUID de l’abonnement. Utilisez ce paramètre pour générer le rapport d’estimation des coûts avec le prix le plus récent selon votre abonnement, l’offre associée à votre abonnement et pour votre région cible Azure dans la devise indiquée.|
-|-TargetRegion|(Facultatif) La région Azure cible de la réplication. Étant donné que Azure possède différents coûts par région, utilisez ce paramètre pour générer des rapports avec une région cible Azure spécifique.<br>La valeur par défaut est WestUS2 (Ouest des États-Unis) ou la dernière région cible.<br>Reportez-vous à la liste des [régions cibles prises en charge](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
+|-TargetRegion|(Facultatif) La région Azure cible de la réplication. Étant donné qu’Azure possède différents coûts par région, utilisez ce paramètre pour générer des rapports avec une région cible Azure spécifique.<br>La valeur par défaut est WestUS2 (Ouest des États-Unis) ou la dernière région cible.<br>Reportez-vous à la liste des [régions cibles prises en charge](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Facultatif) L’offre associée à l’abonnement donné. La valeur par défaut est MS-AZR-0003P (paiement à l’utilisation).|
 |-Currency|(Facultatif) La devise dans laquelle le coût est indiqué dans le rapport généré. La valeur par défaut est le Dollar américain ($) ou la dernière devise utilisée.<br>Reportez-vous à la liste des [devises prises en charge](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Par défaut, l’outil est configuré pour profiler et générer un rapport comprenant jusqu'à 1000 machines virtuelles. Vous pouvez modifier la limite en modifiant la valeur de la clé MaxVMsSupported dans le fichier *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemple 1 :générer un rapport contenant des valeurs par défaut lorsque les données profilées sont situées sur le lecteur local
 ```
@@ -240,10 +258,10 @@ Ouvrez une console de ligne de commande et accédez au dossier de l’outil de p
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Nom du paramètre | Description |
+|Nom du paramètre | DESCRIPTION |
 |-|-|
 | -Operation | GetThroughput |
-|-Virtualisation|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
+|-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
 | -Répertoire | (Facultatif) UNC ou chemin d’accès du répertoire local où les données profilées (fichiers générés lors du profilage) sont stockées. Ces données sont requises pour générer le rapport. Si aucun nom de répertoire n’est spécifié, le répertoire ProfiledData est utilisé. |
 | -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. |
 | -StorageAccountKey | La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1 (ou clé d’accès principale pour un compte de stockage classique). |
@@ -254,7 +272,7 @@ L’outil crée plusieurs fichiers asrvhdfile<#>.vhd de 64 Mo (où # représent
 
 Le débit est mesuré à un moment donné et il s’agit du débit maximal que Site Recovery peut atteindre lors d’une réplication, sous réserve que tous les autres facteurs restent identiques. Par exemple, si une application commence à consommer davantage de bande passante sur le même réseau, le débit réel varie pendant la réplication. Si vous exécutez la commande GetThroughput à partir d’un serveur de configuration, l’outil ne reconnaît pas les machines virtuelles protégées ni la réplication en cours. Le résultat du débit mesuré est différent si l’opération GetThroughput est exécutée lorsque les machines virtuelles protégées présentent des taux d’activité élevés. Nous vous recommandons d’exécuter l’outil à différents moments dans le temps pendant le profilage pour comprendre les niveaux de débit pouvant être atteints à des moments différents. Dans le rapport, l’outil affiche le dernier débit mesuré.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -273,6 +291,6 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >
 >  4. Modifiez les paramètres Site Recovery sur le serveur de processus pour [augmenter la quantité de bande passante réseau utilisée pour la réplication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Analysez le rapport généré](site-recovery-vmware-deployment-planner-analyze-report.md).
 
