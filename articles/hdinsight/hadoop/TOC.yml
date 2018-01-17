@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Hadoop sur HDInsight
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: apache-hadoop-introduction.md
     - name: Composants Hadoop sur HDInsight
       href: ../hdinsight-component-versioning.md
@@ -285,6 +285,9 @@
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Exécuter à l’aide d’Azure PowerShell
               href: apache-hadoop-use-sqoop-powershell.md
+        - name: Rendre un pipeline d’analytique de données opérationnel
+          href: ../hdinsight-operationalize-data-pipeline.md
+          maintainContext: true
         - name: Utiliser Oozie pour les flux de travail
           href: ../hdinsight-use-oozie-linux-mac.md
           maintainContext: true
@@ -352,7 +355,7 @@
   items:
     - name: Sécurité d’entreprise
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planifier la sécurité d’entreprise
@@ -397,7 +400,7 @@
           maintainContext: true
         - name: Analyser les journaux Hadoop
           href: apache-hadoop-debug-jobs.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

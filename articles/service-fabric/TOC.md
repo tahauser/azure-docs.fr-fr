@@ -1,5 +1,5 @@
 # [Documentation Service Fabric](/azure/service-fabric)
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Découvrir Service Fabric](service-fabric-overview.md)
 
 # Démarrages rapides
@@ -28,8 +28,8 @@
 
 ## Créer et gérer un cluster
 ### 1- Créer un cluster sur Azure
-#### [1a- Créer un cluser Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Créer un cluser Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- Créer un cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Créer un cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Mettre à l’échelle le cluster](service-fabric-tutorial-scale-cluster.md)
 ### [3- Mettre à niveau le runtime du cluster](service-fabric-tutorial-upgrade-cluster.md)
 ### [4- Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
@@ -96,6 +96,7 @@
 ##### [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)
 ##### [Sérialisation de données lors des mises à niveau de d’application](service-fabric-application-upgrade-data-serialization.md)
 ##### [Rubriques avancées sur la mise à niveau d’application](service-fabric-application-upgrade-advanced.md)
+#### [Gestion des applications pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Test des applications avec analyse des erreurs](service-fabric-testability-overview.md)
 #### [Le paramètre ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Travailler dans un environnement de développement Windows/VS
 ### [Gérer des applications dans Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configurer des connexions sécurisées dans Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Configurer votre application pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Déboguer un service .NET dans Visual Studio](service-fabric-debugging-your-application.md)
 ### [Erreurs et exceptions courantes](service-fabric-errors-and-exceptions.md)
 ### [Surveiller et diagnostiquer localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## Gérer le cycle de vie de l’application
 ### [Empaqueter une application](service-fabric-package-apps.md)
+### [Utiliser des paramètres avec des fichiers de configuration](service-fabric-how-to-parameterize-configuration-files.md)
+### [Spécifier des numéros de port à l’aide de paramètres](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Spécifier des variables d’environnement](service-fabric-how-to-specify-environment-variables.md)
 
 ### Déployer ou supprimer des applications
 #### [Déployer des applications sur un cluster local](service-fabric-get-started-with-a-local-cluster.md)
@@ -273,9 +276,9 @@
 ## Créer et gérer des clusters
 ### Clusters sur Azure
 #### Créer
-##### [Portail Azure](service-fabric-cluster-creation-via-portal.md)
+##### [Portail Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### Mettre à l'échelle
+#### Scale
 ##### [Manuellement](service-fabric-cluster-scale-up-down.md)
 ##### [Par programmation](service-fabric-cluster-programmatic-scaling.md)
 #### [Mettre à niveau](service-fabric-cluster-upgrade.md)
@@ -308,7 +311,7 @@
 ### Analyse des performances
 #### [Analyse des performances avec WAD](service-fabric-diagnostics-perf-wad.md)
 
-# Référence
+# Informations de référence
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI (az sf)](/cli/azure/sf)
@@ -328,11 +331,12 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Schéma XML du modèle de service](service-fabric-service-model-schema.md)
+## [Variables d’environnement](service-fabric-environment-variables-reference.md)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)
 ## [Questions courantes](service-fabric-common-questions.md)
-## [Parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+## [Parcours de formation](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Tarification](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)

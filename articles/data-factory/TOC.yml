@@ -11,6 +11,10 @@
   items:
     - name: Créer une fabrique de données
       items:
+        - name: Interface utilisateur (IU)
+          href: quickstart-create-data-factory-portal.md
+        - name: Outil Copier des données
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Portail
-          href: quickstart-create-data-factory-portal.md
         - name: Modèle Resource Manager
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Didacticiels
   items:
     - name: 1 - Déployer des packages SSIS vers Azure
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Interface utilisateur (IU)
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 - Copier des données dans le cloud
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Outil Copier des données
+          href: tutorial-copy-data-tool.md
+        - name: Interface utilisateur (IU)
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 - Copier des données locales dans le cloud
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Outil Copier des données
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Interface utilisateur (IU)
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 - Copier des données en bloc
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Interface utilisateur (IU)
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 - Copier des données de façon incrémentielle
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 - Copie à partir d’une table
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Interface utilisateur (IU)
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copie à partir de plusieurs tables
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Utilisation de la fonctionnalité de suivi des modifications
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Interface utilisateur (IU)
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Transformer des données dans le cloud
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Interface utilisateur (IU)
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Transformer des données dans un réseau virtuel
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Interface utilisateur (IU)
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - Flux de contrôle
-      href: tutorial-control-flow.md
+      items:
+        - name: Interface utilisateur (IU)
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Procédures
   items:
+    - name: Création visuelle de fabriques de données
+      href: author-visually.md
     - name: Copier des données
       items:
-        - name: Copier des données à partir des sources prises en charge vers des destinations
+        - name: Copier des données à l’aide de l’activité de copie
           href: copy-activity-overview.md
+        - name: Outil Copier des données
+          href: copy-data-tool.md
         - name: Lire ou écrire des données partitionnées
           href: how-to-read-write-partitioned-data.md
         - name: Connecteurs
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Charger Azure Data Lake Store
+                  href: load-azure-data-lake-store.md
             - name: Base de données Azure pour MySQL
               href: connector-azure-database-for-mysql.md
             - name: Base de données Azure pour PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: Charger Azure SQL Data Warehouse
+                  href: load-azure-sql-data-warehouse.md
             - name: Stockage de table Azure
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: "Exécuter des packages\_SSIS dans Azure"
       items:
-        - name: Créer un runtime d’intégration Azure-SSIS
-          href: create-azure-ssis-integration-runtime.md
         - name: Associer un runtime d’intégration Azure SSIS à un réseau virtuel
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: "Gérer le runtime d’intégration Azure\_SSIS"
