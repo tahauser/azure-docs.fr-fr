@@ -1,6 +1,6 @@
 - name: Documentation pour opérateur Azure Stack
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Stack\_?"
       href: azure-stack-poc.md
@@ -19,7 +19,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Déployer Azure Stack
+    - name: Évaluer Microsoft Azure Stack
       href: azure-stack-deploy-overview.md
 - name: Didacticiels
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Concepts
   items:
-    - name: Considérations en matière de planification
-      href: azure-stack-planning-considerations.md
     - name: Stratégie de maintenance
       href: azure-stack-servicing-policy.md
     - name: Principaux concepts et fonctionnalités
@@ -43,9 +41,9 @@
       href: azure-stack-manage-basics.md
 - name: Procédures
   items:
-    - name: Déployer
+    - name: Déployer l’ASDK
       items:
-        - name: Conditions préalables
+        - name: configuration requise
           href: azure-stack-deploy.md
         - name: Télémétrie
           href: azure-stack-telemetry.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Créer une machine virtuelle de test
           href: azure-stack-provision-vm.md
+    - name: Déployer des systèmes intégrés Azure Stack
+      items:
+        - name: Considérations en matière de planification du déploiement
+          href: azure-stack-deployment-planning.md
+        - name: Décisions relatives à la planification du déploiement
+          href: azure-stack-deployment-decisions.md
+        - name: Déployer des éléments connectés à Azure
+          href: azure-stack-connected-deployment.md
+        - name: Déployer des éléments déconnectés d’Azure
+          href: azure-stack-disconnected-deployment.md
+        - name: Exigences relatives à l’infrastructure de clé publique pour le déploiement Azure Stack
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Obtenir des certificats d’infrastructure à clé publique pour le déploiement Azure Stack
+              href: azure-stack-get-pki-certs.md
+        - name: Inscrire Azure Stack
+          href: azure-stack-registration.md
     - name: Intégration du centre de données
       items:
         - name: DNS
@@ -224,7 +239,7 @@
               href: azure-stack-linux.md
         - name: Utilisation et facturation
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: azure-stack-billing-and-chargeback.md
             - name: Rapports des données d’utilisation
               href: azure-stack-usage-reporting.md
@@ -254,7 +269,7 @@
           href: azure-stack-diagnostic-test.md
         - name: Redéployer le Kit de développement Azure Stack
           href: azure-stack-redeploy.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
