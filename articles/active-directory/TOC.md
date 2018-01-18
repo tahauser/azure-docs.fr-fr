@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 ## [À propos de la gestion des identités Azure](identity-fundamentals.md)
 ## [Comprendre les solutions d’identité Azure](understand-azure-identity-solutions.md)
@@ -109,7 +109,7 @@
 #### [Configurer des emplacements nommés](active-directory-named-locations.md)
 #### [Afficher les rapports d’activité](active-directory-reporting-migration.md)
 #### [Utiliser le pack de contenu Power BI Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Référence
+### Informations de référence
 #### [Rétention](active-directory-reporting-retention.md)
 #### [Latences](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -284,10 +284,11 @@
 ### [Accès conditionnel](active-directory-conditional-access-azure-portal.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
 #### [Condition d’emplacement](active-directory-conditional-access-locations.md)
-#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Bien démarrer](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
+#### [Outil de simulation](active-directory-conditional-access-whatif.md)
 #### Tâches
 ##### [Migrer une stratégie MFA classique](active-directory-conditional-access-migration-mfa.md)
 ##### [Configurer l’accès conditionnel basé sur les appareils](active-directory-conditional-access-policy-connected-applications.md)
@@ -305,7 +306,7 @@
 ### Authentification par certificat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Prise en main](active-directory-certificate-based-authentication-get-started.md)
+#### [Bien démarrer](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Activer](active-directory-identityprotection-enable.md)
@@ -344,7 +345,7 @@
 ### [Manuel POC : Blocs de construction](active-directory-playbook-building-blocks.md)
 
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Applets de commande Azure PowerShell](/powershell/azure/overview)
 ## [Informations de référence sur l’API Java](/java/api)
