@@ -1,6 +1,6 @@
 - name: Documentation Sauvegarde Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Backup\_?"
       href: backup-introduction-to-azure-backup.md
@@ -83,7 +83,7 @@
       items:
         - name: Préparation de la machine virtuelle
           items:
-            - name: Préparer des machines virtuelles déployées par Resource Manager
+            - name: Préparation de machines virtuelles déployées à l’aide du Gestionnaire des ressources
               href: backup-azure-arm-vms-prepare.md
             - name: Sauvegardes cohérentes des applications des machines virtuelles Linux
               href: backup-azure-linux-app-consistent.md
@@ -101,13 +101,13 @@
           items:
             - name: Gérer les sauvegardes de machines Virtuelles Azure dans le portail Azure
               href: backup-azure-manage-vms.md
-            - name: Surveiller des alertes pour les sauvegardes de machines virtuelles Azure dans le portail Azure
+            - name: Surveiller des alertes pour les sauvegardes de machines virtuelles Azure
               href: backup-azure-monitor-vms.md
         - name: Restauration de données à partir de machines virtuelles
           items:
             - name: Récupérer des fichiers à partir de sauvegardes de machines virtuelles Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: Restaurer des machines virtuelles déployées à l’aide de Resource Manager dans le portail Azure
+            - name: Restaurer des machines virtuelles dans le portail Azure
               href: backup-azure-arm-restore-vms.md
             - name: Restaurer des machines virtuelles chiffrées
               href: backup-azure-vms-encryption.md
@@ -125,7 +125,7 @@
       items:
         - name: Préparer les charges de travail DPM dans le portail Azure
           href: backup-azure-dpm-introduction.md
-        - name: Utiliser System Center DPM pour sauvegarder un serveur Exchange
+        - name: Utiliser DPM pour sauvegarder un serveur Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Récupérer des données sur un autre serveur DPM
           href: backup-azure-alternate-dpm-server.md
@@ -183,7 +183,7 @@
           href: backup-azure-mabs-troubleshoot.md
         - name: "Résoudre les problèmes de l’agent de sauvegarde\_Azure"
           href: backup-azure-mars-troubleshoot.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: "Azure\_PowerShell"
       href: /powershell/module/azurerm.recoveryservices.backup
@@ -195,11 +195,11 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/backup/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

@@ -3,7 +3,7 @@
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
 
-# [Prise en main](iot-hub-get-started.md)
+# [Démarrer](iot-hub-get-started.md)
 
 ## Configurer votre appareil
 ### [Simuler un appareil sur votre ordinateur](iot-hub-get-started-simulated.md)
@@ -35,6 +35,7 @@
 ### [Visualisation des données avec des applications web](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Prévisions météo avec Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Gestion des appareils avec iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Gestion des appareils avec l’extension IoT pour Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Surveillance à distance et notifications avec Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Procédures

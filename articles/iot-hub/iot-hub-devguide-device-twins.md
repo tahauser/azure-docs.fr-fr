@@ -15,20 +15,21 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
-Les *jumeaux d’appareil* sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). Azure IoT Hub conserve un jumeau d’appareil pour chaque appareil que vous y connectez. Cet article explique :
+Les *jumeaux d’appareil* sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). Azure IoT Hub conserve un jumeau d’appareil pour chaque appareil que vous y connectez. Cet article aborde les points suivants :
+
 
 * La structure du jumeau d’appareil : *tags* (balises), propriétés *desired* (souhaitées) et *reported* (signalées).
 * Les opérations que les applications d’appareil et back-ends peuvent effectuer sur des jumeaux d’appareil.
 
-Vous pouvez utiliser des représentations d’appareil pour répondre aux besoins suivants :
+Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivants :
 
 * Stocker les métadonnées spécifiques à l’appareil dans le cloud, par exemple, l’emplacement de déploiement d’un distributeur automatique.
 * Signaler les informations d’état actuel, telles que les capacités disponibles et les conditions, à partir de votre application pour appareil, par exemple, un appareil connecté à votre hub IoT via un réseau mobile ou Wi-Fi.
@@ -51,8 +52,7 @@ Un jumeau d’appareil est un document JSON incluant les éléments suivants :
 * **Balises**. Une section du document JSON accessible en lecture et en écriture par le serveur principal de solution. Les balises ne sont pas visibles pour des applications pour appareil.
 * **Propriétés souhaitées**. Utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition d’appareil. Le serveur principal de solution peut définir les propriétés souhaitées, et l’application d’appareil peut les lire. L’application d’appareil peut également recevoir des notifications sur les changements des propriétés souhaitées.
 * **Propriétés signalées (Reported)**. Utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition d’appareil. L’application d’appareil peut définir les propriétés signalées, et le serveur principal de solution peut les lire et les interroger.
-
-De plus, la racine du document JSON du jumeau d’appareil contient les propriétés en lecture seule de l’identité d’appareil correspondante stockées dans le [registre des identités][lnk-identity].
+* **Propriétés d’identité des appareils**. La racine du document JSON du jumeau d’appareil contient les propriétés en lecture seule de l’identité d’appareil correspondante stockées dans le [registre des identités][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ L’exemple suivant montre un document JSON de jumeau d’appareil :
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ L’exemple suivant montre un document JSON de jumeau d’appareil :
             }
         }
 
-L’objet racine contient les propriétés système et des objets conteneur pour `tags` et les propriétés `reported` et `desired`. Le conteneur `properties` contient des éléments en lecture seule (`$metadata`, `$etag` et `$version`) décrits dans les sections [Métadonnées de jumeau d’appareil][lnk-twin-metadata] et [Accès concurrentiel optimiste][lnk-concurrency].
+L’objet racine contient les propriétés d’identité des appareils et des objets conteneur pour `tags` et les propriétés `reported` et `desired`. Le conteneur `properties` contient des éléments en lecture seule (`$metadata`, `$etag` et `$version`) décrits dans les sections [Métadonnées de jumeau d’appareil][lnk-twin-metadata] et [Accès concurrentiel optimiste][lnk-concurrency].
 
 ### <a name="reported-property-example"></a>Exemple de propriété signalée (Reported)
 Dans l’exemple précédent, le jumeau d’appareil contient une propriété `batteryLevel` qui est signalée par l’application d’appareil. Cette propriété permet d’interroger des appareils et d’agir sur ceux-ci en fonction du dernier niveau signalé de charge de la batterie. D’autres exemples incluent une application d’appareil signalant des capacités d’appareil ou des options de connectivité.
@@ -103,7 +109,7 @@ Dans l’exemple précédent, le jumeau d’appareil contient une propriété `b
 > Les propriétés signalées simplifient les scénarios où le serveur principal de solution s’intéresse à la dernière valeur connue d’une propriété. Si le back-end de la solution doit traiter une télémétrie d’appareil se présentant sous la forme de séquences d’événements horodatés, telles que des séries chronologiques, utilisez des [messages appareil-à-cloud][lnk-d2c].
 
 ### <a name="desired-property-example"></a>Exemple de propriété souhaitée
-Dans l’exemple précédent, les propriétés souhaitées et signalées du jumeau d’appareil `telemetryConfig` sont utilisées par le serveur principal d’application et l’application d’appareil pour synchroniser la configuration de la télémétrie pour cet appareil. Par exemple :
+Dans l’exemple précédent, les propriétés souhaitées et signalées du jumeau d’appareil `telemetryConfig` sont utilisées par le serveur principal d’application et l’application d’appareil pour synchroniser la configuration de la télémétrie pour cet appareil. Par exemple : 
 
 1. Le serveur principal de solution définit la propriété souhaitée avec la valeur de configuration souhaitée. Voici la partie du document contenant la propriété souhaitée (Desired) définie :
    
@@ -138,7 +144,7 @@ Vous pouvez utiliser des jumeaux pour synchroniser des opérations de longue dur
 ## <a name="back-end-operations"></a>Opérations principales
 Le back-end de solution opère sur le jumeau d’appareil en utilisant les opérations atomiques suivantes, exposées par le biais du protocole HTTPS :
 
-* **Récupérer la représentation d’appareil par son id**. Cette opération renvoie le contenu du document du jumeau d’appareil, à savoir les Tags (balises) et les propriétés système souhaitées (Desired) et signalées (Reported).
+* **Récupérer le jumeau d’appareil par son id**. Cette opération renvoie le contenu du document du jumeau d’appareil, à savoir les Tags (balises) et les propriétés système souhaitées (Desired) et signalées (Reported).
 * **Mettre à jour partiellement le jumeau d’appareil**. Cette opération permet au serveur principal de solution de mettre à jour partiellement les Tags (balises) ou les propriétés souhaitées (Desired) dans un jumeau d’appareil. La mise à jour partielle est exprimée sous la forme d’un document JSON qui ajoute ou met à jour toute propriété. Les propriétés définies sur `null` sont supprimées. L’exemple suivant crée une propriété souhaitée avec la valeur `{"newProperty": "newValue"}`, remplace la valeur existante de `existingProperty` par `"otherNewValue"` et supprime `otherOldProperty`. Aucune autre modification n’est apportée aux autres propriétés souhaitées ou Tags existants :
    
         {
@@ -156,9 +162,9 @@ Le back-end de solution opère sur le jumeau d’appareil en utilisant les opér
 * **Remplacer des Tags**. Cette opération permet au serveur principal de la solution de remplacer complètement tous les Tags existants, et de remplacer `tags` par un nouveau document JSON.
 * **Recevoir des notifications jumelles**. Cette opération permet au back-end de la solution d’être notifié lorsque le jumeau est modifié. Pour ce faire, votre solution IoT doit créer un itinéraire et définir la source de données équivalente à *twinChangeEvents*. Par défaut, aucune notification jumelle n’est envoyée. Autrement dit, aucun itinéraire n’existe préalablement. Si le taux de variation est trop élevé, ou pour d’autres raisons, telles que des défaillances internes, IoT Hub peut envoyer une seule notification qui contient toutes les modifications. Par conséquent, si l’audit et la journalisation fiables de tous les états intermédiaires sont nécessaires pour votre application, il est toujours recommandé d’utiliser les messages D2C. Le message de notification jumelle inclut le corps et les propriétés.
 
-    - Propriétés
+    - properties
 
-    | Name | Valeur |
+    | NOM | Valeur |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Heure d’envoi de la notification |
@@ -240,13 +246,13 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
 * Aucune valeur de chaîne ne peut avoir une longueur supérieure à 4 Ko.
 
 ## <a name="device-twin-size"></a>Taille de jumeau d’appareil
-IoT Hub impose une limite de taille de 8 Ko aux valeurs totales de `tags`, de `properties/desired` et de `properties/reported`, à l’exception des éléments en lecture seule.
+IoT Hub impose une limite de taille de 8 Ko à chacune des valeurs totales respectives de `tags`, de `properties/desired` et de `properties/reported`, à l’exception des éléments en lecture seule.
 La taille est calculée en comptant tous les caractères à l’exception des caractères de contrôle UNICODE (segments C0 et C1) et des espaces qui apparaissent en dehors d’une constante de chaîne.
 IoT Hub rejette en générant une erreur toute opération susceptible d’augmenter la taille de ces documents au-delà de la limite.
 
 ## <a name="device-twin-metadata"></a>Métadonnées de jumeau d’appareil
 IoT Hub tient à jour l’horodateur de la dernière mise à jour de chaque objet JSON dans les propriétés souhaitées et signalées du jumeau d’appareil. Les horodateurs sont exprimés en UTC et codés au format [ISO8601] `YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Par exemple :
+Par exemple : 
 
         {
             ...
@@ -324,7 +330,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * L’article [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer, à partir d’IoT Hub, des informations relatives à vos jumeaux d’appareil et à vos travaux.
 * L’article [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 À présent que vous savez ce que sont des jumeaux d’appareil, vous serez peut-être intéressé par les rubriques suivantes du Guide du développeur IoT Hub :
 
 * [Appeler une méthode directe sur un appareil][lnk-methods]

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation d’une authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
 Les clients s’attendent désormais à profiter d’une authentification unique, nécessitant des utilisateurs une seule et unique saisie des informations d’identification, qui restent automatiquement actives sur l’ensemble des applications. La difficulté à saisir le nom d’utilisateur et le mot de passe sur des petits formats d’écrans, à laquelle s’ajoute souvent un facteur supplémentaire (2FA) tel qu’un appel ou un code par SMS, mécontente rapidement les utilisateurs contraints d’effectuer plusieurs fois l’opération pour votre produit.
@@ -294,10 +294,7 @@ exemple : *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Étape 4 : iOS9 : Ajouter un paramètre de configuration à votre application
 La bibliothèque ADAL utilise –canOpenURL: pour vérifier si le répartiteur est installé sur l’appareil. Dans iOS 9, Apple a verrouillé la liste des schémas dans lesquels une application peut lancer une requête. Il vous faudra ajouter msauth à la section LSApplicationQueriesSchemes de votre `info.plist file`.
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array><string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>Vous avez configuré l’authentification unique !
 Désormais, le Kit de développement logiciel (SDK) Microsoft Identity partage automatiquement les informations d’identification entre vos applications et appelle l’éventuel répartiteur existant sur l’appareil.

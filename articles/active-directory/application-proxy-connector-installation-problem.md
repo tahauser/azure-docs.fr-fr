@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
@@ -37,9 +37,9 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 **Objectif :** vérifier que l’ordinateur connecteur peut se connecter au point de terminaison d’inscription du proxy d’application AAD ainsi qu’à la page de connexion Microsoft.
 
-1.  Ouvrez un navigateur et accédez à la page web suivante : <https://aadap-portcheck.connectorporttest.msappproxy.net>. Vérifiez que la connectivité vers les centres de données des États-Unis du Centre et des États-Unis de l’Est avec les ports 9090 et 9091 fonctionne.
+1.  Ouvrez un navigateur et accédez à la page web suivante : <https://aadap-portcheck.connectorporttest.msappproxy.net>. Vérifiez que la connectivité vers les centres de données des États-Unis du Centre et des États-Unis de l’Est avec les ports 80 et 443 fonctionne.
 
-2.  En cas d’échec de l’un de ces ports (absence de coche verte), vérifiez que \*.msappproxy.net est correctement défini sur le proxy principal ou le pare-feu avec les ports 9090 et 9091.
+2.  En cas d’échec de l’un de ces ports (absence de coche verte), vérifiez que \*.msappproxy.net est correctement défini sur le proxy principal ou le pare-feu avec les ports 80 et 443.
 
 3.  Ouvrez un navigateur (onglet distinct) et accédez à la page web suivante : <https://login.microsoftonline.com>. Assurez-vous que vous pouvez vous connecter à cette page.
 
@@ -68,5 +68,5 @@ Connectez-vous à <https://login.microsoftonline.com> et utilisez les mêmes inf
 
 Sélectionnez votre compte d’utilisateur, puis sélectionnez « Rôle d’annuaire » dans le menu qui s’affiche. Vérifiez que le rôle sélectionné est « Administrateur général ». Si vous ne pouvez accéder à aucune des pages de cette procédure, cela signifie que vous n’êtes pas administrateur général.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-understand-connectors.md)

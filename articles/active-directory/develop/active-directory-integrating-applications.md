@@ -3,10 +3,9 @@ title: "Intégration d’applications dans Azure Active Directory"
 description: "Ajout, mise à jour ou suppression d’une application dans Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Intégration d’applications dans Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -35,7 +34,7 @@ Pour plus d’informations sur les deux objets Azure AD qui représentent une a
 Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d’abord être enregistrée dans un locataire Azure AD. Le processus d'enregistrement implique de fournir à Azure AD des informations sur votre application, notamment l'URL où elle est située, l'URL à laquelle envoyer une réponse après avoir authentifié un utilisateur, l'URI qui identifie l'application, et ainsi de suite.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Enregistrement d’une nouvelle application à l’aide du portail Azure
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Nouvelle inscription d’application**.
 
@@ -111,10 +110,10 @@ En outre, avant qu’un client puisse accéder à une API web exposée par une a
 - Autorisations déléguées : votre application cliente doit accéder à l’API web en tant qu’utilisateur connecté, mais avec un accès limité par l’autorisation sélectionnée. Ce type d'autorisation peut être accordé par un utilisateur, à moins que l'autorisation nécessite le consentement de l'administrateur. 
 
   > [!NOTE]
-  > L’ajout d’une autorisation déléguée à une application n’accorde pas automatiquement un consentement aux utilisateurs du client, comme c’était le cas dans le portail Azure Classic. Les utilisateurs doivent donner manuellement leur consentement pour les autorisations déléguées ajoutées, au moment de l’exécution, à moins que l’administrateur clique sur le bouton **Accorder des autorisations** dans la section **Autorisations requises** de la page de l’application dans le portail Azure. 
+  > L’ajout d’une autorisation déléguée à une application n’accorde pas automatiquement un consentement aux utilisateurs du client. Les utilisateurs doivent donner manuellement leur consentement pour les autorisations déléguées ajoutées, au moment de l’exécution, à moins que l’administrateur clique sur le bouton **Accorder des autorisations** dans la section **Autorisations requises** de la page de l’application dans le portail Azure. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Pour ajouter des informations d’identification d’application ou des autorisations pour accéder aux API web
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer.
 
@@ -154,7 +153,7 @@ La section suivante indique comment exposer les étendues d’accès en modifian
 
 #### <a name="adding-access-scopes-to-your-resource-application"></a>Ajout d’étendues d’accès à votre application de ressources
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer.
@@ -239,7 +238,7 @@ Si vous écrivez une application que vous souhaitez proposer à vos clients ou �
 
 Pour permettre aux utilisateurs externes d’accéder à votre application : 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application.
 4. Sur la page **Paramètres**, cliquez sur **Propriétés** et basculez le **Commutateur mutualisé** sur **Oui**.
@@ -276,7 +275,7 @@ Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applicatio
 > Pour plus d’informations sur la façon de modifier le manifeste d’application, assurez-vous de revoir d’abord la section précédente, [Configuration d’une application de ressource pour exposer des API web](#configuring-a-resource-application-to-expose-web-apis).
 >
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application.
 4. Basculez vers la page **Modifier le manifeste**, en cliquant sur **Manifeste** depuis la page d’inscription de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de **Modifier** le manifeste depuis le portail. Recherchez la valeur « oauth2AllowImplicitFlow » et définissez-la sur « true ». Par défaut, elle est définie sur « false ».
@@ -293,14 +292,14 @@ Cette section décrit comment supprimer l’inscription d’une application de v
 Les applications inscrites par votre organisation sont affichées sous le filtre « Mes applications » sur la page « inscriptions d’application » principale de votre locataire. Ces applications sont celles que vous avez inscrites soit manuellement au moyen du portail Azure, soit par un programme par le biais de PowerShell ou de l’API Graph. Plus précisément, ces applications sont représentées dans votre locataire par des objets Application et Principal du service. Pour plus d’informations, voir [Objets principal du service et application](active-directory-application-objects.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Pour supprimer une application à locataire unique de votre répertoire
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application.
 4. Dans la page d’inscription principale de l’application, cliquez sur **Supprimer**.
 5. Cliquez sur **Oui** dans le message de confirmation.
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Pour supprimer une application multilocataire de son répertoire de base
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application.
 4. À partir de la page **Paramètres**, choisissez **Propriétés** et basculez **Multilocataire** sur **Non** pour commencer par passer votre application en locataire unique, puis cliquez sur **Enregistrer**. Les objets principal du service de l’application restent dans les locataires de toutes les organisations qui ont déjà consenti.
@@ -312,7 +311,7 @@ Un sous-ensemble des applications qui s’affichent sous le filtre « Toutes les
 
 Afin de pouvoir supprimer l’accès d’une application multilocataires à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit supprimer son principal du service. L’administrateur doit avoir un accès d’administrateur général et peut supprimer les [applets de commande PowerShell Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) au sein du portail Azure pour supprimer l’accès.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour plus d'informations sur le fonctionnement de l'authentification dans Azure AD, consultez la section [Scénarios d'authentification pour Azure AD](active-directory-authentication-scenarios.md).
 - Consultez les [instructions de personnalisation pour applications intégrées](active-directory-branding-guidelines.md) afin d’obtenir des conseils sur l’aide visuelle pour votre application.
 - Consultez la rubrique [Objets principal du service et application](active-directory-application-objects.md) pour plus d’informations sur la relation existant entre les objets principal du service et application de l’application.

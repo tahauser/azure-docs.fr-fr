@@ -26,7 +26,7 @@ Les disques Azure sont conçus pour offrir une disponibilité de 99,999 %. Vous
 
 Utilisez le [contrôle d’accès en fonction du rôle Azure](../articles/active-directory/role-based-access-control-what-is.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Managed Disks expose différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
 
-### <a name="azure-backup-service-support"></a>Prise en charge du service Sauvegarde Azure
+### <a name="azure-backup-service-support"></a>Prise en charge du service Azure Backup
 Utilisez le service Azure Backup avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Les disques gérés prennent uniquement en charge l’option Stockage localement redondant (LRS) pour la réplication. Ainsi, trois copies des données sont conservées dans une même région. Pour la récupération après sinistre régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Actuellement, Azure Backup prend en charge des tailles de disque de données jusqu'à 1 To pour la sauvegarde. Pour en savoir plus sur ce point, consultez [Utilisation du service Sauvegarde Azure pour les machines virtuelles avec Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
@@ -51,9 +51,9 @@ Examinons ces éléments de plus près.
 
 Voici les tailles de disque disponible pour un disque managé Premium :
 
-| **Disques managés<br> Premium** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Taille du disque        | 32 Go   | 64 Go   | 128 Go  | 512 Go  | 1024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) | 
+| **Disques managés<br> Premium** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Taille du disque        | 32 Go   | 64 Go   | 128 Go  | 256 Go  | 512 Go  | 1024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) | 
 
 
 Voici les tailles de disque disponible pour un disque managé Standard :
@@ -79,7 +79,7 @@ Pour le moment, les [captures instantanées incrémentielles](../articles/virtua
 Pour en savoir plus sur la création de captures instantanées avec Managed Disks, consultez ces ressources :
 
 * [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Créer une copie d’un disque dur virtuel stocké en tant que disque géré à l’aide de la fonction Instantanés dans Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Créer une copie d’un disque dur virtuel stocké en tant que disque managé à l’aide de la fonction Instantanés dans Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## <a name="images"></a>Images
@@ -111,7 +111,7 @@ Le [Chiffrement du service de stockage Azure](../articles/storage/common/storage
 
 Azure Disk Encryption vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Cela inclut les disques gérés. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque. Pour plus d’informations, voir [Azure Disk Encryption pour machines virtuelles Windows et Linux IaaS](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Managed Disks, consultez les articles suivants.
 

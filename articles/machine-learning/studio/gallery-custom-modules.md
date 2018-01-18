@@ -1,6 +1,6 @@
 ---
-title: "Modules personnalisés de la Galerie Cortana Intelligence | Microsoft Docs"
-description: "Découvrez les modules Machine Learning personnalisés dans la galerie Cortana Intelligence."
+title: "Modules personnalisés de la galerie Azure AI | Microsoft Docs"
+description: "Découvrez les modules Machine Learning personnalisés dans la galerie Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Découvrez les modules Machine Learning personnalisés dans la galerie Cortana Intelligence
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Découvrir les modules Machine Learning personnalisés dans la galerie Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Modules personnalisés pour Machine Learning Studio
-La galerie Cortana Intelligence offre plusieurs [modules personnalisés](https://gallery.cortanaintelligence.com/customModules) qui étendent les fonctionnalités d’Azure Machine Learning Studio. Vous pouvez importer ces modules pour les utiliser dans vos expériences. Vous pouvez ainsi développer des solutions d’analyse prédictive encore plus avancées.
+La galerie Azure AI offre plusieurs [modules personnalisés](https://gallery.cortanaintelligence.com/customModules) qui étendent les fonctionnalités d’Azure Machine Learning Studio. Vous pouvez importer ces modules pour les utiliser dans vos expériences. Vous pouvez ainsi développer des solutions d’analyse prédictive encore plus avancées.
 
 Pour l’instant, la galerie propose des modules sur l’*analytique de série temporelle*, les *règles d’association*, les *algorithmes de clustering* (au-delà de k-means) et les *visualisations*, ainsi que d’autres modules utilitaires efficaces.
 
@@ -52,7 +52,7 @@ Dans la section **Commentaires** de la page de détails d’un module personnali
 ## <a name="import"></a>Importer
 Vous pouvez importer n’importe quel module personnalisé dans la galerie pour vos propres expériences.
 
-La galerie Cortana Intelligence propose deux méthodes pour importer une copie du module :
+La galerie Azure AI propose deux méthodes pour importer une copie du module :
 
 * **À partir de la galerie**. Lorsque vous importez un module personnalisé depuis la galerie, vous obtenez également un exemple d’expérience qui vous montre comment utiliser le module.
 * **À partir de Machine Learning Studio**. Vous pouvez importer n’importe quel module personnalisé lorsque vous travaillez dans Machine Learning Studio (dans ce cas, vous n’obtenez pas l’exemple d’expérience).

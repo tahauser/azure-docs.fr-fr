@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Gérer des clusters HDInsight joints à un domaine
 Découvrez les utilisateurs et les rôles dans HDInsight joint à un domaine et apprenez à gérer des clusters HDInsight joints à un domaine.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Accédez aux clusters avec Enterprise Security Package.
+
+Enterprise Security Package (anciennement HDInsight Premium) permet à plusieurs utilisateurs d’accéder au cluster avec une authentification gérée par Active Directory et une autorisation exécutée par Apache Ranger et les ACL Storage (ACL ADLS). L’autorisation définit des limites sécurisées entre plusieurs utilisateurs et permet uniquement aux utilisateurs disposant de privilèges d’accéder aux données en fonction des stratégies d’autorisation.
+
+La sécurité et l’isolement des utilisateurs sont des aspects importants pour un cluster HDInsight qui utilise Enterprise Security Package. Pour répondre à ces exigences, l’accès SSH au cluster avec Enterprise Security Package est bloqué. Le tableau suivant présente les méthodes d’accès recommandées pour chaque type de cluster :
+
+|Charge de travail|Scénario|Méthode d’accès|
+|--------|--------|-------------|
+|Hadoop|Hive – Travaux/requêtes interactifs |<ul><li>[Beeline](#beeline)</li><li>[Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Travaux/requêtes interactifs, PySpark interactif|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin avec Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Scénarios de traitement par lots – Spark Submit, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Requête interactive (LLAP)|Interactive|<ul><li>[Beeline](#beeline)</li><li>[Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Quelconque|Installer une application personnalisée|<ul><li>[Actions de script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+L’utilisation d’API standard est utile en matière de sécurité. Vous bénéficiez en prime des avantages suivants :
+
+1.  **Gestion** : vous pouvez gérer votre code et automatiser vos travaux à l’aide des API standard, comme Livy, HS2, etc.
+2.  **Audit** : avec SSH, il n’y a aucun moyen de contrôler qui utilise SSH pour accéder au cluster. La situation est différente lorsque les travaux sont construits via des points de terminaison standard puisqu’ils sont exécutés dans le contexte de l’utilisateur. 
+
+
+
+### <a name="beeline"></a>Utiliser BeeLine 
+Installez Beeline sur votre ordinateur et connectez-vous via l’Internet public, puis utilisez les paramètres suivants : 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Si vous avez Beeline installé localement et que vous vous connectez sur un réseau virtuel Azure, utilisez les paramètres suivants : 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Pour rechercher le nom de domaine complet d’un nœud principal, utilisez les informations contenues dans le document Gérer des clusters HDInsight à l’aide de l’API REST d’Ambari.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Utilisateurs des clusters HDInsight joints à un domaine
 Un cluster HDInsight qui n’est pas joint à un domaine comporte deux comptes d’utilisateur créés lors de la création du cluster :
 
-* **Administrateur Ambari** : ce compte est également appelé *utilisateur Hadoop* ou *utilisateur HTTP*. Ce compte peut être utilisé pour la connexion à Ambari via https://&lt;clustername>.azurehdinsight.net. Il peut également être utilisé pour exécuter des requêtes sur des vues Ambari, exécuter des travaux à l’aide d’outils externes (par exemple, PowerShell, Templeton, Visual Studio) et s’authentifier avec le pilote ODBC Hive et les outils décisionnels (Excel, PowerBI ou Tableau).
+* **Administrateur Ambari** : ce compte est également appelé *utilisateur Hadoop* ou *utilisateur HTTP*. Ce compte peut être utilisé pour la connexion à Ambari via https://&lt;clustername>.azurehdinsight.net. Il peut également être utilisé pour exécuter des requêtes sur des vues Ambari, exécuter des travaux à l’aide d’outils externes (par exemple, PowerShell, Templeton, Visual Studio) et s’authentifier avec le pilote ODBC Hive et les outils décisionnels (par exemple, Excel, PowerBI ou Tableau).
 * **Utilisateur SSH** : ce compte peut être utilisé avec SSH et exécuter des commandes sudo. Il dispose de privilèges root d’accès aux machines virtuelles Linux.
 
 Un cluster HDInsight joint à un domaine a trois nouveaux utilisateurs en plus de l’administrateur Ambari et de l’utilisateur SSH.
@@ -63,8 +115,9 @@ Les rôles de HDInsight joint à un domaine sont les suivants :
     ![Autorisations des rôles de HDInsight joint à un domaine](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Ouverture de l’interface utilisateur de gestion Ambari
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Ouvrez votre cluster HDInsight dans un panneau. Voir [Énumération et affichage des clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Ouvrez votre cluster HDInsight. Voir [Énumération et affichage des clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Cliquez sur **Tableau de bord** dans le menu du haut pour ouvrir Ambari.
 4. Connectez-vous à Ambari avec le nom d’utilisateur et le mot de passe du domaine de l’administrateur du cluster.
 5. Cliquez sur le menu déroulant **Admin** (Administrateur) dans l’angle supérieur droit, puis sur **Manage Ambari** (Gérer Ambari).
@@ -106,7 +159,7 @@ Les rôles de HDInsight joint à un domaine sont les suivants :
 2. Dans le menu de gauche, cliquez sur **Rôles**.
 3. Cliquez sur **Add User** (Ajouter un utilisateur) ou **Add Group** (Ajouter un groupe) pour affecter des utilisateurs et des groupes aux différents rôles.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour configurer un cluster HDInsight joint à un domaine, consultez [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](apache-domain-joined-run-hive.md).
 * Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

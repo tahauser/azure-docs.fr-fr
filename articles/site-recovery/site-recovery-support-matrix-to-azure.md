@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication de machines virtuelles locales vers Azure
 
@@ -33,9 +33,9 @@ Cet article résume les composants et les configurations pris en charge pour Azu
 
 **Déploiement** | **Serveur VMware/physique** | **Hyper-V (avec / sans  Virtual Machine Manager)** |
 --- | --- | ---
-**Portail Azure** | Machines virtuelles VMware locales vers stockage Azure, avec Azure Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques. | Machines virtuelles Hyper-V locales vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques.
-**Portail classique** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement.
-**PowerShell** | Non pris en charge pour le moment. | Pris en charge
+**Portail Azure** | Machines virtuelles VMware locales vers stockage Azure, avec Azure Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques. | Machines virtuelles Hyper-V locales vers stockage Azure, avec Resource Manager ou le stockage et les réseaux classiques.<br/><br/> Basculez vers des machines virtuelles Resource Manager ou classiques.
+**Portail Classic** | Mode Maintenance uniquement. Il est impossible de créer des coffres. | Mode Maintenance uniquement.
+**PowerShell** | Prise en charge | Prise en charge
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Prise en charge des serveurs de gestion du centre de données
@@ -68,45 +68,44 @@ Le tableau ci-dessous récapitule la prise en charge des systèmes d’exploitat
 
  **Serveur VMware/physique** | **Hyper-V (avec ou sans VMM)** |
 --- | --- |
-Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3 <br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.3 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1<br/><br/> Red Hat Enterprise Linux : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.4<br/><br/>CentOS : 5.2 à 5.11, 6.1 à 6.9, 7.0 à 7.4 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 ou 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.) | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \* Windows Server 2016 Nano Server n’est pas pris en charge.
-
->[!IMPORTANT]
->(Applicable aux serveurs physiques / VMware avec réplication vers Azure)
 >
-> Sur les serveurs Red Hat Enterprise Linux Server 7+ et CentOS 7+, la version de noyau 3.10.0-514 est prise en charge à partir de la version 9.8 du service Mobilité Azure Site Recovery.<br/><br/>
-> Les clients sur le noyau 3.10.0-514 avec une version du service Mobilité inférieure à la version 9.8 doivent désactiver la réplication, installer la version 9.8 du service Mobilité et réactiver la réplication.
+> Dans les distributions Linux, seuls les noyaux de stockage qui font partie de la version/mise à jour mineure de la distribution sont pris en charge.
+>
+> Les mises à niveau sur des versions majeures d’une distribution Linux sur une machine virtuelle VMware ou un serveur physique protégé par Azure Site Recovery ne sont pas prises en charge. Lors de la mise à niveau du système d’exploitation sur des versions majeures (par exemple, CentOS 6.* vers CentOS 7.*), désactivez la réplication pour la machine, mettez à niveau le système d’exploitation sur la machine, puis activez à nouveau la réplication.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versions du noyau Ubuntu prises en charge pour les serveurs VMware/physiques
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-generic à 3.13.0-117-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-generic à 3.13.0-121-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-generic à 3.13.0-128-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-91-generic, |
 14.04 LTS | 9.12 | 3.13.0-24-generic à 3.13.0-132-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-generic à 3.13.0-137-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-104-generic |
 LTS 16.04 | 9.10 | 4.4.0-21-generic à 4.4.0-81-generic,<br/>4.8.0-34-generic à 4.8.0-56-generic,<br/>4.10.0-14-generic à 4.10.0-24-generic |
 LTS 16.04 | 9.11 | 4.4.0-21-generic à 4.4.0-91-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-32-generic |
 LTS 16.04 | 9.12 | 4.4.0-21-generic à 4.4.0-96-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-35-generic |
+LTS 16.04 | 9.13 | 4.4.0-21-generic à 4.4.0-104-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Systèmes de fichiers pris en charge et configurations de stockage invité sous Linux (serveurs physiques / VMware)
 
 Les systèmes de fichiers et le logiciel de configuration de stockage suivants sont pris en charge sur les serveurs Linux exécutés sur des serveurs VMware ou physiques :
 * Systèmes de fichiers : ext3, ext4, ReiserFS (Suse Linux Enterprise Server uniquement), XFS
-* Gestionnaire de volume : LVM2
-* Logiciel multichemin : Device Mapper
+* Gestionnaire de volume : LVM2
+* Logiciel multichemin : Device Mapper
 
 Les périphériques de stockage Paravirtualized (exportés par les pilotes paravirtualized) ne sont pas pris en charge.<br/>
 Les unités de bloc d’entrée et de sortie en file d’attente ne sont pas prises en charge.<br/>
 Les serveurs physiques avec le contrôleur de stockage HP CCISS ne sont pas pris en charge.<br/>
 
 >[!Note]
-> Sur les serveurs Linux, les répertoires suivants (s’ils sont configurés en tant que partitions / systèmes de fichiers séparés) doivent tous se trouver sur le même disque (le disque du système d’exploitation) sur le serveur source : / (racine), /boot, / usr, / usr/local, / var, /etc.<br/><br/>
-> Les fonctionnalités XFSv5 sur des systèmes de fichiers XFS tels que les sommes de contrôle de métadonnées sont prises en charge à partir de la version 9.10 du service Mobilité. Si vous utilisez les fonctionnalités XFSv5, assurez-vous d’exécuter la version 9.10 ou ultérieure du service Mobilité. Vous pouvez utiliser l’utilitaire xfs_info pour vérifier le superbloc XFS pour la partition. Si ftype est défini sur 1, les fonctionnalités XFSv5 sont utilisées.
+> Sur les serveurs Linux, les répertoires suivants (s’ils sont configurés en tant que partitions/systèmes de fichiers séparés) doivent tous se trouver sur le même disque (le disque du système d’exploitation) sur le serveur source : / (racine), /boot, /usr, /usr/local, /var, /etc. ; /boot doit se trouver sur une partition de disque et ne doit pas être un volume LVM.<br/><br/>
 >
 
 
@@ -120,17 +119,17 @@ Les tableaux suivants récapitulent la prise en charge de la configuration rése
 Association de cartes réseau | Oui<br/><br/>Non pris en charge lorsque les machines physiques sont répliquées| Oui
 VLAN | Oui | Oui
 IPv4 | Oui | Oui
-IPv6 | Non | Non
+IPv6 | Non  | Non 
 
 ### <a name="guest-vm-network-configuration"></a>Configuration du réseau de machines virtuelles invitées
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-Association de cartes réseau | Non | Non
+Association de cartes réseau | Non  | Non 
 IPv4 | Oui | Oui
-IPv6 | Non | Non
+IPv6 | Non  | Non 
 Adresse IP statique (Windows) | Oui | Oui
-Adresse IP statique (Linux) | Oui <br/><br/>Les machines virtuelles sont configurées pour utiliser le protocole DHCP lors de la restauration automatique  | Non
+Adresse IP statique (Linux) | Oui <br/><br/>Les machines virtuelles sont configurées pour utiliser le protocole DHCP lors de la restauration automatique  | Non 
 Plusieurs cartes réseau | Oui | Oui
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuration de réseau des machines virtuelles Azure basculées
@@ -145,7 +144,7 @@ Plusieurs cartes réseau | Oui | Oui
 Adresse IP réservée | Oui | Oui
 IPv4 | Oui | Oui
 Conserver l’adresse IP source | Oui | Oui
-Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) | Non | Non
+Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) | Non  | Non 
 
 
 ## <a name="support-for-storage"></a>Prise en charge du stockage
@@ -155,8 +154,8 @@ Les tableaux suivants récapitulent la prise en charge de la configuration du st
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques | N/A
-SMB 3.0 | N/A | Oui
+NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques | Non applicable
+SMB 3.0 | Non applicable | Oui
 SAN (ISCSI) | Oui | Oui
 Chemins d’accès multiples (MPIO)<br></br>Testé avec : Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | Oui | Oui
 
@@ -164,36 +163,37 @@ Chemins d’accès multiples (MPIO)<br></br>Testé avec : Microsoft DSM, EMC Pow
 
 **Configuration** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Oui | N/A
-VHD/VHDX | N/A | Oui
-Machine virtuelle de 2e génération | N/A | Oui
-EFI/UEFI| Non | Oui
-Disque de cluster partagé | Non | Non
-Disque chiffré | Non | Non
-NFS | Non | N/A
-SMB 3.0 | Non | Non
-RDM | Oui<br/><br/> N/A pour les serveurs physiques | N/A
+VMDK | Oui | Non applicable
+VHD/VHDX | Non applicable | Oui
+Machine virtuelle de 2e génération | Non applicable | Oui
+EFI/UEFI| Non  | Oui
+Disque de cluster partagé | Non  | Non 
+Disque chiffré | Non  | Non 
+NFS | Non  | Non applicable
+SMB 3.0 | Non  | Non 
+RDM | Oui<br/><br/> N/A pour les serveurs physiques | Non applicable
 Disque > 1 To | Oui<br/><br/>Jusqu’à 4095 Go | Oui<br/><br/>Jusqu’à 4095 Go
 Disque avec une taille de secteur logique de 4 K et physique de 4 K | Oui | Non prise en charge pour les machines virtuelles de génération 1<br/><br/>Les machines virtuelles de génération 2 ne sont pas prises en charge.
 Disque avec une taille de secteur logique de 4 K et physique de 512 octets | Oui |  Oui
 Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques | Oui | Oui
-Espaces de stockage | Non | Oui
-Ajout/suppression de disque à chaud | Non | Non
+Espaces de stockage | Non  | Oui
+Ajout/suppression de disque à chaud | Non  | Non 
 Exclure le disque | Oui | Oui
-Chemins d’accès multiples (MPIO) | N/A | Oui
+Chemins d’accès multiples (MPIO) | Non applicable | Oui
 
 **Stockage Azure** | **Serveur VMware/physique** | **Hyper-V (avec / sans Virtual Machine Manager)**
 --- | --- | ---
 LRS | Oui | Oui
 GRS | Oui | Oui
 RA-GRS | Oui | Oui
-Stockage froid | Non | Non
-Stockage chaud| Non | Non
-Objets blob de blocs | Non | Non
+Stockage froid | Non  | Non 
+Stockage chaud| Non  | Non 
+Objets blob de blocs | Non  | Non 
 Chiffrement au repos (SSE)| Oui | Oui
 Stockage Premium | Oui | Oui
-Service Import/Export | Non | Non
-Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) configurés sur le compte de stockage cible ou le compte de stockage de cache utilisé pour stocker les données de réplication | Non | Non
+Service Import/Export | Non  | Non 
+Points de terminaison de service de réseau virtuel (Pare-feu et réseaux virtuels dans Stockage Azure ) configurés sur le compte de stockage cible ou le compte de stockage de cache utilisé pour stocker les données de réplication | Non  | Non 
+Comptes de stockage V2 à usage général (niveaux chaud et froid) | Non  | Non 
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Prise en charge de la configuration de calcul Azure
@@ -228,13 +228,13 @@ Vous pouvez déployer Site Recovery pour répliquer des machines virtuelles et d
 
 **Action** | **Serveur VMware/physique** | **Hyper-V (sans VMM)** | **Hyper-V (avec VMM)**
 --- | --- | --- | ---
-Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non | Non
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non | Non
+Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non  | Non 
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non  | Non 
 
 
 ## <a name="support-for-provider-and-agent"></a>Prise en charge du fournisseur et de l’agent
 
-**Nom** | **Description** | **Version la plus récente** | **Détails**
+**Name** | **Description** | **Version la plus récente** | **Détails**
 --- | --- | --- | --- | ---
 **Fournisseur Azure Site Recovery** | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Installé sur les serveurs VMM locaux ou sur des serveurs Hyper-V s’il n’existe aucun serveur VMM | 5.1.2700.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
 **Installation unifiée d’Azure Site Recovery (VMware vers Azure)** | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/> Installé sur des serveurs VMware locaux | 9.12.4653.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
@@ -246,5 +246,5 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Vérifiez les composants requis](site-recovery-prereq.md)

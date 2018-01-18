@@ -10,7 +10,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Espace de stockage inclus par pool (Go) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Choix de l’espace de stockage maximal par pool (Go) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| Stockage OLTP en mémoire maximal par pool (Go) | Non applicable | Non applicable | Non applicable | Non applicable | Non applicable | Non applicable | Non applicable | Non applicable |
 | Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Nombre maximal d’ouvriers simultanés (demandes) par pool | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
 | Nombre maximal de connexions simultanées par pool | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
@@ -26,7 +26,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Espace de stockage inclus par pool (Go) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Choix de l’espace de stockage maximal par pool (Go)* | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1 024 | 300, 500, 750, 1 204, 1 280 | 400, 500, 750, 1 024, 1 280, 1 536 | 800, 1 024, 1 280, 1 536, 1 792, 2 048 | 
-| Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | N/A | 
+| Stockage OLTP en mémoire maximal par pool (Go) | Non applicable | Non applicable | Non applicable | Non applicable | Non applicable | Non applicable | 
 | Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Nombre maximal d’ouvriers simultanés (demandes) par pool | 100 | 200 | 400 | 600 | 800 | 1 600 |
 | Nombre maximal de connexions simultanées par pool | 100 | 200 | 400 | 600 | 800 | 1 600 |
@@ -42,7 +42,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: |
 | Espace de stockage inclus par pool (Go) | 1 200 | 1 600 | 2000 | 2 500 | 3000 | 
 | Choix de l’espace de stockage maximal par pool (Go)* | 1 200, 1 280, 1 536, 1792, 2 048, 2 304, 2 560 | 1 600, 1 792, 2 048, 2 304, 2 560, 2 816, 3 072 | 2 000, 2 048, 2 304, 2 560, 2 816, 3 072, 3 328, 3 584 | 2 500, 2 560, 2 816, 3 072, 3 328, 3 584, 3 840, 4 096 | 3 000, 3 072, 3 328, 3 584, 3 840, 4 096 |
-| Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | 
+| Stockage OLTP en mémoire maximal par pool (Go) | Non applicable | Non applicable | Non applicable | Non applicable | Non applicable | 
 | Nombre maximal de bases de données par pool | 500 | 500 | 500 | 500 | 500 | 
 | Nombre maximal d’ouvriers simultanés (demandes) par pool | 2 400 | 3200 | 4000 | 5 000 | 6000 |
 | Nombre maximal de connexions simultanées par pool | 2 400 | 3200 | 4000 | 5 000 | 6000 |
@@ -103,7 +103,7 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour plus d’informations, visitez la [page de tarification du service SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour plus d’informations, visitez la [page de tarification du service SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. 
+> \* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. 
 >
 >\*\* Le nombre minimal/maximal d’eDTU par base de données commençant à 200 eDTU et plus dans les pools **Standard** sont en version préliminaire.
 >

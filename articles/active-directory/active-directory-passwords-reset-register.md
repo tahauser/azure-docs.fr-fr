@@ -1,5 +1,5 @@
 ---
-title: "Azure AD : inscription SSPR | Microsoft Docs"
+title: "Inscription pour la réinitialisation de mot de passe libre-service - Azure Active Directory"
 description: "Inscrire les données d’authentification en vue de la réinitialisation de mot de passe en libre-service Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: bae62762decf530521ba10ce684d5db9afa0b86c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 976eb5e710b0ffca48dae268b394b3d31fe2e938
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>S’inscrire à la réinitialisation de mot de passe en libre-service
 
@@ -58,7 +58,7 @@ Vos administrateurs peuvent vous demander de confirmer vos méthodes d’authent
 | J'obtiens une erreur « Votre compte n'est pas activé pour la réinitialisation de mot de passe » après avoir entré mon identifiant utilisateur. | Votre compte n’est pas activé pour la réinitialisation du mot de passe. <br> <br> Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que votre service informatique n’a pas activé la réinitialisation de mot de passe pour votre entreprise à partir du lien **Vous ne pouvez pas accéder à votre compte** ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien **Contacter un administrateur**. Un e-mail est envoyé au service informatique de votre entreprise. Il lui indique que vous voulez réinitialiser votre mot de passe afin qu’elle active cette fonctionnalité pour vous. |
 | J'obtiens une erreur « Impossible de vérifier votre compte » après avoir entré mon identifiant utilisateur. | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à la [page d’inscription à la réinitialisation du mot de passe](http://aka.ms/ssprsetup) une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien **Contacter un administrateur** afin d’envoyer un e-mail au service informatique de votre entreprise. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Changer votre mot de passe avec la réinitialisation de mot de passe en libre-service](active-directory-passwords-update-your-own-password.md)
 * [Page relative à l’inscription à la réinitialisation de mot de passe](http://aka.ms/ssprsetup)

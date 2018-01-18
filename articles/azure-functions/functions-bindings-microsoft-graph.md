@@ -1,5 +1,5 @@
 ---
-title: Liaisons Microsoft Graph dans Azure Functions | Microsoft Docs
+title: Liaisons Microsoft Graph pour Azure Functions
 description: "Découvrez comment utiliser des déclencheurs et liaisons Microsoft Graph dans Azure Functions."
 services: functions
 author: mattchenderson
@@ -9,18 +9,17 @@ ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: dd7bcd57260b9763eabb9b4c915d9ff46e79e931
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="azure-functions-microsoft-graph-bindings"></a>Liaisons Microsoft Graph dans Azure Functions
+# <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
-Cet article explique comment configurer et utiliser des déclencheurs et liaisons Microsoft Graph dans Azure Functions.
-Ces fonctions vous permettent d’utiliser Azure Functions pour travailler sur des données, des informations et des événements à partir de [Microsoft Graph](https://graph.microsoft.io).
+Cet article explique comment configurer et utiliser des déclencheurs et liaisons Microsoft Graph dans Azure Functions. Ces fonctions vous permettent d’utiliser Azure Functions pour travailler sur des données, des informations et des événements à partir de [Microsoft Graph](https://graph.microsoft.io).
 
 L’extension Microsoft Graph fournit les liaisons suivantes :
 - Une [liaison d’entrée de jeton d’authentification](#token-input) permet d’interagir avec toute API Microsoft Graph.
@@ -33,24 +32,22 @@ L’extension Microsoft Graph fournit les liaisons suivantes :
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!Note] 
+> [!Note]
 > Les liaisons Microsoft Graph sont actuellement en préversion.
 
 ## <a name="setting-up-the-extensions"></a>Configuration des extensions
 
-Les liaisons Microsoft Graph sont disponibles via des _extensions de liaison_. Les extensions de liaison sont des composants facultatifs du runtime Azure Functions. Cette section montre comment configurer l’élément Microsoft Graph et les extensions de jeton d’authentification.
+Les liaisons Microsoft Graph sont disponibles via des _extensions de liaison_. Les extensions de liaison sont des composants facultatifs du runtime Azure Functions. Cette section explique comment configurer l’élément Microsoft Graph et les extensions de jeton d’authentification.
 
 ### <a name="enabling-functions-20-preview"></a>Activation de la préversion d’Azure Functions 2.0
 
-Les extensions de liaison sont disponibles uniquement pour la préversion d’Azure Functions 2.0. 
+Les extensions de liaison sont uniquement disponibles pour la préversion d’Azure Functions 2.0. 
 
-[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
-
-Pour en savoir plus, voir [Comment cibler des versions du runtime Azure Functions](functions-versions.md).
+Pour plus d’informations sur la façon de configurer une application de fonction pour utiliser la préversion 2.0 du runtime de Functions, consultez [Cibler le runtime version 2.0](functions-versions.md#target-the-version-20-runtime).
 
 ### <a name="installing-the-extension"></a>Installation de l’extension
 
-Pour installer une extension à partir du portail Azure, vous devez accéder à un modèle ou à une liaison qui y fait référence. Créez une fonction, puis dans l’écran de sélection de modèle, choisissez le scénario de « Microsoft Graph ». Sélectionnez l’un des modèles à partir de ce scénario. Vous pouvez également accéder à l’onglet « Intégrer » d’une fonction existante et sélectionner l’une des liaisons décrites dans cette rubrique.
+Pour installer une extension à partir du portail Azure, accédez à un modèle ou à une liaison qui y fait référence. Créez une fonction, puis dans l’écran de sélection de modèle, choisissez le scénario de « Microsoft Graph ». Sélectionnez l’un des modèles à partir de ce scénario. Vous pouvez également accéder à l’onglet « Intégrer » d’une fonction existante et sélectionner l’une des liaisons décrites dans cet article.
 
 Dans les deux cas, un avertissement s’affiche, qui spécifie l’extension à installer. Cliquez sur **Installer** pour obtenir de l’extension.
 
@@ -61,49 +58,41 @@ Si vous utilisez Visual Studio, vous pouvez obtenir les extensions en installant
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
 - [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
 
-### <a name="configuring-app-service-authentication--authorization"></a>Configuration de l’authentification et des autorisations App Service
+### <a name="configuring-authentication--authorization"></a>Configuration de l'authentification et des autorisations
 
-Une identité est nécessaire pour pouvoir utiliser les liaisons décrites dans cette rubrique. Cela permet à l’élément Microsoft Graph d’appliquer des autorisations et des interactions d’audit. L’identité peut être un utilisateur accédant à votre application ou à l’application proprement dite. Pour configurer cette identité, vous devez configurer [Authentification et autorisations App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) avec Azure Active Directory. Vous devez également de demander les autorisations de ressources éventuelles que vos fonctions requièrent.
+Une identité est nécessaire pour pouvoir utiliser les liaisons décrites dans cet article. Cela permet à l’élément Microsoft Graph d’appliquer des autorisations et des interactions d’audit. L’identité peut être un utilisateur accédant à votre application ou à l’application proprement dite. Pour configurer cette identité, configurez [Authentification et autorisations App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) avec Azure Active Directory. Vous devez également de demander les autorisations de ressources éventuelles que vos fonctions requièrent.
 
 > [!Note] 
-> L’extension Microsoft Graph ne prend en charge que l’authentification AAD. Les utilisateurs doivent se connecter avec un compte professionnel ou scolaire.
+> L’extension Microsoft Graph ne prend en charge que l’authentification Azure AD. Les utilisateurs doivent se connecter avec un compte professionnel ou scolaire.
 
-Si vous utilisez le portail Azure, sous l’invite à installer l’extension, vous pouvez voir un avertissement vous invitant à configurer l’authentification et les autorisations App Service, ainsi qu’à demander les autorisations que le modèle ou la liaison requièrent. Cliquez sur **Configurer AAD maintenant** ou **Ajouter des autorisations maintenant** selon le cas.
-
-
-
+Si vous utilisez le portail Azure, un avertissement s’affichera sous l’invite pour installer l’extension. L’avertissement vous invite à configurer l’authentification et les autorisations App Service et à demander toute autorisation requise par le modèle ou la liaison. Cliquez sur **Configurer Azure AD maintenant** ou **Ajouter des autorisations maintenant** selon le cas.
 
 
 
 <a name="token-input"></a>
-## <a name="auth-token-input-binding"></a>Liaison d’entrée de jeton d’authentification
+## <a name="auth-token"></a>Jeton d'authentification
 
-Cette liaison obtient un jeton AAD pour une ressource donnée, puis fournit celui-ci à votre code en tant que chaîne. La ressource peut être toute ressource pour laquelle l’application dispose d’autorisations. 
+La liaison d’entrée de jeton d’authentification obtient un jeton Azure AD pour une ressource donnée, puis fournit celui-ci à votre code en tant que chaîne. La ressource peut être toute ressource pour laquelle l’application dispose d’autorisations. 
 
-### <a name="configuring-an-auth-token-input-binding"></a>Configuration d’une liaison d’entrée de jeton d’authentification
+Cette section comporte les sous-sections suivantes :
 
-La liaison elle-même ne nécessite pas d’autorisations AAD mais, selon la façon dont le jeton est utilisé, il se peut que vous deviez demander des autorisations supplémentaires. Vérifiez les exigences de la ressource à laquelle vous avez l’intention d’accéder avec le jeton.
+* [Exemple](#auth-token---example)
+* [Attributs](#auth-token---attributes)
+* [Configuration](#auth-token---configuration)
+* [Utilisation](#auth-token---usage)
 
-La liaison prend en charge les propriétés suivantes :
+### <a name="auth-token---example"></a>Jeton d’authentification - exemple
 
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison d’entrée de jeton d’authentification à partir du code](#token-input-code).|
-|**type**|Obligatoire : doit être défini sur `token`.|
-|**direction**|Obligatoire : doit être défini sur `in`.|
-|**identity**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
-|**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
-|**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
-|**resource**|Obligatoire : URL de la ressource AAD pour laquelle le jeton est demandé.|
+Consultez l’exemple propre à un langage particulier :
 
-<a name="token-input-code"></a>
-### <a name="using-an-auth-token-input-binding-from-code"></a>Utilisation d’une liaison d’entrée de jeton d’authentification à partir du code
+* [Script C# (.csx)](#auth-token---c-script-example)
+* [JavaScript](#auth-token---javascript-example)
 
-Le jeton est toujours présenté au code sous forme de chaîne.
+#### <a name="auth-token---c-script-example"></a>Jeton d’authentification - exemple de script C#
 
-#### <a name="sample-getting-user-profile-information"></a>Exemple : obtention d’informations de profil utilisateur
+L’exemple suivant obtient les informations sur le profil utilisateur.
 
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison d’entrée de jeton :
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison d’entrée de jeton :
 
 ```json
 {
@@ -130,7 +119,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant utilise le jeton pour effectuer un appel HTTP à l’élément Microsoft Graph, puis retourne le résultat :
+Le code de script C# utilise le jeton pour effectuer un appel HTTP à l’élément Microsoft Graph, puis retourne le résultat :
 
 ```csharp
 using System.Net; 
@@ -145,7 +134,38 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 }
 ```
 
-L’exemple de code JS suivant utilise le jeton pour effectuer un appel HTTP à l’élément Microsoft Graph, puis retourne le résultat. Dans le fichier `function.json` ci-dessus, commencez par remplacer `$return` par `res`.
+#### <a name="auth-token---javascript-example"></a>Jeton d’authentification - exemple JavaScript
+
+L’exemple suivant obtient les informations sur le profil utilisateur.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison d’entrée de jeton :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "token",
+      "direction": "in",
+      "name": "graphToken",
+      "resource": "https://graph.microsoft.com",
+      "identity": "userFromRequest"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript utilise le jeton pour effectuer un appel HTTP à l’élément Microsoft Graph, puis retourne le résultat.
 
 ```js
 const rp = require('request-promise');
@@ -177,47 +197,56 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="auth-token---attributes"></a>Jeton d’authentification - attributs
+
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+
+### <a name="auth-token---configuration"></a>Jeton d’authentification - configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Token`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison d’entrée de jeton d’authentification à partir du code](#token-input-code).|
+|**type**||Obligatoire : doit être défini sur `token`.|
+|**direction**||Obligatoire : doit être défini sur `in`.|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
+|**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+|**Ressource**|**resource**|Obligatoire : URL de la ressource Azure AD pour laquelle le jeton est demandé.|
+
+<a name="token-input-code"></a>
+### <a name="auth-token---usage"></a>Jeton d’authentification - utilisation
+
+La liaison elle-même ne nécessite pas d’autorisations Azure AD mais, selon la façon dont le jeton est utilisé, il se peut que vous deviez demander des autorisations supplémentaires. Vérifiez les exigences de la ressource à laquelle vous avez l’intention d’accéder avec le jeton.
+
+Le jeton est toujours présenté au code sous forme de chaîne.
 
 
 
 
 <a name="excel-input"></a>
-## <a name="excel-table-input-binding"></a>Liaison d’entrée de tableau Axcel
+## <a name="excel-input"></a>Entrée Excel
 
-Cette liaison lit le contenu d’un tableau Excel stocké sur OneDrive.
+La liaison d’entrée de tableau Excel lit le contenu d’un tableau Excel stocké sur OneDrive.
 
-### <a name="configuring-an-excel-table-input-binding"></a>Configuration d’une liaison d’entrée de tableau Excel
+Cette section comporte les sous-sections suivantes :
 
-Cette liaison requiert les autorisations AAD suivantes :
-|Ressource|Autorisation|
-|--------|--------|
-|Microsoft Graph|Lire les fichiers utilisateur|
+* [Exemple](#excel-input---example)
+* [Attributs](#excel-input---attributes)
+* [Configuration](#excel-input---configuration)
+* [Utilisation](#excel-input---usage)
 
-La liaison prend en charge les propriétés suivantes :
+### <a name="excel-input---example"></a>Entrée Excel - exemple
 
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour le tableau Excel. Voir [Utilisation d’une liaison d’entrée de tableau Excel à partir du code](#excel-input-code).|
-|**type**|Obligatoire : doit être défini sur `excel`.|
-|**direction**|Obligatoire : doit être défini sur `in`.|
-|**identity**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
-|**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
-|**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
-|**path**|Obligatoire : chemin d’accès au classeur Excel sur OneDrive.|
-|**worksheetName**|La feuille de calcul dans laquelle se trouve le tableau.|
-|**tableName**|Nom de la table. Si non spécifié, le contenu de la feuille de calcul est utilisé.|
+Consultez l’exemple propre à un langage particulier :
 
-<a name="excel-input-code"></a>
-### <a name="using-an-excel-table-input-binding-from-code"></a>Utilisation d’une liaison d’entrée de tableau Excel à partir du code
+* [Script C# (.csx)](#excel-input---c-script-example)
+* [JavaScript](#excel-input---javascript-example)
 
-La liaison expose les types suivants de fonctions .NET :
-- string[][]
-- Microsoft.Graph.WorkbookTable
-- Types d’objets personnalisés (utilisant une liaison de modèle structurel)
+#### <a name="excel-input---c-script-example"></a>Entrée Excel - exemple de script C#
 
-#### <a name="sample-reading-an-excel-table"></a>Exemple : lecture d’un tableau Excel
-
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison d’entrée de tableau Excel :
+Le fichier *function.json* suivant définit un déclencheur HTTP avec une liaison d’entrée Excel :
 
 ```json
 {
@@ -246,7 +275,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant ajoute des lectures du contenu du tableau spécifié, puis les retourne à l’utilisateur :
+Le code de script C# suivant lit le contenu du tableau spécifié, puis le retourne à l’utilisateur :
 
 ```csharp
 using System.Net;
@@ -259,7 +288,38 @@ public static IActionResult Run(HttpRequest req, string[][] excelTableData, Trac
 }
 ```
 
-L’exemple de code JS suivant ajoute des lectures du contenu du tableau spécifié, puis les retourne à l’utilisateur. Dans le fichier `function.json` ci-dessus, commencez par remplacer `$return` par `res`.
+#### <a name="excel-input---javascript-example"></a>Entrée Excel - exemple JavaScript
+
+Le fichier *function.json* suivant définit un déclencheur HTTP avec une liaison d’entrée Excel :
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "excel",
+      "direction": "in",
+      "name": "excelTableData",
+      "path": "{query.workbook}",
+      "identity": "UserFromRequest",
+      "tableName": "{query.table}"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript suivant lit le contenu du tableau spécifié, puis le retourne à l’utilisateur.
 
 ```js
 module.exports = function (context, req) {
@@ -270,45 +330,72 @@ module.exports = function (context, req) {
 };
 ```
 
-<a name="excel-output"></a>
-## <a name="excel-table-output-binding"></a>Liaison de sortie de tableau Excel
+### <a name="excel-input---attributes"></a>Entrée Excel - attributs
 
-Cette liaison modifier le contenu d’un tableau Excel stocké sur OneDrive.
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="configuring-an-excel-table-output-binding"></a>Configuration d’une liaison de sortie de tableau Excel
+### <a name="excel-input---configuration"></a>Entrée Excel - configuration
 
-Cette liaison requiert les autorisations AAD suivantes :
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Excel`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le tableau Excel. Voir [Utilisation d’une liaison d’entrée de tableau Excel à partir du code](#excel-input-code).|
+|**type**||Obligatoire : doit être défini sur `excel`.|
+|**direction**||Obligatoire : doit être défini sur `in`.|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
+|**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+|**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au classeur Excel sur OneDrive.|
+|**worksheetName**|**WorksheetName**|La feuille de calcul dans laquelle se trouve le tableau.|
+|**tableName**|**TableName**|Nom de la table. Si non spécifié, le contenu de la feuille de calcul est utilisé.|
+
+<a name="excel-input-code"></a>
+### <a name="excel-input---usage"></a>Entrée Excel - utilisation
+
+Cette liaison nécessite les autorisations Azure AD suivantes :
 |Ressource|Autorisation|
 |--------|--------|
-|Microsoft Graph|Avoir un accès total aux fichiers utilisateur|
-
-La liaison prend en charge les propriétés suivantes :
-
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison de sortie de tableau Excel à partir du code](#excel-output-code).|
-|**type**|Obligatoire : doit être défini sur `excel`.|
-|**direction**|Obligatoire : doit être défini sur `out`.|
-|**identity**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
-|**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
-|**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
-|**path**|Obligatoire : chemin d’accès au classeur Excel sur OneDrive.|
-|**worksheetName**|La feuille de calcul dans laquelle se trouve le tableau.|
-|**tableName**|Nom de la table. Si non spécifié, le contenu de la feuille de calcul est utilisé.|
-|**updateType**|Obligatoire : type de modification à apporter au tableau. Peut être l’une des valeurs suivantes :<ul><li><code>update</code> : remplace le contenu du tableau sur OneDrive.</li><li><code>append</code> : ajoute la charge utile à la fin du tableau sur OneDrive en créant des lignes.</li></ul>|
-
-<a name="excel-output-code"></a>
-### <a name="using-an-excel-table-output-binding-from-code"></a>Utilisation d’une liaison de sortie de tableau Excel à partir du code
+|Microsoft Graph|Lire les fichiers utilisateur|
 
 La liaison expose les types suivants de fonctions .NET :
 - string[][]
-- Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
 - Types d’objets personnalisés (utilisant une liaison de modèle structurel)
 
-#### <a name="sample-adding-rows-to-an-excel-table"></a>Exemple : ajout de lignes à un tableau Excel
 
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison de sortie de tableau Excel :
+
+
+
+
+
+
+
+
+<a name="excel-output"></a>
+## <a name="excel-output"></a>Sortie Excel
+
+La liaison de sortie Excel modifie le contenu d’un tableau Excel stocké sur OneDrive.
+
+Cette section comporte les sous-sections suivantes :
+
+* [Exemple](#excel-output---example)
+* [Attributs](#excel-output---attributes)
+* [Configuration](#excel-output---configuration)
+* [Utilisation](#excel-output---usage)
+
+### <a name="excel-output---example"></a>Sortie Excel - exemple
+
+Consultez l’exemple propre à un langage particulier :
+
+* [Script C# (.csx)](#excel-output---c-script-example)
+* [JavaScript](#excel-output---javascript-example)
+
+#### <a name="excel-output---c-script-example"></a>Sortie Excel - exemple de script C#
+
+L’exemple suivant ajoute des lignes à un tableau Excel.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie Excel :
 
 ```json
 {
@@ -338,8 +425,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-
-L’exemple de code C# suivant ajoute une ligne au tableau (supposé ne contenir qu’une seule colonne) basée sur l’entrée de la chaîne de requête :
+Le code de script C# ajoute une ligne au tableau (supposé ne contenir qu’une seule colonne) basée sur l’entrée de la chaîne de requête :
 
 ```csharp
 using System.Net;
@@ -358,7 +444,41 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
 }
 ```
 
-L’exemple de code JS suivant ajoute une ligne au tableau (supposé ne contenir qu’une seule colonne) basée sur l’entrée de la chaîne de requête. Dans le fichier `function.json` ci-dessus, commencez par remplacer `$return` par `res`.
+#### <a name="excel-output---javascript-example"></a>Sortie Excel - exemple JavaScript
+
+L’exemple suivant ajoute des lignes à un tableau Excel.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie Excel :
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "newExcelRow",
+      "type": "excel",
+      "direction": "out",
+      "identity": "userFromRequest",
+      "updateType": "append",
+      "path": "{query.workbook}",
+      "tableName": "{query.table}"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript suivant ajoute une ligne au tableau (supposé ne contenir qu’une seule colonne) basée sur l’entrée de la chaîne de requête.
 
 ```js
 module.exports = function (context, req) {
@@ -370,45 +490,69 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="excel-output---attributes"></a>Sortie Excel - attributs
+
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="excel-output---configuration"></a>Sortie Excel - configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Excel`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le jeton d'authentification. Voir [Utilisation d’une liaison de sortie de tableau Excel à partir du code](#excel-output-code).|
+|**type**||Obligatoire : doit être défini sur `excel`.|
+|**direction**||Obligatoire : doit être défini sur `out`.|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**UserId** |**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
+|**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+|**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au classeur Excel sur OneDrive.|
+|**worksheetName**|**WorksheetName**|La feuille de calcul dans laquelle se trouve le tableau.|
+|**tableName**|**TableName**|Nom de la table. Si non spécifié, le contenu de la feuille de calcul est utilisé.|
+|**updateType**|**UpdateType**|Obligatoire : type de modification à apporter au tableau. Peut être l’une des valeurs suivantes :<ul><li><code>update</code> : remplace le contenu du tableau sur OneDrive.</li><li><code>append</code> : ajoute la charge utile à la fin du tableau sur OneDrive en créant des lignes.</li></ul>|
+
+<a name="excel-output-code"></a>
+### <a name="excel-output---usage"></a>Sortie Excel - utilisation
+
+Cette liaison nécessite les autorisations Azure AD suivantes :
+|Ressource|Autorisation|
+|--------|--------|
+|Microsoft Graph|Avoir un accès total aux fichiers utilisateur|
+
+La liaison expose les types suivants de fonctions .NET :
+- string[][]
+- Newtonsoft.Json.Linq.JObject
+- Microsoft.Graph.WorkbookTable
+- Types d’objets personnalisés (utilisant une liaison de modèle structurel)
+
+
 
 
 
 <a name="onedrive-input"></a>
-## <a name="onedrive-file-input-binding"></a>Liaison d’entrée de fichier OneDrive
+## <a name="file-input"></a>Entrée de fichier
 
-Cette liaison lit le contenu d’un fichier stocké sur OneDrive.
+La liaison d’entrée de fichier OneDrive lit le contenu d’un fichier stocké sur OneDrive.
 
-### <a name="configuring-a-onedrive-file-input-binding"></a>Configuration d’une liaison d’entrée de fichier OneDrive
+Cette section comporte les sous-sections suivantes :
 
-Cette liaison requiert les autorisations AAD suivantes :
-|Ressource|Autorisation|
-|--------|--------|
-|Microsoft Graph|Lire les fichiers utilisateur|
+* [Exemple](#file-input---example)
+* [Attributs](#file-input---attributes)
+* [Configuration](#file-input---configuration)
+* [Utilisation](#file-input---usage)
 
-La liaison prend en charge les propriétés suivantes :
+### <a name="file-input---example"></a>Entrée de fichier - exemple
 
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison d’entrée de fichier OneDrive à partir du code](#onedrive-input-code).|
-|**type**|Obligatoire : doit être défini sur `onedrive`.|
-|**direction**|Obligatoire : doit être défini sur `in`.|
-|**identity**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
-|**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
-|**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
-|**path**|Obligatoire : chemin d’accès au fichier sur OneDrive.|
+Consultez l’exemple propre à un langage particulier :
 
-<a name="onedrive-input-code"></a>
-### <a name="using-a-onedrive-file-input-binding-from-code"></a>Utilisation d’une liaison d’entrée de fichier OneDrive à partir du code
+* [Script C# (.csx)](#file-input---c-script-example)
+* [JavaScript](#file-input---javascript-example)
 
-La liaison expose les types suivants de fonctions .NET :
-- byte[]
-- Stream
-- string
-- Microsoft.Graph.DriveItem
+#### <a name="file-input---c-script-example"></a>Entrée de fichier - exemple de script C#
 
-#### <a name="sample-reading-a-file-from-onedrive"></a>Exemple : lecture d’un fichier à partir de OneDrive
+L’exemple suivant lit un fichier stocké sur OneDrive.
 
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison d’entrée de fichier OndeDrive :
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison d’entrée de fichier OneDrive :
 
 ```json
 {
@@ -436,7 +580,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant lit le fichier spécifié dans la chaîne de requête et journalise la longueur de celui-ci :
+Le code de script C# lit le fichier spécifié dans la chaîne de requête et enregistre sa longueur :
 
 ```csharp
 using System.Net;
@@ -447,7 +591,39 @@ public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWrite
 }
 ```
 
-L’exemple de code JS suivant lit le fichier spécifié dans la chaîne de requête et retourne la longueur de celui-ci. Dans le fichier `function.json` ci-dessus, commencez par remplacer `$return` par `res`.
+#### <a name="file-input---javascript-example"></a>Entrée de fichier - exemple JavaScript
+
+L’exemple suivant lit un fichier stocké sur OneDrive.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison d’entrée de fichier OneDrive :
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myOneDriveFile",
+      "type": "onedrive",
+      "direction": "in",
+      "path": "{query.filename}",
+      "identity": "userFromRequest"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript suivant lit le fichier spécifié dans la chaîne de requête et retourne sa longueur.
 
 ```js
 module.exports = function (context, req) {
@@ -458,43 +634,67 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="file-input---attributes"></a>Entrée de fichier - attributs
 
-<a name="onedrive-output"></a>
-## <a name="onedrive-file-output-binding"></a>Liaison de sortie de fichier OneDrive
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-Cette liaison modifie le contenu d’un fichier stocké sur OneDrive.
+### <a name="file-input---configuration"></a>Entrée de fichier - configuration
 
-### <a name="configuring-a-onedrive-file-output-binding"></a>Configuration d’une liaison de sortie de fichier OneDrive
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `OneDrive`.
 
-Cette liaison requiert les autorisations AAD suivantes :
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison d’entrée de fichier OneDrive à partir du code](#onedrive-input-code).|
+|**type**||Obligatoire : doit être défini sur `onedrive`.|
+|**direction**||Obligatoire : doit être défini sur `in`.|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
+|**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+|**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au fichier sur OneDrive.|
+
+<a name="onedrive-input-code"></a>
+### <a name="file-input---usage"></a>Entrée de fichier - utilisation
+
+Cette liaison nécessite les autorisations Azure AD suivantes :
 |Ressource|Autorisation|
 |--------|--------|
-|Microsoft Graph|Avoir un accès total aux fichiers utilisateur|
-
-La liaison prend en charge les propriétés suivantes :
-
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison de sortie de fichier OneDrive à partir du code](#onedrive-output-code).|
-|**type**|Obligatoire : doit être défini sur `onedrive`.|
-|**direction**|Obligatoire : doit être défini sur `out`.|
-|**identity**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
-|**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
-|**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
-|**path**|Obligatoire : chemin d’accès au fichier sur OneDrive.|
-
-<a name="onedrive-output-code"></a>
-### <a name="using-a-onedrive-file-output-binding-from-code"></a>Utilisation d’une liaison de sortie de fichier OneDrive à partir du code
+|Microsoft Graph|Lire les fichiers utilisateur|
 
 La liaison expose les types suivants de fonctions .NET :
 - byte[]
 - Stream
-- string
+- chaîne
 - Microsoft.Graph.DriveItem
 
-#### <a name="sample-writing-to-a-file-in-onedrive"></a>Exemple : écriture dans un fichier sur OneDrive
 
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison de sortie de fichier OndeDrive :
+
+
+
+
+<a name="onedrive-output"></a>
+## <a name="file-output"></a>Sortie de fichier
+
+La liaison de sortie de fichier OneDrive modifie le contenu d’un fichier stocké sur OneDrive.
+
+Cette section comporte les sous-sections suivantes :
+
+* [Exemple](#file-output---example)
+* [Attributs](#file-output---attributes)
+* [Configuration](#file-output---configuration)
+* [Utilisation](#file-output---usage)
+
+### <a name="file-output---example"></a>Sortie de fichier - exemple
+
+Consultez l’exemple propre à un langage particulier :
+
+* [Script C# (.csx)](#file-output---c-script-example)
+* [JavaScript](#file-output---javascript-example)
+
+#### <a name="file-output---c-script-example"></a>Sortie de fichier - exemple de script C#
+
+L’exemple suivant écrit dans un fichier stocké sur OneDrive.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie OneDrive :
 
 ```json
 {
@@ -522,7 +722,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant obtient le texte de la chaîne de requête et écrit ce texte dans un fichier texte (FunctionsTest.txt, tel que défini dans la configuration ci-dessus) à la racine du OneDrive de l’appelant :
+Le code de script C# obtient le texte de la chaîne de requête et écrit ce texte dans un fichier texte (FunctionsTest.txt, tel que défini dans l’exemple précédent) à la racine du OneDrive de l’appelant :
 
 ```csharp
 using System.Net;
@@ -537,7 +737,40 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
     return;
 }
 ```
-L’exemple de code JS suivant obtient le texte de la chaîne de requête et écrit ce texte dans un fichier texte (FunctionsTest.txt, tel que défini dans la configuration ci-dessus) à la racine du OneDrive de l’appelant. Dans le fichier `function.json` ci-dessus, commencez par remplacer `$return` par `res`.
+
+#### <a name="file-output---javascript-example"></a>Sortie de fichier - exemple JavaScript
+
+L’exemple suivant écrit dans un fichier stocké sur OneDrive.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie OneDrive :
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myOneDriveFile",
+      "type": "onedrive",
+      "direction": "out",
+      "path": "FunctionsTest.txt",
+      "identity": "userFromRequest"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript obtient le texte de la chaîne de requête et écrit ce texte dans un fichier texte (FunctionsTest.txt, tel que défini dans la configuration ci-dessus) à la racine du OneDrive de l’appelant.
 
 ```js
 module.exports = function (context, req) {
@@ -546,43 +779,66 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="file-output---attributes"></a>Sortie de fichier - attributs
+
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="file-output---configuration"></a>Sortie de fichier - configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `OneDrive`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour le fichier. Voir [Utilisation d’une liaison de sortie de fichier OneDrive à partir du code](#onedrive-output-code).|
+|**type**||Obligatoire : doit être défini sur `onedrive`.|
+|**direction**||Obligatoire : doit être défini sur `out`.|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**UserId** |**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
+|**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+|**path**|**Chemin d’accès**|Obligatoire : chemin d’accès au fichier sur OneDrive.|
+
+<a name="onedrive-output-code"></a>
+#### <a name="file-output---usage"></a>Sortie de fichier - utilisation
+
+Cette liaison nécessite les autorisations Azure AD suivantes :
+|Ressource|Autorisation|
+|--------|--------|
+|Microsoft Graph|Avoir un accès total aux fichiers utilisateur|
+
+La liaison expose les types suivants de fonctions .NET :
+- byte[]
+- Stream
+- chaîne
+- Microsoft.Graph.DriveItem
+
+
+
 
 
 <a name="outlook-output"></a>
-## <a name="outlook-message-output-binding"></a>Liaison de sortie de message Outlook
+## <a name="outlook-output"></a>Sortie Outlook
 
-Envoie un e-mail via Outlook.
+La liaison de sortie de message Outlook envoie un message électronique via Outlook.
 
-### <a name="configuring-an-outlook-message-output-binding"></a>Configuration d’une liaison de sortie de message Outlook
+Cette section comporte les sous-sections suivantes :
 
-Cette liaison requiert les autorisations AAD suivantes :
-|Ressource|Autorisation|
-|--------|--------|
-|Microsoft Graph|Envoyer un e-mail en tant qu’utilisateur|
+* [Exemple](#outlook-output---example)
+* [Attributs](#outlook-output---attributes)
+* [Configuration](#outlook-output---configuration)
+* [Utilisation](#outlook-outnput---usage)
 
-La liaison prend en charge les propriétés suivantes :
+### <a name="outlook-output---example"></a>Sortie Outlook - exemple
 
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
-|**type**|Obligatoire : doit être défini sur `outlook`.|
-|**direction**|Obligatoire : doit être défini sur `out`.|
-|**identity**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
-|**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
-|**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+Consultez l’exemple propre à un langage particulier :
 
-<a name="outlook-output-code"></a>
-### <a name="using-an-outlook-message-output-binding-from-code"></a>Utilisation d’une liaison de sortie de message Outlook à partir du code
+* [Script C# (.csx)](#outlook-output---c-script-example)
+* [JavaScript](#outlook-output---javascript-example)
 
-La liaison expose les types suivants de fonctions .NET :
-- Microsoft.Graph.Message
-- Newtonsoft.Json.Linq.JObject
-- string
-- Types d’objets personnalisés (utilisant une liaison de modèle structurel)
+#### <a name="outlook-output---c-script-example"></a>Sortie Outlook - exemple de script C#
 
-#### <a name="sample-sending-an-email-through-outlook"></a>Exemple : envoi d’un e-mail via Outlook
+L’exemple suivant envoie un message électronique via Outlook.
 
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison de sortie de message Outlook :
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie de message Outlook :
 
 ```json
 {
@@ -603,7 +859,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant envoie un e-mail de l’appelant à un destinataire spécifié dans la chaîne de requête :
+Le code de script C# envoie un e-mail de l’appelant à un destinataire spécifié dans la chaîne de requête :
 
 ```csharp
 using System.Net;
@@ -632,7 +888,32 @@ public class Recipient {
 }
 ```
 
-L’exemple de code JS suivant envoie un e-mail de l’appelant à un destinataire spécifié dans la chaîne de requête :
+#### <a name="outlook-output---javascript-example"></a>Sortie Outlook - exemple JavaScript
+
+L’exemple suivant envoie un message électronique via Outlook.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie de message Outlook :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "message",
+      "type": "outlook",
+      "direction": "out",
+      "identity": "userFromRequest"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript envoie un e-mail de l’appelant à un destinataire spécifié dans la chaîne de requête :
 
 ```js
 module.exports = function (context, req) {
@@ -647,175 +928,80 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="outlook-output---attributes"></a>Sortie Outlook - attributs
+
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="outlook-output---configuration"></a>Sortie Outlook - configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Outlook`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
+|**type**||Obligatoire : doit être défini sur `outlook`.|
+|**direction**||Obligatoire : doit être défini sur `out`.|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
+|**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+
+<a name="outlook-output-code"></a>
+### <a name="outlook-output---usage"></a>Sortie Outlook - utilisation
+
+Cette liaison nécessite les autorisations Azure AD suivantes :
+|Ressource|Autorisation|
+|--------|--------|
+|Microsoft Graph|Envoyer un e-mail en tant qu’utilisateur|
+
+La liaison expose les types suivants de fonctions .NET :
+- Microsoft.Graph.Message
+- Newtonsoft.Json.Linq.JObject
+- chaîne
+- Types d’objets personnalisés (utilisant une liaison de modèle structurel)
 
 
 
 
-<a name="webhooks"></a>
-## <a name="microsoft-graph-webhook-bindings"></a>Liaisons de webhook Microsoft Graph
 
-Les webhooks vous permettent de réagir à événements dans l’élément Microsoft Graph. Pour prendre en charge les webhooks, des fonctions sont requises pour créer et actualiser les _webhook abonnements_, ainsi qu’y réagir. Une solution webhook complète requiert une combinaison des liaisons suivantes :
+
+## <a name="webhooks"></a>Webhooks
+
+Les webhooks vous permettent de réagir à événements dans l’élément Microsoft Graph. Pour prendre en charge les webhooks, des fonctions sont requises pour créer et actualiser les _webhook abonnements_, ainsi qu’y réagir. Une solution webhook complète nécessite une combinaison des liaisons suivantes :
 - Un [déclencheur de webhook Microsoft Graph](#webhook-trigger) vous permet de réagir à un webhook entrant.
 - Une [liaison d’entrée d’abonnement webhook Microsoft Graph](#webhook-input) permet de répertorier les abonnements existants et éventuellement de les actualiser.
 - Une [liaison de sortie d’abonnement webhook Microsoft Graph](#webhook-output) permet de créer ou supprimer des abonnements webhook.
 
-Les liaisons proprement dites ne nécessitent pas d’autorisations AAD, mais vous devez demander des autorisations appropriées pour le type de ressource auquel vous souhaitez réagir. Pour la liste des autorisations nécessaires pour chaque type de ressource, voir [Autorisations](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Les liaisons proprement dites ne nécessitent pas d’autorisations Azure AD, mais vous devez demander des autorisations appropriées pour le type de ressource auquel vous souhaitez réagir. Pour la liste des autorisations nécessaires pour chaque type de ressource, voir [Autorisations](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
 
-Pour plus d’informations sur les webhooks, voir [Utilisation de webhooks dans Microsoft Graph].
-
-
+Pour plus d’informations sur les webhooks, consultez [Utilisation de webhooks dans Microsoft Graph].
 
 
 
-<a name="webhook-trigger"></a>
-### <a name="microsoft-graph-webhook-trigger"></a>Déclencheur de webhook Microsoft Graph
-
-Ce déclencheur permet à une fonction de réagir à un webhook entrant à partir de l’élément Microsoft Graph. Chaque instance de ce déclencheur peut réagir à un seul type de ressource Microsoft Graph.
-
-#### <a name="configuring-a-microsoft-graph-webhook-trigger"></a>Configuration d’un déclencheur de webhook Microsoft Graph
-
-La liaison prend en charge les propriétés suivantes :
-
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
-|**type**|Obligatoire : doit être défini sur `graphWebhook`.|
-|**direction**|Obligatoire : doit être défini sur `trigger`.|
-|**resourceType**|Obligatoire : ressource graphique pour laquelle cette fonction doit répondre aux webhooks. Peut être l’une des valeurs suivantes :<ul><li><code>#Microsoft.Graph.Message</code> : modifications apportées aux messages Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> : modifications apportées aux éléments racine de OneDrive.</li><li><code>#Microsoft.Graph.Contact - changes made to personal contacts in Outlook.</code></li><li><code>#Microsoft.Graph.Event - changes made to Outlook calendar items.</code></li></ul>|
-
-> [!Note]
-> Une application de fonction ne peut avoir qu’une seule fonction inscrite par rapport à une donnée `resourceType`.
-
-#### <a name="using-a-microsoft-graph-webhook-trigger-from-code"></a>Utilisation d’un déclencheur de webhook Microsoft Graph à partir du code
-
-La liaison expose les types suivants de fonctions .NET :
-- Types de Kits de développement logiciel Microsoft Graph pertinents pour le type de ressource, par exemple, Microsoft.Graph.Message, Microsoft.Graph.DriveItem
-- Types d’objets personnalisés (utilisant une liaison de modèle structurel)
-
-Pour des exemples d’utilisation de cette liaison dans le code, voir [Exemples de webhooks Microsoft Graph](#webhook-samples).
 
 
+## <a name="webhook-trigger"></a>Déclencheur de webhook
 
-<a name="webhook-input"></a>
-### <a name="microsoft-graph-webhook-subscription-input-binding"></a>Liaison d’entrée d’abonnement webhook Microsoft Graph
+Le déclencheur de webhook Microsoft Graph permet à une fonction de réagir à un webhook entrant à partir de l’élément Microsoft Graph. Chaque instance de ce déclencheur peut réagir à un seul type de ressource Microsoft Graph.
 
-Cette liaison permet de récupérer la liste des abonnements gérés par cette application de fonction. La liaison lit à partir d’un stockage d’applications de fonction, et ne reflète pas d’autres abonnements créés à l’extérieur de l’application.
+Cette section comporte les sous-sections suivantes :
 
-#### <a name="configuring-a-microsoft-graph-webhook-subscription-input-binding"></a>Configuration d’une liaison d’entrée d’abonnement webhook Microsoft Graph
+* [Exemple](#webhook-trigger---example)
+* [Attributs](#webhook-trigger---attributes)
+* [Configuration](#webhook-trigger---configuration)
+* [Utilisation](#webhook-trigger---usage)
 
-La liaison prend en charge les propriétés suivantes :
+### <a name="webhook-trigger---example"></a>Déclencheur webhook - exemple
 
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
-|**type**|Obligatoire : doit être défini sur `graphWebhookSubscription`.|
-|**direction**|Obligatoire : doit être défini sur `in`.|
-|**filter**| Si la valeur est définie sur `userFromRequest`, la liaison extrait uniquement les abonnements appartenant à l’utilisateur appelant (valide uniquement avec un [déclencheur HTTP]).| 
+Consultez l’exemple propre à un langage particulier :
 
-#### <a name="using-a-microsoft-graph-webhook-subscription-input-binding-from-code"></a>Utilisation d’une liaison d’entrée d’abonnement webhook Microsoft Graph à partir du code
+* [Script C# (.csx)](#webhook-trigger---c-script-example)
+* [JavaScript](#webhook-trigger---javascript-example)
 
-La liaison expose les types suivants de fonctions .NET :
-- string[]
-- Tableaux de types d’objets personnalisés
-- Newtonsoft.Json.Linq.JObject[]
-- Microsoft.Graph.Subscription[]
+#### <a name="webhook-trigger---c-script-example"></a>Déclencheur de webhook - exemple de script C#
 
-Pour des exemples d’utilisation de cette liaison dans le code, voir [Exemples de webhooks Microsoft Graph](#webhook-samples).
+L’exemple suivant gère les webhooks pour les messages entrants Outlook. Pour utiliser un déclencheur de webhook, vous devez [créer un abonnement](#webhook-output---example) et pouvez [actualiser l’abonnement](#webhook-subscription-refresh) pour éviter qu’il n’expire.
 
-
-<a name="webhook-output"></a>
-### <a name="microsoft-graph-webhook-subscription-output-binding"></a>Liaison de sortie abonnement webhook Microsoft Graph
-
-Cette liaison permet de créer, de supprimer et d’actualiser des abonnements webhook dans l’élément Microsoft Graph.
-
-#### <a name="configuring-a-microsoft-graph-webhook-subscription-output-binding"></a>Configuration d’une liaison de sortie d’abonnement webhook Microsoft Graph
-
-La liaison prend en charge les propriétés suivantes :
-
-|Propriété|Description|
-|--------|--------|
-|**name**|Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
-|**type**|Obligatoire : doit être défini sur `graphWebhookSubscription`.|
-|**direction**|Obligatoire : doit être défini sur `out`.|
-|**identity**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
-|**userId** |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
-|**userToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
-|**action**|Obligatoire : spécifie l’action que la liaison doit effectuer. Peut être l’une des valeurs suivantes :<ul><li><code>create</code> : inscrit un nouvel abonnement.</li><li><code>delete</code> : supprime un abonnement spécifié.</li><li><code>refresh</code> : actualise un abonnement spécifié pour empêcher son expiration.</li></ul>|
-|**subscriptionResource**|Obligatoire si et seulement si la propriété _action_ a la valeur `create`. Spécifie la ressource Microsoft Graph dont les modifications doivent être surveillées. Voir [Utilisation de webhooks dans Microsoft Graph]. |
-|**changeType**|Obligatoire si et seulement si la propriété _action_ a la valeur `create`. Indique le type de modification de la ressource d’abonnement qui déclenche une notification. Les valeurs prises en charge sont les suivantes : `created`, `updated`, `deleted`. Plusieurs valeurs peuvent être combinées à l’aide d’une liste séparée par des virgules.|
-
-#### <a name="using-a-microsoft-graph-webhook-subscription-output-binding-from-code"></a>Utilisation d’une liaison de sortie d’abonnement webhook Microsoft Graph à partir du code
-
-La liaison expose les types suivants de fonctions .NET :
-- string
-- Microsoft.Graph.Subscription
-
-Pour des exemples d’utilisation de cette liaison dans le code, voir [Exemples de webhooks Microsoft Graph](#webhook-samples).
- 
-<a name="webhook-samples"></a>
-### <a name="microsoft-graph-webhook-samples"></a>Exemples de webhook Microsoft Graph
-
-#### <a name="sample-creating-a-subscription"></a>Exemple : création d’un abonnement
-
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison de sortie d’abonnement en utilisant l’action create :
-
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in"
-    },
-    {
-      "type": "graphwebhook",
-      "name": "clientState",
-      "direction": "out",
-      "action": "create",
-      "listen": "me/mailFolders('Inbox')/messages",
-      "changeTypes": [
-        "created"
-      ],
-      "identity": "userFromRequest"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-L’exemple de code C# suivant inscrit un webhook qui informe cette application de fonction quand l’utilisateur appelant reçoit un message Outlook :
-
-```csharp
-using System;
-using System.Net;
-
-public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
-{
-  log.Info("C# HTTP trigger function processed a request.");
-    clientState = Guid.NewGuid().ToString();
-    return new HttpResponseMessage(HttpStatusCode.OK);
-}
-```
-
-L’exemple de code JS suivant inscrit un webhook qui informe cette application de fonction quand l’utilisateur appelant reçoit un message Outlook :
-
-```js
-const uuidv4 = require('uuid/v4');
-
-module.exports = function (context, req) {
-    context.bindings.clientState = uuidv4();
-    context.done();
-};
-```
-
-#### <a name="sample-handling-notifications"></a>Exemple : traitement des notifications
-
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur de webhook Microsoft Graph pour traiter les messages Outlook :
+Le fichier *function.json* définit un déclencheur de webhook :
 
 ```json
 {
@@ -831,7 +1017,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant réagit aux e-mails entrants et journalise le corps de ceux qui sont envoyés par le destinataire et dont l’objet contient la mention « Azure Functions » :
+Le code de script C# réagit aux e-mails entrants et enregistre le corps de ceux qui sont envoyés par le destinataire et dont l’objet contient la mention « Azure Functions » :
 
 ```csharp
 #r "Microsoft.Graph"
@@ -849,7 +1035,27 @@ public static async Task Run(Message msg, TraceWriter log)
 }
 ```
 
-L’exemple de code JS suivant réagit aux e-mails entrants et journalise le corps de ceux qui sont envoyés par le destinataire et dont l’objet contient la mention « Azure Functions » :
+#### <a name="webhook-trigger---javascript-example"></a>Déclencheur de webhook - exemple JavaScript
+
+L’exemple suivant gère les webhooks pour les messages entrants Outlook. Pour utiliser un déclencheur de webhook, vous devez [créer un abonnement](#webhook-output---example) et pouvez [actualiser l’abonnement](#webhook-subscription-refresh) pour éviter qu’il n’expire.
+
+Le fichier *function.json* définit un déclencheur de webhook :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "GraphWebhookTrigger",
+      "direction": "in",
+      "resourceType": "#Microsoft.Graph.Message"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript réagit aux e-mails entrants et enregistre le corps de ceux qui sont envoyés par le destinataire et dont l’objet contient la mention « Azure Functions » :
 
 ```js
 module.exports = function (context) {
@@ -863,9 +1069,57 @@ module.exports = function (context) {
 };
 ```
 
-#### <a name="sample-deleting-subscriptions"></a>Exemple : suppression d’abonnements
+### <a name="webhook-trigger---attributes"></a>Déclencheur de webhook - attributs
 
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur HTTP avec une liaison d’entrée d’abonnement et une liaison de sortie d’abonnement en utilisant l’action create :
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="webhook-trigger---configuration"></a>Déclencheur de webhook - configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookTrigger`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
+|**type**||Obligatoire : doit être défini sur `graphWebhook`.|
+|**direction**||Obligatoire : doit être défini sur `trigger`.|
+|**resourceType**|**ResourceType**|Obligatoire : ressource graphique pour laquelle cette fonction doit répondre aux webhooks. Peut être l’une des valeurs suivantes :<ul><li><code>#Microsoft.Graph.Message</code> : modifications apportées aux messages Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> : modifications apportées aux éléments racine de OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> : modifications apportées aux contacts personnels dans Outlook.</li><li><code>#Microsoft.Graph.Event</code> : modifications apportées aux éléments du calendrier Outlook.</li></ul>|
+
+> [!Note]
+> Une application de fonction ne peut avoir qu’une seule fonction inscrite par rapport à une valeur `resourceType` donnée.
+
+### <a name="webhook-trigger---usage"></a>Déclencheur de webhook - utilisation
+
+La liaison expose les types suivants de fonctions .NET :
+- Types de Kit SDK Microsoft Graph pertinents pour le type de ressource, tels que `Microsoft.Graph.Message` ou `Microsoft.Graph.DriveItem`.
+- Types d’objets personnalisés (utilisant une liaison de modèle structurel)
+
+
+
+
+<a name="webhook-input"></a>
+## <a name="webhook-input"></a>Entrée de webhook
+
+La liaison d’entrée de webhook Microsoft Graph permet de récupérer la liste des abonnements gérés par cette application de fonction. La liaison lit à partir d’un stockage d’applications de fonction, et ne reflète donc pas les autres abonnements créés en dehors de l’application.
+
+Cette section comporte les sous-sections suivantes :
+
+* [Exemple](#webhook-input---example)
+* [Attributs](#webhook-input---attributes)
+* [Configuration](#webhook-input---configuration)
+* [Utilisation](#webhook-input---usage)
+
+### <a name="webhook-input---example"></a>Entrée de webhook - exemple
+
+Consultez l’exemple propre à un langage particulier :
+
+* [Script C# (.csx)](#webhook-input---c-script-example)
+* [JavaScript](#webhook-input---javascript-example)
+
+#### <a name="webhook-input---c-script-example"></a>Entrée de webhook - exemple de script C#
+
+L’exemple suivant obtient tous les abonnements pour l’utilisateur appelant et les supprime.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison d’entrée d’abonnement et une liaison de sortie d’abonnement qui utilise l’action delete :
 
 ```json
 {
@@ -898,7 +1152,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant obtient tous les abonnements pour l’utilisateur appelant, puis les supprime :
+Le code de script C# obtient les abonnements et les supprime :
 
 ```csharp
 using System.Net;
@@ -914,7 +1168,44 @@ public static async Task Run(HttpRequest req, string[] existingSubscriptions, IA
 }
 ```
 
-L’exemple de code JS suivant obtient tous les abonnements pour l’utilisateur appelant, puis les supprime :
+#### <a name="webhook-input---javascript-example"></a>Entrée de webhook - exemple JavaScript
+
+L’exemple suivant obtient tous les abonnements pour l’utilisateur appelant et les supprime.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison d’entrée d’abonnement et une liaison de sortie d’abonnement qui utilise l’action delete :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "existingSubscriptions",
+      "direction": "in",
+      "filter": "userFromRequest"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "subscriptionsToDelete",
+      "direction": "out",
+      "action": "delete",
+      "identity": "userFromRequest"
+    },
+    {
+      "type": "http",
+      "name": "res",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript obtient les abonnements et les supprime :
 
 ```js
 module.exports = function (context, req) {
@@ -929,17 +1220,200 @@ module.exports = function (context, req) {
 };
 ```
 
-#### <a name="sample-refreshing-subscriptions"></a>Exemple : actualisation d’abonnements
+### <a name="webhook-input---attributes"></a>Entrée de webhook - attributs
+
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="webhook-input---configuration"></a>Entrée de webhook - configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookSubscription`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
+|**type**||Obligatoire : doit être défini sur `graphWebhookSubscription`.|
+|**direction**||Obligatoire : doit être défini sur `in`.|
+|**filter**|**Filter**| Si la valeur est définie sur `userFromRequest`, la liaison extrait uniquement les abonnements appartenant à l’utilisateur appelant (valide uniquement avec un [déclencheur HTTP]).| 
+
+### <a name="webhook-input---usage"></a>Entrée de webhook - utilisation
+
+La liaison expose les types suivants de fonctions .NET :
+- string[]
+- Tableaux de types d’objets personnalisés
+- Newtonsoft.Json.Linq.JObject[]
+- Microsoft.Graph.Subscription[]
+
+
+
+
+
+## <a name="webhook-output"></a>Sortie de webhook
+
+La liaison de sortie d’abonnement webhook permet de créer, de supprimer et d’actualiser des abonnements webhook dans l’élément Microsoft Graph.
+
+Cette section comporte les sous-sections suivantes :
+
+* [Exemple](#webhook-output---example)
+* [Attributs](#webhook-output---attributes)
+* [Configuration](#webhook-output---configuration)
+* [Utilisation](#webhook-output---usage)
+
+### <a name="webhook-output---example"></a>Sortie d’abonnement - exemple
+
+Consultez l’exemple propre à un langage particulier :
+
+* [Script C# (.csx)](#webhook-output---c-script-example)
+* [JavaScript](#webhook-output---javascript-example)
+
+#### <a name="webhook-output---c-script-example"></a>Sortie de webhook - exemple de script C#
+
+L’exemple suivant permet de créer un abonnement. Vous pouvez [actualiser l’abonnement](#webhook-subscription-refresh) pour éviter qu’il n’expire.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie d’abonnement en utilisant l’action create :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "graphwebhook",
+      "name": "clientState",
+      "direction": "out",
+      "action": "create",
+      "listen": "me/mailFolders('Inbox')/messages",
+      "changeTypes": [
+        "created"
+      ],
+      "identity": "userFromRequest"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code de script C# inscrit un webhook qui informe cette application de fonction quand l’utilisateur appelant reçoit un message Outlook :
+
+```csharp
+using System;
+using System.Net;
+
+public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
+{
+  log.Info("C# HTTP trigger function processed a request.");
+    clientState = Guid.NewGuid().ToString();
+    return new HttpResponseMessage(HttpStatusCode.OK);
+}
+```
+
+#### <a name="webhook-output---javascript-example"></a>Sortie de webhook - exemple JavaScript
+
+L’exemple suivant permet de créer un abonnement. Vous pouvez [actualiser l’abonnement](#webhook-subscription-refresh) pour éviter qu’il n’expire.
+
+Le fichier *function.json* définit un déclencheur HTTP avec une liaison de sortie d’abonnement en utilisant l’action create :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "graphwebhook",
+      "name": "clientState",
+      "direction": "out",
+      "action": "create",
+      "listen": "me/mailFolders('Inbox')/messages",
+      "changeTypes": [
+        "created"
+      ],
+      "identity": "userFromRequest"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript inscrit un webhook qui informe cette application de fonction quand l’utilisateur appelant reçoit un message Outlook :
+
+```js
+const uuidv4 = require('uuid/v4');
+
+module.exports = function (context, req) {
+    context.bindings.clientState = uuidv4();
+    context.done();
+};
+```
+
+### <a name="webhook-output---attributes"></a>Sortie de webhook - attributs
+
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="webhook-output---configuration"></a>Sortie de webhook - configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookSubscription`.
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
+|---------|---------|----------------------|
+|**name**||Obligatoire : nom de variable utilisé dans le code de fonction pour l’e-mail. Voir [Utilisation d’une liaison de sortie de message Outlook à partir du code](#outlook-output-code).|
+|**type**||Obligatoire : doit être défini sur `graphWebhookSubscription`.|
+|**direction**||Obligatoire : doit être défini sur `out`.|
+|**identity**|**Identité**|Obligatoire : identité utilisée pour effectuer l’action. Peut être l’une des valeurs suivantes :<ul><li><code>userFromRequest</code> : valide uniquement avec [déclencheur HTTP]. Utilise l’identité de l’utilisateur appelant.</li><li><code>userFromId</code> : utilise l’identité d’un utilisateur qui s’est précédemment connecté avec l’ID spécifié. Voir la propriété <code>userId</code>.</li><li><code>userFromToken</code> : utilise l’identité représentée par le jeton spécifié. Voir la propriété <code>userToken</code>.</li><li><code>clientCredentials</code> : utilise l’identité de l’application de fonction.</li></ul>|
+|**userId**|**UserId**  |Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromId`. ID principal associé à un utilisateur qui s’est précédemment connecté.|
+|**userToken**|**UserToken**|Obligatoire si et seulement si la propriété _identity_ a la valeur `userFromToken`. Jeton valide pour l’application de fonction. |
+|**action**|**Action**|Obligatoire : spécifie l’action que la liaison doit effectuer. Peut être l’une des valeurs suivantes :<ul><li><code>create</code> : inscrit un nouvel abonnement.</li><li><code>delete</code> : supprime un abonnement spécifié.</li><li><code>refresh</code> : actualise un abonnement spécifié pour empêcher son expiration.</li></ul>|
+|**subscriptionResource**|**SubscriptionResource**|Obligatoire si et seulement si la propriété _action_ a la valeur `create`. Spécifie la ressource Microsoft Graph dont les modifications doivent être surveillées. Voir [Utilisation de webhooks dans Microsoft Graph]. |
+|**changeType**|**ChangeType**|Obligatoire si et seulement si la propriété _action_ a la valeur `create`. Indique le type de modification de la ressource d’abonnement qui déclenche une notification. Les valeurs prises en charge sont les suivantes : `created`, `updated`, `deleted`. Plusieurs valeurs peuvent être combinées à l’aide d’une liste séparée par des virgules.|
+
+### <a name="webhook-output---usage"></a>Sortie de webhook - utilisation
+
+La liaison expose les types suivants de fonctions .NET :
+- chaîne
+- Microsoft.Graph.Subscription
+
+
+
+
+<a name="webhook-examples"></a>
+## <a name="webhook-subscription-refresh"></a>Actualisation de l’abonnement webhook
 
 Il existe deux approches de l’actualisation d’abonnements :
+
 - Utiliser l’identité de l’application pour gérer tous les abonnements. Cette opération nécessite le consentement d’un administrateur Azure Active Directory. Elle peut être utilisée par tous les langages qu’Azure Functions prend en charge.
 - Utiliser l’identité associée à chaque abonnement en liant manuellement chaque ID utilisateur. Un code personnalisé est nécessaire pour établir la liaison. Cette approche ne peut être utilisée que par des fonctions .NET.
 
-Ces deux options sont expliquées ci-dessous.
+Cette section offre un exemple de chacune de ces approches :
 
-**Utilisation de l'identité de l'application**
+* [Exemple d’identité d’application](#webhook-subscription-refresh---app-identity-example)
+* [Exemple d’identité d’utilisateur](#webhook-subscription-refresh---user-identity-example)
 
-Supposons que vous ayez le fichier function.json suivant qui définit un déclencheur de minuteur avec une liaison d’entrée d’abonnement et une liaison de sortie d’abonnement en utilisant l’identité de l'application :
+### <a name="webhook-subscription-refresh---app-identity-example"></a>Actualisation de l’abonnement webhook - exemple d’identité d’application
+
+Consultez l’exemple propre à un langage particulier :
+
+* [Script C# (.csx)](#app-identity-refresh---c-script-example)
+* [JavaScript](#app-identity-refresh---javascript-example)
+
+### <a name="app-identity-refresh---c-script-example"></a>Actualisation d’identité d’application - exemple de script C#
+
+L’exemple suivant utilise l’identité de l’application pour actualiser un abonnement.
+
+Le fichier *function.json* définit un déclencheur de minuteur avec une liaison d’entrée d’abonnement et une liaison de sortie d’abonnement :
 
 ```json
 {
@@ -967,7 +1441,7 @@ Supposons que vous ayez le fichier function.json suivant qui définit un déclen
 }
 ```
 
-L’exemple de code C# suivant actualise les abonnements sur un minuteur en utilisant l’identité de l’application :
+Le code de script C# actualise les abonnements :
 
 ```csharp
 using System;
@@ -985,7 +1459,39 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 }
 ```
 
-L’exemple de code JS suivant actualise les abonnements sur un minuteur en utilisant l’identité de l’application :
+### <a name="app-identity-refresh---c-script-example"></a>Actualisation d’identité d’application - exemple de script C#
+
+L’exemple suivant utilise l’identité de l’application pour actualiser un abonnement.
+
+Le fichier *function.json* définit un déclencheur de minuteur avec une liaison d’entrée d’abonnement et une liaison de sortie d’abonnement :
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 * * */2 * *"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "existingSubscriptions",
+      "direction": "in"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "subscriptionsToRefresh",
+      "direction": "out",
+      "action": "refresh",
+      "identity": "clientCredentials"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Le code JavaScript actualise les abonnements :
 
 ```js
 // This template uses application permissions and requires consent from an Azure Active Directory admin.
@@ -1003,9 +1509,11 @@ module.exports = function (context) {
 };
 ```
 
-**Utilisation d’identités d’utilisateur dynamiques**
+### <a name="webhook-subscription-refresh---user-identity-example"></a>Actualisation de l’abonnement webhook - exemple d’identité d’utilisateur
 
-Pour l’autre option, supposons que vous avez le fichier function.json suivant qui définit un déclencheur de minuteur, en déférant la liaison à la liaison d’entrée d’abonnement au code de la fonction :
+L’exemple suivant utilise l’identité de l’utilisateur pour actualiser un abonnement.
+
+Le fichier *function.json* définit un déclencheur de minuteur et confie la liaison d’entrée d’abonnement au code de fonction :
 
 ```json
 {
@@ -1026,7 +1534,8 @@ Pour l’autre option, supposons que vous avez le fichier function.json suivant 
 }
 ```
 
-L’exemple de code C# suivant actualise les abonnements sur un minuteur à l’aide de l’identité de chaque utilisateur en créant la liaison de sortie dans le code :
+Le code de script C# actualise les abonnements et crée la liaison de sortie dans le code à l’aide de l’identité de chaque utilisateur :
+
 ```csharp
 using System;
 
@@ -1057,12 +1566,10 @@ public class UserSubscription {
 }
 ```
 
-
-
-[déclencheur HTTP]: functions-bindings-http-webhook.md
-[Utilisation de webhooks dans Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
+
+[déclencheur HTTP]: functions-bindings-http-webhook.md
+[Utilisation de webhooks dans Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

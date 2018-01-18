@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory
-Cet article explique comment ajouter, un à la fois, de nouveaux utilisateurs de votre organisation à Azure Active Directory (Azure AD) à l’aide du portail Azure ou en synchronisant vos données de compte d’utilisateur Windows Server AD local. 
+Cet article explique comment supprimer ou ajouter de nouveaux utilisateurs de votre organisation à Azure Active Directory (Azure AD) à l’aide du portail Azure ou en synchronisant vos données de compte d’utilisateur Windows Server AD local. 
 
 ## <a name="add-cloud-based-users"></a>Ajouter des utilisateurs basés sur le cloud
 1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
@@ -48,10 +48,13 @@ Cet article explique comment ajouter, un à la fois, de nouveaux utilisateurs de
 
 ### <a name="learn-more"></a>En savoir plus 
 * [Ajouter des utilisateurs invités à partir d’un autre répertoire](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Affecter un utilisateur à un rôle dans Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
+* [Restaurer un utilisateur supprimé](active-directory-users-restore.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+
+
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de démarrage rapide, vous avez appris comment ajouter de nouveaux utilisateurs à Azure AD Premium. 
 
 Vous pouvez utiliser le lien suivant pour créer un nouvel utilisateur dans Azure AD à partir du portail Azure.

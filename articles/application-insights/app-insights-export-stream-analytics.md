@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utiliser Stream Analytics pour traiter des données exportées depuis Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) est l’outil idéal pour traiter des données [exportées depuis Application Insights](app-insights-export-telemetry.md). Stream Analytics peut extraire des données de diverses sources. Il peut transformer et filtrer les données, puis les acheminer vers plusieurs récepteurs.
@@ -76,27 +76,27 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions effectuer toutes sortes d'opérations avec les données, mais notre objectif aujourd'hui est d'utiliser Stream Analytics pour transmettre les données vers Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Création d’une instance Azure Stream Analytics
-À partir du [portail classique Azure](https://manage.windowsazure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
+À partir du [portail Azure](https://portal.azure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Une fois la tâche créée, développez les informations qui s’y rapportent :
+Lors de la création de la tâche, sélectionnez **Accéder à la ressource**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Définition de l’emplacement des objets blob
+### <a name="add-a-new-input"></a>Ajouter une nouvelle entrée
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Définissez-le pour qu’il tienne compte des données de votre objet blob d’exportation continue :
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Vous devez maintenant disposer de la clé d’accès principale issue de votre compte de stockage, que vous avez notée précédemment. Définissez-la comme clé de compte de stockage.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Définition de la séquence d’octets préfixe du chemin d’accès
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Veillez à définir le format de date sur AAAA-MM-JJ (avec des tirets).**
 
@@ -114,33 +114,19 @@ Dans cet exemple :
 > [!NOTE]
 > Vérifiez le stockage pour être sûr d'avoir le chemin d'accès approprié.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Fin de l’installation initiale
-Confirmez le format de sérialisation :
+## <a name="add-new-output"></a>Ajout de la nouvelle sortie
+Sélectionnez maintenant votre tâche > **Sorties** > **Ajouter**.
 
-![Confirmez et fermez l’assistant.](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Fermez l’assistant et attendez la fin de l’installation.
 
-> [!TIP]
-> Utilisez l'exemple de commande pour télécharger des données. Gardez-le comme exemple de test pour déboguer votre requête.
-> 
-> 
-
-## <a name="set-the-output"></a>Définir la sortie
-Sélectionnez maintenant votre tâche et définissez la sortie.
-
-![Sélectionnez le nouveau canal, cliquez sur Sorties, Ajouter, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Sélectionnez le nouveau canal, cliquez sur Sorties, Ajouter, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Indiquez votre **compte professionnel ou scolaire** pour autoriser Stream Analytics à accéder à votre ressource Power BI. Inventez ensuite un nom pour la sortie et le jeu de données et la table Power BI cibles.
 
-![Inventer trois noms](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Définir la requête
 La requête régit la traduction de l’entrée vers la sortie.
-
-![Sélectionnez la tâche et cliquez sur Interroger. Collez l’exemple ci-dessous.](./media/app-insights-export-stream-analytics/180.png)
 
 Utilisez la fonction de Test pour vérifier que vous obtenez le résultat approprié. Indiquez les exemples de données que vous avez copiés de la page d'entrées. 
 
@@ -162,7 +148,7 @@ Collez cette requête :
 
 * export-input est l’alias que nous avons donné au flux d’entrée
 * pbi-output est l’alias de sortie que nous avons défini
-* Nous utilisons [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) , car le nom de l'événement se trouve dans un tableau JSON imbriqué. Ensuite, l’instruction Select récupère le nom de l’événement, ainsi que le nombre d’instances portant ce nom dans la période donnée. La clause [Regrouper par](https://msdn.microsoft.com/library/azure/dn835023.aspx) regroupe les éléments en intervalles d'1 minute.
+* Nous utilisons [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx), car le nom de l'événement se trouve dans un tableau JSON imbriqué. Ensuite, l’instruction Select récupère le nom de l’événement, ainsi que le nombre d’instances portant ce nom dans la période donnée. La clause [Regrouper par](https://msdn.microsoft.com/library/azure/dn835023.aspx) regroupe les éléments en intervalles d'une minute.
 
 ### <a name="query-to-display-metric-values"></a>Requête d'affichage des valeurs de mesure
 ```SQL
@@ -206,7 +192,7 @@ Collez cette requête :
 ## <a name="run-the-job"></a>Exécution de la tâche
 Vous pouvez sélectionner une date dans le passé à partir de laquelle démarrer la tâche. 
 
-![Sélectionnez la tâche et cliquez sur Interroger. Collez l’exemple ci-dessous.](./media/app-insights-export-stream-analytics/190.png)
+![Sélectionnez la tâche et cliquez sur Interroger. Collez l’exemple ci-dessous.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Attendez que le travail s’exécute.
 
@@ -234,7 +220,7 @@ Noam Ben Zeev montre comment traiter des données exportées à l’aide de Stre
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)

@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/15/2017
+ms.date: 12/14/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Chargement de données Azure Data Lake Store dans SQL Data Warehouse
-Ce document vous indique toutes les étapes nécessaires pour charger vos propres données d’Azure Data Lake Store (ADLS) dans SQL Data Warehouse à l’aide de PolyBase.
+Ce document vous indique toutes les étapes nécessaires pour charger des données d’Azure Data Lake Store (ADLS) dans SQL Data Warehouse à l’aide de PolyBase.
 Même s’il est possible d’exécuter des requêtes ad hoc sur les données stockées dans ADLS à l’aide de tables externes, nous vous recommandons d’importer les données dans SQL Data Warehouse.
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
@@ -42,15 +42,9 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * SQL Server Management Studio ou SQL Server Data Tools, pour télécharger SSMS et se connecter, consultez [Interroger SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Un Azure SQL Data Warehouse, pour en créer un, consultez le site : https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Azure SQL Data Warehouse : pour en créer un, consultez le site : https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision_
 
-* Un Azure Data Lake Store pour lequel le chiffrement est activé ou non. Pour en créer un, consultez le site : https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-
-
-
-## <a name="configure-the-data-source"></a>Configurer la source de données
-PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les attributs des données externes. Les objets externes sont stockés dans SQL Data Warehouse et référencent les données stockées en externe.
+* Azure Data Lake Store : pour en créer un, consultez le site : https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Créer des informations d’identification
@@ -88,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Créer la source de données externe
-Utilisez la commande [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] pour stocker l’emplacement des données et le type de données. Pour rechercher l’URI ADL dans le portail Azure, accédez à votre Azure Data Lake Store, puis examinez le panneau Éléments principaux.
+Utilisez la commande [CRÉER UNE SOURCE DE DONNÉES EXTERNE][CREATE EXTERNAL DATA SOURCE] pour stocker l’emplacement des données. Pour rechercher l’URI ADL dans le portail Azure, accédez à votre Azure Data Lake Store, puis examinez le panneau Éléments principaux.
 
 ```sql
 -- C: Create an external data source
@@ -104,11 +98,8 @@ WITH (
 );
 ```
 
-
-
 ## <a name="configure-data-format"></a>Configurer le format des données
 Pour importer les données depuis ADLS, vous devez spécifier le format de fichier externe. Cette commande propose des options spécifiques au format pour décrire vos données.
-Voici un exemple de format de fichier fréquemment utilisé, soit un fichier texte délimité par une barre verticale.
 Consultez notre documentation T-SQL pour obtenir une liste complète [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
@@ -116,7 +107,7 @@ Consultez notre documentation T-SQL pour obtenir une liste complète [CREATE EXT
 -- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
 -- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
 -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
--- Use_Type_Default: Store all Missing values as NULL
+-- Use_Type_Default: Store missing values as default for datatype.
 
 CREATE EXTERNAL FILE FORMAT TextFileFormat
 WITH
@@ -130,7 +121,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>Créer les tables externes
-Maintenant que vous avez spécifié la source des données et le format de fichier, vous êtes prêt à créer les tables externes. Les tables externes vous permettent d’interagir avec des données externes. PolyBase utilise une traversée de répertoires récursive pour lire tous les fichiers de tous les sous-répertoires du répertoire spécifié dans le paramètre d’emplacement. Par ailleurs, l’exemple suivant montre comment créer l’objet. Vous devez personnaliser l’instruction pour utiliser vos données stockées dans ADLS.
+Maintenant que vous avez spécifié la source des données et le format de fichier, vous êtes prêt à créer les tables externes. Les tables externes vous permettent d’interagir avec des données externes. Le paramètre d’emplacement peut spécifier un fichier ou un répertoire. Si il spécifie un répertoire, tous les fichiers contenus dans le répertoire seront chargés.
 
 ```sql
 -- D: Create an External Table
@@ -161,18 +152,15 @@ WITH
 ## <a name="external-table-considerations"></a>Considérations relatives aux tables externes
 La création d’une table externe est facile, mais il existe quelques nuances qui doivent être abordées.
 
-Le chargement de données avec PolyBase est fortement typé. Cela signifie que chaque ligne de données reçue doit respecter la définition du schéma de la table.
-Si une ligne donnée ne respecte pas la définition du schéma, cette ligne est exclue du chargement.
+Les tables externes sont fortement typés. Cela signifie que chaque ligne de données reçue doit respecter la définition du schéma de la table.
+Si une ligne ne respecte pas la définition du schéma, cette ligne est exclue du chargement.
 
-Les options REJECT_TYPE et REJECT_VALUE vous permettent de définir le nombre de lignes ou le pourcentage de données à inclure dans la table finale.
-Au cours du chargement, si la valeur à rejeter est atteinte, le chargement échoue. La principale cause de rejet de lignes est une incompatibilité de définition de schéma.
-Par exemple, si une colonne reçoit par erreur le schéma int alors que les données dans le fichier représentent une chaîne, aucune ligne ne sera chargée.
+Les options REJECT_TYPE et REJECT_VALUE vous permettent de définir le nombre de lignes ou le pourcentage de données à inclure dans la table finale. Durant le chargement, si la valeur rejetée est atteinte, le chargement échoue. La principale cause de rejet de lignes est une incompatibilité de définition de schéma. Par exemple, si une colonne reçoit par erreur le schéma int alors que les données dans le fichier représentent une chaîne, aucune ligne ne sera chargée.
 
-Le paramètre Emplacement spécifie le répertoire de premier plan à partir duquel vous souhaitez lire les données.
-Dans ce cas, si l’emplacement /DimProduct/ contient des sous-répertoires, PolyBase importe toutes les données de ces sous-répertoires. Azure Data Lake utilise le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès aux données. Cela signifie que le principal de service doit disposer des autorisations de lecture pour les répertoires définis dans le paramètre d’emplacement, ainsi que pour les enfants des fichiers et du répertoire final. Cela permet à PolyBase d’authentifier, de charger et de lire ces données. 
+ Azure Data Lake utilise le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès aux données. Cela signifie que le principal de service doit disposer des autorisations de lecture pour les répertoires définis dans le paramètre d’emplacement, ainsi que pour les enfants des fichiers et du répertoire final. Cela permet à PolyBase d’authentifier, de charger et de lire ces données. 
 
 ## <a name="load-the-data"></a>Chargement des données
-Pour charger des données depuis Azure Data Lake Store, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Le chargement avec CTAS utilise la table externe fortement typée que vous avez créée.
+Pour charger des données depuis Azure Data Lake Store, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. 
 
 CTAS crée une table et la remplit avec les résultats d’une instruction select. CTAS définit la nouvelle table de manière à proposer les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Si vous sélectionnez toutes les colonnes d’une table externe, la nouvelle table est un réplica des colonnes et des types de données dans la table externe.
 

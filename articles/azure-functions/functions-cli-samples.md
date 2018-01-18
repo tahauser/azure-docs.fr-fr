@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8c2f0cb27e6e06f70018b7acae7ea5ff7f728d98
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 
@@ -36,10 +36,15 @@ Le tableau suivant contient des liens vers des scripts Bash pour Azure Functions
 | [Créer une Function App et la connecter à un compte de stockage](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Crée une Function App et la connecte à un compte de stockage. |
 | [Créer une Function App et la connecter à une base de données Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Crée une Function App et la connecte à une base de données Azure Cosmos DB. |
 | | |
+|**Déploiement continu**||
+| [Déployer à partir de GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Crée une Function App qui déploie à partir d’un référentiel GitHub.  |
+| [Déployer à partir de VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Crée une Function App qui déploie à partir d’un référentiel de Visual Studio Team Services (VSTS).  |
+| | |
 |**Configurer l’application**||
 | [Mapper un domaine personnalisé à une Function App](scripts/functions-cli-configure-custom-domain.md) | Définit un domaine personnalisé pour vos fonctions.  |
 | [Lier un certificat SSL personnalisé à une Function App](scripts/functions-cli-configure-ssl-certificate.md)  |  Charge des certificats SSL pour les fonctions dans un domaine personnalisé. |
-<!--
+
+<!---
 
 |**Scale app**||
 

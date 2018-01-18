@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gérer des serveurs inscrits à Azure File Sync (préversion)
 La synchronisation de fichiers Azure (préversion) vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour cela, elle transforme vos serveurs Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -28,7 +28,7 @@ L’article suivant décrit comment inscrire un serveur au service de synchronis
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Inscrire/désinscrire un serveur au service de synchronisation de stockage
 L’inscription d’un serveur à Azure File Sync établit une relation d’approbation entre Windows Server et Azure. Cette relation peut ensuite être utilisée pour créer des *points de terminaison de serveur* sur le serveur, qui représentent des dossiers spécifiques qui doivent être synchronisés avec un partage de fichiers Azure (également appelé un *point de terminaison de cloud*). 
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Conditions préalables
 Pour inscrire un serveur à un service de synchronisation de stockage, vous devez d’abord préparer votre serveur avec les prérequis nécessaires :
 
 * Votre appareil doit exécuter une version prise en charge de Windows Server. Pour plus d’informations, consultez [Versions de Windows Server prises en charge](storage-sync-files-planning.md#supported-versions-of-windows-server).
@@ -147,9 +147,9 @@ Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEac
 > La définition de limites trop faibles aura un impact sur les performances de synchronisation et de rappel d’Azure File Sync.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Définir des limites réseau d’Azure File Sync
-Vous pouvez limiter l’utilisation réseau d’Azure File Sync à l’aide des applets de commande « StorageSyncNetworkLimit ». 
+Vous pouvez limiter l’utilisation du réseau d’Azure File Sync en utilisant les cmdlets `StorageSyncNetworkLimit`. 
 
-Par exemple, vous pouvez créer une nouvelle limite réseau pour vous assurer qu’Azure File Sync n’utilise pas plus de 10 Mbits/s entre 9h00 et 17h pendant la semaine de travail : 
+Par exemple, créez une nouvelle limite pour vous assurer qu’Azure File Sync n’utilise pas plus de 10 Mbits/s entre 9h et 17h en semaine : 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

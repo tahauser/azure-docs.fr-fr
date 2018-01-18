@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c1ae74127fce40a6f1ab412f25797076dda9d888
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle - préversion
 
@@ -23,7 +23,7 @@ L’objectif des passerelles dans les solutions IoT est spécifique à la soluti
 Il existe trois modèles où il est possible d’utiliser un appareil IoT Edge en tant que passerelle : transparent, traduction de protocole et traduction d’identité :
 * **Transparent** : les appareils qui, en théorie, peuvent se connecter à IoT Hub peuvent se connecter à un appareil de passerelle à la place. Cela implique que les appareils en aval ont leurs propres identités IoT Hub et utilisent l’un des protocoles MQTT, AMQP ou HTTP. La passerelle se contente de transférer les communications entre les appareils et IoT Hub. Les appareils ne savent pas qu’ils communiquent avec le cloud via une passerelle et un utilisateur qui interagit avec les appareils dans IoT Hub ne sait pas qu’il existe un appareil de passerelle intermédiaire. Ainsi, la passerelle est transparente. Consultez le guide pratique [Créer une passerelle transparente][lnk-iot-edge-as-transparent-gateway] pour obtenir des détails sur l’utilisation d’un appareil IoT Edge en tant que passerelle transparente.
 * **Traduction de protocole** : les appareils ne prenant pas en charge MQTT, AMQP ou HTTP utilisent un appareil de passerelle pour envoyer des données à IoT Hub. La passerelle est suffisamment intelligente pour comprendre ce protocole utilisé par les appareils en aval ; toutefois, il s’agit du seul appareil avec une identité dans IoT Hub. Toutes les informations semblent provenir d’un seul appareil, la passerelle. Cela implique que les appareils en aval doivent intégrer des informations d’identification supplémentaires dans leurs messages si les applications cloud veulent analyser les données pour chaque appareil. De plus, les primitives IoT Hub comme la représentation (twin) et les méthodes (methods) sont uniquement disponibles pour l’appareil de passerelle, pas pour les appareils en aval.
-* **Traduction d’identité** : les appareils qui ne peuvent pas se connecter à IoT Hub se connectent à un appareil de passerelle qui fournit la traduction de protocole et d’identité IoT Hub de la part des appareils en aval. La passerelle est suffisamment intelligente pour comprendre le protocole utilisé par les appareils en aval, leur fournir une identité et traduire les primitives IoT Hub. Les appareils en aval s’affichent dans IoT Hub comme des appareils de premier niveau avec des représentations et des méthodes. Un utilisateur qui interagit avec les appareils dans IoT Hub n’a pas connaissance de l’appareil de passerelle intermédiaire.
+* **Traduction d’identité** : les appareils qui ne peuvent pas se connecter à IoT Hub se connectent à un appareil de passerelle qui fournit la traduction de protocole et d’identité IoT Hub de la part des appareils en aval. La passerelle est suffisamment intelligente pour comprendre le protocole utilisé par les appareils en aval, leur fournir une identité et traduire les primitives IoT Hub. Les appareils en aval s’affichent dans IoT Hub comme des appareils de premier niveau avec des représentations et des méthodes. Un utilisateur qui interagit avec les appareils dans IoT Hub et n’a pas connaissance de l’appareil de passerelle intermédiaire.
 
 ![Diagrammes des modèles de passerelles][1]
 
@@ -49,9 +49,9 @@ Voici un aide-mémoire qui compare les primitives IoT Hub lors de l’utilisatio
 | Méthodes directes et messages du cloud vers l’appareil | Le cloud peut porter individuellement sur chaque appareil connecté | Le cloud ne peut porter que sur l’appareil de passerelle | Le cloud peut porter individuellement sur chaque appareil connecté |
 | [Limitations et quotas d’IoT Hub][lnk-iothub-throttles-quotas] | Appliquer à chaque appareil | Appliquer à l’appareil de passerelle | Appliquer à chaque appareil |
 
-Lorsque vous utilisez un modèle de passerelle opaque, tous les appareils qui se connectent via cette passerelle partagent la même file d’attente cloud sur l’appareil, qui peut contenir au maximum 50 messages. De ce fait, le modèle de passerelle opaque ne doit être utilisé que lorsque très peu d’appareils se connectent via la passerelle de chaque champ et que le trafic entre le cloud et l’appareil est faible.
+Lorsque vous utilisez un modèle de passerelle opaque (traduction de protocole), tous les appareils qui se connectent via cette passerelle partagent la même file d’attente cloud sur l’appareil, qui peut contenir au maximum 50 messages. De ce fait, le modèle de passerelle opaque ne doit être utilisé que lorsque très peu d’appareils se connectent via la passerelle de chaque champ et que le trafic entre le cloud et l’appareil est faible.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Utiliser un appareil IoT Edge en tant que [passerelle transparente][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md

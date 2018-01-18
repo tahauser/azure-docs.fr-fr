@@ -1,6 +1,6 @@
 ---
 title: "Sauvegarde Azure : sauvegarde cohérente des applications des machines virtuelles Linux | Microsoft Docs"
-description: "Utilisez des scripts pour garantir des sauvegardes cohérentes des applications sur Azure pour vos machines virtuelles Linux. Les scripts s’appliquent uniquement aux machines virtuelles Linux dans un déploiement de Gestionnaire de ressources. Les scripts ne s’appliquent pas aux machines virtuelles Windows ou aux déploiements de Service Manager. Cet article passe en revue les étapes de configuration des scripts, y compris la résolution des problèmes."
+description: "Créez des sauvegardes cohérentes des applications de vos machines virtuelles Linux sur Azure. Cet article explique la configuration de l’infrastructure de script pour sauvegarder les machines virtuelles Linux déployées par Azure. Il contient également des informations de dépannage."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Sauvegarde cohérente des applications des machines virtuelles Linux Azure (version préliminaire)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Sauvegarde cohérente des applications des machines virtuelles Linux Azure
 
-Cet article traite de la structure de pré-scripts et post-scripts de Linux, ainsi que de la façon dont elle peut être utilisée pour effectuer des sauvegardes cohérentes d’applications de machines virtuelles Linux Azure.
-
-> [!Note]
-> La structure de pré-scripts et post-scripts est prise en charge uniquement pour les machines virtuelles déployées par Azure Resource Manager. Les scripts pour la cohérence d’application ne sont pas pris en charge pour les machines virtuelles déployées par Service Manager ou les machines virtuelles Windows.
->
+Lorsque vous prenez des instantanés de sauvegarde de vos machines virtuelles, la cohérence des applications signifie que vos applications démarrent en même temps que les machines virtuelles, une fois celles-ci restaurées. Comme vous pouvez l’imaginer, la cohérence des applications est extrêmement importante. Pour vous assurer que vos machines virtuelles Linux bénéficient de la cohérence des applications, vous pouvez utiliser l’infrastructure de pré-script et de post-script afin d’effectuer des sauvegardes cohérentes des applications. L’infrastructure de pré-script et de post-script prend en charge les machines virtuelles Linux déployées par Azure Resource Manager. Les scripts de cohérence des applications ne prennent pas en charge les machines virtuelles déployées par Service Manager et les machines virtuelles Windows.
 
 ## <a name="how-the-framework-works"></a>Fonctionnement de l’infrastructure
 
-L’infrastructure fournit une option permettant d’exécuter des pré/post-scripts personnalisés lors de la capture d’instantanés de machines virtuelles. Les pré-scripts sont exécutés juste avant la capture d’instantané de machine virtuelle, et les post-scripts juste après la capture. Cela vous permet de contrôler votre environnement et l’application lorsque vous prenez des instantanés de machines virtuelles.
+L’infrastructure fournit une option permettant d’exécuter des pré/post-scripts personnalisés lors de la capture d’instantanés de machines virtuelles. Les pré-scripts s’exécutent juste avant la capture instantanée de machines virtuelles ; et les post-scripts, juste après. Les pré-scripts et post-scripts vous permettent de contrôler votre application et votre environnement, pendant que vous prenez des captures instantanées de machines virtuelles.
 
-Dans ce scénario, il est important d’assurer la sauvegarde cohérente des applications de la machine virtuelle. Le pré-script peut appeler les API natives de l’application pour suspendre les E/S et vider le contenu de la mémoire sur le disque. Cela garantit que l’instantané est cohérent avec l’application (autrement dit, que l’application est lancée lorsque la machine virtuelle est démarrée après la restauration). Le post-script permet de libérer les E/S. Il effectue cela à l’aide des API d’applications natives, afin que l’application puisse reprendre son fonctionnement normal après la capture instantanée de la machine virtuelle.
+Les pré-scripts appellent les API natives de l’application, qui suspendent les E/S et vident le contenu de la mémoire sur le disque. Ces actions garantissent que la capture instantanée est cohérente des applications. Les post-scripts utilisent les API natives de l’application pour libérer les E/S, ce qui permet à l’application de reprendre ses opérations normales après la capture instantanée des machines virtuelles.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Procédure de configuration du pré-script et du post-script
 
 1. Connectez-vous en tant qu’utilisateur root de la machine virtuelle Linux que vous souhaitez sauvegarder.
 
-2. Téléchargez **VMSnapshotScriptPluginConfig.json** à partir de [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) et copiez-le dans le dossier **/etc/azure** sur toutes les machines virtuelles que vous prévoyez de sauvegarder. Créez le répertoire **/etc/azure** s’il n’existe pas.
+2. Dans [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), téléchargez le fichier **VMSnapshotScriptPluginConfig.json** et copiez-le dans le dossier **/etc/azure** de toutes les machines virtuelles à sauvegarder. Si le dossier **/etc/azure** n’existe pas, créez-le.
 
 3. Copiez le pré-script et le post-script de votre application sur toutes les machines virtuelles que vous prévoyez de sauvegarder. Vous pouvez copier les scripts vers n’importe quel emplacement sur la machine virtuelle. Veillez à mettre à jour le chemin d’accès complet des fichiers de script dans le fichier **VMSnapshotScriptPluginConfig.json**.
 
@@ -51,20 +47,20 @@ Dans ce scénario, il est important d’assurer la sauvegarde cohérente des app
    - **Post-script** : autorisation « 700 ». Par exemple, seul l’utilisateur « racine » doit avoir les autorisations de « lecture », « d’écriture » et « d’exécution » pour ce fichier.
 
    > [!Important]
-   > L’infrastructure offre beaucoup de puissance aux utilisateurs. Il est donc important qu’il soit sécurisé et que seul l’utilisateur « root » ait accès aux fichiers critiques de JSON et de script.
-   > Si les conditions précédentes ne sont pas remplies, le script ne s’exécute pas. Cela entraîne une sauvegarde du système de fichiers/point cohérent d’incident.
+   > L’infrastructure offre beaucoup de puissance aux utilisateurs. Sécurisez l’infrastructure et vérifiez que seul l’utilisateur « root » a accès au fichier JSON et aux fichiers de script.
+   > Si ces conditions ne sont pas remplies, le script ne s’exécute pas, ce qui bloque le système de fichiers et produit une sauvegarde incohérente.
    >
 
 5. Configurez **VMSnapshoScriptPluginConfig.json** comme décrit ici :
-    - **pluginName** : laissez ce champ tel quel, sans quoi vos scripts ne fonctionneront pas comme prévu.
+    - **pluginName** : laissez ce champ tel quel, sinon vos scripts ne fonctionneront pas comme prévu.
 
     - **preScriptLocation** : fournissez le chemin d’accès complet du pré-script sur la machine virtuelle qui sera sauvegardée.
 
     - **postScriptLocation** : fournissez le chemin d’accès complet du post-script sur la machine virtuelle qui sera sauvegardée.
 
-    - **preScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au pré-script. Tous les paramètres doivent être entre guillemets et être séparés par des virgules s’il existe plusieurs paramètres.
+    - **preScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au pré-script. Tous les paramètres doivent être entre guillemets. Si vous utilisez plusieurs paramètres, séparez-les par une virgule.
 
-    - **postScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au post-script. Tous les paramètres doivent être entre guillemets et être séparés par des virgules s’il existe plusieurs paramètres.
+    - **postScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au post-script. Tous les paramètres doivent être entre guillemets. Si vous utilisez plusieurs paramètres, séparez-les par une virgule.
 
     - **preScriptNoOfRetries** : définissez le nombre de fois où le pré-script doit être traité à nouveau en cas d’erreur avant de terminer. Zéro signifie qu’une seule tentative a lieu et qu’aucune nouvelle tentative n’a lieu en cas d’échec.
 
@@ -95,5 +91,5 @@ Veillez à ajouter un enregistrement approprié lors de l’écriture de votre p
 | Pre-ScriptTimeout | L’exécution du pré-script de sauvegarde cohérente des applications a expiré. | Vérifiez le script et augmentez le délai d’expiration dans le fichier **VMSnapshotScriptPluginConfig.json** situé à l’emplacement **/etc/azure**. |
 | Post-ScriptTimeout | L’exécution du post-script de sauvegarde cohérente des applications a expiré. | Vérifiez le script et augmentez le délai d’expiration dans le fichier **VMSnapshotScriptPluginConfig.json** situé à l’emplacement **/etc/azure**. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

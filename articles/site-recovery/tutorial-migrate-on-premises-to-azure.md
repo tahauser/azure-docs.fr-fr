@@ -2,66 +2,70 @@
 title: Migrer des machines sur site vers Azure avec Azure Site Recovery | Microsoft Docs
 description: "Cet article explique comment migrer des machines sur site vers Azure à l’aide d’Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cfd44f7f06faa7d1d00efa9427dbf5d1d0a89ef1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
-Le service [Azure Site Recovery](site-recovery-overview.md) gère et orchestre la réplication, le basculement et la restauration automatique des machines sur site et des machines virtuelles Azure.
+Outre l’utilisation du service [Azure Site Recovery](site-recovery-overview.md) pour gérer et orchestrer la récupération d’urgence des ordinateurs locaux et des machines virtuelles Azure dans le cadre de la continuité d’activité et de la récupération d’urgence, vous pouvez utiliser Site Recovery pour gérer la migration des machines locales sur Azure.
 
-Ce didacticiel vous montre comment migrer des machines virtuelles sur site et des serveurs physiques vers Azure à l’aide de Site Recovery. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+
+Ce didacticiel vous montre comment migrer des machines virtuelles locales et des serveurs physiques vers Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Configurer les prérequis pour le déploiement
-> * Créer un coffre Recovery Services pour Site Recovery
-> * Déployer des serveurs d’administration sur site
-> * Configurer une stratégie de réplication et activer la réplication
-> * Exécuter une simulation de récupération d’urgence pour vérifier que tout fonctionne
+> * Sélectionner un objectif de réplication
+> * Configurer l’environnement cible et source
+> * Configurer une stratégie de réplication
+> * Activer la réplication
+> * Exécutez un test de migration afin de vérifier que tout fonctionne bien.
 > * Exécuter un basculement unique vers Azure
 
-## <a name="overview"></a>Vue d'ensemble
+Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que vous avez déjà effectué les tâches des didacticiels précédents :
 
-Vous migrez une machine en activant la réplication pour celle-ci puis en effectuant un basculement vers Azure.
+1. [Préparer Azure](tutorial-prepare-azure.md)
+2. Préparez les serveurs [VMware](tutorial-prepare-on-premises-vmware.md) locaux ou les serveurs Hyper-V.
+
+Avant de commencer, il est utile d’examiner les architectures [VMware](concepts-vmware-to-azure-architecture.md) et [Hyper-V](concepts-hyper-v-to-azure-architecture.md) pour la récupération d’urgence.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
-Voici ce que vous devez faire pour ce didacticiel.
-
-- [Préparer](tutorial-prepare-azure.md) des ressources Azure, notamment un abonnement Azure, un réseau virtuel Azure et un compte de stockage.
-- [Préparer](tutorial-prepare-on-premises-vmware.md) des serveurs VMware et des machines virtuelles sur site.
-- Notez que les appareils exportés par les pilotes paravirtualized ne sont pas pris en charge.
+Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
+1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
+2. Cliquez sur **Nouveau** > **Surveillance + gestion** > **Sauvegarde et Site Recovery**.
+3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
+4. Créez un groupe de ressources **ContosoRG**.
+5. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+6. Pour accéder rapidement au coffre à partir du tableau de bord, cliquez sur **Épingler au tableau de bord**, puis sur **Créer**.
 
-## <a name="select-a-protection-goal"></a>Sélectionner un objectif de protection
+   ![Nouveau coffre](./media/tutorial-migrate-on-premises-to-azure/onprem-to-azure-vault.png)
+
+Le nouveau coffre est ajouté à la zone **Tableau de bord** dans **Toutes les ressources** et dans la page principale **Coffres Recovery Services**.
+
+
+
+## <a name="select-a-replication-goal"></a>Sélectionner un objectif de réplication
 
 Sélectionnez les éléments à répliquer et l’emplacement de la réplication.
 1. Cliquez sur **Coffres Recovery Services** > coffre.
 2. Dans le menu Ressource, cliquez sur **Site Recovery** > **Préparer l’infrastructure** > **Objectif de protection**.
-3. Dans **Objectif de protection**, sélectionnez :
+3. Dans **Objectif de protection**, sélectionnez les composants à migrer.
     - **VMware** : sélectionnez **Vers Azure** > **Oui, avec hyperviseur vSphere VMWare**.
     - **Machine physique** : sélectionnez **Vers Azure** > **Non virtualisé / Autre**.
-    - **Hyper-V** : sélectionnez **Vers Azure** > **Oui, avec Hyper-V**.
+    - **Hyper-V** : sélectionnez **Vers Azure** > **Oui, avec Hyper-V**. Si des machines virtuelles Hyper-V sont gérées par VMM, sélectionnez **Oui**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
@@ -75,17 +79,21 @@ Sélectionnez les éléments à répliquer et l’emplacement de la réplication
 Sélectionnez et vérifiez les ressources cibles.
 
 1. Cliquez sur **Préparer l’infrastructure** > **Cible** et sélectionnez l’abonnement Azure à utiliser.
-2. Spécifiez le modèle de déploiement cible.
+2. Spécifiez le modèle de déploiement Resource Manager.
 3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles.
 
-## <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
+## <a name="set-up-a-replication-policy"></a>Configurer une stratégie de réplication
 
 - [Configurez une stratégie de réplication](tutorial-vmware-to-azure.md#create-a-replication-policy) pour les machines virtuelles VMware.
+- [Configurez une stratégie de réplication](tutorial-physical-to-azure.md#create-a-replication-policy) pour les serveurs physiques.
+- [Configurez une stratégie de réplication](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) pour les machines virtuelles Hyper-V.
 
 
 ## <a name="enable-replication"></a>Activer la réplication
 
 - [Activez la réplication](tutorial-vmware-to-azure.md#enable-replication) pour les machines virtuelles VMware.
+- [Activez la réplication](tutorial-physical-to-azure.md#enable-replication) des serveurs physiques.
+- [Activez la réplication](tutorial-hyper-v-to-azure.md#enable-replication) des machines virtuelles Hyper-V.
 
 
 ## <a name="run-a-test-migration"></a>Exécuter un test de migration
@@ -100,7 +108,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le point de récupération le plus récent.
 3. Le paramètre de clé de chiffrement ne s’applique pas à ce scénario.
-4. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+4. Sélectionnez **Arrêtez la machine avant de commencer le basculement**. Site Recovery tenter d’arrêter les machines virtuelles sources avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 5. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
 6. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération termine le processus de migration, interrompt la réplication pour la machine virtuelle et arrête la facturation Site Recovery pour la machine virtuelle.
 
@@ -108,12 +116,14 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : avant que le basculement soit démarré, la réplication de la machine virtuelle est arrêtée. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
+> **N’annulez pas un basculement en cours** : la réplication de la machine virtuelle est arrêtée avant que le basculement démarre. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
 
 Dans certains scénarios, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. Vous constaterez peut-être des délais de basculement plus longs pour les serveurs physiques, les machines virtuelles VMware Linux, les machines virtuelles VMware pour lesquelles le service DHCP n’est pas activé, et les machines virtuelles VMware qui ne disposent pas des pilotes de démarrage suivants : storvsc, vmbus, storflt, intelide, atapi.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
+
+Dans ce didacticiel, vous avez migré des machines virtuelles locales vers des machines virtuelles Azure. Vous pouvez maintenant configurer la récupération d’urgence pour les machines virtuelles Azure.
 
 > [!div class="nextstepaction"]
-> [Réplication des machines virtuelles Azure vers une autre région après migration vers Azure](site-recovery-azure-to-azure-after-migration.md)
+> [Configurez la récupération d’urgence](site-recovery-azure-to-azure-after-migration.md) pour des machines virtuelles Azure après la migration à partir d’un site local.

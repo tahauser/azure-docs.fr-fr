@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Configurer l’expiration des groupes Office 365 (préversion)
 
@@ -30,9 +30,7 @@ Vous pouvez désormais gérer le cycle de vie des groupes Office 365 en définis
 -   Les groupes Office 365 qui sont supprimés peuvent être restaurés dans les 30 jours qui suivent par les propriétaires des groupes ou l’administrateur
 
 > [!NOTE]
-> Pour définir l’expiration des groupes Office 365, une licence Azure AD Premium ou une licence Azure AD Basic EDU doit être attribuée à tous les membres des groupes auxquels les paramètres d’expiration sont appliqués.
-> 
-> Si vous disposez d’une licence Azure AD Basic EDU et que vous configurez cette stratégie pour la première fois, utilisez les applets de commande Azure Active Directory PowerShell. Ensuite, vous pouvez mettre à jour les paramètres d’expiration à l’aide de PowerShell ou du portail Azure AD, avec un compte qui est administrateur des comptes d’utilisateur ou administrateur général dans votre locataire Azure AD.
+> Définir l’expiration des groupes Office 365 nécessite une licence Azure AD Premium pour tous les membres des groupes auxquels les paramètres d’expiration sont appliqués.
 
 Pour plus d’informations sur le téléchargement et l’installation des applets de commande Azure AD PowerShell, consultez [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -73,7 +71,7 @@ Si le groupe que vous restaurez contient des documents, des sites SharePoint ou 
 >   Par exemple, le groupe A a été créé il y a 400 jours et l’intervalle d’expiration est défini sur 180 jours. Lorsque vous appliquez les paramètres d’expiration, il reste 30 jours au groupe A avant qu’il ne soit supprimé, sauf si le propriétaire le renouvelle.
 > * Lorsqu’un groupe dynamique est supprimé et restauré, il est considéré comme un groupe nouveau, complété conformément à la règle. Ce processus peut prendre jusqu’à 24 heures.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ces articles fournissent des informations supplémentaires sur les groupes Azure AD.
 
 * [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)

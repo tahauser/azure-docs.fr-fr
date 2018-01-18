@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -32,11 +32,12 @@ Si vous disposez d’un environnement Active Directory local et que vous souhait
 
 Avant de commencer à configurer des appareils hybrides joints à Azure AD dans votre environnement, vous devez vous familiariser avec les scénarios pris en charge et avec les contraintes.  
 
+Si vous comptez sur [l’outil de préparation système (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), assurez-vous que vous créez des images à partir d’une installation de Windows qui n’a pas été encore inscrite auprès d’Azure AD.
+
 Pour améliorer la lisibilité des descriptions, cet article utilise les termes suivants : 
 
 - **Appareils Windows actuels** : ce terme désigne les appareils joints à un domaine qui exécutent Windows 10 ou Windows Server 2016.
 - **Appareils Windows de bas niveau** : ce terme fait référence à tous les appareils Windows joints à un domaine **pris en charge** qui n’exécutent ni Windows 10 ni Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Appareils Windows actuels
 
@@ -57,7 +58,7 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer à activer des appareils hybrides joints à Azure AD dans votre organisation, vous devez vous assurer que vous exécutez une version à jour d’Azure AD Connect.
 
@@ -66,6 +67,15 @@ Azure AD Connect :
 - Conserve l’association entre le compte d’ordinateur dans votre service Active Directory (AD) local et l’objet appareil dans Azure AD. 
 - Permet d’utiliser d’autres fonctionnalités liées aux appareils telles que Windows Hello Entreprise.
 
+Assurez-vous que les URL suivantes sont accessibles à partir d’ordinateurs au sein du réseau de votre organisation pour l’inscription d’ordinateurs à Azure AD :
+
+- https://enterpriseregistration.windows.net
+
+- https://login.microsoftonline.com
+
+- https://device.login.microsoftonline.com
+
+Si votre organisation requiert un accès à Internet via un proxy sortant, elle doit implémenter la détection automatique de proxy web (WPAD) pour permettre aux ordinateurs Windows 10 de s’inscrire à Azure AD.
 
 
 ## <a name="configuration-steps"></a>Configuration
@@ -574,7 +584,7 @@ Vous pouvez vérifier les appareils qui ont été correctement joints dans votre
 
 La sortie de cette applet de commande affiche les appareils qui sont enregistrés et joints à Azure AD. Pour obtenir tous les appareils, utilisez le paramètre **-All**, puis filtrez-les à l’aide de la propriété **deviceTrustType**. Les appareils joints à un domaine présentent la valeur **Joint au domaine**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
 

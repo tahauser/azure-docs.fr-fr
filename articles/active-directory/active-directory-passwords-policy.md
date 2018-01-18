@@ -1,5 +1,5 @@
 ---
-title: "Stratégie : réinitialisation du mot de passe en libre-service Azure AD | Microsoft Docs"
+title: "Stratégies de réinitialisation de mot de passe libre-service - Azure Active Directory"
 description: "Options de stratégie de réinitialisation de mot de passe en libre-service Azure AD"
 services: active-directory
 keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialisation de mot de passe en libre-service Azure AD"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -57,11 +57,11 @@ Avec une stratégie à deux verrous, les administrateurs n’ont pas la possibil
   
 * Si 30 jours se sont écoulés dans un abonnement d’essai
 
-  ou
+  or
 
 * Un domaine personnel est présent, par exemple, contoso.com
 
-  ou
+  or
 
 * Azure AD Connect synchronise les identités à partir de votre répertoire local
 
@@ -70,7 +70,7 @@ Une stratégie à un verrou nécessite un élément de données d’authentifica
 
 * Pendant les 30 premiers jours d’un abonnement d’essai
 
-  ou
+  or
 
 * Un domaine personnel n’est pas présent (*.onmicrosoft.com) 
 
@@ -146,7 +146,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
    > [!WARNING]
    > Les mots de passe définis sur `-PasswordNeverExpires $true` le restent en fonction de l’attribut `pwdLastSet`. Si vous définissez les mots de passe utilisateur pour qu’ils n’expirent jamais et que plus de 90 jours sont passés, les mots de passe expirent. En fonction de l’attribut `pwdLastSet`, si vous définissez l’expiration sur `-PasswordNeverExpires $false`, tous les mots dont `pwdLastSet` est supérieur à 90 jours doivent être modifiés par l’utilisateur lors de sa connexion suivante. Cette modification peut affecter un grand nombre d’utilisateurs. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les articles suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD :
 

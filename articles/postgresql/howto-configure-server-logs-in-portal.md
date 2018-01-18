@@ -9,24 +9,24 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux du serveur dans le portail Azure
 
 Vous pouvez configurer, répertorier et télécharger les [journaux du serveur Azure Database pour PostgreSQL](concepts-server-logs.md) à partir du portail Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Un serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="configure-logging"></a>Configuration de la journalisation
 Configurer l’accès aux journaux des requêtes et journaux des erreurs. 
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](http://portal.azure.com/).
 
 2. Sélectionnez votre serveur Azure Database pour PostgreSQL.
 
@@ -72,8 +72,8 @@ Une fois que la journalisation commence, vous pouvez afficher la liste des journ
 
    ![Cliquez sur l’icône Télécharger](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour découvrir comment télécharger des journaux par programme, voir [Accéder aux journaux du serveur à l’aide de l’interface de ligne de commande](howto-configure-server-logs-using-cli.md).
 - Apprenez-en davantage sur les [Journaux du serveur](concepts-server-logs.md) dans Azure Database pour PostgreSQL. 
-- Pour plus d’informations sur les définitions de paramètres et la journalisation de PostgreSQL, voir la documentation de PosgreSQL concernant [le signalement et la journalisation des erreurs](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Pour plus d’informations sur les définitions de paramètres et la journalisation de PostgreSQL, voir la documentation de PostgreSQL concernant [le signalement et la journalisation des erreurs](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

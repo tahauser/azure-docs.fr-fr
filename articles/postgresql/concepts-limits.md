@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitations des bases de données Azure pour PostgreSQL
 Le service de base de données Azure pour PostgreSQL est en préversion publique. Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données.
@@ -27,12 +27,12 @@ Chaque niveau de service comporte un nombre maximal de connexions, d’unités d
 | | |
 | :------------------------- | :---------------- |
 | **Nombre maximal de connexions**        |                   |
-| 50 unités de calcul de base     | 50 connexions    |
-| 100 unités de calcul de base    | 100 connexions   |
-| 100 unités de calcul standard | 200 connexions   |
-| 200 unités de calcul standard | 300 connexions   |
-| 400 unités de calcul standard | 400 connexions   |
-| 800 unités de calcul standard | 500 connexions   |
+| 50 unités de calcul de base     | 55 connexions    |
+| 100 unités de calcul de base    | 105 connexions   |
+| 100 unités de calcul standard | 150 connexions   |
+| 200 unités de calcul standard | 250 connexions   |
+| 400 unités de calcul standard | 480 connexions   |
+| 800 unités de calcul standard | 950 connexions   |
 | **Nombre maximal d’unités de calcul**      |                   |
 | Niveau de service De base         | 100 unités de calcul |
 | Niveau de service Standard      | 800 unités de calcul |
@@ -40,8 +40,9 @@ Chaque niveau de service comporte un nombre maximal de connexions, d’unités d
 | Niveau de service De base         | 1 To              |
 | Niveau de service Standard      | 1 To              |
 
-Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur suivante :
+Le système Azure a besoin de cinq connexions pour effectuer le monitoring du serveur Azure Database pour PostgreSQL. Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already
+
 
 ## <a name="preview-functional-limitations"></a>Limitations fonctionnelles de la préversion
 ### <a name="scale-operations"></a>Opérations de mise à l’échelle
@@ -59,7 +60,7 @@ Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur su
 1.  La restauration à un autre niveau de service et/ou à une autre taille d’unités de calcul et de stockage n’est pas autorisée.
 2.  La restauration d’un serveur supprimé n’est pas prise en charge.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Comprendre [les éléments disponibles dans chaque niveau tarifaire](concepts-service-tiers.md)
 - Comprendre [les versions prises en charge de la base de données PostgreSQL](concepts-supported-versions.md)
 - Consulter le [guide pratique : sauvegarder et restaurer un serveur dans une base de données Azure pour PostgreSQL à l’aide du Portail Azure](howto-restore-server-portal.md)

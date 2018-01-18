@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Copier des données depuis/vers Stockage Table Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-azure-table-connector.md)
-> * [Version 2 - Préversion](connector-azure-table-storage.md)
+> * [Version 2 - Préversion](connector-azure-table-storage.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers Stockage Table Azure. Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers Stockage Table Azure. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Stockage Table Azure dans V1](v1/data-factory-azure-table-connector.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Stockage Table Azure dans V1](v1/data-factory-azure-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -36,7 +36,8 @@ Vous pouvez copier des données à partir de toute banque de données source pri
 Plus précisément, ce connecteur Table Azure prend en charge la copie de données à l’aide des authentifications par **clé de compte** et par **SAP de service** (signature d'accès partagé).
 
 ## <a name="get-started"></a>Prise en main
-Vous pouvez créer un pipeline avec l’activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Consultez le [Didacticiel de l’activité de copie](quickstart-create-data-factory-dot-net.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques de Stockage Table Azure.
 
@@ -46,13 +47,13 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de compte qui fournit à la fabrique de données un accès global au Stockage Azure. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur : **AzureStorage** |Oui |
+| Type | La propriété de type doit être définie sur : **AzureStorage** |Oui |
 | connectionString | Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. Marquez ce champ comme SecureString. |Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -81,17 +82,20 @@ Une signature d’accès partagé (SAP) fournit un accès délégué aux ressour
 
 > [!IMPORTANT]
 > Azure Data Factory prend maintenant uniquement en charge la **signature d’accès partagé SAS**, et pas la signature d’accès partagé du compte. Pour plus d’informations sur ces deux types et leur construction, consultez [Types de signatures d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) . L’URL de SAP qu’il est possible de générer à partir du portail Azure ou de l’Explorateur de stockage est une signature d’accès partagé de compte qui n’est pas prise en charge.
->
+
+> [!TIP]
+> Vous pouvez exécuter les commandes PowerShell ci-dessous pour générer un SAP de service pour votre compte de stockage (remplacez les espaces réservés et accordez l’autorisation nécessaire) : `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Pour utiliser l’authentification par SAP de service, les propriétés suivantes sont prises en charge :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur : **AzureStorage** |Oui |
+| Type | La propriété de type doit être définie sur : **AzureStorage** |Oui |
 | sasUri | Spécifiez l’URI de signature d’accès partagé des ressources Stockage Azure, telles qu’un objet blob, un conteneur ou une table. Marquez ce champ comme SecureString. |Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -124,12 +128,12 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis/vers un objet Table Azure, définissez la propriété type du jeu de données sur **AzureTable** . Les propriétés prises en charge sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **AzureTable**  |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **AzureTable**  |Oui |
 | TableName |Nom de la table dans l'instance de base de données Table Azure à laquelle le service lié fait référence. |Oui |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -165,11 +169,11 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Table Azure, définissez **AzureTableSource** comme type de source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur **AzureTableSource** |Oui |
-| AzureTableSourceQuery |La requête de table Azure personnalisée permet de lire les données. Consultez les exemples dans la section suivante. |Non |
-| azureTableSourceIgnoreTableNotFound |Indiquer si l'exception de la table n'existe pas.<br/>Valeurs autorisées : **True** et **False** (par défaut). |Non |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **AzureTableSource** |Oui |
+| AzureTableSourceQuery |La requête de table Azure personnalisée permet de lire les données. Consultez les exemples dans la section suivante. |Non  |
+| azureTableSourceIgnoreTableNotFound |Indiquer si l'exception de la table n'existe pas.<br/>Valeurs autorisées : **True** et **False** (par défaut). |Non  |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemples azureTableSourceQuery
 
@@ -191,17 +195,17 @@ Si vous utilisez le paramètre de pipeline, effectuez un cast de la valeur datet
 
 Pour copier des données vers la Table Azure, définissez le type de récepteur sur **AzureTableSink** dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type de la source d’activité de copie doit être définie sur **AzureTableSink**. |Oui |
-| azureTableDefaultPartitionKeyValue |Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Non |
-| azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, « AzureTableDefaultPartitionKeyValue » est utilisée comme clé de partition. |Non |
-| azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Non |
-| azureTableInsertType |Le mode d’insertion des données dans une table Azure. Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Valeurs autorisées : **merge** (par défaut), et **replace**. <br/><br> Ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et aucune option ne supprime des lignes de la table de sortie qui n’existent pas dans l’entrée. Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). |Non |
+| Type | La propriété de type de la source d’activité de copie doit être définie sur **AzureTableSink**. |Oui |
+| azureTableDefaultPartitionKeyValue |Valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Non  |
+| azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, « AzureTableDefaultPartitionKeyValue » est utilisée comme clé de partition. |Non  |
+| azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Non  |
+| azureTableInsertType |Le mode d’insertion des données dans une table Azure. Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Valeurs autorisées : **merge** (par défaut), et **replace**. <br/><br> Ce paramètre s’applique au niveau de la ligne, non au niveau de la table, et aucune option ne supprime des lignes de la table de sortie qui n’existent pas dans l’entrée. Consultez [Insertion ou fusion d’entité](https://msdn.microsoft.com/library/azure/hh452241.aspx) et [Insertion ou remplacement d’entité](https://msdn.microsoft.com/library/azure/hh452242.aspx) pour en savoir plus sur le fonctionnement de ces paramètres (fusion et remplacement). |Non  |
 | writeBatchSize |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Valeurs autorisées : integer (nombre de lignes) |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Valeurs autorisées : timespan. Exemple : « 00:20:00 » (20 minutes) |Non (la valeur par défaut est 90 s - délai d’expiration par défaut du client de stockage) |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[
@@ -265,13 +269,13 @@ Pendant le déplacement de données à partir de et vers Table Azure, les [mappa
 | Type de données de Table Azure | Type de données intermédiaires de Data Factory | Détails |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Tableau d’octets jusqu’à 64 Ko. |
-| Edm.Boolean |valeur booléenne |Valeur booléenne. |
-| Edm.DateTime |DateTime |Valeur de 64 bits exprimée en temps universel coordonné (UTC). La plage DateHeure prise en charge commence à partir de 12:00 minuit, le 1er janvier 1601 apr. J.C. (NOTRE ÈRE), UTC. La plage se termine le 31 décembre 9999. |
+| Edm.Boolean |bool |Valeur booléenne. |
+| Edm.DateTime |Datetime |Valeur de 64 bits exprimée en temps universel coordonné (UTC). La plage DateHeure prise en charge commence à partir de 12:00 minuit, le 1er janvier 1601 apr. J.C. (NOTRE ÈRE), UTC. La plage se termine le 31 décembre 9999. |
 | Edm.Double |double |Valeur à virgule flottante de 64 bits. |
 | Edm.Guid |Guid |Identificateur global unique de 128 bits. |
 | Edm.Int32 |Int32 |Nombre entier 32 bits. |
 | Edm.Int64 |Int64 |Nombre entier 64 bits. |
-| Edm.String |String |Valeur encodée en UTF-16. Les valeurs de chaîne peuvent aller jusqu’à 64 Ko. |
+| Edm.String |Chaîne |Valeur encodée en UTF-16. Les valeurs de chaîne peuvent aller jusqu’à 64 Ko. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

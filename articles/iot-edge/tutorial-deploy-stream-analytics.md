@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Déployer Azure Stream Analytics en tant que module IoT Edge - version préliminaire
 
@@ -29,14 +29,14 @@ Ce didacticiel présente deux modules :
 * Un module capteur de température simulée (tempSensor) qui génère des données de température de 20 à 120 degrés, incrémentées de 1 toutes les 5 secondes. 
 * Un module Stream Analytics qui réinitialise le module tempSensor quand la moyenne sur 30 secondes atteint 70. Dans un environnement de production, vous pouvez utiliser cette fonctionnalité pour arrêter un ordinateur ou prendre des mesures préventives quand la température atteint des niveaux dangereux. 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un travail Azure Stream Analytics pour traiter les données à la périphérie.
 > * Connecter le nouveau travail Azure Stream Analytics à d’autres modules IoT Edge.
 > * Déployer le travail Azure Stream Analytics sur un appareil IoT Edge.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un IoT Hub. 
 * L’appareil que vous avez créé et configuré dans le guide de démarrage rapide ou dans les articles sur le déploiement d’Azure IoT Edge sur un appareil simulé dans [Windows][lnk-tutorial1-win] ou [Linux][lnk-tutorial1-lin]. Vous devez connaître la clé de connexion et l’ID de l’appareil. 
@@ -45,7 +45,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
     * [Installer Docker sur Linux][lnk-docker-linux].
 * Python 2.7.x sur votre appareil IoT Edge.
     * [Installez Python 2.7 sur Windows][lnk-python].
-    * Python 2.7 est déjà installé sur la plupart des distributions Linux, y compris Ubuntu. Utilisez la commande suivante pour vous assurer que pip est installé : `sudo apt-get install python-pip`.
+    * Python 2.7 est déjà installé sur la plupart des distributions Linux, Ubuntu inclus. Utilisez la commande suivante pour vous assurer que pip est installé : `sudo apt-get install python-pip`.
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Créer un travail Azure Stream Analytics
 
@@ -153,7 +153,7 @@ Vous êtes désormais prêt à déployer le travail Azure Stream Analytics sur v
 
     ![Définir le module][6]
 
-6. Copiez le nom généré automatiquement pour votre module Azure Stream Analytics. 
+6. Copiez le nom de votre module Azure Stream Analytics. 
 
     ![Module de température][11]
 
@@ -204,7 +204,7 @@ Vous devriez voir la température de l’ordinateur augmenter progressivement ju
    ![Journal de docker][9]
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez configuré un conteneur de stockage Azure et un travail Streaming Analytics pour qu’ils analysent les données de votre appareil IoT Edge. Vous avez ensuite chargé un module Azure Stream Analytics personnalisé pour extraire les données de votre appareil et les faire passer par le flux jusqu’à un objet blob pour les télécharger. Vous pouvez passer à d’autres didacticiels pour savoir comment Azure IoT Edge peut trouver d’autres solutions pour votre entreprise.
 

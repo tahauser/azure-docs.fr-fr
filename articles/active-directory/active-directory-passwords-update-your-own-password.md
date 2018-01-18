@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
 
@@ -127,7 +127,7 @@ Vous devez maintenant être en mesure d’accéder à votre compte. Si ce n’es
 | L’erreur « Votre compte n’est pas activé pour la réinitialisation de mot de passe » s’affiche lorsque j’entre mon identifiant utilisateur | Votre compte n’est pas activé pour la réinitialisation du mot de passe. <br> <br> Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que votre service informatique n’a pas activé la réinitialisation de mot de passe pour votre entreprise à partir du lien « Vous ne pouvez pas accéder à votre compte » ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise. Informez-le que vous souhaitez réinitialiser votre mot de passe afin qu’il puisse activer cette fonctionnalité pour vous. |
 | L’erreur « Nous n'avons pas pu vérifier votre compte » s’affiche lorsque j’entre mon identifiant utilisateur | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à http://aka.ms/ssprsetup une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Page relative à la procédure d’inscription pour utiliser la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)
 * [Page relative à l’inscription à la réinitialisation du mot de passe](http://aka.ms/ssprsetup)
@@ -141,4 +141,3 @@ Vous devez maintenant être en mesure d’accéder à votre compte. Si ce n’es
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Lien de réinitialisation du mot de passe dans l’écran de connexion Windows 10 Fall Creators Update"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Vérifier vos données d’authentification"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Modifier votre mot de passe"
-

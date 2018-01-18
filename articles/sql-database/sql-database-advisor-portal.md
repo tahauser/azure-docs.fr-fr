@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -31,7 +31,7 @@ Pour afficher et appliquer des recommandations en matière de performances, vous
 
 Pour rechercher des recommandations en matière de performances sur le portail Azure, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à **More services (Plus de services)** > **Bases de données SQL**, puis sélectionnez votre base de données.
 3. Accédez à **Recommandation sur les performances** pour afficher les recommandations disponibles pour la base de données choisie.
 
@@ -41,7 +41,7 @@ Les recommandations en matière de performances s’affichent dans un tableau si
 
 Les recommandations sont triées en fonction de leur impact potentiel sur les performances dans les catégories suivantes :
 
-| Impact | Description |
+| Impact | DESCRIPTION |
 |:--- |:--- |
 | Élevé |Les recommandations ayant un impact élevé fournissent l’impact le plus important sur les performances. |
 | Moyenne |Les recommandations ayant un impact moyen améliorent les performances, mais pas de manière substantielle. |
@@ -91,6 +91,10 @@ Si vous le souhaitez, vous pouvez rajouter des éléments rejetés à la liste *
 2. Sélectionnez un élément rejeté dans la liste pour afficher les détails le concernant.
 3. Si vous le souhaitez, vous pouvez cliquer sur **Annuler le rejet** pour ajouter l’index à la liste principale de **Recommandations**.
 
+> [!NOTE]
+> Notez que, si le [paramétrage automatique](sql-database-automatic-tuning.md) de SQL Database est activé, et que vous avez manuellement ignoré l’une des recommandations de la liste, celle-ci ne s’appliquera jamais automatiquement. Il est pratique d’ignorer une recommandation pour activer le paramétrage automatique dans les cas où une recommandation en particulier ne doit pas s’appliquer.
+> Vous pouvez rétablir l’ancien comportement en sélectionnant l’option Annuler l’action Ignorer pour ajouter les recommandations ignorées à la liste Recommandations.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Activer le réglage automatique
 Vous pouvez configurer Azure SQL Database de manière à implémenter automatiquement des recommandations. Dès qu’une recommandation est disponible, elle est automatiquement appliquée. Comme pour toutes les recommandations gérées par le service, si l’impact sur les performances est négatif, la recommandation est annulée.
@@ -116,7 +120,7 @@ Les recommandations ayant l’état **En attente**, **En cours de vérification*
 ## <a name="monitoring-operations"></a>Surveillance des opérations
 L’application d’une recommandation ne se produit pas toujours instantanément. Le portail fournit des informations concernant l’état de la recommandation. Voici les états possibles des index :
 
-| Statut | Description |
+| Statut | DESCRIPTION |
 |:--- |:--- |
 | Pending |La commande Appliquer la recommandation a été reçue et son exécution est planifiée. |
 | En cours d'exécution |La recommandation est en cours d’application. |
@@ -146,7 +150,7 @@ Une fois les recommandations correctement implémentées (actuellement, seulemen
 ## <a name="summary"></a>Résumé
 Azure SQL Database fournit des recommandations pour améliorer les performances des bases de données SQL. Les scripts T-SQL vous aident à optimiser votre base de données, avec à la clé une amélioration des performances des requêtes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. Azure SQL Database continue à surveiller et à fournir des recommandations pouvant potentiellement améliorer les performances de votre base de données. 
 
 * Consultez [Réglage automatique](sql-database-automatic-tuning.md) pour en savoir plus sur le réglage automatique dans Azure SQL Database.

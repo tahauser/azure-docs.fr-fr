@@ -4,7 +4,7 @@ description: "Découvrez comment configurer l’authentification unique entre Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Didacticiel : Intégration d’Azure Active Directory à GoToMeeting
 
@@ -28,11 +28,11 @@ L’intégration de GoToMeeting à Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à GoToMeeting.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à GoToMeeting (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à GoToMeeting, vous avez besoin des éléments suivants :
 
@@ -48,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de GoToMeeting à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +84,10 @@ Dans GoToMeeting, attribuez la valeur du **nom d’utilisateur** dans Azure AD c
 
 Pour configurer et tester l’authentification unique Azure AD avec GoToMeeting, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test GoToMeeting](#create-a-gotomeeting-test-user)** pour avoir un équivalent de Britta Simon dans GoToMeeting, lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -104,28 +104,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     ![Boîte de dialogue Authentification unique](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. Dans la section **Domaine et URL GoToMeeting**, cliquez sur **Afficher les paramètres d’URL avancés** et effectuez les étapes suivantes :
+3. Dans la section **Domaine et URL GoToMeeting**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique Domaine et URL GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![Informations d’authentification unique Domaine et URL GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. Dans la zone de texte **Identificateur**, saisissez l’URL : `https://authentication.logmeininc.com/saml/sp`
-
-    b. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://authentication.logmeininc.com/saml/acs`
-
-    c. Dans la zone de texte **État de relais**, tapez l’une des URL suivantes :
-
-    **Pour GoToMeeting** : `https://global.gotomeeting.com`
-    
-    **Pour GoToTraining** : `https://global.gototraining.com`
-
-    **Pour GoToWebinar** : `https://global.gotowebinar.com`
-
-    **Pour GoToAssist** : `https://app.gotoassist.com`
-
+    Dans la zone de texte **Identificateur**, tapez l’URL : `https://login.citrixonline.com/saml/sp`
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -135,19 +122,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Cliquez sur **Inscriptions des applications**.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
    
     b. Cliquez sur **Points de terminaison** pour ouvrir la boîte de dialogue **Points de terminaison**.  
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
 
     c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
      
     d. Accédez maintenant à la page de propriétés de **GoToMeeting**, copiez **l’ID d’application** à l’aide du bouton **Copier**, puis collez-le dans le Bloc-notes.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
 
     e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
 
@@ -155,7 +142,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configuration de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. Dans une autre fenêtre de navigateur, connectez-vous à [GoToMeeting Organization Center](https://account.citrixonline.com/organization/administration/).
+8. Dans une autre fenêtre de navigateur, connectez-vous à [GoToMeeting Organization Center](https://organization.logmeininc.com/).
 
 9. Sous l’onglet **Identity provider** (Fournisseur d’identité), vous pouvez configurer les paramètres Azure en fournissant **l’URL de métadonnées** générée ou le **Fichier de métadonnées** téléchargé, ou en sélectionnant l’option **Manual** (Manuel).
 

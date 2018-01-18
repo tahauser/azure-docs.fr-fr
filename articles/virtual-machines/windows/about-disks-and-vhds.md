@@ -1,24 +1,20 @@
 ---
 title: "À propos du stockage des disques non gérés (objets blob de pages) et des disques gérés pour les machines virtuelles Microsoft Azure Windows | Microsoft Docs"
 description: "Découvrez les principes de base du stockage des disques non gérés (objets blob de pages) et des disques gérés pour les machines virtuelles Windows dans Azure."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>À propos du stockage des disques pour les machines virtuelles Azure Windows
 Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des disques comme emplacement de stockage pour un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation Windows et un disque temporaire. Le disque de système d’exploitation est créé à partir d’une image. Le disque de système d’exploitation et l’image sont des disques durs virtuels (VHD) stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD. 
@@ -51,7 +47,7 @@ Un disque de données est un VHD attaché à une machine virtuelle pour stocker 
 
 Lorsque vous créez une machine virtuelle à partir d’une image, Azure crée un disque de système d’exploitation. Si vous utilisez une image incluant des disques de données, Azure crée également ces derniers lors de la création de la machine virtuelle. Vous pouvez également ajouter des disques de données après avoir créé la machine virtuelle.
 
-Vous pouvez ajouter un disque de données à une machine virtuelle à tout moment, **en attachant** le disque à la machine virtuelle. Vous pouvez utiliser un VHD que vous avez chargé ou copié sur votre compte de stockage, ou qui a été créé pour vous par Azure. Le fait d’attacher un disque de données associe le fichier VHD à la machine virtuelle en plaçant un « bail » sur le VHD afin qu’il ne puisse pas être supprimé du stockage tant qu’il est attaché.
+Vous pouvez ajouter un disque de données à une machine virtuelle à tout moment, **en attachant** le disque à la machine virtuelle. Vous pouvez utiliser un disque dur virtuel que vous avez chargé ou copié sur votre compte de stockage, ou un disque dur virtuel qui a été créé pour vous par Azure. Le fait d’attacher un disque de données associe le fichier VHD à la machine virtuelle en plaçant un « bail » sur le VHD afin qu’il ne puisse pas être supprimé du stockage tant qu’il est attaché.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
@@ -78,7 +74,7 @@ fsutil behavior set DisableDeleteNotify 0
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Attacher un disque](attach-disk-portal.md) pour ajouter un stockage supplémentaire pour votre machine virtuelle.
 * [Créez un instantané](snapshot-copy-managed-disk.md).
 * [Convertissez en disques gérés](convert-unmanaged-to-managed-disks.md).

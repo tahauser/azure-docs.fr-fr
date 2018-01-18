@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: 7605a65d784a9586a4d88625996f4a1c8f154e9d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Créer une image personnalisée à partir d’un fichier de disque dur virtuel
 
@@ -34,15 +34,15 @@ La procédure suivante décrit comment créer une image personnalisée à partir
 
 1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
+1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 
-1. Dans le panneau du laboratoire, sélectionnez **Configuration**. 
+1. Dans le volet principal du lab, sélectionnez **Configuration et stratégies**. 
 
-1. Dans le panneau **Configuration** du laboratoire, sélectionnez **Custom images (VHDs)** (Images personnalisées (disques durs virtuels)).
+1. Dans le volet **Configuration et stratégies**, sélectionnez **Images personnalisées**.
 
-1. Dans le panneau **Images personnalisées**, sélectionnez **+Ajouter**.
+1. Dans le volet **Images personnalisées**, sélectionnez **+Ajouter**.
 
     ![Ajouter une image personnalisée](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -50,21 +50,21 @@ La procédure suivante décrit comment créer une image personnalisée à partir
 
 1. Entrez la description de l’image personnalisée. Cette description s’affiche dans la liste des images de base quand vous créez une machine virtuelle.
 
-1. Sélectionnez **VHD**.
+1. Pour **Type de système d’exploitation**, sélectionnez **Windows** ou **Linux**.
 
-1. Dans le panneau **VHD**, sélectionnez le fichier de disque dur virtuel souhaité.
+    - Si vous sélectionnez **Windows**, cochez la case pour indiquer si *sysprep* a été exécuté sur la machine. 
+    - Si vous sélectionnez **Linux**, cochez la case pour indiquer si *deprovision* a été exécuté sur la machine. 
 
-1. Cliquez sur **OK** pour fermer le panneau **VHD**.
+1. Sélectionnez un **disque dur virtuel** dans le menu déroulant. Il s’agit du disque dur virtuel qui sera utilisé pour créer la nouvelle image personnalisée. Si nécessaire, sélectionnez pour **Upload a VHD using PowerShell** (Télécharger un disque dur virtuel à l’aide de PowerShell).
 
-1. Sélectionnez **Configuration du système d’exploitation**.
-
-1. Sous l’onglet **Configuration du système d’exploitation**, sélectionnez **Windows** ou **Linux**.
-
-1. Si vous sélectionnez **Windows** , cochez la case pour indiquer si *Sysprep* a été exécuté sur la machine. 
-
-1. Cliquez sur **OK** pour fermer le panneau **Configuration du système d’exploitation**.
+1. Vous pouvez également entrer un nom de plan, une offre de plan et un éditeur de plan si l’image utilisée pour créer l’image personnalisée n’est pas publiée par Microsoft.
 
 1. Cliquez sur **OK** pour créer l’image personnalisée.
+
+Après quelques minutes, l’image personnalisée est créée et stockée dans le compte de stockage du laboratoire. Lorsqu’un utilisateur du laboratoire souhaite créer une nouvelle machine virtuelle, l’image est disponible dans la liste des images de base.
+
+![Image personnalisée disponible dans la liste des images de base](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -73,6 +73,6 @@ La procédure suivante décrit comment créer une image personnalisée à partir
 - [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Copie d’images personnalisées entre plusieurs Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Ajout d’une machine virtuelle à votre laboratoire](./devtest-lab-add-vm.md)

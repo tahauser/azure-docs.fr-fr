@@ -1,5 +1,5 @@
 ---
-title: "Personnaliser : réinitialisation du mot de passe libre-service d’Azure AD | Microsoft Docs"
+title: "Personnalisation de la réinitialisation de mot de passe libre-service - Azure Active Directory"
 description: "Options de personnalisation de la réinitialisation du mot de passe libre-service Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 36fc674ffcb8167a918f928d8821707d81198423
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -107,7 +107,7 @@ Vous pouvez changer l’attribut de nom de l’annuaire sous **Azure Active Dire
 * Le nom convivial dans l’e-mail, par exemple « Microsoft pour le compte de la démonstration CONTOSO »
 * La ligne d’objet dans l’e-mail, par exemple « Code de vérification d’e-mail pour le compte de démonstration CONTOSO »
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialiser ou modifier votre mot de passe](active-directory-passwords-update-your-own-password.md)

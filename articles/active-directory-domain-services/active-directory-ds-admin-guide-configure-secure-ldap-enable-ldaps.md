@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurer le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 
@@ -110,13 +110,14 @@ Le tableau suivant illustre un exemple de groupe de sécurité réseau que vous 
 <br>
 
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Si vous ne parvenez pas à vous connecter au domaine managé à l’aide du protocole LDAP sécurisé, essayez les étapes de dépannage suivantes :
 * Assurez-vous que la chaîne de l’émetteur du certificat LDAP sécurisé est approuvée sur le client. Vous pouvez choisir d’ajouter l’autorité de certification racine au magasin de certificats sur le client pour établir la relation d’approbation.
 * Vérifiez que le certificat LDAP sécurisé n’est pas émis par une autorité de certification intermédiaire qui n’est pas approuvée par défaut sur une nouvelle machine Windows.
 * Vérifiez que le client LDAP (par exemple, ldp.exe) se connecte au point de terminaison LDAP sécurisé à l’aide d’un nom DNS, et non de l’adresse IP.
 * Vérifiez que le nom DNS auquel le client LDAP se connecte est résolu en l’adresse IP publique pour le protocole LDAP sécurisé sur le domaine managé.
 * Vérifiez que le certificat LDAP sécurisé pour votre domaine managé présente le nom DNS dans l’attribut Subject ou Subject Alternative Names.
+* Si vous vous connectez via LDAP sécurisé sur internet, vérifiez que les paramètres du groupe de sécurité réseau pour le réseau virtuel autorisent le trafic vers le port 636 à partir d’internet.
 
 Si vous ne parvenez toujours pas à vous connecter au domaine managé à l’aide du protocole LDAP sécurisé, [contactez l’équipe produit](active-directory-ds-contact-us.md) pour obtenir de l’aide. Pour que l’équipe produit puisse diagnostiquer au mieux le problème, fournissez les informations suivantes :
 * Une capture d’écran de ldp.exe essayant d’établir la connexion et échouant.

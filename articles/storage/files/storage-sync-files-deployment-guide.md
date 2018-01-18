@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Déployer Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Nous vous recommandons fortement de lire les articles [Planification d’un déploiement Azure Files](storage-files-planning.md) et [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) avant d’effectuer les étapes décrites dans cet article.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 * Avoir un compte de stockage Azure et un partage de fichiers Azure dans la même région où vous souhaitez déployer Azure File Sync. Pour plus d'informations, consultez les pages suivantes :
     - [Disponibilité des régions](storage-sync-files-planning.md#region-availability) pour Azure File Sync.
     - [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour obtenir une procédure pas à pas de la création d’un compte de stockage.
@@ -71,6 +71,7 @@ L’agent Azure File Sync est un package téléchargeable qui permet à Windows 
 
 > [!Important]  
 > Si vous comptez utiliser Azure File Sync avec un cluster de basculement, l’agent Azure File Sync doit être installé sur chaque nœud du cluster.
+
 
 Le package d’installation de l’agent Azure File Sync doit normalement s’installer relativement vite et sans afficher beaucoup d’invites supplémentaires. Nous vous recommandons de procéder comme suit :
 - Conservez le chemin d’installation par défaut (C:\Program Files\Azure\StorageSyncAgent), pour simplifier le dépannage et la maintenance du serveur.
@@ -119,6 +120,36 @@ Pour ajouter le point de terminaison de serveur, sélectionnez **Créer**. Vos f
 > [!Important]  
 > Vous pouvez apporter des modifications à un point de terminaison cloud ou un point de terminaison de serveur dans le groupe de synchronisation, et synchroniser vos fichiers avec les autres points de terminaison du groupe de synchronisation. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
 
+## <a name="onboarding-with-azure-file-sync"></a>Intégrer Azure File Sync
+Voici les étapes recommandées pour intégrer Azure File Sync sans aucun temps d’arrêt tout en préservant toute la fidélité du fichier et la liste de contrôle d’accès (ACL) :
+ 
+1.  Déployez un service de synchronisation du stockage.
+2.  Créez un groupe de synchronisation.
+3.  Installez l’agent Azure File Sync sur le serveur comportant le jeu de données complet.
+4.  Inscrivez ce serveur et créez un point de terminaison de serveur sur le partage. 
+5.  Laissez la synchronisation effectuer la totalité du chargement sur le partage de fichiers Azure (point de terminaison cloud).  
+6.  Une fois le chargement initial terminé, installez l’agent Azure File Sync sur chacun des serveurs restants.
+7.  Créez de nouveaux partages de fichiers sur tous les serveurs restants.
+8.  Créez des points de terminaison de serveur sur les nouveaux partages de fichiers avec une stratégie de hiérarchisation cloud, si vous le souhaitez. (Cette étape requiert du stockage supplémentaire disponible pour la configuration initiale.)
+9.  Laissez l’agent Azure File Sync effectuer une restauration rapide de l’espace de noms complet sans transfert de données réel. Après la synchronisation de l’espace de noms complet, le moteur de synchronisation remplira l’espace disque local en fonction de la stratégie de hiérarchisation cloud du point de terminaison de serveur. 
+10. Vérifiez la synchronisation est terminée et testez votre topologie comme vous le souhaitez. 
+11. Redirigez les utilisateurs et les applications vers ce nouveau partage.
+12. Il est possible quoique non obligatoire de supprimer les partages en double sur les serveurs.
+ 
+Si vous n’avez pas de stockage supplémentaire pour l’intégration initiale et que vous souhaitez utiliser les partages existants, vous pouvez préamorcer les données dans les partages de fichiers Azure. Cette approche est proposée si et seulement si vous êtes en mesure d’accepter des temps d’arrêt et de garantir l’absence totale de modification des données sur les partages du serveur pendant le processus d’intégration initial. 
+ 
+1.  Assurez-vous que les données des différents serveurs ne changeront pas au cours du processus d’intégration.
+2.  Préamorcez les partages de fichiers Azure avec les données du serveur à l’aide d’un outil de transfert de données sur le SMB, par exemple, Robocopy ou SMB Direct. AzCopy ne chargeant pas les données sur le SMB, il ne peut pas être utilisé pour le préamorçage.
+3.  Créez une topologie Azure File Sync avec les points de terminaison de serveur souhaités pointant sur les partages existants.
+4.  Laissez la synchronisation terminer le processus de rapprochement sur tous les points de terminaison. 
+5.  Une fois le rapprochement terminé, vous pourrez ouvrir les partages pour les modifier.
+ 
+Notez que l’approche par préamorçage possède actuellement quelques limitations. 
+- La fidélité optimale sur les fichiers n’est pas conservée. Par exemple, les fichiers perdent les ACL et les timestamps.
+- Les modifications de données effectuées sur le serveur avant que la topologie de synchronisation ne soit entièrement opérationnelle risquent de provoquer des conflits sur les points de terminaison de serveur.  
+- Une fois le point de terminaison cloud créé, Azure File Sync exécute un processus de détection des fichiers dans le cloud avant de démarrer la synchronisation initiale. Le temps nécessaire à ce processus varie en fonction de différents facteurs, comme la vitesse du réseau, la bande passante disponible et le nombre de fichiers et de dossiers. Pour donner une estimation approximative dans la préversion, le processus de détection s’exécute approximativement à une vitesse de 10 fichiers/s. Par conséquent, même si le préamorçage est rapide, le délai global nécessaire pour obtenir un système entièrement opérationnel peut se révéler beaucoup plus long lorsque les données sont préamorcées dans le cloud.
+
+
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrer un déploiement de la réplication DFS (DFS-R) vers Azure File Sync
 Pour migrer un déploiement de DFS-R vers Azure File Sync :
 
@@ -135,6 +166,6 @@ Pour migrer un déploiement de DFS-R vers Azure File Sync :
 
 Pour plus d’informations, consultez [Interopérabilité d’Azure File Sync avec le système de fichiers DFS](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Ajouter ou supprimer un point de terminaison de serveur pour Azure File Sync](storage-sync-files-server-endpoint.md)
 - [Inscrire ou désinscrire un serveur auprès d’Azure File Sync](storage-sync-files-server-registration.md)

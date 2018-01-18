@@ -6,14 +6,14 @@ keywords: modification, suivi, automatisation
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Déclencher un événement
 > * Afficher les modifications
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -70,7 +70,7 @@ Si la validation n’identifie pas l’un des prérequis suivants, il est automa
 * [Automation](./automation-offering-get-started.md)
 * Un [worker runbook hybride](./automation-hybrid-runbook-worker.md) est activé sur la machine virtuelle
 
-L’écran **Change Tracking and Inventory** (Suivi des modifications et inventaire) s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle. Dans ce cas, le même espace de travail et le même compte Automation doivent être utilisés.
+L’écran **Change Tracking and Inventory** (Suivi des modifications et inventaire) s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
 
 ![Fenêtre de la solution d’activation du suivi des modifications](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
@@ -158,7 +158,7 @@ Lorsque la solution de suivi des modifications et d’inventaire est activée, v
 
 À partir de votre machine virtuelle, sélectionnez **Suivi des modifications** sous **OPÉRATIONS**.
 
-![Créer une alerte sur le portail OMS classique](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Capture d’écran montrant la liste des modifications apportées à la machine virtuelle](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 Le graphique affiche les modifications qui se sont produites au fil du temps.
 Après avoir ajouté une connexion au journal d’activité, le graphique linéaire dans la partie supérieure affiche les événements du journal des activités Azure.

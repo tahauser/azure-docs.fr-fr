@@ -1,6 +1,6 @@
 - name: Documentation Site Recovery
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Site Recovery\_?"
       href: site-recovery-overview.md
@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Matrice de prise en charge Azure vers Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Matrice de prise en charge sur site vers Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Matrice de prise en charge VMware vers Azure
+      href: support-matrix-vmware-to-azure.md
     - name: Matrice de prise en charge d’Hyper-V sur Azure
       href: support-matrix-hyper-v-to-azure.md
+    - name: Matrice de prise en charge sur site vers Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Matrice de prise en charge sur site vers un site secondaire
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Récupération d’urgence pour les charges de travail
@@ -81,7 +83,7 @@
       href: site-recovery-migrate-to-azure.md
     - name: Autorisations d’accès en fonction du rôle
       href: site-recovery-role-based-linked-access-control.md
-    - name: FAQ
+    - name: Forum Aux Questions
       href: site-recovery-faq.md
 - name: Procédures
   items:
@@ -175,12 +177,14 @@
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Tests de mise à l’échelle des performances pour la réplication d’Hyper-V entre des sites locaux
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
-    - name: Configurer
+    - name: Configuration
       items:
         - name: Configurer l’environnement source
           items:
             - name: Environnement source pour VMware vers Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: "Déployer le serveur de configuration pour\_VMware et les serveurs physiques"
+              href: how-to-deploy-configuration-server.md
             - name: Environnement source pour serveur physique vers Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: Configurer l’environnement cible
@@ -245,7 +249,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Autres charges de travail
           href: 'site-recovery-workload.md#workload-summary'
-    - name: Gérer
+    - name: gérer
       items:
         - name: Passer à un coffre Recovery Services
           href: upgrade-site-recovery-vaults.md
@@ -261,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Supprimer un coffre
           href: delete-vault.md
-    - name: Résoudre les problèmes
+    - name: Résolution des problèmes
       items:
         - name: Problèmes de réplication Azure vers Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -273,7 +277,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Collecter les journaux et résoudre les problèmes locaux
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: "Azure\_PowerShell"
       href: /powershell/module/azurerm.recoveryservices.siterecovery
@@ -295,7 +299,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'

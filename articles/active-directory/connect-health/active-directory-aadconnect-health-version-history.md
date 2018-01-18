@@ -14,26 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f961ef253fd090d3f064c9da5950d5eab6547e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.
+
+## <a name="december-2017"></a>Décembre 2017
+**Mise à jour de l’agent :**
+
+*   Agent Azure AD Connect Health pour AD DS (version 3.0.145.0)
+  1. Améliorations de la disponibilité de l’agent 
+  2. Ajout de nouvelles commandes de résolution des problèmes de l’agent
+  3. Résolutions de bogues et améliorations générales
+*   Agent Azure AD Connect Health pour AD FS (version 3.0.145.0)
+  1. Ajout de nouvelles commandes de résolution des problèmes de l’agent
+  2. Améliorations de la disponibilité de l’agent 
+  3. Résolutions de bogues et améliorations générales
+  
+## <a name="october-2017"></a>Octobre 2017
+**Mise à jour de l’agent :**
+
+ * Agent Azure AD Connect Health pour la synchronisation (version 3.0.129.0) fourni avec Azure AD Connect version 1.1.649.0
+<br></br> Résolution d’un problème de compatibilité entre Azure AD Connect et Azure AD Connect Health Agent pour la synchronisation. Ce problème affecte les clients qui effectuent une mise à niveau sur place d’Azure AD Connect vers la version 1.1.647.0, mais qui ont actuellement la version 3.0.127.0 de Health Agent. Après la mise à niveau, Health Agent ne peut plus envoyer les données d’intégrité sur le service de synchronisation Azure AD Connect à Azure AD Health Service. Avec ce correctif, Health Agent version 3.0.129.0 est installé lors de la mise à niveau sur place d’Azure AD Connect. Health Agent version 3.0.129.0 n’a pas de problème de compatibilité avec Azure AD Connect version 1.1.649.0.
+
+## <a name="july-2017"></a>Juillet 2017
+**Mise à jour de l’agent :**
+
+*   Agent Azure AD Connect Health pour AD DS (version 3.0.68.0)
+  1. Résolutions de bogues et améliorations générales
+  2. Prise en charge du cloud souverain
+*   Agent Azure AD Connect Health pour AD FS (version 3.0.68.0)
+  1. Résolutions de bogues et améliorations générales
+  2. Prise en charge du cloud souverain
+* Agent Azure AD Connect Health pour la synchronisation (version 3.0.68.0) fourni avec Azure AD Connect version 1.1.614.0
+1. Prise en charge de Microsoft Azure Government Cloud et Microsoft Cloud Germany
+
+## <a name="april-2017"></a>Avril 2017      
+**Mise à jour de l’agent :**
+
+*   Agent Azure AD Connect Health pour AD FS (version 3.0.12.0)
+  1. Résolutions de bogues et améliorations générales
+*   Agent Azure AD Connect Health pour AD DS (version 3.0.12.0)
+  1. Améliorations du chargement des compteurs de performances
+  2. Résolutions de bogues et améliorations générales
 
 ## <a name="october-2016"></a>Octobre 2016
 **Mise à jour de l’agent :**
 
 * Agent Azure AD Connect Health pour AD FS \(version 2.6.408.0\)
-  1. Amélioration de la détection des adresses IP clientes dans les demandes d’authentification
-  2. Résolution des bogues associés aux alertes
+1. Amélioration de la détection des adresses IP clientes dans les demandes d’authentification
+2. Résolution des bogues associés aux alertes
 * Agent Azure AD Connect Health pour AD DS (version 2.6.408.0)
-  1. Résolution des bogues associés aux alertes
+1. Résolution des bogues associés aux alertes
 * Agent Azure AD Connect Health pour la synchronisation (version 2.6.353.0) fourni avec Azure AD Connect version 1.1.281.0
-  1. Ajout des données requises pour les rapports d’erreurs de synchronisation
-  2. Résolution des bogues associés aux alertes
+1. Ajout des données requises pour les rapports d’erreurs de synchronisation
+2. Résolution des bogues associés aux alertes
 
 **Nouvelles fonctionnalités préliminaires :**
 
@@ -94,6 +133,6 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 * Tendances des demandes ayant échoué sur les serveurs AD FS regroupés par applications, types d’erreur, etc.
 * Déploiement d’agent plus simple à l’aide des informations d’identification d’administrateur général Azure AD.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](active-directory-aadconnect-health.md).
 

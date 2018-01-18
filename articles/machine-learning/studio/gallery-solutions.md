@@ -1,6 +1,6 @@
 ---
-title: Solutions de la galerie Cortana Intelligence | Microsoft Docs
-description: "Découvrez des solutions dans la galerie Cortana Intelligence."
+title: Solutions de la galerie Azure AI | Microsoft Docs
+description: "Découvrez les solutions dans la galerie Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 3d249a12b31418b159b3e5391528488f5d9d57a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 813b431b2e8ee22435e302800b7f707f6ba693b9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a>Découvrir des solutions dans la galerie Cortana Intelligence
+# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Découvrir les solutions dans la galerie Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 Une **[Solution](https://gallery.cortanaintelligence.com/solutions)** dans la galerie fournit un point de départ pour créer rapidement des Solutions Cortana Intelligence à partir de solutions préconfigurées, d’architectures de référence et de modèles de conception.
 Appropriez-les vous propres avec les instructions fournies, ou à l’aide d’un partenaire proposé.  
 
@@ -34,7 +34,7 @@ Appropriez-les vous propres avec les instructions fournies, ou à l’aide d’u
 Cliquez sur **Afficher tout** pour afficher toutes les solutions.
 Sur cette page, vous pouvez parcourir toutes les solutions de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
- Cliquez sur une solution pour ouvrir sa page de détails, puis lisez des informations supplémentaires. Dans cette page, vous pouvez commenter, fournir un retour d’expérience ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec des amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers la solution pour inviter d’autres utilisateurs à consulter la page.
+ Cliquez sur une solution pour ouvrir sa page de détails, puis lisez des informations supplémentaires. Sur cette page, vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers la solution pour inviter d’autres utilisateurs à consulter la page.
 
 ![Partager cet élément avec des amis](./media/gallery-how-to-use-contribute-publish/share-links.png)
 

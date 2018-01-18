@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Créer des images conteneurs pour Service Fabric
 
-Ce didacticiel est la première partie d’une série qui montre comment utiliser des conteneurs dans un cluster Service Fabric Linux. Dans le premier didacticiel, vous allez préparer une application à conteneurs multiples afin de pouvoir l’utiliser avec Service Fabric. Dans les didacticiels suivants, ces images seront utilisées dans le cadre d’une application Service Fabric. Ce didacticiel vous explique comment effectuer les opérations suivantes : 
+Ce didacticiel est la première partie d’une série qui montre comment utiliser des conteneurs dans un cluster Service Fabric Linux. Dans le premier didacticiel, vous allez préparer une application à conteneurs multiples afin de pouvoir l’utiliser avec Service Fabric. Dans les didacticiels suivants, ces images seront utilisées dans le cadre d’une application Service Fabric. Ce didacticiel vous montre comment effectuer les opérations suivantes : 
 
 > [!div class="checklist"]
 > * Cloner la source de l’application à partir de GitHub  
@@ -40,7 +40,7 @@ Dans cette série de didacticiels, nous allons aborder les points suivants :
 > * [Créer et exécuter une application Service Fabric avec des conteneurs](service-fabric-tutorial-package-containers.md)
 > * [Gestion du basculement et de la mise à l’échelle dans Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Configuration de l’environnement de développement Linux pour Service Fabric. Suivez les instructions [ici](service-fabric-get-started-linux.md) pour configurer votre environnement Linux. 
 - Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -58,44 +58,40 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Le répertoire « container-tutorial » contient un dossier nommé « azure-vote », qui contient le code source frontal et un fichier Dockerfile permettant de créer le frontal. Le répertoire « container-tutorial » comporte également le répertoire « redis » qui contient le fichier Dockerfile permettant de créer l’image redis. Ces répertoires contiennent les ressources nécessaires à cet ensemble de didacticiels. 
+La solution contient deux dossiers et un fichier « docker-compse.yml ». Le dossier « azure-vote » contient le service frontal Python, ainsi que le fichier Dockerfile utilisé pour créer l’image. Le répertoire « Voting » contient le package d’application Service Fabric qui est déployé sur le cluster. Ces répertoires contiennent les ressources nécessaires à ce didacticiel.  
 
 ## <a name="create-container-images"></a>Créer des images de conteneur
 
-Dans le répertoire « azure-vote », exécutez la commande suivante pour créer l’image associée au composant web frontal. Cette commande utilise pour cela le fichier Dockerfile présent dans ce répertoire. 
+Dans le répertoire **azure-vote**, exécutez la commande suivante pour créer l’image associée au composant web frontal. Cette commande utilise pour cela le fichier Dockerfile présent dans ce répertoire. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-Dans le répertoire « redis », exécutez la commande suivante pour créer l’image associée au principal redis. Cette commande utilise pour cela le fichier Dockerfile présent dans le répertoire. 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-Une fois terminé, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour afficher les images créées.
+Cette commande peut prendre un certain temps, car toutes les dépendances nécessaires doivent être extraites du Hub Docker. Une fois terminé, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour afficher les images créées.
 
 ```bash
 docker images
 ```
 
-Notez que les quatre images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application. Elle est dérivée d’une image *python* provenant de Docker Hub. L’image Redis a été téléchargée à partir de Docker Hub.
+Notez que les deux images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application. Elle est dérivée d’une image *python* provenant de Docker Hub.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
-Exécutez tout d’abord la commande [az login](/cli/azure/login) pour vous connecter à votre compte Azure. 
+Exécutez tout d’abord la commande **az login** pour vous connecter à votre compte Azure. 
 
-Ensuite, utilisez la commande [az account](/cli/azure/account#set) afin de choisir votre abonnement pour créer le registre Azure Container Registry. 
+```bash
+az login
+```
+
+Ensuite, utilisez la commande **az account** afin de choisir votre abonnement pour créer le registre Azure Container Registry. Vous devez entrer votre ID d’abonnement Azure à la place de <id_abonnement>. 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -103,23 +99,23 @@ az account set --subscription <subscription_id>
 
 Lorsque vous déployez un registre de conteneurs Azure, il vous faut tout d’abord un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Dans cet exemple, un groupe de ressources nommé *myResourceGroup* est créé dans la région *westus*. Choisissez le groupe de ressources dans une région proche de chez vous. 
+Créez un groupe de ressources avec la commande **az group create**. Dans cet exemple, un groupe de ressources nommé *myResourceGroup* est créé dans la région *westus*.
 
 ```bash
-az group create --name myResourceGroup --location westus
+az group create --name <myResourceGroup> --location westus
 ```
 
-Créez un registre de conteneurs Azure à l’aide de la commande [az acr create](/cli/azure/acr#create). Le nom d’un registre de conteneurs **doit être unique**.
+Créez un registre de conteneurs Azure à l’aide de la commande **az acr create**. Remplacez \<acrName > par le nom du registre de conteneurs que vous voulez créer dans votre abonnement. Ce nom doit être alphanumérique et unique. 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Dans le reste de ce didacticiel, nous utilisons « acrname ». Ce nom correspond au registre de conteneurs que vous avez choisi.
+Dans le reste de ce didacticiel, nous utilisons « acrName ». Ce nom correspond au registre de conteneurs que vous avez choisi. Prenez note de cette valeur. 
 
 ## <a name="log-in-to-your-container-registry"></a>Se connecter au registre de conteneurs
 
-Connectez-vous à votre instance ACR avant de lui transmettre des images. Utilisez la commande [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) pour terminer l’opération. Fournissez le nom unique qui a été donné au registre de conteneurs au moment de sa création.
+Connectez-vous à votre instance ACR avant de lui transmettre des images. Utilisez la commande **az acr login** pour terminer l’opération. Fournissez le nom unique qui a été donné au registre de conteneurs au moment de sa création.
 
 ```bash
 az acr login --name <acrName>
@@ -137,13 +133,11 @@ Pour afficher la liste des images actuelles, utilisez la commande [docker images
 docker images
 ```
 
-Output:
+Sortie :
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -153,30 +147,29 @@ Pour obtenir le nom de loginServer, exécutez la commande suivante :
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Maintenant, marquez l’image *azure-vote-front* avec le loginServer du Registre de conteneurs. En outre, ajoutez `:v1` à la fin du nom de l’image. Cette balise indique la version de l’image.
+Une table avec les résultats suivants est générée. Ce résultat sera utilisé pour marquer votre image **azure-vote-front** avant de la placer dans le registre de conteneurs à l’étape suivante.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+Result
+------------------
+<acrName>.azurecr.io
 ```
 
-Maintenant, marquez l’image *azure-vote-back* avec le loginServer du registre de conteneurs. En outre, ajoutez `:v1` à la fin du nom de l’image. Cette balise indique la version de l’image.
+Maintenant, marquez l’image *azure-vote-front* avec le loginServer de votre registre de conteneurs. En outre, ajoutez `:v1` à la fin du nom de l’image. Cette balise indique la version de l’image.
 
 ```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Une fois le marquage effectué, exécutez « docker images » pour vérifier l’opération.
 
 
-Output:
+Sortie :
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -188,15 +181,7 @@ Envoyez l’image *azure-vote-front* au registre.
 À l’aide de l’exemple suivant, remplacez le nom d’ACR loginServer par le loginServer à partir de votre environnement.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-Transmettez l’image *azure-vote-back* au registre. 
-
-À l’aide de l’exemple suivant, remplacez le nom d’ACR loginServer par le loginServer à partir de votre environnement.
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Les commandes Docker de type push prennent quelques minutes.
@@ -209,18 +194,17 @@ Pour retourner une liste d’images qui ont été déplacées dans le registre d
 az acr repository list --name <acrName> --output table
 ```
 
-Output:
+Sortie :
 
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 
 Au terme de ce didacticiel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, l’image est déployée d’ACR vers un cluster Service Fabric.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, une application a été extraite de GitHub et des images conteneurs ont été créées et transmises à un registre. Les étapes suivantes ont été effectuées :
 

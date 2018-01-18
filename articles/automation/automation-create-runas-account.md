@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Mettre à jour l’authentification de votre compte Automation avec des comptes d’identification 
 Vous pouvez mettre à jour votre compte Automation existant à partir du portail Azure ou utiliser PowerShell si :
@@ -40,7 +40,7 @@ Le processus crée les éléments ci-après dans votre compte Automation.
 * Crée une ressource de certificat Automation nommée *AzureClassicRunAsCertificate*dans le compte Automation spécifié. La ressource de certificat conserve la clé privée du certificat utilisée par le certificat de gestion.
 * Crée une ressource de connexion Automation nommée *AzureClassicRunAsConnection* dans le compte Automation spécifié. La ressource de connexion conserve le nom de l’abonnement, l’ID subscriptionId et le nom de ressource de certificat.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables
 Si vous choisissez [d’utiliser PowerShell pour créer les comptes d’identification](#create-run-as-account-using-powershell), ce processus requiert :
 
 * Windows 10 et sur Windows Server 2016 avec les modules Azure Resource Manager 3.4.1 et versions ultérieures. Le script PowerShell ne prend pas en charge les versions antérieures de Windows.
@@ -225,7 +225,7 @@ Ce script PowerShell prend en charge les configurations suivantes :
               $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
               $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
               $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
                       "Then click Upload and upload the .cer format of #CERT#"
 
                if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
@@ -277,7 +277,7 @@ Ce script PowerShell prend en charge les configurations suivantes :
 
 Une fois le script exécuté, notez les points suivants :
 * Si vous avez créé un compte d’identification Classic avec un certificat public auto-signé (fichier .cer), le script le crée et l’enregistre dans le dossier de fichiers temporaires sur votre ordinateur, sous le profil d’utilisateur *%USERPROFILE%\AppData\Local\Temp* utilisé pour exécuter la session PowerShell.
-* Si vous avez créé un compte d’identification Classic avec un certificat public d’entreprise (fichier .cer), utilisez ce certificat. Suivez les instructions pour [charger un certificat d’API de gestion vers le portail Azure Classic](../azure-api-management-certs.md), puis validez la configuration des informations d’identification avec les ressources de déploiement classique à l’aide de [l’exemple de code pour l’authentification avec les ressources de déploiement Azure Classic](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Si vous avez créé un compte d’identification Classic avec un certificat public d’entreprise (fichier .cer), utilisez ce certificat. Suivez les instructions pour [charger un certificat d’API de gestion vers le portail Azure](../azure-api-management-certs.md), puis validez la configuration des informations d’identification avec les ressources de déploiement classique à l’aide de [l’exemple de code pour l’authentification avec les ressources de déploiement Azure Classic](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Si vous n’avez *pas* créé de compte d’identification Classic, authentifiez-vous avec des ressources Resource Manager et validez la configuration des informations d’identification à l’aide [l’exemple de code pour l’authentification avec les ressources de gestion des services](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## <a name="next-steps"></a>étapes suivantes

@@ -11,23 +11,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 763f46b9b5be7edf06ee0604bfc51a2482405b60
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements
 
-En général, vous déployez toutes les ressources dans votre modèle sur un seul groupe de ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaiter déployer simultanément un ensemble de ressources à placer dans des groupes de ressources ou des abonnements différents. Par exemple, vous voudrez peut-être déployer la machine virtuelle de sauvegarde destinée à Azure Site Recovery sur un groupe de ressources et un emplacement distincts. Resource Manager vous permet d’utiliser des modèles imbriqués pour cibler des groupes de ressources ou des abonnements différents du groupe de ressources ou de l’abonnement utilisés pour le modèle parent.
-
-Le groupe de ressources est le conteneur de cycle de vie de l’application et sa collection de ressources. Vous créez le groupe de ressources en dehors du modèle et spécifiez le groupe de ressources à cibler lors du déploiement. Pour voir une présentation des groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md).
+En général, vous déployez toutes les ressources dans votre modèle sur un seul [groupe de ressources](resource-group-overview.md). Toutefois, il existe des scénarios dans lesquels vous pouvez souhaiter déployer simultanément un ensemble de ressources à placer dans des groupes de ressources ou des abonnements différents. Par exemple, vous voudrez peut-être déployer la machine virtuelle de sauvegarde destinée à Azure Site Recovery sur un groupe de ressources et un emplacement distincts. Resource Manager vous permet d’utiliser des modèles imbriqués pour cibler des groupes de ressources ou des abonnements différents du groupe de ressources ou de l’abonnement utilisés pour le modèle parent.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Spécifier un groupe de ressources et un abonnement
 
-Pour cibler une autre ressource, vous devez utiliser un modèle imbriqué ou lié au cours du déploiement. Le type de ressource `Microsoft.Resources/deployments` fournit des paramètres pour `subscriptionId` et `resourceGroup`. Ces propriétés permettent de spécifier un autre groupe de ressources et un autre abonnement pour le déploiement imbriqué. Tous les groupes de ressources doivent exister avant l’exécution du déploiement. Si vous ne spécifiez ni l’ID d’abonnement ni le groupe de ressources, ce sont l’abonnement et le groupe de ressources depuis le modèle parent qui sont utilisés.
+Pour cibler une autre ressource, utilisez un modèle imbriqué ou lié. Le type de ressource `Microsoft.Resources/deployments` fournit des paramètres pour `subscriptionId` et `resourceGroup`. Ces propriétés permettent de spécifier un autre groupe de ressources et un autre abonnement pour le déploiement imbriqué. Tous les groupes de ressources doivent exister avant l’exécution du déploiement. Si vous ne spécifiez ni l’ID d’abonnement ni le groupe de ressources, ce sont l’abonnement et le groupe de ressources depuis le modèle parent qui sont utilisés.
+
+Pour spécifier un autre groupe de ressources et un abonnement, utilisez :
+
+```json
+"resources": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "nestedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "resourceGroup": "[parameters('secondResourceGroup')]",
+        "subscriptionId": "[parameters('secondSubscriptionID')]",
+        ...
+    }
+]
+```
+
+Si vos groupes de ressources se trouvent dans le même abonnement, vous pouvez supprimer la valeur **subscriptionId**.
 
 L’exemple suivant déploie deux comptes de stockage, un dans le groupe de ressources spécifié pendant le déploiement, et l’autre dans un groupe de ressources précisé dans le paramètre `secondResourceGroup` :
 
@@ -106,93 +121,7 @@ L’exemple suivant déploie deux comptes de stockage, un dans le groupe de ress
 
 Si vous définissez `resourceGroup`sur le nom d’un groupe de ressources qui n’existe pas, le déploiement échoue.
 
-## <a name="deploy-the-template"></a>Déployer le modèle
-
-Pour déployer un exemple de modèle, utilisez une version d’Azure PowerShell ou d’Azure CLI datant de mai 2017 ou d’une date ultérieure. Pour ces exemples, utilisez le [modèle à abonnements multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) dans GitHub.
-
-### <a name="two-resource-groups-in-the-same-subscription"></a>Deux groupes de ressources dans le même abonnement
-
-Pour PowerShell, déployez deux comptes de stockage sur deux groupes de ressources dans le même abonnement en utilisant :
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus
-```
-
-Pour Azure CLI, déployez deux comptes de stockage sur deux groupes de ressources dans le même abonnement en utilisant :
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-az group create --name $firstRG --location southcentralus
-az group create --name $secondRG --location eastus
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
-```
-
-Une fois le déploiement terminé, deux groupes de ressources s’affichent. Chaque groupe de ressources contient un compte de stockage.
-
-### <a name="two-resource-groups-in-different-subscriptions"></a>Deux groupes de ressources dans différents abonnements
-
-Pour PowerShell, déployez deux comptes de stockage sur deux abonnements en utilisant :
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-$firstSub = "<first-subscription-id>"
-$secondSub = "<second-subscription-id>"
-
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus `
-  -secondSubscriptionID $secondSub
-```
-
-Pour Azure CLI, déployez deux comptes de stockage sur deux abonnements en utilisant :
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-firstSub="<first-subscription-id>"
-secondSub="<second-subscription-id>"
-
-az account set --subscription $secondSub
-az group create --name $secondRG --location eastus
-
-az account set --subscription $firstSub
-az group create --name $firstRG --location southcentralus
-
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
-```
+Pour déployer l’exemple de modèle, utilisez Azure PowerShell 4.0.0 ou version ultérieure, ou Azure CLI 2.0.0 ou version ultérieure.
 
 ## <a name="use-the-resourcegroup-function"></a>Utiliser la fonction resourceGroup()
 
@@ -230,9 +159,59 @@ Si vous liez à un modèle séparé, la résolution de resourceGroup() dans le m
 }
 ```
 
-Pour tester les différentes façons de résoudre `resourceGroup()`, déployez un [exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) qui retourne l’objet de groupe de ressources pour le modèle parent, le modèle inline et le modèle lié. La résolution dans les modèles parent et inline est le même groupe de ressources. La résolution dans le modèle lié est le groupe de ressources lié.
+## <a name="example-templates"></a>Exemples de modèles
 
-Pour PowerShell, utilisez la commande suivante :
+Les modèles suivants illustrent plusieurs déploiements de groupes de ressources. Les scripts permettant de déployer les modèles sont indiqués après le tableau.
+
+|Modèle  |DESCRIPTION  |
+|---------|---------|
+|[Modèle à abonnements multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Déploie un compte de stockage vers un groupe de ressources et un autre compte de stockage vers un deuxième groupe de ressources. Incluez une valeur pour l’ID d’abonnement lorsque le deuxième groupe de ressources se trouve dans un autre abonnement. |
+|[Modèle à propriétés de groupe de ressources multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Montre la résolution de la fonction `resourceGroup()`. Il ne déploie aucune ressource. |
+
+### <a name="powershell"></a>PowerShell
+
+Pour PowerShell, déployez deux comptes de stockage sur deux groupes de ressources dans le **même abonnement** en utilisant :
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus
+```
+
+Pour PowerShell, déployez deux comptes de stockage sur **deux abonnements** en utilisant :
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+$firstSub = "<first-subscription-id>"
+$secondSub = "<second-subscription-id>"
+
+Select-AzureRmSubscription -Subscription $secondSub
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+Select-AzureRmSubscription -Subscription $firstSub
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus `
+  -secondSubscriptionID $secondSub
+```
+
+Pour PowerShell, testez la résolution de **l’objet groupe de ressources** pour le modèle parent, le modèle inline et le modèle lié en utilisant :
 
 ```powershell
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -244,7 +223,46 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
-Pour l’interface de ligne de commande Azure, consultez :
+### <a name="azure-cli"></a>Azure CLI
+
+Pour Azure CLI, déployez deux comptes de stockage sur deux groupes de ressources dans le **même abonnement** en utilisant :
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+az group create --name $firstRG --location southcentralus
+az group create --name $secondRG --location eastus
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
+```
+
+Pour Azure CLI, déployez deux comptes de stockage sur **deux abonnements** en utilisant :
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+firstSub="<first-subscription-id>"
+secondSub="<second-subscription-id>"
+
+az account set --subscription $secondSub
+az group create --name $secondRG --location eastus
+
+az account set --subscription $firstSub
+az group create --name $firstRG --location southcentralus
+
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
+```
+
+Pour Azure CLI, testez la résolution de **l’objet groupe de ressources** pour le modèle parent, le modèle inline et le modèle lié en utilisant :
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -257,7 +275,7 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).

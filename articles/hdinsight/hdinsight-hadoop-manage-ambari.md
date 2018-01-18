@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari
 
@@ -32,7 +32,7 @@ Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Am
 
 ## <a id="whatis"></a>Présentation d'Ambari
 
-[Apache Ambari](http://ambari.apache.org) simplifie la gestion d’Hadoop grâce à une interface utilisateur web facile à utiliser. Vous pouvez utiliser Ambari pour créer, gérer et surveiller les clusters Hadoop. Les développeurs peuvent intégrer ces fonctionnalités dans leurs applications à l’aide des [API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) simplifie la gestion d’Hadoop grâce à une interface utilisateur web facile à utiliser. Vous pouvez utiliser Ambari pour gérer et surveiller les clusters Hadoop. Les développeurs peuvent intégrer ces fonctionnalités dans leurs applications à l’aide des [API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 L’interface utilisateur Web d’Ambari est fournie par défaut avec les clusters HDInsight utilisant le système d’exploitation Linux.
 
@@ -147,7 +147,7 @@ La sélection de l’un de ces liens ouvre un nouvel onglet dans votre navigateu
 > [!NOTE]
 > Si vous sélectionnez **Liens rapides** pour un service, une erreur « serveur introuvable » peut s’afficher. Si vous rencontrez cette erreur, vous devez utiliser un tunnel SSH lorsque vous utilisez **Liens rapides** pour ce service. Pour plus d’informations, consultez [Utilisation du tunneling SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="management"></a>Gestion
+## <a name="management"></a>gestion
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utilisateurs d'Ambari, groupes et autorisations
 
@@ -246,6 +246,6 @@ Les opérations Ambari suivantes ne sont pas prises en charge dans HDInsight :
 
 * __Déplacement du service Collecteur de métriques__. Quand vous affichez des informations sur le service Collecteur de métriques, l’une des actions disponibles à partir du menu Service Actions est __Move Metrics collector__. Cette opération n’est pas prise en charge avec HDInsight.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment utiliser [l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) avec HDInsight.

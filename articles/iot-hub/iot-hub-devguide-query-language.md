@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages
 
@@ -27,7 +27,7 @@ IoT Hub fournit un puissant langage de type SQL pour récupérer des information
 * Une introduction aux principales fonctionnalités du langage de requête d’IoT Hub
 * Une description détaillée du langage
 
-## <a name="device-twin-queries"></a>Requêtes de jumeaux d’appareil
+## <a name="device-twin-queries"></a>Requêtes de représentations d’appareil
 Des [jumeaux d’appareil][lnk-twins] peuvent contenir des objets JSON arbitraires tels que des balises (tags) et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux d’appareil.
 Par exemple, supposons que vos jumeaux d’appareil IoT Hub présentent la structure suivante :
 
@@ -35,6 +35,17 @@ Par exemple, supposons que vos jumeaux d’appareil IoT Hub présentent la struc
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ Cette requête de regroupement retourne un résultat similaire à l’exemple ci
         "status": "Error"
     }
 ]
+```
+
+Les requêtes de projection permettent aux développeurs de retourner uniquement les propriétés qui les intéressent. Par exemple, pour récupérer l’heure de la dernière activité de tous les appareils déconnectés, utilisez la requête suivante :
+
+```sql
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### <a name="c-example"></a>Exemple en code C#
@@ -460,22 +477,22 @@ Pour comprendre ce que signifie chaque symbole dans la syntaxe des expressions, 
 ### <a name="operators"></a>Opérateurs
 Les opérateurs suivants sont pris en charge :
 
-| Famille | Opérateurs |
+| Famille | Operators |
 | --- | --- |
 | Opérateurs arithmétiques |+, -, *, /, % |
 | Opérateurs logiques |AND, OR, NOT |
 | Opérateurs de comparaison |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Fonctions
+### <a name="functions"></a>Functions
 Lors des requêtes de jumeaux ou de travaux, la seule fonction prise en charge est :
 
-| Fonction | Description |
+| Fonction | DESCRIPTION |
 | -------- | ----------- |
 | IS_DEFINED(property) | Retourne une valeur booléenne indiquant si une valeur a été attribuée à la propriété (dont `null`). |
 
 Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont prises en charge :
 
-| Fonction | Description |
+| Fonction | DESCRIPTION |
 | -------- | ----------- |
 | ABS(x) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
 | EXP(x) | Retourne la valeur exponentielle de l'expression numérique spécifiée (e^x). |
@@ -488,7 +505,7 @@ Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont
 
 Dans les conditions d’itinéraire, les fonctions de vérification et de conversion de type suivantes sont prises en charge :
 
-| Fonction | Description |
+| Fonction | DESCRIPTION |
 | -------- | ----------- |
 | AS_NUMBER | Convertit la chaîne d’entrée en nombre. `noop` si l’entrée est un nombre ; `Undefined` si la chaîne ne représente pas un nombre.|
 | IS_ARRAY | Retourne une valeur booléenne indiquant si l’expression spécifiée est du type tableau. |
@@ -502,7 +519,7 @@ Dans les conditions d’itinéraire, les fonctions de vérification et de conver
 
 Dans les conditions d’itinéraire, les fonctions de chaîne suivantes sont prises en charge :
 
-| Fonction | Description |
+| Fonction | DESCRIPTION |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne. |
 | LENGTH(x) | Retourne le nombre de caractères de l’expression de chaîne spécifiée.|
@@ -514,7 +531,7 @@ Dans les conditions d’itinéraire, les fonctions de chaîne suivantes sont pri
 | ENDS_WITH(x, y) | Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde. |
 | CONTAINS(x,y) | Retourne une valeur booléenne indiquant si la première expression de chaîne contient la seconde. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez comment exécuter des requêtes dans vos applications à l’aide des [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -51,7 +51,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
 6. Attribuez un **Nom** d’affichage à l’affectation de stratégie. Dans le cas présent, utilisons *Require SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur la façon dont cette affectation de stratégie s’assure que tous les serveurs SQL créés dans cet environnement utilisent la version 12.0.
 7. Définissez le niveau tarifaire sur **Standard** pour vous assurer que la stratégie soit appliquée aux ressources existantes.
 
-   Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Étant donné qu’il s’agit d’une préversion limitée, nous n'avons pas encore publié de modèle tarifaire. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Étant donné qu’il s’agit d’une préversion limitée, nous n'avons pas encore publié de modèle tarifaire. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Sélectionnez **l’étendue** : l’abonnement (ou le groupe de ressources) précédemment enregistré. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources.
 
@@ -73,12 +73,12 @@ Maintenant que nous avons attribué la définition de stratégie, nous allons cr
    - Le nom de la définition de stratégie : *nécessite des références (SKU) de machines virtuelles inférieures à la série G*
    - La description de l’objectif de la définition de stratégie : cette définition de stratégie impose que toutes les machines virtuelles créées dans cette étendue possèdent des références (SKU) inférieures à la série G afin de réduire le coût.
    - L’abonnement où figurera la définition de stratégie : dans ce cas, notre définition de stratégie se trouvera dans **Advisor Analytics Capacity Dev**. La liste de vos abonnements sera différente.
-   - Écrivez le code json avec :
+   - Copiez le code json suivant et mettez-le à jour selon vos besoins avec :
       - Les paramètres de la stratégie.
       - Les règles/conditions de la stratégie, dans ce cas : la taille de la référence (SKU) de la machine virtuelle est égale à la série G
       - L’effet de la stratégie, dans ce cas – **Refuser**.
 
-    Voici à quoi le fichier json devrait ressembler
+    Le fichier json devrait ressembler à ce qui suit. Collez le code révisé dans le portail Azure.
 
     ```json
 {
@@ -390,7 +390,7 @@ Si vous prévoyez de continuer avec les didacticiels suivants, ne nettoyez pas l
 2. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) que vous venez de créer.
 3. Cliquez sur les points de suspension à la fin de la définition ou de l’affectation, puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez effectué avec succès les opérations suivantes :
 

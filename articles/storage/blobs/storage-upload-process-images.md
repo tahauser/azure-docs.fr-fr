@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d187e51cbb391ee1f34fb5934c8ae1868bb6244
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Charger des données d’image dans le cloud avec le Stockage Azure
 
@@ -38,7 +38,7 @@ Dans ce premier volet, vous apprenez à :
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources 
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
  
-L’exemple charge des images sur un conteneur Blob dans un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account#create). 
+L’exemple charge des images sur un conteneur Blob dans un compte de stockage Azure. Le compte de stockage Azure fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder. Créez un compte de stockage dans le groupe de ressources que vous avez créé à l’aide de la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
 > Dans la deuxième partie de ce didacticiel, vous utilisez des abonnements aux événements pour le Stockage Blob. Actuellement, ceux-ci ne sont pris en charge pour les comptes de Stockage Blob que dans l’Ouest du centre des États-Unis et les États-Unis de l’Ouest 2. En raison de cette restriction, vous devez créer un compte de stockage Blob, qui sera utilisé par l’exemple d’application pour stocker les images et les miniatures.   
@@ -69,7 +69,7 @@ az storage account create --name <blob_storage_account> \
  
 L’application utilise deux conteneurs dans le compte de stockage Blob. Les conteneurs s’apparentent à des dossiers et servent à stocker les objets Blob. C’est dans le conteneur _images_ que l’application charge les images pleine résolution. Dans l’une des parties suivantes de la série, une application de fonction Azure charge les miniatures d’images redimensionnées dans le conteneur _thumbs_. 
 
-Récupérez la clé du compte de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys#list). Vous utiliserez ensuite cette clé pour créer deux conteneurs avec la commande [az storage container create](/cli/azure/storage/container#create).  
+Récupérez la clé du compte de stockage avec la commande [az storage account keys list](/cli/azure/storage/account/keys#list). Vous utiliserez ensuite cette clé pour créer deux conteneurs avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
 Dans ce cas, `<blob_storage_account>` est le nom du compte de stockage Blob que vous avez créé. L’accès public aux conteneurs _images_ est défini sur `off`, celui des conteneurs _thumbs_ sur `container`. Le paramètre d’accès public `container` permet de rendre les miniatures visibles pour les personnes qui consultent la page web.
  
@@ -95,7 +95,7 @@ Notez le nom et la clé de votre compte de stockage Blob. L’exemple d’applic
 
 Un [plan App Service](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) spécifie l’emplacement, la taille et les fonctionnalités de la batterie de serveurs web qui héberge votre application. 
 
-Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#create). 
+Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create). 
 
 L’exemple suivant crée un plan App Service nommé `myAppServicePlan` dans le niveau tarifaire **Gratuit** : 
 
@@ -105,7 +105,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Créer une application web 
 
-L’application web offre un espace d’hébergement au code de l’exemple d’application qui est déployé à partir du référentiel d’exemples GitHub. Créez une [application web](../../app-service/app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#create).  
+L’application web offre un espace d’hébergement au code de l’exemple d’application qui est déployé à partir du référentiel d’exemples GitHub. Créez une [application web](../../app-service/app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#az_webapp_create).  
  
 Dans la commande suivante, remplacez`<web_app>` par un nom unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Si `<web_app>` n’est pas une valeur unique, un message d’erreur s’affiche : _Un site web portant le nom `<web_app>` existe déjà_. L’URL par défaut de l’application web est `https://<web_app>.azurewebsites.net`.  
 
@@ -115,7 +115,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Déployer l’exemple d’application à partir du référentiel GitHub 
 
-App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous allez déployer l’application web à partir d’un dépôt d’exemples GitHub public : [https://github.com/Azure-Samples/storage-blob-upload-from-webapp](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source#config). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
+App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
 
 L’exemple de projet contient une application [ASP.NET MVC](https://www.asp.net/mvc) qui accepte une image, l’enregistre dans un compte de stockage et affiche des images à partir d’un conteneur de miniatures. L’application web utilise les espaces de noms [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet)et [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) de la bibliothèque de client du Stockage Azure pour interagir avec le Stockage Azure. 
 
@@ -127,7 +127,7 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>Configurer les paramètres de l’application web 
 
-L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le Kit de développement logiciel (SDK) Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). 
+L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le Kit de développement logiciel (SDK) Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). 
 
 Dans la commande suivante, `<blob_storage_account>` est le nom de votre compte de stockage Blob et `<blob_storage_key>` la clé associée. Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.     
 
@@ -186,7 +186,7 @@ Les classes et méthodes suivantes sont utilisées dans la tâche précédente 
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Vérifier que l’image s’affiche dans le compte de stockage
 
-Connectez-vous à https://portal.azure.com. Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sous **vue d’ensemble**, sélectionnez le conteneur **images**.
+Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sous **vue d’ensemble**, sélectionnez le conteneur **images**.
 
 Vérifiez que l’image s’affiche dans le conteneur.
 
@@ -196,7 +196,7 @@ Vérifiez que l’image s’affiche dans le conteneur.
 
 Pour tester l’affichage des miniatures, vous allez charger une image dans le conteneur de miniatures afin de vérifier que l’application peut lire le conteneur de miniatures.
 
-Connectez-vous à https://portal.azure.com. Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sélectionnez **Conteneurs** sous **Service Blob** et sélectionnez le conteneur **thumbs**. Cliquez sur **Charger** pour ouvrir le volet **Charger des objets Blob**.
+Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sélectionnez **Conteneurs** sous **Service Blob** et sélectionnez le conteneur **thumbs**. Cliquez sur **Charger** pour ouvrir le volet **Charger des objets Blob**.
 
 Choisissez un fichier en utilisant le sélecteur de fichiers et sélectionnez **Charger**.
 
@@ -208,7 +208,7 @@ Dans le conteneur **thumbs**, sur le Portail Azure, sélectionnez l’image que 
 
 CDN peut être activé pour mettre en cache du contenu à partir de votre compte de stockage Azure. Même si cette procédure n’est pas décrite dans ce didacticiel, vous pouvez consulter la page [Intégrer un compte de stockage Azure à Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md) pour savoir comment activer le CDN avec votre compte de stockage Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans la première partie de la série, vous avez appris à configurer une application web qui interagit avec le stockage, et notamment à :
 

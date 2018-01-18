@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: cfd932fa87ffd40ffc6ac96ad72ae7eac31e0b98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: jeedes
+ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Didacticiel : intégration d’Azure Active Directory à Halosys
 
@@ -27,11 +28,11 @@ L’intégration de Halosys dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Halosys
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Halosys (via l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes à un emplacement central : le portail Azure Classic.
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Halosys, vous avez besoin des éléments suivants :
 
@@ -52,7 +53,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
 
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Halosys à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,22 +64,17 @@ Pour configurer l’intégration de Halosys à Azure AD, vous devez ajouter Hal
 
 **Pour ajouter Halosys à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
     ![Active Directory][1]
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
+    
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-4. Cliquez sur **Ajouter** en bas de la page.
-
-    ![Applications][3]
-
-5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.
-
-    ![Applications][4]
+    ![APPLICATIONS][3]
 
 6. Dans la zone de recherche, tapez **Halosys**.
 
@@ -100,106 +96,79 @@ Pour configurer et tester l’authentification unique Azure AD avec Halosys, vo
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test Halosys](#creating-a-halosys-test-user)** : pour avoir un équivalent de Britta Simon dans Halosys lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Classic et configurer l’authentification unique dans votre application Halosys.
+Dans cette section, vous allez activer l’authentification unique Azure AD dans le et configurer l’authentification unique dans votre application Halosys.
 
 
 **Pour configurer l’authentification unique Azure AD avec Halosys, procédez comme suit :**
 
-1. Dans le portail Classic, dans la page d’intégration d’application **Halosys**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
-     
-    ![Configurer l’authentification unique][6] 
+1. Dans le portail Azure, dans la page d’intégration de l’application **SCC LifeCycle**, cliquez sur **Authentification unique**.
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à Halosys**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+    ![Configure Single Sign-On][4]
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
 
-3. Sur la page **Configurer les paramètres d’application** , procédez comme suit :
+3. Dans la section **Domaine et URL Halosys**, procédez comme suit :
+    1. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
-
-    a. Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par les utilisateurs pour se connecter à votre application Halosys au format suivant : `https://<company-name>.Halosys.com/client-api/api`.
-
-    Dans la zone de texte **URL d’identificateur**, tapez l’URL au format suivant : `https://<company-name>.Halosys.com`.   
+    2. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
+    | |
+    |--|--|
+    | `https://bs1.hs.com/<entity>`|
+    | `https://lifecycle.hs.com/<entity>`|
+    
+    > [!NOTE] 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique SCC LifeCycle](mailto:lifecycle.support@scc.com). 
          
-4. Sur la page **Configurer l’authentification unique sur Halosys**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier sur votre ordinateur :
-
-    ![Configurer l’authentification unique](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_05.png)
+4. Dans la section **Certificat de signature SAML**, sélectionnez **Métadonnées XML** sous **Télécharger**, puis enregistrez le fichier de métadonnées sur votre ordinateur.
    
 5. Pour obtenir la configuration de l’authentification unique pour votre application, contactez l’équipe de support Halosys et fournissez-lui les éléments suivants :
 
-    • le fichier de **métadonnées téléchargé**
-    
-    • **L’URL d’authentification unique SAML**
+  * Le **fichier de métadonnées** téléchargé
+  * **L’URL SSO SAML**
     
 
-6. Dans le portail Azure Classic, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**.
-    
-    ![Authentification unique Azure AD][10]
-
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**.  
- 
-    ![Authentification unique Azure AD][11]
+  >[!NOTE]
+  >L’authentification unique doit être activée par l’équipe de support de Halosys.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Classic.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail.
 
 
 ![Créer un utilisateur Azure AD][20]
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail Azure Classic**, cliquez sur **Active Directory**.
+1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_09.png) 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
 
-2. Dans la liste **Annuaire** , sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+    
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**.
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_03.png) 
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+ 
+    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur l’option **Ajouter un utilisateur** figurant dans la barre d’outils du bas.
+    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
 
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
 
-5. Sur la page de boîte de dialogue **Dites-nous en plus sur cet utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, entrez **BrittaSimon**.
-
-    c. Cliquez sur **Suivant**.
-
-6.  Sur la page de boîte de dialogue **Profil utilisateur**, procédez comme suit : ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
-
-    a. Dans la zone de texte **First Name**, tapez **Britta**.  
-
-    b. Dans la zone de texte **Last Name**, tapez **Simon**.
-
-    c. Dans la zone de texte **Nom d’affichage**, entrez **Britta Simon**.
-
-    d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
-
-    e. Cliquez sur **Suivant**.
-
-7. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire**, cliquez sur **créer**.
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_07.png) 
-
-8. Sur la page de boîte de dialogue **Obtenir un mot de passe temporaire** , procédez comme suit :
-
-    ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_08.png) 
-
-    a. Notez la valeur du **Nouveau mot de passe**.
-
-    b. Cliquez sur **Terminé**.   
-
+    d. Cliquez sur **Créer**.
 
 
 ### <a name="creating-a-halosys-test-user"></a>Création d’un utilisateur de test Halosys
@@ -215,30 +184,31 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 **Pour affecter Britta Simon à Halosys, procédez comme suit :**
 
-1. Pour ouvrir la vue des applications dans le portail Azure Classic, dans la vue d’annuaire, cliquez sur l’option **Applications** figurant dans le menu du haut.
+1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des annuaires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
 2. Dans la liste des applications, sélectionnez **Halosys**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_50.png) 
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-3. Dans le menu situé en haut, cliquez sur **Utilisateurs**.
+    ![Affecter des utilisateurs][202] 
+
+4. Cliquez sur le bouton **Add** . Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Affecter des utilisateurs][203]
 
-4. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-5. Dans la barre d’outils située en bas, cliquez sur **Attribuer**.
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-    ![Affecter des utilisateurs][205]
-
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
 
 ### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Halosys dans le volet d’accès, vous devez être connecté automatiquement à votre application Halosys.
+Lorsque vous cliquez sur la vignette Halosys dans le volet d’accès, vous devez être connecté automatiquement à votre application Halosys. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
@@ -261,6 +231,8 @@ Lorsque vous cliquez sur la vignette Halosys dans le volet d’accès, vous deve
 
 [200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
+ 

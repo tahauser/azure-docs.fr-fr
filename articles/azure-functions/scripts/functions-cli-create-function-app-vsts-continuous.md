@@ -1,32 +1,32 @@
 ---
-title: "Créer une Function App et déployer le code de fonction à partir de Visual Studio Team Services | Microsoft Docs"
+title: "Créer une fonction déployée à partir de Visual Studio Team Services dans Azure | Microsoft Docs"
 description: "Créer une Function App et déployer le code de fonction à partir de Visual Studio Team Services"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 5851b5219b6e25a5a2b005fc3d3c3b44d98ed746
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Créer un App Service
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Créer une fonction déployée à partir de Visual Studio Team Services dans Azure
 
-Dans ce scénario, vous allez apprendre à créer une Function App à l’aide du [plan de consommation](../functions-scale.md#consumption-plan) avec les ressources associées, et à déployer en continu votre code de fonction à partir d’un référentiel Visual Studio Team Services (VSTS). Pour cet exemple, vous avez besoin des éléments suivants :
+Cette rubrique vous explique comment utiliser Azure Functions pour créer une application de fonction [serverless](https://azure.microsoft.com/overview/serverless-computing/) à l’aide du [plan de consommation](../functions-scale.md#consumption-plan). L’application de fonction, qui est un conteneur pour vos fonctions, est déployée en continu à partir d’un référentiel de Visual Studio Team Services (VSTS). Dans le cadre de cette rubrique, vous avez besoin des éléments suivants :
 
-* Un référentiel VSTS avec du code de fonction, pour lequel vous disposez d’autorisations d’administration.
-* Un [jeton d’accès personnel](https://help.github.com/articles/creating-an-access-token-for-command-line-use) pour votre compte GitHub.
+* Un référentiel VSTS contenant votre projet d’application de fonction et pour lequel vous disposez des autorisations d’administration nécessaires
+* Un [jeton d’accès personnel (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) permettant d’accéder à votre référentiel VSTS
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous préférez utiliser Azure CLI localement, vous devez installer et utiliser la version 2.0 ou une version ultérieure. Pour déterminer la version Azure CLI, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -38,16 +38,16 @@ Cet exemple crée une Function App Azure et déploie le code de la fonction à p
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour créer un groupe de ressources, une application web, une instance DocumentDB et toutes les ressources associées. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes pour créer un groupe de ressources, un compte de stockage, une application de fonction et toutes les ressources associées. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crée un plan App Service. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associe une Function App à un référentiel Git ou Mercurial. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

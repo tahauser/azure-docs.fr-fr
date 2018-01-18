@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Calculs d’évaluation
 
@@ -47,10 +47,11 @@ Les machines à migrer vers Azure doivent respecter les limitations et les exige
 
 Une fois que la machine est marquée comme adaptée à Azure, Azure Migrate le mappe à une taille de machine virtuelle dans Azure, selon les critères suivants :
 
-- **Vérification de stockage** : Azure Migrate s’efforce de mapper chaque disque attaché à la machine avec un disque dans Azure : - Azure Migrate multiplie les E/S par seconde (IOPS) par le facteur de confort. Il multiplie également le débit (en Mbit/s) de chaque disque par le facteur de confort. Il obtient ainsi les IOPS et le débit effectifs du disque. Sur cette base, Azure Migrate mappe le disque avec un disque Standard ou Premium dans Azure.
-    - Si le service ne parvient pas à trouver un disque avec les IOPS et le débit requis, il marque la machine comme inadaptée à Azure.
-    - S’il trouve un ensemble de disques adaptés, Azure Migrate sélectionne ceux qui prennent en charge la méthode de redondance du stockage et l’emplacement spécifié dans les paramètres d’évaluation.
-    - Si plusieurs disques sont éligibles, il sélectionne celui dont le coût est le plus bas.
+- **Vérification de stockage** : Azure Migrate s’efforce de mapper chaque disque attaché à la machine avec un disque dans Azure :
+    - Azure Migrate multiplie les E/S par seconde (IOPS) par le facteur de confort. Il multiplie également le débit (en Mbit/s) de chaque disque par le facteur de confort. Il obtient ainsi les IOPS et le débit effectifs du disque. Sur cette base, Azure Migrate mappe le disque avec un disque Standard ou Premium dans Azure.
+      - Si le service ne parvient pas à trouver un disque avec les IOPS et le débit requis, il marque la machine comme inadaptée à Azure.
+      - S’il trouve un ensemble de disques adaptés, Azure Migrate sélectionne ceux qui prennent en charge la méthode de redondance du stockage et l’emplacement spécifié dans les paramètres d’évaluation.
+      - Si plusieurs disques sont éligibles, il sélectionne celui dont le coût est le plus bas.
 - **Débit du disque de stockage** : cliquez [ici](../azure-subscription-service-limits.md#storage-limits) pour en savoir plus sur les limites d’Azure par disque et par machine virtuelle.
 - **Type de disque** : Azure Migrate prend uniquement en charge les disques managés.
 - **Vérification du réseau** : Azure Migrate s’efforce de trouver une machine virtuelle Azure capable de prendre en charge le nombre de cartes réseau présentes sur la machine locale.
@@ -73,6 +74,6 @@ Une fois les recommandations de dimensionnement terminées, Azure Migrate calcul
 Les coûts sont affichés dans la devise spécifiée dans les paramètres d’évaluation. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Configurer une évaluation pour des machines virtuelles VMware locales](tutorial-assessment-vmware.md)

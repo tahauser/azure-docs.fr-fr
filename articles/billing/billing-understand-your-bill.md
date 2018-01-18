@@ -1,5 +1,5 @@
 ---
-title: Comprendre votre facture Azure | Microsoft Docs
+title: Comprendre votre facture pour Azure
 description: "Apprenez à lire et à comprendre votre utilisation et la facturation de votre abonnement Azure"
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le portail Azure.
@@ -34,9 +34,8 @@ Pour les termes et descriptions détaillés de votre facture et de votre fichier
 Pour plus d’informations sur les rapports de gestion des coûts, consultez [Gestion des coûts sur le portail Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Comment m’assurer que les frais indiqués sur ma facture sont corrects ?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Si vous voulez plus de détails sur des frais indiqués sur votre facture, vous disposez de deux options.
 
@@ -49,8 +48,8 @@ Vos frais d’utilisation sont affichés au niveau du compteur. Les termes suiva
  | Facture (PDF) | Utilisation détaillée (CSV)|
  | --- | --- |
 |Cycle de facturation | Période de facturation |
- |Nom |Catégorie du compteur |
- |Type |Sous-catégorie du compteur |
+ |NOM |Catégorie du compteur |
+ |type |Sous-catégorie du compteur |
  |Ressource |Nom du compteur |
  |Région |Région du compteur |
  |Consommé |Quantité consommée |

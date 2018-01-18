@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -37,7 +37,7 @@ Pour qu’une application de fonction envoie des données à Application Insight
 
 * [Créer une instance d’Application Insights connectée quand vous créez l’application de la fonction](#new-function-app).
 * [Connecter une instance d’Application Insights à une application de fonction existante](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Nouvelle application de fonction
 
 Activer Application Insights dans la page Function App **Créer** :
@@ -65,6 +65,14 @@ Obtenir la clé d’instrumentation et l’enregistrer dans une application de f
    ![Ajouter la clé d’instrumentation aux paramètres de l’application](media/functions-monitoring/add-ai-key.png)
 
 1. Cliquez sur **Enregistrer**.
+
+## <a name="disable-built-in-logging"></a>Désactiver la journalisation intégrée
+
+Si vous activez Application Insights, nous vous conseillons de désactiver la [journalisation intégrée qui utilise le stockage Azure](#logging-to-storage). La journalisation intégrée permet de tester des charges de travail légères, mais n’est pas destinée à une utilisation en production avec des charges importantes. Application Insights est recommandé pour surveiller la production. Si la journalisation intégrée est utilisée en production, l’enregistrement de journal peut être incomplet en raison d’une limitation du stockage Azure.
+
+Pour désactiver la journalisation intégrée, supprimez le paramètre d’application `AzureWebJobsDashboard`. Pour plus d’informations sur la suppression de paramètres d’application dans le portail Azure, consultez la section **Paramètres de l’application** dans [Comment gérer une application de fonction dans le portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Lorsque vous activez Application Insights et désactivez la journalisation intégrée, l’onglet **Surveiller** d’une fonction dans le portail Azure vous amène à Application Insights.
 
 ## <a name="view-telemetry-data"></a>Afficher les données de télémétrie
 
@@ -149,11 +157,11 @@ L’enregistreur d’événements d’Azure Functions inclut également un *nive
 |------------|---|
 |Trace       | 0 |
 |Déboguer       | 1 |
-|Information | 2 |
+|Informations | 2 |
 |Avertissement     | 3 |
-|Error       | 4 |
+|Erreur       | 4 |
 |Critique    | 5 |
-|Aucun        | 6 |
+|Aucune        | 6 |
 
 Le niveau de journal `None` est expliqué dans la section suivante. 
 
@@ -464,58 +472,41 @@ Pour signaler un problème avec l’intégration d’Application Insights dans A
 
 ## <a name="monitoring-without-application-insights"></a>Surveillance sans Application Insights
 
-Nous recommandons Application Insights pour surveiller les fonctions, car il offre plus de données et de meilleurs moyens de les analyser. Toutefois, vous pouvez également trouver des données de télémétrie et de journalisation dans les pages du portail Azure pour une application de fonction. 
+Nous recommandons Application Insights pour surveiller les fonctions, car il offre plus de données et de meilleurs moyens de les analyser. Toutefois, vous pouvez également trouver des données de télémétrie et de journalisation dans les pages du portail Azure pour une application de fonction.
 
-Sélectionnez l’onglet **Surveiller** associé à une fonction afin d’obtenir la liste des exécutions de la fonction. Sélectionnez une exécution de fonction pour consulter la durée, les données d’entrée, les erreurs et les fichiers journaux associés.
+### <a name="logging-to-storage"></a>Journalisation dans le stockage
 
-> [!IMPORTANT]
-> Lorsque vous utilisez le [plan de consommation d’hébergement](functions-overview.md#pricing) pour Azure Functions, la vignette **Surveillance** de l’application de fonction n’affiche pas toutes les données. Cela est dû au fait que la plateforme s’adapte dynamiquement et gère les instances de calcul pour vous. Ces métriques n’ont pas d’intérêt pour le plan de consommation.
+La journalisation intégrée utilise le compte de stockage spécifié par la chaîne de connexion dans le paramètre d’application `AzureWebJobsDashboard`. Si ce paramètre d’application est configuré, vous pouvez voir les données de journalisation dans le portail Azure. Dans la page d’une application de fonction, sélectionnez une fonction, puis l’onglet **Surveiller** pour obtenir la liste des exécutions de la fonction. Sélectionnez une exécution de fonction pour consulter la durée, les données d’entrée, les erreurs et les fichiers journaux associés.
+
+Si vous utilisez Application Insights et que vous avez désactivé la [journalisation intégrée](#disable-built-in-logging), l’onglet **Surveiller** vous renvoie à Application Insights.
 
 ### <a name="real-time-monitoring"></a>Surveillance en temps réel
 
-Pour accéder à la surveillance en temps réel, cliquez sur **Flux d’événements en direct** sous l’onglet **Surveiller** associé à la fonction. Le flux d’événements en direct s’affiche sous forme de graphe sous un nouvel onglet du navigateur.
+Vous pouvez diffuser des fichiers journaux à une session de ligne de commande sur une station de travail locale, à l’aide de l’[interface de ligne de commande Azure (CLI) 2.0](/cli/azure/install-azure-cli) ou d’[Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Il existe un problème connu qui peut provoquer l’échec du remplissage de vos données. Vous devrez peut-être fermer l’onglet du navigateur contenant le flux d’événements en direct, puis cliquer à nouveau sur **Flux d’événements en direct** pour lui permettre de remplir correctement vos données de flux de données d’événement. 
-
-Ces statistiques sont en temps réel, mais les graphiques réels des données d’exécution peuvent avoir une latence d’environ 10 secondes.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Surveiller les fichiers journaux à partir d’une ligne de commande
-
-Vous pouvez diffuser des fichiers journaux vers une session de ligne de commande sur une station de travail locale à l’aide de l’interface de ligne de commande Azure (CLI) 1.0 ou PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Surveiller les fichiers journaux d’application de fonction avec Azure CLI 1.0
-
-Pour commencer, [installez Azure CLI 1.0](../cli-install-nodejs.md) et [connectez-vous à Azure](/cli/azure/authenticate-azure-cli).
-
-Utilisez les commandes suivantes pour activer le mode de gestion des services classique, choisir votre abonnement et diffuser les fichiers journaux :
+Dans l’interface de ligne de commande Azure CLI 2.0, utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser les fichiers journaux :
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Surveiller les fichiers journaux d’application de fonction avec PowerShell
-
-Pour commencer, [installez et configurez Azure PowerShell](/powershell/azure/overview).
-
-Utilisez les commandes suivantes pour ajouter votre compte Azure, choisir votre abonnement et diffuser les fichiers journaux :
+Dans Azure PowerShell, utilisez les commandes suivantes pour ajouter votre compte Azure, choisir votre abonnement et diffuser les fichiers journaux :
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Pour plus d’informations, consultez [Diffusion en continu des journaux](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Pour plus d’informations, consultez [Diffusion en continu des journaux](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-> [!div class="nextstepaction"]
-> [En savoir plus sur Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Pour plus d’informations, consultez les ressources suivantes :
 
-> [!div class="nextstepaction"]
-> [En savoir plus sur le framework de journalisation utilisé par Azure Functions](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [Journalisation ASP.NET Core](/aspnet/core/fundamentals/logging/)

@@ -3,25 +3,32 @@ title: "Qu’est-ce que Azure Time Series Insights ? | Microsoft Docs"
 description: "Présentation d’Azure Time Series Insights, un nouveau service d’analyse de données de série chronologique et de solutions IoT."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Qu’est-ce que Azure Time Series Insights ?
 
 Time Series Insights est pensé pour le stockage, la visualisation et l’interrogation de grandes quantités de données de série chronologique, comme celles générées par les appareils IoT.  Si vous souhaitez stocker, gérer, interroger ou visualiser des données de série chronologique dans le cloud, Time Series Insights est probablement la solution que vous cherchez.  
 
-Si vous créez une application, pour consommation interne ou pour des clients externes, vous pouvez utiliser Time Series Insights comme un serveur principal pour l’indexation, le stockage et l’agrégation des données de série chronologique.  Vous pouvez créer une visualisation et une expérience utilisateur personnalisées en plus.  Time Series Insights expose des API REST pour permettre ce scénario.  
+Time Series Insights a quatre tâches principales :
+
+- Tout d’abord, il s’intègre entièrement à des passerelles cloud comme Azure IoT Hub et Azure Event Hubs. Il se connecte facilement à ces sources d’événements et analyse le JSON des messages et des structures qui comportent des données dans des colonnes et des lignes propres. Il joint des métadonnées aux données de télémétrie et indexe les données dans un magasin orienté colonnes.
+- Ensuite, Time Series Insights gère le stockage des données. Pour que les données soient toujours faciles d’accès, il peut les stocker en mémoire et sur SSD jusqu’à 400 jours. Vous pouvez interroger de manière interactive des milliards d’événements en quelques secondes, à la demande.
+- Troisièmement, Time Series Insights offre une visualisation prête à l’emploi grâce à l’explorateur TSI.  
+- Quatrièmement, Time Series Insights propose un service de requête, à la fois dans l’explorateur TSI et par le biais d’API faciles à intégrer, pour intégrer les données de série chronologique dans des applications personnalisées.  
+
+Si vous créez une application, en vue d’une utilisation en interne ou pour des clients externes, vous pouvez utiliser Time Series Insights comme serveur principal pour l’indexation, le stockage et l’agrégation des données de série chronologique. Vous pouvez créer une visualisation et une expérience utilisateur personnalisées en plus.  Time Series Insights expose des API Query pour permettre ce scénario.  
 
 Si vous ne savez pas si vos données sont de série chronologique, voici ce que vous devez savoir.  Les données de série chronologique représentent la façon dont un élément multimédia ou un processus changent au fil du temps.  Elles sont uniques en cela qu’elles ont un horodatage et que l’heure est plus explicite sous forme d’axe.  En général, les données de série chronologique arrivent dans un ordre chronologique et sont considérées comme une instruction insert, plutôt qu’une mise à jour pour votre base de données.  Étant donné que Time Series Insights capture et stocke chaque nouvel événement sous la forme d’une ligne, le changement est mesuré dans le temps, ce qui vous permet de voir les valeurs passées et de prévoir les futurs changements.  Dans des volumes importants, le stockage, l’indexation, l’interrogation, l’analyse et la visualisation des données de série chronologique peuvent être difficiles.  
 
@@ -62,7 +69,7 @@ La prise en main prend moins de 5 minutes.
 Ce diagramme illustre un exemple de données de série chronologique Time Series Insights affichées au moyen de l’Explorateur : ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
  - [Découvrir l’Explorateur Time Series Insights dans un environnement de démonstration](./time-series-quickstart.md)
  - [Sélectionner votre environnement Time Series Insights](time-series-insights-environment-planning.md)
 

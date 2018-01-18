@@ -7,20 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Déployer Azure IoT Edge sur un appareil simulé dans Linux - préversion
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Déployer Azure IoT Edge sur un appareil simulé dans Linux ou MacOS : préversion
 
-Azure IoT Edge vous permet d’effectuer une analyse et un traitement des données sur vos appareils, au lieu de transférer toutes les données vers le cloud. Les didacticiels IoT Edge montrent comment déployer différents types de modules, construits à partir des services Azure ou d'un code personnalisé, mais vous avez besoin au préalable d’un appareil à tester. 
+Azure IoT Edge vous permet d’analyser et de traiter les données sur vos appareils, au lieu d’envoyer (push) toutes les données dans le cloud. Les didacticiels IoT Edge décrivent comment déployer différents types de modules, créés à partir des services Azure ou d'un code personnalisé, mais vous devez d’abord avoir un appareil à tester. 
 
-Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 1. Création d’un IoT Hub
 2. Enregistrer un appareil IoT Edge
@@ -31,12 +31,16 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
 L’appareil simulé que vous créez dans ce didacticiel est un moniteur qui génère des données de pression, d’humidité et de température. Les autres didacticiels Azure IoT Edge s’appuient sur le travail que vous effectuez en déployant des modules qui analysent les données des informations métier. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
-Ces didacticiels partent du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Linux pour simuler un appareil Internet des Objets (IoT). Les services suivants sont requis pour déployer avec succès un appareil IoT Edge :
+Ce didacticiel utilise votre ordinateur ou machine virtuelle comme un appareil Internet des objets. Pour faire de votre machine un appareil IoT Edge, les services suivants sont requis :
 
-- [Installez Docker pour Linux][lnk-docker-ubuntu] et assurez-vous qu’il s’exécute correctement. 
-- Python 2.7 est déjà installé sur la plupart des distributions Linux, y compris Ubuntu. Utilisez la commande suivante pour vous assurer que pip est installé : `sudo apt-get install python-pip`.
+* Python pip, pour installer le runtime IoT Edge.
+   * Linux : `sudo apt-get install python-pip`.
+   * MacOS : `sudo easy_install pip`.
+* Docker, pour exécuter les modules IoT Edge
+   * [Installez Docker pour Linux][lnk-docker-ubuntu] et assurez-vous qu’il s’exécute correctement. 
+   * [Installez Docker pour Mac][lnk-docker-mac] et assurez-vous qu’il s’exécute correctement. 
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -57,7 +61,7 @@ Inscrivez l’appareil IoT Edge avec votre IoT Hub récemment créé.
 Installez et démarrez le runtime Azure IoT Edge sur votre appareil. 
 ![Inscrire un appareil][5]
 
-Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend deux modules. L’**agent IoT Edge** facilite le déploiement et le monitoring des modules sur l’appareil IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. Lorsque vous configurez le runtime sur votre nouvel appareil, seul l’agent IoT Edge démarre dans un premier temps. Le hub IoT Edge est fourni ultérieurement lorsque vous déployez un module. 
+Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend deux modules. L’**agent IoT Edge** facilite le déploiement et le monitoring des modules sur l’appareil IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub. Quand vous configurez le runtime sur votre nouvel appareil, seul l’agent IoT Edge démarre dans un premier temps. Le hub IoT Edge intervient plus tard quand vous déployez un module. 
 
 Sur l’ordinateur où vous allez exécuter l’appareil IoT Edge, téléchargez le script de contrôle IoT Edge :
 ```cmd
@@ -79,7 +83,7 @@ Vérifiez dans Docker que l’agent IoT Edge est en cours d’exécution en tant
 sudo docker ps
 ```
 
-![Voir edgeAgent dans Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
+![Consulter edgeAgent dans Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Déployer un module
 
@@ -92,7 +96,7 @@ Gérez votre appareil Azure IoT Edge depuis le cloud pour déployer un module qu
 
 Dans ce didacticiel, vous avez créé un appareil IoT Edge et installé le runtime IoT Edge. Puis vous avez utilisé le portail Azure pour transmettre un module IoT Edge afin de l’exécuter sur l’appareil sans avoir à apporter des modifications à l’appareil lui-même. Dans ce cas, le module que vous transmettez crée des données environnementales que vous pouvez utiliser pour les didacticiels. 
 
-Ouvrez l’invite de commandes sur l’ordinateur exécutant votre appareil simulé à nouveau. Confirmez que le module déployé à partir du cloud est en cours d’exécution sur votre appareil IoT Edge :
+Rouvrez l’invite de commandes sur l’ordinateur qui exécute votre appareil simulé. Confirmez que le module déployé à partir du cloud est en cours d’exécution sur votre appareil IoT Edge :
 
 ```cmd
 sudo docker ps
@@ -106,11 +110,11 @@ Afficher les messages envoyés du module tempSensor vers le cloud :
 sudo docker logs -f tempSensor
 ```
 
-![Afficher les données à partir de votre module](./media/tutorial-simulate-device-linux/docker-logs.png)
+![Afficher les données dans votre module](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Vous pouvez également afficher les données de télémétrie que l’appareil envoie à l’aide de l’[outil Explorateur d’IoT Hub][lnk-iothub-explorer]. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez créé un nouvel appareil IoT Edge et utilisé l’interface de cloud d’Azure IoT Edge pour déployer du code sur l’appareil. Vous possédez désormais un appareil simulé générant des données brutes sur son environnement. 
 
@@ -130,4 +134,5 @@ Ce didacticiel constitue une étape nécessaire pour suivre tous les autres dida
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

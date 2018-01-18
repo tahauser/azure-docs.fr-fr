@@ -1,5 +1,5 @@
 ---
-title: "Créer une application web PHP et MySQL dans Azure | Microsoft Docs"
+title: "Créer une application web PHP et MySQL dans Azure App Service sur Linux | Microsoft Docs"
 description: "Découvrez comment faire fonctionner une application PHP dans Azure en établissant une connexion à une base de données MySQL dans Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -12,19 +12,23 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Créer une application web PHP et MySQL dans Azure
+# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Créer une application web PHP et MySQL dans Azure App Service sur Linux
+
+> [!NOTE]
+> Cet article explique le déploiement d’une application sur App Service sous Linux. Pour déployer vers App Service sur _Windows_, consultez [Créer une application web PHP et MySQL dans Azure](../app-service-web-tutorial-php-mysql.md).
+>
 
 [App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web PHP et comment la connecter à une base de données MySQL. Une fois terminé, vous disposerez d’une application [Laravel](https://laravel.com/) s’exécutant dans App Service sur Linux.
 
 ![Application PHP exécutée dans Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure
@@ -32,9 +36,9 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Déploiement de l’application dans Azure
 > * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffusion des journaux de diagnostic à partir d’Azure
-> * Gestion de l’application dans le portail Azure
+> * Gérer l’application dans le portail Azure
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel :
 
@@ -85,7 +89,7 @@ Dans cette étape, vous allez créer un exemple d’application Laravel, configu
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel.
+Exécutez la commande suivante pour cloner l’exemple de référentiel :
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
@@ -131,7 +135,7 @@ Générez une nouvelle clé d’application Laravel.
 php artisan key:generate
 ```
 
-Exécutez l’application.
+Exécutez l'application.
 
 ```bash
 php artisan serve
@@ -155,12 +159,12 @@ Dans cette étape, vous allez créer une base de données MySQL dans [Azure Data
 
 ### <a name="create-a-mysql-server"></a>Création d’un serveur MySQL
 
-Créez un serveur Azure Database pour MySQL (préversion) avec la commande [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create).
+Créez un serveur Azure Database pour MySQL (préversion) avec la commande [az mysql server create](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 Dans la commande suivante, indiquez le nom unique de votre propre serveur MySQL là où se trouve l’espace réservé _&lt;mysql_server_name>_ (les caractères valides sont `a-z`, `0-9` et `-`). Ce nom fait partie du nom d’hôte du serveur MySQL (`<mysql_server_name>.database.windows.net`) et doit donc être globalement unique.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant :
@@ -180,7 +184,7 @@ Lorsque le serveur MySQL est créé, l’interface Azure CLI affiche des inform
 
 ### <a name="configure-server-firewall"></a>Configuration d’un pare-feu de serveur
 
-Créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create).
+Créez une règle de pare-feu pour votre serveur MySQL afin d’autoriser les connexions client à l’aide de la commande [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -198,7 +202,7 @@ Dans la fenêtre de terminal, connectez-vous au serveur MySQL dans Azure. Utilis
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Lorsqu’une invite de mot de passe apparaît, utilisez _$tr0ngPa$w0rd!_, que vous avez spécifié lors de la création de la base de données.
+Lorsqu’une invite de mot de passe apparaît, utilisez _$tr0ngPa$w0rd!_, que vous avez spécifié lors de la création du serveur de base de données.
 
 ### <a name="create-a-production-database"></a>Création d’une base de données de production
 
@@ -239,7 +243,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
@@ -331,7 +335,7 @@ Dans cette étape, vous allez déployer l’application PHP connectée à MySQL 
 
 ### <a name="configure-database-settings"></a>Configuration des paramètres de la base de données
 
-Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
+Dans App Service, vous définissez les variables d’environnement en tant que _paramètres d’application_ à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
 La commande suivante configure les paramètres d’application `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` et `DB_PASSWORD`. Remplacez les espaces réservés _&lt;appname>_ et _&lt;mysql_server_name>_.
 
@@ -363,7 +367,7 @@ Utilisez `php artisan` pour générer une nouvelle clé d’application sans l�
 php artisan key:generate --show
 ```
 
-Définissez la clé d’application dans l’application web App Service en utilisant la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). Remplacez les espaces réservés _&lt;appname>_ et _&lt;outputofphpartisankey:generate>_.
+Définissez la clé d’application dans l’application web App Service en utilisant la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Remplacez les espaces réservés _&lt;appname>_ et _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -375,7 +379,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Définissez le chemin d’accès de l’application virtuelle pour l’application web. Cette étape est requise car le [cycle de vie de l’application Laravel](https://laravel.com/docs/5.4/lifecycle) commence dans le répertoire _public_ et non pas dans le répertoire racine de votre application. Les autres infrastructures PHP dont le cycle de vie démarre dans le répertoire racine peuvent fonctionner sans configuration manuelle du chemin d’accès à l’application virtuelle.
 
-Définissez le chemin d’accès à l’application virtuelle en utilisant la commande [az resource update](/cli/azure/resource#az_resource_update). Remplacez l’espace réservé _&lt;appname>_.
+Définissez le chemin d’accès à l’application virtuelle en utilisant la commande [az resource update](/cli/azure/resource?view=azure-cli-latest#az_resource_update). Remplacez l’espace réservé _&lt;appname>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -592,9 +596,9 @@ Le menu de gauche fournit des pages vous permettant de configurer votre applicat
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure

@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -59,7 +60,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Élément | Description |
+| Élément | DESCRIPTION |
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://localhost:50342/oauth2/token` | Le point de terminaison MSI, où 50342 est le numéro de port par défaut (configurable). |
@@ -82,7 +83,7 @@ Content-Type: application/json
 }
 ```
 
-| Élément | Description |
+| Élément | DESCRIPTION |
 | ------- | ----------- |
 | `access_token` | Le jeton d’accès demandé. Lors de l’appel d’une API REST sécurisée, le jeton est incorporé dans le champ d’en-tête de requête `Authorization` comme un jeton « du porteur », autorisant l’API à authentifier l’appelant. | 
 | `refresh_token` | Non utilisé par MSI. |
@@ -252,7 +253,7 @@ Le point de terminaison MSI signale des erreurs via le champ de code d’état d
 
 Si une erreur se produit, le corps de réponse HTTP correspondant contient des données JSON avec les détails de l’erreur :
 
-| Élément | Description |
+| Élément | DESCRIPTION |
 | ------- | ----------- |
 | error   | Identificateur de l’erreur. |
 | error_description | Description détaillée de l’erreur. **Les descriptions des erreurs peuvent changer à tout moment. N’écrivez pas de codes créant des branches en fonction des valeurs dans la description de l’erreur.**|

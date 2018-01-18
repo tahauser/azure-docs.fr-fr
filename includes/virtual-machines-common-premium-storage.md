@@ -60,7 +60,7 @@ Voici certaines des fonctionnalités du stockage Premium :
     Azure utilise votre compte de stockage comme conteneur pour vos disques non gérés. Lorsque vous créez une machine virtuelle Azure de série DS, DSv2, GS ou Fs avec des disques non gérés et que vous sélectionnez un compte de stockage Premium, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
 
 ## <a name="supported-vms"></a>Machines virtuelles prises en charge
-Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS, Ls et Fs. Vous pouvez utiliser des disques de stockage Standard et Premium avec ces types de machines virtuelles. Vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles qui ne sont pas compatibles avec le stockage Premium.
+Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS, Ls, Fs et B. Vous pouvez utiliser des disques de stockage Standard et Premium avec ces types de machines virtuelles. Vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles qui ne sont pas compatibles avec le stockage Premium.
 
 Pour plus d’informations sur les types et les tailles de machines virtuelles dans Azure pour Windows, consultez [Tailles des machines virtuelles Windows](../articles/virtual-machines/windows/sizes.md). Pour plus d’informations sur les types et les tailles de machines virtuelles dans Azure pour Linux, consultez [Tailles des machines virtuelles Linux](../articles/virtual-machines/linux/sizes.md).
 
@@ -87,7 +87,7 @@ Voici quelques-unes des fonctionnalités des machines virtuelles des séries DS,
 
     Les machines virtuelles de la gamme de taille prenant en charge le stockage Premium ont une capacité de mise en cache unique des niveaux élevés de débit et de latence. La fonctionnalité de mise en cache dépasse les performances de disque de stockage Premium sous-jacent. Vous pouvez définir la stratégie de mise en cache du disque sur les disques de stockage Premium sur **ReadOnly (lecture seule)**, **ReadWrite (lecture/écriture)** ou **None (aucune)**. La stratégie de mise en cache de disque par défaut est **ReadOnly** pour tous les disques de données Premium, et **ReadWrite** pour les disques de système d’exploitation. Pour obtenir des performances optimales pour votre application, utilisez le paramètre de cache approprié. Ainsi, pour préparer des disques de données lourds ou en lecture seule, contenant par exemple des fichiers de données SQL Server, définissez la stratégie de mise en cache sur **ReadOnly**. Pour écrire des disques de données lourds ou en écriture seule, contenant, par exemple, des fichiers journaux SQL Server, définissez la stratégie de mise en cache sur **None**. Pour en savoir plus sur l’optimisation de votre conception avec le stockage Premium, consultez [Conception optimisée pour les performances avec le stockage Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-* **Analytics**
+* **Analyse**
 
     Pour analyser les performances des machines virtuelles à l’aide de disques dans le stockage Premium, activez les diagnostics de machines virtuelles dans le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Contrôle des machines virtuelles Microsoft Azure avec l’extension Azure Diagnostics](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
 
@@ -293,7 +293,7 @@ Pour la récupération d’urgence régionale, vous devez sauvegarder vos disque
 
 Pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde, utilisez Sauvegarde Azure. Vous pouvez utiliser la sauvegarde avec des disques gérés et non gérés. Pour plus d’informations, consultez [Sauvegarde Azure de machines virtuelles avec des disques non gérés](../articles/backup/backup-azure-vms-first-look-arm.md) et [Sauvegarde Azure de machines virtuelles avec des disques gérés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur le stockage Premium, voir les articles suivants.
 
 ### <a name="design-and-implement-with-premium-storage"></a>Conception et implémentation avec le stockage Premium

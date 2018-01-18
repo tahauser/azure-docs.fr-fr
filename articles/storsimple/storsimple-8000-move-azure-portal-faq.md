@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 06e8d99aa2ad4eb11e594a729c6dab39d5cd1eb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur le passage du service StorSimple Device Manager du portail Classic au portail Azure
 
@@ -38,7 +38,7 @@ Les questions/réponses sont classées dans les catégories suivantes :
 
 ### <a name="once-i-have-moved-to-azure-portal-can-i-still-create-a-storsimple-manager-service-in-the-classic-portal"></a>Une fois que je suis passé au portail Azure, est-il toujours possible de créer un service StorSimple Manager dans le portail Classic ?
 
-Non. Une fois que vous avez migré votre service StorSimple Manager vers le portail Azure, vous ne pouvez pas créer un service dans le portail Classic. En outre, vous ne pouvez pas gérer votre appareil via le portail Classic. Pour plus d’informations, accédez à [Déplacer un service vers le portail Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Non. Une fois que vous avez migré votre service StorSimple Manager vers le portail Azure, vous ne pouvez pas créer un service dans le portail Classic. De plus, il faut savoir que [le portail Classic ne sera pas disponible à partir du 8 janvier 2018](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### <a name="i-have-multiple-storsimple-managers-running-in-the-classic-portal-can-i-choose-which-ones-to-move-to-the-azure-portal"></a>Je dispose de plusieurs StorSimple Managers en cours d’exécution dans le portail Classic. Puis-je choisir ceux à déplacer vers le portail Azure ?
 
@@ -67,14 +67,14 @@ Oui. Les machines virtuelles associées à des appliances cloud 8010/8020 exista
 
 Si vous avez créé des appliances StorSimple Cloud Appliance modèle 8010/8020 exécutant Update 3.0 et versions ultérieures, vous n’êtes pas affecté par le déplacement de votre service vers le nouveau portail Azure. Vous devez être en mesure de gérer entièrement vos appliances cloud sans aucun problème. 
 
-Si vous possédez des appliances cloud exécutant des versions antérieures à Update 3.0 dans le portail Classic, vous disposez alors uniquement de fonctionnalités limitées. Pour plus d’informations, accédez à la [liste des opérations non prises en charge pour les appareils exécutant des versions antérieures à Update 3.0](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Si vous possédez des appliances cloud exécutant des versions antérieures à Update 3.0 dans le portail Classic, vous disposez alors uniquement de fonctionnalités limitées. Pour plus d’informations, accédez à la [liste des opérations non prises en charge pour les appareils exécutant des versions antérieures à Update 3.0](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Vous ne pouvez pas mettre à jour une appliance cloud. Utilisez la version la plus récente du logiciel pour créer une appliance cloud et basculez ensuite les conteneurs de volumes existants vers la nouvelle appliance cloud créée. Pour plus d’informations, accédez à [Basculer vers l’appliance cloud](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
 
 
 ### <a name="my-storsimple-8000-series-device-is-running-update-20-i-migrated-my-service-to-new-azure-portal-my-device-connected-successfully-but-it-seems-that-i-am-not-able-to-fully-manage-my-device-how-do-i-resolve-this-behavior"></a>Mon appareil de série StorSimple 8000 exécute Update 2.0. J’ai migré mon service vers le nouveau portail Azure. Mon appareil s’est connecté avec succès, mais il semble que je ne suis pas en mesure de le gérer entièrement. Comment résoudre ce problème ?
 
-Le nouveau portail Azure est pris en charge uniquement pour les appareils StorSimple exécutant Update 3.0 et versions ultérieures. Si votre appareil exécutait Update 2.0, vous disposez uniquement de fonctionnalités limitées. Pour plus d’informations, accédez à la [liste des opérations non prises en charge pour les appareils exécutant des versions antérieures à Update 3.0](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Le nouveau portail Azure est pris en charge uniquement pour les appareils StorSimple exécutant Update 3.0 et versions ultérieures. Si votre appareil exécutait Update 2.0, vous disposez uniquement de fonctionnalités limitées. Pour plus d’informations, accédez à la [liste des opérations non prises en charge pour les appareils exécutant des versions antérieures à Update 3.0](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Pour gérer complètement votre appareil, installez-y la dernière mise à jour. Pour plus d’informations, accédez à [Installer Update 5](storsimple-8000-install-update-5.md).
 
@@ -130,11 +130,9 @@ Non. Avec le déplacement de votre service vers le nouveau portail Azure, il ne 
 
 ## <a name="moving-storsimple-data-manager-service"></a>Déplacement du service StorSimple Data Manager
 
-### <a name="i-am-using-storsimple-data-manager-service-how-should-i-proceed-with-this-move"></a>J’utilise le service StorSimple Data Manager. Comment dois-je procéder avec ce déplacement ?
+### <a name="i-am-using-storsimple-data-manager-service-in-classic-azure-portal-how-should-i-proceed-with-this-move"></a>J’utilise le service StorSimple Data Manager dans le portail Azure Classic. Comment dois-je procéder avec ce déplacement ?
 
-Si vous utilisez le service StorSimple Data Manager, vous devez d’abord déplacer vos instances de StorSimple Device Manager vers le portail Azure. Une fois le déplacement terminé, créez des services StorSimple Data Manager dans le portail Azure. Les services StorSimple Data Manager créés avant le déplacement ne fonctionnent pas.
-
-Pour plus d’informations sur la migration du service StorSimple Device Manager, accédez à [Déplacer votre service vers le portail Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). Pour plus d’informations sur la création d’un service StorSimple Data Manager, accédez à [Créer un service StorSimple Data Manager](storsimple-data-manager-ui.md).
+Si vous utilisez le service StorSimple Data Manager, vous avez été automatiquement déplacé vers le portail Azure.
 
 ## <a name="miscellaneous"></a>Divers
 
@@ -146,9 +144,9 @@ Non. Le déplacement de votre service vers le portail Azure n’a aucun impact s
 
 Non. Vous ne pouvez pas renommer des appareils, des volumes, des conteneurs de volumes ni des stratégies de sauvegarde dans le portail Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Découvrez en détail comment [déplacer votre service StorSimple Device Manager vers le portail Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+En savoir plus sur les [Opérations prises en charge sur les appareils exécutant des versions antérieures à Update 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

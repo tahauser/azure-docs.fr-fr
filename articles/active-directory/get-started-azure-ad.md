@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Prise en main de Azure AD
 La gestion moderne des identités requiert une fiabilité évolutive et cohérente pour garantir la disponibilité des applications et des services uniquement aux utilisateurs authentifiés. Pour prendre correctement en charge les besoins de gestion d’identité des utilisateurs, le service informatique doit disposer d’un moyen de fournir un accès aux applications SaaS publics approuvées, un moyen d’accueillir une ligne interne d’applications métiers et même des moyens pour améliorer le développement et l’utilisation d’applications locales. Toutes ces exigences montrent la nécessité de disposer d’une solution de gestion d’identité basée sur le cloud.      
 
 Azure Active Directory (Azure AD) est le service Microsoft de gestion des annuaires et des identités, basé sur le cloud, mutualisé. Azure AD associe des services d’annuaires principaux, une gouvernance avancée des identités et une gestion des accès aux applications. La conception d’Azure AD pour l’architecture mutualisée géolocalisée à haute disponibilité signifie que vous pouvez vous reposer sur cette solution pour répondre à vos besoins les plus critiques.
 
-Azure AD comprend une suite complète de fonctionnalités de gestion d’identité, notamment la possibilité de synchroniser les informations sur les ressources locales, une personnalisation de la marque de la société, une gestion simple des licences et même la gestion des mots de passe en libre-service.  Ces fonctions simples à configurer peuvent aider à prendre en main Azure AD pour sécuriser les applications basées sur le cloud, simplifier les processus informatiques, réduire les coûts et garantir le respect des objectifs de conformité aux normes du secteur.
+Azure AD comprend une suite complète de fonctionnalités de gestion d’identité, notamment la possibilité de synchroniser les informations sur les ressources locales, une personnalisation de la marque de la société, une gestion simple des licences et même la gestion des mots de passe en libre-service. Ces fonctions simples à déployer peuvent aider à prendre en main Azure AD pour sécuriser les applications basées sur le cloud, simplifier les processus informatiques, réduire les coûts et garantir le respect des objectifs de conformité aux normes du secteur.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -87,7 +87,7 @@ Grâce à la [réinitialisation de mot de passe en libre-service](active-directo
 Revoyez les propriétés SSPR activées sous **Azure Active Directory** > **Réinitialisation du mot de passe** pour vous assurer que les attributions correctes d’utilisateur et de groupe sont ont été effectuées. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
-[Page produits Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## <a name="next-steps"></a>étapes suivantes
+[Page du service Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Page d’informations de tarification relatives à Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)

@@ -1,6 +1,6 @@
 ---
-title: "Expériences dans la galerie Cortana Intelligence | Microsoft Docs"
-description: "Découvrez et partagez des expériences dans la galerie Cortana Intelligence."
+title: "Expériences dans la galerie Azure AI | Microsoft Docs"
+description: "Découvrez et partagez des expériences dans la galerie Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Découvrir des expériences dans la galerie Cortana Intelligence
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Découvrir des expériences dans la galerie Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Expériences pour Machine Learning Studio
@@ -42,10 +42,10 @@ Vous pouvez obtenir plus d’informations sur une expérience sur la page de dé
 
 ![Ajouter vos propres commentaires](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>Télécharger
+## <a name="download"></a>Download
 Vous pouvez télécharger une copie d’une expérience à partir de la galerie dans votre espace de travail Machine Learning Studio. Vous pouvez ensuite modifier votre copie pour créer vos propres solutions.
 
-La galerie Cortana Intelligence propose deux méthodes pour importer une copie d’une expérience :
+La galerie Azure AI propose deux méthodes pour importer une copie d’une expérience :
 
 * **À partir de la galerie**. Si vous trouvez une expérience qui vous plaît dans la galerie, vous pouvez facilement en télécharger une copie et l’ouvrir dans votre espace de travail Machine Learning Studio.
 * **À partir de Machine Learning Studio**. Dans Machine Learning Studio, vous pouvez utiliser n’importe quelle expérience de la galerie comme modèle pour créer une nouvelle expérience.
@@ -169,7 +169,7 @@ Pour supprimer l’expérience de la galerie, sélectionnez **Supprimer**.
 * Des éléments visuels peuvent permettre aux lecteurs d’interpréter et d’utiliser correctement votre documentation d’expérience. Parmi les éléments visuels, il y a les graphiques d’expérience et les captures d’écran de données. Pour plus d’informations sur comment inclure des images dans votre documentation d’expérience, consultez la collection [Publishing Guidelines and Examples](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) (Guide et exemples de publications) .
 * Si vous incluez un jeu de données dans votre expérience (autrement dit, si vous n’importez pas le jeu de données via le module Importer des données), le jeu de données fait partie de votre expérience et est publié dans la galerie. Assurez-vous que le jeu de données que vous publiez dispose de conditions de licence qui autorisent le partage et le téléchargement par toute personne. Les partages dans la galerie sont abordés dans les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/)d’Azure.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 **Quelles sont les conditions requises pour envoyer ou modifier une image pour mon expérience ?**
 
 Les images que vous envoyez avec votre expérience seront utilisées pour créer une vignette d'expérience pour votre participation. Nous recommandons des images de moins de 500 Ko, avec des proportions 3:2 et une résolution de 960 x 640.

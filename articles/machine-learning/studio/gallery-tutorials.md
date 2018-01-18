@@ -1,6 +1,6 @@
 ---
-title: Didacticiels de la galerie Cortana Intelligence | Microsoft Docs
-description: "Découvrez et partagez des didacticiels dans la galerie Cortana Intelligence."
+title: Didacticiels de la galerie Azure AI | Microsoft Docs
+description: "Découvrez et partagez des didacticiels dans la galerie Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: eee86899c14905655c4217d5fcf3865ca594366f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Découvrez et partagez des didacticiels dans la galerie Cortana Intelligence
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Découvrir et partager des didacticiels dans la galerie Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Didacticiels
-La galerie Cortana Intelligence offre plusieurs [didacticiels](https://gallery.cortanaintelligence.com/tutorials) qui peuvent vous aider à maîtriser les concepts et les technologies de Machine Learning. Les didacticiels peuvent également décrire des méthodes avancées pour résoudre les problèmes de Machine Learning.
+La galerie Azure AI offre plusieurs [didacticiels](https://gallery.cortanaintelligence.com/tutorials) qui peuvent vous aider à maîtriser les concepts et les technologies de Machine Learning. Les didacticiels peuvent également décrire des méthodes avancées pour résoudre les problèmes de Machine Learning.
 
 ## <a name="discover"></a>Découvrez
 Pour rechercher des didacticiels [dans la galerie](http://gallery.cortanaintelligence.com), sous **Plus**, sélectionnez **didacticiels**.
@@ -72,7 +72,7 @@ Vous pouvez ajouter un didacticiel à la galerie pour aider d’autres utilisate
 
 7. Sélectionnez **Créer**.
 
-Votre didacticiel figure désormais dans la galerie Cortana Intelligence. Vos didacticiels sont répertoriés sur la page de votre compte, dans l’onglet **Éléments**.
+Votre didacticiel figure désormais dans la galerie Azure AI. Vos didacticiels sont répertoriés sur la page de votre compte, dans l’onglet **Éléments**.
 
 **[Accéder à la galerie](http://gallery.cortanaintelligence.com)**
 

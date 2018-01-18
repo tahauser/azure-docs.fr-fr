@@ -1,12 +1,11 @@
 ---
-title: Forum aux questions (FAQ) - Azure AD B2C | Microsoft Docs
-description: Forum aux questions sur Azure Active Directory B2C
+title: 'Forum aux questions : Azure Active Directory B2C'
+description: Forum aux questions (FAQ) sur Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -64,9 +63,9 @@ Vous pouvez utiliser la [fonctionnalité de personnalisation de la société](..
 
     ![Capture d’écran d’un e-mail de vérification personnalisée](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-La signature d’e-mail contient le nom du client B2C que vous avez fourni lors de la création du client B2C. Vous pouvez modifier le nom à l’aide de ces instructions :
+La signature d’e-mail contient le nom du client Azure AD B2C que vous avez fourni lors de la création du client Azure AD B2C. Vous pouvez modifier le nom à l’aide de ces instructions :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’abonnements.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général.
 1. Ouvrez le panneau **Azure Active Directory**.
 1. Cliquez sur l’onglet **Propriétés**.
 1. Changez le champ **Nom**.
@@ -106,22 +105,22 @@ Non, Azure AD B2C ne prend pas en charge le même ensemble de rapports qu'Azure 
 Oui.  Découvrez la [personnalisation linguistique](active-directory-b2c-reference-language-customization.md), qui est en préversion publique.  Nous fournissons des traductions en 36 langues, et vous pouvez remplacer n’importe quelle chaîne pour l’adapter à vos besoins.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Puis-je utiliser mes propres URL dans les pages d’inscription et de connexion présentées par Azure AD B2C ? Par exemple, puis-je remplacer l’URL login.microsoftonline.com par login.contoso.com ?
-Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La vérification de votre domaine sous l’onglet **Domaines** sur le portail Azure Classic ne remplit pas cet objectif.
+Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La vérification de votre domaine sous l’onglet **Domaines** sur le portail Azure ne remplit pas cet objectif.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Comment supprimer mon client Azure AD B2C ?
 Procédez comme suit pour supprimer votre client Azure AD B2C :
 
 1. Suivez ces étapes pour [accéder aux paramètres d’Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) sur le portail Azure.
 1. Accédez à **Applications**, **Fournisseurs d’identité** et à **Toutes les stratégies**, puis supprimez toutes les entrées dans chacun d’eux.
-1. À présent, connectez-vous au [portail Azure Classic](https://manage.windowsazure.com/) en tant qu’administrateur d’abonnements. (Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
-1. Accédez à l’extension Active Directory sur la gauche, puis cliquez sur votre client B2C.
-1. Cliquez sur l’onglet **Users** .
-1. Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur Administrateur d’abonnement sous lequel vous êtes connecté actuellement). Cliquez sur **Supprimer** en bas de la page et sur **OUI** lorsque vous y êtes invité.
-1. Cliquez sur l’onglet **Applications** .
-1. Sélectionnez **Applications que ma société possède** dans la liste déroulante **Afficher** et cochez la case.
-1. Une application a appelé **b2c-extensions-app**. Cliquez sur **Supprimer** en bas de la page et sur **OUI** lorsque vous y êtes invité.
-1. Accédez à nouveau à l’extension Active Directory et sélectionnez votre client B2C.
-1. Cliquez sur **Supprimer** en bas de la page. Pour terminer le processus, suivez les instructions à l’écran.
+1. Connectez-vous maintenant au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’abonnements. (Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.)
+1. Passez au client Azure AD B2C que vous voulez supprimer.
+2. Accédez au menu Active Directory sur la gauche.
+3. Sélectionnez **Utilisateurs et groupes**.
+4. Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur Administrateur d’abonnement sous lequel vous êtes connecté actuellement). Cliquez sur **Supprimer** en bas de la page et sur **OUI** lorsque vous y êtes invité.
+5. Cliquez sur **Inscriptions des applications**.
+6. Sélectionnez l’application appelée **b2c-extensions-app**. Cliquez sur **Supprimer** et sur **Oui** lorsque vous y êtes invité.
+7. Sélectionnez **Vue d’ensemble**.
+8. Cliquez sur **Supprimer le répertoire**. Pour terminer le processus, suivez les instructions à l’écran.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Puis-je obtenir Azure AD B2C dans le cadre d’Enterprise Mobility Suite ?
 Non, Azure AD B2C est un service Azure avec paiement à l’utilisation et ne fait pas partie d’Enterprise Mobility Suite.

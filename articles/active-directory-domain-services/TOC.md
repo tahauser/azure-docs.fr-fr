@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Présentation d’Azure AD Domain Services](active-directory-ds-overview.md)
 ## Est-il adapté pour vous ?
 ### [Comparer avec Windows Server AD](active-directory-ds-comparison.md)
@@ -44,9 +44,14 @@
 ## Résolution des problèmes
 ### [FAQ](active-directory-ds-faqs.md)
 ### [Guide de résolution des problèmes](active-directory-ds-troubleshooting.md)
+### [Dépanner les alertes](active-directory-ds-troubleshoot-alerts.md)
+#### [Corriger une configuration de groupe de sécurité réseau endommagée](active-directory-ds-troubleshoot-nsg.md)
+#### [Restaurer les principaux de service manquants](active-directory-ds-troubleshoot-service-principals.md)
+#### [Erreurs de LDAP sécurisé](active-directory-ds-troubleshoot-ldaps.md)
 ### [Résoudre les erreurs relatives à des locataires qui ne correspondent pas](active-directory-ds-mismatched-tenant-error.md)
 
-# Référence
+
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 
 # Rubriques connexes

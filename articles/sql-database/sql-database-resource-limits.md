@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/11/2017
+ms.date: 01/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e0acc3cc09de4293dcc049c37bee6b899e6101a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 13641b190c3c157f5b302314f88a42a160a1f2e0
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de ressources de base de données SQL Azure
 
@@ -49,8 +49,7 @@ La modification du niveau de service et/ou de performances d’une base de donn�
 La durée de la totalité du processus de montée en puissance dépend de la taille et du niveau de service de la base de données avant et après la modification. Par exemple, le basculement d’une base de données de 250 Go vers, depuis ou dans un niveau de service Standard ne demande pas plus de six heures. Le changement des niveaux de performances d’une base de données de la même taille dans le niveau de service Premium doit s’effectuer en moins de trois heures.
 
 > [!TIP]
-> Pour vérifier l’état d’une opération de mise à l’échelle de base de données SQL en cours, vous pouvez utiliser la requête suivante : ```select * from sys.dm_operation_status```.
->
+> Pour surveiller les opérations en cours, consultez la [gestion des opérations à l’aide de l’API REST SQL](/rest/api/sql/Operations/List), la [gestion des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), la [surveillance des opérations à l’aide T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database), ainsi que ces deux commandes PowerShell : [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) et [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * Si vous effectuez la mise à niveau vers un niveau de service ou de performance supérieur, la taille maximale de la base de données n’augmente pas, à moins que vous n’en fassiez la demande (maxsize).
 * Pour pouvoir passer à une version antérieure, l’espace utilisé par la base de données doit être inférieur à la taille et au niveau de performance autorisés par le niveau de service voulu. 
@@ -90,7 +89,7 @@ Si toutes les DTU d’un pool élastique sont utilisées, chaque base de donnée
 
 Le tableau suivant décrit les propriétés des bases de données mises en pool.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | Nombre maximal d’eDTU par base de données |Nombre maximal d’eDTU pouvant être utilisées par une des bases de données du pool en fonction du nombre d’eDTU utilisées par les autres bases de données du pool. Le nombre maximal d’eDTU par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Définissez un nombre maximal d’eDTU par base de données suffisamment élevé pour gérer les pics d’utilisation des bases de données. Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. Par exemple, supposons que le pic d’utilisation par base de données est de 20 eDTU et que seules 20 % des 100 bases de données du pool connaissent simultanément un pic d’utilisation. Si le nombre maximal d’eDTU par base de données est défini sur 20 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le nombre d’eDTU par pool sur 400. |
 | Nombre minimal d’eDTU par base de données |Nombre minimal d’eDTU garanti pour chaque base de données du pool. Il s’agit d’un paramètre global qui s’applique à toutes les bases de données du pool. Le nombre minimal d’eDTU par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen d’eDTU utilisées par base de données. Le produit du nombre de bases de données du pool et du nombre minimal d’eDTU par base de données ne peut pas dépasser le nombre d’eDTU par pool. Par exemple, si un pool comporte 20 bases de données et que le nombre minimal d’eDTU par base de données est défini sur 10 eDTU, le nombre d’eDTU par pool doit être d’au moins 200 eDTU. |
@@ -123,7 +122,7 @@ En cas d’utilisation élevée des calculs, voici certaines des options d’att
 - Augmenter le niveau de performance de la base de données ou d’un pool élastique pour fournir plus de DTU ou eDTU à la base de données. Consultez [Base de données unique : modifier les DTU](#single-database-change-dtus) et [Pool élastique : modifier les eDTU](#elastic-pool-change-edtus).
 - Optimiser les requêtes pour réduire l’utilisation des ressources de chaque requête. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Stockage
 
 Lorsque l’espace de base de données utilisé atteint la limite de taille maximale, les insertions et mises à jour de base de données qui augmentent la taille des données échouent et les clients reçoivent un [message d’erreur](sql-database-develop-error-messages.md). Les opérations de type SELECT et DELETE sur la base de données continuent à aboutir.
 
@@ -140,10 +139,11 @@ En cas d’utilisation élevée de workers ou de sessions, voici certaines des o
 - Augmenter le niveau de performance ou le niveau de service du pool élastique ou de la base de données. Consultez [Base de données unique : modifier la taille de stockage](#single-database-change-storage-size), [Base de données unique : modifier les DTU](#single-database-change-dtus), [Pool élastique : modifier la taille du stockage](#elastic-pool-change-storage-size) et [Pool élastique : modifier les eDTU](#elastic-pool-change-edtus).
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-service-tiers.md).
 - Pour plus d’informations sur les bases de données uniques, consultez [Ressources d’une base de données unique](sql-database-resource-limits.md).
 - Pour plus d’informations sur les pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 - Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 - Pour plus d’informations sur les DTU et eDTU, consultez [DTU et eDTU](sql-database-what-is-a-dtu.md).
+- Pour plus d’informations sur les limites de taille de tempdb, consultez la page https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

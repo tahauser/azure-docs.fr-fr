@@ -1,12 +1,11 @@
 ---
-title: "Substitution de la clé de signature dans Azure AD | Microsoft Docs"
+title: "Substitution de la clé de signature dans Azure AD"
 description: "Cet article décrit les meilleures pratiques de substitution de clé de signature pour Azure Active Directory"
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,14 +14,14 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ac68839795dfd69daba16a0f7a01fc9ff16f616e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substitution de la clé de signature dans Azure Active Directory
-Cette rubrique explique ce que vous devez savoir sur les clés publiques utilisées dans Azure Active Directory (Azure AD) pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent Azure AD doivent être en mesure de gérer le processus de substitution de clé ou d’établir un processus périodique de substitution manuelle de clé par le biais d’un programme. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
+Cet article explique ce que vous devez savoir sur les clés publiques utilisées dans Azure Active Directory (Azure AD) pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent Azure AD doivent être en mesure de gérer le processus de substitution de clé ou d’établir un processus périodique de substitution manuelle de clé par le biais d’un programme. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Vue d’ensemble des clés de signature dans Azure AD
 Azure AD utilise une technique de chiffrement de clés publiques conforme aux normes du secteur pour établir une relation de confiance avec les applications qui l’utilisent. Plus concrètement, cela signifie qu’Azure AD utilise une clé de signature se composant d’une paire clé publique-clé privée. Lorsqu’un utilisateur se connecte à une application qui utilise Azure AD pour s’authentifier, Azure AD crée un jeton de sécurité qui contient des informations sur l’utilisateur. Ce jeton est signé par Azure AD à l’aide de sa clé privée avant d’être renvoyé à l’application. Pour vérifier que le jeton est valide et provient bien d’Azure AD, l’application doit valider la signature du jeton à l’aide de la clé publique exposée par Azure AD contenue dans le [document de découverte OpenID Connect](http://openid.net/specs/openid-connect-discovery-1_0.html) ou dans le [document de métadonnées de fédération](active-directory-federation-metadata.md) SAML/WS-Fed.
@@ -142,7 +141,7 @@ Les étapes suivantes vous aideront à vérifier le bon fonctionnement de la log
 3. La table **IssuingAuthorityKeys** comporte au moins une ligne correspondant à la valeur de l’empreinte de la clé. Supprimez toutes les lignes de la table.
 4. Cliquez avec le bouton droit sur la table **Clients**, puis cliquez sur **Afficher les données de la table**.
 5. La table **Clients** comporte au moins une ligne correspondant à un identifiant unique du client de répertoire. Supprimez toutes les lignes de la table. Si vous ne supprimez pas les lignes à la fois dans la table **Clients** et dans la table **IssuingAuthorityKeys**, vous obtiendrez une erreur au moment de l’exécution.
-6. Générez et exécutez l’application. Une fois connecté à votre compte, vous pouvez arrêter l’application.
+6. Générez et exécutez l'application. Une fois connecté à votre compte, vous pouvez arrêter l’application.
 7. Revenez à **l’Explorateur de serveurs** et examinez les valeurs contenues dans les tables **IssuingAuthorityKeys** et **Clients**. Vous remarquerez qu’elles ont été automatiquement complétées avec les informations appropriées extraites du document de métadonnées de fédération.
 
 ### <a name="vs2013"></a>API web protégeant les ressources et créées avec Visual Studio 2013
@@ -183,7 +182,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -284,7 +283,7 @@ Suivez les étapes ci-dessous pour vérifier que la logique de substitution de c
           </keys>
    ```
 2. La table **<add thumbprint=””>** , modifiez la valeur de l’empreinte en remplaçant l’un des caractères par un caractère différent. Enregistrez le fichier **Web.config** .
-3. Générez puis exécutez l’application. Si vous pouvez terminer le processus de connexion, votre application mettra correctement à jour la clé en téléchargeant les informations requises à partir du document de métadonnées de fédération de votre répertoire. Si vous rencontrez des problèmes de connexion, vérifiez que les modifications apportées à votre application sont correctes. Pour cela, consultez la rubrique [Ajout de l’authentification à votre application web à l’aide d’Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect), ou téléchargez et examinez l’exemple de code suivant : [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Application cloud multilocataire pour Azure Active Directory).
+3. Générez puis exécutez l’application. Si vous pouvez terminer le processus de connexion, votre application mettra correctement à jour la clé en téléchargeant les informations requises à partir du document de métadonnées de fédération de votre répertoire. Si vous rencontrez des problèmes de connexion, vérifiez que les modifications apportées à votre application sont correctes. Pour cela, consultez l’article [Ajout de l’authentification à votre application web à l’aide d’Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect), ou téléchargez et examinez l’exemple de code suivant : [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Application cloud multilocataire pour Azure Active Directory).
 
 ### <a name="vs2010"></a>Applications web protégeant les ressources et créées avec Visual Studio 2008 ou 2010 et avec Windows Identity Foundation (WIF) version 1.0 pour .NET 3.5
 Si vous avez créé une application sur WIF v1.0, aucun mécanisme n’est prévu pour actualiser automatiquement la configuration de votre application afin de permettre l’utilisation d’une nouvelle clé.
@@ -308,6 +307,6 @@ Si la clé est stockée quelque part ou codée en dur dans votre application, vo
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Comment tester votre application pour savoir si elle sera affectée
 Pour vérifier que votre application prend en charge la substitution automatique de clé, téléchargez les scripts et suivez les instructions de [ce référentiel GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Comment effectuer une substitution manuelle si votre application ne prend pas en charge la substitution automatique
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Comment effectuer une substitution manuelle si votre application ne prend pas en charge la substitution automatique
 Si votre application ne prend **pas** en charge la substitution automatique, vous devez établir un processus permettant de surveiller périodiquement les clés de signature d’Azure AD et d’effectuer une substitution manuelle en conséquence. [Ce référentiel GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contient des scripts et des instructions sur la façon de procéder.
 

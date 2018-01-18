@@ -12,39 +12,39 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning
-## <a name="overview"></a>Vue d’ensemble
-Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous avons également mesuré la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
+## <a name="overview"></a>Vue d'ensemble
+Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 
 ### <a name="acknowledgements"></a>Remerciements
 Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
 
 > [!NOTE]
-> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) dans la galerie [Cortana Intelligence](http://gallery.cortanaintelligence.com/)
+> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez [Modèle d’attrition Retail](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) dans la [galerie Azure AI](http://gallery.cortanaintelligence.com/).
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>Le problème de l’attrition des clients
-Les entreprises du secteur de la consommation et de tous les secteurs en général sont confrontées au problème de l'attrition. Parfois, ce dernier est excessif et influence les décisions relatives aux politiques de l'entreprise. La solution classique consiste à prédire quels clients présenteront une forte probabilité d’attrition et à répondre à leurs besoins par le biais d’un service de conciergerie ou de campagnes marketing, ou encore en appliquant des dérogations. Les approches adoptées peuvent varier d’un secteur à l’autre, voire d’un groupe de clients à l’autre, au sein d’un même secteur (exemple : les télécommunications).
+Les entreprises du secteur de la consommation et de tous les secteurs en général sont confrontées au problème de l'attrition. Parfois, ce dernier est excessif et influence les décisions relatives aux politiques de l'entreprise. La solution classique consiste à prédire quels clients présenteront une forte probabilité d’attrition et à répondre à leurs besoins par le biais d’un service de conciergerie ou de campagnes marketing, ou encore en appliquant des dérogations. Ces approches peuvent varier d’un secteur à l’autre. Elles peuvent même varier d’un groupe de clients à l’autre, au sein d’un même secteur (par exemple, les télécommunications).
 
-Le facteur commun est le suivant : les entreprises doivent réduire au minimum ces efforts particuliers de rétention des clients. Ainsi, la méthodologie logique consisterait à évaluer chaque client en fonction de sa probabilité d’attrition et à s’occuper des N clients les plus susceptibles de franchir le pas. Ces derniers sont peut-être les plus rentables. Ainsi, dans un scénario plus complexe, une fonction de rentabilité est utilisée lors de la sélection des candidats susceptibles de bénéficier d’une dérogation. Cependant, ces considérations ne représentent qu’une partie de la stratégie globale visant à résoudre le problème de l’attrition. Les entreprises doivent également prendre en compte les risques (et la tolérance à l'égard des risques associée), le niveau et le coût de l'intervention, ainsi que la segmentation possible de la clientèle.  
+Le facteur commun est le suivant : les entreprises doivent réduire au minimum ces efforts particuliers de rétention des clients. Ainsi, la méthodologie logique consisterait à évaluer chaque client en fonction de sa probabilité d’attrition et à s’occuper des N clients les plus susceptibles de franchir le pas. Les meilleurs clients peuvent être les plus rentables. Ainsi, dans un scénario plus complexe, une fonction de rentabilité est utilisée lors de la sélection des candidats susceptibles de bénéficier d’une dérogation. Cependant, ces considérations ne représentent qu’une partie de la stratégie globale visant à résoudre le problème de l’attrition. Les entreprises doivent également prendre en compte les risques (et la tolérance à l'égard des risques associée), le niveau et le coût de l'intervention, ainsi que la segmentation possible de la clientèle.  
 
 ## <a name="industry-outlook-and-approaches"></a>Perspectives et approches du secteur
 La gestion sophistiquée de l'attrition témoigne de la maturité d'un secteur. Le secteur des télécommunications en est un exemple type. En effet, les abonnés sont connus pour changer fréquemment d’opérateur. Cette attrition volontaire est l’un des principaux problèmes du secteur. De plus, les opérateurs ont accumulé de nombreuses connaissances sur les *causes d’attrition*. Il s’agit des facteurs qui incitent les clients à changer d’opérateur.
 
 Le choix du téléphone, par exemple, est une cause d’attrition bien connue dans le secteur de la téléphonie. De ce fait, une pratique courante consiste à réduire le prix d’un téléphone pour les nouveaux abonnés, tout en faisant payer le prix fort aux abonnés existants qui veulent changer d’appareil. Traditionnellement, cette règle incite les clients à passer d’un opérateur à un autre pour obtenir une nouvelle remise. En conséquence, les opérateurs ont été amenés à revoir leurs stratégies.
 
-La volatilité élevée des offres de téléphone est un facteur qui invalide très rapidement les modèles d’attrition basés sur les modèles de téléphone actuels. D’autre part, les téléphones mobiles ne sont pas uniquement des outils de communication ; ce sont également des accessoires de mode (iPhone, par exemple). Ces facteurs de prédiction sociaux ne sont pas pris en compte par les jeux de données standard relatifs aux télécommunications.
+La volatilité élevée des offres de téléphone est un facteur qui invalide rapidement les modèles d’attrition basés sur les modèles de téléphone actuels. En outre, les téléphones mobiles ne sont pas uniquement des appareils de télécommunication ; ils sont également des phénomènes de mode (prenez par exemple l’iPhone). Ces facteurs sociaux n’entrent pas en compte dans les jeux de données standard sur les télécommunications.
 
 Résultat : vous ne pouvez pas établir de politique sûre en éliminant simplement les motifs connus d’attrition. En fait, il est **obligatoire** de recourir à une stratégie de modélisation continue, comprenant des modèles classiques qui quantifient les variables catégoriques (ex. : arbres de décision).
 
@@ -109,7 +109,7 @@ Les schémas suivants illustrent les données utilisées :
  
 
 > Notez que ces données sont privées et que, par conséquent, le modèle et les données ne peuvent pas être partagés.
-> Toutefois, pour un modèle similaire utilisant des données disponibles publiquement, consultez cet exemple d’expérience dans la [Galerie Cortana Intelligence](http://gallery.cortanaintelligence.com/) : [attrition des clients Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Toutefois, pour un modèle similaire utilisant des données disponibles publiquement, consultez cet exemple d’expérience dans la [galerie Azure AI](http://gallery.cortanaintelligence.com/) : [Attrition des clients Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Pour plus d’informations sur la façon dont vous pouvez implémenter un modèle d’analyse de l’attrition à l’aide de Cortana Intelligence Suite, nous vous recommandons également de regarder [cette vidéo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) proposée par le responsable de programme principal Wee Hyong Tok. 
 > 
@@ -211,16 +211,6 @@ Nous espérons pouvoir à nouveau évoquer ce sujet, notamment en ce qui concern
 ## <a name="conclusion"></a>Conclusion
 Ce document détaille une approche rationnelle pour la gestion d’un problème commun, l’attrition, à l’aide d’une structure générique. Nous avons envisagé un prototype de modèle de notation, que nous avons implémenté à l’aide de Microsoft Azure ML. Enfin, nous avons évalué l'exactitude et les performances de la solution prototype par rapport aux algorithmes comparables dans SAP.  
 
-**Pour plus d'informations :**  
-
-Ce document vous a-t-il été utile ? Donnez-nous votre avis. Dites-nous, sur une échelle de 1 (mauvais) à 5 (excellent), comment vous évalueriez ce document et pourquoi vous lui donneriez cette note ? Par exemple :  
-
-* Le notez-vous bien du fait des bons exemples, des excellentes captures d'écran, de l'écriture claire ou pour toute autre raison ?
-* Le notez-vous mal du fait de mauvais exemples, de captures d'écran floues ou d'une écriture peu claire ?  
-
-Ces commentaires nous aideront à améliorer la qualité des livres blancs que nous publions.   
-
-[Envoyer des commentaires](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Références
@@ -232,7 +222,7 @@ Ces commentaires nous aideront à améliorer la qualité des livres blancs que n
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modèle d’attrition Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) dans la galerie [Cortana Intelligence](http://gallery.cortanaintelligence.com/) 
+[5] [Modèle d’attrition de Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) dans la [galerie Azure AI](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Annexe

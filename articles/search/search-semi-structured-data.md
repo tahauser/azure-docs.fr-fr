@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Rechercher des données semi-structurées dans le stockage cloud
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Partie 2 : Rechercher des données semi-structurées dans le stockage cloud
 
-Dans cette série de didacticiels en deux parties, vous allez apprendre à rechercher des données semi-structurées et non structurées à l’aide de la fonction Recherche Azure. Ce didacticiel vous explique comment rechercher des données semi-structurées, telles que des données au format JSON, stockées dans des objets blob Azure. Les données semi-structurées contiennent des balises ou des marquages qui séparent le contenu au sein des données. Elles diffèrent des données structurées dans le sens où elles ne sont pas structurées de manière formelle selon un modèle de données, tel qu’un schéma de base de données relationnelle.
+Dans cette série de didacticiels en deux parties, vous allez apprendre à rechercher des données semi-structurées et non structurées à l’aide de la fonction Recherche Azure. La [Partie 1](../storage/blobs/storage-unstructured-search.md) vous a expliqué comment rechercher des données non structurées, mais contenait également des explications indispensables pour pouvoir suivre ce didacticiel, notamment sur la création du compte de stockage. 
 
-Dans cette partie, vous allez découvrir comment :
+Dans la Partie 2, nous allons nous intéresser aux données semi-structurées, telles que des données au format JSON, stockées dans des objets blob Azure. Les données semi-structurées contiennent des balises ou des marquages qui séparent le contenu au sein des données. Elles séparent les données non structurées qui doivent être indexées de façon globale des données formellement structurées, qui respectent un modèle de données, tel qu’un schéma de base de données relationnelle, pouvant être analysé par champ.
+
+Dans la partie 2, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Créer et remplir un index au sein d’Azure Search Service
-> * Utiliser Azure Search Service pour rechercher votre index
+> * Configurer une source de données de Recherche Azure pour un conteneur d’objets blob Azure
+> * Créer et remplir un index de Recherche Azure et un indexeur pour analyser le conteneur et extraire le contenu de recherche
+> * Effectuer une recherche dans l’index que vous venez de créer
 
 > [!NOTE]
-> « La prise en charge du tableau JSON est une fonctionnalité d’évaluation de Recherche Azure. Elle n’est pas disponible dans le portail pour le moment. Pour cette raison, nous utilisons l’API REST d’évaluation, qui fournit cette fonctionnalité, ainsi qu’un outil client REST pour appeler l’API. »
+> Ce didacticiel implique la prise en charge des tableaux JSON, qui est une fonctionnalité en version préliminaire du service Recherche Azure. Elle n’est pas disponible dans le portail. Pour cette raison, nous utilisons l’API REST d’évaluation, qui fournit cette fonctionnalité, ainsi qu’un outil client REST pour appeler l’API.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
-Pour suivre ce didacticiel :
-* Terminez le [didacticiel précédent](../storage/blobs/storage-unstructured-search.md)
-    * Ce didacticiel utilise le compte de stockage et le service de recherche créés dans le didacticiel précédent
-* Installez un client REST et apprenez à créer une requête HTTP
+* Vous devez avoir effectué le [précédent didacticiel](../storage/blobs/storage-unstructured-search.md) pour obtenir le compte de stockage et le service de recherche créés dans le didacticiel précédent.
 
+* Vous devez avoir installé un client REST et savoir comment créer une requête HTTP. Dans le cadre de ce didacticiel, nous utilisons le client [Postman](https://www.getpostman.com/). N’hésitez pas à utiliser un autre client REST avec lequel vous êtes déjà familiarisé.
 
-## <a name="set-up-the-rest-client"></a>Configurez le client REST
+## <a name="set-up-postman"></a>Configurer Postman
 
-Pour réaliser ce didacticiel, vous avez besoin d’un client REST. Dans le cadre de ce didacticiel, nous utilisons le client [Postman](https://www.getpostman.com/). N’hésitez pas à utiliser un autre client REST avec lequel vous êtes déjà familiarisé.
+Démarrez Postman et paramétrez une requête HTTP. Si vous n’êtes pas familiarisé avec cet outil, consultez [Explorer les API REST de la Recherche Azure à l’aide de Fiddler ou Postman](search-fiddler.md) pour plus d’informations.
 
-Après avoir installé le client Postman, lancez-le.
-
-Si c’est la première fois que vous effectuez des appels REST vers Azure, voici une brève présentation des principaux composants utilisés pour ce didacticiel : La méthode de requête utilisée pour chaque appel passé dans le cadre de ce didacticiel est la méthode « POST ». Les clés d’en-tête sont « Content-type » et « api-key ». Les valeurs des clés d’en-tête sont, respectivement, « application/json » et votre « clé d’administration » (la clé d’administration est un espace réservé pour votre clé de recherche primaire). Le corps est l’endroit où vous ajoutez le contenu réel de votre appel. Selon le client que vous utilisez, il existe différentes façons de créer votre requête. Nous vous présentons ici les étapes de création de base.
+La méthode de requête « POST » est utilisée pour chaque appel de ce didacticiel. Les clés d’en-tête sont « Content-type » et « api-key ». Les valeurs des clés d’en-tête sont, respectivement, « application/json » et votre « clé d’administration » (la clé d’administration est un espace réservé pour votre clé de recherche primaire). Le corps est l’endroit où vous ajoutez le contenu réel de votre appel. Selon le client que vous utilisez, il existe différentes façons de créer votre requête. Nous vous présentons ici les étapes de création de base.
 
   ![Recherche de données semi-structurées](media/search-semi-structured-data/postmanoverview.png)
 
@@ -277,7 +276,7 @@ N’hésitez pas à mettre en pratique ce que vous avez appris et à essayer vou
 
 Le paramètre `$filter` fonctionne uniquement avec des métadonnées qui ont été marquées comme « filtrables » lors de la création de l’index.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à rechercher des données semi-structurées en utilisant Recherche Azure, à savoir comment effectuer les tâches suivantes :
 

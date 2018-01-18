@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -40,14 +40,14 @@ Le kit SDK web d’Application Insights collecte automatiquement des requêtes H
 
 Un autre exemple nécessitant un suivi personnalisé est le Worker qui reçoit des éléments de la file d’attente. Pour certaines files d’attente, l’appel visant à ajouter un message à cette file d’attente est comptabilisé en tant que dépendance. Toutefois, l’opération de haut niveau qui décrit le traitement des messages n’est pas collectée automatiquement.
 
-Voyons comment effectuer le suivi de telles opérations.
+Voyons à présent comment ces opérations pourraient être suivies.
 
 À un niveau élevé, la tâche consiste à créer `RequestTelemetry` et à définir les propriétés connues. Une fois l’opération terminée, vous réalisez un suivi de la télémétrie. L’exemple suivant illustre ce cas de figure.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Requête HTTP dans une application Owin auto-hébergée
-Dans cet exemple, nous suivons le [protocole HTTP pour la corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Attendez-vous à recevoir les en-têtes décrites ici.
+Dans cet exemple, le contexte du suivi est propagé conformément au[ protocole HTTP de corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Attendez-vous à recevoir les en-têtes décrites ici.
 
-``` C#
+```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
     private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
@@ -121,16 +121,18 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Le protocole HTTP pour la corrélation déclare également l’en-tête `Correlation-Context`. Toutefois, il est omis ici par souci de simplicité.
 
 ## <a name="queue-instrumentation"></a>Instrumentation des files d’attente
-Pour la communication HTTP, nous avons créé un protocole pour transmettre les détails de corrélation. Avec certains protocoles de files d’attente, vous pouvez transmettre des métadonnées supplémentaires avec le message tandis que d’autres ne le permettent pas.
+Bien qu’il existe un [protocole HTTP de corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) pour transmettre les détails de la corrélation avec la requête HTTP, chaque protocole de file d’attente doit définir la façon dont ces détails seront transmis à travers le message de file d’attente. Certains protocoles de file d’attente (par exemple, AMQP) autorisent la transmission de métadonnées supplémentaires, tandis que d’autres (tels que la file d'attente Stockage Azure) nécessitent le contexte à encoder dans la charge utile de message.
 
 ### <a name="service-bus-queue"></a>File d’attente Service Bus
-Avec la [file d’attente Service Bus](../service-bus-messaging/index.md) Azure, vous pouvez envoyer un ensemble de propriétés avec le message. Nous l’utilisons pour transmettre l’ID de corrélation.
+Application Insights effectue le suivi des appels de la messagerie Service Bus avec le nouveau [client Microsoft Azure ServiceBus pour .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 3.0.0 et versions ultérieures.
+Si vous utilisez le [modèle de gestionnaire de messages](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) pour traiter les messages, vous avez terminé : tous les appels Service Bus effectués par votre service sont automatiquement suivis et mis en corrélation avec d’autres éléments de télémétrie. Reportez-vous au [suivi du client Service Bus avec Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md) si vous traitez des messages manuellement.
 
-La file d’attente Service Bus utilise des protocoles TCP. Application Insights n’effectue pas automatiquement le suivi des opérations de file d’attente, et nous devons les suivre manuellement. L’opération de retrait de file d’attente est une API de style push et nous ne sommes pas en mesure d’effectuer son suivi.
+Si vous utilisez le package [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/), examinez les exemples-suivants qui montrent comment effectuer le suivi (et la mise en corrélation) des appels à Service Bus, sachant que la file d’attente Service Bus utilise le protocole AMQP et qu’Application Insights n’effectue pas automatiquement le suivi des opérations de file d’attente.
+Les identificateurs de corrélation sont transmis aux propriétés du message.
 
 #### <a name="enqueue"></a>Enqueue (empiler)
 
-```C#
+```csharp
 public async Task Enqueue(string payload)
 {
     // StartOperation is a helper method that initializes the telemetry item
@@ -168,7 +170,7 @@ public async Task Enqueue(string payload)
 ```
 
 #### <a name="process"></a>Process
-```C#
+```csharp
 public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
@@ -208,7 +210,7 @@ Préparez-vous.Assurez-vous que `Microsoft.ApplicationInsights.DependencyCollect
 
 Si vous configurez manuellement Application Insights, assurez-vous de créer et d’initialiser `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` de façon semblable au code suivant :
  
-``` C#
+```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
@@ -224,14 +226,14 @@ Vous pouvez également mettre en corrélation l’ID d’opération Application 
 #### <a name="enqueue"></a>Enqueue (empiler)
 Étant donné que les files d’attente de stockage prennent en charge l’API HTTP, toutes les opérations mettant en jeu la file d’attente sont automatiquement suivies par Application Insights. Dans de nombreux cas, cette instrumentation doit être suffisante. Toutefois, pour mettre en corrélation les traces côté client avec les traces du producteur, vous devez transmettre un contexte de corrélation de façon similaire à la manière utilisée dans le Protocole HTTP pour la corrélation. 
 
-Dans cet exemple, nous avons suivi l’opération facultative `Enqueue`. Vous pouvez :
+Cet exemple montre comment effectuer le suivi de l’opération `Enqueue`. Vous pouvez :
 
  - **Mettre en corrélation les nouvelles tentatives (le cas échéant)** : elles ont toutes un parent commun qui est l’opération `Enqueue`. Dans le cas contraire, elles sont comptabilisées en tant qu’enfants de la demande entrante. S’il existe plusieurs demandes logiques pour la file d’attente, il pourrait être difficile de trouver quel appel a généré de nouvelles tentatives.
  - **Mettre en corrélation les journaux de stockage Azure (si nécessaire)** : elles sont mises en corrélation avec la télémétrie Application Insights.
 
 L’opération `Enqueue` est l’enfant d’une opération parent (par exemple, une demande HTTP entrante). L’appel de dépendance HTTP est l’enfant de l’opération `Enqueue` et le petit-enfant de la demande entrante :
 
-```C#
+```csharp
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
@@ -285,7 +287,7 @@ L’opération `Dequeue` est compliquée. Le kit SDK d’Application Insights ef
 
 Dans de nombreux cas, il peut être utile de mettre en corrélation la requête HTTP adressée à la file d’attente avec d’autres traces également. L’exemple suivant illustre son fonctionnement :
 
-``` C#
+```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
     var telemetry = new DependencyTelemetry
@@ -334,9 +336,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Process
 
-Dans l’exemple suivant, nous traçons le message entrant de la même façon qu’une requête HTTP entrante :
+Dans l’exemple suivant, un message entrant est tracé de la même façon qu’une requête HTTP entrante :
 
-```C#
+```csharp
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
@@ -366,7 +368,7 @@ public async Task Process(MessagePayload message)
 
 De même, les autres opérations de file d’attente peuvent être instrumentées. Une opération d’aperçu doit être instrumentée de façon similaire à un retrait de la file d’attente. L’instrumentation des opérations de gestion de file d’attente n’est pas nécessaire. Application Insights effectue le suivi d’opérations telles que HTTP et, dans la plupart des cas, cela suffit.
 
-Lors de l’instrumentation d’une suppression de message, assurez-vous de définir les identificateurs de l’opération (corrélation). Vous pouvez également utiliser l’API `Activity`. Vous n’avez alors pas besoin de définir des identificateurs d’opérations sur les éléments de télémétrie car Application Insights le fait pour vous :
+Lors de l’instrumentation d’une suppression de message, assurez-vous de définir les identificateurs de l’opération (corrélation). Vous pouvez également utiliser l’API `Activity`. Vous n’avez alors pas besoin de définir des identificateurs d’opérations sur les éléments de télémétrie, car le Kit SDK Application Insights le fait pour vous :
 
 - Créez une nouvelle API `Activity` une fois que vous avez un élément à partir de la file d’attente.
 - Utilisez `Activity.SetParentId(message.ParentId)` pour mettre en corrélation les journaux du consommateur et du producteur.
@@ -383,7 +385,7 @@ Chaque traitement de message doit être traité dans son propre flux de contrôl
 ## <a name="long-running-background-tasks"></a>Tâches en arrière-plan à long terme
 Certaines applications démarrent des opérations à long terme qui peuvent être dues à des demandes de l’utilisateur. Du point de vue du traçage/de l’instrumentation, ce n’est pas différent de l’instrumentation des demandes ou des dépendances : 
 
-``` C#
+```csharp
 async Task BackgroundTask()
 {
     var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
@@ -411,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-Dans cet exemple, nous utilisons `telemetryClient.StartOperation` pour créer `RequestTelemetry` et remplir le contexte de corrélation. Supposons que vous avez une opération parent qui a été créée par les demandes entrantes qui ont planifié l’opération. Tant que `BackgroundTask` démarre dans le même flux de contrôle asynchrone en tant que demande entrante, elle est mise en corrélation avec cette opération parent. `BackgroundTask` et tous les éléments de télémétrie imbriqués sont automatiquement mis en corrélation avec la demande à son origine, même après la fin de la demande.
+Dans cet exemple, `telemetryClient.StartOperation` crée `RequestTelemetry` et remplit le contexte de corrélation. Supposons que vous avez une opération parent qui a été créée par les demandes entrantes qui ont planifié l’opération. Tant que `BackgroundTask` démarre dans le même flux de contrôle asynchrone en tant que demande entrante, elle est mise en corrélation avec cette opération parent. `BackgroundTask` et tous les éléments de télémétrie imbriqués sont automatiquement mis en corrélation avec la demande à son origine, même après la fin de la demande.
 
 Lorsque la tâche démarre à partir du thread en arrière-plan qui n’a pas d’opération (`Activity`) associée, `BackgroundTask` n’a pas de parent. Toutefois, il peut avoir plusieurs opérations imbriquées. Tous les éléments de télémétrie signalés à partir de la tâche sont mis en corrélation avec l’élément `RequestTelemetry` créé dans l’élément `BackgroundTask`.
 
@@ -428,9 +430,33 @@ L’approche générale utilisée pour le suivi personnalisé des dépendances e
 - Arrêtez l’opération avec `StopOperation` lorsqu’elle est terminée.
 - Traitez les exceptions.
 
+```csharp
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+L’opération de suppression entraîne l’arrêt de l’opération. Vous pouvez donc l’utiliser au lieu d’appeler `StopOperation`.
+
+*Avertissement* : dans certains cas, une exception non prise en charge peut [empêcher](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) l’appel de `finally`, et par conséquent le suivi des opérations.
+
+### <a name="parallel-operations-processing-and-tracking"></a>Suivi et traitement d’opérations parallèles
+
 `StopOperation` ne peut arrêter que l’opération lancée. Si l’opération en cours d’exécution actuelle ne correspond pas à celle que vous souhaitez arrêter, `StopOperation` ne fait rien. Cette situation peut se produire si vous démarrez plusieurs opérations en parallèle dans le même contexte d’exécution :
 
-```C#
+```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
@@ -440,35 +466,35 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-Assurez-vous de toujours appeler `StartOperation` et d’exécuter votre tâche dans son propre contexte :
-```C#
-public async Task RunMyTaskAsync()
+Veillez à toujours appeler `StartOperation` et à traiter l’opération à l’aide de la même méthode **asynchrone** pour isoler les opérations exécutées en parallèle. Si l’opération est synchrone (et non asynchrone), incluez le processus dans un wrapper et effectuez le suivi avec `Task.Run` :
+
+```csharp
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Découvrez les bases de la [corrélation de télémétrie](application-insights-correlation.md) dans Application Insights.
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).

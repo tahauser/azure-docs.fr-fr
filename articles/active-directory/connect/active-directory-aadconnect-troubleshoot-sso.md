@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -27,6 +27,7 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 ## <a name="known-problems"></a>Problèmes connus
 
 - Dans certains cas, l’activation de l’authentification unique transparente peut prendre jusqu’à 30 minutes.
+- Si vous désactivez et réactivez l’authentification unique transparente sur votre client, les utilisateurs ne recevront pas l’expérience d’authentification unique jusqu'à ce que leurs tickets Kerberos, généralement valides pour 10 heures, expirent.
 - La prise en charge du navigateur Edge n’est pas disponible.
 - Le démarrage des clients Office, en particulier dans les scénarios d’ordinateurs partagés, entraîne l’affichage d’invites de connexion supplémentaires. Les utilisateurs doivent entrer leur nom d'utilisateur fréquemment, mais pas leur mot de passe.
 - Si l’authentification unique transparente réussit, l’utilisateur n’a pas la possibilité de choisir l’option **Maintenir la connexion**. En raison de ce comportement, les scénarios de mappage SharePoint et OneDrive ne fonctionnent pas.
@@ -68,13 +69,15 @@ Accédez à **Azure Active Directory** > **Connexions** dans le [Centre d’admi
 Utilisez la liste de contrôle suivante pour résoudre les problèmes d’authentification unique transparente :
 
 - Vérifiez que la fonctionnalité d’authentification unique transparente est activée dans Azure AD Connect. Si vous ne pouvez pas activer la fonctionnalité (par exemple, en raison d’un port bloqué), vérifiez que toutes les [conditions préalables](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) sont bien respectées.
+- Si vous avez activé [Azure AD Join](../active-directory-azureadjoin-overview.md) et l’authentification unique transparente sur votre client, assurez-vous que le problème ne vient pas d’Azure AD Join. L’authentification unique à partir d’Azure AD Join est prioritaire sur l’authentification unique transparente si l’appareil est inscrit auprès d’Azure AD et est joint au domaine. Avec l’authentification unique à partir d’Azure AD Join, l’utilisateur voit une vignette de connexion qui indique « Connecté à Windows ».
 - Vérifiez que ces deux URL Azure AD (https://autologon.microsoftazuread-sso.com et https://aadg.windows.net.nsatc.net) figurent bien dans les paramètres Zone intranet de l’utilisateur.
 - Vérifiez que l’appareil d’entreprise est joint au domaine Active Directory.
 - Assurez-vous que l'utilisateur est connecté à l'appareil via un compte de domaine Active Directory.
 - Vérifiez que le compte de l’utilisateur provient d’une forêt Active Directory dans laquelle l’authentification unique (SSO) transparente a été configurée.
 - Vérifiez que l’appareil est connecté au réseau d’entreprise.
 - Vérifiez que l’heure de l’appareil est synchronisée à la fois avec celle d’Active Directory et celle du contrôleur de domaine, et qu'elles ne comptent pas plus de cinq minutes d’écart.
-- Affichez la liste des tickets Kerberos existants sur l’appareil à l’aide de la commande `klist` dans une invite de commandes. Vérifiez que les tickets émis pour le compte d’ordinateur `AZUREADSSOACCT` y figurent. En règle générale, la durée de validité des tickets Kerberos des utilisateurs est de 12 heures. L'instance Active Directory est peut-être paramétrée différemment.
+- Affichez la liste des tickets Kerberos existants sur l’appareil à l’aide de la commande `klist` dans une invite de commandes. Vérifiez que les tickets émis pour le compte d’ordinateur `AZUREADSSOACCT` y figurent. En règle générale, la durée de validité des tickets Kerberos des utilisateurs est de 10 heures. L'instance Active Directory est peut-être paramétrée différemment.
+- Si vous avez désactivé et réactivé l’authentification unique transparente sur votre client, les utilisateurs ne recevront pas l’expérience d’authentification unique jusqu'à ce que leurs tickets Kerberos expirent.
 - Videz les tickets Kerberos existants de l’appareil à l’aide de la commande `klist purge`, puis réessayez.
 - Pour déterminer si des problèmes liés à JavaScript existent, passez en revue les journaux de console du navigateur (sous **Outils de développement**).
 - Examinez les [journaux des contrôleurs de domaine](#domain-controller-logs).

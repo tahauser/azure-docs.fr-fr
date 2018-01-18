@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [En savoir plus sur Recherche Azure](search-what-is-azure-search.md)
 
 # Démarrages rapides
@@ -54,7 +54,10 @@
 ### [Développer dans .NET](search-howto-dotnet-sdk.md)
 ### [Développer dans Node.js](search-get-started-nodejs.md)
 ### [Développer dans Java](search-get-started-java.md)
-### [Mettre à niveau le kit de développement logiciel (SDK)](search-dotnet-sdk-migration.md)
+### Mettre à niveau le kit de développement logiciel (SDK)
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET Management SDK](search-dotnet-mgmt-sdk-migration.md)
 ### [Mettre à niveau l’API REST](search-api-migration.md)
 ### [Modéliser les types de données complexes](search-howto-complex-data-types.md)
 ### [Gérer des mises à jour simultanées](search-howto-concurrency.md)
@@ -94,7 +97,7 @@
 ### [Surveiller l’utilisation et les statistiques](search-monitor-usage.md)
 ### [Rechercher l’analyse du trafic](search-traffic-analytics.md)
 
-# Référence
+# Informations de référence
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (Management)](/dotnet/api/?term=microsoft.azure.management.search)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
@@ -28,7 +28,7 @@ La gestion des API Azure peut être déployée à l’intérieur du réseau virt
 > La gestion des API Azure prend en charge les réseaux virtuels classiques et Azure Resource Manager.
 >
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -111,13 +111,11 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 | * / 3443 |Trafic entrant |TCP |INTERNET / VIRTUAL_NETWORK|Point de terminaison de gestion pour le portail Azure et Powershell |Interne |
 | * / 80, 443 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance envers Stockage Azure, Azure Service Bus et Azure Active Directory (le cas échéant).|Externe et interne | 
 | * / 1433 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès aux points de terminaison de SQL Azure** |Externe et interne |
-| * / 11000 - 11999 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès à SQL Azure V12** |Externe et interne |
-| * / 14000 - 14999 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|**Accès à SQL Azure V12** |Externe et interne |
 | * / 5671, 5672 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance |Externe et interne |
 | * / 445 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Dépendance sur le partage de fichiers Azure pour GIT |Externe et interne |
 | * / 25028 |Règle de trafic sortant |TCP |VIRTUAL_NETWORK / INTERNET|Se connecter au relais SMTP pour envoyer des e-mails |Externe et interne |
 | * / 6381 - 6383 |Trafic entrant et sortant |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Accès aux instances de cache Redis entre instances de rôle |Externe et interne |
-| * / *  | Trafic entrant |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Équilibrage de charge de l’infrastructure Azure |Externe et interne |
+| * / * | Trafic entrant |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Équilibrage de charge de l’infrastructure Azure |Externe et interne |
 
 >[!IMPORTANT]
 > * Les ports pour lesquels *l’objectif* est indiqué en **gras** sont nécessaires au déploiement du service Gestion des API. Toutefois, le blocage des autres ports entraîne une dégradation de la capacité à utiliser et à surveiller le service en cours d’exécution.
@@ -140,10 +138,10 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 >La gestion des API Azure n’est pas prise en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d’adresses sont incorrectement publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’instance de la gestion des API Azure sont incorrectement acheminés de force vers l’infrastructure réseau sur site d’un client. Ce flux réseau interrompt la gestion des API Azure. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.
 
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"> </a>Résolution des problèmes
 * **Installation initiale** : si le déploiement initial du service Gestion des API sur un sous-réseau échoue, nous vous recommandons de commencer par déployer une machine virtuelle sur ce sous-réseau. Ensuite, utilisez le Bureau à distance pour vous connecter à la machine virtuelle et confirmez qu’il existe une connectivité à chacune des ressources de votre abonnement Azure mentionnées ci-dessous. 
     * Stockage Blob Azure
-    * Base de données SQL Azure
+    * Azure SQL Database
 
  > [!IMPORTANT]
  > Après avoir validé la connectivité, veillez à supprimer toutes les ressources déployées sur le sous-réseau avant d’y déployer le service Gestion des API.
@@ -157,7 +155,7 @@ Lorsque l’instance de service Gestion des API est hébergée dans un réseau v
 + Une adresse IP d’une plage d’adresses IP de sous-réseau (adresse IP dynamique) est utilisée pour accéder aux ressources sur le réseau virtuel, tandis qu’une adresse IP publique (adresse IP virtuelle) est utilisée pour accéder aux ressources à l’extérieur du réseau virtuel.
 + L’adresse IP publique à charge équilibrée se trouve dans le panneau Vue d’ensemble/Bases sur le portail Azure.
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"> </a>Limitations
 * Un sous-réseau contenant des instances du service Gestion des API ne peut pas contenir d’autres types de ressource Azure.
 * Le sous-réseau et le service Gestion des API doivent figurer dans le même abonnement.
 * Un sous-réseau contenant des instances du service Gestion des API ne peut pas être déplacé entre des abonnements.

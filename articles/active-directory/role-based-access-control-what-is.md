@@ -3,7 +3,7 @@ title: "Gérer l’accès et les autorisations avec le contrôle d’accès en f
 description: "Découvrez la gestion de l’accès avec le contrôle d’accès en fonction du rôle Azure dans le portail Azure. Utilisez des attributions de rôle pour attribuer des autorisations dans votre répertoire."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
-ms.author: andredm
+ms.date: 01/02/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure
 Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le contrôle d’accès en fonction du rôle (RBAC) Azure permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure.
@@ -50,15 +50,15 @@ Les autres rôles RBAC dans Azure permettent de gérer des ressources Azure spé
 * Chaque **groupe de ressources** appartient à un seul abonnement.
 * Chaque **ressource** appartient à un seul groupe de ressources.
 
-L’accès que vous accordez à des étendues parentes est hérité par les étendues enfant. Par exemple :
+L’accès que vous accordez à des étendues parentes est hérité par les étendues enfant. Par exemple : 
 
 * Vous attribuez le rôle de lecteur à un groupe Azure AD dans l’étendue de l’abonnement. Les membres de ce groupe peuvent consulter tous les groupes de ressources et les ressources de l’abonnement.
 * Vous attribuez le rôle de contributeur à une application dans l’étendue du groupe de ressources. Il peut gérer tous les types de ressources dans ce groupe de ressources, mais pas dans les autres groupes de ressources de l’abonnement.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Comparaison entre RBAC Azure et Administrateur d’abonnement classiques
-Les administrateurs et coadministrateurs d’abonnement classiques ont un accès total à l’abonnement Azure. Ils peuvent gérer des ressources à l’aide du [portail Azure](https://portal.azure.com) avec des API Azure Resource Manager ou du [portail Azure Classic](https://manage.windowsazure.com) et du modèle de déploiement Azure Classic. Dans le modèle RBAC, les administrateurs classiques se voient attribuer le rôle de propriétaire dans l’étendue de l’abonnement.
+[Les administrateurs et coadministrateurs d’abonnement classiques](../billing/billing-add-change-azure-subscription-administrator.md) ont un accès total à l’abonnement Azure. Ils peuvent gérer des ressources à l’aide du [portail Azure](https://portal.azure.com) avec des API Azure Resource Manager et des API du modèle de déploiement Classic. Dans le modèle RBAC, les administrateurs classiques se voient attribuer le rôle de propriétaire dans l’étendue de l’abonnement.
 
-RBAC Azure est pris en charge uniquement par le portail Azure et les nouvelles API Azure Resource Manager. Les utilisateurs et les applications qui se voient affecter des rôles RBAC ne peuvent pas utiliser le portail de gestion classique et le modèle de déploiement Azure Classic.
+RBAC Azure est pris en charge uniquement par le portail Azure et les nouvelles API Azure Resource Manager. Les utilisateurs et les applications qui se voient affecter des rôles RBAC ne peuvent pas utiliser les API du modèle de déploiement Azure Classic.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorisation pour les opérations de gestion et les opérations de données
 RBAC Azure prend uniquement en charge les opérations de gestion des ressources Azure dans le portail Azure et les API Azure Resource Manager. Il ne peut pas autoriser toutes les opérations au niveau des données pour les ressources Azure. Par exemple, vous pouvez autoriser une personne à gérer les comptes de stockage, mais non les objets blob ou les tables dans un compte de stockage. De même, une base de données SQL peut être gérée, mais pas les tables qu’elle contient.

@@ -1,4 +1,4 @@
-La **[galerie Cortana Intelligence](http://gallery.cortanaintelligence.com)** est un site communautaire ayant pour but d’explorer et de partager des solutions intégrées avec Cortana Intelligence Suite.
+La **[galerie Azure AI](http://gallery.cortanaintelligence.com)** est un site communautaire ayant pour but d’explorer et de partager des solutions intégrées avec Cortana Intelligence Suite.
 La galerie contient diverses ressources que vous pouvez utiliser pour développer vos propres solutions d’analyse.
 
 <!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.

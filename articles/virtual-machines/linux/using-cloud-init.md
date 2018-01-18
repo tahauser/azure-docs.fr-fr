@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -29,20 +29,20 @@ Cet article décrit la prise en charge existante pour [cloud-init](https://cloud
 
 Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vous n’utilisez pas **apt-get install** ou **yum install** pour installer un package. Au lieu de cela, vous pouvez définir une liste des packages à installer, après quoi cloud-init se charge d’utiliser automatiquement l’outil de gestion de package natif correspondant à la distribution que vous sélectionnez.
 
- Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de Marché Azure. Ces images permettront à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques Virtual Machine Scale Sets. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
+ Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettront à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques Virtual Machine Scale Sets. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
 
-| Éditeur | Offer | SKU | Version | Compatible avec cloud-init
+| Publisher | Offre | SKU | Version | Compatible avec cloud-init
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |le plus récent |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |le plus récent |yes |
-|CoreOS |CoreOS |Stable |le plus récent |yes |
+|Canonical |UbuntuServer |16.04-LTS |le plus récent |Oui | 
+|Canonical |UbuntuServer |14.04.5-LTS |le plus récent |Oui |
+|CoreOS |CoreOS |Stable |le plus récent |Oui |
 |OpenLogic |CentOS |7-CI |le plus récent |preview |
 |Red Hat |RHEL |7-RAW-CI |le plus récent |preview |
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Quelle est la différence entre cloud-init et l’agent Linux (WALA) ?
 WALA est un agent spécifique à la plateforme Azure, qui est utilisé pour configurer des machines virtuelles et gérer des extensions Azure. Nous améliorons la tâche de configuration des machines virtuelles afin d’utiliser cloud-init en lieu et place de l’agent Linux, ceci pour permettre aux clients cloud-init existants de s’appuyer sur leurs scripts cloud-init actuels.  Si vous possédez des investissements existants dans des scripts cloud-init pour la configuration de systèmes Linux, **aucun autre paramétrage n’est requis** pour les activer. 
 
-Si vous n’incluez pas le commutateur de la ligne de commande d’interface de ligne de commande Azure `--custom-data` au moment de l’approvisionnement, WALA prend les paramètres minimaux d’approvisionnement de machines virtuelles requis pour configurer la machine virtuelle et exécuter le déploiement avec les valeurs par défaut.  Si vous référencez le commutateur cloud-init `--custom-data`, le contenu de vos données personnalisées (paramètres individuels ou script entier) écrase les données WALA définies par défaut. 
+Si vous n’incluez pas le commutateur de l’interface de ligne de commande Azure `--custom-data` au moment de l’approvisionnement, WALA prend les paramètres minimaux d’approvisionnement de machines virtuelles requis pour configurer la machine virtuelle et exécuter le déploiement avec les valeurs par défaut.  Si vous référencez le commutateur cloud-init `--custom-data`, le contenu de vos données personnalisées (paramètres individuels ou script entier) écrase les données WALA définies par défaut. 
 
 Les configurations WALA de machines virtuelles ont une durée limitée, ceci pour tenir dans le délai maximal d’approvisionnement des machines virtuelles.  Les configurations cloud-init appliquées aux machines virtuelles n’étant soumises à aucune contrainte de temps, aucune mise en échec de déploiement par expiration de ces dernières n’est possible. 
 
@@ -89,10 +89,10 @@ Une fois la machine virtuelle configurée, cloud-init est exécuté dans l’ens
 
 Pour plus d’informations sur la journalisation de cloud-init, consultez la [documentation cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir des exemples cloud-init de modifications de configuration, consultez les documents suivants :
  
 - [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)
 - [Exécuter un gestionnaire de package pour mettre à jour les packages existants au premier démarrage](cloudinit-update-vm.md)
-- [Modifier le nom d’hôte local de machine virtuelle](cloudinit-update-vm-hostname.md) 
+- [Use cloud-init to set hostname for a Linux VM in Azure](cloudinit-update-vm-hostname.md) (Utiliser cloud-init pour définir un nom d’hôte pour une machine virtuelle Linux dans Azure) 
 - [Installer un package d’application, mettre à jour des fichiers de configuration et injecter des clés](tutorial-automate-vm-deployment.md)

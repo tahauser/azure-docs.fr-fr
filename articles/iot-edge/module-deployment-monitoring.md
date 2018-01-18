@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Comprendre les déploiements IoT Edge pour les appareils uniques ou à l’échelle - Aperçu
 
@@ -49,7 +49,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules devant
 
 Les métadonnées de configuration pour chaque module incluent : 
 * Version 
-* Type 
+* type 
 * État (par exemple, en cours d’exécution ou arrêté) 
 * Stratégie de redémarrage 
 * Référentiel d’image et de conteneur 
@@ -57,7 +57,23 @@ Les métadonnées de configuration pour chaque module incluent :
 
 ### <a name="target-condition"></a>Condition cible
 
-Les conditions de ciblage spécifient si un périphérique IoT Edge doit être dans le cadre d’un déploiement. Les conditions de ciblage sont basées sur des balises de jumeau d’appareil. 
+La condition cible est évaluée en permanence pour inclure les nouveaux appareils qui répondent aux exigences ou pour supprimer les appareils qui n’y répondent plus tout au long de la durée de vie du déploiement. Celui-ci sera réactivé si le service détecte une modification de la condition cible. Prenons l’exemple d’un déploiement A comportant la condition cible tags.environment = ’prod’. Au lancement du déploiement, il existe 10 appareils de production. Les modules sont correctement installés sur ces 10 appareils. L’état de l’Agent IoT Edge affiche 10 appareils au total, 10 réponses correctes, 0 échecs de réponse et 0 réponses en attente. On ajoute maintenant 5 appareils avec tags.environment = ’prod’. Le service détecte la modification, et l’état de l’Agent IoT Edge devient : 15 appareils au total, 10 réponses correctes, 0 échecs de réponses et 5 réponses en attente lorsqu’il tente de déployer les cinq nouveaux appareils.
+
+Utilisez une condition booléenne sur des balises des jumeaux d’appareils ou deviceId pour sélectionner les appareils cibles. Si vous souhaitez utiliser une condition avec des balises, vous devez ajouter les propriétés "tags":{} dans le jumeau d’appareil au même niveau. [En savoir plus sur les balises dans le jumeau d’appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Exemples de conditions cibles :
+* deviceId =’linuxprod1’
+* tags.environment =’prod’
+* tags.environment = ’prod’ AND tags.location = ’westus’
+* tags.environment = ’prod’ OR tags.location = ’westus’
+* tags.operator = ’John’ AND tags.environment = ’prod’ NOT deviceId = ’linuxprod1’
+
+Voici quelques-unes des contraintes qui s’appliquent à la création d’une condition cible :
+
+* Dans le jumeau d’appareil, seuls les balises et deviceId permettent de créer une condition cible.
+* Les guillemets doubles ne sont autorisés nulle part dans la condition cible. Utilisez des guillemets simples.
+* Les guillemets simples représentent les valeurs de la condition cible. Par conséquent, vous devez échapper le guillemet simple avec un autre guillemet simple s’il fait partie du nom de l’appareil. Par exemple, la condition cible de operator’sDevice s’écrit deviceId = ’operator’’sDevice’.
+* Les nombres, les lettres et les caractères suivants sont autorisés dans les valeurs de la condition cible : -:.+%_#*?!(),=@;$.
 
 ### <a name="priority"></a>Priorité
 
@@ -100,7 +116,7 @@ Effectuez des restaurations dans l’ordre suivant :
    * Le deuxième déploiement doit désormais inclure l’état de déploiement pour les appareils qui ont été restaurés.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Suivez les étapes pour créer, mettre à jour ou supprimer un déploiement dans [Déployer et surveiller les modules IoT Edge à l’échelle][lnk-howto].
 * En savoir plus sur d’autres concepts IoT Edge tels que le [runtime IoT Edge][lnk-runtime] et [les modules IoT Edge][lnk-modules].

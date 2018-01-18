@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
 Cet article explique comment déplacer vos données de télémétrie à partir d’[Azure Application Insights][start] vers une base de données SQL Azure à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 Dans cet exemple, nous utilisons les données issues des affichages de pages. Pour voir les autres données disponibles, examinez la sortie JSON et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Création d’une instance Azure Stream Analytics
-À partir du [portail classique Azure](https://manage.windowsazure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
+À partir du [portail Azure](https://portal.azure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Une fois la tâche créée, développez les informations qui s’y rapportent :
+Lors de la création de la tâche, sélectionnez **Accéder à la ressource**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Définition de l’emplacement des objets blob
+#### <a name="add-a-new-input"></a>Ajouter une nouvelle entrée
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Définissez-le pour qu’il tienne compte des données de votre objet blob d’exportation continue :
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Vous devez maintenant disposer de la clé d’accès principale issue de votre compte de stockage, que vous avez notée précédemment. Définissez-la comme clé de compte de stockage.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Définition de la séquence d’octets préfixe du chemin d’accès
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Veillez à définir le format de date sur **AAAA-MM-JJ** (avec des **tirets**).
+**Veillez à définir le format de date sur AAAA-MM-JJ (avec des tirets).**
 
 La séquence d’octets préfixe du chemin d’accès spécifie la manière dont Stream Analytics recherche les fichiers d’entrée dans le stockage. Vous devez la configurer pour correspondre au mode de stockage des données de l'exportation continue. Définissez-la comme suit :
 
@@ -178,22 +178,12 @@ Dans cet exemple :
 
 Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez Essentials sur sa page de présentation ou ouvrez Paramètres.
 
-#### <a name="finish-initial-setup"></a>Fin de l’installation initiale
-Confirmez le format de sérialisation :
-
-![Confirmez et fermez l’assistant.](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Fermez l’assistant et attendez la fin de l’installation.
-
 > [!TIP]
 > Utilisez l’exemple de fonction pour vérifier que vous avez correctement défini le chemin d’accès d’entrée. En cas d’échec, vérifiez qu’il y a des données dans le stockage pour l’exemple de période que vous avez choisi. Modifiez la définition de l’entrée et vérifiez que vous avez correctement défini le compte de stockage, le préfixe de chemin d’accès et le format de date.
 > 
 > 
-
 ## <a name="set-query"></a>Définition d’une requête
 Ouvrez la section de la requête :
-
-![Dans Stream analytics, sélectionnez Requête.](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Remplacez la requête par défaut par :
 
@@ -238,22 +228,20 @@ Notez que les premières propriétés sont spécifiques aux données d’afficha
 ## <a name="set-up-output-to-database"></a>Configuration de la sortie vers la base de données
 Sélectionnez SQL comme sortie.
 
-![Dans Stream analytics, sélectionnez Sorties.](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![Dans Stream analytics, sélectionnez Sorties.](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Spécifiez la base de données SQL.
 
-![Remplissez les détails de votre base de données.](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Remplissez les détails de votre base de données.](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Fermez l’assistant et attendez une notification indiquant que la sortie a été configurée.
 
 ## <a name="start-processing"></a>Démarrage du traitement
 Démarrez la tâche à partir de la barre d’action :
 
-![Dans Stream Analytics, cliquez sur Démarrer.](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![Dans Stream Analytics, cliquez sur Démarrer.](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 Vous pouvez choisir de démarrer le traitement à partir de données actuelles ou de données antérieures. La dernière possibilité est utile si l’exportation continue fonctionne déjà depuis un certain temps.
-
-![Dans Stream Analytics, cliquez sur Démarrer.](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Après quelques minutes, revenez aux Outils d’administration SQL Server et observez les données qui y circulent. Utilisez, par exemple, le type de requête suivant :
 

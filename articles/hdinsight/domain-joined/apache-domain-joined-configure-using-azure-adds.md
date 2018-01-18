@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurer les clusters HDInsight joints à un domaine à l’aide d’Azure Active Directory Domain Services
 
@@ -50,7 +50,7 @@ Il est plus facile de placer AAD DS et le cluster HDInsight dans le même résea
 Lorsque vous créez un cluster HDInsight joint à un domaine, vous devez fournir les paramètres suivants :
 
 - **Nom de domaine** : nom de domaine associé à l’instance d’Azure AD DS. Par exemple, contoso.onmicrosoft.com.
-- **Nom d’utilisateur du domaine** : compte de service appartenant au groupe Administrateurs AAD DC Azure qui a été créé dans la section précédente. Par exemple, hdiadmin@contoso.onmicrosoft.com. Cet utilisateur de domaine est l’administrateur du cluster HDInsight joint à un domaine.
+- **Nom d’utilisateur du domaine** : compte de service appartenant au groupe Administrateurs AAD DC Azure qui a été créé dans la section précédente. Par exemple : hdiadmin@contoso.onmicrosoft.com. Cet utilisateur de domaine est l’administrateur du cluster HDInsight joint à un domaine.
 - **Mot de passe du domaine** : mot de passe du compte de service.
 - **Unité de l’organisation** : nom unique de l’unité d’organisation à utiliser avec le cluster HDInsight. Par exemple : OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. Si cette unité d’organisation n’existe pas, le cluster HDInsight tente de la créer. 
 - **URL LDAPS** : par exemple, ldaps://contoso.onmicrosoft.com:636
@@ -61,7 +61,7 @@ La capture d’écran suivante montre les configurations dans le portail Azure :
 ![Configuration d’un cluster HDInsight joint à un domaine avec Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez [Configuration de stratégies Hive pour les clusters HDInsight joints à un domaine](apache-domain-joined-run-hive.md).
 * Pour utiliser des clusters HDInsight joints à un domaine, consultez [Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
