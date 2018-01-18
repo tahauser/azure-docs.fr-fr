@@ -1,6 +1,6 @@
 - name: Documentation Azure IoT Edge
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure IoT Edge
       href: how-iot-edge-works.md
@@ -24,6 +24,8 @@
       href: tutorial-deploy-machine-learning.md
     - name: Déployer Azure Functions
       href: tutorial-deploy-function.md
+    - name: "Créer un déploiement IoT\_Edge à l’aide de l’extension\_IoT pour Azure\_CLI\_2.0"
+      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Procédures
   items:
     - name: Créer des passerelles

@@ -1,26 +1,23 @@
 ---
 title: "Configurer l’authentification Azure Active Directory - SQL | Microsoft Docs"
-description: "Découvrez comment vous connecter à SQL Database et à SQL Data Warehouse avec l’authentification Azure Active Directory."
+description: "Découvrez comment vous connecter à SQL Database et à SQL Data Warehouse avec l’authentification Azure Active Directory, après la configuration d’Azure AD."
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse
 
@@ -32,33 +29,14 @@ Cet article vous montre comment créer et remplir Azure AD, puis comment utilise
 ## <a name="create-and-populate-an-azure-ad"></a>Créer et renseigner un répertoire Azure AD
 Créez un annuaire Azure AD et renseignez-le avec les utilisateurs et les groupes. Azure AD peut être le domaine managé Azure AD initial. Azure AD peut également être une instance locale de services de domaine Active Directory, fédérée avec l’annuaire Azure AD.
 
-Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Gestion d’Azure AD à l’aide de Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) et [Ports et protocoles nécessaires à l’identité hybride](../active-directory/active-directory-aadconnect-ports.md).
+Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Ajout de votre propre nom de domaine à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](../active-directory/active-directory-administer.md), [Gestion d’Azure AD à l’aide de Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) et [Ports et protocoles nécessaires à l’identité hybride](..//active-directory/connect/active-directory-aadconnect-ports.md).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure
-Pour associer votre base de données à l’annuaire Azure AD de votre organisation, faites de l’annuaire un annulaire approuvé pour l’abonnement Azure qui héberge la base de données. Pour plus d’informations, consultez la page [Comment sont associés les abonnements Azure et Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associer ou ajouter un abonnement Azure à Azure Active Directory
 
-**Additional information :** chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même répertoire, mais un abonnement n’approuve qu’un seul répertoire. Vous pouvez découvrir quel répertoire est approuvé par votre abonnement dans l’onglet **Paramètres** , à l’adresse [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Cette relation de confiance qu’un abonnement possède avec un répertoire est contraire à celle établie entre un abonnement et toutes les autres ressources Azure (sites Web, bases de données, etc.), qui se rapprochent plus des ressources enfants d'un abonnement. Lorsqu’un abonnement expire, les autres ressources associées à l'abonnement deviennent également inaccessibles. Mais le répertoire reste dans Azure, et vous pouvez associer un autre abonnement à ce répertoire et continuer à gérer les utilisateurs du répertoire. Pour plus d’informations sur les ressources, consultez [Comprendre l’accès aux ressources dans Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Pour associer votre abonnement Azure à Azure Active Directory, faites de l’annuaire un annuaire approuvé pour l’abonnement Azure qui héberge la base de données. Pour plus d’informations, consultez [Association des abonnements Azure avec Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Utilisez le sélecteur de répertoire dans le portail Azure pour basculer vers l’abonnement associé au domaine.
 
-Les procédures suivantes vous montrent comment modifier l’annuaire associé à un abonnement donné.
-1. Connectez-vous à votre [portail Azure Classic](https://manage.windowsazure.com/) à l’aide d’un administrateur d’abonnement Azure.
-2. Dans la bannière de gauche, sélectionnez **PARAMÈTRES**.
-3. Vos abonnements s’affichent dans l’écran Paramètres. Si l’abonnement souhaité n’apparaît pas, cliquez sur **Abonnements** en haut, développez la liste déroulante **FILTRER PAR ANNUAIRE** et sélectionnez le répertoire qui contient vos abonnements, puis cliquez sur **APPLIQUER**.
-   
-    ![sélectionner l'abonnement][4]
-4. Dans la zone **Paramètres**, cliquez sur votre abonnement, puis sur **MODIFIER L’ANNUAIRE** en bas de la page.
-   
-    ![portail-paramètres-ad][5]
-5. Dans la zone **MODIFIER L’ANNUAIRE** , sélectionnez le répertoire Azure Active Directory associé à votre serveur SQL Server ou à SQL Data Warehouse, puis cliquez sur la flèche Suivant.
-   
-    ![edit-directory-select][6]
-6. Dans la boîte de dialogue **Confirmer** le mappage d’annuaire, confirmez que « **Tous les coadministrateurs vont être supprimés.** »
-   
-    ![edit-directory-confirm][7]
-7. Cliquez sur la coche pour recharger le portail.
-
-   > [!NOTE]
-   > Lorsque vous modifiez l’annuaire, l’accès de tous les coadministrateurs, utilisateurs et groupes Azure AD, ainsi que des utilisateurs de ressources reposant sur l’annuaire est supprimé, de sorte qu’ils n’ont plus accès à cet abonnement ou à ses ressources. Vous seul, en tant qu’administrateur du service, pouvez configurer l’accès aux serveurs principaux en fonction du nouvel annuaire. Cette modification peut prendre beaucoup de temps pour se propager à toutes les ressources. La modification du répertoire change également l’administrateur Azure AD pour les services Base de données SQL et SQL Data Warehouse, et désactive l’accès à la base de données pour tous les utilisateurs Azure AD existants. L’administrateur Azure AD doit être réinitialisé (commet décrit ci-dessous) et de nouveaux utilisateurs Azure AD doivent être créés.
-   >  
+   **Additional information :** chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même annuaire, mais un abonnement n’approuve qu’un seul annuaire. Cette relation de confiance qu’un abonnement possède avec un répertoire est contraire à celle établie entre un abonnement et toutes les autres ressources Azure (sites Web, bases de données, etc.), qui se rapprochent plus des ressources enfants d'un abonnement. Lorsqu’un abonnement expire, les autres ressources associées à l'abonnement deviennent également inaccessibles. Mais le répertoire reste dans Azure, et vous pouvez associer un autre abonnement à ce répertoire et continuer à gérer les utilisateurs du répertoire. Pour plus d’informations sur les ressources, consultez [Comprendre l’accès aux ressources dans Azure](../active-directory/active-directory-b2b-admin-add-users.md). Pour en savoir plus sur cette relation approuvée, consultez [Comment associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Créer un administrateur d’Azure AD pour le serveur SQL Azure
 Chaque serveur Azure SQL Server (qui héberge une base de données SQL ou un entrepôt SQL Data Warehouse) démarre avec un compte d’administrateur de serveur unique, qui est l’administrateur du serveur Azure SQL Server entier. Un deuxième administrateur SQL Server doit être créé. Il s’agit d’un compte Azure AD. Cet utilisateur principal est créé en tant qu’utilisateur de base de données à relation contenant-contenu dans la base de données master. En tant qu’administrateurs, les comptes d’administrateur de serveur sont des membres du rôle **db_owner** de chaque base de données utilisateur, puis saisissez chaque base de données utilisateur en tant utilisateur **dbo**. Pour plus d’informations sur les comptes d’administrateur de serveur, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md).
@@ -106,7 +84,7 @@ Pour configurer un administrateur Azure AD, exécutez les commandes Azure PowerS
 
 Applets de commande utilisées pour configurer et gérer Azure AD admin :
 
-| Nom de l’applet de commande | Description |
+| Nom de l’applet de commande | DESCRIPTION |
 | --- | --- |
 | [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Approvisionne un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. (À partir de l’abonnement actuel) |
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Supprime un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. |
@@ -154,7 +132,7 @@ Vous pouvez également approvisionner un administrateur Azure Active Directory �
 
 ### <a name="cli"></a>Interface de ligne de commande  
 Vous pouvez également configurer un administrateur Azure AD en appelant les commandes CLI suivantes :
-| Commande | Description |
+| Commande | DESCRIPTION |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Approvisionne un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. (À partir de l’abonnement actuel) |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Supprime un administrateur Azure Active Directory pour le serveur Azure SQL Server ou Azure SQL Data Warehouse. |
@@ -324,7 +302,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Pour obtenir une vue d’ensemble de l’accès et du contrôle dans la base de données SQL, voir [Accès à la base de données SQL et contrôle](sql-database-control-access.md).
 - Pour une vue d’ensemble des connexions, des utilisateurs et des rôles de base de données dans la base de données SQL, voir [Connexions, utilisateurs et rôles de base de données](sql-database-manage-logins.md).
 - Pour en savoir plus sur les principaux de base de données, voir [Principaux](https://msdn.microsoft.com/library/ms181127.aspx).

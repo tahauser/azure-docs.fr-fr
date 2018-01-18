@@ -3,8 +3,8 @@ title: Comprendre les connexions sortantes dans Azure | Microsoft Docs
 description: Cet article explique comment Azure permet aux machines virtuelles de communiquer avec les services Internet publics.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Comprendre les connexions sortantes dans Azure
 
@@ -46,7 +46,7 @@ Vous pouvez utiliser la fonctionnalité [Analytique des journaux pour l’équil
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Machine virtuelle à charge équilibrée sans adresse IP publique de niveau d’instance
 
-Dans ce scénario, la machine virtuelle fait partie d’un pool Azure Load Balancer.  La machine virtuelle n’a pas d’adresse IP publique affectée. La ressource d’équilibreur de charge doit être configurée avec une règle pour lier le serveur frontal d’adresse IP publique au pool principal.  Si vous n’effectuez pas cette configuration, le comportement est celui qui est décrit dans la section précédente pour [Machine virtuelle autonome sans adresse IP publique de niveau d’instance](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+Dans ce scénario, la machine virtuelle fait partie d’un pool Azure Load Balancer.  La machine virtuelle n’a pas d’adresse IP publique affectée. La ressource d’équilibreur de charge doit être configurée avec une règle d’équilibreur de charge pour créer un lien entre le serveur frontal d’adresse IP publique et le pool backend. Si vous n’effectuez pas cette configuration, le comportement est celui qui est décrit dans la section précédente pour [Machine virtuelle autonome sans adresse IP publique de niveau d’instance](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Lorsque la machine virtuelle à charge équilibrée crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique du frontend d’équilibrage de charge public. Azure utilise le mode SNAT (Source Network Address Translation) pour exécuter cette fonction. Les ports éphémères de l’adresse IP publique de l’équilibrage de charge sont utilisés pour distinguer chaque flux provenant de la machine virtuelle. SNAT alloue dynamiquement des ports éphémères lors de la création de flux sortants. Dans ce contexte, les ports éphémères utilisés pour SNAT sont appelés ports SNAT.
 

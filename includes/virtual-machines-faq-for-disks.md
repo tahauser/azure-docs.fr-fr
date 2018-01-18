@@ -1,64 +1,64 @@
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium managés et non managés Azure IaaS
+# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
 Dans cet article, nous étudierons les questions fréquentes relatives à Azure Managed Disks et Azure Stockage Premium.
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Managed Disks
 
 **Qu’est-ce qu’Azure Managed Disks ?**
 
-Managed Disks est une fonctionnalité qui simplifie la gestion des disques associés aux machines virtuelles Azure IaaS en prenant en charge pour vous la gestion des comptes de stockage. Pour plus d’informations, consultez la section [Vue d’ensemble des disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks est une fonctionnalité qui simplifie la gestion des disques associés aux machines virtuelles Azure IaaS en prenant en charge pour vous la gestion des comptes de stockage. Pour plus d’informations, consultez la section [Vue d’ensemble des disques gérés](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-**Si je crée un disque managé standard à partir d’un disque dur virtuel existant de 80 Go, combien cela me coûte-t-il ?**
+**Si je crée un disque géré standard à partir d’un disque dur virtuel existant de 80 Go, combien cela me coûte-t-il ?**
 
-Un disque managé standard créé à partir d’un disque dur virtuel de 80 Go est considéré comme un disque standard de la taille directement supérieure. Dans notre cas, il s’agit du disque S10. Vous êtes facturé en fonction du prix du disque S10. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
+Un disque géré standard créé à partir d’un disque dur virtuel de 80 Go est considéré comme un disque standard de la taille directement supérieure. Dans notre cas, il s’agit du disque S10. Vous êtes facturé en fonction de la tarification de disque S10. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**Des frais de transaction s’appliquent-ils aux disques managés Standard ?**
+**Des frais de transaction s’appliquent-ils aux disques gérés Standard ?**
 
 Oui. Vous êtes facturé pour chaque transaction. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**Pour un disque standard managé, serai-je facturé pour la taille réelle des données sur le disque ou pour la capacité configurée du disque ?**
+**Pour un disque standard géré, serai-je facturé pour la taille réelle des données sur le disque ou pour la capacité configurée du disque ?**
 
 Vous êtes facturé en fonction de la capacité configurée du disque. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**En quoi les tarifs appliqués aux disques managés Premium sont-ils différents de ceux des disques non managés ?**
+**En quoi la tarification appliquée aux disques gérés Premium est-elle différente de celle associée aux disques non gérés ?**
 
-Le prix de ces 2 types de disques est identique.
+La tarification de ces 2 types de disques est identique.
 
-**Puis-je modifier le type de compte de stockage (Standard/Premium) de mes disques managés ?**
+**Puis-je modifier le type de compte de stockage (Standard/Premium) de mes disques gérés ?**
 
-Oui. Vous pouvez modifier le type de compte de stockage de vos disques managés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
+Oui. Vous pouvez modifier le type de compte de stockage de vos disques gérés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
 
-**Existe-t-il un moyen de copier ou d’exporter un disque managé vers un compte de stockage privé ?**
+**Existe-t-il un moyen de copier ou d’exporter un disque géré vers un compte de stockage privé ?**
 
-Oui. Vous pouvez exporter vos disques managés en utilisant le portail Azure, PowerShell ou Azure CLI.
+Oui. Vous pouvez exporter vos disques gérés en utilisant le portail Azure, PowerShell ou l’interface Azure CLI.
 
-**Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque managé avec un autre abonnement ?**
-
-Non.
-
-**Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque managé dans une région différente ?**
+**Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque géré avec un autre abonnement ?**
 
 Non.
 
-**Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques managés ?**
+**Puis-je utiliser un fichier VHD dans un compte de stockage Azure pour créer un disque géré dans une région différente ?**
 
-Managed Disks élimine les restrictions associées aux comptes de stockage. Toutefois, le nombre de disques managés par abonnement est limité à 2 000 par défaut. Vous pouvez appeler le support technique pour augmenter ce nombre.
+Non.
 
-**Puis-je prendre une capture instantanée incrémentielle d’un disque managé ?**
+**Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques gérés ?**
 
-Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque managé. Toutefois, nous envisageons de prendre en charge les captures instantanées incrémentielles à l’avenir.
+Managed Disks élimine les restrictions associées aux comptes de stockage. Toutefois, le nombre de disques gérés par abonnement est limité à 2 000 par défaut. Vous pouvez appeler le support technique pour augmenter ce nombre.
 
-**Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques managés et non managés ?**
+**Puis-je prendre une capture instantanée incrémentielle d’un disque géré ?**
 
-Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques managés ou non managés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
+Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque géré. Toutefois, nous envisageons de prendre en charge les captures instantanées incrémentielles à l’avenir.
 
-**Les disques managés sont-ils l’option par défaut dans le portail Azure ?**
+**Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques gérés et non gérés ?**
+
+Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques gérés ou non gérés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
+
+**Les disques gérés sont-ils l’option par défaut dans le portail Azure ?**
 
 Oui. 
 
-**Est-il possible de créer un disque managé vide ?**
+**Est-il possible de créer un disque géré vide ?**
 
-Oui. Vous pouvez tout à fait créer un disque vide. Un disque managé peut être créé indépendamment d’une machine virtuelle, par exemple, sans le joindre à une machine virtuelle.
+Oui. Vous pouvez tout à fait créer un disque vide. Un disque géré peut être créé indépendamment d’une machine virtuelle, par exemple, sans le joindre à une machine virtuelle.
 
 **Par défaut, combien de domaines d’erreurs sont pris en charge pour les groupes à haute disponibilité utilisant Managed Disks ?**
 
@@ -76,37 +76,41 @@ Managed Disks prend en charge trois rôles principaux par défaut :
 * Contributeur : il dispose d’une liberté totale de gestion, mais ne contrôle pas l’accès
 * Lecteur : il peut afficher tous les éléments, mais ne peut y apporter de modifications
 
-**Existe-t-il un moyen de copier ou d’exporter un disque managé vers un compte de stockage privé ?**
+**Existe-t-il un moyen de copier ou d’exporter un disque géré vers un compte de stockage privé ?**
 
-Vous pouvez obtenir un URI de signature d’accès partagé en lecture seule pour le disque managé et l’utiliser pour copier le contenu vers un compte de stockage privé ou un espace de stockage local.
+Vous pouvez obtenir un URI de signature d’accès partagé en lecture seule pour le disque géré et l’utiliser pour copier le contenu vers un compte de stockage privé ou un espace de stockage local.
 
-**Puis-je créer une copie de mon disque managé ?**
+**Puis-je créer une copie de mon disque géré ?**
 
-Les clients peuvent prendre une capture instantanée de leurs disques managés, qu’ils utilisent pour créer un autre disque managé.
+Les clients peuvent prendre une capture instantanée de leurs disques gérés, qu’ils utilisent pour créer un autre disque géré.
 
-**Les disques non managés sont-ils encore pris en charge ?**
+**Les disques non gérés sont-ils encore pris en charge ?**
 
-Oui. Nous prenons à la fois en charge les disques managés et non managés. Nous vous recommandons d’utiliser des disques managés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques managés.
+Oui. Nous prenons à la fois en charge les disques gérés et non gérés. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
 
 
 **Si je crée un disque de 128 Go, et que j’augmente la taille à 130 Go, serai-je facturé en fonction de la taille supérieure de disque (512 Go) ?**
 
 Oui.
 
-**Puis-je créer des disques managés disposant du stockage localement redondant, géoredondant ou redondant dans une zone ?**
+**Puis-je créer des disques gérés disposant du stockage localement redondant, géoredondant ou redondant dans une zone ?**
 
-Actuellement, Azure Managed Disks prend uniquement en charge les disques managés disposant du stockage localement redondant.
+Actuellement, Azure Managed Disks prend uniquement en charge les disques gérés disposant du stockage localement redondant.
 
-**Puis-je réduire la taille de mes disques managés ?**
+**Puis-je réduire la taille de mes disques gérés ?**
 
 Non. Cette fonctionnalité n’est pas prise en charge pour l’instant. 
+
+**Puis-je résilier un bail sur mon disque ?**
+
+Non. Cela n’est pas possible actuellement car un bail est présent pour empêcher une suppression accidentelle lorsque le disque est utilisé.
 
 **Puis-je modifier la propriété de nom d’ordinateur lorsqu’un disque du système d’exploitation spécialisé (n’ayant pas été créé via l’outil de préparation système ou généralisé) est utilisé pour configurer une machine virtuelle ?**
 
 Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La nouvelle machine virtuelle a hérité cette particularité de la machine virtuelle parente qui a été utilisée pour créer le disque de système d’exploitation. 
 
-**Où trouver des exemples de modèles Azure Resource Manager pour créer des machines virtuelles avec des disques managés ?**
-* [Liste de modèles utilisant des disques managés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+**Où trouver des exemples de modèles Azure Resource Manager pour créer des machines virtuelles avec des disques gérés ?**
+* [Liste de modèles utilisant des disques gérés](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
 ## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks 
@@ -137,7 +141,7 @@ Oui, vous pouvez choisir de basculer vers une machine virtuelle avec Managed Dis
 
 **La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery (ASR) par le biais de la réplication Azure vers Azure ?**
 
-Oui. La protection Azure vers Azure ASR n’est pas prise en charge pour les machines virtuelles avec Managed Disks. Elle sera prise en charge courant 2018. 
+Oui. La protection Azure vers Azure ASR n’est pas prise en charge pour les machines virtuelles avec Managed Disks. Elle sera prise en charge à la fin du 1er trimestre 2018. 
 
 **Puis-je convertir des machines virtuelles avec des disques non managés résidant sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
@@ -145,7 +149,7 @@ Oui
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks et Storage Service Encryption 
 
-**Azure Storage Encryption est-il activé par défaut lors de la création d’un disque managé ?**
+**Azure Storage Encryption est-il activé par défaut lors de la création d’un disque géré ?**
 
 Oui.
 
@@ -153,7 +157,7 @@ Oui.
 
 Microsoft gère les clés de chiffrement.
 
-**Puis-je désactiver Storage Service Encryption pour mes disques managés ?**
+**Puis-je désactiver Storage Service Encryption pour mes disques gérés ?**
 
 Non.
 
@@ -161,30 +165,30 @@ Non.
 
 Non. Il est disponible dans toutes les régions où Managed Disks est disponible. Managed Disks est disponible dans toutes les zones publiques et en Allemagne.
 
-**Comment puis-je savoir si mon disque managé est chiffré ?**
+**Comment puis-je savoir si mon disque géré est chiffré ?**
 
-Vous pouvez déterminer l’heure de création d’un disque managé depuis le portail Azure, Azure CLI et PowerShell. S’il a été créé après le 9 juin 2017, votre disque est chiffré. 
+Vous pouvez déterminer l’heure de création d’un disque géré depuis le portail Azure, Azure CLI et PowerShell. S’il a été créé après le 9 juin 2017, votre disque est chiffré. 
 
 **Comment puis-je chiffrer mes disques existants qui ont été créés avant le 10 juin 2017 ?**
 
-À compter du 10 juin 2017, les nouvelles données écrites sur des disques managés existants sont chiffrées automatiquement. Nous avons également l’intention de chiffrer les données existantes, et le chiffrement aura lieu de manière asynchrone en arrière-plan. Si vous devez chiffrer des données existantes maintenant, créez une copie de votre disque. Les nouveaux disques seront chiffrés.
+À compter du 10 juin 2017, les nouvelles données écrites sur des disques gérés existants sont chiffrées automatiquement. Nous avons également l’intention de chiffrer les données existantes, et le chiffrement aura lieu de manière asynchrone en arrière-plan. Si vous devez chiffrer des données existantes maintenant, créez une copie de votre disque. Les nouveaux disques seront chiffrés.
 
-* [Copier les disques managés à l’aide de l’interface Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copier les disques managés à l’aide de PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Copier les disques gérés à l’aide de l’interface Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Copier les disques gérés à l’aide de PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-**Les instantanés et les images managés sont-ils chiffrés ?**
+**Les instantanés et les images gérés sont-ils chiffrés ?**
 
-Oui. Tous les instantanés et les images managés créés après le 9 juin 2017 sont automatiquement chiffrés. 
+Oui. Tous les instantanés et les images gérés créés après le 9 juin 2017 sont automatiquement chiffrés. 
 
-**Puis-je convertir des machines virtuelles avec des disques non managés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
+**Puis-je convertir des machines virtuelles avec des disques non gérés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques gérés ?**
 
 Oui
 
-**Un disque dur virtuel exporté à partir d’un disque managé ou un instantané seront-ils également chiffrés ?**
+**Un disque dur virtuel exporté à partir d’un disque géré ou un instantané seront-ils également chiffrés ?**
 
-Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chiffré depuis un disque managé chiffré ou un instantané, il sera chiffré. 
+Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chiffré depuis un disque géré chiffré ou un instantané, il sera chiffré. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Disques Premium : managés et non managés
+## <a name="premium-disks-managed-and-unmanaged"></a>Disques Premium : gérés et non gérés
 
 **Si une machine virtuelle utilise une taille qui prend en charge le stockage Premium, comme DSv2, puis-je joindre des disques de données Standard et Premium ?** 
 
@@ -196,7 +200,7 @@ Non. Vous ne pouvez joindre que des disques de données Standard aux machines vi
 
 **Si je crée un disque de données Premium à partir d’un disque dur virtuel existant de 80 Go, combien cela me coûte-t-il ?**
 
-Un disque de données Premium créé à partir d’un disque dur virtuel de 80 Go est considéré comme un disque standard de taille directement supérieure. Dans notre cas, il s’agit du disque P10. Vous êtes facturé en fonction du prix du disque P10.
+Un disque de données Premium créé à partir d’un disque dur virtuel de 80 Go est considéré comme un disque standard de taille directement supérieure. Dans notre cas, il s’agit du disque P10. Vous êtes facturé en fonction de la tarification de disque P10.
 
 **L’utilisation du stockage Premium occasionne-t-elle des coûts de transaction ?**
 
@@ -214,7 +218,7 @@ Le disque local SSD est un stockage temporaire inclus avec une machine virtuell
 
 Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azure Premium ou Standard.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nouvelles tailles de disque : managés et non-managés
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nouvelles tailles de disque : gérés et non-gérés
 
 **Quelle est la plus grande taille de disque prise en charge pour le système d’exploitation et les disques de données ?**
 
@@ -226,7 +230,7 @@ La plus grande taille de blob de page prise en charge par Azure est de 8 To (8�
 
 **Dois-je utiliser une nouvelle version des outils Azure pour créer, joindre, redimensionner et télécharger des disques de taille supérieure à 1 To ?**
 
-Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour créer, joindre ou redimensionner des disques de taille supérieure à 1 To. Pour télécharger votre fichier de disque dur virtuel en local directement vers Azure en tant qu’objet blob de pages ou disque non managé, vous devez utiliser l’ensemble d’outils le plus récent :
+Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour créer, joindre ou redimensionner des disques de taille supérieure à 1 To. Pour télécharger votre fichier de disque dur virtuel en local directement vers Azure en tant qu’objet blob de pages ou disque non géré, vous devez utiliser l’ensemble d’outils le plus récent :
 
 |Outils Azure      | Versions prises en charge                                |
 |-----------------|---------------------------------------------------|
@@ -236,13 +240,13 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 
 La prise en charge d’Azure CLI v2 et l’explorateur de stockage Microsoft Azure sera bientôt disponible. 
 
-**Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
+**Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non gérés ou les objets blob de pages ?**
 
-Non. Les tailles de disque P4 (32 Go) et P6 (64 Go) sont prises en charge uniquement pour les disques managés. La prise en charge des disques non managés et des objets BLOB de page sera bientôt disponible.
+Non. Les tailles de disque P4 (32 Go) et P6 (64 Go) sont prises en charge uniquement pour les disques gérés. La prise en charge des disques non gérés et des objets BLOB de page sera bientôt disponible.
 
-**Si mon disque managé Premium de moins de 64 Go a été créé avant l’activation du petit disque (aux environs du 15 juin 2017), comment est-il facturé ?**
+**Si mon disque géré Premium de moins de 64 Go a été créé avant l’activation du petit disque (aux environs du 15 juin 2017), comment est-il facturé ?**
 
-Les disques Premium de petite taille de moins de 64 Go continuent à être facturés selon le niveau tarifaire P10. 
+Les disques Premium de petite taille de moins de 64 Go continuent à être facturés selon le niveau de tarification P10. 
 
 **Comment puis-je changer la couche de disque de petits disques Premium inférieurs à 64 Go de P10 à P4 ou P6 ?**
 

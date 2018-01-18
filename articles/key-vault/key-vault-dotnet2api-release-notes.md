@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Notes de publication et guide de migration
 Les notes et conseils suivants sont destinés aux développeurs utilisant Azure Key Vault .NET/bibliothèque C#. Lors du passage de la version 1.0 à la version 2.0, un certain nombre de mises à jour effectuées nécessiteront un travail de migration dans votre code pour que vous puissiez bénéficier des améliorations fonctionnelles et des ajouts de fonctionnalités telles que la prise en charge des **certificats Key Vault**.
@@ -36,8 +36,9 @@ La prise en charge des certificats Key Vault permet de gérer vos certificats x5
 
 ## <a name="net-support"></a>Prise en charge de .NET
 
-* **.NET 4.0** n’est pas pris en charge par la version 2.0 d’Azure Key Vault .NET/bibliothèque C#
-* **.NET Core** n’est pas pris en charge par la version 2.0 d’Azure Key Vault .NET/bibliothèque C#
+* **.NET 4.0** n’est pas pris en charge par la version 2.0 de la bibliothèque .NET d’Azure Key Vault
+* **.NET Framework 4.5.2** n’est pas pris en charge par la version 2.0 de la bibliothèque .NET d’Azure Key Vault
+* **.NET Standard 1.4** n’est pas pris en charge par la version 2.0 de la bibliothèque .NET d’Azure Key Vault
 
 ## <a name="namespaces"></a>Espaces de noms
 

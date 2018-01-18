@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> L’intégration d’Azure Active Directory est disponible uniquement avec les niveaux [Développeur et Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+> L’intégration d’Azure Active Directory est proposée uniquement dans les niveaux [Développeur, Standard et Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
 ## <a name="overview"></a>Vue d'ensemble
@@ -106,7 +106,7 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration et afficher la cl�
 
 Revenez au portail des éditeurs et collez la clé dans la zone de texte **Clé secrète client** .
 
-![Clé secrète client][api-management-client-secret]
+![Secret du client][api-management-client-secret]
 
 **Locataires autorisés** spécifie les répertoires qui ont accès aux API de l’instance de service Gestion des API. Spécifiez les domaines des instances Azure Active Directory auxquelles vous souhaitez accorder l’accès. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
 

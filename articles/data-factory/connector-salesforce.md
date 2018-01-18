@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7cd86922b0445fc81766ca54080e2fd3e64a6c61
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Copier des données dans Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-salesforce-connector.md)
-> * [Version 2 - Préversion](connector-salesforce.md)
+> * [Version 2 - Préversion](connector-salesforce.md)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données à partir de Salesforce et vers Salesforce. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Salesforce dans V1](v1/data-factory-salesforce-connector.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Salesforce dans V1](v1/data-factory-salesforce-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -38,7 +38,7 @@ Ce connecteur Salesforce prend en charge :
 - Les éditions suivantes de Salesforce : **Developer Edition, Professional Edition, Enterprise Edition et Unlimited Edition**.
 - La copie de données vers et depuis des **domaines de production, des domaines sandbox et des domaines personnalisés** Salesforce.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 * L’autorisation de l’API doit être activée dans Salesforce. Consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 
@@ -52,7 +52,8 @@ Salesforce prend en charge un nombre limité de requêtes d’API totales et de 
 Vous pouvez également recevoir l’erreur « REQUEST_LIMIT_EXCEEDED » dans les deux scénarios. Pour plus de détails, consultez la section « API Request Limits » (Limites de requête d’API) du document [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites des développeurs Salesforce).
 
 ## <a name="getting-started"></a>Prise en main
-Vous pouvez créer un pipeline avec l’activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Consultez le [Didacticiel de l’activité de copie](quickstart-create-data-factory-dot-net.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Salesforce.
 
@@ -60,17 +61,17 @@ Les sections suivantes fournissent des informations sur les propriétés utilis
 
 Les propriétés prises en charge pour le service lié Salesforce sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type |La propriété de type doit être définie sur **Salesforce**. |Oui |
-| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non |
+| Type |La propriété de type doit être définie sur **Salesforce**. |Oui |
+| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non  |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
 | password |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). |Oui |
 | securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API).<br/><br/>Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le jeton de sécurité dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). |Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source ne dispose pas du runtime d’intégration. |
 
 >[!IMPORTANT]
->Pour copier des données dans Salesforce, vous devez [créer un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) explicitement à un emplacement proche de Salesforce et l’associer au service lié, comme dans l’exemple suivant.
+>Pendant la copie de données **dans** Salesforce, le runtime d’intégration Azure par défaut ne peut pas être utilisé pour exécuter la copie. En d’autres termes, si aucun runtime d’intégration n’est spécifié pour votre service lié à la source, vous devez [créer un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) explicitement à un emplacement proche de Salesforce et l’associer au service lié Salesforce, comme dans l’exemple suivant.
 
 **Exemple : stockage des informations d’identification dans le fichier de définition d’application**
 
@@ -138,9 +139,9 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données vers et depuis Salesforce, définissez la propriété de type du jeu de données sur **SalesforceObject**. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur **SalesforceObject**.  | Oui |
+| Type | La propriété de type doit être définie sur **SalesforceObject**.  | Oui |
 | objectApiName | Nom d’objet Salesforce duquel extraire des données. | Non pour Source, Oui pour Récepteur |
 
 > [!IMPORTANT]
@@ -148,7 +149,7 @@ Pour copier des données vers et depuis Salesforce, définissez la propriété d
 
 ![Connexion Salesforce - Data Factory - Nom de l’API](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -169,9 +170,9 @@ Pour copier des données vers et depuis Salesforce, définissez la propriété d
 >[!NOTE]
 >Pour permettre la compatibilité descendante, l’ancien jeu de données de type « RelationalTable » continue de fonctionner lorsque vous copiez des données à partir de Salesforce. Toutefois, il vous est proposé de passer au nouveau type « SalesforceObject ».
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur **RelationalTable** | Oui |
 | TableName | Nom de la table dans Salesforce. | Non (si « query » dans la source de l’activité est spécifié) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
@@ -182,17 +183,17 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données à partir de Salesforce, définissez le type de source sur **SalesforceSource** dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type de la source d’activité de copie doit être définie sur **SalesforceSource** | Oui |
-| query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple : `select * from MyTable__c`. | Non (si « tableName » est spécifié dans dataset) |
+| Type | La propriété de type de la source d’activité de copie doit être définie sur **SalesforceSource** | Oui |
+| query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple : `select * from MyTable__c`. | Non (si « tableName » est spécifié dans dataset) |
 
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.
 
 ![Connexion Salesforce - Data Factory - Nom de l’API](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[
@@ -231,9 +232,9 @@ Pour copier des données à partir de Salesforce, définissez le type de source 
 
 Pour copier des données vers Salesforce, définissez le type de récepteur sur **SalesforceSink** dans l’activité de copie. Les propriétés prises en charge dans la section **sink** (récepteur) de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type du récepteur d’activité de copie doit être définie sur **SalesforceSink** | Oui |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SalesforceSink** | Oui |
 | writeBehavior | Comportement d’écriture de l’opération.<br/>Les valeurs autorisées sont **Insert** et **Upsert**. | Non (la valeur par défaut est un point Insert) |
 | externalIdFieldName | Nom du champ ID externe pour l’opération d’upsert. Le champ spécifié doit être défini en tant que « Champ ID externe » dans l’objet Salesforce. En outre, les données d’entrée qu’il contient ne peuvent pas comprendre de valeurs Null. | Oui, pour « Upsert » |
 | writeBatchSize | Nombre de lignes de données écrites dans Salesforce pour chaque lot. | Non (valeur par défaut : 5 000) |
@@ -289,7 +290,7 @@ Pour interroger les enregistrements supprimés de manière réversible dans la C
 
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Récupération de données à l’aide de la clause where sur la colonne DateTime
 
-Lorsque vous spécifiez une requête SOQL ou SQL, faites attention à la différence de format DateTime. Par exemple :
+Lorsque vous spécifiez une requête SOQL ou SQL, faites attention à la différence de format DateTime. Par exemple : 
 
 * **Exemple SOQL** : `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Exemple SQL** : `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
@@ -300,25 +301,25 @@ Lors de la copie de données de Salesforce, les mappages suivants sont utilisés
 
 | Type de données Salesforce | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
-| Numérotation automatique |String |
-| Case à cocher |Boolean |
+| Numérotation automatique |Chaîne |
+| Case à cocher |Booléen |
 | Devise |Double |
-| Date |DateTime |
-| Date/Heure |DateTime |
-| Email |String |
-| ID |String |
-| Relation de recherche |String |
-| Liste déroulante à sélection multiple |String |
+| Date |Datetime |
+| Date/Heure |Datetime |
+| Email |Chaîne |
+| ID |Chaîne |
+| Relation de recherche |Chaîne |
+| Liste déroulante à sélection multiple |Chaîne |
 | Number |Double |
 | Pourcentage |Double |
-| Téléphone |String |
-| Liste déroulante |String |
-| Texte |String |
-| Zone de texte |String |
-| Zone de texte (long) |String |
-| Zone de texte (enrichi) |String |
-| Texte (chiffré) |String |
-| URL |String |
+| Téléphone |Chaîne |
+| Liste déroulante |Chaîne |
+| Texte |Chaîne |
+| Zone de texte |Chaîne |
+| Zone de texte (long) |Chaîne |
+| Zone de texte (enrichi) |Chaîne |
+| Texte (chiffré) |Chaîne |
+| URL |Chaîne |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

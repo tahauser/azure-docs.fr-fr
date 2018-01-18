@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Comment gérer une Function App dans le portail Azure 
 
@@ -70,7 +70,7 @@ Pour plus d’informations sur l’utilisation des paramètres App Service, cons
 
 | | |
 |-|-|
-| ![Paramètres de l’application Function App.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Dans le panneau **Paramètres de l’application**, vous configurez et gérez les versions de framework, le débogage distant, les paramètres de l’application et les chaînes de connexion. Lorsque vous intégrez votre Function App avec d’autres services tiers et Azure, vous pouvez modifier ces paramètres ici. |
+| ![Paramètres de l’application Function App.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Dans le panneau **Paramètres de l’application**, vous configurez et gérez les versions de framework, le débogage distant, les paramètres de l’application et les chaînes de connexion. Lorsque vous intégrez votre Function App avec d’autres services tiers et Azure, vous pouvez modifier ces paramètres ici. Pour supprimer un paramètre, faites défiler vers la droite et cliquez sur l’icône **X** à droite de la ligne (non illustrée dans l’image suivante).
 
 ![Configurer les paramètres de l’application](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -125,7 +125,7 @@ Pour plus d’informations sur l’utilisation des paramètres App Service, cons
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 + [Configurer des applications web dans Azure App Service](../app-service/web-sites-configure.md)
 + [Déploiement continu pour Azure Functions](functions-continuous-deployment.md)

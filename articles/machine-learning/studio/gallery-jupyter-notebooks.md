@@ -1,6 +1,6 @@
 ---
-title: Blocs-notes Jupyter de la galerie Cortana Intelligence | Microsoft Docs
-description: "Découvrez les blocs-notes Jupyter dans la galerie Cortana Intelligence."
+title: Blocs-notes Jupyter de la galerie Azure AI | Microsoft Docs
+description: "Découvrez les blocs-notes Jupyter dans la galerie Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 10828d78f6e16b57c21f4d05b6d6116428ea4039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59092514705d998fcf9ff835b3fde8a04f81aac5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Découvrir les blocs-notes Jupyter dans la galerie Cortana Intelligence
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Découvrir les blocs-notes Jupyter dans la galerie Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="jupyter-notebooks"></a>Blocs-notes Jupyter
@@ -34,13 +34,13 @@ Les blocs-notes dans la galerie fournissent des didacticiels et des explications
 Cliquez sur **Afficher tout** pour afficher tous les blocs-notes.
 Sur cette page, vous pouvez parcourir tous les blocs-notes de la galerie. Vous pouvez également effectuer une recherche en sélectionnant les critères de filtre sur la gauche de la page et en entrant les termes de la recherche en haut.
 
- Cliquez sur bloc-notes pour ouvrir sa page de détails et lire des informations supplémentaires. Dans cette page, vous pouvez commenter, fournir un retour d’expérience ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec des amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers le bloc-notes pour inviter d’autres utilisateurs à consulter la page.
+ Cliquez sur bloc-notes pour ouvrir sa page de détails et lire des informations supplémentaires. Sur cette page, vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires. Vous pouvez même la partager avec vos amis ou collègues à l’aide des fonctionnalités de partage de LinkedIn ou Twitter. Vous pouvez également envoyer par e-mail un lien vers le bloc-notes pour inviter d’autres utilisateurs à consulter la page.
 
 ![Partager cet élément avec des amis](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Ajouter vos propres commentaires](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>Télécharger
+## <a name="download"></a>Download
 Vous pouvez télécharger une copie de tout bloc-notes à partir de la galerie dans votre espace de travail Machine Learning Studio.
 
 ### <a name="download-from-the-gallery"></a>Télécharger à partir de la galerie

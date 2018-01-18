@@ -1,5 +1,5 @@
 ---
-title: "Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services (préversion) | Microsoft Docs"
+title: "Mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services | Microsoft Docs"
 description: "Instructions et informations de support technique pour mettre à niveau votre coffre de sauvegarde Azure vers un coffre Recovery Services."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services
 
@@ -34,7 +34,7 @@ La mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services n
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Modifications apportées à l’automatisation et à l’outil après mise à niveau
 
 Lors de la préparation de votre infrastructure pour la mise à niveau du coffre, vous devez mettre à jour l’automation ou les outils existants pour vous assurer qu’ils continuent à fonctionner après la mise à niveau.
-Consultez les références d’applets de commande PowerShell pour le [modèle de déploiement Service Manager](backup-client-automation-classic.md) et le [modèle de déploiement Resource Manager](backup-client-automation.md).
+Consultez les références d’applets de commande PowerShell pour le [modèle de déploiement Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Avant de mettre à niveau
@@ -60,10 +60,10 @@ Utilisez le script suivant pour mettre à niveau vos coffres. L’exemple de scr
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** : numéro d’ID d’abonnement du coffre en cours de mise à niveau.<br/>
-**VaultName** : nom du coffre de sauvegarde en cours de mise à niveau.<br/>
-**Location** : emplacement du coffre en cours de mise à niveau.<br/>
-**ResourceType** : utilisez BackupVault.<br/>
-**TargetResourceGroupName** : étant donné que vous mettez à niveau le coffre vers un déploiement basé sur Resource Manager, spécifiez un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créez un en fournissant un nouveau nom. Si vous orthographiez mal le nom d’un groupe de ressources, vous pouvez en créer un autre. Pour plus d’informations sur les groupes de ressources, voir la [Présentation des groupes de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups).
+**VaultName** : nom du coffre de sauvegarde en cours de mise à niveau.<br/>
+**Location** : emplacement du coffre en cours de mise à niveau.<br/>
+**ResourceType** : utilisez BackupVault.<br/>
+**TargetResourceGroupName** : étant donné que vous mettez à niveau le coffre vers un déploiement basé sur Resource Manager, spécifiez un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créez un en fournissant un nouveau nom. Si vous orthographiez mal le nom d’un groupe de ressources, vous pouvez en créer un autre. Pour plus d’informations sur les groupes de ressources, voir la [Présentation des groupes de ressources](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
 > Les noms de groupes de ressources doivent respecter certaines contraintes. Veillez à suivre les recommandations. Le non-respect de celles-ci pourrait entraîner l’échec des mises à niveau de coffre.
@@ -114,13 +114,13 @@ Quand la sécurité améliorée est activée, les données sont conservées jusq
 
 Une fois que vous avez effectué la mise à niveau vers un coffre Recovery Services, configurez des rapports pour Sauvegarde Azure (pour les machines virtuelles IaaS et Microsoft Azure Recovery (MARS)), et utilisez Power BI pour accéder aux rapports. Pour plus d’informations sur la collecte de données, consultez l’article [Configurer les rapports de la Sauvegarde Azure](backup-azure-configure-reports.md).
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Le plan de mise à niveau affecte-t-il mes sauvegardes en cours ?**</br>
 Non. Vos sauvegardes en cours se poursuivent sans interruption pendant et après la mise à niveau.
 
 **Si je n’envisage de mise à niveau prochainement, qu’advient-il de mes coffres ?**</br>
-Toutes les nouvelles fonctionnalités s’appliquant uniquement aux coffres Recovery Services, nous vous conseillons vivement de mettre à niveau vos coffres. Le portail classique finira par être déconseillé par Microsoft. À compter du 1er septembre 2017, Microsoft commencera la mise à niveau automatique des coffres de sauvegarde vers des coffres Recovery Services. Après le 30 novembre 2017, vous ne pouvez plus créer de coffres de sauvegarde à l’aide de PowerShell. Votre coffre peut être mis à niveau automatiquement à tout moment dans l’intervalle. Microsoft vous recommande de mettre à niveau votre coffre dès que possible.
+Toutes les nouvelles fonctionnalités s’appliquant uniquement aux coffres Recovery Services, nous vous conseillons vivement de mettre à niveau vos coffres. À compter du 1er septembre 2017, Microsoft commencera la mise à niveau automatique des coffres de sauvegarde vers des coffres Recovery Services. Après le 30 novembre 2017, vous ne pouvez plus créer de coffres de sauvegarde à l’aide de PowerShell. Votre coffre peut être mis à niveau automatiquement à tout moment dans l’intervalle. Microsoft vous recommande de mettre à niveau votre coffre dès que possible.
 
 **Quelles sont les implications de cette migration pour mes outils existants ?**</br>
 Mettez à jour vos outils vers le modèle de déploiement Resource Manager. Les coffres Recovery Services ont été créés pour une utilisation dans le modèle de déploiement Resource Manager. Il est important de planifier le modèle de déploiement Resource Manager et de tenir compte de la différence dans vos coffres. 
@@ -133,9 +133,6 @@ Non. La restauration n’est pas prise en charge une fois la mise à niveau des 
 
 **Puis-je vérifier si mon abonnement ou mes ressources peuvent faire l’objet d’une mise à niveau ?**</br>
 Oui. La première étape d’une mise à niveau consiste à valider le fait que les ressources peuvent être mises à niveau. En cas d’échec de la validation des conditions préalables, vous recevez des messages concernant toutes les raisons pour lesquelles la mise à niveau ne peut pas être effectuée.
-
-**Quelles sont les autorisations dont je dois disposer pour déclencher la mise à niveau du coffre ?**</br>
-Pour pouvoir effectuer la mise à niveau du coffre, vous devez avoir été ajouté en tant que coadministrateur de l’abonnement dans le portail Azure Classic. Cela est indispensable, même si vous êtes déjà répertorié en tant que propriétaire dans le portail Azure. Essayez d’ajouter un coadministrateur pour l’abonnement dans le portail Azure Classic pour savoir si vous êtes coadministrateur de l’abonnement. Si vous n’êtes pas en mesure d’ajouter un coadministrateur, contactez un administrateur de service ou un coadministrateur de l’abonnement capable de vous ajouter comme coadministrateur.
 
 **Puis-je mettre à niveau mon coffre de sauvegarde basé sur un fournisseur de services de chiffrement ?**</br>
 Non. Actuellement, vous ne pouvez pas mettre à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement. Nous ajouterons la prise en charge de la mise à niveau des coffres de sauvegarde basés sur un fournisseur de services de chiffrement dans les versions ultérieures.
@@ -154,7 +151,7 @@ La surveillance des sauvegardes (agent MARS et IaaS) est une nouvelle fonctionna
 Si une partie de la mise à niveau du coffre échoue, notez l’OperationId mentionné dans l’erreur. Le Support technique de Microsoft travaillera de manière proactive pour résoudre le problème. Vous pouvez contacter le Support ou nous envoyer un e-mail à l’adresse rsvaultupgrade@service.microsoft.com avec votre ID d’abonnement, le nom du coffre et l’OperationId. Nous tenterons de résoudre le problème le plus rapidement possible. Ne retentez l’opération que sauf si vous y êtes explicitement invité par Microsoft.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez l’article suivant pour :</br>
 [Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)</br>

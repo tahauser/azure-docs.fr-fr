@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Pour utiliser la mise à jour corrective automatisée, prenez en compte les cond
 ## <a name="settings"></a>Paramètres
 Le tableau suivant décrit les options qui peuvent être configurées pour une mise à jour corrective automatisée. Les étapes de la configuration varient selon que vous utilisez les commandes du portail Azure ou Azure Windows PowerShell.
 
-| Paramètre | Valeurs possibles | Description |
+| Paramètre | Valeurs possibles | DESCRIPTION |
 | --- | --- | --- |
 | **Mise à jour corrective automatisée** |Activer/Désactiver (désactivé) |Active ou désactive la mise à jour corrective automatisée pour une machine virtuelle Azure. |
 | **Planification de la maintenance** |Tous les jours, lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche |Planification du téléchargement et de l’installation des mises à jour Windows, SQL Server et Microsoft pour votre machine virtuelle. |
@@ -110,6 +110,9 @@ Dans l’exemple suivant, PowerShell permet de configurer une mise à jour corre
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
+> [!IMPORTANT]
+> Si l’extension n’est pas déjà installée, l’installation de l’extension redémarre le service SQL Server.
+
 En s’appuyant sur cet exemple, le tableau suivant décrit les effets concrets sur la machine virtuelle Azure cible :
 
 | Paramètre | Résultat |
@@ -123,7 +126,7 @@ L’installation et la configuration de l’agent IaaS de SQL Server peuvent 
 
 Pour désactiver la mise à jour corrective automatique, exécutez le même script sans le paramètre **-Enable** pour la commande **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig**. L’absence du paramètre **-Enable** indique à la commande de désactiver la fonctionnalité.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
 Pour plus d’informations sur l’exécution de SQL Server sur des machines virtuelles Azure, voir [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).

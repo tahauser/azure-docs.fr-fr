@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurer Pare-feu et réseaux virtuels dans Stockage Azure (préversion)
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
@@ -39,6 +39,10 @@ Les règles de réseau peuvent être appliquées aux comptes de stockage existan
 Une fois que les règles de réseau sont appliquées, elles concernent toutes les demandes.  Les jetons SAS qui accordent l’accès à un service d’adresse IP spécifique servent à **limiter** l’accès du détenteur du jeton, mais n’accordent pas d’accès au-delà des règles de réseau configurées. 
 
 Le trafic des disques de machine virtuelle (notamment les opérations de montage et démontage et les E/S de disque) n’est **pas** affecté par les règles de réseau.  L’accès REST aux objets blob de pages est protégé par les règles de réseau.
+
+> [!NOTE]
+> La sauvegarde et la restauration de machines virtuelles à l’aide de disques non managés dans des comptes de stockage avec des règles de réseau ne sont actuellement pas prises en charge.  Pour plus d’informations, consultez [Limites lors de la sauvegarde et de la restauration d’une machine virtuelle](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm).
+>
 
 Les comptes de stockage Classic ne prennent **pas** en charge Pare-feu et réseaux virtuels.
 
@@ -291,14 +295,13 @@ Pour que ce type de service fonctionne comme prévu, vous pouvez autoriser l’e
 
 Quand l’exception « Services Microsoft approuvés » est activée, les services suivants (s’ils sont inscrits dans votre abonnement) ont accès au compte de stockage :
 
-|Service|Nom du fournisseur de ressources|Objectif|
+|de diffusion en continu|Nom du fournisseur de ressources|Objectif|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact.  [En savoir plus](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Activation de la publication d’événements Stockage Blob.  [En savoir plus](https://docs.microsoft.com/azure/event-grid/overview).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact.  [Plus d’informations](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview)|
+|Azure Event Grid|Microsoft.EventGrid|Activation de la publication d’événements Stockage Blob.  [Plus d’informations](https://docs.microsoft.com/azure/event-grid/overview)|
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture.  [En savoir plus](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
-|Azure HDInsight|Microsoft.HDInsight|Approvisionnement et installation de cluster.  [En savoir plus](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
-|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau.  [En savoir plus](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Sauvegarde Azure|Microsoft.RecoveryServices|Sauvegarde et restauration des disques non gérés.  [En savoir plus](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
+|Azure HDInsight|Microsoft.HDInsight|Approvisionnement et installation de cluster.  [Plus d’informations](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage)|
+|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau.  [Plus d’informations](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
@@ -356,7 +359,7 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 > [Définissez la règle par défaut](#change-the-default-network-access-rule) sur Refuser, sinon la suppression des exceptions n’a aucun effet.
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez plus d’informations sur les points de terminaison de service du réseau Azure dans [Points de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Explorez en détail la sécurité de Stockage Azure dans [Guide de sécurité de Stockage Azure](storage-security-guide.md).

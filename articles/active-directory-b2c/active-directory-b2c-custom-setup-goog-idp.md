@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : Ajout de Google+ en tant que fournisseur d’identités OAuth2 à l’aide de stratégies personnalisées
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Ce guide vous montre comment activer l’identification pour les utilisateurs de comptes Google+ à l’aide des [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
@@ -166,7 +166,7 @@ Définissez le compte Google+ comme fournisseur de revendications, en ajoutant l
 
 ## <a name="register-the-google-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Inscription du fournisseur de revendications de compte Google+ à un parcours utilisateur Inscription ou Connexion
 
-Le fournisseur d’identité a été configuré.  Toutefois, il n’est disponible dans aucun des écrans d’inscription/de connexion. Ajoutez le fournisseur d’identité du compte Google+ au parcours utilisateur `SignUpOrSignIn` de votre utilisateur. Pour le rendre disponible, nous créons un doublon d’un modèle de parcours utilisateur existant.  Ensuite, nous ajoutons le fournisseur d’identité de compte Google+ :
+Le fournisseur d’identité a été configuré.  Toutefois, il n’est disponible dans aucun des écrans d’inscription/de connexion. Ajoutez le fournisseur d’identité du compte Google+ au parcours utilisateur `SignUpOrSignIn` de votre utilisateur. Pour le rendre disponible, nous dupliquons un modèle de parcours utilisateur existant.  Ensuite, nous ajoutons le fournisseur d’identité de compte Google+ :
 
 >[!NOTE]
 >
@@ -175,12 +175,12 @@ Le fournisseur d’identité a été configuré.  Toutefois, il n’est disponib
 1.  Ouvrez le fichier de base de votre stratégie (par exemple, TrustFrameworkBase.xml).
 2.  Recherchez l’élément `<UserJourneys>` et copiez la totalité du contenu du nœud `<UserJourneys>`.
 3.  Ouvrez le fichier d’extension (par exemple, TrustFrameworkExtensions.xml), puis recherchez l’élément `<UserJourneys>`. Si l’élément n’existe pas, ajoutez-en un.
-4.  Collez l’intégralité du contenu du nœud `<UserJournesy>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
+4.  Collez l’intégralité du contenu du nœud `<UserJourney>` que vous avez copié en tant qu’enfant de l’élément `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Afficher le bouton
 L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection du fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` pour un compte Google+, un nouveau bouton apparaît quand un utilisateur accède à la page. Pour ajouter cet élément :
 
-1.  Recherchez le nœud `<UserJourney>` incluant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
+1.  Recherchez le nœud `<UserJourney>` comprenant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
 2.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 3.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
@@ -203,7 +203,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
 > * Assurez-vous que `Id` a la même valeur que celle de `TargetClaimsExchangeId` dans la section précédente
 > * Vérifiez que l’ID `TechnicalProfileReferenceId` est défini sur le profil de technique que vous avez créé plus haut (Google-OAUTH).
 
-## <a name="upload-the-policy-to-your-tenant"></a>Charger la stratégie sur votre client
+## <a name="upload-the-policy-to-your-tenant"></a>Charger la stratégie sur un client
 1.  Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et ouvrez le panneau **Azure AD B2C**.
 2.  Sélectionnez **Infrastructure d’expérience d’identité**.
 3.  Ouvrez le panneau **Toutes les stratégies**.
@@ -228,7 +228,7 @@ Vous pouvez également ajouter le fournisseur d’identité du compte Google+ au
 
 ### <a name="display-the-button"></a>Afficher le bouton
 1.  Ouvrez le fichier d’extension de votre stratégie (par exemple, TrustFrameworkExtensions.xml).
-2.  Recherchez le nœud `<UserJourney>` incluant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
+2.  Recherchez le nœud `<UserJourney>` comprenant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
 3.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 4.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
@@ -243,6 +243,14 @@ Vous pouvez également ajouter le fournisseur d’identité du compte Google+ au
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>Charger la stratégie sur un client
+1.  Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et ouvrez le panneau **Azure AD B2C**.
+2.  Sélectionnez **Infrastructure d’expérience d’identité**.
+3.  Ouvrez le panneau **Toutes les stratégies**.
+4.  Sélectionnez **Charger la stratégie**.
+5.  Cochez la case **Remplacer la stratégie si elle existe**.
+6.  **Téléchargez** TrustFrameworkExtensions.xml et vérifiez que sa validation n’échoue pas.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Tester la stratégie personnalisée de modification de profil en utilisant Exécuter maintenant
 

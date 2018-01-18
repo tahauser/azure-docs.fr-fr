@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 01/05/2018
 ms.author: subramar
-ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccfbd03ed6d2cd84f8c2cf789e4fc1e99b1e5bbf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d'ensemble
@@ -33,6 +33,17 @@ Lorsqu’une ressource de point de terminaison est définie dans le manifeste de
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+S’il existe plusieurs packages de code dans un package de service unique, le package de code doit également être référencé dans la section **Points de terminaison**.  Par exemple, si **ServiceEndpoint2a** et **ServiceEndpoint2b** sont des points de terminaison provenant du même package de service faisant référence à des packages de code différents, le package de code correspondant à chaque point de terminaison est clarifié comme suit :
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```
@@ -185,7 +196,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Remarque : Si les valeurs affectées à ApplicationParameters sont vides, on revient à la valeur par défaut fournie dans ServiceManifest pour le nom EndPointName correspondant.
 
-Par exemple :
+Par exemple : 
 
 Si, dans ServiceManifest, vous avez spécifié :
 

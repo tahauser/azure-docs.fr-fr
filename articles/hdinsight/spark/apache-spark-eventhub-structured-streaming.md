@@ -4,7 +4,7 @@ description: "Créez un Exemple de diffusion en continu Apache Spark montrant co
 keywords: diffusion en continu apache spark,diffusion en continu spark, exemple spark,exemple de diffusion en continu apache spark,exemple azure event hubs
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Flux structuré Apache Spark sur HDInsight pour traiter des événements à partir d’Event Hubs
 
@@ -29,7 +29,7 @@ Dans cet article, vous apprenez à traiter les données de télémétrie en temp
 1. Compiler et exécuter sur votre station de travail locale un exemple d’application de producteur d’événements qui génère des événements à envoyer à Event Hubs.
 2. Utilisez [l’interpréteur de commandes Spark](apache-spark-shell.md) pour définir et exécuter une application de flux structuré Spark simple.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -37,7 +37,7 @@ Dans cet article, vous apprenez à traiter les données de télémétrie en temp
 
 * Un espace de noms Azure Event Hubs. Consultez [Création d’un hub d’événements Azure](apache-spark-eventhub-streaming.md#create-an-azure-event-hub) pour plus d’informations.
 
-* Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’ [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir [d’ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 * Apache Maven. Vous pouvez le télécharger [ici](https://maven.apache.org/download.cgi). Les instructions d’installation de Maven sont disponibles [ici](https://maven.apache.org/install.html).
 
@@ -84,7 +84,7 @@ Dans cette tâche, vous allez appliquer le protocole SSH dans le nœud principal
 
 5. L’application que vous créez requiert le package Event Hubs de flux Spark. Pour exécuter l’interpréteur de commandes Spark afin qu’il récupère automatiquement cette dépendance à partir du [répertoire Maven central](https://search.maven.org), vérifiez que l’approvisionnement que les packages remplacent avec le contenu Maven correspond à ce qui suit :
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Une fois que l’interpréteur de commandes Spark a fini le chargement, vous devez voir :
 
@@ -92,10 +92,10 @@ Dans cette tâche, vous allez appliquer le protocole SSH dans le nœud principal
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ Dans cette tâche, vous allez appliquer le protocole SSH dans le nœud principal
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. Si vous examinez votre point de terminaison compatible EventHub sous la forme suivante, la partie qui lit `iothub-xxxxxxxxxx` correspond au nom de votre espace de nom compatible EventHub, et peut être utilisée pour `eventhubs.namespace`. Le champ `SharedAccessKeyName` peut être utilisé pour `eventhubs.policyname`, et `SharedAccessKey` pour `eventhubs.policykey` : 
 
-8. Collez l’extrait de code modifié dans l’invite scala> en attente et appuyez sur Entrée. La sortie doit ressembler à celle-ci :
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Collez l’extrait de code modifié dans l’invite scala> en attente et appuyez sur Entrée. La sortie doit ressembler à celle-ci :
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ Dans cette tâche, vous allez appliquer le protocole SSH dans le nœud principal
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. Ensuite, vous commencez à créer une requête de flux structuré Spark en spécifiant la source. Collez le code suivant dans l’interpréteur de commandes Spark et appuyez sur Entrée.
+10. Ensuite, vous commencez à créer une requête de flux structuré Spark en spécifiant la source. Collez le code suivant dans l’interpréteur de commandes Spark et appuyez sur Entrée.
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. La sortie doit ressembler à celle-ci :
+11. La sortie doit ressembler à celle-ci :
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. Ensuite, créez la requête pour qu’elle écrive sa sortie dans la console. Pour ce faire, collez le code suivant dans l’interpréteur de commandes Spark et appuyez sur Entrée.
+12. Ensuite, créez la requête pour qu’elle écrive sa sortie dans la console. Pour ce faire, collez le code suivant dans l’interpréteur de commandes Spark et appuyez sur Entrée.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. Vous devez voir certains lots démarrer avec une sortie identique à ce qui suit.
+13. Vous devez voir certains lots démarrer avec une sortie identique à ce qui suit.
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. Cela est suivi par les résultats de la sortie du traitement de chaque petit lot d’événements. 
+14. Cela est suivi par les résultats de la sortie du traitement de chaque petit lot d’événements. 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ Dans cette tâche, vous allez appliquer le protocole SSH dans le nœud principal
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. À mesure que de nouveaux événements arrivent du producteur d’événements, ils sont traités par cette requête de flux structuré.
-15. Veillez à supprimer votre cluster HDInsight lorsque vous avez terminé l’exécution de cet exemple.
+15. À mesure que de nouveaux événements arrivent du producteur d’événements, ils sont traités par cette requête de flux structuré.
+16. Veillez à supprimer votre cluster HDInsight lorsque vous avez terminé l’exécution de cet exemple.
 
 
 

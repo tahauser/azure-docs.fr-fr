@@ -11,24 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 7271dc071c6a370ed15f5a1f6ea0f119716dd2c6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8e2b886f7e12791a6aab9feec67adfa30ac3bad1
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copier des données de Table web à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-web-table-connector.md)
-> * [Version 2 - Préversion](connector-web-table.md)
+> * [Version 2 - Préversion](connector-web-table.md)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données de Table web. Il s’appuie sur l’article [présentant une vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données de Table web. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Table web dans V1](v1/data-factory-web-table-connector.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en Disponibilité générale, consultez [Connecteur Table web dans V1](v1/data-factory-web-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -36,8 +35,13 @@ Vous pouvez copier des données d’une base de données de Table web vers toute
 
 Plus précisément, ce connecteur Table web prend en charge l’**extraction de contenu de table d’une page HTML**. Pour récupérer des données à partir d’un point de terminaison HTTP/S, utilisez plutôt le [Connecteur HTTP](connector-http.md).
 
+## <a name="prerequisites"></a>Conditions préalables
+
+Pour utiliser ce connecteur de table web, vous devez configurer un Runtime d’intégration autohébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
+
 ## <a name="getting-started"></a>Prise en main
-Vous pouvez créer un pipeline avec l’activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Consultez le [Didacticiel de l’activité de copie](create-self-hosted-integration-runtime.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Table web.
 
@@ -45,14 +49,14 @@ Les sections suivantes fournissent des informations sur les propriétés utilis�
 
 Les propriétés prises en charge pour le service lié Table web sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur **Web** |Oui |
+| Type | La propriété de type doit être définie sur **Web** |Oui |
 | url | URL de la source web |Oui |
 | authenticationType | Valeur autorisée : **Anonyme**. |Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -62,6 +66,10 @@ Les propriétés prises en charge pour le service lié Table web sont les suivan
         "typeProperties": {
             "url" : "https://en.wikipedia.org/wiki/",
             "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -73,13 +81,13 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données de Table web, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur **WebTable** | Oui |
-| path |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
+| Type | La propriété type du jeu de données doit être définie sur **WebTable** | Oui |
+| chemin d’accès |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |Oui |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -103,7 +111,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données de Table web, définissez le type de source dans l’activité de copie sur **WebSource**. Aucune autre propriété n’est prise en charge.
 
-**Exemple :**
+**Exemple :**
 
 ```json
 "activities":[
@@ -161,5 +169,5 @@ Pour copier des données de Table web, définissez le type de source dans l’ac
 Si vous utilisez Excel 2013, utilisez [Microsoft Power Query pour Excel](https://www.microsoft.com/download/details.aspx?id=39379) pour obtenir l’index. Pour plus d’informations, consultez l’article [Se connecter à une page web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . Les étapes sont identiques si vous utilisez [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

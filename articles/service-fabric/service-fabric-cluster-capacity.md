@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -69,7 +69,7 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 
 Ce privilège est exprimé dans les valeurs suivantes :
 
-* Gold : les travaux d’infrastructure peuvent être suspendus pendant deux heures UD. La durabilité Gold ne peut être activée que sur les références de machine virtuelle à nœud complet comme D15_V2, G5, etc.
+* Gold : les travaux d’infrastructure peuvent être suspendus pendant deux heures UD. La durabilité Gold peut uniquement être activée sur les références (SKU) de machine virtuelle à nœud complet telles que L32s, GS5, G5, DS15_v2, D15_v2, etc. (En général, toutes les tailles de machine virtuelle répertoriées dans la page http://aka.ms/vmspecs qui sont accompagnées de la note de bas de page « L’instance est isolée sur un matériel dédié à un client unique. » sont des machines virtuelles à nœud complet.)
 * Silver : les travaux d’infrastructure peuvent être suspendus pendant 10 minutes par UD, et ce privilège est disponible sur toutes les machines virtuelles standard à cœur unique et versions supérieures.
 * Bronze : Aucun privilège. Il s’agit de la valeur par défaut. Réservez ce niveau de durabilité aux types de nœud qui peuvent exécuter _seulement_ des charges de travail sans état. 
 
@@ -214,7 +214,7 @@ Pour les charges de travail de production
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Une fois que vous avez terminé la planification de votre capacité et que vous avez configuré un cluster, lisez ce qui suit :
 
 * [Sécurité d’un cluster Service Fabric](service-fabric-cluster-security.md)

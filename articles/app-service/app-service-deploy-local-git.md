@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 Ce didacticiel vous montre comment déployer votre application vers [Azure Web Apps](app-service-web-overview.md) depuis un référentiel Git sur votre ordinateur local. App Service prend en charge cette approche avec l'option de déploiement **Git local** dans le [portail Azure].  
 La plupart des commandes Git décrites dans cet article sont exécutées automatiquement pendant la création d’une application App Service avec l’[interface de ligne de commande Azure] comme décrit [ici](app-service-web-get-started-dotnet.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Git. Vous pouvez télécharger le fichier binaire d’installation [ici](http://www.git-scm.com/downloads).  
 * Connaissances élémentaires de Git.
-* Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [demander un essai gratuit](https://azure.microsoft.com/pricing/free-trial) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
+* Un compte Microsoft Azure Si vous n’avez pas de compte, vous pouvez [vous inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.  
@@ -72,7 +72,7 @@ Pour activer un référentiel Git pour votre application App Service, procéde
 2. Dans le panneau de votre application App Service, cliquez sur **Paramètres > Source du déploiement**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.  
    
     ![Référentiel Git local](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion pour ce référentiel. Vous les utiliserez pour vous connecter au référentiel Azure et pour envoyer les modifications depuis votre référentiel Git local. Dans le panneau de votre application, cliquez sur **Paramètres > Informations d’identification du déploiement**, puis configurez le nom d’utilisateur et le mot de passe de votre déploiement. Quand vous avez terminé, cliquez sur **Enregistrer**.
+3. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion pour ce référentiel. Vous les utiliserez pour vous connecter au référentiel Azure et pour envoyer les modifications depuis votre référentiel Git local. Dans le panneau de votre application, cliquez sur **Déploiement > Informations d’identification du déploiement**, puis configurez le nom d’utilisateur et le mot de passe de votre déploiement. Quand vous avez terminé, cliquez sur **Enregistrer**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -125,7 +125,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 
 **Cause**: Cette erreur peut se produire si vous ne spécifiez pas de branche au moment de l'exécution d'une opération git push et que vous n'avez pas défini la valeur push.default utilisée par Git.
 
-**Résolution**: Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
+**Résolution**: Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple : 
 
 ```bash  
 git push azure master
@@ -135,7 +135,7 @@ git push azure master
 
 **Cause**: Cette erreur peut se produire si vous tentez d'effectuer une opération Push sur une autre branche que la branche principale sur le référentiel distant « azure ».
 
-**Résolution**: Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
+**Résolution**: Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple : 
 
 ```bash  
 git push azure master
@@ -162,7 +162,7 @@ git config --global http.postBuffer 524288000
   
   * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
     
-      OU
+      Ou
   * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-recommendations"></a>Recommandations en matière de performances
 
@@ -36,7 +36,7 @@ Les index créés à l’aide de recommandations portent toujours l’indicateur
 
 Une fois que la recommandation de création de l’index est appliquée, Azure SQL Database compare le niveau de performance des requêtes avec le référentiel de performances. Si le niveau de performance est amélioré grâce au nouvel index, la recommandation sera désignée comme réussie et un rapport d’impact sera généré. Si l’index n’apporte aucun avantage, il sera automatiquement restauré. De cette manière, Azure SQL Database garantit que l’utilisation des recommandations améliore uniquement le niveau de performance.
 
-N’importe quelle recommandation **Créer un index** possède une stratégie d’abstention. Cette stratégie n’autorise pas l’application d’une recommandation si la base de données ou l’utilisation du DTU de pool atteint 80 % dans les dernières 20 minutes, ou si le stockage atteint un taux d’utilisation de plus de 90 %. Dans ce cas, la recommandation est reportée.
+N’importe quelle recommandation **Créer un index** possède une stratégie d’abstention. Cette stratégie n’autorise pas l’application de la recommandation si l’utilisation des ressources d’une base de données ou d’un pool est élevée. La stratégie d’abstention prend en compte l’UC, les E/S de données, les E/S de journal et le stockage disponible. Si l’UC, les E/S de données ou les E/S de journal sont supérieures à 80 % au cours des 30 dernières minutes, la création de l’index est suspendue. Si l’espace de stockage disponible est inférieur à 10 % une fois que l’index est créé, la recommandation passe en état d’erreur. Si après deux jours, le paramétrage automatique estime toujours que cet index peut être avantageux, le processus redémarre. Ce processus est répété jusqu’à ce qu’il y ait suffisamment de stockage disponible pour créer un index ou jusqu’à ce que l’index ne soit plus considéré comme bénéfique.
 
 ## <a name="drop-index-recommendations"></a>Recommandations relatives à la suppression d’index
 En plus de détecter un index manquant, Azure SQL Database analyse continuellement le niveau de performance des index existants. Si l’index n’est pas utilisé, Azure SQL Database recommande sa suppression. Il est recommandé de supprimer un index dans deux cas :
@@ -78,7 +78,7 @@ Les recommandations « Résoudre les problèmes de schéma » s’affichent lors
 | 2812 |Impossible de trouver la procédure stockée '*'. |
 | 8144 |La procédure ou la fonction * a trop d’arguments spécifiés. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. SQL Database Advisor continue à surveiller et à fournir des recommandations pouvant potentiellement améliorer les performances de votre base de données. 
 
 * Consultez [Réglage automatique de Microsoft Azure SQL Database](sql-database-automatic-tuning.md) pour le réglage automatique des index de base de données et les plans d’exécution de requêtes.

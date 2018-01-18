@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 > [!NOTE]
-> Le déploiement de conteneurs sur un cluster Service Fabric sous Windows 10 n’est pas encore pris en charge. 
+> Le déploiement de conteneurs sur un cluster Service Fabric sous Windows 10 ou avec Docker CE n’est pas pris en charge. 
 >   
+
+> [!NOTE]
+> Service Fabric version 6.1 prend en charge la version préliminaire de Windows Server version 1709. L’ouverture de la mise en réseau et du service DNS Service Fabric ne fonctionne pas avec Windows Server version 1709. 
+> 
 
 ## <a name="introduction"></a>Introduction
 Azure Service Fabric est un [orchestrateur](service-fabric-cluster-resource-manager-introduction.md) de services sur un cluster de machines. Il profite des nombreuses années d’expérience de Microsoft en matière d’utilisation et d’optimisation de services à très grande échelle. Les services peuvent être développés de nombreuses façons, via des [modèles de programmation de Service Fabric](service-fabric-choose-framework.md) ou via le déploiement [d’exécutables invités](service-fabric-deploy-existing-app.md). Par défaut, Service Fabric déploie et active ces services en tant que processus. Ces processus assurent l’activation la plus rapide et offrent la densité la plus élevée en matière de ressources dans un cluster. Service Fabric peut également déployer des services dans les images de conteneur. Important : dans les conteneurs, vous pouvez combiner des processus et des services au sein de la même application.   
@@ -83,7 +87,7 @@ Service Fabric dispose de plusieurs fonctionnalités de gestion des conteneurs, 
 * Possibilité de définir des identifiants de sécurité sur le conteneur.
 * Différents modes de mise en réseau pour les conteneurs.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris ce qu’était un conteneur. Vous savez désormais que Service Fabric est un orchestrateur de conteneurs et qu’il fournit des fonctionnalités de prise en charge des conteneurs. Nous allons désormais parcourir ces différentes fonctionnalités, afin de vous indiquer comment les utiliser.
 
 [Créer sa première application conteneur Service Fabric sous Windows](service-fabric-get-started-containers.md)

@@ -1,6 +1,6 @@
 ---
-title: "Information de référence pour les développeurs de scripts C# Azure Functions | Microsoft Docs"
-description: "Découvrez comment développer sur Azure Functions à l’aide de C#."
+title: "Informations de référence pour les développeurs de scripts C# Azure Functions"
+description: "Découvrez comment développer sur Azure Functions à l’aide de scripts C#."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -8,34 +8,81 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
-ms.assetid: f28cda01-15f3-4047-83f3-e89d5728301c
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5e1259e3e2c9e8d445ed8b02d6907d2e2705e882
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5a4fc57606b0cf09f8d20710e3c83637283014ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="azure-functions-c-script-developer-reference"></a>Informations de référence pour les développeurs de scripts C# Azure Functions
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
+# <a name="azure-functions-c-script-csx-developer-reference"></a>Informations de référence pour les développeurs de scripts C# (.csx) Azure Functions
 
-L’expérience de scripts C# pour Azure Functions repose sur le Kit de développement logiciel (SDK) Azure WebJobs. Les données circulent dans votre fonction C# via des arguments de méthode. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation.
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
+Cet article est une introduction au développement d’Azure Functions à l’aide de scripts C# (*.csx*).
 
-Pour plus d’informations sur l’utilisation des bibliothèques de classes C#, consultez la page [Utiliser des bibliothèques de classes .NET avec Azure Functions](functions-dotnet-class-library.md).
+Azure Functions prend en charge le langage de programmation C#, mais également le langage de script C#. Pour plus d’informations sur l’[utilisation de C# dans un projet de bibliothèque de classes Visual Studio](functions-develop-vs.md), consultez les [informations de référence pour les développeurs C#](functions-dotnet-class-library.md).
+
+Cet article suppose que vous avez déjà lu le [Guide de développement Azure Functions](functions-reference.md).
 
 ## <a name="how-csx-works"></a>Fonctionnement de .csx
-Le format `.csx` vous permet d’écrire de façon moins « réutilisable » et de vous concentrer uniquement sur l’écriture d’une fonction C#. Ajoutez les éventuels références d’assemblys et espaces de noms au début du fichier, comme d’habitude. Au lieu de tout encapsuler dans un espace de noms et une classe, définissez simplement une méthode `Run`. Si vous devez inclure toutes les classes, par exemple pour définir des objets OCT (objets CLR traditionnels), vous pouvez inclure une classe dans le même fichier.   
+
+L’expérience de scripts C# pour Azure Functions repose sur le [Kit SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Les données circulent dans votre fonction C# via des arguments de méthode. Les noms d’argument sont spécifiés dans un fichier `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation.
+
+Le format *.csx* vous permet d’écrire de façon moins « réutilisable » et de vous concentrer uniquement sur l’écriture d’une fonction C#. Au lieu de tout encapsuler dans un espace de noms et une classe, définissez simplement une méthode `Run`. Ajoutez les éventuels références d’assemblys et espaces de noms au début du fichier, comme d’habitude.
+
+Les fichiers *.csx* d’une application de fonction sont compilés quand une instance est initialisée. Cette étape de compilation signifie que des opérations telles qu’un démarrage à froid peuvent être plus longues à effectuer pour les fonctions de script C# par rapport aux bibliothèques de classes C#. C’est également la raison pour laquelle les fonctions de script C# sont modifiables dans le portail Azure, alors que les bibliothèques de classes C# ne le sont pas.
 
 ## <a name="binding-to-arguments"></a>Liaison aux arguments
-Les diverses liaisons sont liées à une fonction C# par le biais de la propriété `name` de la configuration *function.json*. Chaque liaison prend en charge ses propres types ; par exemple, un déclencheur d’objets blob peut prendre en charge une chaîne, un OCT ou un CloudBlockBlob. Les types pris en charge sont documentées dans la référence de chaque liaison. Des méthodes getter et setter doivent être définies pour chaque propriété d’un objet OCT.
+
+Les données d’entrée ou de sortie sont liées à un paramètre de fonction de script C# via la propriété `name` du fichier de configuration *function.json*. L’exemple suivant montre un fichier *function.json* et un fichier *run.csx* pour une fonction déclenchée par une file d’attente. Le paramètre qui reçoit les données du message de file d’attente s’appelle `myQueueItem`, car il s’agit de la valeur de la propriété `name`.
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "type": "queueTrigger",
+            "direction": "in",
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"MyStorageConnectionAppSetting"
+        }
+    ]
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+
+using Microsoft.WindowsAzure.Storage.Queue;
+using System;
+
+public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}");
+}
+```
+
+L’instruction `#r` est expliquée [plus loin dans cet article](#referencing-external-assemblies).
+
+## <a name="supported-types-for-bindings"></a>Types pris en charge pour les liaisons
+
+Chaque liaison possède ses propres types pris en charge. Par exemple, un déclencheur d’objet blob peut être utilisé avec un paramètre de chaîne, un paramètre OCT, un paramètre `CloudBlockBlob` ou l’un des autres types pris en charge. L’[article sur les références de liaison pour les liaisons d’objets blob](functions-bindings-storage-blob.md#trigger---usage) répertorie tous les types de paramètre pris en charge pour les déclencheurs d’objet blob. Pour plus d’informations, consultez [Déclencheurs et liaisons](functions-triggers-bindings.md), ainsi que les [documents sur les références de liaison pour chaque type de liaison](functions-triggers-bindings.md#next-steps).
+
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="referencing-custom-classes"></a>Référencement de classes personnalisées
+
+Si vous souhaitez utiliser une classe d’objet CLR traditionnel (OCT) personnalisée, vous pouvez inclure la définition de classe dans le même fichier ou la placer dans un fichier distinct.
+
+L’exemple de fichier *run.csx* suivant inclut une définition de classe OCT.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -50,214 +97,10 @@ public class MyClass
 }
 ```
 
-[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
-
-## <a name="using-method-return-value-for-output-binding"></a>Utiliser la valeur renvoyée par la méthode pour la liaison de sortie
-
-Vous pouvez utiliser une valeur renvoyée par la méthode pour une liaison de sortie, en utilisant le nom `$return` dans *function.json* :
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
-
-## <a name="writing-multiple-output-values"></a>Écrire plusieurs valeurs de sortie
-
-Pour écrire plusieurs valeurs dans une liaison de sortie, utilisez le type [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou le type [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Ces types sont des collections en écriture seule, écrites dans la liaison de sortie à la fin de la méthode.
-
-Cet exemple écrit plusieurs messages de file d’attente dans la même file d’attente à l’aide de `ICollector` :
-
-```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
-{
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
-}
-```
-
-## <a name="logging"></a>Journalisation
-Pour consigner la sortie dans vos journaux de diffusion en continu en C#, ajoutez un argument de type `TraceWriter`. Nous vous recommandons de le nommer `log`. Évitez d’utiliser `Console.Write` dans Azure Functions. 
-
-`TraceWriter` est défini dans le [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Le niveau de journalisation de `TraceWriter` est configurable dans [host.json](functions-host-json.md).
-
-```csharp
-public static void Run(string myBlob, TraceWriter log)
-{
-    log.Info($"C# Blob trigger function processed: {myBlob}");
-}
-```
-
-## <a name="async"></a>Async
-Pour rendre une fonction asynchrone, utilisez le mot clé `async` et retournez un objet `Task`.
-
-```csharp
-public async static Task ProcessQueueMessageAsync(
-        string blobName,
-        Stream blobInput,
-        Stream blobOutput)
-{
-    await blobInput.CopyToAsync(blobOutput, 4096, token);
-}
-```
-
-## <a name="cancellation-token"></a>Jeton d’annulation
-Certaines opérations requièrent un arrêt approprié. Bien qu’il soit toujours préférable d’écrire du code permettant de faire face à aux incidents, définissez un argument typé [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) dans les cas où vous souhaitez traiter des demandes d’arrêt approprié.  Un `CancellationToken` est fourni pour signaler le déclenchement d’un arrêt de l’hôte.
-
-```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-        string blobName,
-        Stream blobInput,
-        Stream blobOutput,
-        CancellationToken token)
-    {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
-    }
-```
-
-## <a name="importing-namespaces"></a>Importation des espaces de noms
-Si vous avez besoin d’importer des espaces de noms, vous pouvez le faire comme vous en avez l’habitude à l’aide de la clause `using` .
-
-```csharp
-using System.Net;
-using System.Threading.Tasks;
-
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-```
-
-Les espaces de noms suivants sont automatiquement importés et sont donc facultatifs :
-
-* `System`
-* `System.Collections.Generic`
-* `System.IO`
-* `System.Linq`
-* `System.Net.Http`
-* `System.Threading.Tasks`
-* `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`
-
-## <a name="referencing-external-assemblies"></a>Référencement des assemblys externes
-Pour les assemblys de framework, ajoutez des références à l’aide de la directive `#r "AssemblyName"` .
-
-```csharp
-#r "System.Web.Http"
-
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-```
-
-Les assemblys suivants sont ajoutés automatiquement par l’environnement hébergeant Azure Functions :
-
-* `mscorlib`
-* `System`
-* `System.Core`
-* `System.Xml`
-* `System.Net.Http`
-* `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`
-* `Microsoft.Azure.WebJobs.Extensions`
-* `System.Web.Http`
-* `System.Net.Http.Formatting`
-
-Les assemblys suivants peuvent être référencés par nom simple (par exemple, `#r "AssemblyName"`) :
-
-* `Newtonsoft.Json`
-* `Microsoft.WindowsAzure.Storage`
-* `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNet.WebHooks.Common`
-* `Microsoft.Azure.NotificationHubs`
-
-## <a name="referencing-custom-assemblies"></a>Référencer des assemblys personnalisés
-
-Pour référencer un assembly personnalisé, vous pouvez utiliser soit un assembly *partagé*, soit un assembly *privé* :
-- Les assemblys partagés sont communs à toutes les fonctions d’une application de fonction. Pour référencer un assembly personnalisé, chargez-le dans votre application de fonction, par exemple dans un dossier `bin` à la racine. 
-- Les assemblys privés font partie du contexte d’une fonction donnée et sont compatibles avec le chargement indépendant de versions différentes. Les assemblys privés doivent être chargés dans un dossier `bin` du répertoire de la fonction. Référencez-les avec le nom de fichier, par exemple `#r "MyAssembly.dll"`. 
-
-Pour plus d’informations sur le téléchargement de fichiers vers votre conteneur de fonctions, consultez la section suivante sur la gestion des packages.
-
-### <a name="watched-directories"></a>Répertoires surveillés
-
-Le répertoire qui contient le fichier de script de la fonction est automatiquement surveillé pour détecter les modifications apportées aux assemblys. Pour surveiller les modifications des assemblys dans d’autres répertoires, ajoutez-les à la liste `watchDirectories` dans [host.json](functions-host-json.md).
-
-## <a name="using-nuget-packages"></a>Utiliser des packages NuGet
-Pour utiliser des packages NuGet dans une fonction C#, chargez un fichier *project.json* dans le dossier de la fonction du système de fichiers de l’application de fonction. Voici un exemple de fichier *project.json* qui ajoute une référence à Microsoft.ProjectOxford.Face version 1.1.0 :
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
-```
-
-Seul .NET Framework 4.6 est pris en charge. Par conséquent, assurez-vous que votre fichier *project.json* spécifie `net46` comme indiqué ici.
-
-Lorsque vous chargez un fichier *project.json* , le runtime récupère les packages et ajoute automatiquement des références aux assemblys de packages. Vous n’avez pas besoin d’ajouter de directives `#r "AssemblyName"` . Pour utiliser les types définis dans les packages NuGet, ajoutez les instructions `using` requises à votre fichier *run.csx*. 
-
-Dans le runtime Functions, la restauration NuGet fonctionne en comparant `project.json` et `project.lock.json`. Si la date et l’heure des fichiers **ne correspondent pas**, NuGet lance une restauration et télécharge des packages mis à jour. Si, à l’inverse, ils **correspondent**, NuGet n’effectue pas de restauration. Par conséquent, il ne faut pas déployer `project.lock.json`, car il force NuGet à ignorer la restauration des packages. Pour éviter de déployer le fichier de verrouillage, ajoutez `project.lock.json` au fichier `.gitignore`.
-
-Pour utiliser un flux NuGet personnalisé, spécifiez-le dans un fichier *Nuget.Config* à la racine de l’application de fonction. Pour plus d’informations, consultez la page [Configurer le comportement de NuGet](/nuget/consume-packages/configuring-nuget-behavior).
-
-### <a name="using-a-projectjson-file"></a>Utiliser un fichier project.json
-1. Ouvrez la fonction sur le Portail Azure. L’onglet journaux affiche la sortie d’installation du package.
-2. Pour charger un fichier project.json, utilisez l’une des méthodes décrites dans la section [Guide pratique pour mettre à jour les fichiers d’application de fonction](functions-reference.md#fileupdate) de la rubrique Informations de référence pour les développeurs sur Azure Functions.
-3. Une fois le fichier *project.json* chargé, une sortie semblable à l’exemple ci-après s’affiche dans le journal de diffusion en continu de votre fonction :
-
-```
-2016-04-04T19:02:48.745 Restoring packages.
-2016-04-04T19:02:48.745 Starting NuGet restore
-2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
-2016-04-04T19:02:50.261 Feeds used:
-2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
-2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
-2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
-2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
-2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
-2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.455 Packages restored.
-```
-
-## <a name="environment-variables"></a>Variables d’environnement
-Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme illustré dans l’exemple de code suivant :
-
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-}
-
-public static string GetEnvironmentVariable(string name)
-{
-    return name + ": " +
-        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
-}
-```
+Des méthodes getter et setter doivent être définies pour chaque propriété d’une classe OCT.
 
 ## <a name="reusing-csx-code"></a>Réutilisation du code .csx
+
 Vous pouvez utiliser des classes et des méthodes définies dans d’autres fichiers *.csx* au sein de votre fichier *run.csx*. Pour ce faire, utilisez les directives `#load` dans votre fichier *run.csx*. Dans l’exemple suivant, une routine de journalisation nommée `MyLogger` est partagée dans *myLogger.csx* et chargés dans *run.csx* à l’aide de la directive`#load` :
 
 Exemple *run.csx*:
@@ -281,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-L’utilisation d’un fichier *.csx* partagé est un cas de figure courant lorsque vous souhaitez typer fortement vos arguments entre les fonctions à l’aide d’un objet OCT. Dans l’exemple simplifié suivant, un déclencheur HTTP et un déclencheur de file d’attente partagent un objet OCT nommé `Order` pour typer fortement les données de commande :
+L’utilisation d’un fichier *.csx* partagé est un cas de figure courant quand vous souhaitez typer fortement les données transmises entre les fonctions à l’aide d’un objet OCT. Dans l’exemple simplifié suivant, un déclencheur HTTP et un déclencheur de file d’attente partagent un objet OCT nommé `Order` pour typer fortement les données de commande :
 
 Exemple avec *run.csx* pour un déclencheur HTTP :
 
@@ -352,11 +195,227 @@ Vous pouvez utiliser un chemin d’accès relatif avec la directive `#load` :
 * `#load "loadedfiles\mylogger.csx"` charge un fichier situé dans un dossier du dossier de la fonction.
 * `#load "..\shared\mylogger.csx"` charge un fichier situé dans un dossier situé au même niveau que le dossier de la fonction, c’est-à-dire directement sous *wwwroot*.
 
-La directive `#load` ne fonctionne qu’avec des fichiers *.csx* (script C#) et non avec des fichiers *.cs*.
+La directive `#load` ne fonctionne qu’avec des fichiers *.csx*, et non avec des fichiers *.cs*.
+
+## <a name="binding-to-method-return-value"></a>Liaison à une valeur renvoyée par la méthode
+
+Vous pouvez utiliser une valeur renvoyée par la méthode pour une liaison de sortie, en utilisant le nom `$return` dans *function.json* :
+
+```json
+{
+    "type": "queue",
+    "direction": "out",
+    "name": "$return",
+    "queueName": "outqueue",
+    "connection": "MyStorageConnectionString",
+}
+```
+
+```csharp
+public static string Run(string input, TraceWriter log)
+{
+    return input;
+}
+```
+
+## <a name="writing-multiple-output-values"></a>Écrire plusieurs valeurs de sortie
+
+Pour écrire plusieurs valeurs dans une liaison de sortie, utilisez le type [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou le type [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Ces types sont des collections en écriture seule, écrites dans la liaison de sortie à la fin de la méthode.
+
+Cet exemple écrit plusieurs messages de file d’attente dans la même file d’attente à l’aide de `ICollector` :
+
+```csharp
+public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+{
+    myQueueItem.Add("Hello");
+    myQueueItem.Add("World!");
+}
+```
+
+## <a name="logging"></a>Journalisation
+
+Pour consigner la sortie dans vos journaux de diffusion en continu en C#, ajoutez un argument de type `TraceWriter`. Nous vous recommandons de le nommer `log`. Évitez d’utiliser `Console.Write` dans Azure Functions. 
+
+`TraceWriter` est défini dans le [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Le niveau de journalisation de `TraceWriter` est configurable dans [host.json](functions-host-json.md).
+
+```csharp
+public static void Run(string myBlob, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function processed: {myBlob}");
+}
+```
+
+> [!NOTE]
+> Pour plus d’informations sur un framework de journalisation plus récent que vous pouvez utiliser à la place de `TraceWriter`, consultez [Écrire des journaux dans des fonctions C#](functions-monitoring.md#write-logs-in-c-functions) dans l’article **Surveiller l’exécution des fonctions Azure**.
+
+## <a name="async"></a>Async
+
+Pour rendre une fonction asynchrone, utilisez le mot clé `async` et retournez un objet `Task`.
+
+```csharp
+public async static Task ProcessQueueMessageAsync(
+        string blobName,
+        Stream blobInput,
+        Stream blobOutput)
+{
+    await blobInput.CopyToAsync(blobOutput, 4096, token);
+}
+```
+
+## <a name="cancellation-tokens"></a>Jetons d’annulation
+
+Certaines opérations requièrent un arrêt approprié. Bien qu’il soit toujours préférable d’écrire du code permettant de faire face aux incidents, définissez un argument typé [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) dans les cas où vous souhaitez traiter des demandes d’arrêt.  Un `CancellationToken` est fourni pour signaler le déclenchement d’un arrêt de l’hôte.
+
+```csharp
+public async static Task ProcessQueueMessageAsyncCancellationToken(
+    string blobName,
+    Stream blobInput,
+    Stream blobOutput,
+    CancellationToken token)
+    {
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+```
+
+## <a name="importing-namespaces"></a>Importation des espaces de noms
+
+Si vous avez besoin d’importer des espaces de noms, vous pouvez le faire comme vous en avez l’habitude à l’aide de la clause `using` .
+
+```csharp
+using System.Net;
+using System.Threading.Tasks;
+
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+```
+
+Les espaces de noms suivants sont automatiquement importés et sont donc facultatifs :
+
+* `System`
+* `System.Collections.Generic`
+* `System.IO`
+* `System.Linq`
+* `System.Net.Http`
+* `System.Threading.Tasks`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+
+## <a name="referencing-external-assemblies"></a>Référencement des assemblys externes
+
+Pour les assemblys de framework, ajoutez des références à l’aide de la directive `#r "AssemblyName"` .
+
+```csharp
+#r "System.Web.Http"
+
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+```
+
+Les assemblys suivants sont ajoutés automatiquement par l’environnement hébergeant Azure Functions :
+
+* `mscorlib`
+* `System`
+* `System.Core`
+* `System.Xml`
+* `System.Net.Http`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+* `Microsoft.Azure.WebJobs.Extensions`
+* `System.Web.Http`
+* `System.Net.Http.Formatting`
+
+Les assemblys suivants peuvent être référencés par nom simple (par exemple, `#r "AssemblyName"`) :
+
+* `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
+* `Microsoft.AspNet.WebHooks.Receivers`
+* `Microsoft.AspNet.WebHooks.Common`
+* `Microsoft.Azure.NotificationHubs`
+
+## <a name="referencing-custom-assemblies"></a>Référencer des assemblys personnalisés
+
+Pour référencer un assembly personnalisé, vous pouvez utiliser soit un assembly *partagé*, soit un assembly *privé* :
+- Les assemblys partagés sont communs à toutes les fonctions d’une application de fonction. Pour référencer un assembly personnalisé, chargez-le dans votre application de fonction, par exemple dans un dossier `bin` à la racine. 
+- Les assemblys privés font partie du contexte d’une fonction donnée et sont compatibles avec le chargement indépendant de versions différentes. Les assemblys privés doivent être chargés dans un dossier `bin` du répertoire de la fonction. Référencez les assemblys avec le nom de fichier, par exemple `#r "MyAssembly.dll"`. 
+
+Pour plus d’informations sur le téléchargement de fichiers vers votre conteneur de fonctions, consultez la section sur la [gestion des packages](#using-nuget-packages).
+
+### <a name="watched-directories"></a>Répertoires surveillés
+
+Le répertoire qui contient le fichier de script de la fonction est automatiquement surveillé pour détecter les modifications apportées aux assemblys. Pour surveiller les modifications des assemblys dans d’autres répertoires, ajoutez-les à la liste `watchDirectories` dans [host.json](functions-host-json.md).
+
+## <a name="using-nuget-packages"></a>Utiliser des packages NuGet
+
+Pour utiliser des packages NuGet dans une fonction C#, chargez un fichier *project.json* dans le dossier de la fonction du système de fichiers de l’application de fonction. Voici un exemple de fichier *project.json* qui ajoute une référence à Microsoft.ProjectOxford.Face version 1.1.0 :
+
+```json
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
+```
+
+Dans Azure Functions 1.x, seul .NET Framework 4.6 est pris en charge. Par conséquent, veillez à ce que votre fichier *project.json* spécifie `net46` comme indiqué ici.
+
+Lorsque vous chargez un fichier *project.json* , le runtime récupère les packages et ajoute automatiquement des références aux assemblys de packages. Vous n’avez pas besoin d’ajouter de directives `#r "AssemblyName"` . Pour utiliser les types définis dans les packages NuGet, il vous suffit d’ajouter les instructions `using` requises à votre fichier *run.csx*. 
+
+Dans le runtime Functions, la restauration NuGet fonctionne en comparant `project.json` et `project.lock.json`. Si la date et l’heure des fichiers **ne correspondent pas**, NuGet lance une restauration et télécharge des packages mis à jour. Si, à l’inverse, ils **correspondent**, NuGet n’effectue pas de restauration. Par conséquent, il ne faut pas déployer `project.lock.json`, car il force NuGet à ignorer la restauration des packages. Pour éviter de déployer le fichier de verrouillage, ajoutez `project.lock.json` au fichier `.gitignore`.
+
+Pour utiliser un flux NuGet personnalisé, spécifiez-le dans un fichier *Nuget.Config* à la racine de l’application de fonction. Pour plus d’informations, consultez la page [Configurer le comportement de NuGet](/nuget/consume-packages/configuring-nuget-behavior).
+
+### <a name="using-a-projectjson-file"></a>Utiliser un fichier project.json
+
+1. Ouvrez la fonction sur le Portail Azure. L’onglet journaux affiche la sortie d’installation du package.
+2. Pour charger un fichier project.json, utilisez l’une des méthodes décrites dans la section [Guide pratique pour mettre à jour les fichiers d’application de fonction](functions-reference.md#fileupdate) de la rubrique Informations de référence pour les développeurs sur Azure Functions.
+3. Une fois le fichier *project.json* chargé, une sortie semblable à l’exemple ci-après s’affiche dans le journal de diffusion en continu de votre fonction :
+
+```
+2016-04-04T19:02:48.745 Restoring packages.
+2016-04-04T19:02:48.745 Starting NuGet restore
+2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
+2016-04-04T19:02:50.261 Feeds used:
+2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
+2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
+2016-04-04T19:02:50.261
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
+2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
+2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
+2016-04-04T19:02:57.189
+2016-04-04T19:02:57.189
+2016-04-04T19:02:57.455 Packages restored.
+```
+
+## <a name="environment-variables"></a>Variables d’environnement
+
+Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`, comme illustré dans l’exemple de code suivant :
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " +
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
+```
 
 <a name="imperative-bindings"></a> 
 
-## <a name="binding-at-runtime-via-imperative-bindings"></a>Liaison à l’exécution au moyen des liaisons impératives
+## <a name="binding-at-runtime"></a>Liaison au runtime
 
 Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison [impératif](https://en.wikipedia.org/wiki/Imperative_programming), par opposition aux liaisons [ *déclaratives* ](https://en.wikipedia.org/wiki/Declarative_programming) dans *function.json*. La liaison impérative est utile lorsque les paramètres de liaison doivent être calculés au moment du runtime plutôt que lors de la conception. Avec ce modèle, vous pouvez effectuer une liaison à la volée avec une liaison d’entrée et de sortie prise en charge dans le code de votre fonction.
 
@@ -375,7 +434,9 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 `BindingTypeAttribute` est l’attribut .NET qui définit votre liaison et `T` est le type d’entrée ou de sortie pris en charge par ce type de liaison. `T` ne peut pas être un type de paramètre `out` (comme `out JObject`). Par exemple, la liaison de sortie de la table Mobile Apps prend en charge [six types de sortie](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mais vous pouvez utiliser uniquement [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) pour `T`.
 
-L’exemple de code suivant crée une [liaison de sortie d’objet blob de stockage](functions-bindings-storage-blob.md#input--output) avec un chemin d’objet blob défini au moment de l’exécution, puis écrit une chaîne vers l’objet blob.
+### <a name="single-attribute-example"></a>Exemple d’attribut unique
+
+L’exemple de code suivant crée une [liaison de sortie d’objet blob de stockage](functions-bindings-storage-blob.md#output) avec un chemin d’objet blob défini au moment de l’exécution, puis écrit une chaîne vers l’objet blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -391,7 +452,10 @@ public static async Task Run(string input, Binder binder)
 ```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) définit la liaison d’entrée ou de sortie de [l’objet blob de stockage](functions-bindings-storage-blob.md), et [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) est un type de liaison de sortie pris en charge.
-Dans l’exemple de code précédent, le code obtient le paramètre d’application pour la chaîne de connexion du compte de stockage principal de l’application de fonction (à savoir `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser pour le compte de stockage en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Par exemple,
+
+### <a name="multiple-attribute-example"></a>Exemple d’attributs multiples
+
+L’exemple précédent obtient le paramètre d’application pour la chaîne de connexion du compte de stockage principal de l’application de fonction (à savoir `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser pour le compte de stockage en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Utilisez un paramètre `Binder`, et non `IBinder`.  Par exemple : 
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -417,21 +481,20 @@ Le tableau suivant répertorie les attributs .NET pour chaque type de liaison et
 > [!div class="mx-codeBreakAll"]
 | Liaison | Attribut | Ajouter la référence |
 |------|------|------|
-| Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
+| Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 | Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
+| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
 | File d’attente de stockage | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Objet blob de stockage | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Table de stockage | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
+## <a name="next-steps"></a>étapes suivantes
 
+> [!div class="nextstepaction"]
+> [En savoir plus sur les déclencheurs et les liaisons](functions-triggers-bindings.md)
 
-## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez les ressources suivantes :
-
-* [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
-* [Référence du développeur Azure Functions](functions-reference.md)
-* [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
+> [!div class="nextstepaction"]
+> [En savoir plus sur les meilleures pratiques pour Azure Functions](functions-best-practices.md)

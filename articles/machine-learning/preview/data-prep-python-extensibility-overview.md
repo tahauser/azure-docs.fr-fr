@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensions Python Data Preparations
 Afin de combler les lacunes de fonctionnalité qui existent entre les fonctions intégrées, Azure Machine Learning Data Preparations offre des possibilités d’extension à plusieurs niveaux. Ce document décrit l’extensibilité via un script Python. 
@@ -123,6 +123,31 @@ Exécutez ensuite l’une des commandes suivantes :
 or 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>Utiliser des modules personnalisés
+Dans la transformation d’un flux de données (script), écrivez le code python sous la forme :
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+Dans Ajouter une colonne (script), définissez le type de bloc de code sur Module puis écrivez le code python suivant :
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Selon les différents contextes d’exécution (local, docker spark), pointez le chemin d’accès absolu vers l’emplacement approprié. Vous pouvez utiliser « os.getcwd() + relativePath » pour le localiser.
+
 
 ## <a name="column-data"></a>Données de la colonne 
 Les données de la colonne sont accessibles à partir d’une ligne à l’aide de la notation par points ou de la notation clé-valeur. Les noms de colonnes qui contiennent des espaces ou des caractères spéciaux ne sont pas accessibles à l’aide de la notation par points. La variable `row` doit toujours être définie dans les deux modes des extensions Python (Module et Expression). 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>FAQ du Centre de sécurité Azure
 Cette FAQ répond aux questions concernant Azure Security Center, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
@@ -51,7 +51,7 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 Pour plus d’informations sur les rôles et les actions autorisées dans Security Center, consultez l’article [Permissions in Azure Security Center (Autorisations dans Azure Security Center)](security-center-permissions.md).
 
 ## <a name="data-collection"></a>Collecte des données
-Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez au Centre de sécurité pour la première fois, la collecte de données est activée sur toutes les machines virtuelles de votre abonnement. Vous pouvez également activer la collecte de données dans la stratégie Security Center.
+Security Center collecte les données de vos machines virtuelles afin d’évaluer l’état de leur sécurité, de fournir des recommandations en matière de sécurité et de vous avertir des menaces. Lorsque vous accédez à Security Center pour la première fois, la collecte des données est activée sur toutes les machines virtuelles de votre abonnement. Vous pouvez également activer la collecte de données dans la stratégie Security Center.
 
 ### <a name="how-do-i-disable-data-collection"></a>Comment désactiver la collecte des données ?
 Si vous utilisez le niveau Gratuit d’Azure Security Center, vous pouvez désactiver la collecte de données à partir des machines virtuelles à tout moment. La collecte de données est obligatoire pour les abonnements du niveau Standard. Vous pouvez désactiver la collecte de données pour un abonnement dans la stratégie de sécurité. ([Connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie**.)  Quand vous sélectionnez un abonnement, un nouveau panneau s’ouvre et affiche une option permettant de désactiver la **collecte des données**.
@@ -61,6 +61,10 @@ Vous pouvez activer la collecte des données pour votre abonnement Azure dans la
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Que se passe-t-il quand la collecte des données est activée ?
 Une fois la collecte de données activée, Microsoft Monitoring Agent est automatiquement configuré sur toutes les machines virtuelles existantes et nouvelles prises en charge qui sont déployées dans l’abonnement.
+
+L’agent active l’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Les nouveaux processus créés sur la machine virtuelle sont enregistrés par le journal des événements et analysés par les services de détection Security Center. Pour plus d’informations sur les détails enregistrés pour chaque nouveau processus, consultez [Description des champs 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). L’agent collecte également les événements 4688 créés sur la machine virtuelle et les stocke dans la recherche.
+
+Lorsque Security Center détecte une activité suspecte sur la machine virtuelle, le client est averti par e-mail si [des informations de contact de sécurité](security-center-provide-security-contact-details.md) ont été fournies. Une alerte est également visible dans le tableau de bord d’alertes de sécurité de Security Center.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Est-ce que l’agent d’analyse a un impact sur les performances de mes serveurs ?
 L’agent utilise une quantité minime de ressources système et n’a donc qu’un faible impact sur les performances. Pour en savoir plus sur l’impact sur les performances, l’agent et l’extension, consultez le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md#data-collection-and-storage).
@@ -116,7 +120,7 @@ Azure Security Center surveille les ressources Azure suivantes :
 * Azure Web Apps (dans [App Service Environment](../app-service/environment/intro.md))
 * Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web sur les machines virtuelles et sur App Service Environment
 
-## <a name="virtual-machines"></a>Machines virtuelles
+## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Quels sont les types de machines virtuelles pris en charge ?
 Le monitoring et des recommandations sont disponibles pour les machines virtuelles créées à l’aide des [modèles de déploiement Classic et Resource Manager](../azure-classic-rm.md).
 
@@ -131,7 +135,7 @@ Ce message s’affiche lorsqu’il n’existe aucune donnée d’analyse pour un
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>À quelle fréquence Security Center recherche-t-il les vulnérabilités du système d’exploitation, les mises à jour du système et les problèmes de protection du point de terminaison ?
 La latence dans les analyses de Security Center à la recherche de vulnérabilités, de mises à jour et de problèmes est la suivante :
 
-- Vulnérabilités du système d’exploitation (Microsoft) ; les données sont mises à jour dans les 48 heures
+- Configuration de la sécurité du système d’exploitation ; les données sont mises à jour dans les 48 heures
 - Mises à jour du système ; les données sont mises à jour dans les 24 heures
 - Problèmes de protection du point de terminaison ; les données sont mises à jour dans les 8 heures
 

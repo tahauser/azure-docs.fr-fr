@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler
 ## <a name="overview"></a>Vue d'ensemble
@@ -59,7 +59,7 @@ Pour créer une simple planification à l’aide de [l’API REST Azure Schedule
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ Après cette introduction, examinons chacun de ces éléments en détail.
 
 | **Nom JSON** | **Type de valeur** | **Obligatoire ?** | **Valeur par défaut** | **Valeurs valides** | **Exemple** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |Chaîne |Non |Aucun |Dates-Heures ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***recurrence*** |Object |Non |Aucun |Objet de périodicité |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***startTime*** |Chaîne |Non  |Aucun |Dates-Heures ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***recurrence*** |Object |Non  |Aucun |Objet de périodicité |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
 | ***frequency*** |Chaîne |Oui |Aucun |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Number |Non |1 |1 à 1 000. |<code>"interval":10</code> |
-| ***endTime*** |String |Non |Aucun |Valeur date-heure représentant une heure dans le futur |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***count*** |Number |Non |Aucun |>= 1 |<code>"count": 5</code> |
-| ***schedule*** |Object |Non |Aucun |Objet de planification |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***interval*** |Number |Oui |Aucun |1 à 1 000. |<code>"interval":10</code> |
+| ***endTime*** |Chaîne |Non  |Aucun |Valeur date-heure représentant une heure dans le futur |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***count*** |Number |Non  |Aucun |>= 1 |<code>"count": 5</code> |
+| ***schedule*** |Object |Non  |Aucun |Objet de planification |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Présentation approfondie : *startTime*
 Le tableau suivant décrit comment *startTime* contrôle la manière dont un travail est exécuté.
@@ -125,11 +125,11 @@ Le tableau suivant décrit les éléments *schedule* en détail.
 
 | **Nom JSON** | **Description** | **Valeurs valides** |
 |:--- |:--- |:--- |
-| **minutes** |Minutes de l'heure auxquelles le travail sera exécuté |<ul><li>Entier, ou</li><li>Tableau d’entiers</li></ul> |
-| **hours** |Heures de la journée auxquelles le travail sera exécuté |<ul><li>Entier, ou</li><li>Tableau d’entiers</li></ul> |
-| **weekDays** |Jours de la semaine auxquels le travail sera exécuté Peut uniquement être spécifié avec une fréquence hebdomadaire. |<ul><li>« Lundi », « mardi» , « mercredi », « jeudi », « vendredi », « samedi » ou « dimanche »</li><li>Tableau comprenant l’une des valeurs ci-dessus (taille de tableau maximale 7)</li></ul>*Ne* respectant pas la casse |
-| **monthlyOccurrences** |Détermine les jours du mois pour l'exécution du travail. Peut uniquement être spécifié avec une fréquence mensuelle. |<ul><li>Tableau d’objets monthlyOccurrence :</li></ul> <pre>{ "day": *day*,<br />  "occurrence":*occurrence*<br />}</pre><p> *day* est le jour de la semaine où la tâche sera exécutée, par exemple, {Sunday} correspond à tous les dimanches du mois. Obligatoire.</p><p>Occurrence est *l’occurrence* du jour au cours du mois. Par exemple, {Sunday, -1} est le dernier dimanche du mois. facultatif.</p> |
-| **monthDays** |Jour du mois auquel le travail sera exécuté. Peut uniquement être spécifié avec une fréquence mensuelle. |<ul><li>Toute valeur < = -1 et > = -31.</li><li>Toute valeur >= 1 et <= 31.</li><li>Un tableau composé des valeurs ci-dessus</li></ul> |
+| **minutes** |Minutes de l'heure auxquelles le travail sera exécuté |<ul><li>Tableau d’entiers</li></ul> |
+| **hours** |Heures de la journée auxquelles le travail sera exécuté |<ul><li>Tableau d’entiers</li></ul> |
+| **weekDays** |Jours de la semaine auxquels le travail sera exécuté Peut uniquement être spécifié avec une fréquence hebdomadaire. |<ul><li>N’importe laquelle des valeurs ci-dessous (taille max. de tableau 7)<ul><li>Lundi</li><li>« Tuesday »</li><li>« Wednesday »</li><li>« Thursday »</li><li>« Friday »</li><li>Samedi</li><li>« Sunday »</li></ul></li></ul>*Ne* respectant pas la casse |
+| **monthlyOccurrences** |Détermine les jours du mois pour l'exécution du travail. Peut uniquement être spécifié avec une fréquence mensuelle. |<ul><li>Tableau d’objets monthlyOccurrence :</li></ul> <pre>{ "day": *day*,<br />  "occurrence":*occurrence*<br />}</pre><p> *day* est le jour de la semaine où la tâche sera exécutée, par exemple, {Sunday} correspond à tous les dimanches du mois. Requis.</p><p>Occurrence est *l’occurrence* du jour au cours du mois. Par exemple, {Sunday, -1} est le dernier dimanche du mois. facultatif.</p> |
+| **monthDays** |Jour du mois auquel le travail sera exécuté. Peut uniquement être spécifié avec une fréquence mensuelle. |<ul><li>Un tableau des valeurs ci-dessous</li><ul><li>Toute valeur < = -1 et > = -31.</li><li>Toute valeur >= 1 et <= 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
 Voici divers exemples de planifications de périodicité, avec un accent sur l'objet de planification et ses sous-éléments.

@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Sauvegarder des machines virtuelles Linux dans Azure
 
-Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Lorsque vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou seulement des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle Linux exécutant nginx. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Linux](quick-create-cli.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Lorsque vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou seulement des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle Linux exécutant nginx. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Linux](quick-create-cli.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde de machine virtuelle
@@ -45,7 +45,7 @@ Une fois le transfert de données terminé, l’instantané est supprimé et un 
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
 Créez une simple sauvegarde quotidienne planifiée dans un coffre Recovery Services. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
 3. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez sauvegarder.
 4. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Activer la sauvegarde** s’ouvre.
@@ -160,9 +160,9 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
 18. Sur votre ordinateur local, revenez à l’onglet du navigateur pour afficher le portail Azure, puis dans **Étape 3 : Démonter les disques après la récupération**, cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un nouveau point de montage.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde de machine virtuelle

@@ -1,6 +1,6 @@
 ---
-title: Collections de la galerie Cortana Intelligence | Microsoft Docs
-description: "Découvrez et partagez des collections dans la galerie Cortana Intelligence."
+title: Collections de la galerie Azure AI | Microsoft Docs
+description: "Découvrez et partagez des collections dans la galerie Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Découvrez et partagez des collections dans la galerie Cortana Intelligence
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Découvrir et partager des collections dans la galerie Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Collections
@@ -71,7 +71,7 @@ Par exemple, vous pouvez utiliser une collection pour regrouper des éléments s
     ![Sélectionnez « Visible au public » ou « Non visible au public »](./media/gallery-collections/create-collection-page-3.png)
 7. Sélectionnez **Créer**.
 
-Votre collection figure désormais dans la galerie Cortana Intelligence. Vos collections sont répertoriées sur la page de votre compte, dans l’onglet **Collection**.
+Votre collection figure désormais dans la galerie Azure AI. Vos collections sont répertoriées sur la page de votre compte, dans l’onglet **Collection**.
 
 ### <a name="add-items-to-a-collection"></a>Ajouter des éléments à une collection
 Pour ajouter des éléments à votre collection, ouvrez la collection, sélectionnez **Modifier**, puis sélectionnez **Ajouter un élément**.

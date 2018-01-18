@@ -1,6 +1,6 @@
 - name: Azure Container Service (ACS)
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de ACS
       href: intro-kubernetes.md
@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 - Mettre à niveau un cluster
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Concepts
+  items:
+    - name: Quotas et limites régionales
+      href: container-service-quotas.md
 - name: Procédures
   items:
     - name: Mettre à l’échelle un cluster ACS
@@ -49,11 +53,13 @@
       href: kubernetes-service-principal.md
     - name: Configurer des volumes de données
       items:
+        - name: Disques Azure - volume persistant
+          href: azure-disks-dynamic-pv.md
         - name: Azure Files - volume persistant
           href: azure-files-dynamic-pv.md
         - name: Azure Files - volume
           href: azure-files.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/aks

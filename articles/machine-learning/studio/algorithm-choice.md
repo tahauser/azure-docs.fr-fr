@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Comment choisir les algorithmes dans Microsoft Azure Machine Learning
 La réponse à la question « Quel algorithme d’apprentissage automatique dois-je utiliser ? » est toujours « Cela dépend. ». Cela dépend de la taille, de la qualité et de la nature des données. Cela dépend de ce que vous voulez faire avec la réponse. Cela dépend de la conversion des calculs de l'algorithme en instructions pour l'ordinateur que vous utilisez. Et cela dépend du temps que vous avez. Même les scientifiques de données les plus expérimentés ne peuvent pas savoir quel algorithme fonctionnera le mieux avant d’en essayer.
@@ -42,7 +42,7 @@ Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme 
 Parfois, aucune n’est parfaite. Ce sont des recommandations générales, donc ne vous inquiétez pas de leur exactitude.
 Plusieurs scientifiques des données auxquels j’ai parlé m’ont affirmé que la seule façon de trouver le meilleur algorithme est de tous les essayer.
 
-Voici un exemple d’une expérimentation de la [Galerie Cortana Intelligence](http://gallery.cortanaintelligence.com/) qui essaie plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Voici un exemple d’une expérimentation de la [galerie Azure AI](http://gallery.cortanaintelligence.com/) qui essaie plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](studio-overview-diagram.md).

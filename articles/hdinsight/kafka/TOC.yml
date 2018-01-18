@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Kafka sur HDInsight
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: apache-kafka-introduction.md
     - name: Gestion des versions des composants
       href: ../hdinsight-component-versioning.md
@@ -33,6 +33,9 @@
       items:
         - name: Kafka et Spark (Structure Streaming)
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+          maintainContext: true
+        - name: "Structured streaming de\_Kafka vers\_CosmosDB"
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka et Spark (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
@@ -199,7 +202,7 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

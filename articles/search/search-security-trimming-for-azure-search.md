@@ -1,6 +1,6 @@
 ---
-title: "Filtrage de sécurité avec Recherche Azure"
-description: "Implémentez le filtrage de sécurité à l’aide de filtres Recherche Azure."
+title: "Filtres de sécurité pour le filtrage des résultats dans Recherche Azure | Microsoft Docs"
+description: "Contrôle d’accès au contenu Recherche Azure à l’aide de filtres de sécurité et d’identités d’utilisateur."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Filtrage de sécurité avec Recherche Azure
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche Azure
 
-Vous pouvez appliquer des filtres de sécurité à des résultats de recherche pour restreindre l’accès à des documents en fonction de l’identité de l’utilisateur. Cette expérience de recherche compare généralement l’identité de la personne qui lance la recherche à un champ contenant les principaux qui disposent d’autorisations d’accès au document. Quand une correspondance est trouvée, l’utilisateur ou le principal (comme un groupe ou un rôle) a accès à ce document.
+Vous pouvez appliquer des filtres de sécurité pour filtrer les résultats de recherche dans Recherche Azure en fonction de l’identité de l’utilisateur. Cette expérience de recherche compare généralement l’identité de la personne qui lance la recherche à un champ contenant les principaux qui disposent d’autorisations d’accès au document. Quand une correspondance est trouvée, l’utilisateur ou le principal (comme un groupe ou un rôle) a accès à ce document.
 
 Pour mettre en place le filtrage de sécurité, une méthode consiste à utiliser une disjonction complexe d’expressions d’égalité. Par exemple : `Id eq 'id1' or Id eq 'id2'`, etc. Cette approche est sujette aux erreurs et difficile à gérer. De plus, si la liste contient des centaines voire des milliers de valeurs, elle ralentit le temps de réponse de plusieurs secondes. 
 
@@ -34,7 +34,7 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 >[!NOTE]
 > Le processus de récupération des identificateurs de principal n’est pas abordé dans ce document. Obtenez-le auprès de votre fournisseur de services d’identité.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -155,3 +155,8 @@ Vous devez obtenir les documents où `group_ids` contient « group_id1 » ou �
 
 Vous venez de voir comment filtrer des résultats en fonction de l’identité de l’utilisateur et de la fonction `search.in()` de Recherche Azure. Vous pouvez utiliser cette fonction pour passer les identificateurs de principal de l’utilisateur demandeur et les mettre en correspondance avec les identificateurs de principal associés à chaque document cible. Quand une requête de recherche est traitée, la fonction `search.in` exclut les résultats de la recherche inaccessibles en lecture aux principaux de l’utilisateur. Les identificateurs de principal peuvent représenter des groupes de sécurité, des rôles ou même la propre identité de l’utilisateur.
  
+## <a name="see-also"></a>Voir aussi
+
++ [Contrôle d’accès à Active Directory basé sur l’identité à l’aide des filtres Recherche Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtres dans Recherche Azure](search-filters.md)
++ [Sécurité des données et contrôle d’accès aux opérations Recherche Azure](search-security-overview.md)

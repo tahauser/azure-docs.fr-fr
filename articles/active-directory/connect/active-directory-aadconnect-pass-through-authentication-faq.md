@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -82,6 +82,12 @@ Oui. Si Web Proxy Auto-Discovery (WPAD) est activé dans votre environnement sur
 
 Non, vous ne pouvez installer qu’un seul agent d’authentification directe sur un serveur unique. Si vous souhaitez configurer l’authentification directe pour la haute disponibilité, suivez les instructions de la section [Authentification directe Azure Active Directory : Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Comment supprimer un agent d’authentification directe ?
+
+Tant qu’un agent d’authentification directe est en cours d’exécution, il reste actif et gère en permanence les demandes de connexion utilisateur. Si vous souhaitez désinstaller un agent d’authentification, accédez à **Panneau de configuration -> Programmes -> Programmes et fonctionnalités** et désinstallez les programmes **Agent d’authentification Microsoft Azure AD Connect** et **Outil de mise à jour de l’agent Microsoft Azure AD Connect**.
+
+Si vous consultez le panneau Authentification directe dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) une fois l’étape précédente effectuée, vous pouvez voir que l’agent d’authentification est indiqué comme étant **inactif**. Ceci est _normal_. L’agent d’authentification est automatiquement supprimé de la liste au bout de quelques jours.
+
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>J'utilise déjà AD FS pour me connecter Azure AD. Comment basculer vers l’authentification directe ?
 
 Si vous avez configuré AD FS en tant que méthode de connexion à l’aide de l’Assistant Azure AD Connect, choisissez Authentification directe comme méthode permettant à l'utilisateur de se connecter. Cette modification permet l’authentification directe sur le client et convertit _tous_ vos domaines fédérés en domaines gérés. L’authentification directe gère toutes les prochaines requêtes de connexion à votre client. Actuellement, il n’existe aucun moyen pris en charge dans Azure AD Connect pour utiliser une combinaison d’AD FS et d’authentification directe sur différents domaines.
@@ -122,7 +128,7 @@ Réexécutez l’assistant Azure AD Connect et modifiez la méthode de connexion
 
 La désinstallation d’un agent d’authentification directe à partir d’un serveur provoque l’interruption de l’acceptation des requêtes de connexion. Pour éviter d'interrompre la fonctionnalité de connexion de l'utilisateur sur votre client, assurez-vous qu'un autre agent d'authentification est en cours d'exécution avant de désinstaller un agent d'authentification directe.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Limitations actuelles](active-directory-aadconnect-pass-through-authentication-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
 - [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.

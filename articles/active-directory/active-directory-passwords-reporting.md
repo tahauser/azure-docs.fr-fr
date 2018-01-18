@@ -1,5 +1,5 @@
 ---
-title: "Rapport : réinitialisation de mot de passe en libre-service Azure AD | Microsoft Docs"
+title: "Rapports de réinitialisation de mot de passe libre-service : Azure Active Directory"
 description: "Rapports sur les événements de réinitialisation de mot de passe en libre-service Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1d27dd77547c62a3c2f77aeba214f05326c9cab4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c1f8beaf73bfa424c9a5c86df430822b5626282b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -64,6 +64,12 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 
 L’API de rapports et d’événements Azure AD prend désormais en charge la récupération de toutes les informations incluses dans les rapports de réinitialisation de mot de passe et d’inscription de réinitialisation de mot de passe. En utilisant cette API, vous pouvez télécharger les événements de réinitialisation de mot de passe individuels et les événements d’inscription de réinitialisation de mot de passe, et les intégrer à la technologie de création de rapports de votre choix.
 
+> [!IMPORTANT]
+> Actuellement, l’API de rapports et d’événements Azure AD récupère jusqu’à *75 000 événements individuels* des types [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) et [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). L’API couvre les 30 derniers jours.
+> 
+> Si vous avez besoin de récupérer ou de stocker des données au-delà de cette période, nous vous suggérons de les conserver dans une base de données externe à l’aide de l’API pour interroger les deltas résultants. Nous vous recommandons de commencer à récupérer ces données lorsque vous commencez à utiliser SSPR dans votre organisation. Conservez-les en externe, puis continuez à suivre les deltas à partir de ce stade.
+>
+
 ### <a name="how-to-get-started-with-the-reporting-api"></a>Prise en main de l’API de création de rapports
 
 Pour accéder à ces données, vous devrez écrire une petite application ou un petit script permettant de les extraire de nos serveurs. Pour plus d’informations, consultez [Prise en main de l’API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md).
@@ -72,12 +78,6 @@ Lorsque votre script est opérationnel, vous souhaiterez examiner les événemen
 
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) : répertorie les colonnes disponibles pour les événements de réinitialisation de mot de passe.
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) : répertorie les colonnes disponibles pour les événements d’inscription de réinitialisation de mot de passe.
-
-### <a name="reporting-api-data-retrieval-limitations"></a>Création de rapport sur les limitations de récupération des données API
-
-Actuellement, l’API de rapports et d’événements Azure AD récupère jusqu’à *75 000 événements individuels* des types [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) et [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). L’API couvre les *30 derniers jours*.
-
-Si vous avez besoin de récupérer ou de stocker des données au-delà de cette période, nous vous suggérons de les conserver dans une base de données externe à l’aide de l’API pour interroger les deltas résultants. Nous vous recommandons de commencer à récupérer ces données lorsque vous commencez à utiliser SSPR dans votre organisation. Conservez-les en externe, puis continuez à suivre les deltas à partir de ce stade.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 
@@ -194,7 +194,7 @@ La liste suivante explique cette activité en détail :
      >Un échec ne signifie pas qu’un utilisateur ne peut pas réinitialiser son propre mot de passe. Cela signifie que processus d’inscription n’est pas terminé. Si son compte contient des données correctes non vérifiées (par exemple, un numéro de téléphone non validé), même s’il n’a pas vérifié ce numéro de téléphone, il peut toujours l’utiliser pour réinitialiser son mot de passe. Pour plus d’informations, consultez [Que se passe-t-il lorsqu’un utilisateur s’inscrit ?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
      >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-best-practices.md)
 * [Réinitialisez ou modifiez votre mot de passe](active-directory-passwords-update-your-own-password.md).

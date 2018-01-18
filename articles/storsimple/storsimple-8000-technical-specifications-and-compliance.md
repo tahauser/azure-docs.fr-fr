@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
@@ -71,7 +71,7 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 | Modèle d’appareil/capacité | 8100 | 8600 |
 | --- | --- | --- |
 | Nombre de disques durs |8 |19 |
-| Nombre de disques SSD |4 |5 |
+| Nombre de disques SSD |4 |5. |
 | Capacité de disque dur unique |4 To |4 To |
 | Capacité de disque SSD unique |400 Go |800 Go |
 | Capacité de rechange |4 To |4 To |
@@ -80,7 +80,7 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 | Capacité utilisable totale* |~ 15 To |~ 38 To |
 | Capacité totale de la solution (y compris le cloud) |200 To |500 To |
 
-<sup>* </sup>- *La capacité totale utile inclut la capacité disponible pour les données, les métadonnées et les mémoires tampons.*
+<sup>* </sup>- *La capacité totale utilisable inclut la capacité disponible pour les données, les métadonnées et les mémoires tampon. Vous pouvez approvisionner des volumes épinglés localement d’une taille maximale de 8,5 To sur l’appareil 8100 ou de 22,5 To sur l’appareil 8600. Pour plus d’informations, consultez [Volumes épinglés localement StorSimple](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensions et poids des boîtiers
 
@@ -193,7 +193,7 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applic
 
 Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des modules et des câbles réseau pris en charge](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous êtes désormais prêt à déployer un appareil StorSimple dans votre centre de données. Pour plus d’informations, consultez [Déploiement de votre appareil local](storsimple-8000-deployment-walkthrough-u2.md).
 

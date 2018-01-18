@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Utiliser des plug-ins de volume et des pilotes de journalisation Docker dans votre conteneur
 Azure Service Fabric prend en charge la spécification de [plug-ins de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) et de [pilotes de journalisation Docker](https://docs.docker.com/engine/admin/logging/overview/) pour votre service de conteneur. Vous pouvez rendre vos données persistantes dans [Azure Files](https://azure.microsoft.com/services/storage/files/) même quand vous déplacez ou redémarrez votre conteneur sur un autre hôte.
@@ -39,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> Windows Server 2016 Datacenter ne prend pas en charge les montages SMB sur l’hôte ([cette prise en charge est assurée uniquement dans Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Cela empêche l’utilisation de certains pilotes de volume tels que les pilotes de volume de fichiers Azure. Au lieu de cela, vous pouvez monter les partages directement dans le conteneur à l’aide de **net use**. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Spécifier le plug-in ou le pilote dans le manifeste
 Les plug-ins sont spécifiés dans le manifeste d’application comme suit :
@@ -87,5 +92,5 @@ Quand vous spécifiez un plug-in de volume, Service Fabric crée automatiquement
 ```
 Si un pilote de journalisation Docker est spécifié, vous devez déployer des agents (ou conteneurs) pour gérer les journaux dans le cluster. Vous pouvez utiliser la balise **DriverOption** pour spécifier des options pour le pilote de journal.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour déployer des conteneurs sur un cluster Service Fabric, consultez [Déployer un conteneur sur Service Fabric](service-fabric-deploy-container.md).

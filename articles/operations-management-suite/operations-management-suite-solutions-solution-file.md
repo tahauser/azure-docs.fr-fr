@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Création d’un fichier de solutions de gestion dans Operations Management Suite (OMS) (préversion)
 > [!NOTE]
@@ -69,12 +69,12 @@ Vous trouverez ci-dessous un exemple de paramètre.
 
 Le tableau suivant décrit les attributs d’un paramètre.
 
-| Attribut | Description |
+| Attribut | DESCRIPTION |
 |:--- |:--- |
-| type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
+| Type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
 | category |Catégorie du paramètre facultative.  Les paramètres de la même catégorie sont regroupés. |
 | contrôle |Fonctionnalité supplémentaire pour les paramètres de type chaîne.<br><br>datetime : le contrôle Datetime est affiché.<br>guid : la valeur Guid est générée automatiquement et le paramètre n’est pas affiché. |
-| Description |Description du paramètre facultative.  Affichée dans une bulle d’informations en regard du paramètre. |
+| description |Description du paramètre facultative.  Affichée dans une bulle d’informations en regard du paramètre. |
 
 ### <a name="standard-parameters"></a>Paramètres standard
 Le tableau suivant répertorie les paramètres standard pour toutes les solutions de gestion.  Ces valeurs sont remplies pour l’utilisateur, qui n’a donc pas à le faire lorsque la solution est installée à partir de la Place de marché Azure ou de modèles de démarrage rapide.  L’utilisateur doit fournir des valeurs pour ces paramètres si la solution est installée par le biais d’une autre méthode.
@@ -84,14 +84,14 @@ Le tableau suivant répertorie les paramètres standard pour toutes les solution
 >
 >
 
-| Paramètre | Type | Description |
+| Paramètre | type | DESCRIPTION |
 |:--- |:--- |:--- |
-| accountName |string |Nom de compte Azure Automation. |
-| pricingTier |string |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
-| regionId |string |Région du compte Azure Automation. |
-| solutionName |string |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
-| workspaceName |string |Nom de l’espace de travail Log Analytics. |
-| workspaceRegionId |string |Région de l’espace de travail Log Analytics. |
+| accountName |chaîne |Nom de compte Azure Automation. |
+| pricingTier |chaîne |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
+| regionId |chaîne |Région du compte Azure Automation. |
+| solutionName |chaîne |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
+| workspaceName |chaîne |Nom de l’espace de travail Log Analytics. |
+| workspaceRegionId |chaîne |Région de l’espace de travail Log Analytics. |
 
 
 Voici la structure des paramètres standards que vous pouvez copier et coller dans votre fichier de solution.  
@@ -132,7 +132,7 @@ Voici la structure des paramètres standards que vous pouvez copier et coller da
 
 Faites référence aux valeurs de paramètre dans d’autres éléments de la solution avec la syntaxe **parameters('nom du paramètre')**.  Par exemple, pour accéder au nom de l’espace de travail, utilisez **parameters('workspaceName')**.
 
-## <a name="variables"></a>Variables
+## <a name="variables"></a>variables
 Les [Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) sont des valeurs que vous allez utiliser dans le reste de la solution de gestion.  Celles-ci ne sont pas exposées à l’utilisateur qui installe la solution.  Elles sont conçues pour fournir à l’auteur un emplacement unique où il peut gérer les valeurs qui peuvent être utilisées plusieurs fois dans la solution. Vous devez placer toutes les valeurs spécifiques à votre solution dans des variables, contrairement au codage en dur dans l’élément **resources**.  Cela rend le code plus lisible et vous permet de modifier facilement ces valeurs dans des versions ultérieures.
 
 Voici un exemple d’élément **variables** avec des paramètres standard utilisés dans les solutions.
@@ -161,11 +161,11 @@ Vous pouvez également définir des variables complexes pour plusieurs ensembles
 
 Dans ce cas, faites référence aux valeurs de variable dans la solution avec la syntaxe **variables('nom de la variable').property**.  Par exemple, pour accéder à la variable SolutionName, utilisez **variables('Solution').Name**.
 
-## <a name="resources"></a>les ressources
+## <a name="resources"></a>Ressources
 Les [ressources](../azure-resource-manager/resource-group-authoring-templates.md#resources) définissent les différentes ressources installées et gérées par votre solution de gestion.  Il s’agit de la partie la plus vaste et la plus complexe du modèle.  Vous pouvez obtenir la structure et une description complète des éléments de ressource dans [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#resources).  Différentes ressources que vous définirez généralement sont détaillées dans d’autres articles de cette documentation. 
 
 
-### <a name="dependencies"></a>Dépendances
+### <a name="dependencies"></a>Les dépendances
 L’élément **dependsOn** spécifie une [dépendance](../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis d’une autre ressource.  Lorsque la solution est installée, aucune ressource n’est créée tant que toutes ses dépendances n’ont pas été créées.  Par exemple, votre solution peut [démarrer un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) lorsqu’il est installé à l’aide d’une [ressource de tâche](operations-management-suite-solutions-resources-automation.md#automation-jobs).  La ressource de tâche dépend de la ressource de runbook pour garantir que le runbook est créé avant la tâche.
 
 ### <a name="oms-workspace-and-automation-account"></a>Espace de travail OMS et compte Automation
@@ -176,7 +176,7 @@ Chaque solution nécessite une entrée de ressource dans l’élément **resourc
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Chaque solution nécessite une entrée de ressource dans l’élément **resourc
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -205,13 +205,13 @@ Chaque solution nécessite une entrée de ressource dans l’élément **resourc
 
 
 
-### <a name="dependencies"></a>Dépendances
+### <a name="dependencies"></a>Les dépendances
 La ressource de la solution doit avoir une [dépendance](../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis de toute autre ressource de la solution, car ces ressources doivent exister avant que la solution ne puisse être créée.  Pour cela, ajoutez une entrée pour chaque ressource dans l’élément **dependsOn**.
 
-### <a name="properties"></a>Propriétés
+### <a name="properties"></a>properties
 La ressource de solution possède les propriétés indiquées dans le tableau suivant.  Cela inclut les ressources référencées et contenues dans la solution qui définit la manière dont la ressource est gérée après l’installation de la solution.  Chaque ressource de la solution doit être répertoriée dans la propriété **referencedResources** ou **containedResources**.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | workspaceResourceId |ID de l’espace de travail Log Analytics au format *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
 | referencedResources |Liste des ressources de la solution qui ne doivent pas être supprimées en même temps que la solution. |
@@ -222,9 +222,9 @@ L’exemple ci-dessus est valable pour une solution avec un runbook, une planifi
 ### <a name="plan"></a>Planification
 L’entité **plan** de la ressource de solution possède les propriétés indiquées dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
-| name |Nom de la solution. |
+| Nom |Nom de la solution. |
 | version |Version de la solution, telle que déterminée par l’auteur. |
 | product |Chaîne unique pour identifier la solution. |
 | publisher |Éditeur de la solution. |
@@ -238,7 +238,7 @@ Vous pouvez voir des exemples de fichiers de solution avec une ressource de solu
 - [Ressources de recherche et d’alerte](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Ajoutez des alertes et des recherches enregistrées](operations-management-suite-solutions-resources-searches-alerts.md) à votre solution de gestion.
 * [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks et d’autres ressources Automation](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.

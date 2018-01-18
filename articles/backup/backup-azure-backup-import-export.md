@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/20/2017
+ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.  
@@ -31,7 +31,7 @@ Grâce à la fonction d’amorçage hors connexion de la sauvegarde Azure et à 
 La [mise à jour de la sauvegarde Azure du mois d’août 2016 (et ultérieure)](http://go.microsoft.com/fwlink/?LinkID=229525) comprend un *outil de préparation des disques Azure*nommé AzureOfflineBackupDiskPrep qui :
 
 * vous aide à préparer vos disques pour Azure Import à l’aide de l’outil Azure Import/Export ;
-* crée automatiquement un travail d’importation Azure pour le service Azure Import/Export sur [le portail Azure Classic](https://manage.windowsazure.com) (dans les versions antérieures de la sauvegarde Azure, cette action devait être effectuée manuellement).
+* crée automatiquement un travail d’importation Azure pour le service Azure Importer/Exporter dans le [portail Azure](https://ms.portal.azure.com).
 
 Une fois les données de sauvegarde chargées dans Azure, la sauvegarde Azure copie les données de sauvegarde dans le coffre de sauvegarde, et des sauvegardes incrémentielles sont planifiées.
 
@@ -46,7 +46,7 @@ Une fois les données de sauvegarde chargées dans Azure, la sauvegarde Azure co
   * Un coffre de sauvegarde Azure a été créé.
   * Les informations d’identification du coffre ont été téléchargées.
   * L’agent de sauvegarde Azure a été installé sur Windows Server/le client Windows ou sur le serveur de System Center Data Protection Manager, et l’ordinateur est inscrit auprès du coffre de sauvegarde Azure.
-* [Téléchargez les paramètres du fichier de publication Azure](https://manage.windowsazure.com/publishsettings) sur l’ordinateur à partir duquel vous prévoyez de sauvegarder vos données.
+* [Téléchargez les paramètres du fichier de publication Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) sur l’ordinateur à partir duquel vous prévoyez de sauvegarder vos données.
 * Préparez un emplacement intermédiaire, qui peut être un partage réseau ou un disque supplémentaire sur l’ordinateur. L’emplacement intermédiaire est un stockage temporaire utilisé pendant ce flux de travail. Assurez-vous que l’emplacement intermédiaire dispose de suffisamment d’espace disque pour stocker votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée en raison de la compression).
 * Assurez-vous d’utiliser un disque pris en charge. Le service Import/Export ne prend en charge que les disques durs internes SSD de 2,5 pouces ou SATA II ou III de 2,5 ou 3,5 pouces. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) pour connaître la dernière série de disques pris en charge par le service.
 * Activez BitLocker sur l’ordinateur auquel est connecté l’enregistreur de disque SATA.
@@ -67,13 +67,13 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 
     * **Emplacement intermédiaire**: l’emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. Cela peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
     * **Nom de la tâche d’importation Azure**: le nom unique utilisé par le service Azure Import et la sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques.
-    * **Paramètres de publication Azure**: un fichier XML qui contient des informations sur le profil de votre abonnement. Il contient également les informations d’identification sécurisées associées à votre abonnement. Vous pouvez [télécharger le fichier](https://manage.windowsazure.com/publishsettings). Fournissez le chemin d’accès local au fichier de paramètres de publication.
+    * **Paramètres de publication Azure**: un fichier XML qui contient des informations sur le profil de votre abonnement. Il contient également les informations d’identification sécurisées associées à votre abonnement. Vous pouvez [télécharger le fichier](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Fournissez le chemin d’accès local au fichier de paramètres de publication.
     * **ID d’abonnement Azure**: l’ID d’abonnement Azure correspondant à l’abonnement dans lequel vous prévoyez de lancer le travail d’importation Azure. Si vous avez plusieurs abonnements Azure, utilisez l’ID de l’abonnement auquel vous souhaitez associer le travail d’importation.
-    * **Compte de stockage Azure**: le compte de stockage classique de l’abonnement Azure fourni qui sera associé au travail d’importation Azure.
+    * **Compte de stockage Azure** : le compte de stockage de l’abonnement Azure associé au travail d’importation Azure.
     * **Conteneur de stockage Azure**: le nom de l’objet blob de stockage cible dans le compte de stockage Azure où les données de ce travail sont importées.
 
     > [!NOTE]
-    > Si vous avez inscrit votre serveur dans un coffre Recovery Services à partir du [portail Azure](https://portal.azure.com) pour vos sauvegardes et que vous ne disposez d’aucun abonnement Fournisseur de solutions cloud (CSP), vous pouvez créer un compte de stockage classique à partir du portail Azure et l’utiliser pour le flux de travail de sauvegarde hors connexion.
+    > Si vous avez inscrit votre serveur dans un coffre Recovery Services à partir du [portail Azure](https://portal.azure.com) pour vos sauvegardes et que vous ne disposez d’aucun abonnement Fournisseur de solutions cloud (CSP), vous pouvez créer un compte de stockage à partir du portail Azure et l’utiliser pour le flux de travail de sauvegarde hors connexion.
     >
     >
 
@@ -106,7 +106,7 @@ L’outil de préparation des disques Azure est disponible dans le répertoire d
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]`
 
-    | Paramètre | Description |
+    | Paramètre | DESCRIPTION |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |Entrée obligatoire utilisée pour fournir le chemin d’accès vers l’emplacement intermédiaire que vous avez saisi lors du flux de travail **Lancer la sauvegarde hors connexion** . |
     | p:&lt;*Path to PublishSettingsFile*&gt; |Entrée optionnelle utilisée pour fournir le chemin d’accès vers le fichier de **paramètres de publication Azure** que vous avez saisi lors du flux de travail **Lancer la sauvegarde hors connexion**. |
@@ -123,7 +123,7 @@ L’outil de préparation des disques Azure est disponible dans le répertoire d
 
     L’outil commence ensuite à préparer le disque avec les données de sauvegarde. Vous devrez peut-être ajouter des disques supplémentaires lorsque vous y êtes invité par l’outil, au cas où le disque fourni n’aurait pas suffisamment d’espace pour les données de sauvegarde. <br/>
 
-    À la fin de l’exécution correcte de l’outil, un ou plusieurs disques que vous avez fournis sont préparés pour l’expédition à Azure. En outre, un travail d’importation avec le nom que vous avez fourni lors du flux de travail **Lancer la sauvegarde hors connexion** est créé sur le portail Azure Classic. Enfin, l’outil affiche l’adresse du centre de données Azure auquel les disques doivent être expédiés, ainsi que le lien vers le travail d’importation sur le portail Azure Classic.
+    À la fin de l’exécution correcte de l’outil, un ou plusieurs disques que vous avez fournis sont préparés pour l’expédition à Azure. En outre, un travail d’importation avec le nom que vous avez fourni lors du flux de travail **Lancer la sauvegarde hors connexion** est créé sur le portail Azure. Enfin, l’outil affiche l’adresse du centre de données Azure auquel les disques doivent être expédiés, ainsi que le lien vers le travail d’importation sur le portail Azure.
 
     ![Préparation des disques Azure terminée](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -161,7 +161,7 @@ Une fois le travail d’importation terminé, les données de sauvegarde initial
     >
     >
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 | --- | --- |
 | /j: <*JournalFile*> |Chemin d’accès du fichier journal. Chaque disque doit avoir un seul fichier journal. Le fichier journal ne doit pas se trouver sur le disque cible. L’extension du fichier journal est .jrn, elle est créée à l’exécution de cette commande. |
 | /id: <*SessionId*> |L’ID de session identifie une session de copie. Il est utilisé pour assurer la précision de la récupération d’une session de copie interrompue. Les fichiers copiés dans une session de copie sont stockés dans un répertoire dont le nom fait référence à l’ID de session sur le disque cible. |
@@ -181,7 +181,7 @@ Une fois le travail d’importation terminé, les données de sauvegarde initial
   ![Sortie PowerShell](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Créer un travail d’importation dans le portail Azure
-1. Accédez à votre compte de stockage dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Import/Export**, puis sur **Créer un travail d’importation** dans le volet des tâches.
+1. Accédez à votre compte de stockage dans le [portail Azure](https://ms.portal.azure.com/), cliquez sur **Import/Export**, puis sur **Créer un travail d’importation** dans le volet des tâches.
 
     ![Onglet Import/Export dans le portail Azure](./media/backup-azure-backup-import-export/azureportal.png)
 
@@ -206,6 +206,6 @@ Une fois le travail d’importation terminé, les données de sauvegarde initial
 ### <a name="complete-the-workflow"></a>Terminer le flux de travail
 Une fois les données de sauvegarde initiale disponibles dans votre compte de stockage, l’agent Microsoft Azure Recovery Services copie le contenu des données à partir de ce compte vers le coffre de sauvegarde Azure ou le coffre Recovery Services, selon ce qui est applicable. Lors de la prochaine sauvegarde planifiée, l’agent Azure Backup ajoute la sauvegarde incrémentielle à la copie de sauvegarde initiale.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour toute question au sujet du flux de travail Azure Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage/common/storage-import-export-service.md).
 * Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) de la sauvegarde Azure pour toute question concernant le flux de travail.

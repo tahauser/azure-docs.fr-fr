@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Création de modules R personnalisés dans Azure Machine Learning
 Cette rubrique explique comment créer et déployer un module R personnalisé dans Azure Machine Learning. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
@@ -28,7 +28,7 @@ Cette rubrique explique comment créer et déployer un module R personnalisé d
 ## <a name="what-is-a-custom-r-module"></a>Qu’est-ce qu’un module R personnalisé ?
 Un **module personnalisé** est un module défini par l’utilisateur, qui peut être chargé dans votre espace de travail et exécuté dans le cadre d’une expérience Azure Machine Learning. Un **module R personnalisé** est un module exécutant une fonction R définie par l’utilisateur. **R** est un langage de programmation utilisé pour le traitement informatique des statistiques et les graphiques. Les chercheurs de données et les statisticiens s’en servent pour implémenter des algorithmes. Actuellement, R est le seul langage pris en charge dans les modules personnalisés, mais la prise en charge de langages supplémentaires est prévue pour les versions à venir.
 
-Les modules personnalisés présentent un **état de première classe** dans Azure Machine Learning, en ce sens qu’ils peuvent être utilisés comme n’importe quel module classique. Ils peuvent être exécutés avec d’autres modules, inclus dans des expériences publiées ou dans des visualisations. Vous contrôlez l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Une expérience qui contient des modules personnalisés peut également être publiée dans la galerie Cortana Intelligence pour faciliter le partage.
+Les modules personnalisés présentent un **état de première classe** dans Azure Machine Learning, en ce sens qu’ils peuvent être utilisés comme n’importe quel module classique. Ils peuvent être exécutés avec d’autres modules, inclus dans des expériences publiées ou dans des visualisations. Vous contrôlez l’algorithme implémenté par le module, les ports d’entrée et de sortie à utiliser, les paramètres de modélisation et divers autres comportements d’exécution. Une expérience qui contient des modules personnalisés peut également être publiée dans Azure AI Gallery pour faciliter le partage.
 
 ## <a name="files-in-a-custom-r-module"></a>Fichiers dans un module R personnalisé
 Un module R personnalisé est défini par un fichier .zip contenant au moins deux fichiers :
@@ -286,13 +286,13 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
   * **allowedTypes**. Filtre les types de colonnes que vous pouvez choisir. Les valeurs valides incluent : 
     
     * Chiffre
-    * Boolean
+    * Booléen
     * Par catégorie
-    * string
+    * Chaîne
     * Étiquette
     * Fonctionnalité
     * Score
-    * Tout
+    * Tous
   * **default** : les sélections par défaut valides pour le sélecteur de colonne sont les suivantes : 
     
     * Aucun

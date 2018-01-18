@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 25677c2a4ab78c601f4d4a8630787f6f16dda3c4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -27,7 +27,12 @@ L’extension de script personnalisé télécharge et exécute des scripts sur d
 
 Ce document explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
+
+> [!NOTE]  
+> N’utilisez pas l’extension de script personnalisé pour exécuter Update-AzureRmVM avec la même machine virtuelle en tant que paramètre, car elle s’attendra elle-même.  
+>   
+> 
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -79,11 +84,11 @@ Le JSON suivant illustre le schéma pour l’extension de script personnalisé. 
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Nom | Valeur/Exemple |
+| NOM | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
-| type | extensions |
+| Type | extensions |
 | typeHandlerVersion | 1.9 |
 | fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (p. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
@@ -131,7 +136,7 @@ où `<n>` est un entier décimal, qui peut changer d’une exécution de l’ext
 
 À l’exécution de la commande `commandToExecute`, l’extension aura défini ce répertoire (par exemple, `...\Downloads\2`) comme répertoire de travail actif. Cela permet d’utiliser des chemins d’accès relatifs pour localiser les fichiers téléchargés par le biais de la propriété `fileURIs`. Consultez le tableau ci-dessous pour en voir des exemples.
 
-Étant donné que le chemin de téléchargement absolu peut varier au fil du temps, il est préférable d’opter pour des chemins d’accès au script/fichier relatifs dans la chaîne `commandToExecute`, si possible. Par exemple :
+Étant donné que le chemin de téléchargement absolu peut varier au fil du temps, il est préférable d’opter pour des chemins d’accès au script/fichier relatifs dans la chaîne `commandToExecute`, si possible. Par exemple : 
 ```json
     "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
 ```

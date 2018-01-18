@@ -1,5 +1,5 @@
 ---
-title: "Résoudre les problèmes relatifs à la réinitialisation de mot de passe en libre-service d’Azure AD | Microsoft Docs"
+title: "Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service : Azure AD"
 description: "Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service d’Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c489cf13574c49161b2dde22500f4ab7478a928b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -99,7 +99,7 @@ Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vou
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Si la source de l’événement est ADSync
 
-| Code | Nom ou message | Description |
+| Code | Nom ou message | DESCRIPTION |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619 : « Une restriction empêche le mot de passe d’être remplacé par le mot de passe actuel spécifié. » | Cet événement se produit quand le service de réécriture du mot de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. <br> <br> S’il existe une ancienneté minimale pour un mot de passe alors que vous l’avez changé avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0. <br> <br> Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des *N* dernières fois, où *N* est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des *N* dernières fois, un échec se produit. À des fins de test, l’historique de mot de passe doit être défini sur 0. <br> <br> S’il existe des critères de complexité des mots de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe. <br> <br> Si des filtres de mots de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, l’opération de réinitialisation ou de modification échoue. |
 | 6329 | MMS(3040) : admaexport.cpp(2837) : le serveur ne contient pas le contrôle de stratégie de mot de passe LDAP. | Ce problème se produit si le contrôle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) n’est pas activé sur les contrôleurs de domaine. Pour utiliser la fonctionnalité d’écriture différée du mot de passe, vous devez activer le contrôle. Pour cela, les contrôleurs de domaine doivent se trouver sur Windows Server 2008 (avec le dernier SP) ou version ultérieure. Si vos contrôleurs de domaine sont sur 2008 (version antérieure à R2), vous devez également appliquer le correctif logiciel [KB2386717](http://support.microsoft.com/kb/2386717). |
@@ -107,7 +107,7 @@ Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vou
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Si la source de l’événement est PasswordResetService
 
-| Code | Nom ou message | Description |
+| Code | Nom ou message | DESCRIPTION |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Cet événement indique que le service local a détecté une demande de réinitialisation de mot de passe provenant du cloud pour un utilisateur fédéré ou qui a recours à la synchronisation du hachage de mot de passe. Cet événement est le premier de chaque opération d’écriture différée de réinitialisation de mot de passe. |
 | 31002 | PasswordResetSuccess | Cet événement indique qu’un utilisateur a sélectionné un nouveau mot de passe pendant une opération de réinitialisation de mot de passe. Nous avons déterminé que ce mot de passe répond aux exigences de mot de passe d’entreprise. Le mot de passe a été correctement écrit en différé dans l’environnement Active Directory local. |
@@ -165,7 +165,18 @@ En général, pour récupérer votre service de la manière la plus rapide, nous
 
 ### <a name="confirm-network-connectivity"></a>Vérifier la connectivité réseau
 
-Le point de défaillance le plus courant est que le pare-feu et/ou les ports de proxy et délais d’inactivité sont mal configurés. Pour plus d’informations, vérifiez les prérequis de connectivité dans l’article [Conditions préalables pour Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md).
+Le point de défaillance le plus courant est que le pare-feu et/ou les ports de proxy et délais d’inactivité sont mal configurés. 
+
+Pour Azure AD Connect version 1.1.443.0 et versions ultérieures, vous avez besoin d’un accès HTTPS sortant à ce qui suit :
+
+   - passwordreset.microsoftonline.com
+   - servicebus.windows.net
+
+Pour plus de granularité, reportez-vous à la liste mise à jour des [plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), actualisée tous les mercredis et appliquée le lundi qui suit.
+
+Pour plus d’informations, vérifiez les prérequis de connectivité dans l’article [Conditions préalables pour Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md).
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Redémarrer le service de synchronisation Azure AD Connect
 
@@ -282,7 +293,7 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Redémarrer le service de synchronisation Azure AD"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Le code de support se trouve en bas à droite de la fenêtre"
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les articles suivants fournissent des informations supplémentaires sur la réinitialisation de mot de passe à l’aide d’Azure AD :
 

@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Création d'un service Azure Search dans le portail
 
-Découvrez comment créer ou provisionner un service Recherche Azure dans le portail. Pour obtenir des instructions relatives à PowerShell, consultez [Gérer Recherche Azure avec PowerShell](search-manage-powershell.md).
+Découvrez comment créer ou provisionner un service Recherche Azure dans le portail. 
+
+Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Pour plus d’informations, consultez [Gérer votre service Recherche Azure avec PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>S’abonner (payant ou gratuit)
 
@@ -30,7 +32,7 @@ Découvrez comment créer ou provisionner un service Recherche Azure dans le por
 Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Un abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants. 
 
 ## <a name="find-azure-search"></a>Localiser Recherche Azure
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Cliquez sur le signe plus (« + ») dans le coin supérieur gauche.
 3. Sélectionnez **Web + Mobile** > **Recherche Azure**.
 
@@ -107,7 +109,7 @@ Bien que la plupart des clients utilisent un seul service, une redondance des se
 
 Il n’est pas nécessaire de disposer d’un second service pour la haute disponibilité. La haute disponibilité des requêtes est atteinte si vous utilisez au moins deux réplicas dans le même service. Les mises à jour des réplicas sont séquentielles, ce qui signifie qu’au moins l’un d’eux est opérationnel lors du déploiement d’une mise à jour de service. Pour plus d’informations sur la disponibilité, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Après avoir approvisionné un service Recherche Azure, vous pouvez [définir un index](search-what-is-an-index.md) afin de pouvoir télécharger vos données et effectuer des recherches dans vos données. 
 
 > [!div class="nextstepaction"]

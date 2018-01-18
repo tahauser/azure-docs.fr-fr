@@ -10,7 +10,7 @@ sql-database-single-database-resources.md
 | DTU max | 5 |
 | Espace de stockage inclus (Go) | 2 |
 | Choix de stockage maximum (Go) | 2 |
-| Stockage In-Memory OLTP maximal (Go) |N/A |
+| Stockage In-Memory OLTP maximal (Go) |Non applicable |
 | Nombre maximal d’ouvriers simultanés (demandes) | 30 |
 | Nombre maximal de connexions simultanées | 30 |
 | Nombre maximal de sessions simultanées | 300 |
@@ -22,7 +22,7 @@ sql-database-single-database-resources.md
 | Nombre maximal de DTU** | 10 | 20 | 50 | 100 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 |
 | Choix de l’espace de stockage maximal (Go)* | 250 | 250 | 250 | 250, 500, 750, 1 024 |
-| Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A  |
+| Stockage In-Memory OLTP maximal (Go) | Non applicable | Non applicable | Non applicable | Non applicable |
 | Nombre maximal d’ouvriers simultanés (demandes)| 60 | 90 | 120 | 200 |
 | Nombre maximal de connexions simultanées | 60 | 90 | 120 | 200 |
 | Nombre maximal de sessions simultanées |600 | 900 | 1 200 | 2 400 |
@@ -34,7 +34,7 @@ sql-database-single-database-resources.md
 | Nombre maximal de DTU** | 200 | 400 | 800 | 1 600 | 3000 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 | 250 |
 | Choix de l’espace de stockage maximal (Go)* | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 |
-| Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |N/A  |
+| Stockage In-Memory OLTP maximal (Go) | Non applicable | Non applicable | Non applicable | Non applicable |Non applicable |
 | Nombre maximal d’ouvriers simultanés (demandes)| 400 | 800 | 1 600 | 3200 |6000 |
 | Nombre maximal de connexions simultanées | 400 | 800 | 1 600 | 3200 |6000 |
 | Nombre maximal de sessions simultanées |4 800 | 9 600 | 19 200 | 30000 |30000 |
@@ -67,7 +67,7 @@ sql-database-single-database-resources.md
 > [!IMPORTANT]
 > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* Dans le niveau Premium, plus de 1 To de stockage sont actuellement disponibles dans les régions suivantes : Est des États-Unis 2, États-Unis de l’Ouest, Gouvernement des États-Unis - Virginie, Europe de l’Ouest, Centre de l’Allemagne, Asie du Sud-Est, Japon de l’Est, Est de l’Australie et Canada Est. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 >\*\* Le nombre maximal de DTU par base de données commençant à 200 DTU et plus en mode Standard est en préversion.
 >

@@ -1,5 +1,5 @@
 ---
-title: "Liaisons de table externe Azure Functions (préversion) | Microsoft Docs"
+title: "Liaison de table externe pour Azure Functions (expérimental)"
 description: Utilisation de liaisons de tables externes dans Azure Functions
 services: functions
 documentationcenter: 
@@ -14,14 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Liaisons de table externe Azure Functions (préversion)
-Cet article montre comment manipuler les données tabulaires sur des fournisseurs SaaS (par exemple, SharePoint, Dynamics) au sein de votre fonction en utilisant des liaisons intégrées. Azure Functions prend en charge des liaisons d’entrée et de sortie pour les tables externes.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Liaison de table externe pour Azure Functions (expérimental)
+
+Cet article explique comment utiliser les données tabulaires sur les fournisseurs SaaS, comme Sharepoint Dynamics, dans Azure Functions. Azure Functions prend en charge des liaisons d’entrée et de sortie pour les tables externes.
+
+> [!IMPORTANT]
+> La liaison de la table externe est expérimentale et pourrait ne jamais atteindre l’état de disponibilité générale (GA). Elle est incluse uniquement dans Azure Functions 1.x, et nous ne prévoyons actuellement pas de l’ajouter à Azure Functions 2.x. Pour les scénarios qui requièrent l’accès aux données dans les fournisseurs SaaS, envisagez d’utiliser [des applications logiques qui appellent des fonctions](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -29,9 +33,9 @@ Cet article montre comment manipuler les données tabulaires sur des fournisseur
 
 Les liaisons de table tirent parti des connexions d’API externes pour s’authentifier auprès des fournisseurs SaaS tiers. 
 
-Lors de l’attribution d’une liaison, vous pouvez créer une connexion d’API ou utiliser une API existante au sein du même groupe de ressources
+Lors de l’attribution d’une liaison, vous pouvez créer une connexion d’API ou utiliser une API existante au sein du même groupe de ressources.
 
-### <a name="supported-api-connections-tables"></a>Tableau des connexions d’API prises en charge
+### <a name="available-api-connections-tables"></a>Connexions d’API disponibles (tables)
 
 |Connecteur|Déclencheur|Entrée|Sortie|
 |:-----|:---:|:---:|:---:|
@@ -52,26 +56,35 @@ Lors de l’attribution d’une liaison, vous pouvez créer une connexion d’AP
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> Les connexions aux tables externes peuvent également servir dans les applications [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+> Les connexions aux tables externes peuvent également servir dans les applications [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Création pas à pas d’une connexion d’API
+## <a name="creating-an-api-connection-step-by-step"></a>Création pas à pas d’une connexion d’API
 
-1. Créer une fonction > fonction personnalisée ![Créer une fonction personnalisée](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Scénario `Experimental` > `ExternalTable-CSharp` Modèle > Créer `External Table connection`
-![Choisir un modèle d’entrée de table](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Choisir votre fournisseur SaaS > Choisir/créer une connexion ![Configurer un connexion SaaS](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Sélectionner votre connexion d’API > Créer la fonction ![Créer une fonction de table](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Sélectionnez `Integrate` > `External Table`
-    1. Configurez la connexion pour utiliser la table cible. Ces paramètres varient selon les fournisseurs SaaS. Ils sont décrits ci-dessous dans [Paramètres de la source de données](#datasourcesettings)
-![Configurer la table](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. Dans la page du portail Azure pour votre application de fonction, sélectionnez le signe plus (**+**) pour créer une fonction.
 
-## <a name="usage"></a>Usage
+1. Dans la zone **Scénario**, sélectionnez **Expérimental**.
+
+1. Sélectionnez **Table externe**.
+
+1. Sélectionnez une langue.
+
+2. Sous **Connexion de table externe**, sélectionnez une connexion existante ou **Nouveau**.
+
+1. Pour une nouvelle connexion, configurez les paramètres, puis sélectionnez **Autoriser**.
+
+1. Sélectionnez **Créer** pour créer la fonction.
+
+1. Sélectionnez **Intégrer > Table externe**.
+
+1. Configurez la connexion pour utiliser la table cible. Ces paramètres varient selon les fournisseurs SaaS. Des exemples figurent dans la section suivante.
+
+## <a name="example"></a>exemples
 
 Cet exemple se connecte à une table nommée « Contact » qui comporte les colonnes ID, LastName et FirstName. Le code répertorie les entités Contact dans la table et journalise les noms et les prénoms.
 
-### <a name="bindings"></a>Liaisons
+Voici le fichier *function.json* :
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ Cet exemple se connecte à une table nommée « Contact » qui comporte les co
   "disabled": false
 }
 ```
-`entityId` doit être vide pour les liaisons de table.
 
-`ConnectionAppSettingsKey` identifie le paramètre d’application qui stocke la chaîne de connexion d’API. Le paramètre d’application est créé automatiquement lorsque vous ajoutez une connexion d’API dans l’interface utilisateur d’intégration.
-
-Un connecteur sous forme de tableau fournit des jeux de données et chaque jeu de données contient des tables. Le nom du jeu de données par défaut est « default ». Les titres de jeux de données et de tables de différents fournisseurs SaaS sont répertoriés ci-dessous :
-
-|Connecteur|Jeu de données|Table|
-|:-----|:---|:---| 
-|**SharePoint**|Site|Liste SharePoint
-|**SQL**|Base de données|Table 
-|**Google Sheet**|Feuille de calcul|Feuille de calcul 
-|**Excel**|Fichier Excel|Feuille 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Utilisation en C# #
+Voici le code Script C# :
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>Source de données SQL Server
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-##Paramètres de la source de données
-
-### <a name="sql-server"></a>SQL Server
-
-Le script qui permet de créer et de remplir la table Contact est affiché ci-dessous. dataSetName est défini sur « default ».
+Pour créer une table dans SQL Server à utiliser avec cet exemple, voici un script. `dataSetName` est la valeur par défaut.
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Google Sheets
-Dans Google Docs, créez une feuille de calcul nommée `Contact`. Le connecteur ne peut pas utiliser le nom d’affichage de la feuille de calcul. Le nom interne (en gras) doit servir en tant que dataSetName, par exemple : `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Ajoutez les noms de colonne `Id`, `LastName`, `FirstName` à la première ligne, puis remplissez les données sur les lignes suivantes.
+### <a name="google-sheets-data-source"></a>Source de données Google Sheets
+
+Pour créer une table à utiliser avec cet exemple dans Google Docs, créez une feuille de calcul nommée `Contact`. Le connecteur ne peut pas utiliser le nom d’affichage de la feuille de calcul. Le nom interne (en gras) doit servir en tant que dataSetName, par exemple : `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Ajoutez les noms de colonne `Id`, `LastName`, `FirstName` à la première ligne, puis remplissez les données sur les lignes suivantes.
 
 ### <a name="salesforce"></a>Salesforce
-dataSetName est défini sur « default ».
+
+Pour cet exemple avec Salesforce, `dataSetName` est la valeur « par défaut ».
+
+## <a name="configuration"></a>Configuration
+
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
+
+|Propriété function.json | DESCRIPTION|
+|---------|----------------------|
+|**type** | Cette propriété doit être définie sur `apiHubTable`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
+|**direction** | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**name** | Nom de la variable qui représente l’élément d’événement dans le code de la fonction. | 
+|**Connexion**| Identifie le paramètre d’application qui stocke la chaîne de connexion d’API. Le paramètre d’application est créé automatiquement lorsque vous ajoutez une connexion d’API dans l’interface utilisateur d’intégration.|
+|**dataSetName**|Le nom du jeu de données qui contient la table à lire.|
+|**tableName**|Le nom de la table|
+|**entityId**|Doit être vide pour les liaisons de table.
+
+Un connecteur sous forme de tableau fournit des jeux de données et chaque jeu de données contient des tables. Le nom du jeu de données par défaut est « default ». Les titres de jeux de données et de tables de différents fournisseurs SaaS sont répertoriés ci-dessous :
+
+|Connecteur|Jeu de données|Table|
+|:-----|:---|:---| 
+|**SharePoint**|Site|Liste SharePoint
+|**SQL**|Base de données|Table 
+|**Google Sheet**|Feuille de calcul|Feuille de calcul 
+|**Excel**|Fichier Excel|Feuille 
 
 ## <a name="next-steps"></a>étapes suivantes
 

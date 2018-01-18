@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 49f26a6195713a5bcdd8ab5711f3bf715f3e033f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Déployer et supprimer des applications avec PowerShell
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interface de ligne de commande de Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -31,17 +31,29 @@ ms.lasthandoff: 12/21/2017
 
 Après avoir [packagé un type d’application][10], celui-ci peut être déployé sur un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
 
-1. Charger le package d’application dans le magasin d’images
-2. Enregistrer le type d’application
-3. Créer l’instance d’application
+1. Charger le package d’application dans le magasin d’images.
+2. Inscrire le type d’application avec le chemin d’accès relatif du magasin d’images.
+3. Créer l’instance d’application.
 
-Une fois qu’une application a été déployée et qu’une instance est exécutée dans le cluster, vous pouvez supprimer l’instance de l’application et son type d’application. La suppression complète d’une application du cluster implique les étapes suivantes :
+Une fois déployée, l’application n’est plus nécessaire, vous pouvez supprimer l’instance d’application et son type d’application. La suppression complète d’une application du cluster implique les étapes suivantes :
 
-1. Supprimer l’instance d’application en cours d’exécution
-2. Désinscrire le type d’application si vous n’en avez plus besoin
-3. Télécharger le package d'application à partir du magasin d'images
+1. Supprimer l’instance d’application en cours d’exécution.
+2. Désinscrire le type d’application si vous n’en avez plus besoin.
+3. Supprimer le package d’application du magasin d’images.
 
 Si vous utilisez Visual Studio pour déployer et déboguer des applications dans votre cluster de développement local, toutes les étapes précédentes sont gérées automatiquement à l’aide d’un script PowerShell.  Ce script se trouve dans le dossier *Scripts* du projet d’application. Cet article fournit des précisions sur les actions de ce script afin que vous puissiez effectuer les mêmes opérations en dehors de Visual Studio. 
+
+Une autre façon de déployer une application consiste à utiliser un approvisionnement externe. Le package d’application peut être [conditionné en tant que `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) et chargé dans un magasin externe. Dans ce cas, le chargement dans le magasin d’images n’est pas nécessaire. Le déploiement nécessite les étapes suivantes :
+
+1. Charger le `sfpkg` dans un magasin externe. Le magasin externe peut être n’importe quel magasin qui expose un point de terminaison http ou https REST.
+2. Inscrire le type d’application à l’aide de l’URI de téléchargement externe et les informations sur le type d’application.
+2. Créer l’instance d’application.
+
+Pour le nettoyage, supprimez les instances de l’application et annulez l’inscription du type d’application. Le package n’ayant pas été copié dans le magasin d’images, il n’existe aucun emplacement temporaire à nettoyer. L’approvisionnement à partir d’un magasin externe est possible avec Service Fabric version 6.1.
+
+>[!NOTE]
+> Visual Studio ne prend actuellement pas en charge l’approvisionnement externe.
+
  
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). Pour vous connecter au cluster de développement local, exécutez la commande suivante :
@@ -123,7 +135,7 @@ Par exemple, voici les statistiques de compression pour certains packages, qui i
 |2 048|1 000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Une fois qu’un package est compressé, il peut être chargé dans un ou plusieurs clusters Service Fabric suivant les besoins. Le mécanisme de déploiement est le même pour les packages compressés et non compressés. Si le package est compressé, il est stocké tel quel dans le magasin d’images du cluster et il est décompressé sur le nœud avant l’exécution de l’application.
+Une fois qu’un package est compressé, il peut être chargé dans un ou plusieurs clusters Service Fabric suivant les besoins. Le mécanisme de déploiement est le même pour les packages compressés et non compressés. Les packages compressés sont stockés tels quels dans le magasin d’images du cluster. Les packages sont décompressées sur le nœud, avant l’exécution de l’application.
 
 
 L’exemple suivant charge le package dans le magasin d’images, dans un dossier nommé « MyApplicationV1 » :
@@ -162,17 +174,27 @@ Le type et la version de l’application déclarés dans le manifeste de l’app
 
 Exécutez l’applet de commande [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) pour inscrire le type d’application dans le cluster et le rendre disponible pour le déploiement :
 
+### <a name="register-the-application-package-copied-to-image-store"></a>Inscrire le package d’application copié dans le magasin d’images
+Lorsqu’un package a précédemment été copié dans le magasin d’images, l’opération d’inscription spécifie le chemin d’accès relatif dans le magasin d’images.
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 « MyApplicationV1 » est le dossier du magasin d’images qui contient le package d’application. Le type d’application présentant le nom « MyApplicationType » et la version « 1.0.0 » (ces deux valeurs se trouvent dans le manifeste de l’application) est à présent inscrit dans le cluster.
 
+### <a name="register-the-application-package-copied-to-an-external-store"></a>Inscrire le package d’application copié dans un magasin externe
+Depuis Service Fabric version 6.1, l’approvisionnement prend en charge le téléchargement du package à partir d’un magasin externe. L’URI de téléchargement représente le chemin d’accès au [`sfpkg`package d’application](service-fabric-package-apps.md#create-an-sfpkg) à partir duquel le package d’application peut être téléchargé à l’aide des protocoles HTTP ou HTTPS. Le package doit avoir été précédemment chargé dans cet emplacement externe. L’URI doit autoriser un accès en lecture pour que Service Fabric puisse télécharger le fichier. Le fichier `sfpkg` doit avoir l’extension « .sfpkg ». L’opération d’approvisionnement doit inclure les informations sur le type d’application, telles que trouvées dans le manifeste de l’application.
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
+
 La commande [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) ne renvoie un résultat que lorsque le package d’application a été correctement inscrit par le système. La durée de l’enregistrement dépend de la taille et du contenu du package de l’application. Si nécessaire, le paramètre **-TimeoutSec** peut être utilisé pour fournir un délai d’expiration plus long (le délai d’expiration par défaut est de 60 secondes).
 
-Si vous disposez d’un package d’application volumineux et que vous rencontrez des problèmes d’expiration du délai, utilisez le paramètre **-Async**. La commande s’exécute lorsque le cluster accepte la commande d’inscription et le traitement se poursuit suivant les besoins.
-La commande [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) répertorie toutes les versions de types d’applications correctement inscrites et l’état de leur inscription. Vous pouvez utiliser cette commande pour déterminer quand l’inscription est effectuée.
+Si vous disposez d’un package d’application volumineux et que vous rencontrez des problèmes d’expiration du délai, utilisez le paramètre **-Async**. La commande s’exécute lorsque le cluster accepte la commande d’inscription. L’opération d’inscription se poursuit suivant les besoins.
+La commande [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) répertorie toutes les versions de types d’applications et l’état de leur inscription. Vous pouvez utiliser cette commande pour déterminer quand l’inscription est effectuée.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -184,7 +206,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Supprimer un package d’application du magasin d’images
-Nous vous recommandons de supprimer le package d’application une fois que l’application est inscrite.  La suppression de packages d’application du magasin d’images libère des ressources système.  La conservation des packages d’application inutilisés consomme du stockage sur disque et affecte le niveau de performance des applications.
+Si un package a été copié dans le magasin d’images, vous devez le supprimer de l’emplacement temporaire une fois l’application inscrite avec succès. La suppression de packages d’application du magasin d’images libère des ressources système. La conservation des packages d’application inutilisés consomme du stockage sur disque et affecte le niveau de performance des applications.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -244,7 +266,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Désinscrire un type d’application
-Lorsque vous n’avez plus besoin d’un type d’application, il est recommandé de le désinscrire à l’aide de l’applet de commande [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps). La désinscription des types d’application inutilisés libère l’espace de stockage utilisé par le magasin d’images par la suppression des binaires d’application. Le fait d’annuler l’inscription d’un type d’application ne supprime pas le package d’application. Vous pouvez désinscrire un type d’application s’il ne contient aucune instance d’application et s’il n’est référencé par aucune mise à niveau d’application en attente.
+Lorsque vous n’avez plus besoin d’un type d’application, il est recommandé de le désinscrire à l’aide de l’applet de commande [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps). La désinscription des types d’applications inutilisés libère l’espace de stockage utilisé par le magasin d’images par la suppression les fichiers de type d’application. La désinscription d’un type d’application ne supprime pas le package d’application copié dans l’emplacement temporaire du magasin d’image si la copie dans le magasin d’images a été utilisée. Vous pouvez désinscrire un type d’application s’il ne contient aucune instance d’application et s’il n’est référencé par aucune mise à niveau d’application en attente.
 
 Pour afficher les types d’applications actuellement inscrits dans le cluster, exécutez [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) :
 
@@ -263,7 +285,7 @@ Pour désinscrire un type d’application spécifique, exécutez [Unregister-Ser
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
 L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. ImageStoreConnectionString se trouve dans le manifeste de cluster récupéré à l’aide des commandes [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) et Get-ImageStoreConnectionStringFromClusterManifest :
 
@@ -333,7 +355,9 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
+[Empaqueter une application](service-fabric-package-apps.md)
+
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
 [Présentation de l’intégrité de Service Fabric](service-fabric-health-introduction.md)

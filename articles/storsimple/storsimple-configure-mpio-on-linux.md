@@ -4,7 +4,7 @@ description: "Configuration de MPIO sur StorSimple connecté à un hôte Linux e
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuration de MPIO sur un hôte StorSimple exécutant CentOS
 Cet article explique les étapes requises pour configurer la MPIO (gestion multivoie d’E/S) sur votre serveur hôte CentOS 6.6. Le serveur hôte est connecté à votre appareil Microsoft Azure StorSimple pour la haute disponibilité via les initiateurs iSCSI. Il décrit en détail la détection automatique des appareils multivoies et l’installation spécifique uniquement pour les volumes StorSimple.
@@ -26,9 +26,8 @@ Cet article explique les étapes requises pour configurer la MPIO (gestion multi
 Cette procédure s’applique à tous les modèles d’appareils StorSimple série 8000.
 
 > [!NOTE]
-> Cette procédure ne peut pas être utilisée pour un appareil virtuel StorSimple. Pour plus d’informations, consultez Configuration des serveurs hôtes de votre appareil virtuel.
-> 
-> 
+> Cette procédure ne peut pas être utilisée pour un StorSimple Cloud Appliance. Pour plus d’informations, consultez Configuration des serveurs hôtes de votre appliance cloud.
+
 
 ## <a name="about-multipathing"></a>À propos de la gestion multivoie
 La fonctionnalité de gestion multivoie vous permet de configurer plusieurs chemins d’accès d’E/S entre un serveur hôte et un appareil de stockage. Ces chemins d’accès d’E/S sont des connexions SAN physiques pouvant inclure des câbles distincts, des commutateurs, des interfaces réseau et des contrôleurs. La gestion multivoie agrège les chemins d’accès d’E/S pour configurer un nouvel appareil qui est associé à tous les chemins d’accès agrégés.
@@ -67,11 +66,11 @@ Un appareil StorSimple connecté à un hôte Linux peut être configuré pour la
 
 La procédure suivante décrit comment configurer la gestion multivoie lorsqu’un appareil StorSimple possédant deux interfaces réseau est connecté à un hôte avec deux interfaces réseau.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 Cette section détaille la configuration requise pour le serveur CentOS et votre appareil StorSimple.
 
 ### <a name="on-centos-host"></a>Sur l’hôte CentOS
-1. Assurez-vous que votre hôte CentOS possède 2 interfaces réseau activées. Entrez :
+1. Assurez-vous que votre hôte CentOS possède 2 interfaces réseau activées. Tapez :
    
     `ifconfig`
    
@@ -109,10 +108,10 @@ Cette section détaille la configuration requise pour le serveur CentOS et votre
 2. Installez *iSCSI-initiator-utils* sur votre serveur CentOS. Effectuez les opérations suivantes pour installer *iSCSI-initiator-utils*.
    
    1. Connectez-vous en tant que `root` à votre hôte CentOS.
-   2. Installez *iSCSI-initiator-utils*. Entrez :
+   2. Installez *iSCSI-initiator-utils*. Tapez :
       
        `yum install iscsi-initiator-utils`
-   3. Après avoir correctement installé *iSCSI-Initiator-utils* , démarrez le service iSCSI. Entrez :
+   3. Après avoir correctement installé *iSCSI-Initiator-utils* , démarrez le service iSCSI. Tapez :
       
        `service iscsid start`
       
@@ -130,7 +129,7 @@ Cette section détaille la configuration requise pour le serveur CentOS et votre
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        Dans l’exemple ci-dessus, vous pouvez voir que votre environnement iSCSI s’exécutera à l’heure de démarrage sur les niveaux d’exécution 2, 3, 4 et 5.
-3. Installez *device-mapper-multipath*. Entrez :
+3. Installez *device-mapper-multipath*. Tapez :
    
     `yum install device-mapper-multipath`
    
@@ -186,12 +185,12 @@ Les étapes de configuration pour la gestion multivoie impliquent la configurati
 ### <a name="step-1-configure-multipathing-for-automatic-discovery"></a>Étape 1 : Configurer la gestion multivoie pour la détection automatique
 Les appareils pris en charge par la gestion multivoie peuvent être automatiquement détectés et configurés.
 
-1. Initialisez le fichier `/etc/multipath.conf` . Entrez :
+1. Initialisez le fichier `/etc/multipath.conf` . Tapez :
    
      `mpathconf --enable`
    
     La commande ci-dessus crée un fichier `sample/etc/multipath.conf` .
-2. Démarrez le service de gestion multivoie. Entrez :
+2. Démarrez le service de gestion multivoie. Tapez :
    
     `service multipathd start`
    
@@ -213,7 +212,7 @@ Les appareils pris en charge par la gestion multivoie peuvent être automatiquem
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Étape 2 : Configurer la gestion multivoie pour les volumes StorSimple
 Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste noire pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
 
-1. Modifiez le fichier `/etc/mulitpath.conf` . Entrez :
+1. Modifiez le fichier `/etc/mulitpath.conf` . Tapez :
    
     `vi /etc/multipath.conf`
 2. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception de la liste noire dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
@@ -232,7 +231,7 @@ Par défaut, tous les appareils sont sur liste noire dans le fichier multipath.c
 ### <a name="step-3-configure-round-robin-multipathing"></a>Étape 3 : Configurer la gestion multivoie de tourniquet (round robin)
 Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès multiples disponibles pour le contrôleur actif de manière équilibrée, en tourniquet (round robin).
 
-1. Modifiez le fichier `/etc/multipath.conf` . Entrez :
+1. Modifiez le fichier `/etc/multipath.conf` . Tapez :
    
     `vi /etc/multipath.conf`
 2. Sous la section `defaults`, définissez `path_grouping_policy` sur `multibus`. `path_grouping_policy` spécifie la stratégie de regroupement de chemins d’accès par défaut à appliquer aux chemins d’accès multiples non spécifiés. La section defaults ressemblera à ce qui est présenté ci-dessous.
@@ -251,7 +250,7 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 > 
 
 ### <a name="step-4-enable-multipathing"></a>Étape 4 : Activer la gestion multivoie
-1. Redémarrez le démon `multipathd` . Entrez :
+1. Redémarrez le démon `multipathd` . Tapez :
    
     `service multipathd restart`
 2. La sortie sera comme indiqué ci-dessous :
@@ -262,7 +261,7 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 ### <a name="step-5-verify-multipathing"></a>Étape 5 : Vérifier la gestion multivoie
 1. Tout d’abord, assurez-vous que la connexion iSCSI est établie avec l’appareil StorSimple comme suit :
    
-   a. Détectez votre appareil StorSimple. Entrez :
+   a. Détectez votre appareil StorSimple. Tapez :
       
     ```
     iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>
@@ -277,7 +276,7 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 
     Copiez le nom qualifié de votre appareil StorSimple, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, à partir de la sortie précédente.
 
-   b. Connectez-vous à l’appareil à l’aide du nom qualifié cible. L’appareil StorSimple est la cible iSCSI ici. Entrez :
+   b. Connectez-vous à l’appareil à l’aide du nom qualifié cible. L’appareil StorSimple est la cible iSCSI ici. Tapez :
 
     ```
     iscsiadm -m node --login -T <IQN of iSCSI target>
@@ -298,9 +297,9 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 
     Si vous ne voyez qu’une seule interface hôte et deux chemins d’accès ici, vous devez activer les deux interfaces sur l’hôte pour iSCSI. Vous pouvez suivre les [instructions détaillées dans la documentation Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via le portail Azure Classic sur votre appareil StorSimple.
+2. Un volume est exposé au serveur CentOS à partir de l’appareil StorSimple. Pour plus d’informations, consultez [Étape 6 : Créer un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via le portail Azure sur votre appareil StorSimple.
 
-3. Vérifiez les chemins d’accès disponibles. Entrez :
+3. Vérifiez les chemins d’accès disponibles. Tapez :
 
       ```
       multipath –l
@@ -333,19 +332,19 @@ Cet algorithme d’équilibrage de charge utilise tous les chemins d’accès mu
 ## <a name="troubleshoot-multipathing"></a>Résolution des problèmes de la gestion multivoie
 Cette section fournit des conseils utiles si vous rencontrez des problèmes lors de la configuration de la gestion multivoie.
 
-Q : Je ne vois pas les modifications apportées au fichier `multipath.conf` s’appliquer.
+Q. Je ne vois pas les modifications apportées au fichier `multipath.conf` s’appliquer.
 
-A. Si vous avez apporté des modifications au fichier `multipath.conf` , vous devez redémarrer le service de gestion multivoie. Tapez la commande suivante :
+R. Si vous avez apporté des modifications au fichier `multipath.conf` , vous devez redémarrer le service de gestion multivoie. Tapez la commande suivante :
 
     service multipathd restart
 
-Q : J’ai activé deux interfaces réseau sur l’appareil StorSimple et deux interfaces réseau sur l’hôte. Lorsque je répertorie les chemins d’accès disponibles, je ne vois que deux chemins d’accès. Je m’attendais à voir quatre chemins d’accès disponibles.
+Q. J’ai activé deux interfaces réseau sur l’appareil StorSimple et deux interfaces réseau sur l’hôte. Lorsque je répertorie les chemins d’accès disponibles, je ne vois que deux chemins d’accès. Je m’attendais à voir quatre chemins d’accès disponibles.
 
-A. Vérifiez que les deux chemins d’accès sont sur le même sous-réseau et routables. Si les interfaces réseau se trouvent sur des réseaux locaux virtuels différents et non routables, vous ne verrez que deux chemins d’accès. L’un des moyens de vérifier cela consiste à vous assurer que vous pouvez atteindre les deux interfaces hôte à partir d’une interface réseau sur l’appareil StorSimple. Vous devrez [contacter le support technique Microsoft](storsimple-contact-microsoft-support.md) car cette vérification ne peut être effectuée qu’au moyen d’une session de support.
+R. Vérifiez que les deux chemins d’accès sont sur le même sous-réseau et routables. Si les interfaces réseau se trouvent sur des réseaux locaux virtuels différents et non routables, vous ne verrez que deux chemins d’accès. L’un des moyens de vérifier cela consiste à vous assurer que vous pouvez atteindre les deux interfaces hôte à partir d’une interface réseau sur l’appareil StorSimple. Vous devrez [contacter le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) car cette vérification ne peut être effectuée qu’au moyen d’une session de support.
 
-Q : Lorsque je répertorie les chemins d’accès disponibles, je ne vois aucune sortie.
+Q. Lorsque je répertorie les chemins d’accès disponibles, je ne vois aucune sortie.
 
-A. En règle générale, le non-affichage de chemins d’accès multiples suggère un problème avec le démon de gestion multivoie et il est très probable que le problème éventuel réside dans le fichier `multipath.conf` .
+R. En règle générale, le non-affichage de chemins d’accès multiples suggère un problème avec le démon de gestion multivoie et il est très probable que le problème éventuel réside dans le fichier `multipath.conf` .
 
 Il convient également de vérifier que vous pouvez voir certains disques après la connexion à la cible, car l’absence de réponse des listes multivoies peut signifier que vous n’avez aucun disque.
 
@@ -376,9 +375,9 @@ Répétez cette commande pour toutes les interfaces réseau connectées sur la c
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-Q : Je ne sais pas si mon appareil figure dans la liste approuvée.
+Q. Je ne sais pas si mon appareil figure dans la liste approuvée.
 
-A. Pour vérifier que votre appareil figure dans la liste approuvée, utilisez la commande interactive de résolution des problèmes suivante :
+R. Pour vérifier que votre appareil figure dans la liste approuvée, utilisez la commande interactive de résolution des problèmes suivante :
 
     multipathd –k
     multipathd> show devices
@@ -420,7 +419,7 @@ A. Pour vérifier que votre appareil figure dans la liste approuvée, utilisez l
 Pour plus d’informations, accédez à [Utilisation de la commande interactive de résolution des problèmes pour la gestion multivoie](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Liste des commandes utiles
-| Tapez  | Commande | Description |
+| Tapez  | Commande | DESCRIPTION |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Démarrer le service iSCSI |
 | &nbsp; |`service iscsid stop` |Arrêter le service iSCSI |
@@ -441,7 +440,7 @@ Pour plus d’informations, accédez à [Utilisation de la commande interactive 
 | &nbsp; |`mpathconf --enable` |Créer un exemple de fichier mulitpath.conf dans `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Étant donné que vous configurez MPIO sur un hôte Linux, vous pouvez avoir besoin de consulter les documents CentOS 6.6 suivants :
 
 * [Configuration de MPIO sur CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

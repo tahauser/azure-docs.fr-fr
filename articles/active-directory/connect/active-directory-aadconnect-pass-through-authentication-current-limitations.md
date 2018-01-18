@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -45,6 +45,8 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 - Mots de passe d'application pour l’authentification multifacteur.
 - Détection des utilisateurs avec des [informations d’identification volées](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services a besoin que la synchronisation du hachage de mot de passe soit activée sur le locataire. Ainsi, les locataires qui utilisent l’authentification directe _uniquement_ ne fonctionnent pas pour les scénarios qui ont besoin d’Azure AD Domain Services.
+- L’authentification directe n’est pas intégrée à [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- Le programme Apple DEP ne prend pas en charge l’authentification moderne.  Les appareils Apple DEP ne pourront pas s’inscrire dans Intune pour les domaines utilisant l’authentification directe.
 
 >[!IMPORTANT]
 >Comme solution de contournement _uniquement_ pour les scénarios non pris en charge, activez la synchronisation du hachage de mot de passe dans la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) de l’Assistant Azure AD Connect.
@@ -52,7 +54,7 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 >[!NOTE]
 L’activation de la synchronisation de hachage de mot de passe vous donne la possibilité de basculer l’authentification en cas d’interruption de votre infrastructure sur site. Ce basculement de l’authentification directe vers la synchronisation de hachage de mot de passe Active Directory n’est pas automatique. Vous devrez basculer la méthode de connexion manuellement avec Azure AD Connect. Si le serveur exécutant Azure AD Connect tombe en panne, vous devrez demander de l’aide au Support Microsoft pour désactiver l’authentification directe.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Démarrage rapide](active-directory-aadconnect-pass-through-authentication-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
 - [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Présentation technique approfondie](active-directory-aadconnect-pass-through-authentication-how-it-works.md) : découvrez comment fonctionne l'authentification directe.

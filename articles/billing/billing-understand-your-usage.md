@@ -1,5 +1,5 @@
 ---
-title: "Comprendre votre utilisation détaillée d’Azure | Microsoft Docs"
+title: "Comprendre votre utilisation détaillée d’Azure"
 description: "Apprenez à lire et à comprendre les sections du fichier CSV sur l’utilisation détaillée de votre abonnement Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendre les termes figurant sur le fichier détaillant les frais d’utilisation Microsoft Azure 
+
 Le fichier CSV des frais d’utilisation détaillés contient les frais d’utilisation quotidienne et au niveau du compteur pour la période de facturation actuelle. 
 
 Pour obtenir le fichier détaillant l’utilisation, consultez [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,18 +29,17 @@ Il est disponible au format .csv, que vous pouvez ouvrir dans une application de
 
 Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement. Les frais d’utilisation ne prennent pas en compte les crédits et les remises.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termes et descriptions détaillés de votre fichier sur l’utilisation détaillée
+
 Les sections suivantes décrivent les termes importants indiqués dans la version 2 du fichier d’utilisation détaillée.
 
 ### <a name="statement"></a>Instruction
+
 La partie supérieure du fichier CSV sur l’utilisation détaillée contient les services que vous avez utilisés au cours de la période de facturation du mois. Le tableau suivant répertorie les conditions et les descriptions présentées dans cette section.
 
-| Terme | Description |
+| Terme | DESCRIPTION |
 | --- | --- |
 |Période de facturation |Période de facturation où les compteurs ont été consommés |
 |Catégorie du compteur |Identifie le service de niveau supérieur pour l’utilisation |
@@ -62,7 +62,7 @@ La partie supérieure du fichier CSV sur l’utilisation détaillée contient le
 
 La section Utilisation quotidienne du fichier CSV montre les détails d’utilisation qui affectent les tarifs de facturation. Le tableau suivant répertorie les conditions et les descriptions présentées dans cette section.
 
-| Terme | Description |
+| Terme | DESCRIPTION |
 | --- | --- |
 |Date d'utilisation |Date à laquelle le compteur a été utilisé |
 |Catégorie du compteur |Identifie le service de niveau supérieur dont cette utilisation relève |

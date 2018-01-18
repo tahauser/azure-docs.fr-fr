@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilisation de l’API REST Stockage Azure
 
 Cet article vous indique comment utiliser les API REST du service Stockage Blob et comment authentifier l’appel au service. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Nous consultons la documentation de référence pour un appel REST et expliquons comment la traduire en un appel REST réel : quels champs sont à placer et où ? Après avoir appris comment configurer un appel REST, vous pouvez utiliser ces connaissances pour utiliser les autres API REST du service Stockage.
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 L’application répertorie les conteneurs dans le Stockage Blob pour un compte de stockage. Pour tester le code de cet article, vous avez besoin des éléments suivants : 
 
@@ -32,7 +32,7 @@ L’application répertorie les conteneurs dans le Stockage Blob pour un compte 
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Un compte de stockage à usage général. Si vous ne possédez aucun compte de stockage, vous pouvez en créer un dans le [portail Azure](https://portal.azure.com), avec [PowerShell](storage-quickstart-create-storage-account-powershell.md) ou [l’interface CLI Azure](storage-quickstart-create-storage-account-cli.md).
+* Un compte de stockage à usage général. Si vous ne possédez pas encore de compte de stockage, consultez [Création d’un compte de stockage](storage-quickstart-create-account.md).
 
 * L’exemple dans cet article illustre comment répertorier les conteneurs dans un compte de stockage. Pour voir la sortie, ajoutez des conteneurs au Stockage Blob dans le compte de stockage avant de commencer.
 
@@ -566,7 +566,7 @@ Content-Length: 1135
 
 Dans cet article, vous avez appris à effectuer une requête à l’API REST du stockage Blob pour récupérer une liste de conteneurs ou une liste d’objets Blob dans un conteneur. Vous avez également appris à créer la signature d’autorisation pour l’appel de l’API REST, à l’utiliser dans la requête REST et à examiner la réponse.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)
 * [API REST du service de fichiers](/rest/api/storageservices/file-service-rest-api)

@@ -5,20 +5,20 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Forum aux questions pour Azure Cost Management
 
-Cet article traite des questions courantes sur Azure Cost Management (également appelé Cloudyn). Si vous avez des questions sur la Gestion des coûts, vous pouvez les poser dans le [FAQ pour Azure Cost Management par Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+Cet article traite des questions courantes sur Azure Cost Management (également appelé Cloudyn). Si vous avez des questions sur la Gestion des coûts, vous pouvez les poser dans le forum  [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Comment puis-je résoudre des problèmes courants de configuration d’entreprise indirecte ?
 
@@ -46,6 +46,29 @@ Afin de pouvoir générer la clé API Azure Enterprise Agreement pour configurer
 
 Vous devrez peut-être également accorder aux administrateurs de service, propriétaires de compte et administrateurs d’entreprise l’autorisation _d’afficher les frais_ avec l’API de facturation.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Pourquoi je ne vois pas les recommandations de l’optimiseur ?
+
+Les informations de recommandation ne sont disponibles que pour les comptes activés. Vous ne verrez pas d’informations de recommandation dans les catégories de rapport de l’**optimiseur** pour les comptes qui sont *désactivés*, y compris :
+
+- Gestionnaire d’optimisation
+- Optimisation des prix
+- Manque d’efficacité
+
+Si vous ne pouvez pas afficher les données de recommandation de l’optimiseur, vous avez probablement des comptes qui sont désactivés. Pour activer un compte, vous devez l’inscrire avec vos informations d’identification Azure.
+
+Pour activer un compte :
+
+1.  Dans le portail Cloudyn, cliquez sur **Settings (Paramètres)** dans le coin supérieur droit et sélectionnez **Cloud Accounts (comptes cloud)**.
+2.  Dans l’onglet Comptes Microsoft Azure, recherchez les comptes dont l’abonnement est **désactivé**.
+3.  À la droite d’un compte désactivé, cliquez sur le symbole **Modifier** qui ressemble à un crayon.
+4.  Vos ID client et ID taux sont détectés automatiquement. Cliquez sur **Suivant**.
+5.  Vous êtes redirigé vers le portail Azure. Connectez-vous au portail et autorisez le collecteur Cloudyn à accéder à vos données Azure.
+6.  Ensuite, vous êtes redirigé vers la page de gestion des comptes Cloudyn et votre abonnement est mis à jour avec un état du compte **actif**. Il affiche un symbole de coche verte.
+7.  Si vous ne voyez pas un symbole de coche verte pour un ou plusieurs des abonnements, cela signifie que vous n’avez pas d’autorisations pour créer une application de lecteur (le CloudynCollector) pour l’abonnement. Un utilisateur avec des autorisations plus élevées pour l’abonnement doit répéter les étapes 3 et 4.  
+
+Après avoir effectué les étapes précédentes, vous pouvez afficher les recommandations de l’optimiseur au bout d’un ou deux jours. Toutefois, cela peut prendre jusqu’à cinq jours avant que les données complètes d’optimisation ne soient disponibles.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Comment faire pour activer les utilisateurs suspendus ou verrouillés ?
 
 Si vous recevez une alerte vous demandant d’autoriser l’accès pour un utilisateur, vous devez activer le compte d’utilisateur.
@@ -66,10 +89,7 @@ Si vous modifiez votre adresse e-mail dans Cloudyn pour une adresse autre que l�
 
 Nous vous recommandons de créer au moins deux comptes d’administrateur Cloudyn au cas où l’un des comptes serait verrouillé.
 
-Si vous ne pouvez pas vous connecter au portail Cloudyn, vérifiez que vous utilisez l’URL Azure Cost Management correcte pour vous connecter à Cloudyn. Utilisez l’une des URL suivantes :
-
-- https://azure.cloudyn.com
-- https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Si vous ne pouvez pas vous connecter au portail Cloudyn, vérifiez que vous utilisez l’URL Azure Cost Management correcte pour vous connecter à Cloudyn. Utilisez [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Évitez d’utiliser l’URL Cloudyn directe https://app.cloudyn.com.
 

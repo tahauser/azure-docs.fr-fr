@@ -15,45 +15,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 15f6d422f3171ae5161e0d4d4bcd8ec98529c766
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="offline-fairplay-streaming"></a>FairPlay Streaming hors connexion
-Microsoft Azure Media Services fournit un ensemble bien conçu de [services de protection de contenu](https://azure.microsoft.com/services/media-services/content-protection/), couvrant :
+ Azure Media Services fournit un ensemble bien conçu de [services de protection de contenu](https://azure.microsoft.com/services/media-services/content-protection/), couvrant :
+
 - Microsoft PlayReady
 - Google Widevine
 - Apple FairPlay
 - Chiffrement AES-128
 
-Le chiffrement de contenu DRM/AES est exécuté dynamiquement sur demande pour divers protocoles de diffusion en continu. Des services de remise de clés de chiffrement AES/licence DMR sont également fournis par Azure Media Services.
+Le chiffrement de contenu Digital rights management (DRM)/Advanced Encryption Standard (AES) est exécuté dynamiquement sur demande pour divers protocoles de diffusion en continu. Des services de remise de clés de chiffrement AES/licence DRM sont également fournis par Media Services.
 
 Outre la protection du contenu pour la diffusion en continu en ligne sur plusieurs protocoles de diffusion en continu, le mode hors connexion pour le contenu protégé est également une fonctionnalité fréquemment demandée. La prise en charge du mode hors connexion est nécessaire pour les scénarios suivants :
-1. La lecture avec une connexion Internet non disponible, par exemple en voyage ;
-2. Certains fournisseurs de contenu peuvent interdire la remise de licence DRM au-delà de la frontière d’un pays. Si un utilisateur souhaite regarder du contenu en voyage à l’étranger, le téléchargement hors connexion est nécessaire.
-3. Dans certains pas, la disponibilité Internet et/ou la bande passante est encore limitée. Les utilisateurs peuvent choisir de télécharger d’abord afin de pouvoir regarder le contenu en résolution suffisamment élevée pour une expérience d’affichage satisfaisante. Dans ce cas, le problème ne concerne pas majoritairement la disponibilité du réseau, mais une bande passante réseau limitée. Les fournisseurs OTT/OVP doivent fournir une prise en charge du mode hors connexion.
+
+* La lecture avec une connexion Internet n’est pas disponible, par exemple en voyage ;
+* Certains fournisseurs de contenu peuvent interdire la remise de licence DRM au-delà de la frontière d’un pays. Si les utilisateurs souhaitent regarder du contenu en voyage à l’étranger, le téléchargement hors connexion est nécessaire.
+* Dans certains pas, la disponibilité Internet et/ou la bande passante est encore limitée. Les utilisateurs peuvent choisir de télécharger d’abord afin de pouvoir regarder le contenu dans une résolution suffisamment élevée pour une expérience d’affichage satisfaisante. Dans ce cas, le problème n’est généralement pas lié à la disponibilité du réseau mais à la bande passante réseau limitée. Les fournisseurs Over-the-top (OTT) ou de plateforme de vidéos en ligne (OVP) nécessitent la prise en charge du mode hors connexion.
 
 Cet article couvre la prise en charge du mode hors connexion FairPlay Streaming (FPS) ciblant les appareils exécutant iOS 10 ou version ultérieure. Cette fonctionnalité n’est pas prise en charge pour d’autres plateformes Apple, telles que watchOS, tvOS ou Safari sur macOS.
 
 ## <a name="preliminary-steps"></a>Étapes préliminaires
-Avant de mettre en œuvre DRM hors ligne pour FairPlay sur un appareil iOS 10+, vous devez, tout d’abord :
-1. Vous familiariser avec la protection du contenu en ligne pour Fairplay.
- Vous trouverez toutes les informations nécessaires dans les articles/exemples suivants :
-- [Apple FairPlay Streaming pour Azure Media Services généralement disponible](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
-- [Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
-- [Un exemple pour une diffusion en contenu FPS en ligne](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
-2. Obtenez le kit de développement logiciel (SDK) FPS de Apple Developer Network. Le kit de développement logiciel (SDK) contient deux composants :
-- le kit de développement logiciel (SDK) du serveur FPS, qui contient le module de sécurité de clés (KMS), des exemples clients, une spécification et un ensemble de vecteurs de test ;
-- le pack de déploiement FPS, qui contient la Fonction D, une spécification avec des instructions sur le mode de génération du certificat FPS, une clé privée spécifique au client et la clé secrète d’application (ASK). Apple publie un pack de déploiement FPS uniquement aux fournisseurs de contenu sous licence.
+Avant de mettre en œuvre DRM hors connexion pour FairPlay sur un appareil iOS 10+, vous devez :
 
-## <a name="configuration-in-azure-media-services"></a>Configuration dans Azure Media Services
-Pour la configuration du mode hors connexion FPS via [Azure Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices), vous devez utiliser Azure Media Services .NET SDK v. 4.0.0.4 ou version ultérieure, qui offre l’API nécessaire pour la configuration du mode hors connexion FPS.
-Tel qu’indiqué dans les hypothèses ci-dessous, nous supposons que vous possédez le code de travail pour la configuration de la protection du contenu FPS en mode en ligne. Une fois que vous possédez le code de configuration de la protection de contenu en mode hors connexion pour FPS, seules les deux modifications suivantes sont nécessaires.
+* Vous familiariser avec la protection du contenu en ligne pour Fairplay.
+ Pour plus d’informations, consultez les articles et exemples suivants :
 
-## <a name="code-change-in-fairplay-configuration"></a>Modification du code dans la configuration Fairplay
-Définissons un booléen « activer le mode hors connexion », nommé objDRMSettings.EnableOfflineMode qui est vrai lors de l’activation du scénario DRM hors connexion. En fonction de cet indicateur, nous procédons la modification suivante de la configuration Fairplay :
+    - [Apple FairPlay Streaming pour Azure Media Services est généralement disponible](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
+    - [Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
+    - [Un exemple pour une diffusion en contenu FPS en ligne](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
+
+* Obtenez le Kit SDK FPS d’Apple Developer Network. Le Kit SDK FPS contient deux composants :
+
+    - le Kit SDK du serveur FPS, qui contient le module de sécurité de clés (KSM), des exemples clients, une spécification et un ensemble de vecteurs de test ;
+    - le pack de déploiement FPS, qui contient la fonction D, une spécification avec des instructions sur le mode de génération du certificat FPS, une clé privée spécifique au client et la clé secrète d’application. Apple publie le pack de déploiement FPS uniquement aux fournisseurs de contenu sous licence.
+
+## <a name="configuration-in-media-services"></a>Configuration dans Media Services
+Pour la configuration du mode hors connexion FPS via le [Kit SDK .NET de Media Services](https://www.nuget.org/packages/windowsazure.mediaservices), utilisez le Kit SDK .NET de Media Services 4.0.0.4 ou version ultérieure, qui fournit l’API nécessaire pour configurer le mode hors connexion FPS.
+Vous avez également besoin du code pour configurer la protection du contenu FPS en mode en ligne. Une fois que vous avez obtenu le code pour configurer la protection de contenu en mode en ligne pour FPS, il vous suffit d’effectuer les deux modifications suivantes.
+
+## <a name="code-change-in-the-fairplay-configuration"></a>Modification du code dans la configuration FairPlay
+Vous devez d’abord définir un booléen « activer le mode hors connexion », nommé objDRMSettings.EnableOfflineMode, qui est vrai lors de l’activation du scénario DRM hors connexion. En fonction de cet indicateur, modifiez la configuration FairPlay comme suit :
 
 ```csharp
 if (objDRMSettings.EnableOfflineMode)
@@ -78,9 +84,10 @@ if (objDRMSettings.EnableOfflineMode)
     }
 ```
 
-## <a name="code-change-in-asset-delivery-policy-configuration"></a>Modification du code dans la configuration de stratégie de remise des éléments multimédia
-La deuxième modification consiste à ajouter la troisième clé dans le dictionnaire Dictionary<AssetDeliveryPolicyConfigurationKey, string>.
-Le troisième AssetDeliveryPolicyConfigurationKey doit être ajouté comme suit : 
+## <a name="code-change-in-the-asset-delivery-policy-configuration"></a>Modification du code dans la configuration de stratégie de remise des éléments multimédia
+La deuxième modification consiste à ajouter la troisième clé dans Dictionary<AssetDeliveryPolicyConfigurationKey, string>.
+Ajoutez AssetDeliveryPolicyConfigurationKey comme indiqué ici :
+ 
 ```csharp
 // FPS offline mode
     if (drmSettings.EnableOfflineMode)
@@ -97,25 +104,29 @@ Le troisième AssetDeliveryPolicyConfigurationKey doit être ajouté comme suit�
             objDictionary_AssetDeliveryPolicyConfigurationKey);
 ```
 
-Après cette étape, le Dictionary<AssetDeliveryPolicyConfigurationKey, string> dans la stratégie de remise des éléments multimédia FPS contient les trois entrées suivantes :
-1. AssetDeliveryPolicyConfigurationKey.FairPlayBaseLicenseAcquisitionUrl ou AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl en fonction des facteurs tels que le serveur de clé/KMS FPS utilisé et si nous souhaitons réutiliser la même stratégie de remise des éléments multimédia dans plusieurs éléments multimédia
-2. AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs
-3. AssetDeliveryPolicyConfigurationKey.AllowPersistentLicense
+Après cette étape, la chaîne <Dictionary_AssetDeliveryPolicyConfigurationKey> dans la stratégie de remise des éléments multimédia FPS contient les trois entrées suivantes :
 
-Désormais votre compte des services média est configuré pour fournir des licences Fairplay hors ligne.
+* AssetDeliveryPolicyConfigurationKey.FairPlayBaseLicenseAcquisitionUrl ou AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl en fonction des facteurs tels que le serveur de clé/KSM FPS utilisé et si nous réutilisons la même stratégie de remise des éléments multimédia dans plusieurs éléments multimédia
+* AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs
+* AssetDeliveryPolicyConfigurationKey.AllowPersistentLicense
+
+Désormais votre compte Media Services est configuré pour fournir des licences FairPlay hors connexion.
 
 ## <a name="sample-ios-player"></a>Exemple de lecteur iOS
-Notons avant tout, que la prise en charge en mode hors connexion FPS est disponible uniquement sur iOS 10 et version ultérieure. Nous devons utiliser le kit de développement logiciel (SDK) du serveur FPS (v3.0 ou ultérieure) qui contient un document ou un exemple pour le mode hors connexion FPS. En particulier, le kit de développement logiciel (SDK) du serveur FPS (v3.0 ou ultérieure) contient les deux éléments suivants associés au mode hors connexion :
-1. Document : lecture hors connexion avec FairPlay Streaming et HTTP Live Streaming. Apple, 9/14/2016. Dans le kit de développement logiciel du serveur FPS v 4.0, ce document a été fusionné dans le document de diffusion en continu FPS.
-2. Code en exemple : exemple HLSCatalog pour le mode hors connexion FPS dans \FairPlay Streaming Server SDK v3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. Dans l’application en exemple HLSCatalog, les fichiers de code suivants visent particulièrement à mettre en œuvre des fonctionnalités en mode hors connexion :
-- Fichier de code AssetPersistenceManager.swift : AssetPersistenceManager est la première classe de cet exemple qui démontre
-    - Comment gérer le téléchargement des flux HLS, telles que les API pour démarrer et annuler le téléchargement, supprimer des éléments multimédia existants hors de l’appareil de l’utilisateur ;
-    - Comment contrôler la progression du téléchargement.
-- Fichiers de code AssetListTableViewController.swift et AssetListTableViewCell.swift : AssetListTableViewController est l’interface principale de cet exemple. Elle fournit une liste d’éléments multimédia que l’exemple peut lire, télécharger, supprimer ou annuler un téléchargement. 
+La prise en charge en mode hors connexion FPS est disponible uniquement sur iOS 10 et version ultérieure. Le Kit SDK 3.0 ou version ultérieure du serveur FPS contient le document ou l’exemple pour le mode hors connexion FPS. En particulier, le Kit SDK du serveur FPS (version 3.0 ou ultérieure) contient les deux éléments suivants associés au mode hors connexion :
 
-Vous trouverez ci-dessous les étapes détaillées pour la configuration d’un lecteur exécutant iOS. Supposons que vous démarrez à partir d’un exemple HLSCatalog dans le kit de développement logiciel du serveur FPS v 4.0.1.  Nous devons procéder aux modifications de code suivantes :
+* Document : « lecture hors connexion avec FairPlay Streaming et HTTP Live Streaming. » Apple, 14 septembre 2016. Dans le Kit SDK du serveur FPS version 4.0, ce document est fusionné avec le document FPS principal.
+* Code en exemple : exemple HLSCatalog pour le mode hors connexion FPS dans \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. Dans l’application en exemple HLSCatalog, les fichiers de code suivants servent à mettre en œuvre des fonctionnalités en mode hors connexion :
 
-Dans HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, mettez en œuvre la méthode `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` à l’aide du code suivant : faites de drmUr une variable affectée à l’URL de diffusion en continu HLS.
+    - Fichier de code AssetPersistenceManager.swift : AssetPersistenceManager est la première classe de cet exemple qui démontre comment :
+
+        - gérer le téléchargement des flux HLS, telles que les API pour démarrer et annuler les téléchargements et pour supprimer des éléments multimédia existants des appareils ;
+        - contrôler la progression du téléchargement.
+    - Fichiers de code AssetListTableViewController.swift et AssetListTableViewCell.swift : AssetListTableViewController est l’interface principale de cet exemple. Elle fournit une liste d’éléments multimédia permettant à l’exemple de lire, télécharger, supprimer ou annuler un téléchargement. 
+
+Ces étapes indiquent comment configurer un lecteur iOS en cours d’exécution. En supposant un démarrage à partir de l’exemple HLSCatalog dans la version 4.0.1 du Kit SDK du serveur FPS, apportez les modifications suivantes au code :
+
+Dans HLSCatalog\Shared\Managers\ContentKeyDelegate.swift,mettez en œuvre la méthode `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` en utilisant le code suivant. Faites de « drmUr » une variable affectée à l’URL HLS.
 
 ```swift
     var ckcData: Data? = nil
@@ -148,7 +159,7 @@ Dans HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, mettez en œuvre la m�
     return ckcData
 ```
 
-Dans HLSCatalog\Shared\Managers\ContentKeyDelegate.swift,mettez en œuvre la méthode `requestApplicationCertificate()`. Cette mise en œuvre dépend de l’incorporation du certificat (clé publique uniquement) à l’appareil ou de l’hébergement du certificat sur le Web. Vous trouverez ci-dessous une mise en œuvre utilisant le certificat d’application hébergé utilisé dans nos exemples de tests. Faites de certUrl une variable contenant l’URL du certificat d’application.
+Dans HLSCatalog\Shared\Managers\ContentKeyDelegate.swift,mettez en œuvre la méthode `requestApplicationCertificate()`. Cette mise en œuvre dépend de l’incorporation du certificat (clé publique uniquement) à l’appareil ou de l’hébergement du certificat sur le Web. La mise en œuvre suivante utilise le certificat d’application hébergé utilisé dans les exemples de tests. Faites de « certUrl » une variable contenant l’URL du certificat d’application.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {
@@ -164,36 +175,38 @@ func requestApplicationCertificate() throws -> Data {
     }
 ```
 
-Pour le test intégré final, l’URL de la vidéo et l’URL du certificat d’application sont fournies dans la section de « Test intégré ».
+Pour le test intégré final, l’URL de la vidéo et l’URL du certificat d’application sont fournies dans la section « Test intégré ».
 
-Dans HLSCatalog\Shared\Resources\Streams.plist, ajoutez l’URL de votre vidéo de test et, pour l’ID de la clé de contenu, utilisez uniquement l’URL d’acquisition de licences FairPlay avec le protocole skd comme valeur unique.
+Dans HLSCatalog\Shared\Resources\Streams.plist, ajoutez l’URL de votre vidéo de test. Pour l’ID de clé de contenu, utilisez l’URL d’acquisition de licence FairPlay avec le protocole skd comme valeur unique.
 
 ![Flux d’applications iOS FairPlay hors connexion](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-ios-app-streams.png)
 
-Pour l’URL de la vidéo test, l’URL d’acquisition de licences et l’URL de certificat d’application Fairplay, vous pouvez utiliser vos propres exemples, si vous les avez configurés, ou vous pouvez passer à la section suivante qui contient les exemples de tests.
+Utilisez vos propres URL de vidéo de test, l’URL d’acquisition de licence FairPlay et l’URL de certificat d’application, si vous les avez configurées. Ou vous pouvez passer à la section suivante, qui fournit des exemples de test.
 
 ## <a name="integrated-test"></a>Test intégré
-Trois exemples de tests ont été configurés dans Azure Media Services qui couvre les trois scénarios suivants :
-1.  FPS protégé, avec vidéo, audio et autre piste audio ;
-2.  FPS protégé, avec vidéo, audio mais pas d’autre piste audio ;
-3.  FPS protégé avec vidéo seulement, pas d’audio.
+Trois exemples de tests dans Media Services couvrent les trois scénarios suivants :
+
+* FPS protégé, avec vidéo, audio et autre piste audio ;
+* FPS protégé, avec vidéo et audio, mais pas d’autre piste audio ;
+* FPS protégé, avec vidéo seulement et pas d’audio.
 
 Vous trouverez ces exemples sur ce [site de démo](http://aka.ms/poc#22), avec le certificat d’application correspondant hébergé dans une application Web Azure.
-Nous avons remarqué que, avec l’exemple v3 ou v4 sur le kit de développement logiciel (SDK) du serveur FPS, si une liste de lectures principale contient une autre audio, en mode hors connexion, elle ne lit que l’audio. Il est par conséquent nécessaire de supprimer l’autre audio. En d’autres termes, parmi les trois exemples ci-dessus, (2) et (3) fonctionnent en ligne et en mode hors connexion. Mais (1) ne lit l’audio qu’en mode hors connexion tandis que la diffusion en continu en ligne fonctionne bien.
+Avec la version 3 ou la version 4 de l’exemple du Kit SDK du serveur FPS, si une liste de lectures principale contient une autre audio, en mode hors connexion, elle ne lit que l’audio. Vous devez donc supprimer l’autre audio. En d’autres termes, les deuxième et troisième exemples mentionnés précédemment fonctionnent en mode en ligne et hors connexion. Le premier exemple ne lit l’audio qu’en mode hors connexion tandis que la diffusion en continu en ligne fonctionne correctement.
 
 ## <a name="faq"></a>Forum Aux Questions
-Quelques questions fréquemment posées sur le dépannage :
-- **Pourquoi seul l’audio mais pas la vidéo est lu en mode hors connexion ?** Ce comportement semble être conçu tel quel dans l’application en exemple. Lorsqu’une autre piste audio est présente (ce qui est le cas pour HLS), en mode hors connexion, iOS 10 et iOS 11 passent par défaut à l’autre piste audio. Pour compenser ce comportement en mode hors connexion, nous devons supprimer l’autre piste audio du flux. Pour ce faire du côté de Azure Media Services, nous pouvons simplement ajouter le filtre manifeste dynamique «  audio-only=false. » En d’autres termes, une URL HLS se termine par .ism/manifest(format=m3u8-aapl,audio-only=false). 
-- **Pourquoi l’audio est toujours lu sans vidéo en mode hors connexion après l’ajout de audio-only=false ?** En fonction de la conception de la clé du cache CDN, le contenu peut être en cache. Vous devez vider le cache.
-- **Le mode hors connexion FPS est-il également pris en charge sur iOS 11 comme sur iOS 10 ?** Oui, le mode hors connexion FPS est pris en charge sur iOS 10 et iOS 11.
-- **Pourquoi ne puis-je pas trouver le document Lecture hors connexion avec FairPlay Streaming et HTTP Live Streaming dans le kit de développement logiciel (SDK) du serveur FPS ?** Depuis le kit de développement du serveur FPS v4, ce document a été fusionné dans le document Guide de programmation Fairplay Streaming.
+Les questions fréquemment posées suivantes vous aideront à résoudre vos problèmes :
+
+- **Pourquoi seul l’audio mais pas la vidéo est lu en mode hors connexion ?** Ce comportement semble être conçu tel quel dans l’application en exemple. Lorsqu’une autre piste audio est présente (ce qui est le cas pour HLS), en mode hors connexion, iOS 10 et iOS 11 passent par défaut à l’autre piste audio. Pour compenser ce comportement en mode hors connexion FPS, supprimez l’autre piste audio du flux. Pour effectuer cette opération du côté de Media Services, ajoutez le filtre manifeste dynamique « audio-only=false. » En d’autres termes, une URL HLS se termine par .ism/manifest(format=m3u8-aapl,audio-only=false). 
+- **Pourquoi l’audio est toujours lu sans vidéo en mode hors connexion après l’ajout de audio-only=false ?** En fonction de la conception de la clé du cache du réseau de distribution de contenu (CDN), le contenu peut être en cache. Videz le cache.
+- **Le mode hors connexion FPS est-il également pris en charge sur iOS 11 comme sur iOS 10 ?** Oui. Le mode hors connexion FPS est pris en charge sur iOS 10 et iOS 11.
+- **Pourquoi ne puis-je pas trouver le document Lecture hors connexion avec FairPlay Streaming et HTTP Live Streaming dans le Kit SDK du serveur FPS ?** Depuis le Kit SDK du serveur FPS version 4, ce document a été fusionné avec le « Guide de programmation FairPlay Streaming ».
 - **À quoi correspond le dernier paramètre dans l’API suivante pour le mode hors connexion FPS ?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-Vous trouverez la documentation de cette API [ici](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Le paramètre représente la durée de location hors connexion avec l’heure pour unité.
-- **Quelle est la structure du fichier téléchargé/hors connexion sur les appareils iOS ?** La structure du fichier téléchargé sur un appareil iOS ressemble à ce qui suit (capture d’écran). Le dossier `_keys` stocke les licences FPS téléchargés, un fichier de magasin pour chaque hôte de service de licence. Le dossier `.movpkg` stocke le contenu audio et vidéo. Le premier dossier avec le nom terminé par un tiret suivi par un numérique contient un contenu vidéo. La valeur numérique est la « PeakBandwidth » des rendus de vidéo. Le deuxième dossier avec le nom terminé par un tiret suivi de 0 contient un contenu audio. Le troisième dossier nommé « Données » contient la liste de lectures principale du contenu FPS. Boot.xml offre une description complète du contenu du dossier `.movpkg` (voir ci-dessous pour un fichier boot.xml exemple).
+    Pour obtenir la documentation sur cette API, consultez [Méthode FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Le paramètre représente la durée de location hors connexion avec l’heure pour unité.
+- **Quelle est la structure du fichier téléchargé/hors connexion sur les appareils iOS ?** La structure du fichier téléchargé sur un appareil iOS ressemble à la capture d’écran suivante. Le dossier `_keys` stocke les licences FPS téléchargées, avec un fichier de magasin pour chaque hôte de service de licence. Le dossier `.movpkg` stocke le contenu audio et vidéo. Le premier dossier dont le nom se termine par un tiret suivi par un numérique contient un contenu vidéo. La valeur numérique est la PeakBandwidth des rendus de vidéo. Le deuxième dossier dont le nom se termine par un tiret suivi de 0 contient un contenu audio. Le troisième dossier nommé « Données » contient la liste de lectures principale du contenu FPS. Enfin, boot.xml fournit une description complète du contenu du dossier `.movpkg`. 
 
-![Structure de fichier d’application exemple iOS Fairplay hors connexion](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
+![Structure de fichier d’application exemple iOS FairPlay hors connexion](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
 
 Un fichier boot.xml en exemple :
 ```xml
@@ -225,8 +238,9 @@ Un fichier boot.xml en exemple :
 ```
 
 ## <a name="summary"></a>Résumé
-Dans ce document, nous avons fourni les étapes détaillées et les informations pour mettre en œuvre le mode hors connexion FPS, y compris :
-1. Configuration de la protection du contenu Azure Media Services via l’API .NET AMS. Ceci permet de configurer le chiffrement Fairplay et la remise de licences Fairplay dynamiques dans AMS.
-2. Lecteur iOS basé sur l’exemple du kit de développement logiciel (SDK) du serveur FPS Apple. Ceci doit configurer un lecteur iOS pouvant lire le contenu FPS en mode de diffusion en continu en ligne ou un mode hors connexion.
-3. Exemple de vidéos FPS pour des tests en mode hors connexion et en diffusion en continu en ligne.
-4. FAQ sur le mode hors connexion FPS.
+Ce document inclut les étapes ci-dessous et des informations que vous pouvez utiliser pour implémenter le mode hors connexion FPS :
+
+* La configuration de la protection de contenu Media Services via l’API .NET de Media Services configure le chiffrement FairPlay dynamique ainsi que la remise des licences FairPlay dans Media Services.
+* Un lecteur iOS basé sur l’exemple du Kit SDK du serveur FPS configure un lecteur iOS pouvant lire le contenu FPS en mode de diffusion en continu en ligne ou un mode hors connexion.
+* Des exemples de vidéos FPS sont utilisés pour les tests en mode hors connexion et en diffusion continue en ligne.
+* Un forum aux questions répond aux questions sur le mode hors connexion FPS.

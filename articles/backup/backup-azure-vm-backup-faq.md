@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -51,6 +51,9 @@ Oui. Même lorsqu’une machine est éteinte, les sauvegardes fonctionnent et le
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Puis-je annuler un travail de sauvegarde en cours ?
 Oui. Vous pouvez annuler le travail de sauvegarde s’il est dans la phase « Capture instantanée en cours ». **Vous ne pouvez pas annuler un travail si un transfert de données à partir de la capture instantanée est en cours**. 
+
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>J’ai activé le verrou de groupe de ressources sur mes machines virtuelles à disque géré sauvegardées. Est-ce que mes sauvegardes continueront de fonctionner ?
+Si l’utilisateur verrouille le groupe de ressources, le service de sauvegarde ne peut pas supprimer les anciens points de restauration. Pour cette raison, les nouvelles sauvegardes échouent, car une limite maximale de 18 points de restauration est imposée par le back-end. Si vos sauvegardes échouent avec une erreur interne après le verrouillage du groupe de ressources, suivez ces [étapes pour supprimer la collection de points de restauration](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Comment choisir entre la restauration des disques et la restauration complète de la machine virtuelle ?

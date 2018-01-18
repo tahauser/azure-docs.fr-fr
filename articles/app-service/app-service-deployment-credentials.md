@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge deux types d’informations d’identification pour le [déploiement Git local](app-service-deploy-local-git.md) et le [déploiement FTP/S](app-service-deploy-ftp.md). Ils ne sont pas les mêmes que vos informations d’identification Azure Active Directory.
 
-* **Informations d’identification au niveau de l’utilisateur** : un seul ensemble d’informations d’identification pour l’intégralité du compte Azure. Il peut être utilisé pour déployer sur App Service pour n’importe quelle application et dans n’importe quel abonnement auxquels le compte Azure est autorisé à accéder. Il s’agit de l’ensemble d’informations d’identification par défaut que vous configurez dans **App Services** > **&lt;nom_application>** > **Informations d’identification de déploiement**. C’est également l’ensemble par défaut qui est présenté dans l’interface utilisateur graphique du portail, comme la **vue d’ensemble** et les **propriétés** du [panneau Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
+* **Informations d’identification au niveau de l’utilisateur** : un seul ensemble d’informations d’identification pour l’intégralité du compte Azure. Il peut être utilisé pour déployer sur App Service pour n’importe quelle application et dans n’importe quel abonnement auxquels le compte Azure est autorisé à accéder. Il s’agit de l’ensemble d’informations d’identification par défaut que vous configurez dans **App Services** > **&lt;nom_application>** > **Informations d’identification de déploiement**. C’est également l’ensemble par défaut qui est présenté dans l’interface utilisateur graphique du portail, comme la **vue d’ensemble** et les **propriétés** de la [page Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
 
     > [!NOTE]
     > Lorsque vous déléguez l’accès aux ressources Azure au moyen du contrôle d’accès en fonction du rôle (RBAC) ou des autorisations de coadministrateur, chaque utilisateur Azure recevant l’accès à une application peut utiliser ses informations d’identification personnelles jusqu’à la révocation de l’accès. Ces informations d’identification de déploiement ne doivent pas être partagées avec d’autres utilisateurs Azure.
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>Définir et réinitialiser les informations d’identification au niveau de l’utilisateur
 
-Vous pouvez configurer vos informations d’identification au niveau de l’utilisateur dans le [panneau Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications et à tous les abonnements de votre compte Azure. 
+Vous pouvez configurer vos informations d’identification au niveau de l’utilisateur dans la [page Ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications et à tous les abonnements de votre compte Azure. 
 
 Pour configurer les informations d’identification au niveau de l’utilisateur :
 
 1. Dans le [portail Azure](https://portal.azure.com), cliquez sur App Service > **&lt;une application>** > **Informations d’identification de déploiement**.
 
     > [!NOTE]
-    > Dans le portail, vous devez disposer d’au moins une application avant de pouvoir accéder au panneau Informations d’identification de déploiement. Toutefois, avec l’[interface de ligne de commande Azure](/cli/azure/webapp/deployment/user#set), vous pouvez configurer les informations d’identification au niveau de l’utilisateur sans application existante.
+    > Dans le portail, vous devez disposer d’au moins une application avant de pouvoir accéder à la page Informations d’identification de déploiement. Toutefois, avec l’[interface de ligne de commande Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), vous pouvez configurer les informations d’identification au niveau de l’utilisateur sans application existante.
 
 2. Configurez le nom d’utilisateur et le mot de passe, puis cliquez sur **Enregistrer**.
 
@@ -90,6 +90,6 @@ Pour réinitialiser les informations d’identification au niveau de l’applica
 
     L’action de réinitialisation invalide les fichiers .PublishSettings précédemment téléchargés.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment utiliser ces informations d’identification pour déployer votre application à partir de [Git local](app-service-deploy-local-git.md) ou à l’aide de [FTP/S](app-service-deploy-ftp.md).

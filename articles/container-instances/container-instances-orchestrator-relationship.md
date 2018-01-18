@@ -1,25 +1,25 @@
 ---
 title: "Azure Container Instances et l’orchestration de conteneur"
-description: "En savoir plus sur l’interaction entre Azure Container Instances et les orchestrateurs de conteneurs"
+description: "Découvrez comment se passe l’interaction entre Azure Container Instances et les orchestrateurs de conteneurs."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/09/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4954dcb4cb03407b85ad35aec94920e39644844b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances et les orchestrateurs de conteneurs
 
 En raison de leur taille réduite et de leur orientation d’application, les conteneurs conviennent parfaitement aux environnements de distribution agiles et aux architectures basées sur les microservices. La tâche d’automatisation et de gestion d’un grand nombre de conteneurs et de leur interaction porte le nom d’*orchestration*. Kubernetes, DC/OS et Docker SwarmOrchestrators sont quelques-uns des orchestrateurs de conteneurs les plus populaires. Ils sont tous disponibles dans [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
 
-Azure Container Instances fournit certaines des fonctionnalités de planification de base des plateformes d’orchestration, mais ne couvre pas les services à valeur plus élevée offerts par ces plateformes et peut en fait être complémentaire de ces services. Cet article décrit l’étendue des services gérés par Azure Container Instances et explique comment les orchestrateurs de conteneurs complets peuvent interagir avec lui.
+Azure Container Instances fournit certaines des fonctionnalités de planification de base des plateformes d’orchestration, mais ne couvre pas les services à valeur plus élevée offerts par ces plateformes, et peut en fait être complémentaire de ces services. Cet article décrit l’étendue des services gérés par Azure Container Instances et explique comment les orchestrateurs de conteneurs complets peuvent interagir avec lui.
 
 ## <a name="traditional-orchestration"></a>Orchestration traditionnelle
 
@@ -39,8 +39,6 @@ La définition standard de l’orchestration comprend les tâches suivantes :
 Azure Container Instances permet d’adopter une approche en couches de l’orchestration. Vous bénéficiez ainsi de toutes les fonctionnalités de planification et de gestion nécessaires pour exécuter un seul conteneur, tout en permettant aux plateformes d’orchestration de gérer les tâches à conteneurs multiples.
 
 Toute l’infrastructure sous-jacente pour Container Instances étant gérée par Azure, une plateforme d’orchestration n’a pas besoin de rechercher un ordinateur hôte approprié sur lequel exécuter un conteneur. L’élasticité du cloud garantit qu’un ordinateur est toujours disponible. Au lieu de cela, l’orchestrateur peut se concentrer sur les tâches qui simplifient le développement des architectures multi-conteneurs, notamment la mise à l’échelle et la coordination des mises à niveau.
-
-
 
 ## <a name="potential-scenarios"></a>Scénarios potentiels
 
@@ -67,7 +65,7 @@ Nous pourrions créer des connecteurs pour d’autres orchestrateurs qui s’int
 > [!WARNING]
 > Le connecteur ACI pour Kubernetes est *expérimental* et ne doit pas être utilisé en production.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Créez votre premier conteneur avec Azure Container Instances à l’aide du [guide de démarrage rapide](container-instances-quickstart.md).
 
@@ -75,6 +73,6 @@ Créez votre premier conteneur avec Azure Container Instances à l’aide du [gu
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif
 
 <!-- LINKS -->
-[aci-connector-k8s]: https://github.com/azure/aci-connector-k8s
+[aci-connector-k8s]: https://github.com/virtual-kubelet/virtual-kubelet/tree/master/providers/azure
 [kubelet-doc]: https://kubernetes.io/docs/admin/kubelet/
 [pod-doc]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

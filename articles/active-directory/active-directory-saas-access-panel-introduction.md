@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>Présentation du volet d’accès
 
@@ -70,7 +70,33 @@ Une fois authentifié, vous pouvez interagir avec les applications que l’admin
 
 Au minimum, le volet d’accès nécessite un navigateur prenant en charge JavaScript et dans lequel CSS est activée. Pour que vous soyez connecté aux applications via l’authentification unique (SSO) avec mot de passe, l’extension du volet d’accès doit être installée dans votre navigateur. Cette extension est téléchargée automatiquement quand vous sélectionnez une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
-L’extension du volet d’accès est actuellement disponible pour les navigateurs Internet Explorer 8 et ultérieur, Edge, Chrome et Firefox.
+L’extension du panneau d’accès est actuellement disponible pour :
+-   Edge sur Windows 10 Édition anniversaire ou version ultérieure 
+
+-   Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
+
+-   Firefox 26.0 ou ultérieur -- sur Windows XP SP2 ou ultérieur, et sur Mac OS X 10.6 ou ultérieur
+
+-   Internet Explorer 8, 9, 10, 11 -- sur Windows 7 ou version ultérieure (prise en charge limitée)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Extension de connexion sécurisée à Mes applications
+L’extension est nécessaire pour que les utilisateurs se connectent à l’authentification unique par mot de passe. Une fois installée, les utilisateurs peuvent également activer des fonctionnalités supplémentaires en se connectant à l’extension en cliquant sur **Connectez-vous pour commencer**. 
+
+- Les utilisateurs peuvent se connecter à des applications en consultant directement l’**URL de connexion** de l’application. Lorsque l’utilisateur accède à l’URL de connexion de l’application, l’extension le détecte et offre la possibilité à l’utilisateur de s’y connecter à partir de l’extension.
+- Les utilisateurs peuvent également lancer une des leurs applications à partir du panneau d’accès à l’aide de la fonctionnalité de **recherche rapide** de l’extension. 
+- L’extension présente également aux utilisateurs les trois dernières applications qu’ils ont lancé dans la section **Récemment utilisé**.
+
+> [!NOTE]
+> Les fonctionnalités supplémentaires sont disponibles uniquement pour Edge, Chrome et Firefox.
+>
+>
+
+Si vous utilisez une autre URL que https://myapps.microsoft.com pour Mes applications, vous devez configurer l’URL par défaut à travers les étapes suivantes :
+1. Sans être connecté à l’extension, **cliquez avec le bouton droit** sur l’icône d’extension.
+2. Cliquez sur **Sélectionner une URL Mes applications** à partir du menu.
+3. **Sélectionnez** votre URL par défaut.
+4. Cliquez sur l’icône de l’extension.
+5. Connectez-vous à l’extension en sélectionnant **Connectez-vous pour commencer**.
 
 ## <a name="mobile-app-support"></a>Prise en charge des applications mobiles
 
@@ -176,7 +202,7 @@ Pour configurer l’authentification unique (SSO) pour une application, le porta
 Par exemple, si une application est configurée pour authentifier les utilisateurs avec les services AD FS 2.0, votre administrateur peut utiliser l’option d’**authentification unique existante** pour créer un lien vers cette application dans le volet d’accès. Quand vous accédez au lien, vous êtes authentifié par le biais des services AD FS 2.0 ou de la solution d’authentification unique (SSO) existante fournie par l’application.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour obtenir une liste de toutes les rubriques liées à la gestion des applications, consultez l’[index des articles relatifs à la gestion des applications dans Azure Active Directory](active-directory-apps-index.md).
  

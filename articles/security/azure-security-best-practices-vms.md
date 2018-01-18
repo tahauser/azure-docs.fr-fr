@@ -1,5 +1,5 @@
 ---
-title: "Meilleures pratiques de sécurité pour les machines virtuelles Azure | Microsoft Docs"
+title: "Meilleures pratiques de sécurité pour les machines virtuelles Azure"
 description: "Cet article propose plusieurs meilleures pratiques de sécurité à utiliser dans les machines virtuelles situées dans Azure."
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Meilleures pratiques pour la sécurité des machines virtuelles Azure
 
@@ -114,7 +114,7 @@ Security Center peut surveiller activement les menaces qui sont identifiées sou
 
 Pour comprendre comment Security Center peut vous aider à identifier les menaces potentielles dans vos machines virtuelles Azure, regardez la vidéo ci-dessous :
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 Les organisations qui n’appliquent pas une sécurité renforcée à leurs machines virtuelles ne détectent pas les actions des utilisateurs non autorisés visant à contourner les contrôles de sécurité mis en place.
 

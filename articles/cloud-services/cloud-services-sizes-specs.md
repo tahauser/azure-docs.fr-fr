@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -32,7 +32,7 @@ Cette rubrique décrit les tailles et options disponibles pour les instances de 
 Azure offre le choix entre plusieurs tailles standard. Voici des considérations quant à certaines de ces tailles :
 
 * Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)(en anglais).
-* La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
+* Les séries Dv3 et Dv2, suites de la série D d’origine, comprennent un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 * Les machines virtuelles de la série G offrent le plus de mémoire et s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
 * Les machines virtuelles de la série A peuvent être déployées sur différents types de matériels et processeurs. La taille est limitée en fonction du matériel, pour offrir des performances de processeur cohérentes pour l’instance en cours d’exécution, quel que soit le matériel sur lequel elle est déployée. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle.
 * La taille A0 est trop sollicitée sur le matériel physique. Pour cette taille spécifique uniquement, les autres déploiements de clients peuvent affecter les performances de la charge de travail en cours d’exécution. Les performances relatives sont décrites ci-dessous comme référence attendue, soumises à une variation approximative de 15 pour cent.
@@ -42,7 +42,7 @@ La taille de la machine virtuelle a une incidence sur la tarification. La taille
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 * Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz. Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez [Tailles de machines virtuelles de calcul haute performance](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Les séries Dv2, D et G sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
+* Les séries Dv3, Dv2, D et G sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
 * Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle {nom de la machine}** ou **Échec de la création de la machine virtuelle {nom de la machine}** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une nouvelle machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, consultez [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d'assistance.
 * Il se peut également que votre abonnement limite le nombre de cœurs que vous pouvez déployer dans certaines familles de taille. Pour augmenter un quota, contactez le support technique Azure.
 
@@ -61,12 +61,13 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour pouvoir compa
 | [Très petite](#a-series) |50 |
 | [Petite à très grande](#a-series) |100 |
 | [A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
+| [A v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
+| [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Les unités ACU signalées par un astérisque (*) utilisent la technologie Intel ® Turbo pour augmenter la fréquence du processeur et améliorer les performances. Cette amélioration des performances peut varier en fonction de la taille et de la charge de travail de la machine virtuelle, et des autres charges de travail en cours d’exécution sur le même hôte.
@@ -85,7 +86,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 | Très petite      | 1         | 0,768        | 20                   | 1 / Faible |
 | Petite           | 1         | 1,75         | 225                  | 1 / Modérée |
 | Moyenne          | 2         | 3,5 Go       | 490                  | 1 / Modérée |
-| Grande           | 4         | 7            | 1 000                 | 2 / Élevée |
+| grand           | 4         | 7            | 1 000                 | 2 / Élevée |
 | Très grande      | 8         | 14           | 2040                 | 4 / Élevée |
 | A5              | 2         | 14           | 490                  | 1 / Modérée |
 | A6              | 4         | 28           | 1 000                 | 2 / Élevée |
@@ -142,6 +143,29 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / Extrêmement élevée |
 | Standard_D15_v2 | 20        | 140          | 1 000                | 8 / Extrêmement élevée |
 
+## <a name="dv3-series"></a>Série Dv3
+
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 16                   | 2 / Modérée |
+| Standard_D4_v3  | 4         | 16            | 32                   | 2 / Élevée |
+| Standard_D8_v3  | 8         | 32            | 64                   | 4 / Élevée |
+| Standard_D16_v3 | 16        | 64            | 128                  | 8 / Extrêmement élevée |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8 / Extrêmement élevée |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8 / Extrêmement élevée |
+
+## <a name="ev3-series"></a>Série Ev3
+
+| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 32                   | 2 / Modérée |
+| Standard_E4_v3  | 4         | 32            | 64                   | 2 / Élevée |
+| Standard_E8_v3  | 8         | 64            | 128                  | 4 / Élevée |
+| Standard_E16_v3 | 16        | 128           | 256                  | 8 / Extrêmement élevée |
+| Standard_E32_v3 | 32        | 256           | 512                  | 8 / Extrêmement élevée |
+| Standard_E64_v3 | 64        | 432           | 864                  | 8 / Extrêmement élevée |
+
+
 ## <a name="g-series"></a>Série G
 | Taille            | Cœurs d’unité centrale | Mémoire : Gio  | SSD local = Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,12 +212,12 @@ Voici un exemple qui montre comment configurer un rôle avec la taille [Standard
 >
 
 ## <a name="get-a-list-of-sizes"></a>Obtenir une liste des tailles
-PowerShell ou l’API REST permet d’obtenir la liste des tailles. L’API REST est présentée [ici](https://msdn.microsoft.com/library/azure/dn469422.aspx). Le code suivant est une commande PowerShell qui répertorie les tailles disponibles pour votre Service Cloud.
+PowerShell ou l’API REST permet d’obtenir la liste des tailles. L’API REST est présentée [ici](https://msdn.microsoft.com/library/azure/dn469422.aspx). Le code suivant est une commande PowerShell qui répertorie toutes les tailles disponibles pour Cloud Services. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur l’ [abonnement Azure et les limites, quotas et contraintes des services](../azure-subscription-service-limits.md).
 * En savoir plus sur les [Tailles de machines virtuelles de calcul haute performance](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour les charges de travail HPC.

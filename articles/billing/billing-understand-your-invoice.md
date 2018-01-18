@@ -1,5 +1,5 @@
 ---
-title: Comprendre votre facture Azure | Microsoft Docs
+title: Comprendre votre facture Azure
 description: "Apprenez à lire et à comprendre l’utilisation et la facturation de votre abonnement Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendre les termes figurant sur votre facture Microsoft Azure
+
 La facture fournit un résumé de vos frais et fournit des instructions pour le paiement. Elle est disponible au téléchargement au format PDF (.pdf) à partir du [portail Azure](https://portal.azure.com/) ou peut être envoyée par courrier électronique. Pour plus d’informations, consultez [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
 
 Points à noter :
@@ -31,9 +32,7 @@ Points à noter :
 
 -   Les frais répertoriés sur les relevés de facturation pour les clients internationaux sont uniquement fournis à titre d’estimation. Les banques peuvent appliquer des coûts différents selon les taux de conversion.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Termes et descriptions détaillés de votre facture
 Les sections suivantes répertorient les termes importants que vous voyez sur votre facture, ainsi qu’une description pour chacun d’entre-eux.
@@ -44,7 +43,7 @@ La section Informations sur le compte de la facture se trouve en haut de la prem
 
 ![Section Informations sur le compte](./media/billing-understand-your-invoice/1.png)
 
-| Terme | Description |
+| Terme | DESCRIPTION |
 | --- | --- |
 | Numéro de l’ordre d’achat du client |Numéro de commande facultatif, attribué par vous pour le suivi |
 | Numéro de facture |Numéro de facture unique généré par Microsoft utilisé à des fins de suivi |
@@ -65,7 +64,7 @@ Le nom d’abonnement (« Stockage en production ») est le nom de l’abonnem
 #### <a name="understand-the-previous-charges"></a>Comprendre les frais précédents
 Les sections Solde précédent, Paiements et Solde restant dû de la facture récapitulent les transactions intervenues depuis votre dernière période de facturation.
 
-| Terme | Description |
+| Terme | DESCRIPTION |
 | --- | --- |
 | Solde précédent |Montant total dû de votre dernière période de facturation |
 | Paiements |Total des paiements et crédits appliqués à votre dernière période de facturation |
@@ -74,7 +73,7 @@ Les sections Solde précédent, Paiements et Solde restant dû de la facture ré
 #### <a name="understand-the-current-charges"></a>Comprendre les frais actuels
 La section Frais actuels de la facture affiche les détails de vos frais mensuels pour la période de facturation actuelle.
 
-| Terme | Description |
+| Terme | DESCRIPTION |
 | --- | --- |
 | Frais d'utilisation |Les frais d’utilisation correspondent au total des frais mensuels d’un abonnement pour la période de fabrication actuelle|
 | Remises |Remises sur les services appliquées à votre période de facturation en cours|
@@ -84,7 +83,7 @@ La section Frais actuels de la facture affiche les détails de vos frais mensuel
 
 Le tableau suivant décrit les instructions de vente et de paiement indiquées sur la seconde page de votre facture.
 
-| Terme |Description |
+| Terme |DESCRIPTION |
 | --- | --- |
 | Vendu à |Adresse de profil qui se trouve sur le compte. <br/><br/>Pour modifier l’adresse, consultez [Comment modifier les informations de profil de votre compte Azure comme l’e-mail de contact, l’adresse et le numéro de téléphone](billing-how-to-change-azure-account-profile.md).|
 | Instructions de paiement |Instructions de paiement en fonction du mode de paiement (carte bancaire ou facture). |
@@ -97,10 +96,10 @@ La section Frais d’utilisation de la facture affiche des informations de compt
 
 Le tableau suivant décrit les en-têtes de colonne Frais d’utilisation indiqués sur votre facture.
 
-| Terme |Description |
+| Terme |DESCRIPTION |
 | --- | --- |
-| Nom |Identifie le service de niveau supérieur pour l’utilisation |
-| Type |Définit le type de service Azure pouvant affecter le tarif |
+| NOM |Identifie le service de niveau supérieur pour l’utilisation |
+| type |Définit le type de service Azure pouvant affecter le tarif |
 | Ressource |Identifie l’unité de mesure du compteur consommé |
 | Région |Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement |
 | Consommé |Quantité du compteur utilisée au cours de la période de facturation |

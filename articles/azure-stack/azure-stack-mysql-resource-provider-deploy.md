@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données MySQL sur Microsoft Azure Stack
 
@@ -59,6 +59,10 @@ Le compte système doit disposer des privilèges suivants :
     a. Sur les installations Azure Stack Development Kit, connectez-vous à l’hôte physique.
 
     b. Sur les systèmes à plusieurs nœuds, l’hôte doit être un système qui peut accéder au point de terminaison privilégié.
+    
+    >[!NOTE]
+    > Le système où le script est en cours d’exécution *doit* être un système Windows 10 ou Windows Server 2016 avec la dernière version du runtime .NET installé. L’installation échoue dans le cas contraire. L’hôte ASDK répond à ces critères.
+    
 
 3. Téléchargez le binaire du fournisseur de ressources MySQL et exécutez le fichier auto-extracteur pour extraire le contenu dans un répertoire temporaire.
 
@@ -67,15 +71,19 @@ Le compte système doit disposer des privilèges suivants :
 
     | Build Azure Stack | Programme d’installation de MySQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [MySQL RP version 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [MySQL RP version 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Le certificat racine Azure Stack est récupéré à partir du point de terminaison privilégié. Pour ASDK, un certificat auto-signé est créé dans le cadre de ce processus. Pour plusieurs nœuds, vous devez fournir un certificat approprié.
 
-    Si vous avez besoin de fournir votre propre certificat, vous avez besoin du certificat suivant :
+    Si vous devez fournir votre propre certificat, vous aurez besoin d’un fichier PFX placé dans le chemin local **DependencyFilesLocalPath** (voir ci-dessous) comme suit :
 
-    Un certificat générique pour \*.dbadapter.\<région\>.\<external fqdn\>. Ce certificat doit être approuvé, et émis par une autorité de certification. Autrement dit, la chaîne d’approbation doit exister sans exiger de certificats intermédiaires. Un certificat de site unique peut être utilisé avec le nom de machine virtuelle [mysqladapter] utilisé lors de l’installation.
+    - Soit un certificat générique pour \*.dbadapter.\<region\>.\<external fqdn\> ou un certificat de site unique avec un nom commun de mysqladapter.dbadapter.\<region\>.\<external fqdn\>
+    - Ce certificat doit être approuvé, et émis par une autorité de certification. Autrement dit, la chaîne d’approbation doit exister sans exiger de certificats intermédiaires.
+    - Il n’existe qu’un seul fichier de certificat unique dans le chemin local DependencyFilesLocalPath.
+    - Le nom de fichier ne doit pas contenir de caractères spéciaux.
+
 
 
 5. Ouvrez une **nouvelle** console (administrative) PowerShell avec élévation de privilèges et basculez vers le répertoire où vous avez extrait les fichiers. Utilisez une nouvelle fenêtre pour éviter les problèmes qui peuvent se produire à cause des modules PowerShell incorrects déjà chargés sur le système.
@@ -150,7 +158,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Paramètres de DeploySqlProvider.ps1
 Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le faites pas, ou si la validation des paramètres échoue, vous êtes invité à fournir les paramètres obligatoires.
 
-| Nom du paramètre | Description | Commentaire ou valeur par défaut |
+| Nom du paramètre | DESCRIPTION | Commentaire ou valeur par défaut |
 | --- | --- | --- |
 | **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _obligatoire_ |
 | **AzCredential** | Fournissez les informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _obligatoire_ |
@@ -160,8 +168,8 @@ Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le 
 | **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _obligatoire_ |
 | **MaxRetryCount** | Définissez le nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |
 | **RetryDuration** | Définissez le délai d’attente entre les tentatives, en secondes. | 120 |
-| **Désinstaller** | Supprimez le fournisseur de ressources et toutes les ressources associées (voir les remarques ci-dessous). | Non |
-| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non |
+| **Désinstaller** | Supprimez le fournisseur de ressources et toutes les ressources associées (voir les remarques ci-dessous). | Non  |
+| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
 | **AcceptLicense** | Ignore l’invite demandant d’accepter la licence GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
@@ -257,6 +265,73 @@ Vous pouvez modifier le mot de passe en commençant par le modifier sur l’inst
 
 ![Mettre à jour le mot de passe de l’administrateur](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Mettre à jour l’adaptateur du fournisseur de ressources MySQL (à plusieurs nœuds uniquement, versions 1710 et ultérieures)
+Chaque fois que la build Azure Stack est mise à jour, un nouvel adaptateur du fournisseur de ressources MySQL est publié. Pendant que l’adaptateur existant continue à fonctionner, il est recommandé de mettre à jour dès que possible vers la dernière version après la mise à jour de Azure Stack. Le processus de mise à jour est très similaire au processus d’installation décrit ci-dessus. Une nouvelle machine virtuelle sera créée avec le dernier code RP, et les paramètres vont être migrés vers cette nouvelle instance, y compris la base de données et les informations du serveur d’hébergement, ainsi que l’enregistrement DNS nécessaire.
+
+Utilisez le script UpdateMySQLProvider.ps1 script avec les mêmes arguments que précédemment. Vous devez fournir le certificat ici également.
+
+> [!NOTE]
+> La mise à jour est uniquement prise en charge sur les systèmes à plusieurs nœuds.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>Paramètres de UpdateMySQLProvider.ps1
+Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le faites pas, ou si la validation des paramètres échoue, vous êtes invité à fournir les paramètres obligatoires.
+
+| Nom du paramètre | DESCRIPTION | Commentaire ou valeur par défaut |
+| --- | --- | --- |
+| **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _obligatoire_ |
+| **AzCredential** | Fournissez les informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _obligatoire_ |
+| **VMLocalCredential** | Définissez les informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _obligatoire_ |
+| **PrivilegedEndpoint** | Fournir l’adresse IP ou le nom DNS du point de terminaison privilégié. |  _obligatoire_ |
+| **DependencyFilesLocalPath** | Votre fichier PFX de certificat doit également être placé dans ce répertoire. | _facultatif_ (_obligatoire_ pour plusieurs nœuds) |
+| **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _obligatoire_ |
+| **MaxRetryCount** | Définissez le nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |
+| **RetryDuration** | Définissez le délai d’attente entre les tentatives, en secondes. | 120 |
+| **Désinstaller** | Supprimez le fournisseur de ressources et toutes les ressources associées (voir les remarques ci-dessous). | Non  |
+| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
+| **AcceptLicense** | Ignore l’invite demandant d’accepter la licence GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
+
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Supprimer l’adaptateur de fournisseur de ressources MySQL
 
 Pour supprimer le fournisseur de ressources, il est essentiel de supprimer d’abord toutes les dépendances.
@@ -278,6 +353,6 @@ Pour supprimer le fournisseur de ressources, il est essentiel de supprimer d’a
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Essayez d’autres [services PaaS](azure-stack-tools-paas-services.md) comme le [fournisseur de ressources SQL Server](azure-stack-sql-resource-provider-deploy.md) et le [fournisseur de ressources App Services](azure-stack-app-service-overview.md).

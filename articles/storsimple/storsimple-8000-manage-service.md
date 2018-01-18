@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Après avoir créé le service, vous pouvez l’utiliser pour gérer tous les appareils qui y sont connectés à partir d’un emplacement central unique, ce qui réduit la charge administrative.
 
 Ce didacticiel décrit les étapes requises pour la création, la suppression, la migration du service et la gestion de la clé d’inscription du service. Les informations contenues dans cet article s’appliquent uniquement aux appareils de la gamme StorSimple 8000. Pour plus d’informations sur StorSimple Virtual Arrays, accédez à [Déployer le service StorSimple Device Manager pour StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
+
+> [!NOTE]
+> Toutes les instances de StorSimple Device Manager classiques sont automatiquement déplacées vers le nouveau portail Azure. Si vous avez des questions, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md). Les applets de commande PowerShell ASM (Azure Service Management) ne sont pas prises en charge après le passage au nouveau portail Azure. Mettez à jour les scripts pour gérer vos appareils, puis accédez à [Utiliser des scripts basés sur le kit de développement logiciel (SDK) Azure Resource Manager pour gérer les appareils StorSimple](storsimple-8000-automation-azurerm-scripts.md) pour plus d’informations. Le nouveau portail Azure prend en charge les appareils exécutant Update 5.0 ou version ultérieure. Si votre appareil n’est pas à jour, installez la mise à jour Update 5.0 immédiatement. Pour plus d’informations, accédez à [Installer Update 5](storsimple-8000-install-update-5.md). Si vous utilisez une appliance StorSimple Cloud Appliance (8010/8020), vous ne pouvez pas mettre à jour une appliance cloud. Utilisez la version la plus récente du logiciel pour créer une appliance cloud avec Update 5.0 et basculez ensuite vers la nouvelle appliance cloud créée. Tous les appareils exécutant la mise à jour Update 4.0 ou une version antérieure auront des [fonctionnalités de gestion réduites](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Créer un service
 Pour créer un service StorSimple Device Manager, vous avez besoin des éléments suivants :
@@ -57,86 +60,6 @@ Pour chaque service StorSimple Device Manager, les attributs suivants existent 
 * **État** : l’état du service, qui peut être **Actif**, **Création en cours** ou **En ligne**.
 * **Emplacement** : l’emplacement géographique sur lequel l’appareil StorSimple sera déployé.
 * **Abonnement** : l’abonnement de facturation associé à votre service.
-
-## <a name="move-a-service-to-azure-portal"></a>Déplacer un service vers le portail Azure
-Les appareils de la gamme StorSimple 8000 peuvent désormais être gérés dans le portail Azure. Si vous avez un service existant pour gérer les appareils StorSimple, nous vous recommandons de déplacer votre service vers le portail Azure. Le portail Azure Classic pour le service StorSimple Manager n’est plus pris en charge après le 30 septembre 2017. Si vous souhaitez passer au nouveau portail Azure, consultez [Considérations relatives à la transition](#considerations-for-transition). 
-
-> [!NOTE]
-> À partir du 5 octobre 2017, vos instances de StorSimple Device Manager classiques sont automatiquement déplacées vers le nouveau portail Azure. Il s’agit d’un lancement échelonné et nous vous tiendrons informé au sujet du déplacement par e-mail et des notifications sur le portail. Si vous avez des questions, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md).
-
-### <a name="considerations-for-transition"></a>Considérations relatives à la transition
-
-Examinez l’impact de la migration vers le nouveau portail Azure avant de déplacer le service.
-
-> [!NOTE]
-> Les applets de commande PowerShell ASM (Azure Service Management) existantes ne sont pas prises en charge après le passage au nouveau portail Azure. Mettez à jour les scripts pour gérer vos appareils via le kit SDK Azure Resource Manager. Pour plus d’informations, accédez à [Utiliser des scripts basés sur le kit de développement logiciel (SDK) Azure Resource Manager pour gérer les appareils StorSimple](storsimple-8000-automation-azurerm-scripts.md).
-> Le nouveau portail Azure prend en charge les appareils exécutant Update 3.0 ou version ultérieure. Si votre appareil n’est pas à jour, nous vous recommandons vivement d’appliquer Update 5 dès que possible.
-
-#### <a name="before-you-transition"></a>Avant la transition
-
-* Votre appareil exécute Update 3.0 ou version ultérieure. Si votre appareil exécute une version antérieure, nous vous recommandons vivement d’installer Update 5 via la méthode du correctif logiciel. Pour plus d’informations, accédez à [Installer Update 5](storsimple-8000-install-update-5.md). Si vous utilisez une appliance StorSimple Cloud Appliance (8010/8020), vous ne pouvez pas mettre à jour une appliance cloud. Utilisez la version la plus récente du logiciel pour créer une appliance cloud avec Update 5.0 et basculez ensuite vers la nouvelle appliance cloud créée.
-
-* Une fois la transition effectuée vers le nouveau portail Azure, vous ne pouvez pas utiliser le portail Azure classique pour gérer votre appareil StorSimple.
-
-* La transition se fait sans interruption de service et l’appareil ne subit pas de temps d’arrêt.
-
-* Tous les services StorSimple Device Manager appartenant à l’abonnement spécifié font l’objet de la transition.
-
-#### <a name="during-the-transition"></a>Au cours de la transition
-
-* Vous ne pouvez pas gérer votre appareil à partir du portail.
-* Les opérations telles que les sauvegardes planifiées et de hiérarchisation continuent d’être effectuées.
-* Ne supprimez pas les anciens services StorSimple Device Manager pendant que la transition est en cours.
-
-#### <a name="after-the-transition"></a>Après la transition
-
-* Vous ne pouvez plus gérer vos appareils à partir du portail classique.
-
-* Les cmdlets PowerShell Azure Service Management (ASM) ne sont pas pris en charge. Mettez à jour les scripts pour gérer vos appareils via Azure Resource Manager. Pour obtenir des exemples de scripts avec le kit SDK Resource Manager, consultez [storsimpledevicemgmttools sur github](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* La configuration de votre service et de votre appareil est conservée. Tous vos volumes et sauvegardes font également l’objet de la transition vers le portail Azure.
-
-### <a name="begin-transition"></a>Commencer la transition
-
-Procédez comme suit pour effectuer la transition de votre service vers le portail Azure.
-
-1. Accédez à votre service StorSimple Manager dans le nouveau portail Azure.
-    ![Plus de services](./media/storsimple-8000-manage-service/service-browse01.png) ![Sélectionner Device Manager](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. Vous voyez une notification qui vous informe que le service StorSimple Device Manager est désormais disponible dans le portail Azure. Dans le portail Azure, le service est appelé service StorSimple Device Manager.
-    ![Notification de la migration](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Assurez-vous de bien avoir examiné l’impact total de la migration.
-    2. Passez en revue la liste des services StorSimple Device Manager qui seront déplacés à partir du portail classique.
-
-3. Cliquez sur **Migrer**. La transition commence, et se termine après quelques minutes.
-
-Une fois la transition terminée, vous pouvez gérer vos appareils via le service StorSimple Device Manager dans le portail Azure. Si vous ne voyez pas une option pour migrer vers le portail Azure, mais que vous souhaitez le faire, vous pouvez [soumettre une demande](https://aka.ms/ss8000-cx-signup).
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Opérations prises en charge sur les appareils exécutant des versions antérieures à Update 3.0
-Seuls les appareils StorSimple exécutant Update 3.0 et des versions ultérieures sont pris en charge dans le portail Azure. La prise en charge des appareils exécutant des versions antérieures est limitée. Une fois que vous avez effectué la migration vers le portail Azure, utilisez le tableau suivant pour connaître les opérations prises en charge sur les appareils exécutant des versions antérieures à Update 3.0.
-
-| Opération                                                                                                                       | Pris en charge      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Inscrire un appareil                                                                                                               | Oui            |
-| Configurer les paramètres d’un appareil, tels que les paramètres généraux, réseau et de sécurité                                                                | Oui            |
-| Analyser, télécharger et installer des mises à jour                                                                                             | Oui            |
-| Désactiver un appareil                                                                                                               | Oui            |
-| Supprimer un appareil                                                                                                                   | Oui            |
-| Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non             |
-| Créer, modifier et supprimer un volume                                                                                             | Non             |
-| Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non             |
-| Exécuter une sauvegarde manuelle                                                                                                            | Non             |
-| Exécuter une sauvegarde planifiée                                                                                                         | Non applicable |
-| Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non             |
-| Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | Oui            |
-| Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non             |
-| Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | Oui            |
-| Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non             |
-| Supprimer une alerte                                                                                                                  | Oui            |
-| Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | Oui            |
-| Activer et désactiver des contrôleurs d’appareils                                                                                              | Oui            |
-
 
 ## <a name="delete-a-service"></a>Supprimer un service
 
@@ -263,7 +186,32 @@ Procédez comme suit pour mettre à jour le chiffrement des données du service 
 
 Ce script permet de garantir que la clé de chiffrement des données de service est définie sur toutes les appliances cloud 8010/8020 sous Device Manager.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Opérations prises en charge sur les appareils exécutant des versions antérieures à Update 5.0
+Seuls les appareils StorSimple exécutant Update 5.0 et des versions ultérieures sont pris en charge dans le portail Azure. La prise en charge des appareils exécutant des versions antérieures est limitée. Une fois que vous avez effectué la migration vers le portail Azure, utilisez le tableau suivant pour connaître les opérations prises en charge sur les appareils exécutant des versions antérieures à Update 5.0.
+
+| Opération                                                                                                                       | Prise en charge      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Inscrire un appareil                                                                                                               | Oui            |
+| Configurer les paramètres d’un appareil, tels que les paramètres généraux, réseau et de sécurité                                                                | Oui            |
+| Analyser, télécharger et installer des mises à jour                                                                                             | Oui            |
+| Désactiver un appareil                                                                                                               | Oui            |
+| Supprimer un appareil                                                                                                                   | Oui            |
+| Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non              |
+| Créer, modifier et supprimer un volume                                                                                             | Non              |
+| Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non              |
+| Exécuter une sauvegarde manuelle                                                                                                            | Non              |
+| Exécuter une sauvegarde planifiée                                                                                                         | Non applicable |
+| Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non              |
+| Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | Oui            |
+| Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non              |
+| Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | Oui            |
+| Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non              |
+| Supprimer une alerte                                                                                                                  | Oui            |
+| Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | Oui            |
+| Activer et désactiver des contrôleurs d’appareils                                                                                              | Oui            |
+
+
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur le [processus de déploiement StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * En savoir plus sur la [gestion de votre compte de stockage StorSimple](storsimple-8000-manage-storage-accounts.md).
 * En savoir plus sur [l’utilisation du service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).

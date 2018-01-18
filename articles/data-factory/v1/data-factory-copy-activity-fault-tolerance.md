@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Ajouter une tolérance de panne de l’activité de copie en ignorant les lignes incompatibles
 > [!NOTE]
@@ -44,6 +44,9 @@ L’activité de copie offre la possibilité de détecter, d’ignorer et de jou
 
     Exemple : copie de données depuis un serveur SQL dans une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
+>[!NOTE]
+>Cette fonctionnalité ne s’applique pas quand l’activité de copie est configurée pour appeler un mécanisme de chargement de données externes, comme [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Pour charger des données dans SQL Data Warehouse avec PolyBase, utilisez la prise en charge native de la tolérance de panne de PolyBase en spécifiant « [polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink) » dans l’activité de copie.
+
 ## <a name="configuration"></a>Configuration
 L’exemple suivant fournit une définition JSON pour configurer la manière d’ignorer les lignes incompatibles dans le cadre de l’activité de copie :
 
@@ -63,12 +66,12 @@ L’exemple suivant fournit une définition JSON pour configurer la manière d�
 }
 ```
 
-| Propriété | Description | Valeurs autorisées | Requis |
+| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Activer ou non l’option d’ignorer les lignes incompatibles. | true<br/>False (valeur par défaut) | Non |
-| **redirectIncompatibleRowSettings** | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non |
-| **linkedServiceName** | Service lié de Stockage Azure pour stocker le journal contenant les lignes ignorées. | Nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous souhaitez utiliser pour stocker le fichier journal. | Non |
-| **path** | Chemin d’accès du fichier journal contenant les lignes ignorées. | Spécifiez le chemin d’accès sur Stockage Blob que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non |
+| **enableSkipIncompatibleRow** | Activer ou non l’option d’ignorer les lignes incompatibles. | True<br/>False (valeur par défaut) | Non  |
+| **redirectIncompatibleRowSettings** | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non  |
+| **linkedServiceName** | Service lié de Stockage Azure pour stocker le journal contenant les lignes ignorées. | Nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous souhaitez utiliser pour stocker le fichier journal. | Non  |
+| **path** | Chemin d’accès du fichier journal contenant les lignes ignorées. | Spécifiez le chemin d’accès sur Stockage Blob que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non  |
 
 ## <a name="monitoring"></a>Surveillance
 Une fois l’exécution de l’activité de copie terminée, vous pouvez voir le nombre de lignes ignorées dans la section Surveillance :
@@ -83,5 +86,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur l’activité de copie dans Azure Data Factory, voir [Déplacer des données à l’aide de l’activité de copie](data-factory-data-movement-activities.md).

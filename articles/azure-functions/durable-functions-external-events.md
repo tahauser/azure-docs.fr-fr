@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestion des événements externes dans Fonctions durables (Azure Functions)
 
@@ -26,7 +26,7 @@ Les fonctions d’orchestrateur ont la capacité d’attendre et d’écouter de
 
 ## <a name="wait-for-events"></a>Attendre des événements
 
-La méthode [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) permet à une fonction d’orchestrateur d’attendre de manière asynchrone et d’écouter un événement externe. L’appelant déclare le *nom* de l’événement et la *forme des données* qu’il s’attend à recevoir.
+La méthode [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) permet à une fonction d’orchestrateur d’attendre de manière asynchrone et d’écouter un événement externe. La fonction d’orchestrateur qui écoute déclare le *nom* de l’événement et la *forme des données* qu’il s’attend à recevoir.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-Dans l’exemple précédent, la fonction écoute un événement unique et le traite après sa réception.
+Dans l’exemple précédent, la fonction écoute un événement unique spécifique et le traite après sa réception.
 
 Vous pouvez écouter plusieurs événements simultanément, comme dans l’exemple suivant, où la fonction attend l’une des trois notifications d’événement possibles.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) attend indéfiniment une entrée.  L’application de fonction peut être déchargée en toute sécurité durant l’attente. Si et quand un événement arrive pour cette instance d’orchestration, elle est automatiquement réveillée et traite immédiatement l’événement.
 
 > [!NOTE]
-> Aucun frais de facturation n’est encouru quand une fonction d’orchestrateur attend une tâche de `WaitForExternalEvent`, quelle que soit la durée d’attente.
+> Si votre application de fonction utilise le plan de consommation, aucun frais de facturation n’est encouru quand une fonction d’orchestrateur attend une tâche de `WaitForExternalEvent`, quelle que soit la durée d’attente.
 
 Si la charge utile de l’événement ne peut pas être convertie au type attendu `T`, une exception est levée.
 
@@ -122,7 +122,7 @@ En interne, `RaiseEventAsync` empile un message qui est récupéré par la fonct
 > [!WARNING]
 > S’il n’existe aucune instance d’orchestration avec l’*ID d’instance* spécifié ou si l’instance n’attend pas le *nom d’événement* spécifié, le message d’événement est ignoré. Pour plus d’informations sur ce comportement, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Configurer des orchestrations externes](durable-functions-eternal-orchestrations.md)

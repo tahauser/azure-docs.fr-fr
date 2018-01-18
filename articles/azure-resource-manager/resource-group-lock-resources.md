@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7b091f4a437781547610624007ac1d7f22fed61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues 
+
 En tant qu’administrateur, vous pouvez avoir besoin de verrouiller un abonnement, une ressource ou un groupe de ressources afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier de manière accidentelle des ressources critiques. Vous pouvez définir le niveau de verrouillage sur **CanNotDelete** ou **ReadOnly**. 
 
 * **CanNotDelete** signifie que les utilisateurs autorisés peuvent lire et modifier une ressource, mais pas la supprimer. 
@@ -43,29 +44,76 @@ Pour créer ou supprimer des verrous de gestion, vous devez avoir accès à des 
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Modèle
-L’exemple suivant représente un modèle créant un verrou sur un compte de stockage. Le compte de stockage auquel est appliqué le verrou est fourni en tant que paramètre. Le nom du verrou résulte de la concaténation du nom de la ressource avec **/Microsoft.Authorization/** et le nom du verrou, en l’occurrence **myLock**.
+L’exemple suivant représente un modèle créant un verrou sur un compte de stockage.plan App Service et un verrou sur le site web. Le type de ressource du verrou est le type de ressource de la ressource à verrouiller et **/providers/locks**. Le nom du verrou résulte de la concaténation du nom de la ressource avec **/Microsoft.Authorization/** et le nom du verrou.
 
-Le type fourni est spécifique au type de ressource. Pour le stockage, définissez le type suivant : « Microsoft.Storage/storageaccounts/providers/locks ».
-
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "lockedResource": {
-          "type": "string"
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+            "type": "string"
         }
-      },
-      "resources": [
+    },
+    "variables": {
+        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
         {
-          "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/myLock')]",
-          "type": "Microsoft.Storage/storageAccounts/providers/locks",
-          "apiVersion": "2015-01-01",
-          "properties": {
-            "level": "CannotDelete"
-          }
+            "apiVersion": "2016-09-01",
+            "type": "Microsoft.Web/serverfarms",
+            "name": "[parameters('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "tier": "Free",
+                "name": "f1",
+                "capacity": 0
+            },
+            "properties": {
+                "targetWorkerCount": 1
+            }
+        },
+        {
+            "apiVersion": "2016-08-01",
+            "name": "[variables('siteName')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+            ],
+            "properties": {
+                "serverFarmId": "[parameters('hostingPlanName')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/providers/locks",
+            "apiVersion": "2016-09-01",
+            "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
+            ],
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Site should not be deleted."
+            }
         }
-      ]
-    }
+    ]
+}
+```
+
+Pour déployer cet exemple de modèle avec PowerShell, utilisez :
+
+```powershell
+New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
+New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
+```
+
+Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
+
+```azurecli
+az group create --name sitegroup --location southcentralus
+az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
+```
 
 ## <a name="powershell"></a>PowerShell
 Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant la commande [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock).
@@ -73,16 +121,13 @@ Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en util
 Pour verrouiller une ressource, indiquez le nom de la ressource, son type de ressource et son nom de groupe de ressources.
 
 ```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite `
-  -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Pour verrouiller un groupe de ressources : indiquez le nom du groupe de ressources.
 
 ```powershell
-New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 Pour obtenir des informations sur un verrou, utilisez [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Pour obtenir tous les verrous de votre abonnement, utilisez :
@@ -94,8 +139,7 @@ Get-AzureRmResourceLock
 Pour obtenir tous les verrous d’une ressource, utilisez :
 
 ```powershell
-Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Pour obtenir tous les verrous d’un groupe de ressources, utilisez :
@@ -104,25 +148,27 @@ Pour obtenir tous les verrous d’un groupe de ressources, utilisez :
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Azure PowerShell fournit d’autres commandes d’utilisation des verrous, comme [Set-AzureRmResourceLock](/powershell/module/azurerm.resources/set-azurermresourcelock), pour mettre à jour un verrou et [Remove-AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock) pour supprimer un verrou.
+Pour supprimer un verrou, utilisez :
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+```powershell
+$lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzureRmResourceLock -LockId $lockId
+```
+
+## <a name="azure-cli"></a>Azure CLI
 
 Verrouillez les ressources déployées avec Azure CLI à l’aide de la commande [az lock create](/cli/azure/lock#create).
 
 Pour verrouiller une ressource, indiquez le nom de la ressource, son type de ressource et son nom de groupe de ressources.
 
 ```azurecli
-az lock create --name LockSite --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup --resource-name examplesite \
-  --resource-type Microsoft.Web/sites
+az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
 ```
 
 Pour verrouiller un groupe de ressources : indiquez le nom du groupe de ressources.
 
 ```azurecli
-az lock create --name LockGroup --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
 Pour obtenir des informations sur un verrou, utilisez la commande [az lock list](/cli/azure/lock#list). Pour obtenir tous les verrous de votre abonnement, utilisez :
@@ -134,8 +180,7 @@ az lock list
 Pour obtenir tous les verrous d’une ressource, utilisez :
 
 ```azurecli
-az lock list --resource-group exampleresourcegroup --resource-name examplesite \
-  --namespace Microsoft.Web --resource-type sites --parent ""
+az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
 Pour obtenir tous les verrous d’un groupe de ressources, utilisez :
@@ -144,9 +189,14 @@ Pour obtenir tous les verrous d’un groupe de ressources, utilisez :
 az lock list --resource-group exampleresourcegroup
 ```
 
-Azure CLI fournit d’autres commandes d’utilisation des verrous, telles que [az lock update](/cli/azure/lock#update) pour mettre à jour un verrou, et [az lock delete](/cli/azure/lock#delete) pour supprimer un verrou.
+Pour supprimer un verrou, utilisez :
 
-## <a name="rest-api"></a>API REST
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+## <a name="rest-api"></a>de l’API REST
 Vous pouvez verrouiller des ressources déployées à l’aide de l’ [API REST pour les verrous de gestion](https://docs.microsoft.com/rest/api/resources/managementlocks). L’API REST vous permet de créer et de supprimer des verrous, et de récupérer des informations relatives aux verrous existants.
 
 Pour créer un verrou, exécutez :
@@ -164,8 +214,7 @@ Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
       }
     } 
 
-## <a name="next-steps"></a>Étapes suivantes
-* Pour plus d’informations sur l’utilisation de verrous sur des ressources, consultez [Lock Down Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur l’organisation logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](resource-group-using-tags.md)
 * Pour changer le groupe de ressources où se trouve une ressource, consultez [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 * Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../azure-policy/azure-policy-introduction.md).

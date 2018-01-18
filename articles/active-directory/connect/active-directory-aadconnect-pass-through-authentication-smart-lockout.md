@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Authentification directe Azure Active Directory : Verrouillage intelligent
 
@@ -36,7 +36,7 @@ Le verrouillage intelligent fait également la distinction entre les connexions 
 L’authentification directe transfère les requêtes de validation de mot de passe à l’Active Directory (AD) local, vous devez donc empêcher les attaquants de verrouiller les comptes de vos utilisateurs Active Directory. Active Directory possède des stratégies de verrouillage de compte propres, notamment les stratégiques [Seuil de verrouillage de compte](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) et [Réinitialiser le compteur de verrouillage de compte après](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx). Configurez les valeurs de seuil de verrouillage et de durée de verrouillage d’Azure AD de manière appropriée afin de filtrer les attaques dans le cloud avant qu’elles atteignent l’Active Directory local.
 
 >[!NOTE]
->La fonctionnalité Smart Lockout est gratuite et _activée_ par défaut pour tous les clients. Mais si vous souhaitez modifier les valeurs de seuil de verrouillage et de durée de verrouillage d’Azure AD à l’aide de l’API Graph, votre locataire doit avoir au moins une licence Azure AD Premium P2. Vous n’avez pas besoin d’une licence Azure AD Premium P2 _par utilisateur_ pour obtenir la fonctionnalité de verrouillage intelligent avec une authentification directe.
+>>La fonctionnalité Smart Lockout est gratuite et _activée_ par défaut pour tous les clients. Toutefois, la modification du seuil de verrouillage et des valeurs de durée de verrouillage d’Azure AD à l’aide de l’API Graph oblige votre locataire à avoir une licence Azure AD Premium P2. 
 
 Pour vous assurer que les comptes Active Directory locaux de vos utilisateurs sont correctement protégés, vous devez vérifier que :
 
@@ -148,5 +148,5 @@ Suivez ces étapes pour mettre à jour les valeurs de verrouillage intelligent d
 
 Vérifiez que vous avez mis à jour les valeurs de verrouillage intelligent de votre locataire correctement à l’aide des étapes dans [Afficher les valeurs de verrouillage intelligent](#view-smart-lockout-values).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

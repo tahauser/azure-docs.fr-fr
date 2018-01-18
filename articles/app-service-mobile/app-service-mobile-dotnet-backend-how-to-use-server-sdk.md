@@ -4,8 +4,8 @@ description: "Découvrez comment utiliser le Kit SDK du serveur backend .NET pou
 keywords: "app service, azure app service, application mobile, service mobile, mise à l’échelle, évolutif, déploiement d’application, déploiement d’application azure"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -151,7 +151,7 @@ Définissez un contrôleur de table pour exposer une table SQL aux clients mobil
 2. Configurer une référence de table dans la classe DbContext Mobile.
 3. Créer un contrôleur de table.
 
-Un objet de transfert de données (DTO) est un objet C# simple qui hérite de `EntityData`.  Par exemple :
+Un objet de transfert de données (DTO) est un objet C# simple qui hérite de `EntityData`.  Par exemple : 
 
     public class TodoItem : EntityData
     {
@@ -244,6 +244,10 @@ Vous pouvez ajouter l’authentification à votre projet de serveur en étendant
 Pour découvrir comment authentifier les clients auprès de votre serveur principal Mobile Apps, consultez la page [Ajouter une authentification à votre application](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Utiliser l’authentification personnalisée pour votre application
+> [!IMPORTANT]
+> Pour activer l’authentification personnalisée, vous devez d’abord activer l’authentification d’App Service sans sélectionner un fournisseur pour votre App Service dans le portail Azure. Cela active la variable d’environnement WEBSITE_AUTH_SIGNING_KEY lorsqu’il est hébergé.
+> 
+> 
 Si vous ne souhaitez pas utiliser l’un des fournisseurs d’authentification/d’autorisation App Service, vous pouvez implémenter votre propre système de connexion. Pour faciliter la génération de jetons d’authentification, installez le package [Microsoft.Azure.Mobile.Server.Login] .  Fournissez votre propre code pour valider les informations d’identification utilisateur. Par exemple, vous pouvez définir des mots de passe salés et hachés dans une base de données. Dans l’exemple ci-dessous, la méthode `isValidAssertion()` (définie ailleurs) est chargée de ces vérifications.
 
 L’authentification personnalisée est exposée en créant une classe ApiController et en exposant les actions `register` et `login`. Le client doit utiliser une interface utilisateur personnalisée pour collecter les informations auprès de l’utilisateur.  Les informations sont ensuite envoyées à l’API avec un appel HTTP POST standard. Une fois que le serveur a validé l’assertion, un jeton est émis à l’aide de la méthode `AppServiceLoginHandler.CreateToken()` .  La classe ApiController **ne doit pas** utiliser l’attribut `[MobileAppController]`.

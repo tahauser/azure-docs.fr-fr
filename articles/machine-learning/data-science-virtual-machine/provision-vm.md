@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionner la machine virtuelle DSVM Windows sur Azure
 La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Windows Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
@@ -57,7 +57,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
 Une image [Ubuntu](dsvm-ubuntu-intro.md) est également disponible, avec de nombreux outils similaires et quelques autres cadres de formation approfondis. Une image [CentOS](linux-dsvm-intro.md) est également disponible. Nous vous proposons également une [édition Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la machine virtuelle de science des données, bien que certains outils sont disponibles uniquement sur l’édition Windows Server 2016.  Sinon, cet article s’applique également à l’édition Windows Server 2012.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**: pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](http://azure.com/free).
@@ -151,7 +151,7 @@ Pour activer l’analyse dans la base de données à l’aide de SQL ML Services
         (Please replace the %COMPUTERNAME% with your VM name)
 
 
-### <a name="azure"></a>Microsoft Azure
+### <a name="azure"></a>Azure
 Plusieurs outils Azure sont installés sur la machine virtuelle :
 
 * Il existe un raccourci bureau pour accéder à la documentation du Kit de développement logiciel (SDK) Azure. 
@@ -200,5 +200,5 @@ Voici quelques étapes supplémentaires pour poursuivre votre travail d'apprenti
 * Accédez à **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** pour obtenir des exemples utilisant la bibliothèque RevoScaleR dans R qui prend en charge l’analyse des données à l’échelle de l’entreprise.  
 * Lisez l’article intitulé [Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données](http://aka.ms/dsvmtenthings)
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visitez la [galerie Azure Machine Learning](http://gallery.cortanaintelligence.com) pour obtenir des exemples de Machine Learning et d’analyse de données qui utilisent Azure Machine Learning et des services de données connexes sur Azure. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.
+* Visitez [Azure AI Gallery](http://gallery.cortanaintelligence.com) pour obtenir des exemples d’apprentissage automatique et d’analytique des données qui utilisent Azure Machine Learning et des services de données connexes sur Azure. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.
 

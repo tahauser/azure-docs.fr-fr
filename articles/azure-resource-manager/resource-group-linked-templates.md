@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés lors du déploiement des ressources Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
-Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un modèle principal avec plusieurs modèles liés. Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un seul fichier. Pour les scénarios avancés, les modèles liés vous permettent de diviser la solution en composants ciblés et de réutiliser des modèles.
+Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un modèle principal avec plusieurs modèles associés. Le modèle associé peut être un fichier distinct lié à partir du modèle principal, ou un modèle imbriqué dans le modèle principal.
+
+Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un seul fichier. Pour les scénarios avancés, les modèles liés vous permettent de diviser la solution en composants ciblés et de réutiliser des modèles.
 
 Lorsque vous utilisez un modèle lié, vous créez un modèle principal qui reçoit les valeurs de paramètre au cours du déploiement. Le modèle principal contient tous les modèles liés et transmet des valeurs à ces modèles en fonction des besoins.
 
 ![modèles liés](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Lier à un modèle
+## <a name="link-or-nest-a-template"></a>Lier ou imbriquer un modèle
 
 Pour créer un lien vers un autre modèle, ajoutez une ressource de **déploiement** à votre modèle principal.
 
@@ -40,17 +42,17 @@ Pour créer un lien vers un autre modèle, ajoutez une ressource de **déploieme
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-Les propriétés que vous fournissez pour la ressource de déploiement varient selon que vous établissez la liaison à un modèle externe ou que vous incorporez un modèle inclus dans le modèle principal.
+Les propriétés que vous fournissez pour la ressource de déploiement varient selon que vous établissez la liaison à un modèle externe ou que vous imbriquez un modèle inclus dans le modèle principal.
 
-### <a name="inline-template"></a>Modèle inclus
+### <a name="nested-template"></a>Modèle imbriqué
 
-Pour incorporer le modèle lié, utilisez la propriété **template** et incluez le modèle.
+Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **template** et spécifiez la syntaxe du modèle.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Pour incorporer le modèle lié, utilisez la propriété **template** et incluez
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Pour incorporer le modèle lié, utilisez la propriété **template** et incluez
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Pour les modèles imbriqués, vous ne pouvez pas utiliser les paramètres ou variables définis dans le modèle imbriqué. Vous pouvez en revanche utiliser les paramètres et variables du modèle principal. Dans l’exemple précédent, `[variables('storageName')]` récupère une valeur du modèle principal, et non du modèle imbriqué. Cette restriction ne s'applique pas aux modèles externes.
 
 ### <a name="external-template-and-external-parameters"></a>Modèle externe et paramètres externes
 
@@ -176,7 +177,7 @@ Les exemples suivants montrent comment faire référence à un modèle lié pour
 }
 ```
 
-Le modèle parent déploie le modèle lié et obtient la valeur retournée. Remarquez qu’il fait référence à la ressource de déploiement par son nom et qu’il utilise le nom de la propriété retournée par le modèle lié.
+Le modèle principal déploie le modèle lié et obtient la valeur retournée. Remarquez qu’il fait référence à la ressource de déploiement par son nom et qu’il utilise le nom de la propriété retournée par le modèle lié.
 
 ```json
 {
@@ -309,9 +310,9 @@ Pour utiliser l’adresse IP publique du modèle précédent lors du déploiemen
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Modèles liés dans l’historique de déploiement
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Modèles liés et imbriqués dans l’historique de déploiement
 
-Resource Manager traite chaque modèle lié comme un déploiement séparé dans l’historique de déploiement. Par conséquent, un modèle parent doté de trois modèles liés s’affiche dans l’historique de déploiement en tant que :
+Resource Manager traite chaque modèle comme un déploiement séparé dans l’historique de déploiement. Par conséquent, un modèle principal doté de trois modèles liés ou imbriqués s’affiche dans l’historique de déploiement en tant que :
 
 ![Historique de déploiement](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -480,13 +481,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 Les exemples suivants montrent des utilisations courantes des modèles liés.
 
-|Modèle principal  |Modèle lié |Description  |
+|Modèle principal  |Modèle lié |DESCRIPTION  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modèle lié](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retourne une chaîne du modèle lié. |
 |[Équilibreur de charge avec adresse IP publique](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modèle lié](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Retourne l’adresse IP publique du modèle lié et affecte cette valeur à l’équilibreur de charge. |
 |[Plusieurs adresses IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modèle lié](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Crée plusieurs adresses IP publiques dans le modèle lié.  |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour obtenir des informations sur la définition de l’ordre de déploiement de vos ressources, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md).
 * Pour savoir comment définir une seule ressource mais également créer de nombreuses instances de cette dernière, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).

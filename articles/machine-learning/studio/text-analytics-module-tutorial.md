@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Créer des modèles d’analyse de texte dans Azure Machine Learning Studio
 Vous pouvez utiliser Azure Machine Learning pour créer des modèles d’analyse de texte et les rendre opérationnels. Ces modèles peuvent, par exemple, vous aider à résoudre des problèmes d’analyse de sentiments ou de classification de document.
@@ -33,7 +33,7 @@ Dans une expérience d’analyse de texte, vous devez généralement :
 
 Dans ce didacticiel, vous allez vous familiariser avec ces étapes au cours de l’exploration d’un modèle d’analyse de sentiments à l’aide d’un jeu de données Amazon Book Reviews (consultez l’article scientifique « Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification » de John Blitzer, Mark Dredze et Fernando Pereira ; Association of Computational Linguistics (ACL), 2007). Ce jeu de données se compose de notes de critiques de livres (1-2 ou 4-5) et d’un texte de forme libre. L’objectif est de prédire la note de la critique : faible (1-2) ou élevée (4-5).
 
-Vous trouverez les expériences traitées dans ce didacticiel dans la galerie Cortana Intelligence :
+Vous trouverez les expériences traitées dans ce didacticiel dans la galerie Azure AI :
 
 [Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

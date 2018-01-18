@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d551a62a59e0a7f63f5fd4862680a271de659a19
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Linux
 
@@ -32,7 +32,7 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions).
 
-- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter plusieurs destinataires et options de messagerie, telles que les e-mails, les SMS et les Webhooks, aux notifications à l’aide des [alertes de journal d’activité](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) Azure.  
+- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter plusieurs destinataires et options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) Azure.  
 - Au moment de la notification, une *fenêtre de libre-service* est disponible. Pendant cet intervalle, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague et démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
@@ -82,18 +82,18 @@ Les informations de maintenance planifiée peuvent être consultées à l’aide
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. S’il n’existe aucune maintenance planifiée qui affecte la machine virtuelle, la commande ne retourne pas d’informations de maintenance. 
 
 ```azure-cli
-az vm get-instance-view  - g rgName  -n vmName 
+az vm get-instance-view -g rgName -n vmName
 ```
 
 Les valeurs suivantes sont retournées sous MaintenanceRedeployStatus : 
 
-| Valeur | Description   |
+| Valeur | DESCRIPTION   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle maintenant ||
 | PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
 | PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
-| MaintenanceWindowStartTime            | Début de la fenêtre de maintenance planifiée lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
-| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
+| MaintenanceWindowStartTime            | Début de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle ||
+| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle ||
 | LastOperationResultCode               | Résultat de la dernière tentative de lancement de la maintenance sur la machine virtuelle ||
 
 
@@ -159,7 +159,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 
 **Q : Combien de temps vous faudra-t-il pour redémarrer ma machine virtuelle ?**
 
-**R :** En fonction de la taille de votre machine virtuelle, le redémarrage peut prendre plusieurs minutes. Notez que dans le cas où vous utilisez des Services cloud (rôle de travail/web), Virtual Machine Scale Sets ou des groupes à haute disponibilité, vous disposerez de 30 minutes entre chaque groupe de machines virtuelles (UD). 
+**R :** En fonction de la taille de votre machine virtuelle, le redémarrage peut prendre plusieurs minutes pendant la fenêtre de maintenance en libre-service. Tout redémarrage lancé par Azure pendant la fenêtre de maintenance planifiée dure habituellement 25 minutes environ. Notez que dans le cas où vous utilisez des Services cloud (rôle de travail/web), Virtual Machine Scale Sets ou des groupes à haute disponibilité, vous disposez de 30 minutes entre chaque groupe de machines virtuelles (UD) pendant la fenêtre de maintenance planifiée.
 
 **Q : quelle est l’expérience dans le cas des Services cloud (rôle de travail/web), de Service Fabric, et de Virtual Machine Scale Sets ?**
 

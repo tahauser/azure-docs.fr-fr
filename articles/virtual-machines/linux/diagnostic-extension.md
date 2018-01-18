@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux
 
@@ -50,7 +50,7 @@ Ces instructions d’installation et un [exemple de configuration téléchargeab
 
 La configuration téléchargeable est seulement un exemple. Modifiez-la selon vos besoins.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.
@@ -127,13 +127,17 @@ Cet ensemble d’informations de configuration contient des informations sensibl
 }
 ```
 
-Nom | Valeur
+NOM | Valeur
 ---- | -----
 storageAccountName | Nom du compte de stockage dans lequel les données sont écrites par l’extension.
 storageAccountEndPoint | (facultatif) Le point de terminaison identifiant le cloud dans lequel se trouve le compte de stockage. Si ce paramètre est absent, l’extension de diagnostic Linux utilise par défaut le cloud public Azure, `https://core.windows.net`. Pour utiliser un compte de stockage Azure Allemagne, Azure Government ou Azure Chine, définissez cette valeur en conséquence.
 storageAccountSasToken | [Jeton SAS de compte](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) pour les services Blob et Table (`ss='bt'`), applicables aux conteneurs et aux objets (`srt='co'`), qui accorde les autorisations de créer, répertorier, mettre à jour et écrire (`sp='acluw'`). *N’incluez pas* le point d’interrogation ( ?) du début.
 mdsdHttpProxy | (facultatif) Informations du proxy HTTP nécessaires pour permettre à l’extension de se connecter au compte de stockage et au point de terminaison spécifiés.
 sinksConfig | (facultatif) Détails des destinations alternatives auxquelles les métriques et les événements peuvent délivrés. Les détails spécifiques de chaque récepteur de données pris en charge par l’extension sont traités dans les sections qui suivent.
+
+
+> [!NOTE]
+> Lors du déploiement de l’extension avec un modèle de déploiement Azure, le compte de stockage et le jeton SAS doivent être créés au préalable et ensuite transmis au modèle. Vous ne pouvez pas déployer une machine virtuelle, un compte de stockage, ni configurer l’extension d’un modèle unique. La création d’un jeton SAS dans un modèle n’est pas prise en charge actuellement.
 
 Vous pouvez facilement construire le jeton SAS nécessaire via le portail Azure.
 
@@ -165,8 +169,8 @@ Cette section facultative définit les autres destinations auxquelles l’extens
 
 Élément | Valeur
 ------- | -----
-name | Chaîne utilisée pour référencer ce récepteur ailleurs dans la configuration de l’extension.
-type | Type du récepteur défini. Détermine les autres valeurs (le cas échéant) dans les instances de ce type.
+Nom | Chaîne utilisée pour référencer ce récepteur ailleurs dans la configuration de l’extension.
+Type | Type du récepteur défini. Détermine les autres valeurs (le cas échéant) dans les instances de ce type.
 
 La version 3.0 de l’extension de diagnostic Linux prend en charge deux types de récepteur : EventHub et JsonBlob.
 
@@ -267,7 +271,7 @@ sampleRateInSeconds | (facultatif) Intervalle par défaut entre les collectes de
 
 Élément | Valeur
 ------- | -----
-resourceId | L’ID de ressource Azure Resource Manager de la machine virtuelle ou du groupe de machines virtuelles identiques auquel la machine virtuelle appartient. Ce paramètre doit également être spécifié si un récepteur JsonBlob est utilisé dans la configuration.
+ResourceId | L’ID de ressource Azure Resource Manager de la machine virtuelle ou du groupe de machines virtuelles identiques auquel la machine virtuelle appartient. Ce paramètre doit également être spécifié si un récepteur JsonBlob est utilisé dans la configuration.
 scheduledTransferPeriod | La fréquence à laquelle les métriques agrégées doivent être calculées et transférées vers les métriques Azure, exprimée sous la forme d’un intervalle de temps IS 8601. La périodicité de transfert la plus petite est de 60 secondes, c’est-à-dire PT1M. Vous devez spécifier au moins une scheduledTransferPeriod.
 
 Des échantillons des métriques spécifiées dans la section performanceCounters sont collectés toutes les 15 secondes ou selon le taux d’échantillonnage défini explicitement pour le compteur. Si plusieurs fréquences scheduledTransferPeriod apparaissent (comme dans l’exemple), chaque agrégation est calculée indépendamment.
@@ -308,7 +312,7 @@ Cette section facultative contrôle la collecte des métriques. Les échantillon
 Élément | Valeur
 ------- | -----
 sinks | (facultatif) Liste séparée par des virgules des noms des récepteurs auquel l’extension de diagnostic Linux envoie les résultats des métriques agrégées. Toutes les métriques agrégées sont publiées sur chaque récepteur répertorié. Consultez [sinksConfig](#sinksconfig). Exemple : `"EHsink1, myjsonsink"`.
-type | Identifie le fournisseur réel de la mesure.
+Type | Identifie le fournisseur réel de la mesure.
 class | Avec « counter », identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
 counter | Avec « class », identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
 counterSpecifier | Identifie la métrique spécifique au sein de l’espace de noms des métriques Azure.
@@ -464,10 +468,10 @@ Cette classe de métriques n’a qu’une seule instance. L’attribut « condit
 
 La classe de métriques Réseau fournit des informations sur l’activité réseau sur une interface réseau individuelle depuis le démarrage. L’extension de diagnostic Linux n’expose pas de métriques de la bande passante, qui peuvent être récupérées à partir des métriques de l’hôte.
 
-compteur | Signification
+counter | Signification
 ------- | -------
 BytesTransmitted | Nombre total d’octets envoyés depuis le démarrage
-Octets reçus | Nombre total d’octets reçus depuis le démarrage
+BytesReceived | Nombre total d’octets reçus depuis le démarrage
 BytesTotal | Nombre total d’octets envoyés ou reçus depuis le démarrage
 PacketsTransmitted | Nombre total de paquets envoyés depuis le démarrage
 PacketsReceived | Nombre total de paquets reçus depuis le démarrage
@@ -502,7 +506,7 @@ Les valeurs agrégées pour tous les systèmes de fichiers peuvent être obtenue
 
 La classe de métriques Disque fournit des informations sur l’utilisation du disque. Ces statistiques s’appliquent à la totalité du lecteur. S’il existe plusieurs systèmes de fichiers sur un périphérique, les compteurs pour ce périphérique sont agrégés pour tous les systèmes.
 
-compteur | Signification
+counter | Signification
 ------- | -------
 ReadsPerSecond | Opérations de lecture par seconde
 WritesPerSecond | Opérations d’écriture par seconde
@@ -513,7 +517,7 @@ AverageTransferTime | Nombre moyen de secondes par opération
 AverageDiskQueueLength | Nombre moyen d’opérations disque en file d’attente
 ReadBytesPerSecond | Nombre d’octets lus par seconde
 WriteBytesPerSecond | Nombre d’octets écrits par seconde
-Octets par seconde | Nombre d’octets lus ou écrits par seconde
+BytesPerSecond | Nombre d’octets lus ou écrits par seconde
 
 Les valeurs agrégées pour tous les disques peuvent être obtenues en définissant `"condition": "IsAggregate=True"`. Pour obtenir des informations pour un périphérique spécifique (par exemple /dev/sdf1), définissez `"condition": "Name=\\"/dev/sdf1\\""`.
 
@@ -699,7 +703,7 @@ Cette capture instantanée d’une session de l’Explorateur de stockage Micros
 
 Consultez la [documentation EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) appropriée pour savoir comment consommer des messages publiés sur un point de terminaison EventHubs.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Créez des alertes de métrique dans [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) pour les métriques que vous collectez.
 * Créez [des graphiques de surveillance](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pour vos métriques.

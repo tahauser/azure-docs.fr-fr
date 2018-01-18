@@ -1,6 +1,6 @@
 ---
-title: "Corriger les vulnérabilités du système d’exploitation dans Azure Security Center | Microsoft Docs"
-description: "Ce document vous montre comment implémenter la recommandation Azure Security Center **Remediate OS vulnerabilities** (Corriger les vulnérabilités du système d’exploitation)."
+title: "Corriger les configurations de sécurité dans Azure Security Center | Microsoft Docs"
+description: "Ce document vous montre comment implémenter la recommandation de l’Azure Security Center **Corriger les configurations de sécurité**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corriger les vulnérabilités du système d’exploitation dans Azure Security Center
-Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
+Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de sécurité recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
 
-> [!NOTE]
-> Consultez la [liste des règles de configuration recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations surveillées.
->
->
+Consultez la [liste des règles de configuration recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour plus d’informations sur les configurations surveillées. Consultez [Personnaliser les configurations de sécurité du système d’exploitation](security-center-customize-os-security-config.md) pour apprendre à personnaliser les évaluations de configuration de sécurité dans Security Center.
 
 ## <a name="implement-the-recommendation"></a>Implémenter la recommandation
-La correction des vulnérabilités du système d’exploitation est présentée sous forme de recommandations dans Security Center. Cette recommandation s’affichera dans **Recommandations** et dans **Calcul**.
+La correction de l’incohérence des configurations de sécurité est présentée sous forme de recommandations dans Security Center. Cette recommandation s’affichera dans **Recommandations** et dans **Calcul**.
 
-Dans cet exemple, nous allons examiner la recommandation **Corriger les vulnérabilités du système d’exploitation (par Microsoft)** dans **Calcul**.
+Dans cet exemple, nous allons examiner la recommandation **Corriger les configurations de sécurité** dans **Calcul**.
 1. Dans le menu principal de Security Center, sélectionnez **Calcul**.
 
-   ![Corriger les vulnérabilités du système d’exploitation][1]
+   ![Corriger les configurations de sécurité][1]
 
-2. Dans **Calcul**, sélectionnez **Corriger les vulnérabilités du système d’exploitation (par Microsoft)**. Le tableau de bord **Incompatibilité des vulnérabilités du système d’exploitation (par Microsoft)**s’ouvre.
+2. Sous **Calcul**, sélectionnez **Corriger les configurations de sécurité**. **Configurations de sécurité** s’affiche.
 
-   ![Corriger les vulnérabilités du système d’exploitation][2]
+   ![Configurations de sécurité][2]
 
   La partie supérieure du tableau de bord indique :
 
@@ -77,11 +74,11 @@ Dans cet exemple, nous allons examiner la recommandation **Corriger les vulnéra
   - VALEUR RÉELLE : valeur retournée après analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle
   - OPÉRATION DE LA RÈGLE : opération de règle utilisée par Security Center lors de l’analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle
 
-4. Sélectionnez l’icône **Recherche** dans le ruban supérieur. Recherche ouvre la liste des espaces de travail ayant des machines virtuelles et des ordinateurs avec la vulnérabilité de système d’exploitation sélectionnée. Ce panneau de sélection d’espaces de travail s’affiche uniquement si la règle sélectionnée s’applique à plusieurs machines virtuelles connectées à différents espaces de travail.
+4. Sélectionnez l’icône **Recherche** dans le ruban supérieur. Recherche ouvre la liste des espaces de travail ayant des machines virtuelles et des ordinateurs avec l’incohérence des configurations de sécurité sélectionnée. Ce panneau de sélection d’espaces de travail s’affiche uniquement si la règle sélectionnée s’applique à plusieurs machines virtuelles connectées à différents espaces de travail.
 
   ![Espaces de travail répertoriés][4]
 
-5. Sélectionnez un espace de travail. Une requête de recherche Log Analytics filtrée sur l’espace de travail avec la vulnérabilité de système d’exploitation s’ouvre.
+5. Sélectionnez un espace de travail. Une requête de recherche Log Analytics filtrée sur l’espace de travail avec l’incohérence des configurations de sécurité s’ouvre.
 
   ![Espace de travail avec vulnérabilité de système d’exploitation][5]
 
@@ -89,8 +86,10 @@ Dans cet exemple, nous allons examiner la recommandation **Corriger les vulnéra
 
   ![Filtré sur cet ordinateur][6]
 
-## <a name="next-steps"></a>Étapes suivantes
-Cet article vous a montré comment implémenter la recommandation de Security Center « Corriger les vulnérabilités du système d’exploitation ». Vous pouvez consulter l’ensemble des règles de configuration [ici](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques pour les règles de configuration. Visitez le site [CCE](https://nvd.nist.gov/cce/index.cfm) pour plus d’informations.
+## <a name="next-steps"></a>étapes suivantes
+Cet article vous a montré comment implémenter la recommandation de Security Center « Corriger les configurations de sécurité ». Consultez [Personnaliser les configurations de sécurité du système d’exploitation](security-center-customize-os-security-config.md) pour apprendre à personnaliser les évaluations de configuration de sécurité dans Security Center.
+
+Vous pouvez consulter l’ensemble des règles de configuration [ici](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques pour les règles de configuration. Visitez le site [CCE](https://nvd.nist.gov/cce/index.cfm) pour plus d’informations.
 
 Pour plus d’informations sur Security Center, consultez les ressources suivantes :
 

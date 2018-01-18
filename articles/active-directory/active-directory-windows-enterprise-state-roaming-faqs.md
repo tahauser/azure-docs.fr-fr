@@ -5,7 +5,7 @@ services: active-directory
 keywords: "paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming"
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ sur l’itinérance des paramètres et des données
 Cette rubrique répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
@@ -72,7 +72,7 @@ Dans les versions Windows 10 publiées à partir de novembre 2015 inclus, Enterp
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Les paramètres se synchronisent-ils pour les comptes Azure AD regroupant plusieurs clients ?
 Lorsque plusieurs comptes Azure AD regroupant différents clients Azure AD se trouvent sur le même appareil, vous devez mettre à jour le registre de l’appareil afin de communiquer avec le service Azure Rights Management pour chaque client Azure AD.  
 
-1. Recherchez le GUID de chaque client Azure AD. Ouvrez le portail Azure Classic et sélectionnez un client Azure AD. Le GUID du client se trouve dans l’URL affichée dans la barre d’adresse de votre navigateur. Par exemple : `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Recherchez le GUID de chaque client Azure AD. Ouvrez le portail Azure et sélectionnez un client Azure AD. Le GUID pour le client se trouve sur la page Propriétés du client sélectionné (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), et porte le nom **ID de répertoire**. 
 2. Dès que vous disposez du GUID, vous devez ajouter la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
    À partir de la clé **tenant ID GUID**, créez une nouvelle valeur de chaînes multiples (REG-MULTI-SZ) nommée **AllowedRMSServerUrls**. Pour ses données, spécifiez les URL de point de distribution de licence des autres clients Azure auxquels l’appareil accède.
 3. Vous trouverez les URL de point de distribution de licence en exécutant l’applet de commande **Get-AadrmConfiguration** . Si les valeurs des paramètres **LicensingIntranetDistributionPointUrl** et **LicensingExtranetDistributionPointUrl** sont différentes, spécifiez les deux valeurs. Si les valeurs sont les mêmes, ne spécifiez la valeur qu’une seule fois.

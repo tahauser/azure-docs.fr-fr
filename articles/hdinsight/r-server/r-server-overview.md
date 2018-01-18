@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduction à R Server et aux fonctionnalités Open Source R sur HDInsight
 
 Microsoft R Server est disponible en tant qu’option de déploiement lors de la création de clusters HDInsight dans Azure. Cette nouvelle fonctionnalité offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse extensibles et distribuées sur HDInsight.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Les clusters peuvent être dimensionnés en fonction des projets et des tâches en cours, puis détruits lorsqu’ils ne sont plus nécessaires. Étant donné qu’ils font partie d’Azure HDInsight, ils bénéficient d’un support technique de niveau entreprise 24 heures sur 24, 7 jours sur 7, d’un contrat SLA garantissant 99,9 % de temps de fonctionnement et d’une capacité d’intégration avec d’autres composants de l’écosystème Azure.
 
@@ -58,7 +60,7 @@ Lorsque la modélisation de vos données est terminée, vous pouvez mettre en œ
 Pour noter dans HDInsight, écrivez une fonction R qui appelle votre modèle pour effectuer des prévisions pour un nouveau fichier de données que vous avez chargé sur votre compte de stockage. Ensuite, enregistrez les prévisions dans le compte de stockage. Vous pouvez exécuter la routine à la demande sur le nœud de périmètre de votre cluster ou à l’aide d’une tâche planifiée.  
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Noter dans Azure Machine Learning (AML)
-Pour noter à l’aide d’un service web AML, utilisez le package R Azure Machine Learning open source nommé [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) pour publier votre modèle en tant que service web Azure. Par souci pratique, ce package est déjà installé sur le nœud de périphérie. Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
+Pour noter à l’aide d’un service web AML, utilisez le package R Azure Machine Learning open source nommé [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) pour publier votre modèle en tant que service web Azure. Pour plus de commodité, ce package est déjà installé sur le nœud de périphérie. Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
 
 Si vous choisissez cette option, il vous faut convertir tous les objets de modèle ScaleR en objets de modèle open source équivalents pour les utiliser avec le service web. Utilisez les fonctions de forçage de ScaleR, notamment `as.randomForest()` dans le cas des modèles basés sur un ensemble, pour cette conversion.
 
@@ -96,11 +98,11 @@ Une autre option d’IDE complet consiste à installer un IDE de bureau et à l�
 Enfin, vous pouvez accéder à la console R Server sur le nœud périphérique en tapant **R** à l’invite de commande Linux après vous être connecté via SSH ou PuTTY. Si vous utilisez l’interface de la console, il est pratique d’exécuter un éditeur de texte pour le développement de scripts R dans une autre fenêtre, et de couper-coller des sections de votre script dans la console R au fur et à mesure.
 
 ## <a name="learn-about-pricing"></a>En savoir plus sur la tarification
-Les frais associés à un cluster HDInsight avec R Server sont structurés de manière similaire à ceux applicables à des clusters HDInsight standard. Ils sont basés sur le dimensionnement des machines virtuelles sous-jacentes pour le nom, les données et les nœuds de périmètre, avec l’ajout d’une extension pendant les heures normales. Pour plus d’informations concernant la tarification de HDInsigh et la disponibilité de la version d’évaluation gratuite de 30 jours, consultez la section [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Les frais associés à un cluster HDInsight avec R Server sont structurés de manière similaire à ceux applicables à des clusters HDInsight standard. Ils sont basés sur le dimensionnement des machines virtuelles sous-jacentes pour le nom, les données et les nœuds de périmètre, avec l’ajout d’une extension pendant les heures normales. Pour plus d’informations sur la tarification de HDInsight, consultez la section [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur l’utilisation de R Server avec des clusters HDInsight, consultez les rubriques suivantes :
 
 * [Prise en main de R Server sur HDInsight](r-server-get-started.md)
-* [Options de contexte de calcul pour R Server sur HDInsight](r-server-compute-contexts.md)
-* [Options Stockage Azure pour R Server sur HDInsight](r-server-storage.md)
+* [Options de contexte de calcul pour R Server sur HDInsight (version préliminaire)](r-server-compute-contexts.md)
+* [Options d’Azure Storage pour R Server sur HDInsight](r-server-storage.md)

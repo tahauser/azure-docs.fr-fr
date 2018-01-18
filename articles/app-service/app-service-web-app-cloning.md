@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-ms.openlocfilehash: dc252903571857b5fc89d1d9a2c63cd6b44e9021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f58464ac212b84623d2287205271301dbaa0ffb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
 Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle option a été ajoutée à l’applet de commande New-AzureRMWebApp, qui permet à l’utilisateur de cloner une application web existante à une application qui vient d’être créée dans une autre région ou dans la même région. Les utilisateurs peuvent ainsi déployer de nombreuses applications dans différentes régions.
@@ -102,11 +102,12 @@ Cette fonctionnalité en est actuellement à sa version préliminaire. Nous nous
 * Les paramètres d’extension Kudu ne sont pas clonés.
 * Les règles TiP ne sont pas clonées.
 * Les contenus de la base de données ne sont pas clonés.
+* Les adresses IP sortantes changent si vous clonez vers une unité d’échelle différente
 
 ### <a name="references"></a>Références
 * [Clonage Web App](app-service-web-app-cloning.md)
 * [Sauvegarde d’une application web dans Azure App Service](web-sites-backup.md)
 * [Prise en charge d’Azure Resource Manager pour la version préliminaire d’Azure Traffic Manager](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Présentation de l'environnement App Service](environment/intro.md)
-* [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Utilisation d'Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 
