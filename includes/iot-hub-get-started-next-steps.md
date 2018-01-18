@@ -5,5 +5,5 @@ Pour continuer la prise en main d’Azure IoT Hub et explorer les autres scénar
 - [Utiliser Power BI pour afficher les données de capteurs en temps réel depuis votre IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 - [Utiliser la fonctionnalité Web Apps d’Azure App Service pour afficher les données de capteurs en temps réel depuis votre IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 - [Prévoir la météo en utilisant les données de capteurs IoT Hub dans Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
-- [Gestion des appareils avec iothub-explorer](../articles/iot-hub/iot-hub-device-management-iothub-explorer.md)
+- [Gestion des appareils avec iothub-explorer](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 - [Utiliser Logic Apps pour la surveillance à distance et les notifications](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

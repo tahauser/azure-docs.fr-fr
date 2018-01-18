@@ -1,6 +1,6 @@
 - name: Documentation Azure Log Analytics
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de Log Analytics
       href: log-analytics-overview.md
@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: Connecteur de flux
           href: log-analytics-flow-tutorial.md
+        - name: API Recherche de journal
+          href: 'https://dev.loganalytics.io/'
     - name: Recherche de journal hérité
       items:
         - name: Présentation de la recherche dans les journaux
@@ -122,13 +124,18 @@
           items:
             - name: Expressions régulières
               href: log-analytics-log-searches-regex.md
+        - name: API Recherche de journal
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
     - name: Analyser des données
       items:
         - name: Tableaux de bord
           href: log-analytics-dashboards.md
         - name: Concepteur de vues
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: log-analytics-view-designer.md
             - name: Référence de vignette
               href: log-analytics-view-designer-tiles.md
@@ -258,14 +265,9 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: Modèles Resource Manager
           href: log-analytics-template-workspace-configuration.md
-        - name: API Recherche de journal
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
         - name: API des alertes
           href: log-analytics-api-alerts.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Référence sur le langage
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

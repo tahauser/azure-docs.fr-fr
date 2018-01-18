@@ -1,6 +1,6 @@
 - name: Documentation Cosmos DB
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Cosmos DB
       href: introduction.md
@@ -47,7 +47,7 @@
           href: create-graph-python.md
         - name: PHP
           href: create-graph-php.md
-    - name: Tableau
+    - name: Table
       items:
         - name: .NET
           href: create-table-dotnet.md
@@ -79,7 +79,7 @@
           href: tutorial-develop-mongodb-nodejs.md
         - name: MongoDB avec React
           href: tutorial-develop-mongodb-react.md
-        - name: Tableau
+        - name: Table
           href: tutorial-develop-table-dotnet.md
         - name: Graph
           href: tutorial-develop-graph-dotnet.md
@@ -91,7 +91,7 @@
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
-        - name: Tableau
+        - name: Table
           href: table-import.md
         - name: Cassandra
           href: cassandra-import-data.md
@@ -101,7 +101,7 @@
           href: tutorial-query-sql-api.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
-        - name: Tableau
+        - name: Table
           href: tutorial-query-table.md
         - name: Graph
           href: tutorial-query-graph.md
@@ -111,7 +111,7 @@
           href: tutorial-global-distribution-sql-api.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
-        - name: Tableau
+        - name: Table
           href: tutorial-global-distribution-table.md
         - name: Graph
           href: tutorial-global-distribution-graph.md
@@ -151,7 +151,7 @@
           href: sql-api-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
-        - name: Tableau
+        - name: Table
           href: table-introduction.md
         - name: Graph
           href: graph-introduction.md
@@ -235,9 +235,7 @@
               items:
                 - name: Aide-mémoire sur la grammaire SQL
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Dépassement de capacité de la pile
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
-                - name: Vidéos
+                - name: vidéos
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Mises à jour de service
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
@@ -284,7 +282,7 @@
               href: table-support.md
             - name: Opérations d’API de table avec PowerShell
               href: table-powershell.md
-            - name: Stockage Table Azure
+            - name: Stockage de tables Azure
               items:
                 - name: Présentation du Stockage de table
                   href: table-storage-overview.md
@@ -322,7 +320,7 @@
           href: indexing-policies.md
         - name: Service connecté dans Visual Studio
           href: connected-service.md
-    - name: Gérer
+    - name: gérer
       items:
         - name: Écritures et lectures rentables
           href: key-value-store-cost.md
@@ -382,7 +380,7 @@
           href: odbc-driver.md
         - name: UtiliserSpring Boot Starter avec les API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -426,11 +424,9 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: "Essayez gratuitement Azure Cosmos\_DB"
       href: 'https://azure.microsoft.com/try/cosmosdb/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
-    - name: FAQ
+    - name: Forum Aux Questions
       href: faq.md
-    - name: Dépassement de capacité de la pile
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: Cohérence des données - Exemple du baseball
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

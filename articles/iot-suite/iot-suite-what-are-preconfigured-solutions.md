@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Qu’est-ce qu’Azure IoT Suite ?
 
@@ -62,7 +62,7 @@ Le tableau suivant montre le mappage entre les solutions et des fonctionnalités
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Surveillance à distance](iot-suite-remote-monitoring-explore.md)  |OUI |OUI |OUI |-   |OUI |OUI |-   |
 | [Maintenance prédictive](iot-suite-predictive-overview.md)   |OUI |OUI |-   |-   |OUI |OUI |OUI |
-| [Fabrique connectée](iot-suite-connected-factory-overview.md) |OUI |OUI |OUI |OUI |OUI |OUI |-   |
+| [Fabrique connectée](iot-suite-connected-factory-overview.md) |OUI |- |- |OUI |OUI |OUI |-   |
 
 * *Données*: entrer des données à l'échelle dans le cloud.
 * *Identité de l’appareil* : gérez les identités d’appareil uniques et contrôlez l’accès de l’appareil à la solution.
@@ -83,11 +83,11 @@ Lorsque vous déployez une solution préconfigurée, le processus de déploiemen
 | IoT Hub              | OUI                |                        | OUI               |
 | Event Hubs           |                    | OUI                    |                   |
 | Time Series Insights |                    |                        | OUI               |
-| Services de conteneur   | OUI                |                        | OUI               |
+| Services de conteneur   | OUI                |                        |                   |
 | Stream Analytics     |                    | OUI                    |                   |
 | Web Apps             | OUI                | OUI                    | OUI               |
-| Cosmos DB            | OUI                | OUI                    | OUI               |
-| Tables Azure         |                    | OUI                    | OUI               |
+| Cosmos DB            | OUI                | OUI                    |                    |
+| Stockage Azure         |                    | OUI                    | OUI               |
 
 > [!NOTE]
 > Pour plus d’informations sur les ressources déployées dans la solution préconfigurée de surveillance à distance, consultez cet [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) disponible sur GitHub.

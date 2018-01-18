@@ -1,6 +1,6 @@
 - name: "Documentation Application\_Insights"
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Présentation d’Application\_Insights"
       href: app-insights-overview.md
@@ -182,7 +182,7 @@
               href: app-insights-visual-studio-codelens.md
         - name: Usage
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: app-insights-usage-overview.md
             - name: Envoyer du contexte utilisateur
               href: app-insights-usage-send-user-context.md
@@ -198,7 +198,7 @@
               href: app-insights-usage-workbooks.md
         - name: Analyse
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: app-insights-analytics.md
             - name: Importer des journaux personnalisés
               href: app-insights-analytics-import.md
@@ -265,11 +265,13 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+        - name: Analyse de l'utilisation
+          href: app-insights-usage-troubleshoot.md
 - name: Exemples
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
-- name: Référence
+- name: Informations de référence
   items:
     - name: Langage de requête Analytics
       href: 'https://docs.loganalytics.io/'
