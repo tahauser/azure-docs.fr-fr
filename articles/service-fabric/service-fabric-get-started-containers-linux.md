@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8ff3c60ea2e0e96a9ade2e1f2d711197bb3252ed
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/11/2018
 
 L’exécution d’une application existante dans un conteneur Linux sur un cluster Service Fabric ne nécessite aucune modification de votre application. Cet article vous accompagne dans la création d’une image Docker contenant une application web [Flask](http://flask.pocoo.org/) Python et le déploiement dans un cluster Service Fabric.  Vous allez également partager votre application en conteneur via [Azure Container Registry](/azure/container-registry/).  Cet article suppose une connaissance élémentaire de Docker. Pour en savoir plus sur Docker, consultez la [présentation de Docker](https://docs.docker.com/engine/understanding-docker/).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 * Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -223,7 +223,7 @@ Vous pouvez configurer un comportement **HEALTHCHECK** pour chaque conteneur en 
     </Policies>
 </ServiceManifestImport>
 ```
-Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true** et *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur  **false**. Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
+Par défaut *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true** et *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false**. Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 
@@ -371,17 +371,20 @@ Pour ajouter un autre service de conteneur à une application déjà créée à 
 
 Vous pouvez configurer un intervalle de temps d’attente pour le runtime avant que le conteneur ne soit supprimé après le début de la suppression du service (ou d’un déplacement vers un autre nœud). Le fait de configurer l’intervalle de temps envoie la commande `docker stop <time in seconds>` au conteneur.   Pour plus d’informations, consultez [Arrêt du docker](https://docs.docker.com/engine/reference/commandline/stop/). L’intervalle de temps d’attente est spécifié dans la section `Hosting`. L’extrait de manifeste de cluster suivant montre comment définir l’intervalle d’attente :
 
-```xml
+
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "ContainerDeactivationTimeout": "10",
+                "name": "ContainerDeactivationTimeout",
+                "value" : "10"
+          },
           ...
-          }
         ]
 }
 ```
+
 L’intervalle de temps par défaut est défini sur 10 secondes. Étant donné que cette configuration est dynamique, une mise à niveau uniquement de la configuration sur un cluster met à jour le délai d’expiration. 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurer le runtime pour supprimer les images conteneur inutilisées
@@ -389,13 +392,18 @@ L’intervalle de temps par défaut est défini sur 10 secondes. Étant donné 
 Vous pouvez configurer le cluster Service Fabric pour supprimer des images conteneur inutilisées à partir du nœud. Cette configuration permet à l’espace disque d’être rétabli si trop d’images conteneur sont présentes sur le nœud.  Pour activer cette fonctionnalité, mettez à jour la section `Hosting` du manifeste de cluster, comme indiqué dans l’extrait de code suivant : 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "PruneContainerImages": “True”,
-            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+                "name": "PruneContainerImages",
+                "value": "True"
+          },
+          {
+                "name": "ContainerImagesToSkip",
+                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+          }
           ...
           }
         ]

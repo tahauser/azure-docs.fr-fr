@@ -118,6 +118,11 @@
           href: copy-activity-overview.md
         - name: Outil Copier des données
           href: copy-data-tool.md
+          items:
+            - name: Charger Azure Data Lake Store
+              href: load-azure-data-lake-store.md
+            - name: Charger Azure SQL Data Warehouse
+              href: load-azure-sql-data-warehouse.md
         - name: Lire ou écrire des données partitionnées
           href: how-to-read-write-partitioned-data.md
         - name: Connecteurs
@@ -134,9 +139,6 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
-              items:
-                - name: Charger Azure Data Lake Store
-                  href: load-azure-data-lake-store.md
             - name: Base de données Azure pour MySQL
               href: connector-azure-database-for-mysql.md
             - name: Base de données Azure pour PostgreSQL
@@ -149,9 +151,6 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
-              items:
-                - name: Charger Azure SQL Data Warehouse
-                  href: load-azure-sql-data-warehouse.md
             - name: Stockage de table Azure
               href: connector-azure-table-storage.md
             - name: Cassandra

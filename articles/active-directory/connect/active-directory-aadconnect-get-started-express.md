@@ -3,7 +3,7 @@ title: "Azure AD Connect : Bien démarrer avec les paramètres express | Microso
 description: "Découvrez comment télécharger, installer et exécuter l’Assistant d’installation d’Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 7d180a83d7b0a8e02ed04d8771d2ad2c6fa386c6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 15101e1edb483f49c7570a5d4eab66865bbceb87
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Prise en main d’Azure AD Connect à l’aide de paramètres express
 La **configuration rapide** d’Azure AD Connect est utilisée lorsque vous disposez d’une topologie à une forêt unique et la [synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) est utilisée pour l’authentification. **configuration rapide** est l’option par défaut et s’applique à la plupart des scénarios de déploiement. L’extension de votre répertoire local dans le cloud n’est plus qu’à quelques clics.

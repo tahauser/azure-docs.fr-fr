@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 78e7b2ddb2c024770a779d097395d6f7a6484f44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66c53b84e1e820178083b3ae703e0a1feada187f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-reporting"></a>Création de rapports Active Directory
 
@@ -102,7 +102,7 @@ Pour accéder au rapport d’activité des connexions, votre locataire doit poss
 Outre l’interface utilisateur, les rapports Azure Active Directory vous fournissent également un [accès par programme](active-directory-reporting-api-getting-started-azure-portal.md) à leurs données. Les données de ces rapports peuvent être très utiles pour vos applications, telles que les systèmes SIEM, l’audit et les outils d’analyse décisionnelle. Les API de création de rapports Azure AD fournissent un accès par programme aux données via un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les différents types de rapports dans Azure Active Directory, voir :
 
