@@ -1,20 +1,20 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce que Data Lake Analytics ?](data-lake-analytics-overview.md)
 
 # Prise en main
-## [Portail Azure](data-lake-analytics-get-started-portal.md)
+## [Portail Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Interface de ligne de commande Azure](data-lake-analytics-get-started-cli2.md)
+## [interface de ligne de commande Azure](data-lake-analytics-get-started-cli2.md)
 
 # Procédures
 
 ## Gérer Data Lake Analytics
-### [Portail Azure](data-lake-analytics-manage-use-portal.md)
-### [Interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
+### [Portail Azure](data-lake-analytics-manage-use-portal.md)
+### [interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [Kit SDK .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Kit de développement logiciel (SDK) .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Kit de développement logiciel (SDK) Python](data-lake-analytics-manage-use-python-sdk.md)
 ### [Kit de développement logiciel (SDK) Java](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
@@ -43,7 +43,7 @@
 ### [Exécution locale et débogage local dans VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
 ### [Guide de programmabilité U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
@@ -60,4 +60,5 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Vidéos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
