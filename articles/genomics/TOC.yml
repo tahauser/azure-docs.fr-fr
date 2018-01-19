@@ -1,8 +1,8 @@
 - name: Documentation Microsoft Genomics
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que Microsoft Genomics\_?"
+    - name: Qu’est-ce que Microsoft Genomics ?
       href: overview-what-is-genomics.md
 - name: Démarrages rapides
   expanded: true
@@ -21,9 +21,11 @@
   items:
     - name: Questions courantes
       href: frequently-asked-questions-genomics.md
+    - name: Historique de publication des versions
+      href: version-release-history-genomics.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/genomics/'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
