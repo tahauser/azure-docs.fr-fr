@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 Désormais disponible : [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB. Pour en savoir plus, consultez [Estimation des besoins de débit](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Nous vous recommandons de commencer par visionner la vidéo suivante, dans laque
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Spécification de la capacité d’unités de requête dans Azure Cosmos DB
 Lorsque vous démarrez une nouvelle collection, table ou un nouveau graphique, vous spécifiez le nombre d’unités de requête (RU par seconde) à réserver. En fonction du débit configuré, Azure Cosmos DB alloue des partitions physiques pour héberger votre collection et répartit/rééquilibre les données sur les partitions à mesure qu’elles se développent.
 
-Azure Cosmos DB nécessite la spécification d’une clé de partition lorsqu’une collection est configurée avec 2 500 unités de requête ou plus. Une clé de partition est également requise ultérieurement pour mettre à l’échelle le débit de votre collection au-delà de 2 500 unités de requête. Il est donc fortement recommandé de configurer une [clé de partition](partition-data.md) lors de la création d’un conteneur, quel que soit le débit initial. Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). En sélectionnant une clé de partition avec de nombreuses valeurs distinctes, vous garantissez que votre collection/table/graphique et vos requêtes peuvent être mis à l’échelle de façon uniforme par Azure Cosmos DB. 
+Les conteneurs Azure Cosmos DB peuvent être créés fixes ou illimités. Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Pour créer un conteneur illimité, vous devez spécifier un débit minimal de 1 000 RU/s et une [clé de partition](partition-data.md). Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). En sélectionnant une clé de partition avec de nombreuses valeurs distinctes, vous garantissez que votre collection/table/graphique et vos requêtes peuvent être mis à l’échelle de façon uniforme par Azure Cosmos DB. 
 
 > [!NOTE]
 > Une clé de partition est une limite logique et non physique. Il n’est donc pas nécessaire de limiter le nombre de valeurs de clé de partition distinctes. En fait, il vaut mieux avoir trop de valeurs de clé de partition distinctes que pas assez, car Azure Cosmos DB offre plus d’options d’équilibrage de charge.
@@ -201,7 +201,7 @@ Ainsi, une méthode permettant d’estimer la quantité de débit réservé requ
 > 
 > 
 
-Par exemple :
+Par exemple : 
 
 1. Enregistrez les frais d’unités de requête de création (insertion) d’un élément standard. 
 2. Enregistrez les frais d’unités de requête de lecture d’un élément standard.
@@ -210,7 +210,7 @@ Par exemple :
 5. Enregistrer les frais d’unités de requête des scripts personnalisés (procédures stockées, déclencheurs, fonctions définies par l’utilisateur) utilisés par l’application.
 6. Calculer les unités de requête nécessaires étant donné l’estimation du nombre d’exécutions d’opérations prévues chaque seconde.
 
-### <a id="GetLastRequestStatistics"></a>Utiliser la commande GetLastRequestStatistics de l’API pour MongoDB
+## <a id="GetLastRequestStatistics"></a>Utiliser la commande GetLastRequestStatistics de l’API pour MongoDB
 L’API pour MongoDB prend en charge une commande personnalisée, *getLastRequestStatistics*, pour récupérer les frais de requête des opérations spécifiées.
 
 Par exemple, dans l’interpréteur de commandes Mongo, exécutez l’opération dont vous souhaitez vérifier les frais de demande.
@@ -346,12 +346,12 @@ Si vous utilisez des requêtes LINQ et le SDK .NET Client, la plupart du temps v
 Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de requêtes, le comportement par défaut peut ne pas suffire, et le client générera dans l’application une exception DocumentClientException avec le code d’état 429. Dans ce cas, vous pourriez traiter le comportement et la logique de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou accroître le débit réservé pour le conteneur.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API pour MongoDB
-Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API pour MongoDB réessaiera automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
+Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le backend interrompt la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API pour MongoDB réessaiera automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le débit réservé avec les bases de données Azure Cosmos DB, explorez ces ressources :
 
-* [Tarification de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)
+* [Tarification Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)
 * [Partitionnement, clés de partition et mise à l’échelle dans Azure Cosmos DB](partition-data.md)
 
 Pour en savoir plus sur Azure Cosmos DB, consultez la [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) relative à Azure Cosmos DB. 

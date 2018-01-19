@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
 Vous pouvez exécuter la solution Azure Functions dans deux modes : le plan Consommation et le plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul pendant l’exécution du code, augmente la taille des instances quand c’est nécessaire pour gérer la charge, puis descend en puissance quand le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à disposer d’une capacité de réserve à l’avance. Cet article est consacré au plan Consommation, un modèle d’application [serverless](https://azure.microsoft.com/overview/serverless-computing/). Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Pour l’instant, l’hébergement de Linux est uniquement disponible dans un plan App Service.
+> Pour l’instant, [l’hébergement Linux](functions-create-first-azure-function-azure-cli-linux.md) est uniquement disponible dans un plan App Service.
 
 Si vous n’êtes pas familiarisé avec Azure Functions, consultez [Vue d’ensemble d’Azure Functions](functions-overview.md).
 
@@ -46,7 +46,7 @@ Dans un plan App Service, vous pouvez adapter les niveaux pour allouer différen
 Quand vous utilisez un plan Consommation, les instances de l’hôte Azure Functions sont ajoutées et supprimées de façon dynamique en fonction du nombre d’événements entrants. Ce plan est mis à l’échelle automatiquement, et vous êtes facturé pour les ressources de calcul uniquement quand vos fonctions sont exécutées. Dans un plan Consommation, une fonction peut s’exécuter pendant 10 minutes au plus. 
 
 > [!NOTE]
-> Le délai d’expiration par défaut pour les fonctions dans un plan Consommation est de 5 minutes. Vous pouvez augmenter la valeur à 10 minutes pour l’application de fonction en modifiant la propriété `functionTimeout` dans [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> Le délai d’expiration par défaut pour les fonctions dans un plan Consommation est de 5 minutes. Vous pouvez augmenter la valeur à 10 minutes pour l’application de fonction en changeant la propriété `functionTimeout` dans le fichier projet [host.json](functions-host-json.md#functiontimeout).
 
 La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. La facturation est unifiée pour toutes les fonctions d’une même application de fonction. Pour plus d’informations, consultez la page [Tarification d’Azure Functions].
 
@@ -90,14 +90,14 @@ Pour en savoir plus sur les types de compte de stockage, consultez [Présentatio
 
 ## <a name="how-the-consumption-plan-works"></a>Fonctionnement du plan de consommation
 
-Dans le plan Consommation, le contrôleur de mise à l’échelle met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions en fonction du nombre d’événements en fonction desquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions est limitée à 1,5 Go de mémoire.  Une instance de l’hôte est l’application de fonction, ce qui signifie que toutes les fonctions dans une application de fonction partagent des ressources au sein d’une instance et se redimensionnent en même temps.
+Dans le plan Consommation, le contrôleur de mise à l’échelle met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions en fonction du nombre d’événements en fonction desquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions est limitée à 1,5 Go de mémoire.  Une instance de l’hôte est l’application de fonction, ce qui signifie que toutes les fonctions dans une application de fonction partagent des ressources au sein d’une instance et se mettent à l’échelle en même temps.
 
 Quand vous utilisez le plan d’hébergement Consommation, les fichiers de code de fonction sont stockés dans des partages de fichiers Azure du compte de stockage principal de la fonction. Lorsque vous supprimez le compte de stockage principal de l’application de fonction, les fichiers de code de fonction sont supprimés et ne peuvent pas être récupérés.
 
 > [!NOTE]
 > Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob si une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les blobs sont traités immédiatement. Pour éviter ce délai initial, pensez à l’une des options suivantes :
 > - Utilisez l’application de fonction dans un plan App Service, avec le paramètre Toujours actif activé.
-> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un abonnement Event Grid ou un message de file d’attente qui contient le nom de l’objet blob. Pour obtenir un exemple, consultez [Exemples JavaScript et Script C# de liaisons d’entrée et de sortie blob](functions-bindings-storage-blob.md#input--output---example).
+> - Utilisez un autre mécanisme pour déclencher le traitement de l’objet blob, comme un abonnement Event Grid ou un message de file d’attente qui contient le nom de l’objet blob. Pour obtenir un exemple, consultez les [exemples de liaison d’entrée d’objet blob](functions-bindings-storage-blob.md#input---example).
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 
@@ -115,7 +115,7 @@ La mise à l’échelle peut varier en fonction de certains facteurs et selon le
 
 Différents déclencheurs peuvent également avoir des limites de mise à l’échelle différentes, comme documentées ci-dessous :
 
-* [Hub d’événements](functions-bindings-event-hubs.md#trigger---scaling)
+* [Concentrateur d’événements](functions-bindings-event-hubs.md#trigger---scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bonnes pratiques et modèles pour les applications scalables
 

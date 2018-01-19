@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6f551a7970f226ba40753009b24bd4c5eeb67fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gérer les points de terminaison de streaming avec le Portail Azure
 
-Cette rubrique explique comment utiliser le portail Azure pour gérer les points de terminaison de streaming. 
+Cet article explique comment utiliser le portail Azure pour gérer les points de terminaison de streaming. 
 
 >[!NOTE]
->Consultez la rubrique de [présentation](media-services-streaming-endpoints-overview.md). 
+>Consultez l’article de [présentation](media-services-streaming-endpoints-overview.md). 
 
-Pour plus d’informations sur la mise à l’échelle du point de terminaison de streaming, consultez [cette](media-services-portal-scale-streaming-endpoints.md) rubrique.
+Pour plus d’informations sur la mise à l’échelle du point de terminaison de streaming, consultez [cet](media-services-portal-scale-streaming-endpoints.md) article.
 
 ## <a name="start-managing-streaming-endpoints"></a>Commencer à gérer des points de terminaison de streaming 
 
@@ -63,7 +63,7 @@ Pour ajouter/supprimer un point de terminaison de streaming à l’aide du Porta
 Le point de terminaison de streaming vous permet de configurer les propriétés suivantes :
 
 * Contrôle d’accès
-* Contrôle de cache
+* contrôle de cache
 * Stratégies d’accès intersite
 
 Pour plus d’informations sur ces propriétés, consultez la rubrique [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
@@ -86,17 +86,17 @@ Vous trouverez une brève description des champs ci-dessous.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Mise à l’échelle du point de terminaison de streaming Premium
 
-Pour plus d’informations, consultez [cette rubrique](media-services-portal-scale-streaming-endpoints.md) .
+Pour plus d’informations, consultez [cet](media-services-portal-scale-streaming-endpoints.md) article.
 
 ## <a id="enable_cdn"></a>Activer l’intégration au CDN Azure
 
 Lorsque vous créez un compte, l’intégration CDN Azure du point de terminaison de streaming par défaut est activée par défaut.
 
-Si vous souhaitez activer/désactiver le CDN ultérieurement, votre point de terminaison de streaming doit avoir l’état **Arrêté**. Il peut s’écouler jusqu’à deux heures pour que l’intégration d’Azure CDN soit active et pour que les modifications soient actives sur tous les comptes POP CDN. Toutefois, vous pouvez démarrer votre point de terminaison de streaming et le flux sans interruptions à partir du point de terminaison de streaming. Une fois l’intégration terminée, le flux est émis à partir du CDN. Pendant la durée de l’approvisionnement, votre point de terminaison de streaming est en état de **démarrage** et vous pouvez observer une dégradation des performances.
+Si vous souhaitez activer/désactiver le CDN ultérieurement, votre point de terminaison de streaming doit avoir l’état **Arrêté**. Il peut s’écouler jusqu’à deux heures avant que l’intégration d’Azure CDN soit active et que les modifications soient actives sur tous les comptes POP CDN. Toutefois, vous pouvez démarrer votre point de terminaison de streaming et le flux sans interruptions à partir du point de terminaison de streaming. Une fois l’intégration terminée, le flux est émis à partir du CDN. Pendant la durée de l’approvisionnement, votre point de terminaison de streaming est en état de **démarrage** et vous pouvez observer une dégradation des performances.
 
 L’intégration du CDN est activée dans tous les centres de données Azure, sauf dans les régions Gouvernement fédéral et Chine.
 
-Une fois qu’elle est activée, la configuration d’**Access Control**, du **nom d’hôte personnalisé** et de l’**authentification de signature Akamai** est désactivée.
+Une fois qu’elle est activée, la configuration **d’Access Control**, du **nom d’hôte personnalisé et de **l’authentification de signature Akamai** est désactivée.
  
 > [!IMPORTANT]
 > L’intégration d’Azure Media Services au CDN Azure est implémentée sur le **CDN Azure fourni par Verizon** pour les points de terminaison de streaming Standard. Les points de terminaison de streaming Premium peuvent être configurés à l’aide de l’ensemble des **fournisseurs et niveaux de tarification Azure CDN**. Pour plus d’informations sur les fonctionnalités du CDN Azure, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN)](../cdn/cdn-overview.md).
@@ -106,7 +106,7 @@ Une fois qu’elle est activée, la configuration d’**Access Control**, du **n
 * Lorsque le CDN est activé pour un point de terminaison de diffusion en continu, les clients ne peuvent pas demander directement le contenu à partir de l’origine. Si vous avez besoin de tester votre contenu avec ou sans CDN, vous pouvez créer un autre point de terminaison de streaming qui n’est pas activé pour le CDN.
 * Le nom d’hôte de votre point de terminaison reste le même une fois le CDN activé. Vous n’avez pas besoin d’apporter de modifications à votre flux de travail Media Services une fois le CDN activé. Par exemple, si le nom d’hôte de votre point de terminaison en continu est strasbourg.streaming.mediaservices.windows.net, après avoir activé le CDN, le même nom d’hôte est utilisé.
 * Pour les nouveaux points de terminaison de streaming, vous pouvez simplement activer le CDN en créant un point de terminaison. Pour les points de terminaison de streaming existants, vous devez d’abord arrêter le point de terminaison, puis activer/désactiver le CDN.
-* Le point de terminaison de streaming Standard ne peut être configuré qu’à l’aide du **fournisseur CDN Standard Verizon** par le biais du portail de gestion Azure. Toutefois, vous pouvez activer d’autres fournisseurs Azure CDN à l’aide d’API REST.
+* Le point de terminaison de streaming Standard ne peut être configuré qu’à l’aide du **fournisseur CDN Standard Verizon** par le biais du portail Azure Classic. Toutefois, vous pouvez activer d’autres fournisseurs Azure CDN à l’aide d’API REST.
 
 ## <a name="configure-cdn-profile"></a>Configurer le profil CDN
 
@@ -114,7 +114,7 @@ Vous pouvez configurer le profil CDN en sélectionnant le bouton **Gérer le CDN
 
 ![point de terminaison de diffusion en continu](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

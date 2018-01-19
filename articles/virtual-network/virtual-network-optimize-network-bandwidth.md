@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimiser le débit du réseau des machines virtuelles Azure
 
@@ -26,16 +26,16 @@ Les machines virtuelles Azure disposent de paramètres réseau par défaut qui p
 
 ## <a name="windows-vm"></a>Machine virtuelle Windows
 
-Si votre machine virtuelle Windows est compatible avec la [mise en réseau accélérée](virtual-network-create-vm-accelerated-networking.md), l’activation de cette fonctionnalité constitue la configuration optimale pour le débit. Pour toutes les autres machines virtuelles Windows, l’utilisation de la mise à l’échelle côté réception (RSS) peut permettre d’atteindre un débit maximal supérieur à celui d’une machine virtuelle sans RSS. La mise à l’échelle côté réception (RSS) peut être désactivée par défaut sur une machine virtuelle Windows. Effectuez les étapes suivantes pour déterminer si la mise à l’échelle côté réception (RSS) est activée et, si nécessaire, pour l’activer.
+Si votre machine virtuelle Windows prend en charge la [mise en réseau accélérée](create-vm-accelerated-networking-powershell.md), l’activation de cette fonctionnalité constitue la configuration optimale pour le débit. Pour toutes les autres machines virtuelles Windows, l’utilisation de la mise à l’échelle côté réception (RSS) peut permettre d’atteindre un débit maximal supérieur à celui d’une machine virtuelle sans RSS. La mise à l’échelle côté réception (RSS) peut être désactivée par défaut sur une machine virtuelle Windows. Pour déterminer si la mise à l’échelle côté réception (RSS) est activée et, si elle ne l’est pas, l’activer, effectuez les étapes suivantes :
 
-1. Entrez la commande PowerShell `Get-NetAdapterRss` pour savoir si la mise à l’échelle côté réception (RSS) est activée sur une carte réseau. Dans l’exemple de sortie suivant retourné par `Get-NetAdapterRss`, la mise à l’échelle côté réception (RSS) n’est pas activée.
+1. Utilisez la commande PowerShell `Get-NetAdapterRss` pour savoir si la mise à l’échelle côté réception (RSS) est activée sur une carte réseau. Dans l’exemple de sortie suivant retourné par `Get-NetAdapterRss`, la mise à l’échelle côté réception (RSS) n’est pas activée.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Entrez la commande suivante pour activer la mise à l’échelle côté réception (RSS) :
+2. Pour activer la mise à l’échelle côté réception (RSS), entrez la commande suivante :
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -46,7 +46,7 @@ Si votre machine virtuelle Windows est compatible avec la [mise en réseau accé
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>Machine virtuelle Linux
@@ -55,13 +55,15 @@ La mise à l’échelle côté réception (RSS) est toujours activée par défau
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu pour les nouveaux déploiements
 
-Le noyau Ubuntu Azure fournit les meilleures performances réseau sur Azure et est le noyau par défaut depuis le 21 septembre 2017. Pour bénéficier de ce noyau, installez tout d’abord la version la plus récente de 16.04-LTS, comme décrit ci-dessous :
+Le noyau Ubuntu Azure fournit les meilleures performances réseau sur Azure et est le noyau par défaut depuis le 21 septembre 2017. Pour utiliser ce noyau, installez d’abord la version la plus récente de 16.04-LTS, comme ci-dessous :
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 Une fois la création terminée, entrez les commandes suivantes pour obtenir les mises à jour les plus récentes. Ces étapes fonctionnent aussi pour les machines virtuelles qui s’exécutent actuellement sur le noyau Ubuntu Azure.
 
 ```bash
@@ -96,7 +98,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Si votre machine virtuelle ne dispose pas du noyau Azure, le numéro de version commence en général par « 4.4 ». Si c’est le cas, exécutez les commandes suivantes à la racine.
+Si votre machine virtuelle ne dispose pas du noyau Azure, le numéro de version commence en général par « 4.4 ». Si la machine virtuelle n’a pas le noyau Azure, exécutez les commandes suivantes à la racine :
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -109,14 +112,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 Pour bénéficier des dernières optimisations, il est préférable de créer une machine virtuelle avec la version la plus récente prise en charge en spécifiant les paramètres suivants :
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-Il peut être bénéfique pour les machines virtuelles nouvelles ou existantes d’installer la dernière version de Linux Integration Services (LIS).
-L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2.2-2, bien que les versions ultérieures contiennent d’autres améliorations. Entrez les commandes suivantes pour installer la dernière version de LIS :
+
+Il peut être bénéfique pour les machines virtuelles nouvelles ou existantes d’installer la dernière version de Linux Integration Services (LIS). L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2.2-2, bien que les versions ultérieures contiennent d’autres améliorations. Entrez les commandes suivantes pour installer la dernière version de LIS :
 
 ```bash
 sudo yum update
@@ -127,14 +131,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Pour bénéficier des optimisations, il est préférable de créer une machine virtuelle avec la version la plus récente prise en charge en spécifiant les paramètres suivants :
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-Il peut être bénéfique pour les machines virtuelles nouvelles ou existantes d’installer la dernière version de Linux Integration Services (LIS).
-L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour télécharger et installer les LIS :
+
+Il peut être bénéfique pour les machines virtuelles nouvelles ou existantes d’installer la dernière version de Linux Integration Services (LIS). L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour télécharger et installer les LIS :
 
 ```bash
 mkdir lis4.2.3-1
@@ -148,5 +153,6 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 Apprenez-en plus sur les Services d’intégration Linux version 4.2 pour Hyper-V en consultant la [page de téléchargement](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* À présent que la machine virtuelle est optimisée, voyez le résultat avec le [Test de bande passante/débit de machine virtuelle](virtual-network-bandwidth-testing.md) pour votre scénario.
+* Découvrez le résultat optimisé avec le [Test de bande passante/débit de machine virtuelle Azure](virtual-network-bandwidth-testing.md) pour votre scénario.
+* Découvrez de quelle façon [la bande passante est allouée aux machines virtuelles] (virtual-machine-network-throughput.md)
 * En savoir plus avec le [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)

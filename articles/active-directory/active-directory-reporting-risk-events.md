@@ -4,21 +4,21 @@ description: "Cette rubrique offre une présentation détaillée des événement
 services: active-directory
 keywords: "azure active directory identity protection, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
@@ -31,9 +31,13 @@ La grande majorité des violations de sécurité ont lieu lorsque des cybercrimi
 - [Voyage impossible vers des emplacements inhabituels](#impossible-travel-to-atypical-locations) 
 - [Connexions depuis des périphériques infectés](#sign-ins-from-infected-devices) 
 - [Connexions depuis des adresses IP avec une activité suspecte](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Connexions depuis des emplacements non connus](#sign-in-from-unfamiliar-locations) (uniquement dans les éditions **Azure Active Directory Premium P2**)
+- [Connexions depuis des emplacements inconnus](#sign-in-from-unfamiliar-locations) 
+
 
 ![Événement à risque](./media/active-directory-reporting-risk-events/91.png)
+
+L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. Avec l’édition Azure AD Premium P2, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes. Avec l’édition Azure AD Premium P1, les détections qui ne sont pas couvertes par la licence s’affichent comme événement à risque **Connexion avec un risque supplémentaire détecté**.
+
 
 Cette rubrique offre une présentation détaillée des événements à risque et vous montre comment vous pouvez les utiliser pour protéger vos identités Azure AD.
 
@@ -158,7 +162,7 @@ Nous vous conseillons de contacter l’utilisateur pour vérifier s’il s’est
 
 
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les événements à risque sont l’élément de base qui définit le niveau de protection de vos identités Azure AD. Azure AD peut détecter actuellement six événements à risque : 
 

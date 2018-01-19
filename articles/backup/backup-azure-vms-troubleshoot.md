@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
@@ -69,15 +69,15 @@ Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque [sup
 | Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012 | Accédez à C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion et installez vcredist2012_x64. Vérifiez que la valeur de la clé de Registre autorisant l’installation de ce service est correcte, c’est-à-dire que la clé de Registre _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ a pour valeur 3 et non 4. Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant _MSIEXEC /UNREGISTER_ suivi de _MSIEXEC /REGISTER_ dans une invite de commandes avec élévation de privilèges.  |
 
 
-## <a name="jobs"></a>Travaux
+## <a name="jobs"></a>Tâches
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |
 | L’annulation n’est pas prise en charge pour ce type de tâche. Veuillez patienter jusqu’à ce que le travail soit terminé. |Aucun |
-| Le travail n’est pas dans un état annulable. Veuillez patienter jusqu’à ce que le travail soit terminé. <br>OU<br> L’état du travail sélectionné n’est pas annulable. Veuillez patienter jusqu’à ce que le travail soit terminé. |Selon toute probabilité, le travail est presque terminé. Attendez que le travail soit terminé.|
+| Le travail n’est pas dans un état annulable. Veuillez patienter jusqu’à ce que le travail soit terminé. <br>Ou<br> Le travail sélectionné n’est pas dans un état annulable. Veuillez patienter jusqu’à ce que le travail soit terminé. |Selon toute probabilité, le travail est presque terminé. Attendez que le travail soit terminé.|
 | Impossible d’annuler le travail, car il n’est pas en cours. L’annulation est prise en charge uniquement pour les travaux en cours. Veuillez tenter l’annulation de la tâche en cours d’exécution. |Cet événement est dû à un état provisoire. Attendez une minute et relancez l’opération d’annulation. |
 | Impossible d’annuler le travail. Veuillez patienter jusqu’à la fin du travail. |Aucun |
 
-## <a name="restore"></a>Restauration
+## <a name="restore"></a>Restore
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |
 | Échec de la restauration avec une erreur interne du cloud |<ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que les paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous tentez d’effectuer la restauration est configuré avec une adresse IP réservée, et les machines virtuelles existantes dans le service cloud sont à l’état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud. <br>- Machines virtuelles avec configuration d’un équilibreur de charge (interne et externe)<br>- Machines virtuelles avec plusieurs adresses IP réservées<br>- Machines virtuelles avec plusieurs NIC<br>Sélectionnez un nouveau service cloud dans l’interface utilisateur ou consultez les [considérations relatives à la restauration](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) des machines virtuelles affichant des configurations de réseau spéciales.</ol> |

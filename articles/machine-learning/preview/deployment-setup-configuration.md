@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Installation de la gestion des modèles
 
@@ -25,8 +25,8 @@ Avec la Gestion des modèles Azure ML, vous pouvez déployer et gérer efficacem
 À la fin de ce document, votre environnement de gestion des modèles doit être configuré et prêt pour le déploiement de vos modèles d’apprentissage automatique.
 
 ## <a name="what-you-need-to-get-started"></a>Ce dont vous avez besoin pour commencer
-Pour tirer le meilleur parti de ce guide, vous devez avoir un accès propriétaire à un abonnement Azure sur lequel vous pouvez déployer vos modèles.
-L’interface CLI est préinstallée sur Azure Machine Learning Workbench et sur les [machines virtuelles DSVM Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Pour tirer le meilleur parti de ce guide, vous devez avoir un accès contributeur à un abonnement Azure ou à un groupe de ressources sur lequel vous pouvez déployer vos modèles.
+L’interface CLI est préinstallée sur Azure Machine Learning Workbench et sur les [machines virtuelles DSVM Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Utilisation de l’interface CLI
 Pour utiliser les interfaces de ligne de commande (CLI) à partir de Workbench, cliquez sur **Fichier** -> **Ouvrir l’invite de commandes**. 
@@ -81,13 +81,15 @@ Dans un premier temps, vous devez configurer votre environnement de déploiement
 
 Pendant la configuration de l’environnement :
 - Vous êtes invité à vous connecter à Azure. Pour vous connecter, ouvrez la page https://aka.ms/devicelogin dans un navigateur web et entrez le code fourni pour vous authentifier.
-- Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : choisissez un compte qui est associé à un abonnement Azure valide et qui dispose d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à confirmer si vous souhaitez continuer avec le compte sélectionné.
+- Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : Sélectionnez un compte qui dispose d’un abonnement Azure valide et d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à préciser si vous souhaitez continuer avec le compte sélectionné.
 
 ### <a name="environment-setup"></a>Configuration de l’environnement
-Pour lancer le processus de configuration, vous devez inscrire le fournisseur d’environnement en entrant la commande suivante :
+Pour lancer le processus de configuration, vous devez inscrire quelques fournisseurs d’environnement en entrant les commandes suivantes :
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Déploiement local
 Pour déployer et tester votre service web sur l’ordinateur local, configurez un environnement local à l’aide de la commande suivante. Le nom du groupe de ressources est facultatif.
@@ -128,7 +130,7 @@ La commande de configuration d’environnement de cluster crée les ressources s
 - Un compte Application Insights
 
 >[!IMPORTANT]
-> Pour créer un environnement de cluster, vous devez être propriétaire de l’abonnement Azure et également pouvoir créer un principal de service. Pour vérifier si vous disposez de privilèges suffisants, suivez les instructions de cette page : [Création d’un principal du service dans Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Pour créer un environnement de cluster, vous devez avoir un accès contributeur au groupe de ressources ou à l’abonnement Azure.
 
 Le groupe de ressources, le compte de stockage et l’ACR sont créés rapidement. Le déploiement ACS peut prendre jusqu’à 20 minutes. 
 
@@ -169,5 +171,5 @@ Vous êtes maintenant prêt à déployer votre modèle enregistré en tant que s
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Essayez l’un des nombreux exemples de la galerie.

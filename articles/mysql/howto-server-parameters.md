@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: f3fc8fb08cd23543ecfcbdc4010aabc9c0184a65
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure
 
@@ -32,8 +32,7 @@ Azure Database pour MySQL prend en charge la configuration de certains paramètr
 La liste des paramètres de serveur pris en charge s’allonge en permanence. Utilisez l’onglet Paramètres du serveur dans le portail Azure pour obtenir la définition et configurer les paramètres du serveur en fonction des besoins de votre application. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Paramètres de serveur non configurables
-
-Les paramètres suivants ne sont pas configurables et sont liés à votre [niveau tarifaire](concepts-service-tiers.md). 
+Le pool de mémoires tampons InnoDB et le nombre maximal de connexions ne sont pas configurables et dépendent de votre [niveau tarifaire](concepts-service-tiers.md). 
 
 | **Niveau tarifaire** | **Pool de mémoires tampons InnoDB (Mo)** | **Nombre maximal de connexions** |
 | :------------------------ | :-------- | :----------- |
@@ -44,7 +43,13 @@ Les paramètres suivants ne sont pas configurables et sont liés à votre [nivea
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1 600 |
 
-Tous les autres paramètres de serveur non répertoriés dans le tableau précédent sont définies sur leurs valeurs par défaut pour les versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) et [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Ces paramètres de serveur ne sont pas configurables dans le système <br>
+ innodb_file_per_table in Basic tier: OFF<br>
+ innodb_flush_log_at_trx_commit=1<br>
+ sync_binlog=1<br>
+ innodb_log_file_size=512MB<br>
+ 
+Tous les autres paramètres de serveur sont définis sur leurs valeurs MySQL par défaut pour les versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) et [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Bibliothèques de connexions pour Azure Database pour MySQL](concepts-connection-libraries.md).

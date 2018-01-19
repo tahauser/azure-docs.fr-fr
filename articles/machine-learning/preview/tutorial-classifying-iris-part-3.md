@@ -1,6 +1,6 @@
 ---
-title: "Déployer un modèle pour les services Azure Machine Learning (version préliminaire) | Microsoft Docs"
-description: "Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (version préliminaire) de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement."
+title: "Déployer un modèle pour les services Azure Machine Learning (préversion) | Microsoft Docs"
+description: "Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (préversion) de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement."
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
@@ -9,18 +9,18 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classification d’Iris, partie 3 : déployer un modèle
-Les services Azure Machine Learning (version préliminaire) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
+Les services Azure Machine Learning (préversion) constituent une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux scientifiques des données professionnels. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
-Ce didacticiel est le troisième d’une série de trois. Dans cette partie du didacticiel, vous utilisez les services Azure Machine Learning (version préliminaire) pour :
+Ce didacticiel est le troisième d’une série de trois. Dans cette partie du didacticiel, vous utilisez les services Azure Machine Learning (préversion) pour :
 
 > [!div class="checklist"]
 > * Rechercher le fichier de modèle.
@@ -32,7 +32,7 @@ Ce didacticiel est le troisième d’une série de trois. Dans cette partie du d
 
  Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/iris_flower_data_set) intemporel. Les captures d’écran sont spécifiques à Windows, mais l’expérience Mac OS est presque identique.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 Effectuer les deux premières parties de cette série de didacticiels :
 
    * Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Machine Learning et installer l’application Azure Machine Learning Workbench.
@@ -161,6 +161,9 @@ Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteu
 
    La troisième ligne de la sortie affiche **"registrationState": "Registering"**. Attendez quelques instants et répétez la commande **show**, jusqu’à ce que la sortie affiche **"registrationState": "Registered"**.
 
+   >[!NOTE] 
+   Si vous déployez sur un cluster ACS, vous devez inscrire le fournisseur de ressources **Microsoft.ContainerService** et utiliser exactement la même approche.
+
 3. Créez l’environnement. Vous devez exécuter cette étape une fois par environnement. Par exemple, exécutez-la une fois pour l’environnement de développement et une fois pour l’environnement de production. Utilisez le _mode local_ pour ce premier environnement. Vous pouvez essayer le commutateur `-c` ou `--cluster` dans la commande suivante pour configurer un environnement en _mode cluster_ ultérieurement.
 
    Notez que pour la commande de configuration suivante, vous devez disposer d’un accès collaborateur à l’abonnement. Si vous n’en avez pas, il vous faudra au moins un accès collaborateur au groupe de ressources dans lequel vous déployez. Pour l’obtenir, vous devez spécifier le nom du groupe de ressources dans la commande de configuration à l’aide de l’indicateur `-g`. 
@@ -206,7 +209,7 @@ Vous êtes maintenant prêt à créer le service web en temps réel.
 1. Pour créer un service web en temps réel, utilisez la commande suivante :
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    Cette commande génère un ID de service web que vous pouvez utiliser ultérieurement.
 
@@ -298,7 +301,7 @@ Pour tester le service web **irisapp** qui est en cours d’exécution, utilisez
 
 ## <a name="view-the-collected-data-in-azure-blob-storage"></a>Afficher les données collectées dans le stockage Blob Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Recherchez vos comptes de stockage. Pour ce faire, sélectionnez **Plus de services**.
 
@@ -336,7 +339,7 @@ Pour tester le service web **irisapp** qui est en cours d’exécution, utilisez
       ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette troisième partie de la série de trois didacticiels, vous avez appris à utiliser les services Azure Machine Learning pour :
 > [!div class="checklist"]
 > * Rechercher le fichier de modèle.

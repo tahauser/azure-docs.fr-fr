@@ -1,5 +1,5 @@
 ---
-title: "Notes de publication pour Microsoft Azure Storage Explorer (préversion) | Microsoft Docs"
+title: "Notes de publication pour Microsoft Azure Storage Explorer (préversion)"
 description: "Notes de publication pour Microsoft Azure Storage Explorer (préversion)"
 services: storage
 documentationcenter: na
@@ -14,25 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notes de publication pour Microsoft Azure Storage Explorer (préversion)
 
-Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.9.2 (préversion), ainsi que celles des versions précédentes.
+Cet article contient les notes de version pour l’Explorateur Stockage Azure 0.9.3 (préversion), ainsi que celles des versions précédentes.
 
-[L’explorateur de stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) (version préliminaire) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux.
+[Microsoft Azure Storage Explorer (préversion)](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux.
+
+## <a name="version-093"></a>Version 0.9.3
+12/08/2017
+
+### <a name="download-azure-storage-explorer-093-preview"></a>Télécharger l’Explorateur Stockage Azure 0.9.3 (préversion)
+- [Explorateur Stockage Azure 0.9.3 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 0.9.3 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 0.9.3 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nouveau
+* La fenêtre Explorateur Stockage existante est réutilisée dans les cas suivants :
+    * À l’ouverture de liens directs générés dans l’Explorateur Stockage.
+    * À l’ouverture de l’Explorateur Stockage à partir du portail.
+    * À l’ouverture de l’Explorateur Stockage à partir de l’extension Stockage Azure pour Visual Studio Code (bientôt disponible).
+* L’ouverture d’une nouvelle fenêtre Explorateur Stockage est maintenant possible directement à partir de l’Explorateur Stockage.
+    * Pour Windows, une nouvelle option « Nouvelle fenêtre » est disponible sous le menu Fichier et dans le menu contextuel de la barre des tâches.
+    * Pour Mac, une nouvelle option « Nouvelle fenêtre » est disponible sous le menu App.
+
+### <a name="fixes"></a>Correctifs
+* Les anciennes activités n’étaient pas correctement nettoyées. Ce problème impactait les performances des travaux de longue durée. Ces activités sont maintenant correctement nettoyées.
+* Les actions impliquant beaucoup de fichiers et de répertoires entraînaient parfois le gel de l’Explorateur Stockage. Les demandes de partages de fichiers Azure sont désormais limitées pour restreindre l’utilisation des ressources système.
+
+### <a name="known-issues"></a>Problèmes connus
+* L’explorateur de stockage ne prend pas en charge les comptes ADFS.
+* Les touches de raccourci pour les options « View Explorer » (Afficher l’explorateur) et « View Account Management » (Afficher la gestion des comptes) sont Ctrl/Cmd + Maj + E ou Ctrl/Cmd + Maj + A, respectivement.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». Cela est dû au fait que nous utilisions la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Le panneau des paramètres de compte peut indiquer qu’il vous faut entrer à nouveau vos informations d’identification pour filtrer les abonnements.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+```
+./StorageExplorer --disable-gpu
+```
+* Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre ordinateur :
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur :
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-092"></a>Version 0.9.2
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>Télécharger l’Explorateur Stockage Azure 0.9.2 (préversion)
-- [Explorateur Stockage Azure 0.9.2 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur Stockage Azure 0.9.2 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur Stockage Azure 0.9.2 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Télécharger l’Explorateur Stockage Azure 0.9.2 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Télécharger l’Explorateur Stockage Azure 0.9.2 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Télécharger l’Explorateur Stockage Azure 0.9.2 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+
 
 ### <a name="hotfixes"></a>Correctifs logiciels
 * Des modifications inattendues de données pouvaient se produire quand des valeurs Edm.DateTime étaient modifiées pour des entités de table en fonction du fuseau horaire local. L’éditeur utilise maintenant une zone de texte brut, qui permet un contrôle précis et continu des valeurs Edm.DateTime.
@@ -95,13 +146,32 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 
 
 
+
+
+
+## <a name="previous-releases"></a>Versions précédentes
+
+* [Version 0.9.1 / 0.9.0](#version-091)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Version 0.8.9 / 0.8.8](#version-089--088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-091--090-preview"></a>Version 0.9.1/0.9.0 (préversion)
 20/10/2017
-### <a name="download-azure-storage-explorer-091-preview"></a>Télécharger Explorateur Stockage Azure 0.9.1 (préversion)
-* [Télécharger Explorateur Stockage Azure 0.9.1 (préversion) pour Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Télécharger Explorateur Stockage Azure 0.9.1 (préversion) pour Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Télécharger Explorateur Stockage Azure 0.9.1 (préversion) pour Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>Nouveau
 * Prise en charge de la préversion pour Azure Cosmos DB :
     * [Documentation en ligne](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
@@ -154,28 +224,6 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
     sudo apt-get install libgconf-2-4
     ```
 
-
-
-## <a name="previous-releases"></a>Versions précédentes
-
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Version 0.8.9 / 0.8.8](#version-089--088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-0816"></a>Version 0.8.16
 8/21/2017
 
@@ -223,7 +271,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 
 * Mise à jour vers la version Électron 1.7.2 afin de bénéficier de plusieurs mises à jour de sécurité critiques
 * Vous pouvez maintenant accéder rapidement au guide de dépannage en ligne depuis le menu d’aide
-* [Guide][2] de dépannage de Storage Explorer
+* [Guide][2] de dépannage de l’explorateur de stockage
 * [Instructions][3] sur la connexion à un abonnement Azure Stack
 
 ### <a name="known-issues"></a>Problèmes connus
@@ -324,9 +372,9 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 ### <a name="version-089--088"></a>Version 0.8.9 / 0.8.8
 02/23/2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### <a name="new"></a>Nouveau
@@ -357,7 +405,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 12/16/2016
 ### <a name="version-087"></a>Version 0.8.7
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### <a name="new"></a>Nouveau
 
@@ -445,7 +493,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 09/12/2016
 ### <a name="version-084"></a>Version 0.8.4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### <a name="new"></a>Nouveau
 
@@ -466,7 +514,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 08/03/2016
 ### <a name="version-083"></a>Version 0.8.3
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### <a name="new"></a>Nouveau
 
@@ -492,7 +540,7 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 07/07/2016
 ### <a name="version-082"></a>Version 0.8.2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### <a name="new"></a>Nouveau
 
@@ -515,11 +563,11 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 06/15/2016
 ### <a name="version-080"></a>Version 0.8.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### <a name="new"></a>Nouveau
 
@@ -560,10 +608,9 @@ Cet article contient les notes de version pour l’Explorateur Stockage Azure 0
 
 ### <a name="version-07201603250"></a>Version 0.7.20160325.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### <a name="new"></a>Nouveau
 

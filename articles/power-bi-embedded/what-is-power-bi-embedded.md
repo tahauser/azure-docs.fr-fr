@@ -1,5 +1,5 @@
 ---
-title: "Pouvez-vous nous présenter le service Microsoft Power BI Embedded ? | Microsoft Docs"
+title: "À propos d’Azure Power BI Embedded | Microsoft Docs"
 description: "Power BI Embedded vise à simplifier la façon dont les éditeurs de logiciels indépendants et les développeurs utilisent les fonctionnalités de Power BI. Il leur permet d’ajouter rapidement des visuels, des rapports et des tableaux de bord dans leurs applications."
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>Présentation de Power BI Embedded
+# <a name="about-power-bi-embedded"></a>À propos de Power BI Embedded
 
 Power BI Embedded vise à simplifier la façon dont les éditeurs de logiciels indépendants et les développeurs utilisent les fonctionnalités de Power BI. Power BI Embedded simplifie les fonctionnalités de Power BI en vous permettant d’ajouter rapidement des visuels, des rapports et des tableaux de bord dans vos applications. Comme les applications reposant sur Microsoft Azure, il utilise des services tels que Machine Learning et IoT. En simplifiant l’exploration des données dans leurs applications, les éditeurs de logiciels indépendants permettent à leurs clients de prendre des décisions éclairées et rapides en contexte.
 
@@ -52,7 +52,7 @@ Avec l’API REST, Power BI Embedded permet de développer des applications avec
 * [Idées Power BI](https://ideas.powerbi.com) : demandez et votez pour des fonctionnalités
 * [Reddit](https://www.reddit.com/r/PowerBI/) : discutez de Power BI
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur les nœuds de capacité, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/power-bi-embedded/).
 

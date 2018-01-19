@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licence du kit de portage du client de diffusion en continu lisse Microsoft®
 ## <a name="overview"></a>Vue d'ensemble
-Le kit de portage client Smooth Streaming Microsoft (**SSPK** en abrégé) est une implémentation du client Smooth Streaming optimisée pour aider les fabricants de périphériques intégrés, les opérateurs mobiles et du câble des opérateurs, les fournisseurs de services de contenu, les fabricants de combinés, les éditeurs de logiciels indépendants (ISV) et des fournisseurs de solutions servant à créer des produits et des services pour diffuser des contenus adaptatif, dans un format Smooth Streaming. SSPK est une implémentation Smooth Streaming cliente indépendante des périphériques et des plateformes pouvant être transférée par le titulaire de la licence vers n’importe quel périphérique ou plateforme. 
+Le kit de portage client Smooth Streaming Microsoft (**SSPK** en abrégé) est une implémentation du client Smooth Streaming optimisée pour aider les fabricants de périphériques intégrés, les opérateurs mobiles et du câble, les fournisseurs de services de contenu, les fabricants de combinés, les éditeurs de logiciels indépendants (ISV) et les fournisseurs de solutions à créer des produits et des services pour diffuser du contenu adaptatif dans un format Smooth Streaming. SSPK est une implémentation Smooth Streaming cliente indépendante de l’appareil et de la plateforme pouvant être transférée par le titulaire de la licence vers n’importe quel appareil ou plateforme. 
 
-Vous trouverez ci-après une architecture de haut niveau, et le package du kit de portage Smooth Streaming IIS est l’implémentation de client Smooth Streaming fournie par Microsoft. Il inclut la logique de base pour une lecture de contenu de Smooth Streaming. Il est ensuite transféré par des partenaires pour un périphérique ou une plate-forme, grâce à l’implémentation des interfaces appropriées. 
+Vous trouverez ci-après une architecture de haut niveau, et le package du kit de portage Smooth Streaming IIS est l’implémentation de client Smooth Streaming fournie par Microsoft. Il inclut la logique de base pour une lecture de contenu Smooth Streaming. Ce contenu est ensuite transféré par des partenaires pour un appareil ou une plateforme spécifique, grâce à l’implémentation des interfaces appropriées. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Description
+## <a name="description"></a>DESCRIPTION
 SSPK est concédé sous licence selon des conditions représentant une excellente valeur pour l’entreprise. La licence SSPK offre au secteur :
 
 * Source de kit de portage Smooth Streaming en C++ 
@@ -70,7 +70,7 @@ Le produit client final de Smooth Streaming est proposé selon un modèle soumis
 * Pas de redevance pour les 10 000 premières implémentations de périphérique chaque année 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procédure d’achat de licence et accès à SSPK
-Veuillez envoyer un e-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) pour toute requête relative aux licences des requêtes.
+Veuillez envoyer un e-mail à [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) pour toute requête relative aux licences.
 
 Le [portail de distribution SSPK Distribution](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) est accessible aux détenteurs de licences intermédiaires enregistrés.
 
@@ -103,7 +103,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -130,7 +130,7 @@ Les titulaires de licence SSPK intermédiaire ou finale peuvent soumettre des qu
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co.,Ltd
+* Homecast Co., Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.

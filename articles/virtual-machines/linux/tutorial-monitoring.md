@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Comment surveiller et mettre à jour une machine virtuelle Linux dans Azure
 
-Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement, vous pouvez consulter les diagnostics de démarrage et les métriques de performances, et gérer les mises à jour de package. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement, vous pouvez consulter les diagnostics de démarrage et les métriques de performances, et gérer les mises à jour de package. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Activer les diagnostics de démarrage sur la machine virtuelle
@@ -244,7 +244,7 @@ Dans le tableau de droite se trouve une répartition détaillée de chaque mise 
 * **Réussite** : la mise à jour a été correctement téléchargée et installée sur la machine virtuelle.
 * **Échec** : le téléchargement ou l’installation de la mise à jour a échoué sur la machine virtuelle.
 
-Cliquez sur **Tous les journaux** pour voir toutes les entrées de journal créées par le déploiement.
+Cliquez sur **Tous les journaux** pour afficher toutes les entrées de journal créées par le déploiement.
 
 Cliquez sur la vignette **Sortie** pour voir le flux des tâches du runbook chargé de gérer le déploiement des mises à jour sur la machine virtuelle cible.
 
@@ -271,7 +271,7 @@ Dans le panneau Recherche dans les journaux du portail OMS, vous devez normaleme
 
 ![Panneau OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez configuré, examiné et géré les mises à jour pour une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 

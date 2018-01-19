@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -23,12 +23,12 @@ Cet article vous permet de rechercher et corriger les erreurs ou défaillances r
 Lors de la communication avec l’équipe de support, il est important de préciser le numéro de build de l’application Workbench. Sous Windows, pour accéder au numéro de build, cliquez sur le menu **Aide** et choisissez **À propos d’Azure ML Workbench**. Sous macOS, cliquez sur le menu **Azure ML Workbench** et choisissez **À propos d’Azure ML Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Forum MSDN Machine Learning
-Nous avons un forum MSDN sur leque vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’URL du forum est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+Nous avons un forum MSDN sur lequel vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’URL du forum est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Collecter des informations de diagnostic
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Les fichiers journaux se trouvent aux emplacements suivants :
 
-### <a name="installer"></a>Programme d’installation
+### <a name="installer-log"></a>Journal du programme d’installation
 Si vous rencontrez des problème lors de l’installation, les fichiers journaux du programme d’installation sont ici :
 
 ```
@@ -40,18 +40,7 @@ Si vous rencontrez des problème lors de l’installation, les fichiers journaux
 ```
 Vous pouvez compresser le contenu de ces répertoires et nous l’envoyer à des fins de diagnostics.
 
-### <a name="app-update"></a>Mise à jour de l’application 
-#### <a name="no-update-notification-on-windows-desktop"></a>Aucune notification de mise à jour sur le Bureau Windows 
-Ce problème sera résolu dans une prochaine mise à jour. En attendant, évitez de lancer l’application à partir du raccourci épinglé à la barre des tâches. Lancez plutôt l’application à l’aide du menu Démarrer, de la barre de recherche Démarrer ou du raccourci situé sur votre Bureau (le cas échéant). 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Aucune notification de mise à jour sur une machine virtuelle DSVM (Data Science Virtual Machine) Ubuntu
-Pour télécharger la dernière application, effectuez les étapes suivantes :   
-   - Supprimer le dossier \Users\AppData\Local\amlworkbench
-   - Supprimer le script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - Supprimer le raccourci du Bureau qui lance le script ci-dessus
-   - Effectuer une nouvelle installation : [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### <a name="workbench-desktop-app"></a>Application de bureau Workbench
+### <a name="workbench-desktop-app-log"></a>Journal d’application de bureau Workbench
 Si vous rencontrez des difficultés pour vous connecter ou si le bureau Workbench se bloque, vous trouverez les fichiers journaux à l’emplacement suivant :
 ```
 # Windows
@@ -62,7 +51,7 @@ Si vous rencontrez des difficultés pour vous connecter ou si le bureau Workbenc
 ``` 
 Vous pouvez compresser le contenu de ces répertoires et nous l’envoyer à des fins de diagnostics.
 
-### <a name="experiment-execution"></a>Exécution de la commande experiment
+### <a name="experiment-execution-log"></a>Journal d’exécution de la commande experiment
 Si un script particulier échoue lors de l’envoi à partir de l’application de bureau, essayez de le renvoyer par le biais de la commande `az ml experiment submit` de l’interface CLI. Vous devriez obtenir un message d’erreur complet au format JSON contenant une valeur **ID d’opération**. Envoyez-nous le fichier JSON, notamment **l’ID d’opération**, et nous vous aiderons à diagnostiquer le problème. 
 
 Si l’envoi d’un script particulier réussit, mais que son exécution échoue, le script doit afficher **l’ID d’exécution** pour identifier cette exécution spécifique. Vous pouvez créer un package avec les fichiers journaux appropriés à l’aide de la commande suivante :
@@ -96,6 +85,8 @@ Lorsque vous utilisez Azure ML Workbench, vous pouvez également nous envoyer un
 
 - La bibliothèque RevoScalePy est uniquement prise en charge sous Windows ou Linux (dans des conteneurs Docker). Pas de prise en charge sur macOS.
 
+- Les bloc-notes Jupyter ont une taille limite de 5 Mo en cas d’ouverture à partir de l’application Workbench. Vous pouvez ouvrir des blocs-notes volumineux à partir de l’interface CLI à l’aide de la commande « az ml notebook start », puis nettoyer les sorties de cellules afin de réduire la taille du fichier.
+
 ## <a name="cant-update-workbench"></a>Impossible de mettre à jour Workbench
 Quand une nouvelle mise à jour est disponible, la page d’accueil de l’application Workbench affiche un message vous informant de sa disponibilité. Un badge de mise à jour doit s’afficher en bas à gauche de l’application sur l’icône représentant une cloche. Cliquez sur le badge et suivez l’Assistant Installation pour installer la mise à jour. 
 
@@ -113,7 +104,7 @@ Malheureusement, il n’existe aucune solution simple pour résoudre ce problèm
    - Supprimer le raccourci du Bureau qui lance le script ci-dessus
    - Télécharger le programme d’installation https://aka.ms/azureml-wb-msi et réinstaller.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Vous êtes bloqué à l'écran « Vérification du compte d'expérimentation » après vous être connecté
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Bloqué à l’écran « Vérification du compte d’expérimentation » après vous être connecté
 Une fois la connexion établie, l'application Workbench peut rester bloquée sur un écran vide avec un message indiquant « Vérification du compte d'expérimentation » avec une roue en rotation. Pour résoudre ce problème, procédez comme suit :
 1. Arrêt de l'application
 2. Supprimez le fichier suivant :
@@ -127,7 +118,7 @@ Une fois la connexion établie, l'application Workbench peut rester bloquée sur
 3. Redémarrez l’application.
 
 ## <a name="cant-delete-experimentation-account"></a>Impossible de supprimer un compte d’expérimentation
-Vous pouvez utiliser l’interface CLI pour supprimer un compte Expérimentation, mais vous devez supprimer au préalable les espaces de travail enfants et les projets enfants au sein de ces espaces de travail enfants. Dans le cas contraire, une erreur s’affiche.
+Vous pouvez utiliser l’interface CLI pour supprimer un compte Expérimentation, mais vous devez supprimer au préalable les espaces de travail enfants et les projets enfants au sein de ces espaces de travail enfants. Autrement, vous voyez l’erreur « Impossible de supprimer une ressource avant la suppression des ressources imbriquées ».
 
 ```azure-cli
 # delete a project
@@ -147,6 +138,15 @@ Si vous avez Windows 10 Fall Creators Update et que votre projet est créé dans
 
 ## <a name="file-name-too-long-on-windows"></a>Nom de fichier trop long sous Windows
 Si vous utilisez Workbench sur Windows, vous risquez d’atteindre la limite maximale de longueur de nom de fichier par défaut (260 caractères), ce qui vous sera signifié par l’erreur « Le chemin d’accès spécifié est introuvable ». Vous pouvez modifier un paramètre de clé de Registre pour permettre des noms de chemin de fichier beaucoup plus longs. Consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) pour plus d’informations sur la façon de définir la clé de Registre _MAX_PATH_.
+
+## <a name="interrupt-cli-execution-output"></a>Interrompre la sortie de l’exécution de l’interface CLI
+Si vous démarrez une expérimentation à l’aide de `az ml experiment submit` ou `az ml notebook start` et que vous souhaitez interrompre la sortie : 
+- Sur Windows, utilisez la combinaison de touches Ctrl-Pause sur le clavier.
+- Sur macOS, utilisez Ctrl-C.
+
+Notez que cela interrompt uniquement le flux de sortie dans la fenêtre de l’interface CLI. Cela n’arrête pas un travail en cours d’exécution. Si vous souhaitez annuler un travail en cours, utilisez la commande `az ml experiment cancel -r <run_id> -t <target name>`.
+
+Sur les ordinateurs Windows dont les claviers n’ont pas de touche Pause, les alternatives possibles sont Fn-B, Ctrl-Fn-B ou Fn+Échap. Pour plus d’informations sur une combinaison de touches spécifique, consultez la documentation du fabricant de votre matériel.
 
 ## <a name="docker-error-read-connection-refused"></a>Erreur Docker « read: connection refused »
 Lors de l’exécution avec un conteneur Docker local, l’erreur suivante est susceptible de s’afficher : 
@@ -198,9 +198,20 @@ Un correctif rapide consiste à supprimer toutes les images Docker que vous n’
 $ docker system prune -a
 ```
 
-Vous pouvez également ajouter un disque de données et configurer le moteur Docker pour utiliser le disque de données afin d’y stocker des images. Voici [comment ajouter un disque de données](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Vous pouvez ensuite [modifier où Docker stocke les images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+Vous pouvez également ajouter un disque de données et configurer le moteur Docker pour utiliser le disque de données afin d’y stocker des images. Voici [comment ajouter un disque de données](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Vous pouvez ensuite [modifier où Docker stocke les images](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Ou bien, vous pouvez développer le disque du système d’exploitation, sans avoir à modifier la configuration du moteur Docker. Voici [comment étendre le disque du système d’exploitation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Ou bien, vous pouvez développer le disque du système d’exploitation, sans avoir à modifier la configuration du moteur Docker. Voici [comment étendre le disque du système d’exploitation](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>Partage du lecteur C dans Windows
 Si l’exécution se fait dans un conteneur Docker local sur Windows, la définition de `sharedVolumes` sur `true` dans le fichier `docker.compute` sous `aml_config` peut améliorer les performances d’exécution. Toutefois, cela requiert que vous partagiez le lecteur C dans l’_outil Docker pour Windows_. Si vous ne parvenez pas à partager le lecteur C, essayez les conseils suivants :
@@ -213,6 +224,18 @@ Si l’exécution se fait dans un conteneur Docker local sur Windows, la défini
 * Lorsque vous partagez le lecteur C à l’aide d’informations d’identification de domaine, le partage peut cesser de fonctionner sur les réseaux où le contrôleur de domaine n’est pas accessible (par exemple, réseau domestique, Wi-Fi public, etc.). Pour plus d’informations, consultez [ce post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 Vous pouvez également éviter le problème de partage, contre un léger amoindrissement des performances en définissant `sharedVolumne` sur `false` dans le fichier `docker.compute`.
+
+## <a name="wipe-clean-workbench-installation"></a>Réinitialiser l’installation de Workbench
+Cette opération n’est généralement pas nécessaire, mais au cas où vous devriez réinitialiser une installation, voici les étapes à effectuer :
+
+- Sur Windows :
+  - Veillez d’abord à utiliser l’applet _Ajout / Suppression de programmes_ dans le _Panneau de configuration_ pour supprimer l’entrée de l’application _Azure Machine Learning Workbench_.  
+  - Ensuite, vous pouvez télécharger et exécuter l’un des scripts suivants :
+    - [Script de ligne de commande Windows](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Script Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Vous devrez peut-être exécuter `Set-ExecutionPolicy Unrestricted` dans une fenêtre PowerShell avec élévation de privilèges avant de pouvoir exécuter le script.)
+- Sur macOS :
+  - Téléchargez et exécutez simplement le [script macOS bash shell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## <a name="some-useful-docker-commands"></a>Quelques commandes Docker utiles
 

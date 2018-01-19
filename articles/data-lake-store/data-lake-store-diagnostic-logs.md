@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accès aux journaux de diagnostic d’Azure Data Lake Store
 Découvrez comment activer la journalisation des diagnostics pour votre compte Data Lake Store et comment afficher les journaux collectés pour votre compte.
 
-Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Store afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations telles que la liste des utilisateurs qui accèdent aux données, la fréquence à laquelle les données sont consultées, la quantité de données stockée sur le compte, etc.
+Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Store afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations telles que la liste des utilisateurs qui accèdent aux données, la fréquence à laquelle les données sont consultées, la quantité de données stockée sur le compte, etc. Quand cette fonctionnalité est activée, les diagnostics et/ou les demandes sont enregistrés sur la base du meilleur effort. Les entrées de journal des demandes et des diagnostics sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d'Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
+* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Activer la journalisation de diagnostic pour votre compte Data Lake Store
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
@@ -47,11 +47,11 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
         
         * Sélectionnez l’option **Stream to an event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
-        * Sélectionnez l’option **Send to Log Analytics (Envoyer à Log Analytics)** pour analyser les données de journal générées, à l’aide du service Azure Log Analytics. Si vous sélectionnez cette option, vous devez fournir les détails concernant l’espace de travail Operations Management Suite que vous allez utiliser pour analyser le journal.
+        * Sélectionnez l’option **Send to Log Analytics (Envoyer à Log Analytics)** pour analyser les données de journal générées, à l’aide du service Azure Log Analytics. Si vous sélectionnez cette option, vous devez fournir les détails concernant l’espace de travail Operations Management Suite que vous allez utiliser pour analyser le journal. Pour plus d’informations sur l’utilisation de Log Analytics, consultez [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md).
      
    * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.
    * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées. La rétention ne s’applique que si vous utilisez un compte de stockage Azure pour archiver les données du journal.
-   * Cliquez sur **Save**.
+   * Cliquez sur **Enregistrer**.
 
 Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consulter les journaux dans l’onglet **Journaux de diagnostic** .
 
@@ -114,25 +114,25 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
     }
 
 #### <a name="request-log-schema"></a>Schéma du journal de requête
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
+| ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Demandes**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
 | resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
 | callerIpAddress |Chaîne |L’adresse IP du client qui a effectué la demande. |
-| correlationId |Chaîne |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées. |
+| correlationId |Chaîne |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées |
 | identité |Object |L’identité qui a généré le journal. |
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="request-log-properties-schema"></a>Schéma des propriétés de journal de demande
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | HttpMethod |Chaîne |La méthode HTTP utilisée pour l’opération. Par exemple, GET. |
-| Chemin |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
+| path |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 | RequestContentLength |int |La longueur du contenu de la demande HTTP. |
-| ClientRequestId |Chaîne |L’ID qui identifie de façon unique la demande. |
+| ClientRequestId |Chaîne |L’ID qui identifie de façon unique la demande |
 | StartTime |Chaîne |L’heure à laquelle le serveur a reçu la demande. |
 | EndTime |Chaîne |L’heure à laquelle le serveur a envoyé une réponse. |
 
@@ -160,23 +160,32 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
     }
 
 #### <a name="audit-log-schema"></a>Schéma du journal d’audit
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| resourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
+| ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Audit**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
 | resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
-| correlationId |Chaîne |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées. |
+| correlationId |Chaîne |L’ID du journal qui peut être utilisé pour regrouper un ensemble d’entrées de journal associées |
 | identité |Object |L’identité qui a généré le journal. |
 | properties |JSON |Voir les détails ci-dessous. |
 
 #### <a name="audit-log-properties-schema"></a>Schéma des propriétés de journal d’audit
-| Name | Type | Description |
+| NOM | type | DESCRIPTION |
 | --- | --- | --- |
 | StreamName |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemples de traitement des données de journal
+Quand vous envoyez des journaux depuis Azure Data Lake Store vers Azure Log Analytics (voir [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) pour plus d’informations sur l’utilisation de Log Analytics), la requête suivante retourne une table contenant une liste de noms d’affichage d’utilisateurs, l’heure des événements et le nombre d’événements par heure d’événement, ainsi qu’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Azure Data Lake Store fournit un exemple de traitement et d’analyse des données de journal. Vous trouverez l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Voir aussi
