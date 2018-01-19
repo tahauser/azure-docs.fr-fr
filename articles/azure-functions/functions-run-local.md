@@ -1,4 +1,4 @@
----
+﻿---
 title: "Développer et exécuter des fonctions Azure en local | Microsoft Docs"
 description: "Apprenez à coder et à tester des fonctions Azure sur votre ordinateur local avant de les exécuter dans Azure Functions."
 services: functions
