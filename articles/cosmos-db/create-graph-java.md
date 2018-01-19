@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de graphiques à l’aide de Java et du portail Azure
 
@@ -129,13 +129,19 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `$masterKey$` dans `password: $masterKey$`.
+3. Remplacez `graphs` par `gremlin.cosmosdb` dans la valeur `endpoint`. (Si vous avez créé votre compte de base de données de graphiques avant le 20 décembre 2017, n’apportez aucune modification à la valeur de point de terminaison et passez à l’étape suivante).
+
+    La valeur de point de terminaison doit maintenant ressembler à ceci :
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `$masterKey$` dans `password: $masterKey$`.
 
     La ligne 4 du fichier remote.yaml doit maintenant ressembler à la ligne suivante : 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Modifiez la ligne 3 du fichier remote.yaml en remplaçant
+5. Modifiez la ligne 3 du fichier remote.yaml en remplaçant
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Enregistrez le fichier remote.yaml.
+6. Enregistrez le fichier remote.yaml.
 
 ## <a name="run-the-console-app"></a>Exécution de l’application console
 

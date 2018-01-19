@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Créer un groupe de machines virtuelles identiques Linux avec le portail Azure
 
@@ -32,11 +32,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous avez besoin d’une paire de clés SSH pour effectuer ce démarrage rapide. Si vous disposez déjà d’une paire de clés SSH, vous pouvez ignorer cette étape.
 
-Dans un interpréteur de commandes Bash, exécutez la commande suivante et suivez les instructions qui s’affichent à l’écran. La sortie de la commande inclut le nom du fichier de clé publique. Copiez le contenu du fichier de clé publique dans le Presse-papiers.
+Dans un interpréteur de commandes Bash, exécutez la commande suivante et suivez les instructions qui s’affichent à l’écran. La sortie de la commande inclut le nom du fichier de clé publique. Copiez le contenu du fichier de clé publique (`cat ~/.ssh/id_rsa.pub`) dans le Presse-papiers. Si vous utilisez le sous-système Windows pour Linux, assurez-vous que vous ne copiez pas les caractères de saut de ligne de la sortie. Notez le nom du fichier de clé privée pour une utilisation ultérieure.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+Vous trouverez plus d’informations sur ce processus [ici](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
@@ -102,7 +104,7 @@ Un groupe de sécurité réseau (NSG) sécurise les trafics entrant et sortant. 
 2. Sélectionnez le **groupe de sécurité réseau**. Le groupe de sécurité réseau peut être identifié à l’aide de la colonne **Type**. 
 3. Dans le menu de gauche, sous Paramètres, cliquez sur **Règles de sécurité entrantes**.
 4. Cliquez sur **Ajouter**.
-5. Dans **Nom**, tapez **http**. Assurez-vous que l’option **Plage de ports** est définie sur 80 et l’option **Action** sur **Autoriser**. 
+5. Dans **Nom**, tapez **http**. Assurez-vous que **Plage du port source** a la valeur `*`, que **Plage du port de destination** a la valeur *80*, et que **Action** est définie sur *Autoriser*. 
 6. Cliquez sur **OK**.
 
 
@@ -116,7 +118,7 @@ Avec NGINX installé et le port 80 ouvert pour votre machine virtuelle, le serve
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez déployé une machine virtuelle simple ainsi qu’une règle de groupe de sécurité réseau, et installé un serveur web. Pour en savoir plus sur les machines virtuelles Azure, suivez le didacticiel pour les machines virtuelles Linux.
 

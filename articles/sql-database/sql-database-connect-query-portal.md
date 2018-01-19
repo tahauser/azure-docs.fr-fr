@@ -15,19 +15,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/02/2017
+ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 7f85d569fee4e13c28a09347159f16fc4b4ae626
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portail Azure : utilisez l’éditeur de requête SQL pour vous connecter et effectuer des requêtes de données
 
-L’éditeur de requête SQL est un outil de requête de navigateur qui offre un moyen efficace et léger pour exécuter des requêtes SQL sur votre base de données SQL Azure ou Azure SQL Data Warehouse sans quitter le portail Azure. Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données. 
+L’éditeur de requête SQL est un outil de requête de navigateur qui offre un moyen efficace et léger pour exécuter des requêtes SQL sur votre base de données SQL Azure ou Azure SQL Data Warehouse sans quitter le portail Azure. Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides de démarrage rapide :
 
@@ -44,17 +44,15 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Cliquez sur **Bases de données SQL** depuis le menu de gauche et cliquez sur la base de données que vous souhaitez interroger.
 
-2. Sur la page SQL Database de votre base de données, cliquez sur **Outils** dans la barre d’outils. La page Outils s’ouvre.
+2. Sur la page de base de données SQL de votre base de données, recherchez **Explorateur de données (préversion)** dans le menu de gauche et cliquez dessus.
 
-    ![menu Outils](./media/sql-database-connect-query-portal/tools-menu.png)
+    ![rechercher un éditeur de requête](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Cliquez sur **Éditeur de requêtes (version préliminaire)**, cochez la case **Conditions d’utilisation de la version préliminaire**, puis cliquez sur **OK**. La page de l’éditeur de requêtes s’ouvre.
+3. Cliquez sur **Connexion**, puis, lorsque vous y êtes invité, sélectionnez **Authentification du serveur SQL Server** et indiquez l’identifiant et le mot de passe de connexion administrateur que vous avez indiqués lors de la création de la base de données.
 
-4. Cliquez sur **Connexion**, puis, lorsque vous y êtes invité, sélectionnez **Authentification du serveur SQL Server** et indiquez l’identifiant et le mot de passe de connexion administrateur que vous avez indiqués lors de la création de la base de données.
+    ![se connecter](./media/sql-database-connect-query-portal/login-menu.png)
 
-    ![se connecter](./media/sql-database-connect-query-portal/login-menu.png) 
-
-5. Cliquez sur **OK pour vous connecter**.
+4. Cliquez sur **OK pour vous connecter**.
 
 
 ## <a name="connect-using-azure-ad"></a>Se connecter avec Azure AD
@@ -70,11 +68,11 @@ La configuration d’un administrateur Active Directory vous permet d’utiliser
 
 3. Dans le panneau d’administration Active Directory, cliquez sur la commande **Set admin** et sélectionnez l’utilisateur ou le groupe qui sera l’administrateur de Active Directory.
 
-    ![Sélectionner Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png) 
+    ![Sélectionner Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
 4. En haut du panneau d’administration Active Directory, cliquez sur **Enregistrer** pour définir votre administrateur Active Directory.
 
-Accédez à la base de données SQL que vous voulez interroger, cliquez sur **Commande des outils** sur la barre d’outils, puis sélectionnez l’option **Éditeur de requête (version préliminaire)**. La page de l’éditeur de requête s’ouvre et se connecte automatiquement à la base de données.
+Accédez à la base de données SQL que vous voulez interroger, cliquez sur **Explorateur de données (préversion préliminaire)** dans le menu de gauche. La page de l’Explorateur de données s’ouvre et vous connecte automatiquement à la base de données.
 
 
 ## <a name="run-query-using-query-editor"></a>Exécuter une requête à l’aide de l’éditeur de requête
@@ -154,17 +152,17 @@ Il y a quelques éléments à connaître lorsque vous travaillez avec l’édite
 
 1. Assurez-vous que le paramètre « Autoriser l’accès aux services Azure » est défini sur « ON » dans les paramètres du pare-feu de votre serveur SQL Azure. Cette option fournit l’accès de l’éditeur de requête SQL pour vos bases de données SQL et les entrepôts de données.
 
-2. La connexion de l’administrateur de Azure Active Directory ne fonctionne pas lorsque l’authentification à 2 facteurs est activée. 
+2. La connexion de l’administrateur de Azure Active Directory ne fonctionne pas lorsque l’authentification à 2 facteurs est activée.
 
 3. Les comptes de messagerie (par exemple outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ne sont pas encore pris en charge comme des administrateurs Active Directory. Veillez à choisir un utilisateur créé en mode natif dans Azure Active Directory, ou fédéré dans Azure Active Directory
 
 4. Les requêtes de types de données spatiales ne sont pas encore prises en charge dans l’éditeur de requête. L’interrogation de colonnes spatiales entraîne une erreur « System.IO.FileNotFoundException ».
 
-5. IntelliSense n’est pas pris en charge pour les tables et les vues de base de données. Toutefois, l’éditeur prend en charge la saisie semi-automatique des noms déjà saisis. 
+5. IntelliSense n’est pas pris en charge pour les tables et les vues de base de données. Toutefois, l’éditeur prend en charge la saisie semi-automatique des noms déjà saisis.
 
 6. Appuyer sur la touche F5 actualise la page de l’éditeur de requête et entraîne la perte de la requête en cours de traitement. Utilisez le bouton Exécuter dans la barre d’outils pour exécuter des requêtes.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour obtenir des informations sur le Transact-SQL pris en charge dans les bases de données SQL Azure, consultez [Différences de Transact-SQL dans la base de données SQL](sql-database-transact-sql-information.md).

@@ -2,24 +2,24 @@
 title: "Créer une application de conteneur Microsoft Azure Service Fabric sur Linux | Microsoft Docs"
 description: "Créez votre première application de conteneur Linux sur Microsoft Azure Service Fabric.  Concevez une image Docker avec votre application, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Déployer une application conteneur Azure Service Fabric Linux sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -66,23 +66,34 @@ Pour plus d’informations sur la création de votre propre cluster, consultez [
 > Le service frontal web est configuré pour écouter le trafic entrant sur le port 80. Assurez-vous que ce port est ouvert dans votre cluster. Si vous utilisez un cluster tiers, ce port est ouvert.
 >
 
-### <a name="deploy-the-application-manifests"></a>Déployer les manifestes de l’application 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Installer l’interface de ligne de commande Service Fabric et la connecter à votre cluster
 Installer [l’interface de ligne de commande Service Fabric (sfctl)](service-fabric-cli.md) dans votre environnement d’interface de ligne de commande
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Connectez-vous au cluster Service Fabric dans Azure à l’aide d’Azure CLI. Le point de terminaison est le point de terminaison de gestion de votre cluster. Par exemple, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Déployer l’application Service Fabric 
+Les applications de conteneur Service Fabric peuvent être déployées à l’aide du package d’application Service Fabric décrit ou de Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Déployer à l’aide du package d’application Service Fabric
 Utilisez le script d’installation fourni pour copier la définition d’application de vote dans le cluster, inscrivez le type d’application et créez une instance de l’application.
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>Déployer l’application à l’aide de Docker Compose
+Déployez et installez l’application sur le cluster Service Fabric à l’aide de Docker Compose avec la commande suivante.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http://\<my-azure-service-fabric-cluster-url>:19080/Explorer. Par exemple, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Développez le nœud Applications pour vous assurer qu’une entrée s’affiche pour le type d’application de vote et l’instance que vous avez créée.
@@ -133,7 +144,7 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
 ./uninstall.sh
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce démarrage rapide, vous avez appris comment :
 > [!div class="checklist"]
 > * Déployer une application de conteneur Linux vers Azure
