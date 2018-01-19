@@ -1,5 +1,5 @@
 ---
-title: "Consulter des journaux d’activité Azure avec Log Analytics | Microsoft Docs"
+title: "Collecter et analyser les journaux d’activités Azure dans Log Analytics | Microsoft Docs"
 description: "Vous pouvez utiliser la solution Journaux d’activité Azure pour analyser et rechercher le journal d’activité Azure parmi tous vos abonnements Azure."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Consulter des journaux d’activité Azure
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
 
 ![Symbole des journaux d’activité Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -50,14 +50,14 @@ Si vous êtes sur le niveau de tarification Gratuit, les journaux d’activité 
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour les journaux d’activité par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Pris en charge | Description |
+| Source connectée | Prise en charge | DESCRIPTION |
 | --- | --- | --- |
-| [Agents Windows](log-analytics-windows-agent.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
-| [Agents Linux](log-analytics-linux-agents.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
-| [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
-| [Compte Stockage Azure](log-analytics-azure-storage.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
+| [Agents Windows](log-analytics-windows-agent.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
+| [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
+| [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
+| [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Pour accéder aux informations des journaux d’activité Azure, vous devez posséder un abonnement Azure.
 
@@ -88,7 +88,7 @@ Cliquez sur la vignette **Journaux d’activité Azure** pour ouvrir le tableau 
 
 Les données de journal d’activité apparaissent uniquement *après* avoir configuré vos journaux d’activité pour qu’ils accèdent à la solution. Sans cela, vous ne pouvez pas les consulter.
 
-| Panneau | Description |
+| Panneau | DESCRIPTION |
 | --- | --- |
 | Entrées de journal d’activité Azure | Affiche un graphique à barres du plus grand nombre d’enregistrements d’entrée de journal d’activité Azure pour la période sélectionnée et affiche la liste des 10 premiers appelants d’activité. Cliquez sur le graphique à barres pour exécuter une recherche dans les journaux de <code>Type=AzureActivity</code>. Cliquez sur un élément appelant pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet élément. |
 | Journaux d’activité par état | Affiche un graphique en anneau de l’état des journaux d’activité Azure pour la période sélectionnée. Affiche également la liste des dix premiers enregistrements d’état. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Cliquez sur un élément d’état pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet enregistrement d’état. |
@@ -97,7 +97,7 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 
 ![Tableau de bord Journaux d’activité Azure](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Créez une [alerte](log-analytics-alerts-creating.md) lorsqu’une activité spécifique se produit.
 - Utilisez la fonction [Recherche dans les journaux](log-analytics-log-searches.md) pour afficher des informations détaillées provenant de vos journaux d’activité.

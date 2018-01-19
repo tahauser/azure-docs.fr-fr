@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: af755683ba2e62f01b175b8eb53a34dfd6013e9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0812719ddee8c0ff0c2fa9256c2819611692dfe5
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Que sont les mots de passe d’application dans Azure Multi-Factor Authentication ?
 Actuellement, certaines applications sans navigateur telles que le client de messagerie native Apple qui utilise Exchange Active Sync ne prennent pas en charge l’authentification multifacteur. L’authentification multifacteur est activée par l’utilisateur.  Cela signifie qu’un utilisateur ne peut pas utiliser l’authentification multifacteur dans les cas suivants :
@@ -40,52 +40,43 @@ Une fois que vous disposez d’un mot de passe d’application, vous l’utilise
 Informations à connaître sur les mots de passe d’application :
 
 * Vous ne pouvez pas créer vos propres mots de passe d’application. Ils sont générés automatiquement.
-* À l’heure actuelle, un utilisateur peut posséder jusqu’à 40 mots de passe. 
+* À l’heure actuelle, un utilisateur peut posséder jusqu’à 40 mots de passe.
 * Si vous essayez de créer un mot de passe d’application une fois que vous avez atteint la limite, vous devrez supprimer un mot de passe existant avant de pouvoir en créer un autre.
-* Utilisez un mot de passe d’application par appareil, et non par application. Par exemple, vous pouvez créer un mot de passe d’application pour votre ordinateur portable et utiliser ce mot de passe pour toutes vos applications sur cet ordinateur. Ensuite, créez un second mot de passe à utiliser pour toutes les applications sur votre bureau. 
+* Utilisez un mot de passe d’application par appareil, et non par application. Par exemple, vous pouvez créer un mot de passe d’application pour votre ordinateur portable et utiliser ce mot de passe pour toutes vos applications sur cet ordinateur. Ensuite, créez un second mot de passe à utiliser pour toutes les applications sur votre bureau.
 * Vous obtenez un mot de passe d’application la première fois que vous vous inscrivez pour la vérification en deux étapes.  Si vous avez besoin d’autres mots de passe, vous pouvez les créer.
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>Création et suppression des mots de passe d’application
-À la première connexion, vous obtenez un mot de passe d’application que vous pouvez utiliser.  Vous pouvez également créer et supprimer des mots de passe d’application par la suite. La procédure de suppression des mots de passe d’application dépend de votre utilisation de l’authentification multifacteur. Répondez aux questions suivantes pour déterminer où vous devez aller pour gérer les mots de passe d’application : 
+À la première connexion, vous obtenez un mot de passe d’application que vous pouvez utiliser.  Vous pouvez également créer et supprimer des mots de passe d’application par la suite. La procédure de suppression des mots de passe d’application dépend de votre utilisation de l’authentification multifacteur. Répondez aux questions suivantes pour déterminer où vous devez aller pour gérer les mots de passe d’application :
 
 1. Utilisez-vous la vérification en deux étapes pour votre compte Microsoft personnel ? Si oui, reportez-vous à l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) pour obtenir de l’aide. Si non, passez à la question 2.
 
-2. Vous utilisez la vérification en deux étapes pour votre compte professionnel ou scolaire. Est-ce que vous l’utilisez pour vous connecter à des applications Office 365 ? Si oui, reportez-vous à l’article [Créer un mot de passe d’application pour Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) pour obtenir de l’aide. Si non, passez à la question 3. 
+2. Vous utilisez la vérification en deux étapes pour votre compte professionnel ou scolaire. Est-ce que vous l’utilisez pour vous connecter à des applications Office 365 ? Si oui, reportez-vous à l’article [Créer un mot de passe d’application pour Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) pour obtenir de l’aide. Si non, passez à la question 3.
 
 3. Utilisez-vous la vérification en deux étapes avec Microsoft Azure ? Si oui, reportez-vous à la section [Gérer les mots de passe d’application dans le portail Azure](#manage-app-passwords-in-the-Azure-portal) de cet article. Si non, passez à la question 4.
 
-4. Vous ne savez pas exactement dans quels cas vous utilisez la vérification en deux étapes ? Consultez la section [Gérer les mots de passe d’application à l’aide du portail Myapps](#manage-app-passwords-with-the-myapps-portal) de cet article. 
+4. Vous ne savez pas exactement dans quels cas vous utilisez la vérification en deux étapes ? Consultez la section [Gérer les mots de passe d’application à l’aide du portail Myapps](#manage-app-passwords-with-the-myapps-portal) de cet article.
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gérer les mots de passe d’application dans le portail Azure
 Si vous utilisez la vérification en deux étapes avec Azure, vous devrez créer des mots de passe d’application par le biais du portail Azure.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Pour créer des mots de passe d'application dans le portail Azure
-1. Connectez-vous à la version classique du portail Azure.
-2. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
-3. En haut de la page de vérification, sélectionnez les mots de passe d'application
-4. Cliquez sur **Créer**.
-5. Saisissez un nom pour le mot de passe d’application, puis cliquez sur **Suivant**
+### <a name="to-create-app-passwords-in-the-azure-portal"></a>Pour créer des mots de passe d’application dans le portail Azure
+1. Connectez-vous au portail Azure.
+2. En haut de l’écran, cliquez sur votre nom d’utilisateur, puis sélectionnez **Modifier le mot de passe**.
+3. En haut de la page de vérification, sélectionnez **Mots de passe d’application**.
+4. Sélectionnez **Créer**.
+5. Saisissez un nom pour le mot de passe d’application, puis sélectionnez **Suivant**.
 6. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
-   
+
    ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Pour supprimer des mots de passe d’application du portail Azure
-1. Connectez-vous à la version classique du portail Azure.
-2. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
-3. En haut de l’écran, en regard de Vérification de sécurité supplémentaire, cliquez sur **Mots de passe d’application**.
-4. En regard du mot de passe d’application à supprimer, sélectionnez **Supprimer**.
-5. Confirmez la suppression en cliquant sur **oui**.
-6. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gérer les mots de passe d’application à l’aide du portail Myapps
 Si vous n’êtes pas sûr des cas dans lesquels vous utilisez l’authentification multifacteur, vous pouvez toujours créer et supprimer des mots de passe d’application via le portail Myapps.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Pour créer un mot de passe d’application à l’aide d’un portail Myapps
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Pour créer un mot de passe d’application à l’aide du portail MyApps
 1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Cliquez sur votre nom en haut à droite, puis choisissez **Profil**.
 3. Sélectionnez **Vérification de sécurité supplémentaire**.
@@ -94,12 +85,12 @@ Si vous n’êtes pas sûr des cas dans lesquels vous utilisez l’authentificat
 4. Sélectionnez **Mots de passe d’application**.
    ![Capture d’écran : sélection de Mots de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
-5. Cliquez sur **Create**.
+5. Cliquez sur **Créer**.
 6. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**.
 7. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
    ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Pour supprimer un mot de passe d’application à l’aide d’un portail Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Pour supprimer un mot de passe d’application à l’aide du portail MyApps
 1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 2. En haut de la page, sélectionnez le profil.
 3. Sélectionnez **Vérification de sécurité supplémentaire**.
@@ -117,8 +108,8 @@ Si vous n’êtes pas sûr des cas dans lesquels vous utilisez l’authentificat
 6. Confirmez que vous voulez supprimer ce mot de passe en cliquant sur **Oui**.
 7. Une fois le mot de passe d’application supprimé, vous pouvez cliquer sur **Fermer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md)
 
-- Essayez l’[application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) pour vérifier vos connexions grâce aux notifications d’application, plutôt que de recevoir des SMS ou des appels. 
+- Essayez l’[application Microsoft Authenticator](microsoft-authenticator-app-how-to.md) pour vérifier vos connexions grâce aux notifications d’application, plutôt que de recevoir des SMS ou des appels.

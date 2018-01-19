@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utiliser la solution Service Map dans Operations Management Suite
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, processus et ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
@@ -32,13 +32,13 @@ Cet article décrit les détails de l’utilisation de Service Map. Pour plus d�
 Service Map crée automatiquement une carte de référence commune des dépendances entre vos serveurs, les processus et les services tiers. La solution découvre et mappe toutes les dépendances TCP, en identifiant les connexions inattendues, les systèmes tiers distants dont vous dépendez et les dépendances envers les zones sombres traditionnelles de votre réseau comme Active Directory. Service Map détecte les échecs de connexion réseau que vos systèmes gérés tentent d’établir, vous aidant ainsi à identifier d’éventuels problèmes de réseau, interruptions de service et autres configurations de serveur inappropriées.
 
 ### <a name="incident-management"></a>Gestion des incidents
-Service Map vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évite de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des flux de travail intégrés avec la fonction Change Tracking d’Operations Management Suite, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause première d’un incident.
+Service Map vous montre comment les systèmes sont connectés et ont une incidence les uns sur les autres, ce qui vous évide de devoir isoler vous-même le problème. Outre l’identification des échecs de connexion, la solution aide à identifier les équilibreurs de charge mal configurés, des charges imprévues ou excessives sur des services critiques, ainsi que des clients non autorisés tels que des ordinateurs de développeurs qui communiquent avec les systèmes de production. En utilisant des flux de travail intégrés avec la fonction Change Tracking d’Operations Management Suite, vous pouvez également voir si un événement de modification sur un ordinateur ou service principal explique la cause première d’un incident.
 
 ### <a name="migration-assurance"></a>Garantie d’une migration réussie
 La solution Service Map vous permet de planifier, d’accélérer et de valider efficacement les migrations vers Azure pour vous assurer que rien n’est oublié et vous prémunir contre toute panne surprise. Vous pouvez découvrir tous les systèmes interdépendants qui doivent migrer en même temps, évaluer la capacité et la configuration du système et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration. Une fois la migration terminée, vous pouvez vérifier la charge et l’identité du client pour contrôler que les systèmes de test et les clients se connectent. Si vos définitions de pare-feu et de planification de sous-réseau rencontrent des problèmes, les connexions ayant échoué dans les mappages Service Map vous dirigent vers les systèmes nécessitant une connectivité.
 
 ### <a name="business-continuity"></a>Continuité de l’activité
-Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Service Map peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontaux à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances des serveurs critiques par rapport au serveur principal, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
+Si vous utilisez Azure Site Recovery et que vous avez besoin d’aide pour définir la séquence de récupération pour votre environnement d’application, Service Map peut automatiquement vous indiquer comment les systèmes s’appuient les uns sur les autres pour s’assurer que votre plan de récupération est fiable. En choisissant un serveur ou un groupe critiques, et en affichant ses clients, vous pouvez identifier les systèmes frontend à récupérer une fois le serveur restauré et disponible. Inversement, en examinant les dépendances des serveurs critiques par rapport au serveur principal, vous pouvez identifier les systèmes à récupérer avant la restauration de vos systèmes principaux.
 
 ### <a name="patch-management"></a>Gestion des correctifs
 La solution Service Map améliore l’utilisation de la fonction Évaluation des mises à jour système d’Operations Management Suite en vous montrant les autres équipes et serveurs dépendant de votre service. Vous pouvez ainsi notifier ces derniers avant d’arrêter vos systèmes en vue d’une mise à jour corrective. La solution Service Map facilite également la gestion des correctifs dans Operations Management Suite en vous montrant si vos services sont disponibles et connectés correctement après application de la mise à jour corrective et redémarrage.
@@ -49,7 +49,7 @@ Les agents Service Map rassemblent des informations sur tous les processus conne
 
 ![Vue d’ensemble de Service Map](media/oms-service-map/service-map-overview.png)
 
-Les ordinateurs peuvent être développés sur le mappage de manière à afficher les processus en cours d’exécution avec les connexions réseau actives pendant la période sélectionnée. Quand un ordinateur distant doté d’un agent Service Map est développé pour afficher des détails de processus, seuls les processus qui communiquent avec l’ordinateur ciblé sont affichés. Le nombre d’ordinateurs frontaux sans agent qui se connectent à l’ordinateur ciblé est indiqué à gauche des processus auxquels ils se connectent. Si l’ordinateur ciblé se connecte à un ordinateur principal dépourvu d’agent, ce serveur principal est inclus dans un groupe de ports du serveur, avec les autres connexions au même numéro de port.
+Les ordinateurs peuvent être développés sur le mappage de manière à afficher les processus et équipes processus en cours d’exécution avec des connexions réseau actives pendant la période sélectionnée. Quand un ordinateur distant doté d’un agent Service Map est développé pour afficher des détails de processus, seuls les processus qui communiquent avec l’ordinateur ciblé sont affichés. Le nombre d’ordinateurs frontend sans agent qui se connectent à l’ordinateur ciblé est indiqué à gauche des processus auxquels ils se connectent. Si l’ordinateur ciblé se connecte à un ordinateur principal dépourvu d’agent, ce serveur principal est inclus dans un groupe de ports du serveur, avec les autres connexions au même numéro de port.
 
 Par défaut, les mappages Service Map affichent les 30 dernières minutes des informations de dépendance. Les contrôles de temps en haut à gauche permettent d’interroger des cartes pour obtenir des plages horaires historiques de jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification). Les données Service Map sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
 
@@ -59,6 +59,9 @@ En bas de chaque serveur dans le mappage, une liste de badges état affiche des 
 Selon la gravité des badges d’état, les bordures de nœud de machine peuvent être colorées en rouge (critique), en jaune (avertissement) ou en bleu (informations). La couleur est celle du badge d’état dont la gravité est la plus critique. Une bordure de couleur grise indique un nœud dépourvu d’indicateur d’état.
 
 ![Badges d’état](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Équipes processus
+Les équipes processus combinent les processus associés à un produit ou service commun en une équipe processus.  Quand un nœud d’ordinateur est développé, il affiche les processus autonomes ainsi que les équipes processus.  Si des connexions entrantes et sortantes d’un processus dans une équipe processus échouent, la connexion est indiquée comme ayant échoué pour l’ensemble de l’équipe processus.
 
 ## <a name="machine-groups"></a>Groupes de machines
 Les groupes de machines permettent de voir les cartes centrées autour d’un ensemble de serveurs, pas seulement d’un seul. Vous pouvez ainsi voir tous les membres d’un cluster d’applications ou de serveurs multiniveau dans une seule carte.
@@ -121,7 +124,7 @@ Cliquez sur le menu représenté par des points de suspension en regard du nom d
 ## <a name="role-icons"></a>Icônes de rôle
 Certains processus jouent des rôles particuliers sur les machines : serveurs web, serveurs d’applications, base de données, etc. Service Map annote les zones de processus et de machine avec des icônes de rôle pour identifier en un coup d’œil le rôle que joue un processus ou un serveur.
 
-| Icône de rôle | Description |
+| Icône de rôle | DESCRIPTION |
 |:--|:--|
 | ![Serveur web](media/oms-service-map/role-web-server.png) | Serveur web |
 | ![App Server](media/oms-service-map/role-application-server.png) | Serveur d’applications |
@@ -133,7 +136,7 @@ Certains processus jouent des rôles particuliers sur les machines : serveurs w
 
 
 ## <a name="failed-connections"></a>Connexions ayant échoué
-Les connexions qui ont échoué sont affichées dans les cartes de type Service Map des processus et machines, avec une ligne rouge en pointillé indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système ayant un agentService Map déployé si ce système est celui qui a tenté d’établir de telles connexions. La solution Service Map mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
+Les connexions qui ont échoué sont affichées dans les cartes de type Service Map des processus et machines, avec une ligne rouge en pointillés indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système ayant un agentService Map déployé si ce système est celui qui a tenté d’établir de telles connexions. La solution Service Map mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
 
 ![Connexions ayant échoué](media/oms-service-map/failed-connections.png)
 
@@ -277,9 +280,9 @@ Il existe des propriétés générées en interne que vous pouvez utiliser pour 
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
 Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs incluant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
+| type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificateur unique d’une machine au sein de l’espace de travail |
 | ResourceName_s | Identificateur unique d’une machine au sein de l’espace de travail |
@@ -304,9 +307,9 @@ Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventa
 ### <a name="servicemapprocesscl-type-records"></a>Enregistrements de type ServiceMapProcess_CL
 Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur des serveurs ayant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
+| type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificateur unique d’un processus au sein de l’espace de travail |
 | ResourceName_s | identificateur unique d’un processus au sein de la machine sur laquelle il s’exécute|
@@ -330,34 +333,34 @@ Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventai
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 
 ### <a name="list-all-known-machines"></a>Liste de tous les ordinateurs connus
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Répertorier la capacité de mémoire physique de tous les ordinateurs gérés
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Répertorier le nom de l’ordinateur, le DNS, l’adresse IP et le système d’exploitation.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Rechercher tous les processus contenant « sql » dans la ligne de commande
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Rechercher un ordinateur (enregistrement le plus récent) par nom de ressource
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Rechercher une machine (enregistrement le plus récent) par adresse IP
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Répertorier tous les processus sur une machine spécifiée
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Répertorier tous les ordinateurs exécutant SQL
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Répertorier toutes les versions de produit uniques de CURL dans mon centre de données
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Créer un groupe de tous les ordinateurs exécutant CentOS
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## <a name="rest-api"></a>de l’API REST
@@ -370,11 +373,11 @@ Microsoft collecte automatiquement les données sur l’utilisation et les perfo
 Pour plus d’informations sur l’utilisation et la collecte de données, voir la [Déclaration de confidentialité des Services en ligne de Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur les [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
 
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Consultez la [section Résolution des problèmes du document Configuration de la solution Carte de service](operations-management-suite-service-map-configure.md#troubleshooting).
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.openlocfilehash: 486a27d7ca576c8fe1552c02eb24ece6b8bb2ba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 Cet article explique comment empaqueter une application Service Fabric et la préparer pour le déploiement.
@@ -48,7 +48,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 Les dossiers sont nommés d'après les attributs **Name** de chaque élément correspondant. Par exemple, si le manifeste de service contient deux packages de code nommés **MyCodeA** et **MyCodeB**, deux dossiers de même nom contiennent les fichiers binaires nécessaires pour chaque package de code.
 
 ## <a name="use-setupentrypoint"></a>Utilisation de SetupEntrypoint
-**SetupEntryPoint** est généralement utilisé lorsque vous avez besoin d’exécuter un fichier exécutable avant le démarrage du service ou si vous devez effectuer une opération avec des privilèges élevés. Par exemple :
+**SetupEntryPoint** est généralement utilisé lorsque vous avez besoin d’exécuter un fichier exécutable avant le démarrage du service ou si vous devez effectuer une opération avec des privilèges élevés. Par exemple : 
 
 * la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
 * La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
@@ -115,11 +115,11 @@ Si des [paramètres d’application](service-fabric-manage-multiple-environment-
 
 Si vous savez dans quel cluster l’application sera déployée, il est recommandé de transmettre le paramètre `ImageStoreConnectionString`. Dans ce cas, le package est également validé par rapport aux versions précédentes de l’application qui sont déjà exécutées dans le cluster. Par exemple, la validation permet de détecter si un package présentant la même version mais un contenu différent a déjà été déployé.  
 
-Une fois que l’application a été correctement empaquetée et a passé la validation avec succès, déterminez si une compression est nécessaire en fonction de la taille et du nombre de fichiers.
+Une fois que l’application a été correctement empaquetée et a passé la validation, pensez à compresser le package pour accélérer les opérations de déploiement.
 
 ## <a name="compress-a-package"></a>Compresser un package
 Lorsqu’un package est volumineux ou contient de nombreux fichiers, vous pouvez le compresser afin d’accélérer le déploiement. La compression réduit le nombre de fichiers et la taille du package.
-Pour un package d’application compressé, le [chargement du package d’application](service-fabric-deploy-remove-applications.md#upload-the-application-package) peut prendre plus de temps que le chargement du package non compressé (surtout si la durée de compression est prise en compte), mais l’[enregistrement](service-fabric-deploy-remove-applications.md#register-the-application-package) et l’[annulation de l’enregistrement du type d’application](service-fabric-deploy-remove-applications.md#unregister-an-application-type) sont plus rapides pour un package d’application compressé.
+Pour un package d’application compressé, le [chargement du package d’application](service-fabric-deploy-remove-applications.md#upload-the-application-package) peut prendre plus de temps que le chargement du package non compressé (surtout si la compression est effectuée lors de la copie). La compression a pour effet secondaire d’accélérer [l’inscription](service-fabric-deploy-remove-applications.md#register-the-application-package) et la [désinscription du type d’application](service-fabric-deploy-remove-applications.md#unregister-an-application-type).
 
 Le mécanisme de déploiement est le même pour les packages compressés et non compressés. Si le package est compressé, il est stocké tel quel dans le magasin d’images du cluster et il est décompressé sur le nœud avant l’exécution de l’application.
 La compression remplace le package Service Fabric valide par la version compressée. Le dossier doit autoriser l’accès en écriture. L’exécution d’une compression sur un package déjà compressé ne produit aucun effet.
@@ -127,8 +127,7 @@ La compression remplace le package Service Fabric valide par la version compress
 Vous pouvez compresser un package en exécutant la commande Powershell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) avec le commutateur `CompressPackage`. Vous pouvez décompresser le package avec la même commande, en utilisant le commutateur `UncompressPackage`.
 
 La commande suivante permet de compresser le package sans le copier dans le magasin d’images. Vous pouvez copier un package compressé dans un ou plusieurs clusters Service Fabric, selon vos besoins, en utilisant la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sans l’indicateur `SkipCopy`.
-Le package inclut désormais les fichiers compressés pour les packages `code`, `config` et `data`. Le manifeste de l’application et les manifestes de service ne sont pas compressés, car ils sont requis pour de nombreuses opérations internes (comme le partage de package ou l’extraction du nom du type de l’application et de la version pour certaines validations).
-La compression des manifestes rendrait ces opérations inefficaces.
+Le package inclut désormais les fichiers compressés pour les packages `code`, `config` et `data`. Le manifeste de l’application et les manifestes de service ne sont pas compressés, car ils sont exigés pour de nombreuses opérations internes. Par exemple, le partage de package ou l’extraction du nom du type de l’application et de la version pour certaines validations doivent accéder aux manifestes. La compression des manifestes rendrait ces opérations inefficaces.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -169,10 +168,9 @@ Si le package est volumineux, prévoyez un délai d’expiration suffisamment lo
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-En interne, Service Fabric calcule les sommes de contrôle des packages d’application à des fins de validation. Lorsque la compression est utilisée, les sommes de contrôle sont calculées dans les versions compressées de chaque package.
-Si vous avez copié une version non compressée de votre package d’application et que vous souhaitez utiliser la compression pour ce même package, vous devez modifier les versions des packages `code`, `config` et `data` pour éviter la non-concordance des sommes de contrôle. Si les packages sont identiques, au lieu de changer de version, vous pouvez utiliser [l’approvisionnement différé](service-fabric-application-upgrade-advanced.md). Vous n’avez pas à inclure le package inchangé avec cette option. Il suffit de le référencer dans le manifeste de service.
+En interne, Service Fabric calcule les sommes de contrôle des packages d’application à des fins de validation. Lorsque la compression est utilisée, les sommes de contrôle sont calculées dans les versions compressées de chaque package. La génération d’un nouveau fichier zip à partir du même package d’application crée des sommes de contrôle différentes. Pour éviter les erreurs de validation, utilisez le [provisionnement différentiel](service-fabric-application-upgrade-advanced.md). Avec cette option, n’incluez pas les packages inchangés dans la nouvelle version. Au lieu de cela, référencez-les directement à partir du nouveau manifeste de service.
 
-De même, si vous avez chargé une version compressée du package et que vous souhaitez utiliser un package non compressé, vous devez mettre à jour les versions pour éviter la non-concordance des sommes de contrôle.
+Si le provisionnement différentiel n’est pas une option et que vous devez inclure les packages, générez de nouvelles versions des packages `code`, `config` et `data` pour éviter la non-concordance des sommes de contrôle. La génération de nouvelles versions pour les packages inchangés est nécessaire quand un package compressé est utilisé, que la version précédente utilise la compression ou non.
 
 Le package est maintenant empaqueté correctement, validé et compressé (si nécessaire). Il est donc prêt pour le [déploiement](service-fabric-deploy-remove-applications.md) dans un ou plusieurs clusters Service Fabric.
 
@@ -186,6 +184,26 @@ Si vous le souhaitez, Visual Studio peut compresser des packages lors du déploi
         <CopyPackageParameters CompressPackage="true"/>
     </PublishProfile>
 ```
+
+## <a name="create-an-sfpkg"></a>Créer un sfpkg
+À compter de la version 6.1, Service Fabric autorise le provisionnement à partir d’un magasin externe.
+Cette option vous évite de devoir copier le package d’application dans le magasin d’images. Au lieu de cela, créez un `sfpkg` et chargez-le sur un magasin externe, puis fournissez l’URI de téléchargement à Service Fabric au moment du provisionnement. Le même package peut être provisionné sur plusieurs clusters. Le provisionnement à partir du magasin externe vous fait gagner du temps puisqu’il est inutile de copier le package sur chaque cluster.
+
+`sfpkg` est un fichier zip qui contient le package d’application initial avec l’extension « .sfpkg ».
+Dans le fichier zip, le package d’application peut être compressé ou non compressé. La compression du package d’application dans le fichier zip est effectuée aux niveaux du code, de la configuration et du package de données, comme [mentionné précédemment](service-fabric-package-apps.md#compress-a-package).
+
+Pour créer un `sfpkg`, commencez par un dossier qui contient le package d’application d’origine, compressé ou non. Ensuite, utilisez n’importe quel utilitaire pour compresser le dossier avec l’extension « .sfpkg ». Par exemple, utilisez [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+
+```csharp
+ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
+```
+
+Le `sfpkg` doit être chargé sur le magasin externe hors bande, en dehors de Service Fabric. Le magasin externe peut être n’importe quel magasin qui expose un point de terminaison HTTP ou HTTPS REST. Durant le provisionnement, Service Fabric exécute une opération GET pour télécharger le package d’application `sfpkg`. Le magasin doit donc autoriser l’accès en lecture au package.
+
+Pour provisionner le package, utilisez un provisionnement externe, ce qui nécessite l’URI de téléchargement URI et le type d’application.
+
+>[!NOTE]
+> Le provisionnement basé sur le chemin relatif du magasin d’images ne prend pas actuellement en charge les fichiers `sfpkg`. Le `sfpkg` ne doit donc pas être copié dans le magasin d’images.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Déployer et supprimer des applications][10] décrit comment utiliser PowerShell pour gérer des instances d’application

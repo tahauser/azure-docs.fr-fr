@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Création de Multi-Factor Authentication dans des applications personnalisées (SDK)
 
@@ -38,7 +38,7 @@ Comme les API n’ont pas accès aux utilisateurs enregistrés dans Azure Active
 
 
 ## <a name="download-the-sdk"></a>Télécharger le Kit de développement logiciel (SDK)
-Le téléchargement du SDK Azure Multi-Factor Authentication nécessite un [fournisseur Azure Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md).  Cela requiert un abonnement Azure complet, même si vous possédez des licences Azure MFA, Azure AD Premium ou Enterprise Mobility Suite. Les méthodes publiques de téléchargement du Kit SDK ont été supprimées depuis que le Kit SDK a été déprécié. Nous vous conseillons d’ouvrir un dossier de support auprès de Microsoft si vous avez besoin de télécharger le Kit SDK.
+Le téléchargement du SDK Azure Multi-Factor Authentication nécessite un [fournisseur Azure Multi-Factor Auth](multi-factor-authentication-get-started-auth-provider.md).  Cela requiert un abonnement Azure complet, même si vous possédez des licences Azure MFA, Azure AD Premium ou Enterprise Mobility Suite. Les méthodes publiques de téléchargement du SDK ont été supprimées depuis la dépréciation du SDK. Nous vous conseillons d’ouvrir un dossier de support auprès de Microsoft si vous avez besoin de télécharger le Kit SDK. Le SDK est fourni uniquement aux clients qui l’utilisaient avant sa dépréciation. Les nouveaux clients ne peuvent pas l’utiliser.
 
 ## <a name="whats-in-the-sdk"></a>Nouveautés du Kit de développement logiciel (SDK)
 Le Kit de développement logiciel (SDK) contient les éléments suivants :

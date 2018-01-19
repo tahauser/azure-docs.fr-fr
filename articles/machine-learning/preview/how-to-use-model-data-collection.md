@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Collecter les données de modèle à l’aide d’une collecte de données
 
-La fonctionnalité de collecte de données de modèle dans Azure Machine Learning Workbench vous permet d’archiver des entrées et des prédictions de modèle à partir d’un service web.
+La fonctionnalité de collecte de données de modèle dans Azure Machine Learning vous permet d’archiver des entrées et des prédictions de modèle à partir d’un service web.
 
 ## <a name="install-the-data-collection-package"></a>Installer le package de collecte de données
 Vous pouvez installer la bibliothèque de collecte de données en mode natif sous Linux et Windows.
@@ -37,6 +37,12 @@ Sur Linux, installez tout d’abord la bibliothèque libxml++. Exécutez la comm
 Exécutez ensuite la commande suivante :
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>Définition des variables d'environnement
+
+La collecte de données de modèle dépend de deux variables d’environnement. AML_MODEL_DC_STORAGE_ENABLED doit avoir la valeur **true** (tout en minuscules) et AML_MODEL_DC_STORAGE doit avoir comme valeur la chaîne de connexion pour le compte de stockage Azure où vous souhaitez stocker les données.
+
+Ces variables d’environnement sont déjà définies pour vous quand le service web est en cours d’exécution sur un cluster dans Azure. En cas d’exécution locale, vous devez les définir vous-même. Si vous utilisez Docker, utilisez le paramètre -e de la commande docker run pour passer les variables d’environnement.
 
 ## <a name="collect-data"></a>Collecter les données
 
@@ -81,7 +87,7 @@ Pour pouvoir utiliser la collecte de données de modèle, vous devez apporter le
 ## <a name="view-the-collected-data"></a>Afficher les données collectées
 Pour afficher les données collectées dans le stockage d’objets blob :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Plus de services**.
 3. Dans la zone de recherche, saisissez **Comptes de stockage**, puis appuyez sur la touche Entrée.
 4. Dans le panneau de recherche **Comptes de stockage**, sélectionnez la ressource **Compte de stockage**. Pour déterminer votre compte de stockage, utilisez les étapes suivantes :

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Résoudre les problèmes de sauvegarde Microsoft Azure : problèmes liés à un agent et/ou une extension
 
@@ -28,12 +28,20 @@ Cet article indique les étapes à appliquer pour résoudre les échecs de sauve
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>L’agent de machine virtuelle ne peut pas communiquer avec la sauvegarde Microsoft Azure
+
+> [!NOTE]
+> Si vos sauvegardes de machine virtuelle Linux Azure échouent avec cette erreur le 4 janvier 2018 ou après cette date, exécutez la commande suivante sur les machines virtuelles affectées et réessayez les sauvegardes
+
+    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 Une fois que vous avez enregistré et planifié une machine virtuelle pour le service de sauvegarde Azure, ce dernier lance le travail en communiquant avec l’agent de la machine virtuelle pour prendre un instantané jusqu’à une date et heure. Une des conditions suivantes peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Suivez les étapes de résolution des problèmes ci-dessous dans l’ordre indiqué et recommencez l’opération.
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Cause 1 : [La machine virtuelle ne possède aucun accès à Internet](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Cause 2 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (pour les machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 3 : [L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 4 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 5 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Cause 6 : [Les machines virtuelles Azure Classic ont peut-être besoin d’une étape supplémentaire pour effectuer l’inscription](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Une des conditions suivantes peut empêcher le déclenchement de l’instantané, qui à son tour risque de faire échouer la sauvegarde. Suivez les étapes de résolution des problèmes ci-dessous dans l’ordre indiqué et recommencez l’opération.
@@ -65,6 +73,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Cause 3 : [L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Cause 4 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Cause 5 : [L’extension de sauvegarde ne peut être mise à jour ou chargée](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Cause 6 : [Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage du groupe de ressources](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>La configuration de disque spécifiée n’est pas prise en charge
 
@@ -99,7 +108,7 @@ Pour résoudre le problème, essayez l’une des méthodes répertoriées ci-des
 1. Si des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTP pour acheminer le trafic.
 2. Ajoutez des règles au groupe de sécurité réseau (le cas échéant) pour autoriser l’accès à Internet à partir du serveur proxy HTTP.
 
-Pour savoir comment configurer un proxy HTTP pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Pour savoir comment configurer un proxy HTTP pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Si vous utilisez Managed Disks, vous devrez peut-être disposer d’un port supplémentaire (8443) ouvert sur les pare-feu.
 
@@ -115,7 +124,7 @@ Il se peut que l’agent de machine virtuelle soit endommagé ou que le service 
 6. Les services d’agent invité Windows devraient alors apparaître dans les services.
 7. Essayez d’exécuter une sauvegarde à la demande/ad hoc en cliquant sur « Sauvegarder maintenant » dans le portail.
 
-Vérifiez également que **[.NET 4.5 est installé dans le système](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)** de la machine virtuelle. Si ce n’est pas le cas, l’agent de machine virtuelle ne pourra pas communiquer avec le service.
+Vérifiez également que **[.NET 4.5 est installé dans le système](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)** de la machine virtuelle. Si ce n’est pas le cas, l’agent de machine virtuelle ne pourra pas communiquer avec le service.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>L’agent installé dans la machine virtuelle est obsolète (pour les machines virtuelles Linux)
 
@@ -177,10 +186,55 @@ Pour désinstaller l’extension, procédez comme suit :
 
 1. Accédez au [portail Azure](https://portal.azure.com/).
 2. Localisez la machine virtuelle qui rencontre des problèmes de sauvegarde.
-3. Cliquez sur **Paramètres**.
+3. Cliquez sur **Settings**.
 4. Cliquez sur **Extensions**.
 5. Cliquez sur **Extension Vmsnapshot**.
 6. Cliquer sur **Désinstaller**.
 
 Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Les machines virtuelles Azure Classic ont peut-être besoin d’une étape supplémentaire pour effectuer l’inscription
+L’agent des machines virtuelles Azure Classic doit être inscrit pour établir une connexion au service de sauvegarde et démarrer la sauvegarde
+
+#### <a name="solution"></a>Solution
+
+Après avoir installé l’agent invité de machine virtuelle, lancez Azure PowerShell <br>
+1. Connectez-vous au compte Azure avec <br>
+       `Login-AzureAsAccount`<br>
+2. Vérifiez si la propriété ProvisionGuestAgent sur la machine virtuelle est définie sur True à l’aide des commandes suivantes <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Si la propriété est définie sur FALSE, exécutez les commandes suivantes pour la définir sur TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Exécutez la commande suivante pour mettre à jour la machine virtuelle <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Essayez de lancer la sauvegarde. <br>
+
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage du groupe de ressources
+Ce problème est propre aux machines virtuelles managées, quand l’utilisateur verrouille le groupe de ressources et que le service de sauvegarde ne peut pas supprimer les anciens points de restauration. Par conséquent, les nouvelles sauvegardes échouent, car une limite maximale de 18 points de restauration est imposée par le backend.
+
+#### <a name="solution"></a>Solution
+
+Pour résoudre le problème, utilisez les étapes suivantes afin de supprimer la collection de points de restauration : <br>
+ 
+1. Supprimez le verrou du groupe de ressources dans lequel réside la machine virtuelle 
+     
+2. Installez ARMClient à l’aide de Chocolatey <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. Connectez-vous à ARMClient <br>
+             `.\armclient.exe login`
+         
+4. Obtenez la collection de points de restauration correspondant à la machine virtuelle <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Exemple : `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Supprimez la collection de points de restauration <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. La prochaine sauvegarde planifiée crée automatiquement une collection de points de restauration avec des points de restauration 
+ 
+7. Le problème se répète si vous reverrouillez le groupe de ressources, en raison de la limite de 18 points de restauration au-delà de laquelle les sauvegardes échouent 
 

@@ -3,7 +3,7 @@ title: "Mises à niveau automatiques du système d’exploitation dans des group
 description: "Découvrez comment mettre automatiquement à niveau le système d’exploitation sur des instances de machine virtuelle dans un groupe identique"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 12/07/2017
+ms.author: negat
+ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Mises à niveau automatiques du système d’exploitation dans des groupes de machines virtuelles identiques Azure
 
@@ -39,7 +39,7 @@ La fonctionnalité de mise à niveau automatique du système d’exploitation pr
 ## <a name="preview-notes"></a>Notes de préversion 
 Dans la préversion, les limitations et restrictions suivantes s’appliquent :
 
-- Les mises à niveau automatiques du système d’exploitation prennent uniquement en charge [trois références SKU du système d’exploitation](#supported-os-images). La fonctionnalité est fournie sans contrat de niveau de service (SLA) ni garanties. Nous vous recommandons de ne pas utiliser la préversion des mises à jour automatiques pour des charges de travail critiques dans votre environnement de production.
+- Les mises à niveau automatiques du système d’exploitation prennent uniquement en charge [quatre références SKU du système d’exploitation](#supported-os-images). La fonctionnalité est fournie sans contrat de niveau de service (SLA) ni garanties. Nous vous recommandons de ne pas utiliser la préversion des mises à jour automatiques pour des charges de travail critiques dans votre environnement de production.
 - La prise en charge des groupes identiques dans les clusters Service Fabric sera bientôt disponible.
 - Le chiffrement de disque Azure Disk Encryption (actuellement en préversion) n’est **pas** pris en charge avec les mises à niveau automatiques du système d’exploitation dans les groupes de machines virtuelles identiques.
 - L’utilisation du portail sera bientôt possible.
@@ -76,11 +76,13 @@ Seules certaines images de plateforme de système d’exploitation sont actuelle
 
 Les références SKU suivantes sont prises en charge (d’autres le seront ultérieurement) :
     
-| Éditeur               | Offre         |  Sku               | Version  |
+| Publisher               | Offre         |  Sku               | Version  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04-LTS          | le plus récent   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | le plus récent   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-centre-de-données    | le plus récent   |
-| Canonical               | UbuntuServer  | 16.04-LTS          | le plus récent   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | le plus récent   |
+
 
 
 ## <a name="application-health"></a>Intégrité de l’application
@@ -90,6 +92,15 @@ Un groupe identique peut éventuellement être configuré avec des sondes d’in
 
 Si le groupe identique est configuré pour utiliser plusieurs groupes de sélection élective, vous devez utiliser des sondes avec un [équilibreur de charge standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
+### <a name="important-keep-credentials-up-to-date"></a>Important : Tenez à jour toutes les informations d’identification
+Si votre groupe identique utilise des informations d’identification pour accéder aux ressources externes (par exemple, quand une extension de machine virtuelle est configurée et utilise un jeton SAP pour le compte de stockage), vous devez vous assurer que les informations d’identification sont à jour. Si les informations d’identification, y compris les certificats et les jetons, ont expiré, la mise à niveau échoue, et le premier groupe de machines virtuelles reste dans un état d’échec.
+
+Pour récupérer les machines virtuelles et réactiver la mise à niveau automatique du système d’exploitation après un échec d’authentification des ressources, effectuez les étapes recommandées suivantes :
+
+* Regénérez le jeton (ou d’autres informations d’identification) qui a été passé à vos extensions.
+* Vérifiez que toutes les informations d’identification utilisées pour les communications entre les machines virtuelles et les entités externes sont à jour.
+* Mettez à jour chaque extension dans le modèle de groupe identique avec les nouveaux jetons.
+* Déployez le groupe identique mis à jour. Cette opération met à jour toutes les instances de machine virtuelle, y compris celles en échec. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configuration d’une sonde d’équilibreur de charge personnalisée comme sonde d’intégrité d’application dans un groupe identique
 La bonne pratique est de créer une sonde d’équilibreur de charge de manière explicite pour déterminer l’intégrité du groupe identique. Vous pouvez utiliser le même point de terminaison pour une sonde HTTP ou TCP existante, mais sachez qu’une sonde d’intégrité peut avoir un comportement différent de celui d’une sonde d’équilibreur de charge standard. Par exemple, une sonde d’équilibreur de charge standard peut signaler un état non intègre si la charge sur l’instance est trop élevée, alors que cela ne détermine pas forcément l’intégrité de l’instance durant une mise à niveau automatique du système d’exploitation. Configurez la sonde pour que le taux de sondage élevé soit inférieur à deux minutes.
@@ -141,7 +152,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 L’exemple suivant utilise Azure CLI (2.0.20 ou version ultérieure) pour configurer les mises à niveau automatiques pour le groupe identique nommé *myVMSS* dans le groupe de ressources nommé *myResourceGroup* :
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -161,11 +172,11 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 L’exemple suivant utilise Azure CLI (2.0.20 ou version ultérieure) pour vérifier l’état de la mise à niveau pour le groupe identique nommé *myVMSS* dans le groupe de ressources nommé *myResourceGroup* :
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 
-### <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>de l’API REST
 L’exemple suivant utilise l’API REST pour vérifier l’état de la mise à niveau pour le groupe identique nommé *myVMSS* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Guide pratique pour gérer les inscriptions d’appareil pour Azure IoT Hub | Microsoft Docs"
+title: "Gérer les inscriptions d’appareils avec le portail Azure | Microsoft Docs"
 description: "Guide pratique pour gérer les inscriptions d’appareil avec votre service Device Provisioning dans le portail Azure"
 services: iot-dps
 keywords: 
@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>Guide pratique pour gérer les inscriptions d’appareil dans le service IoT Hub Device Provisioning
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Guide pratique pour gérer les inscriptions d’appareils avec le portail Azure
 
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service Azure IoT Hub Device Provisioning à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareil dans votre service d’approvisionnement.
 
@@ -27,9 +27,9 @@ Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un
 
 Il existe deux façons de procéder à l’inscription de vos appareils auprès du service d’approvisionnement :
 
-1. Le **groupe d’inscriptions** est une entrée pour un groupe d’appareils partageant un mécanisme commun d’attestation de certificats X.509 signés par la même autorité de certification racine. Nous recommandons l’utilisation d’un groupe d’inscriptions pour un grand nombre d’appareils partageant une configuration initiale souhaitée, ou pour des appareils destinés au même locataire. Notez que vous pouvez uniquement inscrire les appareils qui utilisent le mécanisme d’attestation X.509 comme *groupe d’inscriptions*. 
+* Un **groupe d’inscriptions** est une entrée pour un groupe d’appareils partageant un mécanisme commun d’attestation de certificats X.509 signés par le certificat de signature, qui peut être le [certificat racine](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou le [certificat intermédiaire](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), utilisé pour produire un certificat d’appareil sur un appareil physique. Nous recommandons l’utilisation d’un groupe d’inscriptions pour un grand nombre d’appareils partageant une configuration initiale souhaitée, ou pour des appareils destinés au même locataire. Notez que vous pouvez uniquement inscrire les appareils qui utilisent le mécanisme d’attestation X.509 comme *groupe d’inscriptions*. 
 
-    Vous pouvez créer un groupe d’inscriptions dans le portail pour un groupe d’appareils en effectuant les étapes suivantes.
+    Vous pouvez créer un groupe d’inscriptions dans le portail pour un groupe d’appareils en effectuant les étapes suivantes :
 
     1. Connectez-vous au portail Azure et cliquez dans le menu de gauche sur **Toutes les ressources**.
     2. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.
@@ -40,9 +40,9 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
         ![Groupe d’inscriptions dans le portail](./media/how-to-manage-enrollments/group-enrollment.png)
 
     
-2. L’**inscription individuelle** est une entrée permettant d’enregistrer un seul appareil. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module de plateforme sécurisée réel ou virtuel) comme mécanismes d’attestation. Nous recommandons d’utiliser les inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique, ou pour les appareils ne pouvant utiliser que des jetons SAP par le biais du module de plateforme sécurisée (TPM) ou du TPM virtuel comme mécanisme d’attestation. Dans le cas d’inscriptions individuelles, vous pouvez spécifier l’ID de l’appareil IoT Hub souhaité.
+* L’**inscription individuelle** est une entrée permettant d’enregistrer un seul appareil. Les inscriptions individuelles peuvent utiliser des certificats x509 ou des jetons SAP (dans un module de plateforme sécurisée réel ou virtuel) comme mécanismes d’attestation. Nous recommandons d’utiliser les inscriptions individuelles pour les appareils qui nécessitent une configuration initiale unique, ou pour les appareils ne pouvant utiliser que des jetons SAP par le biais du module de plateforme sécurisée (TPM) ou du TPM virtuel comme mécanisme d’attestation. Dans le cas d’inscriptions individuelles, vous pouvez spécifier l’ID de l’appareil IoT Hub souhaité.
 
-    Vous pouvez créer une inscription individuelle dans le portail en suivant les étapes décrites ici. 
+    Vous pouvez créer une inscription individuelle dans le portail en suivant les étapes décrites ici :
 
     1. Connectez-vous au portail Azure et cliquez dans le menu de gauche sur **Toutes les ressources**.
     2. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.
@@ -55,7 +55,7 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
 
 
 ## <a name="update-an-enrollment-entry"></a>Mettre à jour une entrée d’inscription
-Vous pouvez mettre à jour une entrée d’inscription existante dans le portail en effectuant les étapes suivantes.
+Vous pouvez mettre à jour une entrée d’inscription existante dans le portail en effectuant les étapes suivantes :
 
 1. Ouvrez votre service Device Provisioning dans le portail Azure et cliquez sur **Gérer les inscriptions**. 
 2. Accédez à l’entrée d’inscription que vous souhaitez modifier. Cliquez sur l’entrée pour afficher des informations récapitulatives sur votre inscription d’appareil. 
@@ -66,7 +66,7 @@ Vous pouvez mettre à jour une entrée d’inscription existante dans le portail
 
 
 ## <a name="remove-a-device-enrollment"></a>Supprimer une inscription d’appareil
-Si votre ou vos appareils n’ont pas besoin d’être approvisionnés sur un hub IoT, vous pouvez supprimer l’entrée d’inscription correspondante dans le portail en effectuant les étapes suivantes.
+Si votre ou vos appareils n’ont pas besoin d’être provisionnés sur un hub IoT, vous pouvez supprimer l’entrée d’inscription correspondante dans le portail en effectuant les étapes suivantes :
 
 1. Ouvrez votre service Device Provisioning dans le portail Azure et cliquez sur **Gérer les inscriptions**. 
 2. Accédez à l’entrée d’inscription que vous souhaitez supprimer et sélectionnez-la. 

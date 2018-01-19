@@ -14,12 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
+> [!NOTE]
+> Cette documentation n’est plus à jour et n’est pas correcte. Pour obtenir des conseils sur la publication d’une offre sur la Place de Marché Azure, accédez plutôt au [Guide vendeur](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) de la Place de Marché Azure.
+
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publier et gérer une offre dans la Place de marché Azure
 Cet article a pour but d’aider les développeurs à créer, déployer et gérer leurs solutions répertoriées sur la Place de marché Azure afin de la proposer à d’autres clients et partenaires Azure.
 
@@ -93,9 +96,9 @@ Gérez votre solution à l’aide des ressources suivantes :
 * [Mettre à jour les détails techniques d’une offre ou d’une référence (SKU)](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
 * [Ajouter une nouvelle référence (SKU) à une offre répertoriée](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
 * [Modifier le nombre de disques de données pour une référence (SKU) répertoriée](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
-* [Supprimer une offre répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md)
-* [Supprimer une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
-* [Supprimer la version actuelle d’une référence (SKU) répertoriée de la Place de marché](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [Supprimer une offre répertoriée de la Place de Marché](marketplace-publishing-vm-image-post-publishing.md)
+* [Supprimer une référence (SKU) de la Place de Marché](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Supprimer la version actuelle d’une référence (SKU) de la Place de Marché](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
 * [Restaurer des prix aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Restaurer un modèle de facturation aux valeurs de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Rétablir le paramètre de visibilité d’une référence (SKU) répertoriée à la valeur de production](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Intégration d’entreprise avec les transformations XML
 ## <a name="overview"></a>Vue d'ensemble
@@ -35,7 +35,7 @@ Après avoir chargé la transformation / le mappage dans votre compte d’intég
 
 **Voici les étapes à suivre pour utiliser une transformation**:
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Conditions préalables
 
 * Créer un compte d’intégration et y ajouter un mappage  
 
@@ -73,7 +73,29 @@ Vous pouvez maintenant tester votre transformation en effectuant une demande au 
 * Téléchargement de mappages existants  
 * Comprend la prise en charge du format XML.
 
+## <a name="adanced-features"></a>Fonctionnalités avancées
+Les fonctionnalités suivantes sont accessibles uniquement à partir de l’affichage du code.
+
+### <a name="byte-order-mark"></a>Marque d’ordre d’octet
+Par défaut, la réponse de la transformation démarre avec la marque d’ordre d’octet. Pour désactiver cette fonctionnalité, spécifiez `disableByteOrderMark` pour la propriété `transformOptions` :
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
+
 ## <a name="learn-more"></a>En savoir plus
-* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
+* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
 * [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")  
 

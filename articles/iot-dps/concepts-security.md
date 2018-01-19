@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concepts de sécurité du service IoT Hub Device Provisioning 
 
@@ -46,22 +46,51 @@ Les secrets de l’appareil peuvent également être stockés sous forme logicie
 
 Un module TPM peut faire référence à un standard de stockage sécurisé pour les clés utilisées dans l’authentification de la plateforme ou à l’interface d’E/S utilisée pour interagir avec les modules qui implémentent le standard. Les modules TPM peuvent exister sous forme de matériel distinct, de matériel intégré, basés sur un microprogramme ou basés sur un logiciel. Découvrez plus d’informations sur [Modules TPM et attestation TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Le service Device Provisioning prend en charge uniquement TPM 2.0.
 
-## <a name="endorsement-key"></a>Paire de clés de type EK (Endorsement Key)
+### <a name="endorsement-key"></a>Paire de clés de type EK (Endorsement Key)
 
-La paire de clés de type EK est une clé asymétrique contenue dans un module TPM qui a été générée au moment de la fabrication et est unique pour chaque module TPM. La paire de clés de type EK ne peut pas être changée ou supprimée. La partie privée de la paire de clés de type EK n’est jamais publiée en dehors du module TPM, tandis que sa partie publique est utilisée pour reconnaître un module TPM authentique. Découvrez plus d’informations sur la [paire de clés de type EK (Endorsement Key)](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+La paire de clés de type EK est une clé asymétrique contenue dans un module TPM qui a été générée en interne ou injectée au moment de la fabrication et est unique pour chaque module TPM. La paire de clés de type EK ne peut pas être changée ou supprimée. La partie privée de la paire de clés de type EK n’est jamais publiée en dehors du module TPM, tandis que sa partie publique est utilisée pour reconnaître un module TPM authentique. Découvrez plus d’informations sur la [paire de clés de type EK (Endorsement Key)](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
-## <a name="storage-root-key"></a>Clé racine de stockage
+### <a name="storage-root-key"></a>Clé racine de stockage
 
 La clé racine de stockage est stockée dans le module TPM et est utilisée pour protéger les clés TPM créées par des applications, afin que ces clés ne soient pas utilisables sans le module TPM. La clé racine de stockage est générée quand vous prenez possession du module TPM. Quand vous effacez le module TPM pour transférer la propriété a un autre utilisateur, une nouvelle clé racine de stockage est générée. Découvrez plus d’informations sur la [clé racine de stockage](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx).
 
-## <a name="root-certificate"></a>Certificat racine
+## <a name="x509-certificates"></a>Certificats X.509
 
-Un certificat racine est un type de certificat X.509 représentant une autorité de certification et auto-signé. Il constitue la dernière étape de la chaîne d’approbation.
+Utiliser des certificats X.509 comme mécanisme d’attestation est un excellent moyen de mettre à l’échelle la production et de simplifier le provisionnement des appareils. Les certificats X.509 sont généralement organisés en une chaîne d’approbation de confiance dans laquelle chaque certificat est signé par la clé privée du certificat plus élevé suivant, et ainsi de suite, pour aboutir à un certificat racine auto-signé. Il en résulte une chaîne déléguée de confiance allant du certificat racine généré par une autorité de certification (CA) racine approuvée jusqu’au certificat d’entité finale installé sur un appareil, en passant par chaque autorité de certification intermédiaire. Pour plus d’informations, consultez [Authentification des appareils à l’aide de certificats d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
 
-## <a name="intermediate-certificate"></a>Certificat intermédiaire
+La chaîne d’approbation représente souvent une hiérarchie logique ou physique associée aux appareils. Par exemple, un fabricant peut émettre un certificat d’autorité de certification racine auto-signé, utiliser ce certificat pour générer un certificat d’autorité de certification intermédiaire unique pour chaque usine, utiliser le certificat de chaque usine pour générer un certificat d’autorité de certification intermédiaire unique pour chaque ligne de production dans l’usine et enfin utiliser le certificat de la ligne de production pour générer un certificat d’appareil unique (entité finale) pour chaque appareil fabriqué sur la ligne. Pour plus d’informations, consultez [Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
 
-Un certificat intermédiaire est un certificat X.509 qui a été signé par le certificat racine (ou par un autre certificat contenant le certificat racine dans sa chaîne) qui est utilisé pour signer le certificat feuille.
+### <a name="root-certificate"></a>Certificat racine
 
-## <a name="leaf-certificate"></a>Certificat feuille
+Un certificat racine est un certificat X.509 auto-signé représentant une autorité de certification (CA). Il constitue la dernière étape, ou ancre d’approbation, de la chaîne d’approbation. Les certificats racine peuvent être émis automatiquement par une organisation ou achetés à partir d’une autorité de certification racine. Pour plus d’informations, consultez [Obtenir des certificats d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Le certificat racine peut également être appelé « certificat d’autorité de certification racine ».
 
-Un certificat feuille, ou certificat d’entité finale, est utilisé pour identifier le détenteur du certificat et sa chaîne d’approbation contient le certificat racine. Le certificat feuille n’est pas utilisé pour signer d’autres certificats.
+### <a name="intermediate-certificate"></a>Certificat intermédiaire
+
+Un certificat intermédiaire est un certificat X.509 qui a été signé par le certificat racine (ou par un autre certificat intermédiaire contenant le certificat racine dans sa chaîne). Le dernier certificat intermédiaire dans une chaîne est utilisé pour signer le certificat feuille. Un certificat intermédiaire peut également être appelé « certificat d’autorité de certification intermédiaire ».
+
+### <a name="leaf-certificate"></a>Certificat feuille
+
+Le certificat feuille, ou certificat d’entité finale, identifie le détenteur du certificat. Il possède le certificat racine dans sa chaîne d’approbation, ainsi que zéro ou plusieurs certificats intermédiaires. Le certificat feuille n’est pas utilisé pour signer d’autres certificats. Il identifie de façon unique l’appareil auprès du service de provisionnement et est parfois appelé « certificat d’appareil ». Pendant l’authentification, l’appareil utilise la clé privée associée à ce certificat pour répondre à une preuve de vérification de possession émise par le service. Pour plus d’informations, consultez [Authentification d’appareils signés avec des certificats d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+
+## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509
+
+Le service de provisionnement expose deux types d’entrée d’inscription que vous pouvez utiliser pour contrôler l’accès des appareils qui recourent au mécanisme d’attestation X.509 :  
+
+- Les entrées [d’inscription individuelle](./concepts-service.md#individual-enrollment) sont configurées avec le certificat d’appareil associé à un appareil spécifique. Ces entrées contrôlent l’inscription d’appareils spécifiques.
+- Les entrées de [groupe d’inscriptions](./concepts-service.md#enrollment-group) sont associées à un certificat d’autorité de certification intermédiaire ou racine spécifique. Ces entrées contrôlent l’inscription de tous les appareils dont la chaîne d’approbation contient ce certificat racine ou intermédiaire. 
+
+Quand un appareil se connecte au service de provisionnement, le service privilégie les entrées d’inscription plus spécifiques par rapport aux entrées d’inscription moins spécifiques. Autrement dit, si une inscription individuelle pour l’appareil existe, le service de provisionnement applique cette entrée. S’il n’existe aucune inscription individuelle pour l’appareil et qu’il existe un groupe d’inscriptions pour le premier certificat intermédiaire dans la chaîne d’approbation de l’appareil, le service applique cette entrée, et ainsi de suite le long de la chaîne jusqu’à la racine. Le service applique la première entrée applicable qu’il trouve, comme suit :
+
+- Si la première entrée d’inscription trouvée est activée, le service provisionne l’appareil.
+- Si la première entrée d’inscription trouvée est désactivée, le service ne provisionne pas l’appareil.  
+- Si aucune entrée d’inscription n’est trouvée pour aucun des certificats dans la chaîne d’approbation de l’appareil, le service ne provisionne pas l’appareil. 
+
+Ce mécanisme et la structure hiérarchique des chaînes d’approbation vous permettent de contrôler en toute souplesse l’accès des appareils individuels, ainsi que des groupes d’appareils. Par exemple, imaginez cinq appareils avec les chaînes d’approbation suivantes : 
+
+- *Appareil 1* : certificat racine -> certificat A -> certificat de l’appareil 1
+- *Appareil 2* : certificat racine -> certificat A -> certificat de l’appareil 2
+- *Appareil 3* : certificat racine -> certificat A -> certificat de l’appareil 3
+- *Appareil 4* : certificat racine -> certificat B -> certificat de l’appareil 4
+- *Appareil 5* : certificat racine -> certificat B -> certificat de l’appareil 5
+
+Au départ, vous pouvez créer une entrée de groupe d’inscriptions activée unique pour le certificat racine afin de permettre l’accès pour les cinq appareils. Si, par la suite, le certificat B est compromis, vous pouvez créer une entrée de groupe d’inscriptions désactivée pour le certificat B afin d’empêcher l’inscription de *l’appareil 4* et de *l’appareil 5*. Si, un peu plus tard, *l’appareil 3* est compromis, vous pouvez créer une entrée d’inscription individuelle désactivée pour son certificat. Cette opération révoque l’accès de *l’appareil 3*, mais permet quand même à *l’appareil 1* et à *l’appareil 2* de s’inscrire.

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -179,10 +179,10 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
    |Paramètre |Valeur | |
    | --- | --- | --- |
    |Priorité |2000 | |
-   |Nom |Custom_Dns  | |
+   |NOM |Custom_Dns  | |
    |Source |VirtualNetwork | |
    |Destination | VirtualNetwork | |
-   |Service | DNS (UDP/53) | |
+   |de diffusion en continu | DNS (UDP/53) | |
    |Action | AUTORISER  | |
    | | |
 
@@ -221,7 +221,17 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
     >La combinaison de modes de mise en réseau pour différents services n’est pas prise en charge sur les clusters Linux. 
     >
 
-## <a name="next-steps"></a>Étapes suivantes
+5. Si le mode **Ouvert** est sélectionné, la définition du **point de terminaison** dans le manifeste de service doit pointer explicitement sur le package de code correspondant au point de terminaison, même si le package de service contient un seul package de code. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
+
+## <a name="next-steps"></a>étapes suivantes
 * [Modéliser une application dans Service Fabric](service-fabric-application-model.md)
 * [En savoir plus sur les ressources du manifeste du service Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Déployer un conteneur Windows sur Service Fabric sous Windows Server 2016](service-fabric-get-started-containers.md)

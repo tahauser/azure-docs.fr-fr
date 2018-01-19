@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
@@ -131,21 +131,21 @@ Pour obtenir des informations spécifiques au sujet des schémas des alertes du 
 
 Pour obtenir des informations spécifiques au sujet des schémas de toutes les autres alertes du journal d’activité, consultez la page [Vue d’ensemble du journal d’activité Azure](monitoring-overview-activity-logs.md).
 
-| Nom de l'élément | Description |
+| Nom de l'élément | DESCRIPTION |
 | --- | --- |
 | status |Utilisé pour les alertes de métrique. Toujours défini sur « activé » pour les alertes du journal d’activité. |
 | context |Contexte de l’événement. |
 | resourceProviderName |Fournisseur de la ressource affectée. |
 | conditionType |Toujours défini sur « Event ». |
-| name |Nom de la règle d’alerte. |
+| Nom |Nom de la règle d’alerte. |
 | id |ID de ressource de l’alerte. |
 | description |Description de l’alerte définie à la création de l’alerte. |
 | subscriptionId |ID d’abonnement Azure. |
 | timestamp |Heure à laquelle l’événement a été généré par le service Azure qui a traité la demande. |
-| resourceId |ID de ressource de la ressource affectée. |
-| resourceGroupName |Nom du groupe de ressources de la ressource affectée. |
+| ResourceId |ID de ressource de la ressource affectée. |
+| nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée. |
 | properties |Ensemble de paires `<Key, Value>` (c’est-à-dire, `Dictionary<String, String>`) incluant des détails sur l’événement. |
-| event |Élément contenant des métadonnées relatives à l’événement. |
+| événement |Élément contenant des métadonnées relatives à l’événement. |
 | autorisation |Propriétés de contrôle d’accès en fonction du rôle de l’événement. Il s’agit généralement de l’action, du rôle et de l’étendue. |
 | category |Catégorie de l’événement. Les valeurs prises en charge sont : Administrative, Alert, Security, ServiceHealth et Recommendation. |
 | caller |Adresse e-mail de l’utilisateur ayant effectué l’opération, la revendication de nom d’utilisateur principal (UPN) ou la revendication de nom de principal du service (SPN) basée sur la disponibilité. Peut être null pour certains appels système. |
@@ -154,14 +154,14 @@ Pour obtenir des informations spécifiques au sujet des schémas de toutes les a
 | eventDataId |Identificateur unique de l’événement. |
 | eventSource |Nom de l’infrastructure ou du service Azure ayant généré l’événement. |
 | httpRequest |Il s’agit généralement des requêtes clientRequestId, clientIpAddress et de la méthode HTTP (PUT, par exemple). |
-| level |L’une des valeurs suivantes : Critical, Error, Warning, Informational et Verbose. |
+| level |L’une des valeurs suivantes : Critical (Critique), Error (Erreur), Warning (Avertissement) ou Informational (Information). |
 | operationId |Généralement, GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | properties |Les propriétés de l’événement. |
 | status |Chaîne. État de l’opération. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active et Resolved. |
 | subStatus |Inclut généralement le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état. Les valeurs courantes sont : OK (Code d’état HTTP : 200), Created (Code d’état HTTP : 201), Accepted (Code d’état HTTP : 202), No Content (Code d’état HTTP : 204), Bad Request (Code d’état HTTP : 400), Not Found (Code d’état HTTP : 404), Conflict (Code d’état HTTP : 409), Internal Server Error (Code d’état HTTP : 500), Service Unavailable (Code d’état HTTP : 503) et Gateway Timeout (Code d’état HTTP : 504). |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [En savoir plus sur le journal d’activité](monitoring-overview-activity-logs.md).
 * [Exécuter des scripts Azure Automation (Runbooks) sur des alertes Azure](http://go.microsoft.com/fwlink/?LinkId=627081).
 * [Utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.

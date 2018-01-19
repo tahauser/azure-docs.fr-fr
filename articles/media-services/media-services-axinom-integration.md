@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services
 > [!div class="op_single_selector"]
@@ -34,11 +34,11 @@ En commençant par le kit de développement logiciel (SDK) Media Services .NET v
 
 Cet article décrit comment intégrer et tester le serveur de licences Widevine géré par Axinom. Il aborde plus précisément :  
 
-* la configuration d’un chiffrement commun dynamique avec DRM multiples (PlayReady et Widevine) avec les URL d’acquisition de licences correspondantes ;
-* la génération d’un jeton JWT afin de répondre aux exigences du serveur de licences ,
-* le développement d’une application Azure Media Player gérant l’acquisition de licence avec l’authentification de jetons JWT ;
+* La configuration d’un chiffrement commun dynamique avec DRM multiples (PlayReady et Widevine) avec les URL d’acquisition de licences correspondantes
+* La génération d’un jeton JWT afin de répondre aux exigences du serveur de licences
+* Le développement d’une application Azure Media Player gérant l’acquisition de licence avec l’authentification de jetons JWT
 
-le système complet et la clé de flux de contenu, l’ID de clé, l’amorce de clé, le jeton JTW et ses revendications seront mieux décrits dans le schéma qui suit.
+Le système complet et la clé de flux de contenu, l’ID de clé, l’amorce de clé, le jeton JTW et ses revendications sont illustrés dans le schéma qui suit :
 
 ![DASH et CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -47,13 +47,13 @@ Pour configurer la stratégie de protection dynamique et de distribution de clé
 
 Vous pouvez configurer la protection CENC dynamique avec DRM multiples pour la diffusion DASH présentant les deux éléments suivants :
 
-1. Protection PlayReady pour MS Edge et IE11, qui peut présenter des restrictions en matière d’autorisation de jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS) comme Azure Active Directory ;
+1. Protection PlayReady pour MS Edge et IE11, qui peut présenter une restriction en matière d’autorisation de jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS) comme Azure Active Directory ;
 2. Widevine protection pour Chrome, qui peut exiger l’authentification des jetons avec le jeton émis par un autre STS. 
 
-Veuillez consulter la rubrique [Génération de jetons JWT](media-services-axinom-integration.md#jwt-token-generation) pour savoir pourquoi Azure Active Directory ne peut pas servir de STS pour un serveur de licences Widevine d’Axinom.
+Consultez la rubrique [Génération de jetons JWT](media-services-axinom-integration.md#jwt-token-generation) pour savoir pourquoi Azure Active Directory ne peut pas servir de service STS pour un serveur de licences Widevine d’Axinom.
 
 ### <a name="considerations"></a>Considérations
-1. Vous devez utiliser l’amorce de clé Axinom spécifiée (8888000000000000000000000000000000000000) et l’ID de clé généré ou sélectionné pour configurer le service de distribution de clé. Le serveur de licences Axinom émettra toutes les licences contenant des clés de contenus basées sur la même amorce de clé et valide à la fois pour les tests et la production.
+1. Vous devez utiliser l’amorce de clé Axinom spécifiée (8888000000000000000000000000000000000000) et l’ID de clé généré ou sélectionné pour configurer le service de distribution de clé. Le serveur de licences Axinom émet toutes les licences contenant des clés de contenu sur la base de la même amorce de clé, qui est valide à la fois pour les tests et la production.
 2. L’URL d’acquisition de licence Widevine pour le test est : [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). HTTP et HTTS sont tous les deux autorisés.
 
 ## <a name="azure-media-player-preparation"></a>Préparation d’Azure Media Player
@@ -65,14 +65,14 @@ Le serveur de licences Widevine fourni par Axinom requiert l’authentification 
 
 Le reste du code AMP est en API AMP standard, comme pour le document AMP [suivant](http://amp.azure.net/libs/amp/latest/docs/).
 
-Notez que le code javascript qui permet de configurer l’en-tête d’autorisation personnalisé obéit toujours à une approche à court terme, et ce, avant que l’approche officielle AMP à long terme soit émise.
+Le code javascript qui permet de configurer l’en-tête d’autorisation personnalisé obéit toujours à une approche à court terme, et ce, avant que l’approche officielle AMP à long terme soit émise.
 
 ## <a name="jwt-token-generation"></a>Génération de jetons JWT
 Le serveur de licences Axinom Widevine fourni par Axinom requiert l’authentification de jeton JWT. De plus, une des revendications du jeton JWT est un type d’objet complexe et non un type de données primitif.
 
 Malheureusement, Azure AD ne peut émettre que des jetons JWT avec des types primitifs. De même, API .NET Framework (System.IdentityModel.Tokens.SecurityTokenHandler et JwtPayload) permet d’entrer seulement des revendications avec type d’objet complexe. Toutefois, les revendications sont toujours sérialisées en tant que chaîne. Par conséquent, nous ne pouvons utiliser aucun des deux pour générer le jeton JWT pour la demande de licence Widevine.
 
-Le [package Nuget JWT](https://www.nuget.org/packages/JWT) de John Sheehan répond à ces besoins. Nous allons donc l’utiliser.
+Le [package NuGet JWT](https://www.nuget.org/packages/JWT) de John Sheehan répond à ces besoins. Nous allons donc l’utiliser.
 
 Vous trouverez ci-dessous le code permettant de générer un jeton JWT avec les revendications nécessaires, comme l’exige le serveur de licences Axinom Widevine pour le test :
 
@@ -136,7 +136,7 @@ Serveur de licences Axinom Widevine
 
 ### <a name="considerations"></a>Considérations
 1. Bien que le service de remise de licence PlayReady AMS exige que la chaîne de caractères « Bearer= » précède un jeton d’authentification, le serveur de licences Axinom Widevine ne l’utilise pas.
-2. C’est la clé de communication Axinom qui est utilisée comme clé de connexion. Notez que la clé est une chaîne hexadécimale, mais elle doit être traitée comme une série d’octets et non comme une chaîne lors du codage. Pour ce faire, on utilise la méthode ConvertHexStringToByteArray.
+2. C’est la clé de communication Axinom qui est utilisée comme clé de connexion. La clé est une chaîne hexadécimale, mais elle doit être traitée comme une série d’octets et non comme une chaîne lors du codage. Pour ce faire, on utilise la méthode ConvertHexStringToByteArray.
 
 ## <a name="retrieving-key-id"></a>Récupération de l’ID de clé
 Vous avez peut-être remarqué que dans le code permettant de générer un jeton JWT, un ID de clé est exigé. Étant donné que le jeton JWT doit être prêt avant le chargement du lecteur AMP, l’ID de clé doit être récupéré pour générer le jeton JWT.

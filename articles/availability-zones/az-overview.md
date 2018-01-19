@@ -8,19 +8,19 @@ manager: carmonm
 editor: 
 tags: 
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Vue d’ensemble des zones de disponibilité dans Azure (préversion)
 
@@ -32,6 +32,7 @@ Les zones de disponibilité vous permettent de vous protéger contre les défail
 
 - Est des États-Unis 2
 - Europe de l'Ouest
+- France-Centre
 
 ## <a name="services-that-support-availability-zones"></a>Régions qui prennent en charge les zones de disponibilité
 
@@ -40,28 +41,22 @@ Les services Azure qui prennent en charge les zones de disponibilité sont les s
 - Machines virtuelles Linux
 - Machines virtuelles Windows
 - Groupes zonaux de machines virtuelles identiques
-- Managed Disks
-- Load Balancer
-
-## <a name="supported-virtual-machine-size-families"></a>Tailles de machine virtuelle prises en charge
-
-- Av2
-- Dv2
-- DSv2
-
+- Managed Disks
+- Équilibreur de charge
+- Adresse IP publique
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Prise en main de la préversion des zones de disponibilité
 
-La préversion des zones de disponibilité est disponible dans les régions États-Unis de l’Est 2 et Europe de l’Ouest pour certains services Azure spécifiques. 
+La préversion des zones de disponibilité est disponible dans les régions États-Unis de l’Est 2, Europe de l’Ouest et France-Centre pour certains services Azure. 
 
 1. [Inscrivez-vous à la préversion des zones de disponibilité](http://aka.ms/azenroll). 
 2. Connectez-vous à votre abonnement Azure.
 3. Choisissez une région qui prend en charge les zones de disponibilité.
 4. Utilisez un des liens suivants pour commencer à utiliser les zones de disponibilité avec votre service. 
     - [Créer une machine virtuelle](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Créer un groupe zonal de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Créer un groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Ajouter un disque géré à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Équilibreur de charge](../load-balancer/load-balancer-standard-overview.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Modèles de démarrage rapide](http://aka.ms/azqs)

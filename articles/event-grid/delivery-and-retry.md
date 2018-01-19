@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/10/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid 
 
@@ -62,9 +62,10 @@ Event Grid ajoute une petite randomisation à tous les intervalles de nouvelle t
 
 ## <a name="retry-duration"></a>Durée des nouvelles tentatives
 
-Pendant la préversion d’Azure Event Grid, tous les événements qui ne sont pas distribués dans les deux heures expirent automatiquement. Avant la disponibilité générale, ce délai est porté à 24 heures. 
+Pendant la préversion d’Azure Event Grid, tous les événements qui ne sont pas distribués dans les deux heures expirent automatiquement.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
+* Pour afficher l’état des remises des événements, consultez [Surveiller la remise des messages Event Grid](monitor-event-delivery.md).
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).
 * Pour une prise en main rapide d’Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).

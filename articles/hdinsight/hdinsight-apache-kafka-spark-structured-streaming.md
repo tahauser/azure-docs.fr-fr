@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 39734153a757d4665f2a15d3af244d2fab9ad9d7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Utiliser Spark Structured Streaming avec Kafka sur HDInsight
 
@@ -127,7 +127,7 @@ Le code de l’exemple décrit dans ce document est disponible à l’adresse [h
 
 Pour charger les blocs-notes à partir du projet vers votre cluster Spark sur HDInsight, procédez comme suit :
 
-1. Dans votre navigateur web, connectez-vous au bloc-notes Jupyter sur votre cluster Spark. Dans l’URL suivante, remplacez `CLUSTERNAME` par le nom de votre cluster Kafka :
+1. Dans votre navigateur web, connectez-vous au bloc-notes Jupyter sur votre cluster Spark. Dans l’URL suivante, remplacez `CLUSTERNAME` par le nom de votre cluster __Spark__ :
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
@@ -153,7 +153,7 @@ Une fois que les fichiers ont été chargés, sélectionnez l’entrée __Stream
 
 Dans la page d’accueil du bloc-notes Jupyter, sélectionnez l’entrée __Spark-Structured-Streaming-From-Kafka.ipynb__. Suivez les étapes dans le bloc-notes pour charger des tweets à partir de Kafka à l’aide de Spark Structured Streaming.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez appris à utiliser Spark Structured Streaming, consultez les documents suivants pour en savoir plus sur l’utilisation de Spark et de Kafka :
 
