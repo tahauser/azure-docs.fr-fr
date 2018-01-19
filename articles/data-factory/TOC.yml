@@ -9,29 +9,27 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer une fabrique de données
-      items:
-        - name: Interface utilisateur (IU)
-          href: quickstart-create-data-factory-portal.md
-        - name: Outil Copier des données
-          href: quickstart-create-data-factory-copy-data-tool.md
-        - name: PowerShell
-          href: quickstart-create-data-factory-powershell.md
-        - name: .NET
-          href: quickstart-create-data-factory-dot-net.md
-        - name: Python
-          href: quickstart-create-data-factory-python.md
-        - name: REST
-          href: quickstart-create-data-factory-rest-api.md
-        - name: Modèle Resource Manager
-          href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Créer une fabrique de données - Interface utilisateur (IU)
+      href: quickstart-create-data-factory-portal.md
+    - name: Créer une fabrique de données - Outil Copier des données
+      href: quickstart-create-data-factory-copy-data-tool.md
+    - name: Créer une fabrique de données - Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Créer une fabrique de données - .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Créer une fabrique de données - Python
+      href: quickstart-create-data-factory-python.md
+    - name: Créer une fabrique de données - REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Créer une fabrique de données - Modèle Resource Manager
+      href: quickstart-create-data-factory-resource-manager-template.md
 - name: Didacticiels
   items:
     - name: 1 - Déployer des packages SSIS vers Azure
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-create-azure-ssis-runtime-portal.md
-        - name: PowerShell
+        - name: "Azure\_PowerShell"
           href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 - Copier des données dans le cloud
       items:
@@ -39,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Interface utilisateur (IU)
           href: tutorial-copy-data-portal.md
-        - name: PowerShell
+        - name: "Azure\_PowerShell"
           href: tutorial-copy-data-dot-net.md
     - name: 3 - Copier des données locales dans le cloud
       items:
@@ -47,13 +45,13 @@
           href: tutorial-hybrid-copy-data-tool.md
         - name: Interface utilisateur (IU)
           href: tutorial-hybrid-copy-portal.md
-        - name: PowerShell
+        - name: "Azure\_PowerShell"
           href: tutorial-hybrid-copy-powershell.md
     - name: 4 - Copier des données en bloc
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-bulk-copy-portal.md
-        - name: PowerShell
+        - name: "Azure\_PowerShell"
           href: tutorial-bulk-copy.md
     - name: 5 - Copier des données de façon incrémentielle
       href: tutorial-incremental-copy-overview.md
@@ -62,41 +60,41 @@
           items:
             - name: Interface utilisateur (IU)
               href: tutorial-incremental-copy-portal.md
-            - name: PowerShell
+            - name: "Azure\_PowerShell"
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copie à partir de plusieurs tables
           items:
-            - name: PowerShell
+            - name: "Azure\_PowerShell"
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Utilisation de la fonctionnalité de suivi des modifications
           items:
             - name: Interface utilisateur (IU)
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: PowerShell
+            - name: "Azure\_PowerShell"
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Transformer des données dans le cloud
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-transform-data-spark-portal.md
-        - name: PowerShell
+        - name: "Azure\_PowerShell"
           href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Transformer des données dans un réseau virtuel
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: PowerShell
+        - name: "Azure\_PowerShell"
           href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - Flux de contrôle
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-control-flow-portal.md
-        - name: PowerShell
+        - name: "Azure\_PowerShell"
           href: tutorial-control-flow.md
 - name: Exemples
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
-    - name: PowerShell
+    - name: "Azure\_PowerShell"
       href: samples-powershell.md
 - name: Concepts
   items:
