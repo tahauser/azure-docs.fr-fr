@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
 ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Répliquer des machines virtuelles Azure vers une autre région après migration vers Azure à l’aide d’Azure Site Recovery
 
 >[!NOTE]
 > La réplication Azure Site Recovery pour les machines virtuelles Azure est actuellement en préversion.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article vous aide à préparer des machines virtuelles Azure pour la réplication entre deux régions Azure après que ces machines ont été migrées à partir d’un environnement local vers Azure à l’aide d’Azure Site Recovery.
 
@@ -100,6 +100,6 @@ Utilisez l’une des méthodes suivantes pour désinstaller le service Mobilité
 Après avoir désinstallé le service Mobilité, redémarrez la machine virtuelle avant de configurer la réplication vers une autre région Azure.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Commencer à protéger vos charges de travail en [répliquant des machines virtuelles Azure](../azure-to-azure-quickstart.md).
 - Découvrir l’[Aide à la mise en réseau pour la réplication des machines virtuelles Azure](../site-recovery-azure-to-azure-networking-guidance.md).

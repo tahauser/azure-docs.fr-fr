@@ -9,10 +9,10 @@ ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -37,7 +37,7 @@ Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que
 Avant de commencer, il est utile d’examiner les architectures [VMware](concepts-vmware-to-azure-architecture.md) et [Hyper-V](concepts-hyper-v-to-azure-architecture.md) pour la récupération d’urgence.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 
