@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce que la messagerie Service Bus ?](service-bus-messaging-overview.md)
 ## [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Architecture de Service Bus](service-bus-architecture.md)
@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Créer une application Service Bus à plusieurs niveaux](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Procédure
 ## Planifier et concevoir
@@ -29,6 +28,7 @@
 ### [Contrôle d’accès en fonction du rôle (préversion)](service-bus-role-based-access-control.md)
 ### [Messagerie Premium](service-bus-premium-messaging.md)
 ### [Comparer les files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Créer une application Service Bus à plusieurs niveaux](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimiser les performances](service-bus-performance-improvements.md)
 ### [Récupération d’urgence et géo-réplication](service-bus-geo-dr.md)
 ### [Messagerie asynchrone et haute disponibilité](service-bus-async-messaging.md)
@@ -65,7 +65,7 @@
 #### [Traitement des transactions](service-bus-transactions.md)
 #### [Implémentation de l’espace de noms associé](service-bus-paired-namespaces.md)
 ### [Diagnostics et suivi de bout en bout](service-bus-end-to-end-tracing.md)
-## Gérer
+## gérer
 ### [Analyser Service Bus avec la surveillance Azure](service-bus-metrics-azure-monitor.md)
 ### [Bibliothèques de gestion de Service Bus](service-bus-management-libraries.md)
 ### [Journaux de diagnostic](service-bus-diagnostic-logs.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Utilisation d’Azure PowerShell pour approvisionner des entités](service-bus-manage-with-ps.md)
 
-# Référence
+# Informations de référence
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

@@ -12,7 +12,7 @@
 
 # Procédures
 ## Charger et déplacer des données
-### [Utilisation d’Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Utilisation d’Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Utilisation d’AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Utilisation de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Utilisation de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +66,7 @@
 ### [Accéder à partir de machines virtuelles dans un réseau virtuel Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Utiliser avec Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Utiliser avec Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Utiliser avec Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Utiliser avec Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Utiliser avec Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Utiliser avec Power BI](data-lake-store-power-bi.md)
 ### [Utiliser avec Data Catalog](data-lake-store-with-data-catalog.md)
