@@ -1,4 +1,4 @@
-- name: "Microsoft\_Azure"
+- name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
@@ -68,13 +68,13 @@
     - name: Azure Databricks
       tocHref: /azure/azure-databricks/
       topicHref: /azure/azure-databricks/
-    - name: "Container\_Registry"
+    - name: Registre de conteneurs
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
     - name: Gestion des coûts
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
-    - name: Fonctions
+    - name: Functions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
     - name: Azure Government
@@ -122,7 +122,7 @@
     - name: CDN
       tocHref: /azure/cdn/
       topicHref: /azure/cdn/
-    - name: Services cloud
+    - name: Cloud Services
       tocHref: /azure/cloud-services/
       topicHref: /azure/cloud-services/
     - name: Cognitive Services
@@ -218,7 +218,7 @@
         - name: Hadoop
           tocHref: /azure/hdinsight/hadoop
           topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
-        - name: HBase
+        - name: hbase
           tocHref: /azure/hdinsight/hbase
           topicHref: /azure/hdinsight/hbase/apache-hbase-overview
         - name: Interactive Query
@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: "IoT\_Edge"
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: IoT Hub
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -248,7 +251,7 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
-    - name: Load Balancer
+    - name: Équilibreur de charge
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
     - name: Log Analytics
@@ -362,7 +365,7 @@
     - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Search
+    - name: action
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: Sécurité
@@ -395,7 +398,7 @@
     - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
-    - name: Storage
+    - name: Stockage
       tocHref: /azure/storage/
       topicHref: /azure/storage/
       items:
@@ -423,7 +426,7 @@
     - name: Jeux de mise à l’échelle de machine virtuelle
       tocHref: /azure/virtual-machine-scale-sets/
       topicHref: /azure/virtual-machine-scale-sets/
-    - name: Machines virtuelles
+    - name: Virtual Machines
       tocHref: /azure/virtual-machines/
       topicHref: /azure/virtual-machines/
       items:

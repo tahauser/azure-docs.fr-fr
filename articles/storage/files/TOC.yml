@@ -1,4 +1,4 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Introduction
       href: storage-files-introduction.md
@@ -66,9 +66,7 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configuration des chaînes de connexion
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Utilisation de l’API REST Stockage Azure
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Gérer
+    - name: gérer
       items:
         - name: PowerShell pour les fichiers Azure
           href: storage-how-to-use-files-powershell.md
@@ -132,11 +130,11 @@
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Exemples
       href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=file'
-- name: Référence
+- name: Informations de référence
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/storage
     - name: .NET
       items:
@@ -184,13 +182,13 @@
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Forum
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Explorateur de stockage Azure
       items:
