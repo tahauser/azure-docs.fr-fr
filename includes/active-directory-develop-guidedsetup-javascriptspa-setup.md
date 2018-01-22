@@ -4,12 +4,12 @@
 > Vous préférez télécharger le projet de cet exemple ? 
 > - [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
-> ou
+> or
 > - [Télécharger les fichiers de projet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) pour un serveur web local tel que Python
 >
 > Passez ensuite à l’étape [Configuration](#create-an-application-express) pour configurer l’exemple de code avant son exécution.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour exécuter cette installation guidée, vous avez besoin d’un serveur web local tel que [Python http-server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/) ou [.NET Core](https://www.microsoft.com/net/core), ou de l’intégration d’IIS Express à [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
 
 Les instructions de ce guide sont basées sur Python et Visual Studio 2017. Cependant, vous pouvez utiliser n’importe quel environnement de développement ou serveur web.

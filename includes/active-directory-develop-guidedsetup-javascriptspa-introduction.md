@@ -18,7 +18,7 @@ L’exemple d’application créé dans le cadre de ce guide permet à une appli
 
 Ce guide utilise la bibliothèque suivante :
 
-|Bibliothèque|Description|
+|Bibliothèque|DESCRIPTION|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Bibliothèque d’authentification Microsoft pour JavaScript Preview|
 
