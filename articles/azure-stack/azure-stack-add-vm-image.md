@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6c18debd022f0f233b52d81899e8edd7cf1e0456
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle personnalisée à la disposition des utilisateurs dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Dans Azure Stack, les opérateurs peuvent mettre des images de machine virtuelle personnalisées à la disposition de leurs utilisateurs. Ces images peuvent être référencées par des modèles Azure Resource Manager ou vous pouvez les ajouter à l’interface utilisateur de la Place de marché Azure en tant qu’élément sur la Place de marché. 
+Dans Azure Stack, les opérateurs peuvent mettre des images de machine virtuelle personnalisées à la disposition de leurs utilisateurs. Ces images peuvent être référencées par des modèles Azure Resource Manager ou vous pouvez les ajouter à l’interface utilisateur de la Place de marché Azure en tant qu’élément sur la Place de marché.
 
 ## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>Ajouter une image de machine virtuelle sur la Place de marché à l’aide de PowerShell
 
@@ -35,21 +35,27 @@ Effectuez les étapes prérequises suivantes à partir du [kit de développement
 2. Téléchargez les [outils nécessaires pour utiliser Azure Stack](azure-stack-powershell-download.md).  
 
 3. Préparez une image de disque dur virtuel du système d’exploitation Windows ou Linux au format VHD (n’utilisez pas le format VHDX).
-   
+
    * Pour obtenir des instructions sur la préparation des images Windows, consultez [Télécharger une image de machine virtuelle Windows dans Azure pour les déploiements Resource Manager](../virtual-machines/windows/upload-generalized-managed.md).
-   * Pour les images Linux, consultez [Déployer des machines virtuelles Linux sur Azure Stack](azure-stack-linux.md). Effectuez les étapes pour préparer l’image ou bien utilisez une image Linux Azure Stack existante comme décrit dans l’article.  
+
+   * Pour les images Linux, consultez [Déployer des machines virtuelles Linux sur Azure Stack](azure-stack-linux.md). Effectuez les étapes pour préparer l’image ou bien utilisez une image Linux Azure Stack existante comme décrit dans l’article.    
+
+   Azure Stack prend en charge le format VHD de disque fixe. Le format fixe structure linéairement le disque logique dans le fichier de façon que l’offset du disque X soit stocké à l’offset de l’objet blob X. Un petit pied de page à la fin de l’objet blob décrit les propriétés du disque dur virtuel. Pour vérifier si votre disque est fixe, utilisez la commande PowerShell [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps).  
+
+   > [!IMPORTANT]
+   >  Azure Stack ne prend pas en charge les disques durs virtuels de disque dynamique. Le redimensionnement d’un disque dynamique attaché à une machine virtuelle laissera la machine virtuelle dans un état d’échec. Pour résoudre ce problème, supprimez la machine virtuelle sans supprimer le disque de la machine virtuelle, un objet blob VHD dans un compte de stockage. Ensuite, convertissez le disque dur virtuel d’un disque dynamique en un disque fixe et recréez la machine virtuelle.
 
 Pour ajouter l’image sur la Place de marché Azure Stack, effectuez les étapes suivantes :
 
 1. Importez les modules Connect et ComputeAdmin :
-   
+
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
    # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ``` 
+   ```
 
 2. Connectez-vous à votre environnement Azure Stack. Exécutez l’un des scripts suivants, en fonction du déploiement de votre environnement Azure Stack (à l’aide de Azure Active Directory ou bien avec Active Directory Federation Services). (Remplacez le `tenantName` de Azure AD, le point de terminaison `GraphAudience`, et les valeurs `ArmEndpoint` pour refléter la configuration de votre environnement.)
 
@@ -61,7 +67,7 @@ Pour ajouter l’image sur la Place de marché Azure Stack, effectuez les étape
 
       # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
       $GraphAudience = "<GraphAuidence endpoint for your environment>"
-      
+
       # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
       Add-AzureRMEnvironment `
         -Name "AzureStackAdmin" `
@@ -77,11 +83,11 @@ Pour ajouter l’image sur la Place de marché Azure Stack, effectuez les étape
 
       Login-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
+        -TenantId $TenantID
       ```
 
    * **Active Directory Federation Services**. Utilisez l’applet de commande suivante :
-    
+
         ```PowerShell
         # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
         $ArmEndpoint = "<Resource Manager endpoint for your environment>"
@@ -101,15 +107,15 @@ Pour ajouter l’image sur la Place de marché Azure Stack, effectuez les étape
 
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
-          -EnvironmentName AzureStackAdmin 
+          -EnvironmentName AzureStackAdmin
 
         Login-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
-          -TenantId $TenantID 
+          -TenantId $TenantID
         ```
-    
+
 3. Ajoutez l’image de machine virtuelle en appelant l’applet de commande `Add-AzsVMImage`. Dans l’applet de commande `Add-AzsVMImage`, spécifiez `osType` comme Windows ou Linux. Indiquez l’éditeur (« publisher »), l’offre (« offer »), la référence SKU (« sku ») et la version pour l’image de machine virtuelle. Pour plus d’informations sur les paramètres autorisés, consultez la section [Paramètres](#parameters). Les paramètres sont utilisés par les modèles Azure Resource Manager pour référencer l’image de machine virtuelle. L’exemple suivant appelle le script :
-     
+
   ```powershell
   Add-AzsVMImage `
     -publisher "Canonical" `
@@ -129,7 +135,7 @@ La commande exécute les actions suivantes :
 
 Pour vérifier que la commande s’est exécutée correctement, accédez à la Place de Marché dans le portail. Vérifiez que l’image de machine virtuelle est disponible dans le catégorie **Machines virtuelles**.
 
-![Image de machine virtuelle correctement ajoutée](./media/azure-stack-add-vm-image/image5.PNG) 
+![Image de machine virtuelle correctement ajoutée](./media/azure-stack-add-vm-image/image5.PNG)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Supprimer une image de machine virtuelle à l’aide de PowerShell
 
@@ -145,7 +151,7 @@ Remove-AzsVMImage `
 
 ## <a name="parameters"></a>parameters
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 | --- | --- |
 | **publisher** |Segment du nom de l’éditeur de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **Microsoft** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |
 | **offer** |Segment du nom de l’offre de l’image de machine virtuelle que les utilisateurs indiquent lors du déploiement de l’image. **WindowsServer** est un exemple. N’incluez aucun espace ou autre caractère spécial dans ce champ. |
@@ -170,8 +176,13 @@ Les images doivent être en mesure d’être référencées par un URI de stocka
 
 1. [Chargez une image de machine virtuelle Windows dans Azure pour les déploiements Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) ou, pour une image Linux, suivez les instructions fournies dans [Déployer des machines virtuelles Linux dans Azure Stack](azure-stack-linux.md). Avant de télécharger l’image, il est important de tenir compte des facteurs suivants :
 
-   * Il est préférable de charger une image dans le stockage Blob Azure Stack plutôt que dans le stockage Blob Azure, car la publication d’une image dans le référentiel d’images Azure Stack est plus rapide. 
-   
+   * Azure Stack prend en charge le format VHD de disque fixe. Le format fixe structure linéairement le disque logique dans le fichier de façon que l’offset du disque X soit stocké à l’offset de l’objet blob X. Un petit pied de page à la fin de l’objet blob décrit les propriétés du disque dur virtuel. Pour vérifier si votre disque est fixe, utilisez la commande PowerShell [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps).  
+
+    > [!IMPORTANT]
+   >  Azure Stack ne prend pas en charge les disques durs virtuels de disque dynamique. Le redimensionnement d’un disque dynamique attaché à une machine virtuelle laissera la machine virtuelle dans un état d’échec. Pour résoudre ce problème, supprimez la machine virtuelle sans supprimer le disque de la machine virtuelle, un objet blob VHD dans un compte de stockage. Ensuite, convertissez le disque dur virtuel d’un disque dynamique en un disque fixe et recréez la machine virtuelle.
+
+   * Il est préférable de charger une image dans le stockage Blob Azure Stack plutôt que dans le stockage Blob Azure, car la publication d’une image dans le référentiel d’images Azure Stack est plus rapide.
+
    * Quand vous chargez [l’image de machine virtuelle Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), pensez à substituer l’étape **Se connecter à Azure** par l’étape [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md).  
 
    * Prenez note de l’URI de stockage Blob dans lequel vous chargez l’image. L’URI de stockage Blob est au format suivant : *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
@@ -185,13 +196,13 @@ Les images doivent être en mesure d’être référencées par un URI de stocka
 2. Connectez-vous au Azure Stack en tant qu’opérateur. Dans le menu, sélectionnez sur **Autres services** > **Fournisseurs de ressources**. Ensuite, sélectionnez **Compute** > **Images de machine virtuelle** > **Ajouter**.
 
 3. Dans le panneau **Ajouter une image de machine virtuelle**, saisissez l’éditeur, l’offre, la référence SKU et la version de l’image de machine virtuelle. Ces segments de nom référencent l’image de machine virtuelle dans les modèles Resource Manager. Sélectionnez la valeur **type de système d’exploitation** approprié. Pour **URI de l’objet blob OS Disk**, saisissez l’URI de l’objet Blob où l’image a été téléchargée. Cliquez ensuite sur **Créer** pour commencer la création d’une image de machine virtuelle.
-   
+
    ![Démarrer la création de l’image](./media/azure-stack-add-vm-image/image4.png)
 
    Une fois que l’image de machine virtuelle a été créée, son état passe à **Réussi**.
 
 4. Pour rendre une image de machine virtuelle plus rapidement disponible dans l’interface utilisateur, c’est une bonne idée de [créer un élément de Place de marché](azure-stack-create-and-publish-marketplace-item.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

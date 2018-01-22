@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Windows
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Migrer vers le stockage Premium avec Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Trouver les disques non attachés
+          href: find-unattached-disks.md
         - name: Utiliser le stockage de fichier File Storage
           href: mount-azure-file-storage.md
         - name: Déployer des disques avec un modèle
@@ -418,7 +420,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Utiliser la virtualisation imbriquée
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/vm

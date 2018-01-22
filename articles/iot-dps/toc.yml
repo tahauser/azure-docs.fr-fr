@@ -52,9 +52,15 @@
     - name: "2\_- Configurer l’appareil"
       href: tutorial-set-up-device.md
     - name: "3\_- Approvisionner un appareil sur un hub IoT"
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: "4\_- Approvisionner des appareils sur plusieurs hubs"
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 - Attribuer les inscriptions de groupe
+      href: tutorial-group-enrollments.md
 - name: Concepts
   items:
     - name: Concepts de l’appareil
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Révoquer l’accès à l’appareil
       href: how-to-revoke-device-access-portal.md
+    - name: Annuler la mise en service des appareils
+      href: how-to-unprovision-devices.md
     - name: Utiliser un HSM avec le Kit de développement logiciel (SDK)
       href: use-hsm-with-sdk.md
     - name: Contrôler l’accès à un service d’approvisionnement

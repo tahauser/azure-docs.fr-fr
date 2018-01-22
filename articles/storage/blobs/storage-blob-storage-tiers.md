@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage chaud, froid et archive
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le stockage Azure offre trois niveaux de stockage d’objets blob afin que vous puissiez stocker vos données de manière plus économique en fonction de leur utilisation. Le **niveau de stockage chaud** Azure est optimisé pour le stockage des données souvent sollicitées. Le **niveau de stockage à froid** Azure est optimisé pour le stockage des données rarement sollicitées et stockées depuis au moins 30 jours. Le **niveau de stockage archive**  Azure est optimisé pour le stockage des données rarement sollicitées et stockées depuis au moins 180 jours, sous des conditions de latence flexibles (selon l’ordre des heures). Le niveau de stockage archive est uniquement disponible au niveau de l’objet blob et non au niveau du compte de stockage. Les données du niveau de stockage froid peuvent tolérer une disponibilité légèrement inférieure, mais nécessitent toujours une durabilité élevée, ainsi qu’un temps d’accès et des caractéristiques de débit similaires à ceux des données chaudes. Concernant les données froides, un contrat SLA de disponibilité légèrement inférieure et des coûts d’accès supérieurs comparés aux données chaudes sont des compromis acceptables pour des coûts de stockage plus faibles. Le stockage archive est hors connexion et offre les coûts de stockage les plus bas, mais également les coûts d’accès les plus élevés.
 
@@ -93,8 +93,8 @@ Le tableau suivant présente une comparaison des niveaux de stockage chaud, froi
 
 | | **Niveau de stockage chaud** | **Niveau de stockage froid** | **Niveau de stockage archive**
 | ---- | ----- | ----- | ----- |
-| **Availability** | 99,9 % | 99 % | N/A |
-| **Availability** <br> **(Lectures RA-GRS)**| 99,99 % | 99,9 % | N/A |
+| **Disponibilité** | 99,9 % | 99 % | N/A |
+| **Disponibilité** <br> **(Lectures RA-GRS)**| 99,99 % | 99,9 % | N/A |
 | **Frais d’utilisation** | Coûts de stockage supérieurs, coûts d’accès et de transaction inférieurs | Coûts de stockage inférieurs, coûts d’accès et de transaction supérieurs | Coûts de stockage les plus faibles, coûts d’accès et de transaction les plus élevés |
 | **Taille minimale des objets** | N/A | N/A | N/A |
 | **Durée de stockage minimale** | N/A | 30 jours (GPv2 uniquement) | 180 jours
@@ -113,7 +113,7 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’accès de compte par défaut d’un compte de stockage GPv2 ou d’objets blob
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
 
@@ -125,7 +125,7 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’un objet blob dans un compte de stockage GPv2 ou d’objets blob.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Pour accéder à votre objet blob dans votre compte de stockage, sélectionnez Toutes les ressources, puis votre compte de stockage et enfin sélectionnez votre objet blob.
 
@@ -187,9 +187,9 @@ Le portail Azure, PowerShell et les outils CLI et les bibliothèques de client .
 
 Le stockage des données ainsi que d’autres limites sont établis à partir du niveau de compte et pas à partir du niveau de stockage. Par conséquent, vous pouvez choisir d’utiliser toute votre limite sur un seul niveau ou sur les trois niveaux. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité d'Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) .
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Évaluer les niveaux chaud, froid et archive dans les comptes de stockage d’objets blob / GPv2
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Évaluer les niveaux chaud, froid et archive dans les comptes de stockage d’objets blob GPv2
 
 [Vérifier la disponibilité de niveau chaud, froid et archive par région](https://azure.microsoft.com/regions/#services)
 

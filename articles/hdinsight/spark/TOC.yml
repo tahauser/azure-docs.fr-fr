@@ -115,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: Analyser les données volumineuses (Big Data)
       items:
+        - name: Utiliser Spark pour lire et écrire des données HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Analyser les journaux Application Insights Telemetry
           href: apache-spark-analyze-application-insight-logs.md
     - name: Étendre des clusters
@@ -178,6 +181,8 @@
           maintainContext: true
     - name: gérer
       items:
+        - name: Optimiser des travaux Spark
+          href: apache-spark-perf.md
         - name: Planification de la capacité des clusters
           href: ../hdinsight-capacity-planning.md
           maintainContext: true
@@ -280,7 +285,7 @@
           maintainContext: true
     - name: Résolution des problèmes
       items:
-        - name: "Résoudre les problèmes d’un cluster\_HDInsight défaillant ou lent"
+        - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: Résolution de problèmes Spark

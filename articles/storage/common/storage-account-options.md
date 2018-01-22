@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: jirwin
-ms.openlocfilehash: 7f07734433694999d38429ca264c58c5f3c619e1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-account-options"></a>Options de compte de stockage Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Stockage Azure fournit trois options de compte distinctes, avec différentes tarifications et fonctionnalités prises en charge. Il est important que les utilisateurs évaluent ces différences afin de déterminer la meilleure option pour leurs applications.  Les trois options différentes sont les suivantes :
 
 * Les comptes **Usage général v2 (GPv2)** possèdent les fonctionnalités les plus récentes et prennent en charge les objets BLOB, les fichiers, les files d’attente et les tables. Aujourd'hui, ces dernières fonctionnalités incluent la hiérarchisation au niveau de l’objet blob, le stockage archive, des limites de compte plus élevées et des événements de stockage. La tarification a été conçue pour fournir les prix au Go les plus bas et des prix de transaction compétitifs pour l’industrie.
@@ -31,7 +31,7 @@ Stockage Azure fournit trois options de compte distinctes, avec différentes tar
 * Les comptes **Usage général v1 (GPv1)** permettent l’utilisation de tous les services de Stockage Azure, mais ils ne possèdent pas les fonctionnalités les plus récentes ou de la tarification au Go la plus basse. Par exemple, le stockage froid et archive ne sont pas pris en charge par GPv1.  La tarification est inférieure pour les transactions, les charges de travail avec une évolution élevée ou un taux de lecture élevé peuvent donc tirer parti de ce type de compte.
 
 ### <a name="changing-account-kind"></a>Modification du type de compte
-Les utilisateurs peuvent à tout moment mettre à niveau un compte de stockage GPv1 ou d’objets blob vers un compte GPv2 via le portail, CLI ou PowerShell. Cette modification ne peut pas être annulée, et aucune autre modification n’est autorisée.
+Les utilisateurs peuvent à tout moment mettre à niveau un compte GPv1 vers un compte GPv2 via le portail, l’interface CLI ou PowerShell. Cette modification ne peut pas être annulée, et aucune autre modification n’est autorisée. La possibilité de mettre à niveau des comptes de stockage d’objets Blob vers des comptes GPv2 sera bientôt disponible.
 
 ## <a name="general-purpose-v2"></a>Usage général v2
 Les comptes **Usage général v2 (GPv2)** sont des comptes de stockage qui prennent en charge toutes les fonctionnalités pour tous les services de stockage, y compris les objets blob, les fichiers, les files d’attente et les tables. Pour les objets blob de blocs, vous pouvez choisir un niveau de stockage chaud ou froid au niveau du compte, ou bien un niveau de stockage chaud, froid ou archive au niveau du fichier blob, en fonction des modèles d’accès. Stockez les données utilisées fréquemment, peu fréquemment et rarement dans des niveaux de stockage respectivement archive, froid et chaud pour optimiser les coûts. N’importe quel compte GPv1 peut être mis à niveau vers un compte GPv2 dans le portail, CLI, ou PowerShell. Les comptes GPv2 prennent en charge toutes les API et fonctionnalités prises en charge dans les comptes de stockage d’objets blob et GPv1, partagent les fonctionnalités de durabilité, disponibilité, évolutivité et de performances élevées de ces types de compte.
@@ -96,7 +96,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 ### <a name="create-a-gpv2-storage-account-using-the-azure-portal"></a>Créer un compte de stockage GPv2 dans le portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Dans le menu Hub, sélectionnez **Nouveau** > **Données et stockage** > **Compte de stockage**.
 
@@ -130,9 +130,9 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 11. Cliquez sur **Créer** pour créer le compte de stockage.
 
-### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Convertir un compte de stockage GPv1 ou de stockage d’objet blob en un compte de stockage GPv2 à l’aide du portail Azure
+### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Convertir un compte GPv1 en compte de stockage GPv2 à l’aide du portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
 
@@ -146,7 +146,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 ### <a name="change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal"></a>Modifier le niveau de stockage d’un compte de stockage GPv2 à l’aide du Portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
 
@@ -158,7 +158,7 @@ Vous ne pouvez pas définir le niveau d’accès archive dans les exemples suiva
 
 ### <a name="change-the-storage-tier-of-a-blob-using-the-azure-portal"></a>Modifier le niveau de stockage d’un objet blob à l’aide du Portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Pour accéder à votre objet blob dans votre compte de stockage, sélectionnez Toutes les ressources, puis votre compte de stockage et enfin sélectionnez votre objet blob.
 
@@ -247,7 +247,7 @@ Le coût de transfert de données de géoréplication des comptes de stockage d�
 
 ## <a name="migrating-existing-data"></a>Migration des données existantes
 
-Un compte GPv1 ou de stockage d’objets Blob peut être facilement mis à niveau vers un compte GPv2 sans temps d’arrêt ni modifications de l’API et sans nécessiter de déplacement des données. Il s’agit de l’un des principaux avantages des comptes GPv2 par rapport aux comptes de stockage d’objets blob.
+Un compte GPv1 peut être facilement mis à niveau vers un compte GPv2 sans temps d’arrêt ni modifications de l’API et sans nécessiter de déplacement des données. Il s’agit de l’un des principaux avantages des comptes GPv2 par rapport aux comptes de stockage d’objets blob.
 
 Toutefois, si vous avez besoin de migrer vers un compte de stockage d’objets blob, vous pouvez suivre les instructions ci-dessous.
 
@@ -280,15 +280,19 @@ Pour plus d’informations, voir [Prise en main du stockage d’objets blob Azur
 
 **Les comptes de stockage existants restent-ils disponibles ?**
 
-Oui. Les comptes de stockage existants restent disponibles, avec les mêmes tarifs et fonctionnalités.  Ils ne permettent pas de choisir un niveau de stockage et n’offrent plus de possibilité de hiérarchisation.
+Oui. Les comptes de stockage existants (GPv1) restent disponibles, avec les mêmes tarifs et fonctionnalités.  Les comptes GPv1 ne permettent pas de choisir un niveau de stockage et n’offrent plus de possibilité de hiérarchisation.
 
 **Quand et pourquoi dois-je commencer à utiliser des comptes de stockage GPv2 ?**
 
 Les comptes de stockage GPv2 sont spécialisés pour fournir les coûts de stockage au Go les plus bas, tout en proposant des prix d’accès aux données et de transaction compétitifs pour l’industrie. Désormais, les comptes de stockage GPv2 représentent la méthode recommandée pour le stockage des objets blob. En effet, certaines fonctionnalités, telles que la notification des changements, seront introduites pour ce type de compte. Toutefois, la mise à niveau s’effectue au moment où vous le souhaitez, selon vos besoins.  Par exemple, vous pouvez choisir d’optimiser vos modèles de transaction avant d’effectuer la mise à niveau.
 
+La rétrogradation depuis un compte GPv2 n’est pas prise en charge : vous devez donc prendre en considération tous les implications en matière de tarification avant la mise à niveau de vos comptes à GPv2.
+
 **Puis-je mettre à jour mon compte de stockage existant en un compte de stockage GPv2 ?**
 
-Oui. Les comptes GPv1 ou de stockage d’objets blob peuvent facilement être mis à niveau vers un compte GPv2 depuis le portail.
+Oui. Les comptes GPv1 peuvent facilement être mis à niveau vers un compte GPv2 depuis le portail, ou à l’aide de PowerShell ou de l’interface CLI. Les comptes de stockage d’objets BLOB peuvent être mis au niveau GPv2 à l’aide de PowerShell ou de l’interface CLI. La possibilité de mettre à niveau un compte de stockage d’objets Blob vers un compte GPv2 sera bientôt disponible.
+
+La rétrogradation depuis un compte GPv2 n’est pas prise en charge : vous devez donc prendre en considération tous les implications en matière de tarification avant la mise à niveau de vos comptes à GPv2.
 
 **Puis-je stocker des objets dans les deux niveaux de stockage d’un même compte ?**
 
@@ -316,11 +320,13 @@ Non. Les comptes de stockage d’objets blob prennent en charge uniquement les o
 
 Les comptes de stockage GPv2 sont cohérents à 100 % au niveau des API avec les comptes GPv1 et de stockage d’objets Blob. Tant que votre application utilise des objets blob de blocs ou d’ajout, et que vous utilisez la version 2014-02-14 de [l’API REST Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou une version ultérieure, votre application doit fonctionner. Si vous utilisez une version antérieure du protocole, vous devez mettre à jour votre application pour utiliser la nouvelle version afin de travailler en toute transparence avec les deux types de comptes de stockage. En général, nous recommandons d’utiliser la dernière version, quel que soit le type de compte de stockage que vous utilisez.
 
+GPv2 est généralement supérieur à GPv1 en ce qui concerne les transactions et la bande passante. Par conséquent, il peut être nécessaire d’optimiser vos modèles de transaction avant de mettre à niveau, afin que votre facturation totale n’augmente pas.
+
 **L’expérience utilisateur change-t-elle ?**
 
 Les comptes de stockage GPv2 sont très similaires aux comptes de stockage GPv1 et héritent de toutes les fonctionnalités clés de Azure Storage, notamment de niveaux élevés de durabilité, disponibilité, évolutivité, performances et sécurité. Hormis les fonctionnalités et restrictions spécifiques aux comptes de stockage d’objets blob et aux niveaux de stockage correspondants évoqués plus haut, il n’existe aucune différence lors d’une mise à niveau vers un compte de stockage d’objets blob ou GPv2.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 ### <a name="evaluate-blob-storage-accounts"></a>Évaluer des comptes de stockage d’objets blob
 
@@ -338,6 +344,6 @@ Les comptes de stockage GPv2 sont très similaires aux comptes de stockage GPv1 
 
 [Transfert de données vers et à partir d’Azure Storage](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Transfert de données avec l'utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+[Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [Parcourez et explorez vos comptes de stockage](http://storageexplorer.com/)

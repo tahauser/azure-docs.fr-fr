@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6cfc9891af9de88dddca717711148cbb53276e84
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
  Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre machine de développement Windows, installez le runtime, le Kit de développement logiciel (SDK) et les outils. Vous devez également activer l’exécution des scripts Windows PowerShell inclus dans le Kit de développement logiciel (SDK).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 ### <a name="supported-operating-system-versions"></a>Versions du système d’exploitation prises en charge
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
@@ -41,9 +41,10 @@ Les versions de système d’exploitation prises en charge pour le développemen
 * Windows 10
 
 > [!NOTE]
-> Windows 7 inclut uniquement Windows PowerShell 2.0 par défaut. Les applets de commande PowerShell de Service Fabric nécessitent PowerShell 3.0 ou version ultérieure. Vous pouvez [télécharger Windows PowerShell 5.0][powershell5-download] à partir du Centre de téléchargement Microsoft.
-> 
-> 
+> Windows 7 prend en charge :
+> - Windows 7 inclut uniquement Windows PowerShell 2.0 par défaut. Les applets de commande PowerShell de Service Fabric nécessitent PowerShell 3.0 ou version ultérieure. Vous pouvez [télécharger Windows PowerShell 5.0][powershell5-download] à partir du Centre de téléchargement Microsoft.
+> - Le Proxy inverse de Service Fabric n’est pas disponible sur Windows 7.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>Installer le Kit de développement logiciel (SDK) et les outils
 ### <a name="to-use-visual-studio-2017"></a>Pour utiliser Visual Studio 2017
@@ -77,7 +78,7 @@ Service Fabric utilise des scripts Windows PowerShell pour créer un cluster de 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez fini de configurer votre environnement de développement, commencez à créer et à exécuter des applications.
 
 * [Créer votre première application Service Fabric dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

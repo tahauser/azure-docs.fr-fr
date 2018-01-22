@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Mac
 Pour obtenir la liste des différences entre les versions 1 et 2 du service Data Factory, consultez [Comparer avec la version 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>étapes suivantes
-Découvrez comment créer une fabrique de données en suivant les instructions détaillées fournies dans les démarrages rapides suivants : [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md) et le portail Azure. 
+Prise en main de la création d’un pipeline Data Factory à l’aide d’un des outils/kits de développement logiciel suivants : 
+
+- [IU Data Factory dans le portail Azure](quickstart-create-data-factory-portal.md)
+- [Outil Copier les données dans le portail Azure](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Modèle Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
+ 

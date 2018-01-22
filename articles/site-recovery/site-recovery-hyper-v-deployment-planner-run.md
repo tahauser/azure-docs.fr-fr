@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 34f0b641abcf4231655d74da46f1bdcadc5642f6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure
 
@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
 |-Répertoire|(Facultatif) La convention d’appellation universelle (UNC) ou le chemin d’accès du répertoire local pour stocker les données de profilage générées pendant le profilage. Si aucun répertoire n’est spécifié, le répertoire « ProfiledData » figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut.|
 |-Mot de passe|(Facultatif) Le mot de passe pour se connecter à l’hôte Hyper-V. Si aucun mot de passe n’est spécifié maintenant, vous êtes invité à l’indiquer ultérieurement à l’exécution de la commande.|
-|-StorageAccountName|(Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit.|
+|-StorageAccountName|(Facultatif) Le nom du compte de stockage utilisé pour rechercher le débit réalisable pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour calculer le débit. Le compte de stockage doit être à usage général v1 ou storageV2 (usage général v2)|
 |-StorageAccountKey|(Facultatif) La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <Storage account name> > Paramètres > Clés d’accès > Key1 (ou clé d’accès principale pour le compte de stockage classique).|
 |-Environment|(Facultatif) Votre environnement de compte de stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine.|
 
@@ -274,7 +274,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughtput |
 |-Virtualization|Spécifiez le type de virtualisation (VMware ou Hyper-V).|
 |-Répertoire|(Facultatif) La convention d’affectation de noms universelle (UNC) ou le chemin d’accès du répertoire local où les données profilées (fichiers générés lors du profilage) sont stockées. Ces données sont requises pour générer le rapport. Si aucun nom n’est spécifié, le répertoire « ProfiledData » figurant dans le chemin d’accès actuel est utilisé comme répertoire par défaut.|
-| -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. |
+| -StorageAccountName | Le nom du compte de stockage Azure permettant de déterminer la bande passante utilisée pour la réplication des données locales vers Azure. L’outil charge les données de test sur ce compte de stockage pour trouver la bande passante consommée. Le compte de stockage doit être à usage général v1 ou storageV2 (usage général v2) |
 | -StorageAccountKey | La clé du compte de stockage utilisée pour accéder au compte de stockage. Accédez au portail Azure > Comptes de stockage > <*Nom du compte de stockage*> > Paramètres > Clés d’accès > Key1.|
 | -VMListFile | Le fichier qui contient la liste des machines virtuelles à profiler pour calculer la bande passante consommée. Le chemin d’accès du fichier peut être absolu ou relatif. Pour Hyper-V, ce fichier est le fichier de sortie de l’opération GetVMList. Si vous préparez manuellement, le fichier doit contenir un nom ou une adresse IP de serveur suivi du nom de machine virtuelle séparé par un \ par ligne. Le nom de la machine virtuelle spécifié dans le fichier doit être identique au nom de la machine virtuelle sur l’hôte Hyper-V.<ul>Exemple : le fichier « VMList.txt » contient les machines virtuelles suivantes :<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Facultatif) Votre environnement de compte de stockage Azure cible. Ce paramètre peut être défini sur l’une des trois valeurs suivantes : AzureCloud, AzureUSGovernment, AzureChinaCloud. La valeur par défaut est AzureCloud. Utilisez ce paramètre lorsque votre région Azure cible correspond à des clouds Azure - Gouvernement des États-Unis ou Azure - Chine|

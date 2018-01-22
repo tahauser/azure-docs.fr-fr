@@ -1,5 +1,5 @@
 ---
-title: "Vue d’ensemble - Azure AD B2C | Microsoft Docs"
+title: "Applications web de gestion des identités de cloud et applications mobiles Azure AD B2C | Microsoft Docs"
 description: "Développement d’applications accessibles aux consommateurs avec Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.openlocfilehash: bd29d78fa38dc4b5713d018eceed56e6b93739b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 7881793ebce10b4f9fbc9c534d9d6fc0ebb38f0b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C : concentrez-vous sur votre application, nous nous chargeons de l’inscription et de la connexion
 
@@ -39,8 +40,8 @@ Puis, choisissez le scénario de développement de votre application :
 |  |  |  |  |
 | --- | --- | --- | --- |
 | <center>![Applications mobiles et de bureau](../active-directory/develop/media/active-directory-developers-guide/NativeApp_Icon.png)<br />Applications mobiles et de bureau</center> | [Vue d’ensemble](active-directory-b2c-reference-oauth-code.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />[iOS](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)<br /><br />[Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br /><br />[Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) |  |
-| <center>![Web Apps](../active-directory/develop/media/active-directory-developers-guide/Web_app.png)<br />Web Apps</center> | [Vue d'ensemble](active-directory-b2c-reference-oidc.md)<br /><br />[ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)<br /><br />[ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | [Node.JS](active-directory-b2c-devquickstarts-web-node.md) |  |
-| <center>![Applications à page unique](../active-directory/develop/media/active-directory-developers-guide/SPA.png)<br />Applications à page unique</center> | [Vue d'ensemble](active-directory-b2c-reference-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)<br /><br /> |  |  |
+| <center>![Web Apps](../active-directory/develop/media/active-directory-developers-guide/Web_app.png)<br />Web Apps</center> | [Vue d’ensemble](active-directory-b2c-reference-oidc.md)<br /><br />[ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)<br /><br />[ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | [Node.JS](active-directory-b2c-devquickstarts-web-node.md) |  |
+| <center>![Applications à page unique](../active-directory/develop/media/active-directory-developers-guide/SPA.png)<br />Applications à page unique</center> | [Vue d’ensemble](active-directory-b2c-reference-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)<br /><br /> |  |  |
 | <center>![API Web](../active-directory/develop/media/active-directory-developers-guide/Web_API.png)<br />API Web</center> | [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)<br /><br /> [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)<br /><br /> [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | [Appeler une API web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) |
 
 ## <a name="whats-new"></a>Nouveautés
@@ -63,7 +64,7 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
 * [Personnaliser l’aspect des pages d’inscription, de connexion et des autres pages accessibles aux consommateurs](active-directory-b2c-reference-ui-customization.md) prises en charge par Azure Active Directory B2C.
 * [Utiliser l’API Azure Active Directory Graph pour créer, lire, mettre à jour et supprimer des consommateurs par programme](active-directory-b2c-devquickstarts-graph-dotnet.md) dans votre client Azure Active Directory B2C.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les liens ci-dessous vous permettent d’explorer le service en profondeur :
 

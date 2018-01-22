@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Développement
       items:
+        - name: Utilisation des API Kafka Producer and Consumer
+          href: apache-kafka-producer-consumer-api.md
+        - name: Utilisation de l’API Kafka Streams
+          href: apache-kafka-streams-api.md
         - name: Utiliser des nœuds de périmètre vides
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -152,7 +156,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: "Résoudre les problèmes d’un cluster\_HDInsight défaillant ou lent"
+        - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: Résolution de problèmes HDFS

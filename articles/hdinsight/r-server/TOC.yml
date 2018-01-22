@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: "R\_Server sur HDInsight"
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: r-server-overview.md
     - name: Composants Hadoop sur HDInsight
       href: ../hdinsight-component-versioning.md
@@ -44,6 +44,8 @@
         - name: Outils pour VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Soumettre des travaux à partir d’outils R pour Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Étendre des clusters
       items:
         - name: Personnaliser des clusters à l’aide de Bootstrap
@@ -204,7 +206,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: "Résoudre les problèmes d’un cluster\_HDInsight défaillant ou lent"
+        - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: Résolution de problèmes HDFS
@@ -269,7 +271,7 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

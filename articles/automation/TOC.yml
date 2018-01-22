@@ -1,6 +1,6 @@
 - name: "Documentation de l’utilisateur Azure\_Automation"
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Automation\_?"
       href: automation-intro.md
@@ -115,7 +115,7 @@
       items:
         - name: Certificats
           href: automation-certificates.md
-        - name: Connexions
+        - name: connexions
           href: automation-connections.md
         - name: Informations d'identification
           href: automation-credentials.md
@@ -131,10 +131,10 @@
       items:
         - name: galerie de runbooks
           href: automation-runbook-gallery.md
+        - name: Démarrer un runbook depuis des alertes Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Créer une machine virtuelle Amazon Web Service
           href: automation-scenario-aws-deployment.md
-        - name: Résoudre une alerte de machine virtuelle Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Démarrer/arrêter une machine virtuelle avec des balises JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Supprimer le groupe de ressources
@@ -147,7 +147,7 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
           href: automation-deploy-template-runbook.md
-    - name: Solutions
+    - name: solutions
       items:
         - name: Update Management
           href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
@@ -181,7 +181,7 @@
           href: automation-troubleshooting-automation-errors.md
         - name: Dépanner la fonctionnalité Runbook Worker hybride
           href: automation-troubleshooting-hybrid-runbook-worker.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: "Azure\_PowerShell"
       href: /powershell/module/azurerm.automation
@@ -205,7 +205,7 @@
       href: 'https://azure.microsoft.com/documentation/learning-paths/automation/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/automation/)'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -215,5 +215,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Dépassement de capacité de la pile
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

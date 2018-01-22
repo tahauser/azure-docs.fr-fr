@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: HBase sur HDInsight
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: apache-hbase-overview.md
     - name: Composants Hadoop sur HDInsight
       href: ../hdinsight-component-versioning.md
@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Utiliser le Kit de développement logiciel (SDK) REST du serveur de requête Phoenix
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Analyser les données volumineuses (Big Data)
+      items:
+        - name: Utiliser Spark pour lire et écrire des données HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Étendre des clusters
       items:
         - name: Personnaliser des clusters à l’aide de Bootstrap
@@ -164,7 +169,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: "Résoudre les problèmes d’un cluster\_HDInsight défaillant ou lent"
+        - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: Résolution de problèmes HDFS
@@ -233,7 +238,7 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Référence
+- name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

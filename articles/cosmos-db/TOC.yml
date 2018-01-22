@@ -352,6 +352,8 @@
               href: secure-access-to-data.md
     - name: Integrate
       items:
+        - name: Implémenter une architecture lambda avec HDInsight
+          href: lambda-architecture.md
         - name: Se connecter à Spark
           href: spark-connector.md
         - name: Se connecter à Spark GraphX
