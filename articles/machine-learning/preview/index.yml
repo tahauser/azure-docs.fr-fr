@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentation Azure Machine Learning (version préliminaire)"
+title: "Documentation Azure Machine Learning (préversion)"
 metadata:
   title: "Documentation Azure Machine Learning (version préliminaire)"
   meta.description: Learn how to use Azure Machine Learning public preview features.
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/06/2017
   ms.author: garye
-  ms.openlocfilehash: c5873c1a9f5a73f700a07fe1050180750bf59cd4
-  ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+  ms.openlocfilehash: 98d106418472f66b8e5fe5d887eb8e75f5ce4a1b
+  ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/09/2017
+  ms.lasthandoff: 01/23/2018
 abstract:
-  description: "Découvrez comment préparer les données et générer et déployer des modèles avec nos didacticiels et nos guides de démarrage rapide. Les fonctionnalités en version préliminaire d’Azure Machine Learning permettent de générer, de déployer et de gérer des modèles AI et ML à l’aide des outils Python et des bibliothèques. Vous pouvez utiliser une grande variété de données et de services de calcul dans Azure afin de stocker et de traiter vos données."
+  description: "Découvrez comment préparer les données et générer et déployer des modèles avec nos didacticiels et nos guides de démarrage rapide. Les fonctionnalités en version préliminaire d’Azure Machine Learning permettent de générer, de déployer et de gérer des modèles AI et Machine Learning à l’aide des outils Python et des bibliothèques. Vous pouvez utiliser une grande variété de données et de services de calcul dans Azure afin de stocker et de traiter vos données."
 sections:
 - title: "Démarrages en 5 minutes"
   items:
@@ -43,7 +43,7 @@ sections:
     - html: "<a href=\"tutorial-classifying-iris-part-2\">Utiliser Machine Learning Workbench pour générer un modèle avec le jeu de données Iris</a>"
     - html: "<a href=\"tutorial-classifying-iris-part-3\">Découvrir comment déployer un modèle Machine Learning</a>"
     - html: "<a href=\"tutorial-bikeshare-dataprep\">Utiliser Azure Machine Learning Workbench pour la préparation de données avancés</a>"
-- title: "Référence"
+- title: "Informations de référence"
   items:
   - type: list
     style: cards

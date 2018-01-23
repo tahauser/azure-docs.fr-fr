@@ -28,8 +28,8 @@
 
 ## Créer et gérer un cluster
 ### 1- Créer un cluster sur Azure
-#### [1a- Créer un cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Créer un cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- Créer un cluser Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Créer un cluser Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Mettre à l’échelle le cluster](service-fabric-tutorial-scale-cluster.md)
 ### [3- Mettre à niveau le runtime du cluster](service-fabric-tutorial-upgrade-cluster.md)
 ### [4- Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
@@ -311,6 +311,7 @@
 ### Analyse des performances
 #### [Analyse des performances avec WAD](service-fabric-diagnostics-perf-wad.md)
 
+
 # Informations de référence
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [API Java](/java/api/overview/azure/servicefabric)
+### [API du client REST Java](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Schéma XML du modèle de service](service-fabric-service-model-schema.md)

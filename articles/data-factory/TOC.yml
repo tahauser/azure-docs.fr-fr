@@ -64,6 +64,8 @@
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copie à partir de plusieurs tables
           items:
+            - name: Interface utilisateur (IU)
+              href: tutorial-incremental-copy-multiple-tables-portal.md
             - name: "Azure\_PowerShell"
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Utilisation de la fonctionnalité de suivi des modifications

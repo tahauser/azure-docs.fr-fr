@@ -4,6 +4,9 @@
   items:
     - name: Vue d’ensemble
       href: apache-hadoop-introduction.md
+    - name: Architecture Hadoop dans HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
     - name: Composants Hadoop sur HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
@@ -153,6 +156,12 @@
           maintainContext: true
         - name: Analytique avancée pour HDInsight
           href: apache-hadoop-deep-dive-advanced-analytics.md
+        - name: Machine Learning dans HDInsight
+          href: ../hdinsight-machine-learning-overview.md
+          maintainContext: true
+        - name: Diffusion en continu à l’échelle dans HDInsight
+          href: ../hdinsight-streaming-at-scale-overview.md
+          maintainContext: true
     - name: Étendre des clusters
       items:
         - name: Personnaliser des clusters à l’aide de Bootstrap
@@ -313,7 +322,7 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
-        - name: "Résoudre les problèmes d’un cluster\_HDInsight défaillant ou lent"
+        - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true
         - name: Résolution de problèmes HDFS
