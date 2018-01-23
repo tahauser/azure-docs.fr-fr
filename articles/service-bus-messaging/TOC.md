@@ -28,13 +28,13 @@
 ### [Contrôle d’accès en fonction du rôle (préversion)](service-bus-role-based-access-control.md)
 ### [Messagerie Premium](service-bus-premium-messaging.md)
 ### [Comparer les files d’attente Azure et Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Créer une application Service Bus à plusieurs niveaux](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimiser les performances](service-bus-performance-improvements.md)
 ### [Récupération d’urgence et géo-réplication](service-bus-geo-dr.md)
 ### [Messagerie asynchrone et haute disponibilité](service-bus-async-messaging.md)
 ### [Gestion des urgences et des pannes](service-bus-outages-disasters.md)
 
 ## Développement
+### [Créer une application Service Bus à plusieurs niveaux](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Gestion des messages
 #### [Files d’attente, rubriques et abonnements](service-bus-queues-topics-subscriptions.md)
 #### [Messages, charges utiles et sérialisation](service-bus-messages-payloads.md)

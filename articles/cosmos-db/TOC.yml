@@ -341,7 +341,7 @@
         - name: Gérer les clés et la cohérence
           href: manage-account.md
         - name: Explorateur de stockage Azure
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Sécurité
           items:
             - name: Chiffrement au repos
