@@ -1,24 +1,16 @@
 ---
-title: "Examen de l’architecture de la réplication VMware sur Azure | Microsoft Docs"
+title: "Architecture de réplication VMware sur Azure avec Azure Site Recovery | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles VMware locales sur Azure avec le service Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Architecture de la réplication VMware vers Azure
 
@@ -83,7 +75,6 @@ Lorsque votre site local principal est à nouveau disponible, vous pouvez lancer
 ![Restauration automatique](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Passer en revue la matrice de prise en charge Suivre le didacticiel montrant comment activer la réplication VMware vers Azure
-Exécuter un basculement et une restauration automatique.
+Suivez [ce didacticiel](tutorial-vmware-to-azure.md) pour savoir comment activer la réplication VMware vers Azure.

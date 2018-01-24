@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell
 
@@ -27,10 +27,10 @@ Lorsque vous avez une application ou un script qui doit pouvoir accéder à des 
 * Affecter à l’identité de l’application des autorisations différentes de vos propres autorisations. En règle générale, ces autorisations sont strictement limitées à ce que l’application doit faire.
 * Utilisez un certificat pour l’authentification lors de l’exécution d’un script sans assistance.
 
-Cette rubrique vous montre comment utiliser [Azure PowerShell](/powershell/azure/overview) pour configurer tout ce dont vous avez besoin pour qu’une application puisse s’exécuter sous ses propres informations d’identification et sous sa propre identité.
+Cet article explique comment utiliser [Azure PowerShell](/powershell/azure/overview) pour configurer tout ce dont vous avez besoin pour qu’une application puisse s’exécuter sous ses propres informations d’identification et sous sa propre identité.
 
 ## <a name="required-permissions"></a>Autorisations requises
-Pour effectuer cette rubrique, vous devez disposer des autorisations suffisantes dans votre annuaire Azure Active Directory et votre abonnement Azure. Plus précisément, vous devez être en mesure de créer une application dans l’annuaire Azure Active Directory et d’affecter un rôle au principal du service. 
+Pour réaliser les étapes décrites dans cet article, vous devez disposer des autorisations suffisantes dans votre annuaire Azure Active Directory et votre abonnement Azure. Plus précisément, vous devez être en mesure de créer une application dans l’annuaire Azure Active Directory et d’affecter un rôle au principal du service. 
 
 Le moyen le plus simple pour vérifier que votre compte dispose des autorisations adéquates est d’utiliser le portail. Consultez [Vérifier l’autorisation requise](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -44,7 +44,7 @@ Maintenant, passez à une section concernant l’authentification avec :
 
 Pour définir un principal de service, utilisez :
 
-| Commande | Description |
+| Commande | DESCRIPTION |
 | ------- | ----------- | 
 | [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Crée un principal de service Azure Active Directory |
 | [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Affecte le rôle RBAC spécifié au principal spécifiée, dans l’étendue spécifiée. |
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ Pour ajouter un mot de passe, utilisez :
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Pour ajouter une valeur de certificat, créez un certificat auto-signé, comme indiqué dans cette rubrique. Ensuite, utilisez :
+Pour ajouter une valeur de certificat, créez un certificat auto-signé, comme indiqué dans cet article. Ensuite, utilisez :
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -421,7 +422,7 @@ Pour plus d’informations sur la connexion en tant qu’application via différ
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour obtenir des instructions détaillées sur l’intégration d’une application à Azure pour la gestion des ressources, consultez [Guide du développeur pour l’authentification avec l’API Azure Resource Manager](resource-manager-api-authentication.md).
 * Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](../active-directory/active-directory-application-objects.md). 
 * Pour plus d’informations sur l’authentification Azure Active Directory, consultez la rubrique [Scénarios d’authentification pour Azure AD](../active-directory/active-directory-authentication-scenarios.md).

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 12/11/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22379dd7cb0118983505237fa16f01a865a53306
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -62,6 +62,9 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
     Par exemple, si le nom de votre IoT Hub est **contoso.azure-devices.net** et si le nom de votre appareil est **MyDevice01**, le champ **Username** complet doit contenir `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * Dans le champ **Password**, utilisez un jeton SAP. Le format du jeton SAP est identique pour les protocoles HTTPS et AMQP :<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+
+    >[!NOTE]
+    >Les mots de passe de jeton SAS ne sont pas obligatoires si vous utilisez l’authentification par certificat X.509. Pour plus d’informations, voir [Configurer la sécurité X.509 dans votre Azure IoT Hub][lnk-x509]
 
     Pour plus d’informations sur la génération de jetons SAP, consultez la section consacrée aux appareils dans la rubrique [Utilisation de jetons de sécurité IoT Hub][lnk-sas-tokens].
 
@@ -116,7 +119,7 @@ client.connect(subdomain+".azure-devices.net", port=8883)
 
 ### <a name="sending-device-to-cloud-messages"></a>Envoi de messages appareil-à-cloud
 
-Après avoir correctement établi une connexion, un appareil peut envoyer des messages à IoT Hub en utilisant `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` en tant que **Nom de la rubrique**. L’élément `{property_bag}` permet à l’appareil d’envoyer des messages avec des propriétés supplémentaires dans un format codé URL. Par exemple :
+Après avoir correctement établi une connexion, un appareil peut envoyer des messages à IoT Hub en utilisant `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` en tant que **Nom de la rubrique**. L’élément `{property_bag}` permet à l’appareil d’envoyer des messages avec des propriétés supplémentaires dans un format codé URL. Par exemple : 
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -137,7 +140,7 @@ Pour en savoir plus, reportez-vous au [Guide du développeur de messages][lnk-me
 
 ### <a name="receiving-cloud-to-device-messages"></a>Réception de messages cloud-à-appareil
 
-Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisant un `devices/{device_id}/messages/devicebound/#` en tant que **Filtre de rubrique**. Le caractère générique à plusieurs niveaux **#** dans le Filtre de rubrique est utilisé uniquement pour autoriser l’appareil à recevoir des propriétés supplémentaires dans le nom de la rubrique. IoT Hub n’autorise pas l’utilisation des caractères génériques **#** ou **?** pour filtrer les sous-rubriques. Étant donné que IoT Hub n’est pas un broker de messagerie pub-sub à usage général, il prend uniquement en charge les noms de rubriques et les filtres de rubriques documentés.
+Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisant un `devices/{device_id}/messages/devicebound/#` en tant que **Filtre de rubrique**. Le caractère générique à plusieurs niveaux `#` dans le Filtre de rubrique est utilisé uniquement pour autoriser l’appareil à recevoir des propriétés supplémentaires dans le nom de la rubrique. IoT Hub n’autorise pas l’utilisation des caractères génériques `#` ou `?` pour filtrer les sous-rubriques. Étant donné que IoT Hub n’est pas un broker de messagerie pub-sub à usage général, il prend uniquement en charge les noms de rubriques et les filtres de rubriques documentés.
 
 L’appareil ne reçoit aucun message d’IoT Hub tant qu’il ne s’est pas abonné à son point de terminaison spécifique d’appareil, représenté par le filtre de rubrique `devices/{device_id}/messages/devicebound/#`. Une fois l’abonnement réussi, l’appareil commence à recevoir uniquement les messages cloud-à-appareil qui lui ont été envoyés après l’abonnement. Si l’appareil se connecte avec l’indicateur **CleanSession** défini sur **0**, l’abonnement est rendu persistant entre les différentes sessions. Dans ce cas, la prochaine fois qu’il se connecte avec **CleanSession 0**, l’appareil reçoit les messages en attente qui lui ont été envoyés quand il était déconnecté. Si l’appareil utilise l’indicateur **CleanSession** défini sur **1**, il ne reçoit pas les messages à partir d’IoT Hub jusqu’à ce qu’il s’abonne à son point de terminaison d’appareil.
 
@@ -147,7 +150,7 @@ Quand une application d’appareil s’abonne à une rubrique avec **QoS 2**, Io
 
 ### <a name="retrieving-a-device-twins-properties"></a>Récupération des propriétés d’un jumeau d’appareil
 
-Tout d’abord, un appareil s’abonne à `$iothub/twin/res/#` pour recevoir les réponses de l’opération. Ensuite, il envoie un message vide à la rubrique `$iothub/twin/GET/?$rid={request id}`, avec une valeur propagée pour **l’ID de la requête**. Le service envoie alors un message de réponse contenant les données de jumeau d’appareil sur la rubrique `$iothub/twin/res/{status}/?$rid={request id}`, en utilisant le même **ID de demande** que la demande.
+Tout d’abord, un appareil s’abonne à `$iothub/twin/res/#` pour recevoir les réponses de l’opération. Ensuite, il envoie un message vide à la rubrique `$iothub/twin/GET/?$rid={request id}`, avec une valeur propagée pour **l’ID de la requête**. Le service envoie alors un message de réponse contenant les données de jumeau d’appareil sur la rubrique `$iothub/twin/res/{status}/?$rid={request id}`, en utilisant le même **ID de requête** que la requête.
 
 L’ID de la requête peut avoir n’importe quelle valeur valide de propriété de message, conformément au [Guide du développeur de messages IoT Hub][lnk-messaging], et l’état est validé comme entier.
 Le corps de la réponse contient la section properties du jumeau d’appareil :
@@ -170,7 +173,7 @@ Le corps du registre des identités est limité au membre « propriétés », pa
 
 Les codes d’état possibles sont :
 
-|État | Description |
+|Statut | DESCRIPTION |
 | ----- | ----------- |
 | 200 | Succès |
 | 429 | Trop de demandes (limité), selon la [Limitation IoT Hub][lnk-quotas] |
@@ -184,12 +187,12 @@ La séquence suivante décrit comment un appareil met à jour les propriétés d
 
 1. Un appareil doit tout d’abord s’abonner à la rubrique `$iothub/twin/res/#` pour recevoir des réponses d’opération de IoT Hub.
 
-1. Un appareil envoie un message qui contient la mise à jour de jumeau d’appareil pour la rubrique `$iothub/twin/PATCH/properties/reported/?$rid={request id}`. Ce message contient une valeur **ID de demande**.
+1. Un appareil envoie un message qui contient la mise à jour de jumeau d’appareil pour la rubrique `$iothub/twin/PATCH/properties/reported/?$rid={request id}`. Ce message contient une valeur **ID de requête**.
 
-1. Le service envoie ensuite un message de réponse qui contient la nouvelle valeur ETag de la collection de propriétés déclarées dans la rubrique `$iothub/twin/res/{status}/?$rid={request id}`. Ce message de réponse utilise le même **ID de demande** que la demande.
+1. Le service envoie ensuite un message de réponse qui contient la nouvelle valeur ETag de la collection de propriétés déclarées dans la rubrique `$iothub/twin/res/{status}/?$rid={request id}`. Ce message de réponse utilise le même **ID de requête** que la requête.
 
 Le corps du message contient un document JSON qui fournit de nouvelles valeurs pour les propriétés signalées (aucune autre propriété ou métadonnée ne peut être modifiée).
-Chaque membre du document JSON met à jour ou ajoute le membre correspondant dans le document du jumeau d’appareil. Un membre défini sur `null` supprime le membre de l’objet conteneur. Par exemple :
+Chaque membre du document JSON met à jour ou ajoute le membre correspondant dans le document du jumeau d’appareil. Un membre défini sur `null` supprime le membre de l’objet conteneur. Par exemple : 
 
         {
             "telemetrySendFrequency": "35m",
@@ -198,7 +201,7 @@ Chaque membre du document JSON met à jour ou ajoute le membre correspondant dan
 
 Les codes d’état possibles sont :
 
-|État | Description |
+|Statut | DESCRIPTION |
 | ----- | ----------- |
 | 200 | Succès |
 | 400 | Demande incorrecte. JSON incorrect |
@@ -209,7 +212,7 @@ Pour en savoir plus, reportez-vous au [Guide du développeur de jumeaux d’appa
 
 ### <a name="receiving-desired-properties-update-notifications"></a>Réception de notifications de mise à jour des propriétés souhaitées
 
-Lorsqu’un appareil est connecté, IoT Hub envoie des notifications à la rubrique `$iothub/twin/PATCH/properties/desired/?$version={new version}`, qui contient le contenu de la mise à jour effectuée par le serveur principal de la solution. Par exemple :
+Lorsqu’un appareil est connecté, IoT Hub envoie des notifications à la rubrique `$iothub/twin/PATCH/properties/desired/?$version={new version}`, qui contient le contenu de la mise à jour effectuée par le serveur principal de la solution. Par exemple : 
 
         {
             "telemetrySendFrequency": "5m",
@@ -228,7 +231,7 @@ Pour en savoir plus, reportez-vous au [Guide du développeur de jumeaux d’appa
 
 Tout d’abord, un appareil doit s’abonner à `$iothub/methods/POST/#`. IoT Hub envoie des requêtes de méthodes à la rubrique `$iothub/methods/POST/{method name}/?$rid={request id}`, avec un corps vide ou un code JSON valide.
 
-Pour répondre, l’appareil envoie un message avec un corps vide ou un code JSON valide à la rubrique `$iothub/methods/res/{status}/?$rid={request id}`, où **l’ID de la demande** doit correspondre à celui du message de la demande, et **l’état** doit être un entier.
+Pour répondre, l’appareil envoie un message avec un corps vide ou un code JSON valide à la rubrique `$iothub/methods/res/{status}/?$rid={request id}`, où **l’ID de la requête** doit correspondre à celui du message de la requête, et **l’état** doit être un entier.
 
 Pour en savoir plus, reportez-vous au [Guide du développeur de méthodes directes][lnk-methods].
 
@@ -236,7 +239,7 @@ Pour en savoir plus, reportez-vous au [Guide du développeur de méthodes direct
 
 Enfin, si vous devez personnaliser le comportement du protocole MQTT du côté du cloud, il est important de consulter la section [Passerelle de protocole Azure IoT][lnk-azure-protocol-gateway], qui explique comment déployer une passerelle personnalisée hautes performances communiquant directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Toutefois, cette approche nécessite l’exécution et l’utilisation d’une passerelle de protocole personnalisée.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur le protocole MQTT, consultez la [documentation de MQTT][lnk-mqtt-docs].
 
@@ -249,7 +252,7 @@ Pour en savoir plus sur la planification de votre déploiement IoT Hub, consulte
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur IoT Hub][lnk-devguide]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 * [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
@@ -270,6 +273,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

@@ -6,18 +6,18 @@ keywords: "N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Guide pratique pour rechercher une adresse à l’aide d’Azure Location Based Services (préversion)
 Search Service est un ensemble d’API RESTful destinées aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de lieux, de points d’intérêt, de listes d’entreprises et autres informations d’ordre géographique. Search Service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude retournées par les API Search Service peuvent être utilisées comme paramètres dans d’autres services Azure Location Based Services, tels que les API Route et Traffic Flow.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Installer [l’application Postman](https://www.getpostman.com/apps).
 
 Un compte et une clé d’abonnement Azure Location Based Services. Pour plus d’informations sur la création d’un compte et la récupération d’une clé d’abonnement, consultez [Guide pratique pour gérer vos compte et clés Azure Location Based Services](how-to-manage-account-keys.md). 
@@ -42,9 +42,9 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage « m
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | https://atlas.microsoft.com/search/fuzzy/json? |
-    | Autorisation | No Auth (Pas d’autorisation) |
+    | Authorization | No Auth (Pas d’autorisation) |
 
-    L’attribut **json** dans le chemin de l’URL détermine le format de la réponse. Vous utilisez json tout au long de cet article pour des raisons de facilité d’utilisation et de lisibilité. Les formats de réponse sont disponibles dans la définition **Get Search Fuzzy** (Obtenir l’API de recherche approximative) du [Guide référence des API fonctionnelles de Location Based Services] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    L’attribut **json** dans le chemin de l’URL détermine le format de la réponse. Vous utilisez json tout au long de cet article pour des raisons de facilité d’utilisation et de lisibilité. Les formats de réponse sont disponibles dans la définition **Get Search Fuzzy** (Obtenir l’API de recherche approximative) du [Guide référence des API fonctionnelles de Location Based Services] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
 
@@ -94,7 +94,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | https://atlas.microsoft.com/search/address/json? |
-    | Autorisation | No Auth (Pas d’autorisation) |
+    | Authorization | No Auth (Pas d’autorisation) |
 
 2. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
     
@@ -134,7 +134,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | https://atlas.microsoft.com/search/address/reverse/json? |
-    | Autorisation | No Auth (Pas d’autorisation) |
+    | Authorization | No Auth (Pas d’autorisation) |
     
 2. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
     
@@ -156,7 +156,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |-----|------------|
     | number | true |
 
-    Si la requête comporte le paramètre [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la réponse peut inclure le côté de la rue (gauche/droite) et également une position de décalage par rapport à ce numéro.
+    Si la requête comporte le paramètre [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la réponse peut inclure le côté de la rue (gauche/droite) et également une position de décalage par rapport à ce numéro.
     
 5. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
@@ -164,7 +164,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |-----|------------|
     | spatialKeys | true |
 
-    Si le paramètre de requête [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse contient les informations de clés géospatiales propriétaires d’un emplacement spécifié.
+    Si le paramètre de requête [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse contient les informations de clés géospatiales propriétaires d’un emplacement spécifié.
 
 6. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
@@ -172,7 +172,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |-----|------------|
     | returnSpeedLimit | true |
     
-    Si le paramètre de requête [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne la vitesse maximale autorisée.
+    Si le paramètre de requête [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne la vitesse maximale autorisée.
 
 7. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
@@ -180,7 +180,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |-----|------------|
     | returnRoadUse | true |
 
-    Si le paramètre de requête [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne le tableau de l’état du trafic routier des géocodes inverses au niveau des rues.
+    Si le paramètre de requête [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne le tableau de l’état du trafic routier des géocodes inverses au niveau des rues.
 
 8. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
@@ -188,7 +188,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |-----|------------|
     | roadUse | true |
 
-    Vous pouvez limiter la requête de géocode inverse à un type spécifique de trafic routier à l’aide du paramètre de requête [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
+    Vous pouvez limiter la requête de géocode inverse à un type spécifique de trafic routier à l’aide du paramètre de requête [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Rechercher une intersection à l’aide d’une recherche d’intersection d’adresse inverse
 
@@ -202,7 +202,7 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
-    | Autorisation | No Auth (Pas d’autorisation) |
+    | Authorization | No Auth (Pas d’autorisation) |
     
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
     
@@ -214,5 +214,5 @@ Vous pouvez passer une adresse postale complète ou partielle à l’API Search 
     
 4. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 
 
-## <a name="next-steps"></a>Étapes suivantes
-- Explorez la documentation de l’API [Search Service d’Azure Location Based Services](https://docs.microsoft.com/en-us/rest/api/location-based-services/search). 
+## <a name="next-steps"></a>étapes suivantes
+- Explorez la documentation de l’API [Search Service d’Azure Location Based Services](https://docs.microsoft.com/rest/api/location-based-services/search). 

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Protégez une API web à l’aide de jetons du porteur à partir d’Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>Bien démarrer avec l'API web Azure AD .NET
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Si vous créez une application qui fournit un accès aux ressources protégées, vous devez savoir comment éviter un accès non autorisé à ces ressources.
@@ -43,7 +43,7 @@ Pour commencer, téléchargez [la structure de l’application](https://github.c
 ## <a name="step-1-register-an-application-with-azure-ad"></a>Étape 1 : Inscrire une application auprès d’Azure AD
 Pour sécuriser votre application, vous devez tout d’abord créer une application dans votre locataire et fournir quelques informations essentielles à Azure AD.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
 
@@ -147,7 +147,7 @@ Avant de pouvoir voir le service Todo List en action, vous devez configurer le c
   * `ida:ClientId` est l’ID d’application que vous avez copié à partir du portail Azure.
   * `todo:TodoListResourceId` est l’URI ID d’application de l’application To Do List Service que vous avez entré dans le portail Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Enfin, nettoyez, générez et exécutez chaque projet. Si vous ne l’avez pas encore fait, il est temps de créer un nouvel utilisateur dans votre client, avec un domaine *.onmicrosoft.com. Connectez-vous au locataire To Do List avec cet utilisateur et ajoutez quelques tâches à la liste des tâches de cet utilisateur.
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est disponible dans [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Vous pouvez à présent aborder d’autres scénarios d’identité.

@@ -12,13 +12,13 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 11a4a4d65be09e6c518836c25bb455a6df738dcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Comment utiliser Packer pour créer des images de machines virtuelles Windows dans Azure
 Chaque machine virtuelle dans Azure est créée à partir d’une image qui définit la distribution Windows et la version du système d’exploitation. Les images peuvent inclure des configurations et des applications pré-installées. La Place de marché Microsoft Azure fournit de nombreuses images internes et de tiers pour les systèmes d’exploitation et environnements d’application les plus courants. Vous pouvez également créer vos propres images personnalisées selon vos besoins. Cet article explique comment utiliser l’outil open source [Packer](https://www.packer.io/) pour définir et générer des images personnalisées dans Azure.
@@ -36,12 +36,13 @@ New-AzureRmResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Créer des informations d’identification Azure
-Packer s’authentifie auprès d’Azure à l’aide d’un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme Packer. Vous contrôlez et définissez les opérations que le principal de service est autorisé à effectuer dans Azure.
+Packer s’authentifie auprès d’Azure à l’aide d’un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme Packer. Vous contrôlez et vous définissez les opérations que le principal du service est autorisé à effectuer dans Azure.
 
 Créez un principal de service avec la commande [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) et assignez au principal de service les autorisations requises pour créer et gérer des ressources avec la commande [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) :
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer IKF" -Password "P@ssw0rd!"
+$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer" `
+    -Password (ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force)
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
@@ -128,7 +129,7 @@ Générez l’image en spécifiant votre fichier de modèle Packer comme suit :
 ./packer build windows.json
 ```
 
-Voici un exemple de sortie issue des commandes précédentes :
+Voici un exemple de la sortie des commandes précédentes :
 
 ```bash
 azure-arm output will be in this color.
@@ -206,13 +207,13 @@ La génération de la machine virtuelle, l’exécution des fournisseurs et le n
 
 
 ## <a name="create-vm-from-azure-image"></a>Création d’une machine virtuelle à partir d’une image Azure
-Définissez un nom d’utilisateur administrateur et un mot de passe pour les machines virtuelles avec [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+Vous pouvez à présent créer une machine virtuelle à partir de votre image à l’aide de la commande [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Tout d’abord, définissez un nom d’utilisateur administrateur et un mot de passe pour la machine virtuelle avec [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Vous pouvez à présent créer une machine virtuelle à partir de votre image à l’aide de la commande [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). L’exemple suivant permet de créer une machine virtuelle nommée *myVM* à partir de *myPackerImage*.
+L’exemple suivant permet de créer une machine virtuelle nommée *myVM* à partir de *myPackerImage*.
 
 ```powershell
 # Create a subnet configuration
@@ -276,7 +277,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-La création de la machine virtuelle ne nécessite que quelques minutes.
+La création de la machine virtuelle à partir de votre image Packer ne nécessite que quelques minutes.
 
 
 ## <a name="test-vm-and-iis"></a>Test de la machine virtuelle et d’IIS
@@ -293,7 +294,7 @@ Vous pouvez alors entrer l’adresse IP publique dans un navigateur web.
 ![Site IIS par défaut](./media/build-image-with-packer/iis.png) 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet exemple, IIS était déjà installé et vous avez utilisé Packer pour créer une image de machine virtuelle. Vous pouvez utiliser cette image de machine virtuelle avec les flux de travail de déploiement existants, par exemple pour déployer votre application sur les machines virtuelles créées à partir de l’image avec Team Services, Ansible, Chef ou Puppet.
 
 Pour obtenir d’autres exemples de modèles Packer pour d’autres distributions Windows, consultez [ce référentiel GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

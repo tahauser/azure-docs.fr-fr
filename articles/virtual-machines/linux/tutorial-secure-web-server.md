@@ -4,7 +4,7 @@ description: "Découvrez comment sécuriser le serveur web NGINX à l’aide de 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Sécuriser un serveur web à l’aide de certificats SSL sur une machine virtuelle Linux dans Azure
-Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure Sockets Layer) et chiffrer ainsi le trafic web. Ces certificats SSL peuvent être stockés dans Azure Key Vault et autoriser des déploiements sécurisés de certificats sur des machines virtuelles Linux dans Azure. Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure Sockets Layer) et chiffrer ainsi le trafic web. Ces certificats SSL peuvent être stockés dans Azure Key Vault et autoriser des déploiements sécurisés de certificats sur des machines virtuelles Linux dans Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un Azure Key Vault
@@ -33,10 +33,10 @@ Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.22 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Key Vault protège les clés de chiffrement et les secrets, tels que les certificats ou les mots de passe. Key Vault rationalise le processus de gestion de certificats et vous permet de garder le contrôle sur les clés d’accès à ces certificats. Vous pouvez créer un certificat auto-signé à l’intérieur de Key Vault ou charger un certificat approuvé existant que vous avez déjà.
 
 Au lieu d’utiliser une image de machine virtuelle personnalisée qui inclut des certificats intégrés, vous injectez des certificats dans une machine virtuelle en cours d’exécution. Ce processus garantit que les certificats les plus récents sont installés sur un serveur web pendant le déploiement. Si vous renouvelez ou remplacez un certificat, vous n’êtes pas non plus obligé de créer une image de machine virtuelle personnalisée. Les certificats les plus récents sont automatiquement injectés à la création des machines virtuelles supplémentaires. Pendant tout le processus, les certificats ne quittent jamais la plateforme Azure, ni ne sont exposés dans un script, un historique de ligne de commande ou un modèle.
@@ -83,7 +83,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Créer une configuration cloud-init pour sécuriser NGINX
 [Cloud-init](https://cloudinit.readthedocs.io) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. Comme cloud-init s’exécute pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.
 
-Lorsque vous créez une machine virtuelle, les certificats et les clés sont stockés dans le répertoire */var/lib/waagent/* protégé. Pour automatiser l’ajout du certificat à la machine virtuelle et la configuration du serveur web, utilisez cloud-init. Dans cet exemple, nous installons et configurons le serveur web NGINX. Vous pouvez utiliser le même processus pour installer et configurer Apache. 
+Lorsque vous créez une machine virtuelle, les certificats et les clés sont stockés dans le répertoire */var/lib/waagent/* protégé. Pour automatiser l’ajout du certificat à la machine virtuelle et la configuration du serveur web, utilisez cloud-init. Dans cet exemple, vous allez installer et configurer le serveur web NGINX. Vous pouvez utiliser le même processus pour installer et configurer Apache. 
 
 Créez un fichier nommé *cloud-init-web-server.txt* et collez la configuration suivante :
 
@@ -145,7 +145,7 @@ Votre site NGINX sécurisé apparaît maintenant comme dans l’exemple suivant�
 ![Afficher le site NGINX sécurisé en cours d’exécution](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez sécurisé un serveur web NGINX à l’aide d’un certificat SSL stocké dans Azure Key Vault. Vous avez appris à effectuer les actions suivantes :
 

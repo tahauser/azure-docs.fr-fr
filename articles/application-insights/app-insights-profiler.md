@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiler des applications web dynamiques sur Azure avec Application Insights
 
@@ -228,11 +228,87 @@ Lorsque vous configurez le profileur, des mises à jour sont appliquées aux par
 8. Installez __Application Insights__ à partir de la galerie Azure Web Apps.
 9. Redémarrez l’application web.
 
+## <a id="profileondemand"></a> Déclencher manuellement un profileur
+Quand nous avons développé le profileur, nous avons ajouté une interface de ligne de commande pour pouvoir tester le profileur sur des services d’application. À l’aide de cette même interface, les utilisateurs peuvent également personnaliser le mode de démarrage du profileur. À un niveau élevé, le profileur utilise le système Kudu d’App Service pour gérer le profilage en arrière-plan. Quand vous installez l'extension Application Insights, nous créons une tâche web continue qui héberge le profileur. Nous allons utiliser cette même technologie pour créer un projet web que vous pouvez personnaliser selon vos besoins.
+
+Cette section explique comment :
+
+1.  Créer une tâche web permettant de démarrer le profileur pendant deux minutes en appuyant sur un bouton
+2.  Créer une tâche web permettant de planifier l’exécution du profileur
+3.  Définissez les arguments du profileur.
+
+
+### <a name="set-up"></a>Installation
+Dans un premier temps, familiarisez-vous avec le tableau de bord de la tâche web. Sous Paramètres, cliquez sur l’onglet Tâches web.
+
+![Panneau Tâches Web](./media/app-insights-profiler/webjobs-blade.png)
+
+Comme vous pouvez l’observer, ce tableau de bord affiche toutes les tâches web actuellement installées sur votre site. Vous pouvez voir la tâche web ApplicationInsightsProfiler2 dont la tâche de profileur est en cours d’exécution. La création de nos tâches web pour le profilage manuel et planifié prendra fin à ce stade.
+
+Dans un premier temps, nous devons obtenir les fichiers binaires nécessaires.
+
+1.  Pour ce faire, accédez tout d’abord au site Kudu. Dans l’onglet des outils de développement, cliquez sur l’onglet « Outils avancés » avec le logo Kudu. Cliquez sur « Accéder ». Vous êtes dirigé vers un nouveau site auquel vous êtes automatiquement connecté.
+2.  Nous devons ensuite télécharger les fichiers binaires du profileur. Accédez à l’Explorateur de fichiers en sélectionnant Console de débogage -> CMD en haut de la page.
+3.  Cliquez sur site -> wwwroot -> App_Data -> jobs -> continuous. Vous devez voir un dossier nommé « ApplicationInsightsProfiler2 ». Cliquez sur l’icône de téléchargement située à gauche du dossier. Le fichier « ApplicationInsightsProfiler2.zip » est téléchargé.
+4.  Tous les fichiers dont vous aurez besoin par la suite sont téléchargés. Je vous recommande de créer un répertoire vide vers lequel déplacer cette archive zip avant de continuer.
+
+### <a name="setting-up-the-web-job-archive"></a>Configuration de l’archive de la tâche web
+Quand vous ajoutez une nouvelle tâche web au site web Azure, vous créez en fait une archive zip contenant un fichier run.cmd. Le fichier run.cmd indique au système de tâches web ce qu’il doit faire quand vous exécutez la tâche web. Dans le cadre de cet exercice, nous n’avons besoin d’aucune autre option, mais si vous souhaitez en savoir plus sur les autres options disponibles, reportez-vous à la documentation sur les projets web.
+
+1.  Pour commencer, créons un dossier, que j’ai nommé « RunProfiler2Minutes ».
+2.  Copiez les fichiers du dossier ApplicationInsightProfiler2 extrait dans ce nouveau dossier.
+3.  Créez un nouveau fichier run.cmd (pour des raisons pratiques, j’ai ouvert ce dossier de travail dans VS Code avant de commencer).
+4.  Ajoutez la commande `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120` et enregistrez le fichier.
+a.  La commande `start` ordonne au profileur de démarrer.
+b.  `--engine-mode immediate` indique au profileur que nous voulons démarrer immédiatement le profilage.
+c.  `--single` indique que l’exécution sera suivie d’un arrêt automatique. d.  `--immediate-profiling-duration 120` indique que le profileur doit s’exécuter pendant 120 secondes (2 minutes).
+5.  Enregistrez ce fichier.
+6.  Archivez ce dossier. Pour ce faire, vous pouvez cliquer avec le bouton droit sur le dossier et sélectionner Envoyer vers -> Fichier compressé (zippé). Un fichier .zip est automatiquement créé en utilisant le nom de votre dossier.
+
+![Commande de démarrage du profileur](./media/app-insights-profiler/start-profiler-command.png)
+
+Nous avons à présent un fichier zip de tâche web que nous pouvons utiliser pour configurer des tâches web dans notre site.
+
+### <a name="add-a-new-web-job"></a>Ajouter une nouvelle tâche web
+Nous allons maintenant ajouter une nouvelle tâche web dans notre site. Cet exemple explique comment ajouter une tâche web à déclenchement manuel. Une fois que vous savez le faire, le processus est pratiquement identique pour un déclenchement planifié. Pour en savoir plus sur les tâches à déclenchement planifié, nous vous invitons à consulter les documentations disponibles à ce sujet.
+
+1.  Accédez au tableau de bord Tâches web.
+2.  Dans la barre d’outils, cliquez sur la commande Ajouter.
+3.  Attribuez un nom à votre tâche web. J’ai ici choisi d’utiliser le même nom que celui de mon archive par souci de clarté, et de l’ouvrir jusqu’à obtenir différentes versions du fichier run.cmd.
+4.  Dans la section de chargement de fichiers du formulaire, cliquez sur l’icône Ouvrir un fichier et recherchez le fichier .zip que vous avez créé précédemment.
+5.  Sous Type, sélectionnez l’option Déclenchée.
+6.  Sous Déclencheurs, sélectionnez l’option Manuel.
+7.  Cliquez sur OK pour enregistrer les paramètres.
+
+![Commande de démarrage du profileur](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Exécuter le profileur
+
+Maintenant que nous avons une nouvelle tâche web que nous pouvons déclencher manuellement, essayons de l’exécuter.
+
+1.  La conception ne permet d’exécuter qu’un seul processus ApplicationInsightsProfiler.exe à la fois sur une machine. Par conséquent, veillez d’abord à désactiver la tâche web continue de ce tableau de bord. Cliquez sur la ligne correspondante et appuyez sur « Arrêter ». Actualisez la barre d’outils et vérifiez que l’état indique bien que la tâche est arrêtée.
+2.  Cliquez sur la ligne de la nouvelle tâche web que vous avez ajoutée, puis sur Exécuter.
+3.  En maintenant la ligne sélectionnée, cliquez sur la commande Journaux dans la barre d’outils pour afficher un tableau de bord des tâches web pour ce projet web que vous avez démarré. Celui-ci répertorie les dernières exécutions et leur résultat.
+4.  Cliquez sur l’exécution que vous venez de démarrer.
+5.  Vous devriez normalement voir des journaux de diagnostic provenant du profileur qui confirment que nous avons bien démarré le profilage.
+
+### <a name="things-to-consider"></a>Points importants à prendre en compte
+
+Bien que cette méthode soit relativement simple, plusieurs aspects sont à prendre en compte.
+
+1.  Cette méthode n’étant pas gérée par notre service, nous n’avons aucun moyen de mettre à jour les fichiers binaires de l’agent pour votre tâche web. Nous ne disposons actuellement pas de page de téléchargement stable pour nos fichiers binaires. Par conséquent, la seule façon d’obtenir le fichier le plus récent est de mettre à jour votre extension et de récupérer le fichier à partir du dossier continu, comme nous l’avons fait précédemment.
+2.  Étant donné que cette méthode utilise les arguments de ligne de commande conçus à l’origine pour une utilisation de développeur et non d’utilisateur, ces arguments sont susceptibles d’être modifiés à l’avenir. Tenez-en compte en cas de mise à niveau. Cela ne devrait pas causer de problème particulier, car vous pouvez ajouter une tâche web, l’exécuter et vérifier qu’elle fonctionne correctement. Nous créerons l’interface utilisateur pour ce faire sans le processus manuel, mais il est important d’en tenir compte.
+3.  La fonctionnalité Tâches web pour App Services est unique dans le sens où durant l’exécution de la tâche web, elle s’assure que votre processus a les mêmes variables d’environnement et paramètres d’application que ceux que votre site web aura. Cela signifie que vous n’avez pas besoin de transmettre la clé d’instrumentation au profileur via la ligne de commande. Celle-ci sera simplement récupérée de l’environnement. Toutefois, si vous souhaitez exécuter le profileur dans votre boîte de développement ou sur une machine en dehors d’App Services, vous devez fournir une clé d’instrumentation. Pour ce faire, vous pouvez transmettre un argument `--ikey <instrumentation-key>`. Notez que cette valeur doit correspondre à la clé d’instrumentation que votre application utilise. La sortie du journal du profileur indiquera l’ikey avec laquelle le profileur a démarré et si une activité a été détectée à partir de cette clé d’instrumentation durant le profilage.
+4.  Les tâches web à déclenchement manuel peuvent de fait être déclenchées via Webhook. Vous pouvez obtenir cette URL en cliquant avec le bouton droit sur le projet web dans le tableau de bord et en affichant les propriétés, ou en sélectionnant les propriétés dans la barre d’outils après avoir sélectionné la tâche web dans la table. Il existe un grand nombre d’articles disponibles en ligne à ce sujet. Je n’entrerai pas ici dans les détails, mais ils abordent la possibilité de déclencher le profileur à partir de votre pipeline d'intégration continue/de déploiement continu (comme VSTS) ou d’un outil tel que Microsoft Flow (https://flow.microsoft.com/en-us/). Selon le mode d’exécution souhaité de votre fichier run.cmd, qui peut notamment être de type run.ps1, les possibilités sont nombreuses.  
+
+
+
+
 ## <a id="aspnetcore"></a>Prise en charge d’ASP.NET Core
 
 Une application ASP.NET Core doit installer le package NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 ou une version ultérieure pour fonctionner avec le profileur. Depuis le 27 juin 2017, nous ne prenons plus en charge les versions antérieures.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Utilisation d’Application Insights dans Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 

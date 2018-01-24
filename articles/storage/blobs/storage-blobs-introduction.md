@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: 6059ce809e7a8b2115e391d9db5b5b0a8626109e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="introduction-to-blob-storage"></a>Présentation du Stockage Blob
 
-Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications.
+Stockage Blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications.
 
 Voici quelques utilisations courantes du stockage d’objets blob :
 
@@ -38,7 +38,7 @@ Le service d’objets blob contient les composants suivants :
 
 ![Architecture d’objets blob](./media/storage-blobs-introduction/blob1.png)
 
-* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Ce compte de stockage peut être un **compte de stockage à usage général** ou un **compte de stockage d’objets blob** spécialisé pour le stockage d’objets/objets blob. Pour plus d’informations, voir [À propos des comptes de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+* **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Ce compte de stockage peut être un **Compte de stockage à usage général (v1 ou v2)** ou **Compte de stockage blob**. Pour plus d’informations, voir [À propos des comptes de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 * **Conteneur :** un conteneur regroupe un ensemble d'objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob. Notez que le nom du conteneur doit être en minuscules.
 
@@ -50,9 +50,9 @@ Le service d’objets blob contient les composants suivants :
   
     Pour plus de détails sur l’affectation de noms aux conteneurs et objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-* [Créer un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Créez un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Prise en main du Stockage Blob avec .NET](storage-dotnet-how-to-use-blobs.md)
 * [Exemples relatifs au service Stockage Azure avec .NET](../common/storage-samples-dotnet.md)
 * [Exemples relatifs au service Stockage Azure avec Java](../common/storage-samples-java.md)

@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search
 Par défaut, l’ [indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob de texte délimité comme un bloc de texte unique. Toutefois, avec des objets blob contenant des données CSV, vous souhaitez généralement traiter chaque ligne dans l’objet blob comme un document distinct. Par exemple, étant donné le texte délimité suivant : 
@@ -52,7 +52,12 @@ Si les objets blob ne contiennent pas de ligne d’en-tête initiale, les en-tê
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Actuellement, seul le format UTF-8 est pris en charge. En outre, seule la virgule `','` est prise en charge comme délimiteur. Si vous devez prendre en charge d’autres formats ou délimiteurs, faites-le nous savoir sur [notre site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Vous pouvez personnaliser le caractère délimiteur à l’aide du paramètre de configuration `delimitedTextDelimiter`. Par exemple : 
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> Actuellement, seul le format UTF-8 est pris en charge. Si vous devez prendre en charge d’autres formats, faites-le nous savoir sur [notre site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Lorsque vous utilisez le mode d’analyse de texte délimité, Azure Search suppose que tous les objets blob dans votre source de données seront de type CSV. Si vous devez prendre en charge une combinaison d’objets blob CSV et autres dans la même source de données, faites-le nous savoir sur [notre site UserVoice](https://feedback.azure.com/forums/263029-azure-search).

@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
 
@@ -37,8 +37,7 @@ La liaison d’entrée Mobile Apps charge un enregistrement à partir d’un poi
 
 Consultez l’exemple propre à un langage particulier :
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [Script C#](#input---c-script-example)
+* [Script C# (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Entrée - exemple de script C#
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrée - attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Pour plus d’informations sur les propriétés d’attribut que vous pouvez configurer, consultez la [section de configuration suivante](#input---configuration).
 
@@ -137,7 +136,7 @@ Pour plus d’informations sur les propriétés d’attribut que vous pouvez con
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `MobileTable`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 | **type**|| Doit être défini sur « mobileTable »|
 | **direction**||Doit être défini sur « in »|
@@ -168,13 +167,13 @@ Utilisez la liaison de sortie Mobile Apps pour écrire un nouvel enregistrement 
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#output---c-example)
-* [Script C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui est déclenchée par un message de file d’attente et qui crée un enregistrement dans une table d’application mobile.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui est déclenchée par un message de file d’attente et crée un enregistrement dans une table d’application mobile.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Sortie - attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Pour plus d’informations sur les propriétés d’attribut que vous pouvez configurer, consultez [Sortie - configuration](#output---configuration). Voici un exemple d’attribut `MobileTable` dans une signature de méthode :
 
@@ -290,13 +289,13 @@ public static object Run(
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+Vous trouverez un exemple complet sur la page [Sortie - exemple C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `MobileTable`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 | **type**|| Doit être défini sur « mobileTable »|
 | **direction**||Doit être défini sur « out »|
@@ -312,7 +311,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
-Dans les fonctions de script C#, utilisez un paramètre de sortie nommé de type `out object` pour accéder à l’enregistrement de sortie. Dans les fonctions C# précompilées, l’attribut `MobileTable` peut être utilisé avec un des types suivants :
+Dans les fonctions de script C#, utilisez un paramètre de sortie nommé de type `out object` pour accéder à l’enregistrement de sortie. Dans les bibliothèques de classes C#, l’attribut `MobileTable` est utilisable avec les types suivants :
 
 * `ICollector<T>` ou `IAsyncCollector<T>`, où `T` est `JObject` ou tout type avec une propriété `public string Id`.
 * `out JObject`
@@ -320,7 +319,7 @@ Dans les fonctions de script C#, utilisez un paramètre de sortie nommé de type
 
 Dans les fonctions Node.js, utilisez `context.bindings.<name>` pour accéder à l’enregistrement de sortie.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

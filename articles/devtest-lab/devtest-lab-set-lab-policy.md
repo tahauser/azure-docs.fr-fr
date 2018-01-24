@@ -3,7 +3,7 @@ title: "Gérer les stratégies de laboratoire dans Azure DevTest Labs | Microsof
 description: "Apprenez à définir des stratégies de laboratoire telles que les tailles de machine virtuelle, le nombre maximal de machines virtuelles par utilisateur et l’arrêt automatique."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’un laboratoire dans Azure DevTest Labs
 
@@ -107,7 +107,7 @@ Lorsque vous [créez la machine virtuelle](devtest-lab-add-vm.md), vous pouvez d
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Une fois que vous avez défini et appliqué les différents paramètres de stratégies des machines virtuelles pour votre laboratoire, voici ce que vous pouvez essayer de faire :
 
 * [Comprendre les adresses IP partagées](devtest-lab-shared-ip.md) : explique comment les adresses IP partagées sont utilisées dans DevTest Labs pour réduire le nombre d’adresses IP publiques requises pour se connecter aux machines virtuelles de votre laboratoire.
@@ -115,5 +115,5 @@ Une fois que vous avez défini et appliqué les différents paramètres de strat
   pour afficher le coût estimé à ce jour pour le mois en cours et le coût projeté pour la fin du mois.
 * [Créer une image personnalisée](devtest-lab-create-template.md) : quand vous créez une machine virtuelle, vous spécifiez une base, qui peut être soit une image personnalisée, soit une image Marketplace. Cet article explique comment créer une image personnalisée à partir d’un fichier VHD.
 * [Configurer des images Marketplace](devtest-lab-configure-marketplace-images.md) : Azure DevTest Labs prend en charge la création de machines virtuelles basées sur des images Azure Marketplace. Cet article explique comment spécifier, le cas échéant, les images Azure Marketplace pouvant être utilisées lors de la création de machines virtuelles dans un laboratoire.
-* [Créer une machine virtuelle dans un laboratoire](devtest-lab-add-vm-with-artifacts.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Marketplace) et comment utiliser des artefacts dans votre machine virtuelle.
+* [Créer une machine virtuelle dans un laboratoire](devtest-lab-add-vm.md) : montre comment créer une machine virtuelle à partir d’une image de base (personnalisée ou Place de marché) et comment utiliser des artefacts dans votre machine virtuelle.
 

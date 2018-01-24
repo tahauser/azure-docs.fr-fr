@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Création d’un environnement de machine virtuelle Linux complète dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer vos machines virtuelles dans Azure comme vous le feriez pour toute autre ressource. Cet article vous explique comment créer un environnement Linux complet et des ressources de support avec Ansible. Vous pouvez aussi découvrir comment [créer une machine virtuelle de base avec Ansible](ansible-create-vm.md).
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour gérer des ressources Azure avec Ansible, vous avez besoin des éléments suivants :
 
 - Ansible et les modules du SDK Azure Python installés sur votre système hôte.
@@ -105,7 +105,7 @@ Une carte réseau virtuelle connecte votre machine virtuelle à un réseau virtu
 
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
-La dernière étape consiste à créer une machine virtuelle et à utiliser toutes les ressources créées. La section suivante d’un playbook Ansible crée une machine virtuelle nommée *myVM* et attache la carte réseau virtuelle nommée *myNIC*. Entrez vos données de clé publique dans la paire *clé_données* comme suit :
+La dernière étape consiste à créer une machine virtuelle et à utiliser toutes les ressources créées. La section suivante d’un playbook Ansible crée une machine virtuelle nommée *myVM* et attache la carte réseau virtuelle nommée *myNIC*. Entrez vos données de clé publique complètes dans la paire *key_data* comme suit :
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ La dernière étape consiste à créer une machine virtuelle et à utiliser tout
 ```
 
 ## <a name="complete-ansible-playbook"></a>Terminer le playbook Ansible
-Pour rassembler toutes ces sections, créez un playbook Ansible nommé *azure_create_complete_vm.yml* et collez le contenu suivant :
+Pour rassembler toutes ces sections, créez un playbook Ansible nommé *azure_create_complete_vm.yml* et collez le contenu suivant. Entrez vos données de clé publique complètes dans la paire *key_data* :
 
 ```yaml
 - name: Create Azure VM
@@ -229,5 +229,5 @@ PLAY RECAP ****************************************************************
 localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Cet exemple crée un environnement de machine virtuelle complète, avec les ressources de réseau virtuel nécessaires. Pour obtenir un exemple plus direct de création d’une machine virtuelle dans des ressources réseau existantes avec des options par défaut, consultez [Créer une machine virtuelle](ansible-create-vm.md).

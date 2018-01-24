@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Exécuter une tâche en conteneur dans Azure Container Instances
 
@@ -20,13 +20,13 @@ La facilité et la vitesse de déploiement des conteneurs d’Azure Container In
 
 À l’aide d’une stratégie de redémarrage configurable, vous pouvez spécifier l’arrêt de vos conteneurs lorsque leurs processus sont terminés. Étant donné que les instances de conteneur sont facturées à la seconde, vous êtes facturé uniquement pour les ressources de calcul utilisées au moment où le conteneur qui exécute votre tâche est exécuté.
 
-Les exemples présentés dans cet article utilisent l’interface de ligne de commande Azure. Vous devez disposer d’Azure CLI version 2.0.21 ou ultérieure [en local](/cli/azure/install-azure-cli), ou utiliser l’interface de ligne de commande Azure dans [Azure Cloud Shell](../cloud-shell/overview.md).
+Les exemples présentés dans cet article utilisent l’interface de ligne de commande Azure. Vous devez disposer d’Azure CLI version 2.0.21 ou ultérieure [en local][azure-cli-install], ou utiliser l’interface de ligne de commande dans [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Stratégie de redémarrage des conteneurs
 
 Lorsque vous créez un conteneur dans Azure Container Instances, vous pouvez spécifier l’un des trois paramètres de stratégie de redémarrage disponibles.
 
-| Stratégie de redémarrage   | Description |
+| Stratégie de redémarrage   | DESCRIPTION |
 | ---------------- | :---------- |
 | `Always` | Les conteneurs du groupe de conteneurs sont toujours redémarrés. Il s’agit du paramètre appliqué **par défaut** lorsqu’aucune stratégie de redémarrage n’est spécifiée au moment de la création du conteneur. |
 | `Never` | Les conteneurs du groupe de conteneurs ne sont jamais redémarrés. Les conteneurs sont exécutés au maximum une fois. |
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Exemple d’exécution jusqu’à achèvement
 
-Pour voir la stratégie de redémarrage à l’œuvre, créez une instance de conteneur à partir de l’image [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/), puis spécifiez la stratégie de redémarrage `OnFailure`. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
+Pour voir la stratégie de redémarrage à l’œuvre, créez une instance de conteneur à partir de l’image [microsoft/aci-wordcount][aci-wordcount-image], puis spécifiez la stratégie de redémarrage `OnFailure`. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
 
 Exécutez l’exemple de conteneur avec la commande [az container create][az-container-create] suivante :
 
@@ -76,7 +76,7 @@ Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir l
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Output:
+Sortie :
 
 ```bash
 [('the', 990),
@@ -122,7 +122,7 @@ Si vous spécifiez `NumWords=5` et `MinLength=8` pour les variables d’environn
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Output:
+Sortie :
 
 ```bash
 [('CLAUDIUS', 120),
@@ -156,19 +156,23 @@ Là encore, lorsque l’état du conteneur est *Terminé*, affichez les journaux
 az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
-Output:
+Sortie :
 
 ```bash
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 ### <a name="persist-task-output"></a>Conserver les sorties des tâches
 
 Pour plus d’informations sur la conservation de la sortie de vos conteneurs qui s’exécutent jusqu’à achèvement, consultez [Montage d’un partage de fichiers Azure avec Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Créer une application web Java et MySQL dans Azure
+
+> [!NOTE]
+> Cet article explique comment déployer une application sur App Service sous Windows. Pour effectuer un déploiement sur App Service sous _Linux_, consultez la page [Déployer une application Spring Boot en conteneur sur Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
 
 Ce didacticiel vous montre comment créer une application web Java dans Azure et comment la connecter à une base de données MySQL. Lorsque vous avez terminé, une application [Spring Boot](https://projects.spring.io/spring-boot/) stockera des données dans [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) s’exécutant sous [Azure App Service Web Apps](app-service-web-overview.md).
 
@@ -38,7 +42,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Surveiller l’application dans le portail Azure
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 1. [Téléchargement et installation de Git](https://git-scm.com/)
 1. [Téléchargement et installation du JDK Java 7 ou version ultérieure](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -409,7 +413,7 @@ Accédez au portail Azure pour voir l’application web que vous avez créée.
 
 Pour ce faire, connectez-vous au portail : [https://portal.azure.com](https://portal.azure.com).
 
-Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application web Azure.
 
 ![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
@@ -434,7 +438,7 @@ az group delete --name myResourceGroup
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure

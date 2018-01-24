@@ -1,6 +1,6 @@
 ---
-title: "Collecter les journaux personnalisés dans OMS Log Analytics | Microsoft Docs"
-description: "Log Analytics peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans le référentiel OMS."
+title: "Collecter les journaux personnalisés dans Azure Log Analytics | Microsoft Docs"
+description: "Log Analytics peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans l’espace de travail Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Journaux personnalisés dans Log Analytics
 La source de données Journaux personnalisés de Log Analytics vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog.  Une fois collectés, vous pouvez analyser chaque enregistrement du journal dans des champs individuels à l’aide de la fonctionnalité [Champs Personnalisés](log-analytics-custom-fields.md) de Log Analytics.
@@ -42,10 +42,10 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 Utilisez la procédure suivante pour définir un fichier journal personnalisé.  Rendez-vous à la fin de cet article pour une procédure détaillée d’ajout d’un journal personnalisé.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Étape 1. Ouvrir l’Assistant Journal personnalisé
-L’Assistant Journal personnalisé s’exécute dans le portail OMS et vous permet de définir un nouveau journal personnalisé de collecte.
+L’Assistant Journal personnalisé s’exécute dans le portail Azure et vous permet de définir un nouveau journal personnalisé de collecte.
 
-1. Dans le portail OMS, accédez à **Paramètres**.
-2. Cliquez sur **Données** puis sur **Journaux personnalisés**.
+1. Dans le portail Azure, sélectionnez **Log Analytics** > votre espace de travail > **Paramètres avancés**.
+2. Cliquez sur **Données** > **Journaux personnalisés**.
 3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.  Si vous souhaitez modifier ce fichier manuellement sur chaque agent Linux, décochez la case *Appliquer la configuration ci-dessous à mes machines Linux*.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
 
@@ -54,7 +54,7 @@ Commencez par télécharger un exemple du journal personnalisé.  L’assistant 
 
 **Nouvelle ligne** .  Si la ligne commence par un horodatage dans un des formats disponibles, vous pouvez spécifier un délimiteur **Horodatage** prenant en charge les entrées qui s’étendent sur plusieurs lignes.
 
-Si un délimiteur Horodatage est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans OMS contiendra la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Log Analytics a collecté l’entrée.
+Si un délimiteur Horodatage est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans Log Analytics contiendra la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Log Analytics a collecté l’entrée.
 
 
 1. Cliquez sur **Parcourir** et accédez à un exemple de fichier.  Notez que ce bouton peut s’appeler **Choisir un fichier** dans certains navigateurs.
@@ -70,7 +70,7 @@ Par exemple, une application peut créer un fichier journal chaque jour avec la 
 
 Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux.
 
-| Description | Chemin |
+| DESCRIPTION | path |
 |:--- |:--- |
 | Tous les fichiers sous *C:\Logs* avec l’extension .txt sur l’agent Windows |C:\Logs\\\*.txt |
 | Tous les fichiers sous *C:\Logs* avec un nom commençant par log et portant l’extension .txt sur l’agent Windows |C:\Logs\log\*.txt |
@@ -103,13 +103,12 @@ L’entrée de journal est stockée dans une propriété unique appelée **RawDa
 
 La procédure détaillée pour analyser l’entrée de journal personnalisé n’est pas décrite ici.  Pour plus d’informations sur cette procédure, consultez la documentation sur [Champs personnalisés](log-analytics-custom-fields.md) .
 
-## <a name="disabling-a-custom-log"></a>Désactivation d’un journal personnalisé
-Vous ne pouvez pas supprimer une définition de journal personnalisé une fois qu’elle a été créée, mais vous pouvez la désactiver en supprimant tous ses chemins de regroupement.
+## <a name="removing-a-custom-log"></a>Suppression d’un journal personnalisé
+Pour supprimer un journal personnalisé que vous avez défini précédemment, procédez comme suit dans le portail Azure.
 
-1. Dans le portail OMS, accédez à **Paramètres**.
-2. Cliquez sur **Données** puis sur **Journaux personnalisés**.
-3. Cliquez sur **Détails** en regard de la définition de journal personnalisé à désactiver.
-4. Supprimez tous les chemins de regroupement pour la définition de journal personnalisé.
+1. Dans le menu **Données** des **Paramètres avancés** de votre espace de travail, sélectionnez **Journaux personnalisés** pour répertorier tous vos journaux personnalisés.
+2. Cliquez sur **Supprimer** en regard du journal personnalisé à supprimer.
+
 
 ## <a name="data-collection"></a>Collecte des données
 Log Analytics collecte les nouvelles entrées de chaque journal personnalisé toutes les 5 minutes environ.  L’agent enregistre sa place dans chaque fichier journal dont il la collecte.  Si l’agent est hors connexion pendant un moment, Log Analytics collecte les entrées à partir de là où il s’était arrêté, même si ces entrées ont été créées lorsque l’agent était hors connexion.
@@ -119,7 +118,7 @@ L’entrée de journal est intégralement inscrite dans une propriété unique a
 ## <a name="custom-log-record-properties"></a>Propriétés d’enregistrement de journal personnalisé
 Les enregistrements de journal personnalisé sont caractérisés par le nom du journal que vous fournissez et les propriétés dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Log Analytics.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
 | SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br> Linux – Tous les agents Linux |
@@ -127,11 +126,11 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manage  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Recherches de journal avec des enregistrements de journal personnalisé
-Les enregistrements de journaux personnalisés sont stockés dans le référentiel OMS, comme les enregistrements d’autres sources de données.  Leur type correspond au nom que vous fournissez lorsque vous définissez le journal. Vous pouvez donc utiliser la propriété Type dans votre recherche pour récupérer les enregistrements collectés dans un journal spécifique.
+Les enregistrements de journaux personnalisés sont stockés dans l’espace de travail Log Analytics, comme les enregistrements d’autres sources de données.  Leur type correspond au nom que vous fournissez lorsque vous définissez le journal. Vous pouvez donc utiliser la propriété Type dans votre recherche pour récupérer les enregistrements collectés dans un journal spécifique.
 
 Le tableau suivant fournit plusieurs exemples de recherches qui extraient des enregistrements de journaux personnalisés.
 
-| Interroger | Description |
+| Requête | DESCRIPTION |
 |:--- |:--- |
 | MyApp_CL |Tous les événements du fichier journal nommé MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |Tous les événements d’un journal personnalisé nommé MyApp_CL avec la valeur *error* dans le champ personnalisé nommé *Severity_CF*. |
@@ -171,6 +170,6 @@ Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code
 
 ![Requête de journal avec des champs personnalisés](media/log-analytics-data-sources-custom-logs/query-02.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les entrées du journal personnalisé dans des champs individuels.
-* En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.
+* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.

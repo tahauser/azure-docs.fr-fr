@@ -3,7 +3,7 @@ title: "Configuration d’un réseau virtuel dans Azure DevTest Labs | Microsoft
 description: "Découvrez comment configurer un réseau virtuel et un sous-réseau existants, puis les utiliser dans une machine virtuelle avec Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: tarcher
-ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configuration d’un réseau virtuel dans Azure DevTest Labs
 Comme expliqué dans l’article [Ajouter une machine virtuelle à un laboratoire](devtest-lab-add-vm.md), quand vous créez une machine virtuelle dans un laboratoire, vous pouvez spécifier un réseau virtuel configuré. Par exemple, vous devez être en mesure d’accéder aux ressources de votre réseau d’entreprise à partir de vos machines virtuelles à l’aide du réseau virtuel configuré avec ExpressRoute ou un VPN de site à site.
@@ -28,7 +28,7 @@ Cet article explique comment ajouter votre réseau virtuel existant aux paramèt
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Configurer un réseau virtuel pour un laboratoire en utilisant le portail Azure
 Les étapes suivantes vous montrent comment ajouter un réseau virtuel (et sous-réseau) existant à un laboratoire pour qu’il puisse être utilisé lors de la création d’une machine virtuelle dans le même laboratoire. 
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires. 
 1. Dans le volet principal du lab, sélectionnez **Configuration et stratégies**.
@@ -58,12 +58,12 @@ Les étapes suivantes vous montrent comment ajouter un réseau virtuel (et sous-
 1. Cliquez sur **OK** pour fermer le volet Sous-réseau lab.
 1. Sélectionnez **Enregistrer** pour fermer le volet Réseau virtuel.
 
-Maintenant que le réseau virtuel est configuré, il peut être sélectionné lors de la création d'une machine virtuelle. Pour voir comment créer une machine virtuelle et spécifier un réseau virtuel, consultez l’article [Ajouter une machine virtuelle avec des artefacts à un laboratoire](devtest-lab-add-vm-with-artifacts.md). 
+Maintenant que le réseau virtuel est configuré, il peut être sélectionné lors de la création d'une machine virtuelle. Pour savoir comment créer une machine virtuelle et spécifier un réseau virtuel, consultez l’article [Ajouter une machine virtuelle à un laboratoire](devtest-lab-add-vm.md). 
 
 La [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network) d’Azure fournit plus d’informations sur l’utilisation des réseaux virtuels, notamment sur la configuration et la gestion d’un réseau virtuel et sur sa connexion à votre réseau local.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous avez ajouté le réseau virtuel souhaité à votre laboratoire, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>étapes suivantes
+Une fois que vous avez ajouté le réseau virtuel souhaité à votre laboratoire, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm.md).
 

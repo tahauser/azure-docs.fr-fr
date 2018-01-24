@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 2fccf7cae61f4d8862640b89d39f9d4480362429
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 39caeef2648730194827e04e020d8eaea5414f4f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Donner accès à la gestion d’Azure AD Privileged Identity Management
-L’administrateur global qui active Azure AD Privileged Identity Management (PIM) pour une organisation obtient automatiquement les affectations de rôles et l’accès à PIM. Aucune autre personne ne dispose d’un accès en écriture par défaut, y compris les autres administrateurs généraux. Les autres administrateurs généraux, administrateurs de sécurité et les lecteurs de sécurité ont un accès en lecture seule à Azure AD PIM. Pour donner accès à PIM, le premier utilisateur peut affecter les autres au rôle **Administrateur de rôle privilégié** . Cette affectation doit être effectuée depuis PIM proprement dit et ne peut pas être modifiée via PowerShell ou d’autres portails.
+L’administrateur global qui active Azure AD Privileged Identity Management (PIM) pour une organisation obtient automatiquement les affectations de rôles et l’accès à PIM. Aucune autre personne ne dispose d’un accès en écriture par défaut, y compris les autres administrateurs généraux. Les autres administrateurs généraux, administrateurs de la sécurité et lecteurs Sécurité ont un accès en lecture seule à Azure AD PIM. Pour donner accès à PIM, le premier utilisateur peut affecter les autres au rôle **Administrateur de rôle privilégié** . Cette affectation doit être effectuée depuis PIM proprement dit et ne peut pas être modifiée via PowerShell ou d’autres portails.
 
 > [!NOTE]
 > La gestion d’Azure AD PIM requiert l’authentification Azure MFA. Les comptes Microsoft ne pouvant pas s’inscrire pour l’authentification Azure MFA, un utilisateur qui se connecte avec un compte Microsoft ne peut pas accéder à Azure AD PIM.
@@ -54,7 +54,7 @@ Avant de supprimer le rôle d’administrateur de rôle privilégié d’un util
 4. Cliquez sur **Oui** pour supprimer l’utilisateur du rôle.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

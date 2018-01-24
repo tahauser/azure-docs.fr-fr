@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette rubrique présente les meilleures pratiques pour optimiser les performances de SQL Server dans la machine virtuelle Microsoft Azure. Lorsque vous exécutez SQL Server dans Microsoft Azure Virtual Machines, nous vous recommandons de continuer à utiliser les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Toutefois, les performances d’une base de données relationnelle dans un cloud public dépendent de nombreux facteurs, comme la taille de la machine virtuelle et la configuration des disques de données.
 
-Lors de la création d’images SQL Server, [pensez à approvisionner vos machines virtuelles dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Les machines virtuelles SQL Server approvisionnées dans le portail avec Resource Manager mettent en œuvre toutes ces meilleures pratiques, dont la configuration du stockage.
+Lors de la création d’images SQL Server, [pensez à approvisionner vos machines virtuelles dans le portail Azure](virtual-machines-windows-portal-sql-server-provision.md). Les machines virtuelles SQL Server configurées dans le portail avec Resource Manager respectent les meilleures pratiques.
 
 Cet article est axé sur l’obtention des *meilleures* performances pour SQL Server sur les machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations suivantes. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
 
@@ -90,6 +90,9 @@ Pour les machines virtuelles qui prennent en charge le stockage Premium (de sér
 ### <a name="data-disks"></a>Disques de données
 
 * **Utilisation de disques de données pour les données et les fichiers journaux** : utilisez au moins 2 [disques P30](../premium-storage.md#scalability-and-performance-targets) de stockage Premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir les données, ainsi que le ou les fichiers TempDB. Chaque disque de stockage Premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article suivant : [Utilisation du stockage Premium pour les disques](../premium-storage.md).
+
+   > [!NOTE]
+   > Lorsque vous configurez une machine virtuelle SQL Server dans le portail, vous avez la possibilité de modifier votre configuration de stockage. Selon votre configuration, Azure configure un ou plusieurs disques. Plusieurs disques sont combinés en un pool de stockage unique par entrelacement. Les fichiers journaux et de données se trouvent dans cette configuration, plutôt que sur deux disques distincts. Pour plus d’informations, voir [Configuration du stockage pour les machines virtuelles SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Entrelacement de disques**: pour augmenter le débit, vous pouvez ajouter des disques de données supplémentaires et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’opérations d’E/S par seconde et de bande passante disponibles pour vos fichiers journaux, vos données et vos fichiers TempDB. Notez que les différentes tailles de machine virtuelle sont associées à des limites spécifiques concernant la bande passante et le nombre d’opérations d’E/S par seconde pris en charge. Pour en savoir plus, consultez les tableaux relatifs aux nombre d’opérations d’E/S par seconde en fonction des [tailles de machine virtuelle](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Respectez les recommandations suivantes :
 
@@ -166,4 +169,4 @@ Certains déploiements peuvent bénéficier de plus grands avantages en termes d
 
 Pour les meilleures pratiques de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-security.md).
 
-Consultez d’autres rubriques relatives aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Consultez d’autres rubriques relatives aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md)

@@ -1,24 +1,16 @@
 ---
-title: "Vérifier l’architecture de la réplication de serveurs physiques vers Azure | Microsoft Docs"
+title: "Architecture de réplication d’un serveur physique sur Azure avec Azure Site Recovery | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de serveurs physiques locaux dans Azure avec le service Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Architecture de la réplication de serveurs physiques vers Azure
 
@@ -63,22 +55,18 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 Après avoir configuré la réplication et exécuté une simulation de récupération d’urgence (test de basculement) pour vérifier que tout fonctionne comme prévu, vous pouvez exécuter un basculement et une restauration automatique en fonction de vos besoins. Notez les points suivants :
 
 - Le basculement planifié n’est pas pris en charge.
-- Vous devez effectuer la restauration automatique vers une machine virtuelle VMware locale. Cela signifie que vous avez besoin d’une infrastructure VMware locale, même si vous répliquez des serveurs physiques locaux vers Azure.
-
-
-1. Vous basculez une seule machine ou créez des plans de récupération pour basculer ensemble plusieurs machines virtuelles.
-2. Quand vous exécutez un basculement, les machines virtuelles Azure sont créées à partir des données répliquées dans le stockage Azure.
-3. Après avoir déclenché le basculement initial, validez-le pour accéder à la charge de travail à partir de la machine virtuelle Azure.
-
-Lorsque votre site local principal est à nouveau disponible, vous pouvez lancer la restauration automatique.
-
-1. Vous devez configurer une infrastructure de restauration automatique, notamment les aspects suivants :
+- Vous devez effectuer la restauration automatique vers une machine virtuelle VMware locale. Cela signifie que vous avez besoin d’une infrastructure VMware locale, même lorsque vous répliquez des serveurs physiques locaux vers Azure.
+- Vous basculez une seule machine ou créez des plans de récupération pour basculer ensemble plusieurs machines virtuelles.
+- Quand vous exécutez un basculement, les machines virtuelles Azure sont créées à partir des données répliquées dans le stockage Azure.
+- Après avoir déclenché le basculement initial, validez-le pour accéder à la charge de travail à partir de la machine virtuelle Azure.
+- Lorsque votre site local principal est à nouveau disponible, vous pouvez lancer la restauration automatique.
+- Vous devez configurer une infrastructure de restauration automatique, notamment les aspects suivants :
     - **Serveur de traitement temporaire dans Azure** : pour effectuer une restauration automatique à partir d’Azure, vous configurez une machine virtuelle Azure en tant que serveur de traitement pour gérer la réplication à partir d’Azure. Vous pourrez supprimer cette machine virtuelle une fois la restauration terminée.
     - **Connexion VPN** : pour la restauration automatique, vous avez besoin d’une connexion VPN (ou Azure ExpressRoute) du réseau Azure vers le site local.
     - **Serveur cible maître distinct** : par défaut, le serveur cible maître local qui a été installé avec le serveur de configuration, sur la machine virtuelle VMware locale, gère la restauration automatique. Toutefois, si vous devez restaurer automatiquement de grands volumes de trafic, vous devez configurer un serveur cible maître local distinct à cet effet.
     - **Stratégie de restauration automatique** : pour répliquer vers votre site local, vous avez besoin d’une stratégie de restauration automatique. Celle-ci a été automatiquement créée au moment de la création de votre stratégie de réplication depuis le site local vers Azure.
     - **Infrastructure VMware** : vous avez besoin d’une infrastructure VMware pour la restauration automatique. Il est impossible d’effectuer cette procédure vers un serveur physique.
-2. Une fois les composants en place, la restauration automatique s’effectue en trois étapes :
+- Une fois les composants en place, la restauration automatique s’effectue en trois étapes :
     - Étape 1 : Reprotégez les machines virtuelles Azure afin qu’elles répliquent depuis Azure vers les machines virtuelles VMware locales.
     - Étape 2 : Exécutez un basculement vers le site local.
     - Étape 3 : Une fois les charges de travail automatiquement restaurées, vous réactivez la réplication.
@@ -88,7 +76,6 @@ Lorsque votre site local principal est à nouveau disponible, vous pouvez lancer
 ![Restauration automatique](./media/concepts-physical-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Passer en revue la matrice de prise en charge Suivre le didacticiel montrant comment activer la réplication VMware vers Azure
-Exécuter un basculement et une restauration automatique.
+Suivez [ce didacticiel](tutorial-physical-to-azure.md) pour savoir comment activer la réplication d’un serveur physique vers Azure.

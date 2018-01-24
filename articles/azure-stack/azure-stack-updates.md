@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
-Microsoft publie des packages de mises à jour pour les systèmes intégrés Azure Stack de manière régulière, généralement le quatrième mardi de chaque mois à compter de la disponibilité générale. Demandez à votre fabricant OEM quel est son processus de notification, afin d’être sûr que votre organisation reçoit les notifications de mise à jour, ou consultez Concepts\Notes de mise à jour\Notes de mise à jour de systèmes intégrés pour obtenir plus d’informations sur les versions spécifiques.
+Microsoft publie des packages de mises à jour pour les systèmes intégrés Azure Stack de manière régulière, généralement le quatrième mardi de chaque mois à compter de la disponibilité générale. Demandez à votre fabricant OEM quel est son processus de notification, afin d’être sûr que votre organisation reçoit les notifications de mise à jour, ou consultez Vue d’ensemble\Notes de mise à jour\Notes de mise à jour de systèmes intégrés pour obtenir plus d’informations sur les versions spécifiques.
 
 Chaque version des mises à jour logicielles Microsoft est fournie sous forme de package de mise à jour unique. En tant qu’opérateur Azure Stack, vous pouvez facilement importer, installer et surveiller la progression de l’installation de ces packages de mise à jour à partir du portail administrateur. 
 
@@ -62,7 +62,7 @@ La vignette Mise à jour affiche la version actuelle d’Azure Stack. Vous pouve
  
 - Dans la vignette **Gestion des régions**, cliquez sur le nom de la région. Consultez la version actuelle dans la vignette **Mise à jour**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Stratégie de maintenance d’Azure Stack](azure-stack-servicing-policy.md) 
 - [Gestion des régions dans Azure Stack](azure-stack-region-management.md)     

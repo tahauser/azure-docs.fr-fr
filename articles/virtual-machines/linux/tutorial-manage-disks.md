@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestion des disques Azure avec l’interface de ligne de commande Azure
 
@@ -38,7 +38,7 @@ Les machines virtuelles utilisent des disques pour stocker leur système d’exp
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter l’interface de ligne de commande Azure version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="default-azure-disks"></a>Disques Azure par défaut
 
@@ -50,7 +50,7 @@ Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquem
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 
-| Type | Taille de la machine virtuelle | Taille maximale du disque temporaire (Go) |
+| type | Taille de la machine virtuelle | Taille maximale du disque temporaire (Go) |
 |----|----|----|
 | [Usage général](sizes-general.md) | Séries A et D | 800 |
 | [Optimisé pour le calcul](sizes-compute.md) | Série F | 800 |
@@ -65,7 +65,7 @@ Des disques de données supplémentaires peuvent être ajoutés pour installer d
 
 ### <a name="max-data-disks-per-vm"></a>Disques de données max. par machine virtuelle
 
-| Type | Taille de la machine virtuelle | Disques de données max. par machine virtuelle |
+| type | Taille de la machine virtuelle | Disques de données max. par machine virtuelle |
 |----|----|----|
 | [Usage général](sizes-general.md) | Séries A et D | 32 |
 | [Optimisé pour le calcul](sizes-compute.md) | Série F | 32 |
@@ -283,7 +283,7 @@ Utilisez la commande [az vm disk attach](https://docs.microsoft.com/cli/azure/vm
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a apporté des connaissances concernant les disques de machine virtuelle, notamment concernant les points suivants :
 

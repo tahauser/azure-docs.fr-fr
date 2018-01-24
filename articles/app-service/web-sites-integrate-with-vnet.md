@@ -1,5 +1,5 @@
 ---
-title: "Intégrer une application à un réseau Azure Virtual Network"
+title: "Intégrer une application à un réseau virtuel Azure"
 description: "Explique comment connecter une application d’Azure App Service à un réseau virtuel Azure nouveau ou existant"
 services: app-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
-Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si vous n’êtes pas familiarisé avec les réseaux Azure Virtual Network, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide d’une variété de technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel][VNETOverview]. 
+# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau virtuel Azure
+Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si vous n’êtes pas familiarisé avec les réseaux virtuels Azure, cette fonctionnalité vous permet de placer la plupart de vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide d’une variété de technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel][VNETOverview]. 
 
 Azure App Service se présente sous deux formes. 
 
@@ -39,7 +39,7 @@ La fonctionnalité d’intégration au réseau virtuel :
 * nécessite un plan de tarification Standard, Premium ou Isolé 
 * fonctionne avec le réseau virtuel classique ou Gestionnaire des ressources 
 * prend en charge les protocoles TCP et UDP ;
-* fonctionne avec les applications web, mobiles et API
+* fonctionne avec les applications API, web, mobiles et les applications de fonction
 * permet à une application de se connecter à un seul réseau virtuel à la fois
 * permet d’intégrer jusqu’à cinq réseaux virtuels dans un plan App Service 
 * permet l’utilisation du même réseau virtuel par plusieurs applications d’un plan App Service
@@ -93,7 +93,7 @@ Si votre réseau virtuel ne dispose pas d’une passerelle ni de connexion de po
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Activation de la connexion point à site dans un réseau virtuel Resource Manager
-Pour configurer un réseau virtuel Resource Manager avec une passerelle et une connexion de point à site, vous pouvez utiliser PowerShell comme le décrit la page [Configurer une connexion de point à site à un réseau virtuel avec PowerShell][V2VNETP2S] ou le Portail Azure comme le décrit la page [Configurer une connexion de point à site sur un réseau virtuel avec le Portail Azure][V2VNETPortal]. L’interface utilisateur permettant d’effectuer cette opération n’est pas encore disponible. Notez que vous devez créer des certificats pour la configuration point à site. Cela est configuré automatiquement lorsque vous connectez votre application web au réseau virtuel. 
+Pour configurer un réseau virtuel Resource Manager avec une passerelle et une connexion de point à site, vous pouvez utiliser PowerShell comme le décrit la page [Configurer une connexion de point à site à un réseau virtuel avec PowerShell][V2VNETP2S] ou le Portail Azure comme le décrit la page [Configurer une connexion de point à site sur un réseau virtuel avec le Portail Azure][V2VNETPortal]. L’interface utilisateur permettant d’effectuer cette opération n’est pas encore disponible. Notez que vous n’avez pas besoin de créer des certificats pour la configuration de point à site. Cela est configuré automatiquement lorsque vous connectez votre application web au réseau virtuel. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Création d’un réseau virtuel préconfiguré
 Si vous souhaitez créer un réseau virtuel configuré avec une passerelle et connexion point à site, l’interface réseau App Service a la possibilité de le faire, mais uniquement pour un réseau virtuel Resource Manager. Si vous souhaitez créer un réseau virtuel Classic avec une passerelle et une connexion point à site, vous devez le faire manuellement via l’interface utilisateur de réseau. 
@@ -196,7 +196,7 @@ En raison du mode de gestion des réseaux VPN de point à site, vous encourez sy
 
 Les passerelles de réseau virtuel représentent le dernier élément de coût. Si vous n’utilisez pas les passerelles à d’autres fins, par exemple pour des réseaux VPN de site à site, vous payez la prise en charge de la fonctionnalité d’intégration au réseau virtuel par les passerelles. Pour plus d’informations sur ces coûts, voir : [tarification de passerelle VPN][VNETPricing]. 
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Même si cette fonctionnalité est facile à configurer, il se peut que vous rencontriez certains problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : La première est la console Kudu et l’autre est la console accessible à l’aide du portail Azure. Pour ouvrir la console Kudu, à partir de votre application, accédez à Outils -> Kudu. Vous pouvez également ouvrir la page [nom_site].scm.azurewebsites.net, puis accéder à l’onglet Console de débogage. Pour accéder à la console hébergée par le portail Azure, à partir de votre application, accédez à outils -> Console. 
 
 #### <a name="tools"></a>Outils
@@ -258,6 +258,10 @@ Maintenant, si votre machine virtuelle hébergée sur réseau virtuel peut attei
 * vos pare-feu local locaux bloquent le trafic à partir de votre plage IP de point à site
 * vous avez un itinéraire défini par l’utilisateur (UDR) dans votre réseau virtuel qui empêche votre trafic de point à site d’atteindre votre réseau local
 
+## <a name="powershell-automation"></a>Automation PowerShell
+
+Vous pouvez intégrer App Service à un réseau virtuel Azure à l’aide de PowerShell. Pour obtenir un script prêt à l’exécution, consultez [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+
 ## <a name="hybrid-connections-and-app-service-environments"></a>Connexions hybrides et environnements App Service
 Trois fonctionnalités permettent d’accéder aux ressources hébergées sur le réseau virtuel. Il s'agit de :
 
@@ -269,7 +273,7 @@ Pour les connexions hybrides, vous devez installer l’agent de relais Gestionna
 
 Avec un environnement App Service, vous pouvez exécuter une instance d’Azure App Service dans votre réseau virtuel. Ainsi, vos applications peuvent accéder aux ressources de votre réseau virtuel sans étapes supplémentaires. Un environnement App Service offre d’autres avantages. Par exemple, vous pouvez utiliser des workers basés sur Dv2 avec jusqu’à 14 Go de RAM. En outre, vous pouvez étendre le système selon vos besoins. Contrairement aux environnements mutualisés où ASP est limité à 20 instances, dans un environnement App Service, vous pouvez évoluer jusqu'à 100 instances d’ASP. Un des avantages d’un ASE que n’offre pas l’intégration au réseau virtuel, est la possibilité d’utiliser un environnement App Service avec un réseau VPN ExpressRoute. 
 
-Même si, dans certains cas, il est possible d’utiliser ces deux fonctionnalités, l’une ne remplace pas l’autre. Le choix de la fonctionnalité à utiliser dépend de vos besoins. Par exemple :
+Même si, dans certains cas, il est possible d’utiliser ces deux fonctionnalités, l’une ne remplace pas l’autre. Le choix de la fonctionnalité à utiliser dépend de vos besoins. Par exemple : 
 
 * Si vous êtes un développeur et que vous souhaitez simplement exécuter un site dans Azure et lui permettre d’accéder à la base de données de votre station de travail locale, la solution la plus simple consiste à utiliser des connexions hybrides. 
 * Si vous êtes une organisation de grande envergure et que vous souhaitez placer un grand nombre de propriétés web dans le cloud public et les gérer dans votre propre réseau, il est préférable de recourir à un environnement App Service. 

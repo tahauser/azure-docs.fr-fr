@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 1db25a5d9ff5cb6aa2787a0cafa40cfb010e3b06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4b739fd34cc0c85d47b97b7b42a70eb7f5f5ac7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Déplacement d’une machine virtuelle Windows vers un autre abonnement ou groupe de ressources Azure
 Cet article vous guide tout au long du déplacement d’une machine virtuelle Windows entre des groupes de ressources ou des abonnements. Le déplacement entre abonnements peut être pratique si, à l’origine, vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise afin de poursuivre votre travail.
@@ -34,34 +34,32 @@ Cet article vous guide tout au long du déplacement d’une machine virtuelle Wi
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="use-powershell-to-move-a-vm"></a>Utilisation de PowerShell pour déplacer une machine virtuelle
-Pour déplacer une machine virtuelle vers un autre groupe de ressources, vous devez vous assurer que vous déplacez également toutes les ressources dépendantes. Pour utiliser l’applet de commande Move-AzureRMResource, vous avez besoin du nom et du type des ressources. Pour cela, vous pouvez utiliser l’applet de commande Find-AzureRMResource.
 
-    Find-AzureRMResource -ResourceGroupNameContains "<sourceResourceGroupName>"
+Pour déplacer une machine virtuelle vers un autre groupe de ressources, vous devez vous assurer que vous déplacez également toutes les ressources dépendantes. Pour utiliser l’applet de commande Move-AzureRMResource, vous avez besoin de l’ID de ressource de chacune des ressources. Vous pouvez obtenir une liste des ID de ressource à l’aide de l’applet de commande [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource).
 
+```azurepowershell-interactive
+ Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+```
 
-Pour déplacer une machine virtuelle, nous devons déplacer plusieurs ressources. Nous pouvons simplement créer des variables distinctes pour chaque ressource, puis les répertorier. Cet exemple inclut la plupart des ressources de base pour une machine virtuelle, mais vous pouvez en ajouter d’autres en fonction des besoins.
+Pour déplacer une machine virtuelle, nous devons déplacer plusieurs ressources. Nous pouvons utiliser la sortie de Find-AzureRMResource pour créer une liste séparée par des virgules des ID de ressource et la transmettre à [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) pour les déplacer vers la destination. 
 
-    $sourceRG = "<sourceResourceGroupName>"
-    $destinationRG = "<destinationResourceGroupName>"
+```azurepowershell-interactive
 
-    $vm = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Compute/virtualMachines" -ResourceName "<vmName>"
-    $storageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<storageAccountName>"
-    $diagStorageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<diagnosticStorageAccountName>"
-    $vNet = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/virtualNetworks" -ResourceName "<vNetName>"
-    $nic = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkInterfaces" -ResourceName "<nicName>"
-    $ip = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/publicIPAddresses" -ResourceName "<ipName>"
-    $nsg = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkSecurityGroups" -ResourceName "<nsgName>"
-
-    Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
-
+Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
+```
+    
 Pour déplacer les ressources vers un autre abonnement, incluez le paramètre **DestinationSubscriptionId** . 
 
-    Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
+```azurepowershell-interactive
+Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+    -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
+```
 
 
+Vous devrez confirmer que vous souhaitez déplacer les ressources spécifiées. 
 
-Vous devrez confirmer que vous souhaitez déplacer les ressources spécifiées. Tapez **Y** pour confirmer que vous souhaitez déplacer les ressources.
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez déplacer de nombreux types de ressources différents entre les groupes de ressources et les abonnements. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../../resource-group-move-resources.md).    
 

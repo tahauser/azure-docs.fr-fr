@@ -4,7 +4,7 @@ description: "Problèmes connus liés à l’identité du service administré po
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 12/12/2017
 ms.author: bryanla
-ms.openlocfilehash: 859cfbeae6701336699b4f3f7a96d6b08c599340
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
@@ -26,13 +26,17 @@ ms.lasthandoff: 10/21/2017
 
 ## <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
 
+### <a name="is-there-a-private-preview-available-for-additional-features"></a>Existe-t-il une préversion privée, pour des fonctionnalités supplémentaires ?
+
+Oui. Si vous souhaitez vous inscrire pour la préversion privée, [rendez-vous sur notre page d’inscription](https://aka.ms/azuremsiprivatepreview).
+
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI est-il compatible avec Azure Cloud Services ?
 
 Non, et nous ne prévoyons pas de rendre possible l’utilisation de MSI dans Azure Cloud Services.
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>L’identité du service administré fonctionne-t-elle avec la bibliothèque d’authentification Active Directory (ADAL) et la bibliothèque d’authentification Microsoft (MSAL) ?
 
-Non, la fonction d’identité du service administré n’est pas encore intégrée aux bibliothèques ADAL et MSAL.
+Non, la fonction d’identité du service administré n’est pas encore intégrée aux bibliothèques ADAL et MSAL. Pour plus d’informations sur l’acquisition d’un jeton MSI à l’aide du point de terminaison REST de MSI, consultez [Guide pratique pour utiliser une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quelles sont les distributions de Linux prises en charge ?
 

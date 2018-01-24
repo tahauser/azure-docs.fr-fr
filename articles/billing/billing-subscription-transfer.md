@@ -14,42 +14,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/15/2017
+ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9beef44b3fbaf26d49757544f32b97c7ef2cf425
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
 
-Vous pouvez transférer votre abonnement vers un autre utilisateur dans le Centre des comptes. Utilisez cette fonctionnalité pour transférer la facturation de l’abonnement à une autre personne, modifier le compte de connexion ou déplacer un abonnement vers un autre annuaire. Pour modifier votre abonnement et changer d’offre, consultez la page [Changer d’offre pour votre abonnement Azure](billing-how-to-switch-azure-offer.md).
+Transférez votre abonnement à un autre utilisateur dans le Centre des comptes pour changer l’administrateur de compte et céder la propriété de facturation de l’abonnement. Pour modifier votre abonnement et changer d’offre, consultez la page [Changer d’offre pour votre abonnement Azure](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
 > Actuellement, nous ne prenons pas en charge les transferts d’abonnements pour les essais gratuits ou les abonnements [Azure dans Open](https://azure.microsoft.com/offers/ms-azr-0111p/). Pour obtenir une solution de contournement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
-
-<a id="supported"></a>
-
-## <a name="whats-supported"></a>Opérations prises en charge :
-
-Le transfert d’abonnements en libre-service est disponible pour les offres ou types d’abonnements répertoriés dans le tableau suivant. Pour transférer d’autres abonnements, comme [Sponsoring](https://azure.microsoft.com/offers/ms-azr-0036p/) ou des plans de support, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-| Nom de l’offre                                                                             | Numéro de l’offre |
-|----------------------------------------------------------------------------------------|--------------|
-| [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
-| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
-| [Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
-| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
-| [Visual Studio Enterprise : BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
-| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
-
-\*[Via le portail EA](#EA)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfert de la propriété d’un abonnement Azure
 
@@ -88,20 +68,39 @@ L’administrateur d’entreprise peut transférer la propriété des abonnement
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Étapes suivantes après avoir accepté la propriété d’un abonnement
 
-1. Vous êtes désormais l’administrateur de compte. Examinez et mettez à jour l’administrateur du service et les coadministrateurs. Gérez les administrateurs dans le [portail Azure Classic](https://manage.windowsazure.com) en accédant aux paramètres. [En savoir plus sur les rôles d’administrateur](billing-add-change-azure-subscription-administrator.md).
-1. Vous pouvez également utiliser le contrôle d’accès en fonction du rôle (RBAC) pour votre abonnement et vos services. Visitez le [portail Azure](https://portal.azure.com). [Pour en savoir plus sur le contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-configure.md)
+1. Vous êtes désormais l’administrateur de compte. Passez en revue et mettez à jour l’administrateur de service, les coadministrateurs et les autres rôles RBAC. Pour plus d’informations, consultez [Ajout ou modification de rôles d’administrateur Azure gérant l’abonnement ou les services](billing-add-change-azure-subscription-administrator.md).
 1. Mettez à jour les informations d’identification associées aux services de cet abonnement, notamment :
    1. Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md).
    1. Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure. 
 1. [Mettez à jour les alertes de facturation pour cet abonnement](billing-set-up-alerts.md) dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions). 
-1. Si vous collaborez avec un partenaire, envisagez de mettre à jour son ID de partenaire pour cet abonnement. Vous pouvez mettre à jour l’ID partenaire dans le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
+1. Si vous collaborez avec un partenaire, envisagez de mettre à jour son ID de partenaire pour cet abonnement. Vous pouvez mettre à jour l’ID partenaire dans le [portail Azure](https://portal.azure.com).
+
+<a id="supported"></a>
+
+## <a name="whats-supported"></a>Opérations prises en charge :
+
+Le transfert d’abonnements en libre-service est disponible pour les offres ou types d’abonnements répertoriés dans le tableau suivant. Pour transférer d’autres abonnements, comme [Sponsoring](https://azure.microsoft.com/offers/ms-azr-0036p/) ou des plans de support, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+| Nom de l’offre                                                                             | Numéro de l’offre |
+|----------------------------------------------------------------------------------------|--------------|
+| [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise : BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
+
+\*[Via le portail EA](#EA)
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
-### <a name="whoisaa"></a> Qui est l’administrateur de compte de l’abonnement ?
+### <a name="whoisaa"></a> Qui est l’administrateur de compte de l’abonnement ?
 
 L’administrateur de compte est la personne qui s’est inscrite ou a acheté l’abonnement Azure. Il est autorisé à accéder au [Centre des comptes](https://account.azure.com/Subscriptions) et à effectuer diverses tâches de gestion comme créer des abonnements, annuler des abonnements, modifier la facturation d’un abonnement et modifier l’administrateur de services fédérés. Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
 
@@ -111,7 +110,7 @@ L’administrateur de compte est la personne qui s’est inscrite ou a acheté l
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tous les éléments sont-ils transférés ? Notamment les groupes de ressources, les machines virtuelles, les disques et les autres services en cours d’exécution ?
 
-Oui, toutes les ressources telles que les machines virtuelles, les disques, et les sites web sont transférées vers le nouveau propriétaire. Cependant, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) que vous avez configurés ne sont pas transférés dans les différents annuaires.
+Toutes les ressources telles que les machines virtuelles, les disques, et les sites web sont transférées au nouveau propriétaire. Cependant, les [rôles d’administrateur](billing-add-change-azure-subscription-administrator.md) et les stratégies de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-configure.md) que vous avez configurés ne sont pas transférés dans les différents annuaires. Les [inscriptions des applications](../active-directory//develop/active-directory-integrating-applications.md) et autres services spécifiques du locataire ne sont pas non plus transférés.
 
 ### <a id="no-button"></a> Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?
 

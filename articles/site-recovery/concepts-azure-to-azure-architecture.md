@@ -1,29 +1,21 @@
 ---
-title: "Examen de l’architecture de réplication des machines virtuelles Azure entre les régions Azure | Microsoft Docs"
+title: "Architecture de réplication Azure sur Azure avec Azure Site Recovery | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles Azure entre régions Azure avec le service Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 8251534b2e1e0d223f5e1df5dbd33831604615cb
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b37af3462a58f4418653d0e1b2300b5805e0a864
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architecture de la réplication Azure vers Azure
 
 
-Cet article décrit l’architecture et les processus utilisés quand vous répliquez, basculez et récupérez des machines virtuelles Azure entre des régions Azure, à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
+Cet article décrit l’architecture utilisée quand vous répliquez, basculez et récupérez des machines virtuelles Azure entre des régions Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
 
 >[!NOTE]
 >La réplication de machine virtuelle Azure avec le service Site Recovery est actuellement en préversion.
@@ -45,7 +37,7 @@ Le graphique suivant fournit une vue d’ensemble d’un environnement de machin
 
 ### <a name="step-1"></a>Étape 1
 
-Quand vous activez la réplication de machines virtuelles Azure, les ressources indiquées ci-après sont automatiquement créées dans la région cible en fonction des paramètres de la région source. Vous pouvez personnaliser les paramètres des ressources cibles en fonction des besoins. 
+Quand vous activez la réplication de machines virtuelles Azure, les ressources suivantes sont automatiquement créées dans la région cible en fonction des paramètres de la région source. Vous pouvez personnaliser les paramètres des ressources cibles en fonction des besoins.
 
 ![Activer le processus de réplication, étape 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -53,7 +45,7 @@ Quand vous activez la réplication de machines virtuelles Azure, les ressources 
 --- | ---
 **Groupe de ressources cible** | Groupe de ressources auquel appartiennent les machines virtuelles répliquées après le basculement.
 **Réseau virtuel cible** | Réseau virtuel dans lequel les machines virtuelles répliquées sont situées après le basculement. Un mappage réseau est créé entre les réseaux virtuels source et cible, et inversement.
-**Comptes Stockage de cache** | Avant que les modifications apportées aux machines virtuelles sources soient répliquées vers un compte de stockage cible, elles sont suivies et envoyées au compte de stockage de cache dans l’emplacement cible. Cela garantit un impact minimal sur les applications de production s’exécutant sur la machine virtuelle.
+**Comptes Stockage de cache** | Avant que les changements des machine virtuelles sources soient répliqués sur un compte de stockage cible, ils sont suivis et envoyés au compte de stockage de cache dans l’emplacement source. Cette étape garantit un impact minimal sur les applications de production s’exécutant sur la machine virtuelle.
 **Comptes de stockage cibles**  | Comptes de stockage dans l’emplacement cible vers lesquels les données sont répliquées.
 **Groupes à haute disponibilité cibles**  | Groupes à haute disponibilité dans lesquels se trouvent les machines virtuelles répliquées après basculement.
 
@@ -67,8 +59,17 @@ Quand vous activez la réplication de machines virtuelles Azure, les ressources 
 
    ![Activer le processus de réplication, étape 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
-  
- Site Recovery n’a jamais besoin de connectivité entrante à la machine virtuelle. Seule est requise une connectivité sortante aux URL/adresses IP du service Site Recovery, aux URL/adresses IP d’authentification d’Office 365, et aux adresses IP de compte de stockage de cache.
+
+ Site Recovery n’a jamais besoin de connectivité entrante à la machine virtuelle. Seule une connectivité sortante est nécessaire pour les éléments suivants.
+
+ - Adresses IP/URL du service Site Recovery
+ - Adresses IP/URL de l’authentification Office 365
+ - Adresses IP du compte de stockage de cache
+
+Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004.
+
+> [!IMPORTANT]
+Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
 
 ### <a name="step-3"></a>Étape 3 :
 
@@ -80,7 +81,6 @@ Quand vous démarrez un basculement, les machines virtuelles sont créées dans 
 
 ![Processus de basculement](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Passer en revue la matrice de prise en charge Suivre le didacticiel montrant comment activer la réplication de machines virtuelles Azure vers une région secondaire
-Exécuter un basculement et une restauration automatique.
+[Répliquer rapidement](azure-to-azure-quickstart.md) une machine virtuelle Azure dans une région secondaire.

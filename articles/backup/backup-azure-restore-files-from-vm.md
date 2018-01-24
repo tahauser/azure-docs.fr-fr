@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -70,40 +70,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de restauration, acc�
 
    Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.  
          
-   Vous pouvez exécuter le script sur n’importe quelle machine dotée du même système d’exploitation (ou d’un système d’exploitation compatible) que la machine virtuelle sauvegardée. Consultez le [tableau de compatibilité des systèmes d’exploitation](backup-azure-restore-files-from-vm.md#compatible-os) pour connaître les systèmes d’exploitation compatibles. Si la machine virtuelle Azure protégée utilise des espaces de stockage Windows (pour les machines virtuelles Azure Windows) ou le LVM/des baies RAID (pour les machines virtuelles Linux), vous ne pouvez pas exécuter le script exécutable sur cette machine virtuelle. Au lieu de cela, exécutez le fichier exécutable ou le script sur n’importe quelle autre machine avec un système d’exploitation compatible.
-
-### <a name="compatible-os"></a>Systèmes d’exploitation compatibles
-
-#### <a name="for-windows"></a>Pour Windows
-
-Le tableau suivant indique la compatibilité entre les systèmes d’exploitation des serveurs et des ordinateurs. Lors de la récupération de fichiers, vous ne pouvez pas restaurer des fichiers sur une version antérieure ou ultérieure du système d’exploitation. Par exemple, vous ne pouvez pas restaurer un fichier à partir d’une machine virtuelle sous Windows Server 2016 sur un ordinateur sous Windows Server 2012 ou Windows 8. Vous pouvez restaurer des fichiers à partir d’une machine virtuelle sur un système d’exploitation de serveur identique, ou sur un système d’exploitation client compatible.   
-
-|Système d’exploitation serveur | Système d’exploitation client compatible  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Pour Linux
-
-Sur Linux, le système d’exploitation de l’ordinateur utilisé pour restaurer des fichiers doit prendre en charge le système de fichiers de la machine virtuelle protégée. Lorsque vous sélectionnez un ordinateur pour exécuter le script, vérifiez que l’ordinateur possède un système d’exploitation compatible et utilise l’une des versions identifiées dans le tableau suivant :
-
-|Système d’exploitation Linux | Versions  |
-| --------------- | ---- |
-| Ubuntu | 12.04 et versions ultérieures |
-| CentOS | 6.5 et versions ultérieures  |
-| RHEL | 6.7 et versions ultérieures |
-| Debian | 7 et versions ultérieures |
-| Oracle Linux | 6.4 et versions ultérieures |
-
-Le script requiert également les composants Python et bash pour exécuter et établir une connexion sécurisée avec le point de récupération.
-
-|Composant | Version  |
-| --------------- | ---- |
-| bash | 4 et versions ultérieures |
-| python | 2.6.6 et versions ultérieures  |
-
+   Vous pouvez exécuter le script sur n’importe quelle machine dotée du même système d’exploitation (ou d’un système d’exploitation compatible) que la machine virtuelle sauvegardée. Consultez le [tableau de compatibilité des systèmes d’exploitation](backup-azure-restore-files-from-vm.md#system-requirements) pour connaître les systèmes d’exploitation compatibles. Si la machine virtuelle Azure protégée utilise des espaces de stockage Windows (pour les machines virtuelles Azure Windows) ou le LVM/des baies RAID (pour les machines virtuelles Linux), vous ne pouvez pas exécuter le script exécutable sur cette machine virtuelle. Au lieu de cela, exécutez le fichier exécutable ou le script sur n’importe quelle autre machine avec un système d’exploitation compatible.
 
 ### <a name="identifying-volumes"></a>Identification des volumes
 
@@ -193,7 +160,42 @@ $ mount [RAID Disk Path] [/mountpath]
 
 Si le disque RAID contient un autre gestionnaire de volume logique configuré, utilisez la procédure précédente pour les partitions LVM, mais utilisez le nom de volume à la place du nom de disque RAID
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="system-requirements"></a>Conditions requises pour le système
+
+### <a name="for-windows"></a>Pour Windows
+
+Le tableau suivant indique la compatibilité entre les systèmes d’exploitation des serveurs et des ordinateurs. Lors de la récupération de fichiers, vous ne pouvez pas restaurer des fichiers sur une version antérieure ou ultérieure du système d’exploitation. Par exemple, vous ne pouvez pas restaurer un fichier à partir d’une machine virtuelle sous Windows Server 2016 sur un ordinateur sous Windows Server 2012 ou Windows 8. Vous pouvez restaurer des fichiers à partir d’une machine virtuelle sur un système d’exploitation de serveur identique, ou sur un système d’exploitation client compatible.   
+
+|Système d’exploitation serveur | Système d’exploitation client compatible  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Pour Linux
+
+Sur Linux, le système d’exploitation de l’ordinateur utilisé pour restaurer des fichiers doit prendre en charge le système de fichiers de la machine virtuelle protégée. Lorsque vous sélectionnez un ordinateur pour exécuter le script, vérifiez que l’ordinateur possède un système d’exploitation compatible et utilise l’une des versions identifiées dans le tableau suivant :
+
+|Système d’exploitation Linux | Versions  |
+| --------------- | ---- |
+| Ubuntu | 12.04 et versions ultérieures |
+| CentOS | 6.5 et versions ultérieures  |
+| RHEL | 6.7 et versions ultérieures |
+| Debian | 7 et versions ultérieures |
+| Oracle Linux | 6.4 et versions ultérieures |
+| SLES | 12 et versions ultérieures |
+| openSUSE | 42.2 et versions ultérieures |
+
+Le script requiert également les composants Python et bash pour exécuter et établir une connexion sécurisée avec le point de récupération.
+
+|Composant | Version  |
+| --------------- | ---- |
+| bash | 4 et versions ultérieures |
+| python | 2.6.6 et versions ultérieures  |
+| TLS | La version 1.2 devrait être prise en charge  |
+
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si vous rencontrez des problèmes lors de la récupération de fichiers à partir de machines virtuelles, consultez le tableau suivant pour plus d’informations.
 

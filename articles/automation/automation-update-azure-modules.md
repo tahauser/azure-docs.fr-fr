@@ -3,7 +3,7 @@ title: "Mise à jour de modules Azure dans Azure Automation | Microsoft Docs"
 description: "Cet article décrit comment vous pouvez désormais mettre à jour les modules Azure PowerShell courants fournis par défaut dans Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5e7c66cfd26bd6927d48ffd8bc0f82e9a3e2d13
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Guide de mise à jour des modules Azure PowerShell dans Azure Automation
 
@@ -28,11 +28,11 @@ Les modules Azure PowerShell courants sont fournis par défaut dans chaque compt
 
 ## <a name="updating-azure-modules"></a>Mise à jour de modules Azure
 
-1. Le panneau Modules de votre compte Automation comprend une option de **mise à jour des modules Azure**.  Elle est toujours activée.<br><br> ![Option de mise à jour de modules Azure dans le panneau Modules](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. La page Modules de votre compte Automation comprend une option **Mettre à jour les modules Azure**. Elle est toujours activée.<br><br> ![Option Mettre à jour les modules Azure dans la page Modules](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Cliquez sur **Mettre à jour les modules Azure** et un message de confirmation s’affichera vous demandant si vous souhaitez continuer.<br><br> ![Notification de mise à jour des modules Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Cliquez sur **Mettre à jour les modules Azure** et un message de confirmation s’affiche pour vous demander si vous souhaitez continuer.<br><br> ![Notification de mise à jour des modules Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Cliquez sur **Oui** et le processus de mise à jour du module commence.  Le processus de mise à jour prend environ 15 à 20 minutes pour les modules suivants :
+3. Cliquez sur **Oui** et le processus de mise à jour du module commence. Le processus de mise à jour prend environ 15 à 20 minutes pour les modules suivants :
 
   * Microsoft Azure
   * Azure.Storage
@@ -43,14 +43,14 @@ Les modules Azure PowerShell courants sont fournis par défaut dans chaque compt
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Si les modules sont déjà à jour, le processus se termine en quelques secondes.  Vous serez averti lorsque le processus de mise à jour sera terminé.<br><br> ![Mise à jour d’état de mise à jour des modules Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Si les modules sont déjà à jour, le processus se termine en quelques secondes. Vous êtes averti quand le processus de mise à jour est terminé.<br><br> ![Mise à jour d’état de mise à jour des modules Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
-> Azure Automation utilisera les derniers modules de votre compte Automation lors de l’exécution d’un nouveau travail planifié.    
+> Azure Automation utilise les modules les plus récents de votre compte Automation durant l’exécution d’un nouveau travail planifié.    
 
-Si vous utilisez des applets de commande à partir de ces modules Azure PowerShell dans des runbooks pour gérer des ressources Azure, vous devez effectuer cette mise à jour chaque mois pour vous assurer que vous avez les derniers modules.
+Si vous utilisez des applets de commande à partir de ces modules Azure PowerShell dans des runbooks pour gérer des ressources Azure, vous devez effectuer cette mise à jour chaque mois pour être certain d’avoir les derniers modules.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d’informations sur les modules d’intégration et la création de modules personnalisés pour intégrer Automation dans d’autres systèmes, services ou solutions, consultez [Modules d’intégration](automation-integration-modules.md).
 

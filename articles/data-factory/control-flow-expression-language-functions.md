@@ -13,31 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressions et fonctions dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - Mise à la disposition générale](v1/data-factory-functions-variables.md)
+> * [Version 1 - Disponibilité générale](v1/data-factory-functions-variables.md)
 > * [Version 2 - Préversion](control-flow-expression-language-functions.md)
 
 Cet article fournit des détails sur les expressions et fonctions prises en charge par Azure Data Factory (version 2). 
 
 ## <a name="introduction"></a>Introduction
-Les valeurs JSON indiquées dans la définition peuvent être littérales. Il peut également s’agir d’expressions évaluées lors de l’exécution du runtime. Par exemple :  
+Les valeurs JSON indiquées dans la définition peuvent être littérales. Il peut également s’agir d’expressions évaluées lors de l’exécution du runtime. Par exemple :   
   
 ```json
 "name": "value"
 ```
 
- ou  
+ (ou)  
   
 ```json
-"name": "@parameters('password') "
+"name": "@pipeline().parameters.password"
 ```
+
 
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), voir [Fonctions et variables dans Data Factory V1](v1/data-factory-functions-variables.md).
@@ -53,33 +54,109 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 |« @@ »|Une chaîne de 1 caractère contenant « @ » est retournée.|  
 |«  @ »|Une chaîne de 2 caractères contenant «  @ » est retournée.|  
   
- Des expressions peuvent également apparaître dans des chaînes, qui utilisent une fonctionnalité appelée *interpolation de chaîne* où les expressions sont encapsulées dans `@{ ... }`. Par exemple : `"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`  
+ Des expressions peuvent également apparaître dans des chaînes, qui utilisent une fonctionnalité appelée *interpolation de chaîne* où les expressions sont encapsulées dans `@{ ... }`. Par exemple : `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- En utilisant une interpolation de chaîne, le résultat est toujours une chaîne. Disons que j’ai défini `myNumber` comme `42` et `myString` comme ༖༗ :  
+ En utilisant une interpolation de chaîne, le résultat est toujours une chaîne. Supposons que j’ai défini `myNumber` comme `42` et `myString` comme `foo` :  
   
 |Valeur JSON|Résultat|  
 |----------------|------------|  
-|« @parameters('myString') »|Retourne `foo` en tant que chaîne.|  
-|« @{parameters('myString')} »|Retourne `foo` en tant que chaîne.|  
-|« @parameters('myNumber') »|Retourne `42` en tant que *nombre*.|  
-|« @{parameters('myNumber')} »|Retourne `42` en tant que *chaîne*.|  
-|« Answer is: @{parameters('myNumber')} »|Retourne la chaîne `Answer is: 42`.|  
-|« @concat('Answer is: ', string(parameters('myNumber'))) »|Retourne la chaîne `Answer is: 42`.|  
-|« Answer is: @@{parameters('myNumber')} »|Retourne la chaîne `Answer is: @{parameters('myNumber')}`.|  
+|"@pipeline().parameters.myString"| Retourne `foo` en tant que chaîne.|  
+|"@{pipeline().parameters.myString}"| Retourne `foo` en tant que chaîne.|  
+|"@pipeline().parameters.myNumber"| Retourne `42` en tant que *nombre*.|  
+|"@{pipeline().parameters.myNumber}"| Retourne `42` en tant que *chaîne*.|  
+|"Answer is: @{pipeline().parameters.myNumber}"| Retourne la chaîne `Answer is: 42`.|  
+|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Retourne la chaîne `Answer is: 42`.|  
+|"Answer is: @@{pipeline().parameters.myNumber}"| Retourne la chaîne `Answer is: @{pipeline().parameters.myNumber}`.|  
   
+### <a name="examples"></a>Exemples
+
+#### <a name="a-dataset-with-a-parameter"></a>Un jeu de données avec un paramètre
+Dans l’exemple suivant, BlobDataset prend un paramètre nommé **path**. Sa valeur est utilisée pour donner une valeur à la propriété **folderPath** à l’aide des expressions suivantes : `@{dataset().path}`. 
+
+```json
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "@dataset().path"
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
+
+#### <a name="a-pipeline-with-a-parameter"></a>Un pipeline avec un paramètre
+Dans l’exemple suivant, le pipeline prend les paramètres **inputPath** et **outputPath**. Le **path** du jeu de données blob paramétrable est défini par les valeurs de ces paramètres. Voici la syntaxe utilisée : `pipeline().parameters.parametername`. 
+
+```json
+{
+    "name": "Adfv2QuickStartPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
   
-## <a name="functions"></a>Fonctions  
+## <a name="functions"></a>Functions  
  Vous pouvez appeler des fonctions dans des expressions. Les sections suivantes fournissent des informations sur les fonctions qui peut être utilisées dans une expression.  
 
 ## <a name="string-functions"></a>Fonctions de chaîne  
  Les fonctions suivantes s’appliquent uniquement aux chaînes. Vous pouvez également utiliser un certain nombre des fonctions de collection sur des chaînes.  
   
-|Nom de la fonction|Description|  
+|Nom de la fonction|DESCRIPTION|  
 |-------------------|-----------------|  
-|concat|Combine plusieurs chaînes. Par exemple, si le paramètre 1 est `foo,`, l’expression suivante retourne `somevalue-foo-somevalue` : `concat('somevalue-',parameters('parameter1'),'-somevalue')`<br /><br /> **Numéro du paramètre** : 1 ... *n*<br /><br /> **Nom** : chaîne *n*<br /><br /> **Description** : obligatoire. Chaînes à combiner en une seule chaîne.|  
+|concat|Combine plusieurs chaînes. Par exemple, si le paramètre 1 est `foo,`, l’expression suivante retourne `somevalue-foo-somevalue` : `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Numéro du paramètre** : 1 ... *n*<br /><br /> **Nom** : chaîne *n*<br /><br /> **Description** : obligatoire. Chaînes à combiner en une seule chaîne.|  
 |substring|Retourne un sous-ensemble de caractères d’une chaîne. Par exemple, l’expression suivante :<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> retourne :<br /><br /> `foo`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne dont la sous-chaîne est extraite.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : index de début<br /><br /> **Description** : obligatoire. Index de début de la sous-chaîne dans le paramètre 1.<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : longueur<br /><br /> **Description** : obligatoire. Longueur de la sous-chaîne.|  
-|replace|Remplace une chaîne par une chaîne donnée. Par exemple, l’expression :<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> retourne :<br /><br /> `the new string`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire.  Si le paramètre 2 figure dans le paramètre 1, chaîne recherchée pour le paramètre 2 et mise à jour avec le paramètre 3.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : ancienne chaîne<br /><br /> **Description** : obligatoire. Chaîne à remplacer par le paramètre 3 quand une correspondance est trouvée dans le paramètre 1<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : nouvelle chaîne<br /><br /> **Description** : obligatoire. Chaîne utilisée pour remplacer la chaîne du paramètre 2 lorsqu’une correspondance est trouvée dans le paramètre 1.|  
-|guid| Génère une chaîne globale unique (guid). Par exemple, la sortie suivante peut être générée `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` :<br /><br /> `guid()`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. Spécificateur de format unique qui indique [comment mettre en forme la valeur de ce GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Le paramètre de format peut être « N », « D », « B », « P » ou « X ». Si aucun format n’est indiqué, « D » est utilisé.|  
+|remplacer|Remplace une chaîne par une chaîne donnée. Par exemple, l’expression :<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> retourne :<br /><br /> `the new string`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire.  Si le paramètre 2 figure dans le paramètre 1, chaîne recherchée pour le paramètre 2 et mise à jour avec le paramètre 3.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : ancienne chaîne<br /><br /> **Description** : obligatoire. Chaîne à remplacer par le paramètre 3 quand une correspondance est trouvée dans le paramètre 1<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : nouvelle chaîne<br /><br /> **Description** : obligatoire. Chaîne utilisée pour remplacer la chaîne du paramètre 2 lorsqu’une correspondance est trouvée dans le paramètre 1.|  
+|GUID| Génère une chaîne globale unique (guid). Par exemple, la sortie suivante peut être générée `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` :<br /><br /> `guid()`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. Spécificateur de format unique qui indique [comment mettre en forme la valeur de ce GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Le paramètre de format peut être « N », « D », « B », « P » ou « X ». Si aucun format n’est indiqué, « D » est utilisé.|  
 |toLower|Convertit une chaîne en minuscules. Par exemple, ce qui suit retourne `two by two is four` : `toLower('Two by Two is Four')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne à convertir en minuscules. Si un caractère de la chaîne n’a pas d’équivalent minuscule, il est inclus tel quel dans la chaîne retournée.|  
 |toUpper|Convertit une chaîne en majuscules. Par exemple, l’expression suivante retourne `TWO BY TWO IS FOUR` : `toUpper('Two by Two is Four')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne à convertir en majuscules. Si un caractère de la chaîne n’a pas d’équivalent majuscule, il est inclus tel quel dans la chaîne retournée.|  
 |indexof|Recherche l’index d’une valeur contenue dans une chaîne sans tenir compte de la casse. Par exemple, l’expression suivante retourne `7` : `indexof('hello, world.', 'world')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne pouvant contenir la valeur.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Valeur permettant d’en rechercher l’index.|  
@@ -92,7 +169,7 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 ## <a name="collection-functions"></a>Fonctions de collection  
  Ces fonctions opèrent sur des collections telles que des tableaux, des chaînes et parfois des dictionnaires.  
   
-|Nom de la fonction|Description|  
+|Nom de la fonction|DESCRIPTION|  
 |-------------------|-----------------|  
 |contains|Retourne la valeur true si le dictionnaire contient une clé, si la liste contient une valeur ou si la chaîne contient une sous-chaîne. Par exemple, l’expression suivante retourne `true:``contains('abacaba','aca')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : au sein de la collection<br /><br /> **Description** : obligatoire. Collection dans laquelle effectuer une recherche.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : rechercher un objet<br /><br /> **Description** : obligatoire. Objet à rechercher dans **Au sein de la collection**.|  
 |length|Retourne le nombre d’éléments contenus dans un tableau ou une chaîne. Par exemple, l’expression suivante retourne `3` : `length('abc')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : collection<br /><br /> **Description** : obligatoire. Collection dont obtenir la longueur.|  
@@ -107,22 +184,22 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 ## <a name="logical-functions"></a>Fonctions logiques  
  Ces fonctions sont utiles à l’intérieur de conditions, et permettent d’évaluer tout type de logique.  
   
-|Nom de la fonction|Description|  
+|Nom de la fonction|DESCRIPTION|  
 |-------------------|-----------------|  
-|equals|Retourne la valeur true si deux valeurs sont égales. Par exemple, si le paramètre 1 est foo, l’expression suivante retourne `true` : `equals(parameters('parameter1'), 'foo')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à comparer à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à comparer à **Objet 1**.|  
+|equals|Retourne la valeur true si deux valeurs sont égales. Par exemple, si le paramètre 1 est foo, l’expression suivante retourne `true` : `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à comparer à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à comparer à **Objet 1**.|  
 |less|Retourne la valeur true si le premier argument est inférieur au second. Les valeurs ne peuvent être que du type entier, flottant ou chaîne. Par exemple, l’expression suivante retourne `true` : `less(10,100)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est inférieur à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est supérieur à **Objet 1**.|  
 |lessOrEquals|Retourne la valeur true si le premier argument est inférieur ou égal au second. Les valeurs ne peuvent être que du type entier, flottant ou chaîne. Par exemple, l’expression suivante retourne `true` : `lessOrEquals(10,10)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est inférieur ou égal à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est supérieur ou égal à **Objet 1**.|  
 |greater|Retourne la valeur true si le premier argument est supérieur au second. Les valeurs ne peuvent être que du type entier, flottant ou chaîne. Par exemple, l’expression suivante retourne `false` : `greater(10,10)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est supérieur à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est inférieur à **Objet 1**.|  
 |greaterOrEquals|Retourne la valeur true si le premier argument est supérieur ou égal au second. Les valeurs ne peuvent être que du type entier, flottant ou chaîne. Par exemple, l’expression suivante retourne `false` : `greaterOrEquals(10,100)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : objet 1<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est supérieur ou égal à **Objet 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : objet 2<br /><br /> **Description** : obligatoire. Objet à vérifier pour voir s’il est inférieur ou égal à **Objet 1**.|  
 |and|Retourne la valeur true si les deux paramètres ont la valeur true. Les deux arguments doivent être des booléens. L’argument suivant retourne `false` : `and(greater(1,10),equals(0,0))`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : booléen 1<br /><br /> **Description** : obligatoire. Premier argument qui doit être `true`.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : booléen 2<br /><br /> **Description** : obligatoire. Second argument qui doit être `true`.|  
-|ou|Retourne la valeur true si l’un des paramètres a la valeur true. Les deux arguments doivent être des booléens. L’argument suivant retourne `true` : `or(greater(1,10),equals(0,0))`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : booléen 1<br /><br /> **Description** : obligatoire. Premier argument pouvant être `true`.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : booléen 2<br /><br /> **Description** : obligatoire. Second argument pouvant être `true`.|  
+|or|Retourne la valeur true si l’un des paramètres a la valeur true. Les deux arguments doivent être des booléens. L’argument suivant retourne `true` : `or(greater(1,10),equals(0,0))`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : booléen 1<br /><br /> **Description** : obligatoire. Premier argument pouvant être `true`.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : booléen 2<br /><br /> **Description** : obligatoire. Second argument pouvant être `true`.|  
 |not|Retourne la valeur true si le paramètre a la valeur `false`. Les deux arguments doivent être des booléens. L’argument suivant retourne `true` : `not(contains('200 Success','Fail'))`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : booléen<br /><br /> **Description** : retourne la valeur true si le paramètre a la valeur `false`. Les deux arguments doivent être des booléens. L’argument suivant retourne `true` : `not(contains('200 Success','Fail'))`|  
 |if|Retourne une valeur spécifiée selon que le résultat de l’expression fournie est `true` ou `false`.  Par exemple, l’expression suivante retourne `"yes"` : `if(equals(1, 1), 'yes', 'no')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : expression<br /><br /> **Description** : obligatoire. Valeur booléenne déterminant la valeur retournée par l’expression.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : true<br /><br /> **Description** : obligatoire. Valeur à retourner si l’expression est `true`.<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : false<br /><br /> **Description** : obligatoire. Valeur à retourner si l’expression est `false`.|  
   
 ## <a name="conversion-functions"></a>Fonctions de conversion  
  Ces fonctions permettent de convertir chacun des types natifs du langage :  
   
--   string  
+-   chaîne  
   
 -   integer  
   
@@ -134,14 +211,14 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
   
 -   dictionnaires  
   
-|Nom de la fonction|Description|  
+|Nom de la fonction|DESCRIPTION|  
 |-------------------|-----------------|  
 |int|Convertit le paramètre en entier. Par exemple, l’expression suivante retourne 100 en tant que nombre, au lieu d’une chaîne : `int('100')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en entier.|  
-|string|Convertit le paramètre en chaîne. Par exemple, l’expression suivante retourne `'10'` : `string(10)` vous pouvez également convertir un objet en chaîne, par exemple, si le paramètre **foo** est un objet avec une seule propriété `bar : baz`, puis les paramètres suivants retournent `{"bar" : "baz"}` `string(parameters('foo'))`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en chaîne.|  
+|chaîne|Convertit le paramètre en chaîne. Par exemple, l’expression suivante retourne `'10'` : `string(10)` vous pouvez également convertir un objet en chaîne, par exemple, si le paramètre **foo** est un objet avec une seule propriété `bar : baz`, puis les paramètres suivants retournent `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en chaîne.|  
 |json|Convertissez le paramètre en valeur de type JSON. C’est l’opposé de string(). Par exemple, l’expression suivante retourne `[1,2,3]` en tant que tableau, plutôt qu’en tant que chaîne :<br /><br /> `parse('[1,2,3]')`<br /><br /> Vous pouvez également convertir une chaîne en objet. Par exemple, `json('{"bar" : "baz"}')` retourne :<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne qui est convertie en valeur de type natif.<br /><br /> La fonction json prend en charge également les entrées xml. Par exemple, la valeur du paramètre :<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> est convertie dans le code json suivant :<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convertit l’argument de paramètre en nombre à virgule flottante. Par exemple, l’expression suivante retourne `10.333` : `float('10.333')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en nombre à virgule flottante.|  
 |bool|Convertit le paramètre en booléen. Par exemple, l’expression suivante retourne `false` : `bool(0)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en booléen.|  
-|coalesce|Retourne le premier objet non Null dans les arguments transmis. Remarque : une chaîne vide n’a pas la valeur Null. Par exemple, si les paramètres 1 et 2 ne sont pas définis, cette expression retourne `fallback` : `coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')`<br /><br /> **Numéro du paramètre** : 1 ... *n*<br /><br /> **Nom** : objet *n*<br /><br /> **Description** : obligatoire. Objets dans lesquels rechercher `null`.|  
+|coalesce|Retourne le premier objet non Null dans les arguments transmis. Remarque : une chaîne vide n’a pas la valeur Null. Par exemple, si les paramètres 1 et 2 ne sont pas définis, cette expression retourne `fallback` : `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Numéro du paramètre** : 1 ... *n*<br /><br /> **Nom** : objet *n*<br /><br /> **Description** : obligatoire. Objets dans lesquels rechercher `null`.|  
 |base64|Retourne la représentation en base 64 de la chaîne d'entrée. Par exemple, l’expression suivante retourne `c29tZSBzdHJpbmc=` : `base64('some string')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne 1<br /><br /> **Description** : obligatoire. Chaîne à encoder en représentation en base64.|  
 |base64ToBinary|Retourne une représentation binaire d’une chaîne encodée en base64. Par exemple, l’expression suivante retourne la représentation binaire d’une chaîne : `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne encodée en Base64.|  
 |base64ToString|Retourne une représentation de chaîne d’une chaîne encodée en base64. Par exemple, l’expression suivante retourne une chaîne : `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br /> **Description** : obligatoire. Chaîne encodée en Base64.|  
@@ -157,28 +234,28 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 |uriComponentToBinary|Retourne une représentation binaire d’une chaîne encodée d’URI. Par exemple, l’expression suivante retourne une représentation binaire de `You Are:Cool/Awesome` : `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : chaîne<br /><br />**Description** : obligatoire. Chaîne encodée d’URI.|  
 |uriComponentToString|Retourne une représentation de chaîne d’une chaîne encodée d’URI. Par exemple, l’expression suivante retourne `You Are:Cool/Awesome` : `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Numéro du paramètre** : 1<br /><br />**Nom** : chaîne<br /><br />**Description** : obligatoire. Chaîne encodée d’URI.|  
 |xml|Retourne une représentation xml de la valeur. Par exemple, l’expression suivante retourne un contenu xml représenté par `'\<name>Alan\</name>'` : `xml('\<name>Alan\</name>')`. La fonction xml prend également en charge l’entrée d’objet JSON. Par exemple, le paramètre `{ "abc": "xyz" }` est converti en contenu xml `\<abc>xyz\</abc>`<br /><br /> **Numéro du paramètre** : 1<br /><br />**Nom** : valeur<br /><br />**Description** : obligatoire. Valeur à convertir au format XML.|  
-|xpath|Retourne un tableau de nœuds xml correspondant à l’expression xpath d’une valeur que prend l’expression xpath.<br /><br />  **Exemple 1**<br /><br /> Supposons que la valeur du paramètre « p1 » soit une représentation de chaîne du fichier xml suivant :<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Ce code : `xpath(xml(parameters('p1'), '/lab/robot/name')`<br /><br /> retournerait<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> alors que<br /><br /> 2. Ce code : `xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')`<br /><br /> retournerait<br /><br /> `13`<br /><br /> <br /><br /> **Exemple 2**<br /><br /> Étant donné le contenu XML suivant :<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Ce code : `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> ou<br /><br /> 2. Ce code : `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> retourne<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> and<br /><br /> 3. Ce code : `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> retourne<br /><br /> ``bar``<br /><br /> **Numéro du paramètre** : 1<br /><br />**Nom** : Xml<br /><br />**Description** : obligatoire. Valeur XML que prend l’expression XPath.<br /><br /> **Numéro du paramètre** : 2<br /><br />**Nom** : XPath<br /><br />**Description** : obligatoire. Expression XPath à évaluer.|  
+|xpath|Retourne un tableau de nœuds xml correspondant à l’expression xpath d’une valeur que prend l’expression xpath.<br /><br />  **Exemple 1**<br /><br /> Supposons que la valeur du paramètre « p1 » soit une représentation de chaîne du fichier xml suivant :<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Ce code : `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> retournerait<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> alors que<br /><br /> 2. Ce code : `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> retournerait<br /><br /> `13`<br /><br /> <br /><br /> **Exemple 2**<br /><br /> Étant donné le contenu XML suivant :<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Ce code : `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> or<br /><br /> 2. Ce code : `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> retourne<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> and<br /><br /> 3. Ce code : `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> retourne<br /><br /> ``bar``<br /><br /> **Numéro du paramètre** : 1<br /><br />**Nom** : Xml<br /><br />**Description** : obligatoire. Valeur XML que prend l’expression XPath.<br /><br /> **Numéro du paramètre** : 2<br /><br />**Nom** : XPath<br /><br />**Description** : obligatoire. Expression XPath à évaluer.|  
 |array|Convertit le paramètre en tableau.  Par exemple, l’expression suivante retourne `["abc"]` : `array('abc')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : valeur<br /><br /> **Description** : obligatoire. Valeur qui est convertie en tableau.|
 |createArray|Crée un tableau à partir des paramètres.  Par exemple, l’expression suivante retourne `["a", "c"]` : `createArray('a', 'c')`<br /><br /> **Numéro du paramètre** : 1 ... n<br /><br /> **Nom** : tout n<br /><br /> **Description** : obligatoire. Valeurs à combiner en un tableau.|
 
 ## <a name="math-functions"></a>Fonctions mathématiques  
  Ces fonctions peuvent être utilisées pour les deux types de nombre : **entiers** et **flottants**.  
   
-|Nom de la fonction|Description|  
+|Nom de la fonction|DESCRIPTION|  
 |-------------------|-----------------|  
 |add|Retourne le résultat de l’addition des deux nombres. Par exemple, cette fonction retourne `20.333` : `add(10,10.333)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : opérande 1<br /><br /> **Description** : obligatoire. Nombre à ajouter à **Opérande 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : opérande 2<br /><br /> **Description** : obligatoire. Nombre à ajouter à **Opérande 1**.|  
 |sub|Retourne le résultat de la soustraction des deux nombres. Par exemple, cette fonction retourne : `-0.333` :<br /><br /> `sub(10,10.333)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : diminuende<br /><br /> **Description** : obligatoire. Nombre duquel le **diminuteur** est soustrait.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : diminuteur<br /><br /> **Description** : obligatoire. Nombre à soustraire du **diminuende**.|  
 |mul|Retourne le résultat de la multiplication de deux nombres. Par exemple, l’expression suivante retourne `103.33` :<br /><br /> `mul(10,10.333)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : multiplicande 1<br /><br /> **Description** : obligatoire. Nombre à multiplier avec le **multiplicande 2**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : multiplicande 2<br /><br /> **Description** : obligatoire. Nombre à multiplier avec le **multiplicande 1**.|  
 |div|Retourne le résultat de la division des deux nombres. Par exemple, l’expression suivante retourne `1.0333` :<br /><br /> `div(10.333,10)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : dividende<br /><br /> **Description** : obligatoire. Nombre à diviser par le **diviseur**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : diviseur<br /><br /> **Description** : obligatoire. Nombre par lequel diviser le **dividende**.|  
 |mod|Retourne le résultat du reste après la division des deux nombres (modulo). Par exemple, l’expression suivante retourne `2` :<br /><br /> `mod(10,4)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : dividende<br /><br /> **Description** : obligatoire. Nombre à diviser par le **diviseur**.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : diviseur<br /><br /> **Description** : obligatoire. Nombre par lequel diviser le **dividende**. Après la division, le reste est extrait.|  
-|Min|Il existe deux modèles différents pour appeler cette fonction : `min([0,1,2])` Ici la valeur min extrait un tableau. Cette expression retourne `0`. Cette fonction peut également extraire une liste de valeurs séparées par des virgules : `min(0,1,2)` Cette fonction retourne également 0. Remarque : toutes les valeurs doivent être des nombres. Si le paramètre est un tableau, il ne doit contenir que des nombres.<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : collection ou valeur<br /><br /> **Description** : obligatoire. Il peut s’agir d’un tableau de valeurs dans lequel rechercher la valeur minimale ou la première valeur d’un ensemble.<br /><br /> **Numéro du paramètre** : 2 ... *n*<br /><br /> **Nom** : valeur *n*<br /><br /> **Description** : facultatif. Si le premier paramètre est une valeur, vous pouvez transmettre des valeurs supplémentaires, et la valeur minimale de toutes les valeurs transmises est retournée.|  
+|min|Il existe deux modèles différents pour appeler cette fonction : `min([0,1,2])` Ici la valeur min extrait un tableau. Cette expression retourne `0`. Cette fonction peut également extraire une liste de valeurs séparées par des virgules : `min(0,1,2)` Cette fonction retourne également 0. Remarque : toutes les valeurs doivent être des nombres. Si le paramètre est un tableau, il ne doit contenir que des nombres.<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : collection ou valeur<br /><br /> **Description** : obligatoire. Il peut s’agir d’un tableau de valeurs dans lequel rechercher la valeur minimale ou la première valeur d’un ensemble.<br /><br /> **Numéro du paramètre** : 2 ... *n*<br /><br /> **Nom** : valeur *n*<br /><br /> **Description** : facultatif. Si le premier paramètre est une valeur, vous pouvez transmettre des valeurs supplémentaires, et la valeur minimale de toutes les valeurs transmises est retournée.|  
 |max|Il existe deux modèles différents pour appeler cette fonction : `max([0,1,2])`<br /><br /> Ici, la valeur max extrait un tableau. Cette expression retourne `2`. Cette fonction peut également extraire une liste de valeurs séparées par des virgules : `max(0,1,2)` Cette fonction retourne 2. Remarque : toutes les valeurs doivent être des nombres. Si le paramètre est un tableau, il ne doit contenir que des nombres.<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : collection ou valeur<br /><br /> **Description** : obligatoire. Il peut s’agir d’un tableau de valeurs dans lequel rechercher la valeur maximale ou la première valeur d’un ensemble.<br /><br /> **Numéro du paramètre** : 2 ... *n*<br /><br /> **Nom** : valeur *n*<br /><br /> **Description** : facultatif. Si le premier paramètre est une valeur, vous pouvez transmettre des valeurs supplémentaires, et la valeur maximale de toutes les valeurs transmises est retournée.|  
 |range| Génère un tableau d’entiers commençant à partir d’un certain nombre, et vous définissez la longueur du tableau retourné. Par exemple, cette fonction retourne `[3,4,5,6]` :<br /><br /> `range(3,4)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : index de début<br /><br /> **Description** : obligatoire. Premier entier dans le tableau.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : nombre<br /><br /> **Description** : obligatoire. Nombre d’entiers figurant dans le tableau.|  
 |rand| Génère un entier aléatoire compris dans la plage spécifiée (extrémités de la plage incluses. Par exemple, cela pourrait retourner `42` :<br /><br /> `rand(-1000,1000)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : minimum<br /><br /> **Description** : obligatoire. Entier le plus bas qui pourrait être retourné.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : maximum<br /><br /> **Description** : obligatoire. Entier le plus élevé qui pourrait être retourné.|  
   
 ## <a name="date-functions"></a>Fonctions de date  
   
-|Nom de la fonction|Description|  
+|Nom de la fonction|DESCRIPTION|  
 |-------------------|-----------------|  
 |utcnow|Retourne l’horodateur actuel sous forme de chaîne. Exemple `2015-03-15T13:27:36Z` :<br /><br /> `utcnow()`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. [Caractère de spécificateur de format unique](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou [modèle de format personnalisé](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) qui indique comment mettre en forme la valeur de cet horodateur. Si aucun format n’est indiqué, le format ISO 8601 (« o ») est utilisé.|  
 |addseconds|Ajoute un nombre entier de secondes à un horodateur de type chaîne transmis. Le nombre de secondes peut être positif ou négatif. Par défaut, le résultat est une chaîne au format ISO 8601 (« o »), sauf si un spécificateur de format est indiqué. Exemple `2015-03-15T13:27:00Z` :<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : horodateur<br /><br /> **Description** : obligatoire. Chaîne qui contient l’heure.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : secondes<br /><br /> **Description** : obligatoire. Nombre de secondes à ajouter. Peut être négatif pour soustraire des secondes.<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. [Caractère de spécificateur de format unique](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou [modèle de format personnalisé](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) qui indique comment mettre en forme la valeur de cet horodateur. Si aucun format n’est indiqué, le format ISO 8601 (« o ») est utilisé.|  
@@ -187,5 +264,5 @@ Les expressions peuvent apparaître n’importe où dans une valeur de chaîne J
 |adddays|Ajoute un nombre entier de jours à un horodateur de type chaîne transmis. Le nombre de jours peut être positif ou négatif. Par défaut, le résultat est une chaîne au format ISO 8601 (« o »), sauf si un spécificateur de format est indiqué. Exemple `2015-02-23T13:27:36Z` :<br /><br /> `addseconds('2015-03-15T13:27:36Z', -20)`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : horodateur<br /><br /> **Description** : obligatoire. Chaîne qui contient l’heure.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : jours<br /><br /> **Description** : obligatoire. Nombre de jours à ajouter. Peut être négatif pour soustraire des jours.<br /><br /> **Numéro du paramètre** : 3<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. [Caractère de spécificateur de format unique](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou [modèle de format personnalisé](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) qui indique comment mettre en forme la valeur de cet horodateur. Si aucun format n’est indiqué, le format ISO 8601 (« o ») est utilisé.|  
 |formatDateTime|Retourne une chaîne au format de date. Par défaut, le résultat est une chaîne au format ISO 8601 (« o »), sauf si un spécificateur de format est indiqué. Exemple `2015-02-23T13:27:36Z` :<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Numéro du paramètre** : 1<br /><br /> **Nom** : date<br /><br /> **Description** : obligatoire. Chaîne qui contient la date.<br /><br /> **Numéro du paramètre** : 2<br /><br /> **Nom** : format<br /><br /> **Description** : facultatif. [Caractère de spécificateur de format unique](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou [modèle de format personnalisé](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) qui indique comment mettre en forme la valeur de cet horodateur. Si aucun format n’est indiqué, le format ISO 8601 (« o ») est utilisé.|  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour la liste des variables système que vous pouvez utiliser dans des expressions, voir [variables système](control-flow-system-variables.md).

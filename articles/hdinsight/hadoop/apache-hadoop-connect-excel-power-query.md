@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: 1a2bb4c56484540f8b5de5fb61ca5b5f611e99c4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1f5139f3fdb1cc73bb40828021256bed4290e1a2
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Connexion d’Excel à Hadoop à l’aide de Power Query
 Une fonctionnalité clé de la solution de données volumineuses (« big data ») de Microsoft est l’intégration d’outils décisionnels (BI) Microsoft à des clusters Hadoop dans Azure HDInsight. Un exemple important de cette intégration est la possibilité de connecter Excel au compte Azure Storage contenant les données associées à votre cluster Hadoop en utilisant le complément Microsoft Power Query pour Excel. Cet article vous explique comment configurer et utiliser Power Query pour interroger des données associées à un cluster Hadoop géré avec HDInsight.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un cluster HDInsight**. Pour en configurer un, consultez la section [Prise en main d’Azure HDInsight][hdinsight-get-started].
@@ -71,10 +71,11 @@ Le complément Power Query pour Excel facilite l’importation de données depui
    
     ![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à utiliser Power Query pour extraire des données de HDInsight et les importer dans Excel. De la même façon, vous pouvez extraire des données de HDInsight et les importer dans une base de données SQL Azure. Il est également possible de télécharger des données dans HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualisez des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Connecter Excel à HDInsight avec le pilote ODBC Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

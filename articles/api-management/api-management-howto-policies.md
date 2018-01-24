@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Stratégies dans Gestion des API Azure
 
@@ -74,7 +74,7 @@ Consultez [Exemples de stratégie](policy-samples.md) pour obtenir plus d’exem
 
 ## <a name="examples"></a>Exemples
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Appliquer des stratégies spécifiées à différentes portées
+### <a name="apply-policies-specified-at-different-scopes"></a>Appliquer des stratégies spécifiées à différentes portées
 
 Si vous avez une stratégie configurée au niveau global et une stratégie configurée pour une API, dès que cette API est utilisée, les deux stratégies sont appliquées. Le service Gestion des API permet de trier de façon déterminée les instructions de stratégie combinées via l'élément de base. 
 
@@ -94,7 +94,7 @@ Dans l'exemple de définition de stratégie ci-dessus, l'instruction `cross-doma
 
 Pour ajouter une nouvelle instruction afin de limiter les demandes entrantes à certaines adresses IP, placez le curseur juste à l’intérieur du contenu de l’élément XML `inbound`, puis cliquez sur l’instruction **Restrict caller IPs** (Limiter les adresses IP d’appelant).
 
-![Stratégies de restriction][policies-restrict]
+![Restriction policies][policies-restrict]
 
 Ceci ajoute un code XML à l'élément `inbound` , indiquant comment configurer l'instruction.
 
@@ -119,13 +119,13 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :
 
-+ [Transformer des API](transform-api.md)
++ [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [Exemples de stratégie](policy-samples.md)   
++ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)   
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md

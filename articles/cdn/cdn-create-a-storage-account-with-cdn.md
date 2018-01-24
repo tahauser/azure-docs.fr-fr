@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Intégrer un compte de stockage Azure à Azure CDN
 CDN peut être activé pour mettre du contenu en cache depuis le stockage Azure. Il offre aux développeurs une solution globale pour la diffusion de contenu haut débit en mettant en cache les objets blob et le contenu statique des instances de calcul sur des nœuds physiques aux États-Unis, en Europe, en Asie, en Australie et en Amérique du Sud.
@@ -35,7 +35,7 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 
 **Pour créer un compte de stockage pour un abonnement Azure**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le coin supérieur gauche, sélectionnez **Nouveau**. Dans la boîte de dialogue **Nouveau**, sélectionnez **Données + stockage**, puis cliquez sur **Compte de stockage**.
     
     Le panneau **Créer un compte de stockage** s’affiche.   
@@ -55,7 +55,7 @@ Pour créer un compte de stockage, vous devez être l’administrateur de servic
 5. Sélectionnez l' **abonnement** à utiliser avec le compte de stockage.
 6. Sélectionnez ou créez un **groupe de ressources**.  Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Sélectionnez l’emplacement de votre compte de stockage.
-8. Cliquez sur **Create**. Le processus de création du compte de stockage peut durer quelques minutes.
+8. Cliquez sur **Créer**. Le processus de création du compte de stockage peut durer quelques minutes.
 
 ## <a name="step-2-enable-cdn-for-the-storage-account"></a>Étape 2 : Activation du CDN pour le compte de stockage
 

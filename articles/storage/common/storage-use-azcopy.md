@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transférer des données avec AzCopy sur Windows
-AzCopy est un utilitaire en ligne de commande conçu pour copier des données depuis et vers un stockage de fichier, de table et de blob Microsoft Azure en utilisant des commandes simples avec des performances optimales. Vous pouvez copier des données d’un objet vers un autre au sein de votre compte de stockage ou entre des comptes de stockage.
+AzCopy est un utilitaire en ligne de commande conçu pour copier des données depuis et vers un stockage de fichier, de table et de blob Microsoft Azure en utilisant des commandes simples avec des performances optimales. Vous pouvez copier des données entre un système de fichiers et un compte de stockage, ou d’un compte de stockage à un autre.  
 
 Il existe deux versions d’AzCopy que vous pouvez télécharger. AzCopy sur Windows est intégré à .NET Framework et offre des options en ligne de commande de style Windows. [AzCopy sur Linux](storage-use-azcopy-linux.md) est intégré à .NET Core Framework, qui cible les plateformes Linux en offrant des options en ligne de commande de style POSIX. Cet article est consacré à AzCopy sur Windows.
 
@@ -331,7 +331,7 @@ Examinons plusieurs façons de copier des fichiers dans un partage de fichiers A
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Lorsque vous copiez un fichier sur plusieurs partage de fichiers, une opération de [copie côté serveur](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) est exécutée.
+Lorsque vous copiez un fichier sur plusieurs partages de fichiers, une opération de [copie côté serveur](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) est exécutée.
 
 ### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Copie d’un partage de fichiers Azure vers un stockage d’objets blob
 
@@ -967,7 +967,7 @@ Pour la propriété « AzureStorageUseV1MD5 » :
 
 Les algorithmes compatibles FIPS sont désactivés par défaut sur Windows. Vous pouvez modifier ce paramètre de stratégie sur votre ordinateur. Dans la fenêtre Exécuter (Windows+R), tapez secpol.msc pour ouvrir la fenêtre **Stratégie de sécurité locale**. Dans la fenêtre **Paramètres de sécurité**, sélectionnez **Paramètres de sécurité** > **Stratégies locales** > **Options de sécurité**. Recherchez la stratégie **Chiffrement système : utilisez des algorithmes compatibles FIPS pour le chiffrement, le hachage et la signature**. Double-cliquez sur la stratégie pour montrer la valeur affichée dans la colonne **Paramètre de sécurité**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur le stockage Azure et AzCopy, consultez les ressources suivantes :
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Concevoir et générer une solution de gestion dans Operations Management Suite (OMS) (préversion)
 > [!NOTE]
@@ -37,7 +37,7 @@ La stratégie de base consiste à démarrer votre solution de gestion en créant
 ## <a name="design-your-solution"></a>Conception de votre solution
 Le modèle le plus courant pour une solution de gestion est illustré dans le diagramme suivant.  Les différents composants de ce modèle sont décrits ci-dessous.
 
-![Vue d’ensemble de la solution OMS](media/operations-management-suite-solutions/solution-overview.png)
+![Vue d’ensemble de la solution OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Sources de données
@@ -80,7 +80,7 @@ Une fois que vous avez terminé et testé votre solution, vous pouvez la rendre 
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez comment [créer un fichier de solution](operations-management-suite-solutions-solution-file.md) pour votre solution de gestion.
 * Découvrez comment [créer des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.

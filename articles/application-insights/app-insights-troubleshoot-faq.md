@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : questions fréquentes
 
@@ -95,7 +95,7 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `Application
 
 Une application de bureau que vous pouvez utiliser dans votre serveur web IIS pour faciliter la configuration d’Application Insights dans les applications web. Cette application ne collecte pas de données de télémétrie : vous pouvez l’arrêter lorsque vous ne configurez pas une application. 
 
-[En savoir plus](app-insights-monitor-performance-live-website-now.md#questions).
+[Plus d’informations](app-insights-monitor-performance-live-website-now.md#questions)
 
 ## <a name="what-telemetry-is-collected-by-application-insights"></a>Quelles sont les données de télémétrie recueillies par Application Insights ?
 
@@ -140,7 +140,7 @@ Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [Geo
 * Télémétrie de navigateur : nous collectons l’adresse IP de l’expéditeur.
 * Télémétrie de serveur : le module Application Insights collecte l’adresse IP du client. Elle n’est pas collectée si `X-Forwarded-For` est défini.
 
-Vous pouvez configurer le `ClientIpHeaderTelemetryInitializer` pour récupérer l’adresse IP à partir d’un autre en-tête. Dans certains systèmes, par exemple, elle est déplacée vers `X-Originating-IP` par un proxy, un équilibreur de charge ou un CDN. [En savoir plus](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+Vous pouvez configurer le `ClientIpHeaderTelemetryInitializer` pour récupérer l’adresse IP à partir d’un autre en-tête. Dans certains systèmes, par exemple, elle est déplacée vers `X-Originating-IP` par un proxy, un équilibreur de charge ou un CDN. [Plus d’informations](http://apmtips.com/blog/2016/07/05/client-ip-address/)
 
 Vous pouvez [utiliser Power BI](app-insights-export-power-bi.md) pour afficher les données de télémétrie de votre requête sur une carte.
 
@@ -242,7 +242,7 @@ Cela ne dépend pas de l’emplacement où est hébergée votre ressource Applic
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Puis-je envoyer des données de télémétrie au portail Application Insights ?
 
-Nous vous recommandons d’utiliser nos kits de développement logiciel et d’utiliser l’API du SDK (app-insights-api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](app-insights-platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
+Nous vous recommandons d’utiliser nos Kits de développement logiciel (SDK) et [l’API du Kit SDK](app-insights-api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](app-insights-platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Puis-je surveiller un serveur web intranet ?
 

@@ -4,7 +4,7 @@ description: "Cet article répertorie toutes les versions d’Azure AD Connect e
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,28 +12,95 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
-
-Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
+` Cet article est conçu pour vous aider à conserver la trace des versions qui ont été publiées, et à comprendre si vous devez ou non effectuer la mise jour vers la version la plus récente.
 
 Voici la liste des rubriques connexes :
+
 
 
 Rubrique |  Détails
 --------- | --------- |
 Étapes de mise à niveau à partir d’Azure AD Connect | Différentes méthodes pour [effectuer une mise à niveau à partir d’une version précédente vers la dernière](active-directory-aadconnect-upgrade-previous-version.md) version Azure AD Connect.
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Télécharger| [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+État : 12 décembre 2017
+
+>[!NOTE]
+>Il s’agit d’un correctif de sécurité pour Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Une amélioration a été ajoutée à Azure AD Connect version 1.1.654.0 (et ultérieure) pour s’assurer que les changements d’autorisations recommandés décrits dans la section [Verrouiller l’accès au compte AD DS](#lock) sont appliqués automatiquement quand Azure AD Connect crée le compte AD DS. 
+
+- Lors de la configuration d’Azure AD Connect, l’administrateur qui effectue l’installation peut fournir un compte AD DS existant ou laisser Azure AD Connect créer automatiquement le compte. Les changements d’autorisations sont appliquées automatiquement au compte AD DS créé par Azure AD Connect pendant l’installation. Ils ne sont pas appliqués au compte AD DS existant fourni par l’administrateur lors de l’installation.
+- Pour les clients ayant effectué une mise à niveau à partir d’une version antérieure d’Azure AD Connect vers la version 1.1.654.0 (ou ultérieure), les changements d’autorisations ne seront pas appliqués rétroactivement aux comptes AD DS existants créés avant la mise à niveau. Ils seront appliqués uniquement aux nouveaux comptes AD DS créés après la mise à niveau. Cela se produit quand vous ajoutez de nouvelles forêts Active Directory à synchroniser avec Azure AD.
+
+>[!NOTE]
+>Cette version supprime la vulnérabilité uniquement pour les nouvelles installations d’Azure AD Connect où le compte de service est créé par le processus d’installation. Pour les installations existantes, ou dans les cas où vous fournissez vous-même le compte, vous devez vous assurer que cette vulnérabilité n’existe pas.
+
+#### <a name="lock"></a>Verrouiller l’accès au compte AD DS
+Verrouillez l’accès au compte AD DS en implémentant les changements d’autorisations suivants dans l’annuaire AD local :  
+
+*   Désactivez l’héritage sur l’objet spécifié
+*   Supprimez toutes les entrées de contrôle d'accès sur l’objet spécifique, à l’exception de celles propres à SELF. Il faut conserver les autorisations par défaut intactes quand il s’agit de SELF.
+*   Attribuez ces autorisations spécifiques :
+
+Type     | Nom                          | Accès               | S'applique à
+---------|-------------------------------|----------------------|--------------|
+AUTORISER    | SYSTEM                        | Contrôle total         | Cet objet  |
+AUTORISER    | Administrateurs de l’entreprise             | Contrôle total         | Cet objet  |
+AUTORISER    | Admins du domaine                 | Contrôle total         | Cet objet  |
+AUTORISER    | Administrateurs                | Contrôle total         | Cet objet  |
+AUTORISER    | Contrôleurs de domaine d’entreprise | Lister le contenu        | Cet objet  |
+AUTORISER    | Contrôleurs de domaine d’entreprise | Lire toutes les propriétés  | Cet objet  |
+AUTORISER    | Contrôleurs de domaine d’entreprise | Autorisations de lecture     | Cet objet  |
+AUTORISER    | Utilisateurs authentifiés           | Lister le contenu        | Cet objet  |
+AUTORISER    | Utilisateurs authentifiés           | Lire toutes les propriétés  | Cet objet  |
+AUTORISER    | Utilisateurs authentifiés           | Autorisations de lecture     | Cet objet  |
+
+Pour renforcer les paramètres pour le compte AD DS, vous pouvez exécuter [ce script PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Le script PowerShell affecte les autorisations mentionnées ci-dessus au compte AD DS.
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script PowerShell pour renforcer un compte de service existant
+
+Pour utiliser le script PowerShell afin d’appliquer ces paramètres à un compte AD DS existant (fourni par votre organisation ou créé par une précédente installation d’Azure AD Connect), téléchargez le script à partir du lien fourni ci-dessus.
+
+##### <a name="usage"></a>Usage :
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Où 
+
+**$ObjectDN** = compte Active Directory dont les autorisations doivent être renforcées.
+
+**$Credential** = informations d’identification de l’administrateur qui dispose des privilèges nécessaires pour restreindre les autorisations sur le compte $ObjectDN. Il s’agit généralement de l’administrateur d’entreprise ou de domaine. Utilisez le nom de domaine complet du compte d’administrateur afin d’éviter les échecs de recherche de compte. Exemple : contoso.com\admin.
+
+>[!NOTE] 
+>$credential.UserName doit être au format nom_de_domaine_complet\nom_utilisateur. Exemple : contoso.com\admin. 
+
+##### <a name="example"></a>Exemple :
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Cette vulnérabilité a-t-elle été exploitée pour obtenir un accès non autorisé ?
+
+Pour voir si cette vulnérabilité a été exploitée afin de compromettre votre configuration Azure AD Connect, vous devez vérifier la date de la dernière réinitialisation du mot de passe du compte de service.  Si l’horodatage est inattendu, vous devez étudier de manière plus approfondie les circonstances de cet événement de réinitialisation de mot de passe par le biais du journal des événements.
+
+Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](https://technet.microsoft.com/library/security/4056318).
 
 ## <a name="116490"></a>1.1.649.0
 Statut : 27 octobre 2017
@@ -754,7 +821,7 @@ Changement de nom d’Azure AD Sync en Azure AD Connect.
 * Installation à l’aide de la [configuration rapide](active-directory-aadconnect-get-started-express.md)
 * [Configuration d’AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 * [Mise à niveau à partir de DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-* [Prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+* [prévention des suppressions accidentelles](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 * Introduction du [mode intermédiaire](active-directory-aadconnectsync-operations.md#staging-mode)
 
 **Nouvelles fonctionnalités préliminaires :**
@@ -852,5 +919,5 @@ Publication : septembre 2014
 
 **Version initiale d’Azure AD Sync.**
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

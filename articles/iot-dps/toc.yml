@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Utiliser Azure CLI pour gérer le service de configuration Device Provisioning
       href: how-to-manage-dps-with-cli.md
+    - name: Utiliser les outils du Kit de développement logiciel (SDK) pour le développement
+      href: how-to-use-sdk-tools.md
 - name: Informations de référence
   items:
     - name: REST

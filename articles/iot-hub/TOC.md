@@ -3,7 +3,7 @@
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
 
-# [Démarrer](iot-hub-get-started.md)
+# [Bien démarrer](iot-hub-get-started.md)
 
 ## Configurer votre appareil
 ### [Simuler un appareil sur votre ordinateur](iot-hub-get-started-simulated.md)
@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.JS](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Envoi de messages cloud vers appareil
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Charger des fichiers à partir d’appareils
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-twin-getstarted.md)
+#### [Back end Python/appareil Python](iot-hub-python-twin-getstarted.md)
 ### Utiliser des méthodes directes
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-direct-methods.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-direct-methods.md)
 #### [Appareil back end/.NET de .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Serveur principal Java/appareil Java](iot-hub-java-java-direct-methods.md)
+#### [Back end Python/appareil Python](iot-hub-python-python-direct-methods.md)
 ### Prise en main de la gestion d’appareils
 #### [Serveur principal Node.js/appareil Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Serveur principal .NET/appareil Node.js](iot-hub-csharp-node-device-management-get-started.md)

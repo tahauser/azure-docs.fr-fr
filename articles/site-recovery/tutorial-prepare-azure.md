@@ -2,30 +2,23 @@
 title: "Créer des ressources pour une utilisation avec Azure Site Recovery | Microsoft Docs"
 description: "Découvrez comment préparer Azure pour la réplication de machines locales à l’aide du service Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
-Ce didacticiel vous montre comment préparer les composants Azure quand vous voulez répliquer des machines virtuelles et des serveurs physiques locaux vers Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel décrit comment préparer les composants Azure pour répliquer des machines virtuelles (Hyper-V ou VMware) ou des serveurs physiques Windows/Linux locaux sur Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Vérifiez que votre compte dispose des autorisations de réplication.
@@ -44,7 +37,7 @@ Si vous venez de créer votre compte Azure gratuit, vous êtes l’administrateu
 
 - L’autorisation de créer une machine virtuelle dans le groupe de ressources sélectionné
 - L’autorisation de créer une machine virtuelle dans le réseau virtuel sélectionné
-- L’autorisation d’écrire sur le compte de stockage sélectionné
+- L’autorisation d’écrire dans le compte de stockage sélectionné
 
 Le rôle prédéfini « Contributeur de machines virtuelles » a ces autorisations. Vous devez également avoir l’autorisation de gérer les opérations Azure Site Recovery. Le rôle « Collaborateur Site Recovery » a toutes les autorisations nécessaires pour gérer les opérations Site Recovery dans un coffre Recovery Services.
 
@@ -53,13 +46,13 @@ Le rôle prédéfini « Contributeur de machines virtuelles » a ces autorisatio
 Les images des machines répliquées sont conservées dans le stockage Azure. Les machines virtuelles Azure sont créées à partir du stockage quand vous basculez du site local vers Azure.
 
 1. Dans le menu [Portail Azure](https://portal.azure.com), cliquez sur **Nouveau** -> **Stockage** -> **Compte de stockage**.
-2. Entrez un nom pour votre compte de stockage. Pour ces didacticiels, nous utilisons le nom **contosovmsacct1910171607**. Le nom doit être unique dans Azure, comprendre entre 3 et 24 caractères, et comporter uniquement des nombres et des lettres minuscules.
+2. Entrez un nom pour votre compte de stockage. Pour ces didacticiels, nous utilisons le nom **contosovmsacct1910171607**. Le nom doit être unique dans Azure, avoir entre 3 et 24 caractères, et contenir uniquement des nombres et des lettres minuscules.
 3. Utilisez le modèle de déploiement **Resource Manager**.
 4. Sélectionnez **Usage général** > **Standard**.
 5. Sélectionnez la valeur par défaut **RA-GRS** pour la redondance du stockage.
 6. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 7. Spécifiez un nouveau groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour ces didacticiels, nous utilisons le nom **ContosoRG**.
-8. Sélectionnez l’emplacement géographique de votre compte de stockage. Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services. Pour ces didacticiels, nous utilisons l’emplacement **Europe de l’Ouest**.
+8. Sélectionnez l’emplacement géographique de votre compte de stockage. Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services. Pour ces didacticiels, nous utilisons la région **Europe de l’Ouest**.
 
    ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -71,7 +64,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
    **Backup and Site Recovery**.
 2. Dans **Nom**, indiquez un nom convivial permettant d’identifier le coffre. Pour ce didacticiel, nous utilisons **ContosoVMVault**.
 3. Sélectionnez le groupe de ressources existant nommé **contosoRG**.
-4. Spécifiez la région Azure **Europe de l’Ouest**.
+4. Spécifiez la région Azure **Europe de l’Ouest** que nous utilisons dans cette série de didacticiels.
 5. Pour accéder rapidement au coffre à partir du tableau de bord, cliquez sur **Épingler au tableau de bord** > **Créer**.
 
    ![Nouveau coffre](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -97,7 +90,7 @@ Quand les machines virtuelles Azure sont créées à partir du stockage après l
 
    La création du réseau virtuel prend quelques secondes. Une fois qu’il est créé, vous le voyez dans le tableau de bord du portail Azure.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Préparer l’infrastructure VMware locale pour la récupération d’urgence dans Azure](tutorial-prepare-on-premises-vmware.md)

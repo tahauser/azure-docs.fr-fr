@@ -1,6 +1,6 @@
 ---
 title: Collecter et analyser les compteurs de performances dans Azure Log Analytics | Microsoft Docs
-description: "Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans le référentiel OMS et comment les analyser dans le portail OMS."
+description: "Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Sources de données de performance Windows et Linux dans Log Analytics
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Log Analytics peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -26,13 +26,13 @@ Les compteurs de performances dans Windows et Linux fournissent des informations
 ![Compteurs de performances](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
-Configurez les compteurs de performances dans le portail OMS à partir du [menu Données des paramètres Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
+Configurez les compteurs de performances dans le [menu Données de Paramètres Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
 
-Lorsque vous configurez initialement des compteurs de performances Windows ou Linux pour un espace de travail OMS, vous avez la possibilité de créer rapidement plusieurs compteurs communs.  Ils s’affichent avec une case à cocher en regard.  Vérifiez que les compteurs que vous voulez créer sont cochés, puis cliquez sur **Ajouter les compteurs de performances sélectionnés**.
+Quand vous procédez à la configuration initiale des compteurs de performances Windows ou Linux pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants.  Ils s’affichent avec une case à cocher en regard.  Vérifiez que les compteurs que vous voulez créer sont cochés, puis cliquez sur **Ajouter les compteurs de performances sélectionnés**.
 
 Pour les compteurs de performances Windows, vous pouvez choisir une instance spécifique de chaque compteur de performances. Pour les compteurs de performances Linux, l’instance de chaque compteur choisi s’applique à tous les compteurs enfants du compteur parent. Le tableau suivant montre les instances courantes disponibles pour les compteurs de performances Linux et Windows.
 
-| Nom de l’instance | Description |
+| Nom de l’instance | DESCRIPTION |
 | --- | --- |
 | \_Total |Total de toutes les instances |
 | \* |Toutes les instances |
@@ -65,7 +65,7 @@ Suivez cette procédure pour ajouter un nouveau compteur de performances Linux �
 5. Après avoir ajouté les compteurs souhaités, cliquez sur le bouton **Enregistrer** en haut de l’écran pour enregistrer la configuration.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuration des compteurs de performances Linux dans le fichier de configuration
-Au lieu de configurer les compteurs de performances Linux à l’aide du portail OMS, vous pouvez modifier les fichiers de configuration sur l’agent Linux.  Les mesures de performances à collecter sont contrôlées par la configuration dans **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
+Au lieu de configurer les compteurs de performances Linux à l’aide du portail Azure, vous pouvez modifier les fichiers de configuration sur l’agent Linux.  Les mesures de performances à collecter sont contrôlées par la configuration dans **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
 Chaque objet, ou catégorie, de mesures de performances à collecter doit être défini dans le fichier de configuration comme un seul élément `<source>` . La syntaxe suit le modèle suivant.
 
@@ -80,7 +80,7 @@ Chaque objet, ou catégorie, de mesures de performances à collecter doit être 
 
 Les paramètres de cet élément sont décrits dans le tableau suivant.
 
-| Paramètres | Description |
+| parameters | DESCRIPTION |
 |:--|:--|
 | object\_name | Nom de l’objet pour la collecte. |
 | instance\_regex |  *Expression régulière* qui définit les instances à collecter. La valeur `.*` spécifie toutes les instances. Pour ne collecter les mesures de processeur que de l’instance \_Total, vous pouvez spécifier `_Total`. Pour uniquement collecter les mesures de processus des instances crond ou sshd, vous pouvez indiquer : `(crond\|sshd)`. |
@@ -182,12 +182,12 @@ La configuration par défaut des mesures de performances est la suivante.
     </source>
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de recherche de journal pendant la durée spécifiée par votre abonnement OMS.
+Log Analytics collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de recherche de journal pendant la durée spécifiée par votre abonnement.
 
 ## <a name="performance-record-properties"></a>Propriétés des enregistrements de performances
 Les enregistrements de performances sont de type **Perf** et leurs propriétés sont décrites dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | Ordinateur |Ordinateur sur lequel l’événement a été collecté. |
 | CounterName |Nom du compteur de performances. |
@@ -206,7 +206,7 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 ## <a name="log-searches-with-performance-records"></a>Recherches de journal avec des enregistrements de performances
 Le tableau suivant fournit plusieurs exemples de recherches qui extraient des enregistrements de performances.
 
-| Interroger | Description |
+| Requête | DESCRIPTION |
 |:--- |:--- |
 | Perf |Toutes les données de performances |
 | Perf &#124; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |
@@ -220,15 +220,10 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 | Perf &#124; où CounterName == « % du temps processeur », InstanceName == « _Total » et l’ordinateur == « MyComputer » &#124; résumer [« min(CounterValue) »] = min(CounterValue), [« avg(CounterValue) »] = avg(CounterValue), [« percentile75(CounterValue) »] = centile (CounterValue, 75), [« max(CounterValue) »] = max(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire, minimum, maximum et 75e centile d’utilisation du processeur pour un ordinateur spécifique |
 | Perf &#124; où ObjectName == « MSSQL$ INST2 : bases de données » et InstanceName == « maître » | Toutes les données de performances de l’objet de performance de base de données pour la base de données MASTER à partir de l’instance de SQL Server nommée INST2.  
 
-## <a name="viewing-performance-data"></a>Affichage des données de performances
-Lorsque vous recherchez des données de performances dans les journaux, la vue **Liste** s’affiche par défaut.  Pour afficher les données sous forme graphique, cliquez sur **Mesures**.  Pour une vue graphique détaillée, cliquez sur le signe **+** en regard d’un compteur.  
-
-![Vue Mesures réduite](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Pour agréger des données de performances dans une recherche de journal, voir [Agrégation et visualisation de mesures à la demande dans OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+
+## <a name="next-steps"></a>étapes suivantes
 * [Collectez des compteurs de performances à partir d’applications Linux](log-analytics-data-sources-linux-applications.md), y compris Apache HTTP Server et MySQL.
-* En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées dans des sources de données et des solutions.  
+* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Exporter les données collectées vers [Power BI](log-analytics-powerbi.md) à des fins d’analyse et de visualisation.

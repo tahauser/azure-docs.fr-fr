@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
 Azure Storage Service Encryption pour les données au repos vous aide à protéger vos données pour répondre aux engagements de votre organisation en matière de sécurité et de conformité. Avec cette fonctionnalité, Azure Storage chiffre automatiquement vos données avant de les rendre persistantes dans le stockage et les déchiffre avant la récupération. La gestion du chiffrement, du déchiffrement et des clés est totalement transparente pour les utilisateurs.
 
 Les sections suivantes fournissent des instructions détaillées sur la façon d’utiliser les fonctionnalités Storage Service Encryption et présentent les scénarios et les expériences utilisateur pris en charge.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPs ou de SMB 3.0. La fonctionnalité Storage Service Encryption fournit un chiffrement au repos et se charge de la gestion du chiffrement, du déchiffrement et des clés de façon totalement transparente. Toutes les données sont chiffrées à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)256 bits, l’un des algorithmes de chiffrement par blocs les plus puissants disponibles.
 
 SSE fonctionne en chiffrant les données lors leur écriture dans le Stockage Azure et peut être utilisé pour le Stockage Blob Azure et le Stockage Fichier. Il fonctionne pour les éléments suivants :
@@ -159,7 +159,7 @@ R : Pas pour l’instant. Les clés sont entièrement gérées par Microsoft.
 
 **Q : Est-ce que SSE est activé par défaut lorsque je crée un compte de stockage ?**
 
-R : SSE n’étant pas activé par défaut, utilisez le portail Azure pour l’activer. Vous pouvez également l’activer par programme à l’aide de l’API REST du fournisseur de ressources de stockage.
+R : L’équipe de stockage Azure est en train de procéder à l’activation du chiffrement par défaut à l’aide de clés managées Microsoft pour toutes les données écrites dans le stockage Azure (stockage d’objets blob, de fichiers, de tables et de files d’attente) et pour tous les anciens ou nouveaux comptes de stockage (comptes de stockage Azure Resource Manager et Classic).
 
 **Q : En quoi est-ce différent d’Azure Disk Encryption ?**
 
@@ -186,5 +186,5 @@ R : SSE est disponible dans toutes les régions pour le Stockage Blob. Pour le S
 R : Contactez [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) pour les problèmes de chiffrement Storage Service Encryption.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Azure Storage propose un ensemble complet de fonctionnalités de sécurité qui, réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](../storage-security-guide.md).
+Azure Storage propose un ensemble complet de fonctionnalités de sécurité dont l’utilisation combinée permet aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité sur Storage](../storage-security-guide.md).
 

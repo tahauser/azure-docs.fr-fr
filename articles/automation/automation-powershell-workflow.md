@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Découvrir les principaux concepts de workflow Windows PowerShell pour les runbooks Automation 
 Les Runbooks d'Azure Automation sont implémentés en tant que workflows Windows PowerShell.  Un workflow Windows PowerShell est similaire à un script Windows PowerShell, mais il présente des différences significatives qui peuvent être déconcertantes pour un nouvel utilisateur.  Bien que cet article soit destiné à vous aider à écrire des runbooks à l’aide de workflow PowerShell, nous vous recommandons d’écrire des runbooks à l’aide de PowerShell, sauf si vous avez besoin de points de contrôle.  Il existe plusieurs différences de syntaxe lors de la création de runbooks de workflow PowerShell et ces différences nécessitent un peu plus de travail pour l’écriture de workflows efficaces.  
@@ -258,5 +258,5 @@ Cette procédure n’est pas nécessaire si vous vous authentifiez à l’aide d
 
 Pour plus d'informations sur les points de contrôle, consultez [Ajout de points de contrôle à un workflow de script](http://technet.microsoft.com/library/jj574114.aspx).
 
-## <a name="next-steps"></a>Étapes suivantes
-* Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)
+## <a name="next-steps"></a>étapes suivantes
+* Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)

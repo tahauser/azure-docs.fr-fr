@@ -3,7 +3,7 @@ title: "Gérer les formules dans Azure DevTest Labs pour créer des machines vir
 description: "Découvrez comment mettre à jour et supprimer des formules Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gérer les formules Azure DevTest Labs
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur l’ajout des utilisateurs et des autorisations, 
 ### <a name="create-a-formula-from-a-base"></a>Créer une formule à partir d’une base
 Les étapes suivantes vous guideront tout au long du processus de création d’une formule à partir d’une image personnalisée, image Marketplace ou autre formule.
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 
@@ -64,7 +64,7 @@ Les étapes suivantes vous guideront tout au long du processus de création d’
     * **Mot de passe** - Entrez, ou sélectionnez dans la liste déroulante, une valeur qui est associée au secret (mot de passe) que vous souhaitez utiliser pour l’utilisateur spécifié. Pour plus d’informations sur les secrets, consultez [Azure DevTest Labs: Personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/) (Azure DevTest Labs : magasin des secrets personnel).
     * **Type de disque de machine virtuelle** : sélectionnez HDD (disque dur) ou SSD (disque SSD) pour indiquer le type de disque de stockage autorisé pour les machines virtuelles approvisionnées à l’aide de cette image de base.
     * **Taille de la machine virtuelle** - Sélectionnez l’un des éléments prédéfinis qui spécifient les cœurs du processeur, la taille de la RAM et la taille du disque dur de la machine virtuelle à créer. 
-    * **Artefacts** - Sélectionnez cette option pour ouvrir le panneau **Ajouter des artefacts**, dans lequel vous pouvez sélectionner et configurer les artefacts que vous souhaitez ajouter à l’image de base. Pour plus d’informations sur les artefacts, consultez [Gérer les artefacts de machine virtuelle dans Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
+    * **Artefacts** - Sélectionnez cette option pour ouvrir le panneau **Ajouter des artefacts**, dans lequel vous pouvez sélectionner et configurer les artefacts que vous souhaitez ajouter à l’image de base. Pour plus d’informations sur les artefacts, consultez [Créer des artefacts personnalisés pour votre machine virtuelle Azure DevTest Labs](devtest-lab-artifact-author.md).
     * **Paramètres avancés** - Sélectionnez cette option pour ouvrir le panneau **Avancé** dans lequel vous configurez les paramètres suivants :
         * **Réseau virtuel** - Spécifiez le réseau virtuel souhaité.
         * **Sous-réseau** - Spécifiez le sous-réseau souhaité.    
@@ -86,7 +86,7 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 > 
 > 
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 4. Dans le panneau **Présentation** du laboratoire, sélectionnez la machine virtuelle à partir de laquelle vous souhaitez créer la formule.
@@ -103,7 +103,7 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 ## <a name="modify-a-formula"></a>Modifier une formule
 Pour modifier une formule, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 4. Dans le panneau du laboratoire, sélectionnez **Formules (bases réutilisables)**.
@@ -115,7 +115,7 @@ Pour modifier une formule, procédez comme suit :
 ## <a name="delete-a-formula"></a>Supprimer une formule
 Pour supprimer une formule, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 4. Dans le panneau **Paramètres** du laboratoire, sélectionnez **Formules**.
@@ -132,8 +132,8 @@ Pour supprimer une formule, procédez comme suit :
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Billets de blog connexes
-* [Images personnalisées ou formules ?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+* [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Étapes suivantes
-Quand vous avez créé une formule à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>étapes suivantes
+Quand vous avez créé une formule à utiliser lors de la création d’une machine virtuelle, l’étape suivante consiste à [ajouter une machine virtuelle à votre laboratoire](devtest-lab-add-vm.md).
 

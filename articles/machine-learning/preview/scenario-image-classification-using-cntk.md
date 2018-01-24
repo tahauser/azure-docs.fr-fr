@@ -5,15 +5,17 @@ services: machine-learning
 documentationcenter: 
 author: PatrickBue
 ms.author: pabuehle
-ms.reviewer: mawah, marhamil, mldocs
+manager: mwinkle
+ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classification d’images à l’aide d’Azure Machine Learning Workbench
 
@@ -31,7 +33,7 @@ Les réseaux de neurones profonds ont conduit à une énorme amélioration du do
 ## <a name="link-to-the-gallery-github-repository"></a>Lien vers le dépôt GitHub de la galerie
 [https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK](https://github.com/Azure/MachineLearningSamples-ImageClassificationUsingCNTK)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel est divisé en trois parties :
 
@@ -42,7 +44,7 @@ Ce didacticiel est divisé en trois parties :
 Bien qu’une expérience antérieure de l’apprentissage automatique (« machine learning ») et de CNTK ne soit pas indispensable, cela peut vous aider à comprendre les principes sous-jacents. Les valeurs de précision, les temps d’apprentissage, etc., indiqués dans le didacticiel ne sont que des références. Les valeurs réelles liées à l’exécution du code diffèrent très probablement.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Cet exemple nécessite les prérequis suivants :
 
@@ -51,7 +53,7 @@ Cet exemple nécessite les prérequis suivants :
 3. Une machine Windows. Le système d’exploitation Windows est nécessaire, car Workbench prend en charge uniquement Windows et macOS, alors que Microsoft Cognitive Toolkit (que nous utilisons en tant que bibliothèque d’apprentissage profond) prend en charge uniquement Windows et Linux.
 4. Vous n’avez pas besoin d’un GPU dédié pour former la machine à vecteurs de support dans la partie 1, mais vous en avez besoin pour affiner le réseau de neurones profond décrit dans la partie 2. Si vous n’avez pas un GPU puissant, si vous souhaitez former avec plusieurs GPU ou si vous n’avez pas de machine Windows, utilisez la machine virtuelle DLVM (Deep Learning Virtual Machine), qui est dotée du système d’exploitation Windows. Vous trouverez [ici](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) un guide de déploiement en 1 clic. Une fois le déploiement effectué, connectez-vous à la machine virtuelle via une connexion Bureau à distance, installez Workbench, puis exécutez le code localement à partir de la machine virtuelle.
 5. Diverses bibliothèques Python telles que OpenCV doivent être installées. Cliquez sur *Ouvrir l’invite de commandes* à partir du menu *Fichier* dans Workbench et exécutez les commandes suivantes pour installer ces dépendances :  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` après avoir téléchargé le fichier OpenCV au format wheel depuis http://www.lfd.uci.edu/~gohlke/pythonlibs/ (le nom exact du fichier et sa version peuvent changer)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +63,11 @@ Cet exemple nécessite les prérequis suivants :
 ### <a name="troubleshooting--known-bugs"></a>Résolution des problèmes / Bogues connus
 - Un GPU est nécessaire pour la partie 2. Sinon, une erreur indiquant que « l’apprentissage avec normalisation par lot sur l’UC n’est pas encore implémenté » est générée quand vous essayez d’affiner le réseau de neurones profond.
 - Vous pouvez éviter les erreurs relatives à une insuffisance de mémoire durant l’apprentissage du réseau de neurones profond en réduisant la taille du minilot (variable `cntk_mb_size` dans `PARAMETERS.py`).
-- Le code a été testé à l’aide de CNTK 2.0 et 2.1. Il doit également fonctionner sur les versions plus récentes sans changements (ou seulement mineurs).
+- Le code a été testé à l’aide de CNTK 2.2. Il doit également fonctionner sur les versions plus récentes (jusqu’à la version 2.0) sans changements ou seulement avec des changements mineurs.
 - Au moment de la rédaction de ce document, Azure Machine Learning Workbench avait des problèmes avec les Notebooks de plus de 5 Mo. Un Notebook peut atteindre cette taille s’il est enregistré avec toutes les sorties de cellules affichées. Si vous rencontrez cette erreur, ouvrez l’invite de commandes à partir du menu Fichier dans Workbench, exécutez `jupyter notebook`, ouvrez le Notebook, effacez toutes les sorties, puis enregistrez le Notebook. Une fois que vous avez effectué ces étapes, le Notebook s’ouvre à nouveau correctement dans Azure Machine Learning Workbench.
+- Tous les scripts fournis dans cet exemple doivent être exécutés localement et non, par exemple, dans un environnement Docker distant. Tous les Notebooks doivent être exécutés avec le noyau défini sur le noyau de projet local portant le nom « nom_projet local » (par exemple, « myImgClassUsingCNTK local »).
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>Créer un projet Workbench
 
 Pour créer un projet à l’aide de cet exemple en tant que modèle :
@@ -76,7 +79,7 @@ Pour créer un projet à l’aide de cet exemple en tant que modèle :
 
 L’exécution de ces étapes permet de créer la structure de projet illustrée ci-dessous. Le répertoire du projet est limité à moins de 25 Mo, car Azure Machine Learning Workbench crée une copie de ce dossier après chaque exécution (pour activer l’historique des exécutions). Ainsi, tous les fichiers image et fichiers temporaires sont enregistrés dans et depuis le répertoire *~/Desktop/imgClassificationUsingCntk_data* (appelé *DATA_DIR* dans ce document).
 
-  Dossier| Description
+  Dossier| DESCRIPTION
   ---|---
   aml_config/|                           Répertoire contenant les fichiers config d’Azure Machine Learning Workbench
   libraries/|                              Répertoire contenant toutes les fonctions d’assistance Python et Jupyter
@@ -91,7 +94,7 @@ L’exécution de ces étapes permet de créer la structure de projet illustrée
 
 Ce didacticiel utilise comme exemple un jeu de données de motifs de vêtements pour le haut du corps comprenant jusqu’à 428 images. Chaque image est annotée selon sa correspondance avec l’un des trois motifs distincts (pois, rayures, léopard). Nous avons réduit le nombre d’images pour que ce didacticiel puisse être exécuté rapidement. Toutefois, le code a été testé rigoureusement et fonctionne avec des dizaines de milliers d’images ou plus. Toutes les images ont été récupérées à l’aide de l’outil Recherche d’images Bing et annotées à la main, comme expliqué dans la [Partie 3](#using-a-custom-dataset). Les URL des images et leurs attributs respectifs sont listés dans le fichier */resources/fashionTextureUrls.tsv*.
 
-Le script `0_downloadData.py` télécharge toutes les images dans le répertoire *DATA_DIR/images/fashionTexture/*. Sur les 428 URL, certaines sont probablement rompues. Ce n’est pas un problème. Cela signifie simplement que nous avons un peu moins d’images pour l’apprentissage et les tests.
+Le script `0_downloadData.py` télécharge toutes les images dans le répertoire *DATA_DIR/images/fashionTexture/*. Sur les 428 URL, certaines sont probablement rompues. Ce n’est pas un problème. Cela signifie simplement que nous avons un peu moins d’images pour l’apprentissage et les tests. Tous les scripts fournis dans cet exemple doivent être exécutés localement et non, par exemple, dans un environnement Docker distant.
 
 L’illustration suivante montre des exemples pour les attributs correspondant aux pois (à gauche), aux rayures (au milieu) et au style léopard (à droite). Les annotations ont été faites en fonction du vêtement pour le haut du corps.
 
@@ -114,7 +117,7 @@ Tous les paramètres importants sont spécifiés et une brève explication est f
 ### <a name="step-1-data-preparation"></a>Étape 1 : Préparation des données
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Le Notebook `showImages.ipynb` permet de visualiser les images et de corriger leur annotation selon les besoins. Pour exécuter le Notebook, ouvrez-le dans Azure Machine Learning Workbench, cliquez sur Démarrer le serveur Notebook, si cette option est affichée, puis exécutez toutes les cellules du Notebook. Consultez la section de résolution des problèmes de ce document si vous obtenez une erreur indiquant que le Notebook est trop volumineux pour être affiché.
+Le Notebook `showImages.ipynb` permet de visualiser les images et de corriger leur annotation selon les besoins. Pour exécuter le Notebook, ouvrez-le dans Azure Machine Learning Workbench, cliquez sur Démarrer le serveur Notebook, si cette option est affichée, basculez sur le noyau de projet local portant le nom « nom_projet local » (par exemple, « myImgClassUsingCNTK local »), puis exécutez toutes les cellules du Notebook. Consultez la section de résolution des problèmes de ce document si vous obtenez une erreur indiquant que le Notebook est trop volumineux pour être affiché.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +181,7 @@ En plus de la précision, la courbe ROC est tracée avec l’aire sous la courbe
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Enfin, le Notebook `showResults.py` est fourni pour faire défiler les images de test et visualiser leurs scores de classification respectifs :
+Enfin, le Notebook `showResults.py` est fourni pour faire défiler les images de test et visualiser leurs scores de classification respectifs. Comme expliqué à l’étape 1, chaque Notebook dans cet exemple doit utiliser le noyau de projet local portant le nom « nom_projet local » :
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +193,7 @@ Enfin, le Notebook `showResults.py` est fourni pour faire défiler les images de
 ### <a name="step-6-deployment"></a>Étape 6 : Déploiement
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Le système formé peut maintenant être publié en tant qu’API REST. Le déploiement est expliqué dans le Notebook `deploy.ipynb`. Il est basé sur les fonctionnalités d’Azure Machine Learning Workbench. Consultez également l’excellente section consacrée au déploiement dans le [didacticiel IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+Le système formé peut maintenant être publié en tant qu’API REST. Le déploiement est expliqué dans le Notebook `deploy.ipynb` et repose sur les fonctionnalités d’Azure Machine Learning Workbench (pensez à définir le noyau en tant que noyau de projet local portant le nom « nom_projet local »). Pour plus d’informations sur le déploiement, consultez également l’excellente section consacrée au déploiement dans le [didacticiel IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
 
 Une fois déployé, le service web peut être appelé à l’aide du script `6_callWebservice.py`. Notez que l’adresse IP (locale ou dans le cloud) du service web doit être définie en premier dans le script. Le Notebook `deploy.ipynb` explique comment trouver cette adresse IP.
 

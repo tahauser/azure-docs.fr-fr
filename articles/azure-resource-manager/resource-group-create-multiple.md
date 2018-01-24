@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager
-Cette rubrique montre comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource ou d’une propriété sur une ressource.
+Cet article montre comment déployer de manière conditionnelle une ressource et comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource.
 
-Si vous devez ajouter une logique à votre modèle, qui vous permette de spécifier si une ressource est déployée, voir [Déployer une ressource de manière conditionnelle](#conditionally-deploy-resource).
+## <a name="conditionally-deploy-resource"></a>Déployer une ressource de manière conditionnelle
 
-Pour obtenir un exemple de création de plusieurs éléments dans une variable de tableau, consultez [Variables](resource-group-authoring-templates.md#variables).
+Quand vous devez décider au cours du déploiement s’il faut créer ou non une instance d’une ressource, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est déployée. Lorsque la valeur est false, la ressource n’est pas déployée. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>Itération de ressource
-Pour créer plusieurs instances d’un type de ressource, ajoutez un élément `copy` au type de ressource. Dans l’élément copy, vous indiquez le nombre d’itérations et un nom pour cette boucle. La valeur de décompte doit être un entier positif et ne pas dépasser 800. Resource Manager crée les ressources en parallèle. Par conséquent, l’ordre de création n’est pas garanti. Pour créer des ressources itérées en séquence, consultez [Copie en série](#serial-copy). 
+Quand vous devez décider au cours du déploiement s’il faut créer une ou plusieurs instances d’une ressource, ajoutez un élément `copy` au type de ressource. Dans l’élément copy, vous indiquez le nombre d’itérations et un nom pour cette boucle. La valeur de décompte doit être un entier positif et ne pas dépasser 800. 
 
 La ressource à créer plusieurs fois prend le format suivant :
 
@@ -112,151 +127,40 @@ Crée les noms suivants :
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>Copie en série
+Par défaut, Resource Manager crée les ressources en parallèle. Par conséquent, l’ordre de création n’est pas garanti. Toutefois, vous souhaiterez peut-être spécifier que les ressources soient déployées en séquence. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné.
 
-Lorsque vous utilisez l’élément de copie pour créer plusieurs instances d’un type de ressource, Resource Manager déploie par défaut ces instances en parallèle. Toutefois, vous souhaiterez peut-être spécifier que les ressources soient déployées en séquence. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné.
+Pour déployer en série plusieurs instances d’une ressource, affectez à `mode` la valeur **serial** et à `batchSize` le nombre d’instances à déployer à la fois. Avec le mode série, Resource Manager crée une dépendance sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
 
-Resource Manager fournit des propriétés sur l’élément de copie qui vous permettent de déployer en série plusieurs instances. Dans l’élément de copie, définissez `mode` sur **serial** et `batchSize` sur le nombre d’instances à déployer en même temps. Avec le mode série, Resource Manager crée une dépendance sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-La propriété mode accepte également **parallel**, qui est la valeur par défaut.
-
-Pour tester la copie en série sans créer de ressources réelles, utilisez le modèle suivant qui déploie des modèles imbriqués vides :
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-Dans l’historique de déploiement, vous remarquez que les déploiements imbriqués sont traités en séquence.
-
-![déploiement en série](./media/resource-group-create-multiple/serial-copy.png)
-
-Pour un scénario plus réaliste, l’exemple suivant déploie deux instances à la fois d’une machine virtuelle Linux à partir d’un modèle imbriqué :
+Par exemple, pour déployer en série des comptes de stockage deux à la fois, utilisez :
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+La propriété mode accepte également **parallel**, qui est la valeur par défaut.
 
 ## <a name="property-iteration"></a>Itération de propriété
 
@@ -352,50 +256,56 @@ Vous pouvez utiliser des itérations de ressource et de propriété ensemble. R�
 }
 ```
 
-Vous ne pouvez inclure qu’un seul élément de copie dans les propriétés de chaque ressource. Pour spécifier une boucle d’itération pour plusieurs propriétés, définissez plusieurs objets dans le tableau de copie. Chaque objet est itéré séparément. Par exemple, pour créer plusieurs instances des propriétés `frontendIPConfigurations` et `loadBalancingRules` sur un équilibreur de charge, définissez les deux objets dans un élément de copie unique : 
+## <a name="variable-iteration"></a>Itération de variable
+
+Pour créer plusieurs instances d’une variable, utilisez l’élément `copy` dans la section des variables. Vous pouvez créer plusieurs instances d’objets avec des valeurs associées, puis attribuer ces valeurs à des instances de la ressource. Vous pouvez utiliser la copie pour créer un objet avec une propriété de tableau ou un tableau. L’exemple suivant présente les deux approches :
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ Vous spécifiez qu’une ressource est déployée après une autre ressource à 
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>Création de plusieurs instances d’une ressource enfant
+## <a name="iteration-for-a-child-resource"></a>Itération d’une ressource enfant
 Vous ne pouvez pas utiliser une boucle de copie pour une ressource enfant. Pour créer plusieurs instances d’une ressource que vous définissez généralement comme imbriquée dans une autre ressource, vous devez plutôt créer cette ressource comme une ressource de niveau supérieur. Vous définissez la relation avec la ressource parente par le biais des propriétés type et name.
 
 Par exemple, supposons que vous définissez généralement un jeu de données comme une ressource enfant dans une fabrique de données.
@@ -485,30 +395,21 @@ L’exemple ci-après illustre l’implémentation :
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>Déployer une ressource de manière conditionnelle
+## <a name="example-templates"></a>Exemples de modèles
 
-Pour spécifier si une ressource est déployée, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est déployée. Lorsque la valeur est false, la ressource n’est pas déployée. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
+Les exemples suivants montrent des scénarios courants pour la création de plusieurs propriétés ou ressources.
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
+|Modèle  |Description  |
+|---------|---------|
+|[Copie de stockage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Déploie plusieurs comptes de stockage avec un numéro d’index dans le nom. |
+|[Copie de stockage en série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Déploie plusieurs comptes de stockage un à la fois. Le nom inclut le numéro d’index. |
+|[Copie de stockage avec tableau](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Déploie plusieurs comptes de stockage. Le nom contient une valeur tirée d’un tableau. |
+|[Machine virtuelle avec réseau virtuel, adresse IP publique et stockage existants ou nouveaux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Déploie de manière conditionnelle des ressources nouvelles ou existantes avec une machine virtuelle. |
+|[Déploiement de machine virtuelle avec un nombre variable de disques de données](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Déploie plusieurs disques de données avec une machine virtuelle. |
+|[Copie de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Illustre les différentes façons d’itérer sur des variables. |
+|[Règles de sécurité multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Déploie plusieurs règles de sécurité sur un groupe de sécurité réseau. Crée les règles de sécurité à partir d’un paramètre. |
 
-Pour obtenir un exemple d’utilisation d’une ressource nouvelle ou existante, voir [Modèle de condition New ou Existing](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
-
-Pour obtenir un exemple d’utilisation d’un mot de passe ou d’une clé SSH pour déployer une machine virtuelle, voir [Modèle de condition Username ou SSH](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 

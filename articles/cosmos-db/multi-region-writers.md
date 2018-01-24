@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Architectures de base de données à multiples maîtres répliquées de façon globale avec Azure Cosmos DB
 Azure Cosmos DB prend en charge la [réplication globale](distribute-data-globally.md) clé en main, qui vous permet de distribuer les données dans plusieurs régions avec accès à faible latence n’importe où dans la charge de travail. Ce modèle est généralement utilisé pour les charges de travail éditeur/consommateur, où un enregistreur existe dans une région géographique unique et des lecteurs sont distribués mondialement dans d’autres régions (lecture). 
@@ -318,6 +318,6 @@ Dans cet article, nous avons décrit comment vous pouvez utiliser des modèles l
 * Découvrez-en plus sur la manière dont Azure Cosmos DB prend en charge la [distribution mondiale](distribute-data-globally.md)
 * En savoir plus sur les [basculements manuels et automatiques dans Azure Cosmos DB](regional-failover.md)
 * Découvrez-en plus sur [la cohérence globale avec Azure Cosmos DB](consistency-levels.md)
-* Développer en mode multirégions à l’aide de l’[API DocumentDB - Azure Cosmos DB](tutorial-global-distribution-documentdb.md)
-* Développer en mode multirégions à l’aide de l’[API MongoDB - Azure Cosmos DB](tutorial-global-distribution-MongoDB.md)
-* Développer en mode multirégions à l’aide de l’[API Table - Azure Cosmos DB](tutorial-global-distribution-table.md)
+* Développer en mode multirégions à l’aide de [l’API SQL - Azure Cosmos DB](tutorial-global-distribution-sql-api.md)
+* Développer en mode multirégions à l’aide de [l’API MongoDB - Azure Cosmos DB](tutorial-global-distribution-MongoDB.md)
+* Développer en mode multirégions à l’aide de [l’API Table - Azure Cosmos DB](tutorial-global-distribution-table.md)

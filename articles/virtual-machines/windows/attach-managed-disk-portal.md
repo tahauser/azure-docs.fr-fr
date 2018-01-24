@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Attachement d’un disque de données géré à une machine virtuelle Windows dans le portail Azure
 
@@ -35,21 +35,21 @@ Vous pouvez également [attacher un disque de données à l’aide de PowerShell
 ## <a name="add-a-data-disk"></a>Ajouter un disque de données
 1. Dans le menu de gauche, cliquez sur **Machines virtuelles**.
 2. Sélectionnez la machine virtuelle dans la liste.
-3. Dans le panneau de la machine virtuelle, cliquez sur **Disques**.
-   4. Dans le panneau **Disques**, cliquez sur **+ Add data disk** (+ Ajouter un disque de données).
-5. Dans la liste déroulante du nouveau disque, sélectionnez **Créer vide**.
-6. Dans le panneau **Créer un disque géré**, tapez le nom du disque et ajustez les autres paramètres si nécessaire. Lorsque vous avez terminé, cliquez sur **Créer**.
-7. Dans le panneau **Disques**, cliquez sur Enregistrer pour enregistrer la nouvelle configuration de disque pour la machine virtuelle.
-6. Après qu’Azure a créé le disque et l’a attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle sous **Disques de données**.
+3. Sur la page de la machine virtuelle, cliquez sur **Disques**.
+4. Sur la page **Disques**, cliquez sur **+ Ajouter un disque de données**.
+5. Dans la liste déroulante du nouveau disque, sélectionnez **Créer un disque**.
+6. Sur la page **Créer un disque managé**, tapez le nom du disque et ajustez les autres paramètres si nécessaire. Lorsque vous avez terminé, cliquez sur **Créer**.
+7. Sur la page **Disques**, cliquez sur **Enregistrer** pour enregistrer la nouvelle configuration de disque de la machine virtuelle.
+6. Une fois qu’Azure l’a créé et attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle, sous **Disques de données**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Initialisation d’un nouveau disque de données
 
 1. Connectez-vous à la machine virtuelle.
-1. Cliquez sur le menu Démarrer dans la machine virtuelle, tapez sur **diskmgmt.msc** et appuyez sur **Entrée**. Le composant logiciel enfichable Gestion des disques démarre.
-2. L’outil Gestion des disques détermine que votre nouveau disque n’est pas initialisé et affiche la fenêtre Initialiser le disque.
+1. Cliquez sur le menu Démarrer dans la machine virtuelle, tapez sur **diskmgmt.msc** et appuyez sur **Entrée**. Le composant logiciel enfichable Gestion des disques s’ouvre.
+2. Le composant Gestion des disques identifie que votre nouveau disque n’est pas initialisé et affiche la fenêtre **Initialiser le disque**.
 3. Vérifiez que le nouveau disque est sélectionné, puis cliquez sur **OK** pour l’initialiser.
-4. Le nouveau disque s’affiche comme **non alloué**. Cliquez avec le bouton droit n’importe où sur le disque, puis sélectionnez **Nouveau volume simple**. L’**Assistant Création d’un volume simple** démarre.
+4. Le nouveau disque apparaît comme **non alloué**. Cliquez avec le bouton droit n’importe où sur le disque, puis sélectionnez **Nouveau volume simple**. **L’Assistant Nouveau volume simple** s’ouvre.
 5. Exécutez l’Assistant en conservant tous les paramètres par défaut. Lorsque vous avez terminé, sélectionnez **Terminer**.
 6. Fermez Gestion des disques.
 7. Une fenêtre contextuelle s’affiche et vous permet de formater le nouveau disque pour que vous puissiez l’utiliser. Cliquez sur **Formater le disque**.
@@ -80,5 +80,5 @@ defrag.exe <volume:> -l
 
 Pour vous assurer que les blocs de données inutilisés sont bien effacés sur tout le volume, vous pouvez également le formater.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

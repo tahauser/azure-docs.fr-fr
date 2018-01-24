@@ -15,37 +15,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
-Découvrez comment activer et désactiver la protection contre les attaques par déni de service distribué (DDoS) et utiliser la télémétrie pour atténuer une attaque DDoS grâce au service Protection DDos Standard Azure. Le service Protection DDos Standard Azure protège les ressources Azure, telles que les machines virtuelles, les équilibreurs de charge et les passerelles d’application auxquels une [adresse IP publique](virtual-network-public-ip-address.md) a été affectée. Pour en savoir plus sur le service Protection DDos Standard et de ses fonctionnalités, consultez [Vue d’ensemble du service Protection DDos Standard Azure](ddos-protection-overview.md). 
+Découvrez comment activer et désactiver la protection contre les attaques par déni de service distribué (DDoS), et utiliser la télémétrie pour atténuer ce type d’attaque, grâce au service Protection DDos Standard Azure. Ce service protège les ressources Azure, telles que les machines virtuelles, les équilibreurs de charge et les passerelles d’application auxquels une [adresse IP publique](virtual-network-public-ip-address.md) a été affectée. Pour en savoir plus sur le service Protection DDos Standard et ses fonctionnalités, voir [Vue d’ensemble du service Protection DDos Standard Azure](ddos-protection-overview.md). 
 
 >[!IMPORTANT]
->Le service Protection DDos Standard Azure (Protection DDos) est disponible en préversion. Un nombre limité de ressources Azure prend en charge le service Protection DDos, et ce dans un nombre limité de régions. Pour obtenir la liste des régions disponibles, consultez [Vue d’ensemble du service Protection DDos Standard](ddos-protection-overview.md). Vous devez [vous inscrire au service](http://aka.ms/ddosprotection) pendant la préversion limitée afin que le service Protection DDos soit activé pour votre abonnement. L’équipe Azure DDoS vous contacte après l’inscription pour vous guider tout au long du processus d’activation. 
+>Le service Protection DDos Standard Azure (Protection DDos) est disponible en préversion. Un nombre limité de ressources Azure prend en charge le service Protection DDos et ce, dans un nombre limité de régions. Pour obtenir la liste des régions disponibles, voir [Vue d’ensemble du service Protection DDos Standard](ddos-protection-overview.md). Vous devez [vous inscrire au service](http://aka.ms/ddosprotection) pendant la préversion limitée afin que le service Protection DDos soit activé pour votre abonnement. L’équipe Azure DDoS vous contacte après l’inscription, pour vous guider tout au long du processus d’activation. 
 
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Activer le service Protection DDos Standard : nouveau réseau virtuel
 
 1. Connectez-vous au Portail Azure à l’adresse http://portal.azure.com. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-2. Cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail Azure.
+2. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 3. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
-4. Créer un réseau virtuel avec les paramètres choisis. Pour en savoir plus sur la création de réseaux virtuels, consultez la rubrique [Créer un réseau virtuel](virtual-networks-create-vnet-arm-pportal.md). Sous *Protection DDoS*, cliquez sur **Activé**, puis cliquez sur **Créer**.
+4. Créer un réseau virtuel avec les paramètres choisis. Pour en savoir plus sur la création de réseaux virtuels, consultez la rubrique [Créer un réseau virtuel](virtual-networks-create-vnet-arm-pportal.md). Sous **Protection DDoS**, cliquez sur **Activé**, puis cliquez sur **Créer**. Si vous ne voyez pas **Protection DDoS**, la cause probable en est que votre abonnement n’est pas inscrit pour la fonctionnalité. Vous devez effectuer [l’inscription](http://aka.ms/ddosprotection) et recevoir une notification que votre abonnement a été activé pour la fonctionnalité avant que **Protection DDoS** apparaisse.
 
     ![Création d’un réseau virtuel](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Lorsque vous sélectionnez une région, choisissez une région prise en charge dans la liste dans [Vue d’ensemble du service Protection DDos Standard Azure](ddos-protection-overview.md).
+    > Lorsque vous sélectionnez une région, choisissez-en une qui soit prise en charge dans la liste de la section [Vue d’ensemble du service Protection DDos Standard Azure](ddos-protection-overview.md). Si vous ne sélectionnez pas une région prise en charge, la création du réseau virtuel échoue.
 
     Un avertissement indique que l’activation du service Protection DDos entraîne des frais. Aucun frais lié au service Protection DDos n’est facturé pendant la préversion. Des frais s’appliquent au moment de la disponibilité générale. Les clients sont avertis 30 jours à l’avance de l’application de frais et de la disponibilité générale.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>Activer le service Protection DDos Standard - Réseau virtuel existant 
 
 1. Cliquez sur **Réseaux virtuels** dans le menu du portail Azure, puis sélectionnez votre réseau virtuel.
-2. Cliquez sur **Protection DDoS**, cliquez sur **Activé** dans l’écran *Protection DDoS*, puis cliquez sur **Enregistrer**. 
+2. Cliquez sur **Protection DDoS**, cliquez sur **Activé** dans l’écran *Protection DDoS*, puis cliquez sur **Enregistrer**. Si vous ne voyez pas **Protection DDoS**, la cause probable en est que votre abonnement n’est pas inscrit pour la fonctionnalité. Vous devez effectuer [l’inscription](http://aka.ms/ddosprotection) et recevoir une notification que votre abonnement a été activé pour la fonctionnalité avant que **Protection DDoS** apparaisse. 
 
     > [!WARNING]
     > Le réseau virtuel doit exister dans une région prise en charge. Pour obtenir la liste des régions prises en charge, voir [Vue d’ensemble du service Protection DDos Standard Azure](ddos-protection-overview.md).
@@ -99,7 +99,7 @@ Les noms des métriques présentent différents types de paquets et les octets/p
 - **Nom de balise des paquets transférés (par exemple, Paquets entrants transférés DDoS) :** nombre de paquets transférés par le système DDoS vers l’adresse IP virtuelle de destination (trafic qui n’a pas été filtré).
 - **Nom de balise du nombre de paquets (par exemple, Paquets entrants DDoS) :** nombre total de paquets ayant atteint le système de nettoyage, représentant la somme des paquets supprimés et transférés.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [En savoir plus sur les journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Analyser les journaux du stockage Azure avec Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

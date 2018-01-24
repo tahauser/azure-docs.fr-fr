@@ -1,30 +1,30 @@
 ---
-title: "Référence technique de Azure Active Directory Conditional Access | Microsoft Docs"
-description: "Découvrez comment utiliser le contrôle de l’accès conditionnel dans Azure Active Directory. Spécifiez les conditions d’authentification des utilisateurs et du contrôle d’accès à votre application. Lorsque les conditions spécifiées sont satisfaites, les utilisateurs sont authentifiés et peuvent accéder à votre application."
+title: "Référence des paramètres d’accès conditionnel Azure Active Directory | Microsoft Docs"
+description: "Découvrez les paramètres pris en charge dans une stratégie d’accès conditionnel Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/23/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Référence technique de Azure Active Directory Conditional Access
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
-Vous pouvez utiliser [l’accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) pour préciser les méthodes d’accès des utilisateurs autorisés aux ressources.   
+Vous pouvez utiliser [l’accès conditionnel Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) pour contrôler les méthodes d’accès des utilisateurs autorisés aux ressources.   
 
-Cet article fournit des informations de support sur les options de configuration suivantes pour une stratégie d’accès conditionnel : 
+Cet article fournit des informations de prise en charge sur les options de configuration suivantes dans une stratégie d’accès conditionnel : 
 
 - Affectations des applications cloud
 
@@ -35,6 +35,7 @@ Cet article fournit des informations de support sur les options de configuration
 - Exigence d’une application cliente approuvée
 
 
+Si ce n’est pas les informations que vous recherchez, laissez un commentaire à la fin de cet article.
 
 ## <a name="cloud-apps-assignments"></a>Affectations des applications cloud
 
@@ -57,7 +58,7 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (y compris OneDrive Entreprise)
+- Microsoft Office 365 SharePoint Online (notamment OneDrive Entreprise et Project Online)
 
 - Microsoft Power BI 
 
@@ -211,7 +212,7 @@ Ce paramètre s’applique aux applications clientes suivantes :
     - elle remplace l’option **Applications mobiles et clients de bureau** pour la [condition d’applications clientes](#supported-mobile-apps-and-desktop-clients) lorsque cette option est sélectionnée.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Vous trouverez une vue d’ensemble de l’accès conditionnel sur la page [Accès conditionnel Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel dans votre environnement, consultez les [Pratiques recommandées d’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-best-practices.md).

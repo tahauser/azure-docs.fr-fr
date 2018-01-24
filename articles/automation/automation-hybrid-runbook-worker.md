@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d33ce1b4f00e8186ad894d54901e3bc09d263fa4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0fcf7485d64d2e947be1730d168ed0a645a50714
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatiser des ressources dans votre centre de données ou votre cloud à l’aide d’un Runbook Worker hybride
 Dans Azure Automation, les Runbooks ne peuvent pas accéder aux ressources d’autres clouds ou dans votre environnement local car ils s'exécutent dans le cloud Azure.  La fonctionnalité de Runbook Worker hybride d’Azure Automation vous permet d’exécuter des Runbooks directement sur l’ordinateur qui héberge le rôle et par rapport aux ressources de l’environnement afin de gérer ces ressources locales. Les Runbooks sont stockés et gérés dans Azure Automation, puis remis à un ou plusieurs ordinateurs désignés.  
@@ -169,5 +169,5 @@ Le Runbook Worker hybride dépend de l’agent Microsoft Monitoring Agent pour c
 
 Les journaux sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur écrits dans les journaux des évènements **Application et journal des services\Microsoft SMA\gestionnaire des opérations** et **Application et journal des services\gestionnaire des opérations** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème lors de l’exécution d’opérations normales.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez [exécuter des runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md) pour apprendre comment configurer vos runbooks afin d’automatiser les processus dans votre centre de données local ou un autre environnement cloud.

@@ -1,93 +1,92 @@
 
-## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL) afin d’obtenir un jeton pour l’API Microsoft Graph
+## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser MSAL pour obtenir un jeton pour l’API Microsoft Graph
 
-Cette section montre comment utiliser MSAL afin d’obtenir un jeton pour l’API Graph de Microsoft.
+Dans cette section, vous allez utiliser MSAL pour obtenir un jeton pour l’API Microsoft Graph.
 
-1.  Dans `MainWindow.xaml.cs`, ajoutez la référence de la bibliothèque de MSAL à la classe :
+1.  Dans le fichier *MainWindow.xaml.cs*, ajoutez la référence de MSAL à la classe :
 
-```csharp
-using Microsoft.Identity.Client;
-```
+    ```csharp
+    using Microsoft.Identity.Client;
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-Remplacez le code de classe <code>MainWindow</code> par :
-</li>
-</ol>
 
-```csharp
-public partial class MainWindow : Window
-{
-    //Set the API Endpoint to Graph 'me' endpoint
-    string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+2. Remplacez le code de classe `MainWindow` par le suivant :
 
-    //Set the scope for API call to user.read
-    string[] _scopes = new string[] { "user.read" };
-
-
-    public MainWindow()
+    ```csharp
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
-    }
+        //Set the API Endpoint to Graph 'me' endpoint
+        string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-    /// <summary>
-    /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
-    /// </summary>
-    private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
-    {
-        AuthenticationResult authResult = null;
+        //Set the scope for API call to user.read
+        string[] _scopes = new string[] { "user.read" };
 
-        try
+        public MainWindow()
         {
-            authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
+            InitializeComponent();
         }
-        catch (MsalUiRequiredException ex)
+
+        /// <summary>
+        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// </summary>
+        private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
-            // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
-            System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+            AuthenticationResult authResult = null;
 
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
             }
-            catch (MsalException msalex)
+            catch (MsalUiRequiredException ex)
             {
-                ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
-            }
-        }
-        catch (Exception ex)
-        {
-            ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
-            return;
-        }
+                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
+                System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
-        if (authResult != null)
-        {
-            ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
-            DisplayBasicTokenInfo(authResult);
-            this.SignOutButton.Visibility = Visibility.Visible;
+                try
+                {
+                    authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                }
+                catch (MsalException msalex)
+                {
+                    ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
+                }
+            }
+            catch (Exception ex)
+            {
+                ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
+                return;
+            }
+
+            if (authResult != null)
+            {
+                ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
+                DisplayBasicTokenInfo(authResult);
+                this.SignOutButton.Visibility = Visibility.Visible;
+            }
         }
     }
-}
-```
+    ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Informations complémentaires
-#### <a name="getting-a-user-token-interactive"></a>Obtention d’un jeton d’utilisateur de manière interactive
-L’appel de la méthode `AcquireTokenAsync` affiche une fenêtre invitant l’utilisateur à se connecter. En général, les applications obligent un utilisateur à se connecter de manière interactive la première fois qu’elles doivent accéder à une ressource protégée ou lorsqu’une opération silencieuse d’acquisition de jeton échoue (par exemple, en cas d’expiration du mot de passe de l’utilisateur).
+### <a name="more-information"></a>Plus d’informations
+#### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
+L’appel de la méthode `AcquireTokenAsync` affiche une fenêtre invitant les utilisateurs à se connecter. Les applications requièrent généralement que les utilisateurs se connectent de manière interactive la première fois qu’ils cherchent à accéder à une ressource protégée. Ils peuvent également avoir besoin de se connecter en cas d’échec d’une opération en mode silencieux pour obtenir un jeton (par exemple, quand un mot de passe utilisateur a expiré).
 
-#### <a name="getting-a-user-token-silently"></a>Obtention d’un jeton d’utilisateur en mode silencieux
-`AcquireTokenSilentAsync` gère les acquisitions et renouvellements de jeton sans aucune interaction utilisateur. Lorsque `AcquireTokenAsync` est exécuté pour la première fois, c’est en général la méthode `AcquireTokenSilentAsync` qui est utilisée pour obtenir les jetons permettant d’accéder aux ressources protégées pour les appels suivants, ainsi que pour les demandes ou renouvellements de jetons en mode silencieux.
-Au final, `AcquireTokenSilentAsync` échoue : par exemple, l’utilisateur s’est déconnecté ou a modifié son mot de passe sur un autre appareil. Lorsque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
+#### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
+La méthode `AcquireTokenSilentAsync` gère les acquisitions et renouvellements de jetons sans aucune interaction de l’utilisateur. Quand `AcquireTokenAsync` est exécuté pour la première fois, la méthode `AcquireTokenSilentAsync` est généralement celle à utiliser pour obtenir les jetons permettant d’accéder aux ressources protégées pour les appels suivants, étant donné que les appels pour les demandes ou renouvellements de jetons se font en mode silencieux.
 
-1.  En adressant immédiatement un appel à `AcquireTokenAsync`, suite à quoi l’utilisateur est invité à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion dans l’application n’est disponible pour l’utilisateur. L’exemple généré par cette installation utilise cette solution : vous pouvez le voir en action lors de la première exécution de l’exemple : comme aucun utilisateur n’a jamais utilisé l’application, `PublicClientApp.Users.FirstOrDefault()` contient une valeur null et une exception `MsalUiRequiredException` est émise. Le code de l’exemple gère ensuite cette exception en appelant `AcquireTokenAsync`, suite à quoi l’utilisateur est invité à se connecter.
+La méthode `AcquireTokenSilentAsync` peut échouer. Cet échec peut être dû à une déconnexion de l’utilisateur ou à la modification de son mot de passe sur un autre appareil. Quand la bibliothèque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
 
-2.  Les applications peuvent également indiquer à l’utilisateur qu’une connexion en mode interactif est nécessaire, afin qu’il puisse choisir le bon moment pour se connecter ou qu’elle puisse réexécuter `AcquireTokenSilentAsync` ultérieurement. Cette solution est généralement retenue lorsque l’utilisateur peut utiliser d’autres fonctionnalités de l’application sans être perturbé, notamment lorsque du contenu hors connexion est disponible dans l’application. Dans ce cas, l’utilisateur peut décider quand il souhaite se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes. Ou bien, votre application peut décider de réexécuter `AcquireTokenSilentAsync` après une indisponibilité temporaire du réseau.
+* Elle peut appeler immédiatement `AcquireTokenAsync`. Cet appel invite l’utilisateur à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple généré par cette installation guidée utilise ce modèle, que vous pouvez voir en action la première fois que vous exécutez l’exemple. 
+    * Aucun utilisateur n’ayant encore utilisé l’application, `PublicClientApp.Users.FirstOrDefault()` contient une valeur null, et une exception `MsalUiRequiredException` est levée. 
+    * Le code de l’exemple gère ensuite cette exception en appelant `AcquireTokenAsync`, après quoi l’utilisateur est invité à se connecter.
+
+* Il peut également afficher à la place une indication visuelle informant les utilisateurs qu’une connexion interactive est nécessaire, pour permettre à ces derniers de sélectionner le bon moment pour se connecter. L’application peut également effectuer une nouvelle tentative de `AcquireTokenSilentAsync` ultérieurement. Ce modèle est souvent utilisé quand les utilisateurs peuvent utiliser d’autres fonctionnalités de l’application sans interruption, par exemple, quand le contenu hors connexion est disponible dans l’application. Dans ce cas, les utilisateurs peuvent décider de se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes. L’application peut également décider d’effectuer une nouvelle tentative de `AcquireTokenSilentAsync` une fois le réseau rétabli après une indisponibilité temporaire.
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Appeler l’API Graph de Microsoft à l’aide du jeton que vous venez d’obtenir
+## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Appeler l’API Microsoft Graph à l’aide du jeton que vous venez d’obtenir
 
-1. Ajoutez la nouvelle méthode ci-dessous à votre `MainWindow.xaml.cs`. Cette méthode permet d’envoyer une demande `GET` à l’API Graph à l’aide d’un en-tête d’autorisation :
+Ajoutez la nouvelle méthode suivante à votre fichier `MainWindow.xaml.cs`. Cette méthode permet d’envoyer une demande `GET` à l’API Graph à l’aide d’un en-tête d’autorisation :
 
 ```csharp
 /// <summary>
@@ -116,14 +115,14 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Plus d’informations sur l’envoi d’un appel REST à une API protégée
+### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Informations supplémentaires sur l’envoi d’un appel REST à une API protégée
 
-Dans cet exemple d’application, la méthode `GetHttpContentWithToken` est utilisée pour envoyer une demande HTTP `GET` à une ressource protégée qui requiert un jeton, puis pour renvoyer le contenu à l’appelant. Cette méthode ajoute le jeton acquis dans l’*en-tête d’autorisation HTTP*. Dans cet exemple, la ressource est le point de terminaison *me* de l’API Graph de Microsoft, qui affiche les informations du profil de l’utilisateur.
+Dans cet exemple d’application, vous utiliserez la méthode `GetHttpContentWithToken` pour envoyer une requête HTTP `GET` à une ressource protégée qui requiert un jeton, puis pour retourner le contenu à l’appelant. Cette méthode ajoute le jeton acquis à l’en-tête d’autorisation HTTP. Dans cet exemple, la ressource est le point de terminaison *me* de l’API Microsoft Graph, qui affiche les informations de profil de l’utilisateur.
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Ajouter une méthode pour déconnecter l’utilisateur
+## <a name="add-a-method-to-sign-out-a-user"></a>Ajouter une méthode pour déconnecter un utilisateur
 
-1. Ajoutez la méthode suivante à votre `MainWindow.xaml.cs` pour déconnecter l’utilisateur :
+Pour déconnecter un utilisateur, ajoutez la méthode suivante à votre fichier `MainWindow.xaml.cs` :
 
 ```csharp
 /// <summary>
@@ -148,15 +147,16 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 <!--start-collapse-->
-### <a name="more-info-on-sign-out"></a>Plus d’informations sur la déconnexion
+### <a name="more-information-about-user-sign-out"></a>Plus d'informations sur la déconnexion d’utilisateurs
 
-`SignOutButton_Click` supprime l’utilisateur du cache utilisateur de MSAL. Cette opération permet à MSAL d’oublier l’utilisateur actuel, afin que la demande suivante d’acquisition d’un jeton n’aboutisse que si elle est effectuée en mode interactif.
-Bien que l’application dans cet exemple ne prenne en charge qu’un seul utilisateur, MSAL autorise les scénarios où plusieurs comptes peuvent être connectés en même temps. C’est notamment le cas dans une application de messagerie, où un utilisateur possède plusieurs comptes.
+La méthode `SignOutButton_Click` supprime l’utilisateur du cache utilisateur de MSAL en ordonnant à MSAL d’oublier l’utilisateur actuel pour que la demande suivante d’acquisition de jeton n’aboutisse que si elle est effectuée de manière interactive.
+
+Bien que l’application de cet exemple ne prenne en charge qu’un seul utilisateur, MSAL autorise les scénarios où plusieurs comptes peuvent être connectés en même temps. C’est le cas, par exemple, d’une application de messagerie hébergeant plusieurs comptes d’un même utilisateur.
 <!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>Afficher les informations de base du jeton
 
-1. Ajoutez la méthode suivante à votre `MainWindow.xaml.cs` pour afficher les informations de base du jeton :
+Pour afficher les informations de base du jeton, ajoutez la méthode suivante à votre fichier *MainWindow.xaml.cs* :
 
 ```csharp
 /// <summary>
@@ -175,8 +175,8 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 }
 ```
 <!--start-collapse-->
-### <a name="more-information"></a>Informations complémentaires
+### <a name="more-information"></a>Plus d’informations
 
-Les jetons acquis via *OpenID Connect* contiennent également un petit sous-ensemble d’informations qui sont pertinentes pour l’utilisateur. `DisplayBasicTokenInfo` affiche les informations de base du jeton : par exemple, le nom affiché et l’ID de l’utilisateur, ainsi que la date d’expiration du jeton et la chaîne qui représente le jeton d’accès lui-même. Ces informations sont affichées. Vous pouvez cliquer sur le bouton *Call Microsoft Graph API (Appeler l’API Graph de Microsoft)* plusieurs fois et voir que le même jeton a été réutilisé pour les demandes suivantes. Vous constatez également que la date d’expiration est différée lorsque MSAL détermine qu’il est temps de renouveler le jeton.
+Outre le jeton d’accès qui est utilisé pour appeler l’API Microsoft Graph, MSAL obtient également un jeton d’ID une fois l’utilisateur connecté. Ce jeton contient un petit sous-ensemble d’informations pertinentes pour les utilisateurs. La méthode `DisplayBasicTokenInfo` affiche les informations de base du jeton. Par exemple, le nom affiché et l’ID de l’utilisateur, ainsi que la date d’expiration du jeton et la chaîne qui représente le jeton d’accès lui-même. Si vous cliquez plusieurs fois sur le bouton *Call Microsoft Graph API* (Appeler l’API Microsoft Graph), vous observerez que le même jeton a été réutilisé pour les demandes suivantes. Vous constatez également que la date d’expiration est différée lorsque MSAL détermine qu’il est temps de renouveler le jeton.
 <!--end-collapse-->
 

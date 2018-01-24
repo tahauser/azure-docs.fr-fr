@@ -2,18 +2,19 @@
 title: "Analyse d’une collection de documents - Azure | Microsoft Docs"
 description: "Décrit comment effectuer la synthèse et l’analyse d’une grande collection de documents, en utilisant des techniques telles que l’apprentissage des expressions, la modélisation des thèmes et l’analyse du modèle thématique à l’aide d’Azure ML Workbench."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>Analyse d’une collection de documents
 
@@ -25,7 +26,7 @@ Le dépôt GitHub public correspondant à ce scénario réel contient tous les s
 
 [https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La quantité de données collectées quotidiennement est énorme (en particulier, les données texte non structurées). L’organisation, la recherche et l’analyse de grandes collections de documents sont aujourd’hui un enjeu majeur pour les entreprises. Ce scénario d’analyse d’une collection de documents illustre un workflow de bout en bout performant et automatisé pour analyser une grande collection de documents et effectuer des tâches NLP en aval.
 
@@ -53,7 +54,7 @@ Ce scénario utilise les techniques et algorithmes d’apprentissage automatique
 
 1. Détection d’anomalie et des tendances thématiques
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Cet exemple nécessite les prérequis suivants :
 
@@ -82,17 +83,17 @@ Dans ce scénario, les données brutes collectées concernent une série d’act
 
 Le fichier de données contient neuf champs de données, répertoriés et décrits dans le tableau ci-dessous.
 
-| Nom du champ | Type | Description | Contient une valeur manquante |
+| Nom du champ | type | DESCRIPTION | Contient une valeur manquante |
 |------------|------|-------------|---------------|
-| `ID` | String | ID de la loi ou résolution. Format de ce champ : [type_loi][numéro]-[congrès]. Par exemple, dans « hconres1-93 », le type de loi est « hconres » (pour House Concurrent Resolution, comme indiqué dans [ce document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), le numéro de loi est « 1 » et le numéro de congrès est « 93 ». | Non |
-| `Text` | String | Texte de la loi ou résolution. | Non |
-| `Date` | String | Date à laquelle la loi ou résolution a été initialement proposée. Format : « aaaa-mm-jj ». | Non |
-| `SponsorName` | String | Nom du promoteur principal ayant proposé la loi ou résolution. | Oui |
-| `Type` | String | Titre du promoteur principal : « rep » (représentant) ou « sen » (sénateur). | Oui |
-| `State` | String | État du promoteur principal. | Oui |
-| `District` | Entier  | Numéro du district du promoteur principal si le promoteur a le titre de représentant. | Oui |
-| `Party` | String | Parti du promoteur principal. | Oui |
-| `Subjects` | String | Termes des sujets de la loi successivement ajoutés dans la Bibliothèque du Congrès. Les termes sont séparés par des virgules. Ces termes sont ajoutés manuellement dans la Bibliothèque du Congrès. Ils ne figurent généralement pas dans les informations sur la loi initialement publiées. Ils peuvent être ajoutés à tout moment. Ils peuvent aussi ne plus être pertinents à un moment du cycle de vie de la loi. | Oui |
+| `ID` | Chaîne | ID de la loi ou résolution. Format de ce champ : [type_loi][numéro]-[congrès]. Par exemple, dans « hconres1-93 », le type de loi est « hconres » (pour House Concurrent Resolution, comme indiqué dans [ce document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), le numéro de loi est « 1 » et le numéro de congrès est « 93 ». | Non  |
+| `Text` | Chaîne | Texte de la loi ou résolution. | Non  |
+| `Date` | Chaîne | Date à laquelle la loi ou résolution a été initialement proposée. Format : « aaaa-mm-jj ». | Non  |
+| `SponsorName` | Chaîne | Nom du promoteur principal ayant proposé la loi ou résolution. | OUI |
+| `Type` | Chaîne | Titre du promoteur principal : « rep » (représentant) ou « sen » (sénateur). | OUI |
+| `State` | Chaîne | État du promoteur principal. | OUI |
+| `District` | Entier  | Numéro du district du promoteur principal si le promoteur a le titre de représentant. | OUI |
+| `Party` | Chaîne | Parti du promoteur principal. | OUI |
+| `Subjects` | Chaîne | Termes des sujets de la loi successivement ajoutés dans la Bibliothèque du Congrès. Les termes sont séparés par des virgules. Ces termes sont ajoutés manuellement dans la Bibliothèque du Congrès. Ils ne figurent généralement pas dans les informations sur la loi initialement publiées. Ils peuvent être ajoutés à tout moment. Ils peuvent aussi ne plus être pertinents à un moment du cycle de vie de la loi. | OUI |
 
 ## <a name="scenario-structure"></a>Structure du scénario
 
@@ -100,7 +101,7 @@ L’exemple d’analyse de collection de documents est structuré en deux types 
 
 Les fichiers utilisés dans cet exemple sont structurés comme suit.
 
-| Nom de fichier | Type | Description |
+| Nom de fichier | type | DESCRIPTION |
 |-----------|------|-------------|
 | `aml_config` | Dossier | Dossier de configuration d’Azure Machine Learning Workbench (consultez [cette documentation](./experimentation-service-configuration-reference.md) pour plus de détails sur la configuration de l’exécution de l’expérimentation) |
 | `Code` | Dossier | Dossier de code utilisé pour enregistrer les scripts Python et le package Python |
@@ -122,7 +123,7 @@ Les fichiers utilisés dans cet exemple sont structurés comme suit.
 | `notebooks/5_Topic_Model_Analysis.ipynb` | Notebook iPython | Utilisé pour analyser le contenu thématique d’une collection de documents texte et mettre en corrélation les informations thématiques avec d’autres métadonnées associées à cette collection |
 | `notebooks/6_Interactive_Visualization.ipynb` | Notebook iPython | Visualisation interactive du modèle de rubriques apprises |
 | `notebooks/winprocess.py` | Fichier Python | Script Python utilisé par les notebooks pour le traitement multiprocesseur |
-| `README.md` | Fichier Markdown | Fichier Markdown LISEZMOI |
+| `README.md` | Fichier Markdown | Fichier Markdown LISEZ-MOI |
 
 ### <a name="data-ingestion-and-transformation"></a>Ingestion et transformation des données
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 708b35252429e30b44226030d3d83b928f2a9520
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c2164d36c234309dcd855247cd1c1067de36284c
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud dans le portail
 
@@ -39,6 +39,8 @@ Vous devez tenir compte des informations suivantes avant de configurer la mise �
 * Vous pouvez également mettre à l’échelle d’autres ressources associées à votre abonnement.
 
 * Pour activer la fonction de haute disponibilité de votre application, vous devez vous assurer qu’elle est déployée avec plusieurs instances de rôle. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
+
+* La mise à l’échelle automatique se produit uniquement lorsque tous les rôles sont dans un état **Prêt**.  
 
 
 ## <a name="where-scale-is-located"></a>Emplacement de la mise à l’échelle

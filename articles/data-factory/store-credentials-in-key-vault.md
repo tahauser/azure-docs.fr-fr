@@ -10,22 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
-Vous pouvez stocker les informations d’identification des magasins de données dans un coffre de clés [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory récupère les informations d’identification lors de l’exécution d’une activité qui utilise le magasin de données. Seuls le [connecteur Dynamics](connector-dynamics-crm-office-365.md) et le [connecteur Salesforce](connector-salesforce.md) prennent en charge cette fonctionnalité.
+Vous pouvez stocker les informations d’identification des magasins de données dans un coffre de clés [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory récupère les informations d’identification lors de l’exécution d’une activité qui utilise le magasin de données.
+
+Actuellement, le [connecteur Dynamics](connector-dynamics-crm-office-365.md), le [connecteur Salesforce](connector-salesforce.md) et quelques nouveaux connecteurs prennent en charge cette fonctionnalité. D’autres sont à prévoir. Vous pouvez consulter la rubrique de chaque connecteur pour plus d’informations. Une note s’affichera dans la description des champs de mot de passe qui prennent en charge cette fonctionnalité : « *Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page Stocker des informations d’identification dans Key Vault.* »
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Cette fonctionnalité repose sur l’identité de service de la fabrique de données. Découvrez comment cela fonctionne dans [Identité du service de fabrique de données](data-factory-service-identity.md) et vérifiez que votre fabrique de données est bien associée à une identité de service.
 
@@ -42,12 +44,12 @@ Pour référencer des informations d’identification stockées dans Azure Key V
 
 Les propriétés suivantes sont prises en charge pour le service lié Azure Key Vault :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur **AzureKeyVault**. | Oui |
-| baseUrl | Spécifiez l’URL d’Azure Key Vault. | Oui |
+| Type | La propriété de type doit être définie sur **AzureKeyVault**. | OUI |
+| baseUrl | Spécifiez l’URL d’Azure Key Vault. | OUI |
 
-**Exemple :**
+**Exemple :**
 
 ```json
 {
@@ -65,12 +67,12 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Key 
 
 Les propriétés suivantes sont prises en charge lorsque vous configurez un champ dans le service lié qui référence un secret de coffre de clés :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type du champ doit être définie sur **AzureKeyVaultSecret**. | Oui |
-| secretName | Nom du secret dans le coffre de clés Azure. | Oui |
-| secretVersion | Version du secret dans le coffre de clés Azure.<br/>Si elle n’est pas spécifiée, la version la plus récente du secret est utilisée.<br/>Si elle est spécifiée, elle utilise la version spécifiée.| Non |
-| store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | Oui |
+| Type | La propriété de type du champ doit être définie sur **AzureKeyVaultSecret**. | OUI |
+| secretName | Nom du secret dans le coffre de clés Azure. | OUI |
+| secretVersion | Version du secret dans le coffre de clés Azure.<br/>Si elle n’est pas spécifiée, la version la plus récente du secret est utilisée.<br/>Si elle est spécifiée, elle utilise la version spécifiée.| Non  |
+| store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | OUI |
 
 **Exemple : (voir la section « password »)**
 
@@ -97,5 +99,5 @@ Les propriétés suivantes sont prises en charge lorsque vous configurez un cham
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

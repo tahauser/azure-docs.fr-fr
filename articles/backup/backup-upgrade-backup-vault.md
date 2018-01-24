@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Coffre de sauvegarde mis à niveau vers un coffre Recovery Services
 Cet article fournit une vue d’ensemble des prestations du coffre Recovery Services, répond aux questions fréquentes sur la mise à niveau d’un coffre de sauvegarde existant vers un coffre Recovery Services et indique les étapes postérieures à la mise à niveau. Un coffre Recovery Services est l’équivalent Azure Resource Manager d’un coffre de sauvegarde qui héberge vos données de sauvegarde. Les données sont généralement des copies de données ou des informations de configuration pour des machines virtuelles, des charges de travail, des stations de travail ou des serveurs locaux ou dans Azure.
@@ -65,13 +65,13 @@ Quand un coffre de sauvegarde est mis à niveau vers un coffre Recovery Services
 ## <a name="gather-data-on-your-vault"></a>Collecter des données sur votre coffre
 Une fois que vous avez effectué la mise à niveau vers un coffre Recovery Services, configurez des rapports pour la sauvegarde Azure (pour les machines virtuelles IaaS et l’agent Microsoft Azure Recovery Services) et utilisez Power BI pour accéder aux rapports. Pour plus d’informations sur la collecte de données, consultez l’article [Configurer les rapports de la Sauvegarde Azure](backup-azure-configure-reports.md).
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Le plan de mise à niveau affecte-t-il mes sauvegardes en cours ?**</br>
 Non. Vos sauvegardes en cours se poursuivent sans interruption pendant et après la mise à niveau.
 
 **Quelles sont les implications de cette migration pour mes outils existants ?**</br>
-Vous devez mettre à jour votre automatisation ou vos outils existants vers le modèle de déploiement Resource Manager pour vous assurer qu’ils continueront à fonctionner après la mise à niveau. Consultez les références d’applets de commande PowerShell pour le [modèle de déploiement Service Manager](backup-client-automation-classic.md) et le [modèle de déploiement Resource Manager](backup-client-automation.md).
+Vous devez mettre à jour votre automatisation ou vos outils existants vers le modèle de déploiement Resource Manager pour vous assurer qu’ils continueront à fonctionner après la mise à niveau. Consultez les références de cmdlets PowerShell pour le [Modèle de déploiement Resource Manager](backup-client-automation.md).
 
 **Puis-je restaurer après la mise à niveau ?**</br>
 Non. La restauration n’est pas prise en charge une fois la mise à niveau des ressources opérée avec succès.
@@ -99,7 +99,7 @@ La surveillance des sauvegardes (agent MARS et IaaS) est une nouvelle fonctionna
 **Comment signaler un problème ?**</br>
 Si une partie de la mise à niveau du coffre échoue, notez l’OperationId mentionné dans l’erreur. Le Support technique de Microsoft travaillera de manière proactive pour résoudre le problème. Vous pouvez contacter le Support ou nous envoyer un e-mail à l’adresse rsvaultupgrade@service.microsoft.com avec votre ID d’abonnement, le nom du coffre et l’OperationId. Nous tenterons de résoudre le problème le plus rapidement possible. Ne retentez l’opération que sauf si vous y êtes explicitement invité par Microsoft.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants pour :</br>
 [Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)</br>

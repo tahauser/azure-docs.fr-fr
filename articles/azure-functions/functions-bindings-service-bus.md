@@ -7,7 +7,7 @@ author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -36,14 +36,14 @@ Utilisez le déclencheur Service Bus pour répondre aux messages provenant d'une
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#trigger---c-example)
-* [Script C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui consigne un message de la file d’attente Service Bus.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui consigne un message de la file d’attente Service Bus.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur Service Bus :
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur de Service Bus :
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -173,7 +173,7 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   }
   ```
 
-  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
+  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -205,7 +205,7 @@ Le compte Service Bus à utiliser est déterminé dans l’ordre suivant :
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `ServiceBusTrigger`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur « serviceBusTrigger ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Doit être défini sur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -250,14 +250,14 @@ Utilisez la liaison de sortie Azure Service Bus pour envoyer des messages de fil
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#output---c-example)
-* [Script C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui envoie un message de file d’attente Service Bus :
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui envoie un message de la file d’attente Service Bus :
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Sortie - attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Le constructeur de l’attribut prend le nom de la file d’attente ou la rubrique et l’abonnement. Vous pouvez également spécifier les droits d’accès de la connexion. La détermination du paramètre des droits d’accès est expliquée dans la section [Sortie - configuration](#output---configuration). Voici un exemple qui illustre l’attribut appliqué à la valeur de retour de la fonction :
 
@@ -435,15 +435,15 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
 
-Vous pouvez utiliser l’attribut `ServiceBusAccount` pour spécifier le compte Service Bus à utiliser au niveau de la classe, de la méthode ou du paramètre.  Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attributes-for-precompiled-c).
+Vous pouvez utiliser l’attribut `ServiceBusAccount` pour spécifier le compte Service Bus à utiliser au niveau de la classe, de la méthode ou du paramètre.  Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `ServiceBus`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur « serviceBus ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Doit être défini sur « out ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -469,7 +469,7 @@ Pour créer plusieurs messages dans une fonction C# ou Script C#, vous pouvez u
 
 Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `context.bindings.<name>`. `<name>` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez affecter une chaîne, un tableau d’octets ou un objet Javascript (désérialisé dans JSON) à `context.binding.<name>`.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Alertes Métrique en temps quasi réel (préversion)
 Azure Monitor prend désormais en charge un nouveau type d’alertes Métrique appelées alertes Métrique en temps quasi réel (préversion). Cette fonctionnalité est actuellement disponible en préversion publique.
@@ -38,6 +38,7 @@ Ces alertes diffèrent des alertes Métrique régulières à plusieurs égards 
 Voici la liste complète des types de ressources pris en charge par les alertes Métrique en temps quasi réel :
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -51,48 +52,31 @@ Voici la liste complète des types de ressources pris en charge par les alertes 
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Alertes Métrique en temps quasi réel sur les métriques associées à des dimensions
+Les alertes Métrique en temps quasi réel prennent en charge la génération d’alertes sur les métriques associées à des dimensions. Les dimensions permettent de filtrer votre métrique au niveau approprié. Les alertes Métrique en temps quasi réel sur les métriques associées à des dimensions sont prises en charge pour les types de ressources suivants :
+
+* Microsoft.ApiManagement/service
+* Microsoft.Storage/storageAccounts (uniquement pour les comptes de stockage dans les régions des États-Unis)
+* Microsoft.Storage/storageAccounts/services (uniquement pour les comptes de stockage dans les régions des États-Unis)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Créer une alerte Métrique en temps quasi réel
 Actuellement, il n’est possible de créer des alertes Métrique en temps quasi réel que via le portail Azure. La configuration d’alertes Métrique en temps quasi réel via PowerShell, Azure CLI et l’API REST Azure Monitor sera bientôt prise en charge.
 
-1. Sur le [portail](https://portal.azure.com/), localisez la ressource que vous souhaitez surveiller et sélectionnez-la. Cette ressource doit être de l’un des types répertoriés dans la [section précédente](#what-resources-can-i-create-near-real-time-metric-alerts-for). Vous pouvez faire de même pour tous les types de ressources pris en charge de façon centralisée à partir de Moniteur > Alertes.
+L’expérience de création pour l’alerte Métrique en temps quasi réel a été déplacée vers la nouvelle expérience **Alerts (préversion)**. Même si la page actuelle des alertes comporte une option pour **ajouter une alerte Métrique en temps quasi réel**, vous êtes redirigé vers la nouvelle expérience.
 
-2. Sélectionnez **Alertes** ou **Règles d’alerte** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.
-   ![Surveillance](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. Cliquez sur la commande **Ajouter une alerte Métrique en temps quasi réel (préversion)** . Si la commande est grisée, assurez-vous que la ressource est sélectionnée dans le filtre.
-
-    ![Bouton Ajouter une alerte Métrique en temps quasi réel](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. **Nommez** votre règle d’alerte, puis choisissez une **Description** qui indique également les adresses électroniques de notification.
-5. Sélectionnez la **Métrique** à surveiller, puis choisissez une **Condition**, une **Agrégation du temps** et une valeur de **Seuil** pour la métrique. Sélectionnez éventuellement une autre **Métrique** à surveiller, puis choisissez une **Condition**, une **Agrégation du temps** et une valeur de **Seuil** valeur pour la deuxième métrique. 
-
-    ![Ajouter l’alerte Métrique en temps quasi réel1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png)![Ajouter l’alerte Métrique en temps quasi réel2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. Choisissez également la **Période** pendant laquelle les règles de métrique doivent être respectées avant que l’alerte se déclenche. Ainsi, par exemple, si vous utilisez la période « Au cours des 5 dernières minutes » et que votre alerte recherche une utilisation de l’UC supérieure à 80 % (et une valeur NetworkIn supérieure à 500 Mo), l’alerte se déclenche quand l’utilisation de l’UC dépasse 80 % pendant 5 minutes. Après le premier déclenchement, elle se déclenche à nouveau lorsque l’UC reste au-dessous de 80 % pendant cinq minutes. L’alerte est évaluée conformément à la **Fréquence d’évaluation**.
-
-
-6. Choisissez une **Gravité** appropriée dans la liste déroulante.
-
-7. Spécifiez si vous souhaitez utiliser un **Groupe d’actions** existant ou en créer un.
-
-8. Si vous choisissez de **créer** un groupe d’actions, attribuez-lui un nom et un nom court, spécifiez des actions (SMS, E-mail, Webhook) et complétez les détails requis.
-
-
-8. Quand vous avez terminé, sélectionnez **OK** pour créer l’alerte.   
-
-Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
+Vous pouvez créer une alerte Métrique en temps quasi réel à l’aide de la procédure décrite [ici](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Gestion des alertes Métrique en temps quasi réel
-Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
+Une fois que vous avez créé une **alerte Métrique en temps quasi réel**, vous pouvez la gérer en suivant la procédure décrite [ici](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-* Afficher un graphique indiquant le seuil de la métrique et les valeurs réelles du jour précédent.
-* La modifier ou la supprimer.
-* La **Désactiver** ou l’**Activer** si vous voulez arrêter temporairement ou reprendre l’envoi de notifications pour cette alerte.
+## <a name="next-steps"></a>étapes suivantes
 
-
-
+* [En savoir plus sur la nouvelle expérience Alerts (préversion)](monitoring-overview-unified-alerts.md)
+* [En savoir plus sur les alertes de journal dans Azure Alerts (préversion)](monitor-alerts-unified-log.md)
+* [En savoir plus sur les alertes dans Azure](monitoring-overview-alerts.md)

@@ -5,30 +5,30 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matrice de prise en charge pour cette version 
 Quand votre code charge des données à l’aide de Sources de données Azure Machine Learning ou obtient un cadre de données Pandas ou Spark avec les Préparations des données Azure Machine Learning, les combinaisons suivantes d’emplacements de données et d’environnements de calcul d’expérimentation sont prises en charge :
 
 |     |Fichiers locaux  |Stockage d'objets blob Azure  |Base de données SQL Server***  |
 |---------|---------|---------|---------|---------|
-|Python local ;    |     Pris en charge    |Non pris en charge         | Non pris en charge        |         |
+|Python local ;    |     Prise en charge    |Non pris en charge         | Non pris en charge        |         |
 |Python Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*         | Non pris en charge        |        Non pris en charge |         |
-|PySpark Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*     |Pris en charge         | Pris en charge**        |         |
+|PySpark Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*     |Prise en charge         | Pris en charge**        |         |
 |Azure Data Science Virtual Machine Python     |Pris en charge dans les fichiers projet uniquement*         |Non pris en charge         |Non pris en charge         |         |
 |Azure Data Science Virtual Machine PySPark     | Pris en charge dans les fichiers projet uniquement*        |Non pris en charge         |Non pris en charge         |         |
-|Azure HDInsight PySpark     | Non pris en charge        |Pris en charge         |Pris en charge**         |         |
+|Azure HDInsight PySpark     | Non pris en charge        |Prise en charge         |Pris en charge**         |         |
 |Azure HDInsight Python     | Non pris en charge        | Non pris en charge        | Non pris en charge        |         |
 
 À l’heure actuelle, Azure Data Lake Store n’est pris en charge pour aucune cible de calcul.
@@ -37,4 +37,4 @@ Quand votre code charge des données à l’aide de Sources de données Azure Ma
 
 **Utilise le pilote SQL Server JDBC Maven 6.2.1. Vous devez vérifier que ce package (ou un package compatible) est inclus dans votre fichier spark_dependencies.yml pour l’environnement de calcul.
 
-**Prend en charge Azure SQL Database, Azure SQL Data Warehouse ou SQL Server à condition que la base de données soit accessible à partir de l’environnement de calcul. 
+**Prend en charge Azure SQL Database ou SQL Server à condition que la base de données soit accessible à partir de l’environnement de calcul. 

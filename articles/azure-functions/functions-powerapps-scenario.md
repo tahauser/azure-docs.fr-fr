@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-powerapps"></a>Appeler une fonction dans PowerApps
 La plateforme [PowerApps](https://powerapps.microsoft.com) est conçue pour les experts d’entreprise qui souhaitent créer des applications sans code d’application traditionnel. Les développeurs professionnels peuvent utiliser Azure Functions pour étendre les fonctionnalités de PowerApps, tout en évitant les détails techniques liés à la création d’applications PowerApps.
@@ -42,37 +42,11 @@ Dans cette rubrique, vous allez apprendre à :
 > * Ajouter des contrôles pour appeler la fonction et afficher les données
 > * Exécuter l’application pour déterminer si une réparation est rentable
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 + Un [compte PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) actif avec les mêmes informations d’identification que votre compte Azure. 
-+ Excel, car vous allez l’utiliser comme source de données de votre application.
++ Excel et le [fichier d’exemple Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que vous allez utiliser comme source de données pour votre application.
 + Avoir suivi le didacticiel [Créer une définition OpenAPI pour une fonction](functions-openapi-definition.md)
-
-
-## <a name="prepare-sample-data-in-excel"></a>Préparer l’exemple de données dans Excel
-Vous allez commencer par préparer l’exemple de données à utiliser dans l’application. Copiez le tableau suivant dans Excel. 
-
-| Intitulé      | Latitude  | Longtitude  | Dernier entretien | Production max. | Entretien nécessaire | Effort estimé | Notes inspection                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Éolienne 1  | 47.438401 | -121.383767 | 23/02/2017       | 2 850      | Oui             | 6               | Deuxième problème à se produire ce mois-ci.       |
-| Éolienne 4  | 47,433385 | -121,383767 | 08/05/2017        | 5400      | Oui             | 6               |                                            |
-| Éolienne 33 | 47,428229 | -121,404641 | 20/06/2017       | 2 800      |                 |                 |                                            |
-| Éolienne 34 | 47,463637 | -121,358824 | 19/02/2017       | 2 800      | Oui             | 7               |                                            |
-| Éolienne 46 | 47,471993 | -121,298949 | 02/03/2017        | 1 200      |                 |                 |                                            |
-| Éolienne 47 | 47,484059 | -121,311171 | 02/08/2016        | 3 350      |                 |                 |                                            |
-| Éolienne 55 | 47,438403 | -121,383767 | 02/10/2016       | 2 400      | Oui             | 40               | Des pièces sont en cours d’acheminement pour celle-ci. |
-
-1. Dans Excel, sélectionnez les données, puis, sous l’onglet **Accueil**, cliquez sur **Mettre sous forme de tableau**.
-
-    ![Mettre sous forme de tableau](media/functions-powerapps-scenario/format-table.png)
-
-1. Sélectionnez un style, puis cliquez sur **OK**.
-
-1. Sélectionnez la table, puis, sous l’onglet **Création**, entrez `Turbines` comme **Nom de la table**.
-
-    ![Nom de la table](media/functions-powerapps-scenario/table-name.png)
-
-1. Enregistrez le classeur Excel.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
@@ -97,35 +71,35 @@ L’API personnalisée (également appelée « connecteur personnalisé ») est 
 ## <a name="create-an-app-and-add-data-sources"></a>Créer une application et ajouter des sources de données
 Vous êtes maintenant prêt à créer l’application dans PowerApps, et à ajouter les données Excel et l’API personnalisée comme sources de données de l’application.
 
-1. Dans [web.powerapps.com](https://web.powerapps.com), dans le volet gauche, cliquez sur **Nouvelle application**.
+1. Dans [web.powerapps.com](https://web.powerapps.com), choisissez **Démarrer de zéro** > ![Icône d’application pour téléphone](media/functions-powerapps-scenario/icon-phone-app.png) (téléphone) > **Développer cette application**.
 
-1. Sous **Application vide**, cliquez sur **Mode téléphone**.
+    ![Démarrer de zéro - application pour téléphone](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![Créer l’application de tablette](media/functions-powerapps-scenario/create-phone-app.png)
-
-    L’application s’ouvre dans PowerApps Studio pour le web. L’image suivante montre les différentes parties de PowerApps Studio. Cette image correspond à l’application une fois terminée. Dans un premier temps, vous allez voir un écran vide dans le volet central.
+    L’application s’ouvre dans PowerApps Studio pour le web. L’image suivante montre les différentes parties de PowerApps Studio.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) Barre de navigation gauche**, dans laquelle vous voyez une vue hiérarchique de tous les contrôles de chaque écran.
+    **(A) Barre de navigation gauche**, dans laquelle vous voyez une vue hiérarchique de tous les contrôles de chaque écran
 
-    **(2) Volet central**, où s’affiche l’écran dans lequel vous travaillez actuellement.
+    **(B) Volet central**, où s’affiche l’écran dans lequel vous travaillez actuellement
 
-    **(3) Volet droit**, dans lequel vous définissez des options telles que le mode et les sources de données.
+    **(C) Volet droit**, dans lequel vous définissez des options telles que le mode et les sources de données
 
-    **(4) Liste déroulante Propriété**, dans laquelle vous sélectionnez les propriétés auxquelles s’appliquent les formules.
+    **(D) Liste déroulante Propriété**, dans laquelle vous sélectionnez les propriétés auxquelles s’appliquent les formules
 
-    **(5) Barre de formule**, dans laquelle vous ajoutez des formules qui définissent le comportement de l’application (comme dans Excel).
+    **(E) Barre de formule**, dans laquelle vous ajoutez des formules qui définissent le comportement de l’application (comme dans Excel)
     
-    **(6) Ruban**, dans lequel vous ajoutez des contrôles et personnalisez les éléments de conception.
+    **(F) Ruban**, dans lequel vous ajoutez des contrôles et personnalisez les éléments de conception
 
 1. Ajoutez le fichier Excel en tant que source de données.
 
-    1. Dans le volet droit, sous l’onglet **Données**, cliquez sur **Ajouter une source de données**.
+    Les données que vous allez importer ressemblent à ceci :
 
-        ![Ajouter une source de données](media/functions-powerapps-scenario/add-data-source.png)
+    ![Données Excel à importer](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Cliquez sur **Ajouter des données statiques à votre application**.
+    1. Dans la zone de l’application, choisissez **Se connecter à des données**.
+
+    1. Dans le volet **Données**, cliquez sur **Ajouter des données statiques à votre application**.
 
         ![Ajouter une source de données](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -135,9 +109,10 @@ Vous êtes maintenant prêt à créer l’application dans PowerApps, et à ajou
 
         ![Ajouter une source de données](media/functions-powerapps-scenario/choose-table.png)
 
+
 1. Ajoutez l’API personnalisée en tant que source de données.
 
-    1. Sous l’onglet **Données**, cliquez sur **Ajouter une source de données**.
+    1. Dans le volet **Données**, cliquez sur **Ajouter une source de données**.
 
     1. Cliquez sur **Turbine Repair** (Réparation d’éolienne).
 
@@ -156,17 +131,21 @@ Maintenant que les sources de données sont disponibles dans l’application, aj
 
     ![Modifier le titre et redimensionner la galerie](media/functions-powerapps-scenario/gallery-title.png)
 
-1. Sélectionnez la bibliothèque, puis, dans le volet droit, sous l’onglet **Données**, remplacez la source de données **CustomGallerySample** par **Turbines**.
+1. Une fois la galerie sélectionnée, dans le volet droit, sous **Propriétés**, cliquez sur **CustomGallerySample**.
 
     ![Modifier la source de données](media/functions-powerapps-scenario/change-data-source.png)
 
+1. Dans le volet **Données**, sélectionnez **Turbines** dans la liste.
+
+    ![Sélectionnez la source de données](media/functions-powerapps-scenario/select-data-source.png)
+
     Le jeu de données ne contient pas d’image. Vous devez donc modifier la disposition pour l’adapter aux données. 
 
-1. Toujours dans le volet droit, remplacez la **Disposition** actuelle par **Titre, sous-titre et corps**.
+1. Toujours dans le volet **Données**, remplacez la **Disposition** actuelle par **Titre, sous-titre et corps**.
 
     ![Modifier la disposition de la galerie](media/functions-powerapps-scenario/change-layout.png)
 
-1. Enfin, dans le volet droit, modifiez les champs qui sont affichés dans la galerie.
+1. Enfin, dans le volet **Données**, modifiez les champs qui sont affichés dans la galerie.
 
     ![Modifier les champs de la galerie](media/functions-powerapps-scenario/change-fields.png)
     
@@ -185,6 +164,8 @@ Maintenant que les sources de données sont disponibles dans l’application, aj
 1. Vous n’avez pas besoin de l’écran d’origine dans l’application. Dans le volet gauche, pointez sur **Écran1**, cliquez sur **...**, puis sur **Supprimer**.
 
     ![Supprimer l’écran](media/functions-powerapps-scenario/delete-screen.png)
+
+1. Cliquez sur **Fichier** et attribuez un nom à l’application. Dans le menu de gauche, cliquez sur **Enregistrer**, puis dans l’angle inférieur droit, cliquez de nouveau sur **Enregistrer**.
 
 Il existe beaucoup d’autres mises en forme que vous pouvez utiliser dans une application de production. Toutefois, nous allons passer directement à l’essentiel de ce scénario, c’est-à-dire l’appel de la fonction.
 
@@ -237,7 +218,7 @@ Votre application est terminée ! Il est temps de l’exécuter et de voir les a
 
 1. Essayez les autres éoliennes pour voir ce qui est retourné par la fonction.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cette rubrique, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]

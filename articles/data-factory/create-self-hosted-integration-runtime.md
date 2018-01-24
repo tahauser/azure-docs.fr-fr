@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory version 1](v1/data-factory-introduction.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory version 1](v1/data-factory-introduction.md).
 
 Un runtime d’intégration autohébergé est capable d’exécuter des activités de copie entre des magasins de données cloud et un magasin de données dans un réseau privé et de répartir des activités de transformation par rapport à des ressources de calcul dans un site local ou un réseau virtuel Azure. Installez les éléments nécessaires au runtime d’intégration autohébergé sur un ordinateur local ou sur une machine virtuelle à l’intérieur d’un réseau privé.  
 
@@ -66,7 +66,7 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 - Considérez votre source de données comme une source de données locale (derrière un pare-feu), même lorsque vous utilisez **ExpressRoute**. Utilisez le runtime d’intégration autohébergé pour établir la connectivité entre le service et la source de données.
 - Vous devez utiliser le runtime d’intégration autohébergé même si le magasin de données se trouve dans le cloud sur une **machine virtuelle Azure IaaS**.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 - Les versions de **système d’exploitation** prises en charge sont Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016. L’installation du runtime d’intégration autohébergé sur un **contrôleur de domaine n’est pas prise en charge**.
 - **.NET Framework 4.6.1 ou version ultérieure** est requis. Si vous installez un runtime d’intégration autohébergé sur un ordinateur Windows 7, installez .NET Framework 4.6.1 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](/dotnet/framework/get-started/system-requirements) pour plus d’informations.
@@ -110,7 +110,20 @@ Un runtime d’intégration auto-hébergé peut être associé à plusieurs mach
 Vous pouvez associer plusieurs nœuds en installant simplement le logiciel du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et en l’inscrivant à l’aide des clés d’authentification obtenues via l’applet de commande New-AzureRmDataFactoryV2IntegrationRuntimeKey, comme décrit dans le [didacticiel](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> Vous n’avez pas besoin de créer un runtime d’intégration autohébergé pour associer chaque nœud.
+> Vous n’avez pas besoin de créer un runtime d’intégration autohébergé pour associer chaque nœud. Vous pouvez installer le runtime d’intégration auto-hébergé sur une autre machine et l’inscrire à l’aide de la même clé d’authentification. 
+
+> [!NOTE]
+> Avant d’ajouter un autre nœud de **haute disponibilité et extensibilité**, vérifiez que l’option **Accès à distance à partir de l'intranet** est **activée** sur le premier nœud (Gestionnaire de configuration Microsoft Integration Runtime -> Paramètres -> Accès à distance à partir de l'intranet). 
+
+### <a name="tlsssl-certificate-requirements"></a>Configuration requise des certificats TLS/SSL
+Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuriser les communications entre les nœuds de runtime d’intégration :
+
+- Le certificat doit être un certificat X509 v3 approuvé publiquement. Nous vous recommandons d’utiliser des certificats émis par une autorité de certification (tierce) publique.
+- Chaque nœud de runtime d’intégration doit approuver ce certificat.
+- Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser ***.domain.contoso.com** comme nom du sujet du certificat.
+- Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
+- Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
+- Les certificat utilisant des clés CNG ne sont pas pris en charge. Non-prise en charge des certificats qui utilisent des clés CNG.
 
 ## <a name="system-tray-icons-notifications"></a>Icônes de la barre d’état système/notifications
 Si vous déplacez le curseur sur les icônes/messages de notification de la barre d’état système, vous obtenez des informations supplémentaires sur l’état du runtime d’intégration autohébergé.
@@ -124,7 +137,7 @@ Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entrepri
 
 Au niveau du **pare-feu d’entreprise**, vous devez configurer les domaines et ports de sortie suivants :
 
-Noms de domaine | Ports | Description
+Noms de domaine | Ports | DESCRIPTION
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443, 80 | Utilisé pour la communication avec le serveur principal du service Déplacement des données
 *.core.windows.net | 443 | Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)
@@ -225,17 +238,23 @@ Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez pr
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Ouvrir le port 8060 pour le chiffrement des informations d’identification
-Le port de trafic entrant 8060 (non pris en charge actuellement) est utilisé par l’application **Définition des informations d’identification** pour relayer les informations d’identification au runtime d’intégration autohébergé lorsque vous configurez un service lié local dans le portail Azure. Pendant l’installation du runtime d’intégration autohébergé, par défaut, l’installation du runtime d’intégration autohébergé s’ouvre sur l’ordinateur du runtime intégration autohébergé.
+### <a name="enable-remote-access-from-intranet"></a>Activer l'accès à distance à partir de l'intranet  
+Si vous utilisez l’application **PowerShell** ou **Gestionnaire d'informations d'identification** pour chiffrer les informations d’identification à partir d’une machine (dans le réseau) autre que celle où est installé le runtime d’intégration auto-hébergé, l’option **Accès à distance à partir de l’Intranet** doit être activée. Si vous exécutez l’application **PowerShell** ou **Gestionnaire d’informations d’identification** pour chiffrer les informations d’identification sur la machine où est installé le runtime d’intégration auto-hébergé, il n’est pas nécessaire d’activer l’option **Accès à distance à partir de l’Intranet**.
 
-Si vous utilisez un pare-feu tiers, vous pouvez ouvrir manuellement le port 8050. Si vous rencontrez des problèmes de pare-feu lors de l’installation du runtime intégration autohébergé, vous pouvez essayer d’utiliser la commande suivante pour installer le runtime intégration autohébergé sans configurer le pare-feu.
+L’accès à distance à partir de l’Intranet doit être **activé** avant d’ajouter un autre nœud de **haute disponibilité et extensibilité**.  
+
+Pendant l’installation du runtime d’intégration auto-hébergé (v 3.3.xxxx.x et versions ultérieures), par défaut, l’installation du runtime d’intégration auto-hébergé désactive l’option  **Accès à distance à partir de l’Intranet** sur la machine du runtime d’intégration auto-hébergé.
+
+Si vous utilisez un pare-feu tiers, vous pouvez ouvrir manuellement le port 8060 (ou le port configuré par l’utilisateur). Si vous rencontrez des problèmes de pare-feu lors de l’installation du runtime intégration autohébergé, vous pouvez essayer d’utiliser la commande suivante pour installer le runtime intégration autohébergé sans configurer le pare-feu.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> L’**application Gestionnaire d’informations d’identification** n’est pas encore disponible pour le chiffrement des informations d’identification dans ADFv2. Cette prise en charge sera ajoutée ultérieurement.  
 
 Si vous préférez ne pas ouvrir le port 8060 sur l’ordinateur du runtime intégration autohébergé, utilisez d’autres mécanismes que l’application **Définition des informations d’identification-- pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser l’applet de commande PowerShell AzureRmDataFactoryV2LinkedServiceEncryptCredential. Consultez la section Configuration des informations d’identification et de la sécurité pour savoir comment configurer les informations d’identification de la banque de données.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez le didacticiel suivant pour obtenir des instructions pas à pas : [didacticiel : copier des données locales dans le cloud](tutorial-hybrid-copy-powershell.md).

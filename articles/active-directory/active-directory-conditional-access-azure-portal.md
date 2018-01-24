@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accès conditionnel dans Azure Active Directory
 
@@ -210,7 +210,10 @@ Si vous utilisez Intune dans votre environnement, vous pouvez utiliser d’embl�
 
 De nombreux clients Intune utilisent l’accès conditionnel pour vérifier que seuls les appareils approuvés ont accès aux services Office 365. Cela signifie que les appareils mobiles sont inscrits dans Intune, qu’ils répondent aux critères de la stratégie de conformité et que des PC Windows sont joints à un domaine local. L’avantage, c’est que vous n’avez pas à définir la même stratégie pour chacun des services Office 365.  Quand vous créez une stratégie, configurez les applications cloud pour inclure chacune des applications Office 365 que vous souhaitez protéger avec l’accès conditionnel.
 
-## <a name="next-steps"></a>Étapes suivantes
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Conversion d’un appareil d’entreprise en appareil BYOD (Apportez votre propre appareil)
+Si vous souhaitez bloquer des appareils d’entreprise inscrits en modifiant leur propriété pour les convertir en appareils personnels, vous pouvez utiliser l’accès conditionnel Azure Active Directory (AAD). Vous devez d’abord créer une stratégie d’accès conditionnel où l’option **Bloquer l’accès** est sélectionnée dans les contrôles d’accès du panneau **Accorder**. Créez ensuite un groupe **Appareil dynamique** en définissant la propriété **deviceOwnership** sur **Personnel**. Enfin, ciblez la stratégie ci-dessus sur le nouveau groupe.
+
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Prise en main de l’accès conditionnel dans Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

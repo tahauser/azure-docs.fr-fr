@@ -1,6 +1,6 @@
-- name: Documentation Azure Machine Learning (version préliminaire)
+- name: Documentation Azure Machine Learning (préversion)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu'est-ce que Azure Machine Learning\_?"
@@ -130,7 +130,7 @@
           href: scenario-image-classification-using-cntk.md
         - name: Apprentissage approfondi pour la maintenance prédictive
           href: scenario-deep-learning-for-predictive-maintenance.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Préparation des données
       items:
@@ -182,9 +182,11 @@
           href: release-notes-sprint-2.md
         - name: "Sprint\_2 QFE\_-\_décembre\_2017"
           href: release-notes-sprint-2.1.md
+        - name: Sprint 3 - janvier 2018
+          href: release-notes-sprint-3.md
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: frequently-asked-questions.md
     - name: Problèmes connus et dépannage
       href: known-issues-and-troubleshooting-guide.md
@@ -194,13 +196,13 @@
       href: ../data-science-virtual-machine/overview.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Dépassement de capacité de la pile
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
     - name: Forum de commentaires
       href: 'https://feedback.azure.com/forums/257792-machine-learning'

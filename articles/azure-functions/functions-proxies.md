@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
-Cet article vous explique comment configurer et utiliser Azure Functions Proxies. Cette fonctionnalité vous permet de spécifier des points de terminaison sur votre application de fonction implémentés par une autre ressource. Vous pouvez utiliser ces proxys pour diviser une API de grande taille en plusieurs applications de fonction (comme dans une architecture microservice), tout en continuant à présenter une surface API unique aux clients.
+Cet article vous explique comment configurer et utiliser Azure Functions Proxies. Cette fonctionnalité vous permet de spécifier des points de terminaison sur votre Function App implémentés par une autre ressource. Vous pouvez utiliser ces proxys pour diviser une API de grande taille en plusieurs applications Function (comme dans une architecture microservice), tout en continuant à présenter une surface API unique aux clients.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -33,34 +33,34 @@ Cet article vous explique comment configurer et utiliser Azure Functions Proxies
 
 Cette section vous explique comment créer un proxy dans le portail Functions.
 
-1. Ouvrez le [portail Azure] et accédez à votre application de fonction.
+1. Ouvrez le [portail Azure] et accédez à votre Function App.
 2. Dans le volet gauche, sélectionnez **Nouveau proxy**.
 3. Entrez un nom pour votre proxy.
-4. Configurez le point de terminaison exposé sur cette application de fonction en spécifiant le **modèle de routage** et les **méthodes HTTP**. Ces paramètres se comportent selon les règles des [déclencheurs HTTP].
-5. Définissez l’**URL principale** sur un autre point de terminaison. Il peut s’agir d’une fonction dans une autre application de fonction ou bien de n’importe quelle autre API. La valeur ne doit pas nécessairement être statique et peut faire référence aux [paramètres de l’application] et aux [paramètres de la demande client d’origine].
-6. Cliquez sur **Create**.
+4. Configurez le point de terminaison exposé sur cette Function App en spécifiant le **modèle de routage** et les **méthodes HTTP**. Ces paramètres se comportent selon les règles des [déclencheurs HTTP].
+5. Définissez l’**URL principale** sur un autre point de terminaison. Il peut s’agir d’une fonction dans une autre Function App ou bien de n’importe quelle autre API. La valeur ne doit pas nécessairement être statique et peut faire référence aux [paramètres de l’application] et aux [paramètres de la demande client d’origine].
+6. Cliquez sur **Créer**.
 
 Votre proxy existe désormais sous la forme d’un nouveau point de terminaison de votre application de fonction. Du point de vue du client, cela équivaut à un HttpTrigger dans Azure Functions. Vous pouvez essayer votre nouveau proxy en copiant l’URL de proxy et en le testant avec le client HTTP de votre choix.
 
 ## <a name="modify-requests-responses"></a>Modification de demandes et de réponses
 
-La fonctionnalité Proxys Azure Functions vous permet de modifier les demandes envoyées sur le serveur principal et les réponses reçues de ce dernier. Ces transformations peuvent impliquer l’utilisation de variables, comme décrit dans la section [Utilisation de variables].
+La fonctionnalité Azure Functions Proxies vous permet de modifier les demandes envoyées au backend et les réponses reçues de ce dernier. Ces transformations peuvent impliquer l’utilisation de variables, comme décrit dans la section [Utilisation de variables].
 
 ### <a name="modify-backend-request"></a>Modification de la demande du serveur principal
 
 Par défaut, la demande du serveur principal est initialisée comme une copie de la demande d’origine. Outre la définition de l’URL du serveur principal, vous pouvez apporter des modifications à la méthode HTTP, aux en-têtes et aux paramètres de chaîne de requête. Les valeurs modifiées peuvent faire référence aux [paramètres de l’application] et aux [paramètres de la demande client d’origine].
 
-Il n’est actuellement pas possible de modifier les demandes du serveur principal via un portail. Consultez la section [Définition d’un objet requestOverrides] pour savoir comment appliquer cette fonctionnalité avec un fichier proxies.json.
+Il n’est actuellement pas possible de modifier les demandes du serveur principal via un portail. Pour savoir comment appliquer cette fonctionnalité avec un fichier *proxies.json*, consultez la section [Définition d’un objet requestOverrides].
 
 ### <a name="modify-response"></a>Modification de la réponse
 
 Par défaut, la réponse client est initialisée comme une copie de la réponse du serveur principal. Vous pouvez apporter des modifications au code d’état, au motif, aux en-têtes et au corps. Les valeurs modifiées peuvent faire référence aux [paramètres de l’application], aux [paramètres de la demande client d’origine] et aux [paramètres de la réponse du serveur principal].
 
-Il n’est actuellement pas possible de modifier les réponses. Consultez la section [Définition d’un objet responseOverrides] pour savoir comment appliquer cette fonctionnalité avec un fichier proxies.json.
+Il n’est actuellement pas possible de modifier les réponses. Pour savoir comment appliquer cette fonctionnalité avec un fichier *proxies.json*, consultez la section [Définition d’un objet responseOverrides].
 
 ## <a name="using-variables"></a>Utilisation de variables
 
-La configuration d’un proxy ne doit pas nécessairement être statique. Vous pouvez définir comme condition l’utilisation des variables de la demande d’origine, de la réponse du serveur principal ou des paramètres de l’application.
+La configuration d’un proxy ne doit pas nécessairement être statique. Vous pouvez définir comme condition l’utilisation des variables de la demande client d’origine, de la réponse du backend ou des paramètres de l’application.
 
 ### <a name="request-parameters"></a>Référencement des paramètres de la demande
 
@@ -84,7 +84,7 @@ Les paramètres de réponse peuvent être utilisés lors de la modification de l
 
 * **{backend.response.statusCode}** : code d’état HTTP renvoyé dans la réponse du serveur principal.
 * **{backend.response.statusReason}** : motif HTTP renvoyé dans la réponse du serveur principal.
-* **{backend.response.headers.\<HeaderName\>}** : en-tête pouvant être lu à partir de la réponse du serveur principal. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la demande, la valeur sera une chaîne vide.
+* **{backend.response.headers.\<HeaderName\>}** : en-tête pouvant être lu à partir de la réponse du serveur principal. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la réponse, la valeur sera une chaîne vide.
 
 ### <a name="use-appsettings"></a>Référencement des paramètres de l’application
 
@@ -93,16 +93,16 @@ Vous pouvez également référencer les [paramètres de l’application définis
 Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOST%/api/orders*, %ORDER_PROCESSING_HOST% sera remplacé par la valeur du paramètre ORDER_PROCESSING_HOST.
 
 > [!TIP] 
-> Utilisez des paramètres d’application pour les hôtes de serveur principal lorsque vous avez plusieurs déploiements ou environnements de test. De cette façon, vous avez l’assurance de toujours parler au serveur principal adapté à cet environnement.
+> Utilisez des paramètres d’application pour les hôtes de serveur principal lorsque vous avez plusieurs déploiements ou environnements de test. De cette façon, vous avez l’assurance de toujours parler au backend adapté à cet environnement.
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 
-Les serveurs proxy que vous configurez sont stockés dans un fichier proxies.json, situé à la racine d’un répertoire d’application de fonction. Vous pouvez modifier manuellement ce fichier et le déployer dans le cadre de votre application lors de l’utilisation de l’une des [méthodes de déploiement](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) prises en charge par Functions. La fonctionnalité doit être [activée](#enable) pour permettre le traitement du fichier. 
+Les serveurs proxy que vous configurez sont stockés dans un fichier *proxies.json* situé à la racine d’un répertoire de Function App. Vous pouvez modifier manuellement ce fichier et le déployer dans le cadre de votre application lors de l’utilisation de l’une des [méthodes de déploiement](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) prises en charge par Functions. La fonctionnalité Azure Functions Proxies doit être [activée](#enable) pour permettre le traitement du fichier. 
 
 > [!TIP] 
-> Si vous n’avez pas défini l’une des méthodes de déploiement, vous pouvez également utiliser le fichier proxies.json dans le portail. Accédez à votre application de fonction et sélectionnez **Fonctionnalités de la plateforme**, puis **Éditeur App Service**. Cela vous permettra d’afficher l’ensemble de la structure de fichiers de votre application de fonction et d’y apporter des modifications.
+> Si vous n’avez pas configuré l’une des méthodes de déploiement, vous pouvez également utiliser le fichier *proxies.json* dans le portail. Accédez à votre Function App et sélectionnez **Fonctionnalités de la plateforme**, puis **Éditeur App Service**. Cela vous permettra d’afficher l’ensemble de la structure de fichiers de votre Function App et d’y apporter des modifications.
 
-Proxies.json est défini par un objet proxy, composé de proxys nommés et de leurs définitions. Vous pouvez éventuellement référencer un [schéma JSON](http://json.schemastore.org/proxies) de complétion de code si votre éditeur est compatible. Voici un exemple de fichier :
+*Proxies.json* est défini par un objet proxy, composé de proxys nommés et de leurs définitions. Vous pouvez éventuellement référencer un [schéma JSON](http://json.schemastore.org/proxies) de complétion de code si votre éditeur est compatible. Voici un exemple de fichier :
 
 ```json
 {
@@ -129,15 +129,15 @@ Chaque proxy a un nom convivial, tel que *proxy1* dans l’exemple ci-dessus. L�
 * **responseOverrides** : un objet définissant les transformations apportées à la réponse client. Consultez la section [Définition d’un objet responseOverrides].
 
 > [!NOTE] 
-> La propriété de routage Proxys Azure Functions n’honore pas la propriété routePrefix de la configuration d’hôte de Functions. Si vous souhaitez inclure un préfixe tel que /api, il doit être inclus dans la propriété de routage.
+> La propriété *route* dans Azure Functions Proxies n’honore pas la propriété *routePrefix* de la configuration d’hôte Function App. Si vous souhaitez inclure un préfixe tel que `/api`, il doit être inclus dans la propriété *route*.
 
 ### <a name="requestOverrides"></a>Définition d’un objet requestOverrides
 
 L’objet requestOverrides définit les modifications apportées à la demande lors de l’appel de la ressource du serveur principal. L’objet est défini par les propriétés suivantes :
 
-* **backend.request.method** : la méthode HTTP qui est utilisée pour appeler le serveur principal.
-* **backend.request.querystring.\<ParameterName\>** : un paramètre de chaîne de requête pouvant être défini pour l’appel au serveur principal. Remplacez *\<ParameterName\>* par le nom de l’en-tête que vous souhaitez définir. Si une chaîne vide est fournie, le paramètre n’est pas inclus dans la demande du serveur principal.
-* **backend.request.headers.\<HeaderName\>** : un en-tête qui peut être défini pour l’appel au serveur principal. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la demande du serveur principal.
+* **backend.request.method** : méthode HTTP utilisée pour appeler le backend.
+* **backend.request.querystring.\<ParameterName\>** : paramètre de chaîne de requête pouvant être défini pour l’appel au backend. Remplacez *\<ParameterName\>* par le nom de l’en-tête que vous souhaitez définir. Si une chaîne vide est fournie, le paramètre n’est pas inclus dans la demande du serveur principal.
+* **backend.request.headers.\<HeaderName\>** : en-tête qui peut être défini pour l’appel au backend. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la demande du serveur principal.
 
 Les valeurs peuvent faire référence aux paramètres de l’application et aux paramètres de la demande client d’origine.
 
@@ -193,14 +193,14 @@ Voici un exemple de configuration :
 }
 ```
 > [!NOTE] 
-> Dans cet exemple, le corps est défini directement. Aucune propriété `backendUri` n’est nécessaire. Cet exemple illustre comment utiliser Azure Functions Proxies pour simuler des API.
+> Dans cet exemple, le corps de la réponse est défini directement. Aucune propriété `backendUri` n’est nécessaire. Cet exemple illustre comment utiliser les Proxys Azure Functions pour simuler des API.
 
 ## <a name="enable"></a>Activation d’Azure Functions Proxies
 
 Les proxys sont désormais activés par défaut ! Si vous utilisiez une ancienne version de la préversion des proxys, et des proxys désactivés, vous devez activer manuellement les proxys une fois dans l’ordre, pour qu’ils s’exécutent.
 
-1. Ouvrez le [portail Azure] et accédez à votre application de fonction.
-2. Sélectionnez **Paramètres de l’application de fonction**.
+1. Ouvrez le [portail Azure] et accédez à votre Function App.
+2. Sélectionnez **Paramètres Function App**.
 3. Réglez **Activer les proxys Azure Functions (préversion)** sur **Activé**.
 
 Vous pouvez également revenir ici pour mettre à jour le runtime proxy lorsque de nouvelles fonctionnalités sont disponibles.

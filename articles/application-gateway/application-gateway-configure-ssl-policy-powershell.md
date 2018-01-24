@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway
 
@@ -110,6 +110,8 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configurer une stratégie SSL personnalisée
 
+Lorsque vous configurez une stratégie SSL personnalisée, vous transmettez les paramètres suivants : PolicyType, MinProtocolVersion, CipherSuite et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway. 
+
 L’exemple suivant définit une stratégie SSL personnalisée sur une passerelle d’application. Il définit la version de protocole minimale sur `TLSv1_1` et active les suites de chiffrement suivantes :
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -139,6 +141,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Créer une passerelle d’application avec une stratégie SSL prédéfinie
+
+Lorsque vous configurez une stratégie SSL prédéfinie, vous transmettez les paramètres suivants : PolicyType, PolicyName et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
 
 L’exemple suivant crée une nouvelle passerelle d’application avec une stratégie SSL prédéfinie.
 
@@ -177,6 +181,31 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Mettre à jour une passerelle d’application existante avec une stratégie SSL prédéfinie
 
-Visitez la page [Vue d’ensemble de la redirection Application Gateway](application-gateway-redirect-overview.md) pour savoir comment rediriger le trafic HTTP vers un point de terminaison HTTPS.
+Pour définir une stratégie SSL personnalisée, transmettez les paramètres suivants : **PolicyType**, **MinProtocolVersion**, **CipherSuite** et **ApplicationGateway**. Pour définir une stratégie SSL prédéfinie, transmettez les paramètres suivants : **PolicyType**, **PolicyName** et **ApplicationGateway**. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
+
+L’exemple suivant comporte des exemples de code pour les stratégies personnalisées et prédéfinies. Supprimer les marques de commentaire sur la stratégie que vous souhaitez utiliser.
+
+```powershell
+# You have to change these parameters to match your environment.
+$AppGWname = "YourAppGwName"
+$RG = "YourResourceGroupName"
+
+$AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
+
+# SSL Custom Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+
+# SSL Predefined Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+
+# Update AppGW
+# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+$SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
+
+
+
+## Next steps
+
+Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.

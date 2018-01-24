@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Exécuter un travail Apache Hive, Pig ou Hadoop avec Azure Cosmos DB et HDInsight
 Ce didacticiel vous montre comment exécuter des travaux [Apache Hive][apache-hive], [Apache Pig][apache-pig] et [Apache Hadoop][apache-hadoop] MapReduce dans Azure HDInsight avec le connecteur Hadoop de Cosmos DB. Le connecteur Hadoop de Cosmos DB permet à Cosmos DB d’agir en tant que source et récepteur pour les travaux Hive, Pig et MapReduce. Ce didacticiel utilise Cosmos DB en tant que source de données et destination pour les travaux Hadoop.
@@ -94,7 +94,7 @@ Le champ doit être une chaîne comportant entre 3 et 63 caractères.</td></tr>
     <table border='1'>
         <tr><td>Type de cluster</td><td><strong>Hadoop</strong></td></tr>
         <tr><td>Niveau de cluster</td><td><strong>Standard</strong></td></tr>
-        <tr><td>Système d'exploitation</td><td><strong>Windows</strong></td></tr>
+        <tr><td>Système d’exploitation</td><td><strong>Windows</strong></td></tr>
         <tr><td>Version</td><td>version la plus récente</td></tr>
     </table>
 
@@ -118,7 +118,7 @@ Le champ doit être une chaîne comportant entre 3 et 63 caractères.</td></tr>
 
      <table border='1'>
          <tr><th>Propriété</th><th>Valeur</th></tr>
-         <tr><td>Nom</td>
+         <tr><td>NOM</td>
              <td>Indiquez un nom pour l'action de script.</td></tr>
          <tr><td>URI du script</td>
              <td>Spécifiez l'URI du script appelé pour personnaliser le cluster.</br></br>
@@ -161,7 +161,7 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
     ![Diagramme d’Azure PowerShell][azure-powershell-diagram]
 
-## <a name="RunHive"></a>Étape 3 : exécuter un travail Hive à l’aide de Cosmos DB et HDInsight
+## <a name="RunHive"></a>Étape 3 : exécuter un travail Hive à l’aide d’Azure Cosmos DB et HDInsight
 > [!IMPORTANT]
 > Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
 >
@@ -178,7 +178,7 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
         $clusterName = "<HDInsightClusterName>"
 2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Hive qui prend les horodatages générés par le système de tous les documents (_ts) et les ID uniques (_rid) de tous les documents d’une collection Azure Cosmos DB, comptabilise tous les documents à la minute et stocke les résultats dans une nouvelle collection Azure Cosmos DB.</p>
 
-    <p>Commençons par créer une table Hive à partir de notre collection Azure Cosmos DB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code 1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid.</p>
+    <p>Commençons par créer une table Hive à partir de notre collection Azure Cosmos DB. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code 1 . Veillez à inclure le paramètre de requête facultatif pour réduire vos documents à _ts et _rid.</p>
 
    > [!NOTE]
    > **L’attribution du nom DocumentDB.inputCollections n’était pas une erreur.** Oui, nous autorisons l'ajout de plusieurs collections en tant qu'entrée : </br>
@@ -187,7 +187,7 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
         '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from Azure Cosmos DB. Pass Azure Cosmos DB the query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -207,7 +207,7 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for the output data to Azure Cosmos DB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -276,7 +276,7 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Commençons à construire votre chaîne de requête. Nous allons écrire une requête Pig qui accepte les horodatages générés par le système de tous les documents (_ts) et des ID uniques (_rid) à partir d’une collection Azure Cosmos DB, comptabilise tous les documents à la minute, puis stocke les résultats dans une nouvelle collection Azure Cosmos DB.</p>
-    <p>Chargez d’abord des documents Cosmos DB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code 1 . Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>
+    <p>Chargez d’abord des documents Cosmos DB dans HDInsight. Ajoutez l’extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l’extrait de code 1 . Veillez à ajouter une requête au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>
 
    > [!NOTE]
    > Oui, nous autorisons l'ajout de plusieurs collections en tant qu'entrée : </br>
@@ -286,7 +286,7 @@ Entrez : </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/
 
     Les documents seront distribués en tourniquet (round robin), sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass the Azure Cosmos DB query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
@@ -397,7 +397,7 @@ Le code source de notre connecteur Hadoop est disponible gratuitement. Si vous �
 
 Pour en savoir plus, consultez les articles suivants :
 
-* [Développement d’une application Java avec DocumentDB][documentdb-java-application]
+* [Développer une application Java avec Azure Cosmos DB][sql-api-java-application]
 * [Développement de programmes MapReduce en Java pour Hadoop dans HDInsight][hdinsight-develop-deploy-java-mapreduce]
 * [Prise en main de Hadoop avec Hive dans HDInsight pour analyser l’utilisation des téléphones mobiles][hdinsight-get-started]
 * [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce]
@@ -409,14 +409,14 @@ Pour en savoir plus, consultez les articles suivants :
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: documentdb-get-started.md
+[getting-started]: sql-api-get-started.md
 
 [azure-portal]: https://portal.azure.com/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
 [hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: documentdb-java-application.md
+[sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md

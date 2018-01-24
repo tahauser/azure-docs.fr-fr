@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 064b1b10f2bd776e4ae88d8460e106a0318476c7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: eca3cddf3677aad440378e4071f080a588397cf9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analyse des tendances dans Visual Studio
 L’outil Tendances Application Insights visualise l’évolution des événements de télémétrie importants de votre application web au fil du temps, ce qui vous permet d’identifier rapidement les problèmes et les anomalies. En vous fournissant des informations de diagnostic plus détaillées, l’outil Tendances peut vous aider à améliorer les performances de votre application, à repérer les causes des exceptions et à découvrir les perspectives de vos événements personnalisés.
@@ -57,7 +57,7 @@ L’outil Tendances Application Insights crée une visualisation de série chron
 
 Utilisez les contrôles en haut de la fenêtre pour ajuster les types de données de télémétrie que vous affichez. Commencez par choisir les types de données de télémétrie souhaités :
 
-* **Telemetry Type (Type de télémétrie)** : requêtes serveur, exceptions, dépendances ou événements personnalisés.
+* **Type de télémétrie** : requêtes serveur, exceptions, dépendances ou événements personnalisés.
 * **Intervalle de temps** : plage comprise entre les 30 dernières minutes et les 3 derniers jours.
 * **Grouper par** : type d’exception, ID du problème, pays/région, etc.
 
@@ -74,7 +74,7 @@ Pour naviguer entre les bulles de la visualisation :
 > 
 > 
 
-## <a name="filter"></a>Filtre
+## <a name="filter"></a>Filtrer
 Découvrez des tendances plus spécifiques avec les contrôles de filtre situés au bas de la fenêtre. Pour appliquer un filtre, cliquez sur son nom. Vous pouvez rapidement basculer entre différents filtres pour découvrir les tendances qui peuvent être masquées dans une dimension particulière de vos données de télémétrie. Si vous appliquez un filtre dans une dimension, par exemple Type d’exception, vous pouvez toujours cliquer sur les filtres des autres dimensions même s’ils apparaissent grisés. Pour annuler l’application d’un filtre, cliquez à nouveau dessus. Cliquez tout en appuyant sur Ctrl pour sélectionner plusieurs filtres dans la même dimension.
 
 ![Filtres de tendances](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)

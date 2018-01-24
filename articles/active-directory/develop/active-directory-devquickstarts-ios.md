@@ -1,5 +1,5 @@
 ---
-title: "Intégrer Azure AD à une application iOS | Microsoft Docs"
+title: "Bien démarrer avec Azure AD iOS | Microsoft Docs"
 description: "Création d’une application iOS qui s’intègre à Azure AD pour la connexion et appelle des API protégées par Azure AD en utilisant OAuth."
 services: active-directory
 documentationcenter: ios
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Intégrer Azure AD à une application iOS
+# <a name="azure-ad-ios-getting-started"></a>Bien démarrer avec Azure AD iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Essayez la préversion de notre nouveau [portail des développeurs](https://identity.microsoft.com/Docs/iOS) qui vous permet de devenir opérationnel avec Azure Active Directory en quelques minutes !  Le portail des développeurs vous guide tout au long du processus d’inscription d’une application et d’intégration d’Azure AD à votre code.  Une fois que vous aurez terminé, vous disposerez d’une application simple capable d’authentifier les utilisateurs dans votre locataire et d’un serveur principal qui peut accepter des jetons et effectuer une validation. 
-> 
-> 
 
 Pour les clients iOS qui doivent accéder à des ressources protégées, Azure Active Directory (Azure AD) fournit la bibliothèque d’authentification Active Directory (ADAL). ADAL simplifie le processus utilisé par votre application pour obtenir des jetons d’accès. Pour illustrer sa facilité d’utilisation, nous allons créer, dans cet article, une application de liste de tâches Objective C qui effectue les actions suivantes :
 
@@ -66,10 +61,10 @@ Voici un exemple de code de démarrage rapide : ***msquickstart://com.microsoft
 ## <a name="2-register-the-directorysearcher-application"></a>2. Inscrire l’application DirectorySearcher
 Pour configurer votre application afin d’obtenir des jetons, vous devez d’abord l’inscrire dans votre locataire Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
 3. Cliquez sur **Plus de services** dans le volet de navigation le plus à gauche, puis sélectionnez **Azure Active Directory**.
-4. Cliquez sur **Inscriptions d’applications**, puis sélectionnez **Ajouter**.
+4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Suivez les invites pour créer une **application cliente native**.
   * Le **nom** de l’application donne une description de votre application aux utilisateurs finaux.
   * L’**URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour retourner des réponses de jeton.  Entrez une valeur spécifique à votre application et basée sur les informations d’URI de redirection précédentes.
@@ -237,7 +232,7 @@ La bibliothèque ADAL facilite l’intégration de toutes ces fonctionnalités d
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni sur [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez à présent aborder d’autres scénarios.  Par exemple :
 
 * [Sécurisation d’une API web Node.js avec Azure AD](active-directory-devquickstarts-webapi-nodejs.md)

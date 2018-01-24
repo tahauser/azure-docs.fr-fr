@@ -7,7 +7,7 @@ author: mattchenderson
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture serverless, HTTP, API, REST"
+keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, HTTP, API, REST"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
 
@@ -41,14 +41,14 @@ Par défaut, un déclencheur HTTP répond à la requête avec un code d’état 
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#trigger---c-example)
-* [Script C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#webhook---c-example)
-* [Script C#](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [Script C# (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook - exemple C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui envoie un message HTTP 200 en réponse à une requête JSON générique.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui envoie un message HTTP 200 en réponse à une requête JSON générique.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
-Pour les fonctions [C# précompilées](functions-dotnet-class-library.md), utilisez l’attribut [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Vous pouvez définir le niveau d’autorisation et des méthodes HTTP autorisées dans les paramètres de constructeur d’attribut. Il existe des propriétés pour le type et le d’itinéraire webhook. Pour plus d’informations sur ces paramètres, consultez [Déclencheur - configuration](#trigger---configuration). Voici un attribut `HttpTrigger` dans une signature de méthode :
 
@@ -377,18 +377,19 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
+Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Déclencheur - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `HttpTrigger`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 | **type** | n/a| Obligatoire : doit être défini sur `httpTrigger`. |
 | **direction** | n/a| Obligatoire : doit être défini sur `in`. |
 | **name** | n/a| Obligatoire : nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. |
-| **authLevel** |  **AuthLevel** |Détermine, le cas échéant, les clés qui doivent être présentes dans la requête pour appeler la fonction. Le niveau d’autorisation peut être l’une des valeurs suivantes : <ul><li><code>anonymous</code>&mdash;Aucune clé API n’est obligatoire.</li><li><code>function</code>&mdash;Une clé API spécifique à la fonction est obligatoire. Il s’agit de la valeur par défaut si aucune valeur n’est fournie.</li><li><code>admin</code>&mdash;La clé principale est obligatoire.</li></ul> Pour plus d’informations, consultez la section sur les [clés d’autorisation](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Détermine, le cas échéant, les clés qui doivent être présentes dans la requête pour appeler la fonction. Le niveau d’autorisation peut être l’une des valeurs suivantes : <ul><li><code>anonymous</code>&mdash;Aucune clé API n’est obligatoire.</li><li><code>function</code>&mdash;Une clé API spécifique à la fonction est obligatoire. Il s’agit de la valeur par défaut si aucune valeur n’est fournie.</li><li><code>admin</code>&mdash;La clé principale est obligatoire.</li></ul> Pour plus d’informations, consultez la section sur les [clés d’autorisation](#authorization-keys). |
 | **methods** |**Méthodes** | Tableau des méthodes HTTP auxquelles la fonction répond. À défaut de spécification, la fonction répond à toutes les méthodes HTTP. Consultez [Personnaliser le point de terminaison HTTP](#trigger---customize-the-http-endpoint). |
 | **route** | **Itinéraire** | Définit le modèle de routage, en contrôlant les URL de requête auxquelles votre fonction répond. La valeur par défaut est `<functionname>`. Pour plus d’informations, consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configure le déclencheur HTTP pour qu’il agisse en tant que récepteur de [Webhook](https://en.wikipedia.org/wiki/Webhook) pour le fournisseur spécifié. Ne définissez pas la propriété `methods` si vous définissez cette propriété. Le type de webhook peut être l’une des valeurs suivantes :<ul><li><code>genericJson</code>&mdash;Point de terminaison webhook à usage général sans logique pour un fournisseur spécifique. Ce paramètre limite les requêtes à celles utilisant HTTP POST et le type de contenu `application/json`.</li><li><code>github</code>&mdash;La fonction répond aux [Webhooks GitHub](https://developer.github.com/webhooks/). N’utilisez pas la propriété _authLevel_ avec des webhooks GitHub. Pour plus d’informations, consultez la section sur les webhooks GitHub plus loin dans cet article.</li><li><code>slack</code>&mdash;La fonction répond aux [Webhooks Slack](https://api.slack.com/outgoing-webhooks). N’utilisez pas la propriété _authLevel_ avec des webhooks Slack. Pour plus d’informations, consultez la section sur les webhooks Slack plus loin dans cet article.</li></ul>|
@@ -409,7 +410,7 @@ Pour voir un exemple, consultez [Créer une fonction déclenchée par un webhook
 
 ### <a name="slack-webhooks"></a>Webhooks Slack
 
-Le webhook de Slack génère un jeton à votre place au lieu de vous laisser le spécifier. Vous devez donc configurer une clé spécifique de la fonction avec le jeton reçu de Slack. Consultez [Clés d’autorisation](#authorization-keys).
+La webhook de Slack génère un jeton à votre place au lieu de vous laisser le spécifier. Vous devez donc configurer une clé spécifique de la fonction avec le jeton reçu de Slack. Consultez [Clés d’autorisation](#authorization-keys).
 
 ### <a name="customize-the-http-endpoint"></a>Personnaliser le point de terminaison HTTP
 
@@ -496,11 +497,11 @@ Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous p
 
 Les déclencheurs HTTP vous permettent d’utiliser des clés pour une sécurité accrue. Un déclencheur HTTP standard peut les utiliser comme une clé API, en exigeant que la clé soit présente dans la requête. Les webhooks peuvent utiliser des clés pour autoriser des demandes de plusieurs façons, selon ce que le fournisseur prend en charge.
 
-Les clés sont stockées dans votre application de fonction dans Azure et chiffrées au repos. Pour afficher vos clés, créez-en de nouvelles, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
+Les clés sont stockées dans votre Function App dans Azure, et chiffrées au repos. Pour afficher vos clés, créez-en de nouvelles, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
 
 Il existe deux types de clés :
 
-- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de l’application de fonction. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de l’application de fonction.
+- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
 - **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
 
 Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. Les clés de fonction prennent le pas sur les clés d’hôte. Quand deux clés portent le même nom, la clé de fonction est toujours utilisée.
@@ -539,7 +540,7 @@ Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la deman
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
-En C# précompilé, il n’existe aucune propriété de configuration de liaison propre à la sortie. Pour envoyer une réponse HTTP, choisissez un type de retour de fonction `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
+Pour les bibliothèques de classes C#, il n’existe aucune propriété de configuration de liaison propre à la sortie. Pour envoyer une réponse HTTP, choisissez un type de retour de fonction `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
 
 Pour les autres langages, une liaison de sortie HTTP est définie en tant qu’objet JSON dans le tableau `bindings` de function.json, comme dans l’exemple suivant :
 
@@ -553,17 +554,17 @@ Pour les autres langages, une liaison de sortie HTTP est définie en tant qu’o
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*.
 
-|Propriété  |Description  |
+|Propriété  |DESCRIPTION  |
 |---------|---------|
-| **type** |Doit être défini sur `http`. |
-| **direction** | Doit être défini sur `out`. |
+| **type** |Cette propriété doit être définie sur `http`. |
+| **direction** | Cette propriété doit être définie sur `out`. |
 |**name** | Nom de variable utilisé dans le code de fonction pour la réponse. |
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
 Vous pouvez utiliser le paramètre de sortie pour répondre à l’appelant HTTP ou Webhook. Vous pouvez également utiliser les modèles de réponse de la norme du langage. Par obtenir des exemples de réponse, consultez l’[exemple de déclencheur](#trigger---example) et l’[exemple de webhook](#trigger---webhook-example).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

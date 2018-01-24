@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
 Les exceptions dans votre application web dynamique sont signalées par [Application Insights](app-insights-overview.md). Vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
@@ -57,7 +57,7 @@ Dans le code, notez que CodeLens affiche les données sur les exceptions :
 ![Notification CodeLens des exceptions.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnostic des défaillances à l’aide du portail Azure
-Application Insights est fourni avec une expérience APM organisée pour vous aider à diagnostiquer les échecs dans les applications surveillées. Pour démarrer, cliquez sur l’option Échecs dans le menu de ressource Application Insights situé dans la section Examiner. Une vue en plein écran apparaît et vous indique les tendances du taux d’échec pour vos demandes, le nombre d'entre elles qui échouent et le nombre d’utilisateurs qui en sont affectés. Sur la droite, certaines des distributions les plus utiles s’affichent par rapport à l’opération défaillante sélectionnée, y compris les 3 premiers codes de réponse, les 3 premiers types d’exception et les 3 premiers types de dépendances défaillantes. 
+Application Insights est fourni avec une expérience APM organisée pour vous aider à diagnostiquer les échecs dans les applications surveillées. Pour démarrer, cliquez sur l’option Échecs dans le menu de ressource Application Insights situé dans la section Examiner. Une vue en plein écran apparaît et vous indique les tendances du taux d’échec pour vos demandes, le nombre d'entre elles qui échouent et le nombre d’utilisateurs qui en sont affectés. Sur la droite s’affichent certaines des distributions les plus utiles pour l’opération défaillante sélectionnée, avec les trois premiers codes de réponse, les trois premiers types d’exception et les trois premiers types de dépendances défaillantes. 
 
 ![Vue de triage des échecs (onglet des opérations)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -301,7 +301,7 @@ Vous pouvez ajouter cet attribut remplacé à des contrôleurs spécifiques ou l
 
 [Exemple](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Il existe un certain nombre de cas que les filtres d'exception ne peuvent pas gérer. Par exemple :
+Il existe un certain nombre de cas que les filtres d'exception ne peuvent pas gérer. Par exemple : 
 
 * Les exceptions lancées à partir des constructeurs de contrôleur.
 * Les exceptions lancées à partir des gestionnaires de messages.
@@ -440,7 +440,7 @@ Ce chiffre sera différent du nombre d’« exceptions » calculé par le port
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Surveiller REST, SQL et les autres appels aux dépendances](app-insights-asp-net-dependencies.md)
 * [Surveiller les durées de chargement des pages, les exceptions du navigateur et les appels AJAX](app-insights-javascript.md)
 * [Surveiller les compteurs de performances](app-insights-performance-counters.md)

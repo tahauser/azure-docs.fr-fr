@@ -4,7 +4,7 @@ description: "Cette rubrique décrit les rôles intégrés pour le contrôle d�
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure
 Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intégrés suivants qui peuvent être affectés à des utilisateurs, des groupes et des services. Vous ne pouvez pas modifier les définitions des rôles intégrés. Toutefois, vous pouvez créer des [rôles personnalisés dans Azure RBAC](role-based-access-control-custom-roles.md) en fonction des besoins spécifiques de votre entreprise.
@@ -28,7 +28,7 @@ Le contrôle d’accès basé sur un rôle (RBAC) inclut les trois rôles intég
 ## <a name="roles-in-azure"></a>Rôles dans Azure
 Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cliquez sur le nom du rôle pour afficher la liste détaillée de ses propriétés **actions** et **notactions**. La propriété **actions** spécifie les actions autorisées sur les ressources Azure. Les chaînes d'action peuvent utiliser des caractères génériques. La propriété **notactions** spécifie les actions qui sont exclues des actions autorisées.
 
-L’action définit le type d’opération que vous pouvez effectuer sur un type de ressource donné. Par exemple :
+L’action définit le type d’opération que vous pouvez effectuer sur un type de ressource donné. Par exemple : 
 - **Write** permet d’effectuer des opérations PUT, POST, PATCH et DELETE.
 - **Read** permet d’effectuer des opérations GET.
 
@@ -38,7 +38,7 @@ Cet article traite uniquement des différents rôles qui existent aujourd’hui.
 > Les définitions de rôle Azure sont en constante évolution. Cet article est actualisé aussi régulièrement que possible, mais vous pouvez toujours trouver les dernières définitions de rôles dans Azure PowerShell. Utilisez l’applet de commande [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) pour afficher la liste de tous les rôles actuels. Vous pouvez explorer de manière plus approfondie un rôle déterminé en utilisant `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` selon le cas. [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) permet d’afficher la liste des opérations de fournisseurs de ressources Azure spécifiques.
 
 
-| Nom de rôle | Description |
+| Nom de rôle | DESCRIPTION |
 | --- | --- |
 | [Collaborateur du service Gestion des API](#api-management-service-contributor) |Peut gérer le service Gestion des API et les API |
 | [Rôle d’opérateur du service Gestion des API](#api-management-service-operator-role) | Peut gérer le service Gestion des API, mais pas les API proprement dites |
@@ -55,7 +55,7 @@ Cet article traite uniquement des différents rôles qui existent aujourd’hui.
 | [Collaborateurs de fabrique de données](#data-factory-contributor) |Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
 | [Utilisateur de DevTest Labs](#devtest-labs-user) |Afficher tout et connecter, démarrer, redémarrer et arrêter les machines virtuelles |
 | [Contributeur de Zone DNS](#dns-zone-contributor) |Peut gérer des enregistrements et zones DNS |
-| [Contributeur de compte Azure Cosmos DB](#documentdb-account-contributor) |Peut gérer des comptes Azure Cosmos DB |
+| [Collaborateur de compte DocumentDB](#documentdb-account-contributor) |Peut gérer des comptes Azure Cosmos DB |
 | [Collaborateur de compte Intelligent Systems](#intelligent-systems-account-contributor) |Gérer les comptes Intelligent Systems |
 | Contributeur d’application logique | Gérer tous les aspects d’une application logique, mais pas en créer une nouvelle. |
 | Opérateur d’application logique |Démarrer et arrêter les flux de travail définis dans une application logique. |
@@ -300,7 +300,7 @@ Gérer les bases de données ClearDB MySQL
 | Microsoft.Support/* |Créer et gérer les tickets de support |
 | successbricks.cleardb/databases/* |Créer et gérer les bases de données ClearDB MySQL |
 
-### <a name="contributor"></a>Collaborateur
+### <a name="contributor"></a>Contributeur
 Gérer tout sauf les accès
 
 | **Actions** |  |
@@ -371,13 +371,13 @@ Peut gérer des enregistrements et zones DNS
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lire les groupes de ressources |
 | Microsoft.Support/\* |Créer et gérer les tickets de support |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Contributeur de compte Azure Cosmos DB
-Peut gérer des comptes Azure Cosmos DB
+### <a name="documentdb-account-contributor"></a>Collaborateur de compte DocumentDB
+Gérer des comptes Azure Cosmos DB. Azure Cosmos DB était auparavant appelé DocumentDB.
 
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Lire les rôles et les affectations de rôles |
-| Microsoft.DocumentDb/databaseAccounts/* |Créer et gérer les comptes DocumentDB |
+| Microsoft.DocumentDb/databaseAccounts/* |Créer et gérer des comptes Azure Cosmos DB |
 | Microsoft.Insights/alertRules/* |Créer et gérer les règles d’alerte |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* |Créer et gérer les déploiements de groupes de ressources |
@@ -703,7 +703,7 @@ Gérer les serveurs et bases de données SQL, mais pas leurs stratégies de séc
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Autorisation de lecture |
+| Microsoft.Authorization/*/read |Lire les rôles et les affectations de rôles |
 | Microsoft.Insights/alertRules/* |Créer et gérer des règles d’alerte Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Lire l’intégrité des ressources |
 | Microsoft.Resources/deployments/* |Créer et gérer les déploiements de groupes de ressources |

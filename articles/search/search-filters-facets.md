@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Comment créer un filtre de facette dans la Recherche Azure 
 
@@ -33,7 +33,7 @@ La navigation par facettes est utilisée pour le filtrage autonome sur les résu
 
 Les facettes sont dynamiques et renvoyées sur une requête. Les réponses associées à une recherche incluent les catégories de facettes utilisées pour parcourir les résultats. Si vous n’êtes pas familiarisé avec les facettes, l’exemple suivant illustre une structure de navigation par facettes.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Vous découvrez ce type de navigation et souhaitez en savoir plus ? Consultez la section [Implémentation de la navigation à facettes dans la Recherche Azure](search-faceted-navigation.md).
 
@@ -48,7 +48,7 @@ Tous les [types de champs](https://docs.microsoft.com/rest/api/searchservice/sup
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (consultez la section relative à la création de [facettes pour les types de données complexes](#facet-complex-fields) plus loin dans cet article)
++ Edm.Collections
 + Types de champs numériques : Edm.Int32, Edm.Int64, Edm.Double
 
 Vous ne pouvez pas utiliser le type Edm.GeographyPoint dans une navigation par facettes. Les facettes sont construites à partir de texte ou de chiffres lisibles pour l’être humain. Par conséquent, elles ne sont pas prises en charge pour les coordonnées géographiques. Vous aurez besoin d’un champ de ville ou de région pour les facettes créées par lieu.

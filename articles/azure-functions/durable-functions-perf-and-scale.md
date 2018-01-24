@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -54,18 +54,18 @@ Le diagramme suivant illustre la façon dont l’hôte Azure Functions interagit
 
 ![Diagramme de mise à l’échelle](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-Comme vous pouvez constater, toutes les machines virtuelles peuvent rivaliser entre elles pour acquérir les messages de la file d’attente des éléments de travail. Toutefois, seules trois machines virtuelles peuvent acquérir les messages des files d’attente de contrôle, et chacune d’elles verrouille une file d’attente de contrôle.
+Comme vous pouvez le constater, toutes les machines virtuelles peuvent rivaliser entre elles pour acquérir les messages de la file d’attente des éléments de travail. Toutefois, seules trois machines virtuelles peuvent acquérir les messages des files d’attente de contrôle, et chacune d’elles verrouille une file d’attente de contrôle.
 
 Les instances d’orchestration sont distribuées sur les instances de file d’attente de contrôle en exécutant une fonction de hachage interne sur l’ID d’instance de l’orchestration. Les ID d’instance sont générés automatiquement et aléatoires par défaut pour garantir l’équilibrage des instances sur toutes les files d’attente de contrôle disponibles. Le nombre par défaut de partitions de file d’attente de contrôle prises en charge est actuellement de **4**.
 
 > [!NOTE]
-> Il n’est pas encore possible de configurer le nombre de partitions dans Azure Functions. [Les efforts menés pour prendre en charge cette option de configuration sont suivis](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> Il n’est pas encore possible de configurer le nombre de partitions de file d’attente de contrôle dans Azure Functions. [Les efforts menés pour prendre en charge cette option de configuration sont suivis](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 En règle générale, les fonctions d’orchestrateur sont conçues pour être légères et elles ne devraient pas nécessiter une grande puissance de calcul. C’est pourquoi il n’est pas nécessaire de créer un grand nombre de partitions de file d’attente de contrôle pour obtenir un haut débit. Au lieu de cela, le travail lourd est principalement effectué dans les fonctions d’activité sans état, qui peuvent être mises à l’échelle à l’infini.
 
 ## <a name="auto-scale"></a>Mise à l’échelle automatique
 
-Comme avec toutes les fonctions Azure exécutées dans le plan Consommation, Fonctions durables prend en charge la mise à l’échelle automatique via le [contrôleur de mise à l’échelle Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Le contrôleur de mise à l’échelle effectue le monitoring de la longueur de la file d’attente des éléments de travail et de chacune des files d’attente de contrôle, en ajoutant ou supprimant des ressources de machine virtuelle en conséquence. Si la longueur des files d’attente de contrôle augmente au fil du temps, le contrôleur de mise à l’échelle continue à ajouter des instances jusqu'à ce qu’il ait atteint le nombre de partitions de file d’attente de contrôle. Si la longueur de la file d’attente des éléments de travail augmente au fil du temps, le contrôleur de mise à l’échelle continue à ajouter des ressources de machine virtuelle jusqu'à ce qu’il puisse répondre à la charge, quel que soit le nombre de partitions de file d’attente de contrôle.
+Comme avec toutes les fonctions Azure exécutées dans le plan Consommation, Fonctions durables prend en charge la mise à l’échelle automatique via le [contrôleur de mise à l’échelle Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Le contrôleur de mise à l’échelle effectue le monitoring de la longueur de la file d’attente des éléments de travail et de chacune des files d’attente de contrôle, en ajoutant ou supprimant des instances de machine virtuelle en conséquence. Si la longueur des files d’attente de contrôle augmente au fil du temps, le contrôleur de mise à l’échelle continue à ajouter des instances de machine virtuelle jusqu'à ce qu’il ait atteint le nombre de partitions de file d’attente de contrôle. Si la longueur de la file d’attente des éléments de travail augmente au fil du temps, le contrôleur de mise à l’échelle continue à ajouter des instances de machine virtuelle jusqu'à ce qu’il puisse répondre à la charge, quel que soit le nombre de partitions de file d’attente de contrôle.
 
 ## <a name="thread-usage"></a>Utilisation de threads
 
@@ -73,7 +73,7 @@ Les fonctions d’orchestrateur sont exécutées sur un seul thread. Cela est in
 
 Les fonctions d’activité ont les mêmes comportements que les fonctions normales déclenchées par une file d’attente. Cela signifie qu’elles peuvent, en toute sécurité, effectuer des opérations d’E/S ou des opérations gourmandes en ressources de processeur et utiliser plusieurs threads. Étant donné que les déclencheurs d’activité sont sans état, ils peuvent librement être mis à l’échelle sur un nombre illimité de machines virtuelles.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Installer l’extension Fonctions durables et des exemples](durable-functions-install.md)

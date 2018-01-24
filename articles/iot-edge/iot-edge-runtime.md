@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Présentation du runtime Azure IoT Edge et de son architecture - préversion
 
@@ -25,8 +25,8 @@ Le runtime IoT Edge exécute les fonctions suivantes sur les appareils IoT Edge�
 * Il tient à jour les normes de sécurité Azure IoT Edge sur l’appareil.
 * Il garantit que les [modules IoT Edge][lnk-modules] sont toujours en cours d’exécution.
 * Il envoie des rapports d’intégrité du module dans le cloud pour la surveillance à distance.
-* Il facilite la communication entre les appareils feuilles en aval et l’appareil IoT Edge.
-* Il facilite la communication entre les modules et l’appareil IoT Edge.
+* Il facilite la communication entre les appareils feuilles en aval et le périphérique IoT Edge.
+* Il facilite la communication entre les modules et le périphérique IoT Edge.
 * Il facilite la communication entre l’appareil IoT Edge et le cloud.
 
 ![Le runtime IoT Edge communique des informations et des données sur l’intégrité du module à IoT Hub.][1]
@@ -90,23 +90,31 @@ Chaque élément dans le dictionnaire de modules contient des informations sur u
 * **settings.createOptions** : chaîne qui est transmise directement au démon Docker lors du démarrage du conteneur d’un module. L’ajout d’options Docker dans cette propriété permet de bénéficier d’options avancées telles que le transfert de port ou le montage de volumes dans le conteneur d’un module.  
 * **status** : état dans lequel l’agent Edge place le module. Cette valeur est généralement définie sur *running*, car la plupart des gens souhaitent que l’agent Edge démarre immédiatement tous les modules sur l’appareil. Toutefois, vous pouvez spécifier l’arrêt comme état initial d’un module, et demander ultérieurement à l’agent Edge de démarrer le module. L’agent Edge signale l’état de chaque module au cloud dans les propriétés déclarées. Une différence entre la propriété souhaitée et la propriété signalée est un indicateur du dysfonctionnement de l’appareil. Les états pris en charge sont :
    * Downloading
-   * Running
+   * Exécution
    * Unhealthy
-   * Failed
-   * Stopped
+   * Échec
+   * Arrêté
 * **restartPolicy** : indique comment l’agent Edge redémarre un module. Les valeurs possibles incluent :
    * Never : l’agent Edge ne redémarre jamais le module.
    * onFailure : si le module se bloque, l’agent Edge le redémarre. Si le module se ferme correctement, l’agent Edge ne le redémarre pas.
    * Unhealthy : si le module se bloque ou est considéré comme défectueux, l’agent Edge le redémarre.
    * Always : si le module se bloque, est considéré comme défectueux ou s’arrête d’une façon quelconque, l’agent Edge le redémarre. 
-   
+
+L’agent IoT Edge envoie la réponse d’exécution à IoT Hub. Voici une liste de réponses possibles :
+  * 200 - OK
+  * 400 - La configuration de déploiement a un format incorrect ou n’est pas valide.
+  * 417 - Aucune configuration de déploiement n’est définie pour l’appareil.
+  * 412 - La version de schéma dans la configuration de déploiement n’est pas valide.
+  * 406 - L’appareil de périphérie est hors connexion ou n’envoie pas de rapports d’état.
+  * 500 - Une erreur s’est produite dans le runtime de périphérie.
+
 ### <a name="security"></a>Sécurité
 
 L’agent IoT Edge joue un rôle essentiel dans la sécurité d’un appareil IoT Edge. Par exemple, il effectue des actions telles que la vérification de l’image d’un module avant de le démarrer. Ces fonctionnalités seront ajoutées lors de la disponibilité générale des fonctionnalités de V2. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Présentation des modules Azure IoT Edge][lnk-modules]
 

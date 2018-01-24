@@ -7,7 +7,7 @@ author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -29,18 +29,18 @@ Cet article explique comment utiliser des déclencheurs de minuteur dans Azure F
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#trigger---c-example)
-* [Script C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>Exemple en code C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui s’exécute toutes les cinq minutes :
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui s’exécute toutes les cinq minutes :
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Attributs
 
-Pour les fonctions [C# précompilées](functions-dotnet-class-library.md), utilisez [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
 Le constructeur de l’attribut prend une expression CRON, comme illustré dans l’exemple suivant :
 
@@ -150,13 +150,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 Vous pouvez spécifier un `TimeSpan` au lieu d’une expression CRON si votre application de fonction s’exécute sur un plan App Service (et non un plan Consommation).
 
-Pour obtenir un exemple complet, consultez [Exemple C# précompilé](#c-example).
+Vous trouverez un exemple complet sur la page [Exemple C#](#c-example).
 
 ## <a name="configuration"></a>Configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `TimerTrigger`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 |**type** | n/a | Doit avoir la valeur « timerTrigger ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Doit être défini sur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
@@ -251,7 +251,7 @@ Lorsqu’une fonction de déclenchement du minuteur est appelée, [l’objet min
 
 Le déclencheur du minuteur prend en charge la montée en charge multi-instance. Une instance unique d’une fonction de minuteur spécifique est exécutée sur toutes les instances.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Accéder à un guide de démarrage rapide qui utilise un déclencheur de minuteur](functions-create-scheduled-function.md)

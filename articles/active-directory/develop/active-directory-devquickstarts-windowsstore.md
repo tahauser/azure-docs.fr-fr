@@ -1,5 +1,5 @@
 ---
-title: "Bien démarrer avec Azure AD Windows Store | Microsoft Docs"
+title: "Bien démarrer avec la plateforme universelle Azure AD Windows (UWP/XAML) | Microsoft Docs"
 description: "Créez des applications Windows Store qui s’intègrent avec Azure AD pour la connexion et appellent des API protégées par Azure AD en utilisant OAuth."
 services: active-directory
 documentationcenter: windows
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f76324e4415dcc300a0c2e21a89d30301c17ebab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-windows-store-apps"></a>Intégration d’Azure AD avec des applications Windows Store
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Bien démarrer avec la plateforme universelle Azure AD Windows (UWP/XAML)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 > [!NOTE]
-> Les projets du Windows Store 8.1 et des versions antérieures ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Ciblage et compatibilité de la plateforme Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Les projets du Windows Store 8.1 et des versions antérieures ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 Si vous développez des applications pour Windows Store, Azure Active Directory (Azure AD) facilite l’authentification de vos utilisateurs avec leurs comptes Active Directory. Grâce à l’intégration avec Azure AD, une application peut utiliser en toute sécurité une API web qui est protégée par Azure AD, telle que les API Office 365 ou l’API Azure.
 
@@ -46,7 +46,7 @@ Lorsque vous êtes prêt, suivez les procédures des trois sections qui suivent.
 ## <a name="step-1-register-the-directorysearcher-app"></a>Étape 1 : Inscrire l’application DirectorySearcher
 Pour autoriser l’application à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre locataire Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD. Voici comment procéder :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte. Puis, dans la liste **Annuaire**, sélectionnez le client Active Directory dans lequel vous voulez inscrire l’application.
 3. Dans le volet gauche, cliquez sur **Plus de services**, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.

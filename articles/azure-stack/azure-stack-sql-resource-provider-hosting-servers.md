@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Ajouter des serveurs d’hébergement à utiliser par l’adaptateur SQL
 
@@ -28,11 +28,9 @@ Vous pouvez utiliser des instances SQL sur les machines virtuelles se trouvant a
 * L’instance SQL doit être dédiée à une utilisation par le fournisseur de ressources et les charges de travail utilisateur. Vous ne pouvez pas utiliser d’instance SQL utilisée par un autre consommateur, y compris App Services.
 * L’adaptateur du fournisseur de ressources n’est pas joint au domaine et peut uniquement se connecter à l’aide de l’authentification SQL.
 * Vous devez configurer un compte doté des privilèges appropriés pour une utilisation par le fournisseur de ressources.
-* Le trafic réseau à partir du fournisseur de ressources vers SQL utilise le port 1433 et ne peut pas être modifié.
 * Le fournisseur de ressources et les utilisateurs tels que Web Apps utilisent le réseau de l’utilisateur, c’est pourquoi une connexion à l’instance SQL sur ce réseau est requise. Cette exigence signifie généralement que l’adresse IP de vos instances SQL doit se trouver sur un réseau public.
 * La gestion des instances SQL et de leurs hôtes vous revient. Le fournisseur de ressources n’effectue pas la mise à jour corrective, la sauvegarde, la rotation des informations d’identification, etc.
 * Les références SKU peuvent servir à créer différentes classes de capacités SQL, telles que les performances, Always On, etc.
-
 
 
 Un certain nombre d’images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de Marché. Assurez-vous de toujours télécharger la dernière version de l’extension Iaas SQL avant de déployer une machine virtuelle à l’aide d’un élément de la Place de marché. Les images SQL sont les mêmes que les machines virtuelles SQL sont disponibles dans Azure. Pour les machines virtuelles SQL créées à partir de ces images, l’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités de mise à jour corrective et de sauvegarde automatique.
@@ -73,6 +71,8 @@ Pour ajouter un serveur d’hébergement autonome déjà approvisionné, procéd
 
   ![Nouveau serveur d’hébergement](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    Vous pouvez, si vous le souhaitez, ajouter un nom d’instance, ainsi qu’un numéro de port si l’instance n’est pas affectée au port par défaut, 1433.
+
   > [!NOTE]
   > Tant que l’instance SQL est accessible par l’utilisateur et l’administrateur Azure Resource Manager, elle peut être placée sous contrôle du fournisseur de ressources. L’instance SQL __doit__ être allouée exclusivement au fournisseur de ressources.
 
@@ -86,10 +86,10 @@ Pour ajouter un serveur d’hébergement autonome déjà approvisionné, procéd
 
     Exemple :
 
-    ![Références (SKU)](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![Références (SKU)](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Vous ne pouvez pas créer de base de données tant que la référence SKU n’a pas été complètement créée.
+> Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Les utilisateurs ne peuvent pas créer de base de données tant que la référence SKU n’a pas été complètement créée.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Fournir une capacité à l’aide de groupes de disponibilité AlwaysOn SQL
 La configuration d’instances Always On SQL nécessite des étapes supplémentaires et implique au moins trois machines virtuelles (ou machines physiques).
@@ -126,7 +126,7 @@ Pour ajouter des serveurs d’hébergement Always On SQL, procédez comme suit :
     Dans le panneau **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL Server à des instances réelles de SQL Server qui font office de serveur principal du fournisseur de ressources.
 
 
-3. Remplissez le formulaire avec les informations de connexion de votre instance SQL Server, en veillant à utiliser l’adresse IPv4 ou de nom de domaine complet de l’écouteur Always On. Fournissez les informations du compte que vous avez configuré avec des privilèges d’administrateur système.
+3. Remplissez le formulaire en précisant les informations de connexion de votre instance SQL Server et en veillant à utiliser l’adresse IPv4 ou le nom de domaine complet de l’écouteur Always On (et le numéro de port facultatif). Fournissez les informations du compte que vous avez configuré avec des privilèges d’administrateur système.
 
 4. Cochez cette case pour activer la prise en charge des instances de groupe de disponibilité Always On SQL.
 
@@ -137,7 +137,7 @@ Pour ajouter des serveurs d’hébergement Always On SQL, procédez comme suit :
 
 ## <a name="making-sql-databases-available-to-users"></a>Mise à disposition des bases de données SQL pour les utilisateurs
 
-Créez des plans et des offres pour mettre des bases de données SQL à la disposition d’utilisateurs. Ajoutez le service Microsoft.SqlAdapter au plan, puis ajoutez un Quota existant ou créez en un. Si vous créez un quota, vous pouvez spécifier la capacité pour autoriser l’utilisateur.
+Créez des plans et des offres pour mettre des bases de données SQL à la disposition d’utilisateurs. Ajoutez le service Microsoft.SqlAdapter au plan, puis ajoutez un Quota existant ou créez-en un. Si vous créez un quota, spécifiez la capacité à accorder à l’utilisateur.
 
 ![Créer des plans et des offres pour inclure des bases de données](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 
@@ -163,6 +163,6 @@ Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMIN
 ![Mettre à jour le mot de passe de l’administrateur](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Ajouter des bases de données](azure-stack-sql-resource-provider-databases.md)

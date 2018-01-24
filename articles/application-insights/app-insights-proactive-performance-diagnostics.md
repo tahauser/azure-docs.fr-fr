@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -65,7 +65,7 @@ Les notifications de détection intelligente sont activées par défaut et envoy
 
 Les courriers électroniques relatifs aux anomalies de performances de détections intelligentes se limitent à un courrier électronique par jour et par ressource Application Insights. Le courrier électronique n’est envoyé que si au moins un nouveau problème a été détecté ce jour-là. Vous n’obtiendrez pas plusieurs fois le même message. 
 
-## <a name="faq"></a>Questions fréquentes (FAQ)
+## <a name="faq"></a>Forum Aux Questions
 
 * *Les équipes Microsoft consultent-elles mes données ?*
   * Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](app-insights-data-retention-privacy.md).
@@ -178,12 +178,12 @@ Cliquez sur les liens pour ouvrir Metric Explorer et effectuez une recherche dan
 
 Modifiez l’intervalle de temps et les filtres pour explorer la télémétrie.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
 
 * [Profileur](app-insights-profiler.md) 
 * [Débogueur de capture instantanée](app-insights-snapshot-debugger.md)
-* [Analytics](app-insights-analytics-tour.md)
+* [Analyse](app-insights-analytics-tour.md)
 * [Diagnostics intelligents Analytics](app-insights-analytics-diagnostics.md)
 
 Les détections intelligentes sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?

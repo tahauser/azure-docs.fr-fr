@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -148,7 +148,7 @@ La deuxième option consiste à configurer des [révisions d’accès](active-di
 Votre organisation doit disposer d’un abonnement Azure AD Premium P2 (ou EMS E5) d’évaluation ou payant dans son client pour pouvoir utiliser Azure AD PIM.  En outre, les licences doivent être affectées aux administrateurs du client.  Plus précisément, les licences doivent être affectées aux administrateurs dans les rôles Azure AD gérés via Azure AD PIM, aux administrateurs dans les rôles RBAC Azure gérés via Azure AD PIM et à tous les utilisateurs non administrateurs qui effectuent des révisions d’accès.
 Si votre organisation ne renouvelle pas son abonnement Azure AD Premium P2 ou si votre période d’évaluation expire, les fonctionnalités d’Azure AD PIM ne seront plus disponibles dans votre client, les affectations de rôles éligibles seront supprimées et les utilisateurs ne pourront plus activer de rôles. Vous trouverez plus d’informations à ce sujet dans les [spécifications de l’abonnement à Azure AD PIM](./privileged-identity-management/subscription-requirements.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

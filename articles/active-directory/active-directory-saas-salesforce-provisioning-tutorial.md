@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 93f3912e2405a4ebeee26e3741d6412a75410b7f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Didacticiel : configuration de Salesforce pour approvisionner automatiquement des utilisateurs
 
 L’objectif de ce didacticiel est de montrer les étapes à effectuer dans Salesforce et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Salesforce.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -33,7 +33,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 ## <a name="assigning-users-to-salesforce"></a>Assigner des utilisateurs à Salesforce
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique de comptes utilisateur, les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique des comptes d’utilisateur, seuls les utilisateurs et les groupes qui ont été « affectés » à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service de provisionnement, vous devez déterminer quels utilisateurs ou groupes dans Azure AD ont besoin d’accéder à votre application Salesforce. Une fois cette décision prise, vous pouvez affecter ces utilisateurs à votre application Salesforce en suivant les instructions fournies dans [Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
@@ -89,23 +89,25 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton secret**.
 
-11. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Salesforce.
+11. L’**URL de locataire** doit être entrée si l’instance de Salesforce se trouve sur Salesforce Government Cloud. Dans le cas contraire, elle est facultative. Entrez l’URL de locataire en utilisant le format https://votre-instance.my.salesforce.com, où vous devez remplacer votre-instance par le nom de votre instance Salesforce.
 
-12. Dans le champ **E-mail de notification**, saisissez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
+12. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Salesforce.
 
-13. Cliquez sur **Enregistrer.**  
+13. Dans le champ **E-mail de notification**, saisissez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
+
+14. Cliquez sur **Enregistrer.**  
     
-14.  Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Salesforce.**
+15.  Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Salesforce.**
 
-15. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Salesforce. Remarque : Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Salesforce, en vue d’opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+16. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Salesforce. Remarque : Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Salesforce, en vue d’opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
-16. Pour activer le service d’approvisionnement Azure AD pour Salesforce, accédez à la section Paramètres et définissez le **Statut de l’approvisionnement** sur **Activé**.
+17. Pour activer le service d’approvisionnement Azure AD pour Salesforce, accédez à la section Paramètres et définissez le **Statut de l’approvisionnement** sur **Activé**.
 
-17. Cliquez sur **Enregistrer.**
+18. Cliquez sur **Enregistrer.**
 
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes affectés à Salesforce dans la section Utilisateurs et Groupes. Remarque : La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service de configuration dans votre application Salesforce.
 
-Vous pouvez désormais créer un compte de test. Patientez jusqu’à 20 minutes avant de vérifier que le compte a bien été synchronisé avec Salesforce.
+Vous pouvez à présent créer un compte de test. Patientez jusqu’à 20 minutes avant de vérifier que le compte a bien été synchronisé avec Salesforce.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

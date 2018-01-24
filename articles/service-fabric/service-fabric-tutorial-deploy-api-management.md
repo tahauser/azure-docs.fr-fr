@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>déployer la Gestion des API avec Service Fabric.
 Ce didacticiel est la quatrième partie de la série.  Le déploiement du service Gestion des API Azure avec Service Fabric représente un scénario avancé.  Le service Gestion des API est utile lorsque vous avez besoin de publier des API avec un ensemble complet de règles d’acheminement pour vos services Service Fabric principaux. Les applications cloud ont généralement besoin d’une passerelle frontale afin de fournir un point d’entrée unique pour les utilisateurs, les appareils ou d’autres applications. Dans Service Fabric, une passerelle peut être n’importe quel service sans état conçu pour l’entrée de trafic, comme une application ASP.NET Core, Event Hubs, IoT Hub ou Gestion des API Azure. 
 
 Il vous montre comment configurer la [Gestion des API Azure](../api-management/api-management-key-concepts.md) avec Service Fabric pour acheminer le trafic vers un service principal dans Service Fabric.  Lorsque vous avez terminé, vous avez déployé la Gestion des API sur un réseau virtuel et configuré une opération d’API pour qu’elle envoie le trafic aux services sans état principaux. Pour en savoir plus sur les scénarios de gestion des API Azure avec Service Fabric, consultez l’article [Vue d’ensemble](service-fabric-api-management-overview.md).
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Déploiement de Gestion des API
@@ -42,7 +42,7 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * déployer la Gestion des API avec Service Fabric.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -328,8 +328,8 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+## <a name="next-steps"></a>étapes suivantes
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déploiement de Gestion des API

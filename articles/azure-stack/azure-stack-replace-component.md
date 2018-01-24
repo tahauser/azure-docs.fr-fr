@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Cet article décrit le processus général de remplacement des composants matériels qui ne sont pas échangeables à chaud. Les étapes de remplacement réelles varient en fonction du revendeur de votre matériel OEM. Pour obtenir des instructions détaillées propres à votre système intégré Azure Stack, consultez la documentation FRU (Field Replaceable Unit) de votre fournisseur.
 
@@ -40,7 +40,7 @@ Les composants non échangeables à chaud sont les suivants :
 
 L’organigramme suivant illustre le processus FRU général de remplacement d’un composant matériel non échangeable à chaud.
 
-![Organigramme montrant le flux de remplacement de composant](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Organigramme montrant le flux de remplacement de composant](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 *Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
@@ -48,13 +48,17 @@ L’organigramme suivant illustre le processus FRU général de remplacement d�
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 
-Le système de contrôle de l’intégrité et de surveillance d’Azure Stack surveille l’intégrité des cartes réseau et des lecteurs de données contrôlés par Storage Spaces Direct. Il ne surveille pas d’autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de surveillance du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.
+Le système de contrôle de l’intégrité et de surveillance d’Azure Stack surveille l’intégrité des cartes réseau et des lecteurs de données contrôlés par les espaces de stockage direct. Il ne surveille pas d’autres composants matériels. Pour tous les autres composants matériels, des alertes sont générées dans la solution de surveillance du matériel spécifique du fournisseur, qui s’exécute sur l’hôte de cycle de vie du matériel.
 
 ## <a name="component-replacement-process"></a>Processus de remplacement de composant
 
 Les étapes suivantes fournissent une vue d’ensemble du processus de remplacement de composant. Ne suivez pas ces étapes sans vous référer à la documentation FRU fournie par le fabricant OEM.
 
 1. Utilisez l’action [Drainer](azure-stack-node-actions.md#scale-unit-node-actions) pour mettre le nœud d’unité d’échelle en mode maintenance. Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
+
+   > [!NOTE]
+   > Dans tous les cas, un seul nœud peut être purgé et mis hors tension en même temps sans endommager l’espace de stockage direct S2D.
+
 2. Une fois le nœud d’unité d’échelle en mode maintenance, utilisez l’action [Mettre hors tension](azure-stack-node-actions.md#scale-unit-node-actions). Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
  
    > [!NOTE]
@@ -66,7 +70,8 @@ Les étapes suivantes fournissent une vue d’ensemble du processus de remplacem
 6. Utilisez le point de terminaison privilégié pour [vérifier l’état de réparation du disque virtuel](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Avec de nouveaux lecteurs de données, une opération de réparation de stockage complète peut prendre plusieurs heures en fonction de la charge du système et de l’espace utilisé.
 7. Une fois la réparation terminée, vérifiez que toutes les alertes actives ont été automatiquement fermées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur le remplacement d’un disque physique échangeable à chaud, voir [Remplacer un disque](azure-stack-replace-disk.md).
-- Pour plus d’informations sur le remplacement d’un nœud physique, voir [Remplacer un nœud d’unité d’échelle](azure-stack-replace-node.md). 
+- Pour plus d’informations sur le remplacement d’un nœud physique, voir [Remplacer un nœud d’unité d’échelle](azure-stack-replace-node.md).
+- 

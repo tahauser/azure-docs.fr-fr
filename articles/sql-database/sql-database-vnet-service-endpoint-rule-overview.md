@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database
 
@@ -65,9 +65,9 @@ Une règle de réseau virtuel donne l’instruction au serveur SQL Database d’
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Avantages d’une règle de réseau virtuel
 
-Les machines virtuelles sur vos sous-réseaux ne peuvent pas communiquer avec votre serveur SQL Database sans une intervention de votre part. Le choix de l’approche des règles de réseau virtuel pour autoriser les communications peut être justifié par contraste et comparaison avec les options de sécurité concurrentes offertes par le pare-feu.
+Les machines virtuelles sur vos sous-réseaux ne peuvent pas communiquer avec votre serveur SQL Database sans une intervention de votre part. La création d’une règle de réseau virtuel permet d’établir la communication. Le choix de l’approche des règles de réseau virtuel peut être justifié par contraste et comparaison avec les options de sécurité concurrentes offertes par le pare-feu.
 
-#### <a name="a-allow-access-to-azure-services"></a>R : Autoriser l’accès aux services Azure
+#### <a name="a-allow-access-to-azure-services"></a>R. Autoriser l’accès aux services Azure
 
 Le volet du pare-feu dispose d’un bouton **ACTIVÉ/DÉSACTIVÉ** étiqueté **Autoriser l'accès aux services Azure**. Le paramètre **ACTIVÉ** autorise les communications provenant de toutes les adresses IP Azure et de tous les sous-réseaux Azure. Ces adresses IP ou sous-réseaux Azure ne vous appartiennent peut-être pas. Ce paramètre **ACTIVÉ** est sans doute plus ouvert que vous souhaitez que le soit votre serveur SQL Database. La fonctionnalité de règles de réseau virtuel offre un contrôle granulaire beaucoup plus précis.
 
@@ -115,16 +115,16 @@ Il existe une séparation des rôles de sécurité dans l’administration des p
 - **Administrateur de réseau :**&nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :**&nbsp; Mettez à jour la liste de contrôle d’accès (ACL) pour ajouter un sous-réseau donné sur le serveur SQL Database.
 
-*Alternative RBAC :* 
+*Alternative RBAC :*
 
 Les rôles d’administrateur de réseau et d’administrateur de base de données disposent de plus de fonctionnalités que nécessaires pour gérer les règles de réseau virtuel. Seule une partie de ces fonctionnalités est réellement nécessaire.
 
 Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du rôle (RBAC)][rbac-what-is-813s] dans Azure pour créer un rôle personnalisé unique disposant uniquement des fonctionnalités nécessaires. Le rôle personnalisé peut être utilisé au lieu d’impliquer l’administrateur de réseau ou l’administrateur de base de données. Votre surface d’exposition de sécurité est inférieure si vous assignez un rôle personnalisé à un utilisateur au lieu de lui assigner les deux principaux rôles d’administrateur.
 
-
-
-
-
+> [!NOTE]
+> Il peut arriver que l’instance Azure SQL Database et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
+> - Les deux abonnements doivent se trouver dans le même locataire Azure Active Directory.
+> - L’utilisateur dispose des autorisations requises pour lancer des opérations, telles que l’activation des points de terminaison de service et l’ajout d’un sous-réseau de réseau virtuel sur le serveur donné.
 
 ## <a name="limitations"></a>Limites
 
@@ -158,8 +158,32 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
+## <a name="impact-of-removing-allow-all-azure-services"></a>Impact de la suppression de la règle « Autoriser tous les services Azure »
+
+De nombreux utilisateurs souhaitent supprimer la règle **Autoriser tous les services Azure** de leurs serveurs SQL Azure et la remplacer par une règle de pare-feu de réseau virtuel.
+Mais la suppression de cette règle affecte les fonctionnalités Azure SQLDB suivantes :
+
+#### <a name="import-export-service"></a>Service d’importation/exportation
+Le service d’importation/exportation Azure SQLDB s’exécute sur des machines virtuelles dans Azure. Ces machines virtuelles, qui ne se trouvent pas dans votre réseau virtuel, obtiennent une adresse IP Azure lors de la connexion à votre base de données. Si vous supprimez la règle **Autoriser tous les services Azure**, ces machines virtuelles ne seront plus en mesure d’accéder à vos bases de données.
+Vous pouvez contourner le problème. Exécutez le service d’importation/exportation BACPAC directement dans votre code à l’aide de l’API DACFx. Assurez-vous que le déploiement s’effectue dans une machine virtuelle qui se trouve dans le sous-réseau de réseau virtuel pour lequel vous avez défini la règle de pare-feu.
+
+#### <a name="sql-database-query-editor"></a>Éditeur de requêtes SQL Database
+L’éditeur de requêtes Azure SQL Database est déployé sur des machines virtuelles dans Azure. Ces machines virtuelles ne se trouvent pas dans votre réseau virtuel. Elles obtiennent donc une adresse IP Azure lors de la connexion à votre base de données. Si vous supprimez la règle **Autoriser tous les services Azure**, ces machines virtuelles ne seront plus en mesure d’accéder à vos bases de données.
+
+#### <a name="table-auditing"></a>Audit de table
+Il existe actuellement deux façons d’activer l’audit sur votre instance SQL Database. L’audit de table échoue une fois que vous avez activé des points de terminaison de service sur votre instance Azure SQL Server. Pour contourner le problème, vous pouvez utiliser un audit d’objets blob.
 
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure
+
+Le stockage Azure a implémenté la même fonctionnalité qui vous permet de limiter la connectivité à votre compte de stockage.
+Si vous choisissez d’utiliser cette fonctionnalité avec un compte de stockage utilisé par une instance SQL Azure Server, vous risquez de rencontrer les problèmes. Vous trouverez ci-dessous une liste détaillée des fonctionnalités Azure SQLDB affectées par ce problème.
+
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
+PolyBase est couramment utilisé pour charger des données dans Azure SQLDW à partir de comptes de stockage. Si le compte de stockage à partir duquel vous chargez des données limite l’accès à seulement un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue.
+
+#### <a name="azure-sqldb-blob-auditing"></a>Audit d’objets blob Azure SQLDB
+L’audit d’objets blob transfère des journaux d’audit à votre propre compte de stockage. Si ce compte de stockage utilise la fonctionnalité de points de terminaison de service VENT, la connectivité entre Azure SQLDB et le compte de stockage sera interrompue.
 
 
 ## <a name="errors-40914-and-40615"></a>Erreurs 40914 et 40615
@@ -199,7 +223,7 @@ Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-
 
 Un script PowerShell peut également créer des règles de réseau virtuel avec l’applet de commande essentielle **New-AzureRmSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-#### <a name="prerequisites"></a>Composants requis
+#### <a name="prerequisites"></a>configuration requise
 
 Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* de point de terminaison de service de réseau virtuel particulier approprié pour Azure SQL Database.
 
@@ -217,16 +241,17 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 3. Définissez le contrôle **Autoriser l’accès aux services Azure** sur DÉSACTIVÉ.
 
     > [!IMPORTANT]
-    > Si vous laissez ce contrôle sur ACTIVÉ, votre serveur Azure SQL Database acceptera les communications provenant de n’importe quel sous-réseau, ce qui pourrait représenter un accès trop ouvert d’un point de vue de la sécurité. La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure, associée à la fonctionnalité de règles de réseau virtuel de SQL Database, peuvent ensemble réduire votre surface d’exposition de sécurité.
+    > Si vous maintenez le contrôle ACTIVÉ, votre serveur Azure SQL Database acceptera les communications à partir de n’importe quel sous-réseau. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure, associée à la fonctionnalité de règles de réseau virtuel de SQL Database, peuvent ensemble réduire votre surface d’exposition de sécurité.
 
 4. Cliquez sur le contrôle **+ Ajouter existant** dans la section **Réseaux virtuels**.
 
     ![Cliquez sur Ajouter existant (point de terminaison de sous-réseau, en tant que règle SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
 5. Dans le nouveau volet **Créer/mettre à jour**, renseignez les contrôles avec les noms de vos ressources Azure.
- 
+
     > [!TIP]
-    > Vous devez inclure le **préfixe d’adresse** correct pour votre sous-réseau. Vous pouvez trouver la valeur correspondante dans le portail. Accédez à **Toutes les ressources** &gt; **Tous les types** &gt; **Réseaux virtuels**. Le filtre affiche vos réseaux virtuels. Cliquez sur votre réseau virtuel, puis sur **Sous-réseaux**. La colonne **PLAGE D’ADRESSES** contient le préfixe d’adresse nécessaire.
+    > Vous devez inclure le **préfixe d’adresse** correct pour votre sous-réseau. Vous pouvez trouver la valeur correspondante dans le portail.
+    > Accédez à **Toutes les ressources** &gt; **Tous les types** &gt; **Réseaux virtuels**. Le filtre affiche vos réseaux virtuels. Cliquez sur votre réseau virtuel, puis sur **Sous-réseaux**. La colonne **PLAGE D’ADRESSES** contient le préfixe d’adresse nécessaire.
 
     ![Renseignez les champs de la nouvelle règle.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -237,22 +262,26 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
     ![Le volet du pare-feu affiche la nouvelle règle.][image-portal-firewall-vnet-result-rule-30-png]
 
 
-
-
+> [!NOTE]
+> Les états suivants s’appliquent aux règles :
+> - **Prêt :** indique que l’opération que vous avez lancée a abouti.
+> - **Échec :** indique que l’opération que vous avez lancée a échoué.
+> - **Supprimé :** s’applique uniquement à l’opération de suppression et indique que la règle a été supprimée et qu’elle ne s’applique plus.
+> - **En cours :** indique que l’opération est en cours d’exécution. L’ancienne règle s’applique lorsque l’opération est à cet état.
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>Articles connexes
 
-- [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel, puis une règle de réseau virtuel pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Points de terminaison de service de réseau virtuel Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database][sql-db-firewall-rules-config-715d]
 
-La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure et la fonctionnalité de règles de réseau virtuel pour Azure SQL Database sont toutes deux disponibles depuis fin septembre 2017.
+La fonctionnalité de règle de réseau virtuel pour Azure SQL Database est disponible depuis fin septembre 2017.
 
+## <a name="next-steps"></a>étapes suivantes
 
-
+- [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel, puis une règle de réseau virtuel pour Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
@@ -304,4 +333,3 @@ La fonctionnalité de points de terminaison de service de réseau virtuel Micros
 
 - ARM templates
 -->
-

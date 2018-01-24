@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliothèque de gestion des Event Hubs
 
-Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquement des entités et des espaces de noms d’Event Hubs. Ceci permet des déploiements et des scénarios de messagerie complexes, et de déterminer ainsi par programmation les entités à approvisionner. Ces bibliothèques sont actuellement disponibles pour .NET.
+Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquement des entités et des espaces de noms d’Event Hubs. Ce caractère dynamique permet des déploiements et des scénarios de messagerie complexes, et de déterminer ainsi par programmation les entités à approvisionner. Ces bibliothèques sont actuellement disponibles pour .NET.
 
 ## <a name="supported-functionality"></a>Fonctionnalités prises en charge
 
@@ -30,7 +30,7 @@ Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquemen
 * Création, mise à jour et suppression d’Event Hubs
 * Création, mise à jour et suppression de groupes de consommateurs
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour commencer à utiliser les bibliothèques de gestion d’Event Hubs, vous devez vous authentifier avec Azure Active Directory (AAD). AAD vous oblige à vous authentifier en tant que principal du service pour pouvoir accéder à vos ressources Azure. Pour plus d’informations sur la création d’un principal du service, consultez ces articles :  
 
@@ -76,6 +76,6 @@ Le modèle pour manipuler une ressource Event Hubs quelconque suit un protocole 
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Espace de noms Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

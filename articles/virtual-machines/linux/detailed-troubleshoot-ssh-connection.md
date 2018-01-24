@@ -5,7 +5,7 @@ keywords: "refus de la connexion ssh,erreur ssh,ssh azure,échec de la connexion
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: support-article
-ms.date: 07/06/2017
+ms.topic: article
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Étapes détaillées supplémentaires de résolution des problèmes SSH pour la connexion à une machine virtuelle Linux dans Azure
 Il existe de nombreuses raisons pour lesquelles le client SSH peut ne pas pouvoir accéder au service SSH sur la machine virtuelle. Si vous avez suivi les [étapes de dépannage générales pour SSH](troubleshoot-ssh-connection.md), vous devez aussi résoudre le problème de connexion. Cet article vous guide tout au long des étapes de dépannage détaillées pour déterminer où la connexion SSH échoue et comment résoudre le problème.
@@ -39,14 +39,14 @@ Les étapes suivantes vous aident à isoler la source du problème et à déterm
 
 2. Sélectionnez **Paramètres** pour examiner les points de terminaison, les adresses IP, les groupes de sécurité réseau et les autres paramètres.
 
-   La machine virtuelle doit avoir un point de terminaison défini pour le trafic SSH que vous pouvez consulter sous **Points de terminaison** ou **[Groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md)**. Les points de terminaison pour les machines virtuelles créées à l’aide de Resource Manager sont stockés dans un groupe de sécurité réseau. Vérifiez également que les règles ont été appliquées au groupe de sécurité réseau et qu’elles sont référencées dans le sous-réseau.
+   La machine virtuelle doit avoir un point de terminaison défini pour le trafic SSH que vous pouvez consulter sous **Points de terminaison** ou **[Groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md)**. Les points de terminaison pour les machines virtuelles créées à l’aide de Resource Manager sont stockés dans un groupe de sécurité réseau. Vérifiez que les règles ont été appliquées au groupe de sécurité réseau et qu’elles sont référencées dans le sous-réseau.
 
-Pour vérifier la connectivité réseau, contrôlez les points de terminaison configurés et déterminez si vous pouvez atteindre la machine virtuelle par le biais d’un autre protocole, comme HTTP ou un autre service.
+Pour vérifier la connectivité réseau, contrôlez les points de terminaison configurés et déterminez si vous pouvez vous connecter à la machine virtuelle par le biais d’un autre protocole, comme HTTP ou un autre service.
 
 Une fois ces étapes effectuées, essayez à nouveau la connexion SSH.
 
 ## <a name="find-the-source-of-the-issue"></a>Découvrir la source du problème
-Le client SSH sur votre ordinateur n’a peut-être pas pu accéder au service SSH sur la machine virtuelle Azure en raison de problèmes ou de mauvaises configurations dans les domaines suivants :
+Le client SSH sur votre ordinateur n’a peut-être pas pu se connecter au service SSH sur la machine virtuelle Azure en raison de problèmes ou de mauvaises configurations dans les domaines suivants :
 
 * [Ordinateur client SSH](#source-1-ssh-client-computer)
 * [Appareil du périmètre de l’organisation](#source-2-organization-edge-device)
@@ -76,7 +76,7 @@ Si vous utilisez l’authentification par certificat, vérifiez que vous avez ce
 * Chmod 644 ~/.ssh/known_hosts (contient les hôtes auxquels vous vous êtes connecté via SSH)
 
 ## <a name="source-2-organization-edge-device"></a>Source 2 : appareil du périmètre de l’organisation
-Pour vérifier que votre appareil de périmètre de l’organisation n’est pas la cause du problème, vérifiez qu’un ordinateur directement connecté à Internet peut établir des connexions SSH à votre machine virtuelle Azure. Si vous accédez à la machine virtuelle par le biais d’un VPN de site à site ou une connexion Azure ExpressRoute, passez à [Source 4 : groupes de sécurité réseau](#nsg).
+Pour vous assurer que votre appareil de périmètre de l’organisation n’est pas la cause du problème, vérifiez qu’un ordinateur directement connecté à Internet peut établir des connexions SSH à votre machine virtuelle Azure. Si vous accédez à la machine virtuelle par le biais d’un VPN de site à site ou une connexion Azure ExpressRoute, passez à [Source 4 : groupes de sécurité réseau](#nsg).
 
 ![Diagramme qui met en évidence un appareil du périmètre de l’organisation](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -94,7 +94,7 @@ Contactez votre administrateur réseau pour corriger les paramètres de vos appa
 > [!NOTE]
 > Cette source ne s’applique qu’aux machines virtuelles créées à l’aide du modèle de déploiement Classic. Pour les machines virtuelles créées à l’aide de Resource Manager, passez à [Source 4 : groupes de sécurité réseau](#nsg).
 
-Pour éliminer le point de terminaison du service cloud et la liste de contrôle d’accès comme source du problème, vérifiez qu’une autre machine virtuelle Azure dans le même réseau virtuel peut établir des connexions SSH à votre machine virtuelle.
+Pour vous assurer que le point de terminaison du service cloud et la liste de contrôle d’accès ne sont pas la cause du problème, vérifiez qu’une autre machine virtuelle Azure dans le même réseau virtuel peut se connecter avec SSH.
 
 ![Diagramme qui met en évidence un point de terminaison de service cloud et une liste de contrôle d’accès](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 

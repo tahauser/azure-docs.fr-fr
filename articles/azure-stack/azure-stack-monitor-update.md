@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
-Vous pouvez utiliser le point de terminaison privilégié pour surveiller la progression de l'exécution d’une mise à jour Azure Stack et reprendre une mise à jour ayant échoué à partir de la dernière étape réussie. 
+Vous pouvez utiliser le point de terminaison privilégié pour surveiller la progression de l'exécution d’une mise à jour Azure Stack et reprendre une mise à jour ayant échoué à partir de la dernière étape réussie si le portail de Azure Stack n’est plus disponible.  Utiliser le portail de Azure Stack est la méthode recommandée pour gérer les mises à jour dans Azure Stack.
 
 Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises à jour sont incluses dans la mise à jour 1710 des systèmes intégrés Azure Stack.
 
-| Applet de commande  | Description  |
+| Applet de commande  | DESCRIPTION  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Renvoie l’état de la mise à jour en cours, terminée ou qui a échoué. Fournit l’état de haut niveau de l’opération de mise à jour ainsi qu'un document XML qui décrit l’étape actuelle et l’état correspondant. |
 | `Get-AzureStackUpdateVerboseLog` | Renvoie les journaux détaillés générés par la mise à jour. |
@@ -70,7 +70,7 @@ Vous pouvez également déterminer si les applets de commande sont disponibles p
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Par exemple :
+   Par exemple : 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
@@ -194,7 +194,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 Le point de terminaison privilégié est disponible sur toutes les machines virtuelles ERCS dans l’environnement Azure Stack. Comme la connexion n’est pas établie vers un point de terminaison hautement disponible, vous risquez de rencontrer des interruptions occasionnelles, des avertissements ou des messages d’erreur. Ces messages peuvent indiquer que la session a été déconnectée ou qu’une erreur de communication avec le service ECE s'est produite. Il s’agit du comportement attendu. Vous pouvez réessayer l’opération dans quelques minutes ou créer une session de point de terminaison privilégié sur l’une des autres machines virtuelles ERCS. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Gestion des mises à jour dans Azure Stack](azure-stack-updates.md) 
 

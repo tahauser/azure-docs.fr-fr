@@ -4,7 +4,7 @@ description: "Découvrez comment installer et configurer le Bureau à distance (
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](http://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Cet article requiert une machine virtuelle Linux existante dans Azure. Si vous avez besoin créer une machine virtuelle, utilisez l’une des méthodes suivantes :
 
 - [Interface de ligne de commande Azure 2.0](quick-create-cli.md)
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Création d’une règle de groupe de sécurité réseau pour le trafic du Bureau à distance
 Pour autoriser le trafic du Bureau à distance à atteindre votre machine virtuelle Linux, une règle de groupe de sécurité réseau doit être créée pour permettre au TCP sur le port 3389 d’atteindre votre machine virtuelle. Pour plus d’informations sur les règles de groupe de sécurité réseau, consultez [Présentation du groupe de sécurité réseau](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous pouvez également [utiliser le portail Azure pour créer une règle de groupe de sécurité réseau](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Les exemples suivants créent une règle de groupe de sécurité réseau avec [az network nsg rule create](/cli/azure/network/nsg/rule#create) nommée *myNetworkSecurityGroupRule* pour *autoriser* le trafic sur le port *tcp* *3389*.
+L’exemple suivant permet de créer une règle de groupe de sécurité réseau avec [az vm open-port](/cli/azure/vm#open-port) sur le port *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -109,7 +103,7 @@ Une fois l’authentification effectuée, l’environnement de bureau xfce se ch
 
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
-Si vous ne pouvez pas vous connecter à votre machine virtuelle Linux à l’aide d’un client Bureau à distance, utilisez `netstat` sur votre machine virtuelle Linux pour vérifier que votre machine virtuelle écoute les connexions RDP comme suit :
+Si vous ne pouvez pas vous connecter à votre machine virtuelle Linux à l’aide d’un client Bureau à distance, utilisez `netstat` sur votre machine virtuelle Linux pour vérifier que votre machine virtuelle écoute les connexions RDP comme suit :
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Si le service xrdp n’écoute pas, sur une machine virtuelle Ubuntu, redémarrez le service comme suit :
+Si le service *xrdp-sesman* n’écoute pas, sur une machine virtuelle Ubuntu, redémarrez le service comme suit :
 
 ```bash
 sudo service xrdp restart
 ```
 
-Examinez les journaux dans */var/log*Thug sur votre machine virtuelle Ubuntu pour savoir pourquoi le service ne répond pas. Vous pouvez également surveiller le journal système lors d’une tentative de connexion au Bureau à distance pour afficher les erreurs :
+Examinez les journaux dans */var/log* sur votre machine virtuelle Ubuntu pour savoir pourquoi le service ne répond pas. Vous pouvez également surveiller le journal système lors d’une tentative de connexion au Bureau à distance pour afficher les erreurs :
 
 ```bash
 tail -f /var/log/syslog
@@ -139,7 +133,7 @@ Les autres distributions de Linux telles que Red Hat Enterprise Linux et SUSE pe
 Si vous ne recevez pas de réponse dans votre client Bureau à distance et que vous ne voyez aucun événement dans le journal système, cela indique que le trafic du bureau à distance ne peut pas joindre la machine virtuelle. Passez en revue vos règles de groupe de sécurité réseau pour vous assurer que vous disposez d’une règle autorisant TCP sur le port 3389. Pour plus d’informations, consultez [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](../windows/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur la création et l’utilisation de clés SSH avec les machines virtuelles Linux, consultez [Create SSH keys for Linux VMs in Azure](mac-create-ssh-keys.md) (Création de clés SSH pour les machines virtuelles Linux dans Azure).
 
 Pour plus d’informations sur l’utilisation de SSH avec Windows, consultez la page [Utilisation de clés SSH avec Windows sur Azure](ssh-from-windows.md).

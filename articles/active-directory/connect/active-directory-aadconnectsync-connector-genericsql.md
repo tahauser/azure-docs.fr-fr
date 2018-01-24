@@ -3,8 +3,8 @@ title: "Connecteur SQL générique | Microsoft Docs"
 description: "Cet article explique comment configurer le connecteur SQL générique de Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Référence technique du connecteur SQL générique
 Cet article décrit le connecteur SQL générique. Cet article s’applique aux produits suivants :
@@ -38,12 +38,12 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 
 | Fonctionnalité | Support |
 | --- | --- |
-| Source de données connectée |Le connecteur prend en charge tous les pilotes ODBC 64 bits. Il a été testé avec les éléments suivants :  <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
+| Source de données connectée |Le connecteur prend en charge tous les pilotes ODBC 64 bits. Il a été testé avec les éléments suivants :  <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li> |
 | Scénarios |<li>Gestion du cycle de vie des objets</li><li>Gestion des mots de passe</li> |
 | Opérations |<li>Importation complète et importation différentielle, importation, exportation</li><li>Pour l’exportation : ajouter, supprimer, mettre à jour et remplacer</li><li>Définition du mot de passe, modification du mot de passe</li> |
 | Schéma |<li>Découverte dynamique des objets et des attributs</li> |
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 Avant d’utiliser le connecteur, vérifiez que vous disposez des éléments suivants sur le serveur de synchronisation :
 
 * Microsoft .NET 4.5.2 Framework ou version ultérieure
@@ -231,7 +231,11 @@ Le connecteur SQL générique prend en charge les importations complètes et dif
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Table/Vue**  
-Pour importer les attributs à valeurs multiples d’un objet, vous devez fournir le nom de table/vue séparé par des virgules dans la **Nom des tables/vues à valeurs multiples** et les conditions de rattachement respectives dans la **condition de jointure** avec la table parente.
+Pour importer les attributs à plusieurs valeurs d’un objet, vous devez fournir le nom de table/vue dans le **Nom de table/vues à plusieurs valeurs** et les conditions de jointure respectives dans la **Condition de jointure** avec la table parente. S’il y a plus d’une table à plusieurs valeurs dans la source de données, vous pouvez utiliser l’union avec une vue unique.
+
+>[!IMPORTANT]
+L’agent de gestion SQL générique ne peut fonctionner qu’avec une table à plusieurs valeurs. Ne placez pas plus d’un nom de table dans le nom de table/vues à plusieurs valeurs. Il s’agit d’une limitation du SQL générique.
+
 
 Exemple : vous voulez importer l’objet Employé et tous ses attributs à plusieurs valeurs. Il existe deux tables nommées respectivement Employé (table principale) et Service (valeur multiple).
 Effectuez les actions suivantes :

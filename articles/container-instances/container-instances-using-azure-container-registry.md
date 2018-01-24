@@ -6,34 +6,34 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 9667a5b840d6c1fab5087cfcf3ede34a732fbe01
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
 Azure Container Registry est un registre privé Azure pour les images conteneur Docker. Cet article explique comment déployer des images conteneur stockées dans Azure Container Registry sur Azure Container Instances.
 
-## <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
+## <a name="deploy-with-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
 
-L’interface CLI Azure inclut des commandes pour la création et la gestion des conteneurs dans Azure Container Instances. Si vous spécifiez une image privée dans la commande `create`, vous pouvez également spécifier le mot de passe du Registre d’image nécessaire pour s’authentifier auprès du Registre de conteneurs.
+L’interface CLI Azure inclut des commandes pour la création et la gestion des conteneurs dans Azure Container Instances. Si vous spécifiez une image privée dans la commande [az container create][az-container-create], vous pouvez également spécifier le mot de passe du registre d’image nécessaire pour s’authentifier auprès du registre de conteneurs.
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --resource-group myResourceGroup --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword
 ```
 
-La commande `create` prend également en charge la spécification de `registry-login-server` et `registry-username`. Toutefois, le serveur de connexion pour le registre Azure Container Registry est toujours *registryname*. azurecr.io et le nom d’utilisateur par défaut est *registryname*, de sorte que ces valeurs sont déduites à partir du nom de l’image si elles ne sont pas fournies de manière explicite.
+La commande [az container create][az-container-create] accepte également la spécification de `--registry-login-server` et de `--registry-username`. Toutefois, le serveur de connexion pour le registre Azure Container Registry est toujours *registryname*. azurecr.io et le nom d’utilisateur par défaut est *registryname*, de sorte que ces valeurs sont déduites à partir du nom de l’image si elles ne sont pas fournies de manière explicite.
 
-## <a name="using-an-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
+## <a name="deploy-with-azure-resource-manager-template"></a>Déploiement avec un modèle Azure Resource Manager
 
 Vous pouvez spécifier les propriétés de votre registre Azure Container Registry dans un modèle Azure Resource Manager en incluant la `imageRegistryCredentials` propriété dans la définition du groupe de conteneurs :
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -45,39 +45,32 @@ Vous pouvez spécifier les propriétés de votre registre Azure Container Regist
 
 Pour éviter de stocker le mot de passe de votre registre de conteneurs directement dans le modèle, nous vous recommandons de le stocker en tant que secret dans [Azure Key Vault](../key-vault/key-vault-manage-with-cli2.md) et de le référencer dans le modèle à l’aide de l’ [intégration native entre Azure Resource Manager et Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-## <a name="using-the-azure-portal"></a>Utilisation du portail Azure
+## <a name="deploy-with-azure-portal"></a>Déploiement avec le Portail Azure
 
 Si vous gérez des images de conteneur dans le registre Azure Container Registry, vous pouvez facilement créer un conteneur dans Azure Container Instances via le portail Azure.
 
 1. Dans le portail Azure, accédez à votre registre de conteneurs.
 
-2. Choisissez les référentiels.
+2. Sélectionnez **Référentiels**, puis le référentiel dont proviendra le déploiement, cliquez avec le bouton droit sur la balise de l’image conteneur que vous souhaitez déployer et sélectionnez **Exécuter l’instance**.
 
-    ![Le menu Azure Container Registry dans le portail Azure][acr-menu]
+    ![« Exécuter l’instance » dans Azure Container Registry sur le Portail Azure][acr-runinstance-contextmenu]
 
-3. Choisissez le référentiel que vous souhaitez déployer.
-
-4. Cliquez avec le bouton droit sur la balise de l’image conteneur que vous souhaitez déployer.
-
-    ![Menu contextuel pour le lancement de conteneurs avec Azure Container Instances][acr-runinstance-contextmenu]
-
-5. Entrez un nom pour le conteneur et un nom pour le groupe de ressources. Vous pouvez également modifier les valeurs par défaut si vous le souhaitez.
+3. Entrez un nom pour le conteneur et un nom pour le groupe de ressources. Vous pouvez également modifier les valeurs par défaut si vous le souhaitez.
 
     ![Créer un menu pour Azure Container Instances][acr-create-deeplink]
 
-6. Une fois le déploiement terminé, vous pouvez naviguer vers le groupe de conteneurs à partir du panneau Notifications pour trouver son adresse IP et autres propriétés.
+4. Une fois le déploiement terminé, vous pouvez naviguer vers le groupe de conteneurs à partir du panneau Notifications pour trouver son adresse IP et autres propriétés.
 
     ![Affichage des détails pour le groupe de conteneurs d’Azure Container Instances][aci-detailsview]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment créer des conteneurs, les envoyer (push) à un Registre de conteneurs privé et les déployer sur Azure Container Instances en [effectuant le didacticiel](container-instances-tutorial-prepare-app.md).
 
 <!-- IMAGES -->
-[acr-menu]: ./media/container-instances-using-azure-container-registry/acr-menu.png
-
+[acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
+[aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
 [acr-runinstance-contextmenu]: ./media/container-instances-using-azure-container-registry/acr-runinstance-contextmenu.png
 
-[acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
-
-[aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create

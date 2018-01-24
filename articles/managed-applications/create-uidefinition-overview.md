@@ -1,6 +1,6 @@
 ---
 title: "Créer une définition d’interface utilisateur pour les applications managées Azure | Microsoft Docs"
-description: "Décrit comment créer des définitions d’interface utilisateur pour des applications managées Azure"
+description: "Décrit comment créer des définitions d’interface utilisateur pour des applications gérées Azure"
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Créer une interface utilisateur de portail Azure pour votre application managée
 Ce document présente les concepts de base du fichier createUiDefinition.json. Le portail Azure utilise ce fichier pour générer l’interface utilisateur permettant de créer une application managée.
@@ -41,9 +41,9 @@ Une fonction CreateUiDefinition contient toujours trois propriétés :
 * version
 * parameters
 
-Pour les applications managées, le gestionnaire doit toujours être `Microsoft.Compute.MultiVm`, et la version la plus récente `0.1.2-preview`.
+Pour les applications gérées, le gestionnaire doit toujours être `Microsoft.Compute.MultiVm`, et la version la plus récente `0.1.2-preview`.
 
-Le schéma de la propriété des paramètres dépend de la version et du gestionnaire spécifiés. Pour les applications managées, les propriétés prises en charge sont `basics`, `steps` et `outputs`. Les propriétés basics et steps contiennent des _éléments_, comme des zones de texte et des listes déroulantes, à afficher dans le portail Azure. La propriété outputs est utilisée pour mettre en correspondance les valeurs de sortie des éléments spécifiés avec les paramètres du modèle de déploiement Azure Resource Manager.
+Le schéma de la propriété des paramètres dépend de la version et du gestionnaire spécifiés. Pour les applications gérées, les propriétés prises en charge sont `basics`, `steps`, et `outputs`. Les propriétés basics et steps contiennent des _éléments_, comme des zones de texte et des listes déroulantes, à afficher dans le portail Azure. La propriété outputs est utilisée pour mettre en correspondance les valeurs de sortie des éléments spécifiés avec les paramètres du modèle de déploiement Azure Resource Manager.
 
 L’inclusion de `$schema` est recommandée, mais facultative. Si la valeur de `version` est spécifiée, celle-ci doit correspondre à la version figurant dans l’`$schema` URI.
 
@@ -55,18 +55,30 @@ Si le comportement d’un élément dépend de l’abonnement de l’utilisateur
 ## <a name="steps"></a>Étapes
 La propriété steps peut contenir zéro ou plusieurs des étapes supplémentaires à afficher après les principes de base, chacun contenant un ou plusieurs éléments. Vous pouvez ajouter des étapes par rôle ou niveau de l’application déployée. Par exemple, ajoutez une étape pour les entrées destinées aux nœuds principaux et une étape pour les nœuds de travail à un cluster.
 
-## <a name="outputs"></a>Sorties
+## <a name="outputs"></a>Outputs
 Le portail Azure utilise la propriété `outputs` pour mettre en correspondance des éléments issus de `basics` et `steps` avec les paramètres du modèle de déploiement Azure Resource Manager. Les clés de ce dictionnaire sont les noms des paramètres du modèle et les valeurs sont les propriétés des objets de sortie issues des éléments référencés.
 
-## <a name="functions"></a>Fonctions
+Pour définir le nom de ressource d’application managée, vous devez inclure une valeur nommée `applicationResourceName` dans la propriété des sorties. Si vous ne définissez pas cette valeur, l’application affecte un GUID au nom. Vous pouvez inclure une zone de texte dans l’interface utilisateur afin de demander un nom à l’utilisateur.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
+
+## <a name="functions"></a>Functions
 Semblable aux fonctions de modèle dans Azure Resource Manager (à la fois en termes de syntaxe et de fonctionnalité), CreateUiDefinition propose des fonctions permettant de travailler avec les entrées et sorties des éléments, ainsi que des fonctionnalités telles que des logiques conditionnelles.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Le fichier createUiDefinition.json proprement dit a un schéma simple. Sa profondeur réelle provient de tous les éléments et fonctions pris en charge. Ces éléments sont décrits plus en détail dans :
 
 - [Éléments](create-uidefinition-elements.md)
 - [Fonctions](create-uidefinition-functions.md)
 
-Un schéma JSON actuel pour createUiDefinition est disponible ici : https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+Un schéma JSON actuel pour createUiDefinition est disponible ici : https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Les versions ultérieures seront disponibles au même emplacement. Remplacez la partie `0.1.2-preview` de l’URL et la valeur `version` par l’identificateur de version que vous souhaitez utiliser. Les identificateurs de version actuellement prise en charge sont `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, et `0.1.2-preview`.
+Pour obtenir un exemple de fichier d’interface utilisateur, voir [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

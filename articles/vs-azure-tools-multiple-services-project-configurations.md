@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configuration de votre projet Azure dans Visual Studio pour utiliser plusieurs configurations de service
 
@@ -77,7 +77,7 @@ Pour les chaînes de connexion nouvelles ou existantes, sélectionnez **...*** �
 
 1. Sous **Se connecter en utilisant**, sélectionnez l'option **Votre abonnement** pour sélectionner un compte de stockage à partir d'un abonnement. Visual Studio obtient ensuite automatiquement les informations d'identification du compte de stockage à partir du fichier `.publishsettings`.
 1. L'option **Informations d'identification entrées manuellement** vous permet de spécifier directement le nom et la clé du compte à l'aide des informations du portail Azure. Pour copier la clé du compte : a. Accédez au compte de stockage sur le portail Azure et sélectionnez **Gérer les clés**.
-    2. Sur la page **Gérer l’accès aux clés**, sélectionnez le texte de la clé d’accès primaire, puis appuyez sur Ctrl+C pour copier le texte.
+    2. Pour copier la clé de compte, accédez au compte de stockage sur le portail Azure, sélectionnez **Paramètres > clés d’accès**, puis utilisez le bouton Copier pour copier la clé d’accès primaire dans le Presse-papiers.
 1. Sélectionnez l'une des options de connexion. L'option **Spécifier des points de terminaison personnalisés** vous demande de spécifier des URL spécifiques pour les objets blob, les tables et les files d'attente. Les points de terminaison personnalisés vous permettent d'utiliser des [domaines personnalisés](storage/blobs/storage-custom-domain-name.md) et de contrôler plus précisément l'accès. Voir [Configuration des chaînes de connexion du Stockage Azure](./storage/common/storage-configure-connection-string.md).
 1. Sélectionnez **OK**, puis **Fichier > Enregistrer** pour mettre à jour la configuration avec la nouvelle chaîne de connexion.
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Concepts Azure Media Services
 Cette rubrique fournit une vue d'ensemble des concepts les plus importants liés à Media Services.
 
-## <a id="assets"></a>Éléments multimédias et stockage
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Éléments multimédias et stockage
 ### <a name="assets"></a>Éléments multimédias
 Un [élément multimédia](https://docs.microsoft.com/rest/api/media/operations/asset) contient des fichiers numériques (y compris vidéo, audio, images, collections de miniatures, légendes et fichiers de sous-titres) et les métadonnées associées à ces fichiers. Une fois les fichiers numériques chargés dans un élément multimédia, ils peuvent être utilisés dans des flux de travail de diffusion et d’encodage Media Services.
 
@@ -71,7 +71,7 @@ Un conteneur d’objets blob regroupe un ensemble d’objets blob. Les conteneur
 > 
 > 
 
-### <a id="locators"></a>Localisateurs
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Localisateurs
 Les [localisateur](https://docs.microsoft.com/rest/api/media/operations/locator)s fournissent un point d’entrée pour accéder aux fichiers contenus dans une ressource. Une stratégie d’accès est utilisée pour définir les autorisations et la durée pendant laquelle un client a accès à un élément multimédia donné. Les localisateurs peuvent avoir une relation plusieurs-à-un avec une stratégie d’accès, de telle sorte que différents localisateurs puissent fournir différentes heures de démarrage et différents types de connexions à différents clients tout en utilisant tous les mêmes paramètres d’autorisation et de durée. Toutefois, en raison d’une restriction de stratégie d’accès partagé définie par les services de stockage Azure, vous ne pouvez pas avoir plus de cinq localisateurs uniques associés simultanément à un élément multimédia donné. 
 
 Media Services prend en charge deux types de localisateur : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) ou télécharger progressivement du contenu multimédia et des localisateurs d’URL SAS, qui servent à charger ou à télécharger des fichiers multimédias vers/depuis le stockage Azure. 
@@ -108,7 +108,7 @@ Pour plus d’informations sur les encodeurs pris en charge, consultez la page [
 Dans Azure Media Services, un canal représente un pipeline de traitement du contenu de diffusion en direct. Un canal reçoit des flux d’entrée en direct de l’une des deux manières suivantes :
 
 * Un encodeur en direct local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs en direct suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision et Tricaster. Les flux reçus transitent par les canaux sans transcodage et encodage supplémentaires. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
-* Un flux à débit binaire unique (dans l’un des formats suivants : RTP [MPEG-TS], RTMP ou Smooth Streaming [MP4 fragmenté]) est envoyé au canal qui est activé pour effectuer un encodage en direct avec Media Services. Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un flux à débit binaire unique (dans l’un des formats suivants : RTP [MPEG-TS], RTMP ou Smooth Streaming [MP4 fragmenté]) est envoyé au canal qui est activé pour effectuer un encodage en direct avec Media Services. Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 ### <a name="channel"></a>Canal
 Dans Media Services, les [canaux](https://docs.microsoft.com/rest/api/media/operations/channel)sont responsables du traitement du contenu de vidéo en flux continu. Un canal fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un transcodeur live. Le canal reçoit des flux d’entrée live en provenance du transcodeur et les met à disposition pour la diffusion en continu via un ou plusieurs StreamingEndpoints. Les canaux fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires.
@@ -137,7 +137,7 @@ Pour plus d'informations, consultez les pages suivantes :
 ### <a name="dynamic-encryption"></a>Chiffrement dynamique
 Azure Media Services vous permet de sécuriser votre contenu multimédia dès lors qu’il quitte votre ordinateur via le stockage, le traitement et la remise. Media Services permet de transmettre un contenu chiffré dynamiquement avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) et le chiffrement commun CENC (Common Encryption) en utilisant PlayReady et/ou Widevine DRM. Media Services fournit également un service de distribution de clés AES et licences PlayReady aux clients autorisés.
 
-Actuellement, vous pouvez chiffrer les formats de diffusion en continu suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer les téléchargements progressifs.
+Actuellement, vous pouvez chiffrer les formats de streaming suivants : HLS, MPEG DASH et Smooth Streaming. Vous ne pouvez pas chiffrer les téléchargements progressifs.
 
 Si vous souhaitez que Media Services chiffre un élément multimédia, vous devez associer une clé de chiffrement (CommonEncryption ou EnvelopeEncryption) à votre élément multimédia et configurer des stratégies d’autorisation pour la clé.
 
@@ -156,7 +156,7 @@ Pour plus d’informations, consultez les articles suivants :
 - [Protéger avec PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Remise
-### <a id="dynamic_packaging"></a>Empaquetage dynamique
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetage dynamique
 Lors de l’utilisation de Media Services, il est recommandé de toujours encoder vos fichiers mezzanine en un ensemble de fichiers MP4 à vitesse de transmission adaptative, puis de convertir le jeu au format souhaité en utilisant l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>point de terminaison de diffusion en continu
@@ -167,7 +167,7 @@ Le point de terminaison de streaming standard convient à la plupart des charges
 Il est recommandé d’utiliser l’empaquetage dynamique et/ou le chiffrement dynamique.
 
 >[!NOTE]
->Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
+>Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
 
 Pour plus d’informations, consultez [cette rubrique](media-services-portal-manage-streaming-endpoints.md) .
 
@@ -186,7 +186,7 @@ Le téléchargement progressif vous permet de commencer la lecture multimédia a
 >[!NOTE]
 >Vous devez déchiffrer les éléments multimédias chiffrés si vous souhaitez qu’ils soient disponibles pour le téléchargement progressif.
 
-Pour fournir aux utilisateurs des URL de téléchargement progressif, vous devez d’abord créer un localisateur OnDemandOrigin. La création du localisateur vous donne le chemin d’accès de base à l’élément multimédia. Vous devez ensuite ajouter le nom du fichier MP4. Par exemple :
+Pour fournir aux utilisateurs des URL de téléchargement progressif, vous devez d’abord créer un localisateur OnDemandOrigin. La création du localisateur vous donne le chemin d’accès de base à l’élément multimédia. Vous devez ensuite ajouter le nom du fichier MP4. Par exemple : 
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

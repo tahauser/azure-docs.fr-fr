@@ -7,7 +7,7 @@ author: wesmc7777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, modèles, bonne pratique, fonctions, traitement des événements, webhooks, calcul dynamique, architecture serverless"
+keywords: "azure functions, modèles, bonne pratique, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
-Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction [serverless](https://azure.microsoft.com/overview/serverless-computing/). 
+Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction [sans serveur](https://azure.microsoft.com/overview/serverless-computing/). 
 
 ## <a name="general-best-practices"></a>Bonnes pratiques générales
 
@@ -44,7 +44,7 @@ Les [Fonctions durables](durable-functions-overview.md) et le service [Azure Log
 
 Si vous n’utilisez pas les fonctions durables ni Logic Apps pour l’intégration à plusieurs fonctions, une bonne pratique consiste en général à utiliser des files d’attente de stockage pour la communication entre les fonctions.  La principale raison est que les files d’attente de stockage sont plus économiques et beaucoup plus faciles à configurer. 
 
-La taille de chaque message d’une file d’attente de stockage est limitée à 64 Ko. Pour transmettre des messages plus volumineux entre les fonctions, vous pouvez utiliser une file d’attente Azure Service Bus, qui prend en charge les tailles de message allant jusqu’à 256 Ko.
+La taille de chaque message d’une file d’attente de stockage est limitée à 64 Ko. Pour transmettre des messages plus volumineux entre les fonctions, vous pouvez utiliser une file d’attente Azure Service Bus, qui prend en charge des tailles de message allant jusqu’à 256 Ko pour le niveau Standard, 1 Mo pour le niveau Premium.
 
 Les rubriques Service Bus sont utiles si vous avez besoin de filtrer les messages avant de les traiter.
 
@@ -115,7 +115,7 @@ Les paramètres dans le fichier des hôtes s’appliquent à toutes les fonction
 
 D’autres options de configuration d’hôte sont consultables [dans le document de configuration d’hôte](functions-host-json.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 Étant donné qu’Azure Functions utilise Azure App Service, vous devez également connaître les directives d’App Service.

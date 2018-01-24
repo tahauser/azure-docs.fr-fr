@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La bibliothèque de déplacement des données du Stockage Microsoft Azure est une bibliothèque multiplateforme open source conçue pour charger, télécharger et copier des objets blob et des fichiers du Stockage Azure avec des performances élevées. Cette bibliothèque est l’infrastructure centrale de déplacement des données [d’AzCopy](../storage-use-azcopy.md). La bibliothèque de déplacement des données fournit des méthodes utiles qui ne sont pas disponibles dans notre [bibliothèque cliente classique du Stockage Azure .NET](../blobs/storage-dotnet-how-to-use-blobs.md). Parmi elles figure la capacité à définir le nombre d’opérations parallèles, à suivre la progression des transferts, à reprendre facilement un transfert annulé et bien plus encore.  
 
 Cette bibliothèque utilise également .NET Core, ce qui signifie que vous pouvez l’utiliser pour créer des applications .NET pour Windows, Linux et macOS. Pour en savoir plus sur .NET Core, consultez la [Documentation .NET Core](https://dotnet.github.io/). Cette bibliothèque fonctionne également pour les applications .NET Framework classiques pour Windows. 
 
-Ce document montre comment créer une application de console .NET Core qui s’exécute sous Windows, Linux et macOS et effectue les scénarios suivants :
+Ce document montre comment créer une application de console .NET Core qui s’exécute sous Windows, Linux et macOS et effectue les scénarios suivants :
 
 - charger des fichiers et des répertoires vers le Stockage Blob ;
 - définir le nombre d’opérations parallèles lors du transfert de données ;
@@ -565,7 +565,7 @@ Dans cet exemple, nous donnons la valeur `false` au paramètre booléen `Transfe
 ## <a name="conclusion"></a>Conclusion
 Notre application de déplacement des données est à présent terminée. [L’exemple de code complet est disponible sur GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce guide de prise en main, nous avons créé une application qui interagit avec le Stockage Azure et s’exécute sur Windows, Linux et macOS. Il se concentre sur le Stockage Blob. Toutefois, ces mêmes connaissances peuvent s’appliquer au Stockage Fichier. Pour plus d’informations, consultez la [Documentation de référence de la bibliothèque de déplacement des données du Stockage Azure](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

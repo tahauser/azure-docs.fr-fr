@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: d6b25d6b9a0d5b3bcf613046a82a9c6c99475d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Liaison d’un abonnement Azure à un locataire Azure AD B2C
 
@@ -68,9 +68,9 @@ Sélectionnez un groupe de ressources et un emplacement de groupe de ressources.
 
 ![Créer une ressource B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Gérer vos ressources de locataire Azure AD B2C
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gérer vos ressources de locataire Azure AD B2C
 
-Une fois que vous avez correctement créé une ressource Azure AD B2C dans l’abonnement Azure, une nouvelle ressource de type « Locataire B2C » doit apparaître aux côtés de vos autres ressources Azure.
+Une fois que vous avez correctement créé une ressource Azure AD B2C dans l’abonnement Azure, une nouvelle ressource du type « Locataire B2C » doit apparaître aux côtés de vos autres ressources Azure.
 
 Vous pouvez utiliser cette ressource pour :
 
@@ -91,7 +91,7 @@ Un locataire Azure AD B2C **ne peut pas** être lié à des abonnements CSP.
 
 Un utilisateur peut avoir établi une restriction régionale pour la création de ressources Azure. Cette restriction peut empêcher la création de ressources Azure AD B2C. Pour atténuer ce problème, assouplissez cette restriction.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Une fois ces étapes effectuées pour chacun de vos locataires Azure AD B2C, votre abonnement Azure est facturé conformément aux détails de votre contrat Azure Direct ou Enterprise.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
 
@@ -28,11 +28,11 @@ L’intégration de Benefitsolver à Azure AD vous offre les avantages suivants�
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Benefitsolver.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Benefitsolver (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD avec Benefitsolver, vous avez besoin des éléments suivants :
 
@@ -48,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Benefitsolver à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -84,10 +84,10 @@ Dans Benefitsolver, affectez la valeur du **nom d’utilisateur** d’Azure AD c
 
 Pour configurer et tester l’authentification unique Azure AD avec Benefitsolver, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créer un utilisateur de test Benefitsolver](#create-a-benefitsolver-test-user)** pour avoir un équivalent de Britta Simon dans Benefitsolver lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -144,13 +144,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Pour configurer l’authentification unique côté **Benefitsolver**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe du support technique de Benefitsolver](https://www.businessolver.com/contact).
+8. Pour configurer l’authentification unique côté **Benefitsolver**, vous devez envoyer le **XML des métadonnées** téléchargé à [l’équipe de support de Benefitsolver](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > L’équipe de support technique Benefitsolver doit se charger de la configuration de l’authentification unique. Vous recevrez une notification dès que l’authentification unique aura été activée pour votre abonnement.

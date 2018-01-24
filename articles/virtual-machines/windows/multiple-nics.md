@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Créer et gérer une machine virtuelle Windows équipée de plusieurs cartes d’interface réseau
 Les machines virtuelles (VM) dans Azure peuvent être équipées de plusieurs cartes d’interface réseau (NIC) virtuelles. Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article explique comment créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Il explique également comment ajouter ou supprimer des cartes d’interface réseau d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Vérifiez que vous disposez de la [dernière version d’Azure PowerShell installée et configurée](/powershell/azure/overview).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myVnet* et *myVM*.
@@ -233,7 +233,61 @@ Vous pouvez également utiliser la commande `copyIndex()` pour ajouter un numér
 
 Vous pouvez consulter un exemple complet de la [création de plusieurs cartes d’interface réseau à l’aide de modèles Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurer plusieurs cartes réseau dans un système d’exploitation invité
+
+Azure affecte une passerelle par défaut aux premières (principales) interfaces réseau associées à la machine virtuelle. Azure n’affecte pas de passerelle par défaut aux interfaces réseau additionnelles (secondaires) associées à la machine virtuelle. Par conséquent, vous ne pouvez pas communiquer avec les ressources hors du sous-réseau dans lequel se trouve, par défaut, une interface réseau secondaire. Toutefois, les interfaces réseau secondaires peuvent communiquer avec les ressources hors de leur sous-réseau. Ceci dit, les étapes à suivre pour permettre cette communication sont différentes d’un système d’exploitation à un autre.
+
+1. Dans une invite de commande Windows, exécutez la commande `route print`, qui retourne une sortie similaire à la sortie suivante d’une machine virtuelle à deux interfaces réseau :
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    Dans cet exemple, **Microsoft Hyper-V Network Adapter #4** (interface 7) est l’interface réseau secondaire à laquelle aucune passerelle par défaut n’est assignée.
+
+2. Depuis une invite de commande, exécutez la commande `ipconfig` pour voir quelle adresse IP est assignée à l’interface réseau secondaire. Dans cet exemple, l’adresse 192.168.2.4 est assignée à l’interface 7. Aucune adresse de passerelle par défaut n’est retournée pour l’interface réseau secondaire.
+
+3. Pour acheminer le trafic destiné aux adresses hors du sous-réseau de l’interface réseau secondaire vers la passerelle du sous-réseau, exécutez la commande suivante :
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    L’adresse de la passerelle du sous-réseau est la première adresse IP (celle qui finit par .1) dans la plage d’adresse définie pour le sous-réseau. Si vous ne voulez pas acheminer le trafic hors du sous-réseau, vous avez la possibilité d’ajouter des itinéraires individuels vers des destinations spécifiques. Par exemple, si vous voulez acheminer le trafic de l’interface réseau secondaire vers le réseau 192.168.3.0 uniquement, entrez la commande :
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Pour vérifier si la communication fonctionne avec une ressource du réseau 192.168.3.0, par exemple, entrez la commande suivante pour faire un test Ping de l’adresse 192.168.3.4 à l’aide de l’interface 7 (192.168.2.4) :
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Vous devrez peut-être ouvrir le protocole ICMP via le pare-feu Windows de l’appareil sur lequel vous effectuez le test Ping. Exécutez cette commande :
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Pour confirmer que l’itinéraire ajouté se trouve dans la table de routage, entrez la commande `route print`, qui retourne une sortie similaire à ce qui suit :
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    L’itinéraire répertorié avec l’adresse *192.168.1.1* sous **Passerelle** représente l’itinéraire se trouvant là par défaut pour l’interface réseau principale. L’itinéraire avec l’adresse *192.168.2.1* sous **Passerelle** représente l’itinéraire que vous avez ajouté.
+
+## <a name="next-steps"></a>étapes suivantes
 Réviser les [Tailles des machines virtuelles Windows](sizes.md) lorsque vous tentez de créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Faites attention au nombre maximal de cartes d’interface réseau pris en charge par chaque taille de machine virtuelle. 
 
 

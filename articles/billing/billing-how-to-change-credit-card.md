@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ajouter, mettre à jour ou supprimer une carte de crédit ou débit pour Azure
 
@@ -71,13 +71,13 @@ Si le numéro de votre carte bancaire reste le même en cas de renouvellement, m
 
 Vous ne pouvez pas supprimer une carte bancaire de votre compte Azure si elle est associée à d’autres abonnements Microsoft actifs. Supprimez la carte de crédit de tous les abonnements actifs avec Microsoft, puis réessayez.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Mon abonnement est désactivé. Pourquoi je ne peux pas supprimer ma carte de crédit ?
 
 Une fois que votre abonnement est désactivé ou annulé, nous attendons 90 jours avant de supprimer définitivement votre abonnement. Nous conservons votre mode de paiement dans nos dossiers pendant la période de rétention au cas où vous souhaiteriez réactiver l’abonnement. Après cela, l’abonnement est complètement supprimé.
 
-Si vous avez besoin de supprimer votre carte de crédit avant la fin de la période de rétention de 90 jours, [contactez le support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si vous avez besoin de supprimer votre carte de crédit avant la fin de la période de rétention de 90 jours, [réactivez votre abonnement](billing-subscription-become-disable.md). Si vous ne pouvez pas le réactiver, [contactez le support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Pourquoi je reçois continuellement le message « Votre ouverture de session a expiré. Cliquez ici pour en ouvrir une nouvelle » ?
 
@@ -96,6 +96,10 @@ Si vous [payez par facture](billing-how-to-pay-by-invoice.md), envoyez votre pai
 ### <a name="how-do-i-make-a-one-time-payment"></a>Comment effectuer un paiement ponctuel ?
 
 Malheureusement, Azure ne prend pas en charge les paiements ponctuels uniques par carte de crédit. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Comment modifier l’ID de taxe ?
+
+Pour ajouter ou mettre à jour l’ID de taxe, accédez à la section[**Profil** dans le Centre des comptes Azure](https://account.azure.com/Profile), puis sélectionnez **Enregistrement de taxe**. Cet ID de taxe est utilisé pour les calculs d’exemption de taxe et figure sur votre facture.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

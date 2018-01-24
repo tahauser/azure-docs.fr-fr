@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-samples"></a>Exemples de hubs d’événements 
 
@@ -69,7 +69,7 @@ L’exemple [d’extraction de données SQL](https://github.com/Azure-Samples/ev
 
 L’exemple [d’importation des données à partir du web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) montre comment extraire des données à partir de flux publics (par exemple, le flux d’informations sur la circulation du Ministère des transports) et les distribuer vers un Event Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les versions de .NET Framework, visitez les liens suivants :
 
@@ -78,6 +78,6 @@ Pour en savoir plus sur les versions de .NET Framework, visitez les liens suivan
 
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
 
-- [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+- [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 - [Créer un concentrateur d’événements](event-hubs-create.md)
 - [FAQ sur les hubs d'événements](event-hubs-faq.md)

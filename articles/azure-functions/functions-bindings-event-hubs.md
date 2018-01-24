@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -43,7 +43,7 @@ Par exemple, considérons la configuration et les hypothèses suivantes pour un 
 1. 10 partitions.
 1. 1 000 événements répartis uniformément sur toutes les partitions => 100 messages dans chaque partition.
 
-Lorsque votre fonction est activée pour la première fois, il n'y a que 1 seule instance de la fonction. Appelons cette instance de fonction Function_0. Function_0 aura 1 EPH qui obtiendra un bail sur les 10 partitions. Elle commencera à lire les événements des partitions 0-9. À partir de ce point, l'un des événements suivants se produira :
+Quand votre fonction est activée pour la première fois, il n'existe qu’une seule instance de la fonction. Appelons cette instance de fonction Function_0. Function_0 aura 1 EPH qui obtiendra un bail sur les 10 partitions. Elle commencera à lire les événements des partitions 0-9. À partir de ce point, l'un des événements suivants se produira :
 
 * **1 seule instance de fonction est nécessaire** : Function_0 est capable de traiter l'ensemble des 1 000 événements avant que la logique de mise à l'échelle d'Azure Functions ne se déclenche. Par conséquent, tous les 1 000 messages sont traités par Function_0.
 
@@ -59,14 +59,14 @@ Si toutes les exécutions de fonction réussissent sans erreurs, des points de c
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#trigger---c-example)
-* [Script C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
-L’exemple suivant illustre le code [C# précompilé](functions-dotnet-class-library.md) qui consigne le corps du message du déclencheur de hub d’événements.
+L’exemple suivant illustre un code [de fonction C#](functions-dotnet-class-library.md) qui consigne le corps du message du déclencheur de hub d’événements.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Le constructeur de l’attribut prend le nom du hub d’événements, le nom du groupe de consommateurs et le nom d’un paramètre d’application qui contient la chaîne de connexion. Pour plus d’informations sur ces paramètres, consultez la [section de configuration du déclencheur](#trigger---configuration). Voici un exemple d’attribut `EventHubTriggerAttribute` :
 
@@ -211,16 +211,16 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
+Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Déclencheur - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `EventHubTrigger`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
-|**type** | n/a | Doit être défini sur `eventHubTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
-|**direction** | n/a | Doit être défini sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**type** | n/a | Cette propriété doit être définie sur `eventHubTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
+|**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente l’élément d’événement dans le code de la fonction. | 
 |**path** |**EventHubName** | Nom du hub d’événements. | 
 |**consumerGroup** |**ConsumerGroup** | Propriété facultative qui définit le [groupe de consommateurs](../event-hubs/event-hubs-features.md#event-consumers) utilisé pour l’abonnement à des événements dans le hub. En cas d’omission, le groupe de consommateurs `$Default` est utilisé. | 
@@ -242,14 +242,14 @@ Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un f
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#output---c-example)
-* [Script C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
-L’exemple suivant illustre une [fonction C# précompilée](functions-dotnet-class-library.md) qui écrit un message dans un hub d’événements, en utilisant la valeur renvoyée par la méthode comme sortie :
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui écrit un message dans un hub d’événements, en utilisant la valeur retournée par la méthode comme sortie :
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Sortie - attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Pour les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Le constructeur de l’attribut prend le nom du hub d’événements, le hub d’événements et le nom d’un paramètre d’application qui contient la chaîne de connexion. Pour plus d’informations sur ces paramètres, consultez [Sortie - configuration](#output---configuration). Voici un exemple d’attribut `EventHub` :
 
@@ -384,13 +384,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `EventHub`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 |**type** | n/a | Doit être défini sur eventHub. |
 |**direction** | n/a | Doit être défini sur « out ». Ce paramètre est défini automatiquement lorsque vous créez la liaison dans le portail Azure. |
@@ -406,7 +406,7 @@ Dans C# et Script C#, envoyez des messages en utilisant un paramètre de méthod
 
 Dans JavaScript, accédez à l’événement de sortie à l’aide de `context.bindings.<name>`. `<name>` est la valeur spécifiée dans la propriété `name` de *function.json*.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Débogage d’applications dans un conteneur Docker local
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Visual Studio Tools pour Docker fournit un moyen cohérent de développer et valider votre application localement sur un conteneur de Docker Linux.
 Vous n’avez pas besoin de redémarrer le conteneur chaque fois que vous modifiez le code.
 Cet article illustre comment utiliser la fonctionnalité Modifier et actualiser pour démarrer une application web ASP.NET Core dans un conteneur Docker local, apporter les modifications nécessaires, puis actualiser le navigateur pour afficher ces modifications.
@@ -32,7 +32,7 @@ Cet article vous montre également comment définir des points d’arrêt pour l
 >
 >
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Les outils suivants doivent être installés.
 
 * [Dernière version de Visual Studio](https://www.visualstudio.com/downloads/)
@@ -54,7 +54,7 @@ Pour effectuer une itération rapide des modifications, vous pouvez lancer votre
 
 1. Définissez la configuration de solution sur `Debug`, puis appuyez sur **&lt;CTRL + F5 >** pour créer votre image de Docker et l’exécuter localement.
 
-    Une fois l’image de conteneur créée et en cours d’exécution dans un conteneur Docker, Visual Studio lancera l’application web dans votre navigateur par défaut.
+    Une fois l’image de conteneur créée et exécutée dans un conteneur Docker, Visual Studio lance l’application web dans votre navigateur par défaut.
     Si vous utilisez le navigateur Microsoft Edge ou rencontrez des erreurs, consultez la section [Résolution des problèmes](vs-azure-tools-docker-troubleshooting-docker-errors.md) .
 2. Accédez à la page À propos, à laquelle nous allons apporter nos modifications.
 3. Revenez à Visual Studio et ouvrez `Views\Home\About.cshtml`.
@@ -91,7 +91,7 @@ Les modifications nécessitent souvent une inspection plus poussée, en exploita
 ## <a name="summary"></a>Résumé
 Avec [Visual Studio 2015 Tools pour Docker](https://aka.ms/DockerToolsForVS), vous pouvez obtenir la productivité du travail local tout en conservant le réalisme de production du développement au sein d’un conteneur Docker.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 [Résolution des problèmes de développement avec Docker pour Visual Studio](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>En savoir plus sur Docker avec Visual Studio, Windows et Azure

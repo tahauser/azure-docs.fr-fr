@@ -97,6 +97,8 @@
               href: backup-azure-arm-vms.md
             - name: Sauvegarder des machines virtuelles chiffrées
               href: backup-azure-vms-encryption.md
+            - name: Activer la sauvegarde de machines virtuelles lors de leur création
+              href: backup-during-vm-creation.md
         - name: Gestion et surveillance des machines virtuelles
           items:
             - name: Gérer les sauvegardes de machines Virtuelles Azure dans le portail Azure

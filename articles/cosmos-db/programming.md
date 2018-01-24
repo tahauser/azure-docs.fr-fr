@@ -1,7 +1,7 @@
 ---
 title: "Programmation en JavaScript côté serveur pour Azure Cosmos DB | Microsoft Docs"
 description: "Découvrez comment utiliser Azure Cosmos DB pour écrire des procédures stockées, des déclencheurs de base de données et des fonctions définies par l’utilisateur en JavaScript. Obtenez notamment des conseils en matière de programmation de base de données."
-keywords: "Déclencheurs de base de données, procédure stockée, procédure stockée, programme de base de données, sproc, documentdb, azure, Microsoft azure"
+keywords: "Déclencheurs de base de données, procédure stockée, procédure stockée, programme de base de données, sproc, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -13,15 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure Cosmos DB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur (FDU)** en mode natif dans une version [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) pour JavaScript. Vous pouvez ainsi écrire une logique d’application de programme de base de données qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
 
 Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation de base de données côté serveur d’Azure Cosmos DB. 
@@ -53,7 +56,7 @@ Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* lib�
   * Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
   * Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
 
-La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requêtes personnalisés sont prises en charge par le biais de [l’API REST](/rest/api/documentdb/), [d’Azure Document DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [Kits SDK clients](documentdb-sdk-dotnet.md) sur de nombreuses plateformes, dont .NET, Node.js et JavaScript.
+La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requêtes personnalisés sont prises en charge par le biais du [portail Azure](https://portal.azure.com), de [l’API REST](/rest/api/documentdb/), [d’Azure Document DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [SDK clients](sql-api-sdk-dotnet.md) sur de nombreuses plateformes, dont .NET, Node.js et JavaScript.
 
 Ce didacticiel utilise le [kit SDK Node.js avec Q Promises](http://azure.github.io/azure-documentdb-node-q/) pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.   
 
@@ -437,7 +440,7 @@ Ce déclencheur interroge le document de métadonnées et le met à jour avec de
 Un élément important à noter est l’exécution **transactionnelle** des déclencheurs dans Azure Cosmos DB. Ce post-déclencheur s'exécute dans le cadre de la même transaction que la création du document initial. Par conséquent, si nous générons une exception à partir du post-déclencheur (supposons que nous ne soyons pas en mesure de mettre à jour le document de métadonnées), la transaction entière échoue et est annulée. Aucun document n'est créé et une exception est renvoyée.  
 
 ## <a id="udf"></a>Fonctions définies par l’utilisateur
-Les fonctions définies par l’utilisateur (FDU) permettent d’étendre la grammaire du langage de requête SQL de l’API DocumentDB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service Azure Cosmos DB.  
+Les fonctions définies par l’utilisateur permettent d’étendre la grammaire du langage de requête SQL dans Azure Cosmos DB et de mettre en œuvre une logique métier personnalisée. Elles peuvent uniquement être appelées à partir de requêtes. Elles n'ont pas accès à l'objet de contexte et sont destinées à être utilisées en tant que JavaScript en calcul seul. Par conséquent, elles peuvent être exécutées sur des réplicas secondaires du service Azure Cosmos DB.  
 
 L'exemple suivant crée une fonction définie par l'utilisateur pour calculer les impôts sur la base des taux de différentes tranches de revenu, puis utilise celle-ci au sein d'une requête pour trouver toutes les personnes ayant payé des impôts supérieurs à 20 000 $.
 
@@ -479,7 +482,7 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API de requête intégrée au langage JavaScript
-En plus de l’émission de requêtes à l’aide de la grammaire SQL de DocumentDB, le kit SDK côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index Azure Cosmos DB.
+En plus de l’émission de requêtes à l’aide de la grammaire SQL d’Azure Cosmos DB, le SDK côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`.
@@ -629,8 +632,8 @@ Comme pour les requêtes SQL, les clés de propriété de document (par exemple
 |SELECT docs.id, docs.message AS msg, docs.actions <br>FROM docs|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
 |SELECT *<br>FROM docs<br>WHERE docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>});|3|
 |SELECT *<br>FROM docs<br>WHERE ARRAY_CONTAINS(docs.Tags, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return x.Tags &amp;&amp; x.Tags.indexOf(123) &gt; -1;<br>});|4|
-|SELECT docs.id, docs.message AS msg<br>FROM docs<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|5|
-|SELECT VALUE tag<br>FROM docs<br>JOIN tag IN docs.Tags<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return doc.Tags &amp;&amp; Array.isArray(doc.Tags);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|6|
+|SELECT docs.id, docs.message AS msg<br>FROM docs<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|5.|
+|SELECT VALUE tag<br>FROM docs<br>JOIN tag IN docs.Tags<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return doc.Tags &amp;&amp; Array.isArray(doc.Tags);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;return doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|6.|
 
 Les descriptions suivantes expliquent chaque requête du tableau ci-dessus.
 1. Renvoie tous les documents (paginés avec jeton de continuation) tels quels.
@@ -642,7 +645,7 @@ Les descriptions suivantes expliquent chaque requête du tableau ci-dessus.
 
 
 ## <a name="runtime-support"></a>Prise en charge du runtime
-L’[API côté serveur JavaScript DocumentDB](http://azure.github.io/azure-documentdb-js-server/) offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+[L’API côté serveur JavaScript](http://azure.github.io/azure-documentdb-js-server/) Azure Cosmos DB offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Sécurité
 Les déclencheurs et les procédures stockées JavaScript sont exécutés dans le bac à sable (sandbox) de façon à ce que les effets d'un script ne soient divulgués à un autre sans passer par l'isolement de transaction de capture instantanée au niveau de la base de données. Les environnements d'exécution sont regroupés mais leur contexte est nettoyé après chaque exécution. Par conséquent, ils sont assurés d'être préservés de tout effet secondaire inattendu les uns des autres.
@@ -651,7 +654,7 @@ Les déclencheurs et les procédures stockées JavaScript sont exécutés dans l
 Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur sont précompilés de façon implicite en format de code d'octet afin d'éviter les frais de compilation à chaque appel de script. Cela permet de s'assurer que les appels de procédures stockées sont rapides et présentent un encombrement réduit.
 
 ## <a name="client-sdk-support"></a>Prise en charge du kit SDK client
-En plus de l’API DocumentDB pour le client [Node.js](documentdb-sdk-node.md), Azure Cosmos DB propose [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) et les [Kits SDK Python](documentdb-sdk-python.md) pour l’API DocumentDB. Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être créés et exécutés au moyen de l'un de ces kits SDK également. Voici un exemple de la façon de créer et d'exécuter une procédure stockée au moyen du client .NET. Notez la façon dont les types .NET sont transmis dans la procédure stockée au format JSON et lus.
+En plus de l’API [Node.js](sql-api-sdk-node.md) Azure Cosmos DB, Azure Cosmos DB propose [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) et les [SDK Python](sql-api-sdk-python.md) pour l’API SQL. Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être créés et exécutés au moyen de l'un de ces kits SDK également. Voici un exemple de la façon de créer et d'exécuter une procédure stockée au moyen du client .NET. Notez la façon dont les types .NET sont transmis dans la procédure stockée au format JSON et lus.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +687,7 @@ En plus de l’API DocumentDB pour le client [Node.js](documentdb-sdk-node.md), 
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-Cet exemple illustre l’utilisation de l’[API .NET DocumentDB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) pour créer un prédéclencheur et un document dans lequel le déclencheur est activé. 
+Cet exemple illustre l’utilisation de [l’API .NET SQL .](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) pour créer un prédéclencheur et un document dans lequel le déclencheur est activé. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +708,7 @@ Cet exemple illustre l’utilisation de l’[API .NET DocumentDB](/dotnet/api/ov
         });
 
 
-Enfin, l’exemple suivant décrit comment créer une fonction définie par l’utilisateur et l’utiliser une [requête SQL de l’API DocumentDB](documentdb-sql-query.md).
+Enfin, l’exemple suivant illustre la création d’une fonction définie par l’utilisateur et son utilisation dans une [requête SQL](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -797,12 +800,12 @@ Vous trouverez d’autres exemples de code côté serveur (notamment [bulk-delet
 
 Vous souhaitez partager votre remarquable procédure stockée ? Envoyez-nous une requête d’extraction ! 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Après avoir créé des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur, vous pouvez les charger et les afficher dans le portail Azure à l’aide de l’Explorateur de données.
 
 Pour en savoir plus sur la programmation Azure Cosmos DB côté serveur, vous pouvez également trouver utiles les références et les ressources suivantes :
 
-* [Kits SDK Azure Cosmos DB](documentdb-sdk-dotnet.md)
+* [Kits SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Studio DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

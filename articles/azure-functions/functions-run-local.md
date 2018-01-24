@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Développer et exécuter des fonctions Azure en local | Microsoft Docs"
 description: "Apprenez à coder et à tester des fonctions Azure sur votre ordinateur local avant de les exécuter dans Azure Functions."
 services: functions
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -65,7 +65,7 @@ Lorsque vous effectuez une installation sur Ubuntu, utilisez `sudo` comme suit 
 sudo npm install -g azure-functions-core-tools@core
 ```
 
-Lorsque vous procédez à une installation sur OSX et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
+Lorsque vous procédez à une installation sur macOS et Linux, il se peut que vous deviez inclure l’indicateur `unsafe-perm`, comme suit :
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
@@ -126,13 +126,13 @@ Le fichier local.settings.json stocke les paramètres de l’application, les ch
   }
 }
 ```
-| Paramètre      | Description                            |
+| Paramètre      | DESCRIPTION                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Lorsque la valeur est définie sur **true**, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est **false**. |
 | **Valeurs** | Collection de paramètres d’application utilisés lors de l’exécution locale. **AzureWebJobsStorage** et **AzureWebJobsDashboard** en sont des exemples. Pour obtenir leur liste complète, consultez les [informations de référence sur les paramètres application](functions-app-settings.md).  |
 | **Hôte** | Les paramètres de cette section personnalisent le processus hôte Functions lors de l’exécution locale. | 
 | **LocalHttpPort** | Définit le port par défaut utilisé lors de l’exécution de l’hôte Functions local (`func host start` et `func run`). L’option de ligne de commande `--port` est prioritaire sur cette valeur. |
-| **CORS** | Définit les origines autorisées pour [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Les origines sont fournies sous la forme d’une liste séparée par des virgules, sans espaces. La valeur de caractère générique (**\***) est prise en charge, ce qui autorise les demandes à partir de n’importe quelle origine. |
+| **CORS** | Définit les origines autorisées pour [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Les origines sont fournies sous la forme d’une liste séparée par des virgules, sans espaces. La valeur de caractère générique (\*) est prise en charge, ce qui autorise les demandes à partir de toute origine. |
 | **ConnectionStrings** | Contient les chaînes de connexion de base de données pour vos fonctions. Les chaînes de connexion dans cet objet sont ajoutées à l’environnement avec le type de fournisseur **System.Data.SqlClient**.  | 
 
 La plupart des déclencheurs et des liaisons ont une propriété **Connection** qui correspond au nom d’une variable d’environnement ou d’un paramètre d’application. Pour chaque propriété de connexion, un paramètre d’application doit être défini dans le fichier local.settings.json. 
@@ -171,7 +171,7 @@ func new
 ``` 
 `func new` prend en charge les arguments facultatifs suivants :
 
-| Argument     | Description                            |
+| Argument     | DESCRIPTION                            |
 | ------------ | -------------------------------------- |
 | **`--language -l`** | Langage de programmation du modèle, tel que C#, F# ou JavaScript. |
 | **`--template -t`** | Nom du modèle. |
@@ -199,7 +199,7 @@ func host start
 
 `func host start` prend en charge les options suivantes :
 
-| Option     | Description                            |
+| Option     | DESCRIPTION                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | Port local à écouter. Valeur par défaut : 7071. |
 | **`--debug <type>`** | Les options sont `VSCode` et `VS`. |
@@ -295,7 +295,7 @@ Vous pouvez également appeler une fonction directement à l’aide de `func run
 
 `func run` prend en charge les options suivantes :
 
-| Option     | Description                            |
+| Option     | DESCRIPTION                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | Contenu inclus. |
 | **`--debug -d`** | Joindre un débogueur au processus hôte avant d’exécuter la fonction.|
@@ -319,7 +319,7 @@ func azure functionapp publish <FunctionAppName>
 
 Vous pouvez utiliser les options suivantes :
 
-| Option     | Description                            |
+| Option     | DESCRIPTION                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publier dans Azure les paramètres figurant dans local.settings.json, avec demande de confirmation du remplacement si le paramètre existe déjà.|
 | **`--overwrite-settings -y`** | Doit être utilisé avec `-i`. Remplace les paramètres d’application dans Azure par la valeur locale s’ils sont différents. Par défaut, l’accord de l’utilisateur est sollicité.|
@@ -337,7 +337,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Azure Functions Core Tools est [disponible en open source et hébergé sur GitHub](https://github.com/azure/azure-functions-cli).  
 Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problème GitHub](https://github.com/azure/azure-functions-cli/issues). 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilisation de Sqoop avec Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,14 +47,14 @@ Le cluster HDInsight inclut des exemples de données. Vous utilisez les deux él
   
   | Champ | Type de données |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |chaîne |
+  | querytime |chaîne |
+  | market |chaîne |
+  | deviceplatform |chaîne |
+  | devicemake |chaîne |
+  | devicemodel |chaîne |
+  | state |chaîne |
+  | country |chaîne |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -94,7 +94,7 @@ Si vous préférez utiliser Azure PowerShell pour créer le cluster et la base d
      
         Les valeurs suivantes sont codées en dur dans la section des variables :
         
-        |Nom|Valeur|
+        |NOM|Valeur|
         |----|-----|
         | Nom du compte de stockage par défaut | &lt;CluterName>store |
         | Nom du serveur de base de données SQL Azure. | &lt;ClusterName>dbserver |
@@ -149,7 +149,7 @@ Si vous choisissez d’utiliser une base de données SQL Azure ou Microsoft SQL 
 
 
 ## <a name="run-sqoop-jobs"></a>Exécuter des tâches Sqoop
-HDInsight peut exécuter des tâches Sqoop à l’aide de différentes méthodes. Utilisez le tableau suivant pour découvrir la méthode qui vous convient, puis cliquez sur le lien pour obtenir une présentation détaillée.
+HDInsight peut exécuter des tâches Sqoop à l’aide de différentes méthodes. Utilisez la table suivante pour choisir la méthode qui vous convient, puis cliquez sur le lien pour obtenir une présentation détaillée.
 
 | **Utilisez-le** si vous souhaitez... | ... un interpréteur de commandes **interactif** | ... un traitement par **lots** | ...avec ce **système d’exploitation cluster** | ...depuis ce **système d’exploitation cluster** |
 |:--- |:---:|:---:|:--- |:--- |
@@ -157,11 +157,11 @@ HDInsight peut exécuter des tâches Sqoop à l’aide de différentes méthodes
 | [Kit de développement logiciel (SDK) .NET pour Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |✔ |Linux ou Windows |Windows (pour l’instant) |
 | [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |✔ |Linux ou Windows |Windows |
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 * Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou la base de données SQL Azure ne prend pas en charge les insertions en bloc.
 * Traitement par lots : avec HDInsight sous Linux, lorsque vous utilisez le commutateur `-batch` pour effectuer des insertions, Sqoop effectue plusieurs insertions plutôt qu’un traitement par lots des opérations d’insertion.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Utilisation de Hive avec HDInsight](../hdinsight-use-hive.md)
@@ -221,7 +221,7 @@ L’exemple PowerShell effectue les étapes suivantes :
    > En dehors des informations de la chaîne de connexion, les étapes décrites dans cette section doivent fonctionner pour une base de données SQL Azure ou pour SQL Server. Elles ont été testées avec la configuration suivante :
    > 
    > * **Configuration de point à site du réseau virtuel Azure**: un réseau virtuel connectant le cluster HDInsight à un serveur SQL Server dans un centre de données privé. Pour plus d'informations, consultez la page [Configuration d'un réseau privé virtuel (VPN) de point à site dans le portail de gestion](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **Azure HDInsight 3.1**: pour plus d’informations sur la création d’un cluster sur un réseau virtuel, consultez la rubrique [Création de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](../hdinsight-hadoop-provision-linux-clusters.md) .
+   > * **Azure HDInsight** : pour plus d’informations sur la création d’un cluster sur un réseau virtuel, consultez la rubrique [Création de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](../hdinsight-hadoop-provision-linux-clusters.md).
    > * **SQL Server 2014**: configuré de manière à autoriser l'authentification et à exécuter le package de configuration du client VPN pour établir une connexion sécurisée au réseau virtuel.
    > 
    > 

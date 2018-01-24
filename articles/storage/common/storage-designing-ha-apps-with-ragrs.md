@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d’applications hautement disponibles à l’aide du stockage RA-GRS
 
@@ -26,7 +26,7 @@ La fourniture d’une plateforme hautement disponible comme Stockage Azure pour 
 
 Stockage Azure propose quatre options pour la redondance des données dans votre compte de stockage :
 
-– LRS (Stockage localement redondant)
+- LRS (stockage localement redondant)
 - ZRS (Stockage redondant dans une zone) 
 - GRS (Stockage géoredondant)
 - RA-GRS (Stockage géoredondant avec accès en lecture). 
@@ -71,7 +71,7 @@ Par exemple, si vous utilisez des files d’attente et des blobs dans votre appl
 
 Cela dépend de la complexité de votre application. Vous pouvez décider de ne pas gérer les échecs par service, mais plutôt de rediriger les demandes de lecture pour tous les services de stockage vers la région secondaire et d’exécuter l’application en mode lecture seule lorsque vous détectez un problème affectant tout service de stockage dans la région primaire.
 
-### <a name="other-considerations"></a>Autres considérations
+### <a name="other-considerations"></a>Autres points à considérer
 
 Voici les autres considérations dont nous parlerons dans le reste de cet article.
 

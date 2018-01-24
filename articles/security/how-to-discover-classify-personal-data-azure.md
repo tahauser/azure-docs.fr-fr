@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Découvrir, identifier et classer des données personnelles dans Microsoft Azure
 
@@ -183,11 +183,11 @@ Le service [Recherche Azure](https://azure.microsoft.com/services/search/) est u
 
 Pour vous initier aux principes de base, consultez le didacticiel [Azure Cosmos DB : Comment effectuer des interrogations avec le langage SQL ?](../cosmos-db/tutorial-query-documentdb.md). Ce didacticiel présente un exemple de document et deux exemples de requêtes SQL et de résultats.
 
-Pour obtenir des instructions détaillées sur la création de requêtes SQL, consultez [Requêtes SQL pour l’API DocumentDB Azure Cosmos DB](../cosmos-db/documentdb-sql-query.md).
+Pour obtenir des instructions détaillées sur la création de requêtes SQL, consultez [Requêtes SQL pour l’API DocumentDB Azure Cosmos DB](../cosmos-db/sql-api-sql-query.md).
 
-Si vous débutez avec Azure Cosmos DB et que vous voulez apprendre à créer une base de données, ajouter une collection et ajouter des données, consultez le didacticiel de démarrage rapide [Azure Cosmos DB : Développer une application web API DocumentDB](../cosmos-db/create-documentdb-dotnet.md). Si vous préférez utiliser un autre langage que .NET, par exemple Java ou Python, choisissez simplement votre langage préféré une fois que vous êtes sur le site.
+Si vous débutez avec Azure Cosmos DB et que vous voulez apprendre à créer une base de données, ajouter une collection et ajouter des données, consultez le didacticiel de démarrage rapide [Azure Cosmos DB : Développer une application web API SQL](../cosmos-db/create-sql-api-dotnet.md). Si vous préférez utiliser un autre langage que .NET, par exemple Java ou Python, choisissez simplement votre langage préféré une fois que vous êtes sur le site.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/?v=16.50)
 

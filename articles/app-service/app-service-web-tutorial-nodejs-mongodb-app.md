@@ -15,15 +15,19 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Créer une application web Node.js et MongoDB dans Azure
 
-Azure Web Apps offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment créer une application web Node.js dans Azure et comment la connecter à une base de données. Lorsque vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure App Service](app-service-web-overview.md). Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](http://meanjs.org/).
+> [!NOTE]
+> Cet article explique comment déployer une application sur App Service sur Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application web Node.js et MongoDB dans Azure App Service sur Linux](./containers/tutorial-nodejs-mongodb-app.md).
+>
+
+Azure Web Apps fournit un service d’hébergement hautement évolutif et appliquant des mises à jour correctives automatiquement. Ce didacticiel vous montre comment créer une application web Node.js dans Azure et comment la connecter à une base de données. Lorsque vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure App Service](app-service-web-overview.md). Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](http://meanjs.org/).
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -35,14 +39,15 @@ Ce que vous allez apprendre :
 > * Déploiement de l’application dans Azure
 > * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffusion des journaux de diagnostic à partir d’Azure
-> * Gestion de l’application dans le portail Azure
+> * Gérer l’application dans le portail Azure
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
 1. [Installez Git](https://git-scm.com/)
 1. [Installez Node.js et NPM](https://nodejs.org/)
+1. [Installer Bower](https://bower.io/) (requis par [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Installer Gulp.js](http://gulpjs.com/) (requis par [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Installez et exécutez MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
@@ -70,7 +75,7 @@ Cette étape consiste à configurer le projet Node.js local.
 
 Dans la fenêtre de terminal, `cd` vers un répertoire de travail.  
 
-Exécutez la commande suivante pour cloner l’exemple de référentiel. 
+Exécutez la commande suivante pour cloner l’exemple de référentiel : 
 
 ```bash
 git clone https://github.com/Azure-Samples/meanjs.git
@@ -126,7 +131,7 @@ Pour MongoDB, ce didacticiel utilise [Azure Cosmos DB](/azure/documentdb/). Cosm
 
 ### <a name="create-a-cosmos-db-account"></a>Création d’un compte Cosmos DB
 
-Dans Cloud Shell, créez un compte Cosmos DB à l’aide de la commande [az cosmosdb create](/cli/azure/cosmosdb#create).
+Dans Cloud Shell, créez un compte Cosmos DB à l’aide de la commande [az cosmosdb create](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
 
 Dans la commande suivante, remplacez l’espace réservé *\<nom_cosmosdb>* par un nom unique Cosmos DB. Ce nom est utilisé en tant que point de terminaison Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`. Pour cette raison, le nom doit être unique sur l’ensemble des comptes Cosmos DB dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères.
 
@@ -160,7 +165,7 @@ Pendant cette étape, vous connectez votre exemple d’application MEAN.js à la
 
 ### <a name="retrieve-the-database-key"></a>Récupérer la clé de la base de données
 
-Pour se connecter à la base de données Cosmos DB, vous avez besoin de la clé de la base de données. Dans Cloud Shell, utilisez la commande [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) pour récupérer la clé primaire.
+Pour se connecter à la base de données Cosmos DB, vous avez besoin de la clé de la base de données. Dans Cloud Shell, utilisez la commande [az cosmosdb list-keys](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) pour récupérer la clé primaire.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -256,7 +261,7 @@ Dans cette étape, vous allez déployer dans Azure App Service votre application
 
 Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du référentiel Git. Ainsi, pour votre application web Azure, vous utilisez des paramètres d’application pour définir votre chaîne de connexion MongoDB.
 
-Pour définir des paramètres d’application, utilisez la commande [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) dans Cloud Shell. 
+Pour définir des paramètres d’application, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. 
 
 L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application web Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
 
@@ -460,7 +465,7 @@ Si vous avez ajouté des articles précédemment, vous pouvez toujours les visua
 
 Pendant l’exécution de votre application Node.js dans Azure App Service, vous pouvez acheminer les journaux de la console vers votre terminal. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
-Pour démarrer la diffusion de journaux, utilisez la commande [az webapp log tail](/cli/azure/webapp/log#tail) dans Cloud Shell.
+Pour démarrer la diffusion de journaux, utilisez la commande [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) dans Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
@@ -485,7 +490,7 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez appris à effectuer les opérations suivantes :
 

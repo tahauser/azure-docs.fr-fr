@@ -1,5 +1,5 @@
 ---
-title: "Prise en main de l’application web Azure AD Java | Microsoft Docs"
+title: "Bien démarrer avec l'application web Azure AD Java | Microsoft Docs"
 description: "Générer une application web Java qui connecte les utilisateurs avec un compte professionnel ou scolaire."
 services: active-directory
 documentationcenter: java
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Connexion aux applications web Java et déconnexion de ces dernières avec Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Bien démarrer avec l’application web Azure AD Java
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-En assurant une connexion et une déconnexion uniques par le seul biais de quelques lignes de code, Azure Active Directory (Azure AD) simplifie l’externalisation de la gestion des identités des applications web. Vous pouvez connecter des utilisateurs à des applications web Java et les déconnecter de ces applications en utilisant l’implémentation Microsoft de la bibliothèque ADAL4J (Azure Active Directory Authentication Library for Java) gérée par la communauté.
+En assurant une connexion et une déconnexion uniques avec seulement quelques lignes de code, Azure Active Directory (Azure AD) simplifie l’externalisation de la gestion des identités des applications web. Vous pouvez connecter des utilisateurs à des applications web Java et les déconnecter de ces applications en utilisant l’implémentation Microsoft de la bibliothèque ADAL4J (Azure Active Directory Authentication Library for Java) gérée par la communauté.
 
 Cet article explique comment utiliser la bibliothèque ADAL4J pour :
 
@@ -42,7 +42,7 @@ Lorsque vous êtes prêt, suivez les procédures des neuf sections qui suivent.
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>Étape 1 : Inscrire la nouvelle application auprès d’Azure AD
 Pour configurer l’application pour l’authentification des utilisateurs, commencez par l’inscrire dans votre client en procédant de la façon suivante :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur le nom de votre compte. Dans la liste **Annuaire**, sélectionnez le client Active Directory dans lequel vous voulez inscrire l’application.
 3. Dans le volet gauche, cliquez sur **Plus de services**, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
@@ -1713,7 +1713,7 @@ Vous disposez à présent d’un fichier adal4jsample.war dans votre répertoire
 > Vous pouvez aisément déployer un fichier .war avec les derniers serveurs Tomcat. Accédez à http://localhost:8080/manager/, puis suivez les instructions de chargement du fichier adal4jsample.war. Il se déploiera automatiquement pour vous avec le point de terminaison correct.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous disposez désormais d’une application Java fonctionnelle qui peut authentifier les utilisateurs, appeler en toute sécurité les API web à l’aide d’OAuth 2.0 et obtenir des informations de base concernant les utilisateurs. Si vous n’avez pas encore rempli votre client avec des utilisateurs, il est judicieux de le faire à ce stade.
 
 À titre de référence supplémentaire, vous pouvez obtenir l’exemple terminé (sans vos valeurs de configuration) de deux manières :

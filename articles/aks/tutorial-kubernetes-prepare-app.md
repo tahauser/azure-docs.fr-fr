@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ef0395a9c666732ba117822f46e8d2a7540aee14
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Préparer une application pour Azure Container Service (ACS)
 
-Dans ce didacticiel (premier d’une série de huit), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes terminées sont les suivantes :  
+Dans ce didacticiel (premier d’une série de huit), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :  
 
 > [!div class="checklist"]
 > * Clonage de la source de l’application à partir de GitHub  
@@ -32,9 +32,9 @@ Dans les didacticiels suivants, l’image conteneur est chargée dans Azure Cont
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel suppose une compréhension élémentaire des concepts Docker principaux tels que les conteneurs, les images de conteneur et les commandes Docker de base. Si besoin, consultez [Bien démarrer avec Docker]( https://docs.docker.com/get-started/) pour apprendre les principes de base des conteneurs. 
+Ce didacticiel suppose une compréhension élémentaire des concepts Docker principaux tels que les conteneurs, les images de conteneur et les commandes Docker de base. Si besoin, consultez [Bien démarrer avec Docker][docker-get-started] pour apprendre les principes de base des conteneurs. 
 
-Pour terminer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Pour terminer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 
 Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ce didacticiel. Par conséquent, nous recommandons d’utiliser un environnement de développement Docker complet.
 
@@ -58,15 +58,15 @@ Dans le répertoire se trouvent le code source de l’application, un fichier Do
 
 ## <a name="create-container-images"></a>Créer des images de conteneur
 
-[Docker Compose](https://docs.docker.com/compose/) peut être utilisé pour automatiser la génération à partir des images conteneur, ainsi que le déploiement des applications à plusieurs conteneurs.
+Vous pouvez utiliser [Docker Compose][docker-compose] pour automatiser la génération à partir des images conteneur, ainsi que le déploiement des applications à plusieurs conteneurs.
 
-Exécutez le fichier `docker-compose.yml` pour créer l’image conteneur, téléchargez l’image Redis, puis démarrez l’application.
+Exécutez le fichier `docker-compose.yaml` pour créer l’image conteneur, téléchargez l’image Redis, puis démarrez l’application.
 
 ```console
 docker-compose up -d
 ```
 
-Une fois terminé, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour afficher les images créées.
+Une fois terminé, utilisez la commande [docker images][docker-images] pour afficher les images créées.
 
 ```console
 docker images
@@ -81,13 +81,13 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Exécutez la commande [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) pour voir les conteneurs en cours d’exécution.
+Exécutez la commande [docker ps][docker-ps] pour voir les conteneurs en cours d’exécution.
 
 ```console
 docker ps
 ```
 
-Output:
+Sortie :
 
 ```
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
@@ -119,7 +119,7 @@ docker-compose down
 
 Une fois terminé, vous disposez de deux images conteneur contenant l’application Azure Vote.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
 
@@ -128,7 +128,19 @@ Dans ce didacticiel, une application a été testée et les images de conteneur 
 > * La création d’une image conteneur à partir de la source de l’application
 > * Le test de l’application dans un environnement Docker local
 
-Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de conteneur dans Azure Container Registry.
+Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de conteneur dans un registre Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Envoyer des images à Azure Container Registry](./tutorial-kubernetes-prepare-acr.md)
+> [Envoyer des images à Azure Container Registry][aks-tutorial-prepare-acr]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-for-mac]: https://docs.docker.com/docker-for-mac/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

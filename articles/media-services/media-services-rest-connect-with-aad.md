@@ -11,130 +11,181 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec REST
 
-L’équipe Azure Media Services a publié le support de l’authentification Azure Active Directory (Azure AD) pour accéder à Azure Media Services. Elle a également annoncé des plans visant à déconseiller l’authentification du service Azure Access Control pour l’accès à Media Services. Étant donné tous les abonnements Azure et comptes Media Services sont joints à un locataire Azure AD, le support de l’authentification Azure AD apporte de nombreux avantages en termes de sécurité. Pour plus d’informations sur cette modification et la migration (si vous utilisez le Kit de développement logiciel (SDK) Media Services .NET pour votre application), consultez les billets de blog et articles suivants :
+Lorsque vous utilisez l’authentification Azure AD avec Azure Media Services, vous pouvez vous authentifier de deux manières :
 
-- [Azure Media Services announces support for Azure AD and deprecation of Access Control authentication](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation) (Azure Media Services annonce la prise en charge d’Azure AD et déconseille l’authentification Access Control)
-- [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md)
-- [Use Azure AD authentication to access Azure Media Services API by using Microsoft .NET](media-services-dotnet-get-started-with-aad.md) (Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec Microsoft .NET)
-- [Prise en main de l’authentification Azure AD à l’aide du portail Azure](media-services-portal-get-started-with-aad.md)
+- L’**authentification utilisateur** authentifie une personne qui utilise l’application pour interagir avec les ressources Azure Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct. 
+- L’**authentification de principal de service** authentifie un service. Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés (par exemple, applications web, applications de fonction, applications logiques, API ou microservices).
 
-Certains clients doivent développer leurs solutions Media Services sous les contraintes suivantes :
+    Ce didacticiel explique comment utiliser l’authentification de **principal de service** Azure AD pour accéder aux API AMS avec REST. 
 
-*   Ils utilisent un langage de programmation qui n’est pas Microsoft .NET ou C#, ou l’environnement d’exécution n’est pas Windows.
-*   Les bibliothèques Azure AD telles que les bibliothèques d’authentification Active Directory ne sont pas disponibles pour le langage de programmation ou ne peuvent pas être utilisées pour leur environnement d’exécution.
+    > [!NOTE]
+    > Le **principal de service** est la meilleure pratique recommandée pour la plupart des applications qui se connectent à Azure Media Services. 
 
-Certains clients ont développé des applications à l’aide de l’API REST pour l’authentification Access Control et l’accès à Azure Media Services. Pour ces clients, vous avez besoin d’un moyen d’utiliser uniquement l’API REST pour l’authentification Azure AD et l’accès à Azure Media Services. Vous ne devez pas vous appuyer sur les bibliothèques Azure Active Directory ni sur le Kit de développement logiciel (SDK) Media Services .NET. Dans cet article, nous décrivons une solution et fournissons des exemples de code pour ce scénario. Étant donné que le code concerne tous les appels d’API REST, sans dépendance à aucune bibliothèque Azure AD ou Azure Media Services, il peut facilement être converti en n’importe quel autre langage de programmation.
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Obtenir les informations d’authentification à partir du portail Azure
+> * Obtenir le jeton d’accès à l’aide de Postman
+> * Tester l’API **Assets** à l’aide du jeton d’accès
+
 
 > [!IMPORTANT]
 > À l’heure actuelle, Media Services prend en charge le modèle d’authentification des services Azure Access Control. Toutefois, l’authentification Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
 
+## <a name="prerequisites"></a>configuration requise
 
-## <a name="design"></a>Conception
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+- [Créez un compte Azure Media Services avec le portail Azure](media-services-portal-create-account.md).
+- Consultez l’article [Accéder à l’API Azure Media Services avec l’authentification Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+- Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans cet article. 
 
-Dans cet article, nous utilisons la conception d’authentification et d’autorisation suivante :
+    Dans ce didacticiel, nous utilisons **Postman**, mais tout autre outil REST serait approprié. Les autres solutions sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
 
-*  Protocole d’autorisation : OAuth 2.0. OAuth 2.0 est une norme de sécurité web qui couvre l’authentification et l’autorisation. Elle est prise en charge par Google, Microsoft, Facebook et PayPal. Elle a été ratifiée en octobre 2012. Microsoft prend bien en charge OAuth 2.0 et OpenID Connect. Ces deux normes sont prises en charge dans plusieurs services et bibliothèques clientes, notamment Azure Active Directory, Open Web Interface for .NET (OWIN) Katana, et les bibliothèques Azure AD.
-*  Type d’octroi : type d’octroi des informations d’identification du client. Les informations d’identification du client constituent l’un des quatre types d’octroi dans OAuth 2.0. Ce type d’octroi est souvent utilisé pour l’accès à l’API Azure AD Microsoft Graph.
-*  Mode d’authentification : principal de service. L’authentification peut également être faite par l’utilisateur ou de manière interactive.
+## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenir les informations d’authentification à partir du portail Azure
 
-Quatre applications ou services au total sont impliqués dans le flux d’authentification et d’autorisation Azure AD pour l’utilisation de Media Services. Les applications et services, ainsi que le flux, sont décrits dans le tableau suivant :
+### <a name="overview"></a>Vue d’ensemble
 
-|Type d’application |Application |Flux|
-|---|---|---|
-|Client | Application ou solution cliente | Cette application (en fait, son proxy) est inscrite dans le locataire Azure AD dans lequel résident l’abonnement Azure et le compte Media Services. Le principal de service de l’application inscrite reçoit ensuite le rôle Propriétaire ou Collaborateur dans le contrôle d’accès (IAM) du compte Media Services. Le principal de service est représenté par l’ID client de l’application et la clé secrète client. |
-|Fournisseur d’identité (IDP) | Azure AD en tant que fournisseur d’identité | Le principal de service de l’application inscrite (ID client et clé secrète client) est authentifié par Azure AD en tant que fournisseur d’identité. Cette authentification est effectuée en interne et de manière implicite. Comme dans les flux d’informations d’identification du client, c’est le client qui est authentifié, au lieu de l’utilisateur. |
-|Secure Token Service (STS)/serveur OAuth | Azure AD en tant que STS | Une fois l’authentification par le fournisseur d’identité (ou le serveur OAuth pour OAuth 2.0) effectuée, un jeton d’accès ou un jeton JSON Web Token (JWT) est émis par Azure AD en tant que STS/serveur OAuth pour l’accès à la ressource de niveau intermédiaire. Dans le cas présent, il s’agit du point de terminaison de l’API REST Media Services. |
-|Ressource | API REST Media Services | Chaque appel d’API REST Media Services est autorisé par un jeton d’accès qui est émis par Azure AD en tant que STS ou serveur OAuth. |
+Pour accéder aux API Media Services, vous devez collecter des points de données suivants.
 
-Si vous exécutez l’exemple de code et capturez un JWT ou un jeton d’accès, le JWT présente les attributs suivants :
+|Paramètre|exemples|DESCRIPTION|
+|---|-------|-----|
+|Domaine du locataire Azure Active Directory|microsoft.onmicrosoft.com|Azure AD en tant que point de terminaison Secure Token Service (STS) est créé à l’aide du format suivant : https://login.microsoftonline.com/ {votre-nom-locataire-aad.onmicrosoft.com}/oauth2/token. Azure AD émet un JWT pour accéder aux ressources (jeton d’accès).|
+|Point de terminaison d'API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Il s’agit du point de terminaison vis-à-vis duquel tous les appels d’API REST Media Services dans votre application sont effectués.|
+|ID client (ID d’application)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID (client) d’application Azure AD. L’ID client est nécessaire pour obtenir le jeton d’accès. |
+|Clé secrète client|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Clés d’application Azure AD (clé secrète client). La clé secrète client est nécessaire pour obtenir le jeton d’accès.|
 
-    aud: "https://rest.media.azure.net",
+### <a name="get-aad-auth-info-from-the-azure-portal"></a>Obtenir les informations d’authentification AAD à partir du portail Azure
 
-    iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+Pour obtenir les informations, procédez comme suit :
 
-    iat: 1497146280,
+1. Connectez-vous au [portail Azure](http://portal.azure.com).
+2. Accédez à votre instance AMS.
+3. Sélectionnez **Accès d’API**.
+4. Cliquez sur **Se connecter à l'API Azure Media Services avec le principal de service**.
 
-    nbf: 1497146280,
-    exp: 1497150180,
+    ![Accès d’API](./media/connect-with-rest/connect-with-rest01.png)
 
-    aio: "Y2ZgYDjuy7SptPzO/muf+uRu1B+ZDQA=",
+5. Sélectionnez une **application Azure AD** existante ou créez-en une (voir ci-dessous).
 
-    appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6",
+    > [!NOTE]
+    > Pour que la demande Azure Media REST réussisse, l’utilisateur appelant doit avoir un rôle **Collaborateur** ou **Propriétaire** pour le compte Media Services auquel il tente d’accéder. S’il obtient une exception avec un message du type « Le serveur distant a retourné une erreur : (401) Non autorisé », consultez [Contrôle d’accès](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
-    appidacr: "1",
+    Si vous devez créer une application AD, procédez comme suit :
+    
+    1. Cliquez sur **Créer**.
+    2. Entrez un nom.
+    3. Cliquez de nouveau sur **Créer**.
+    4. Appuyez sur **Enregistrer**.
 
-    idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+    ![Accès d’API](./media/connect-with-rest/new-app.png)
 
-    oid: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+    La nouvelle application s’affiche sur la page.
 
-    sub: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+6. Obtenez l’**ID client** (ID d’application).
+    
+    1. Sélectionnez l’application.
+    2. Obtenez l’**ID client** dans la fenêtre de droite. 
 
-    tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ![Accès d’API](./media/connect-with-rest/existing-client-id.png).
 
-Voici les mappages entre les attributs JWT et les quatre applications ou services du tableau précédent :
+7.  Obtenez la **clé** de l’application (clé secrète client). 
 
-|Type d’application |Application |Attribut JWT |
-|---|---|---|
-|Client |Application ou solution cliente |appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". ID client d’une application que vous allez inscrire dans Azure AD, dans la section suivante. |
-|Fournisseur d’identité (IDP) | Azure AD en tant que fournisseur d’identité |Fournisseur d’identité (IDP) : https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/. Le GUID désigne l’ID du locataire Microsoft (microsoft.onmicrosoft.com). Chaque locataire a son propre ID unique. |
-|Secure Token Service (STS)/serveur OAuth |Azure AD en tant que STS | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". Le GUID désigne l’ID du locataire Microsoft (microsoft.onmicrosoft.com). |
-|Ressource | API REST Media Services |aud: "https://rest.media.azure.net". Destinataire ou audience du jeton d’accès. |
+    1. Cliquez sur le bouton **Gérer l'application** (notez que les informations sur l’ID client se trouvent sous **ID d’application**). 
+    2. Cliquez sur **Clés**.
+    
+        ![Accès d’API](./media/connect-with-rest/manage-app.png)
+    3. Pour générer la clé d’application (clé secrète client), renseignez les champs **DESCRIPTION** et **DATE D’EXPIRATION** et cliquez sur **Enregistrer**.
+    
+        Après avoir cliqué sur le bouton **Enregistrer**, la valeur de la clé s’affiche. Copiez la valeur de la clé avant de quitter le panneau.
 
-## <a name="steps-for-setup"></a>Étapes de configuration
+    ![Accès d’API](./media/connect-with-rest/connect-with-rest03.png)
 
-Pour vous inscrire et configurer une application Azure Active Directory (AAD), ainsi que pour obtenir les clés permettant d’appeler le point de terminaison d’API REST Azure Media Services, consultez l’article [Bien démarrer avec l’authentification Azure AD à l’aide du portail Azure](media-services-portal-get-started-with-aad.md)
+Vous pouvez ajouter à votre fichier web.config ou app.config des valeurs pour les paramètres de connexion AD, en vue d’une utilisation ultérieure dans votre code.
 
+> [!IMPORTANT]
+> La **clé client** est une information confidentielle importante qui doit être correctement sécurisée dans un coffre de clés ou chiffrée en production.
 
-## <a name="info-to-collect"></a>Informations à collecter
+## <a name="get-the-access-token-using-postman"></a>Obtenir le jeton d’accès à l’aide de Postman
 
-Pour préparer le codage REST, collectez les points de données suivants à inclure dans le code :
+Cette section explique comment utiliser **Postman** pour exécuter une API REST qui retourne un jeton de porteur JWT (jeton d’accès). Pour appeler une API REST Media Services, vous devez ajouter l’en-tête « d’autorisation » pour les appels, et ajouter la valeur de « Porteur *votre_jeton_d’accès* » pour chaque appel (comme indiqué dans la section suivante de ce didacticiel). 
 
-*   Azure AD en tant que point de terminaison STS : https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token. À partir de ce point de terminaison, un jeton d’accès JWT est demandé. Outre son utilisation en tant qu’IDP, Azure AD sert en tant que STS. Azure AD émet un JWT pour l’accès aux ressources (jeton d’accès). Un jeton JWT a plusieurs revendications.
-*   APIT REST Azure Media Services en tant que ressource ou audience : https://rest.media.azure.net.
-*   ID client : consultez l’étape 2 dans [Étapes de configuration](#steps-for-setup).
-*   Clé secrète client : consultez l’étape 2 dans [Étapes de configuration](#steps-for-setup).
-*   Point de terminaison de l’API REST de votre compte Media Services dans le format suivant :
+1. Ouvrez **Postman**.
+2. Sélectionnez **POST**.
+3. Entrez l’URL qui inclut votre nom de locataire en utilisant le format suivant : le nom du locataire doit se terminer par **. onmicrosoft.com** et l’URL doit se terminer par **oauth2/token** : 
 
-    https://[media_service_account_name].restv2.[data_center].media.azure.net/API 
+    https://login.microsoftonline.com/{votre-nom-locataire-aad.onmicrosoft.com}/oauth2/token
 
-    Il s’agit du point de terminaison vis-à-vis duquel tous les appels d’API REST Media Services dans votre application sont effectués. Par exemple, https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+4. Sélectionnez l’onglet **En-têtes**.
+5. Entrez les informations sur les **en-têtes** à l’aide de la grille de données « Clé/Valeur ». 
 
-Vous pouvez ensuite insérer ces cinq paramètres dans votre fichier web.config ou app.config, pour les utiliser dans votre code.
+    ![Grille de données](./media/connect-with-rest/headers-data-grid.png)
 
-## <a name="sample-code"></a>Exemple de code
+    Vous pouvez également cliquer sur le lien **Modification en bloc** situé à droite de la fenêtre Postman et coller le code suivant.
 
-L’exemple de code se trouve dans [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln) (Authentification Azure AD pour l’accès à Azure Media Services : par le biais d’une API REST).
+        Content-Type:application/x-www-form-urlencoded
+        Keep-Alive:true
 
-L’exemple de code comporte deux parties :
+6. Cliquez sur l’onglet **Corps**.
+7. Entrez les informations sur le corps à l’aide de la grille de données « Clé/valeur » (remplacez l’ID client et les valeurs des secrets). 
 
-*   Un projet de bibliothèque DLL contenant tout le code de l’API REST pour l’authentification et l’autorisation Azure AD. Il présente également une méthode pour effectuer des appels API REST au point de terminaison de l’API REST Media Services, avec le jeton d’accès.
-*   Un client test de console, qui lance l’authentification Azure AD et appelle une autre API REST Media Services.
+    ![Grille de données](./media/connect-with-rest/data-grid.png)
 
-L’exemple de projet a trois fonctionnalités :
+    Vous pouvez également cliquer sur le lien **Modification en bloc** situé à droite de la fenêtre Postman et coller le corps suivant (remplacez l’ID client et les valeurs des secrets) :
 
-*   Authentifications AD Azure par l’octroi d’informations d’identification client uniquement à l’aide de l’API REST.
-*   Accès à Media Services Azure uniquement à l’aide de l’API REST.
-*   Accès au stockage Azure uniquement à l’aide de l’API REST (tel qu’il est utilisé pour créer un compte Media Services, à l’aide de l’API REST).
+        grant_type:client_credentials
+        client_id:{Your Client ID that you got from your AAD Application}
+        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        resource:https://rest.media.azure.net
 
+8. Appuyez sur **Envoyer**.
 
-## <a name="where-is-the-refresh-token"></a>Où se trouve le jeton d’actualisation ?
+    ![Obtention d’un jeton](./media/connect-with-rest/connect-with-rest04.png)
 
-Certains peuvent se demander où se trouve le jeton d’actualisation. Pourquoi ne pas utiliser un jeton d’actualisation ici ?
+La réponse retournée contient le **jeton d’accès** que vous devez utiliser pour accéder à toute API AMS.
 
-L’objectif d’un jeton d’actualisation n’est pas d’actualiser un jeton d’accès. Il est conçu pour ignorer l’authentification utilisateur et pour représenter continuellement un jeton d’accès valide en cas d’expiration d’un jeton précédent. Il serait peut-être plus clair de parler de « jeton de contournement de la reconnexion utilisateur ».
+## <a name="test-the-assets-api-using-the-access-token"></a>Tester l’API **Assets** à l’aide du jeton d’accès
 
-Si vous utilisez le flux d’octroi d’autorisation OAuth 2.0 (nom d’utilisateur et mot de passe, au nom d’un utilisateur), un jeton d’actualisation vous permet de renouveler un jeton d’accès sans demander l’intervention de l’utilisateur. Toutefois, pour le flux d’octroi d’informations d’identification client OAuth 2.0 décrit dans cet article, le client agit pour son propre compte. Vous n’avez besoin d’aucune intervention de la part de l’utilisateur, et le serveur d’autorisation n’a pas besoin de vous fournir un jeton d’actualisation. Si vous déboguez la méthode **GetUrlEncodedJWT**, vous remarquerez que la réponse du point de terminaison de jeton présente un jeton d’accès, mais aucun jeton d’actualisation.
+Cette section explique comment accéder à l’API **Assets** à l’aide de **Postman**.
 
-## <a name="next-steps"></a>Étapes suivantes
+1. Ouvrez **Postman**.
+2. Sélectionnez **GET**.
+3. Collez le point de terminaison de l’API REST (par exemple, https://amshelloworld.restv2.westus.media.azure.net/api/Assets).
+4. Sélectionnez l’onglet **Autorisation**. 
+5. Sélectionnez le type **jeton du porteur**.
+6. Collez le jeton créé dans la section précédente.
 
-Commencez le [chargement de fichiers sur votre compte](media-services-dotnet-upload-files.md).
+    ![Obtention d’un jeton](./media/connect-with-rest/connect-with-rest05.png)
+
+    > [!NOTE]
+    > L’expérience utilisateur Postman peut varier entre un Mac et un PC. Si la version Mac ne propose pas d’option de « jeton du porteur » dans liste déroulante d’**authentification**, vous devez ajouter l’en-tête d’**autorisation** manuellement sur le client Mac.
+
+   ![En-tête d’autorisation](./media/connect-with-rest/auth-header.png)
+
+7. Sélectionnez **En-têtes**.
+5. Cliquez sur le lien **Modification en bloc** situé à droite de la fenêtre Postman.
+6. Collez les en-têtes suivants :
+
+        x-ms-version:2.15
+        Accept:application/json
+        Content-Type:application/json
+        DataServiceVersion:3.0
+        MaxDataServiceVersion:3.0
+
+7. Appuyez sur **Envoyer**.
+
+La réponse retournée contient les ressources qui se trouvent dans votre compte.
+
+## <a name="next-steps"></a>étapes suivantes
+
+* Essayez l’exemple de code qui se trouve dans [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln) (Authentification Azure AD pour l’accès à Azure Media Services : par le biais d’une API REST)
+* [Charger des fichiers à l’aide de .NET](media-services-dotnet-upload-files.md)

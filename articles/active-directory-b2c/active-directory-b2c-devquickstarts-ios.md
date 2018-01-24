@@ -1,24 +1,24 @@
 ---
-title: "Obtention d’un jeton à l’aide d’une application iOS - Azure AD B2C | Microsoft Docs"
-description: "Cet article vous montre comment créer une application iOS qui utilise AppAuth avec Azure Active Directory B2C pour gérer les identités utilisateur et authentifier les utilisateurs."
+title: "Utilisation d’AppAuth dans une application iOS - Azure Active Directory B2C"
+description: "Cet article explique comment créer une application iOS qui utilise AppAuth avec Azure Active Directory B2C pour gérer les identités utilisateur et authentifier les utilisateurs."
 services: active-directory-b2c
 documentationcenter: ios
-author: saeedakhter-msft
+author: PatAltimore
 manager: mtillman
 editor: parakhj
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: cc26d4d2209564fc5c994c2bc73f6a572fe87d28
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saeeda
+ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure Active Directory B2C : Se connecter à l’aide d’une application iOS
 
@@ -40,8 +40,6 @@ Vous devez maintenant créer dans votre répertoire B2C une application L’insc
 * Incluez un **Client natif** dans l’application.
 * Copiez l’ **ID d’application** affecté à votre application. Vous aurez besoin de ce GUID ultérieurement.
 * Configurez un **URI de redirection** avec un schéma personnalisé (par exemple, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Vous aurez besoin de cet URI ultérieurement.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
 Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient une seule expérience liée à l’identité : une connexion et une inscription combinées. Créez cette stratégie, comme décrit dans l’[article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lorsque vous créez la stratégie, prenez soin de :
@@ -131,8 +129,8 @@ Pour configurer votre application pour gérer la redirection vers l’URI avec l
 * Cliquez sur la flèche à gauche de « Élément 0 » pour ouvrir l’arborescence.
 * Renommez le premier élément sous l’élément 0 « Modèles d’URL ».
 * Cliquez sur la flèche à gauche de « Modèles d’URL » pour ouvrir l’arborescence.
-* Dans la colonne « Valeur », il y a un champ vide à gauche de « Élément 0 » sous « Modèles d’URL ».  Définissez la valeur sur le modèle unique de votre application.  La valeur doit correspondre au modèle utilisé dans redirectURL lors de la création de l’objet OIDAuthorizationRequest.  Dans notre exemple, nous avons utilisé le schéma « com.onmicrosoft.fabrikamb2c.exampleapp ».
+* Dans la colonne « Valeur », il y a un champ vide à gauche de « Élément 0 » sous « Modèles d’URL ».  Définissez la valeur sur le modèle unique de votre application.  La valeur doit correspondre au modèle utilisé dans redirectURL lors de la création de l’objet OIDAuthorizationRequest.  Dans l’exemple, le schéma « com.onmicrosoft.fabrikamb2c.exampleapp » est utilisé.
 
-Reportez-vous au [guide d’AppAuth](https://openid.github.io/AppAuth-iOS/) pour le reste du processus. Si vous avez besoin de prendre rapidement en main une application, consultez [notre exemple](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Suivez les étapes du fichier [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) pour entrer votre propre configuration Azure AD B2C.
+Reportez-vous au [guide d’AppAuth](https://openid.github.io/AppAuth-iOS/) pour le reste du processus. Si vous avez besoin de prendre rapidement en main une application, consultez [cet exemple](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Suivez les étapes du fichier [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) pour entrer votre propre configuration Azure AD B2C.
 
-Nous sommes ouverts aux commentaires et suggestions ! Si vous avez des difficultés avec cette rubrique, ou si vous avez des conseils pour améliorer ce contenu, faites-nous part de vos commentaires en bas de la page. En cas de demandes liées aux fonctionnalités, utilisez [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Nous sommes ouverts aux commentaires et suggestions ! Si vous avez des difficultés avec cet article, ou si vous avez des conseils pour améliorer ce contenu, faites-nous part de vos commentaires en bas de la page. En cas de demandes liées aux fonctionnalités, utilisez [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier de configuration permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
 
-Le fichier de configuration est nommé `ApplicationInsights.config` ou `ApplicationInsights.xml`, selon le type de votre application. Il est automatiquement ajouté à votre projet lorsque vous [installez la plupart des versions du Kit de développement logiciel (SDK)][start]. Il est également ajouté à une application web par [Status Monitor sur un serveur IIS][redfield] ou lorsque vous sélectionnez l’[extension Appplication Insights pour un site web ou une machine virtuelle Azure](app-insights-azure-web-apps.md).
+Le fichier de configuration est nommé `ApplicationInsights.config` ou `ApplicationInsights.xml`, selon le type de votre application. Il est automatiquement ajouté à votre projet lorsque vous [installez la plupart des versions du Kit de développement logiciel (SDK)][start]. Il est également ajouté à une application web par [Status Monitor sur un serveur IIS][redfield] ou lorsque vous sélectionnez [l’extension Appplication Insights pour un site web ou une machine virtuelle Azure](app-insights-azure-web-apps.md).
 
 Il n’existe aucun fichier équivalent permettant de contrôler le [kit de développement logiciel (SDK) dans une page web][client].
 
@@ -125,7 +125,6 @@ Les initialiseurs standard sont tous définis par les packages NuGet web ou Wind
 * `SyntheticTelemetryInitializer` ou `SyntheticUserAgentTelemetryInitializer` met à jour les propriétés de contexte `User`, `Session` et `Operation` de tous les éléments de télémétrie suivis lors du traitement d'une requête émanant d'une source synthétique, comme un test de disponibilité ou un robot de moteur de recherche. Par défaut, [Metrics Explorer](app-insights-metrics-explorer.md) n'affiche pas la télémétrie synthétique.
 
     Ensemble de `<Filters>` qui identifie les propriétés des requêtes.
-* `UserAgentTelemetryInitializer` met à jour la propriété `UserAgent` du contexte `User` de tous les éléments de télémétrie à partir de l’en-tête HTTP `User-Agent` de la demande.
 * `UserTelemetryInitializer` met à jour les propriétés `Id` et `AcquisitionDate` du contexte `User` pour tous les éléments de télémétrie avec les valeurs extraites du cookie `ai_user` généré par le code d’instrumentation JavaScript Application Insights en cours d'exécution dans le navigateur de l'utilisateur.
 * `WebTestTelemetryInitializer` définit l’ID utilisateur, l’ID de session et les propriétés de la source de synthèse pour des requêtes HTTP provenant des [tests de disponibilité](app-insights-monitor-web-app-availability.md).
   Ensemble de `<Filters>` qui identifie les propriétés des requêtes.
@@ -262,7 +261,7 @@ Si vous souhaitez simplement envoyer un ensemble spécifique d’événements à
 
 Pour obtenir une nouvelle clé, [créez une ressource dans le portail Application Insights][new].
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [En savoir plus sur l’API][api].
 
 <!--Link references-->

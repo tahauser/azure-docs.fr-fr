@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Faire expirer des données dans des collections Cosmos DB automatiquement avec la durée de vie
 Les applications peuvent générer et stocker de grandes quantités de données. Certaines de ces données, telles que les données d’événement générées par la machine, les journaux et les informations de session utilisateur, sont utiles uniquement pendant une certaine période. Une fois les données trop nombreuses par rapport aux besoins de l’application, vous pouvez les vider et réduire les besoins de stockage d’une application.
@@ -149,8 +149,11 @@ Pour désactiver la TTL entièrement sur une collection et arrêter la recherche
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
-## <a name="ttl-and-index-interaction"></a>Interaction de la durée de vie et des index
-L’ajout ou la modification d’une durée de vie correspond à une modification de l’index sous-jacent. Lorsqu’il n’existe aucune durée de vie et que vous fournissez une valeur de durée de vie valide, ceci équivaut à une opération de réindexation. Pour un index cohérent : l’utilisateur ne voit pas aucune modification dans l’état de l’index. En cas d’index différé : l’index commence toujours par se mettre à jour et, suite à cette modification de la durée de vie, il est recréé à partir de zéro. Dans ce cas, les requêtes effectuées pendant la régénération de l’index retournent des résultats incomplets ou incorrects. Ne modifiez pas la durée de vie d’un index différé si vous avez, par exemple, besoin d’un nombre de données exact, car le mode d’indexation lui-même est différé.  Dans l’idéal, il faut toujours choisir un index cohérent. 
+<a id="ttl-and-index-interaction"></a> 
+## <a name="ttl-and-index-interaction"></a>Interaction entre la TTL et l’index
+L’ajout ou la modification du paramètre TTL sur une collection modifie l’index sous-jacent. Lorsque la valeur TTL passe de Désactivée à Activée, la collection est réindexée. Si vous apportez des modifications à la stratégie d’indexation et que le mode d’indexation est cohérent, les utilisateurs ne remarqueront aucune modification de l’index. Lorsque le mode d’indexation est différé, l’index est toujours en retard : si la valeur TTL change, l’index est recréé de A à Z. Lorsque la valeur TTL est modifiée et que le mode d’indexation est différé, les requêtes effectuées pendant la reconstruction de l’index ne retournent pas de résultats complets ou corrects.
+
+Si vous avez besoin de données exactes, ne modifiez pas la valeur TTL avec un mode d’indexation différé. L’idéal est de choisir des index cohérents pour garantir des résultats de requête cohérents. 
 
 ## <a name="faq"></a>Forum Aux Questions
 **Quel est le coût de la TTL ?**
@@ -173,6 +176,6 @@ La TTL s’applique à l’ensemble du document. Si vous souhaitez faire expirer
 
 Oui. La collection doit avoir une [stratégie d’indexation](indexing-policies.md) définie sur Différée ou Cohérente. Une erreur se produira si vous tentez de définir le paramètre DefaultTTL sur une collection dont l’indexation est définie sur Aucune et si vous essayez de désactiver l’indexation sur une collection dont le paramètre DefaultTTL est déjà défini.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur Azure Cosmos DB, consultez la page de [*documentation*](https://azure.microsoft.com/documentation/services/cosmos-db/) du service.
 

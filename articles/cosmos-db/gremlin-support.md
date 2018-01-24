@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
 Azure Cosmos DB prend en charge le langage de traversée de graphe [d’Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Il s’agit d’une API Graph qui permet de créer des entités de graphes et d’effectuer des opérations de requête de graphe. Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
 
 Azure Cosmos DB apporte des fonctionnalités d’entreprise aux bases de données de graphes. Cela inclut la distribution globale, la mise à l’échelle indépendante du stockage et du débit, les latences prévisibles de quelques millisecondes, l’indexation automatique, les contrats SLA, ainsi que la disponibilité de lecture pour les comptes de base de données couvrant plusieurs régions. Étant donné qu’Azure Cosmos DB prend en charge TinkerPop/Gremlin, vous pouvez facilement migrer des applications écrites à l’aide d’une autre base de données de graphes sans avoir à apporter des modifications de code. En outre, en vertu de la prise en charge de Gremlin, Azure Cosmos DB intègre parfaitement les infrastructures d’analyse compatibles avec TinkerPop comme [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Dans cet article, nous fournissons une procédure pas à pas de Gremlin, et nous énumérons les fonctionnalités de Gremlin et les étapes prises en charge dans la version préliminaire de la prise en charge de l’API Graph.
+Dans cet article, nous fournissons une procédure pas à pas de Gremlin, et nous énumérons les fonctionnalités de Gremlin et les étapes prises en charge dans l’API Graph.
 
 ## <a name="gremlin-by-example"></a>Gremlin par l’exemple
 Nous allons utiliser un exemple de graphe pour comprendre comment les requêtes peuvent être exprimées dans Gremlin. L’illustration suivante montre une application métier qui gère les données sur les utilisateurs, les centres d’intérêt et les appareils sous la forme d’un graphe.  
@@ -78,9 +78,9 @@ TinkerPop est une norme qui couvre un large éventail de technologies de graphes
 
 Le tableau suivant répertorie les fonctionnalités TinkerPop implémentées par Azure Cosmos DB : 
 
-| Catégorie | Implémentation d’Azure Cosmos DB |  Remarques | 
+| Catégorie | Implémentation d’Azure Cosmos DB |  Notes | 
 | --- | --- | --- |
-| Fonctionnalités de graphe | Fournit la persistance et ConcurrentAccess dans la version préliminaire. Conçu pour prendre en charge les transactions | Les méthodes de l’ordinateur peuvent être implémentées via le connecteur Spark. |
+| Fonctionnalités de graphe | Fournit la persistance et ConcurrentAccess. Conçu pour prendre en charge les transactions | Les méthodes de l’ordinateur peuvent être implémentées via le connecteur Spark. |
 | Fonctionnalités variables | Prend en charge les valeurs booléennes, entières, byte, doubles, flottantes, longues et de chaîne | Prend en charge les types primitifs, et est compatible avec des types complexes via un modèle de données |
 | Fonctionnalités de vertex | Prend en charge RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Prend en charge la création, la modification et la suppression de vertex |
 | Fonctionnalités de propriétés de vertex | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Prend en charge la création, la modification et la suppression des propriétés vertex |
@@ -132,18 +132,18 @@ Par exemple, l’extrait de code suivant montre une représentation sous forme d
 
 Les propriétés utilisées par GraphSON pour les vertex sont les suivantes :
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
 | id | ID du vertex. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
 | label | Le label du vertex. Élément facultatif, utilisé pour décrire le type d’entité. |
-| type | Utilisé pour distinguer les vertex des documents non graphes |
+| Type | Utilisé pour distinguer les vertex des documents non graphes |
 | properties | Sac de propriétés définies par l’utilisateur associé au vertex. Chaque propriété peut avoir plusieurs valeurs. |
 | _partition (configurable) | La clé de partition du vertex. Peut être utilisé pour augmenter la taille des instances des graphes sur plusieurs serveurs |
 | outE | Contient une liste des bords extérieurs d’un vertex. Permet de stocker les informations de contiguïté avec des vertex pour une exécution rapide des traversées. Les bords sont regroupés en fonction de leurs labels. |
 
 Et le bord contient les informations suivantes pour faciliter la navigation vers d’autres parties du graphe.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
 | id | L’ID du bord. Doit être unique (en association avec la valeur de _partition, le cas échéant) |
 | label | Le label du bord. Cette propriété est facultative, elle est utilisée pour décrire le type de relation. |
@@ -152,7 +152,7 @@ Et le bord contient les informations suivantes pour faciliter la navigation vers
 
 Chaque propriété peut stocker plusieurs valeurs dans un tableau. 
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
 | value | Valeur de la propriété
 
@@ -165,7 +165,7 @@ Les opérations Gremlin fonctionnent parfaitement entre les données de graphe q
 ## <a name="gremlin-steps"></a>Étapes de Gremlin
 Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure Cosmos DB. Pour des références complètes sur Gremlin, consultez [Référence TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
 
-| étape | Description | Documentation TinkerPop 3.2 | Remarques |
+| étape | DESCRIPTION | Documentation TinkerPop 3.2 | Notes |
 | --- | --- | --- | --- |
 | `addE` | Ajoute un bord reliant deux vertex | [étape addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Ajoute un vertex au graphe | [étape addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |

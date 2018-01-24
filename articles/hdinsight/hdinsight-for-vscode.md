@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: d6ca3bcb91261a863444bc331c78adf44844be56
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
 Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code (VSCode) pour créer et envoyer des travaux Hive de traitement par lots, des requêtes Hive interactives et des scripts pySpark. Vous pouvez installer Azure HDInsight Tools sur les plateformes prises en charge par VS Code. Il s’agit des instances Windows, Linux et macOS. Renseignez-vous sur les prérequis pour les différentes plateformes.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessaires suivants :
 
@@ -270,7 +270,7 @@ HDInsight pour VS Code prend en charge les fonctionnalités suivantes :
 
     ![coloration syntaxique dans HDInsight Tools pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 ### <a name="demo"></a>Démonstration
 * HDInsight pour VS Code : [vidéo](https://go.microsoft.com/fwlink/?linkid=858706)
@@ -286,13 +286,14 @@ HDInsight pour VS Code prend en charge les fonctionnalités suivantes :
 * [Utiliser des packages externes avec les blocs-notes Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [ Définir l’environnement interactif de PySpark pour Visual Studio Code](set-up-pyspark-interactive-environment.md)
 * [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Scénarios
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](spark/apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark : Utiliser Spark dans HDInsight pour créer des applications de diffusion en continu en temps réel](spark/apache-spark-eventhub-streaming.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 

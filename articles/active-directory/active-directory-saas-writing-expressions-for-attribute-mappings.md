@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser les mappages d’expressions pour tran
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -26,8 +26,8 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 La syntaxe des expressions pour les mappages d’attributs rappelle celle des fonctions Visual Basic pour Applications (VBA).
 
 * L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
-  *NomDeFonction(&lt;&lt;argument 1&gt;&gt;,&lt;<argument N>&gt;)*
-* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *FonctionUne(FonctionDeux(&lt;<argument1>&gt;))*
+  *NomFonction(<<argument 1>>,<<argument N>>)*
+* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple :  <br> *FonctionUne(FonctionDeux(&lt;<argument1>&gt;))*
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
@@ -36,7 +36,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de la société : \"Contoso\" »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
-[Append](#append)&nbsp;&nbsp;&nbsp;&nbsp;[FormatDateTime](#formatdatetime)&nbsp;&nbsp;&nbsp;&nbsp;[Join](#join)&nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp;[Not](#not)&nbsp;&nbsp;&nbsp;&nbsp;[Replace](#replace)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces)&nbsp;&nbsp;&nbsp;&nbsp;[Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -46,10 +46,10 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **source** |Requis |String |Généralement le nom de l’attribut de l’objet source |
-| **suffix** |Requis |String |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
+| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
+| **suffix** |Obligatoire |Chaîne |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -59,11 +59,11 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **source** |Requis |String |Généralement le nom de l’attribut de l’objet source. |
-| **inputFormat** |Requis |String |Format attendu de la valeur source. Pour plus d’informations sur les formats pris en charge, consultez [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Requis |String |Format de la date de sortie. |
+| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
+| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour plus d’informations sur les formats pris en charge, consultez [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
 
 - - -
 ### <a name="join"></a>Join
@@ -75,10 +75,10 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **separator** |Requis |String |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1  … sourceN ** |Requis, nombre de fois variable |String |Valeurs de chaîne à joindre ensemble. |
+| **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
+| **source1  … sourceN ** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -88,11 +88,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **source** |Requis |String |Généralement le nom de l’attribut. |
-| **start** |Requis |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
-| **length** |Requis |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
+| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut. |
+| **start** |Obligatoire |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
+| **length** |Obligatoire |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
 - - -
 ### <a name="not"></a>not
@@ -102,9 +102,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **source** |Requis |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
+| **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
 - - -
 ### <a name="replace"></a>Replace
@@ -129,15 +129,27 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **source** |Requis |String |Généralement le nom de l’attribut de l’objet source. |
-| **oldValue** |Facultatif |String |Valeur à remplacer dans **source** ou **template**. |
-| **regexPattern** |Facultatif |String |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand replacementPropertyName est utilisé, modèle pour extraire la valeur de la propriété de remplacement. |
-| **regexGroupName** |Facultatif |String |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement uniquement quand replacementPropertyName est utilisé. |
-| **replacementValue** |Facultatif |String |Nouvelle valeur par laquelle remplacer l’ancienne. |
-| **replacementAttributeName** |Facultatif |String |Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
-| **template** |Facultatif |String |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
+| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
+| **oldValue** |Facultatif |Chaîne |Valeur à remplacer dans **source** ou **template**. |
+| **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand replacementPropertyName est utilisé, modèle pour extraire la valeur de la propriété de remplacement. |
+| **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement uniquement quand replacementPropertyName est utilisé. |
+| **replacementValue** |Facultatif |Chaîne |Nouvelle valeur par laquelle remplacer l’ancienne. |
+| **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
+| **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Fonction :**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Description :**<br> Retourne un appRoleAssignment unique parmi la liste de tous les appRoleAssignments affectés à un utilisateur pour une application donnée. Cette fonction est nécessaire pour convertir l’objet appRoleAssignments en une chaîne de nom de rôle unique. Notez que la bonne pratique consiste à s’assurer qu’un seul appRoleAssignment est attribué à un seul utilisateur à la fois, et si plusieurs rôles sont attribués, la chaîne de rôle retournée ne doit pas être prévisible.
+
+**Paramètres :**<br> 
+
+| NOM | Requis / Répétition | type | Notes |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]**. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -147,9 +159,9 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **source** |Requis |String |**source** à mettre à jour. |
+| **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -159,12 +171,12 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Remarques |
+| NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **source** |Requis |String |**Source** à mettre à jour. |
-| **defaultValue** |Facultatif |String |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
-| **key** |Requis |String |**Key** avec laquelle comparer la valeur **source**. |
-| **value** |Requis |String |Valeur de remplacement pour la **source** correspondant à la clé. |
+| **source** |Obligatoire |Chaîne |**Source** à mettre à jour. |
+| **defaultValue** |Facultatif |Chaîne |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
+| **key** |Obligatoire |Chaîne |**Key** avec laquelle comparer la valeur **source**. |
+| **value** |Obligatoire |Chaîne |Valeur de remplacement pour la **source** correspondant à la clé. |
 
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu

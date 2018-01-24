@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Liaisons SendGrid dans Azure Functions
 
@@ -24,17 +24,17 @@ Cet article explique comment envoyer des e-mails avec des liaisons [SendGrid](ht
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#c-example)
-* [Script C#](#c-script-example)
+* [C#](#c-example)
+* [Script C# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Exemple en code C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui utilise un déclencheur de file d’attente Service Bus et une liaison de sortie SendGrid.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui utilise un déclencheur de file d’attente Service Bus et une liaison de sortie SendGrid.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -155,7 +155,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
 
 Pour plus d’informations sur les propriétés d’attribut que vous pouvez configurer, consultez [Configuration](#configuration). Voici un exemple d’attribut `SendGrid` dans une signature de méthode :
 
@@ -169,26 +169,26 @@ public static void Run(
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Exemple C# précompilé](#c-example).
+Vous trouverez un exemple complet sur la page [Exemple C#](#c-example).
 
 ## <a name="configuration"></a>Configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `SendGrid`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 |**type**|| Obligatoire : doit être défini sur `sendGrid`.|
 |**direction**|| Obligatoire : doit être défini sur `out`.|
 |**name**|| Obligatoire : nom de variable utilisé dans le code de la fonction pour la requête ou le corps de la requête. Cette valeur est ```$return``` lorsqu’il n’existe qu’une valeur de retour. |
 |**apiKey**|**ApiKey**| Nom d’un paramètre d’application qui contient votre clé API. En l’absence de définition, le nom du paramètre d’application par défaut est « AzureWebJobsSendGridApiKey ».|
 |**to**|**To**| Adresse e-mail du destinataire. |
-|**from**|**De**| Adresse e-mail de l’expéditeur. |
+|**from**|**From**| Adresse e-mail de l’expéditeur. |
 |**subject**|**Objet**| Objet de l’e-mail. |
 |**text**|**Text**| Contenu de l’e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

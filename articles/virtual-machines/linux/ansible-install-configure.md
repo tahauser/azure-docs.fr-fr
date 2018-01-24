@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installer et configurer Ansible pour gérer des machines virtuelles dans Azure
 Cet article explique comment installer Ansible et les modules du SDK Azure Python nécessaires pour quelques-unes des distributions Linux les plus courantes. Vous pouvez installer Ansible sur d’autres distributions en adaptant les packages installés à votre plateforme spécifique. Pour créer des ressources Azure de manière sécurisée, vous découvrez également comment créer et définir des informations d’identification à utiliser par Ansible. 
@@ -34,7 +34,7 @@ Tout d’abord, créez un groupe de ressources avec la commande [az group create
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-Créez maintenant une machine virtuelle et installez Ansible pour une des distributions suivantes :
+Créez maintenant une machine virtuelle et installez Ansible pour une des distributions suivantes de votre choix :
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
@@ -43,7 +43,7 @@ Créez maintenant une machine virtuelle et installez Ansible pour une des distri
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). L’exemple suivant crée une machine virtuelle nommée *myVMAnsible* :
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -74,7 +74,7 @@ Passez maintenant à [Créer des informations d’identification Azure](#create-
 ### <a name="centos-73"></a>CentOS 7.3
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). L’exemple suivant crée une machine virtuelle nommée *myVMAnsible* :
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -106,7 +106,7 @@ Passez maintenant à [Créer des informations d’identification Azure](#create-
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#create). L’exemple suivant crée une machine virtuelle nommée *myVMAnsible* :
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,11 +125,14 @@ Sur votre machine virtuelle, installez les packages nécessaires pour les module
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Passez maintenant à [Créer des informations d’identification Azure](#create-azure-credentials).
@@ -138,26 +141,26 @@ Passez maintenant à [Créer des informations d’identification Azure](#create-
 ## <a name="create-azure-credentials"></a>Créer des informations d’identification Azure
 Ansible communique avec Azure en utilisant un nom d’utilisateur et un mot de passe, ou un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme Ansible. Vous contrôlez et vous définissez les opérations que le principal du service est autorisé à effectuer dans Azure. Pour renforcer la sécurité par rapport à la simple saisie d’un nom d’utilisateur et d’un mot de passe, cet exemple crée un principal de service de base.
 
-Créez un principal de service avec la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) et affichez les informations d’identification nécessaires à Ansible :
+Créez un principal de service sur votre ordinateur hôte avec la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) et affichez les informations d’identification nécessaires à Ansible :
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 Voici un exemple de la sortie des commandes précédentes :
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 Pour s’authentifier sur Azure, vous devez également obtenir votre ID d’abonnement Azure avec [az account show](/cli/azure/account#show) :
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 Vous utilisez la sortie de ces deux commandes à l’étape suivante.
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-Le fichier *d’informations d’identification* combine l’ID d’abonnement avec la sortie de la création d’un principal de service. La sortie de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) précédente est dans l’ordre nécessaire pour *client_id*, *secret* et *locataire*. L’exemple suivant de fichier *d’informations d’identification* montre ces valeurs correspondant à la sortie précédente. Saisissez vos propres valeurs, comme suit :
+Le fichier *d’informations d’identification* combine l’ID d’abonnement avec la sortie de la création d’un principal de service. La sortie de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) précédente est la même que pour *client_id*, *secret* et *locataire*. L’exemple suivant de fichier *d’informations d’identification* montre ces valeurs correspondant à la sortie précédente. Saisissez vos propres valeurs, comme suit :
 
 ```bash
 [default]
@@ -194,5 +197,5 @@ export AZURE_SECRET=531dcffa-3aff-4488-99bb-4816c395ea3f
 export AZURE_TENANT=72f988bf-86f1-41af-91ab-2d7cd011db47
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ansible et les modules du SDK Azure Python SDK nécessaires sont maintenant installés, et des informations d’identification sont définies pour être utilisées par Ansible. Découvrez comment [créer une machine virtuelle avec Ansible](ansible-create-vm.md). Vous pouvez également découvrir comment [créer une machine virtuelle Azure complète et des ressources de support avec Ansible](ansible-create-complete-vm.md).

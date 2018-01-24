@@ -11,210 +11,101 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Géorécupération d’urgence Azure Service Bus (préversion)
+# <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
-Si un centre de données régional connaît un temps d’arrêt, il est essentiel que le traitement des données puisse continuer dans les autres régions ou centres de données. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Service Bus prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
+Si tout un centre de données ou une région Azure complète (si aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaît un temps d’arrêt, il est essentiel que le traitement des données puisse continuer dans les autres régions ou centres de données. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Service Bus prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
 
-La préversion de la fonctionnalité de géorécupération d’urgence est disponible uniquement dans deux régions (**Nord-Centre des États-Unis** et **Sud-Centre des États-Unis)**.
+La fonctionnalité de géorécupération d’urgence est disponible de manière globale pour la référence SKU Premium de Service Bus. 
 
 ## <a name="outages-and-disasters"></a>Pannes et sinistres
 
-L’article [Meilleures pratiques pour protéger les applications contre les pannes et les sinistres de Service Bus](service-bus-outages-disasters.md) établit une distinction entre les « pannes » et les « sinistres ». Cette distinction a son importance. Une *panne* se définit comme l’indisponibilité temporaire d’Azure Service Bus. La panne impacte certains composants du service, comme une banque de messages, ou le centre de données entier. Toutefois, une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne ne provoque aucune perte de messages ou d’autres données. Une coupure de courant dans le centre de données est un exemple de panne.
+Il est important de noter la différence entre « panne » et « sinistre ». Une *panne* se définit comme l’indisponibilité temporaire d’Azure Service Bus. La panne impacte certains composants du service, comme une banque de messages, ou le centre de données entier. Toutefois, une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne ne provoque aucune perte de messages ou d’autres données. Une coupure de courant dans le centre de données est un exemple de panne. Certaines pannes sont uniquement dues à une courte perte de la connexion en raison de problèmes réseau ou de soucis temporaires. 
 
-Un *sinistre* se définit comme une perte définitive ou à long terme d’une [unité d’échelle](service-bus-architecture.md#service-bus-scale-units) ou d’un centre de données Service Bus. Le centre de données peut redevenir disponible ou pas, et rester arrêté pendant plusieurs heures ou jours. Les incendies, les inondations ou les tremblements de terre sont des exemples de sinistres. Un sinistre qui devient permanent peut entraîner la perte de certains messages ou d’autres données. Toutefois, dans la plupart des cas, il ne doit y avoir aucune perte de données et les messages peuvent être récupérés une fois que le centre de données est sauvegardé.
+Un *sinistre* se définit comme une perte définitive ou à long terme d’un cluster Service Bus, d’une région Azure ou d’un centre de données. La région ou le centre de données peut redevenir disponible ou pas, et rester arrêté(e) pendant plusieurs heures ou jours. Les incendies, les inondations ou les tremblements de terre sont des exemples de sinistres. Un sinistre qui devient permanent peut entraîner la perte de certains messages, événements ou d’autres données. Toutefois, dans la plupart des cas, il ne doit y avoir aucune perte de données et les messages peuvent être récupérés une fois que le centre de données est sauvegardé.
 
-La fonctionnalité de géorécupération d’urgence d’Azure Service Bus est une solution de récupération d’urgence. Les concepts et le workflow décrits dans cet article concernent des scénarios de sinistres, pas des pannes temporaires ou transitoires.  
+La fonctionnalité de géorécupération d’urgence d’Azure Service Bus est une solution de récupération d’urgence. Les concepts et le workflow décrits dans cet article concernent des scénarios de sinistres, pas des pannes temporaires ou transitoires. Pour obtenir une présentation détaillée de la récupération d’urgence dans Microsoft Azure, consultez [cet article](/azure/architecture/resiliency/disaster-recovery-azure-applications).   
 
 ## <a name="basic-concepts-and-terms"></a>Concepts et terminologie de base
 
-La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. Notez que la fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [espaces de noms Premium](service-bus-premium-messaging.md). Vous n’avez pas besoin de modifier la chaîne de connexion, car la connexion est établie à l’aide d’un alias.
+La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. Notez que la fonctionnalité de géorécupération d’urgence est disponible uniquement pour la [référence SKU Premium](service-bus-premium-messaging.md). Vous n’avez pas besoin de modifier la chaîne de connexion, car la connexion est établie à l’aide d’un alias.
 
 Cet article emploie les termes suivants :
 
--  *Alias* : votre chaîne de connexion principale.
+-  *Alias* : nom d’une configuration de récupération d’urgence que vous avez configurée. L’alias fournit une chaîne de connexion de nom de domaine complet (FQDN) stable. Les applications utilisent cet alias de chaîne de connexion pour se connecter à un espace de noms. 
 
--  *Espace de noms principal/secondaire* : décrit les espaces de noms qui correspondent à l’alias. L’espace de noms principal est « actif » et reçoit les messages, alors que l’espace de noms est « passif » et ne reçoit pas de messages. Les métadonnées sont synchronisées entre ces deux espaces de noms, qui peuvent ainsi accepter facilement les messages sans aucune modification du code d’application.
+-  *Espace de noms principal/secondaire* : espaces de noms qui correspondent à l’alias. L’espace de noms principal est « actif » et reçoit les messages (il peut s’agir d’un espace de noms existant ou nouveau). L’espace de noms secondaire est « passif » et ne reçoit pas de messages. Les métadonnées sont synchronisées entre ces deux espaces de noms, qui peuvent ainsi accepter facilement les messages sans aucune modification du code d’application ou de la chaîne de connexion. Pour vous assurer que seul l’espace de noms actif reçoit des messages, vous devez utiliser l’alias. 
 
--  *Métadonnées* : votre représentation des objets dans Azure Service Bus. Seules les métadonnées sont prises en charge pour le moment.
+-  *Métadonnées* : entités telles que des files d’attentes, des rubriques et des abonnements ; incluent également leurs propriétés sur le service associé à l’espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages ne sont pas répliqués. 
 
--  *Basculement* : processus d’activation de l’espace de noms secondaire. Vous devez tirer (pull) les messages à partir de votre espace de noms qui était le principal une fois qu’il est redevenu disponible, puis supprimer l’espace de noms. Pour créer un autre basculement, ajoutez un nouvel espace de noms secondaire à l’association. Si vous souhaitez réutiliser l’ancien espace de noms principal après un basculement, vous devez d’abord supprimer toutes les entités existantes de l’espace de noms. Assurez-vous de recevoir tous les messages avant de procéder.
+-  *Basculement* : processus d’activation de l’espace de noms secondaire.
 
-## <a name="failover-workflow"></a>Workflow du basculement
+## <a name="setup-and-failover-flow"></a>Flux de configuration et de basculement
 
-La section suivante présente une vue d’ensemble de tout le processus de configuration du basculement initial et explique les étapes à faire à partir de ce point.
+La section suivante présente une vue d’ensemble du processus de basculement et explique comment configurer le basculement initial. 
 
 ![1][]
 
-Vous devez d’abord configurer un espace de noms principal et un espace de noms secondaire, puis créer une association. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. Enfin, vous devez ajouter une logique de déclencheur (par exemple, une logique métier qui détecte quand l’espace de noms n’est pas disponible et démarre le basculement). Vous pouvez vérifier la disponibilité de l’espace de noms à l’aide de la fonctionnalité de [parcours des messages](message-browsing.md) de Service Bus.
+### <a name="setup"></a>Paramétrage
 
-Une fois que vous avez configuré la surveillance et la récupération d’urgence, vous pouvez passer au processus de basculement. Si le déclencheur démarre un basculement, ou si vous le démarrez manuellement, vous devez effectuer deux étapes :
+Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. Enfin, vous devez ajouter un système de surveillance afin de détecter si un basculement est nécessaire. Dans la plupart des cas, le service fait partie d’un écosystème de grande taille. C’est pourquoi les basculements automatiques sont rarement possibles, dans la mesure où, très souvent, les basculements doivent être synchronisés avec le reste de l’infrastructure ou du sous-système.
 
-1. Vous voulez être sûr de pouvoir refaire un basculement en cas de nouvelle panne. Pour cela, configurez un deuxième espace de noms passif et mettez à jour l’association. 
-2. Tirez (pull) les messages à partir de l’ancien espace de noms principal une fois que le nouvel espace de noms est disponible. Après cela, vous pouvez réutiliser l’ancien espace de noms principal, ou le supprimer.
+### <a name="example"></a>exemples
+
+Dans un exemple de ce scénario, imaginez une solution de Point de vente (PDV) qui émet des messages ou des événements. Service Bus transmet ces événements à une solution de mappage ou de reformatage, qui envoie ensuite les données mappées à un autre système pour traitement. À ce stade, tous ces systèmes peuvent être hébergés dans la même région Azure. Le choix du moment du basculement et des éléments à basculer varie selon le flux de données dans votre infrastructure. 
+
+Vous pouvez automatiser le basculement à l’aide de systèmes de surveillance ou à l’aide de solutions de surveillance personnalisées. Toutefois, cette automatisation nécessite des tâches de planification et du travail supplémentaires, qui ne seront pas abordés dans cet article.
+
+### <a name="failover-flow"></a>Flux de basculement
+
+Si vous lancez le basculement, deux étapes sont requises :
+
+1. Vous voulez être sûr de pouvoir refaire un basculement en cas de nouvelle panne. Pour cela, configurez un autre espace de noms passif et mettez à jour l’association. 
+
+2. Tirez (pull) les messages à partir de l’ancien espace de noms principal une fois qu’il est de nouveau disponible. Après cela, utilisez cet espace de noms pour les messages réguliers en dehors de votre configuration de géorécupération ou supprimez l’ancien espace de noms principal.
+
+> [!NOTE]
+> Seule la sémantique de transfert du basculement est prise en charge. Dans ce scénario, vous basculez puis effectuez un nouveau couplage avec un nouvel espace de noms. La restauration automatique n’est pas prise en charge ; par exemple, dans un cluster SQL. 
 
 ![2][]
 
-## <a name="set-up-disaster-recovery"></a>Configurer une récupération d'urgence
+## <a name="management"></a>gestion
 
-Cette section décrit comment créer votre propre code de géorécupération d’urgence dans Service Bus. Pour ce faire, vous avez besoin de deux espaces de noms situés dans des régions distinctes (par exemple, Sud des États-Unis et Nord-Centre des États-Unis). L’exemple suivant utilise Visual Studio 2017.
+Si vous avez fait une erreur (par exemple, vous avez associé les mauvaises régions lors de la configuration initiale), vous pouvez rompre le couplage des deux espaces de noms à tout moment. Si vous souhaitez utiliser les espaces de noms couplés comme des espaces de noms standard, supprimez l’alias.
 
-1.  Créez un projet **Console App(.Net Framework)** dans Visual Studio et donnez-lui un nom, **SBGeoDR**, par exemple.
+## <a name="use-existing-namespace-as-alias"></a>Utiliser l’espace de noms existant en tant qu’alias
 
-2.  Installez les packages NuGet suivants :
-    1.  Microsoft.IdentityModel.Clients.ActiveDirectory
-    2.  Microsoft.Azure.Management.ServiceBus
+Si vous avez un scénario dans lequel vous ne pouvez pas modifier les connexions des producteurs et des consommateurs, vous pouvez réutiliser le nom de votre espace de noms en tant que nom d’alias. Voir l’[exemple de code sur GitHub ici](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
-3. Assurez-vous d’utiliser la version 10.0.3 du package Newtonsoft.Json NuGet.
+## <a name="samples"></a>Exemples
 
-3.  Ajoutez les instructions `using` suivantes dans votre code :
+Les [exemples sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) montrent comment configurer et lancer un basculement. Ces exemples illustrent les concepts suivants :
 
-    ```csharp
-    using System.Threading;
-    using Microsoft.Azure.Management.ServiceBus;
-    using Microsoft.Azure.Management.ServiceBus.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    ```
+- Paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Service Bus. 
+- Étapes requises pour exécuter l’exemple de code. 
+- Envoi et réception à partir de l’espace de noms principal actuel. 
+- Comment utiliser un espace de noms existant en tant qu’alias.
 
-4. Ajoutez deux espaces de noms Premium dans votre méthode `main()` existante :
+## <a name="considerations"></a>Considérations
 
-    ```csharp
-    // 1. Create primary namespace (optional).
+Notez les points suivants pour cette version :
 
-    var namespaceParams = new SBNamespace()
-    {
-        Location = "South Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
+1. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
+ 
+2. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les messages planifiés et les nouveaux doublons fonctionneront. 
 
-    };
+3. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) au moins une fois. 
 
-    var namespace1 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, namespaceParams);
+4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute. Les abonnements et les règles comptent également comme des entités. 
 
-    // 2. Create secondary namespace (optional if you already have an empty namespace available).
-
-    var namespaceParams2 = new SBNamespace()
-    {
-        Location = "North Central US",
-        Sku = new SBSku()
-        {
-            Name = SkuName.Premium,
-            Capacity = 1
-        }
-
-    };
-
-    // If you re-run this program while namespaces are still paired this operation will fail with a bad request.
-    // This is because we block all updates on secondary namespaces once it is paired.
-
-    var namespace2 = client.Namespaces.CreateOrUpdate(resourceGroupName, geoDRSecondaryNS, namespaceParams2);
-    ```
-
-5. Activez l’association des deux espaces de noms et obtenez l’alias que vous utiliserez ultérieurement pour vous connecter à vos entités :
-
-    ```csharp
-    // 3. Pair the namespaces to enable DR.
-
-    ArmDisasterRecovery drStatus = client.DisasterRecoveryConfigs.CreateOrUpdate(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias,
-        new ArmDisasterRecovery { PartnerNamespace = geoDRSecondaryNS });
-
-    // A similar loop can be used to check if other operations (Failover, BreakPairing, Delete) 
-    // mentioned below have been successful.
-    while (drStatus.ProvisioningState != ProvisioningStateDR.Succeeded)
-    {
-        Console.WriteLine("Waiting for DR to be set up. Current state: " +
-        drStatus.ProvisioningState);
-        drStatus = client.DisasterRecoveryConfigs.Get(
-        resourceGroupName,
-        geoDRPrimaryNS,
-        alias);
-
-        Thread.CurrentThread.Join(TimeSpan.FromSeconds(30));
-    }
-    ```
-
-Vous avez terminé la configuration des deux espaces de noms associés. Vous pouvez maintenant créer des entités pour observer la synchronisation des métadonnées. Si vous souhaitez effectuer un basculement immédiatement après, vous devez prévoir le temps nécessaire pour la synchronisation des métadonnées. Vous pouvez ajouter une courte durée de veille, par exemple :
-
-```csharp
-client.Topics.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", new SBTopic());
-client.Subscriptions.CreateOrUpdate(resourceGroupName, geoDRPrimaryNS, "myTopic", "myTopic-Sub1", new SBSubscription());
-
-// sleeping to allow metadata to sync across primary and secondary
-Thread.Sleep(1000 * 60);
-```
-
-À ce stade, vous êtes prêt à ajouter des entités par le biais du portail ou d’Azure Resource Manager, et vérifier que la synchronisation se déroule correctement. Sauf si vous prévoyez d’effectuer le basculement manuellement, vous devez créer une application qui surveille l’espace de noms principal et démarre le basculement en cas d’indisponibilité de cet espace de noms. 
-
-## <a name="initiate-a-failover"></a>Initialisation d’un basculement
-
-Le code suivant montre comment démarrer un basculement :
-
-```csharp
-// Note that this failover operation is always run against the secondary namespace 
-// (because primary might be down at time of failover).
-
-client.DisasterRecoveryConfigs.FailOver(resourceGroupName, geoDRSecondaryNS, alias);
-```
-
-Une fois que vous avez déclenché le basculement, ajoutez un nouvel espace de noms passif et recréez l’association. Le code pour créer une nouvelle association est fourni dans la section précédente. De plus, vous devez supprimer les messages de l’ancien espace de noms principal à la fin du basculement. Pour obtenir des exemples montrant comment recevoir les messages d’une file d’attente, consultez [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md).
-
-## <a name="how-to-disable-geo-disaster-recovery"></a>Comment désactiver la géorécupération d’urgence
-
-Le code suivant montre comment désactiver une association d’espaces de noms :
-
-```csharp
-client.DisasterRecoveryConfigs.BreakPairing(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-Le code ci-dessous supprime l’alias que vous avez créé :
-
-```csharp
-// Delete the DR config (alias).
-// Note that this operation must run against the namespace to which the alias is currently pointing.
-// If you break the pairing and want to delete the namespaces afterwards, you must delete the alias first.
-
-client.DisasterRecoveryConfigs.Delete(resourceGroupName, geoDRPrimaryNS, alias);
-```
-
-## <a name="steps-after-a-failover-failback"></a>Étapes après un basculement (restauration automatique)
-
-Après un basculement, effectuez les deux étapes suivantes :
-
-1.  Créez un autre espace de noms secondaire passif. Le code nécessaire est fourni dans la section précédente.
-2.  Supprimez les messages restants dans votre file d’attente.
-
-## <a name="alias-connection-string-and-test-code"></a>Code de test et d’obtention de la chaîne de connexion d’alias
-
-Si vous souhaitez tester le processus de basculement, créez un exemple d’application qui envoie (push) les messages à l’espace de noms principal à l’aide de l’alias. Pour ce faire, vous devez obtenir la chaîne de connexion d’alias à partir d’un espace de noms actif. Dans la préversion actuelle, il n’existe pas d’autre interface pour obtenir directement la chaîne de connexion. L’exemple de code suivant établit une connexion avant et après le basculement :
-
-```csharp
-var accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRPrimaryNS, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-
-if(aliasPrimaryConnectionString == null)
-{
-    accessKeys = client.Namespaces.ListKeys(resourceGroupName, geoDRSecondaryNS, "RootManageSharedAccessKey");
-    aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-    aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-}
-```
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Consultez les [informations de référence de l’API REST](/rest/api/servicebus/disasterrecoveryconfigs) sur la géorécupération d’urgence.
 - Exécutez [l’exemple de géorécupération d’urgence sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).

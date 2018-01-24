@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceptions de la messagerie Event Hubs
-Cet article répertorie certaines exceptions générées par les API de la messagerie Azure Service Bus, notamment les concentrateurs d’événements. Cette référence est susceptible de changer, donc consultez-la régulièrement.
+
+Cet article répertorie certaines exceptions générées par la bibliothèque d’API de la messagerie Azure Service Bus, notamment les API Event Hubs. Cette référence est susceptible de changer, donc consultez-la régulièrement.
 
 ## <a name="exception-categories"></a>Catégories d'exceptions
+
 Les API Event Hubs génèrent des exceptions qui peuvent être classées dans les catégories suivantes, accompagnées de l’action associée que vous pouvez mettre en place pour les résoudre.
 
 1. Erreur de codage utilisateur : [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Action générale : essayez de corriger le code avant de poursuivre.
@@ -82,18 +84,18 @@ Cette erreur peut se produire pour deux raisons :
     
     Résolution : revoir la stratégie de distribution de partition ou essayer [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_).
 
-2. L’espace de noms Event Hubs n’a pas suffisamment d’unités de débit (vous pouvez consulter le panneau **Mesures** dans le panneau de l’espace de noms Event Hubs du [portail Azure](https://portal.azure.com) pour vous en assurer). Notez que le portail affiche des informations agrégées (1 minute), mais que nous mesurons le débit en temps réel ; cette valeur n’est donc qu’une estimation.
+2. L’espace de noms Event Hubs n’a pas suffisamment d’unités de débit (vous pouvez consulter l’écran **Mesures** dans la fenêtre de l’espace de noms Event Hubs du [portail Azure](https://portal.azure.com) pour vous en assurer). Notez que le portail affiche des informations agrégées (1 minute), mais que nous mesurons le débit en temps réel ; cette valeur n’est donc qu’une estimation.
 
-    Résolution : augmenter les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans le panneau **Mise à l’échelle** du panneau de l’espace de noms Event Hubs.
+    Résolution : augmenter les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs.
 
 ### <a name="error-code-50001"></a>Code d’erreur 50001
 
 Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutant le code pour votre espace de noms n’a pas suffisamment de ressources d’UC ; pas plus de quelques secondes avant que l’équilibrage de charge des Event Hubs commence.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements](event-hubs-what-is-event-hubs.md)
+* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)

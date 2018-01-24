@@ -1,5 +1,5 @@
 ---
-title: "Bien démarrer avec Azure AD .NET | Microsoft Docs"
+title: "Bien démarrer avec Azure AD .NET Desktop (WPF) | Microsoft Docs"
 description: "Création d’une application de bureau Windows .NET qui s’intègre à Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth."
 services: active-directory
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Intégration d’Azure AD dans une application WPF de bureau Windows
+# <a name="azure-ad-net-desktop-wpf-getting-started"></a>Bien démarrer avec Azure AD .NET Desktop (WPF)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -45,7 +45,7 @@ Pour commencer, téléchargez [la structure de l’application](https://github.c
 ## <a name="1-register-the-directorysearcher-application"></a>1. Inscription de l’application DirectorySearcher
 Pour autoriser votre application à obtenir des jetons, vous devez tout d’abord l’enregistrer dans votre client Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
 3. Cliquez sur **Autres services** dans le volet de navigation gauche et choisissez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sur **Ajouter**.
@@ -53,7 +53,7 @@ Pour autoriser votre application à obtenir des jetons, vous devez tout d’abor
   * Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
   * L’ **URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons.  Entrez une valeur spécifique de votre application, par exemple, `http://DirectorySearcher`.
 6. Une fois l’inscription terminée, AAD affecte un ID d’application unique à votre application.  Copiez cette valeur à partir de la page de l’application, car vous en aurez besoin dans les sections suivantes.
-7. Sur la page **Paramètres**, choisissez **Autorisations requises**, puis **Ajouter**. Sélectionnez l’API **Microsoft Graph** et ajoutez l’autorisation **Lire les données de l’annuaire** sous **Autorisations déléguées**.  Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
+7. Sur la page **Paramètres**, choisissez **Autorisations requises** et **Ajouter**. Sélectionnez l’API **Microsoft Graph** et ajoutez l’autorisation **Lire les données de l’annuaire** sous **Autorisations déléguées**.  Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
 ## <a name="2-install--configure-adal"></a>2. Installez et configurez ADAL
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité.  Pour permettre à ADAL de communiquer avec Azure AD, vous devez lui fournir des informations sur l’inscription de votre application.
@@ -85,7 +85,7 @@ public MainWindow()
 }
 ```
 
-* Recherchez maintenant la méthode `Search(...)` qui est appelée lorsque l’utilisateur clique sur le bouton Rechercher dans l’interface utilisateur de l’application.  Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné.  Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
+* Recherchez maintenant la méthode `Search(...)` qui est appelée lorsque l’utilisateur clique sur le bouton « Rechercher » dans l’interface utilisateur de l’application.  Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné.  Cependant, pour interroger l’API Graph, vous devez inclure un jeton d’accès (access_token) dans l’en-tête `Authorization` de la demande ; c’est à ce moment qu’intervient la bibliothèque ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

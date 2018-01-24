@@ -1,6 +1,6 @@
 ---
-title: "Indexation d’Azure Blob Storage avec Azure Search"
-description: "Découvrez comment indexer Azure Blob Storage et extraire le texte de documents avec Azure Search"
+title: Indexation de Stockage Blob Azure avec Recherche Azure
+description: "Découvrez comment indexer Stockage Blob Azure et extraire le texte de documents avec Recherche Azure"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -12,16 +12,16 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexation de documents dans Azure Blob Storage avec Azure Search
-Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans le stockage d’objets blob Azure. Tout d’abord, il présente les concepts de base de la définition et de la configuration d’un indexeur d’objets blob. Ensuite, il offre une exploration plus approfondie des comportements et des scénarios que vous êtes susceptible de rencontrer.
+# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexation de documents dans Stockage Blob Azure avec Recherche Azure
+Cet article explique comment utiliser le service Recherche Azure pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans Stockage Blob Azure. Tout d’abord, il présente les concepts de base de la définition et de la configuration d’un indexeur d’objets blob. Ensuite, il offre une exploration plus approfondie des comportements et des scénarios que vous êtes susceptible de rencontrer.
 
 ## <a name="supported-document-formats"></a>Formats de document pris en charge
 L’indexeur d’objets blob peut extraire du texte à partir des formats de document suivants :
@@ -31,9 +31,9 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 ## <a name="setting-up-blob-indexing"></a>Configuration de l’indexation d’objets blob
 Vous pouvez configurer un indexeur de Stockage Blob Azure avec les outils suivants :
 
-* [portail Azure](https://ms.portal.azure.com)
+* [Portail Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de la Recherche Azure
-* [Kit de développement logiciel .NET (SDK)](https://aka.ms/search-sdk) de la Recherche Azure
+* [Kit .NET SDK](https://aka.ms/search-sdk) de Recherche Azure
 
 > [!NOTE]
 > Certaines fonctionnalités (par exemple, les mappages de champs) ne sont pas encore disponibles dans le portail et doivent être utilisées par l’intermédiaire de programmes.
@@ -120,7 +120,7 @@ Cet indexeur s’exécutera toutes les deux heures (intervalle de planification 
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-## <a name="how-azure-search-indexes-blobs"></a>Comment Azure Search indexe les objets blob
+## <a name="how-azure-search-indexes-blobs"></a>Comment Recherche Azure indexe les objets blob
 
 En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets blob peut indexer uniquement les métadonnées de stockage (une fonctionnalité utile lorsque vous ne vous préoccupez que des métadonnées et n’avez pas besoin d’indexer le contenu des objets blob), le stockage et le contenu des métadonnées, ou les métadonnées et le contenu textuel. Par défaut, l’indexeur extrait les métadonnées et le contenu.
 
@@ -139,7 +139,7 @@ En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets 
 
   * **metadata\_storage\_name** (Edm.String) : nom de fichier de l’objet blob. Par exemple, si vous disposez de l’objet blob /my-container/my-folder/subfolder/resume.pdf, ce champ présente la valeur `resume.pdf`.
   * **metadata\_storage\_path** (Edm.String) : URI complet de l’objet blob, incluant le compte de stockage. Par exemple, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String) : type de contenu tel que spécifié par le code que vous avez utilisé pour charger l’objet blob. Par exemple, `application/octet-stream`.
+  * **metadata\_storage\_content\_type** (Edm.String) : type de contenu tel que spécifié par le code que vous avez utilisé pour charger l’objet blob. Par exemple : `application/octet-stream`.
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) : horodateur de la dernière modification de l’objet blob. La Recherche Azure utilise cet horodateur pour identifier les objets blob modifiés afin d’éviter une réindexation complète après l’indexation initiale.
   * **metadata\_storage\_size** (Edm.Int64) : taille de l’objet blob en octets.
   * **metadata\_storage\_content\_md5** (Edm.String) : code de hachage MD5 du contenu de l’objet blob s’il est disponible.
@@ -154,7 +154,7 @@ Vous n’avez pas besoin de définir les champs relatifs à chacune des proprié
 
 <a name="DocumentKeys"></a>
 ### <a name="defining-document-keys-and-field-mappings"></a>Définition des clés de document et des mappages de champs
-Dans Azure Search, la clé de document identifie un document de manière unique. Chaque index de recherche doit comporter exactement un champ de clé de type Edm.String. Ce champ de clé est nécessaire pour chaque document ajouté à l’index (il constitue en fait le seul champ obligatoire).  
+Dans Recherche Azure, la clé de document identifie un document de manière unique. Chaque index de recherche doit comporter exactement un champ de clé de type Edm.String. Ce champ de clé est nécessaire pour chaque document ajouté à l’index (il constitue en fait le seul champ obligatoire).  
 
 Vous devez déterminer avec soin le champ extrait que vous souhaitez mapper sur le champ de clé de votre index. Les candidats sont les suivants :
 
@@ -223,29 +223,7 @@ Vous pouvez exclure de l’indexation des objets blob avec des extensions de nom
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
 
-Si les paramètres `indexedFileNameExtensions` et `excludedFileNameExtensions` sont tous deux présents, Azure Search regarde d’abord `indexedFileNameExtensions`, puis `excludedFileNameExtensions`. Cela signifie que, si la même extension de fichier est présente dans les deux listes, elle sera exclue de l'indexation.
-
-### <a name="dealing-with-unsupported-content-types"></a>Gestion de types de contenu non pris en charge
-
-Par défaut, l’indexeur d’objets blob s’arrête dès qu’il rencontre un objet blob avec un type de contenu non pris en charge (par exemple, une image). Vous pouvez évidemment utiliser le paramètre `excludedFileNameExtensions` pour ignorer certains types de contenu. Toutefois, vous devrez peut-être indexer des objets blob sans connaître à l’avance tous les types de contenu possibles. Pour poursuivre l’indexation lorsqu’un type de contenu non pris en charge est détecté, définissez le paramètre de configuration `failOnUnsupportedContentType` sur `false` :
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>Erreurs d’analyse ignorées
-
-La logique d’extraction de documents de la Recherche Azure n’est pas parfaite et échoue parfois lors de l’analyse de documents d’un type de contenu pris en charge, notamment .DOCX ou .PDF. Si vous ne souhaitez pas interrompre l’indexation dans ce cas, définissez les paramètres de configuration `maxFailedItems` et `maxFailedItemsPerBatch` sur des valeurs raisonnables. Par exemple :
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
+Si les paramètres `indexedFileNameExtensions` et `excludedFileNameExtensions` sont tous deux présents, Recherche Azure regarde d’abord `indexedFileNameExtensions`, puis `excludedFileNameExtensions`. Cela signifie que, si la même extension de fichier est présente dans les deux listes, elle sera exclue de l'indexation.
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Contrôle des parties de l’objet blob à indexer
@@ -275,6 +253,31 @@ Les paramètres de configuration décrits ci-dessus s’appliquent à tous les o
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |Indique à l’indexeur d’objets blob d’ignorer complètement l’objet blob. Ni l’extraction des métadonnées, ni l’extraction de contenu n’est tentée. Cette propriété est utile lorsqu’un objet blob spécifique échoue à plusieurs reprises et interrompt le processus d’indexation. |
 | AzureSearch_SkipContent |"true" |Équivaut au réglage `"dataToExtract" : "allMetadata"` décrit [ci-dessus](#PartsOfBlobToIndex) au niveau d’un objet blob donné. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Gestion des erreurs
+
+Par défaut, l’indexeur d’objets blob s’arrête dès qu’il rencontre un objet blob avec un type de contenu non pris en charge (par exemple, une image). Vous pouvez évidemment utiliser le paramètre `excludedFileNameExtensions` pour ignorer certains types de contenu. Toutefois, vous devrez peut-être indexer des objets blob sans connaître à l’avance tous les types de contenu possibles. Pour poursuivre l’indexation lorsqu’un type de contenu non pris en charge est détecté, définissez le paramètre de configuration `failOnUnsupportedContentType` sur `false` :
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Pour certains objets blob, le service Recherche Azure ne parvient pas à déterminer le type de contenu ou à traiter un document avec un autre type de contenu pris en charge. Pour ignorer ce mode d’échec, définissez le paramètre de configuration `failOnUnprocessableDocument` sur false :
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Vous pouvez également poursuivre l’indexation si des erreurs se produisent à tout moment du traitement, que ce soit durant l’analyse d’objets blob ou l’ajout de documents à un index. Pour ignorer un nombre spécifique d’erreurs, définissez les paramètres de configuration `maxFailedItems` et `maxFailedItemsPerBatch` sur les valeurs souhaitées. Par exemple : 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexation incrémentielle et détection des suppressions
 Lorsque vous configurez un indexeur d’objets blob à exécuter selon une planification, ce dernier réindexe uniquement les objets blob modifiés, comme déterminé par l’horodateur `LastModified` des objets blob.
@@ -324,7 +327,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 - Créez un indexeur correspondant pour chaque source de données. Tous les indexeurs peuvent pointer vers le même index de recherche cible.  
 
-- Une unité de recherche dans votre service peut exécuter un indexeur à tout moment donné. La création de plusieurs indexeurs comme décrit ci-dessus est utile uniquement s’ils s’exécutent en parallèle. Pour exécuter plusieurs indexeurs en parallèle, augmentez la taille de votre service de recherche en créant un nombre approprié de partitions et réplicas. Par exemple, si votre service de recherche a 6 unités de recherche (2 partitions x 3 réplicas), 6 indexeurs peuvent s’exécuter simultanément, ce qui augmente le débit d’indexation par six. Pour plus d’informations sur la mise à l’échelle et la planification de capacité, consultez [Mettre à l’échelle des niveaux de ressources pour les requêtes et indexation des charges de travail dans Azure Search](search-capacity-planning.md).
+- Une unité de recherche dans votre service peut exécuter un indexeur à tout moment donné. La création de plusieurs indexeurs comme décrit ci-dessus est utile uniquement s’ils s’exécutent en parallèle. Pour exécuter plusieurs indexeurs en parallèle, augmentez la taille de votre service de recherche en créant un nombre approprié de partitions et réplicas. Par exemple, si votre service de recherche a 6 unités de recherche (2 partitions x 3 réplicas), 6 indexeurs peuvent s’exécuter simultanément, ce qui augmente le débit d’indexation par six. Pour plus d’informations sur la mise à l’échelle et la planification de capacité, consultez [Mettre à l’échelle des niveaux de ressources pour interroger et indexer des charges de travail dans Recherche Azure](search-capacity-planning.md).
 
 ## <a name="indexing-documents-along-with-related-data"></a>Indexation de documents et des données associées
 
@@ -356,7 +359,7 @@ Par défaut, le `UTF-8` encodage est possible. Pour spécifier un encodage diff�
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propriétés de métadonnées propres au type de contenu
-Le tableau ci-après récapitule le traitement appliqué pour chaque format de document et décrit les propriétés de métadonnées extraites par Azure Search.
+Le tableau ci-après récapitule le traitement appliqué pour chaque format de document et décrit les propriétés de métadonnées extraites par Recherche Azure.
 
 | Format de document/type de contenu | Propriétés de métadonnées propres au type de contenu | Détails du traitement |
 | --- | --- | --- |
@@ -377,5 +380,5 @@ Le tableau ci-après récapitule le traitement appliqué pour chaque format de d
 | Texte brut (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extraction du texte|
 
 
-## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
+## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer le service Recherche Azure
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, contactez-nous sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes de connexion de point à site Azure
 
@@ -42,7 +42,7 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
 
 1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Emplacement |
+    | Certificat | Lieu |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
@@ -83,7 +83,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Emplacement |
+    | Certificat | Lieu |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
@@ -263,3 +263,52 @@ Supprimez la connexion VPN de point à site, puis réinstallez le client VPN. Da
 ### <a name="solution"></a>Solution
 
 Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Utilisateurs\Nomdel’utilisateur\AppData\Roaming\Microsoft\Network\Connections**, puis exécutez à nouveau le programme d’installation du client VPN.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Le client VPN de point à site ne peut pas résoudre le nom de domaine complet des ressources dans le domaine local
+
+### <a name="symptom"></a>Symptôme
+
+Lorsque le client se connecte à Azure à l’aide d’une connexion VPN de point à site, il ne peut pas résoudre le nom de domaine complet des ressources de votre domaine local.
+
+### <a name="cause"></a>Cause :
+
+Le client VPN de point à site utilise des serveurs Azure DNS configurés dans le réseau virtuel Azure. Les serveurs Azure DNS sont prioritaires sur les serveurs DNS locaux qui sont configurés dans le client, de sorte que toutes les requêtes DNS sont envoyées aux serveurs Azure DNS. Si les serveurs Azure DNS ne disposent pas des enregistrements pour les ressources locales, la requête échoue.
+
+### <a name="solution"></a>Solution
+
+Pour résoudre le problème, assurez-vous que les serveurs Azure DNS utilisés sur le réseau virtuel Azure peuvent résoudre les enregistrements DNS pour les ressources locales. Pour ce faire, vous pouvez utiliser des redirecteurs DNS ou des redirecteurs conditionnels. Consultez [Résolution de noms à l’aide de votre propre serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) pour en savoir plus.
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>La connexion VPN de point à site est établie, mais vous ne pouvez toujours pas vous connecter aux ressources Azure 
+
+### <a name="cause"></a>Cause :
+
+Ce problème peut se produire si le client VPN n’obtient pas les itinéraires à partir de la passerelle VPN Azure.
+
+### <a name="solution"></a>Solution
+
+Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erreur : « La fonction de révocation n'a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
+
+### <a name="causes"></a>Causes
+Ce message d’erreur survient si le client ne peut pas accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et http://crl4.digicert.com/ssca-sha2-g1.cr.  La vérification de révocation requiert l’accès à ces deux sites.  Ce problème se produit en général sur le client sur lequel un serveur proxy est configuré. Dans certains environnements, si les requêtes ne passent pas par le serveur proxy, celles-ci seront refusées au niveau du pare-feu Edge.
+
+### <a name="solution"></a>Solution
+
+Vérifiez les paramètres du serveur proxy et assurez-vous que le client peut accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Erreur du client VPN : La connexion a été empêchée en raison d’une stratégie configurée sur votre serveur RAS/VPN. (Erreur 812)
+
+### <a name="cause"></a>Cause :
+
+Cette erreur se produit si le serveur RADIUS utilisé pour l’authentification du client VPN comporte des paramètres incorrects. 
+
+### <a name="solution"></a>Solution
+
+Assurez-vous que le serveur RADIUS est configuré correctement. Pour plus d’informations, consultez [Intégration de l'authentification RADIUS avec le serveur Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>« Erreur 405 » lorsque vous téléchargez le certificat racine à partir de la passerelle VPN
+
+### <a name="cause"></a>Cause :
+
+Le certificat racine n’a pas été installé. Le certificat racine est installé dans le magasin **Certificats de confiance** du client.

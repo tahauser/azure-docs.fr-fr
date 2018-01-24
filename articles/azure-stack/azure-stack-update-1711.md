@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Mise à jour 1711 d’Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Cet article décrit les améliorations et correctifs contenus dans cette mise à jour, les problèmes connus dans cette publication, et l’emplacement de téléchargement de la mise à jour. Les problèmes connus sont divisés en problèmes directement liés au processus de mise à jour, et problèmes propres à la build (après l’installation).
 
@@ -35,7 +35,7 @@ Le numéro de build de mise à jour d’Azure Stack 1711 est **171201.3**.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 Vous devez installer la [mise à jour 1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) d’Azure Stack avant d’appliquer cette mise à jour.
 
@@ -51,6 +51,7 @@ Cette mise à jour inclut les améliorations et les correctifs suivants pour Azu
 - Les utilisateurs peuvent maintenant activer automatiquement des machines virtuelles Windows
 - Ajout de l’applet de commande PowerShell de point de terminaison privilégié pour récupérer des clés de récupération BitLocker à des fins de rétention
 - Prise en charge de la mise à jour des images hors connexion lors de la mise à jour de l’infrastructure
+- Activation de la sauvegarde de l’infrastructure avec le service Backup activé
 
 #### <a name="fixes"></a>Correctifs
 
@@ -123,6 +124,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
 - Lorsque vous créez un équilibreur de charge réseau, vous devez créer une règle de traduction d’adresses réseau (NAT). À défaut, une erreur s’affiche lorsque vous tentez d’ajouter une règle NAT après avoir créé l’équilibreur de charge.
 - Vous ne peut pas dissocier une adresse IP publique d’une machine virtuelle (VM) une fois que la VM a été créée et associée à cette adresse IP. La dissociation semble fonctionner, mais l’adresse IP publique qui a été affectée reste associée à la machine virtuelle d’origine. Ce comportement se produit même si vous réaffectez l’adresse IP à une nouvelle machine virtuelle (ce qui est communément appelé un *échange d’adresses IP virtuelles*). Toutes les futures tentatives de connexion au moyen de cette adresse IP aboutissent à une connexion à la machine virtuelle associée à l’origine et non à la nouvelle. Actuellement, vous devez utiliser uniquement les nouvelles adresses IP publiques pour la création de nouvelles machines virtuelles.
 - Les opérateurs Azure Stack peuvent être dans l’impossibilité de déployer, supprimer ou modifier des réseaux virtuels ou des groupes de sécurité réseau. Ce problème se produit principalement lors des tentatives de mise à jour ultérieures du même package. Il est dû à un problème d’empaquetage avec une mise à jour, que nous étudions actuellement.
+- L’équilibrage de charge interne gère incorrectement les adresses MAC des machines virtuelles principales, ce qui bloque les instances Linux.
  
 #### <a name="sqlmysql"></a>SQL/MySQL
 - Il faut parfois attendre une heure pour qu’ils puissent créer des bases de données avec une nouvelle référence SQL ou MySQL. 
@@ -137,6 +139,17 @@ Dans les environnements déployés des services de fédération Azure Active Dir
 
 > [!IMPORTANT]
 > Même si le compte **azurestack\cloudadmin** est propriétaire de l’abonnement Fournisseur par défaut dans les environnements AD FS déployés, il ne dispose pas des autorisations nécessaires pour établir une connexion RDP avec l’hôte. Continuez à utiliser le compte **azurestack\azurestackadmin** ou le compte d’administrateur local pour vous connecter, accéder à l’hôte et le gérer en fonction des besoins.
+
+#### <a name="infrastructure-backup-sevice"></a>Service Infrastructure Backup
+<!-- 1974890-->
+
+- **Les sauvegardes antérieures à 1711 ne sont pas prises en charge pour la récupération cloud.**  
+  Les sauvegardes antérieures à 1711 ne sont pas compatibles avec la récupération cloud. Vous devez d’abord mettre à jour vers 1711 et activer les sauvegardes. Si vous avez activé déjà les sauvegardes, effectuez une sauvegarde après la mise à jour vers 1711. Les sauvegardes antérieures à 1711 doivent être supprimées.
+
+- **L’activation de la sauvegarde d’infrastructure sur ASDK est destinée seulement à des tests.**  
+  Les sauvegardes d’infrastructure peuvent être utilisées pour restaurer des solutions à plusieurs nœuds. Vous pouvez activer la sauvegarde d’infrastructure sur ASDK, mais il n’existe aucun moyen de tester la récupération.
+
+Pour plus d’informations, consultez [Sauvegarde et récupération de données pour Azure Stack avec le service Infrastructure Backup](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
 

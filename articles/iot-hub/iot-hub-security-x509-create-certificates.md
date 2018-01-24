@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 31f94686fed376fbeda2ccdcbc5ed001bcda8126
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts PowerShell permettant de gérer les certificats X.509 signés par une autorité de certification
 
 Pour mettre en place une sécurité basée sur un certificat X.509 dans le IoT Hub, vous devez commencer par une [chaîne d’approbation X.509](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), qui inclut le certificat racine, ainsi que tous les certificats intermédiaires jusqu’au certificat feuille. Ce guide *explicatif* présente des exemples de scripts PowerShell qui utilisent [OpenSSL](https://www.openssl.org/) pour créer et signer les certificats X.509. Nous vous recommandons d’utiliser ce guide à des fins d’expérimentation uniquement, étant donné que plusieurs de ces étapes se produisent en réalité pendant la fabrication. Vous pouvez utiliser ces certificats pour simuler la sécurité dans votre IoT Hub Azure à l’aide de *l’authentification par certificat X.509*. Les étapes décrites dans ce guide créent des certificats localement sur votre ordinateur Windows. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Ce didacticiel suppose que vous avez acquis les fichiers binaires OpenSSL. Vous pouvez soit
     - télécharger le code source OpenSSL et générer les fichiers binaires sur votre ordinateur, ou 
     - télécharger et installer des [fichiers binaires OpenSSL tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir de [ce projet sur SourceForge](https://sourceforge.net/projects/openssl/).
@@ -200,28 +200,30 @@ Créez une chaîne d’approbation avec une autorité de certification racine, c
 Ce script effectue le flux de *preuve de possession* de votre certificat X.509. 
 
 Dans la fenêtre PowerShell sur votre bureau, exécutez le code suivant :
-    ```PowerShell
-    function New-CAVerificationCert([string]$requestedSubjectName)
-    {
-        $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
-        $verifyRequestedFileName = ".\verifyCert4.cer"
-        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
-        Write-Host "Using Signing Cert:::" 
-        Write-Host $rootCACert
-    
-        $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
+   
+   ```PowerShell
+   function New-CAVerificationCert([string]$requestedSubjectName)
+   {
+       $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
+       $verifyRequestedFileName = ".\verifyCert4.cer"
+       $rootCACert = Get-CACertBySubjectName $_rootCertSubject
+       Write-Host "Using Signing Cert:::" 
+       Write-Host $rootCACert
+   
+       $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
 
-        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
-        if (-not (Test-Path $verifyRequestedFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
-        }
-    
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
-    }
-    New-CAVerificationCert "<your verification code>"
-    ```
-   Cela crée un certificat portant le nom d’objet donné, signé par l’autorité de certification, sous forme de fichier nommé *VerifyCert4.cer* dans votre répertoire de travail. Ce fichier de certificat aidera à valider auprès de votre IoT Hub que vous disposez de l’autorisation de signature (autrement dit, de la clé privée) de cette autorité de certification.
+       Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
+       if (-not (Test-Path $verifyRequestedFileName))
+       {
+           throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
+       }
+   
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
+   }
+   New-CAVerificationCert "<your verification code>"
+   ```
+
+Ce code crée un certificat portant le nom d’objet donné, signé par l’autorité de certification, sous forme de fichier nommé *VerifyCert4.cer* dans votre répertoire de travail. Ce fichier de certificat aidera à valider auprès de votre IoT Hub que vous disposez de l’autorisation de signature (autrement dit, de la clé privée) de cette autorité de certification.
 
 
 <a id="createx509device"></a>
@@ -231,45 +233,56 @@ Dans la fenêtre PowerShell sur votre bureau, exécutez le code suivant :
 Cette section montre que vous pouvez utiliser un script PowerShell qui crée un certificat feuille pour un appareil ainsi que la chaîne d’approbation correspondante. 
 
 Dans la fenêtre PowerShell de votre ordinateur local, exécutez le script suivant pour créer un certificat X.509 signé par une autorité de certification pour cet appareil :
-    ```PowerShell
-    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
-    {
-        $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
-        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
-        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
-        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
-        $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
-    
-        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
-        $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
-    
-        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
+   ```PowerShell
+   function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
+   {
+       $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
+       $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
+       $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
+       $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
+       $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
+   
+       $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
-        # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
-        Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
-        if (-not (Test-Path $newDevicePfxFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
-        }
+       $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
+   
+       $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
 
-        # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
-        Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
-        openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
+       # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
+       Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
+       if (-not (Test-Path $newDevicePfxFileName))
+       {
+           throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
+       }
 
-        # Convert the PEM to get formats we can process
-        if ($useEcc -eq $true)
-        {
-            openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        else
-        {
-            openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
+       # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
+       Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
+       openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
+
+       # Convert the PEM to get formats we can process
+       if ($useEcc -eq $true)
+       {
+           openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+       }
+       else
+       {
+           openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+       }
+       openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
  
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
-    }
-    ```
-   Exécutez ensuite `New-CADevice "<yourTestDevice>"` dans votre fenêtre PowerShell, en utilisant le nom convivial que vous avez utilisé pour créer votre appareil. Lorsqu’il vous est demandé de saisir le mot de passe de la clé privée de l’autorité de certification, entrez « 123 ». Cette opération crée un fichier _<yourTestDevice>.pfx_ dans votre répertoire de travail.
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
+   }
+   ```
 
+Exécutez ensuite `New-CADevice "<yourTestDevice>"` dans votre fenêtre PowerShell, en utilisant le nom convivial que vous avez utilisé pour créer votre appareil. Lorsqu’il vous est demandé de saisir le mot de passe de la clé privée de l’autorité de certification, entrez « 123 ». Cette opération crée un fichier _<yourTestDevice>.pfx_ dans votre répertoire de travail.
+
+## <a name="clean-up-certificates"></a>Nettoyer les certificats
+
+Dans la barre de démarrage ou dans l’application **Paramètres**, recherchez et sélectionnez **Manage computer certificates** (Gérer les certificats d’ordinateur). Supprimez tous les certificats délivrés par **Azure IoT CA TestOnly***. Ces certificats doivent se trouver aux trois emplacements suivants : 
+
+* Certificats - Ordinateur local > Personnel > Certificats
+* Certificats - Ordinateur local > Autorités de certification racines de confiance > Certificats
+* Certificats - Ordinateur local > Autorités de certification intermédiaires > Certificats
+
+   ![Supprimer les certificats Azure IoT CA TestOnly](./media/iot-hub-security-x509-create-certificates/cleanup.png)

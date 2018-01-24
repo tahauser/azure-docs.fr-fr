@@ -4,7 +4,7 @@ description: "Créez et déployez une application hautement disponible sur des m
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d8f161af7753d2cd93a8683e8a93128144b86079
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Windows
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire ou trafic réseau). Ce didacticiel explique comment déployer un groupe de machines virtuelles identiques dans Azure. Vous allez apprendre à effectuer les actions suivantes :
@@ -32,7 +32,7 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 > * Augmenter ou réduire le nombre d’instances dans un groupe identique
 > * Créer des règles de mise à l’échelle automatique
 
-Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Ce didacticiel requiert le module Azure PowerShell version 5.1.1 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="scale-set-overview"></a>Vue d’ensemble des groupes identiques
@@ -217,7 +217,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     Select -ExpandProperty Sku
 ```
 
-Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles présentes dans le groupe identique avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *5* :
+Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles présentes dans le groupe identique avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *3* :
 
 ```powershell
 # Get current scale set
@@ -226,7 +226,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Set and update the capacity of your scale set
-$scaleset.sku.capacity = 5
+$scaleset.sku.capacity = 3
 Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -Name myScaleSet `
     -VirtualMachineScaleSet $scaleset
@@ -236,7 +236,7 @@ Plusieurs minutes sont nécessaires avant que le nombre d’instances spécifié
 
 
 ### <a name="configure-autoscale-rules"></a>Configurer des règles de mise à l’échelle automatique
-Au lieu d’adapter manuellement le nombre d’instances présentes dans votre groupe identique, vous pouvez définir des règles de mise à l’échelle automatique. Ces règles surveillent les instances présentes dans votre groupe identique et répondent en conséquence en fonction des métriques et des seuils que vous définissez. L’exemple suivant augmente le nombre d’instances d’une unité dès que la charge moyenne du processeur dépasse 60 % sur une période de 5 minutes. Si la charge moyenne du processeur descend ensuite en dessous de 30 % sur une période de 5 minutes, le nombre d’instances diminue d’une unité :
+Au lieu d’adapter manuellement le nombre d’instances présentes dans votre groupe identique, vous pouvez définir des règles de mise à l’échelle automatique. Ces règles surveillent les instances présentes dans votre groupe identique et répondent en conséquence en fonction des métriques et des seuils que vous définissez. L’exemple suivant augmente le nombre d’instances d’une unité dès que la charge moyenne du processeur dépasse 60 % sur une période de 5 minutes. Si la charge moyenne du processeur descend ensuite en dessous de 30 % sur une période de 5 minutes, le nombre d’instances diminue d’une unité :
 
 ```powershell
 # Define your scale set information
@@ -245,7 +245,7 @@ $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -258,7 +258,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -291,7 +291,7 @@ Add-AzureRmAutoscaleSetting `
 Pour plus d’informations de conception sur l’utilisation de la mise à l’échelle automatique, consultez [Meilleures pratiques relatives à la mise à l’échelle automatique](/azure/architecture/best-practices/auto-scaling).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

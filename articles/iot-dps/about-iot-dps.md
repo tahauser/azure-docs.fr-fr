@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning (préversion)
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et scalable.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Quand utiliser le service Device Provisioning
@@ -118,7 +118,7 @@ Pour plus d’informations sur les limites de quota :
 ## <a name="related-azure-components"></a>Composants Azure connexes
 Le service Device Provisioning automatise l’approvisionnement des appareils avec Azure IoT Hub. Découvrez plus d’informations sur [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous avez maintenant une vue d’ensemble de l’approvisionnement des appareils IoT dans Azure. L’étape suivante consiste à tester un scénario IoT de bout en bout.
 > [!div class="nextstepaction"]
 > [Configurer le service IoT Hub Device Provisioning avec le portail Azure](quick-setup-auto-provision.md)

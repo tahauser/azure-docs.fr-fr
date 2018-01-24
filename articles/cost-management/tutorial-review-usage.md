@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="review-usage-and-costs"></a>Réviser l’utilisation et les coûts
 
-La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coûts pour que vous puissiez effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes. Toutes les données d’utilisation et de coût sont affichées dans les rapports et tableaux de bord Cloudyn. Les exemples de ce didacticiel vous montrent comment réviser l’utilisation et les coûts à l’aide de tableaux de bord et rapports. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coûts pour que vous puissiez effectuer le suivi des tendances, détecter le manque d’efficacité et créer des alertes. Toutes les données d’utilisation et de coût sont affichées dans les rapports et tableaux de bord Cloudyn. Les exemples de ce didacticiel vous montrent comment réviser l’utilisation et les coûts à l’aide de tableaux de bord et rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Suivre les tendances d’utilisation et de coût
@@ -29,7 +29,7 @@ La Gestion des coûts Azure par Cloudyn vous indique l’utilisation et les coû
 
 ## <a name="open-the-cloudyn-portal"></a>Ouvrir le portail Cloudyn
 
-Vous révisez toutes les données d’utilisation et de coût dans le portail Cloudyn. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez au site https://app.cloudyn.com et connectez-vous.
+Vous révisez toutes les données d’utilisation et de coût dans le portail Cloudyn. Ouvrez le portail Cloudyn à partir du Portail Azure ou accédez à la page https://azure.cloudyn.com et connectez-vous.
 
 ## <a name="track-usage-and-cost-trends"></a>Suivre les tendances d’utilisation et de coût
 
@@ -88,9 +88,9 @@ Utilisez l’onglet **Scheduling (Planification)** pour recevoir un e-mail du ra
 Vous pouvez également sélectionner la métrique de seuil Cost Percentage vs. Budget (Pourcentage du coût vs budget) pour créer des alertes. Cette métrique vous permet d’utiliser des pourcentages budgétaires au lieu de valeurs de devise.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Suivre les tendances d’utilisation et de coût

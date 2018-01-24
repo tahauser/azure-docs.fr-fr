@@ -3,7 +3,7 @@ title: "Sortie et messages de Runbook dans Azure Automation | Microsoft Docs"
 description: "Décrit comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks dans Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: d0948f25cbb4f661cee4611fb5f7d4d22c9eeec1
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
 La plupart des Runbooks Azure Automation présentent une certaine forme de sortie. Il peut s’agir, par exemple, d’un message d’erreur à l’attention de l’utilisateur, ou encore d’un objet complexe destiné à être consommé par un autre flux de travail. Windows PowerShell fournit [plusieurs flux](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chacun de ces flux. Lorsque vous créez un Runbook, vous devez suivre les meilleures pratiques relatives à l’utilisation de chaque flux.
 
-Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le Portail de gestion Azure lors de l’exécution d’un Runbook publié et lors du [test d’un Runbook](automation-testing-runbook.md). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
+Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le portail Azure lors de l’exécution d’un Runbook publié et lors du [test d’un Runbook](automation-testing-runbook.md). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
 
-| Stream | Description | Publié | Test |
+| Stream | DESCRIPTION | Publié | Test |
 |:--- |:--- |:--- |:--- |
 | Sortie |Objets destinés à être consommés par d’autres Runbooks. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Avertissement |Message d’avertissement destiné à l’utilisateur. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
@@ -46,7 +46,7 @@ Vous pouvez écrire des données dans le flux de sortie à l’aide de [Write-Ou
 ### <a name="output-from-a-function"></a>Sortie à partir d’une fonction
 Lorsque vous écrivez dans le flux de sortie, dans une fonction qui est incluse dans votre Runbook, la sortie est renvoyée au Runbook. Si le Runbook affecte cette sortie à une variable, elle n’est pas écrite dans le flux de sortie. Toute écriture dans d’autres flux à partir de la fonction se fait dans le flux correspondant du Runbook.
 
-Examinez l’exemple de Runbook suivant.
+Examinez l’exemple de Runbook suivant :
 
     Workflow Test-Runbook
     {
@@ -95,15 +95,15 @@ L’exemple de Runbook suivant génère un objet String et inclut une déclarati
        Write-Output $output
     }
 
-Pour déclarer un type de sortie dans les Runbooks graphiques ou PowerShell Workflow graphiques, vous pouvez sélectionner l’option de menu **Entrée et sortie** et saisir le nom du type de sortie.  Nous vous recommandons d’utiliser le nom de classe .NET complet pour le rendre facilement identifiable lorsque vous y faites référence dans un Runbook parent.  Cela expose toutes les propriétés de la classe au bus de données du Runbook et offre une grande souplesse lors de leur utilisation pour la logique conditionnelle, la journalisation et le référencement en tant que valeurs pour les autres activités du Runbook.<br> ![Option Entrée et sortie de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+Pour déclarer un type de sortie dans les Runbooks graphiques ou PowerShell Workflow graphiques, vous pouvez sélectionner l’option de menu **Entrée et sortie** et taper le nom du type de sortie. Nous vous recommandons d’utiliser le nom de classe .NET complet pour le rendre facilement identifiable lorsque vous y faites référence dans un Runbook parent. Cela expose toutes les propriétés de la classe au bus de données du Runbook et offre une grande souplesse lors de leur utilisation pour la logique conditionnelle, la journalisation et le référencement en tant que valeurs pour les autres activités du Runbook.<br> ![Option Entrée et sortie de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-Dans l’exemple suivant, nous avons deux Runbooks graphiques illustrant cette fonctionnalité.  Si le modèle de conception Runbook modulaire est appliqué, un des Runbooks est utilisé en tant que *modèle Runbook d’authentification* et gère l’authentification auprès d’Azure à l’aide du compte d’identification.  Le deuxième Runbook, qui effectue normalement les opérations logiques principales pour automatiser un scénario donné, exécute alors le *modèle Runbook d’authentification* et affiche les résultats dans le volet de sortie **Test** .  Dans des circonstances normales, ce Runbook effectue ses activités par rapport à une ressource utilisant la sortie du Runbook enfant.    
+Dans l’exemple suivant, nous avons deux Runbooks graphiques illustrant cette fonctionnalité. Si le modèle de conception Runbook modulaire est appliqué, l’un des Runbooks est utilisé en tant que *modèle Runbook d’authentification* et gère l’authentification auprès d’Azure à l’aide du compte d’identification. Le deuxième Runbook, qui effectue normalement les opérations logiques principales pour automatiser un scénario donné, exécute alors le *modèle Runbook d’authentification* et affiche les résultats dans le volet de sortie **Test** .  Dans des circonstances normales, ce Runbook effectue ses activités par rapport à une ressource utilisant la sortie du Runbook enfant.    
 
 Voici la logique de base du Runbook **AuthenticateTo-Azure**.<br> ![Exemple de modèle Runbook d’authentification](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
 Il inclut le type de sortie *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, qui retourne les propriétés de profil d’authentification.<br> ![Exemple de type de sortie Runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
 
-Ce Runbook est très simple, mais l’un des éléments de configuration requiert une attention particulière.  La dernière activité exécute l’applet de commande **Write-Output** et écrit les données de profil dans une variable $_ à l’aide d’une expression PowerShell pour le paramètre **Inputobject**, qui est requis pour cette applet de commande.  
+Ce Runbook est simple, mais l’un des éléments de configuration nécessite une attention particulière. La dernière activité exécute l’applet de commande **Write-Output** et écrit les données de profil dans une variable $_ à l’aide d’une expression PowerShell pour le paramètre **Inputobject**, qui est requis pour cette applet de commande.  
 
 Pour le deuxième Runbook de cet exemple, nommé *Test-ChildOutputType*, il y a simplement deux activités.<br> ![Exemple de type de sortie enfant Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
@@ -111,13 +111,13 @@ La première activité appelle le Runbook **AuthenticateTo-Azure**, et la second
 
 Le résultat obtenu est le nom de l’abonnement.<br> ![Résultats du Runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
-Une remarque sur le comportement de la commande Type de sortie.  Lorsque vous entrez une valeur dans le champ Type de sortie dans le panneau des propriétés Entrée et sortie, vous devez cliquer en dehors de la commande après avoir entré la valeur, afin que votre entrée soit reconnue par la commande.  
+Une remarque sur le comportement de la commande Type de sortie. Lorsque vous entrez une valeur dans le champ Type de sortie dans le panneau des propriétés Entrée et sortie, vous devez cliquer en dehors de la commande après avoir entré la valeur, afin que votre entrée soit reconnue par la commande.  
 
 ## <a name="message-streams"></a>Flux de messages
 Contrairement au flux de sortie, les flux de messages sont destinés à la communication des informations à l’utilisateur. Il existe plusieurs flux de messages pour les différents types d’informations, et chacun d’eux est traité différemment par Azure Automation.
 
 ### <a name="warning-and-error-streams"></a>Flux d’erreurs et d’avertissements
-Les flux d’erreurs et d’avertissements sont conçus pour l’enregistrement des problèmes qui se produisent dans un Runbook. Ils sont consignés dans l’historique des tâches lorsqu’un Runbook est exécuté et sont inclus dans le volet de sortie du test du Portail de gestion Azure lorsqu’un Runbook est testé. Par défaut, l’exécution du Runbook se poursuit après un avertissement ou une erreur. Vous pouvez spécifier l’interruption du Runbook en cas d’avertissement ou d’erreur en définissant une [variable de préférence](#PreferenceVariables) dans le Runbook avant de créer le message. Par exemple, pour déclencher l’interruption du Runbook en cas d’erreur, comme dans le cas d’une exception, affectez la valeur Stop à **$ErrorActionPreference** .
+Les flux d’erreurs et d’avertissements sont conçus pour l’enregistrement des problèmes qui se produisent dans un Runbook. Ils sont consignés dans l’historique des tâches quand un Runbook est exécuté et sont inclus dans le volet de sortie du test dans le portail Azure quand un Runbook est testé. Par défaut, l’exécution du Runbook se poursuit après un avertissement ou une erreur. Vous pouvez spécifier l’interruption du Runbook en cas d’avertissement ou d’erreur en définissant une [variable de préférence](#PreferenceVariables) dans le Runbook avant de créer le message. Par exemple, pour déclencher l’interruption du Runbook en cas d’erreur, comme dans le cas d’une exception, affectez la valeur Stop à **$ErrorActionPreference** .
 
 Créez un message d’avertissement ou un message d’erreur à l’aide de l’applet de commande [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). Les activités peuvent également écrire dans ces flux.
 
@@ -128,9 +128,9 @@ Créez un message d’avertissement ou un message d’erreur à l’aide de l’
     Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
 
 ### <a name="verbose-stream"></a>flux des commentaires
-Ce flux est utilisé pour les informations générales sur le fonctionnement du Runbook. Dans la mesure où le [flux de débogage](#Debug) n’est pas disponible dans un Runbook, les messages documentés doivent être utilisés pour les informations de débogage. Par défaut, les messages documentés provenant de Runbooks publiés ne seront pas stockés dans l’historique des tâches. Pour stocker les messages documentés, configurez les Runbooks publiés de façon à enregistrer les informations de commentaires sous l’onglet de configuration du Runbook dans le Portail de gestion Azure. Pour des raisons de performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de commentaires ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook.
+Ce flux est utilisé pour les informations générales sur le fonctionnement du Runbook. Dans la mesure où le [flux de débogage](#Debug) n’est pas disponible dans un Runbook, les messages documentés doivent être utilisés pour les informations de débogage. Par défaut, les messages documentés provenant de Runbooks publiés ne seront pas stockés dans l’historique des tâches. Pour stocker les messages documentés, configurez les Runbooks publiés de façon à enregistrer les informations de commentaires sous l’onglet de configuration du Runbook dans le portail Azure. Pour des raisons de performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de commentaires ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook.
 
-Lors du [test d’un Runbook](automation-testing-runbook.md), les messages documentés ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de commentaires. Pour afficher les messages documentés lors du [test d’un Runbook](automation-testing-runbook.md), vous devez affecter la valeur Continue à la variable $VerbosePreference. Dans ce cas, les messages documentés sont affichés dans le volet de sortie du test du Portail Azure.
+Lors du [test d’un Runbook](automation-testing-runbook.md), les messages documentés ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de commentaires. Pour afficher les messages documentés lors du [test d’un Runbook](automation-testing-runbook.md), vous devez affecter la valeur Continue à la variable $VerbosePreference. Dans ce cas, les messages documentés sont affichés dans le volet de sortie du test dans le portail Azure.
 
 Créez un message documenté à l’aide de l’applet de commande [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) .
 
@@ -147,15 +147,15 @@ Si vous configurez un runbook pour enregistrer les informations de progression (
 L’applet de commande [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) n’est pas valide dans un Runbook, dans la mesure où les messages sont destinés à un utilisateur interactif.
 
 ## <a name="preference-variables"></a>Variables de préférence
-Windows PowerShell utilise des [variables de préférence](http://technet.microsoft.com/library/hh847796.aspx) pour déterminer comment répondre aux données envoyées aux différents flux de sortie. Vous pouvez définir ces variables dans un Runbook pour contrôler comment il répondra aux données envoyées dans différents flux.
+Windows PowerShell utilise des [variables de préférence](http://technet.microsoft.com/library/hh847796.aspx) pour déterminer comment répondre aux données envoyées aux différents flux de sortie. Vous pouvez définir ces variables dans un Runbook pour contrôler comment il répond aux données envoyées dans différents flux.
 
 Le tableau suivant répertorie les variables de préférence qui peuvent être utilisées dans des Runbooks, ainsi que leurs valeurs valides et valeurs par défaut. Notez que ce tableau inclut uniquement les valeurs valides dans un Runbook. D’autres valeurs sont valides pour les variables de préférence lorsqu’elles sont utilisées dans Windows PowerShell en dehors d’Azure Automation.
 
 | Variable | Valeur par défaut | Valeurs valides |
 |:--- |:--- |:--- |
-| WarningPreference |Continue |Stop<br>Continue<br>SilentlyContinue |
-| ErrorActionPreference |Continue |Stop<br>Continue<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Stop<br>Continue<br>SilentlyContinue |
+| WarningPreference |Continue |Arrêter<br>Continue<br>SilentlyContinue |
+| ErrorActionPreference |Continue |Arrêter<br>Continue<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |Arrêter<br>Continue<br>SilentlyContinue |
 
 Le tableau suivant indique le comportement associé aux valeurs des variables de préférence valides dans les Runbooks.
 
@@ -198,8 +198,7 @@ Pour les runbooks graphiques, une journalisation supplémentaire est disponible 
 
 ![Vue du flux de travail de création graphique](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-La capture d’écran ci-dessus illustre le fait que lorsque vous activez la journalisation détaillée et le suivi pour les graphiques, vous obtenez beaucoup plus d’informations dans la vue du flux de travail de production.  Ces informations supplémentaires peuvent être essentielles pour résoudre les problèmes de production pour un runbook. Il est donc conseillé de l’activer uniquement à cet effet et pas de manière générale.    
-Les enregistrements de suivi peuvent être particulièrement nombreux.  Avec le suivi de runbook graphique, vous pouvez obtenir entre deux et quatre enregistrements par activité selon que vous avez configuré le suivi de base ou le suivi détaillé.  À moins que vous n’ayez besoin de ces informations pour suivre la progression d’un runbook à des fins de dépannage, vous pouvez choisir de désactiver le suivi.
+La capture d’écran ci-dessus illustre le fait que lorsque vous activez la journalisation détaillée et le suivi pour les graphiques, vous obtenez beaucoup plus d’informations dans la vue du flux de travail de production.  Ces informations supplémentaires peuvent être essentielles pour résoudre les problèmes de production pour un runbook. Il est donc conseillé de l’activer uniquement à cet effet et pas de manière générale. Les enregistrements de suivi peuvent être particulièrement nombreux.  Avec le suivi de runbook graphique, vous pouvez obtenir entre deux et quatre enregistrements par activité selon que vous avez configuré le suivi de base ou le suivi détaillé.  À moins que vous n’ayez besoin de ces informations pour suivre la progression d’un runbook à des fins de dépannage, vous pouvez choisir de désactiver le suivi.
 
 **Pour activer le suivi au niveau de l’activité, procédez comme suit.**
 
@@ -207,7 +206,7 @@ Les enregistrements de suivi peuvent être particulièrement nombreux.  Avec le 
 2. Cliquez sur la vignette **Runbooks** pour ouvrir la liste des runbooks.
 3. Dans le panneau Runbooks, cliquez sur un runbook graphique pour le sélectionner dans la liste des runbooks.
 4. Dans le panneau Paramètres du Runbook sélectionné, cliquez sur **Journalisation et suivi**.
-5. Dans le panneau Journalisation et suivi, sous Journaliser les enregistrements détaillés, cliquez sur **Activé** pour activer la journalisation détaillée ; sous Suivi au niveau de l’activité, définissez le niveau de suivi sur **De base** ou **Détaillé** en fonction du niveau de suivi requis.<br>
+5. Dans le panneau Journalisation et suivi, sous Journaliser les enregistrements détaillés, cliquez sur **Activé** pour activer la journalisation détaillée. Sous Suivi au niveau de l’activité, définissez le niveau de suivi sur **De base** ou **Détaillé** en fonction du niveau de suivi requis.<br>
    
    ![Panneau Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
@@ -222,7 +221,7 @@ Automation peut envoyer l’état d’un travail de runbook et des flux de trava
 
 Pour plus d’informations sur la configuration de l’intégration à Log Analytics pour collecter, mettre en corrélation et modifier des données de travail, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)
 * Pour comprendre comment créer et utiliser des Runbooks enfants, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md)
 

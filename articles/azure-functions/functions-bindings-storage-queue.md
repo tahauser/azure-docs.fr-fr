@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -35,13 +35,13 @@ Utilisez le déclencheur de file d’attente pour démarrer une fonction lorsqu�
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#trigger---c-example)
-* [Script C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
-L’exemple suivant montre un code [C# précompilé](functions-dotnet-class-library.md) qui interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
+L’exemple suivant montre un code de [fonction C#](functions-dotnet-class-library.md) qui interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
 
-L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et un code [Script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
+L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et un code de [script C# (.csx)](functions-reference-csharp.md) qui utilise cette liaison. La fonction interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
 
 Voici le fichier *function.json* :
 
@@ -153,7 +153,7 @@ La section [utilisation](#trigger---usage) explique `myQueueItem`, qui est nomm�
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
  
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur de file d’attente :
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur de file d’attente :
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   }
   ```
  
-  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C# précompilé](#trigger---c-example).
+  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -211,10 +211,10 @@ Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `QueueTrigger`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
-|**type** | n/a| Doit être défini sur `queueTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
-|**direction**| n/a | Dans le fichier *function.json* uniquement. Doit être défini sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**type** | n/a| Cette propriété doit être définie sur `queueTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
+|**direction**| n/a | Dans le fichier *function.json* uniquement. Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a |Nom de la variable qui représente la file d’attente dans le code de la fonction.  | 
 |**queueName** | **QueueName**| Nom de la file d’attente à interroger. | 
 |**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
@@ -236,7 +236,7 @@ Dans JavaScript, utilisez `context.bindings.<name>` pour accéder à la charge u
 
 Le déclencheur de file d’attente fournit plusieurs propriétés de métadonnées. Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les valeurs ont la même sémantique que [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
-|Propriété|Type|Description|
+|Propriété|type|DESCRIPTION|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Charge utile de file d’attente (s’il s’agit d’une chaîne valide). Si la charge utile du message de file d’attente est une chaîne, `QueueTrigger` a la même valeur que la variable nommée par la propriété `name` dans *function.json*.|
 |`DequeueCount`|`int`|Nombre de fois que ce message a été enlevé de la file d’attente.|
@@ -266,13 +266,13 @@ Utilisez la liaison de sortie Stockage File d’attente Azure pour écrire des m
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#output---c-example)
-* [Script C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
-L’exemple suivant montre le code [C# précompilé](functions-dotnet-class-library.md) qui crée un message de file d’attente pour chaque requête HTTP reçue.
+L’exemple suivant montre un code [de fonction C#](functions-dotnet-class-library.md) qui crée un message de file d’attente pour chaque requête HTTP reçue.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Sortie - exemple Script C#
 
-L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et un code [Script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction crée un élément de file d’attente avec une charge utile POCO pour chaque requête HTTP reçue.
+L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et un code de [script C# (.csx)](functions-reference-csharp.md) qui utilise cette liaison. La fonction crée un élément de file d’attente avec une charge utile POCO pour chaque requête HTTP reçue.
 
 Voici le fichier *function.json* :
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Sortie - attributs
  
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs) qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 L’attribut s’applique à un paramètre `out` ou à la valeur de retour de la fonction. Le constructeur de l’attribut prend le nom de la file d’attente, comme illustré dans l’exemple suivant :
 
@@ -418,25 +418,25 @@ Vous pouvez définir la propriété `Connection` pour spécifier le compte de st
 
 ```csharp
 [FunctionName("QueueOutput")]
-[return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
+[return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 {
     ...
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
 
-Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attributes-for-precompiled-c).
+Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Déclencheur - attributs](#trigger---attribute).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Queue`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
-|**type** | n/a | Doit être défini sur `queue`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
-|**direction** | n/a | Doit être défini sur `out`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**type** | n/a | Cette propriété doit être définie sur `queue`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
+|**direction** | n/a | Cette propriété doit être définie sur `out`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente la file d’attente dans le code de la fonction. La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.| 
 |**queueName** |**QueueName** | Nom de la file d’attente. | 
 |**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
@@ -459,7 +459,7 @@ En C# et Script C#, écrivez plusieurs messages de file d’attente à l’aide 
 
 Dans les fonctions JavaScript, utilisez `context.bindings.<name>` pour accéder au message de file d’attente de sortie. Vous pouvez utiliser une chaîne ou un objet sérialisable JSON pour la charge utile de l’élément de file d’attente.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Accéder à un guide de démarrage rapide qui utilise un déclencheur de stockage de file d’attente](functions-create-storage-queue-triggered-function.md)

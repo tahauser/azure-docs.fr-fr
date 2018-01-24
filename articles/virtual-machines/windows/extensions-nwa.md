@@ -15,33 +15,34 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 508b3755556bcae6aa2c7d17a2d86a1430a8109a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Agent Network Watcher pour Windows
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-[Azure Network Watcher](https://review.docs.microsoft.com/azure/network-watcher/) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle Agent Network Watcher est requise pour certaines fonctionnalités de Network Watcher sur les machines virtuelles Azure, notamment la capture du trafic réseau à la demande et d’autres fonctionnalités avancées.
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle Agent Network Watcher est obligatoire pour capturer le trafic réseau à la demande et pour assurer la prise en charge d’autres fonctionnalités avancées sur les machines virtuelles Azure.
+
 
 Ce document présente les plateformes et options de déploiement prises en charge pour l’extension de machine virtuelle Agent Network Watcher pour Windows.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension Agent Network Watcher pour Windows peut être exécutée sur Windows Server 2008 R2, 2012, 2012 R2 et 2016. Remarque : Nano Server n’est pas pris en charge pour le moment.
+L’extension Agent Network Watcher pour Windows peut être exécutée sur Windows Server 2008 R2, 2012, 2012 R2 et 2016. Nano Server n’est pas pris en charge.
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
-Certaines fonctionnalités de l’Agent Network Watcher requièrent que la machine virtuelle cible soit connectée à Internet. Sans la possibilité d’établir des connexions sortantes, certaines fonctionnalités de l’Agent Network Watcher risquent de mal fonctionner ou de devenir indisponibles. Pour plus d’informations, consultez la [documentation de Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
+Certaines fonctionnalités de l’Agent Network Watcher requièrent que la machine virtuelle cible soit connectée à Internet. Sans la capacité d’établir des connexions sortantes, l’Agent Network Watcher ne sera pas en mesure de charger des captures de paquets sur votre compte de stockage. Pour plus d’informations, consultez la [documentation de Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-Le JSON suivant illustre le schéma de l’extension Agent Network Watcher. L’extension ne requiert ni ne prend en charge aucun paramètre fourni par l’utilisateur pour l’instant et s’appuie sur sa configuration par défaut.
+Le JSON suivant illustre le schéma de l’extension Agent Network Watcher. L’extension ne requiert ni ne prend en charge aucun paramètre fourni par l’utilisateur et s’appuie sur sa configuration par défaut.
 
 ```json
 {
@@ -63,37 +64,38 @@ Le JSON suivant illustre le schéma de l’extension Agent Network Watcher. L’
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Nom | Valeur/Exemple |
+| NOM | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentWindows |
+| Type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
-Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Le schéma JSON détaillé dans la section précédente peut être utilisé dans un modèle Azure Resource Manager pour exécuter l’extension Agent Network Watcher pendant un déploiement de modèle Azure Resource Manager.
+Vous pouvez déployer les extensions de machines virtuelles Azure avec des modèles Azure Resource Manager. Vous pouvez utiliser le schéma JSON détaillé dans la section précédente dans un modèle Azure Resource Manager pour exécuter l’extension Agent Network Watcher pendant un déploiement de modèle Azure Resource Manager.
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
 
-Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour déployer l’extension de machine virtuelle Agent Network Watcher sur une machine virtuelle existante.
+Utilisez la commande `Set-AzureRmVMExtension` pour déployer l’extension de machine virtuelle Agent Network Watcher sur une machine virtuelle existante :
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
-                       -Location "WestUS" `
-                       -VMName "myVM1" `
-                       -Name "networkWatcherAgent" `
-                       -Publisher "Microsoft.Azure.NetworkWatcher" `
-                       -Type "NetworkWatcherAgentWindows" `
-                       -TypeHandlerVersion "1.4"
+Set-AzureRmVMExtension `
+  -ResourceGroupName "myResourceGroup1" `
+  -Location "WestUS" `
+  -VMName "myVM1" `
+  -Name "networkWatcherAgent" `
+  -Publisher "Microsoft.Azure.NetworkWatcher" `
+  -Type "NetworkWatcherAgentWindows" `
+  -TypeHandlerVersion "1.4"
 ```
 
 ## <a name="troubleshooting-and-support"></a>Résolution des problèmes et support
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
-Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide du module Azure PowerShell. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide du module PowerShell.
+Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de PowerShell. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide du module Azure PowerShell :
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installer PowerShell pour Azure Stack  
 
@@ -31,7 +31,7 @@ Cet article contient des instructions détaillées sur l’installation de Power
 > [!NOTE]
 > Les étapes suivantes nécessitent PowerShell 5.0. Pour vérifier votre version, exécutez $PSVersionTable.PSVersion et comparez la version « Major ».
 
-Les commandes PowerShell pour Azure Stack sont installées par le biais de PowerShell Gallery. Pour inscrire le dépôt PSGallery, ouvrez une session PowerShell avec élévation de privilèges à partir du Kit de développement, ou d’un client externe Windows si vous êtes connecté par le biais d’un réseau privé virtuel, et exécutez la commande suivante :
+Les commandes PowerShell pour Azure Stack sont installées par le biais de PowerShell Gallery. Pour inscrire le dépôt PSGallery, ouvrez une session PowerShell avec élévation de privilèges à partir du Kit de développement, ou d’un client externe Windows si vous êtes connecté par le biais d’un réseau privé virtuel, et exécutez la commande suivante :
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Avant d’installer la version requise, vérifiez que vous avez désinstallé to
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Connectez-vous au Kit de développement, ou au client externe Windows si vous prévoyez d’établir une connexion VPN. Supprimez des dossiers `C:\Program Files (x86)\WindowsPowerShell\Modules` et `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` tous les dossiers qui commencent par « Azure ». La suppression de ces dossiers supprime tous les modules PowerShell existants des portées utilisateur « global » et « AzureStackAdmin ». 
+* Connectez-vous au Kit de développement, ou au client externe Windows si vous prévoyez d’établir une connexion VPN. Supprimez des dossiers `C:\Program Files\WindowsPowerShell\Modules` et `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` tous les dossiers qui commencent par « Azure ». La suppression de ces dossiers supprime tous les modules PowerShell existants des portées utilisateur « global » et « AzureStackAdmin ». 
 
 Les sections suivantes décrivent les étapes nécessaires pour installer PowerShell pour Azure Stack. Vous pouvez installer PowerShell sur Azure Stack exploité dans un scénario connecté, partiellement connecté ou déconnecté. 
 
@@ -126,7 +126,6 @@ Dans un scénario déconnecté, vous devez tout d’abord télécharger les modu
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 
@@ -134,9 +133,9 @@ Dans un scénario déconnecté, vous devez tout d’abord télécharger les modu
      -Repository $RepoName 
    ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Télécharger les outils Azure Stack à partir de GitHub](azure-stack-powershell-download.md)
-* [Configurer l’environnement PowerShell de l’utilisateur Azure Stack](user/azure-stack-powershell-configure-user.md)  
+* [Configurez l’environnement PowerShell de l’utilisateur Azure Stack.](user/azure-stack-powershell-configure-user.md)  
 * [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md) 
 * [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md)  

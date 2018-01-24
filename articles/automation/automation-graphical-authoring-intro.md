@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Création de graphiques dans Azure Automation
 ## <a name="introduction"></a>Introduction
@@ -46,7 +46,7 @@ Vous pouvez utiliser les commandes en bas de la zone de dessin pour effectuer un
 ### <a name="library-control"></a>Contrôle Bibliothèque
 Le contrôle Bibliothèque est l'emplacement où vous sélectionnez les [activités](#activities) à ajouter à votre Runbook.  Vous les ajoutez au canevas où vous les connectez à d'autres activités.  Il comprend quatre sections décrites dans le tableau suivant.
 
-| Section | Description |
+| Section | DESCRIPTION |
 |:--- |:--- |
 | Applets de commande |Inclut toutes les applets de commande qui peuvent être utilisées dans votre Runbook.  Les applets de commande sont organisées par module.  Tous les modules que vous avez installés dans votre compte Automation seront disponibles. |
 | Runbooks |Inclut les Runbooks de votre compte Automation. Ces Runbooks peuvent être ajoutés au canevas pour être utilisés en tant que Runbooks enfants. Seuls les Runbooks du même type de base que le Runbook en cours de modification sont affichés. Dans le cas des Runbooks graphiques, seuls les Runbooks basés sur PowerShell sont indiqués ; pour les Runbooks de workflow PowerShell graphique, seuls les Runbooks basés sur un workflow PowerShell s’affichent. |
@@ -112,7 +112,7 @@ Dans l’exemple suivant, l’applet de commande Get-AzureRmVM contient trois je
 #### <a name="parameter-values"></a>Valeurs de paramètres
 Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une source de données pour déterminer la façon dont la valeur sera spécifiée.  Les sources de données disponibles pour un paramètre particulier dépendent des valeurs valides pour ce paramètre.  Par exemple, Null ne sera pas une option disponible pour un paramètre qui n'autorise pas les valeurs null.
 
-| Source de données | Description |
+| source de données | DESCRIPTION |
 |:--- |:--- |
 | Valeur constante |Entrez une valeur pour le paramètre.  Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
 | Sortie d'activité |Sortie d'une activité qui précède l'activité actuelle dans le workflow.  Toutes les activités valides sont répertoriées.  Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre.  Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité. |
@@ -140,7 +140,7 @@ La condition de nouvelle tentative est une expression PowerShell qui est évalu�
 
 La condition de nouvelle tentative peut utiliser une variable appelée $RetryData qui fournit un accès aux informations sur les nouvelles tentatives d’activité.  Cette variable possède les propriétés indiquées dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | NumberOfAttempts |Nombre d’exécutions de l’activité. |
 | Sortie |Sortie de la dernière exécution de l’activité. |
@@ -182,7 +182,7 @@ Créez un lien entre deux activités en sélectionnant l'activité source, puis 
 
 Sélectionnez le lien pour configurer ses propriétés dans le panneau Configuration.  Cela inclut le type du lien, qui est décrit dans le tableau suivant.
 
-| Type de lien | Description |
+| Type de lien | DESCRIPTION |
 |:--- |:--- |
 | Pipeline |L'activité de destination est exécutée une fois pour chaque sortie d'objet de l'activité source.  L'activité de destination n'est pas exécutée si l'activité source ne génère aucune sortie.  La sortie de l'activité source est disponible sous la forme d'un objet. |
 | Séquence |L'activité de destination s'exécute une seule fois.  Elle reçoit un tableau d'objets de l'activité source.  La sortie de l'activité source est disponible sous la forme d'un tableau d'objets. |
@@ -286,11 +286,11 @@ Cela ouvre le contrôle **Entrée et sortie** où vous pouvez modifier un param�
 
 Chaque paramètre d'entrée est défini par les propriétés figurant dans le tableau suivant.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
-| Nom |Nom unique du paramètre.  Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
-| Description |Description facultative du paramètre d'entrée. |
-| Type |Type de données attendu pour la valeur de paramètre.  Le portail Azure fournira un contrôle approprié pour le type de données de chaque paramètre lorsque vous serez invité à indiquer une entrée. |
+| NOM |Nom unique du paramètre.  Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
+| DESCRIPTION |Description facultative du paramètre d'entrée. |
+| type |Type de données attendu pour la valeur de paramètre.  Le portail Azure fournira un contrôle approprié pour le type de données de chaque paramètre lorsque vous serez invité à indiquer une entrée. |
 | Obligatoire |Spécifie si une valeur doit être fournie pour le paramètre.  Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |
 | Valeur par défaut |Spécifie quelle valeur est utilisée pour le paramètre si aucune n'est pas fournie.  Cela peut être Null ou une valeur spécifique. |
 
@@ -377,7 +377,7 @@ L'exemple suivant utilise la sortie d'une activité nommée *Obtenir la connexio
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md) 
+* Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md) 
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
 * Pour comprendre les mécanismes d’authentification à l’aide du compte d’identification Automation, consultez [Configurer un compte d’identification Azure](automation-sec-configure-azure-runas-account.md)

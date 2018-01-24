@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux
 
@@ -35,9 +35,9 @@ Vous apprendrez à :
 > * Déploiement de l’application dans Azure
 > * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffusion des journaux de diagnostic à partir d’Azure
-> * Gestion de l’application dans le portail Azure
+> * Gérer l’application dans le portail Azure
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -93,9 +93,9 @@ Pour l’instance SQL Database, ce didacticiel utilise [Azure SQL Database](/azu
 
 ### <a name="create-a-sql-database-logical-server"></a>Créer un serveur logique SQL Database
 
-Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [az sql server create](/cli/azure/sql/server#create).
+Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
-Remplacez l’espace réservé *\<server_name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server_name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez * \<db_username>* et * \<db_password>* par le nom d’utilisateur et le mot de passe de votre choix. 
+Remplacez l’espace réservé *\<server_name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server_name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez  *\<db_username>* et  *\<db_password>* par le nom d’utilisateur et le mot de passe de votre choix. 
 
 
 ```azurecli-interactive
@@ -124,7 +124,7 @@ Lorsque le serveur logique SQL Database est créé, l’interface Azure CLI aff
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurer une règle de pare-feu du serveur
 
-Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) avec la commande [az sql server firewall create](/cli/azure/sql/server#create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
+Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) avec la commande [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Lorsque les adresses IP de début et de fin sont définies sur 0.0.0.0, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Créer une base de données
 
-Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers.md) sur le serveur avec la commande [az sql db create](/cli/azure/sql/db#create).
+Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers.md) sur le serveur avec la commande [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ Dans cette étape, vous déployez votre application .NET Core connectée à SQL 
 
 ### <a name="configure-an-environment-variable"></a>Configurer une variable d’environnement
 
-Pour définir les chaînes de connexion pour votre application Azure, utilisez la commande [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) dans Cloud Shell. Dans la commande suivante, remplacez *\<app name>* ainsi que le paramètre *\<connection_string>* par la chaîne de connexion que vous avez créée précédemment.
+Pour définir les chaînes de connexion de votre application Azure, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) dans Cloud Shell. Dans la commande suivante, remplacez *\<app name>* ainsi que le paramètre *\<connection_string>* par la chaîne de connexion que vous avez créée précédemment.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -365,7 +365,7 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Vous avez appris à effectuer les opérations suivantes :
 

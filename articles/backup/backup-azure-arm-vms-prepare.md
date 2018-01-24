@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 686cc45f219a10259c1b5cc0f0793c4ee392ee74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal;trinadhk;sogup;
+ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
@@ -28,7 +28,7 @@ Cet article fournit les étapes de préparation de votre environnement pour la s
 Le service Azure Backup comprend deux types de coffres pour la protection de vos machines virtuelles : coffres de sauvegarde et coffres Recovery Services. Un coffre de sauvegarde permet de protéger les machines virtuelles déployées à l’aide du modèle de déploiement classique. Un coffre Recovery Services permet de protéger les *machines virtuelles déployées à l’aide du modèle classique et à l’aide du modèle Resource Manager*. Vous devez utiliser un coffre Recovery Services pour protéger une machine virtuelle déployée à l’aide du modèle Resource Manager.
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Avant de pouvoir protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que les conditions préalables suivantes sont remplies :
 
@@ -63,6 +63,7 @@ Avant de préparer votre environnement, assurez-vous de noter les limitations su
 * Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à une machine virtuelle.
 * Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Si vous tentez de restaurer la machine virtuelle alors que celle-ci existe, l’opération de restauration échoue.
 * La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
+* La sauvegarde et la restauration du stockage de machines virtuelles figurant dans la liste de contrôle d’accès (ACL) ne sont actuellement pas prises en charge. La sauvegarde de machines virtuelles n’est pas prise en charge si vous avez activé le stockage via la fonctionnalité de réseau virtuel (VNET)qui permet uniquement d’accéder aux comptes de stockage à partir de certains réseaux virtuels/sous-réseaux et/ou de certaines adresses IP.
 * Vous pouvez sauvegarder des machines virtuelles dans toutes les régions publiques d’Azure. (Consultez la [liste](https://azure.microsoft.com/regions/#services) des régions prises en charge.) Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de coffres.
 * La restauration d’une machine virtuelle de contrôleur de domaine qui fait partie d’une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. Pour en savoir plus, consultez [Restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles créées à l’aide du flux de travail de restauration dans l’interface utilisateur n’ont pas ces configurations réseau une fois l’opération de restauration terminée. Pour plus d’informations, consultez [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -75,7 +76,7 @@ Un coffre Recovery Services est une entité qui stocke les sauvegardes et les po
 
 Pour créer un archivage de Recovery Services :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu **Hub**, sélectionnez **Parcourir**, puis tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste des ressources est filtrée. Sélectionnez **Coffres Recovery Services**.
 
     ![Saisie dans la zone et sélection de « Coffres Recovery Services » dans les résultats](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -309,7 +310,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ## <a name="questions"></a>Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 À présent que votre environnement est prêt pour sauvegarder votre machine virtuelle, l’étape logique suivante consiste à créer une sauvegarde. L’article sur la planification fournit des informations détaillées sur la sauvegarde des machines virtuelles.
 
 * [Sauvegarde de machines virtuelles](backup-azure-arm-vms.md)

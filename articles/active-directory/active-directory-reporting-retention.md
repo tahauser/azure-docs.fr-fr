@@ -4,22 +4,22 @@ description: "Stratégies de rétention des données de rapport dans Azure Activ
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Stratégies de rétention des rapports Azure Active Directory
 
@@ -40,8 +40,8 @@ Cette rubrique fournit des réponses aux questions plus courantes en rapport ave
 
 **R :**
 
-- **Immédiatement** : si vous avez déjà travaillé avec des rapports dans le portail Azure Classic
-- **Dans les 2 heures** : si vous n’avez pas encore activé la création de rapports dans le portail Azure Classic
+- **Immédiatement** : si vous avez déjà travaillé avec des rapports dans le portail Azure
+- **Dans les 2 heures** : si vous n’avez pas encore activé la création de rapports dans le portail Azure
 
 ---
 **Q : Comment obtenir la collecte des signaux de sécurité démarrée ?**  
@@ -60,7 +60,7 @@ Cette rubrique fournit des réponses aux questions plus courantes en rapport ave
 | :--                    | :--           | :--                 | :--                 |
 | Audit de répertoire        | 7 jours        | 30 jours             | 30 jours             |
 | Activité de connexion       | N/A           | 30 jours             | 30 jours             |
-| Utilisation d’Azure MFA        | 90 jours       | 90 jours             | 90 jours             |
+| Utilisation d’Azure MFA        | 30 jours       | 30 jours             | 30 jours             |
 
 **Signaux de sécurité**
 

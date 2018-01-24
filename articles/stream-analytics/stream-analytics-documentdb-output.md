@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Cibler Azure Cosmos DB pour la sortie JSON à partir de Stream Analytics
 Stream Analytics peut cibler [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Ce document traite certaines meilleures pratiques recommandées pour l’implémentation de cette configuration.
@@ -27,7 +27,7 @@ Stream Analytics peut cibler [Azure Cosmos DB](https://azure.microsoft.com/serv
 Pour ceux qui ne connaissent pas Cosmos DB, commencez par suivre le [parcours d’apprentissage de Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/). 
 
 > [!Note]
-> À l'heure actuelle, Azure Stream Analytics prend uniquement en charge la connexion à CosmosDB à l'aide de l'**API DocumentDB (SQL)**.
+> Pour le moment, Azure Stream Analytics prend uniquement en charge la connexion à CosmosDB à l’aide de **l’API SQL**.
 > Les autres API Azure Cosmos DB ne sont pas encore prises en charge. Si vous pointez Azure Stream Analytics vers les comptes Azure Cosmos DB créés avec d'autres API, les données risquent de ne pas être correctement stockées. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Principes de base de Cosmos DB en tant que cible de sortie
@@ -36,7 +36,7 @@ La sortie Azure Cosmos DB dans Stream Analytics vous permet d’écrire les r�
 Vous trouverez ci-dessous le détail de certaines options de collection Cosmos DB.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Régler la cohérence, la disponibilité et la latence
-Pour respecter les exigences de votre application, Cosmos DB vous permet d’ajuster la base de données et les collections, et de faire les meilleurs compromis entre cohérence, disponibilité et latence. Selon les niveaux de cohérence de lecture qui s’appliquent à votre scénario compte tenu de la latence de lecture et d’écriture, vous pouvez choisir un niveau de cohérence sur votre compte de base de données. Par défaut, Cosmos DB permet également une indexation synchrone sur chaque opération CRUD exécutée sur votre collection. Cette option est également utile pour contrôler les performances de lecture/écriture dans Cosmos DB. Pour plus d’informations à ce sujet, consultez l’article [Modifier le niveau de cohérence des bases de données et des requêtes](../documentdb/documentdb-consistency-levels.md) .
+Pour respecter les exigences de votre application, Cosmos DB vous permet d’ajuster la base de données et les collections, et de faire les meilleurs compromis entre cohérence, disponibilité et latence. Selon les niveaux de cohérence de lecture qui s’appliquent à votre scénario compte tenu de la latence de lecture et d’écriture, vous pouvez choisir un niveau de cohérence sur votre compte de base de données. Par défaut, Cosmos DB permet également une indexation synchrone sur chaque opération CRUD exécutée sur votre collection. Cette option est également utile pour contrôler les performances de lecture/écriture dans Cosmos DB. Pour plus d’informations à ce sujet, consultez l’article [Modifier le niveau de cohérence des bases de données et des requêtes](../cosmos-db/consistency-levels.md) .
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts à partir de Stream Analytics
 L’intégration de Stream Analytics avec Cosmos DB vous permet d’insérer ou mettre à jour des enregistrements dans votre collection Cosmos DB à partir d’une colonne d’identification de document donnée. C’est ce que l’on appelle un *Upsert*.
@@ -48,7 +48,7 @@ Les [collections partitionnées](../cosmos-db/partition-data.md) Cosmos DB sont
 
 Pour les collections Cosmos DB individuelles, Stream Analytics vous permet de partitionner vos données selon les modèles de requête et les besoins de performances de votre application. Chaque collection peut contenir jusqu’à 10 Go de données (maximum) et il n’existe actuellement aucun moyen de mettre à l’échelle une collection (ou de dépasser sa capacité). Pour une montée en puissance parallèle, Stream Analytics vous permet d’écrire dans plusieurs collections avec un préfixe donné (voir les détails d’utilisation ci-dessous). Stream Analytics utilise la stratégie cohérente du [programme de résolution de partition par hachage](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) en s’appuyant sur la colonne PartitionKey fournie par l’utilisateur pour partitionner ses enregistrements de sortie. Le nombre de collections avec le préfixe spécifié lors du démarrage de la tâche de streaming équivaut au nombre de partitions de sortie sur lesquelles la tâche écrit en parallèle (collections Cosmos DB = partitions de sortie). Pour une collection unique utilisant une méthode d’indexation différée axée uniquement sur les insertions, vous pouvez vous attendre à un débit d’écriture de 0,4 Mo/s. L’utilisation de plusieurs collections peut vous permettre d’atteindre un débit supérieur et des capacités accrues.
 
-Si vous envisagez d’augmenter le nombre de partitions, vous devrez peut-être arrêter votre tâche et repartitionner les données de vos collections existantes en nouvelles collections, avant de redémarrer la tâche Streaming Analytics. Nous publierons prochainement un article sur l’utilisation de PartitionResolver et sur le repartitionnement, avec des exemples de code. L’article [Partitionnement et mise à l’échelle dans Cosmos DB](../documentdb/documentdb-partition-data.md) fournit également des détails à ce sujet.
+Si vous envisagez d’augmenter le nombre de partitions, vous devrez peut-être arrêter votre tâche et repartitionner les données de vos collections existantes en nouvelles collections, avant de redémarrer la tâche Streaming Analytics. Nous publierons prochainement un article sur l’utilisation de PartitionResolver et sur le repartitionnement, avec des exemples de code. L’article [Partitionnement et mise à l’échelle dans Cosmos DB](../cosmos-db/sql-api-partition-data.md) fournit également des détails à ce sujet.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Paramètres de Cosmos DB pour la sortie JSON
 Lorsque vous créez une sortie Cosmos DB dans Stream Analytics, vous devez fournir des informations supplémentaires, comme indiqué ci-dessous. Cette section fournit une explication de la définition des propriétés.

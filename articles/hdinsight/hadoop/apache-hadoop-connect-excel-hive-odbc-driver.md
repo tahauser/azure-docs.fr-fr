@@ -1,5 +1,5 @@
 ---
-title: "Connecter Excel à Hadoop à l’aide du pilote ODBC Hive - Azure HDInsight | Documents Microsoft"
+title: "Connecter Excel à Hadoop à l’aide du pilote ODBC Hive - Azure HDInsight | Microsoft Docs"
 description: "Découvrez comment configurer et utiliser le pilote ODBC Microsoft Hive pour Excel afin d’interroger des données dans des clusters HDInsight à partir de Microsoft Excel."
 keywords: hadoop excel,hive excel,hive odbc
 services: hdinsight
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 7d775da82cb2dcdc02337cd19f0ef02e6562e41a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connecter Excel à Hadoop dans Azure HDInsight avec le pilote ODBC Microsoft Hive
 
@@ -60,7 +60,7 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
 4. Sélectionnez **Microsoft Hive ODBC Driver**, puis cliquez sur **Terminer**. La boîte de dialogue de **configuration de DNS de pilote ODBC Microsoft Hive** s’affiche.
 5. Tapez ou sélectionnez les valeurs suivantes :
    
-   | Propriété | Description |
+   | Propriété | DESCRIPTION |
    | --- | --- |
    |  Data Source Name |Donnez un nom à votre source de données |
    |  Host |Entrez &lt;HDInsightClusterName>.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net |
@@ -74,7 +74,7 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
    
     Certains paramètres importants sont à prendre en compte lorsque vous cliquez sur **Options avancées**:
    
-   | Paramètre | Description |
+   | Paramètre | DESCRIPTION |
    | --- | --- |
    |  Use Native Query |Une fois sélectionné, le pilote ODBC ne tente PAS de convertir TSQL en HiveQL. À utiliser uniquement si vous êtes sûr à 100 % que vous envoyez des instructions HiveQL pures. Si vous effectuez une connexion à SQL Server ou Base de données SQL Azure, ne sélectionnez pas cette option. |
    |  Rows fetched per block |Lors de l’extraction d’un grand nombre d’enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales. |
@@ -100,10 +100,11 @@ Les étapes ci-dessous décrivent comment importer des données d’une table Hi
     ![Navigateur ODBC HDInsight Hive](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight.hive.odbc.navigator.png "Assistant Ouvrir la connexion de données")
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à utiliser le pilote ODBC Microsoft Hive pour extraire des données du service HDInsight dans Excel. De la même façon, vous pouvez extraire les données du service HDInsight dans la base de données SQL. Il est également possible de télécharger des données dans un service HDInsight. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

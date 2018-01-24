@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Vue d’ensemble d’Azure Monitor
 Cet article fournit une vue d’ensemble du service Azure Monitor dans Microsoft Azure. Vous y trouverez ce qu’Azure Monitor fait et des pointeurs vers des informations supplémentaires sur l’utilisation d’Azure Monitor.  Si vous préférez une présentation vidéo, consultez les liens Étapes suivants en bas de cet article. 
@@ -43,7 +43,7 @@ La page constitue le point de départ pour la navigation et l’intégration. El
 
 Lorsque vous ouvrez la page, vous pouvez choisir parmi les abonnements auxquels vous avez un accès en lecture. Pour un abonnement sélectionné, vous pouvez voir :
 
-- **Alertes déclenchées et sources d’alerte** : ce tableau affiche un résumé des nombres, les sources d’alerte et le nombre de fois où des alertes ont été déclenchées pendant la durée sélectionnée. Cela s’applique aux alertes sur les métriques et aux alertes du journal d’activité.
+- **Alertes déclenchées et sources d’alerte** : ce tableau affiche un résumé des nombres, les sources d’alerte et le nombre de fois où des alertes ont été déclenchées pendant la durée sélectionnée. Cela s’applique aux alertes sur les métriques et aux alertes du journal d’activité. *<Modifier : alertes (version préliminaire) avec une expérience unifiée également affichée pour toutes les alertes - événements, mesures et journaux>*
 - **Erreurs du journal d’activité** : si l’une de vos ressources Azure journalise des événements avec une gravité de niveau erreur, vous pouvez afficher un nombre de niveau supérieur et cliquer sur la page du journal d’activité pour examiner chaque événement.
 - **Azure Service Health** : vous pouvez afficher le nombre des problèmes relatifs au service Azure Service Health, les événements de maintenance planifiée et des conseils sur le contrôle de l’intégrité. Azure Service Health fournit des informations personnalisées lorsque des problèmes touchant l’infrastructure Azure ont une incidence sur vos services.  Pour plus d’informations, consultez [Azure Service Health](../service-health/service-health-overview.md).  
 - **Application Insights** : consultez les indicateurs de performance clés pour chaque ressource AppInsights dans l’abonnement actuel. Les indicateurs de performance clés sont optimisés pour la surveillance d’application côté serveur pour les applications web ASP.NET, Java, de nœud et les types d’applications généraux. Les indicateurs de performance clés incluent les métriques du taux de demandes, de la durée de réponse, du taux d’échec et du pourcentage de disponibilité. 
@@ -56,9 +56,10 @@ Si vous n’avez pas effectué l’intégration avec Log Analytics ou Applicatio
 
 ![Modèle pour l’analyse et le diagnostic pour les ressources non liées au calcul](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
+
 Les services de calcul comprennent ici 
-- Services cloud 
-- Machines virtuelles 
+- Cloud Services 
+- Virtual Machines 
 - Jeux de mise à l’échelle de machine virtuelle 
 - Service Fabric
 
@@ -124,7 +125,7 @@ Quelques façons d’utiliser ces données :
 ### <a name="query"></a>Requête
 Vous pouvez utiliser l’API REST Azure Monitor, les commandes de l’Interface de ligne de commande interplateforme (CLI), les applets de commande PowerShell ou le Kit de développement logiciel .NET pour accéder aux données présentes dans le système ou dans le stockage Azure
 
-Voici quelques exemples : 
+Voici quelques exemples :
 
 * Obtention de données pour une application d’analyse personnalisée que vous avez écrite
 * Création de requêtes personnalisées et envoi de ces données à une application tierce.
@@ -141,7 +142,10 @@ Il existe quelques méthodes de visualisation, qui sont les suivantes :
 
 
 ### <a name="automate"></a>Automatisation
-Vous pouvez utiliser les données d’analyse pour déclencher des alertes ou encore des processus complets. Voici quelques exemples :
+> [!NOTE]
+> Dans le cadre de l’évolution constante des alertes sur Microsoft Azure, nous vous offrons désormais une expérience unifiée pour les alertes. Plus d’informations sur les [alertes Azure (version préliminaire)](monitoring-overview-unified-alerts.md)
+
+Avec les alertes Azure classiques, vous pouvez utiliser les données d’analyse pour déclencher des alertes ou encore des processus complets. Voici quelques exemples :
 
 * Utilisation des données pour la mise à l’échelle automatique des instances de calcul, vers le haut ou vers le bas selon le chargement de l’application.
 * Envoi de messages électroniques lorsqu’une mesure dépasse un seuil prédéfini.
@@ -155,9 +159,9 @@ En général, vous pouvez manipuler le suivi, le routage et la récupération de
 * [PowerShell](insights-powershell-samples.md)  
 * [Interface de ligne de commande interplateforme (CLI)](insights-cli-samples.md)
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
-* [Kit SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+* [Kit de développement logiciel (SDK) .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur
 - Une vidéo de procédure pas à pas uniquement pour Azure Monitor est disponible à l’adresse  
 [Prise en main d’Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 

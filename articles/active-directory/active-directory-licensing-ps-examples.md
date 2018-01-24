@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: cbc432c411e80c7fc49daecd727d8e1969faede5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell pour les licences basées sur les groupes dans Azure AD
 
@@ -34,7 +34,7 @@ L’applet de commande [Get-MsolGroup](/powershell/module/msonline/get-msolgroup
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-Output:
+Sortie :
 ```
 SkuPartNumber
 -------------
@@ -59,7 +59,7 @@ Get-MsolGroup | Where {$_.Licenses} | Select `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-Output:
+Sortie :
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -114,7 +114,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-Output:
+Sortie :
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -133,7 +133,7 @@ Pour rechercher les groupes qui contiennent des utilisateurs pour lesquels des l
 ```
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-Output:
+Sortie :
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -159,7 +159,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-Output:
+Sortie :
 ```
 ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
@@ -185,7 +185,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-Output:
+Sortie :
 
 ```
 UserName         UserId                               GroupId                              LicenseError
@@ -290,7 +290,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-Output:
+Sortie :
 ```
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
 --------                             -----       ---------------- -----------------
@@ -465,7 +465,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
 #END: executing the script
 ```
 
-Output:
+Sortie :
 ```
 UserId                               OperationResult                                                                                
 ------                               ---------------                                                                                
@@ -474,7 +474,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.                                                
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’ensemble de fonctionnalités de gestion des licences par le biais des groupes, consultez les articles suivants :
 

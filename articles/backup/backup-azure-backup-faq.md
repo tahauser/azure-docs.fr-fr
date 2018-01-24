@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Questions sur le service de sauvegarde Azure
-Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez poser des questions sur la sauvegarde Microsoft Azure en cliquant sur **Commentaires** (à droite). Les commentaires sont regroupés à la fin de cet article. Un compte Livefyre est nécessaire pour pouvoir déposer un commentaire. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Cet article répond aux questions courantes sur les composants de la Sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez poser des questions sur la sauvegarde Microsoft Azure en cliquant sur **Commentaires** (à droite). Les commentaires sont regroupés à la fin de cet article. Un compte Livefyre est nécessaire pour pouvoir déposer un commentaire. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Pour analyser rapidement les sections de cet article, utilisez les liens sur la droite, en dessous de **Dans cet article**.
 
@@ -30,7 +30,7 @@ Pour analyser rapidement les sections de cet article, utilisez les liens sur la 
 ## <a name="recovery-services-vault"></a>Coffre Recovery Services
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Le nombre de coffres pouvant être créés dans chaque abonnement Azure est-il limité ? <br/>
-Oui. Depuis septembre 2016, vous pouvez créer 25 coffres Recovery Services ou de sauvegarde par abonnement. Vous pouvez créer jusqu’à 25 coffres Recovery Services par région de sauvegarde Azure prise en charge et par abonnement. Au-delà, créez un autre abonnement.
+Oui. Depuis septembre 2016, il est possible de créer 25 coffres Recovery Services par abonnement. Vous pouvez créer jusqu’à 25 coffres Recovery Services par région de sauvegarde Azure prise en charge et par abonnement. Au-delà, créez un autre abonnement.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Le nombre de serveurs/ordinateurs pouvant être inscrits dans chaque coffre est-il limité ? <br/>
 Oui, vous pouvez inscrire un maximum de 50 ordinateurs par archivage. Pour les machines virtuelles Azure IaaS, la limite est de 200 machines virtuelles par coffre. Si vous avez besoin d’inscrire davantage de machines, créez un autre coffre.
@@ -41,19 +41,11 @@ Tous les serveurs inscrits dans le même coffre sont en mesure de récupérer le
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Puis-je « migrer » mon coffre ou mes données de sauvegarde entre des abonnements ? <br/>
 Non. Le coffre est créé au niveau de l’abonnement et ne peut pas être ensuite réaffecté à un autre abonnement.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Les coffres Recovery Services sont basés sur Resource Manager. Les coffres Azure Backup (mode Classic) sont-ils toujours gérés ? <br/>
-Tous les coffres de sauvegarde existants dans le [portail Classic](https://manage.windowsazure.com) sont toujours pris en charge. Toutefois, vous ne pouvez plus utiliser le portail Classic pour déployer de nouveaux coffres de sauvegarde. Microsoft vous recommande d’utiliser des coffres Recovery Services pour tous les déploiements, car les améliorations futures s’appliquent uniquement aux coffres Recovery Services. Si vous essayez de créer un coffre de sauvegarde dans le portail Classic, vous serez redirigé vers le [portail Azure](https://portal.azure.com).
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Les coffres Recovery Services sont basés sur Resource Manager. Les coffres Backup sont-ils toujours pris en charge ? <br/>
+Les coffres Backup ont été convertis en coffres Recovery Services. Si vous n’avez pas converti le coffre Backup en coffre Recovery Services, la conversion a été effectuée automatiquement. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Puis-je migrer un coffre Azure Backup dans un coffre Recovery Services ? <br/>
-Oui, vous pouvez désormais mettre à niveau votre coffre de sauvegarde vers un coffre Recovery Services. Pour en savoir plus, consultez l’article [Mettre à niveau un coffre de sauvegarde vers un coffre Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>J’ai sauvegardé mes machines virtuelles classiques dans un coffre de sauvegarde Azure. Puis-je migrer mes machines virtuelles du mode Classic vers le mode Ressource Manager et les protéger dans un coffre Recovery Services ?
-Les points de récupération des machines virtuelles classiques dans un coffre Azure Backup ne sont pas migrés automatiquement vers un coffre Recovery Services lorsque vous déplacez les machines virtuelles du mode Classic vers le mode Resource Manager. Suivez ces étapes pour transférer vos sauvegardes de machines virtuelles :
-
-1. Dans le coffre de sauvegarde Azure, accédez à l’onglet **Éléments protégés** et sélectionnez la machine virtuelle. Cliquez sur [Arrêter la protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
-2. Supprimez l’extension de sauvegarde/capture instantanée de la machine virtuelle.
-3. Migrez la machine virtuelle du mode Classic vers le mode Resource Manager. Vérifiez que les informations relatives au stockage et au réseau correspondant à la machine virtuelle sont également migrées vers le mode Resource Manager.
-4. Créez un coffre Recovery Services et configurez la sauvegarde sur la machine virtuelle migrée à l’aide de l’action **Sauvegarder** en haut du tableau de bord du coffre. Pour plus d’informations sur la sauvegarde d’une machine virtuelle dans un coffre Recovery Services, consultez l’article [Protégez les machines virtuelles Azure avec un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
+Tous les coffres Backup ont été convertis en coffres Recovery Services. Si vous n’avez pas converti le coffre Backup en coffre Recovery Services, la conversion a été effectuée automatiquement.
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
 Liste détaillée des questions présentes dans le [Forum aux questions sur la sauvegarde de fichiers-dossiers Azure](backup-azure-file-folder-backup-faq.md)
@@ -92,7 +84,7 @@ Si vous annulez une tâche de sauvegarde pour une machine virtuelle Azure, toute
 Oui. Vous pouvez exécuter les opérations de sauvegarde sur Windows Server ou des stations de travail Windows jusqu’à trois fois/jour. Vous pouvez exécuter des tâches de sauvegarde sur System Center DPM jusqu’à deux fois par jour. Vous pouvez exécuter une tâche de sauvegarde pour les machines virtuelles IaaS une fois par jour. Vous pouvez utiliser la stratégie de planification pour Windows Server ou la station de travail Windows pour spécifier des planifications quotidiennes ou hebdomadaires. Avec System Center DPM, vous pouvez spécifier des planifications quotidiennes, hebdomadaires, mensuelles et annuelles.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Pourquoi la taille des données transférées dans le coffre Recovery Services est-elle plus réduite que celle des données que j’ai sauvegardées ?<br/>
- Toutes les données sauvegardées à partir de l’agent Azure Backup, de SCDPM ou d’Azure Backup Server sont compressées et chiffrées avant d’être transférées. Une fois la compression et le chiffrement appliqués, les données dans le coffre de sauvegarde sont inférieures de 30 à 40 %.
+ Toutes les données sauvegardées à partir de l’agent Azure Backup, de SCDPM ou d’Azure Backup Server sont compressées et chiffrées avant d’être transférées. Une fois la compression et le chiffrement appliqués, les données du coffre Recovery Services sont réduites de 30 à 40 %.
 
 ## <a name="what-can-i-back-up"></a>Que puis-je sauvegarder ?
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Quels systèmes d’exploitation la sauvegarde Azure prend-elle en charge ? <br/>

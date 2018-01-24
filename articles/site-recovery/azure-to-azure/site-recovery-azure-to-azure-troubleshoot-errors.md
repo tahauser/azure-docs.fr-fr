@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 
@@ -131,6 +131,20 @@ Si vous ne parvenez pas à sélectionner votre machine virtuelle Azure quand vou
 
 Vous pouvez utiliser ce [script de suppression de configuration ASR obsolète](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) pour supprimer la configuration Site Recovery obsolète sur la machine virtuelle Azure. Après avoir supprimé la configuration obsolète, vous devriez voir la machine virtuelle quand vous activez la réplication.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>L’état de provisionnement de la machine virtuelle n’est pas valide (code d’erreur 150019)
 
-## <a name="next-steps"></a>Étapes suivantes
+Pour activer la réplication sur la machine virtuelle, l’état de provisionnement doit être **Réussite**. Vous pouvez vérifier l’état de la machine virtuelle en suivant les étapes ci-dessous.
+
+1.  Sélectionnez **l’Explorateur de ressources** sous **Tous les services** dans le portail Azure.
+2.  Développez la liste **Abonnements** et sélectionnez votre abonnement.
+3.  Développez la liste **Groupes de ressources** et sélectionnez le groupe de ressources de la machine virtuelle.
+4.  Développez la liste **Ressources** et sélectionnez votre machine virtuelle
+5.  Vérifiez le champ **provisioningState** dans la vue Instance à droite.
+
+### <a name="fix-the-problem"></a>Résoudre le problème
+
+- Si **provisioningState** a la valeur **Échec**, contactez le support avec les détails pour résoudre les problèmes.
+- Si **provisioningState** a la valeur **Mise à jour**, une autre extension est peut-être en cours de déploiement. Vérifiez si des opérations sont en cours sur la machine virtuelle, attendez qu’elles se terminent et réessayez la tâche Site Recovery **Activer la réplication** qui a échoué.
+
+## <a name="next-steps"></a>étapes suivantes
 [Répliquer des machines virtuelles Azure](azure-to-azure-quickstart.md)

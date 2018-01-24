@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Cet article décrit comment afficher l’état d’une unité d’échelle et de ses nœuds associés et comment utiliser les actions de nœud disponibles. Les actions de nœud incluent la mise sous tension, la mise hors tension, le vidage, la reprise et la réparation. En règle générale, vous utilisez ces actions de nœud au cours du remplacement de champ de parties ou pour les scénarios de récupération de nœud.
+
+> [!Important]  
+> Toutes les actions de nœud décrites dans cet article ne doivent cibler qu’un seul nœud à la fois.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Afficher l’état d’une unité d’échelle et de ses nœuds
 
@@ -75,13 +79,17 @@ L’état de fonctionnement du nœud détermine les options disponibles.
 
 L’action de **mise hors tension** désactive le nœud. Cela revient à appuyer sur le bouton d’alimentation. Cela n’envoie **pas** de signal d’arrêt au système d’exploitation. Pour les opérations planifiées de mise hors tension, assurez-vous d’avoir tout d’abord vidé l’unité d’échelle.
 
-Cette action est généralement utilisée lorsqu’un nœud est dans un état suspendu et ne répond plus aux demandes.  
+Cette action est généralement utilisée lorsqu’un nœud est dans un état suspendu et ne répond plus aux demandes.
+
+> [!Important] 
+> Cette fonctionnalité est uniquement disponible au moyen de PowerShell. Elle sera de nouveau disponible dans le portail d’administration de Azure Stack ultérieurement.
+
 
 Pour exécuter l’action de mise hors tension via PowerShell :
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 Dans le cas peu probable où la mise hors tension ne fonctionnerait pas, utilisez l’interface web du BMC.
 
@@ -89,11 +97,14 @@ Dans le cas peu probable où la mise hors tension ne fonctionnerait pas, utilise
 
 L’action de **mise sous tension** active le nœud. Cela revient à appuyer sur le bouton d’alimentation. 
 
+> [!Important] 
+> Cette fonctionnalité est uniquement disponible au moyen de PowerShell. Elle sera de nouveau disponible dans le portail d’administration de Azure Stack ultérieurement.
+
 Pour exécuter l’action de mise sous tension via PowerShell :
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 Dans le cas peu probable où la mise sous tension ne fonctionnerait pas, utilisez l’interface web du BMC.
 

@@ -4,7 +4,7 @@ description: "Obtenez des réponses aux questions fréquemment posées sur les g
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -73,7 +73,7 @@ L’exemple utilise la métrique du processeur au niveau de l’hôte et une mé
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Comment définir des règles d’alerte sur un groupe de machines virtuelles identiques ?
 
-Vous pouvez créer des alertes sur des métriques pour les groupes de machines virtuelles identiques via PowerShell ou l’interface CLI Azure. Pour plus d’informations, consultez [Exemples de démarrage rapide Azure Monitor PowerShell](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) et [Exemples de démarrage CLI interplateforme Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Vous pouvez créer des alertes sur des métriques pour les groupes de machines virtuelles identiques via PowerShell ou l’interface CLI Azure. Pour plus d’informations, consultez [Exemples de démarrage rapide Azure Monitor PowerShell](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) et [Exemples de démarrage rapide de l’interface CLI multiplateforme pour Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 La valeur TargetResourceId du groupe de machines virtuelles identiques ressemble à ceci : 
 
@@ -216,11 +216,11 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
     }
 ```
  
-nom d’élément linuxConfiguration | Requis | Type | Description
+nom d’élément linuxConfiguration | Obligatoire | type | DESCRIPTION
 --- | --- | --- | --- |  ---
-ssh | Non | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
-path | Oui | String | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
-keyData | Oui | String | Spécifie une clé publique SSH encodée en base64
+ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
+chemin d’accès | OUI | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | OUI | Chaîne | Spécifie une clé publique SSH encodée en base64
 
 Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -281,7 +281,7 @@ Si vous réinitialisez une machine virtuelle, les certificats sont supprimés. L
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Que se passe-t-il si vous supprimez un certificat dans le coffre de clés ?
 
-Si le secret est supprimé dans le coffre de clés et si vous exécutez `stop deallocate` pour toutes vos machines virtuelles, puis les démarrez à nouveau, vous rencontrerez une erreur. L’erreur se produit car le CRP, qui doit récupérer les secrets dans le coffre de clés, ne le peut pas. Dans ce scénario, vous pouvez supprimer les certificats à partir du modèle de groupe de machines virtuelles identiques. 
+Si le secret est supprimé de Key Vault et si vous exécutez `stop deallocate` pour toutes vos machines virtuelles, puis les démarrez à nouveau, vous rencontrez une erreur. L’erreur se produit car le CRP, qui doit récupérer les secrets dans le coffre de clés, ne le peut pas. Dans ce scénario, vous pouvez supprimer les certificats à partir du modèle de groupe de machines virtuelles identiques. 
 
 Le composant CRP ne conserve pas les secrets du client. Si vous exécutez `stop deallocate` pour toutes les machines virtuelles dans le groupe de machines virtuelles identiques, le cache est supprimé. Dans ce scénario, les secrets sont récupérés à partir du coffre de clés.
 
@@ -337,7 +337,7 @@ Du point de vue de la conformité, les groupes de machines virtuelles identiques
 
 Pour plus d’informations, consultez le [Centre de gestion de la confidentialité de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>L’[identité du service administré Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) fonctionne-t-elle avec VM Scale Sets ?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Est-ce [qu’Azure Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview) fonctionne avec des groupes de machines virtuelles identiques ?
 
 Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure. Linux : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -369,24 +369,30 @@ Pour en savoir plus sur le séquencement d’extensions dans les groupes de mach
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Comment réinitialiser le mot de passe des machines virtuelles dans mon groupe de machines virtuelles identiques ?
 
-Pour réinitialiser le mot de passe des machines virtuelles dans votre groupe de machines virtuelles identiques, utilisez les extensions d’accès de machine virtuelle. 
+Il existe deux principales façons de changer le mot de passe pour les machines virtuelles dans les groupes identiques.
 
-Utilisez l’exemple PowerShell suivant :
+- Changez directement le modèle de groupe de machines virtuelles identiques. Disponible avec l’API de calcul 2017-12-01 et versions ultérieures.
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+    Mettez à jour les informations d’identification d’administrateur directement dans le modèle de groupe identique (par exemple en utilisant Azure Resource Explorer, PowerShell ou l’interface CLI). Une fois que le groupe identique est mis à jour, toutes les nouvelles machines virtuelles disposent des nouvelles informations d’identification. Les machines virtuelles existantes ont les nouvelles informations d’identification uniquement si elles sont réinitialisées. 
+
+- Réinitialisez le mot de passe à l’aide des extensions d’accès aux machines virtuelles.
+
+    Utilisez l’exemple PowerShell suivant :
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
+
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Comment ajouter une extension pour toutes les machines virtuelles de mon groupe de machines virtuelles identiques ?
 
 Si la stratégie de mise à jour est définie sur **automatique**, le redéploiement du modèle avec les nouvelles propriétés d’extension met à jour toutes les machines virtuelles.
@@ -461,7 +467,7 @@ Pour exécuter un script personnalisé qui est hébergé dans un compte de stock
 
 ## <a name="networking"></a>Mise en réseau
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>Est-il possible d’affecter un groupe de sécurité réseau (NSG) à un groupe identique, afin de l’appliquer à toutes les cartes réseau de machines virtuelles du groupe ?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Est-il possible d’affecter un groupe de sécurité réseau (NSG) à un groupe identique, afin de l’appliquer à toutes les cartes réseau de machines virtuelles du groupe ?
 
 Oui. Un groupe de sécurité réseau peut être appliqué directement à un groupe identique en le référençant dans la section networkInterfaceConfigurations du profil de réseau. Exemple :
 
@@ -517,11 +523,11 @@ Pour déployer un groupe de machines virtuelles identiques sur un réseau virtue
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Comment ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle ?
 
-Pour ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle, consultez [ARM : obtenir les adresses IP privées du groupe de machines virtuelles identiques](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Pour ajouter l’adresse IP de la première machine virtuelle dans un groupe de machines virtuelles identiques à la sortie d’un modèle, consultez [ARM : obtenir les adresses IP privées des groupes de machines virtuelles identiques](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Puis-je me servir de groupes identiques lors d’une mise en réseau accélérée ?
 
-Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple,
+Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple :
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -543,7 +549,7 @@ Oui. Pour utiliser la mise en réseau accélérée, définissez enableAccelerate
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Comment puis-je configurer les serveurs DNS utilisés par un groupe identique ?
 
-Pour créer un groupe de machine virtuelle identique avec une configuration DNS personnalisée, ajoutez un paquet JSON dnsSettings dans la section networkInterfaceConfigurations du groupe identique. Exemple :
+Pour créer un groupe de machines virtuelles identiques avec une configuration DNS personnalisée, ajoutez un paquet JSON dnsSettings à la section networkInterfaceConfigurations du groupe identique. Exemple :
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -552,7 +558,7 @@ Pour créer un groupe de machine virtuelle identique avec une configuration DNS 
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Comment puis-je configurer un groupe identique afin qu’il attribue une adresse IP publique à chaque machine virtuelle ?
 
-Pour créer un groupe de machine virtuelle identique qui attribue une adresse IP publique à chaque machine virtuelle, assurez-vous que la version API de la ressource Microsoft.Compute/virtualMAchineScaleSets est datée au 30/03/2017, puis ajoutez un paquet JSON _publicipaddressconfiguration_ dans la section ipConfigurations du groupe identique. Exemple :
+Pour créer un groupe de machines virtuelles identiques qui attribue une adresse IP publique à chaque machine virtuelle, vérifiez que la version API de la ressource Microsoft.Compute/virtualMAchineScaleSets est datée du 30/03/2017, puis ajoutez un paquet JSON _publicipaddressconfiguration_ à la section ipConfigurations du groupe identique. Exemple :
 
 ```json
     "publicipaddressconfiguration": {
@@ -577,7 +583,7 @@ Une autre raison de créer un groupe de machines virtuelles identiques avec moin
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Comment modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques ?
 
-Pour modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques dans le portail Azure, dans la section des propriétés du groupe de machines virtuelles identiques, cliquez sur le panneau de « mise à l’échelle » et utilisez la barre du curseur. Pour connaître d’autres manières de modifier le nombre d’instances, consultez [Modifier le nombre d’instances d’un groupe de machines virtuelles identiques](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Pour modifier le nombre de machines virtuelles dans un groupe de machines virtuelles identiques dans le portail Azure, dans la section des propriétés du groupe de machines virtuelles identiques, cliquez sur le panneau de « mise à l’échelle » et utilisez la barre du curseur. Pour connaître d’autres manières de modifier le nombre d’instances, consultez [Modifier le nombre d’instances d’un groupe de machines virtuelles identiques](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Comment définir des alertes personnalisées lorsque certains seuils sont atteints ?
 
@@ -651,9 +657,9 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Vous trouverez les éléments workspaceId et workspaceKey requis dans le portail OMS. Dans la page de présentation, cliquez sur la vignette Paramètres. Cliquez sur l’onglet Sources connectées, situé en haut de la page.
 
-Remarque : si la valeur _upgradePolicy_ du groupe identique est définie sur Manuel, vous devez appliquer l’extension à toutes les machines virtuels du groupe en appelant la mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
+Remarque : Si la valeur _upgradePolicy_ du groupe identique est définie sur Manuel, vous devez appliquer l’extension à toutes les machines virtuelles du groupe en appelant une mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Comment activer les diagnostics de démarrage ?
 

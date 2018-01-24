@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -32,9 +32,9 @@ Le [service Azure Relay](relay-what-is-it.md) facilite le déploiement de vos ap
 A [espace de noms](relay-create-namespace-portal.md) est un conteneur d’étendue que vous pouvez utiliser pour adresser des ressources Relay au sein de votre application. Vous devez créer un espace de noms pour utiliser Relay. Il s’agit de l’une des premières étapes de la prise en main.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Qu’est-il advenu du service Service Bus Relay ?
-Le service anciennement nommé Service Bus Relay est désormais nommé Relais WCF. Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. La fonctionnalité Connexions hybrides est une version mise à jour d’un service transplanté à partir Azure BizTalk Services. Les fonctionnalités Relais WCF et Connexions hybrides continuent d’être prises en charge.
+Le service anciennement nommé Service Bus Relay s’appelle désormais [Relais WCF](relay-wcf-dotnet-get-started.md). Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. La fonctionnalité Connexions hybrides est une version mise à jour d’un service transplanté à partir Azure BizTalk Services. Les fonctionnalités Relais WCF et Connexions hybrides continuent d’être prises en charge.
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 Cette section contient les réponses à certaines questions fréquemment posées sur la structure de tarification de Relay. Pour des informations sur tarification générale d’Azure, voir le [Forum Aux Questions sur le support technique Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Pour des informations complètes sur la tarification de Relay, voir [Détails de la tarification de Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Comment sont facturés les services Connexions hybrides et Relais WCF ?
@@ -76,14 +76,14 @@ L’envoi d’un message à un Service Bus Relay est traité comme un envoi « 
 Les relais ouverts à l’aide de la liaison WCF **netTCPRelay** traitent les messages non pas en tant que messages individuels, mais en tant que flux de données transitant par le système. Lorsque vous utilisez cette liaison, seuls l’expéditeur et l’écouteur peuvent voir la trame des messages envoyés et reçus. Pour les relais qui utilisent la liaison **netTCPRelay**, toutes les données sont traitées comme un flux pour le calcul des messages facturables. Dans ce cas, Service Bus calcule la quantité totale de données envoyées ou reçues via chaque relais sur une base de 5 minutes. Ensuite, il divise cette quantité totale de données par 64 Ko pour déterminer le nombre de messages facturables pour ce relais pendant cette période.
 
 ## <a name="quotas"></a>Quotas
-| Nom du quota | Scope | Type | Comportement en cas de dépassement | Valeur |
+| Nom du quota | Étendue | type | Comportement en cas de dépassement | Valeur |
 | --- | --- | --- | --- | --- |
-| Écouteurs simultanés sur un relais |Entité |Statique |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
-| Écouteurs Relay simultanés |Pour tout le système |Statique |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |2 000 |
-| Connexions Relay simultanées pour tous les points de terminaison Relay dans un espace de noms de service |Pour tout le système |Statique |- |5 000 |
-| Points de terminaison Relay par espace de noms de service |Pour tout le système |Statique |- |10 000 |
-| Taille de message pour les relais [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) et [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Pour tout le système |Statique |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |64 Ko |
-| Taille de message pour les relais [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) et [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Pour tout le système |Statique |- |Illimité |
+| Écouteurs simultanés sur un relais |Entité |statique |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
+| Écouteurs Relay simultanés |Pour tout le système |statique |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |2 000 |
+| Connexions Relay simultanées pour tous les points de terminaison Relay dans un espace de noms de service |Pour tout le système |statique |- |5 000 |
+| Points de terminaison Relay par espace de noms de service |Pour tout le système |statique |- |10 000 |
+| Taille de message pour les relais [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) et [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Pour tout le système |statique |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |64 Ko |
+| Taille de message pour les relais [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) et [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Pour tout le système |statique |- |Illimité |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Relay a-t-il des quotas d’utilisation ?
 Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel qui est calculé avec tous les abonnements d’un client. Nous sommes conscients que vos besoins peuvent parfois dépasser ces limites. Vous pouvez contacter le service clientèle à tout moment pour nous faire part de vos besoins afin que nous puissions ajuster ces limites de manière appropriée. Pour Service Bus, les quotas d’utilisation d’agrégation sont les suivants :
@@ -130,7 +130,7 @@ Les signatures d’accès partagé (SAP) sont des mécanismes d’authentificati
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Est-il possible de mettre des points de terminaison de relais en liste verte ?
 Oui. Le client de relais établit des connexions au service Azure Relay en utilisant des noms de domaine complets (FQDN). Cela permet aux clients d’ajouter une entrée pour `*.servicebus.windows.net` sur les pare-feu qui prennent en charge la mise en liste verte de DNS.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Prise en main de Node](relay-hybrid-connections-node-get-started.md)

@@ -1,6 +1,6 @@
 ---
-title: "Niveaux de performances dans l’API DocumentDB | Microsoft Docs"
-description: "Découvrez comment les niveaux de performances dans l’API DocumentDB permettent de réserver le débit pour chaque conteneur."
+title: "Niveaux de performances Azure Cosmos DB supprimés | Microsoft Docs"
+description: "Découvrez les niveaux de performances S1, S2 et S3 qui étaient disponibles dans Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
 > [!IMPORTANT] 
-> Les niveaux de performances S1, S2 et S3 abordés dans cet article vont être mis hors service et ne sont plus disponibles pour les nouveaux comptes de l’API DocumentDB.
+> Les niveaux de performances S1, S2 et S3 abordés dans cet article vont être mis hors service et ne sont plus disponibles pour les nouveaux comptes Azure Cosmos DB.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Cet article fournit une vue d’ensemble des niveaux de performances S1, S2 et S3 et explique comment les collections qui les utilisent seront migrées vers des collections à partition unique avant la fin de l’année 2017. Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
@@ -44,7 +46,7 @@ Cet article fournit une vue d’ensemble des niveaux de performances S1, S2 et S
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Pourquoi les niveaux de performances S1, S2 et S3 vont-ils être mis hors service ?
 
-Les niveaux de performances S1, S2 et S3 n’offrent pas la même flexibilité que les collections de l’API DocumentDB. Avec les niveaux de performances S1, S2 et S3, le débit et la capacité de stockage étaient prédéfinis et n’offraient aucune élasticité. Azure Cosmos DB offre désormais la possibilité de personnaliser votre débit et votre stockage, ce qui vous garantit une plus grande flexibilité vis-à-vis de l’évolution de vos besoins.
+Les niveaux de performances S1, S2 et S3 n’offrent pas la même flexibilité qu’Azure Cosmos DB standard. Avec les niveaux de performances S1, S2 et S3, le débit et la capacité de stockage étaient prédéfinis et n’offraient aucune élasticité. Azure Cosmos DB offre désormais la possibilité de personnaliser votre débit et votre stockage, ce qui vous garantit une plus grande flexibilité vis-à-vis de l’évolution de vos besoins.
 
 <a name="compare"></a>
 
@@ -93,7 +95,7 @@ Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Que se passe-t-il si j’ai besoin de plus de 10 Go de stockage ?
 
-Que vous disposiez d’une collection avec un niveau de performances S1, S2 ou S3 ou d’une collection à partition unique disposant de 10 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données Cosmos DB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure Cosmos DB](documentdb-partition-data.md). 
+Que vous disposiez d’une collection avec un niveau de performances S1, S2 ou S3 ou d’une collection à partition unique disposant de 10 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données Cosmos DB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -132,7 +134,7 @@ Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers 
 
 4. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
-    Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour migrer une collection à partition unique vers une collection partitionnée, voir [Migration de collections à partition unique vers des collections partitionnées](documentdb-partition-data.md#migrating-from-single-partition).
+    Si vous déterminez que vous avez besoin d’un débit supérieur (plus de 10 000 unités de requête/s) ou d’une plus grande capacité de stockage (plus de 10 Go), vous pouvez créer une collection partitionnée. Pour migrer une collection à partition unique vers une collection partitionnée, voir [Migration de collections à partition unique vers des collections partitionnées](sql-api-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > Le passage du niveau S1, S2 ou S3 au niveau Standard peut prendre jusqu’à deux minutes.
@@ -141,7 +143,7 @@ Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers 
 
 **Migration vers des collections à partition unique à l’aide du Kit SDK .NET**
 
-Vous pouvez également modifier les niveaux de performances de vos collections via les Kits de développement logiciel (SDK) Azure Cosmos DB. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de l’[API .NET DocumentDB](documentdb-sdk-dotnet.md), mais le processus est similaire pour nos autres Kits de développement logiciel (SDK).
+Vous pouvez également modifier les niveaux de performances de vos collections via les kits SDK Azure Cosmos DB. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de [l’API .NET SQL](sql-api-sdk-dotnet.md), mais le processus est similaire pour nos autres SDK.
 
 Voici un extrait de code permettant de remplacer le débit de la collection par 5 000 unités de requête par seconde :
     
@@ -172,9 +174,9 @@ Visitez [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.document
 
 Les clients Contrat Entreprise bénéficieront d’une protection en matière de tarification jusqu’à la fin de leur contrat actuel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur la tarification et la gestion des données avec Azure Cosmos DB, explorez les ressources suivantes :
 
-1.  [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](documentdb-partition-data.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
+1.  [Partitioning data in Cosmos DB (Partitionnement des données dans Cosmos DB)](sql-api-partition-data.md). Découvrez la différence entre les conteneurs à partition unique et les conteneurs partitionnés, et bénéficiez de conseils concernant l’implémentation d’une stratégie de partitionnement pour une mise à l’échelle en toute transparence.
 2.  [Tarification Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Apprenez-en davantage sur le coût de l’approvisionnement du débit et de la consommation du stockage.
 3.  [Unités de requête](request-units.md). Découvrez la consommation de débit pour les différents types d’opérations, telles que les opérations de lecture, d’écriture et de requête.

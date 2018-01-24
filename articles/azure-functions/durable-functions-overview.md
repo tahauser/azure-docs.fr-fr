@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Vue d’ensemble de Fonctions durables (préversion)
 
-*Fonctions durables* est une extension d[’Azure Functions](functions-overview.md) et d[’Azure WebJobs](../app-service/web-sites-create-web-jobs.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
+*Fonctions durables* est une extension d[’Azure Functions](functions-overview.md) et d[’Azure WebJobs](../app-service/web-sites-create-web-jobs.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
 L’extension vous permet de définir des flux de travail avec état dans un nouveau type de fonction appelé une *fonction d’orchestrateur*. Voici quelques-uns des avantages des fonctions d’orchestrateur :
 
@@ -31,9 +31,9 @@ L’extension vous permet de définir des flux de travail avec état dans un nou
 * Elles créent automatiquement des points de contrôle de leur progression chaque fois que la fonction attend. L’état local n’est jamais perdu si le processus est recyclé ou si la machine virtuelle redémarre.
 
 > [!NOTE]
-> Fonctions durables (en préversion) est une extension avancée pour Azure Functions qui ne convient pas à toutes les applications. Le reste de cet article suppose que vous maîtrisez parfaitement les concepts [Azure Functions](functions-overview.md) et les défis qu’impose le développement d’applications serverless.
+> Fonctions durables (en préversion) est une extension avancée pour Azure Functions qui ne convient pas à toutes les applications. Le reste de cet article suppose que vous maîtrisez parfaitement les concepts [Azure Functions](functions-overview.md) et les défis qu’impose le développement d’applications sans serveur.
 
-Le principal cas d’usage principal pour Fonctions durables est la simplification de problèmes complexes de coordination avec état dans des applications serverless. Les sections suivantes décrivent certains modèles d’application standard qui peuvent tirer parti de Fonctions durables.
+Le principal cas d’usage principal pour Fonctions durables est la simplification de problèmes complexes de coordination avec état dans des applications sans serveur. Les sections suivantes décrivent certains modèles d’application standard qui peuvent tirer parti de Fonctions durables.
 
 ## <a name="pattern-1-function-chaining"></a>Modèle 1 : chaînage de fonctions
 
@@ -215,7 +215,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("HandleApproval", approvalEvent.Result);
+            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
@@ -229,13 +229,13 @@ Le minuteur durable est créé en appelant `ctx.CreateTimer`. La notification es
 
 ## <a name="the-technology"></a>La technologie
 
-En arrière-plan, l’extension Fonctions durables est construite par-dessus l[’infrastructure des tâches durables](https://github.com/Azure/durabletask), une bibliothèque open source sur GitHub pour la création d’orchestrations de tâches durables. Tout comme Azure Functions est l’évolution serverless d’Azure Webjobs, Fonctions durables est l’évolution serverless du framework des tâches durables. Le framework des tâches durables est très utilisé au sein de Microsoft et à l’extérieur pour automatiser des processus critiques. Il convient parfaitement à l’environnement Azure Functions serverless.
+En arrière-plan, l’extension Fonctions durables est construite par-dessus l[’infrastructure des tâches durables](https://github.com/Azure/durabletask), une bibliothèque open source sur GitHub pour la création d’orchestrations de tâches durables. Tout comme Azure Functions est l’évolution sans serveur d’Azure Webjobs, Fonctions durables est l’évolution sans serveur de l’infrastructure des tâches durables. L’infrastructure des tâches durables est très utilisée au sein de Microsoft et à l’extérieur pour automatiser des processus critiques. Il convient parfaitement à l’environnement Azure Functions sans serveur.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Approvisionnement d’événements, création de points de contrôle et réexécution
 
 Les fonctions d’orchestrateur conservent de façon fiable leur état d’exécution à l’aide d’un modèle de conception cloud appelé [approvisionnement d’événements](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Au lieu de stocker directement l’état *actuel* d’une orchestration, l’extension durable utilise un magasin d’ajout uniquement pour enregistrer *toute la série d’actions* exécutées par l’orchestration de la fonction. Cette méthode offre de nombreux avantages, notamment une amélioration des performances, de l’évolutivité et de la réactivité par rapport au « vidage » de l’état d’exécution complet. Autres avantages : elle garantit la cohérence des données transactionnelles et fournit des pistes d’audit complètes ainsi qu’un historique. Les pistes d’audit permettent des actions de compensation fiables.
 
-L’utilisation de l’approvisionnement d’événements par cette extension est transparente. En coulisse, l’opérateur `await` d’une fonction d’orchestrateur cède le contrôle du thread orchestrateur au répartiteur de l’infrastructure des tâches durables. Le répartiteur valide ensuite dans le stockage toutes les actions que la fonction d’orchestrateur a planifiées (par exemple, l’appel d’une ou plusieurs fonctions enfant ou la planification d’un minuteur durable). Cette action de validation transparente s’ajoute à *l’historique d’exécution* de l’instance d’orchestration. L’historique est stocké dans un stockage durable. L’action de validation ajoute ensuite des messages à une file d’attente pour planifier le travail réel. À ce stade, la fonction d’orchestrateur peut être déchargée de la mémoire. Sa facturation s’arrête si vous utilisez le plan de consommation Azure Functions.  Si d’autres tâches doivent être effectuées, la fonction redémarre et son état est reconstruit.
+L’utilisation de l’approvisionnement d’événements par cette extension est transparente. En coulisse, l’opérateur `await` d’une fonction d’orchestrateur cède le contrôle du thread orchestrateur au répartiteur de l’infrastructure des tâches durables. Le répartiteur valide ensuite dans le stockage toutes les actions que la fonction d’orchestrateur a planifiées (par exemple, l’appel d’une ou plusieurs fonctions enfant ou la planification d’un minuteur durable). Cette action de validation transparente s’ajoute à *l’historique d’exécution* de l’instance d’orchestration. L’historique est stocké dans une table de stockage. L’action de validation ajoute ensuite des messages à une file d’attente pour planifier le travail réel. À ce stade, la fonction d’orchestrateur peut être déchargée de la mémoire. Sa facturation s’arrête si vous utilisez le plan de consommation Azure Functions.  Si d’autres tâches doivent être effectuées, la fonction redémarre et son état est reconstruit.
 
 Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (par exemple, un message de réponse est reçu ou un minuteur durable expire), l’orchestrateur sort à nouveau de veille et réexécute toute la fonction depuis le début afin de reconstruire l’état local. Si au cours de la réexécution, le code tente d’appeler une fonction (ou toute autre tâche asynchrone), l’infrastructure des tâches durables consulte *l’historique d’exécution* de l’orchestration en cours. Si elle constate que la fonction de l’activité a déjà été exécutée et a produit un résultat, elle réexécute les résultats de cette fonction, et le code d’orchestrateur continue de s’exécuter. Ce processus se poursuit jusqu'à ce que le code de la fonction atteint un point où il se termine ou s’il a planifié une nouvelle tâche asynchrone.
 
@@ -249,7 +249,7 @@ Le langage C# est actuellement le seul langage pris en charge par Fonctions dura
 
 ## <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 
-L’extension Fonctions durables transmet automatiquement des données de suivi structurées à [Application Insights](functions-monitoring.md) quand l’application de la fonction est configurée avec une clé Application Insights. Ces données de suivi peuvent être utilisées pour surveiller le comportement et la progression de vos orchestrations.
+L’extension Fonctions durables transmet automatiquement des données de suivi structurées à [Application Insights](functions-monitoring.md) quand l’application de fonction est configurée avec une clé d’instrumentation Application Insights. Ces données de suivi peuvent être utilisées pour surveiller le comportement et la progression de vos orchestrations.
 
 Voici un exemple montrant à quoi ressemblent les événements de suivi Fonctions durables dans le portail Application Insights en utilisant [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics) :
 
@@ -278,7 +278,7 @@ Un stockage de table est utilisé pour stocker l’historique d’exécution pou
 
 En général, tous les problèmes connus doivent être répertoriés dans la liste [Problèmes GitHub](https://github.com/Azure/azure-functions-durable-extension/issues). Si vous rencontrez un problème qui n’apparaît pas dans GitHub, soumettez un nouveau problème en incluant une description détaillée. Même si vous souhaitez simplement poser une question, n’hésitez pas à soumettre un problème GitHub et à le marquer comme une question.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Poursuivre la lecture de la documentation Fonctions durables](durable-functions-bindings.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -34,7 +34,7 @@ Vous pouvez augmenter le nombre des instances d’une passerelle de gestion des 
 > [!NOTE]
 > Actuellement, la passerelle prend en charge uniquement l’activité de copie et l’activité de procédure stockée dans Data Factory. Il n’est pas possible d’utiliser la passerelle à partir d’une activité personnalisée pour accéder à des sources de données locales.      
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 ### <a name="capabilities-of-data-management-gateway"></a>Fonctionnalités de la passerelle de gestion des données
 La passerelle de gestion des données offre les fonctionnalités suivantes :
 
@@ -68,7 +68,7 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 * Vous devez **utiliser la passerelle** même si la banque de données se trouve dans le cloud sur une **machine virtuelle IaaS Azure**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>configuration requise
 * Les versions de **système d’exploitation** prises en charge sont Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. L’installation de la passerelle de gestion des données sur un contrôleur de domaine n’est pas prise en charge.
 * .NET framework 4.5.1 ou version ultérieure est requis. Si vous installez la passerelle sur un ordinateur Windows 7, installez .NET Framework 4.5 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) pour plus d’informations.
 * La **configuration** recommandée pour l’ordinateur de passerelle est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
@@ -137,7 +137,7 @@ Vous devez porter votre attention sur deux pare-feu : le **pare-feu d’entrepri
 
 Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et ports de sortie suivants :
 
-| Noms de domaine | Ports | Description |
+| Noms de domaine | Ports | DESCRIPTION |
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Utilisé pour la communication avec le serveur principal du service Déplacement des données |
 | *.core.windows.net |443 |Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)|
@@ -323,6 +323,9 @@ La page Paramètres permet d’effectuer les actions suivantes :
 * **l’état** du point de terminaison.
 * Afficher le **Certificat SSL** qui est utilisé pour la communication SSL entre le portail et la passerelle pour définir les informations d’identification pour les sources de données.  
 
+### <a name="remote-access-from-intranet"></a>Accès à distance à partir de l’intranet  
+Cette fonctionnalité sera activée plus tard. Dans les futures mises à jour (version 3.4 ou ultérieure), nous vous autoriserons à activer / désactiver une connexion à distance qui se fait via le port 8050 (voir la section ci-dessus) tout en utilisant l’application Gestionnaire des informations d’identification ou PowerShell pour chiffrer les informations d’identification. 
+
 ### <a name="diagnostics-page"></a>Page Diagnostics
 La page Diagnostics permet d’effectuer les actions suivantes :
 
@@ -354,10 +357,10 @@ Dans le portail Azure, vous pouvez afficher un instantané en quasi temps réel 
 
 Le tableau suivant fournit les descriptions des colonnes utilisées dans la liste **Nœuds de passerelle** :  
 
-Propriété de surveillance | Description
+Propriété de surveillance | DESCRIPTION
 :------------------ | :---------- 
-Nom | Nom de la passerelle logique et nœuds associés à la passerelle. Le nœud est un ordinateur Windows local sur lequel la passerelle est installée. Pour plus d’informations sur la multitude de nœuds (jusqu’à quatre) dans une seule passerelle logique, consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md).    
-État | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
+NOM | Nom de la passerelle logique et nœuds associés à la passerelle. Le nœud est un ordinateur Windows local sur lequel la passerelle est installée. Pour plus d’informations sur la multitude de nœuds (jusqu’à quatre) dans une seule passerelle logique, consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md).    
+Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
 Version | Indique la version de la passerelle logique et de chaque nœud de passerelle. La version de la passerelle logique est déterminée selon la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans l’installation de la passerelle logique, seuls les nœuds dont le numéro de version est identique à celui de la passerelle logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). 
 Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
@@ -370,7 +373,7 @@ Dans cette page figurent des paramètres plus significatifs en présence de deux
 ### <a name="gateway-status"></a>État de la passerelle
 Le tableau suivant indique les états possibles d’un **nœud de passerelle** : 
 
-État  | Commentaires/Scénarios
+Statut  | Commentaires/Scénarios
 :------- | :------------------
 En ligne | Nœud connecté au service Data Factory.
 Hors ligne | Le nœud est hors connexion.
@@ -381,7 +384,7 @@ Inactif | La configuration du nœud est différente de celle de la majorité des
 
 Le tableau suivant indique les états possibles d’une **passerelle logique**. L’état de la passerelle dépend des états des nœuds de passerelle. 
 
-État | Commentaires
+Statut | Commentaires
 :----- | :-------
 Doit être inscrite | Aucun nœud n’est encore inscrit sur cette passerelle logique.
 En ligne | Les nœuds de passerelle sont en ligne.
@@ -537,5 +540,5 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Consultez la page [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) . Dans cette procédure pas à pas, vous créez un pipeline qui utilise la passerelle qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.  

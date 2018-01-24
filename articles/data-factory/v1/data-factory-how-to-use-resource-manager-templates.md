@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Lors de l’utilisation d’Azure Data Factory pour vos besoins d’intégration de données, vous pourriez être amené à réutiliser le même modèle dans différents environnements ou à implémenter la même tâche de façon répétée dans la même solution. Les modèles vous aident à implémenter et à gérer ces scénarios de manière simple. Les modèles dans Azure Data Factory sont parfaitement adaptés aux scénarios qui impliquent la réutilisation et la répétition.
 
 Prenons le cas d’une entreprise qui compte 10 usines de fabrication dans le monde entier. Les journaux de chaque usine sont stockés dans une base de données SQL Server locale distincte. L’entreprise souhaite créer un entrepôt de données unique dans le cloud pour l’analyse ad-hoc. Elle souhaite également avoir la même logique mais des configurations différentes pour les environnements de développement, de test et de production.
@@ -231,7 +231,7 @@ Consultez [Définition des pipelines](data-factory-create-pipelines.md#pipeline-
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Paramétrage du modèle Data Factory
-Pour connaître les meilleures pratiques de paramétrage, consultez [Bonnes pratiques relatives à la création de modèles Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md#parameters). En général, l’utilisation des paramètres doit être minimale, surtout s’il est possible d’utiliser des variables à la place. Fournissez uniquement des paramètres dans les scénarios suivants :
+Pour connaître les meilleures pratiques de paramétrage, consultez [Bonnes pratiques relatives à la création de modèles Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). En général, l’utilisation des paramètres doit être minimale, surtout s’il est possible d’utiliser des variables à la place. Fournissez uniquement des paramètres dans les scénarios suivants :
 
 * Les paramètres varient selon l’environnement (exemple : développement, test et production)
 * les clés secrètes (notamment les mots de passe) ;

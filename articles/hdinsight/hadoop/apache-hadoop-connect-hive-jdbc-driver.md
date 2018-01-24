@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Hive via le pilote JDBC dans HDInsight
 
@@ -30,7 +30,7 @@ Découvrez comment utiliser le pilote JDBC dans une application Java pour soumet
 
 Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Un cluster Hadoop sur HDInsight. Les clusters basés tant sur Linux que sur Windows fonctionnent.
 
@@ -69,7 +69,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
     * En ce qui concerne le cluster **HDInsight basé sur Linux** version 3.5 ou 3.6, suivez ces étapes pour télécharger les fichiers jar nécessaires.
 
-        1. Créez un répertoire contenant les fichiers. Par exemple, `mkdir hivedriver`.
+        1. Créez un répertoire contenant les fichiers. Par exemple : `mkdir hivedriver`.
 
         2. À partir d’une ligne de commande, utilisez les commandes suivantes pour copier les fichiers à partir du cluster HDInsight :
 
@@ -168,7 +168,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
 Vous trouverez un exemple d’utilisation d’un client Java pour interroger Hive sur HDInsight à l’adresse suivante : [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Suivez les instructions indiquées dans le référentiel pour générer et exécuter l’exemple.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Une erreur inattendue s'est produite lors de l'ouverture d'une connexion SQL
 
@@ -192,11 +192,12 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 3. Redémarrez SQuirreL. L'erreur ne devrait plus apparaître lors de la connexion à Hive sur HDInsight.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez vu comment utiliser JDBC avec Hive, utilisez les liens suivants pour découvrir d’autres façons d’utiliser Azure HDInsight.
 
 * [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Connecter Excel à HDInsight avec le pilote ODBC Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](apache-hadoop-connect-excel-power-query.md).

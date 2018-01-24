@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Présentation d’Azure Event Grid
 
@@ -20,9 +20,18 @@ Azure Event Grid vous permet de créer facilement des applications avec les arch
 
 Vous pouvez utiliser des filtres pour acheminer des événements spécifiques à différents points de terminaison, multidiffuser vers des points de terminaison multiples et vous assurez que vos événements sont correctement livré. Event Grid dispose également d’une prise en charge intégrée pour des événements personnalisés et tiers.
 
-Dans sa version préliminaire, Event Grid prend en charge les emplacements **westus2** et **westcentralus**. D’autres régions seront ajoutées.
+Actuellement, Event Grid prend en charge les régions suivantes :
 
-Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).
+* Centre des États-Unis
+*   Est des États-Unis
+*   Est des États-Unis 2
+*   Centre-Ouest des États-Unis
+*   États-Unis de l’Ouest
+*   Ouest des États-Unis 2
+
+D’autres régions seront ajoutées.
+
+Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md). L’image suivante montre comment Event Grid connecte les éditeurs et les gestionnaires, mais elle ne fournit pas la liste complète des options prises en charge.
 
 ![Modèle de grille d’événement fonctionnel](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarr
 
 Actuellement, les services Azure suivants ont une prise en charge de l’éditeur intégré pour Event Grid :
 
-* Groupes de ressources (opérations de gestion)
 * Abonnements Azure (opérations de gestion)
-* Event Hubs
-* Storage Blob
 * Rubriques personnalisées
+* Event Hubs
+* Groupes de ressources (opérations de gestion)
+* Storage Blob
 
 D’autres services Azure seront ajoutés cette année.
 
@@ -42,11 +51,12 @@ D’autres services Azure seront ajoutés cette année.
 
 Actuellement, les services Azure suivants ont une prise en charge du gestionnaire intégré pour Event Grid : 
 
-* Azure Functions
-* Logic Apps
 * Azure Automation
-* WebHooks
+* Azure Functions
+* Event Hubs
+* Logic Apps
 * Microsoft Flow
+* WebHooks
 
 D’autres services Azure seront ajoutés cette année.
 
@@ -105,7 +115,7 @@ Azure Event Grid utilise un modèle de tarification de paie par événement, afi
 
 Event Grid coûte 0,60 $ par million d’opérations (0,30 $ pendant l’aperçu) et les premières 100 000 opérations par mois sont gratuites. Les opérations sont définies comme entrée d’événement, correspondance avancée, tentative de livraison et appels de gestion.  Pour plus de détails, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/event-grid/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Router les événements d’objet blob de stockage](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Répondez aux événements d’objet blob de stockage à l’aide d’Event Grid.

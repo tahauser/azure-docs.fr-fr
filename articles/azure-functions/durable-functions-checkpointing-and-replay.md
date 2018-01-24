@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Points de contrôle et réexécution dans Fonctions durables (Azure Functions)
 
@@ -63,7 +63,7 @@ Une fois le point de contrôle terminé, la fonction d’orchestrateur peut êtr
 
 À la fin, l’historique de la fonction mentionnée précédemment ressemble à ce qui suit dans Stockage Table Azure (présentation abrégée à des fins d’illustration) :
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrée | Nom             | Résultat                                                    | État | 
+| PartitionKey (InstanceId)                     | Type d’événement             | Timestamp               | Entrée | NOM             | Résultat                                                    | Statut | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
@@ -90,7 +90,7 @@ Quelques remarques sur les valeurs de colonne :
     * **TaskScheduled** : une fonction d’activité a été planifiée. Le nom de la fonction d’activité est indiqué dans la colonne `Name`.
     * **TaskCompleted** : une fonction d’activité s’est terminée. Le résultat de la fonction se trouve dans la colonne `Result`.
     * **TimerCreated** : un minuteur durable a été créé. La colonne `FireAt` contient l’heure UTC planifiée à laquelle le minuteur expire.
-    * **TimerFired** : un minuteur durable a expiré.
+    * **TimerFired** : un minuteur durable s’est déclenché.
     * **EventRaised** : un événement externe a été envoyé à l’instance d’orchestration. La colonne `Name` indique le nom de l’événement et la colonne `Input` indique la charge utile de l’événement.
     * **OrchestratorCompleted** : la fonction d’orchestrateur a attendu.
     * **ContinueAsNew** : la fonction d’orchestrateur s’est terminée et a redémarré avec un nouvel état. La colonne `Result` contient la valeur, qui est utilisée comme entrée dans l’instance redémarrée.
@@ -98,7 +98,7 @@ Quelques remarques sur les valeurs de colonne :
 * **Timestamp** : horodatage UTC de l’événement d’historique.
 * **Name** : nom de la fonction qui a été appelée.
 * **Input** : entrée au format JSON de la fonction.
-* **Output** : sortie de la fonction ; autrement dit, sa valeur renvoyée.
+* **Result** : sortie de la fonction ; autrement dit, sa valeur renvoyée.
 
 > [!WARNING]
 > Même si cette table est utile en tant qu’outil de débogage, vous ne devez pas en dépendre. Elle peut changer à mesure que l’extension Fonctions durables évolue.
@@ -141,7 +141,7 @@ Le comportement d’exécution décrit ici devrait vous aider à mieux comprendr
 
 Pour plus d’informations sur la façon dont Durable Task Framework exécute les fonctions d’orchestrateur, consultez le [code source des tâches durables sur GitHub](https://github.com/Azure/durabletask). Consultez en particulier [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) et [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la gestion des instances](durable-functions-instance-management.md)

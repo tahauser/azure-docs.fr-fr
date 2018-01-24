@@ -4,7 +4,7 @@ description: "Créez et déployez une application hautement disponible sur des m
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/08/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Linux
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire ou trafic réseau). Ce didacticiel explique comment déployer un groupe de machines virtuelles identiques dans Azure. Vous allez apprendre à effectuer les actions suivantes :
@@ -35,14 +35,14 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.22 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="scale-set-overview"></a>Vue d’ensemble des groupes identiques
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Les machines virtuelles d’un groupe identique sont réparties entre les domaines d’erreur logique et de mise à jour, dans un ou plusieurs *groupes de placement*. Ces groupes contiennent des machines virtuelles configurées de manière similaire, semblables à des [groupes à haute disponibilité](tutorial-availability-sets.md).
 
-Les machines virtuelles sont créées en fonction des besoins dans un groupe identique. En définissant des règles de mise à l’échelle automatique, vous pouvez contrôler quand et comment les machines virtuelles sont ajoutées ou supprimées au niveau du groupe identique. Ces règles peuvent se déclencher en fonction de mesures telles que la charge du processeur, l’utilisation de la mémoire ou le trafic réseau.
+Les machines virtuelles sont créées en fonction des besoins dans un groupe identique. En définissant des règles de mise à l’échelle automatique, vous pouvez contrôler quand et comment les machines virtuelles sont ajoutées ou supprimées au niveau du groupe identique. Ces règles peuvent être déclenchées en fonction de métriques telles que la charge du processeur, l’utilisation de la mémoire ou le trafic réseau.
 
-Les groupes identiques peuvent prendre en charge jusqu’à 1 000 machines virtuelles quand vous utilisez une image de plateforme Azure. Pour les charges de travail qui s’accompagnent de contraintes importantes en matière d’installation ou de personnalisation de machines virtuelles, vous pouvez [créer une image de machine virtuelle personnalisée](tutorial-custom-images.md). Vous pouvez créer un maximum de 300 machines virtuelles dans un groupe identique lorsque vous utilisez une image personnalisée.
+Les groupes identiques prennent en charge jusqu’à 1 000 machines virtuelles lorsque vous utilisez une image de plateforme Azure. Pour les charges de travail qui s’accompagnent de contraintes importantes en matière d’installation ou de personnalisation de machines virtuelles, vous pouvez [créer une image de machine virtuelle personnalisée](tutorial-custom-images.md). Vous pouvez créer un maximum de 300 machines virtuelles dans un groupe identique lorsque vous utilisez une image personnalisée.
 
 
 ## <a name="create-an-app-to-scale"></a>Créer une application à mettre à l’échelle
@@ -187,13 +187,13 @@ az vmss show \
     --output table
 ```
 
-Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#scale). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *5* :
+Vous pouvez ensuite augmenter ou diminuer manuellement le nombre de machines virtuelles dans le groupe identique avec [az vmss scale](/cli/azure/vmss#scale). L’exemple suivant fixe le nombre de machines virtuelles présentes dans votre groupe identique à *3* :
 
 ```azurecli-interactive 
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
-    --new-capacity 5
+    --new-capacity 3
 ```
 
 
@@ -322,7 +322,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]

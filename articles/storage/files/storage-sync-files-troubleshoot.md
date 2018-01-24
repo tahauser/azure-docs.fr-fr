@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -42,6 +42,9 @@ Examinez le fichier installer.log pour déterminer la cause de l’échec de l�
 
 > [!Note]  
 > L’installation de l’agent échoue si votre machine est configurée pour utiliser le service Microsoft Update et que celui-ci n’est pas en cours d’exécution.
+
+<a id="agent-installation-websitename-failure"></a>**L’installation de l’agent échoue avec l’erreur : « L’Assistant Agent de synchronisation de stockage s’est terminé prématurément »**  
+Ce problème peut se produire si le nom par défaut du site web IIS est changé. Pour contourner ce problème, renommez le site web par défaut IIS en « Site web par défaut » et réessayez l’installation. Ce problème sera résolu dans une mise à jour ultérieure de l’agent. 
 
 <a id="server-registration-missing"></a>**Le serveur n’est pas listé sous Serveurs inscrits sur le Portail Azure**  
 Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de synchronisation de stockage :
@@ -102,10 +105,11 @@ Pour déterminer si votre rôle de compte d’utilisateur a les autorisations n�
     * **Attribution de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
     * **Définition de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**La suppression du point de terminaison cloud échoue, avec cette erreur : « MgmtInternalError »**  
-Ce problème peut se produire si le compte de stockage ou le partage de fichiers Azure est supprimé avant le point de terminaison cloud. Ce problème sera résolu dans une mise à jour ultérieure. Vous pourrez alors supprimer un point de terminaison cloud après avoir supprimé le compte de stockage ou le partage de fichiers Azure.
+<a id="server-endpoint-createjobfailed"></a>**La création du point de terminaison de serveur a échoué avec l’erreur : « MgmtServerJobFailed » (code d’erreur :-2134375898)**                                                                                                                           
+Ce problème se produit si le chemin du point de terminaison de serveur se trouve sur le volume système et que la hiérarchisation cloud est activée. La hiérarchisation cloud n’est pas prise en charge sur le volume système. Pour créer un point de terminaison de serveur sur le volume système, désactivez la hiérarchisation cloud quand vous créez le point de terminaison de serveur.
 
-Pour le moment, évitez ce problème en supprimant le point de terminaison cloud avant de supprimer le compte de stockage ou le partage de fichiers Azure.
+<a id="server-endpoint-deletejobexpired"></a>**La suppression du point de terminaison de serveur échoue avec cette erreur : « MgmtServerJobExpired »**                
+Ce problème se produit si le serveur est hors connexion ou n’a pas de connectivité réseau. Si le serveur n’est plus disponible, désinscrivez le serveur dans le portail pour supprimer les points de terminaison de serveur. Pour supprimer les points de terminaison de serveur, suivez les étapes décrites dans [Désinscrire un serveur dans Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Synchronisation
 <a id="afs-change-detection"></a>**Après avoir créé un fichier directement dans mon partage de fichiers Azure sur SMB ou par le biais du portail, combien de temps faut-il pour synchroniser le fichier sur les serveurs du groupe de synchronisation ?**  

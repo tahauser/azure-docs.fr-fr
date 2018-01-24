@@ -1,6 +1,6 @@
 ---
-title: "Configurer la stratégie d’autorisation de clé de contenu à l’aide du Kit de développement logiciel (SDK).NET Media Services | Microsoft Docs"
-description: "Apprenez à configurer une stratégie d’autorisation pour une clé de contenu avec le Kit de développement logiciel (SDK) .NET Media Services."
+title: "Configurer une stratégie d’autorisation de clé de contenu à l’aide du Kit SDK .NET Media Services | Microsoft Docs"
+description: "Apprenez à configurer une stratégie d’autorisation pour une clé de contenu à l’aide du Kit SDK .NET Media Services."
 services: media-services
 documentationcenter: 
 author: mingfeiy
@@ -14,47 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: e9a7aa64d434efcf44553d5d900601638a329a1d
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 39782bd687c9c1b50699c05e61e57d9c767a8d32
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Chiffrement dynamique : configurer la stratégie d’autorisation de clé de contenu
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Chiffrement dynamique : configurer la stratégie d’autorisation de clé de contenu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Vue d'ensemble
-Microsoft Azure Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP-Live-Streaming) protégés par AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits ou [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS vous permet également de diffuser des flux DASH chiffrés avec Widevine DRM. PlayReady et Widewine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC).
+## <a name="overview"></a>Vue d’ensemble
+ Vous pouvez utiliser Microsoft Azure Media Services pour fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits ou de la [gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Avec Media Services, vous pouvez également diffuser des flux DASH chiffrés avec Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC).
 
-Media Services fournit également un **service de remise de clés/de licences** à partir duquel les clients peuvent obtenir des clés AES ou des licences PlayReady/Widevine pour lire le contenu chiffré.
+Media Services fournit également un service de remise de clés/de licences à partir duquel les clients peuvent obtenir des clés AES ou des licences PlayReady/Widevine pour lire le contenu chiffré.
 
-Si vous souhaitez que Media Services chiffre une ressource, vous devez associer une clé de chiffrement (**CommonEncryption** ou **EnvelopeEncryption**) à la ressource (comme décrit [ici](media-services-dotnet-create-contentkey.md)) et configurer les stratégies d'autorisation pour la clé (comme décrit dans cet article).
+Si vous souhaitez que Media Services chiffre un élément multimédia, vous devez associer une clé de chiffrement (CommonEncryption ou EnvelopeEncryption) à l’élément multimédia. Pour plus d’informations, consultez [Création de ContentKeys avec .NET](media-services-dotnet-create-contentkey.md). Vous devez également configurer les stratégies d’autorisation pour la clé (décrites plus loin dans cet article).
 
 Lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou DRM. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
-Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : **ouverte** ou **à jeton**. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (**Simple Web Tokens**) et [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (**JSON Web Token**).
+Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation de clé de contenu peut disposer d’une ou de plusieurs restrictions d’autorisation. Les stratégies peuvent être ouvertes ou à restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service d’émission de jeton de sécurité (STS). Media Services prend en charge les jetons aux formats [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (Simple Web Token) et [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JSON Web Token).
 
-Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l’ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton (comme le décrit cet article). Le service de remise de clés Media Services retourne la clé de chiffrement au client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu.
+Media Services ne fournit pas de service STS. Vous pouvez créer un service STS personnalisé ou utiliser Azure Access Control Service pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton (comme le décrit cet article). Si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu, le service de remise de clés Media Services retourne la clé de chiffrement au client.
 
 Pour plus d’informations, consultez les articles suivants :
+
 - [Authentification par jeton JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Intégration d'une application Azure Media Services basée sur OWIN MVC avec Azure Active Directory et remise de clés de contenu basée sur les revendications JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+- [Intégration d'une application Azure Media Services basée sur OWIN MVC avec Azure Active Directory et remise de clés de contenu basée sur les revendications JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
-### <a name="some-considerations-apply"></a>Certaines considérations s’appliquent :
-* Une fois votre compte AMS créé, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, votre point de terminaison de streaming doit se trouver à l’état **En cours d’exécution**. 
+### <a name="some-considerations-apply"></a>Certaines considérations s’appliquent
+* Une fois votre compte Media Services créé, un point de terminaison de streaming par défaut est ajouté à votre compte à l’état « Arrêté ». Pour démarrer le streaming de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, votre point de terminaison de streaming doit se trouver à l’état « En cours d’exécution ». 
 * Votre ressource doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif. Pour plus d'informations, consultez [Encoder une ressource](media-services-encode-asset.md).
-* Téléchargez et codez vos ressources à l'aide de l'option **AssetCreationOptions.StorageEncrypted** .
-* Si vous prévoyez d’avoir plusieurs clés de contenu qui nécessitent la même configuration de stratégie, il est recommandé de créer une stratégie d’autorisation unique et de la réutiliser avec plusieurs clés de contenu.
-* Le service de remise de clé met en cache ContentKeyAuthorizationPolicy et ses objets connexes (options de stratégie et restrictions) pendant 15 minutes.  Si vous créez une ContentKeyAuthorizationPolicy et que vous spécifiez l’utilisation d’une restriction « Jeton », puis la testez avant de mettre à jour la stratégie de restriction vers « Ouverte », vous devrez attendre environ 15 minutes avant que la stratégie bascule vers la version « Ouverte ».
-* Si vous ajoutez ou mettez à jour la stratégie de remise de votre ressource, vous devez supprimer le localisateur existant (le cas échéant) et en créer un nouveau.
+* Chargez et codez vos ressources à l’aide de l’option AssetCreationOptions.StorageEncrypted.
+* Si vous prévoyez d’avoir plusieurs clés de contenu qui nécessitent la même configuration de stratégie, nous vous recommandons de créer une stratégie d’autorisation unique et de la réutiliser avec plusieurs clés de contenu.
+* Le service de remise de clé met en cache ContentKeyAuthorizationPolicy et ses objets connexes (options de stratégie et restrictions) pendant 15 minutes. Vous pouvez créer une stratégie ContentKeyAuthorizationPolicy et spécifier l’utilisation d’une restriction de jeton, la tester, puis mettre à jour la stratégie avec la restriction ouverte. Ce processus prend environ 15 minutes avant que la stratégie ne passe à la version ouverte de la stratégie.
+* Si vous ajoutez ou mettez à jour la stratégie de distribution de votre élément multimédia, vous devez supprimer tout localisateur existant et en créer un nouveau.
 * Actuellement, vous ne pouvez pas chiffrer les téléchargements progressifs.
-* Le point de terminaison de streaming AMS définit la valeur de l’en-tête « Access-Control-Allow-Origin » CORS dans la réponse préliminaire comme le caractère générique '\*'. Ceci fonctionne bien avec la plupart des lecteurs, y compris notre Azure Media Player, Roku et JW et d’autres. Cependant, certains lecteurs qui exploitent des dashjs ne fonctionnent pas, car, avec le mode des informations d’identification défini sur « inclure », XMLHttpRequest dans leurs dashjs n’autorise pas le caractère générique « \* » comme la valeur de “'Access-Control-Allow-Origin”. Comme solution de contournement de cette limitation dans les dashjs, si vous hébergez votre client depuis un domaine unique, Azure Media Services peut indiquer ce domaine dans l’en-tête de la réponse préliminaire. Vous pouvez y arriver en ouvrant un ticket de support via le portail Azure.
+* Un point de terminaison de streaming Media Services définit la valeur de l’en-tête Access-Control-Allow-Origin CORS dans la réponse préliminaire comme le caractère générique « \* ». Cela fonctionne bien avec la plupart des lecteurs, notamment Azure Media Player, Roku et JWPlayer. Cependant, certains lecteurs qui utilisent dashjs ne fonctionnent pas, car avec le mode des informations d’identification défini sur « inclure », XMLHttpRequest dans leur dashjs n’autorise pas le caractère générique « \* » comme valeur de Access-Control-Allow-Origin. Comme solution de contournement de cette limitation dans dashjs, si vous hébergez votre client à partir d’un domaine unique, Media Services peut indiquer ce domaine dans l’en-tête de la réponse préliminaire. Pour obtenir une assistance, ouvrez un ticket de support par le biais du portail Azure.
 
-## <a name="aes-128-dynamic-encryption"></a>Chiffrement dynamique AES-128.
+## <a name="aes-128-dynamic-encryption"></a>Chiffrement dynamique AES-128
 ### <a name="open-restriction"></a>Restriction ouverte
-La restriction ouverte signifie que le système fournira la clé à toute personne effectuant une demande de clé. Cette restriction peut être utile à des fins de test.
+La restriction ouverte signifie que le système fournit la clé à toute personne effectuant une demande de clé. Cette restriction peut être utile à des fins de test.
 
-L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu.
+L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu :
 
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
@@ -93,8 +94,8 @@ L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute 
     }
 
 
-### <a name="token-restriction"></a>Restriction par jeton
-Cette section décrit comment créer une stratégie d’autorisation de clé de contenu et l’associer à la clé de contenu. La stratégie d’autorisation décrit les conditions d’autorisation devant être remplies pour déterminer si l’utilisateur est autorisé à recevoir la clé (par exemple, la liste « clé de vérification » contient-elle la clé qui a servi à signer le jeton).
+### <a name="token-restriction"></a>Restriction à jeton
+Cette section décrit comment créer une stratégie d’autorisation de clé de contenu et l’associer à la clé de contenu. La stratégie d’autorisation décrit les conditions d’autorisation devant être remplies pour déterminer si l’utilisateur est autorisé à recevoir la clé. Par exemple, la liste des clés de vérification contient-elle la clé avec laquelle le jeton a été signé ?
 
 Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML suivant :
 
@@ -146,10 +147,10 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Lorsque vous configurez la stratégie de restriction par **jeton**, vous devez définir les paramètres de **clé de vérification**, **émetteur** et **audience** principaux. La **clé de vérification** principale contient la clé utilisée pour signer le jeton, **l’émetteur** est le service de jeton sécurisé qui émet le jeton. Le **public** (parfois appelé **l’étendue**) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
+Quand vous configurez la stratégie de restriction par jeton, vous devez définir les paramètres de clé de vérification, émetteur et audience principaux. La clé de vérification principale contient le jeton avec lequel la clé a été signée. L’émetteur est le service STS qui émet le jeton. Le public (parfois appelé l’étendue) décrit l’objectif du jeton ou la ressource à laquelle le jeton autorise l’accès. Le service de remise de clé Media Services valide le fait que les valeurs du jeton correspondent aux valeurs du modèle.
 
-Quand vous utilisez le **Kit de développement logiciel (SDK) Media Services pour .NET**, vous pouvez utiliser la classe **TokenRestrictionTemplate** pour générer le jeton de restriction.
-L’exemple suivant crée une stratégie d’autorisation avec une restriction par jeton. Dans cet exemple, le client devra présenter un jeton contenant : une clé de signature (VerificationKey), un émetteur de jeton et les revendications requises.
+Quand vous utilisez le Kit SDK Media Services pour .NET, vous pouvez utiliser la classe TokenRestrictionTemplate pour générer le jeton de restriction.
+L’exemple suivant crée une stratégie d’autorisation avec une restriction par jeton. Dans cet exemple, le client doit présenter un jeton contenant une clé de signature (VerificationKey), un émetteur de jeton et les revendications requises.
 
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
@@ -206,7 +207,7 @@ L’exemple suivant crée une stratégie d’autorisation avec une restriction p
     }
 
 #### <a name="test-token"></a>Jeton de test
-Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d’autorisation de clé, procédez comme suit.
+Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d’autorisation de clé, procédez comme suit :
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
@@ -226,16 +227,16 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 
 
 ## <a name="playready-dynamic-encryption"></a>Chiffrement dynamique PlayReady
-Media Services vous permet de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent lorsqu’un utilisateur tente de lire un contenu protégé. 
+Media Services vous permet de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent quand un utilisateur tente de lire un contenu protégé. 
 
-Quand vous protégez votre contenu avec PlayReady, vous devez spécifier dans votre stratégie d'autorisation une chaîne XML qui définisse le [modèle de licence PlayReady](media-services-playready-license-template-overview.md). Dans le kit de développement logiciel (SDK) Media Services pour .NET, les classes **PlayReadyLicenseResponseTemplate** et **PlayReadyLicenseTemplate** vous aident à définir le modèle de licence PlayReady.
+Quand vous protégez votre contenu avec PlayReady, vous devez spécifier dans votre stratégie d’autorisation une chaîne XML qui définit le [modèle de licence PlayReady](media-services-playready-license-template-overview.md). Dans le Kit SDK Media Services pour .NET, les classes PlayReadyLicenseResponseTemplate et PlayReadyLicenseTemplate vous aident à définir le modèle de licence PlayReady.
 
-[Cet article](media-services-protect-with-playready-widevine.md) montre comment chiffrer votre contenu avec **PlayReady** et **Widevine**.
+Pour savoir comment chiffrer votre contenu avec PlayReady et Widevine, consultez [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-playready-widevine.md).
 
 ### <a name="open-restriction"></a>Restriction ouverte
 La restriction ouverte signifie que le système fournit la clé à toute personne effectuant une demande de clé. Cette restriction peut être utile à des fins de test.
 
-L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu.
+L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute à la clé de contenu :
 
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
@@ -274,8 +275,8 @@ L’exemple suivant crée une stratégie d’autorisation ouverte et l’ajoute 
         contentKey = contentKey.UpdateAsync().Result;
     }
 
-### <a name="token-restriction"></a>Restriction par jeton
-Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML présenté dans [cette](#schema) section.
+### <a name="token-restriction"></a>Restriction à jeton
+Pour configurer l’option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d’autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML présenté dans la section [Schéma de restriction par jeton](#token-restriction-schema).
 
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
@@ -362,7 +363,7 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
 
 
         // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
-        // It grants the user the ability to playback the content subject to the zero or more restrictions 
+        // It grants the user the ability to play back the content subject to the zero or more restrictions 
         // configured in the license and on the PlayRight itself (for playback specific policy). 
         // Much of the policy on the PlayRight has to do with output restrictions 
         // which control the types of outputs that the content can be played over and 
@@ -384,7 +385,7 @@ Pour configurer l’option de restriction par jeton, vous devez utiliser un docu
     }
 
 
-Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d'autorisation de clé, consultez [cette](#test) section. 
+Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d'autorisation de clé, consultez la section [Jeton de test](#test-token). 
 
 ## <a id="types"></a>Types utilisés durant la définition de ContentKeyAuthorizationPolicy
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
@@ -418,6 +419,6 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
-La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment configurer une stratégie de remise d’éléments](media-services-dotnet-configure-asset-delivery-policy.md).
+## <a name="next-steps"></a>étapes suivantes
+La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Configurer une stratégie de remise d’éléments](media-services-dotnet-configure-asset-delivery-policy.md).
 

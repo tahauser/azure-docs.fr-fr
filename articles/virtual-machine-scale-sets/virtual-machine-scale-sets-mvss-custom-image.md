@@ -4,7 +4,7 @@ description: "Découvrez comment ajouter une image personnalisée à un modèle 
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Ajout d’une image personnalisée à un modèle de groupe identique Azure
 
@@ -27,13 +27,13 @@ Cet article montre comment modifier le [modèle de groupe identique viable minim
 
 ## <a name="change-the-template-definition"></a>Modifier la définition du modèle
 
-Notre modèle de groupe identique viable minimal peut être consulté [ici](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) et notre modèle de déploiement de groupe identique à partir d’une image personnalisée peut être consulté [ici](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Examinons le différentiel utilisé pour créer ce modèle (`git diff minimum-viable-scale-set custom-image`), élément par élément :
+Le modèle de groupe identique viable minimal peut être consulté [ici](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) et le modèle de déploiement de groupe identique à partir d’une image personnalisée est disponible [ici](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Examinons le différentiel utilisé pour créer ce modèle (`git diff minimum-viable-scale-set custom-image`), élément par élément :
 
 ### <a name="creating-a-managed-disk-image"></a>Création d’une image de disque géré
 
 Si vous disposez déjà d’une image disque gérée personnalisée (une ressource de type `Microsoft.Compute/images`), vous pouvez ignorer cette section.
 
-Tout d’abord, nous ajoutons un paramètre `sourceImageVhdUri`, qui est l’URI vers l’objet blob généralisé dans le stockage Azure qui contient l’image personnalisée à partir de laquelle le déploiement est effectué.
+Tout d’abord, ajoutez un paramètre `sourceImageVhdUri`, qui est l’URI vers l’objet blob généralisé dans le stockage Azure qui contient l’image personnalisée à partir de laquelle le déploiement est effectué.
 
 
 ```diff
@@ -51,7 +51,7 @@ Tout d’abord, nous ajoutons un paramètre `sourceImageVhdUri`, qui est l’URI
    "variables": {},
 ```
 
-Ensuite, nous ajoutons une ressource de type `Microsoft.Compute/images`, qui est l’image de disque géré basée sur le blob généralisé situé à l’URI `sourceImageVhdUri`. Cette image doit se trouver dans la même région que le groupe identique qui l’utilise. Dans les propriétés de l’image, nous spécifions le type de système d’exploitation, l’emplacement de l’objet blob (à partir du paramètre `sourceImageVhdUri`) et le type de compte de stockage :
+Ensuite, ajoutez une ressource de type `Microsoft.Compute/images`, qui est l’image de disque managé basée sur le blob généralisé situé à l’URI `sourceImageVhdUri`. Cette image doit se trouver dans la même région que le groupe identique qui l’utilise. Dans les propriétés de l’image, spécifiez le type de système d’exploitation, l’emplacement de l’objet blob (à partir du paramètre `sourceImageVhdUri`) et le type de compte de stockage :
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ Ensuite, nous ajoutons une ressource de type `Microsoft.Compute/images`, qui est
 
 ```
 
-Dans la ressource groupe identique, nous ajoutons une clause `dependsOn` faisant référence à l’image personnalisée pour nous assurer que l’image est créée avant que le groupe identique tente de se déployer à partir de cette image :
+Dans la ressource groupe identique, ajoutez une clause `dependsOn` faisant référence à l’image personnalisée pour nous assurer que l’image est créée avant que le groupe identique tente de se déployer à partir de cette image :
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ Dans la ressource groupe identique, nous ajoutons une clause `dependsOn` faisant
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Modification des propriétés du groupe identique pour utiliser l’image de disque géré
 
-Dans la `imageReference` du groupe identique `storageProfile`, au lieu de spécifier l’éditeur, l’offre, la référence (SKU) et la version d’une image de plateforme, nous spécifions la valeur `id` de la ressource `Microsoft.Compute/images` :
+Dans la `imageReference` du groupe identique `storageProfile`, au lieu de spécifier l’éditeur, l’offre, la référence (SKU) et la version d’une image de plateforme, spécifiez la valeur `id` de la ressource `Microsoft.Compute/images` :
 
 ```diff
          "virtualMachineProfile": {
@@ -111,7 +111,7 @@ Dans la `imageReference` du groupe identique `storageProfile`, au lieu de spéci
            "osProfile": {
 ```
 
-Dans cet exemple, nous utilisons la fonction `resourceId` pour obtenir l’ID de ressource de l’image créée dans le même modèle. Si vous avez créé l’image de disque géré au préalable, vous devez fournir l’ID de cette image à la place. Cet ID doit être au format : `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+Dans cet exemple, utilisez la fonction `resourceId` pour obtenir l’ID de ressource de l’image créée dans le même modèle. Si vous avez créé l’image de disque managé au préalable, vous devez fournir l’ID de cette image à la place. Cet ID doit être au format : `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

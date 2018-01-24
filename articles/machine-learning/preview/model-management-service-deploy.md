@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/03/2018
+ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Déploiement d’un modèle d’apprentissage automatique comme service web
 
@@ -43,6 +43,7 @@ import pickle
 from sklearn import datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
+clf = linear_model.LogisticRegression()
 clf.fit(X, y)  
 saved_model = pickle.dumps(clf)
 ```
@@ -86,9 +87,9 @@ Le fichier doit inclure deux fonctions : init et run.
 
 Ajoutez le code suivant dans la partie supérieure du fichier score.py pour activer la fonctionnalité de collecte de données et ainsi permettre la collecte de l’entrée du modèle et des données de prédiction :
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Pour plus d’informations sur l’utilisation de cette fonctionnalité, consultez la section [Collecte de données de modèle](how-to-use-model-data-collection.md).
 
@@ -185,5 +186,5 @@ L’exemple suivant appelle un exemple de service web Iris :
 az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\": 3.0, \"sepal width\": 3.6, \"petal width\": 1.3, \"petal length\":0.25}]}"
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez testé votre service web pour une exécution locale, vous pouvez le déployer sur un cluster pour une utilisation à grande échelle. Pour plus d’informations sur la configuration d’un cluster en vue du déploiement d’un service web, consultez [Configuration de la gestion des modèles](deployment-setup-configuration.md). 

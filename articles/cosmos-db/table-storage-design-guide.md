@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de table Azure Storage : conception de tables évolutives et performantes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -204,12 +204,12 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 
 | *Nom de la colonne* | *Type de données* |
 | --- | --- |
-| **PartitionKey** (nom du service) |String |
-| **RowKey** (ID d’employé) |String |
-| **FirstName** |String |
-| **LastName** |String |
-| **Age** |Integer |
-| **EmailAddress** |String |
+| **PartitionKey** (nom du service) |Chaîne |
+| **RowKey** (ID d’employé) |Chaîne |
+| **FirstName** |Chaîne |
+| **LastName** |Chaîne |
+| **Age** |Entier  |
+| **EmailAddress** |Chaîne |
 
 La section précédente [Présentation du service de Table Azure](#overview) décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. Notez que la syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -251,7 +251,7 @@ Le service de Table indexe automatiquement vos entités en utilisant les valeurs
 De nombreuses conceptions doivent répondre aux conditions requises pour permettre la recherche d'entités basée sur plusieurs critères. Par exemple, la localisation des entités relatives aux employés (employee) en fonction de leurs adresses de messagerie électronique, de leur ID employé ou de leur nom. Les modèles suivants de la section [Modèles de conception de table](#table-design-patterns) répondent à ces types de besoin et décrivent les différentes manières de contourner le fait que le service de Table ne fournit pas d’index secondaire :  
 
 * [Modèle d’index secondaire intra-partition](#intra-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**.  
-* [Modèle d’index secondaire entre les partitions](#inter-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité à l’aide de différentes valeurs de RowKey dans des partitions ou des tables distinctes pour mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey** .  
+* [Modèle d’index secondaire entre les partitions](#inter-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité à l’aide de différentes valeurs de **RowKey** dans des partitions ou des tables distinctes pour mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**.  
 * [Modèle d’entités d’index](#index-entities-pattern) : mettez à jour des entités d’index pour mener des recherches efficaces renvoyant des listes d’entités.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Tri des données dans le service de Table
@@ -651,7 +651,7 @@ Dans une base de données relationnelle, vous normalisez généralement des donn
 ![][16]
 
 #### <a name="solution"></a>Solution
-Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :  
+Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :   
 
 ![][17]
 
@@ -1209,7 +1209,7 @@ Notez que chaque entité doit toujours avoir les valeurs **PartitionKey**, **Row
 <td>
 <table>
 <tr>
-<th>EventType</th>
+<th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>
@@ -1253,7 +1253,7 @@ Notez que chaque entité doit toujours avoir les valeurs **PartitionKey**, **Row
 <td>
 <table>
 <tr>
-<th>EventType</th>
+<th>EntityType</th>
 <th>DepartmentName</th>
 <th>EmployeeCount</th>
 </tr>
@@ -1272,7 +1272,7 @@ Notez que chaque entité doit toujours avoir les valeurs **PartitionKey**, **Row
 <td>
 <table>
 <tr>
-<th>EventType</th>
+<th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
 <th>Age</th>

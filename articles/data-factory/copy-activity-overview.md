@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-data-movement-activities.md)
-> * [Version 2 - Préversion](copy-activity-overview.md)
+> * [Version 2 - Préversion](copy-activity-overview.md)
 
 Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des banques de données locales et dans cloud. Une fois les données copiées, elles peuvent être transformées et analysées plus avant. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
@@ -130,25 +130,25 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 ### <a name="syntax-details"></a>Détails de la syntaxe
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type d’une activité de copie doit être définie sur **Copy** | Oui |
-| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | Oui |
-| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | Oui |
-| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | Oui |
-| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
-| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
-| translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. S’applique lorsque le comportement de copie par défaut ne peut pas répondre à vos besoins.<br/><br/>Découvrez plus de détails sur le [Mappage de schéma et de type de données](copy-activity-schema-and-type-mapping.md). | Non |
-| cloudDataMovementUnits | Spécifiez la puissance du [runtime d’intégration Azure](concepts-integration-runtime.md) pour dynamiser la copie des données.<br/><br/>Découvrez plus de détails sur les [Unités de déplacement de données cloud](copy-activity-performance.md). | Non |
-| parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données sur le récepteur.<br/><br/>Découvrez plus de détails sur la [Copie parallèle](copy-activity-performance.md#parallel-copy). | Non |
-| enableStaging<br/>stagingSettings | Choisissez cette option pour placer les données dans un stockage blob intermédiaire au lieu de les copier des données directement de la source au récepteur.<br/><br/>Découvrez les scénarios et des détails de configuration utiles d’une [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choisissez comment gérer les lignes incompatibles lors de la copie de données de la source vers le récepteur.<br/><br/>Découvrez plus de détails sur la [Tolérance de panne](copy-activity-fault-tolerance.md). | Non |
+| Type | La propriété type d’une activité de copie doit être définie sur **Copy** | OUI |
+| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
+| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | OUI |
+| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | OUI |
+| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
+| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
+| translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. S’applique lorsque le comportement de copie par défaut ne peut pas répondre à vos besoins.<br/><br/>Découvrez plus de détails sur le [Mappage de schéma et de type de données](copy-activity-schema-and-type-mapping.md). | Non  |
+| cloudDataMovementUnits | Spécifiez la puissance du [runtime d’intégration Azure](concepts-integration-runtime.md) pour dynamiser la copie des données.<br/><br/>Découvrez plus de détails sur les [Unités de déplacement de données cloud](copy-activity-performance.md). | Non  |
+| parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données sur le récepteur.<br/><br/>Découvrez plus de détails sur la [Copie parallèle](copy-activity-performance.md#parallel-copy). | Non  |
+| enableStaging<br/>stagingSettings | Choisissez cette option pour placer les données dans un stockage blob intermédiaire au lieu de les copier des données directement de la source au récepteur.<br/><br/>Découvrez les scénarios et des détails de configuration utiles d’une [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non  |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choisissez comment gérer les lignes incompatibles lors de la copie de données de la source vers le récepteur.<br/><br/>Découvrez plus de détails sur la [Tolérance de panne](copy-activity-fault-tolerance.md). | Non  |
 
 ## <a name="monitoring"></a>Surveillance
 
 Les détails de l’exécution de l’activité copie et les caractéristiques de performances sont retournés dans le résultat d’exécution de l’activité copie -> section Sortie. Voici une liste exhaustive. Découvrez comment surveiller l’exécution de l’activité dans la [section relative à la surveillance du démarrage rapide](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Vous pouvez comparer les performances et la configuration de votre scénario aux [performances de référence](copy-activity-performance.md#performance-reference) de l’activité de copie testée en interne.
 
-| Nom de la propriété  | Description | Unité |
+| Nom de la propriété  | DESCRIPTION | Unité |
 |:--- |:--- |:--- |
 | dataRead | Taille des données lues à partir de la source | Valeur Int64 en octets |
 | dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en octets |
@@ -156,9 +156,9 @@ Les détails de l’exécution de l’activité copie et les caractéristiques d
 | rowsSkipped | Nombre de lignes incompatibles ignorées. Vous pouvez activer la fonctionnalité en définissant « enableSkipIncompatibleRow » sur true. | Valeur Int64 (aucune unité) |
 | throughput | Taux de transfert des données | Nombre à virgule flottante exprimé en Ko/s |
 | copyDuration | Durée de la copie | Valeur Int32 en secondes |
-| sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Boolean |
-| redshiftUnload | Si UNLOAD est utilisé lors de la copie de données à partir de Redshift. | Boolean |
-| hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Boolean |
+| sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Booléen |
+| redshiftUnload | Si UNLOAD est utilisé lors de la copie de données à partir de Redshift. | Booléen |
+| hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Booléen |
 | effectiveIntegrationRuntime | Affichez la ou les infrastructures Integration Runtime permettant de dynamiser l’exécution d’activité au format « `<IR name> (<region if it's Azure IR>)` ». | Texte (chaîne) |
 | usedCloudDataMovementUnits | Unités de déplacement de données cloud effectives pendant la copie. | Valeur Int32 |
 | redirectRowPath | Chemin d’accès du journal des lignes incompatibles ignorées dans le stockage blob que vous configurez sous « redirectIncompatibleRowSettings ». Voir exemple ci-dessous. | Texte (chaîne) |
@@ -193,7 +193,13 @@ Par défaut, l’activité de copie arrête la copie de données et retourne une
 
 Consultez [Guide des performances et de l’optimisation de l’activité de copie](copy-activity-performance.md), qui décrit les facteurs clés affectant les performances du déplacement de données dans Azure Data Factory (activité de copie). Il répertorie également les performances observées lors des tests internes, et présente les différentes manières d’optimiser les performances de l’activité de copie.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="incremental-copy"></a>Copie incrémentielle 
+Data Factory version 2 prend en charge les scénarios de copie incrémentielle de données delta d’une banque de données source vers une banque de données de destination. Consultez [Didacticiel : Copier de façon incrémentielle des données](tutorial-incremental-copy-overview.md). 
+
+## <a name="read-and-write-partitioned-data"></a>Lire et écrire des données partitionnées
+Dans la version 1, Azure Data Factory prenait en charge la lecture et l’écriture de données partitionnées à l’aide des variables système SliceStart/SliceEnd/WindowStart/WindowEnd. Dans la version 2, ce comportement est obtenu à l’aide d’un paramètre de pipeline ayant comme valeur une heure de début ou une heure planifiée de déclencheur. Pour plus d’informations, consultez la page [Guide pratique pour lire ou écrire des données partitionnées](how-to-read-write-partitioned-data.md).
+
+## <a name="next-steps"></a>étapes suivantes
 Voir les procédures de démarrage rapide, didacticiels et exemples suivants :
 
 - [Copier des données d’un emplacement vers un autre dans le même Stockage Blob Azure](quickstart-create-data-factory-dot-net.md)

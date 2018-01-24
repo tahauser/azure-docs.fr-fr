@@ -4,7 +4,7 @@ description: "Découvrez les nouveautés d’Azure Active Directory (Azure AD), 
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
 
 
 
-> Restez informé des nouveautés d’Azure Active Directory en vous abonnant à ce [flux](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) dans votre lecteur de flux RSS favori.
+> Restez informé des nouveautés d’Azure Active Directory en vous abonnant à notre [![flux](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [RSS](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
@@ -41,6 +41,163 @@ Nous améliorons Azure Active Directory de manière continue. Pour vous permettr
 
 Consultez cette page régulièrement, car nous la mettons à jour chaque mois.
 
+
+## <a name="december-2017"></a>Décembre 2017
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>Conditions d’utilisation dans le volet d’accès pour les utilisateurs finaux
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** conditions d’utilisation  
+**Fonctionnalité de produit :** gouvernance/conformité
+ 
+Les utilisateurs finaux peuvent désormais accéder au volet d’accès et afficher les conditions d’utilisation qu’ils ont précédemment acceptées.
+
+Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont acceptées. Pour ce faire, procédez comme suit :
+
+1. Accédez au [portail MyApps](https://myapps.microsoft.com) et connectez-vous.
+
+2. Dans l’angle supérieur droit, cliquez sur votre nom, puis sélectionnez **Profil** dans la liste déroulante. 
+
+3. Dans votre profil, cliquez sur **Vérifier les conditions d’utilisation**. 
+
+4. C’est là que vous pouvez vérifier les conditions d’utilisation que vous avez acceptées. 
+
+Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory (préversion)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>Nouvelle expérience de connexion Azure AD
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Azure AD  
+**Fonctionnalité de produit :** authentification utilisateur
+ 
+Dans le cadre du processus de convergence des systèmes d’identité de compte Microsoft et Azure AD, nous avons repensé l’interface utilisateur des deux systèmes afin qu’elles aient une apparence cohérente. En outre, nous avons conçu la page de connexion Azure AD afin de recueillir le nom d’utilisateur en premier, suivi des informations d’identification dans un second écran.
+
+Pour plus d’informations, consultez [The new Azure AD Signin Experience is now in Public Preview (La nouvelle expérience de connexion Azure AD est désormais en préversion publique)](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/).
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>Moins d’invites de connexion : une nouvelle expérience « Maintenir la connexion » pour la connexion Azure AD
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Azure AD  
+**Fonctionnalité de produit :** authentification utilisateur
+ 
+Nous avons remplacé la case à cocher **Maintenir la connexion** dans la page de connexion Azure AD par une nouvelle invite qui s’affiche une fois que l’utilisateur s’est authentifié. 
+
+Si un utilisateur répond **Oui** à cette invite, le service lui donne un jeton d’actualisation permanent. Il s’agit du même comportement que quand l’utilisateur coche la case **Maintenir la connexion** dans l’ancienne expérience. Pour les locataires fédérés, cette invite s’affiche une fois que l’utilisateur s’est authentifié auprès du service fédéré.
+
+Pour plus d’informations, consultez [Fewer login prompts: The new “Keep me signed in” experience for Azure AD is in preview (Moins d’invites de connexion : la nouvelle expérience « Maintenir la connexion » pour Azure AD est en préversion)](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/). 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>Ajouter la configuration pour exiger le développement des conditions d’utilisation avant leur acceptation
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** conditions d’utilisation  
+**Fonctionnalité de produit :** gouvernance
+ 
+Nous avons ajouté une option permettant aux administrateurs d’exiger que les utilisateurs finaux développent les conditions d’utilisation avant de les accepter.
+
+Activez ou désactivez l’option Demander aux utilisateurs d’étendre les conditions d’utilisation. Si cette option est activée, les utilisateurs finaux sont priés d’afficher les conditions d’utilisation avant de les accepter.
+
+Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation d’Azure Active Directory (préversion)](active-directory-tou.md).
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>Activation délimitée des attributions de rôles éligibles
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Privileged Identity Management  
+**Fonctionnalité produit :** Privileged Identity Management
+ 
+L’activation délimitée vous permet d’activer des attributions de rôles de ressources Azure éligibles avec moins d’autonomie que les valeurs d’attribution par défaut d’origine. Par exemple, supposez que vous êtes affecté comme Propriétaire d’un abonnement dans votre locataire. Avec l’activation délimitée, vous pouvez activer Propriétaire pour cinq ressources contenues dans l’abonnement (groupes de ressources, machines virtuelles, et ainsi de suite). La délimitation de l’activation peut réduire le risque d’exécution de modifications indésirables des ressources Azure critiques.
+
+Pour plus d’informations, consultez [Qu’est-ce qu’Azure AD Privileged Identity Management ?](active-directory-privileged-identity-management-configure.md).
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Nouvelles applications fédérées dans la galerie d’applications Azure AD
+
+**Type :** nouvelle fonctionnalité  
+**Catégorie de service :** Applications d’entreprise  
+**Fonctionnalité produit :** intégration de tierce partie
+ 
+En décembre 2017, nous avons ajouté les nouvelles applications suivantes à notre galerie d’applications avec prise en charge de la fédération :
+
+|Nom|Type d’intégration|Description|
+|:-- |----------------|:----------|
+|EFI Digital StoreFront|SAML 2.0|[Application Web 2 Print](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Utiliser Azure AD pour gérer l’accès des utilisateurs et activer l’authentification unique avec Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522).  Nécessite un compte Vodeclic existant.|
+|Accredible|SAML 2.0|[Créer, gérer et remettre des certificats, des badges et des informations d’identification Blockchain](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Authentification unique auprès de l’application FDSWeb de FactSet](https://go.microsoft.com/fwlink/?linkid=863525)|
+|Intégration de MobileIron à Azure AD|SAML 2.0|L’objectif de [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) consiste à permettre aux entreprises modernes de sécuriser et de gérer les informations lors de leur déplacement vers des appareils mobiles et vers le cloud, tout en préservant la confidentialité et la confiance de l’utilisateur final.|
+|IMAGE WORKS|SAML 2.0|Utiliser Azure AD pour gérer l’accès des utilisateurs, provisionner les comptes d’utilisateur et activer l’authentification unique avec [IMAGE WORKS](https://go.microsoft.com/fwlink/?linkid=863517). Nécessite un abonnement IMAGE WORKS existant.|
+|SSO SAML pour Bitbucket de resolution GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) délègue l’authentification à Azure AD. Les utilisateurs déjà connectés à Azure AD peuvent accéder directement à Bitbucket. Les utilisateurs peuvent être créés et mis à jour à la volée avec des données provenant d’attributs SAML.|
+|SAML SSO pour Bamboo de resolution GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520) délègue l’authentification à Azure AD. Les utilisateurs déjà connectés à Azure AD peuvent accéder directement à Bamboo.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) est un logiciel intranet social moderne et complet qui prend en charge vos employés et votre entreprise.|
+|MOBI|SAML 2.0|[Centraliser, comprendre et contrôler tout votre écosystème d’appareils](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) est une plateforme moderne pour la gestion des performances, les commentaires en temps réel et la définition d’objectif. Elle permet aux employés de piloter leur propre développement, ce qui vous permet de vous concentrer sur vos objectifs stratégiques.|
+|CybSafe|OpenID Connect & OAuth|CybSafe est une plateforme de cyber-sensibilisation certifiée GCHQ. Elle utilise une technologie avancée et l’analytique des données pour réduire sensiblement l’aspect humain du risque de protection des données et de la sécurité informatique.|
+|WebHR|OpenID Connect & OAuth|Logiciel de ressources humaines tout-en-un leader sur le marché. Approuvé par plus de 20 000 entreprises dans 197 pays.|
+ |Intégration de Zenegy à Azure AD|OpenID Connect & OAuth|Avec cette application, vous pouvez utiliser les informations d’identification Azure Active Directory de votre société pour vous connecter à Zenegy.|
+|Adobe Experience Manager|SAML 2.0|Adobe Experience Manager (AEM) est une solution de plateforme de gestion de contenu complète pour la création de sites web, d’applications mobiles et de formulaires, qui simplifie la gestion de vos ressources et de votre contenu marketing.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Flux de travail d’approbation pour les rôles d’annuaire Azure AD
+
+**Type :** fonctionnalité modifiée  
+**Catégorie de service :** Privileged Identity Management  
+**Fonctionnalité produit :** Privileged Identity Management
+ 
+Les flux de travail d’approbation pour les rôles d’annuaire Azure AD sont généralement disponibles.
+
+Avec les flux de travail d’approbation, les administrateurs de rôles privilégiés peuvent exiger que les membres des rôles éligibles demandent l’activation du rôle avant de pouvoir utiliser le rôle privilégié.
+Les responsabilités d’approbation peuvent être déléguées à plusieurs utilisateurs et groupes. Les membres de rôles éligibles reçoivent des notifications une fois que l’approbation a été validée et que leur rôle est actif.
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>Authentification directe - Prise en charge de Skype Entreprise
+
+**Type :** fonctionnalité modifiée  
+**Catégorie de service :** authentifications (connexions)  
+**Fonctionnalité de produit :** authentification utilisateur
+
+
+L’authentification directe prend maintenant en charge les connexions utilisateur aux applications clientes Skype Entreprise qui prennent en charge l’authentification moderne, notamment les topologies Online et hybrides. 
+
+Pour plus d’informations, consultez [Topologies de Skype Entreprise prises en charge avec l’authentification moderne](https://technet.microsoft.com/library/mt803262.aspx).
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Mises à jour d’Azure Active Directory Privileged Identity Management (PIM) pour Azure RBAC (préversion)
+
+**Type :** fonctionnalité modifiée  
+**Catégorie de service :** PIM  
+**Fonctionnalité produit :** Privileged Identity Management
+ 
+Avec notre actualisation de la préversion publique d’Azure Active Directory Privileged Identity Management (PIM) pour Azure RBAC, vous pouvez désormais :
+
+Utiliser Just Enough Administration Exiger l’approbation pour activer des rôles de ressources Planifier une activation ultérieure d’un rôle qui nécessite l’approbation pour les rôles AAD et Azure RBAC
+
+ 
+Pour plus d’informations, consultez [PIM pour les ressources Azure (préversion)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
+
+ 
+---
+ 
 ## <a name="november-2017"></a>Novembre 2017
  
 ### <a name="retiring-acs"></a>Retrait d’ACS
@@ -513,6 +670,6 @@ Un package correctif cumulatif (build 4.4.1642.0) est disponible depuis le 25 se
 - Est une mise à jour cumulative qui remplace toutes les mises à jour de MIM 2016 SP1 jusqu’à la version 4.4.1459.0 pour Microsoft Identity Manager 2016. 
 - Requiert que vous disposiez de **Microsoft Identity Manager 2016 build 4.4.1302.0.** 
 
-Pour plus d’informations, consultez [Package correctif cumulatif (build 4.4.1642.0) disponible pour Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
+Pour plus d’informations, consultez [Package correctif cumulatif (build 4.4.1642.0) disponible pour Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/help/4021562). 
 
 ---

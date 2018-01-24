@@ -1,26 +1,26 @@
 ---
-title: "Bien démarrer avec Node.js dans Azure Active Directory | Microsoft Docs"
+title: "Bien démarrer avec l’API web Azure AD Node.js | Microsoft Docs"
 description: "Création d’une API web REST Node.js qui s’intègre à Azure AD pour l’authentification."
 services: active-directory
 documentationcenter: nodejs
 author: craigshoemaker
-manager: routlaw
+manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Sécuriser l’API web Node.js avec Azure Active Directory
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Bien démarrer avec l’API web Azure AD Node.js
 
 Cet article explique comment sécuriser un point de terminaison d’API [Restify](http://restify.com/) avec [Passport](http://passportjs.org/) à l’aide du module [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) pour gérer les communications avec Azure Active Directory (AAD). 
 
@@ -65,7 +65,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Les [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) de la commande `create` comprennent les éléments suivants :
 
-| Argument  | Description |
+| Argument  | DESCRIPTION |
 |---------|---------|
 |`display-name` | Le nom convivial de l’inscription |
 |`homepage` | L’URL à laquelle les utilisateurs peuvent se connecter et utiliser votre application |
@@ -73,7 +73,7 @@ Les [arguments](/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) de la 
 
 Avant de vous connecter à Azure Active Directory, vous avez besoin des informations suivantes :
 
-| Nom  | Description | Nom de la variable dans le fichier config |
+| NOM  | DESCRIPTION | Nom de la variable dans le fichier config |
 | ------------- | ------------- | ------------- |
 | Nom du locataire  | [Nom de locataire](active-directory-howto-tenant.md) que vous souhaitez utiliser pour l’authentification | `tenantName`  |
 | ID client  | « ID de client » est un terme OAuth qui correspond à _l’ID d’application_ AAD. |  `clientID`  |
@@ -234,7 +234,7 @@ Unauthorized
 ```
 Maintenant que vous avez créé une API sécurisée, vous pouvez implémenter un client capable de passer des jetons d’authentification à l’API.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Comme indiqué dans l’introduction, vous devez implémenter un homologue client pour vous connecter au serveur chargé de la connexion, de la déconnexion et de la gestion des jetons. Pour obtenir des exemples de code, vous pouvez vous référer aux applications clientes [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) et [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Pour obtenir un didacticiel pas à pas, reportez-vous à l’article suivant :
 
 > [!div class="nextstepaction"]

@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire (préversion)
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce didacticiel vous montre comment configurer la récupération d’urgence vers une région Azure secondaire pour des machines virtuelles Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment configurer la récupération d’urgence vers une région Azure secondaire pour des machines virtuelles Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un coffre Recovery Services
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence vers
 > * Configurer un accès sortant pour les machines virtuelles
 > * Activer la réplication pour une machine virtuelle
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -129,10 +129,10 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
 Site Recovery crée les paramètres par défaut et la stratégie de réplication pour la région cible. Vous pouvez changer les paramètres selon vos besoins.
 
-1. Cliquez sur **Paramètres** pour afficher les paramètres de la cible.
-2. Pour remplacer les paramètres de la cible par défaut, cliquez sur **Personnaliser**. 
+1. Cliquez sur **Paramètres** pour afficher les paramètres de cible et de réplication.
+2. Pour remplacer les paramètres de cible par défaut, cliquez sur **Personnaliser** en regard de **Groupe de ressources, réseau, stockage et groupes à haute disponibilité**.
 
-![Configurer les paramètres](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Configurer les paramètres](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Emplacement cible** : région cible utilisée pour la récupération d’urgence. Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery.
@@ -148,11 +148,23 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 
 - **Groupes à haute disponibilité cibles** : par défaut, Site Recovery crée un groupe à haute disponibilité dans la région cible avec le suffixe « asr ». Vous pouvez uniquement ajouter des groupes à haute disponibilité si les machines virtuelles font partie d’un ensemble de la région source.
 
+Pour remplacer les paramètres de stratégie de réplication par défaut, cliquez sur **Personnaliser** en regard de **Stratégie de réplication**.  
+
 - **Nom de la stratégie de réplication** : nom de la stratégie.
 
 - **Rétention des points de récupération** : par défaut, Site Recovery conserve les points de récupération pendant 24 heures. Vous pouvez configurer une valeur comprise entre 1 et 72 heures.
 
 - **Fréquence des instantanés de cohérence des applications** : par défaut, Site Recovery prend un instantané de cohérence des applications toutes les 4 heures. Vous pouvez configurer une valeur comprise entre 1 et 12 heures. Un instantané de cohérence des applications est un instantané à un point dans le temps des données d’application à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la prise des captures instantanées.
+
+- **Groupe de réplication** : si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnés ne font pas partie d’un groupe de réplication.
+
+  Cliquez sur **Personnaliser** en regard de **Stratégie de réplication**, puis sélectionnez **Oui** pour la cohérence multimachine virtuelle afin d’intégrer les machines virtuelles à un groupe de réplication. Vous pouvez créer un groupe de réplication ou utiliser un groupe de réplication existant. Sélectionnez les machines virtuelles faisant partie du groupe de réplication, puis cliquez sur **OK**.
+
+> [!IMPORTANT]
+  Toutes les machines d’un groupe de réplication ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent. L’activation de la cohérence multimachine virtuelle peut influer sur les performances de la charge de travail. Elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles.
+
+> [!IMPORTANT]
+  Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004. Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
 
 ### <a name="track-replication-status"></a>Suivre l’état de la réplication
 
@@ -162,7 +174,7 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 
 3. Dans **Paramètres** > **Éléments répliqués**, vous pouvez afficher l’état des machines virtuelles et la progression de la réplication initiale. Cliquez sur la machine virtuelle pour explorer ses paramètres.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez configuré la récupération d’urgence pour une machine virtuelle Azure. L’étape suivante consiste à tester votre configuration.
 

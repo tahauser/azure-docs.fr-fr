@@ -14,13 +14,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 5913c8ec1b62fc38161e553dc2364c793951e047
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Utiliser CLI pour surveiller et mettre à l’échelle une base de données SQL
 
@@ -36,6 +36,9 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
+> [!TIP]
+> Utilisez [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) pour obtenir la liste des opérations effectuées sur la base de données et [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) pour annuler une opération de mise à jour sur la base de données.
+
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Une fois l’exemple de script exécuté, la commande suivante permet de supprimer le groupe de ressources et toutes les ressources associées.
@@ -48,7 +51,7 @@ az group delete --name myResourceGroup
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Crée un serveur logique qui héberge une base de données. |
@@ -57,7 +60,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

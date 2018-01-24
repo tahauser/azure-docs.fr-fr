@@ -4,7 +4,7 @@ description: "Découvrez comment utiliser l’équilibreur de charge Azure pour 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eee852e703d25ccc4b13401c3e4ab46d09655da
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Équilibrage de la charge des machines virtuelles Windows dans Azure pour créer une application hautement disponible
 L’équilibrage de charge offre un niveau plus élevé de disponibilité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants de l’équilibreur de charge Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
@@ -32,7 +32,7 @@ L’équilibrage de charge offre un niveau plus élevé de disponibilité en ré
 > * Utilisez l’extension de script personnalisé pour créer un site de base IIS
 > * Créer des machines virtuelles et les attacher à un équilibrage de charge
 > * Afficher un équilibrage de charge en action
-> * Ajouter et supprimer des machines virtuelles d’un équilibrage de charge
+> * Ajouter et supprimer des machines virtuelles d’un équilibreur de charge
 
 Ce didacticiel requiert le module Azure PowerShell version 3.6 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -68,7 +68,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Créer un équilibrage de charge
-Créez une adresse IP frontale avec [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). L’exemple suivant crée une adresse IP frontale nommée *myFrontEndPool* : 
+Créez un pool IP frontal avec [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). L’exemple suivant crée un pool IP frontal nommé *myFrontEndPool* et joint l’adresse *myPublicIP* : 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -76,13 +76,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Créez un pool d’adresses principales avec [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). L’exemple suivant crée un pool d’adresses principales nommé *myBackEndPool* :
+Créez un pool d’adresses principales avec [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Les machines virtuelles s’attachent à ce pool principal lors des étapes suivantes. L’exemple suivant crée un pool d’adresses principales nommé *myBackEndPool* :
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Maintenant, créez l’équilibreur de charge avec [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). L’exemple suivant créer un équilibrage de charge nommé *myLoadBalancer* avec l’adresse *myPublicIP* :
+Maintenant, créez l’équilibreur de charge avec [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* à l’aide du pool IP frontal et du pool IP principal créés lors des étapes précédentes :
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -98,7 +98,7 @@ Pour permettre à l’équilibrage de charge de surveiller l’état de votre ap
 
 L’exemple suivant permet de créer une sonde TCP. Vous pouvez également créer des sondes HTTP personnalisées pour des contrôles d’intégrité plus affinés. Lorsque vous utilisez une sonde HTTP personnalisée, vous devez créer la page de contrôle d’intégrité, par exemple *healthcheck.aspx*. La sonde doit retourner une réponse **HTTP 200 OK** pour l’équilibreur de charge pour assurer la rotation de l’hôte.
 
-Pour créer une sonde d’intégrité TCP, utilisez [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). L’exemple suivant crée une sonde d’intégrité nommée *myHealthProbe* qui surveille chaque machine virtuelle :
+Pour créer une sonde d’intégrité TCP, utilisez [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). L’exemple suivant crée une sonde d’intégrité nommée *myHealthProbe* qui surveille chaque machine virtuelle sur le port *TCP* *80* :
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
@@ -110,7 +110,7 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Mettez à jour l’équilibreur de charge avec [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) :
+Pour appliquer la sonde d’intégrité, mettez à jour l’équilibreur de charge avec [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) :
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -119,7 +119,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 Une règle d’équilibrage de charge est utilisée pour définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP frontale pour le trafic entrant et le pool d’adresses IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Pour veiller à ce que seules les machines virtuelles saines reçoivent le trafic, vous devez également définir la sonde d’intégrité à utiliser.
 
-Créez une règle d’équilibreur de charge avec [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). L’exemple suivant crée une règle d’équilibreur de charge nommée *myLoadBalancerRule* et équilibre le trafic sur le port *80* :
+Créez une règle d’équilibreur de charge avec [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). L’exemple suivant crée une règle d’équilibreur de charge nommée *myLoadBalancerRule* et équilibre le trafic sur le port *TCP* *80* :
 
 ```powershell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe
@@ -339,7 +339,7 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$lb.BackendAddressPools
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a montré comment créer un équilibrage de charge et y attacher des machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 

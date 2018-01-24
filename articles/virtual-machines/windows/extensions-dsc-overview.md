@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ L’agent de machine virtuelle Microsoft Azure et les extensions associées font
 
 Cet article présente l’extension de configuration d’état souhaité Microsoft PowerShell (PowerShell DSC, Desired State Configuration) pour les machines virtuelles Azure, dans le cadre du Kit de développement logiciel (SDK) Azure PowerShell. Vous pouvez utiliser les nouvelles applets de commande pour charger et appliquer une configuration PowerShell DSC sur une machine virtuelle Azure activée avec l’extension PowerShell DSC. L’extension DSC PowerShell fait appel à DSC PowerShell pour mettre en œuvre la configuration DSC reçue sur la machine virtuelle. Cette fonctionnalité est également disponible dans le portail Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 **Ordinateur local** Pour pouvoir interagir avec l’extension de machine virtuelle Azure, utilisez le portail Azure ou le Kit de développement logiciel (SDK) Azure PowerShell. 
 
 **Agent invité** La machine virtuelle Azure qui sera définie par la configuration DSC doit inclure un système d’exploitation prenant en charge Windows Management Framework (WMF) 4.0 ou 5.0. Pour la liste complète des versions de système d’exploitation prises en charge, voir l’ [historique des versions de l’extension DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
@@ -37,11 +37,9 @@ Cet article présente l’extension de configuration d’état souhaité Microso
 ## <a name="terms-and-concepts"></a>Termes et concepts
 Ce guide part du principe que vous connaissez les concepts suivants :
 
-Configuration : document de configuration DSC. 
-
-Nœud : cible d’une configuration DSC. Dans ce document, le terme « nœud » fait toujours référence à une machine virtuelle Azure.
-
-Données de configuration : fichier .psd1 contenant les données d’environnement d’une configuration.
+* **Configuration** : document de configuration DSC. 
+* **Nœud** : cible d’une configuration DSC. Dans ce document, le terme « nœud » fait toujours référence à une machine virtuelle Azure.
+* **Données de configuration** : fichier .psd1 contenant les données d’environnement d’une configuration.
 
 ## <a name="architectural-overview"></a>Présentation de l’architecture
 L’extension DSC d’Azure utilise l’infrastructure de l’agent Azure VM pour fournir, mettre en œuvre et créer des rapports sur les configurations DSC sur des machines virtuelles Azure. L’extension DSC attend un fichier ZIP contenant au moins un document de configuration et un ensemble de paramètres, fournis par le Kit de développement logiciel (SDK) Azure PowerShell ou sur le portail Azure.
@@ -146,9 +144,11 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Journalisation
 Les journaux sont placés dans le répertoire suivant :
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[numéro de version]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus informations sur DSC PowerShell, [voir le centre de documentation PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
 Examinez le [modèle Azure Resource Manager pour l’extension DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

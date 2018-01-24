@@ -8,18 +8,18 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/02/2017
+ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Serveurs de base de données Azure pour PostgreSQL
 Cet article présente des considérations et des instructions relatives à l’utilisation des serveurs Azure Database pour PostgreSQL.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Qu’est-ce qu’un serveur de base de données Azure pour PostgreSQL ?
-Un serveur de base de données Azure pour PostgreSQL est un point d’administration central pour plusieurs bases de données. Il s’agit de la structure de serveur PostgreSQL que vous connaissez peut-être en local. Plus précisément, le service PostgreSQL est géré, fournit des garanties de performances et propose des fonctionnalités et des accès au niveau du serveur.
+Un serveur de base de données Azure pour PostgreSQL est un point d’administration central pour plusieurs bases de données. Il s’agit de la structure de serveur PostgreSQL que vous connaissez peut-être en local. Plus précisément, le service PostgreSQL est managé, fournit des garanties de performances et propose des fonctionnalités et des accès au niveau du serveur.
 
 Un serveur de base de données Azure pour PostgreSQL :
 
@@ -36,20 +36,25 @@ Un serveur de base de données Azure pour PostgreSQL :
 Dans une base de données Azure Database pour serveur PostgreSQL, vous pouvez créer une ou plusieurs bases de données. Vous pouvez choisir de créer une seule base de données par serveur pour utiliser toutes les ressources, ou de créer plusieurs bases de données pour partager les ressources. La tarification est structurée par serveur, en fonction de la configuration du niveau tarifaire, des unités de calcul et du stockage (Go). Pour plus d’informations, consultez [Niveaux tarifaires](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Comment se connecter et s’authentifier auprès d’un serveur de base de données Azure pour PostgreSQL ?
-Les éléments suivants permettent de garantir un accès sécurisé à votre base de données.
+Les éléments suivants permettent de garantir un accès sécurisé à votre base de données :
 
-| :-- | :-- | | **Authentification et autorisation** | Le serveur Azure Database pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. | | **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. | | **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. | | **Pare-feu** | Pour renforcer la protection de vos données, une règle de pare-feu empêche tout accès à votre serveur et à ses bases de données tant que vous ne spécifiez pas les ordinateurs autorisés. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
+|||
+|:--|:--|
+| **Authentification et autorisation** | Le serveur de base de données Azure pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. |
+| **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. |
+| **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. |
+| **Pare-feu** | Pour renforcer la protection de vos données, une règle de pare-feu empêche tout accès à votre serveur et à ses bases de données tant que vous ne précisez pas quels ordinateurs sont autorisés. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL](concepts-firewall-rules.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Comment gérer un serveur ?
 Vous pouvez gérer des serveurs Azure Database pour PostgreSQL à l’aide du [Portail Azure](https://portal.azure.com) ou [d’Azure CLI](/cli/azure/postgres).
 
 ## <a name="server-parameters"></a>Paramètres de serveur
-Les paramètres de serveur PostgreSQL déterminent la configuration du serveur. Dans Azure Database pour PostgreSQL, la liste des paramètres peut être affichée et modifiée par le biais du portail Azure ou d’Azure CLI. 
+Les paramètres de serveur PostgreSQL déterminent la configuration du serveur. Dans Azure Database pour PostgreSQL, la liste des paramètres peut être affichée et modifiée à l’aide du portail Azure ou d’Azure CLI. 
 
-Azure Database pour PostgreSQL étant un service géré pour Postgres, ses paramètres configurables sont un sous-ensemble des paramètres d’une instance locale de Postgres (pour plus d’informations sur les paramètres de Postgres, consultez la [documentation de PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Votre serveur Azure Database pour PostgreSQL est activé avec des valeurs par défaut pour chaque paramètre lors de la création. Les paramètres qui nécessitent un redémarrage du serveur ou un accès de super utilisateur pour que les modifications entrent en vigueur ne peuvent pas être configurés par l’utilisateur.
+Azure Database pour PostgreSQL étant un service managé pour Postgres, ses paramètres configurables sont un sous-ensemble des paramètres d’une instance locale de Postgres (pour plus d’informations sur les paramètres de Postgres, consultez la [documentation de PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Votre serveur Azure Database pour PostgreSQL est activé avec des valeurs par défaut pour chaque paramètre lors de la création. Les paramètres qui nécessitent un redémarrage du serveur ou un accès de super utilisateur pour que les modifications entrent en vigueur ne peuvent pas être configurés par l’utilisateur.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Vous trouverez une vue d’ensemble du service à la page [Vue d’ensemble de la base de données Azure pour PostgreSQL](overview.md).
 - Pour plus d’informations sur les quotas de ressources et les limitations associés à votre **niveau de service**, consultez la page [Niveaux de service](concepts-service-tiers.md).
 - Pour plus d’informations sur la connexion au service, consultez la page [Bibliothèques de connexions de la base de données Azure pour PostgreSQL](concepts-connection-libraries.md).

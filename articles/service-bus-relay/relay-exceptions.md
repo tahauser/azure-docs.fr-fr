@@ -1,6 +1,6 @@
 ---
 title: "Exceptions Azure Relay et résolution | Microsoft Docs"
-description: "Accédez à la liste des exceptions Azure Relay et aux actions suggérées que vous pouvez prendre pour vous aider à les résoudre."
+description: "Répertoriez les exceptions Azure Relay et les actions suggérées que vous pouvez prendre pour vous aider à les résoudre."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Exceptions Azure Relay
 
@@ -89,7 +89,7 @@ Deux causes courantes peuvent être à l’origine de cette erreur :
 
     IL arrive parfois que le service Relay subisse des retards dans le traitement des requêtes. Cela peut se produire, par exemple, pendant les périodes à fort trafic. Dans ce cas, réessayez l’opération après un certain délai, jusqu’à ce qu’elle réussisse. Si la même opération échoue encore après plusieurs tentatives, consultez le [Site de statut des services Azure](https://azure.microsoft.com/status/) pour voir s’il existe des interruptions de service connues.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [FAQ Azure Relay](relay-faq.md)
 * [Créer un espace de noms Relay](relay-create-namespace-portal.md)
 * [Bien démarrer avec Azure Relay et .NET](relay-hybrid-connections-dotnet-get-started.md)

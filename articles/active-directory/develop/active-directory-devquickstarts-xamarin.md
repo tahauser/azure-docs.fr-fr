@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87e58e8df16f4b87b66a9ac0846be20e09073826
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-xamarin-apps"></a>Intégrer Azure AD avec des applications Xamarin
+# <a name="azure-ad-xamarin-getting-started"></a>Bien démarrer avec Azure AD Xamarin
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -48,7 +48,7 @@ Une fois vous avez terminé la configuration, ouvrez la solution dans Visual Stu
 ## <a name="step-2-register-the-directorysearcher-app"></a>Étape 2 : Inscrire l’application DirectorySearcher
 Pour autoriser l’application à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre client Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD. Voici comment procéder :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte. Puis, dans la liste **Annuaire**, sélectionnez le client Active Directory dans lequel vous voulez inscrire l’application.
 3. Dans le volet gauche, cliquez sur **Plus de services**, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.

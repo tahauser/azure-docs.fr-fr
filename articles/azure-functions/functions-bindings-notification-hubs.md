@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: fd5ff8878e6afe95bd620bd9d1910add6dd92f3f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cbc22721bbe06fdc5a8a9026b113071e1616bcb8
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Liaison de sortie Notification Hubs pour Azure Functions
 
@@ -266,7 +266,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="attributes"></a>Attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
 
 Les paramètres de constructeur de l’attribut et les propriétés sont décrites dans la section [Configuration](#configuration).
 
@@ -274,7 +274,7 @@ Les paramètres de constructeur de l’attribut et les propriétés sont décrit
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `NotificationHub` :
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 |**type** |n/a| Doit être défini sur « notificationHub ». |
 |**direction** |n/a| Doit être défini sur « out ». | 
@@ -321,7 +321,7 @@ Le nom de ce paramètre d’application passe dans le paramètre de connexion de
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

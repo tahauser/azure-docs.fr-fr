@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Cas d’utilisation courants d’Azure Cosmos DB
 Cet article présente plusieurs cas d’utilisation courants pour Azure Cosmos DB.  Les recommandations de cet article constituent le point de départ du développement de votre application avec Cosmos DB.   
@@ -33,9 +33,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 ## <a name="introduction"></a>Introduction
 [Azure Cosmos DB](../cosmos-db/introduction.md) est le service de base de données de Microsoft distribué à l’échelle mondiale. Il permet de mettre à l’échelle le débit et le stockage de façon indépendante et en toute flexibilité pour le nombre de régions géographiques de votre choix. Azure Cosmos DB est le premier service de base de données distribué à l’échelle mondiale à offrir des [contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/cosmos-db/) complets englobant le débit, la latence, la disponibilité et la cohérence. 
 
-Le projet Azure Cosmos DB a été lancé en 2011 sous le nom de « Project Florence » pour répondre aux problématiques des développeurs concernant les applications Internet à grande échelle chez Microsoft. Ces problèmes n’étant pas uniquement liés aux applications de Microsoft, nous avons décidé de mettre Azure Cosmos DB à la disposition générale des développeurs externes en 2015 sous la forme [d’Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). Le service est très largement utilisé en interne chez Microsoft et est l’un des services à la croissance la plus rapide utilisés en externe par les développeurs Azure. 
-
-Azure Cosmos DB est une base de données multimodèle distribuée à l’échelle mondiale qui est utilisée dans un large éventail d’applications et de cas d’utilisation. Elle constitue un bon choix pour toute application [sans serveur](http://azure.com/serverless) qui a besoin de temps de réponse réduits de l’ordre des millisecondes et qui doit pouvoir évoluer rapidement et à l’échelle mondiale. Elle prend en charge plusieurs modèles de données (clé-valeur, documents, graphiques et en colonnes) et de nombreuses API pour l’accès aux données, notamment les API [MongoDB](mongodb-introduction.md), [DocumentDB (SQL)](documentdb-introduction.md), [Graph (Gremlin)](graph-introduction.md) et [Tables](table-introduction.md) en mode natif et d’une manière extensible. 
+Azure Cosmos DB est une base de données multimodèle distribuée à l’échelle mondiale qui est utilisée dans un large éventail d’applications et de cas d’utilisation. Elle constitue un bon choix pour toute application [sans serveur](http://azure.com/serverless) qui a besoin de temps de réponse réduits de l’ordre des millisecondes et qui doit pouvoir évoluer rapidement et à l’échelle mondiale. Elle prend en charge plusieurs modèles de données (clé-valeur, documents, graphiques et en colonnes) et de nombreuses API pour l’accès aux données, notamment les API [MongoDB](mongodb-introduction.md), [SQL](documentdb-introduction.md), [Graph (Gremlin)](graph-introduction.md) et [Tables](table-introduction.md) en mode natif et d’une manière extensible. 
 
 Voici certains attributs d’Azure Cosmos DB qui rendent cette base de données parfaitement adaptée aux applications hautes performances destinées à une utilisation mondiale.
 
@@ -83,7 +81,7 @@ Azure Cosmos DB est utilisé par des jeux tels que [The Walking Dead: No Man’s
 * Azure Cosmos DB prend en charge les lectures et écritures en millisecondes afin d’éviter les retards dans le jeu.
 * L’indexation automatique d’Azure Cosmos DB permet le filtrage sur plusieurs propriétés différentes en temps réel, par exemple pour localiser les joueurs avec leur ID de joueur en interne, ou leur ID GameCenter, Facebook, Google, ou exécuter une requête basée sur l’appartenance du joueur à un groupe. Cela est possible sans générer d’indexation complexe, ni infrastructure de partitionnement.
 * Les fonctionnalités sociales, y compris les messages dans le jeu, l’appartenance des joueurs à des groupes, les défis terminés, les tableaux des meilleurs scores, et les graphiques sociaux sont plus faciles à implémenter avec un schéma flexible.
-* Azure Cosmos DB comme plateforme en tant que service (PaaS) gérée requiert une gestion et une configuration minimales pour offrir une itération rapide et réduire le délai de mise sur le marché.
+* Azure Cosmos DB comme plateforme PaaS (Platform-as-a-service) managée demande peu de tâches de gestion et de configuration pour bénéficier d’une itération rapide et d’un délai de mise sur le marché plus court.
 
 ![Architecture de référence de gaming Azure Cosmos DB](./media/use-cases/gaming.png)
 
@@ -107,7 +105,7 @@ Le format JSON, pris en charge par Cosmos DB, est un format efficace pour repré
 ![Architecture de référence des applications web Azure Cosmos DB](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour découvrir Azure Cosmos DB, suivez nos [démarrages rapides](create-documentdb-dotnet.md) qui vous guident dans la création d’un compte et la prise en main de Cosmos DB. 
+Pour découvrir Azure Cosmos DB, suivez nos [guides de démarrage rapide](create-sql-api-dotnet.md) qui vous aident dans la création d’un compte et le démarrage de Cosmos DB. 
 
 Si vous souhaitez en savoir plus sur les clients qui utilisent Cosmos DB, consultez les témoignages de clients suivants :
 

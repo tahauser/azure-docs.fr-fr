@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.openlocfilehash: 4b2ca9dd60187904d9d22e8308e31ed46b1213e6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 39f99bef252e93db55e0493ee284ef78b7d087a1
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight 
 
 Les clusters Interactive Query HDInsight incluent les notebooks Zeppelin que vous pouvez utiliser pour exécuter des requêtes Hive interactives. Dans cet article, vous allez apprendre à utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
 
 * **Cluster Interactive Query HDInsight**. Consultez [Créer un cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) pour créer un cluster HDInsight.  Vous devez sélectionner le type Interactive Query. 
@@ -73,10 +73,11 @@ Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants
     Les résultats de la requête sont retournés plus rapidement qu’avec une requête Hive standard.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet article, vous avez appris à visualiser des données de HDInsight à l’aide de Power BI.  Pour en savoir plus, consultez les articles suivants :
 
 * [Visualiser des données Hive à l’aide de Microsoft Power BI dans Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Connecter Excel à HDInsight avec le pilote ODBC Microsoft Hive](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](hadoop/apache-hadoop-connect-excel-power-query.md).
 * [Se connecter à Azure HDInsight et exécuter des requêtes Hive avec Data Lake Tools pour Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Déployer et surveiller des modules IoT Edge à l’échelle : aperçu
 
@@ -40,7 +40,7 @@ Pour plus d’informations sur les balises et les jumeaux d’appareils, consult
 
 ## <a name="create-a-deployment"></a>Créer un déploiement
 
-1. Connectez-vous au [portail Azure][lnk-portal] et accédez à votre IoT Hub. 
+1. Accédez à votre IoT Hub dans le [portail Azure][lnk-portal]. 
 1. Sélectionnez **IoT Edge (préversion)**.
 1. Sélectionnez **Ajouter le déploiement IoT Edge**.
 
@@ -61,26 +61,25 @@ Si vous créez un déploiement sans module, il supprime tous les modules existan
 >[!NOTE]
 >Azure Machine Learning et Azure Functions ne prennent pas encore en charge le déploiement de service Azure automatisé. Utilisez un déploiement de module personnalisé pour ajouter manuellement ces services à votre déploiement. 
 
-Pour ajouter un module à partir d’un service Azure, effectuez les étapes suivantes :
-1. Sélectionnez **Add Azure service IoT Edge module (Ajouter un service Azure au module IoT Edge**.
+Pour ajouter un module à partir d’Azure Stream Analytics, effectuez les étapes suivantes :
+1. Sélectionnez **Importer le module Azure Stream Analytics IoT Edge**.
 1. Utilisez les menus déroulants pour sélectionner les instances de service Azure que vous souhaitez déployer.
-1. Sélectionnez **Enregistrer** pour ajouter vos modules au déploiement. 
+1. Sélectionnez **Enregistrer** pour ajouter votre module au déploiement. 
 
 Pour ajouter du code personnalisé en tant que module, ou pour ajouter manuellement un module de service Azure, effectuez les étapes suivantes :
-1. Sélectionnez **Add custom IoT Edge module (Ajouter un module personnalisé IoT Edge)**.
+1. Sélectionnez **Ajouter module IoT Edge**.
 1. Donnez un **Nom** à votre module.
-1. Dans le champ **Image**, entrez l’image de conteneur Docker pour ce module : `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Utilisez les menus déroulants sous **Système d’exploitation** et **Architecture** pour identifier les propriétés du conteneur Docker qui représentent ce module. 
-1. Spécifiez les **options de création** qui doivent être passées au conteneur. Pour plus d’informations, consultez [docker create][lnk-docker-create].
+1. Dans le champ **URI de l’image**, entrez l’image de conteneur Docker pour votre module. 
+1. Spécifiez les **options de création de conteneur** qui doivent être passées au conteneur. Pour plus d’informations, consultez [docker create][lnk-docker-create].
 1. Utilisez le menu déroulant pour sélectionner une **Stratégie de redémarrage**. Choisissez parmi les options suivantes : 
    * **Toujours** : le module redémarre toujours s’il s’arrête pour une raison quelconque.
    * **Jamais** : le module ne redémarre jamais s’il s’arrête pour une raison quelconque.
    * **On-failed (Échec)** : le module redémarre s’il se bloque, mais pas s’il est fermé correctement. 
    * **On-unhealthy (Défectueux)** : le module redémarre s’il se bloque ou s’il retourne un état défectueux. C’est à chaque module d’implémenter la fonction d’état d’intégrité. 
-1. Utilisez le menu déroulant pour sélectionner **l’État** de démarrage du module. Choisissez parmi les options suivantes :
+1. Utilisez le menu déroulant pour sélectionner **l’État souhaité** pour le module. Choisissez parmi les options suivantes :
    * **En cours d’exécution** : il s’agit de l’option par défaut. Le module commence à s’exécuter immédiatement après son déploiement.
    * **Arrêté** : après son déploiement, le module reste inactif jusqu’à ce que vous-même ou un autre module demandiez son démarrage.
-1. Sélectionnez **Edit module twin (Modifier le jumeau d’appareil)** si vous souhaitez ajouter des balises ou des propriétés au module. 
+1. Sélectionnez **Activer** si vous souhaitez ajouter des balises ou des propriétés au jumeau de module. 
 1. Sélectionnez **Enregistrer** pour ajouter votre module au déploiement. 
 
 Une fois que vous avez configuré tous les modules pour un déploiement, sélectionnez **Suivant** pour passer à l’étape 3.
@@ -96,7 +95,7 @@ Utilisez la propriété tags à partir de vos appareils pour cibler des appareil
 Étant donné que plusieurs déploiements peuvent cibler le même appareil, vous devez donner à chaque déploiement un numéro de priorité. En cas de conflit, le déploiement avec la priorité la plus élevée prévaut. Si deux déploiements ont le même numéro de priorité, celui qui a été créé le plus récemment prévaut. 
 
 1. Entrez un entier positif pour la **Priorité** du déploiement.
-1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'`. 
+1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil et doit correspondre au format de l’expression. Par exemple : `tags.environment='test'`. 
 1. Sélectionnez **Suivant** pour passer à l’étape finale.
 
 ### <a name="step-5-review-template"></a>Étape 5 : vérifier le modèle
@@ -167,12 +166,12 @@ Quand vous supprimez un déploiement, tous les appareils prennent leur déploiem
 1. Sélectionnez **Supprimer**.
 1. Un message vous informe que cette action va supprimer ce déploiement et restaurer tous les appareils à leur état précédent.  Cela signifie qu’un déploiement avec une priorité inférieure sera utilisé.  Si aucun autre déploiement n’est ciblé, aucun module n’est supprimé. Si les clients souhaitent procéder ainsi, ils doivent créer un déploiement avec zéro module et le déployer sur les mêmes appareils. Sélectionnez **Oui** si vous souhaitez continuer. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En savoir plus sur le [déploiement des modules sur des appareils Edge][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

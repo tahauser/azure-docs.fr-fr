@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure Cosmos DB : développer avec l’API Cassandra dans Java
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Ce didacticiel montre comment créer un compte Azure Cosmos DB à l’aide du portail Azure, puis une table Cassandra (documentdb-partition-data.md#partition-keys) à l’aide de l’[API Cassandra](cassandra-introduction.md). En définissant une clé primaire au moment de créer une table, vous préparez votre application et lui permettez d’être mise à l’échelle sans effort, à mesure que le volume de vos données augmente. 
+Ce didacticiel montre comment créer un compte Azure Cosmos DB à l’aide du Portail Azure, puis une table Cassandra (sql-api-partition-data.md#partition-keys) à l’aide de [l’API Cassandra](cassandra-introduction.md). En définissant une clé primaire au moment de créer une table, vous préparez votre application et lui permettez d’être mise à l’échelle sans effort, à mesure que le volume de vos données augmente. 
 
 Ce didacticiel décrit les tâches suivantes à l’aide de l’API Cassandra :
 
@@ -37,7 +37,7 @@ Ce didacticiel décrit les tâches suivantes à l’aide de l’API Cassandra :
 > * Données de requête
 > * Vérification des contrats SLA
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Accédez au programme d’évaluation de l’API Cassandra Azure Cosmos DB. Si vous n’avez pas encore demandé l’accès, [inscrivez-vous maintenant](https://aka.ms/cosmosdb-cassandra-signup).
 
@@ -75,7 +75,7 @@ Pour pouvoir créer une base de données de documents, vous devez créer un comp
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
     ```
 
-## <a name="review-the-code"></a>Examiner le code
+## <a name="review-the-code"></a>Vérifier le code
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). Ces extraits de code sont tous extraits du fichier src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
@@ -211,7 +211,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
     
     Vous pouvez dès à présent revenir à l’Explorateur de données et voir la requête, modifier et travailler avec ces nouvelles données. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
+## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
@@ -219,7 +219,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris comment effectuer les opérations suivantes :
 

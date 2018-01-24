@@ -1,24 +1,16 @@
 ---
-title: "Présentation de l’architecture utilisée pour la réplication Hyper-V sur un site secondaire avec Azure Site Recovery | Microsoft Docs"
+title: "Réplication Hyper-V sur une architecture de site secondaire dans Azure Site Recovery | Microsoft Docs"
 description: "Cet article fournit une vue d’ensemble de l’architecture utilisée pour la réplication de machines virtuelles Hyper-V locales sur un site System Center VMM secondaire avec Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Réplication Hyper-V vers un site secondaire
 
@@ -51,20 +43,18 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 
 ## <a name="failover-and-failback-process"></a>Processus de basculement et de restauration automatique
 
-1. Vous pouvez basculer une seule machine ou créer des plans de récupération pour orchestrer le basculement de plusieurs machines.
-2. Vous pouvez effectuer un basculement planifié ou non planifié entre des sites locaux. Si vous exécutez un basculement planifié, les machines virtuelles sources sont arrêtées pour éviter toute perte de données.
+- Vous pouvez basculer une seule machine ou créer des plans de récupération pour orchestrer le basculement de plusieurs machines.
+- Vous pouvez effectuer un basculement planifié ou non planifié entre des sites locaux. Si vous exécutez un basculement planifié, les machines virtuelles sources sont arrêtées pour éviter toute perte de données.
     - Si vous effectuez un basculement non planifié vers un site secondaire, une fois cette opération effectuée, les machines de l’emplacement secondaire ne sont pas protégées.
     - Si vous avez lancé un basculement planifié, une fois l’opération terminée, les machines de l’emplacement secondaire sont protégées.
-3. Une fois que le basculement initial s’exécute, validez-le pour accéder à la charge de travail à partir de la machine virtuelle de réplication.
-
-Quand l’emplacement principal est à nouveau disponible, vous pouvez effectuer une restauration automatique.
-
-1. Vous initiez la réplication inverse, pour démarrer la réplication depuis le site secondaire vers le site principal. La réplication inverse affecte aux machines virtuelles l’état protégé, mais l’emplacement actif est toujours le centre de données secondaire.
-2. Pour placer le site principal à l’emplacement actif, lancez un basculement planifié depuis le site secondaire vers le site principal, puis une autre réplication inverse.
+- Une fois que le basculement initial s’exécute, validez-le pour accéder à la charge de travail à partir de la machine virtuelle de réplication.
+- Quand l’emplacement principal est à nouveau disponible, vous pouvez effectuer une restauration automatique.
+    - Vous initiez la réplication inverse, pour démarrer la réplication depuis le site secondaire vers le site principal. La réplication inverse affecte aux machines virtuelles l’état protégé, mais l’emplacement actif est toujours le centre de données secondaire.
+    - Pour placer le site principal à l’emplacement actif, lancez un basculement planifié depuis le site secondaire vers le site principal, puis une autre réplication inverse.
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Passer en revue la matrice de prise en charge Suivre le didacticiel montrant comment activer la réplication Hyper-V entre des clouds VMM
-Exécuter un basculement et une restauration automatique.
+
+Suivre [le didacticiel](tutorial-vmm-to-vmm.md) montrant comment activer la réplication Hyper-V entre des clouds VMM.

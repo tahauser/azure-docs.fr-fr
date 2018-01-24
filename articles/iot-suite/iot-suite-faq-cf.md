@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Questions fréquentes sur la solution préconfigurée d’usine connectée IoT Suite
 
@@ -42,7 +42,7 @@ OPC UA (Unified Architecture) est un standard d’interopérabilité indépendan
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Pourquoi le choix de Microsoft s’est-il porté sur l’UA OPC en matière de solution préconfigurée d’usine connectée ?
 
-Microsoft a choisi l’UA OPC, car il s’agit d’une norme ouverte, non propriétaire, ne dépendant pas d’une plateforme, reconnue par le secteur et éprouvée. Elle est exigée pour les solutions d’architecture de référence Industrie 4.0 (RAMI4.0) assurant l’interopérabilité entre un large ensemble de processus de fabrication et les équipements. Microsoft constate une demande de la part des clients pour créer des solutions Industrie 4.0. La prise en charge de l’UA OPC permet de supprimer la barrière empêchant les clients d’atteindre leurs objectifs et leur apporte une valeur commerciale instantanée.
+Microsoft a choisi l’UA OPC, car il s’agit d’une norme ouverte, non propriétaire, ne dépendant pas d’une plateforme, reconnue par le secteur et éprouvée. Elle est exigée pour les solutions d’architecture de référence Industrie 4.0 (RAMI4.0) assurant l’interopérabilité entre un large ensemble de processus de fabrication et les équipements. Microsoft constate une demande de solutions Industrie 4.0 chez ses clients. La prise en charge de l’UA OPC permet de supprimer la barrière empêchant les clients d’atteindre leurs objectifs et leur apporte une valeur commerciale instantanée.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Comment ajouter une adresse IP publique à la machine virtuelle de simulation ?
 
@@ -82,7 +82,7 @@ Si vous avez déployé la solution à partir de www.azureiotsuite.com, vous ne p
 1. Pour identifier les conteneurs actifs, exécutez `docker ps`.
 1. Pour arrêter tous les conteneurs de simulation, exécutez `./stopsimulation`.
 1. Pour démarrer tous les conteneurs de simulation :
-    * Exportez une variable shell sous le nom **IOTHUB_CONNECTIONSTRING**. Utilisez la valeur du paramètre **IotHubOwnerConnectionString** du fichier `<name of your deployment>.config.user`. Par exemple :
+    * Exportez une variable shell sous le nom **IOTHUB_CONNECTIONSTRING**. Utilisez la valeur du paramètre **IotHubOwnerConnectionString** du fichier `<name of your deployment>.config.user`. Par exemple : 
 
         ```
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -144,7 +144,65 @@ Inspecter les données envoyées par l’un des appareils serveur de publication
 
 Si vous constatez qu’aucune donnée n’a été envoyée à IoT Hub, c’est qu’il y a un problème au niveau de la simulation. La première étape d’analyse que vous devez effectuer consiste à analyser les fichiers journaux des composants de simulation. Consultez [Comment obtenir les données de journal des composants de simulation ?](#how-can-i-get-log-data-from-the-simulation-components). Ensuite, essayez d’arrêter et de démarrer la simulation et si aucune donnée n’est toujours envoyée, mettez entièrement à jour la simulation. Consultez [Comment mettre à jour la simulation dans la machine virtuelle ?](#how-do-i-update-the-simulation-in-the-vm).
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Comment activer une carte interactive dans une solution Connected Factory ?
+
+Pour activer une carte interactive dans une solution Connected Factory, vous devez disposer d’un plan API Bing Cartes pour les entreprises. Si vous disposez d’un plan API Bing Cartes pour les entreprises au moment où vous déployez la solution Connected Factory à partir de www.azureiotsuite.com, la carte interactive est automatiquement activée.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Comment créer un compte API Bing Cartes pour les entreprises ?
+
+Vous pouvez obtenir gratuitement un plan *Bing Cartes pour les entreprises Transactions internes de niveau 1*. Toutefois, vous ne pouvez ajouter que deux plans de ce type à un abonnement Azure. Si vous ne disposez pas d’un compte API Bing Cartes pour les entreprises, créez-en-un sur le Portail Azure en cliquant sur **+ Créer une ressource**. Ensuite, recherchez **API Bing Cartes pour les entreprises** et suivez les invites pour le créer.
+
+![Clé Bing](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Comment obtenir une clé de requête API Bing Cartes pour les entreprises ?
+
+Une fois que vous avez créé votre plan API Bing Cartes pour les entreprises, ajoutez une ressource Bing Cartes pour les entreprises au groupe de ressources de votre solution Connected Factory sur le Portail Azure.
+
+1. Sur le Portail Azure, accédez au groupe de ressources contenant votre plan API Bing Cartes pour les entreprises sur le Portail Azure.
+
+1. Cliquez sur **Tous les paramètres**, puis sur **Gestion des clés**.
+
+1. Vous y trouverez deux clés : **MasterKey** et **QueryKey**. Copiez la valeur de **QueryKey**.
+
+1. Pour que la clé soit récupérée par le script `build.ps1`, affectez la **QueryKey** de votre plan à la variable `$env:MapApiQueryKey` de votre environnement PowerShell. Le script de génération ajoute alors automatiquement la valeur aux paramètres d’App Service.
+
+1. Lancez un déploiement local ou cloud avec le script `build.ps1`.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Comment activer la carte interactive pendant un débogage local ?
+
+Pour activer la carte interactive pendant un débogage local, affectez la valeur de la **QueryKey** copiée précédemment au paramètre `MapApiQueryKey` dans les fichiers `local.user.config` et `<yourdeploymentname>.user.config` à la racine de votre déploiement.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Comment utiliser une autre image sur la page d’accueil du tableau de bord ?
+
+Pour modifier l’image statique qui s’affiche sur la page d’accueil du tableau de bord, remplacez l’image `WebApp\Content\img\world.jpg`. Ensuite, régénérez et redéployez l’application WebApp.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Comment utiliser les appareils d’un autre type qu’OPC UA avec Connected Factory ?
+
+Pour envoyer les données de télémétrie à Connected Factory à partir d’appareils d’un autre type qu’OPC UA :
+
+1. [Configurez une nouvelle station dans la topologie Connected Factory](iot-suite-connected-factory-configure.md) dans le fichier `ContosoTopologyDescription.json`.
+
+1. Ingérez les données de télémétrie dans un format JSON compatible avec Connected Factory :
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. Le format de `<timestamp>` est `2017-12-08T19:24:51.886753Z`.
+
+1. Redémarrez le service Connected Factory App Service.
+
+### <a name="next-steps"></a>étapes suivantes
 
 Vous pouvez également explorer certaines des autres fonctionnalités et capacités des solutions préconfigurées IoT Suite :
 

@@ -14,13 +14,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 123e6c4f0f4fdde46199d80fdbc2db9c78f69f5f
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL
 
@@ -31,6 +31,9 @@ Cet exemple de script PowerShell surveille les mesures de performance d’une ba
 ## <a name="sample-script"></a>Exemple de script
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
+
+> [!TIP]
+> Utilisez [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) pour obtenir l’état des opérations de base de données et [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) pour annuler une opération de mise à jour sur la base de données.
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
@@ -44,7 +47,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
  [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crée un serveur logique qui héberge une base de données ou un pool élastique. |
@@ -54,7 +57,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 

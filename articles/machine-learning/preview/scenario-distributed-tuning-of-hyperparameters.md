@@ -4,15 +4,17 @@ description: "Ce scénario montre comment effectuer un réglage distribué d’h
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Réglage distribué d’hyperparamètres à l’aide d’Azure Machine Learning Workbench
 
@@ -26,24 +28,26 @@ Le lien vers le dépôt GitHub public est le suivant :
 ## <a name="use-case-overview"></a>Vue d’ensemble d’un cas d’usage
 
 De nombreux algorithmes Machine Learning ont un ou plusieurs « boutons », appelés hyperparamètres. Ces boutons permettent le réglage d’algorithmes pour optimiser leurs performances sur de futures données, mesurées en fonction des indicateurs de performance spécifiés par l’utilisateur (par exemple, la précision, AUC, RMSE). Le scientifique des données doit fournir des valeurs d’hyperparamètres durant la création d’un modèle à partir des données d’apprentissage et avant de voir les futures données de test. Comment pouvons-nous, à partir des données d’apprentissage connues, définir les valeurs d’hyperparamètres de manière à ce que le modèle offre de bonnes performances sur les données de test inconnues ? 
-
+    
 Une technique courante de réglage d’hyperparamètres consiste à combiner une *recherche par grille* avec une *validation croisée*. La validation croisée est une technique qui évalue les performances de prédiction sur un jeu de test d’un modèle formé sur un jeu d’apprentissage. Avec cette technique, nous divisons d’abord le jeu de données en K plis, puis effectuons l’apprentissage de l’algorithme K fois, par tourniquet (round robin). Nous le faisons sur tous les plis sauf un, appelé pli récupéré. Nous calculons la valeur moyenne des indicateurs de performance de K modèles sur K plis récupérés. Cette valeur moyenne, appelée *estimation des performances de validation croisée*, dépend des valeurs d’hyperparamètres utilisées au cours de la création de K modèles. Durant le réglage d’hyperparamètres, nous recherchons dans l’espace de valeurs d’hyperparamètres candidates celles qui optimisent l’estimation des performances de validation croisée. La recherche par grille est une technique de recherche courante. Dans la recherche par grille, l’espace de valeurs candidates de plusieurs hyperparamètres est un produit croisé d’ensembles de valeurs candidates d’hyperparamètres individuels. 
 
 La recherche par grille à l’aide de la validation croisée peut être longue. Si un algorithme comprend cinq hyperparamètres ayant chacun cinq valeurs candidates, nous utilisons K = 5 plis. Nous effectuons ensuite une recherche par grille en apprenant 5<sup>6</sup>= 15625 modèles. La recherche par grille à l’aide de la validation croisée est heureusement une procédure excessivement parallèle, ce qui permet un apprentissage en parallèle de tous ces modèles.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie d’[Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installée conformément au [guide de démarrage rapide d’installation et de création](./quickstart-installation.md) pour installer Workbench et créer des comptes.
 * Ce scénario part du principe que vous exécutez Azure ML Workbench sur Windows 10 ou MacOS avec le moteur Docker installé localement. 
 * Pour exécuter le scénario avec un conteneur Docker distant, configurez la machine virtuelle de science des données (DSVM) Ubuntu en suivant ces [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Nous recommandons d’utiliser une machine virtuelle avec au moins 8 cœurs et 28 Go de mémoire. Les instances D4 de machines virtuelles ont cette capacité. 
-* Pour exécuter ce scénario avec un cluster Spark, configurez le cluster Azure HDInsight en suivant ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Nous vous recommandons d’avoir un cluster avec au moins 
-- six nœuds de travail
-- huit cœurs
-- 28 Go de mémoire dans les nœuds d’en-tête et de travail. Les instances D4 de machines virtuelles ont cette capacité. Nous vous recommandons de modifier les paramètres suivants pour optimiser les performances du cluster.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
+* Pour exécuter ce scénario avec un cluster Spark, configurez le cluster Azure HDInsight en suivant ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Nous vous recommandons d’avoir un cluster avec au moins :
+    - six nœuds de travail
+    - huit cœurs
+    - 28 Go de mémoire dans les nœuds d’en-tête et de travail. Les instances D4 de machines virtuelles ont cette capacité.       
+    - Nous vous recommandons de modifier les paramètres suivants pour optimiser les performances du cluster :
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.memory 
 
 Vous pouvez suivre ces [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) et modifier les définitions dans la section « Valeurs Spark par défaut personnalisées ».
 

@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
-[**Téléchargement de l'émulateur**](https://aka.ms/cosmosdb-emulator)
+[**Téléchargement de l’émulateur**](https://aka.ms/cosmosdb-emulator)
 
 L’émulateur Azure Cosmos DB fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement, notamment pour l’utilisation des connexions SSL. Cet article vous explique comment exporter les certificats SSL pour une utilisation dans les langages et les runtimes qui ne s’intègrent pas avec le magasin de certificats Windows, comme Java, qui utilise son propre [magasin de certificats](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), Python, qui utilise des [wrappers de socket](https://docs.python.org/2/library/ssl.html) et Node.js qui utilise [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Pour en savoir plus sur l’émulateur, consultez l’article [Utilisation de l’émulateur Azure Cosmos DB pour le développement et le test](./local-emulator.md).
 
@@ -87,15 +87,15 @@ Une fois que le certificat SSL « Azure Cosmos DBEmulatorCertificate » est i
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Comment utiliser le certificat en python
 
-Par défaut, le [Kit de développement logiciel (SDK) Python (version 2.0.0 ou supérieure)](documentdb-sdk-python.md) pour l’API DocumentDB ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la documentation des [wrappers de socket Python](https://docs.python.org/2/library/ssl.html).
+Par défaut, le [SDK Python (version 2.0.0 ou ultérieure)](sql-api-sdk-python.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la documentation des [wrappers de socket Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Comment utiliser le certificat en Node.js
 
-Par défaut, le [Kit de développement logiciel (SDK) Node.js (version 1.10.1 ou supérieure)](documentdb-sdk-node.md) pour l’API DocumentDB ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la [documentation Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Par défaut, le [SDK Node.js (version 1.10.1 ou ultérieure)](sql-api-sdk-node.md) pour l’API SQL ne tente pas d’utiliser le certificat SSL lors de la connexion à l’émulateur local. Si vous souhaitez utiliser la validation SSL, vous pouvez suivre les exemples de la [documentation Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez effectué les tâches suivantes :
+Dans ce didacticiel, vous avez :
 
 > [!div class="checklist"]
 > * Rotation des certificats

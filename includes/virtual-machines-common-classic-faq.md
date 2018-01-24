@@ -44,7 +44,7 @@ Si elles ressemblent sur de nombreux points aux machines virtuelles Hyper-V de p
 * Les machines virtuelles Azure ne prennent pas en charge les fonctionnalités des machines virtuelles Hyper-V de deuxième génération. Pour plus d’informations sur ces fonctionnalités, consultez les articles [Virtual Machine Specifications for Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) (Spécifications des machines virtuelles pour Hyper-V) et [Vue d’ensemble de machines virtuelles de Génération 2](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Ces machines virtuelles peuvent-elles utiliser mon infrastructure réseau existante locale ?
-Pour les machines virtuelles créées dans le modèle de déploiement classique, vous pouvez utiliser Azure Virtual Network pour étendre votre infrastructure existante. L’approche est comparable à l’installation d’une filiale. Vous pouvez configurer et gérer des réseaux privés virtuels (VPN) dans Azure et les lier à l’infrastructure informatique locale en toute sécurité. Pour plus d’informations, voir [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
+Pour les machines virtuelles créées dans le modèle de déploiement classique, vous pouvez utiliser Réseau virtuel Azure pour étendre votre infrastructure existante. L’approche est comparable à l’installation d’une filiale. Vous pouvez configurer et gérer des réseaux privés virtuels (VPN) dans Azure et les lier à l’infrastructure informatique locale en toute sécurité. Pour plus d’informations, voir [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
 
 Vous devrez indiquer le réseau auquel vous voulez que la machine virtuelle appartienne au moment de la création de celle-ci. Vous ne pouvez pas joindre une machine virtuelle existante à un réseau virtuel. Toutefois, vous pouvez contourner ce problème en détachant le disque dur virtuel (VHD) d’une machine virtuelle existante, puis l’utiliser pour créer une machine virtuelle avec la configuration réseau de votre choix.
 
@@ -58,7 +58,7 @@ En cas de problème avec Bureau à distance ou SSH, installez et utilisez l’ex
 
 Pour les machines virtuelles Windows, les options supplémentaires incluent :
 
-* Dans le portail Azure en version préliminaire, recherchez la machine virtuelle, puis cliquez sur **Réinitialiser l’accès à distance** à partir de la barre de commandes.
+* Dans le portail Azure, recherchez la machine virtuelle, puis cliquez sur **Réinitialiser l’accès à distance** à partir de la barre de commandes.
 * Consultez l’article [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Utilisez Windows PowerShell Remoting pour vous connecter à la machine virtuelle ou créer des points de terminaison supplémentaires pour la connexion d'autres ressources à la machine virtuelle. Pour plus d’informations, consultez l’article [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -85,7 +85,7 @@ Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez 
 
 Informations supplémentaires :
 
-* Pour les images Linux, si vous utilisez le portail Azure Classic, le nom d’utilisateur par défaut est « azureuser », mais vous pouvez le modifier en utilisant la méthode de création de machine virtuelle « À partir de la galerie » au lieu de « Création rapide ». La méthode « À partir de la galerie » vous permet également de décider si vous souhaitez un mot de passe, une clé SSH ou les deux pour vous connecter. Le compte « user » est un utilisateur sans privilège ayant un accès « sudo » pour exécuter des commandes privilégiées. Le compte « root » est désactivé.
+* Pour les images Linux, si vous utilisez le portail Azure, le nom d’utilisateur par défaut est « azureuser », mais vous pouvez le modifier en utilisant « À partir de la galerie » au lieu de « Création rapide » pour créer la machine virtuelle. La méthode « À partir de la galerie » vous permet également de décider si vous souhaitez un mot de passe, une clé SSH ou les deux pour vous connecter. Le compte « user » est un utilisateur sans privilège ayant un accès « sudo » pour exécuter des commandes privilégiées. Le compte « root » est désactivé.
 * Pour les images Windows, vous devez fournir un nom d’utilisateur et un mot de passe lorsque vous créez la machine virtuelle. Le compte est ajouté au groupe Administrateurs.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure peut-il exécuter un antivirus sur mes machines virtuelles ?
@@ -96,7 +96,7 @@ Azure offre plusieurs options de solutions antivirus, mais c’est à vous qu’
 * [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Quelles sont les options disponibles en matière de sauvegarde et de récupération d’urgence ?
-Azure Backup est disponible en version préliminaire dans certaines régions. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](../articles/backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
+Azure Backup est disponible en version préliminaire dans certaines régions. Pour plus d’informations, voir [Sauvegarde des machines virtuelles Azure](../articles/backup/backup-azure-arm-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
 
 Une autre option consiste à utiliser les fonctionnalités de capture instantanée de stockage d’objets blob. Pour ce faire, vous devez arrêter la machine virtuelle avant toute opération qui repose sur un instantané d’objet blob. Cela enregistre les écritures de données en attente et assure la cohérence du fichier système.
 
@@ -105,7 +105,7 @@ Azure facture un prix horaire basé sur la taille et le système d’exploitatio
 
 Vous êtes facturé quand l’état de la machine virtuelle est « En cours d’exécution » ou « Arrêté », mais pas quand elle est en état « Arrêté (désalloué) ». Pour mettre une machine virtuelle en état « Arrêté (désalloué) », effectuez l’une des opérations suivantes :
 
-* Arrêtez ou supprimez la machine virtuelle à partir du portail Azure Classic.
+* Arrêtez ou supprimez la machine virtuelle à partir du portail Azure.
 * Utilisez l’applet de commande Stop-AzureVM disponible dans le module Azure PowerShell.
 * Utilisez l’opération Shutdown Role dans l’API REST de gestion des services et spécifiez StoppedDeallocated pour l’élément PostShutdownAction.
 
@@ -118,7 +118,7 @@ Des événements de maintenance non planifiés peuvent se produire quand Azure d
 
 Pour toute machine virtuelle autonome (c’est-à-dire ne faisant pas partie d’un groupe à haute disponibilité), Azure notifie par courrier électronique l’administrateur de service de l’abonnement au moins une semaine avant la maintenance planifiée, car les machines virtuelles pourraient être redémarrées au cours de la mise à jour. Les applications exécutées sur les machines virtuelles peuvent subir un temps d’arrêt.
 
-Vous pouvez également utiliser le Portail Azure Classic ou Azure PowerShell pour afficher les journaux de redémarrage quand le redémarrage s’est produit en raison d’une maintenance planifiée. Pour plus d’informations, voir [Affichage des journaux de redémarrage de machines virtuelles (en anglais)](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Vous pouvez également utiliser le Portail Azure ou Azure PowerShell pour afficher les journaux de redémarrage quand le redémarrage s’est produit en raison d’une maintenance planifiée. Pour plus d’informations, voir [Affichage des journaux de redémarrage de machines virtuelles (en anglais)](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Pour assurer la redondance, placez au moins deux machines virtuelles configurées de manière similaire dans le même groupe à haute disponibilité. Cela contribue à garantir qu’au moins une machine virtuelle est disponible pendant la maintenance, planifiée ou non. Azure garantit certains niveaux de disponibilité des machines virtuelles pour cette configuration. Pour plus d’informations, consultez l’article [Gestion de la disponibilité des machines virtuelles](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

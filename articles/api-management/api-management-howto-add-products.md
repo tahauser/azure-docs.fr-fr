@@ -14,17 +14,17 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Créer et publier un produit  
 
 Dans Gestion des API Azure, un produit contient une ou plusieurs API, ainsi qu’un quota et des conditions d’utilisation. Une fois le produit publié, les développeurs peuvent s'y abonner et commencer à utiliser ses API.  
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer et publier un produit
@@ -32,7 +32,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ![Produit ajouté](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
@@ -48,18 +48,18 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
     Quand vous ajoutez un produit, vous devez fournir les informations suivantes : 
 
-    |Nom|Description|
+    |NOM|DESCRIPTION|
     |---|---|
     |Nom complet|Le nom qui doit apparaître dans le **portail des développeurs**.|
-    |Nom|Nom descriptif du produit.|
-    |Description|Le champ **Description** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles.|
+    |NOM|Nom descriptif du produit.|
+    |DESCRIPTION|Le champ **Description** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles.|
     |État|Appuyez sur **Publié** si vous souhaitez publier le produit. Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs** .|
     |Nécessite une approbation|Cochez **Demander une approbation d'abonnement** si vous souhaitez qu'un administrateur révise et accepte ou refuse les tentatives d'abonnement à ce produit. Si la case n’est pas cochée, les tentatives d’abonnement sont automatiquement approuvées. |
     |Limite du nombre d’abonnements|Pour limiter le nombre de plusieurs abonnements simultanés, entrez la limite d’abonnements. |
     |Conditions légales|Vous pouvez inclure les conditions d’utilisation que les abonnés doivent accepter pour pouvoir utiliser le produit.|
-    |API|Les produits sont des associations d’une ou plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/> Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** des produits, soit pendant la création d’une API.|<br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit.<br/> Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.|
+    |API|Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/> Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** des produits, soit pendant la création d’une API.|<br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit.<br/> Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.|
 
-3. Cliquez sur **Enregistrer** pour créer le produit.
+3. Cliquez sur **Créer** pour créer le produit.
 
 ### <a name="add-more-configurations"></a>Ajouter des configurations
 
@@ -71,7 +71,7 @@ Définissez la visibilité d’un produit pour les développeurs ou invités à 
 
 ## <a name="add-apis"></a>Ajout d’API à un produit
 
-Les produits sont des associations d’une ou plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** des produits, soit pendant la création d’une API.
+Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Vous pouvez ajouter une API existante pendant la création du produit. Vous pouvez ajouter une API au produit ultérieurement, soit à partir de la page **Paramètres** des produits, soit pendant la création d’une API.
 
 Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.
 
@@ -88,9 +88,9 @@ Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer et publier un produit

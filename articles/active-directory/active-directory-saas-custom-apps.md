@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763007f004ab82ef5a6b2cac6dbef1ab221a060f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.
 Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Cette fonctionnalité a été publiée à partir de la version d’évaluation technique le 18 novembre 2015 et est incluse dans [Azure Active Directory Premium](active-directory-editions.md). Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
@@ -57,9 +57,9 @@ Sélectionnez cette option pour configurer l'authentification basée SAML pour l
 
 ![][4]
 
-Ces composants sont les suivants :
+Ces règles sont les suivantes :
 
-* **URL de connexion (initiée par le fournisseur de services)** : où l’utilisateur se connecte à cette application. Si l’application est configurée pour effectuer une authentification unique initiée par le fournisseur de services, lorsque l’utilisateur accède à cette URL, le fournisseur de services effectue la redirection nécessaire vers Azure AD pour effectuer l’authentification et connecter l’utilisateur. Si ce champ est renseigné, Azure AD utilise cette URL pour lancer l’application à partir d’Office 365 et du panneau d’accès Azure AD. Si ce champ est omis, Azure AD effectue une authentification initiée par le fournisseur d’identité lorsque l’application est lancée à partir d’Office 365, du panneau d’accès Azure AD ou à partir de l’URL de connexion unique d’Azure AD (qui peut être copiée dans l’onglet Tableau de bord).
+* **URL de connexion (initiée par le fournisseur de services)** : où l’utilisateur se connecte à cette application. Si l’application est configurée pour effectuer une authentification unique initiée par le fournisseur de services, lorsque l’utilisateur accède à cette URL, le fournisseur de services effectue la redirection nécessaire vers Azure AD pour effectuer l’authentification et connecter l’utilisateur. Si ce champ est renseigné, Azure AD utilise cette URL pour lancer l’application à partir d’Office 365 et du panneau d’accès Azure AD. Si ce champ est omis, Azure AD effectuera une authentification initiée par le fournisseur d’identité lorsque l’application sera lancée à partir d’Office 365, du panneau d’accès Azure AD ou de l’URL d’authentification unique d’Azure AD (qui peut être copiée dans l’onglet Tableau de bord).
 * **URL de l’émetteur** : l’URL de l’émetteur doit identifier de façon unique l’application pour laquelle l’authentification unique est configurée. Il s’agit de la valeur qu’Azure AD renvoie à l’application en tant que paramètre **Audience** du jeton SAML. L’application doit la valider. Cette valeur apparaît également comme **l’ID d’entité** dans les métadonnées SAML fournies par l’application. Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les valeurs d’ID d’entité ou d’audience. Voici un exemple de comment l’URL de l’audience figure dans le jeton SAML renvoyé à l’application :
 
 ```
@@ -74,7 +74,7 @@ Ces composants sont les suivants :
       </Conditions>
 ```
 
-* **URL de réponse** : l’URL de réponse est là où l’application attend le jeton SAML. Elle est aussi appelée **URL ACS (Assertion Consumer Service)**. Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les jetons de réponse SAML de l’URL ou de l’URL ACS.
+* **URL de réponse** : l’URL de réponse est l’adresse où l’application attend le jeton SAML. Elle est aussi appelée **URL ACS (Assertion Consumer Service)**. Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les jetons de réponse SAML de l’URL ou de l’URL ACS.
   Une fois ces entrées effectuées, cliquez sur **Suivant** pour passer à l'écran suivant. Cet écran fournit des informations sur ce qui doit être configuré dans l'application pour lui permettre d'accepter un jeton SAML à partir d'Azure AD. 
 
 ![][5]

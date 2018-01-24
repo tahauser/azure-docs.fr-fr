@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-ms.openlocfilehash: 14161a0747add43a99e301eacf700ab79c77c767
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envoi de courriers électroniques à l'aide de SendGrid avec Azure
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en C\# et prennent en charge .NET Standard 1.3. Les scénarios traités incluent le développement d’une messagerie électronique, l’envoi de courriers électroniques, l’ajout de pièces jointes et l’activation de différents paramètres de messagerie et de suivi. Pour plus d’informations sur SendGrid et sur l’envoi de courriers électroniques, consultez la section [Étapes suivantes][Next steps].
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Définition du service de messagerie SendGrid
@@ -108,7 +108,7 @@ Vous pouvez stocker ces informations d’identification par le biais de votre Po
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-Les exemples suivants montrent comment envoyer un message à l'aide de l'API Web.
+Les exemples suivants montrent comment envoyer un e-mail en utilisant l’API web SendGrid avec une application console.
 
     using System;
     using System.Threading.Tasks;
@@ -140,7 +140,83 @@ Les exemples suivants montrent comment envoyer un message à l'aide de l'API Web
             }
         }
     }
+    
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Guide pratique pour envoyer un e-mail à partir de l’API ASP .NET Core avec la classe MailHelper
 
+L’exemple ci-dessous peut être utilisé pour envoyer un même e-mail à plusieurs personnes à partir de l’API ASP .NET Core avec la classe `MailHelper` de l’espace de noms `SendGrid.Helpers.Mail`. Pour cet exemple, nous utilisons ASP .NET Core 1.0. 
+
+Dans cet exemple, la clé d’API a été stockée dans le fichier `appsettings.json`, qui peut être remplacé à partir du portail Azure, comme illustré dans les exemples ci-dessus.
+
+Le contenu du fichier `appsettings.json` doit se présenter ainsi :
+
+    {
+       "Logging": {
+       "IncludeScopes": false,
+       "LogLevel": {
+       "Default": "Debug",
+       "System": "Information",
+       "Microsoft": "Information"
+         }
+       },
+     "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+
+Nous devons d’abord ajouter le code ci-dessous dans le fichier `Startup.cs` du projet d’API .NET Core. Ceci est nécessaire pour pouvoir accéder à `SENDGRID_API_KEY` à partir du fichier `appsettings.json` en utilisant l’injection de dépendances dans le contrôleur d’API. L’interface `IConfiguration` peut être injectée dans le constructeur du contrôleur après son ajout dans la méthode `ConfigureServices` ci-dessous. Le contenu du fichier `Startup.cs` se présente comme ceci après l’ajout du code nécessaire :
+
+        public IConfigurationRoot Configuration { get; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Add mvc here
+            services.AddMvc();
+            services.AddSingleton<IConfiguration>(Configuration);
+        }
+
+Au niveau du contrôleur, après l’injection de l’interface `IConfiguration`, nous pouvons utiliser la méthode `CreateSingleEmailToMultipleRecipients` de la classe `MailHelper` pour envoyer un même e-mail à plusieurs destinataires. La méthode accepte un paramètre booléen supplémentaire nommé `showAllRecipients`. Ce paramètre peut être utilisé pour contrôler si les destinataires de l’e-mail pourront voir l’adresse e-mail des autres dans la section À de l’en-tête de l’e-mail. L’exemple de code pour le contrôleur doit se présenter comme ci-dessous : 
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using SendGrid;
+    using SendGrid.Helpers.Mail;
+    using Microsoft.Extensions.Configuration;
+
+    namespace SendgridMailApp.Controllers
+    {
+        [Route("api/[controller]")]
+        public class NotificationController : Controller
+        {
+           private readonly IConfiguration _configuration;
+
+           public NotificationController(IConfiguration configuration)
+           {
+             _configuration = configuration;
+           }      
+        
+           [Route("SendNotification")]
+           public async Task PostMessage()
+           {
+              var apiKey = _configuration.GetSection("SENDGRID_API_KEY").Value;
+              var client = new SendGridClient(apiKey);
+              var from = new EmailAddress("test1@example.com", "Example User 1");
+              List<EmailAddress> tos = new List<EmailAddress>
+              {
+                  new EmailAddress("test2@example.com", "Example User 2"),
+                  new EmailAddress("test3@example.com", "Example User 3"),
+                  new EmailAddress("test4@example.com","Example User 4")
+              };
+            
+              var subject = "Hello world email from Sendgrid ";
+              var htmlContent = "<strong>Hello world with HTML content</strong>";
+              var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
+              var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, tos, subject, "", htmlContent, false);
+              var response = await client.SendEmailAsync(msg);
+          }
+       }
+    }
+    
 ## <a name="how-to-add-an-attachment"></a>Ajout d'une pièce jointe
 Vous pouvez ajouter des pièces jointes à un message en appelant la méthode **AddAttachment** et en spécifiant au minimum le nom du fichier et le contenu encodé en Base64 que vous souhaitez joindre au message. Si vous souhaitez inclure plusieurs pièces jointes, appelez cette méthode pour chacun des fichiers que vous voulez joindre ou utilisez la méthode **AddAttachments**. L'exemple suivant montre comment ajouter une pièce jointe à un message :
 
@@ -173,7 +249,7 @@ Les exemples suivants montrent les filtres de pied de page et de suivi des clics
 ## <a name="how-to-use-additional-sendgrid-services"></a>Utilisation de services SendGrid supplémentaires
 SendGrid offre plusieurs API et webhooks que vous pouvez utiliser pour tirer profit de fonctionnalités supplémentaires dans votre application Azure. Pour plus d’informations, consultez la [documentation de référence sur l’API SendGrid][SendGrid API documentation].
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
 * Référentiel de la bibliothèque C\# de SendGrid : [sendgrid-csharp][sendgrid-csharp]

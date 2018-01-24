@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Utilisation du support de flux de modification dans Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Le **support de flux de modification** d’Azure Cosmos DB vous permet de créer
 ![Utilisation du flux de modification d’Azure Cosmos DB pour alimenter les analyses en temps réel et les scénarios de calcul pilotés par les événements](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Le support de flux de modification est fourni pour tous les conteneurs et modèles de données dans Azure Cosmos DB. Toutefois, le flux de modification est lu à l’aide du client DocumentDB et sérialise les éléments au format JSON. En raison du formatage JSON, les clients MongoDB seront confrontés à une incompatibilité entre les documents au format BSON et le flux de modification au format JSON. 
+> Le support de flux de modification est fourni pour tous les conteneurs et modèles de données dans Azure Cosmos DB. Toutefois, le flux de modification est lu à l’aide du client SQL et sérialise les éléments au format JSON. En raison du formatage JSON, les clients MongoDB seront confrontés à une incompatibilité entre les documents au format BSON et le flux de modification au format JSON. 
 
 ## <a name="how-does-change-feed-work"></a>Comment fonctionne le flux de modification ?
 
@@ -90,11 +90,11 @@ Les déclencheurs peuvent être créés via le portail Azure Functions, via le p
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 
-Le [Kit de développement logiciel (SDK) DocumentDB](documentdb-sdk-dotnet.md) pour Azure Cosmos DB comprend toutes les fonctionnalités nécessaires pour lire et gérer un flux de modification. De telles fonctionnalités impliquent également un certain nombre de responsabilités. Si vous voulez gérer les points de contrôle et les numéros de séquence des documents, et bénéficier d’un contrôle granulaire sur les clés de partition, alors utiliser le Kit de développement logiciel (SDK) peut être une bonne alternative.
+Le [SDK SQL](sql-api-sdk-dotnet.md) pour Azure Cosmos DB comprend toutes les fonctionnalités nécessaires pour lire et gérer un flux de modification. De telles fonctionnalités impliquent également un certain nombre de responsabilités. Si vous voulez gérer les points de contrôle et les numéros de séquence des documents, et bénéficier d’un contrôle granulaire sur les clés de partition, alors utiliser le Kit de développement logiciel (SDK) peut être une bonne alternative.
 
-Cette section vous explique comment utiliser le Kit de développement logiciel (SDK) DocumentDB pour exploiter les flux de modification.
+Cette section vous explique comment utiliser le SDK SQL pour exploiter les flux de modification.
 
-1. Commencez par consulter les ressources suivantes disponibles dans appconfig. Des instructions sur la récupération de la clé d’autorisation et du point de terminaison sont disponibles dans [Mise à jour de votre chaîne de connexion](create-documentdb-dotnet.md#update-your-connection-string).
+1. Commencez par consulter les ressources suivantes disponibles dans appconfig. Des instructions sur la récupération de la clé d’autorisation et du point de terminaison sont disponibles dans [Mise à jour de votre chaîne de connexion](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Ainsi, votre tableau de points de contrôle conserve uniquement le numéro de s�
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Utilisation de la bibliothèque du processeur de flux de modification 
 
-La [bibliothèque du processeur de flux de modification Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) vous permet de répartir facilement le traitement des événements sur plusieurs consommateurs d’événements. Cette bibliothèque simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.
+La [bibliothèque du processeur de flux de modification Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) vous permet de répartir facilement le traitement des événements sur plusieurs consommateurs d’événements. Cette bibliothèque simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.
 
 Le principal avantage de la bibliothèque du processeur de flux de modification est que vous n’êtes pas obligé de gérer chaque partition et jeton de liaison, et que vous n’avez pas à interroger chaque collection manuellement.
 
@@ -270,17 +270,17 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 Et voilà ! Après ces quelques étapes, des documents seront progressivement collectés au sein de la méthode **DocumentFeedObserver ProcessChangesAsync**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’utilisation d’Azure Cosmos DB avec Azure Functions, consultez l’article [Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions](serverless-computing-database.md).
 
 Pour plus d’informations sur l’utilisation de la bibliothèque du processeur de flux de modification, utilisez les ressources suivantes :
 
-* [Page d’informations](documentdb-sdk-dotnet-changefeed.md) 
+* [Page d’informations](sql-api-sdk-dotnet-changefeed.md) 
 * [Package NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Exemple de code illustrant les étapes 1 à 6 ci-dessus](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Exemples supplémentaires sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Pour plus d’informations sur l’utilisation du flux de modification avec le Kit de développement logiciel (SDK), utilisez les ressources suivantes :
 
-* [Page d’informations sur le Kit de développement logiciel (SDK)](documentdb-sdk-dotnet.md)
+* [Page d’informations sur le Kit de développement logiciel (SDK)](sql-api-sdk-dotnet.md)

@@ -1,32 +1,31 @@
 ---
-title: "Ajouter une connexion à une application web Node.js pour Azure B2C | Microsoft Docs"
-description: "Comment créer une application web Node.js qui connecte les utilisateurs à l’aide d’un client B2C."
+title: "Ajouter la connexion à une application web Node.js - Azure Active Directory B2C"
+description: "Comment créer une application web Node.js qui connecte les utilisateurs à Azure Active Directory B2C."
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+author: PatAltimore
 manager: mtillman
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b306a79d0daa1c6d51557b6abad617182c76e9ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C : ajouter une connexion à une application web Node.js
 
-**Passport** est un intergiciel d’authentification pour Node.js. Extrêmement flexible et modulaire, Passport peut être installé discrètement dans n’importe quelle application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter,etc.
+**Passport** est un intergiciel d’authentification pour Node.js. Flexible et modulaire, Passport peut être installé discrètement dans toute application web basée sur Express ou Restify. Une gamme complète de stratégies prend en charge l’authentification à l’aide d’un nom d’utilisateur et d’un mot de passe, de Facebook, de Twitter,etc.
 
-Nous avons développé une stratégie pour Azure Active Directory (Azure AD). Installez ce module, puis ajoutez le plug-in Azure AD `passport-azure-ad`.
+Pour Azure Active Directory (Azure AD), vous pouvez installer ce module, puis y ajouter le plug-in `passport-azure-ad` Active Directory Azure.
 
-Pour cela, vous devez procéder comme suit :
+Vous devez :
 
 1. Inscrivez une application en utilisant Azure AD.
 2. Configurez votre application pour utiliser le plug-in `passport-azure-ad`.
@@ -51,8 +50,6 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 - Entrez `http://localhost:3000/auth/openid/return` comme **URL de réponse**. Il s’agit de l’URL par défaut pour cet exemple de code.
 - Créez un **secret d’application** pour votre application et copiez-le. Vous en aurez besoin ultérieurement. Notez que cette valeur doit être [placée dans une séquence d’échappement XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) avant son utilisation.
 - Copiez l’ **ID d’application** affecté à votre application. Vous allez également en avoir besoin par la suite.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Création de vos stratégies
 
@@ -104,7 +101,7 @@ Ouvrez le fichier `config.js` à la racine du projet, puis entrez les valeurs de
 Ouvrez le fichier `app.js` à la racine du projet. Ajoutez l’appel suivant pour appeler la stratégie `OIDCStrategy` qui accompagne `passport-azure-ad`.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 Utilisez la stratégie référencée pour gérer les demandes de connexion.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ Le code précédent prend tous les utilisateurs auxquels le serveur s’authenti
 
 Ajoutez les méthodes qui vous permettent d’effectuer le suivi des utilisateurs qui se sont connectés, comme requis par Passport. Cela inclut la sérialisation et la désérialisation des informations des utilisateurs :
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 Ensuite, ajoutez le code pour charger le moteur Express. Dans ce qui suit, vous pouvez voir que nous utilisons la valeur par défaut `/views` et le modèle `/routes` fourni par Express.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 Ajoutez maintenant les itinéraires `POST` qui transmettent les demandes d’ouverture de session au moteur `passport-azure-ad` :
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ Votre application est maintenant correctement configurée pour communiquer avec 
 
 Tout d’abord, ajoutez au fichier `app.js` les méthodes par défaut de connexion, de compte et de déconnexion :
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ Pour consulter le détail de ces méthodes :
 
 Pour la dernière partie de `app.js`, ajoutez la méthode `EnsureAuthenticated` utilisée dans l’itinéraire `/account`.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 Enfin, créez le serveur proprement dit dans `app.js`.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ La création du fichier `app.js` est maintenant terminée. Vous devez simplement
 
 Créez l’itinéraire `/routes/index.js` sous le répertoire racine.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 Créez l’itinéraire `/routes/user.js` sous le répertoire racine.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ Ces itinéraires simples transmettent les demandes à vos vues. Ils intègrent l
 
 Créez la vue `/views/index.ejs` sous le répertoire racine. Il s’agit d’une page simple qui appelle des stratégies de connexion et de déconnexion. Vous pouvez également l’utiliser pour récupérer les informations de compte. Notez que vous pouvez utiliser la condition `if (!user)` dès lors que l’utilisateur est transmis dans la demande pour fournir la preuve qu’il est bien connecté.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ Créez la vue `/views/index.ejs` sous le répertoire racine. Il s’agit d’une
 
 Créez la vue `/views/account.ejs` sous le répertoire racine afin d’afficher les informations supplémentaires que `passport-azure-ad` a placées dans la demande de l’utilisateur.
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>
@@ -403,7 +400,7 @@ Exécutez `node app.js` et accédez à `http://localhost:3000`
 
 Inscrivez-vous ou connectez-vous à l’application avec une adresse de messagerie ou via Facebook. Déconnectez-vous, puis reconnectez-vous comme si vous étiez un autre utilisateur.
 
-##<a name="next-steps"></a>Étapes suivantes
+##<a name="next-steps"></a>étapes suivantes
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 

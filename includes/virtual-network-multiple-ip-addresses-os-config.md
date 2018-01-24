@@ -22,6 +22,7 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
     * Cliquez sur **OK** pour fermer les paramètres TCP/IP, puis sur **OK** à nouveau pour fermer les paramètres de la carte réseau. Votre connexion RDP est rétablie.
 
 6. Tapez *ipconfig /all*à l’invite de commandes. Toutes les adresses IP que vous avez ajoutées sont affichées et le protocole DHCP est désactivé.
+7. Configurez Windows pour utiliser l’adresse IP privée de la configuration IP principale dans Azure en tant qu’adresse IP principale pour Windows. Pour plus d’informations, consultez [Aucun accès à Internet à partir de la machine virtuelle Windows Azure qui possède plusieurs adresses IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
 
 
 ### <a name="validation-windows"></a>Validation (Windows)

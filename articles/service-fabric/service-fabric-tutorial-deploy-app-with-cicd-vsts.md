@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Déployer une application avec intégration et déploiement continus sur un cluster Service Fabric
 Troisième d’une série, ce didacticiel explique comment configurer l’intégration et le déploiement continus d’une application Microsoft Azure Service Fabric à l’aide de Visual Studio Team Services.  Une application Service Fabric existante est requise. L’application créée dans le didacticiel [Générer une application .NET](service-fabric-tutorial-create-dotnet-app.md) est utilisée à titre d’exemple.
@@ -39,12 +39,11 @@ Cette série de didacticiels vous montre comment effectuer les opérations suiva
 > * Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 - [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).
-- Créez une application Service Fabric, par exemple en suivant [ce didacticiel](service-fabric-tutorial-create-dotnet-app.md). 
 - Créez un cluster Service Fabric Windows sur Azure, par exemple en suivant [ce didacticiel](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Créez un compte [Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
@@ -83,39 +82,49 @@ Une définition de build Team Services décrit un flux de travail qui se compose
 Une définition de mise en production Team Services décrit un flux de travail qui déploie un package d’application sur un cluster. Lorsqu’elles sont utilisées ensemble, la définition de version et la définition de génération exécutent le flux de travail dans son ensemble, depuis le déploiement des fichiers source jusqu’à l’exécution de l’application dans votre cluster. Plus d’informations sur les [définitions de version](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)Team Services.
 
 ### <a name="create-a-build-definition"></a>Créer une définition de build
-Ouvrez un navigateur web et accédez à votre nouveau projet d’équipe à l’adresse : https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting. 
+Ouvrez un navigateur web et accédez à votre nouveau projet d’équipe à l’adresse : [https://&lt;moncompte&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
 Sélectionnez l’onglet **Générer et publier**, **Builds**, puis **+ Nouvelle définition**.  Dans **Sélectionner un modèle**, sélectionnez le modèle **Azure Service Fabric Application** et cliquez sur **Appliquer**. 
 
 ![Choisir le modèle de build][select-build-template] 
 
-L’application de vote contient un projet .NET Core. Il vous faudra donc ajouter une tâche qui restaure les dépendances. Dans la vue **Tâches**, sélectionnez **+ Ajouter une tâche** dans la partie inférieure gauche. Faites une recherche sur « Ligne de commande » pour trouver la tâche de ligne de commande, puis cliquez sur **Ajouter**. 
+Dans **Tâches**, entrez « Hébergée VS2017 » pour **File d’attente d’agents**. 
 
-![Ajouter une tâche][add-task] 
+![Sélectionner les tâches][save-and-queue]
 
-Dans la nouvelle tâche, entrez « Exécuter dotnet.exe » sous **Nom d’affichage**, « dotnet.exe » sous **Outil** et « restore » sous **Arguments**. 
+Sous **Déclencheurs**, activez l’intégration continue en définissant **Déclencher l’état**.  Sélectionnez **Enregistrer et mettre en file d’attente** pour lancer une build manuellement.  
 
-![Nouvelle tâche][new-task] 
+![Sélectionnez les déclencheurs][save-and-queue2]
 
-Dans la vue **Déclencheur**, cliquez sur le bouton **Activer ce déclencheur** sous **Intégration continue**. 
-
-Sélectionnez **Enregistrer et mettre en file d’attente** et entrez « Hébergée VS2017 » en tant que **file d’attente de l’agent**. Sélectionnez **Mettre en file d’attente** pour démarrer une build manuellement.  Les builds sont également déclenchées sur notification Push ou archivage.
-
-Pour vérifier la progression de votre build, basculez vers l’onglet **Builds**.  Une fois que vous avez vérifié que la build s’exécute correctement, spécifiez une définition de mise en production assurant le déploiement de votre application sur un cluster. 
+Les builds sont également déclenchées par envoi (push) ou par archivage. Pour vérifier la progression de votre build, basculez vers l’onglet **Builds**.  Une fois que vous avez vérifié que la build s’exécute correctement, spécifiez une définition de mise en production assurant le déploiement de votre application sur un cluster. 
 
 ### <a name="create-a-release-definition"></a>Création d’une définition de version  
 
-Sélectionnez l’onglet **Générer et publier**, **Mises en production**, puis **+ Nouvelle définition**.  Sous **Créer une définition de mise en production**, sélectionnez le modèle **Azure Service Fabric Deployment** dans la liste et cliquez sur **Suivant**.  Sélectionnez la source **Build**, cochez la case **Déploiement continu**, puis cliquez sur **Créer**. 
+Sélectionnez l’onglet **Générer et publier**, **Mises en production**, puis **+ Nouvelle définition**.  Sous **Sélectionner un modèle**, sélectionnez le modèle **Déploiement Azure Service Fabric** dans la liste, puis **Appliquer**.  
 
-Dans la vue **Environnements**, cliquez sur **Ajouter** à droite de **Connexion au cluster**.  Spécifiez le nom de connexion « mysftestcluster », le point de terminaison de cluster « tcp://mysftestcluster.westus.cloudapp.azure.com:19000 », ainsi que les informations d’identification Azure Active Directory ou de certificat pour le cluster. En ce qui concerne les informations d’identification d’Azure Active Directory, définissez les informations à utiliser pour vous connecter au cluster dans les champs **Nom d’utilisateur** et **Mot de passe**. Pour l’authentification basée sur un certificat, définissez l’encodage Base64 du fichier de certificat client dans le champ **Certificat client**.  Consultez l’aide contextuelle sur ce champ pour en savoir plus sur la façon d’obtenir cette valeur.  Si votre certificat est protégé par mot de passe, définissez ce dernier dans le champ **Mot de passe** .  Cliquez sur **Enregistrer** pour enregistrer la définition de mise en production.
+![Choisissez le modèle de template][select-release-template]
 
-![Ajouter une connexion au cluster][add-cluster-connection] 
+Sélectionnez **Tâches**->**Environnement 1**, puis **+ Nouveau** pour ajouter une nouvelle connexion de cluster.
 
-Cliquez sur **Exécuter sur l’agent**, puis sélectionnez **Hébergée VS2017** pour **File d’attente de déploiement**. Cliquez sur **Enregistrer** pour enregistrer la définition de mise en production.
+![Ajouter une connexion au cluster][add-cluster-connection]
 
-![Exécuter sur l’agent][run-on-agent]
+Sur la vue **Ajouter une nouvelle connexion Service Fabric**, sélectionnez l’authentification **Basée sur les certificats** ou **Azure Active Directory**.  Spécifiez le nom de connexion « mysftestcluster » et le point de terminaison de cluster « tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000 » (ou celui du cluster sur lequel porte le déploiement). 
 
-Sélectionnez **+Mise en production** -> **Créer une mise en production** -> **Créer** pour créer manuellement une mise en production.  Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170616.3. 
+Pour l’authentification basée sur les certificats, ajoutez **l’empreinte du certificat de serveur** utilisé pour créer le cluster.  Dans **Certificat client**, ajoutez le codage en base 64 du fichier de certificat client. Consultez la fenêtre contextuelle d’aide de ce champ pour savoir comment obtenir cette représentation codée en base 64 du certificat. Ajoutez également le **Mot de passe** du certificat.  Vous pouvez utiliser le certificat de serveur ou de cluster si vous ne disposez pas d’un certificat client distinct. 
+
+Dans les informations d’identification d’Azure Active Directory, ajoutez **l’empreinte du certificat de serveur** utilisé pour créer le cluster et les informations d’identification à utiliser pour se connecter au cluster dans les champs **Nom d’utilisateur** et **Mot de passe**. 
+
+Cliquez sur **Ajouter** pour enregistrer la connexion du cluster.
+
+Ensuite, ajoutez un artefact de build au pipeline afin de permettre à la définition de mise en production de trouver la sortie de la build. Sélectionnez **Pipeline** et **Artefacts**->**+ Ajouter**.  Dans **Source (définition de build)**, sélectionnez la définition de build que vous avez créée précédemment.  Cliquez sur **Ajouter** pour enregistrer l’artefact de la build.
+
+![Ajoutez un artefact][add-artifact]
+
+Activez un déclencheur de déploiement continu afin qu’une version soit créée automatiquement à la fin de la génération. Cliquez sur l’icône en forme d’éclair de l’artefact, activez le déclencheur, puis cliquez sur **Enregistrer** pour enregistrer la définition de mise en production.
+
+![Activez le déclencheur][enable-trigger]
+
+Sélectionnez **+Mise en production** -> **Créer une mise en production** -> **Créer** pour créer manuellement une mise en production.  Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170616.3. 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Valider et envoyer les modifications, déclencher une mise en production
 Vous pouvez vérifier que le pipeline d’intégration continue fonctionne en archivant certaines modifications de code dans Team Services.    
@@ -134,7 +143,7 @@ L’envoi (push) des modifications dans Team Services déclenche automatiquement
 
 Pour vérifier la progression de votre build, basculez vers l’onglet **Builds** de **Team Explorer** dans Visual Studio.  Une fois que vous avez vérifié que la build s’exécute correctement, spécifiez une définition de mise en production assurant le déploiement de votre application sur un cluster.
 
-Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170815.3.
+Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170815.3.
 
 ![Service Fabric Explorer][sfx1]
 
@@ -149,8 +158,8 @@ La mise à niveau de l’application peut prendre plusieurs minutes. Une fois la
 
 ![Service Fabric Explorer][sfx3]
 
-## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+## <a name="next-steps"></a>étapes suivantes
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Ajouter le contrôle de code source à votre projet
@@ -168,10 +177,13 @@ Passez au didacticiel suivant :
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ Passez au didacticiel suivant :
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

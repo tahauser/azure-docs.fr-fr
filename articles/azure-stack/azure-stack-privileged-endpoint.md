@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié*. Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche requise. Le point de terminaison s’appuie sur PowerShell JEA (Just Enough Administration) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est requis. Pour plus de sécurité, les scripts ne sont pas autorisés.
+En tant qu’opérateur Azure Stack, vous devez utiliser le portail administrateur, PowerShell ou les API Azure Resource Manager pour la plupart des tâches d’administration quotidiennes. Toutefois, pour certaines opérations moins courantes, vous devez utiliser le *point de terminaison privilégié* (PEP). Ce point de terminaison est une console PowerShell distante préconfigurée qui vous fournit suffisamment de fonctionnalités pour vous aider à effectuer une tâche requise. Le point de terminaison s’appuie sur PowerShell JEA (Just Enough Administration) pour exposer uniquement un ensemble limité d’applets de commande. Pour accéder au point de terminaison privilégié et appeler l’ensemble limité d’applets de commande, un compte à faibles privilèges est utilisé. Aucun compte d’administrateur n’est requis. Pour plus de sécurité, les scripts ne sont pas autorisés.
 
 Vous pouvez utiliser le point de terminaison privilégié pour effectuer les tâches suivantes :
 
@@ -98,6 +98,7 @@ Nous vous recommandons de vous connecter au point de terminaison privilégié un
     - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test-AzureStack
     - Stop-AzureStack
     - Get-ClusterLog
 
@@ -122,7 +123,7 @@ Pour fermer la session du point de terminaison :
 
 Une fois les fichiers journaux de transcription correctement transférés vers le partage de fichiers, ils sont automatiquement supprimés du point de terminaison privilégié. Si vous fermez la session du point de terminaison privilégié à l’aide des applets de commande `Exit-PSSession` ou `Exit`, ou que vous fermez simplement la console PowerShell, les journaux de transcription ne sont pas transférés vers un partage de fichiers. Ils demeurent dans le point de terminaison privilégié. La prochaine fois que vous exécutez `Close-PrivilegedEndpoint` et que vous incluez un partage de fichiers, les journaux de transcription issus de la (des) session(s) précédente(s) sont également transférés.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Outils de diagnostic Azure Stack](azure-stack-diagnostics.md)
 
 

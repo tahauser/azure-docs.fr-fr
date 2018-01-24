@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
@@ -29,11 +29,11 @@ Nos outils de diagnostic aident à garantir la simplicité d’utilisation et l�
  
 ## <a name="trace-collector"></a>Collecteur de traces
  
-Le collecteur de traces est activé par défaut et s’exécute en continu en arrière-plan pour collecter tous les journaux de suivi d’événements pour Windows (ETW) à partir des services composants d’Azure Stack. Les journaux ETW sont stockés dans un partage local commun avec une durée de vie de cinq jours. Une fois cette limite atteinte, les fichiers les plus anciens sont supprimés à mesure que de nouveaux sont créés. La taille maximale par défaut autorisée pour chaque fichier est de 200 Mo. Une vérification de la taille se produit régulièrement (toutes les deux minutes) et, si la taille du fichier actuel est supérieure ou égale à 200 Mo, il est enregistré et un nouveau fichier est généré. Il existe également une limite de 8 Go concernant la taille totale des fichiers générés par session d’événements. 
+Le collecteur de traces est activé par défaut et s’exécute en continu en arrière-plan pour collecter tous les journaux de suivi d’événements pour Windows (ETW) à partir des services composants d’Azure Stack. Les journaux ETW sont stockés dans un partage local commun avec une durée de vie de cinq jours. Une fois cette limite atteinte, les fichiers les plus anciens sont supprimés à mesure que de nouveaux sont créés. La taille maximale autorisée par défaut pour chaque fichier est de 200 Mo. Une vérification de la taille a lieu toutes les deux minutes ; si le fichier actuel a une taille supérieure ou égale à 200 Mo, il est enregistré et un nouveau fichier est généré. Il existe également une limite de 8 Go portant sur la taille totale des fichiers générés par session d’événements. 
 
 ## <a name="log-collection-tool"></a>Outil de collecte de journaux
  
-Vous pouvez utiliser l’applet de commande PowerShell **Get-AzureStackLog** pour collecter des journaux à partir de tous les composants dans un environnement Azure Stack. Elle les enregistre dans des fichiers zip à un emplacement défini par l’utilisateur. Si notre équipe de support technique a besoin de vos journaux pour aider à résoudre un problème, elle peut vous demander d’exécuter cet outil.
+Vous pouvez utiliser l’applet de commande PowerShell **Get-AzureStackLog** pour collecter des journaux à partir de tous les composants dans un environnement Azure Stack. Elle les enregistre dans des fichiers zip à un emplacement défini par l’utilisateur. Si l’équipe de support technique Azure Stack a besoin de vos journaux pour résoudre un problème, elle peut vous demander d’exécuter cet outil.
 
 > [!CAUTION]
 > Ces fichiers journaux peuvent contenir des informations d’identification personnelle. Pensez-y avant de publier des fichiers journaux publiquement.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Collecter les journaux à l’aide d’une interface graphique utilisateur
-Au lieu de fournir les paramètres obligatoires pour l’applet de commande Get-AzureStackLog afin de récupérer les journaux Azure Stack, vous pouvez tirer parti des outils Azure Stack open source disponibles dans le dépôt GitHub d’outils Azure Stack principal à l’adresse http://aka.ms/AzureStackTools.
+Au lieu de fournir les paramètres obligatoires pour que la cmdlet Get-AzureStackLog récupère les journaux Azure Stack, vous pouvez tirer parti des outils Azure Stack open source disponibles dans le dépôt GitHub d’outils Azure Stack principal, à l’adresse http://aka.ms/AzureStackTools.
 
-Le script PowerShell **ERCS_AzureStackLogs.ps1** est stocké dans le dépôt d’outils GitHub et est mis à jour régulièrement. Démarré à partir d’une session d’administration PowerShell, le script se connecte au point de terminaison privilégié et exécute Get-AzureStackLog avec les paramètres fournis. Si aucun paramètre n’est fourni, le script invite l’utilisateur à fournir des paramètres par le biais d’une interface graphique utilisateur.
+Le script PowerShell **ERCS_AzureStackLogs.ps1** est stocké dans le dépôt d’outils GitHub et est mis à jour régulièrement. Pour vous assurer de disposer de la dernière version disponible, nous vous conseillons de le télécharger directement sur http://aka.ms/ERCS. Démarré à partir d’une session d’administration PowerShell, le script se connecte au point de terminaison privilégié et exécute Get-AzureStackLog avec les paramètres fournis. Si aucun paramètre n’est fourni, le script invite par défaut l’utilisateur à fournir des paramètres par le biais d’une interface graphique utilisateur.
 
-Pour en savoir plus sur le script PowerShell ERCS_AzureStackLogs.ps1, vous pouvez regarder [une courte vidéo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou consulter le [fichier Lisez-moi](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) du script disponible dans le dépôt GitHub d’outils Azure Stack. 
+Pour plus d’informations sur le script PowerShell ERCS_AzureStackLogs.ps1, vous pouvez regarder [cette courte vidéo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou consulter le [fichier Lisez-moi](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) du script, qui se trouve dans le référentiel GitHub d’outils Azure Stack. 
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires
 
@@ -157,5 +157,5 @@ Pour en savoir plus sur le script PowerShell ERCS_AzureStackLogs.ps1, vous pouve
 > [!NOTE]
 > Nous appliquons des limites de taille et d’âge aux journaux collectés, car il est essentiel de garantir une utilisation efficace de votre espace de stockage afin de s’assurer que vous ne vous retrouverez pas submergé de journaux. Toutefois, lorsque vous diagnostiquez un problème, vous avez parfois besoin de journaux qui n’existent plus, à cause de ces limites. Par conséquent, nous vous **recommandons vivement** de décharger vos journaux vers un espace de stockage externe (un compte de stockage dans Azure, un dispositif de stockage local supplémentaire, etc.) toutes les 8 à 12 heures, et de les conserver pendant 1 à 3 mois, en fonction de vos besoins. Vérifiez également que l’emplacement de stockage est chiffré.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md)

@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a49b4c2d4ddd6d686675cee53d46cd4dd6ad3811
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Gérer des réseaux virtuels Azure et des machines virtuelles Linux avec Azure CLI
 
-Les machines virtuelles Azure utilisent la gestion réseau Azure pour la communication réseau interne et externe. Ce didacticiel vous guide dans le déploiement de deux machines virtuelles et la configuration de la gestion réseau Azure pour celles-ci. Les exemples de ce didacticiel supposent que les machines virtuelles hébergent une application web avec un back-end de base de données. Le didacticiel ne comprend cependant pas le déploiement d’une application. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Les machines virtuelles Azure utilisent la gestion réseau Azure pour la communication réseau interne et externe. Ce didacticiel vous guide dans le déploiement de deux machines virtuelles et la configuration de la gestion réseau Azure pour celles-ci. Les exemples de ce didacticiel supposent que les machines virtuelles hébergent une application web avec un back-end de base de données. Le didacticiel ne comprend cependant pas le déploiement d’une application. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un réseau virtuel et un sous-réseau
@@ -50,7 +50,7 @@ En suivant ce didacticiel, vous pourrez créer les ressources suivantes :
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="vm-networking-overview"></a>Vue d’ensemble de la mise en réseau de machines virtuelles
 
@@ -156,6 +156,8 @@ Un groupe de sécurité réseau (NSG) contient une liste de règles de sécurit�
 Les règles de groupe de sécurité réseau définissent les ports réseau sur lesquels le trafic est autorisé ou refusé. Les règles peuvent comprendre des plages d’adresses IP sources et de destination, de façon à ce que le trafic soit contrôlé entre des systèmes ou des sous-réseaux spécifiques. Les règles de groupe de sécurité réseau ont également une priorité (entre 1 et 4 096). Les règles sont évaluées dans l’ordre des priorités. Une règle avec une priorité de 100 est évaluée avant une règle avec une priorité de 200.
 
 Tous les groupes de ressources réseau contiennent un ensemble de règles par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez.
+
+Les règles par défaut pour les groupes de sécurité réseau sont :
 
 - **Réseau virtuel** : le trafic en provenance et à destination d’un réseau virtuel est autorisé à la fois dans les directions entrante et sortante.
 - **Internet** : le trafic sortant est autorisé, mais le trafic entrant est bloqué.
@@ -289,7 +291,7 @@ La machine virtuelle principale est accessible seulement sur le port *22* et sur
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce tutoriel, vous avez créé et sécurisé des réseaux Azure concernant les machines virtuelles. Vous avez appris à effectuer les actions suivantes :
 

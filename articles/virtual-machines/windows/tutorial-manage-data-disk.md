@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Gestion des disques Azure avec PowerShell
 
@@ -47,7 +47,7 @@ Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquem
 
 ### <a name="temporary-disk-sizes"></a>Tailles du disque temporaire
 
-| Type | Taille de la machine virtuelle | Taille maximale du disque temporaire (Go) |
+| type | Taille de la machine virtuelle | Taille maximale du disque temporaire (Go) |
 |----|----|----|
 | [Usage général](sizes-general.md) | Séries A et D | 800 |
 | [Optimisé pour le calcul](sizes-compute.md) | Série F | 800 |
@@ -62,7 +62,7 @@ Des disques de données supplémentaires peuvent être ajoutés pour installer d
 
 ### <a name="max-data-disks-per-vm"></a>Disques de données max. par machine virtuelle
 
-| Type | Taille de la machine virtuelle | Disques de données max. par machine virtuelle |
+| type | Taille de la machine virtuelle | Disques de données max. par machine virtuelle |
 |----|----|----|
 | [Usage général](sizes-general.md) | Séries A et D | 32 |
 | [Optimisé pour le calcul](sizes-compute.md) | Série F | 32 |
@@ -142,7 +142,7 @@ New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Ce didacticiel vous a apporté des connaissances concernant les disques de machine virtuelle, notamment concernant les points suivants :
 
@@ -156,4 +156,4 @@ Ce didacticiel vous a apporté des connaissances concernant les disques de machi
 Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour personnaliser une machine virtuelle au premier démarrage](./tutorial-automate-vm-deployment.md)
+> [How to customize a Linux virtual machine on first boot](./tutorial-automate-vm-deployment.md) (Comment personnaliser une machine virtuelle Linux au premier démarrage)

@@ -1,9 +1,9 @@
 ---
 title: "Azure Cosmos DB : Développer avec l’API Graph dans .NET | Microsoft Docs"
-description: "Apprendre à développer avec l’API DocumentDB d’Azure Cosmos DB à l’aide de .NET"
+description: "Découvrez comment développer avec l’API SQL d’Azure Cosmos DB en utilisant .NET"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB : Développer avec l’API Graph dans .NET
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Ce didacticiel montre comment créer un compte Azure Cosmos DB à l’aide du portail Azure, puis une base de données de graphiques et un conteneur. L’application crée ensuite un réseau social simple composé de quatre personnes à l’aide de l’[API Graph](graph-sdk-dotnet.md) (version préliminaire), puis parcourt et interroge le graphique à l’aide de Gremlin.
+Ce didacticiel montre comment créer un compte Azure Cosmos DB à l’aide du portail Azure, puis une base de données de graphiques et un conteneur. L’application crée ensuite un réseau social simple composé de quatre personnes à l’aide de [l’API Graph](graph-sdk-dotnet.md), puis parcourt et interroge le graphique à l’aide de Gremlin.
 
 Ce didacticiel décrit les tâches suivantes :
 
@@ -40,11 +40,11 @@ Vous pouvez utiliser Azure Cosmos DB pour créer, mettre à jour et interroger l
 
 Gremlin est un langage de programmation fonctionnel qui prend en charge les opérations d’écriture (DML) et les opérations de requête et de traversée. Nous abordons quelques exemples dans cet article pour vous permettre de prendre en main Gremlin. Consultez [Requêtes Gremlin](gremlin-support.md) pour une description détaillée des fonctionnalités de Gremlin disponibles dans Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/). 
-    * Vous pouvez également utiliser [l’émulateur Azure DocumentDB](local-emulator.md) pour ce didacticiel.
+    * Vous pouvez également utiliser [l’émulateur local](local-emulator.md) pour ce didacticiel.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Créer un compte de base de données
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Créer une base de données 
 
-Ensuite, créez une [base de données](documentdb-resources.md#databases) Azure Cosmos DB à l’aide de la méthode [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) ou de la méthode [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) de la classe **DocumentClient** à partir du [Kit de développement logiciel (SDK) DocumentDB .NET](documentdb-sdk-dotnet.md).  
+Maintenant, créez une [base de données](sql-api-resources.md#databases) Azure Cosmos DB avec la méthode [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) ou la méthode [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) de la classe **DocumentClient** provenant du [SDK .NET SQL](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
@@ -268,9 +268,9 @@ Ce didacticiel Azure Cosmos DB est maintenant terminé !
 Si vous ne prévoyez pas de continuer à utiliser cette application, utilisez les étapes suivantes pour supprimer toutes les ressources créées par ce didacticiel dans le portail Azure.  
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez :
 

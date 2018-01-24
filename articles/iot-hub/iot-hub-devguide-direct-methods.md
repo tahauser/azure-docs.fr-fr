@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
 IoT Hub vous donne la possibilité d’appeler des méthodes directes sur des appareils à partir du cloud. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTP, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur). Cette approche est utile pour les scénarios où la conduite à suivre immédiate diffère selon que l’appareil a ou non pu répondre, comme l’envoi d’un SMS d’activation à un appareil quand celui-ci est hors connexion (un SMS étant plus onéreux qu’un appel de méthode).
@@ -30,10 +30,10 @@ Toute personne disposant d’autorisations **Connexion de service** sur IoT Hub 
 
 Les méthodes directes suivent un modèle de requête-réponse et sont destinées aux communications qui nécessitent une confirmation immédiate de leur résultat, généralement le contrôle interactif de l’appareil, par exemple, pour activer un ventilateur.
 
-En cas de doute entre l’utilisation des propriétés souhaitées des méthodes directes ou des messages cloud-à-appareil, voir [Instructions pour la communication appareil-à-cloud][lnk-c2d-guidance].
+Reportez-vous à [l’aide sur la communication cloud-à-appareil][lnk-c2d-guidance] en cas de doute entre l’utilisation des propriétés de votre choix, des méthodes directes ou des messages cloud-à-appareil.
 
 ## <a name="method-lifecycle"></a>Cycle de vie de méthode
-Les méthodes directes sont implémentées sur l’appareil et peuvent nécessiter de zéro à plusieurs entrées dans la charge utile pour s’instancier correctement. Vous appelez une méthode directe via un URI côté service (`{iot hub}/twins/{device id}/methods/`). Un appareil reçoit des méthodes directes via une rubrique MQTT spécifique de l’appareil (`$iothub/methods/POST/{method name}/`). Nous pourrions prendre en charge des méthodes directes sur des protocoles réseau côté appareil supplémentaires à l’avenir.
+Les méthodes directes sont implémentées sur l’appareil et peuvent nécessiter de zéro à plusieurs entrées dans la charge utile pour s’instancier correctement. Vous appelez une méthode directe via un URI côté service (`{iot hub}/twins/{device id}/methods/`). Un appareil reçoit des méthodes directes via une rubrique MQTT spécifique de l’appareil (`$iothub/methods/POST/{method name}/`) ou via des liens AMQP (propriétés d’application `IoThub-methodname` et `IoThub-status`). 
 
 > [!NOTE]
 > Lorsque vous appelez une méthode directe sur un appareil, les noms et valeurs de propriété peuvent contenir uniquement des caractères alphanumériques US-ASCII imprimables, à l’exception des caractères suivants : ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -68,15 +68,14 @@ Les appels de méthode directe sur un appareil sont des appels HTTPS qui compren
 
 Le délai d’attente est exprimé en secondes. Si le délai d’attente n’est pas défini, sa valeur par défaut est de 30 secondes.
 
-### <a name="response"></a>Réponse
+### <a name="response"></a>response
 L’application principale reçoit une réponse qui comprend les éléments suivants :
 
 * un *code d’état HTTP*, qui est utilisé pour des erreurs en provenance d’IoT Hub, dont l’erreur 404 pour les appareils non connectés ;
 * Des *en-têtes* contenant l’ETag, l’ID de demande, le type de contenu et l’encodage du contenu
 * un *corps* JSON au format suivant :
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ L’application principale reçoit une réponse qui comprend les éléments suiv
    Les propriétés `status` et `body` sont fournies par l’appareil et permettent de répondre avec le code d’état et/ou la description spécifiques de l’appareil.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Gérer une méthode directe sur un appareil
-### <a name="method-invocation"></a>Appel de méthode
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>Appel de méthode
 Les appareils reçoivent des demandes de méthode directe sur la rubrique MQTT : `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Le corps que l’appareil reçoit est au format suivant :
@@ -99,13 +99,30 @@ Le corps que l’appareil reçoit est au format suivant :
 
 Les demandes de méthode sont QoS 0.
 
-### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 L’appareil envoie des réponses à `$iothub/methods/res/{status}/?$rid={request id}`, où :
 
 * La propriété `status` est l’état d’exécution de la méthode fourni par l’appareil.
 * La propriété `$rid`est l’ID de demande de l’appel de méthode reçu d’IoT Hub.
 
 Le corps est défini par l’appareil et peut être n’importe quel état.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>Appel de méthode
+L’appareil reçoit des demandes de méthode directe en créant un lien de réception à l’adresse `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+Le message AMQP est transmis au lien de réception qui représente la demande de méthode. Il contient les éléments suivants :
+* La propriété d’ID de corrélation, qui contient un ID de demande qui doit être transmis avec la réponse de la méthode correspondante
+* Une propriété d’application nommée `IoThub-methodname`, qui contient le nom de la méthode appelée
+* Le corps du message AMQP, qui contient la charge utile de la méthode en tant que JSON
+
+#### <a name="response"></a>response
+L’appareil crée un lien d’envoi pour retourner la réponse de la méthode à l’adresse`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+La réponse de la méthode est retournée via le lien d’envoi et est structurée comme suit :
+* La propriété d’ID de corrélation, qui contient l’ID de demande transmis dans le message de demande de la méthode
+* Une propriété d’application nommée `IoThub-status`, qui contient l’état de la méthode fournie par l’utilisateur
+* Le corps du message AMQP, qui contient la réponse de la méthode en tant que JSON
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
@@ -116,7 +133,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * L’article [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-query] décrit le langage de requête d’IoT Hub permettant de récupérer, à partir d’IoT Hub, des informations relatives à vos jumeaux d’appareil et à vos travaux.
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt] fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 À présent que vous savez comment utiliser les méthodes directes, vous serez peut-être intéressé par l’article suivant du Guide du développeur IoT Hub :
 
 * [Planifier des travaux sur plusieurs appareils][lnk-devguide-jobs]

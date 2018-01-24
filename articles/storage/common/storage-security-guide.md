@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Storage propose un ensemble complet de fonctionnalités de sécurité dont l’utilisation combinée permet aux développeurs de créer des applications sécurisées. Le compte de stockage proprement dit peut être sécurisé à l’aide du contrôle d’accès en fonction du rôle et d’Azure Active Directory. Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0. Les données peuvent être définies de façon à être automatiquement chiffrées du moment où elles sont écrites dans Azure Storage en utilisant [Storage Service Encryption (SSE)](storage-service-encryption.md). Les disques de système d’exploitation et de données utilisés par les machines virtuelles peuvent être définis de façon à être chiffrés à l’aide d’ [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
 
 Cet article fournit une vue d’ensemble sur chacune de ces fonctionnalités de sécurité, qui peuvent être utilisées avec Azure Storage. Des liens vers des articles détaillés vous sont proposés pour vous permettre d’explorer de façon plus détaillée chaque fonctionnalité.
@@ -295,7 +295,7 @@ Il s’agit d’un paramètre qui s’applique à l’ensemble du compte de stoc
 
 Actuellement, les clés utilisées pour le chiffrement sont gérées par Microsoft. Nous créons initialement les clés, puis nous gérons le stockage sécurisé des clés ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. À l’avenir, vous pourrez gérer vos propres clés de chiffrement et fournir un chemin de migration des clés gérées par Microsoft en clés gérées par le client.
 
-Cette fonctionnalité est disponible pour les comptes de Stockage Standard et Premium créés avec le modèle de déploiement Resource Manager. SSE s’applique uniquement aux objets blob de blocs, aux objets blob de pages et aux objets blob d’ajout. Les autres types de données, y compris les tables, les files d’attente et les fichiers, ne sont pas chiffrés.
+Cette fonctionnalité est disponible pour les comptes de Stockage Standard et Premium créés avec le modèle de déploiement Resource Manager. SSE s’applique à tous types de données : objets blob de blocs, objets blob de pages, objets blob d’ajout, tables, files d’attente et fichiers.
 
 Les données sont chiffrées uniquement si la fonctionnalité SSE est activée. Le chiffrement s’effectue pendant l’écriture des données dans le stockage Blob Storage. L’activation ou la désactivation de SSE n’a pas d’impact sur les données existantes. En d’autres termes, quand vous activez cette fonctionnalité, les données qui existent déjà ne sont pas chiffrées ; de la même façon, si vous la désactivez, les données existantes ne sont pas déchiffrées.
 
@@ -312,7 +312,7 @@ Le chiffrement côté client est intégré aux bibliothèques clientes de stocka
 
 Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres clés de chiffrement. Vous pouvez également utiliser les clés générées par la bibliothèque cliente Azure Storage, ou demander à Azure Key Vault de générer les clés. Vous pouvez stocker vos clés de chiffrement dans votre stockage de clés local, ou les stocker dans un coffre Azure Key Vault. Azure Key Vault vous permet d’accorder l’accès à des clés secrètes dans Azure Key Vault à des utilisateurs spécifiques à l’aide d’Azure Active Directory. De cette manière, vous limitez les personnes autorisées à accéder au coffre de clés Azure Key Vault et à récupérer les clés que vous utilisez pour le chiffrement côté client.
 
-#### <a name="resources"></a>les ressources
+#### <a name="resources"></a>Ressources
 * [Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
   Cet article montre comment utiliser le chiffrement côté client avec Azure Key Vault, notamment comment créer le certificat KEK et le stocker dans le coffre à l’aide de PowerShell.
@@ -353,7 +353,7 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 
 Cette fonctionnalité garantit que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans Azure Storage.
 
-#### <a name="resources"></a>les ressources
+#### <a name="resources"></a>Ressources
 * [Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparaison entre Azure Disk Encryption, SSE et le chiffrement côté client
@@ -380,7 +380,7 @@ Le chiffrement côté client entraîne une plus grande charge pour le client. Vo
 #### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
 SSE est géré par le Stockage Azure. SSE ne sécurise pas les données en transit, mais chiffre les données quand elles sont écrites dans Azure Storage. L’utilisation de cette fonctionnalité n’a pas d’impact sur les performances.
 
-Avec SSE, vous pouvez uniquement chiffrer des objets blob de blocs, des objets blob d’ajout et des objets blob de pages. Si vous devez chiffrer des données de table ou de file d’attente, utilisez plutôt le chiffrement côté client.
+Il est possible de chiffrer tous types de données du compte de stockage avec SSE (objets blob de blocs, objets blob d’ajout, objets blob de pages, données de table, données de file d’attente et fichiers).
 
 Si vous utilisez une archive ou une bibliothèque de fichiers VHD comme base pour créer des machines virtuelles, créez un compte de stockage, activez le chiffrement SSE, puis chargez les fichiers VHD dans le nouveau compte. Ces fichiers VHD seront chiffrés par Azure Storage.
 

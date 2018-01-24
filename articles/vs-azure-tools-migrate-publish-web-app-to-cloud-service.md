@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Migration et publication d’une application web sur un service cloud Azure à partir de Visual Studio
 
@@ -29,7 +29,7 @@ Pour tirer parti des services d’hébergement et de l’extensibilité d’Azur
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Migration d'un projet vers des services cloud
 
-1. Cliquez avec le bouton droit sur le projet d'application web et sélectionnez **Convertir > Convertir en projet de service cloud Microsoft Azure**. (Cette commande n'apparaît pas si vous avez déjà un projet de rôle web dans la solution.)
+1. Cliquez avec le bouton droit sur le projet d'application web et sélectionnez **Convertir > Convertir en projet de service cloud Microsoft Azure**. (Notez que cette commande n’apparaît pas si vous avez déjà un projet de rôle web dans la solution.)
 1. Visual Studio crée un projet de service cloud dans la solution qui contient le rôle web requis. Le nom de ce projet est le même que celui de votre projet d'application, avec le suffixe `.Azure`.
 1. Visual Studio définit également la propriété **Copie locale** sur vrai pour tous les assemblys qui sont nécessaires pour MVC 2, MVC 3, MVC 4 et Silverlight Business Applications. Cette propriété ajoute ces assemblys au package de services qui est utilisé pour le déploiement.
 
@@ -124,7 +124,7 @@ Les applications qui peuvent être migrées et publiées sur des services cloud 
 | WCF | WCF Workflow Service Application |
 | Workflow | WCF Workflow Service Application |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Préparer la publication ou le déploiement d’une application Azure à partir de Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)
 - [Configuration des informations d’authentification nommées](vs-azure-tools-setting-up-named-authentication-credentials.md).

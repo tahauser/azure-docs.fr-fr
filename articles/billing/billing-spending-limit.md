@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendre la limite de dépense d’Azure et comment la désactiver
 
@@ -48,15 +48,17 @@ Pour supprimer votre limite de dépense, procédez comme suit :
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
 1. Sélectionnez un abonnement.
-1. Si l’abonnement est désactivé parce que la limite de dépense a été atteinte, cliquez sur la notification suivante : « L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais. » Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **ÉTAT DE L’ABONNEMENT**.
+. Si l’abonnement est désactivé parce que la limite de dépense a été atteinte, cliquez sur la notification suivante : « L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais. » Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **ÉTAT DE L’ABONNEMENT**.
 1. Sélectionnez une option adaptée à votre situation.
+
+![Sélection d’une option de suppression de la limite de dépense](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Option|Résultat|
 |-------|-----|
 |Supprimer la limite de dépense pour une durée indéterminée|Supprime la limite de dépense sans l'activer automatiquement au début de la période de facturation suivante.|
 |Supprimer la limite de dépense pour la période de facturation en cours|Supprime la limite de dépense et l’active automatiquement au début de la période de facturation suivante.|
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="why-would-i-want-to-remove-the-spending-limit"></a>Quel est l’intérêt de supprimer la limite de dépense ?
 
@@ -80,8 +82,10 @@ Nous ne proposons pas de limites de dépense personnalisées pour le moment. Tou
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>La limite de dépense empêche-t-elle tous les frais facturés par Azure ?
 
-Certains [services Microsoft et services de marque tierce](billing-understand-your-azure-marketplace-charges.md) peuvent entraîner des frais même si une limite de dépense est définie. C’est le cas, par exemple, des licences Visual Studio, d’Azure Active Directory Premium, des plans de support et de la plupart des services vendus sous marque de tiers dans la [Place de marché Azure](https://azure.microsoft.com/marketplace/).
+[Certains services externes publiés sur la Place de marché Azure](billing-understand-your-azure-marketplace-charges.md) ne sont pas utilisables avec des crédits d’abonnement et risquent d’occasionner des frais distincts même si une limite de dépense est définie. C’est le cas, par exemple, des licences Visual Studio, d’Azure Active Directory Premium, des plans de support et de la plupart des services vendus sous marque de tiers. Lors de l’approvisionnement d’un nouveau service externe, un avertissement indique que les services sont facturés séparément :
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
+![Avertissement d’achat Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
 Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.

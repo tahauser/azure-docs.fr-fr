@@ -4,7 +4,7 @@ description: "Découvrir le délai nécessaire pour que les événements de rapp
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
@@ -37,13 +37,15 @@ Il existe deux zones de rapports d’activité :
 
 Le tableau suivant répertorie les informations de latence pour les rapports d’activité.
 
-| Rapport | Minimale | Moyenne | Maximale |
-| :-- | --- | --- | --- |
-| Journaux d’audit             | 30 minutes  | 45 minutes | 1 heure     |
-| Connexions               | 15 minutes  | 15 minutes | 2 heures*   |
+| Rapport | Minimale | Moyenne | Remarques |
+| :-- | --- | --- | :-- |
+| Journaux d’audit | 30 minutes  | 1 heure  |Dans certains cas, l’affichage des données d’activité d’audit peut prendre jusqu’à deux heures.|
+| Connexions | 15 minutes  | 2 heures |Dans certains cas, l’affichage des données d’activité de connexion peut prendre jusqu’à 24 heures. Cela inclut les données d’activité de connexion provenant d’applications de bureau héritées. |
 
->[!NOTE]
-> Pour certaines données d’activité de connexion provenant d’applications Office héritées, jusqu’à 8 heures peuvent s’écouler avant que les données de rapport s’affichent. 
+
+
+
+
 
 
 ## <a name="security-reports"></a>Rapports de sécurité
@@ -77,7 +79,7 @@ Le tableau suivant répertorie les informations de latence pour les événements
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour en savoir plus sur les rapports d’activité dans le portail Azure, consultez :
 

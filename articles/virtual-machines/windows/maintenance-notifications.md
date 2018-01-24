@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Windows
 
@@ -56,9 +56,7 @@ Les instructions suivantes doivent vous aider à décider si vous devez utiliser
 
 La maintenance de libre-service n’est pas recommandée pour les déploiements qui utilisent des **groupes à haute disponibilité**, car il s’agit de configurations hautement disponibles, dans lesquelles seulement un domaine de mise à jour est affecté à un moment donné. 
     - Laissez Azure déclencher la maintenance, mais n’oubliez pas que l’ordre des domaines de mise à jour affectés n’est pas forcément séquentiel, et qu’il y a une pause de 30 minutes entre les domaines de mise à jour.
-    - Si une perte temporaire d’une partie de votre capacité (1/nombre de domaines de mise à jour) pose problème, elle peut facilement être compensée par l’allocation d’instances additionnelles au cours de la période de maintenance. 
-
-**Ne pas** utiliser la maintenance de libre-service dans les scénarios suivants : 
+    - Si une perte temporaire d’une partie de votre capacité (1/nombre de domaines de mise à jour) pose problème, elle peut facilement être compensée par l’allocation d’instances additionnelles au cours de la période de maintenance. **Ne pas** utiliser la maintenance libre-service dans les scénarios suivants : 
     - Si vous arrêtez vos machines virtuelles fréquemment, soit manuellement, à l’aide de DevTest Labs, en utilisant l’arrêt automatique ou en suivant une planification, cela peut rétablit l’état de maintenance et par conséquent entraîner un temps d’arrêt supplémentaire.
     - Sur les machines virtuelles à durée de vie limitée dont vous savez qu’elles seront supprimées avant la fin de la vague de maintenance. 
     - Pour les charges de travail avec un état volumineux stockées dans le disque local (éphémère) qui doivent être maintenues lors de la mise à jour. 
@@ -88,13 +86,13 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 Les propriétés suivantes sont retournées sous MaintenanceRedeployStatus : 
-| Valeur | Description   |
+| Valeur | DESCRIPTION   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle maintenant ||
 | PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
 | PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
-| MaintenanceWindowStartTime            | Début de la fenêtre de maintenance planifiée lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
-| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée lorsque vous pouvez lancer la maintenance sur votre machine virtuelle ||
+| MaintenanceWindowStartTime            | Début de la maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle ||
+| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle ||
 | LastOperationResultCode               | Résultat de la dernière tentative de lancement de la maintenance sur la machine virtuelle ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 
 **Q : Combien de temps vous faudra-t-il pour redémarrer ma machine virtuelle ?**
 
-**R :** En fonction de la taille de votre machine virtuelle, le redémarrage peut prendre plusieurs minutes. Notez que dans le cas où vous utilisez des Services cloud (rôle de travail/web), Virtual Machine Scale Sets ou des groupes à haute disponibilité, vous disposerez de 30 minutes entre chaque groupe de machines virtuelles (UD). 
+**R :** En fonction de la taille de votre machine virtuelle, le redémarrage peut prendre plusieurs minutes pendant la fenêtre de maintenance libre-service. Tout redémarrage lancé par Azure pendant la fenêtre de maintenance planifiée dure habituellement 25 minutes environ. Notez que dans le cas où vous utilisez des services cloud (rôle de travail/web), Virtual Machine Scale Sets ou des groupes à haute disponibilité, vous disposez de 30 minutes entre chaque groupe de machines virtuelles (UD) pendant la fenêtre de maintenance planifiée. 
 
 **Q : quelle est l’expérience dans le cas des Services cloud (rôle de travail/web), de Service Fabric, et de Virtual Machine Scale Sets ?**
 
@@ -215,6 +214,6 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 **R :** si vous avez cliqué pour mettre à jour plusieurs instances dans un groupe à haute disponibilité de manière successive et rapide, Azure mettra ces demandes en file d’attente et commencera à mettre à jour les machines virtuelles uniquement, dans un domaine de mise à jour (UD) à la fois. Toutefois, dans la mesure où il peut y avoir une pause entre les domaines de mise à jour, la mise à jour peut sembler prendre plus de temps. Si la file d’attente de mise à jour prend plus de 60 minutes, certaines instances afficheront l’état **ignoré**, même si elles ont correctement été mises à jour. Pour éviter cet état incorrect, mettez à jour vos groupes à haute disponibilité en cliquant uniquement sur l’instance au sein d’un groupe, et attendez que la mise à jour sur cette machine virtuelle soit terminée avant de cliquer sur la machine virtuelle suivante dans un autre domaine de mise à jour.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment vous pouvez vous inscrire aux événements de maintenance à partir de la machine virtuelle à l’aide de [Événements planifiés](scheduled-events.md).

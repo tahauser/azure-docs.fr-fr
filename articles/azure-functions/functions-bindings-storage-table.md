@@ -7,7 +7,7 @@ author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -35,8 +35,8 @@ La liaison d’entrée de stockage de table Azure permet de lire une table dans 
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé - lire une entité](#input---c-example-1)
-* [C# précompilé - lire plusieurs entités](#input---c-example-2)
+* [C# - lire une entité](#input---c-example-1)
+* [C# - lire plusieurs entités](#input---c-example-2)
 * [Script C# - lire une entité](#input---c-script-example-1)
 * [Script C# - lire plusieurs entités](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Consultez l’exemple propre à un langage particulier :
 
 ### <a name="input---c-example-1"></a>Entrée - exemple 1 C#
 
-L’exemple suivant illustre du code [C# précompilé](functions-dotnet-class-library.md) qui lit une ligne de table unique. 
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui lit une ligne de table unique. 
 
 La valeur de clé de ligne "{queueTrigger}" indique que la clé de ligne provient de la chaîne de message de file d’attente.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Entrée - exemple 2 C#
 
-L’exemple suivant illustre du code [C# précompilé](functions-dotnet-class-library.md) qui lit plusieurs lignes de table. Notez que la classe `MyPoco` est dérivée de `TableEntity`.
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui lit plusieurs lignes de table. Notez que la classe `MyPoco` est dérivée de `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrée - attributs
  
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer une liaison d’entrée de table :
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur d’entrée de table :
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), util
   }
   ```
 
-  Pour obtenir un exemple complet, consultez [Entrée - exemple C# précompilé](#input---c-example).
+  Pour obtenir un exemple complet, consultez [Entrée - exemple C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -346,10 +346,10 @@ Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Table`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
-|**type** | n/a | Doit être défini sur `table`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure.|
-|**direction** | n/a | Doit être défini sur `in`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure. |
+|**type** | n/a | Cette propriété doit être définie sur `table`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure.|
+|**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente la table ou l’entité dans le code de la fonction. | 
 |**tableName** | **TableName** | Nom de la table.| 
 |**partitionKey** | **PartitionKey** |facultatif. Clé de partition de l’entité de table à lire. Consultez la section [utilisation](#input---usage) pour obtenir des conseils sur l’utilisation de cette propriété.| 
@@ -389,14 +389,14 @@ Utilisez une liaison de sortie de stockage de table Azure pour écrire des entit
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#output---c-example)
-* [Script C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
-L’exemple suivant illustre du code [C# précompilé](functions-dotnet-class-library.md) qui utilise un déclencheur HTTP pour écrire une seule ligne de table. 
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui utilise un déclencheur HTTP pour écrire une ligne de table. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Sortie - attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez le [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs) qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs) qui est défini dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Le constructeur de l’attribut prend le nom de la table. Il peut être utilisé sur un paramètre `out` ou sur la valeur de retour de la fonction, comme indiqué dans l’exemple suivant :
 
@@ -597,18 +597,18 @@ public static MyPoco TableOutput(
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C# précompilé](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
 
-Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Entrée - attributs](#input---attributes-for-precompiled-c).
+Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Entrée - attributs](#input---attributes).
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `Table`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
-|**type** | n/a | Doit être défini sur `table`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure.|
-|**direction** | n/a | Doit être défini sur `out`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure. |
+|**type** | n/a | Cette propriété doit être définie sur `table`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure.|
+|**direction** | n/a | Cette propriété doit être définie sur `out`. Cette propriété est définie automatiquement lorsque vous créez la liaison dans le portail Azure. |
 |**name** | n/a | Nom de variable utilisé dans le code de la fonction qui représente la table ou l’entité. La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.| 
 |**tableName** |**TableName** | Nom de la table.| 
 |**partitionKey** |**PartitionKey** | Clé de partition de l’entité de table à écrire. Consultez la section [utilisation](#output---usage) pour obtenir des conseils sur l’utilisation de cette propriété.| 
@@ -635,7 +635,7 @@ La liaison de sortie de stockage de table prend en charge les scénarios suivant
 
   Dans les fonctions JavaScript, accédez à la sortie de table avec `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

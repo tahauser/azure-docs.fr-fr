@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Sécuriser une base de données dans SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Cet article présente les principes de base de la sécurisation de votre base de
 ## <a name="connection-security"></a>Sécurité de la connexion
 L’expression « sécurité de la connexion » fait référence au mode de restriction et de sécurisation appliqué aux connexions à votre base de données, au moyen de règles de pare-feu et d’une fonction de chiffrement des connexions.
 
-Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste approuvée explicite. Pour permettre une connexion depuis l’adresse IP publique de l’ordinateur client ou votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, d’une API REST ou de PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur.  Pour accéder à SQL Data Warehouse à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433.  Pour plus d’informations, consultez [Pare-feu d’Azure SQL Database][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule] et [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Les règles de pare-feu sont utilisées par le serveur et la base de données pour refuser toute tentative de connexion d’une adresse IP qui ne fait pas partie d’une liste approuvée explicite. Pour permettre une connexion depuis l’adresse IP publique de l’ordinateur client ou votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, d’une API REST ou de PowerShell. Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur.  Pour accéder à SQL Data Warehouse à partir de votre ordinateur local, vérifiez que le pare-feu sur votre réseau et l’ordinateur local autorise les communications sortantes sur le port TCP 1433.  Pour plus d’informations, consultez [Pare-feu Azure SQL Database][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
 Par défaut, les connexions à SQL Data Warehouse sont chiffrées.  La modification des paramètres de connexion pour désactiver le chiffrement est ignorée.
 
@@ -63,7 +63,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 Si un utilisateur effectue d’autres opérations telles que la création de connexions ou d’une base de données, il devra également être affecté aux rôles `Loginmanager` et `dbmanager` dans la base de données master. Pour en savoir plus sur ces rôles supplémentaires et sur l’authentification auprès d’une base de données SQL, consultez la rubrique [Gestion des bases de données et connexions dans Azure SQL Database][Managing databases and logins in Azure SQL Database].  Pour plus de détails sur Azure AD pour SQL Data Warehouse, consultez [Connexion à SQL Data Warehouse avec l’authentification Azure Active Directory][Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication].
 
-## <a name="authorization"></a>Autorisation
+## <a name="authorization"></a>Authorization
 Le terme « autorisation » fait référence aux actions que vous pouvez exécuter dans une base de données Microsoft Azure SQL Data Warehouse, actions contrôlées par les autorisations et l’appartenance au rôle de votre compte utilisateur. Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible. La base de données Microsoft Azure SQL Data Warehouse facilite la gestion des rôles dans T-SQL :
 
 ```sql
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Le compte d’administrateur du serveur avec lequel vous vous connectez appartient au groupe « db_owner », qui est autorisé à effectuer tout type d’opérations dans la base de données. Enregistrez ce compte pour l’utiliser lors du déploiement des mises à niveau de schéma et d’autres opérations de gestion. Utilisez le compte « ApplicationUser », doté d’autorisations plus limitées, pour vous connecter à la base de données à partir de votre application, en bénéficiant du niveau de privilèges le moins élevé requis par cette dernière.
 
-Il existe d’autres méthodes pour limiter le nombre d’actions que peut réaliser un utilisateur avec la base de données SQL Microsoft Azure :
+D’autres méthodes permettent de limiter les actions de l’utilisateur dans Azure SQL Data Warehouse :
 
-* Des [autorisations][Permissions] granulaires vous permettent de contrôler les opérations que vous pouvez exécuter sur des colonnes, des tables, des vues, des procédures et d’autres objets individuels dans la base de données. Utilisez les autorisations granulaires pour avoir un contrôle optimal et accordez les autorisations minimales nécessaires. Le système d'autorisation granulaire est quelque peu compliqué et nécessitera un apprentissage avant de pouvoir l’utiliser efficacement.
+* Des [autorisations][Permissions] granulaires vous permettent de contrôler les opérations que vous pouvez exécuter sur des colonnes, des tables, des vues, des schémas, des procédures et d’autres objets individuels dans la base de données. Utilisez les autorisations granulaires pour avoir un contrôle optimal et accordez les autorisations minimales nécessaires. Le système d'autorisation granulaire est quelque peu compliqué et nécessitera un apprentissage avant de pouvoir l’utiliser efficacement.
 * Les [rôles de base de données][Database roles] autres que « db_datareader » et « db_datawriter » peuvent être utilisés pour créer des comptes d’utilisateur plus puissants ou des comptes de gestion moins puissants pour votre application. Les rôles de base de données fixes intégrés offrent un moyen facile d'accorder des autorisations, mais peuvent entraîner l'octroi d'autorisations excessives.
 * Les [procédures stockées][Stored procedures] vous permettent de limiter le nombre d’actions susceptibles d’être exécutées sur la base de données.
+
+Voici un exemple d’octroi d’accès en lecture à un schéma défini par l’utilisateur.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 La gestion des bases de données et serveurs logiques à partir du portail Azure et l’utilisation de l’API Azure Resource Manager sont contrôlées par les attributions de rôle de votre compte d’utilisateur sur le portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure][Role-based access control in Azure Portal].
 
@@ -86,7 +92,7 @@ Le chiffrement transparent des données de Microsoft Azure SQL Data Warehouse vo
 
 Vous pouvez chiffrer votre base de données à l’aide du [portail Azure][Encryption with Portal] ou de [T-SQL][Encryption with TSQL].
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur la connexion à SQL Data Warehouse avec différents protocoles et voir des exemples, consultez [Se connecter à SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->

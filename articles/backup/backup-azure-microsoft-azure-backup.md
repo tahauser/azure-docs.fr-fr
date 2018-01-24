@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Préparation de la sauvegarde des charges de travail à l’aide d’Azure Backup Server
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Cet article décrit la préparation de votre environnement à la sauvegarde des 
 Vous pouvez également protéger les charges de travail Iaas, telles que les machines virtuelles dans Azure.
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et Azure Classic](../azure-resource-manager/resource-manager-deployment-model.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
 >
 >
 
@@ -57,12 +57,13 @@ Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l�
 
 | Système d’exploitation | Plateforme | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 et derniers Service Packs |64 bits |Standard, Datacenter, Essentials (MABS v2 et versions ultérieures) |
 | Windows Server 2012 R2 et derniers Service Packs |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 et derniers Service Packs |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 et derniers Service Packs |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 et derniers Service Packs |64 bits |Standard, Workgroup |
 
-Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de déduplication Windows Server. En savoir plus sur le fonctionnement du [DPM et de la déduplication](https://technet.microsoft.com/library/dn891438.aspx) en cas de déploiement sur des ordinateurs virtuels Hyper-V.
+Vous pouvez dédupliquer le stockage DPM en vous servant de la fonction de déduplication Windows Server. En savoir plus sur le fonctionnement du [DPM et de la déduplication](https://technet.microsoft.com/library/dn891438.aspx) en cas de déploiement sur des machines virtuelles Hyper-V.
 
 > [!NOTE]
 > Le serveur de sauvegarde Azure est conçu pour s’exécuter sur un serveur dédié spécialisé. Vous ne pouvez pas installer le serveur de sauvegarde Azure sur :
@@ -79,10 +80,10 @@ Que vous envoyiez des données de sauvegarde à Azure, ou que vous les conservie
 
 Pour créer un coffre Recovery Services :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
+    ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
     La liste des coffres Recovery Services est affichée.
 3. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
@@ -96,7 +97,7 @@ Pour créer un coffre Recovery Services :
 5. Cliquez sur **Abonnement** pour afficher la liste des abonnements disponibles. Si vous n’êtes pas sûr de l’abonnement à utiliser, utilisez l’abonnement par défaut (ou suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 6. Cliquez sur **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles ou sur **Nouveau** pour en créer un. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre.
-8. Cliquez sur **Create**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail.
+8. Cliquez sur **Créer**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail.
    Une fois votre archivage créé, il s'ouvre dans le portail.
 
 ### <a name="set-storage-replication"></a>Définir la réplication du stockage
@@ -113,13 +114,13 @@ Pour modifier le paramètre de réplication du stockage :
 
 ## <a name="3-software-package"></a>3. Package logiciel
 ### <a name="downloading-the-software-package"></a>Téléchargement du package logiciel
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Si vous avez un coffre Recovery Services ouvert, passez à l’étape 3. Si vous n’avez aucun coffre Recovery Services ouvert, mais que vous vous trouvez dans le portail Azure, cliquez sur **Parcourir**dans le menu Hub.
 
    * Dans la liste des ressources, tapez **Recovery Services**.
    * Au fur et à mesure des caractères saisis, la liste est filtrée. Lorsque vous voyez **Coffres Recovery Services**, cliquez dessus.
 
-     ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      La liste des archivages de Recovery Services s’affiche.
    * Dans la liste des archivages de Recovery Services, sélectionnez un archivage.
@@ -252,7 +253,7 @@ Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès �
 * www.msftncsi.com
 * \*.Microsoft.com
 * \*.WindowsAzure.com
-* \*.microsoftonline.com
+* \**.microsoftonline.com
 * \*.windows.net
 
 Une fois la connectivité à Azure restaurée sur l’ordinateur Azure Backup Server, les opérations qui peuvent être exécutées sont déterminées par l’état de l’abonnement Azure. Le tableau ci-dessus comporte les détails des opérations autorisées une fois l’ordinateur « connecté ».
@@ -263,11 +264,11 @@ Il est possible de faire passer un abonnement Azure de l’état *Expiré* ou *A
 * Un abonnement dont *l’approvisionnement est annulé* ne fonctionne pas pendant la période pour laquelle l’approvisionnement est annulé. En redevenant *Actif*, la fonctionnalité de sauvegarde/restauration du produit est rétablie. Les données de sauvegarde présentes sur le disque local peuvent également être récupérées si le délai de rétention est suffisant. Toutefois, les données de sauvegarde dans Azure sont irrémédiablement perdues une fois que l’abonnement passe à l’état *Approvisionnement annulé* .
 * Un abonnement *Expiré* ne fonctionne plus tant qu’il n’a pas été *réactivé*. Lorsque l’abonnement est à l’état *Expiré* , les sauvegardes planifiées ne sont pas exécutées.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Si le serveur de sauvegarde Microsoft Azure échoue avec des erreurs pendant la phase d’installation (ou de sauvegarde ou restauration), reportez-vous à ce [document de codes d’erreur](https://support.microsoft.com/kb/3041338) pour plus d’informations.
 Vous pouvez également vous reporter au [FAQ relatives à la sauvegarde Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez obtenir des informations détaillées sur la [préparation de votre environnement pour DPM](https://technet.microsoft.com/library/hh758176.aspx) sur le site Microsoft TechNet. Ce dernier contient également des informations relatives aux configurations prises en charge sur lesquelles Azure Backup Server peut être déployé et utilisé.
 
 Vous pouvez utiliser ces articles pour apprendre à mieux connaître la notion de protection de charge de travail à l’aide du serveur Microsoft Azure Backup.

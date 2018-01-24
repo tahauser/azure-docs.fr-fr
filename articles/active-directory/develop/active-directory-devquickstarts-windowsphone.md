@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Intégration d’Azure AD avec une application Windows Phone
+# <a name="azure-ad-windows-phone-getting-started"></a>Bien démarrer avec Azure AD Windows Phone
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -36,7 +36,7 @@ Si vous développez une application Windows Phone 8.1, Azure AD facilite l’aut
 > 
 > 
 
-Pour les clients natifs .NET qui doivent accéder à des ressources protégées, Azure AD fournit la bibliothèque d’authentification Active Directory (bibliothèque ADAL).  Le seul objectif de cette bibliothèque ADAL est de faciliter l’obtention des jetons d'accès pour votre application.  Pour illustrer cette simplicité, nous créerons une application Windows Phone 8.1 « Directory Searcher » effectuant les actions suivantes :
+Pour les clients natifs .NET qui doivent accéder à des ressources protégées, Azure AD fournit la bibliothèque d’authentification Active Directory (bibliothèque ADAL).  Le seul objectif de cette bibliothèque ADAL est de faciliter l’obtention des jetons d’accès pour votre application.  Pour illustrer cette simplicité, nous créerons une application Windows Phone 8.1 « Directory Searcher » effectuant les actions suivantes :
 
 * obtention de jetons d’accès pour appeler l’API Azure AD Graph à l’aide du [protocole d’authentification OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx);
 * recherche, dans un répertoire, d’utilisateurs correspondant à un UPN (nom d’utilisateur principal) donné.
@@ -53,7 +53,7 @@ Pour commencer, téléchargez [la structure du projet](https://github.com/AzureA
 ## <a name="1-register-the-directory-searcher-application"></a>1. Inscription de l’application Directory Searcher
 Pour autoriser votre application à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre client Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
 3. Cliquez sur **Autres services** dans le volet de navigation gauche et choisissez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sur **Ajouter**.
@@ -61,7 +61,7 @@ Pour autoriser votre application à obtenir des jetons, vous devez tout d’abor
   * Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
   * L’ **URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons.  Entrez temporairement une valeur d’espace réservé, par exemple, `http://DirectorySearcher`.  Nous remplacerons cette valeur ultérieurement.
 6. Une fois l’inscription terminée, AAD affecte un ID d’application unique à votre application.  Copiez cette valeur sous l’onglet de l’application, car vous en aurez besoin dans les sections suivantes.
-7. Sur la page **Paramètres**, choisissez **Autorisations requises**, puis **Ajouter**. Sélectionnez l’API **Microsoft Graph** et ajoutez l’autorisation **Lire les données de l’annuaire** sous **Autorisations déléguées**.  Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
+7. Sur la page **Paramètres**, choisissez **Autorisations requises** et **Ajouter**. Sélectionnez l’API **Microsoft Graph** et ajoutez l’autorisation **Lire les données de l’annuaire** sous **Autorisations déléguées**.  Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
 ## <a name="2-install--configure-adal"></a>2. Installez et configurez ADAL
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer la bibliothèque ADAL et écrire votre code lié à l’identité.  Pour permettre à ADAL de communiquer avec Azure AD, vous devez lui fournir des informations sur l’inscription de votre application.
@@ -72,7 +72,7 @@ Maintenant que vous disposez d’une application dans Azure AD, vous pouvez inst
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* Dans le projet DirectorySearcher, ouvrez `MainPage.xaml.cs`.  Remplacez les valeurs dans la zone `Config Values` afin de refléter les valeurs que vous avez saisies dans le portail Azure.  Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
+* Dans le projet DirectorySearcher, ouvrez `MainPage.xaml.cs`.  Remplacez les valeurs de la région `Config Values` par celles que vous avez saisies sur le Portail Azure.  Votre code se réfère à ces valeurs chaque fois qu’il utilise la bibliothèque ADAL.
   * `tenant` est le domaine de votre client Azure AD, par exemple, contoso.onmicrosoft.com.
   * `clientId` est l’ID client de votre application que vous avez copié à partir du portail.
 * Vous devez maintenant découvrir l’URI de rappel pour votre application Windows Phone.  Définissez un point d’arrêt sur cette ligne dans la méthode `MainPage` :
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* Vous pouvez également utiliser l’objet `AuthenticationResult` pour afficher des informations concernant l’utilisateur dans votre application. Dans la méthode `QueryGraph(...)` , utilisez le résultat pour afficher l’ID de l’utilisateur sur la page :
+* Vous pouvez également utiliser l’objet `AuthenticationResult` pour afficher des informations concernant l’utilisateur dans votre application. Dans la méthode `QueryGraph(...)`, utilisez le résultat pour afficher l’ID de l’utilisateur sur la page :
 
 ```C#
 // Update the Page UI to represent the signed in user

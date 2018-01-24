@@ -3,7 +3,7 @@ title: "Différences et considérations relatives aux machines virtuelles dans A
 description: "Découvrez les différences et les éléments à prendre en compte lors de l’utilisation de machines virtuelles dans Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considérations relatives aux machines virtuelles dans Azure Stack
 
@@ -40,11 +40,11 @@ Les machines virtuelles sont des ressources de calcul évolutives et à la deman
 |Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour<br>Prise en charge des disques managés|Un seul domaine d’erreur<br>Un seul domaine de mise à jour<br>Pas de prise en charge des disques managés|
 |Groupes identiques de machines virtuelles |Prise en charge du dimensionnement automatique des instances|Pas de prise en charge du dimensionnement automatique des instances.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Tailles de machines virtuelles 
+## <a name="virtual-machine-sizes"></a>Tailles de machines virtuelles
 
-Le Kit de développement Azure Stack prend en charge les tailles suivantes : 
+Azure Stack prend en charge les formats suivants :
 
-| Type | Taille | Plage de tailles prises en charge |
+| type | Taille | Plage de tailles prises en charge |
 | --- | --- | --- |
 |Usage général |De base A|A0 - A4|
 |Usage général |Standard A|A0 - A7|
@@ -55,33 +55,33 @@ Le Kit de développement Azure Stack prend en charge les tailles suivantes :
 |Mémoire optimisée|Série DS|DS11 - DS14|
 |Mémoire optimisée |Séries DSv2|DS11_v2 - DS14_v2|
 
-Les tailles de machine virtuelle et les quantités de ressources associées sont cohérentes entre Azure Stack et Azure. Par exemple, cela inclut la quantité de mémoire, le nombre de cœurs et le nombre ou la taille des disques de données qui peuvent être créés. Toutefois, les performances d’une même taille de machine virtuelle dans Azure Stack dépendent des caractéristiques sous-jacentes de chaque environnement Azure Stack.
+Les tailles de machine virtuelle et les quantités de ressources associées sont cohérentes entre Azure Stack et Azure. Par exemple, cette cohérence inclut la quantité de mémoire, le nombre de cœurs et le nombre ou la taille des disques de données qui peuvent être créés. Toutefois, les performances d’une même taille de machine virtuelle dans Azure Stack dépendent des caractéristiques sous-jacentes de chaque environnement Azure Stack.
 
-## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle 
+## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle
 
- Le Kit de développement Azure Stack prend en charge les versions d’extension de machine virtuelle suivantes :
+ Azure Stack prend en charge les versions d’extension de machine virtuelle suivantes :
 
 ![Extensions de machine virtuelle](media/azure-stack-vm-considerations/vm-extensions.png)
 
 Utilisez le script PowerShell suivant pour obtenir la liste des extensions de machine virtuelle qui sont disponibles dans votre environnement Azure Stack :
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>Versions d’API 
+## <a name="api-versions"></a>Versions d’API
 
-Les fonctionnalités de machine virtuelle dans le Kit de développement Azure Stack prennent en charge les versions d’API suivantes :
+Les fonctionnalités de machine virtuelle dans Azure Stack prennent en charge les versions d’API suivantes :
 
 ![Types de ressources de machine virtuelle](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
 Utilisez le script PowerShell suivant pour obtenir la liste des versions d’API des fonctionnalités de machine virtuelle qui sont disponibles dans votre environnement Azure Stack :
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
@@ -90,6 +90,6 @@ Get-AzureRmResourceProvider | `
 ```
 La liste des types de ressources et des versions d’API pris en charge peut varier si l’opérateur du cloud met à jour votre environnement Azure Stack avec une version plus récente.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Créer une machine virtuelle Windows à l’aide de PowerShell dans Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)

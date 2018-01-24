@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gérer la tarification et le volume de données dans Application Insights
 
@@ -52,7 +52,7 @@ le [connecteur Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp
 * Vous payez pour chaque nœud qui envoie des données de télémétrie pour n'importe quelle application dans le plan Entreprise. 
  * Un *nœud* correspond à une machine serveur virtuelle ou physique ou à une instance de rôle Platform-as-a-Service qui héberge votre application.
  * Les ordinateurs de développement, les navigateurs clients et les appareils mobiles ne sont pas comptés comme nœuds.
- * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un worker backend, ces composants sont comptés séparément.
+ * Si votre application comporte plusieurs composants qui envoient des données de télémétrie, comme un service web et un Worker back-end, ces composants sont comptés séparément.
  * Les données [Flux de métriques en temps réel](app-insights-live-stream.md) ne sont pas comptabilisées dans la tarification.* Dans un abonnement, vos frais sont calculés par nœud et non par application. Si vous avez cinq nœuds envoyant des données de télémétrie pour 12 applications, les frais sont calculés pour cinq nœuds.
 * Bien que les frais indiqués soient par mois, vous êtes facturé uniquement pour toutes les heures dans lesquelles un nœud envoie des données de télémétrie à partir d’une application. Le tarif horaire est le prix mensuel indiqué / 744 (le nombre d’heures dans un mois de 31 jours).
 * Une allocation de volume de données de 200 Mo par jour est accordée pour chaque nœud détecté (avec une granularité par heure). L’allocation des données inutilisées n'est pas reportée d’un jour à l’autre.
@@ -66,7 +66,7 @@ le [connecteur Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp
 | 3 applications s’exécutant sur 2 machines virtuelles et les ressources Application Insights pour ces applications sont dans le même abonnement et dans le plan Entreprise | 2 | 
 | 4 applications dont les ressources Application Insights sont dans le même abonnement. Chaque application exécute 2 instances pendant 16 heures creuses et 4 instances pendant 8 heures de pointe. | 13.33 | 
 | Services cloud avec 1 rôle de travail et 1 rôle web, chacune exécutant 2 instances | 4 | 
-| Cluster de 5 nœuds Service Fabric exécutant 50 micro-services, chaque micro-service exécutant 3 instances | 5|
+| Cluster de 5 nœuds Service Fabric exécutant 50 micro-services, chaque micro-service exécutant 3 instances | 5.|
 
 * La méthode de comptage de nœuds précise varie selon le Kit de développement logiciel (SDK) Application Insights que votre application utilise. 
   * Dans les versions du Kit de développement logiciel 2.2 et ultérieures, le [Kit de développement logiciel (SDK) principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ou [le Kit de développement logiciel (SDK) web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) Application Insights signale chaque hôte d’application en tant que nœud, par exemple le nom d’ordinateur pour le serveur physique et les hôtes de machine virtuelle ou le nom d’instance dans le cas de services cloud.  La seule exception concerne les applications qui utilisent uniquement [.NET Core](https://dotnet.github.io/) et le Kit de développement logiciel (SDK) principal Application Insights, auquel cas un seul nœud sera signalé pour tous les hôtes, car le nom d’hôte n’est pas disponible. 
@@ -90,7 +90,7 @@ Comme [annoncé récemment](https://blogs.technet.microsoft.com/msoms/2017/05/19
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Passer en revue les plans de tarification et estimer les coûts
 
-Application Insights permet de comprendre facilement les plans de tarification disponibles et d’estimer les coûts en fonction des modèles d’utilisation récents. Commencez par ouvrir le panneau **Fonctionnalités + tarification** dans la ressource Application Insights du portail Azure :
+Application Insights permet de comprendre facilement les plans tarifaires disponibles et d’estimer les coûts en fonction des modèles d’utilisation récente. Commencez par ouvrir le panneau **Fonctionnalités + tarification** dans la ressource Application Insights du portail Azure :
 
 ![Choisissez Tarification.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Voici quelques opérations possibles pour réduire le volume de données :
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Gestion du volume maximal quotidien de données
 
-Vous pouvez utiliser un plafond de volume quotidien pour limiter les données collectées, mais si cette limite est atteinte, vous perdrez toute la télémétrie envoyée par votre application pour le reste de la journée. Il est **déconseillé** de laisser votre application atteindre le plafond quotidien, car vous ne pouvez pas suivre l’intégrité et les performances de votre application une fois que ce plafond est atteint. 
+Vous pouvez utiliser le plafond de volume quotidien pour limiter les données collectées, mais, s’il est atteint, vous perdrez toute la télémétrie envoyée par votre application pour le reste de la journée. Il est **déconseillé** de laisser votre application atteindre le plafond quotidien, car vous ne pouvez pas suivre l’intégrité et les performances de votre application une fois que ce plafond est atteint. 
 
-Utilisez plutôt l’[échantillonnage](app-insights-sampling.md) pour ajuster le volume de données souhaité et utilisez le plafond quotidien uniquement en dernier recours, dans le cas où votre application commence à envoyer de beaucoup plus grands volumes de télémétrie de façon inattendue. 
+Utilisez plutôt [l’Échantillonnage](app-insights-sampling.md) pour ajuster le volume de données au niveau souhaité, et le plafond quotidien seulement en dernier recours, dans le cas où votre application se mettrait subitement à envoyer des volumes de télémétrie largement supérieurs. 
 
-Pour modifier la limite, dans la section Configurer de votre ressource Application Insights, cliquez sur **Gestion du volume de données**, puis sur **Limite quotidienne**.
+Pour modifier le plafond quotidien, cliquez sur **Gestion du volume de données** dans la section Configurer de votre ressource Application Insights, puis sur **Plafond quotidien**.
 
 ![Ajustement de la limite du volume quotidien des données de télémétrie](./media/app-insights-pricing/daily-cap.png) 
 
@@ -176,7 +176,7 @@ Vous pouvez utiliser le service de gestion de ressources Azure pour écrire un s
 ## <a name="limits-summary"></a>Synthèse des limites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Échantillonnage](app-insights-sampling.md)
 

@@ -17,14 +17,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: f53234ddd8362e74c421c18c8d500308f5a232a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utiliser Interactive Query avec HDInsight
-Le cluster Interactive Query (également appelé Hive LLAP ou [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un [type de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query prend en charge la mise en mémoire cache, ce qui accélère les requêtes Hive et les rend beaucoup plus interactives. 
+Le cluster Interactive Query (également appelé Hive LLAP ou [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un [type de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query prend en charge la mise en mémoire cache, ce qui accélère les requêtes Hive et les rend beaucoup plus interactives.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
 Les clusters Interactive Query sont différents des clusters Hadoop. Ils contiennent uniquement le service Hive. 
 
@@ -41,8 +43,8 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
 * Utiliser Power BI
 
-    Consultez [Visualiser des Big Data à l’aide de Power BI dans Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    Consultez [Visualiser des données Interactive Query Hive à l’aide de Power BI dans Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) Consultez [Visualiser des données volumineuses (« Big Data ») avec Power BI dans Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Utilisez Zeppelin
 
     Consultez [Utiliser Zeppelin pour exécuter des requêtes Hive dans Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
@@ -74,7 +76,7 @@ Pour rechercher la chaîne de connexion Java Database Connectivity (JDBC) :
    
    ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Découvrez comment [créer des clusters Interactive Query dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Découvrez comment [visualiser des Big Data à l’aide de Power BI dans Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).

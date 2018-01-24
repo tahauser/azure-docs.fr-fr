@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 843ffdf6c39cbdf00bfde969eaf93701db6ed536
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Guide de dépannage : Application Insights pour .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Certaines de mes données télémétriques manquent
@@ -30,6 +30,7 @@ ms.lasthandoff: 11/01/2017
 *J’ai installé l’application sur mon serveur web et maintenant je ne vois pas les données de télémétrie à partir de celui-ci. Cela a fonctionné correctement sur mon ordinateur de développement.*
 
 * Probablement un problème de pare-feu. [Définissez des exceptions de pare-feu pour qu’Application Insights puisse envoyer des données](app-insights-ip-addresses.md).
+* Il manque peut-être certains prérequis au serveur IIS : .NET Extensibility 4.5 et ASP.NET 4.5.
 
 *J’ai [installé Status Monitor](app-insights-monitor-performance-live-website-now.md) sur mon serveur web pour surveiller les applications existantes. Aucun résultat ne s’affiche.*
 

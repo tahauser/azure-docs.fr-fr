@@ -7,7 +7,7 @@ author: wesmc7777
 manager: cfowler
 editor: 
 tags: 
-keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless"
+keywords: "azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur"
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae97045c27f3ad8b62e7798b2060ea59ccd66ac5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Liaison Twilio pour Azure Functions
 
@@ -28,17 +28,17 @@ Cet article explique comment envoyer des SMS avec des liaisons [Twilio](https://
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 
 Consultez l’exemple propre à un langage particulier :
 
-* [C# précompilé](#c-example)
-* [Script C#](#c-script-example)
+* [C#](#c-example)
+* [Script C# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Exemple en code C#
 
-L’exemple suivant montre une [fonction C# précompilée](functions-dotnet-class-library.md) qui envoie un SMS quand elle est déclenchée par un message de file d’attente.
+L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui envoie un SMS quand elle est déclenchée par un message de file d’attente.
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -195,7 +195,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Attributs
 
-Pour les fonctions en [C# précompilé](functions-dotnet-class-library.md), utilisez l’attribut [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), qui est défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), défini dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
 
 Pour plus d’informations sur les propriétés d’attribut que vous pouvez configurer, consultez [Configuration](#configuration). Voici un exemple d’attribut `TwilioSms` dans une signature de méthode :
 
@@ -213,13 +213,13 @@ public static SMSMessage Run(
 }
  ```
 
-Pour obtenir un exemple complet, consultez [Exemple C# précompilé](#c-example).
+Vous trouverez un exemple complet sur la page [Exemple C#](#c-example).
 
 ## <a name="configuration"></a>Configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `TwilioSms`.
 
-|Propriété function.json | Propriété d’attribut |Description|
+|Propriété function.json | Propriété d’attribut |DESCRIPTION|
 |---------|---------|----------------------|
 |**type**|| Cette propriété doit être définie sur `twilioSms`.|
 |**direction**|| Cette propriété doit être définie sur `out`.|
@@ -232,7 +232,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)

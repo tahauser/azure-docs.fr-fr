@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Clés uniques dans Azure Cosmos DB
 
 Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à leur base de données. En créant une stratégie de clé unique durant la création d’un conteneur, vous garantissez l’unicité d’une ou de plusieurs valeurs par [clé de partition](partition-data.md). Une fois qu’un conteneur a été créé avec une stratégie de clé unique, il empêche la création de tout nouvel élément ou de tout élément mis à jour avec des valeurs dupliquant des valeurs spécifiées par la contrainte de clé unique.   
 
 > [!NOTE]
-> Les clés uniques sont prises en charge par les dernières versions des Kits SDK DocumentDB (SQL) [.NET](documentdb-sdk-dotnet.md) et [.NET Core](documentdb-sdk-dotnet-core.md) et de l’[API MongoDB](mongodb-feature-support.md#unique-indexes). L’API Table et l’API Graph ne prennent pas en charge les clés uniques à l’heure actuelle. 
+> Les clés uniques sont prises en charge par les dernières versions des SDK SQL [.NET](sql-api-sdk-dotnet.md) et [.NET Core](sql-api-sdk-dotnet-core.md) et de [l’API MongoDB](mongodb-feature-support.md#unique-indexes). L’API Table et l’API Graph ne prennent pas en charge les clés uniques à l’heure actuelle. 
 > 
 >
 
@@ -54,7 +54,7 @@ Des clés uniques doivent être définies durant la création du conteneur, et l
 
 Les conteneurs existants ne peuvent pas être mis à jour pour utiliser des clés uniques.
 
-Une fois un conteneur créé avec une stratégie de clé unique, la stratégie ne peut pas être modifiée, sauf si vous recréez le conteneur. Si vous disposez de données existantes sur lesquelles implémenter des clés uniques, créez le conteneur, puis utilisez l’outil de migration de données approprié pour déplacer les données vers le nouveau conteneur. Pour les conteneurs DocumentDB (SQL), utilisez l’[outil de migration de données](import-data.md). Pour les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
+Une fois un conteneur créé avec une stratégie de clé unique, la stratégie ne peut pas être modifiée, sauf si vous recréez le conteneur. Si vous disposez de données existantes sur lesquelles implémenter des clés uniques, créez le conteneur, puis utilisez l’outil de migration de données approprié pour déplacer les données vers le nouveau conteneur. Pour les conteneurs SQL, utilisez [l’outil de migration de données](import-data.md). Pour les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
 
 Un maximum de 16 valeurs de chemin d’accès (par exemple /firstName, /lastName, /address/zipCode, etc.) peuvent être incluses dans chaque clé unique. 
 
@@ -64,9 +64,9 @@ Les frais unitaires de demande de création, de mise à jour et de suppression d
 
 Les clés uniques partiellement allouées ne sont pas prises en charge. Si les valeurs de certains chemins d’accès uniques sont manquantes, ces dernières sont traitées comme une valeur null spéciale, qui fait partie intégrante de la contrainte d’unicité.
 
-## <a name="documentdb-sql-api-sample"></a>Exemple d’API DocumentDB (SQL)
+## <a name="sql-api-sample"></a>Exemple d’API SQL
 
-L’exemple de code suivant montre comment créer un conteneur DocumentDB (SQL) avec deux contraintes de clé unique. La première contrainte est la contrainte firstName, lastName, email décrite dans l’exemple précédent. La deuxième contrainte est la contrainte address/zipCode des utilisateurs. Un exemple de fichier JSON utilisant les chemins d’accès de cette stratégie de clé unique est fourni après l’exemple de code. 
+L’exemple de code suivant montre comment créer un conteneur SQL avec deux contraintes de clé unique. La première contrainte est la contrainte firstName, lastName, email décrite dans l’exemple précédent. La deuxième contrainte est la contrainte address/zipCode des utilisateurs. Un exemple de fichier JSON utilisant les chemins d’accès de cette stratégie de clé unique est fourni après l’exemple de code. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
@@ -133,7 +133,7 @@ L’exemple de commande suivant montre comment créer un index unique sur les ch
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cet article, vous avez appris à créer des clés uniques pour les éléments d’une base de données. Si vous créez un conteneur pour la première fois, consultez [Partitionnement de données Azure Cosmos DB](partition-data.md), car les clés uniques et les clés de partition dépendent les unes des autres. 
 

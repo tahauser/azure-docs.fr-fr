@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f2bf857d2618a8cfe7094c7f3124be20db3ff39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>Sécuriser les applications à page unique AngularJS à l’aide d’Azure AD
+# <a name="azure-ad-angularjs-getting-started"></a>Bien démarrer avec Azure AD AngularJS
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -46,7 +46,7 @@ Pour commencer, téléchargez [la structure de l’application](https://github.c
 ## <a name="step-1-register-the-directorysearcher-application"></a>Étape 1 : Inscrire l’application DirectorySearcher
 Pour autoriser votre application à authentifier les utilisateurs et à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre client Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si vous êtes connecté à plusieurs répertoires, vous devez peut-être vous assurer que vous consultez le répertoire approprié. Pour ce faire, dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
 3. Dans le volet gauche, cliquez sur **Plus de services**, puis sélectionnez **Azure Active Directory**.
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
@@ -58,7 +58,7 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
   1. Cliquez sur l’application et sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
   2. Recherchez la propriété `oauth2AllowImplicitFlow`. Affectez-lui la valeur `true`.
   3. Cliquez sur **Enregistrer** pour enregistrer le manifeste.
-8. Accordez les autorisations à votre locataire sur votre application. Sélectionnez **Paramètres** > **Propriétés** > **Autorisations requises**, puis cliquez sur le bouton **Accorder des autorisations** dans la barre supérieure. Cliquez sur **Yes** (Oui) pour confirmer.
+8. Accordez les autorisations à votre locataire sur votre application. Sélectionnez **Paramètres** > **Propriétés** > **Autorisations requises**, puis cliquez sur le bouton **Accorder des autorisations** dans la barre supérieure. Cliquez sur **Oui** pour confirmer.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application à page unique
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer adal.js et écrire votre code lié à l’identité.
@@ -122,7 +122,7 @@ Vous disposez maintenant d’une application à page unique sécurisée qui peut
 
 Les étapes ci-dessus sont le minimum requis pour générer une application à page unique à l’aide d’adal.js. Mais certaines autres fonctionnalités sont utiles dans application à page unique :
 
-* Pour émettre explicitement des demandes de connexion et de déconnexion, vous pouvez définir des fonctions dans vos contrôleurs qui appellent adal.js.  Dans `App/Scripts/homeCtrl.js`:
+* Pour émettre explicitement des demandes de connexion et de déconnexion, vous pouvez définir des fonctions dans vos contrôleurs qui appellent adal.js.  Dans `App/Scripts/homeCtrl.js` :
 
     ```js
     ...
@@ -156,7 +156,7 @@ Adal.js facilite l’intégration des fonctionnalités d’identité communes da
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est disponible dans [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Vous pouvez à présent aborder d’autres scénarios. Vous souhaiterez peut-être essayer : [Appeler une API web CORS à partir d’une application à page unique](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

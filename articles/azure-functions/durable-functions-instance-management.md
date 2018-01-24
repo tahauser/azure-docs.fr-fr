@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 399bad6f00b61d582fdb077f33000b6c55cf8904
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gérer des instances dans Fonctions durables (Azure Functions)
 
@@ -28,7 +28,7 @@ Les instances d’orchestration de [Fonctions durables](durable-functions-overvi
 
 La méthode [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) du [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) démarre la nouvelle instance d’une fonction d’orchestrateur. Les instances de cette classe peuvent être obtenues à l’aide de la liaison `orchestrationClient`. En interne, cette méthode empile un message dans la file d’attente de contrôle, qui déclenche ensuite une fonction avec le nom spécifié utilisant la liaison de déclenchement `orchestrationTrigger`.
 
-Les paramètres sont les suivants :
+Les paramètres de [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) sont les suivants :
 
 * **Nom** : nom de la fonction de l’orchestrateur à planifier.
 * **Entrée** : toutes les données JSON sérialisables devant être transmises comme entrée à la fonction de l’orchestrateur.
@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> La requête d’instance est actuellement prise en charge uniquement pour les fonctions C#.
+> Actuellement, les requêtes d’instances ne sont prises en charge que pour les fonctions d’orchestrateur C#.
 
 ## <a name="terminating-instances"></a>Arrêt des instances
 
@@ -115,11 +115,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> L’interruption des instances est actuellement prise en charge uniquement pour les fonctions C#.
+> Actuellement, l’arrêt d’instance n’est pris en charge que pour les fonctions d’orchestrateur C#.
 
 ## <a name="sending-events-to-instances"></a>Envoi d’événements à des instances
 
-Des notifications d’événements peuvent être envoyées aux instances en cours d’exécution à l’aide de la méthode [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) de la classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Les instances pouvant gérer ces événements sont celles en attente d’un appel à [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). Les entrées sont les suivantes :
+Des notifications d’événements peuvent être envoyées aux instances en cours d’exécution à l’aide de la méthode [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) de la classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Les instances pouvant gérer ces événements sont celles en attente d’un appel à [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+
+Les paramètres de [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) sont les suivants :
 
 * **InstanceId** : ID unique de l’instance.
 * **EventName** : nom de l’événement à envoyer.
@@ -139,12 +141,12 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Le déclenchement d’événements est actuellement pris en charge uniquement pour les fonctions C#.
+> Actuellement, le déclenchement d’événements n’est pris en charge que pour les fonctions d’orchestrateur C#.
 
 > [!WARNING]
 > S’il n’existe aucune instance d’orchestration avec l’*ID d’instance* spécifié ou si l’instance n’attend pas le *nom d’événement* spécifié, le message d’événement est ignoré. Pour plus d’informations sur ce comportement, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Découvrez comment utiliser les API HTTP pour la gestion des instances](durable-functions-http-api.md)

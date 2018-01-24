@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Basculement régional automatique pour la continuité des activités dans Azure Cosmos DB
 Azure Cosmos DB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multirégions](distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes Cosmos DB offrent des capacités de haute disponibilité, des latences inférieures à 10 millisecondes, des [niveaux de cohérence bien définis](consistency-levels.md), un basculement régional transparent avec des API multihébergement et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
@@ -46,7 +46,7 @@ L’extrait de code suivant montre comment initialiser une application multi-ré
 * Configuré avec `West US` en tant que première région préférée pour des lectures à faible latence
 * Configuré avec `North Europe` comme deuxième région préférée (pour une haute disponibilité durant les défaillances régionales)
 
-Dans l’API DocumentDB, cette configuration ressemble à l’extrait de code suivant :
+Dans l’API SQL, cette configuration ressemble à l’extrait de code suivant :
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ Dans cet article, nous avons examiné le fonctionnement des basculements manuels
 ## <a id="NextSteps"></a>Étapes suivantes
 * Découvrez-en plus sur la manière dont Cosmos DB prend en charge la [distribution mondiale](distribute-data-globally.md)
 * Découvrez-en plus sur [la cohérence globale avec Azure Cosmos DB](consistency-levels.md)
-* Développez en mode multirégion à l’aide de l’[API DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) d’Azure Cosmos DB
-* Découvrez comment créer [des architectures d'écriture multi-régions](multi-region-writers.md) avec Azure DocumentDB
+* Développez en mode multirégion à l’aide de [l’API SQL](tutorial-global-distribution-sql-api.md) d’Azure Cosmos DB
+* Découvrez comment créer [des architectures d’écriture multirégions](multi-region-writers.md) avec Azure Cosmos DB
 

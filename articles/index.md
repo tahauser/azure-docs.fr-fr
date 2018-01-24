@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Jeux de mise à l’échelle de machine virtuelle</h3>
-                                                    <p>Gérez et mettez à l’échelle entre plusieurs dizaines et milliers de machines virtuelles Linux et Windows</p>
+                                                    <p>Gérez et mettez à l’échelle jusqu’à des milliers de machines virtuelles Windows et Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Déployer des applications web sur Linux à l’aide de conteneurs</p>
+                                                    <p>Créez rapidement des applications cloud performantes pour le web et les appareils mobiles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (ACS)</h3>
-                                                    <p>Exécuter une application conteneurisée à grande échelle à l’aide de Kubernetes</p>
+                                                    <p>Simplifiez le déploiement, la gestion et les opérations de Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-Équilibreur de charge Layer 7 avec équilibrage de charge HTTP et contrôle de distribution intégrés </p>
+                                                    <p>Créez des serveurs web frontaux sécurisés, évolutifs et à haut niveau de disponibilité dans Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Réseau de distribution de contenu</h3>
-                                                    <p>Diffusez du contenu aux utilisateurs finaux grâce à un puissant réseau de centres de données mondiaux</p>
+                                                    <p>Garantissez la distribution de contenu fiable et sécurisée avec une large portée générale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Surveiller et diagnostiquer les conditions au niveau d’un réseau</p>
+                                                    <p>Solution de diagnostic et de surveillance des performances réseau</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stockage d’objets blob</h3>
-                                                    <p>Stockage d’objets hautement évolutif pour les données non structurées</p>
+                                                    <p>Stockage d’objets basé sur REST pour les données non structurées</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stockage sur disque</h3>
-                                                    <p>Stockage de disque pour machines virtuelles</p>
+                                                    <p>Options de disques persistants et sécurisés prenant en charge les machines virtuelles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stockage de files d’attente</h3>
-                                                    <p>Files d’attente durables pour des services cloud destinés aux gros volumes</p>
+                                                    <p>Faire évoluer vos applications en fonction du trafic</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stockage de fichiers</h3>
-                                                    <p>Système de fichiers multiplateforme, simple et distribué</p>
+                                                    <p>Partages de fichiers utilisant le protocole SMB 3.0 standard</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Le stockage cloud hybride permet aux entreprises d’améliorer la sécurité des données</p>
+                                                    <p>Réduction des coûts avec une solution de stockage cloud hybride de classe Entreprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrer la récupération d’urgence des machines virtuelles Azure et locales et des serveurs physiques</p>
+                                                    <p>Orchestrez la protection et la récupération des clouds privés</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1927,7 +1926,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Applications API</h3>
-                                                    <p>Générez et utilisez facilement des API cloud</p>
+                                                    <p>Générez et utilisez facilement des API de cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Réseau de distribution de contenu</h3>
-                                                    <p>Diffusez du contenu aux utilisateurs finaux grâce à un puissant réseau de centres de données mondiaux </p>
+                                                    <p>Garantissez la distribution de contenu fiable et sécurisée avec une large portée générale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1984,7 +1983,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Recherche Azure</h3>
-                                                    <p>Service de recherche entièrement géré</p>
+                                                    <p>Recherche en tant que service intégralement gérée</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Moteur de notifications Push évolutif capable d’envoyer rapidement des millions de messages</p>
+                                                    <p>Envoyez des notifications Push vers n’importe quelle plateforme à partir d’un back end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (ACS)</h3>
-                                                    <p>Exécuter une application conteneurisée à grande échelle à l’aide de Kubernetes</p>
+                                                    <p>Simplifiez le déploiement, la gestion et les opérations de Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Base de données SQL</h3>
-                                                    <p>Base de données relationnelle gérée en tant que service</p>
+                                                    <p>Base de données SQL relationnelle gérée en tant que service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stockage de tables</h3>
-                                                    <p>Base de données multimodèle, distribuée globalement pour toute échelle</p>
+                                                    <p>Stockage de valeurs de clé NoSQL utilisant des jeux de données semi-structurées</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cache Redis</h3>
-                                                    <p>Accès aux données à débit élevé et à latence faible pour créer des applications rapides/évolutives</p>
+                                                    <p>Alimentez les applications avec un accès aux données à débit élevé et à latence faible</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2322,7 +2321,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Approvisionnez les clusters Hadoop, Spark, R Server, HBase et Storm dans le cloud</p>
+                                                    <p>Approvisionnez les clusters Hadoop, Spark, R Server, HBase et Storm dans le cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Modélisation des données de qualité professionnelle dans le cloud</p>
+                                                    <p>Moteur d’analyse de niveau professionnel en tant que service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Outil d’analyse prédictive performant basé sur le cloud autorisant une maintenance prédictive</p>
+                                                    <p>Générez, déployez et gérez facilement des solutions d’analyse prédictive</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Activez la détection des sources de données libre-service au sein de l’entreprise</p>
+                                                    <p>Obtenez davantage de valeur des ressources de données de votre entreprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Services de Machine Learning</h3>
-                                                    <p>Outil d’analyse prédictive performant basé sur le cloud autorisant une maintenance prédictive</p>
+                                                    <p>Proposez l’intelligence artificielle à tous avec une plateforme de bout en bout, évolutive et approuvée qui inclut l’expérimentation et la gestion des modèles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Étendez l’intelligence cloud aux appareils en périphérie</p>
+                                                    <p>Étendez l’intelligence du cloud aux appareils de périphérie</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Cartes, itinéraires, recherche et autres services géospatiaux robustes</p>
+                                                    <p>Les API de géolocalisation simples et sécurisées fournissent un contexte géospatial aux données</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Services de Machine Learning</h3>
-                                                    <p>Outil d’analyse prédictive performant basé sur le cloud autorisant une maintenance prédictive</p>
+                                                    <p>Proposez l’intelligence artificielle à tous avec une plateforme de bout en bout, évolutive et approuvée qui inclut l’expérimentation et la gestion des modèles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Moteur de notifications Push évolutif capable d’envoyer rapidement des millions de messages</p>
+                                                    <p>Envoyez des notifications Push vers n’importe quelle plateforme à partir d’un back end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ ms.lasthandoff: 01/18/2018
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Le stockage cloud hybride permet aux entreprises d’améliorer la sécurité des données</p>
+                                                    <p>Réduction des coûts avec une solution de stockage cloud hybride de classe Entreprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Activez la détection des sources de données libre-service au sein de l’entreprise</p>
+                                                    <p>Obtenez davantage de valeur des ressources de données de votre entreprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Centre de sécurité</h3>
-                                                    <p>Anticipez, détectez et traitez les menaces grâce à une visibilité accrue</p>
+                                                    <p>Unifiez les fonctionnalités de gestion de la sécurité et activez la protection avancée contre les menaces dans l’ensemble des charges de travail cloud hybrides</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Découvrez comment gérer les clés de chiffrement et les secrets</p>
+                                                    <p>Protégez les clés et autres secrets et gardez-en le contrôle</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Multi-Factor Authentication</h3>
-                                                    <p>Protégez l’accès à vos données et applications avec un niveau d’authentification supplémentaire</p>
+                                                    <p>Sécurité accrue pour vos données et applications, sans que cela crée des soucis supplémentaires aux utilisateurs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stratégie Azure</h3>
-                                                    <p>Créer, affecter et gérer des définitions de stratégie </p>
+                                                    <p>Implémentez la gouvernance d’entreprise et les standards à l’échelle pour vos ressources Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Gestion des coûts Azure</h3>
-                                                    <p>Suivre l’utilisation du cloud et les dépenses</p>
+                                                    <p>Optimisez vos dépenses sur le cloud, tout en maximisant le potentiel du cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Découvrez comment transformer les données machine en intelligence opérationnelle</p>
+                                                    <p>Collectez, recherchez et visualisez des données machine localement et dans le cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Améliorez la rentabilité, les performances, la haute disponibilité et la sécurité de vos ressources Azure</p>
+                                                    <p>Votre moteur de recommandation personnalisé sur les meilleures pratiques Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Offre des conseils et un support personnalisés lorsque vous rencontrez des problèmes avec les services Azure.</p>
+                                                    <p>Recevez des conseils et un support personnalisés lorsque vous rencontrez des problèmes avec les services Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Applications gérées</h3>
-                                                    <p>Gérer des solutions déployées pour vos clients</p>
+                                                    <p>Simplifiez la gestion des offres cloud</p>
                                                 </div>
                                             </div>
                                         </div>

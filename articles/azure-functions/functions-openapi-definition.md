@@ -13,21 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Créer une définition OpenAPI pour une fonction
 Les API REST utilisent souvent une définition OpenAPI (anciennement, fichier [Swagger](http://swagger.io/)). Cette définition contient des informations sur les opérations qui sont disponibles dans une API et sur la façon dont les données de demande et de réponse de l’API doivent être structurées.
 
 Dans ce didacticiel, vous allez créer une fonction qui détermine si la réparation d’urgence d’une éolienne est rentable. Ensuite, vous allez créer une définition OpenAPI pour l’application de la fonction pour que la fonction puisse être appelée à partir d’autres applications et services.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une fonction dans Azure
@@ -35,7 +35,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Modifier la définition pour fournir des métadonnées supplémentaires
 > * Tester la définition en appelant la fonction
 
-## <a name="create-a-function-app"></a>Créer une Function App
+## <a name="create-a-function-app"></a>Créer une application de fonction
 
 Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une application de fonctions vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
 
@@ -48,9 +48,17 @@ Vous devez disposer d’une Function App pour héberger l’exécution de vos fo
 
 Ce didacticiel utilise une fonction HTTP déclenchée qui accepte deux paramètres : le temps estimé de la réparation (en heures) et la capacité de l’éolienne (exprimée en kilowatts). La fonction calcule ensuite le coût de la réparation et les revenus engendrés par 24 heures de fonctionnement de l’éolienne.
 
-1. Développez votre Function App, cliquez sur le bouton **+** à côté de **Fonctions**, puis cliquez sur le modèle **HTTPTrigger**. Entrez `TurbineRepair` pour le **Nom** de la fonction, puis cliquez sur **Créer**.
+1. Développez votre Function App, puis sélectionnez le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre Function App, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction. 
 
-    ![Panneau Function Apps, Fonctions +](media/functions-openapi-definition/add-function.png)
+    ![Page de démarrage rapide des fonctions sur le portail Azure](media/functions-openapi-definition/add-first-function.png)
+
+2. Dans le champ Rechercher, tapez `http`, puis choisissez **C#** pour le modèle de déclencheur HTTP. 
+ 
+    ![Choisir le déclencheur HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Tapez `TurbineRepair` comme **Nom** de fonction, choisissez `Function` comme **[Niveau d’authentification](functions-bindings-http-webhook.md#http-auth)**, puis sélectionnez **Créer**.  
+
+    ![Créer une fonction déclenchée par le biais de HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Remplacez le contenu du fichier run.csx par le code suivant, puis cliquez sur **Enregistrer** :
 
@@ -117,7 +125,7 @@ Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définiti
 
     1. Sous l’onglet **Intégrer** de votre nouvelle fonction de déclencheur HTTP, remplacez **Méthodes HTTP autorisées**par **Méthodes sélectionnées**
 
-    1. Dans **Méthodes HTTP sélectionnées**, décochez toutes les options sauf **POST**.
+    1. Dans **Méthodes HTTP sélectionnées**, décochez toutes les options sauf **POST**, puis cliquez sur **Enregistrer**.
 
         ![Méthodes HTTP sélectionnées](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -264,7 +272,7 @@ Avant d’utiliser la définition de l’API, il est conseillé de la tester dan
 
 1. Revenez à la définition de l’API : **function-demo-energy** > **Fonctionnalités de la plateforme** > **Définition de l’API**.
 
-1. Dans le volet droit, cliquez sur **Modifier l’authentification**, entrez la clé API que vous avez copiée, puis cliquez sur **Authentifier**.
+1. Dans le volet droit, cliquez sur **Authentifier**, entrez la clé API que vous avez copiée, puis cliquez sur **Authentifier**.
 
     ![S’authentifier avec la clé API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -278,13 +286,13 @@ Avant d’utiliser la définition de l’API, il est conseillé de la tester dan
 
     Notez que l’interface utilisateur utilise les descriptions de la définition de l’API.
 
-1. Cliquez sur **Send a request** (Envoyer une demande), puis cliquez sur l’onglet **Pretty** (Impression automatique) pour afficher la sortie.
+1. Cliquez sur **Send Request** (Envoyer une demande), puis cliquez sur l’onglet **Pretty** (Impression automatique) pour afficher la sortie.
 
     ![Option Send a request (Envoyer une demande)](media/functions-openapi-definition/send-request.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une fonction dans Azure
