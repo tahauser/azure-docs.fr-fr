@@ -16,10 +16,10 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
@@ -143,7 +143,7 @@ Vous pouvez effectuer la migration des niveaux de performance S1, S2 et S3 vers 
 
 **Migration vers des collections à partition unique à l’aide du Kit SDK .NET**
 
-Vous pouvez également modifier les niveaux de performances de vos collections via les kits SDK Azure Cosmos DB. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de [l’API .NET SQL](sql-api-sdk-dotnet.md), mais le processus est similaire pour nos autres SDK.
+Vous pouvez également modifier les niveaux de performances de vos collections via les Kits de développement logiciel (SDK) Azure Cosmos DB. Cette section couvre uniquement la modification du niveau de performances d’une collection à l’aide de [l’API .NET SQL](sql-api-sdk-dotnet.md), mais le processus est similaire pour nos autres SDK.
 
 Voici un extrait de code permettant de remplacer le débit de la collection par 5 000 unités de requête par seconde :
     

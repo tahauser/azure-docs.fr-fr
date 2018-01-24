@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;sogup;
 ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
 
