@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: 37acd22cd6a85b1a9062b0c0aee6e48957f1ea11
-  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.openlocfilehash: 251ce769ce9d43d7706cd7ba5d0c0f47cde36d3f
+  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/07/2017
+  ms.lasthandoff: 01/24/2018
 abstract:
   description: "Azure Container Instances propose la façon la plus simple et rapide d’exécuter un conteneur dans Azure, sans avoir à configurer des machines virtuelles et sans avoir à adopter un service de niveau supérieur. Si vous avez besoin d’une solution d’orchestration de conteneur complète, consultez la <a href=\"/azure/container-service/kubernetes/\">documentation de Kubernetes sur Azure Container Service</a>. Découvrez comment créer et gérer des instances de conteneurs avec nos démarrages rapides, nos didacticiels et nos exemples."
 sections:
@@ -30,12 +30,16 @@ sections:
     items:
     - image:
         src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Interface de ligne de commande Azure
+      text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Portail Azure
       href: /azure/container-instances/container-instances-quickstart-portal
+    - image:
+        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: "Azure PowerShell"
+      href: /azure/container-instances/container-instances-quickstart-powershell
 - title: "Didacticiels pas à pas"
   items:
   - type: paragraph
@@ -46,15 +50,15 @@ sections:
     - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Packager une application dans une image conteneur</a>
     - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-acr\">Créer un registre Azure Container Registry et charger l’image conteneur</a>"
     - html: "<a href=\"/azure/container-instances/container-instances-tutorial-deploy-app\">Déployer l’image conteneur dans une instance Azure Container Instances</a>"
-- title: "Référence"
+- title: "Informations de référence"
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/cli/azure/container">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
+      html: <p><a href="/cli/azure/container">interface de ligne de commande Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
     - title: Langues
       html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.JS</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/container-instances\">Référence d’API REST</a></p><p><a href=\"/azure/templates/microsoft.containerinstance/containergroups\">modèle Azure Resource Manager</a></p>"
+      html: "<p><a href=\"/rest/api/container-instances\">Référence d’API REST</a></p><p><a href=\"/azure/templates/microsoft.containerinstance/containergroups\">modèle Azure Resource Manager</a></p>"
