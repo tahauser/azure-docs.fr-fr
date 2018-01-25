@@ -3,8 +3,8 @@ title: "Surveillance du Cache Redis Azure | Microsoft Docs"
 description: "Découvrez comment surveiller l’état et les performances de vos instances de cache Redis Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 3a68435866e6fb5bf0210144e53918c35b416449
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Surveillance du cache Redis Azure
 Le cache Redis Azure utilise [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) afin d’offrir plusieurs possibilités de surveillance de vos instances de cache. Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances Cache Redis Azure et vous aident à gérer vos applications de mise en cache.
@@ -69,7 +69,7 @@ Pour configurer un compte de stockage pour vos mesures de cache :
 3. Cochez **Archive vers un compte de stockage**.
 4. Sélectionnez le compte de stockage dans lequel stocker les mesures de cache.
 5. Cochez la case **1 minute** et spécifiez une stratégie de **Rétention (jours)** . Si vous ne souhaitez appliquer aucune stratégie de rétention et que vous souhaitez conserver les données indéfiniment, réglez **Rétention (jours)** à **0**.
-6. Cliquez sur **Save**.
+6. Cliquez sur **Enregistrer**.
 
 ![Diagnostics Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
@@ -95,7 +95,7 @@ Chaque mesure inclut deux versions. Une première mesure évalue les performance
 > 
 > 
 
-| Mesure | Description |
+| Métrique | DESCRIPTION |
 | --- | --- |
 | Présences dans le cache |Nombre de recherches clés réussies au cours de l’intervalle de création des rapports. Celle-ci mappe à [ à partir de la commande Redis ](http://redis.io/commands/info)INFO`keyspace_hits`. |
 | Absences dans le cache |Nombre de recherches clés non réussies au cours de l’intervalle de création des rapports. Cette valeur correspond à la commande Redis INFO `keyspace_misses` . Les absences dans le cache ne signifient pas nécessairement qu’il y a un problème dans le cache. Par exemple, en cas d’utilisation du mode de programmation de type cache-aside, une application recherche d’abord l’élément dans le cache. Si cet élément ne s’y trouve pas (Absence dans le cache), il est récupéré dans la base de données et ajouté au cache pour la prochaine fois. Les absences dans le cache sont un comportement normal pour le mode de programmation de type cache-aside. Si le nombre d’absences dans le cache est plus élevé que prévu, examinez la logique d’application qui remplit le cache et y lit les informations. Si des éléments sont supprimés du cache en raison d’une trop grande sollicitation de la mémoire, des absences dans le cache peuvent se produire, mais `Used Memory` ou `Evicted Keys` sont de meilleures mesures pour surveiller la pression sur la mémoire. |

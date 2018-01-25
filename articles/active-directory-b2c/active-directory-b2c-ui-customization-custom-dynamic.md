@@ -14,16 +14,16 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configuration de l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Cet article se concentre sur la façon de personnaliser l’interface utilisateur Azure AD B2C avec du *contenu dynamique* à l’aide de stratégies personnalisées. Pour commencer, consultez [Personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]
@@ -39,7 +39,7 @@ Dans une stratégie personnalisée, une définition de contenu définit l’URI 
 
 La section `ContentDefinitions` contient une série d’éléments XML `ContentDefinition`. L’attribut d’ID de l’élément `ContentDefinition` spécifie le type des page qui se rapporte à la définition de contenu. Autrement dit, l’élément définit le contexte que va appliquer un modèle HTML5/CSS personnalisé. Le tableau suivant décrit l’ensemble d’ID de définition de contenu reconnus par le moteur d’infrastructure d’expérience d’identité et les types de page associés.
 
-| ID de définition du contenu | Modèle HTML5 par défaut| Description | 
+| ID de définition du contenu | Modèle HTML5 par défaut| DESCRIPTION | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Page d’erreur**. Cette page s’affiche lorsqu’une exception ou une erreur est rencontrée. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Page de sélection du fournisseur d’identité**. Cette page répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent faire leur choix au moment de la connexion. Il s’agit généralement de fournisseurs d’identité d’entreprise, de fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux. |
@@ -105,7 +105,7 @@ Votre modèle HTML5 personnalisé est basé sur le modèle HTML5 intégré à Az
 
 7. Pour cette procédure pas à pas, nous supprimons la référence à la page de disposition. Ajoutez l’extrait de code suivant au fichier _unified.cshtml_ :
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ Modifiez la méthode `unified` HomeController pour accepter le paramètre campai
 
 1. Ouvrez le fichier *Controllers\HomeController.cs*, puis changez la méthode `unified` en ajoutant l’extrait de code suivant :
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

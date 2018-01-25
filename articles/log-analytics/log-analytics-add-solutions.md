@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Ajouter des solutions de gestion Azure Log Analytics dans votre espace de travail
 
@@ -72,42 +72,42 @@ Le tableau suivant indique les solutions de gestion appartenant à chaque offre 
 Il indique également les niveaux tarifaires disponibles pour chaque solution de gestion.
 Toutes les solutions indiquées dans le tableau suivant sont disponibles dans le portail Azure et la galerie de solutions du portail Log Analytics.
 
-| Solution de gestion                                                                       | Offre                                                                     | Niveaux tarifaires<sup>1</sup>                                                 | Remarques |
+| Solution de gestion                                                                       | Offre                                                                     | Niveaux tarifaires<sup>1</sup>                                                 | Notes |
 | ---                                                                                       | ---                                                                       | ---                                                                                                       | ---   |
-| [Activity Log Analytics](log-analytics-activity.md)                                                                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | 90 jours de données disponibles gratuitement<br>Données non soumises à la limite du niveau gratuit |
-| [AD Assessment](log-analytics-ad-assessment.md)                                           | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
-| [AD Replication Status](log-analytics-ad-replication-status.md)                           | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [Agent Health](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Données non soumises à la limite du niveau gratuit<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [Alert Management](log-analytics-solution-alert-management.md)                            | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [Application Insights Connector (préversion)](log-analytics-app-insights-connector.md)                                               | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Activity Log Analytics](log-analytics-activity.md)                                                                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | 90 jours de données disponibles gratuitement<br>Données non soumises à la limite du niveau gratuit |
+| [AD Assessment](log-analytics-ad-assessment.md)                                           | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [AD Replication Status](log-analytics-ad-replication-status.md)                           | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [Agent Health](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Données non soumises à la limite du niveau gratuit<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [Alert Management](log-analytics-solution-alert-management.md)                            | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [Application Insights Connector (préversion)](log-analytics-app-insights-connector.md)                                               | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automation & Control</li></ul>                                  | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | Nécessite la liaison de votre espace de travail Log Analytics à un compte Automation |
-| [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md)    | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
-| [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md)    | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | [Azure SQL Analytics (préversion)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br>Par&nbsp;nœud&nbsp;(OMS)                                                                          | Nécessite la liaison de votre espace de travail Log Analytics à un compte Automation|
-| [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
-|[Sauvegarde](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight & Analytics</li></ul>                                   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)                                                                       | Nécessite un archivage de sauvegarde classique.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [Capacity and Performance (préversion)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+|[Sauvegarde](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight & Analytics</li></ul>                                   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)                                                                       | Nécessite un archivage de sauvegarde classique.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [Capacity and Performance (préversion)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | [Suivi des modifications](log-analytics-change-tracking.md)                                       | <ul><li>Automation & Control</li></ul>                                  | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | Nécessite la liaison de votre espace de travail Log Analytics à un compte Automation |
-| [Conteneurs](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
-| [IT Service Management Connector (préversion)](log-analytics-itsmc-overview.md)                                              | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)     | |
-| HDInsight HBase Monitoring <br>(Préversion)                                                  | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
-| [Key Vault Analytics](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
-| [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [Conteneurs](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Connecteur de gestion des services informatiques](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)     | |
+| HDInsight HBase Monitoring <br>(Préversion)                                                  | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Key Vault Analytics](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
 | [Malware Assessment](log-analytics-malware.md)                                            | <ul><li>Security and Compliance</li></ul>                                 | Gratuit<br> Standalone<br>Par&nbsp;nœud&nbsp;(OMS)                                                                           | Si vous ajoutez les solutions de sécurité et de conformité après le 19 juin 2017, la [facturation s’effectue pour chaque nœud](https://azure.microsoft.com/pricing/details/security-compliance/), quel que soit le niveau tarifaire de l’espace de travail. Les 60 premiers jours sont gratuits.  |
 | [Network Performance Monitor](log-analytics-network-performance-monitor.md) <br>  | <ul><li>Insight & Analytics</li></ul>                                   | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | |
-| [Office 365 Analytics (préversion)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Office 365 Analytics (préversion)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | [Security and Audit](../operations-management-suite/oms-security-getting-started.md)      | <ul><li>Security&nbsp;&&nbsp;Compliance</li></ul>                       | Gratuit<br> Standalone<br>Par&nbsp;nœud&nbsp;(OMS)                                                                           | La collecte des journaux des événements de sécurité requiert cette solution<br>Si vous ajoutez les solutions de sécurité et de conformité après le 19 juin 2017, la [facturation s’effectue pour chaque nœud](https://azure.microsoft.com/pricing/details/security-compliance/), quel que soit le niveau tarifaire de l’espace de travail. Les 60 premiers jours sont gratuits. |
-| [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | [Service Map (préversion)](../operations-management-suite/operations-management-suite-service-map.md) | <ul><li>Insight & Analytics</li></ul>                      | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | Disponible dans les régions Est des États-Unis, Europe de l’Ouest et Ouest-Centre des États-Unis    |
-| [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Insight & Analytics</li></ul>                                   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)                                                                       | Nécessite un coffre Site Recovery classique.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [SQL Assessment](log-analytics-sql-assessment.md)                                         | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Insight & Analytics</li></ul>                                   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)                                                                       | Nécessite un coffre Site Recovery classique.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [SQL Assessment](log-analytics-sql-assessment.md)                                         | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | Démarrer/arrêter des machines virtuelles pendant les heures creuses<br>(Préversion)                                              | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | Nécessite la liaison de votre espace de travail Log Analytics à un compte Automation |
-| [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [System Center Operations Manager Assessment (préversion)](log-analytics-scom-assessment.md)  | <ul><li>Insight & Analytics</li><li>Log Analytics</li></ul>        | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [System Center Operations Manager Assessment (préversion)](log-analytics-scom-assessment.md)  | <ul><li>Insight & Analytics</li><li>Log Analytics</li></ul>        | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | [Gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automation & Control</li></ul>                                  | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | Nécessite la liaison de votre espace de travail Log Analytics à un compte Automation |
-| [Update Compliance (préversion)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Pas de frais pour les données ou les nœuds<br>Données non soumises à la limite du niveau gratuit.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [Upgrade Readiness](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Pas de frais pour les données ou les nœuds<br>Données non soumises à la limite du niveau gratuit.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
-| [VMware Monitoring (préversion)](log-analytics-vmware.md)                                | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
+| [Update Compliance (préversion)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Pas de frais pour les données ou les nœuds<br>Données non soumises à la limite du niveau gratuit.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [Upgrade Readiness](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | Pas de frais pour les données ou les nœuds<br>Données non soumises à la limite du niveau gratuit.<br> Non disponible pour ajout à partir du portail/de la place de marché Azure. |
+| [VMware Monitoring (préversion)](log-analytics-vmware.md)                                | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> standard<br> Premium&nbsp;(OMS)<br> Par&nbsp;Go&nbsp;(autonome)<br> Par&nbsp;nœud&nbsp;(OMS)   | |
 | [Wire Data 2.0 (préversion)](log-analytics-wire-data.md)                                                                 | <ul><li>Insight & Analytics</li></ul>                                   | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)                                                                         | Disponible dans les régions Est des États-Unis, Europe de l’Ouest et Ouest-Centre des États-Unis |
 
 <sup>1</sup> Les niveaux tarifaires *Standard* et *Premium (OMS)* sont disponibles uniquement pour les clients qui ont créé leur espace de travail Log Analytics avant le 21 septembre 2016.
@@ -116,7 +116,7 @@ Toutes les solutions indiquées dans le tableau suivant sont disponibles dans le
 
 Les solutions fournies par la communauté sont disponibles à partir de la [galerie de modèles Azure](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS)) et directement auprès des auteurs.
 
-| Solution de gestion               | Offre                                                                     | Niveaux de tarification                         | Remarques |
+| Solution de gestion               | Offre                                                                     | Niveaux de tarification                         | Notes |
 | ---                               | ---                                                                       | ---                                   | ---   |
 | Toutes les solutions fournies par la communauté  | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuit<br> Par&nbsp;nœud&nbsp;(OMS)     |   Nécessite la liaison de votre espace de travail Log Analytics à un compte Automation |
 
@@ -139,16 +139,16 @@ L’agent Windows Log Analytics et l’agent System Center Operations Manager so
 
 | Solution de gestion | Plateforme | Microsoft Monitoring Agent | Agent Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Activity Log Analytics | Microsoft Azure |   |   |   |   |   | sur notification |
+| Activity Log Analytics | Azure |   |   |   |   |   | sur notification |
 | AD Assessment |Windows |&#8226; |&#8226; |  |  |&#8226; |7 jours |
 | AD Replication Status |Windows |&#8226; |&#8226; |  |  |&#8226; |5 jours |
 | Agent Health | Windows et Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minute |
 | Alert Management (Nagios) |Linux |&#8226; |  |  |  |  |à l'arrivée |
 | Alert Management (Zabbix) |Linux |&#8226; |  |  |  |  |1 minute |
 | Alert Management (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 minutes |
-| Application Insights Connector (préversion) | Microsoft Azure |   |   |   |   |   | sur notification |
-| Azure Application Gateway Analytics | Microsoft Azure |   |   |   |   |   | sur notification |
-| Azure Network Security Group Analytics | Microsoft Azure |   |   |   |   |   | sur notification |
+| Application Insights Connector (préversion) | Azure |   |   |   |   |   | sur notification |
+| Azure Application Gateway Analytics | Azure |   |   |   |   |   | sur notification |
+| Azure Network Security Group Analytics | Azure |   |   |   |   |   | sur notification |
 | Azure SQL Analytics (préversion) |Windows |  |  |  |  |  | 10 minutes |
 | Gestion de la capacité |Windows |&#8226; |&#8226; |  |  |&#8226; |à l'arrivée |
 | Conteneurs | Windows et Linux | &#8226; | &#8226; |   |   |   | 3 minutes |
@@ -186,7 +186,7 @@ L’agent Windows Log Analytics et l’agent System Center Operations Manager so
 - syslog
 - Journaux des événements de sécurité Windows
 - Journaux du pare-feu Windows
-- Journaux d’événements Windows
+- Journaux des événements Windows
 
 
 
@@ -194,8 +194,8 @@ L’agent Windows Log Analytics et l’agent System Center Operations Manager so
 
 | Solution de gestion | Plateforme | Microsoft Monitoring Agent | Agent Operations Manager | Stockage Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Sauvegarde | Microsoft Azure |   |   |   |   |   | n/a |
-| Azure Site Recovery | Microsoft Azure |   |   |   |   |   | n/a |
+| Sauvegarde | Azure |   |   |   |   |   | n/a |
+| Azure Site Recovery | Azure |   |   |   |   |   | n/a |
 
 
 ### <a name="data-sources"></a>Sources de données
@@ -278,5 +278,5 @@ La nature de la préversion privée détermine la forme de l’invitation.
 * Vous pouvez vous inscrire en fonction des détails publiés sur twitter [msopsmgmt](https://twitter.com/msopsmgmt).
 * Vous pouvez vous inscrire en fonction des détails partagés à l’occasion d’événements communautaires : recherchez-nous dans les rencontres, conférences et communautés en ligne.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Recherchez dans les journaux](log-analytics-log-searches.md) les informations détaillées collectées par les solutions de gestion.

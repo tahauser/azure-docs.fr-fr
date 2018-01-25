@@ -12,20 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notes de publication de StorSimple série 8000 Update 4
 > [!NOTE]
-> Le portail Azure Classic pour StorSimple est déconseillé. Vos instances de StorSimple Device Manager seront automatiquement déplacées vers le nouveau portail Azure à la date de désapprobation planifiée. Vous serez prévenu de ce déplacement par un e-mail et une notification du portail. Ce document sera également bientôt retiré. Si vous avez des questions concernant le déplacement, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md).
+> Le portail Azure Classic pour StorSimple est déconseillé. Vos instances de StorSimple Device Manager seront automatiquement déplacées vers le nouveau portail Azure à la date de désapprobation planifiée. Vous serez prévenu de ce déplacement par un e-mail et une notification du portail. Ce document sera également bientôt retiré. Si vous avez des questions concernant le déplacement, consultez [FAQ : Déplacement vers le portail Azure](storsimple-8000-move-azure-portal-faq.md).
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple série 8000 Update 4. Elles contiennent également une liste des mises à jour du logiciel StorSimple incluses dans cette version. 
 
@@ -59,7 +59,7 @@ Update 4 comporte les principaux correctifs de bogues et améliorations suivant
 
 * **Modifications de la mise à jour** : dans cette version, les bogues liés aux échecs de mise à jour ont été résolus.
 
-* **Alerte de défaillance de disque** : une nouvelle alerte avertissant l’utilisateur des défaillances imminentes de disques a été ajoutée dans cette version. Si vous rencontrez cette alerte, demandez au support technique de Microsoft de vous livrer un disque de remplacement. Pour plus d’informations, consultez [Alertes matérielles sur votre appareil StorSimple](storsimple-manage-alerts.md#hardware-alerts).
+* **Alerte de défaillance de disque** : une nouvelle alerte avertissant l’utilisateur des défaillances imminentes de disques a été ajoutée dans cette version. Si vous rencontrez cette alerte, demandez au support technique de Microsoft de vous livrer un disque de remplacement. Pour plus d’informations, consultez [Alertes matérielles sur votre appareil StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Modifications relatives au remplacement du contrôleur** : une applet de commande permettant à l’utilisateur d’interroger l’état du processus de remplacement du contrôleur a été ajoutée dans cette version. Pour plus d’informations, consultez [l’applet de commande pour interroger l’état du remplacement du contrôleur](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -68,14 +68,14 @@ Update 4 comporte les principaux correctifs de bogues et améliorations suivant
 
 Le tableau suivant récapitule les problèmes qui ont été résolus dans Update 4.    
 
-| Non | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| Non  | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
 | --- | --- | --- | --- | --- |
-| 1 |Basculement |Dans la version précédente, après le basculement, un problème lié au nettoyage sur le site du client était observé. Ce problème a été résolu dans cette version. |Oui |Oui |
-| 2 |Volumes épinglés localement |Dans la version précédente, un problème de création de volume associé pour les volumes épinglés localement entraînait l’échec de création du volume. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |Oui |Non |
-| 3 |Package de prise en charge |Dans la version précédente, des problèmes liés au package de prise en charge qui provoquaient une exception System.OutOfMemory ou d’autres erreurs entraînaient l’échec de création du package de prise en charge. Ces bogues ont été résolus dans cette version. |Oui |Oui |
-| 4 |Analyse |Dans la version précédente, un problème lié aux graphiques de surveillance des volumes épinglés localement entraînait l’affichage de la consommation dans EB. Ce bogue a été résolu dans cette version. |Oui |Oui |
-| 5 |Migration |Dans la version précédente, plusieurs problèmes étaient liés à la fiabilité de la migration des appareils de la série 5000-7000 vers la série 8000. Ces problèmes ont été résolus dans cette version. |Oui |Oui |
-| 6 |Mettre à jour |Dans les versions précédentes, en cas d’échec d’une mise à jour, les contrôleurs entraient en mode de récupération ; par conséquent, l’utilisateur ne pouvait pas poursuivre la mise à jour et devait contacter le Support Microsoft. <br> Ce comportement a été modifié dans cette version. Si l’utilisateur rencontre un échec de mise à jour une fois que les deux contrôleurs exécutent la même version (Update 4), ces derniers n’entrent pas en mode de récupération. Si l’utilisateur rencontre cette erreur, nous recommandons d’attendre un peu et de recommencer la mise à jour. La nouvelle tentative peut réussir. Si cette nouvelle tentative échoue, contactez le Support Microsoft. |Oui |Oui |
+| 1 |Basculement |Dans la version précédente, après le basculement, un problème lié au nettoyage sur le site du client était observé. Ce problème a été résolu dans cette version. |OUI |OUI |
+| 2 |Volumes épinglés localement  |Dans la version précédente, un problème de création de volume associé pour les volumes épinglés localement entraînait l’échec de création du volume. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |OUI |Non  |
+| 3 |Package de prise en charge |Dans la version précédente, des problèmes liés au package de prise en charge qui provoquaient une exception System.OutOfMemory ou d’autres erreurs entraînaient l’échec de création du package de prise en charge. Ces bogues ont été résolus dans cette version. |OUI |OUI |
+| 4 |Surveillance |Dans la version précédente, un problème lié aux graphiques de surveillance des volumes épinglés localement entraînait l’affichage de la consommation dans EB. Ce bogue a été résolu dans cette version. |OUI |OUI |
+| 5. |Migration |Dans la version précédente, plusieurs problèmes étaient liés à la fiabilité de la migration des appareils de la série 5000-7000 vers la série 8000. Ces problèmes ont été résolus dans cette version. |OUI |OUI |
+| 6. |Mettre à jour |Dans les versions précédentes, en cas d’échec d’une mise à jour, les contrôleurs entraient en mode de récupération ; par conséquent, l’utilisateur ne pouvait pas poursuivre la mise à jour et devait contacter le Support Microsoft. <br> Ce comportement a été modifié dans cette version. Si l’utilisateur rencontre un échec de mise à jour une fois que les deux contrôleurs exécutent la même version (Update 4), ces derniers n’entrent pas en mode de récupération. Si l’utilisateur rencontre cette erreur, nous recommandons d’attendre un peu et de recommencer la mise à jour. La nouvelle tentative peut réussir. Si cette nouvelle tentative échoue, contactez le Support Microsoft. |OUI |OUI |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problèmes connus dans Update 4 depuis les versions précédentes

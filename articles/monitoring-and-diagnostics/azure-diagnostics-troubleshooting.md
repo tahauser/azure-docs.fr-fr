@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour les diagnostics Microsoft Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](azure-diagnostics.md).
@@ -34,7 +34,7 @@ Cet article contient des informations de dépannage pour les diagnostics Microso
 Voici les chemins d’accès de quelques journaux et artefacts importants. Nous nous référons à ces informations dans le reste du document.
 
 ### <a name="azure-cloud-services"></a>Services cloud Azure
-| Artefact | Chemin |
+| Artefact | path |
 | --- | --- |
 | **Fichier de configuration d’Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Fichiers journaux** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -45,7 +45,7 @@ Voici les chemins d’accès de quelques journaux et artefacts importants. Nous 
 | **Fichier journal MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Machines virtuelles
-| Artefact | Chemin |
+| Artefact | path |
 | --- | --- |
 | **Fichier de configuration d’Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Fichiers journaux** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
@@ -64,7 +64,7 @@ Ici, la valeur **PartitionKey** de la table correspond à l’ID de ressource, �
 Si l’ID de ressource est incorrect, vérifiez sa configuration dans **Configuration de** **diagnostic** > **Métriques** > **ID de ressource**.
 
 S’il n’existe aucune donnée pour cette métrique en particulier, vérifiez **Configuration de diagnostic** > **PerformanceCounter** pour voir si la métrique (compteur de performances) est bien incluse. Par défaut, nous activons les compteurs suivants :
-- \Processus(_Total)\% Temps processeur
+- \Processor(_Total)\% temps processeur
 - \Memory\Octets disponibles
 - \ASP.NET Applications(__Total__)\Requests/Sec
 - \ASP.NET Applications(__Total__)\Errors Total/Sec
@@ -154,7 +154,7 @@ Si vous envisagez de contacter le support technique, sachez que vous devrez four
 ## <a name="diagnostics-data-tables-not-found"></a>Les tables de données de diagnostic sont introuvables
 Les tables de stockage Azure qui contiennent les événements ETW utilisent le code suivant dans leur nom :
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -165,7 +165,7 @@ Les tables de stockage Azure qui contiennent les événements ETW utilisent le 
             tableName = "WAD" + eventDestination;
 ```
 
-Voici un exemple :
+Voici un exemple : 
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -228,7 +228,7 @@ Pour le rôle de service cloud, si vous sélectionnez la configuration à partir
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codes de sortie du plug-in Azure Diagnostics
 Le plug-in renvoie les codes de sortie suivants :
 
-| Code de sortie | Description |
+| Code de sortie | DESCRIPTION |
 | --- | --- |
 | 0 |Vous avez réussi ! |
 | -1 |Erreur générique. |

@@ -3,18 +3,18 @@ ms.assetid:
 title: "Azure Key Vault - Utilisation de la suppression réversible avec PowerShell"
 description: "Exemples d’utilisation de la suppression réversible avec extraits de code PowerShell"
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/21/2017
-ms.author: bruceper
-ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: 48569e31e6400e3ec8958e0bceda1fd3b72207ea
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -23,7 +23,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 - Azure PowerShell 4.0.0 ou version ultérieure - Si ce n’est pas encore fait, installez Azure PowerShell et associez-le à votre abonnement Azure. Voir [Guide pratique pour installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
@@ -38,7 +38,7 @@ Pour obtenir des informations de référence propres à Key Vault pour PowerShel
 
 Les opérations Key Vault sont gérées séparément par l’intermédiaire d’autorisations de contrôle d’accès en fonction du rôle (RBAC) comme suit :
 
-| Opération | Description | Autorisation utilisateur |
+| Opération | DESCRIPTION | Autorisation utilisateur |
 |:--|:--|:--|
 |Liste|Énumère les coffres de clé supprimés.|Microsoft.KeyVault/deletedVaults/read|
 |Recover|Restaure un coffre de clés supprimé.|Microsoft.KeyVault/vaults/write|

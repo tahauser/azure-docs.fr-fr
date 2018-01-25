@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Utilisation des connecteurs dans une application logique
 Les connecteurs permettent d’accéder rapidement aux événements, aux données et aux actions à travers tous les services, protocoles et plates-formes.  La liste complète des connecteurs pris en charge par les applications logiques [est disponible ici](apis-list.md).  Les connecteurs peuvent être utilisés comme déclencheurs ou comme actions dans une application logique, et leur utilisation peut nécessiter une *connexion* configurée (par exemple : autoriser un compte Twitter pour accéder ou publier de votre part).
@@ -56,7 +56,7 @@ La plupart des connecteurs nécessitent de configurer une *connexion* avant de p
 Vous pouvez consulter et gérer les connexions dans Azure en cliquant sur **Parcourir**, puis en sélectionnant **Connexions API**.  À partir de la ressource de connexions API, vous pouvez afficher, modifier, mettre à jour ou renouveler l’autorisation de toutes les connexions que vous avez créées.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Créez votre première application logique](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Créez votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Découvrez des utilisations et des exemples courant(e)s d’applications logiques](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Commencez à utiliser les déclencheurs et actions d’intégration d’entreprise](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

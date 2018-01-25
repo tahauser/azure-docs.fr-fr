@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Appeler une API web à partir d’une application web .NET
 Avec le point de terminaison v2.0, vous pouvez rapidement ajouter une authentification à vos applications Web et à vos API Web, avec prise en charge pour les comptes Microsoft personnels, ainsi que pour les comptes professionnels ou scolaires.  Ici, nous allons créer une application web MVC qui connecte les utilisateurs à l’aide d’OpenID Connect, avec l’aide de l’intergiciel OWIN de Microsoft.  L’application web obtiendra des jetons d’accès OAuth 2.0 pour une API web sécurisée par OAuth 2.0 qui permet d’exécuter des opérations de création, lecture et suppression dans la « To Do List » (Liste des tâches) d’un utilisateur.
@@ -45,7 +45,7 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 
 * copier l' **ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 * créer un **secret d’application** du type **Mot de passe**, puis copiez sa valeur pour une utilisation ultérieure.
-* Ajoutez la plate-forme **Web** pour votre application.
+* ajouter la plateforme **web** pour votre application ;
 * entrer l’ **URI de redirection**approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
 
 ## <a name="install-owin"></a>Installer OWIN
@@ -68,7 +68,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 * Ouvrez le fichier `App_Start\Startup.Auth.cs`, puis ajoutez les instructions `using` pour les bibliothèques ci-dessus.
 * Dans le même fichier, implémentez la méthode `ConfigureAuth(...)` .  Les paramètres que vous fournissez dans `OpenIDConnectAuthenticationOptions` serviront de coordonnées pour que votre application puisse communiquer avec Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAut
 * Puis, ajoutez une autre instruction `using` au fichier `App_Start\Startup.Auth.cs` pour MSAL.
 * Vous pouvez alors ajouter une nouvelle méthode, le gestionnaire d’événements `OnAuthorizationCodeReceived`.  Ce gestionnaire utilisera MSAL pour acquérir un jeton d’accès à l’API To-Do List et le stockera dans le cache de jetons MSAL pour une utilisation ultérieure :
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ Il est à présent temps d’utiliser le jeton d’accès acquis lors de l’ét
     `using Microsoft.Identity.Client;`
 * Dans l’action `Index`, utilisez la méthode `AcquireTokenSilentAsync` de MSAL pour obtenir un jeton d’accès pouvant être utilisé pour lire les données du service de la liste des tâches :
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * L’exemple ajoute ensuite le jeton obtenu à la requête GET HTTP en tant qu’en-tête `Authorization`, que le service de la liste des tâches utilise pour authentifier la requête.
 * Si le service To-Do List renvoie une réponse `401 Unauthorized`, les jetons d’accès de MSAL deviennent non valides, pour une raison indéterminée.  Dans ce cas, vous devez abandonner les jetons d’accès du cache MSAL et transmettre à l’utilisateur un message lui demandant de se reconnecter. Le cas échéant, le flux d’acquisition des jetons est redémarré.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * De la même manière, si MSAL est dans l’impossibilité de renvoyer un jeton d’accès, pour quelque raison que ce soit, vous devez demander à l’utilisateur de se reconnecter.  Cette opération n’est pas plus compliquée que la récupération d’un élément `MSALException` :
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

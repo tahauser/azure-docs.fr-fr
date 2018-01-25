@@ -3,8 +3,8 @@ title: "Administration du Cache Redis Azure | Microsoft Docs"
 description: "Découvrez comment effectuer des tâches d’administration telles que le redémarrage et la planification de mises à jour pour le Cache Redis Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Comment administrer le Cache Redis Azure
 Cette rubrique décrit comment effectuer des tâches d’administration telles que le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Redis Azure.
@@ -87,7 +87,7 @@ Le panneau **Planification de mises à jour** vous permet de désigner une fenê
 > 
 > 
 
-![Planification de mises à jour](./media/cache-administration/redis-schedule-updates.png)
+![Planifier les mises à jour](./media/cache-administration/redis-schedule-updates.png)
 
 Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spécifiez l’heure de début de la fenêtre de maintenance pour chaque jour, puis cliquez sur **OK**. Notez que l’heure de la maintenance est au format UTC. 
 
@@ -119,6 +119,6 @@ Oui. Vous pouvez gérer vos mises à jour planifiées à l’aide des cmdlets de
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Quels niveaux tarifaires peuvent utiliser la fonctionnalité de planification des mises à jour ?
 La fonction **Planifier les mises à jour** n’est disponible que dans le niveau tarifaire Premium.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez plus de fonctionnalités de [niveau Premium du cache Redis Azure](cache-premium-tier-intro.md) .
 

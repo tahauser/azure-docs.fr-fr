@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Créer un service web frontal pour votre application à l’aide d’ASP.NET Core
 Par défaut, les services Azure Service Fabric ne fournissent pas une interface publique sur le web. Pour exposer les fonctionnalités de votre application pour les clients HTTP, vous devez créer un projet web qui agit comme point d'entrée et ensuite établir la communication avec vos services individuels.
@@ -91,7 +91,7 @@ Commençons par la création de l’interface en tant que contrat entre le servi
 
 4. Dans la bibliothèque de classes, créez une interface avec une méthode unique, `GetCountAsync`, et étendez l'interface depuis `Microsoft.ServiceFabric.Services.Remoting.IService`. L’interface de communication à distance doit dériver de cette interface pour indiquer qu’il s’agit d’une interface de service à distance.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Maintenant que nous avons défini l'interface, nous devons la mettre en œuvre d
     ![Ajout d’une référence au projet de bibliothèque de classes dans le service avec état][vs-add-class-library-reference]
 2. Recherchez la classe qui hérite de `StatefulService`, par exemple `MyStatefulService`, et étendez-la pour implémenter l’interface `ICounter`.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Maintenant que nous avons défini l'interface, nous devons la mettre en œuvre d
     ```
 3. À présent, implémentez la méthode unique définie par l’interface `ICounter`, `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ Dans ce cas, nous remplaçons la méthode `CreateServiceReplicaListeners` exista
 
 La méthode d’extension `CreateServiceRemotingListener` sur l’interface `IService` vous permet de créer facilement un `ServiceRemotingListener` avec tous les paramètres par défaut. Pour utiliser cette méthode d’extension, assurez-vous d’avoir importé l’espace de noms `Microsoft.ServiceFabric.Services.Remoting.Runtime`. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Notre service avec état est maintenant prêt à recevoir le trafic provenant d'
 
 4. Dans le dossier **Contrôleurs**, ouvrez la classe `ValuesController`. Notez que la méthode `Get` renvoie actuellement uniquement un tableau de chaînes codées en dur avec « valeur1 » et « valeur2 », ce qui correspond à ce que nous avons vu précédemment dans le navigateur. Remplacez par le code suivant :
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
@@ -223,7 +223,7 @@ En revanche, lorsque vous exécutez un service web localement, vous devez vous a
 
 Pour apprendre à configurer des valeurs différentes pour un environnement différent, consultez [Gestion des paramètres d'application pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez configuré un serveur web frontal pour votre application avec ASP.NET Core, consultez [ASP.NET Core dans le modèle Reliable Services de Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) pour comprendre comment ASP.NET Core fonctionne avec Service Fabric.
 
 Ensuite, [accédez à des informations supplémentaires sur la communication avec les services](service-fabric-connect-and-communicate-with-services.md) en général pour obtenir une image complète de la façon dont les communications avec les services fonctionnent dans Service Fabric.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3686cfffd2c29461213b2866665e59336f037fa0
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
 
@@ -903,7 +903,7 @@ Les agrégats définis par l’utilisateur sont toutes les fonctions d’agréga
 
 La définition de classe de base d’agrégat défini par l’utilisateur est la suivante :
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -952,13 +952,13 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2 : premier paramètre pour la routine accumulate
 * TResult : type de retour de la routine terminate
 
-Par exemple :
+Par exemple : 
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-ou
+or
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1480,7 +1480,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 Pour éviter de créer une instance de l’objet dans le script de base, nous pouvons créer un wrapper de fonction, comme indiqué dans l’exemple précédent :
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1796,7 +1796,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 Ou par l’appel d’une méthode de fabrique de wrapper :
 
-```c#
+```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1871,7 +1871,7 @@ Exemple :    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 Les principaux objets de programmabilité sont :
 
-```c#
+```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```

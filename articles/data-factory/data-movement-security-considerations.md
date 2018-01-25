@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-data-movement-security-considerations.md)
-> * [Version 2 - Préversion](data-movement-security-considerations.md)
+> * [Version 2 - Préversion](data-movement-security-considerations.md)
 
 Cet article décrit l’infrastructure de sécurité de base qu’utilisent les services de déplacement des données dans Azure Data Factory pour sécuriser vos données. Les ressources de gestion d’Azure Data Factory reposent sur l’infrastructure de sécurité Azure et utilisent toutes les mesures de sécurité proposées par Azure.
 
@@ -148,7 +148,7 @@ Dans une entreprise, le **pare-feu d’entreprise** s’exécute sur le routeur 
 
 Le tableau suivant indique les paramètres de **port sortant** et de domaine requis pour le **pare-feu d’entreprise**.
 
-| Noms de domaine                  | Ports sortants | Description                              |
+| Noms de domaine                  | Ports sortants | DESCRIPTION                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443, 80        | Requis par le runtime d’intégration auto-hébergé pour se connecter aux services de déplacement des données dans Data Factory. |
 | `*.core.windows.net`          | 443            | Utilisé par le runtime d’intégration auto-hébergé pour se connecter au compte de stockage Azure lorsque vous utilisez la fonctionnalité de [copie intermédiaire](copy-activity-performance.md#staged-copy). |
@@ -161,7 +161,7 @@ Le tableau suivant indique les paramètres de **port sortant** et de domaine req
 
 Le tableau suivant indique la configuration requise pour les **ports entrants** pour le **pare-feu Windows**.
 
-| Ports entrants | Description                              |
+| Ports entrants | DESCRIPTION                              |
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Requis par la cmdlet de chiffrement PowerShell comme décrit dans le [chiffrement des informations d’identification sur le runtime d’intégration auto-hébergé](encrypt-credentials-self-hosted-integration-runtime.md)/dans l’application gestionnaire d’informations d’identification pour définir en toute sécurité les informations d’identification pour les banques de données locales sur le runtime d’intégration auto-hébergé. |
 
@@ -178,7 +178,7 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Question :** Le runtime d’intégration auto-hébergé peut-il être partagé entre différentes fabriques de données ?
 **Réponse :** Nous ne prenons pas encore en charge cette fonctionnalité, mais y travaillons activement.
@@ -187,7 +187,7 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 **Réponse :** Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que le runtime d’intégration auto-hébergé puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source/destination, vous devez également ouvrir le port **1433**. Pour en savoir plus, consultez la section [Configurations de pare-feu et autorisation d’adresses IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur les performances de l’activité de copie, consultez le [Guide sur les performances et le réglage de l’activité de copie](copy-activity-performance.md).
 
  

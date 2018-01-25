@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -122,7 +122,7 @@ Vous pouvez transférer des valeurs de chaîne depuis le fichier .config en four
 
 **également** initialiser le filtre dans le code. Dans une classe d’initialisation appropriée (par exemple, AppStart dans Global.asax.cs), insérez votre processeur dans la chaîne :
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ Excluez les robots et les tests web. Bien que Metrics Explorer vous donne la pos
 #### <a name="failed-authentication"></a>Échec d’authentification
 Excluez les demandes avec une réponse de type « 401 ».
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -275,7 +275,7 @@ Dans ApplicationInsights.config :
 
 *également* instancier l'initialiseur dans le code, par exemple dans Global.aspx.cs :
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...
@@ -362,4 +362,4 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 ## <a name="next"></a>Étapes suivantes
 * [Recherche d’événements et de journaux](app-insights-diagnostic-search.md)
 * [Échantillonnage](app-insights-sampling.md)
-* [Dépannage](app-insights-troubleshoot-faq.md)
+* [Résolution des problèmes](app-insights-troubleshoot-faq.md)

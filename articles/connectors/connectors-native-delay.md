@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Prise en main des actions Retarder et Retarder jusqu’à
 Les actions Retarder et Retarder jusqu’à vous permettent d’exécuter des scénarios de workflow.
 
-Vous pouvez par exemple afficher :
+Vous pouvez par exemple :
 
 * Attendre un jour de semaine pour envoyer une mise à jour d’état par e-mail.
 * Retarder le workflow jusqu’à ce qu’un appel HTTP dispose d’assez de temps avant la reprise et la récupération du résultat.
 
-Pour commencer à utiliser l’action Retarder dans une application logique, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Pour commencer à utiliser l’action Retarder dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Utilisation d’actions Retarder
 Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](connectors-overview.md).
@@ -50,9 +50,9 @@ Le déclencheur de périodicité a les propriétés suivantes qui peuvent être 
 
 ### <a name="delay-action"></a>Action Retarder
 Cette action retarde l’exécution pour un intervalle de temps donné.
-A * désigne est un champ obligatoire.
+Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | Description |
+| Nom complet | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
 | Count* |count |Le nombre d’unités à retarder |
 | Unit* |unité |L’unité de temps : `Second`, `Minute`, `Hour` ou `Day` |
@@ -61,9 +61,9 @@ A * désigne est un champ obligatoire.
 
 ### <a name="delay-until-action"></a>Action Retarder jusqu'à
 Cette action retarde l’exécution jusqu’à une date/heure spécifique.
-A * désigne est un champ obligatoire.
+Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | Description |
+| Nom complet | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
 | Year* |timestamp |L’année jusqu’à laquelle le retard doit être défini (GMT) |
 | Month* |timestamp |Le mois jusqu’auquel le retard doit être défini (GMT) |
@@ -71,6 +71,6 @@ A * désigne est un champ obligatoire.
 
 <br>
 
-## <a name="next-steps"></a>Étapes suivantes
-Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+## <a name="next-steps"></a>étapes suivantes
+Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

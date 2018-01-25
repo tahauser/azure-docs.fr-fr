@@ -3,7 +3,7 @@ title: "Mettre à niveau depuis DirSync et Azure AD Sync | Microsoft Docs"
 description: "Décrit comment effectuer la mise à niveau depuis DirSync et Azure AD Sync vers Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e7b0aa1fc555f0fe4773b6bd67db87a55d85bcf
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 9e8faf365c0f47582b4abc3554e0bb6e1c3e7902
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Mettre à niveau Microsoft Azure Active Directory Sync et Azure Active Directory Sync
 Azure AD Connect est la meilleure façon de connecter votre répertoire local avec Azure AD et Office 365. C’est l’occasion idéale d’effectuer la mise à niveau vers Azure AD Connect à partir de Microsoft Azure Active Directory Sync (DirSync) ou Azure AD Sync, car ces outils sont désormais dépréciés et ne sont plus pris en charge depuis le 13 avril 2017.
@@ -41,11 +41,6 @@ Azure AD Connect est le successeur de DirSync et d’Azure AD Sync. Il combine t
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Comment passer à Azure AD Connect
 Si vous exécutez DirSync, vous disposez de deux méthodes de mise à niveau : mise à niveau sur place et déploiement parallèle. Une mise à niveau sur place est recommandée pour la plupart des clients et si vous avez un système d’exploitation récent avec moins de 50 000 objets. Dans d’autres cas, il est recommandé d’effectuer un déploiement parallèle dans lequel votre configuration DirSync est déplacée vers un nouveau serveur exécutant Azure AD Connect.
 
->[!NOTE]
->La mise à niveau sur place de DirSync vers Azure AD Connect ne sera plus prise en charge après le 31 décembre 2017, et vous devrez peut-être procéder à un déploiement parallèle pour effectuer la mise à niveau.
-
-Si vous utilisez Azure AD Sync, une mise à niveau sur place est recommandée. Si vous le souhaitez, il est possible d’installer un nouveau serveur Azure AD Connect en parallèle et d’effectuer une migration « swing » du serveur Azure AD Sync vers Azure AD Connect.
-
 | Solution | Scénario |
 | --- | --- |
 | [Mise à niveau à partir de DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Si vous disposez d’un serveur DirSync existant déjà en cours d’exécution.</li> |
@@ -65,7 +60,7 @@ La notification a été également envoyée aux clients à l'aide d'Azure AD Con
 DirSync/Azure AD Sync continueront à fonctionner après le 13 avril 2017.  Cependant, après le 31 décembre 2017, Azure AD risque de ne plus accepter les communications provenant de DirSync/Azure AD Sync.
 
 **Q: Quelles versions de DirSync puis-je mettre à niveau ?**  
-Une mise à niveau est prise en charge à partir de n’importe quelle version de DirSync utilisée. Notez que la mise à niveau sur place de DirSync vers Azure AD Connect ne sera plus prise en charge après le 31 décembre 2017. Les clients qui utiliseront DirSync après cette date seront peut-être contraints d’effectuer une nouvelle installation d’Azure AD Connect s’ils souhaitent migrer vers Azure AD Connect.
+Une mise à niveau est prise en charge à partir de n’importe quelle version de DirSync utilisée. 
 
 **Q : Qu’en est-il du connecteur Azure AD pour FIM/MIM ?**  
 Le connecteur Azure AD pour FIM/MIM n’a **pas** été annoncé comme déconseillé. Il est dans l’état **feature freeze**; aucune nouvelle fonctionnalité n’est ajoutée et il ne reçoit aucune résolution de bogue. Microsoft recommande aux clients qui l’utilisent d’envisager de passer à Azure AD Connect. Il est fortement recommandé ne pas démarrer de nouveaux déploiements en l’utilisant. Ce connecteur sera annoncé comme déconseillé par la suite.

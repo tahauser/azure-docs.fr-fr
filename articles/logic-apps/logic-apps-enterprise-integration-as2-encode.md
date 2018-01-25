@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7889bf9e4e02143b6bb4c797531afa54f8647ce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bccc8f81a3a664e090796ae8a3cbb38c890c0479
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Encodez des messages AS2 pour Azure Logic Apps avec Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Voici les éléments dont vous avez besoin :
 
 ## <a name="encode-as2-messages"></a>Encoder des messages AS2
 
-1. [Créer une application logique](logic-apps-create-a-logic-app.md).
+1. [Créez une application logique](quickstart-create-first-logic-app-workflow.md).
 
 2. Le connecteur Encode AS2 Message ne possède aucun déclencheur, ce qui signifie que vous devez ajouter un déclencheur pour le démarrage de votre application logique, par exemple un déclencheur de requête. Dans le concepteur d’applications logiques, ajoutez un déclencheur, puis ajoutez une action à votre application logique.
 
@@ -75,9 +75,9 @@ Le connecteur Encode AS2 effectue les tâches suivantes :
 
 Pour déployer une application logique totalement opérationnelle dans le cadre d’un exemple de scénario AS2, consultez le [scénario et le modèle d’application logique AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
-## <a name="view-the-swagger"></a>Afficher Swagger
+## <a name="view-the-swagger"></a>Afficher le swagger
 Consultez les [détails sur Swagger](/connectors/as2/). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack") 
 

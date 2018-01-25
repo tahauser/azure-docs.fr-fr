@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -81,7 +81,7 @@ Dans l’explorateur de ressources, vous pouvez voir toutes les ressources (pipe
 
 Consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md) pour obtenir des informations conceptuelles détaillées sur les fenêtres d’activité.
 
-### <a name="diagram-view"></a>Vue schématique
+### <a name="diagram-view"></a>Vue du diagramme
 La vue schématique d'une fabrique de données est un point unique de surveillance et de gestion d’une fabrique de données et de ses ressources. Lorsque vous sélectionnez une entité Data Factory (jeu de données/pipeline) dans la vue schématique :
 
 * L’entité Data Factory est sélectionnée dans l’arborescence.
@@ -161,7 +161,7 @@ Les fenêtres d’activité peuvent avoir l’un des statuts suivants :
 
 <table>
 <tr>
-    <th align="left">État</th><th align="left">État secondaire</th><th align="left">Description</th>
+    <th align="left">Statut</th><th align="left">État secondaire</th><th align="left">DESCRIPTION</th>
 </tr>
 <tr>
     <td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure d’exécution de la fenêtre d’activité n’est pas encore venue.</td>
@@ -322,14 +322,14 @@ Dans la liste des alertes, utilisez les boutons associés à l’alerte pour mod
 ### <a name="eventstatussubstatus"></a>Événement/statut/état secondaire
 Le tableau suivant dresse la liste des événements et des statuts (et états secondaires) disponibles.
 
-| Nom de l'événement | État | État secondaire |
+| Nom de l'événement | Statut | État secondaire |
 | --- | --- | --- |
 | Exécution de l’activité démarrée |Démarré |Démarrage en cours |
-| Exécution de l’activité terminée |Réussi |Réussi |
-| Exécution de l’activité terminée |Ayant échoué |Échec de l’allocation des ressources<br/><br/>Échec de l’exécution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandonné |
+| Exécution de l’activité terminée |Succeeded |Succeeded |
+| Exécution de l’activité terminée |Échec |Échec de l’allocation des ressources<br/><br/>Échec de l’exécution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandonné |
 | Création d’un cluster HDI à la demande démarrée |Démarré |-|
-| Cluster HDI à la demande créé correctement |Réussi |-|
-| Cluster HDI à la demande supprimé |Réussi |-|
+| Cluster HDI à la demande créé correctement |Succeeded |-|
+| Cluster HDI à la demande supprimé |Succeeded |-|
 
 ### <a name="to-edit-delete-or-disable-an-alert"></a>Pour modifier, supprimer ou désactiver une alerte
 

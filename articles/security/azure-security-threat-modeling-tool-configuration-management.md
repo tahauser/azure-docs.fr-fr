@@ -1,6 +1,6 @@
 ---
 title: "Gestion des configurations - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "mesures de prévention des menaces exposées dans l’outil de modélisation des menaces"
+description: "Mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Mesures de prévention 
-| Produit/service | Article |
+| Produit/Service | Article |
 | --------------- | ------- |
-| **Application web** | <ul><li>[Implémenter la stratégie de sécurité de contenu (CSP) et désactiver l’exécution de scripts JavaScript inline](#csp-js)</li><li>[Activer le filtre XSS du navigateur](#xss-filter)</li><li>[Désactiver le traçage et le débogage dans les applications ASP.NET avant le déploiement](#trace-deploy)</li><li>[Accéder aux scripts JavaScript tiers émanant uniquement de sources approuvées](#js-trusted)</li><li>[S’assurer que les pages ASP.NET authentifiées incorporent des techniques de défense contre les attaques par redirection d’interface utilisateur ou détournement de clics](#ui-defenses)</li><li>[S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur les applications web ASP.NET](#cors-aspnet)</li><li>[Activer l’attribut ValidateRequest sur les pages ASP.NET](#validate-aspnet)</li><li>[Utiliser les dernières versions des bibliothèques JavaScript hébergées localement](#local-js)</li><li>[Désactiver la détection MIME automatique](#mime-sniff)</li><li>[Supprimer les en-têtes de serveur standard de l’offre Sites Web Microsoft Azure pour éviter la création d’une empreinte numérique](#standard-finger)</li></ul> |
+| **Application Web** | <ul><li>[Implémenter la stratégie de sécurité de contenu (CSP) et désactiver l’exécution de scripts JavaScript inline](#csp-js)</li><li>[Activer le filtre XSS du navigateur](#xss-filter)</li><li>[Désactiver le traçage et le débogage dans les applications ASP.NET avant le déploiement](#trace-deploy)</li><li>[Accéder aux scripts JavaScript tiers émanant uniquement de sources approuvées](#js-trusted)</li><li>[S’assurer que les pages ASP.NET authentifiées incorporent des techniques de défense contre les attaques par redirection d’interface utilisateur ou détournement de clics](#ui-defenses)</li><li>[S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur les applications web ASP.NET](#cors-aspnet)</li><li>[Activer l’attribut ValidateRequest sur les pages ASP.NET](#validate-aspnet)</li><li>[Utiliser les dernières versions des bibliothèques JavaScript hébergées localement](#local-js)</li><li>[Désactiver la détection MIME automatique](#mime-sniff)</li><li>[Supprimer les en-têtes de serveur standard de l’offre Sites Web Microsoft Azure pour éviter la création d’une empreinte numérique](#standard-finger)</li></ul> |
 | **Base de données** | <ul><li>[Configurer un pare-feu Windows pour accéder au moteur de base de données](#firewall-db)</li></ul> |
 | **API Web** | <ul><li>[S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur API Web ASP.NET](#cors-api)</li><li>[Chiffrer les sections des fichiers de configuration de l’API Web qui contiennent des données sensibles](#config-sensitive)</li></ul> |
 | **Appareil IoT** | <ul><li>[S’assurer que toutes les interfaces d’administration sont sécurisées avec des informations d’identification fortes](#admin-strong)</li><li>[S’assurer que le code inconnu ne peut pas s’exécuter sur les appareils](#unknown-exe)</li><li>[Chiffrer les partitions du système d’exploitation et les partitions supplémentaires de l’appareil IoT avec BitLocker](#partition-iot)</li><li>[S’assurer que seuls les services/fonctionnalités minimaux sont activés sur les appareils](#min-enable)</li></ul> |
 | **Passerelle de champ IoT** | <ul><li>[Chiffrer les partitions du système d’exploitation et les partitions supplémentaires de la passerelle de champ IoT avec Bitlocker](#field-bit-locker)</li><li>[S’assurer que les informations d’identification de connexion par défaut de la passerelle de champ sont modifiées lors de l’installation](#default-change)</li></ul> |
 | **Passerelle de cloud IoT** | <ul><li>[S’assurer que la passerelle cloud implémente un processus garantissant la mise à jour continue du micrologiciel des appareils connectés](#cloud-firmware)</li></ul> |
 | **Délimitation d’approbation machine** | <ul><li>[S’assurer que les appareils disposent de contrôles de sécurité des points de terminaison configurés conformément aux directives organisationnelles](#controls-policies)</li></ul> |
-| **Azure Storage** | <ul><li>[Garantir une gestion sécurisée des clés d’accès de stockage Azure](#secure-keys)</li><li>[S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur le stockage Azure](#cors-storage)</li></ul> |
+| **Stockage Azure** | <ul><li>[Garantir une gestion sécurisée des clés d’accès de stockage Azure](#secure-keys)</li><li>[S’assurer que seules les origines approuvées sont autorisées si le mécanisme CORS est activé sur le stockage Azure](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Activer la fonctionnalité de limitation de service WCF](#throttling)</li><li>[Divulgation d’informations WCF par le biais des métadonnées](#info-metadata)</li></ul> | 
 
 ## <a id="csp-js"></a>Implémenter la stratégie de sécurité de contenu (CSP) et désactiver l’exécution de scripts JavaScript inline
@@ -44,14 +44,14 @@ ms.lasthandoff: 10/11/2017
 | **Informations de référence**              | [An Introduction to Content Security Policy (Présentation de la stratégie de sécurité de contenu)](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference (Informations de référence sur la stratégie de sécurité de contenu)](http://content-security-policy.com/), [Security features (Fonctionnalités de sécurité)](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy (Présentation de la stratégie de sécurité de contenu)](https://docs.webplatform.org/wiki/tutorials/content-security-policy), [Can I use CSP? (Puis-je utiliser CSP ?)](http://caniuse.com/#feat=contentsecuritypolicy) |
 | **Étapes** | <p>La stratégie de sécurité de contenu (CSP, Content Security Policy) est un mécanisme de protection fiable, correspondant à une norme W3C, qui permet aux propriétaires d’applications web de contrôler le contenu incorporé dans leur site. La stratégie CSP est ajoutée sous la forme d’un en-tête de réponse HTTP sur le serveur web et est appliquée côté client par les navigateurs. Cette stratégie repose sur une liste blanche : un site web peut déclarer un ensemble de domaines approuvés à partir desquels un contenu actif tel qu’un script JavaScript peut être chargé.</p><p>La stratégie CSP procure les avantages de sécurité suivants :</p><ul><li>**Protection contre l’exécution de scripts intersites (XSS, Cross-Site Scripting) :** si une page est vulnérable aux attaques XSS, un attaquant peut exploiter cette faille de 2 manières :<ul><li>Injection du code `<script>malicious code</script>`. Ce type d’attaque ne fonctionnera pas en raison d’une restriction de base 1 de la stratégie CSP.</li><li>Injection du code `<script src=”http://attacker.com/maliciousCode.js”/>`. Ce type d’attaque échouera, car le domaine contrôlé par l’attaquant ne figurera pas dans la liste blanche de domaines de la stratégie CSP.</li></ul></li><li>**Contrôle de l’exfiltration des données :** si un contenu malveillant présent sur une page web tente de se connecter à un site web externe et de voler des données, la stratégie CSP annule la connexion. Ce comportement découle du fait que le domaine cible ne figure pas dans la liste blanche de la stratégie CSP.</li><li>**Protection contre le détournement de clics :** le détournement de clics est une technique d’attaque par laquelle un attaquant superpose un cadre caché à un site web authentique et incite les utilisateurs à cliquer sur des éléments de l’interface utilisateur. À l’heure actuelle, la technique de défense contre le détournement de clics consiste à configurer un en-tête de réponse X-Frame-Options. Toutefois, certains navigateurs ne respectent pas cet en-tête. L’application de la stratégie CSP constitue donc un moyen de protection standard contre le détournement de clics</li><li>**Signalement des attaques en temps réel:** en cas d’attaque par injection sur un site web protégé par la stratégie CSP, les navigateurs envoient automatiquement une notification à un point de terminaison configuré sur le serveur web. De cette façon, la stratégie CSP fait office de système d’avertissement en temps réel.</li></ul> |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Exemple de stratégie : 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 Cette stratégie n’autorise le chargement de scripts qu’à partir du serveur de l’application web et du serveur Google Analytics. Les scripts chargés à partir de tout autre site seront rejetés. Lorsque la stratégie CSP est activée sur un site web, les fonctionnalités ci-après sont automatiquement désactivées afin de prévenir les attaques XSS. 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Les scripts inline ne s’exécuteront pas. Voici quelques exemples de scripts inline. 
 ```javascript
 <script> some Javascript code </script>
@@ -59,7 +59,7 @@ Event handling attributes of HTML tags (e.g., <button onclick=”function(){}”
 javascript:alert(1);
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Les chaînes ne seront pas évaluées en tant que code. 
 ```javascript
 Example: var str="alert(1)"; eval(str);
@@ -109,9 +109,9 @@ Example: var str="alert(1)"; eval(str);
 | **Informations de référence**              | [OWASP Clickjacking Defense Cheat Sheet (Aide-mémoire OWASP sur les techniques de défense contre le détournement de clics)](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IE Internals - Combating ClickJacking With X-Frame-Options (IEInternals - Lutter contre le détournement de clics avec X-Frame-Options)](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) |
 | **Étapes** | <p>Le détournement de clics, également appelé « attaque par redirection d’interface utilisateur », se produit lorsqu’un attaquant utilise plusieurs calques transparents ou opaques pour piéger un utilisateur en incitant ce dernier à cliquer sur un bouton ou sur un lien figurant sur une autre page que celle sur laquelle l’utilisateur pensait cliquer.</p><p>Cette superposition de calques s’effectue par l’élaboration d’une page malveillante intégrant un cadre IFrame caché qui charge la page de l’utilisateur piégé. De cette façon, l’attaquant « détourne » les clics destinés à cette page en les redirigeant vers une autre page, appartenant généralement à une autre application et/ou à un autre domaine. Pour prévenir les attaques par détournement de clics, définissez les en-têtes de réponse HTTP X-Frame-Options appropriés, qui demandent au navigateur de ne pas autoriser le chargement dans des cadres à partir d’autres domaines</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 L’en-tête X-FRAME-OPTIONS peut être défini par le biais de web.config IIS. Extrait de code du fichier web.config pour les sites qui ne doivent jamais être chargés dans un cadre : 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -121,9 +121,9 @@ L’en-tête X-FRAME-OPTIONS peut être défini par le biais de web.config IIS. 
     </system.webServer>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Code du fichier web.config pour les sites qui ne doivent être chargés dans un cadre que par des pages appartenant au même domaine : 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -144,7 +144,7 @@ Code du fichier web.config pour les sites qui ne doivent être chargés dans un 
 | **Informations de référence**              | N/A  |
 | **Étapes** | <p>La sécurité des navigateurs empêche une page web d’adresser des demandes AJAX à un autre domaine. Cette restriction est appelée stratégie de même origine et empêche un site malveillant de lire des données sensibles à partir d’un autre site. Toutefois, il est parfois nécessaire d’exposer en toute sécurité des API que d’autres sites peuvent consommer. CORS (Cross Origin Resource Sharing, partage des ressources multi-origines) est une norme W3C qui permet à un serveur d’assouplir la stratégie de même origine. Grâce au mécanisme CORS, un serveur peut autoriser explicitement certaines demandes multi-origines tout en en refusant d’autres.</p><p>CORS est plus sûr et plus flexible que les techniques précédentes telles que JSONP. L’activation de CORS se traduit essentiellement par l’ajout d’un petit nombre d’en-têtes de réponse HTTP (Access-Control-*) à l’application web, cette opération pouvant être effectuée de deux manières.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Si le fichier Web.config est accessible, CORS peut être ajouté par le biais du code suivant : 
 ```XML
 <system.webServer>
@@ -156,9 +156,9 @@ Si le fichier Web.config est accessible, CORS peut être ajouté par le biais du
     </httpProtocol>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Si le fichier web.config n’est pas accessible, CORS est configurable par l’ajout du code CSharp suivant : 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -175,7 +175,7 @@ Notez qu’il est indispensable de s’assurer que la liste d’origines dans l�
 | **Informations de référence**              | [Request Validation - Preventing Script Attacks (Validation des demandes - Prévention des attaques par script)](http://www.asp.net/whitepapers/request-validation) |
 | **Étapes** | <p>La fonctionnalité de validation des demandes, disponible dans ASP.NET depuis la version 1.1, empêche le serveur d’accepter les contenus intégrant du code HTML non encodé. Cette fonctionnalité est destinée à éviter certaines attaques par injection de script dans lesquelles un code de script client ou HTML peut être, à l’insu de tous, envoyé à un serveur, stocké, puis présenté à d’autres utilisateurs. Nous vous recommandons vivement de valider toutes les données d’entrée et de les encoder en HTML s’il y a lieu.</p><p>La validation des demandes consiste à comparer toutes les données d’entrée à une liste de valeurs potentiellement dangereuses. Si une correspondance est trouvée, ASP.NET lève une exception `HttpRequestValidationException`. La fonctionnalité de validation des demandes est activée par défaut.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Toutefois, cette fonctionnalité peut être désactivée au niveau de la page : 
 ```XML
 <%@ Page validateRequest="false" %> 
@@ -212,7 +212,7 @@ Notez que la fonctionnalité de validation des demandes n’est pas prise en cha
 | **Informations de référence**              | [IE8 Security Part V: Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type (Type MIME)](http://en.wikipedia.org/wiki/Mime_type) |
 | **Étapes** | L’en-tête X-Content-Type-Options est un en-tête HTTP permettant aux développeurs de spécifier que leur contenu ne doit pas être détecté par MIME. Cet en-tête est conçu pour limiter les attaques par détection MIME. Pour chaque page susceptible de comporter du contenu contrôlable par l’utilisateur, vous devez utiliser l’en-tête HTTP X-Content-Type-Options:nosniff. Pour activer l’en-tête requis sur toutes les pages de l’application, vous pouvez effectuer l’une des opérations suivantes :|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Ajoutez l’en-tête dans le fichier web.config si l’application est hébergée par Internet Information Services (IIS) 7 ou ses versions ultérieures. 
 ```XML
 <system.webServer>
@@ -224,18 +224,18 @@ Ajoutez l’en-tête dans le fichier web.config si l’application est hébergé
 </system.webServer>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Ajoutez l’en-tête par le biais de la méthode globale Application\_BeginRequest. 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Implémentez un module HTTP personnalisé. 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -259,10 +259,10 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Vous pouvez activer l’en-tête requis uniquement pour des pages spécifiques en l’ajoutant à des réponses individuelles : 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -299,9 +299,9 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **Informations de référence**              | [Enabling Cross-Origin Requests in ASP.NET Web API 2 (Activation des demandes multi-origines dans API Web ASP.NET 2)](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [API Web ASP.NET - Prise en charge de CORS dans l’API Web ASP.NET 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
 | **Étapes** | <p>La sécurité des navigateurs empêche une page web d’adresser des demandes AJAX à un autre domaine. Cette restriction est appelée stratégie de même origine et empêche un site malveillant de lire des données sensibles à partir d’un autre site. Toutefois, il est parfois nécessaire d’exposer en toute sécurité des API que d’autres sites peuvent consommer. CORS (Cross Origin Resource Sharing, partage des ressources multi-origines) est une norme W3C qui permet à un serveur d’assouplir la stratégie de même origine.</p><p>Grâce au mécanisme CORS, un serveur peut autoriser explicitement certaines demandes multi-origines tout en en refusant d’autres. CORS est plus sûr et plus flexible que les techniques précédentes telles que JSONP.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Dans le fichier App_Start/WebApiConfig.cs, ajoutez le code suivant à la méthode WebApiConfig.Register : 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -322,10 +322,10 @@ namespace WebService
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 L’attribut EnableCors peut être appliqué aux méthodes d’action dans un contrôleur comme suit : 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -363,9 +363,9 @@ public class ResourcesController : ApiController
 
 Notez qu’il est indispensable de s’assurer que la liste d’origines dans l’attribut EnableCors est définie sur un ensemble d’origines fini et approuvé. Une configuration inappropriée de cet attribut (par exemple, la définition de la valeur "*") autorisera les sites malveillants à adresser des demandes multi-origines à l’API sans aucune restriction, exposant ainsi l’API à des risques d’attaques par falsification de requête intersites. EnableCors peut être décoré au niveau du contrôleur. 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Pour désactiver le mécanisme CORS sur une méthode spécifique d’une classe, il est possible d’utiliser l’attribut DisableCors comme suit : 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -397,9 +397,9 @@ public class ResourcesController : ApiController
 
 **Approche 1** Activation de CORS avec un intergiciel (middleware) : pour activer CORS pour la totalité de l’application, ajoutez l’intergiciel (middleware) CORS au pipeline de demande à l’aide de la méthode d’extension UseCors. Vous pouvez spécifier une stratégie multi-origines lors de l’ajout de l’intergiciel (middleware) CORS à l’aide de la classe CorsPolicyBuilder. Il existe deux façons d'effectuer cette opération :
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 La première façon consiste à appeler UseCors avec une expression lambda. Cette expression lambda utilise un objet CorsPolicyBuilder : 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -409,9 +409,9 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 La seconde façon consiste à définir une ou plusieurs stratégies CORS nommées, puis à sélectionner la stratégie par son nom au moment de l’exécution. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -432,9 +432,9 @@ public void Configure(IApplicationBuilder app)
 
 **Approche 2** Activation de CORS dans MVC : les développeurs peuvent également utiliser MVC pour appliquer une stratégie CORS spécifique par action, par contrôleur ou de façon globale pour tous les contrôleurs.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Par action : pour spécifier une stratégie CORS pour une action spécifique, ajoutez l’attribut [EnableCors] à l’action. Spécifiez le nom de la stratégie. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -444,17 +444,17 @@ public class HomeController : Controller
     }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Par contrôleur : 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Au niveau global : 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -466,9 +466,9 @@ public void ConfigureServices(IServiceCollection services)
 ```
 Notez qu’il est indispensable de s’assurer que la liste d’origines dans l’attribut EnableCors est définie sur un ensemble d’origines fini et approuvé. Une configuration inappropriée de cet attribut (par exemple, la définition de la valeur "*") autorisera les sites malveillants à adresser des demandes multi-origines à l’API sans aucune restriction, exposant ainsi l’API à des risques d’attaques par falsification de requête intersites. 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez l’attribut [DisableCors]. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {
@@ -557,7 +557,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Passerelle de cloud IoT | 
+| **Composant**               | Passerelle cloud IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Choix de passerelle - Azure IoT Hub |
@@ -579,7 +579,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Storage | 
+| **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
@@ -590,7 +590,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Storage | 
+| **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
@@ -608,7 +608,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | <p>L’absence de limitation de l’utilisation des ressources système peut entraîner un épuisement des ressources et, à terme, un déni de service.</p><ul><li>**EXPLICATION :** Windows Communication Foundation (WCF) offre la possibilité de limiter les demandes de service. Le fait d’autoriser un nombre excessif de demandes de client est susceptible de saturer un système et d’en épuiser les ressources. En revanche, une restriction trop importante du nombre de demandes pouvant être adressées à un service risque d’empêcher des utilisateurs légitimes de recourir à ce service. Il convient donc de régler et de configurer chaque service individuellement afin d’autoriser la quantité de ressources appropriée.</li><li>**RECOMMANDATIONS** Activez la fonctionnalité de limitation de service de WCF et définissez les limites appropriées pour votre application.</li></ul>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Voici un exemple de configuration dans lequel la limitation est activée :
 ```
 <system.serviceModel> 
@@ -631,7 +631,7 @@ Voici un exemple de configuration dans lequel la limitation est activée :
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | Les métadonnées peuvent aider des attaquants à se renseigner sur le système et à planifier un certain type d’attaque. Les services WCF peuvent être configurés pour exposer les métadonnées. Les métadonnées fournissent des descriptions détaillées des services et ne doivent pas être diffusées dans les environnements de production. Les propriétés `HttpGetEnabled` / `HttpsGetEnabled` de la classe ServiceMetaData définissent si un service exposera ou non les métadonnées. | 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Le code ci-dessous demande à WCF de diffuser les métadonnées d’un service.
 ```
 ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
@@ -641,7 +641,7 @@ Host.Description.Behaviors.Add(smb);
 ```
 Ne diffusez pas les métadonnées de service dans un environnement de production. Pour ce faire, définissez les propriétés HttpGetEnabled / HttpsGetEnabled de la classe ServiceMetaData sur la valeur false. 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Le code ci-dessous demande à WCF de ne pas diffuser les métadonnées d’un service. 
 ```
 ServiceMetadataBehavior smb = new ServiceMetadataBehavior(); 

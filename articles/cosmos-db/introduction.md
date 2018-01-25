@@ -50,13 +50,13 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
         * [API de table](table-introduction.md): service de base de données valeur-clé créé pour offrir des fonctionnalités Premium (par exemple, indexation automatique, faible latence garantie, distribution globale) aux applications de stockage de table Azure sans apporter de modifications aux applications.
         * Des modèles de données supplémentaires seront bientôt disponibles.
 
-* **Mettre à l’échelle le débit et le stockage de façon élastique, indépendante et à la demande, dans le monde entier**
+* **Ajuster le débit et le stockage de façon élastique et à la demande, dans le monde entier**
     * Faites évoluer facilement le débit de la base de données avec une granularité [par seconde](request-units.md) et modifiez-le à tout moment. 
-    * Mettez à l’échelle la taille de stockage de façon [automatique et transparente](partition-data.md) pour gérer vos besoins en taille aujourd’hui et pour toujours.
+    * Mettez à l’échelle la taille de stockage de façon [automatique et transparente](partition-data.md) pour gérer vos besoins existants et futurs.
 
 * **Créer des applications hautement réactives et stratégiques**
     * Azure Cosmos DB garantit une faible latence de bout en bout au 99e centile à ses clients. 
-    * Pour un élément standard de 1 Ko, Cosmos DB garantit la latence de bout en bout des lectures sous 10 ms et des écritures indexées sous 15 ms au 99e centile, dans la même région Azure. Les latences médianes sont nettement plus faibles (inférieures à 5 ms).
+    * Pour un document de 1 Ko, Cosmos DB garantit une latence de bout en bout des lectures sous 10 ms et des écritures indexées sous 15 ms au 99e centile, dans la même région Azure. Les latences médianes sont nettement plus faibles (inférieures à 5 ms).
 
 * **Assurer une disponibilité en continu**
     * Contrat SLA de disponibilité à 99,99 % pour tous les comptes de base de données à une seule région, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
@@ -84,9 +84,9 @@ Azure Cosmos DB fournit les meilleures fonctionnalités des bases de données re
 | Fonctionnalités | Bases de données relationnelles   | Bases de données non relationnelles (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Diffusion mondiale | Non  | Non  | Oui, la distribution clé en main est disponible avec les API multihébergement dans plus de 30 régions.|
-| Mise à l’échelle horizontale | Non  | OUI | Oui, vous pouvez mettre le stockage et le débit à l’échelle indépendamment. | 
+| Mise à l’échelle horizontale | Non  | OUI | Oui, vous pouvez ajuster le stockage et le débit indépendamment. | 
 | Garanties de latence | Non  | OUI | Oui, la latence de 99 % des lectures est inférieure à 10 ms et celle des écritures est inférieure à 15 ms. | 
-| Haute disponibilité | Non  | OUI | Oui, Azure Cosmos DB est toujours activé, dispose de compromis PACELC bien définis et fournit des options pour les basculements manuels et automatiques.|
+| Haute disponibilité | Non  | OUI | Oui, Cosmos DB est toujours disponible, respecte les compromis PACELC, et permet des basculements manuels et automatiques.|
 | Modèle de données + API | Relationnel + SQL | Multi-modèle + API OSS | Multi-modèle + SQL + API OSS (autres fonctionnalités disponibles prochainement) |
 | Contrats SLA | OUI | Non  | Oui, les contrats SLA sont complets en termes de latence, de débit, de cohérence et de disponibilité. |
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Bien démarrer avec la plateforme universelle Azure AD Windows (UWP/XAML)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -89,7 +89,7 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler `aut
 
 1. Initialisez le `AuthenticationContext` de l’application, qui est la classe principale de la bibliothèque ADAL. Cette action fournit à la bibliothèque ADAL les coordonnées dont elle a besoin pour communiquer avec Azure AD et lui indique comment mettre en cache des jetons.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler `aut
 
 2. Recherchez la méthode `Search(...)`, qui est appelée lorsque les utilisateurs cliquent sur le bouton **Rechercher** dans l’interface utilisateur de l’application. Cette méthode effectue une demande GET auprès de l’API Graph Azure AD pour l’interroger à propos d’utilisateurs dont l’UPN commence par le terme de recherche donné. Pour interroger l’API Graph, incluez un jeton d’accès dans l’en-tête **Autorisation** de la demande. C’est là où la bibliothèque ADAL entre en jeu.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ Le principe de base de la bibliothèque ADAL consiste simplement à appeler `aut
     Lorsque l’application demande un jeton en appelant `AcquireTokenAsync(...)`, la bibliothèque ADAL tente de renvoyer un jeton sans demander à l’utilisateur ses informations d’identification. Si la bibliothèque ADAL détermine que l’utilisateur doit se connecter pour obtenir un jeton, elle affiche une boîte de dialogue de connexion, récupère les informations d’identification de l’utilisateur et renvoie un jeton lorsque l’authentification réussit. Si la bibliothèque ADAL ne peut pas renvoyer un jeton pour une raison quelconque, l’état *AuthenticationResult* est une erreur.
 3. Il est à présent temps d’utiliser le jeton d’accès que vous venez d’acquérir. Également dans la méthode `Search(...)`, joignez le jeton à la demande GET de l’API Graph, dans l’en-tête **Autorisation** :
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. Vous pouvez utiliser l’objet `AuthenticationResult` pour afficher des informations concernant l’utilisateur dans l’application, par exemple l’ID de l’utilisateur :
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. Vous pouvez également utiliser la bibliothèque ADAL pour déconnecter des utilisateurs de l’application. Lorsque l’utilisateur clique sur le bouton **Déconnexion**, vérifiez que l’appel suivant vers `AcquireTokenAsync(...)` affiche une fenêtre de connexion. Avec la bibliothèque ADAL, cette action aussi simple que d’effacer le cache de jeton :
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

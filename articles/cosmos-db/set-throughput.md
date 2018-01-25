@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: cf6eadbae328b1551da861fb5a11930ee830d415
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Définir le débit des conteneurs Azure Cosmos DB
 
@@ -35,12 +35,12 @@ Le tableau suivant répertorie les débits disponibles pour les conteneurs :
         </tr>
         <tr>
             <td valign="top"><p>Débit minimal</p></td>
-            <td valign="top"><p>400 unités de requête par seconde</p></td>
+            <td valign="top"><p>400 unités de demande par seconde</p></td>
             <td valign="top"><p>1000 unités de requête par seconde</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débit maximal</p></td>
-            <td valign="top"><p>10 000 unités de requête par seconde</p></td>
+            <td valign="top"><p>10 000 unités de demande par seconde</p></td>
             <td valign="top"><p>Illimité</p></td>
         </tr>
     </tbody>
@@ -52,14 +52,14 @@ Le tableau suivant répertorie les débits disponibles pour les conteneurs :
 2. Dans la barre de gauche, cliquez sur **Azure Cosmos DB** ou sur **Plus de services** en bas, accédez à **Bases de données**, puis sélectionnez **Azure Cosmos DB**.
 3. Sélectionnez votre compte Azure Cosmos DB.
 4. Dans la nouvelle fenêtre, cliquez sur **Explorateur de données** dans le menu de navigation.
-5. Dans la nouvelle fenêtre, développez la base de données et le conteneur, puis cliquez sur **Mise à l’échelle et paramètres**.
+5. Dans la nouvelle fenêtre, développez la base de données et le conteneur, puis cliquez sur **Scale & Settings** (Mise à l’échelle & paramètres).
 6. Dans la nouvelle fenêtre, tapez la nouvelle valeur de débit dans la zone **Débit**, puis cliquez sur **Enregistrer**.
 
 <a id="set-throughput-sdk"></a>
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Pour définir le débit à l’aide de l’API SQL pour .NET
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -97,7 +97,7 @@ client.replaceOffer(offer);
 
 ## <a name="throughput-faq"></a>Forum Aux Questions sur le débit
 
-**Puis-je définir mon débit sur une valeur inférieure à 400 unités de requête/s ?**
+**Puis-je définir mon débit sur une valeur inférieure à 400 unités de demande/s ?**
 
 Cette valeur de 400 unités de requête/s correspond au débit minimal disponible sur les conteneurs à partition unique Cosmos DB (une valeur de 1000 unités de requête/s correspond à la valeur minimale pour les conteneurs partitionnés). Les unités de demande sont définies par intervalles de 100 unités de demande/s, mais le débit ne peut pas avoir la valeur 100 unités de demande/s ou toute valeur inférieure à 400 unités de demande/s. Si vous recherchez une méthode économique pour développer et tester Cosmos DB, vous pouvez utiliser gratuitement l’[Émulateur Azure Cosmos DB](local-emulator.md), que vous pouvez déployer localement sans frais. 
 
@@ -105,6 +105,6 @@ Cette valeur de 400 unités de requête/s correspond au débit minimal disponibl
 
 Il n’existe aucune extension d’API MongoDB pour définir le débit. Nous vous recommandons d’utiliser l’API SQL, comme indiqué dans [Pour définir le débit à l’aide de l’API SQL pour .NET](#set-throughput-sdk).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour plus d’informations sur le provisionnement et la mise à l’échelle avec Cosmos DB, consultez [Partitionnement et mise à l’échelle avec Cosmos DB](partition-data.md).
+Pour plus d’informations sur l’approvisionnement et la mise à l’échelle avec Cosmos DB, consultez [Partitioning and scaling with Cosmos DB (Partitionnement et mise à l’échelle avec Cosmos DB)](partition-data.md).

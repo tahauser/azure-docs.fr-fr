@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 
@@ -28,7 +28,7 @@ Microsoft Azure propose plusieurs fonctionnalités dans le stockage Azure pour s
 
 Le tableau suivant compare les fichiers, les objets blob et les disques, et il présente des exemples de scénarios appropriés pour chacun.
 
-| Fonctionnalité | Description | Quand utiliser |
+| Fonctionnalité | DESCRIPTION | Quand utiliser |
 |--------------|-------------|-------------|
 | **Azure Files** | Fournit une interface SMB, des bibliothèques clientes et une [interface REST](/rest/api/storageservices/file-service-rest-api) qui permet d’accéder en tout lieu aux fichiers stockés. | Vous souhaitez développer et transférer une application dans le cloud qui utilise déjà les API du système de fichiers natif pour partager des données avec d’autres applications s’exécutant dans Azure.<br/><br/>Vous souhaitez stocker les outils de développement et de débogage qui doivent être accessibles à partir de nombreuses machines virtuelles. |
 | **Objets blob Azure** | Fournit des bibliothèques clientes et une [interface REST](/rest/api/storageservices/blob-service-rest-api) qui permet de stocker les données non structurées et d’y accéder à grande échelle dans les objets blob de blocs. | Vous souhaitez que votre application prenne en charge le streaming et l’accès aléatoire.<br/><br/>Vous souhaitez être en mesure d’accéder aux données d’application à partir de n’importe quel endroit. |
@@ -41,14 +41,14 @@ Le tableau suivant compare les fichiers Azure et les objets blob Azure.
 ||||  
 |-|-|-|  
 |**Attribut**|**Objets blob Azure**|**Azure Files**|  
-|Options de durabilité|LRS, ZRS, GRS (et RA-GRS pour une disponibilité supérieure)|LRS, GRS|  
+|Options de durabilité||LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Accessibilité|API REST|API REST<br /><br /> SMB 2.1 et SMB 3.0 (API du système de fichiers standard)|  
 |Connectivité|API REST : monde entier|API REST : monde entier<br /><br /> SMB 2.1 : région<br /><br /> SMB 3.0 : monde entier|  
-|Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
+|Points de terminaison|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Répertoires|Espace de noms plat|Vrais objets d’annuaire|  
 |Sensibilité des noms à la casse|Respect de la casse|Non sensible à la casse, mais la casse est conservée|  
-|Capacité|Conteneurs jusqu’à 500 To|Partages de fichiers de 5 To|  
-|Débit|Jusqu’à 60 Mo/s par objet blob de blocs|Jusqu’à 60 Mo/s par partage|  
+|Capacity|Conteneurs jusqu’à 500 To|Partages de fichiers de 5 To|  
+|Throughput|Jusqu’à 60 Mo/s par objet blob de blocs|Jusqu’à 60 Mo/s par partage|  
 |Taille de l’objet|Jusqu’à 200 Go/objet blob de blocs|Jusqu’à 1 To/fichier|  
 |Capacité facturée|En fonction des octets écrits|En fonction de la taille de fichier|  
 |Bibliothèques clientes|Plusieurs langages|Plusieurs langages|  
@@ -62,20 +62,20 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 ||||  
 |-|-|-|  
 |**Attribut**|**Disques Azure**|**Azure Files**|  
-|Scope|Exclusif à une seule machine virtuelle|Accès partagé entre plusieurs machines virtuelles|  
-|Captures instantanées et copie|Oui|Non|  
+|Étendue|Exclusif à une seule machine virtuelle|Accès partagé entre plusieurs machines virtuelles|  
+|Captures instantanées et copie|OUI|Non |  
 |Configuration|Connexion au démarrage de la machine virtuelle|Connexion après le démarrage de la machine virtuelle|  
 |Authentification|Intégration|Configuration avec net use|  
 |Nettoyage|Automatique|Manuel|  
 |Accès à l’aide de REST|Les fichiers du disque dur virtuel ne sont pas accessibles|Les fichiers stockés dans un partage sont accessibles|  
 |Taille maximale|Disque de 4 To|Partage de fichiers de 5 To et fichier de 1 To au sein du partage|  
 |E/S par seconde de 8 Ko max.|500 E/S par seconde|1 000 E/S par seconde|  
-|Débit|Jusqu’à 60 Mo/s par disque|Jusqu’à 60 Mo/s par partage de fichiers|  
+|Throughput|Jusqu’à 60 Mo/s par disque|Jusqu’à 60 Mo/s par partage de fichiers|  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Lors des décisions concernant le stockage et l’accès de vos données, vous devez également prendre en considération les coûts impliqués. Pour plus d’informations, consultez [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
   
 Certaines fonctionnalités SMB ne sont pas applicables au cloud. Pour plus d’informations, consultez [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Fonctionnalités non prises en charge par le service Azure File).
   
-Pour plus d’informations sur les disques, consultez [Managing disks and image](../../virtual-machines/windows/about-disks-and-vhds.md) (Gestion des disques et des images) et [Comment attacher un disque de données à une machine virtuelle Windows](../../virtual-machines/windows/classic/attach-disk.md).
+Pour plus d’informations sur les disques, consultez [Managing disks and image](../../virtual-machines/windows/about-disks-and-vhds.md) (Gestion des disques et des images) et [Comment attacher un disque de données à une machine virtuelle Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).

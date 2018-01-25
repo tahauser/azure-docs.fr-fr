@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 0950d453e53a70f96f59de572ac10326ef030444
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 89346113c6231442beb1147c4c4fea524d03d909
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Guide pratique pour sécuriser l’accès à un catalogue de données et des ressources de données
 > [!IMPORTANT]
@@ -34,7 +34,7 @@ Pour accorder à un utilisateur ou à un groupe l’accès à un catalogue de do
     ![catalogue de données - paramètres](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. Dans la page Paramètres, développez la section **Utilisateurs du catalogue**.
     ![Utilisateurs du catalogue - Ajouter](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
-3. Cliquez sur **Ajouter**.
+3. Cliquez sur **Add**.
 4. Entrez le **nom d’utilisateur** qualifié complet ou le nom du **groupe de sécurité** dans l’annuaire Azure Active Directory (AAD) associé au catalogue. Utilisez une virgule (« , ») comme séparateur si vous ajoutez plusieurs utilisateurs ou groupes.
     ![Utilisateurs du catalogue - utilisateurs ou groupes](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 5. Appuyez sur **Entrée** ou **Tab** en dehors de la zone de texte. 
@@ -54,6 +54,6 @@ Pour accorder à un utilisateur ou à un groupe l’accès à un catalogue de do
 - Les autorisations affectées aux groupes de sécurité sont additives. Imaginez par exemple qu’un utilisateur appartient à deux groupes. L’un des groupes a des autorisations d’annotation, tandis que l’autre n’en a pas. Dans ce cas de figure, l’utilisateur a des autorisations d’annotation. 
 - Les autorisations affectées explicitement à un utilisateur remplacent celles affectées aux groupes auxquels il appartient. Reprenons l’exemple précédent. Imaginez que vous avez explicitement ajouté l’utilisateur aux utilisateurs du catalogue et que vous n’affectez pas d’autorisation d’annotation. L’utilisateur ne pourra pas annoter les ressources de données même s’il est membre d’un groupe qui a des autorisations d’annotation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md)
 

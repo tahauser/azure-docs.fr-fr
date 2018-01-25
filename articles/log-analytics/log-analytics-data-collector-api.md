@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Log Analytics à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte que Log Analytics autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -47,21 +47,21 @@ Pour utiliser l’API Collecte de données HTTP, il vous suffit de créer une re
 | Type de contenu |application/json |
 
 ### <a name="request-uri-parameters"></a>Paramètres de l’URI de demande
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | CustomerID |Identificateur unique de l’espace de travail de Microsoft Operations Management Suite. |
 | Ressource |Nom de ressource de l’API : / api/logs. |
 | Version de l'API |Version de l’API à utiliser avec cette demande. Actuellement, il s’agit de 2016-04-01. |
 
 ### <a name="request-headers"></a>En-têtes de requête
-| En-tête | Description |
+| En-tête | DESCRIPTION |
 |:--- |:--- |
 | Authorization |Signature de l’autorisation. Plus loin dans cet article, vous pouvez lire comment créer un en-tête HMAC-SHA256. |
 | Log-Type |Spécifiez le type d’enregistrement des données envoyées. Actuellement, le type de journal prend en charge uniquement des caractères alphabétiques. Il ne prend pas en charge les caractères numériques ou spéciaux. |
 | x-ms-date |Date à laquelle la requête a été traitée, au format RFC 1123. |
 | time-generated-field |Nom d’un champ de données qui contient l’horodateur de l’élément de données. Si vous spécifiez un champ, son contenu est utilisé pour **TimeGenerated**. Si ce champ n’est pas spécifié, la valeur par défaut de **TimeGenerated** est l’heure d’ingestion du message. Le contenu du champ de message doit suivre le format ISO 8601 AAAA-MM-JJThh:mm:ssZ. |
 
-## <a name="authorization"></a>Autorisation
+## <a name="authorization"></a>Authorization
 Toute demande adressée à l’API Collecte de données HTTP Log Analytics doit inclure un en-tête d’autorisation. Pour authentifier une demande, vous devez la signer avec la clé primaire ou secondaire de l’espace de travail qui effectue la demande. Ensuite, transmettez cette signature dans le cadre de la demande.   
 
 Voici le format de l’en-tête d’autorisation :
@@ -134,8 +134,8 @@ Pour identifier le type de données d’une propriété, Log Analytics ajoute un
 
 | Type de données de propriété | Suffixe |
 |:--- |:--- |
-| String |_s |
-| Boolean |_b |
+| Chaîne |_s |
+| Booléen |_b |
 | Double |_d |
 | Date/time |_t |
 | GUID |_g |
@@ -173,7 +173,7 @@ Le code d’état HTTP 200 signifie que la demande a été reçue et doit être 
 
 Ce tableau répertorie l’ensemble complet de codes d’état que le service peut retourner :
 
-| Code | État | Code d'erreur | Description |
+| Code | Statut | Code d'erreur | DESCRIPTION |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |La demande a été acceptée. |
 | 400 |Demande incorrecte |InactiveCustomer |L’espace de travail a été fermé. |
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>Exemple de code C#
@@ -463,5 +463,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - Utilisez l’[API Recherche de journal](log-analytics-log-search-api.md) pour récupérer des données à partir du référentiel Log Analytics.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide de conversion des rôles web et de travail en services sans état Service Fabric
 Cet article explique comment migrer vos rôles web et de travail des services cloud vers les services sans état Service Fabric. Il s’agit de la manière la plus simple de migrer des applications dont l’architecture globale va rester quasi identique des services cloud vers Service Fabric.
@@ -40,10 +40,10 @@ Comme pour le rôle de travail, un rôle web représente également une charge d
 
 | **Application** | **Pris en charge** | **Chemin de migration** |
 | --- | --- | --- |
-| Formulaires web ASP.NET |Non |Convertir en ASP.NET Core 1 MVC |
+| Formulaires web ASP.NET |Non  |Convertir en ASP.NET Core 1 MVC |
 | ASP.NET MVC |Avec migration |Mettre à niveau vers ASP.NET Core 1 MVC |
 | API Web ASP.NET |Avec migration |Utiliser un serveur auto-hébergé ou ASP.NET Core 1 |
-| ASP.NET Core 1 |Oui |N/A |
+| ASP.NET Core 1 |OUI |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de point d’entrée et cycle de vie
 Les points d’entrée des API de rôle de travail et de Service Fabric sont semblables : 
@@ -56,7 +56,7 @@ Les points d’entrée des API de rôle de travail et de Service Fabric sont sem
 | Ouvrir l’écouteur pour les requêtes du client |N/A |<ul><li> Sans état : `CreateServiceInstanceListener()`</li><li>Avec état : `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>Instances de
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Services sans état Service Fabric
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -138,7 +138,7 @@ Chacun de ces packages peut être individuellement mis à niveau et faire l’ob
 #### <a name="cloud-services"></a>Cloud Services
 Les paramètres de configuration de ServiceConfiguration.*.cscfg sont accessibles par le biais de `RoleEnvironment`. Toutes les instances de rôle d’un même déploiement de service cloud peuvent accéder à ces paramètres.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Chaque service dispose de son propre package de configuration individuel. Il n�
 
 Les paramètres de configuration constituent des accès au sein de chaque instance de service par le biais du `CodePackageActivationContext`du service.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Cloud Services
 L’événement `RoleEnvironment.Changed` sert à informer toutes les instances de rôle quand une modification est apportée à l’environnement, telle qu’une modification de configuration. Cela permet d’effectuer les mises à jour de la configuration sans recycler les instances de rôle, ni redémarrer un processus de travail.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Chacun des trois types de package d’un service (Code, Config et Data) inclut d
 
 Ces événements permettent d’apporter des modifications aux packages de service sans avoir à redémarrer l’instance de service.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -213,7 +213,7 @@ Les tâches de démarrage sont des actions effectuées avant le démarrage d’u
 | Privilèges |« limités » ou « élevés » |
 | Séquencement |« simple », « en arrière-plan », « au premier plan » |
 
-### <a name="cloud-services"></a>Services cloud
+### <a name="cloud-services"></a>Cloud Services
 Dans les services cloud, un point d’entrée de démarrage est configuré pour chaque rôle dans le fichier ServiceDefinition.csdef. 
 
 ```xml
@@ -251,7 +251,7 @@ Dans Service Fabric, un point d’entrée de démarrage est configuré pour chaq
 ## <a name="a-note-about-development-environment"></a>Remarque sur l’environnement de développement
 Les services cloud et Service Fabric sont tous deux intégrés à Visual Studio avec les modèles de projet et la prise en charge du débogage, de la configuration et du déploiement, localement et sur Azure. Les services cloud et Service Fabric fournissent également tous deux un environnement local d’exécution de développement. La différence est que, tandis que l’exécution de développement du service cloud émule l’environnement Azure sur lequel il s’exécute, Service Fabric n’utilise pas d’émulateur, mais l’exécution Service Fabric dans son intégralité. L’environnement Service Fabric que vous exécutez sur votre machine de développement locale est le même que celui qui s’exécute en production.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez plus en détail les services fiables Service Fabric et les différences fondamentales entre les services cloud et l’architecture d’application Service Fabric, afin de comprendre comment tirer parti de l’ensemble des fonctionnalités de Service Fabric.
 
 * [Découvrir les services fiables Service Fabric](service-fabric-reliable-services-quick-start.md)

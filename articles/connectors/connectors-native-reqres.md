@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Familiarisation avec les composants de requête et de réponse
 Avec les composants de requête et réponse dans une application logique, vous pouvez répondre en temps réel aux événements.
 
-Vous pouvez par exemple afficher :
+Vous pouvez par exemple :
 
 * répondre à une requête HTTP avec des données d’une base de données locale par le biais d’une application logique ;
 * déclencher une application logique à partir d’un événement webhook externe ;
 * appeler une application logique avec une action de requête et de réponse depuis une autre application logique.
 
-Pour commencer à utiliser les actions de requête et de réponse dans une application logique, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Pour commencer à utiliser les actions de requête et de réponse dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Utilisation d’un déclencheur de requête HTTP
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](connectors-overview.md).
@@ -67,14 +67,14 @@ Voici comment ajouter une action Réponse HTTP :
 ## <a name="request-trigger"></a>Déclencheur de requête
 Voici les détails du déclencheur que ce connecteur prend en charge. Il existe un seul déclencheur de requête.
 
-| Déclencheur | Description |
+| Déclencheur | DESCRIPTION |
 | --- | --- |
-| Demande |Se produit quand une requête HTTP est reçue |
+| Requête |Se produit quand une requête HTTP est reçue |
 
 ## <a name="response-action"></a>Action de réponse
 Voici les détails de l'action que ce connecteur prend en charge. Il existe une action de réponse unique qui est utilisable uniquement lorsqu’elle est accompagnée d’un déclencheur de requête.
 
-| Action | Description |
+| Action | DESCRIPTION |
 | --- | --- |
 | response |Renvoie une réponse à requête HTTP corrélée |
 
@@ -84,7 +84,7 @@ Les tableaux suivants décrivent les champs d’entrée du déclencheur et de l�
 #### <a name="request-trigger"></a>Déclencheur de requête
 Voici un champ d’entrée pour le déclencheur provenant d’une requête HTTP entrante.
 
-| Nom complet | Nom de la propriété | Description |
+| Nom complet | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
 | JSON Schema (Schéma JSON) |schema |Le schéma JSON du corps de texte de la requête HTTP |
 
@@ -94,20 +94,20 @@ Voici un champ d’entrée pour le déclencheur provenant d’une requête HTTP 
 
 Vous trouverez ci-dessous les détails de sortie pour la requête.
 
-| Nom de la propriété | Type de données | Description |
+| Nom de la propriété | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | headers |objet |En-têtes de requête |
-| Corps |objet |Objet Requête |
+| body |objet |Objet Requête |
 
 #### <a name="response-action"></a>Action de réponse
-Les éléments suivants sont des champs d’entrée pour l’action Réponse HTTP. A * désigne est un champ obligatoire.
+Les éléments suivants sont des champs d’entrée pour l’action Réponse HTTP. Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | Description |
+| Nom complet | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
 | Status Code (Code d’état)* |statusCode |Le code d’état HTTP |
-| En-têtes |En-têtes |Un objet JSON de tout en-tête de réponse à inclure |
-| Corps |Corps |Le corps de texte de la réponse |
+| headers |headers |Un objet JSON de tout en-tête de réponse à inclure |
+| body |body |Le corps de texte de la réponse |
 
-## <a name="next-steps"></a>Étapes suivantes
-Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+## <a name="next-steps"></a>étapes suivantes
+Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

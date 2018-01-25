@@ -3,7 +3,7 @@ title: "Vue d’ensemble des instantanés de partage pour Azure Files (préversi
 description: "Un instantané de partage est une version en lecture seule d’un partage Azure Files enregistrée à un point dans le temps pour sauvegarder le partage."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 2504e180799164845a89a7f89ca6a6c61352304f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Vue d’ensemble des instantanés de partage pour Azure Files (préversion)
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage (préversion) capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -96,7 +96,7 @@ Avant de déployer le planificateur d’instantané de partage, étudiez attenti
 
 Les instantanés de partage assurent uniquement une protection au niveau des fichiers. Ils n’empêchent pas les suppressions accidentelles sur un compte de stockage ou un partage de fichiers. Pour protéger un compte de stockage contre les suppressions accidentelles, vous pouvez verrouiller celui-ci ou le groupe de ressources.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Utiliser des instantanés de partage](storage-how-to-use-files-snapshots.md)
 * [Forum aux questions sur les instantanés de partage](storage-files-faq.md)
 

@@ -3,9 +3,9 @@ title: FAQ Azure Disk Encryption | Microsoft Docs
 description: "Cet article offre des réponses au forum aux questions sur Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Forum aux questions (FAQ) Azure Disk Encryption
 
@@ -51,11 +51,11 @@ Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encr
 | Ubuntu | 14.04.5-DAILY-LTS | Disque de système d’exploitation et de données |
 | RHEL | 7.3 | Disque de système d’exploitation et de données |
 | RHEL | 7,2 | Disque de système d’exploitation et de données |
-| RHEL | 6,8 | Disque de système d’exploitation et de données |
+| RHEL | 6.8 | Disque de système d’exploitation et de données |
 | RHEL | 6.7 | Disque de données |
 | CentOS | 7.3 | Disque de système d’exploitation et de données |
 | CentOS | 7.2n | Disque de système d’exploitation et de données |
-| CentOS | 6,8 | Disque de système d’exploitation et de données |
+| CentOS | 6.8 | Disque de système d’exploitation et de données |
 | CentOS | 7.1 | Disque de données |
 | CentOS | 7.0 | Disque de données |
 | CentOS | 6.7 | Disque de données |
@@ -129,9 +129,9 @@ Si ce workflow n’est pas possible, s’appuyer sur le [chiffrement du service 
 
 **Q :** où puis-je poser des questions ou envoyer des commentaires ?
 
-**R :** vous pouvez poser vos questions ou envoyer vos commentaires sur le [forum d’Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**R :** vous pouvez poser vos questions ou envoyer vos commentaires sur le [forum d’Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ce document vous a fourni les réponses aux questions les plus courantes concernant Azure Disk Encryption. Pour plus d’informations sur ce service et ses fonctionnalités, consultez les articles suivants :
 
 - [Appliquer le chiffrement de disque dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

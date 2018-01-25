@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
 La vidéo suivante montre comment générer un serveur principal d’API web et le protéger à l’aide du protocole OAuth 2.0 avec Azure Active Directory et Gestion des API.  Cet article fournit une vue d’ensemble et des informations supplémentaires pour les étapes mentionnées dans la vidéo. Cette vidéo 24 minutes vous montre comment faire pour :
@@ -81,13 +81,13 @@ Dans cet exemple, l’API web implémente un service de calcul de base à l’ai
 
 Ajoutez l’instruction suivante `using` au début du fichier `CalcInput.cs`.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Remplacez la classe générée par le code suivant.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Cliquez droit sur **Contrôleurs** dans l’**Explorateur de solutions** et choi
 
 Ajoutez l’instruction suivante `using` au début du fichier `CalcController.cs`.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Remplacez la classe de contrôleur générée par le code suivant. Ce code implémente les opérations `Add`, `Subtract`, `Multiply` et `Divide` de l’API de calcul de base.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -387,7 +387,7 @@ Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur
 
 ![Nouvelle application][api-management-aad-new-application-devportal-1]
 
-Pour **URL d’authentification** , saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/signin` .
+Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/signin` .
 
 Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix. Dans cet exemple, on utilise `https://contoso5.portal.azure-api.net/dp`. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
 
@@ -510,7 +510,7 @@ La procédure finale de la vidéo commence à 20’48’’ et vous montre comme
 
 Pour une autre démonstration de la configuration et l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Plus de fonctionnalités de Gestion des API) et rendez-vous directement à 13’50’’. Rendez-vous directement à 15’00’’ pour afficher les stratégies configurées dans l’éditeur de stratégies, puis à 18’50’’ pour une démonstration de l’appel d’une opération à partir du portail des développeurs avec et sans le jeton d’autorisation requis.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.
 * Pour les autres méthodes permettant de sécuriser votre service principal, consultez [Authentification mutuelle des certificats](api-management-howto-mutual-certificates.md).
 

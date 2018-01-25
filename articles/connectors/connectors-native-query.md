@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Prise en main de l’action de requête
 L’action de requête vous permet d’utiliser des lots et des tableaux pour obtenir des flux de travail afin d’effectuer les tâches suivantes :
@@ -27,7 +27,7 @@ L’action de requête vous permet d’utiliser des lots et des tableaux pour ob
 * Créer une tâche pour tous les enregistrements à priorité élevée à partir d’une base de données.
 * Enregistrer toutes les pièces jointes PDF pour les messages électroniques dans l’objet blob Azure.
 
-Pour commencer à utiliser l’action de requête dans une application logique, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Pour commencer à utiliser l’action de requête dans une application logique, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Utilisation de l’action de requête
 Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](connectors-overview.md).  
@@ -54,7 +54,7 @@ Voici comment vous pouvez l’ajouter dans une application logique :
 ## <a name="query-action"></a>Action de requête
 Voici les détails de l’action que ce connecteur prend en charge. Le connecteur n’a qu’une seule action possible.
 
-| Action | Description |
+| Action | DESCRIPTION |
 | --- | --- |
 | Filtrer le tableau |Évalue une condition pour chaque élément d’un tableau et renvoie les résultats |
 
@@ -65,20 +65,20 @@ L’action de requête est créée avec une action possible. Les tableaux suivan
 Vous trouverez ci-dessous les champs de saisie de l’action permettant de générer une demande HTTP sortante.
 Le symbole * désigne est un champ obligatoire.
 
-| Nom complet | Nom de la propriété | Description |
+| Nom complet | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
 | De* |from |Le tableau à filtrer |
-| Condition* |où |La condition à évaluer pour chaque élément |
+| Condition* |where |La condition à évaluer pour chaque élément |
 
 <br>
 
 ### <a name="output-details"></a>Détails des résultats
 Vous trouverez ci-dessous les détails de sortie correspondant à la requête HTTP.
 
-| Nom de la propriété | Type de données | Description |
+| Nom de la propriété | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | Tableau filtré |array |Tableau contenant un objet pour chaque résultat filtré |
 
-## <a name="next-steps"></a>Étapes suivantes
-Essayez maintenant la plateforme et [créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
+## <a name="next-steps"></a>étapes suivantes
+Essayez maintenant la plateforme et [créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez explorer les autres connecteurs disponibles dans les applications logiques en examinant notre [liste d’API](apis-list.md).
 

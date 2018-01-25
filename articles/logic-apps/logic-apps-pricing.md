@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2017
 ms.author: LADocs; klam
-ms.openlocfilehash: f2a92e45b8a759d2d8193ac188efdcfc694a3e6d
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 49a66c826a98f7160b97b516e6fd541795ae3b0e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-pricing-model"></a>Modèle de tarification de Logic Apps
 Vous pouvez créer et exécuter des flux de travail d’intégration scalables et automatisés dans le cloud avec Azure Logic Apps. Voici les détails du fonctionnement de la facturation et de la tarification de Logic Apps.
@@ -48,14 +48,14 @@ La consommation en fonction de l’utilisation inclut un [compte d’intégratio
 
 Logic Apps offre également des comptes d’intégration de base et standard avec le contrat SLA Logic Apps pris en charge. Vous pouvez utiliser des comptes d’intégration de base quand vous souhaitez uniquement utiliser la gestion des messages ou agir en tant que petite entreprise partenaire ayant une relation de partenariat commercial avec une entité professionnelle plus importante. Les comptes d’intégration standard prennent en charge les relations B2B plus complexes et augmentent le nombre d’entités que vous pouvez gérer. Pour plus d’informations, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 Pour plus d’informations, consultez [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Vue d’ensemble de Logic Apps][whatis]
 * [Créer votre première application logique][create]
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[whatis]: logic-apps-what-are-logic-apps.md
-[create]: logic-apps-create-a-logic-app.md
+[whatis]: logic-apps-overview.md
+[create]: quickstart-create-first-logic-app-workflow.md
 

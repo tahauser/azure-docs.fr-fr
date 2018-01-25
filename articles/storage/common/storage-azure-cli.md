@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 34780001afb309a2986cc21dae948d9d94f1a63f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilisation d’Azure CLI 2.0 avec le stockage Azure
 
@@ -30,7 +30,7 @@ Les exemples dans le guide partent du principe que vous utilisez le shell Bash s
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il suppose également que vous êtes en mesure de satisfaire les exigences de création de compte spécifiées ci-dessous pour Azure et le service Stockage.
 
 ### <a name="accounts"></a>Comptes
@@ -196,9 +196,10 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+```
 
-### <a name="set-default-azure-storage-account-environment-variables"></a>Définition des variables d’environnement par défaut pour le compte de stockage Azure
-Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement Azure. Pour en sélectionner un à utiliser pour toutes les commandes de stockage suivantes, vous pouvez définir ces variables d’environnement :
+### Set default Azure storage account environment variables
+You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -226,7 +227,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ## <a name="create-and-manage-blobs"></a>Créer et gérer des objets blob
 Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du Stockage Blob Azure. Pour obtenir des informations détaillées, consultez [Prise en main du Stockage Blob Azure à l’aide de .NET](../blobs/storage-dotnet-how-to-use-blobs.md) et [Concepts de service Blob](/rest/api/storageservices/blob-service-concepts).
 
-### <a name="create-a-container"></a>Créer un conteneur
+### <a name="create-a-container"></a>Créez un conteneur.
 Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouvez créer un conteneur à l’aide de la commande `az storage container create` :
 
 ```azurecli
@@ -239,7 +240,7 @@ Vous pouvez définir l’un des trois niveaux d’accès en lecture pour un nouv
 * `blob` : accès en lecture public pour les objets blob.
 * `container` : accès en lecture et en création de listes public à l’intégralité du conteneur.
 
-Pour plus d’informations, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md).
+Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md).
 
 ### <a name="upload-a-blob-to-a-container"></a>Chargement d’un objet blob dans un conteneur
 Le Stockage Blob Azure prend en charge les objets blob de blocs, d’ajout et de page. Chargez des objets blob dans un conteneur à l’aide de la commande `blob upload` :
@@ -266,7 +267,7 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
-### <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
 Répertoriez les objets blob dans un conteneur à l’aide de la commande [az storage blob list](/cli/azure/storage/blob#list).
 
@@ -308,7 +309,7 @@ az storage blob copy start \
 
 Dans l’exemple indiqué ci-dessus, le conteneur de destination doit déjà exister dans le compte de stockage de destination pour que l’opération de copie réussisse. En outre, l’objet blob source spécifié dans l’argument `--source-uri` doit inclure un jeton de signature d’accès partagé, ou être accessible publiquement, comme dans cet exemple.
 
-### <a name="delete-a-blob"></a>Supprimer un objet blob
+### <a name="delete-a-blob"></a>Supprimer un objet blob
 Pour supprimer un objet blob, utilisez la commande `blob delete` :
 
 ```azurecli
@@ -373,7 +374,7 @@ az storage file copy start \
 ```
 
 ## <a name="create-share-snapshot"></a>Créer un instantané de partage
-Vous pouvez créer un instantané de partage à l’aide de la commande `az storage share snapshot` :
+Vous pouvez supprimer un instantané de partage à l’aide de la commande `az storage share snapshot` :
 
 ```cli
 az storage share snapshot -n <share name>
@@ -509,7 +510,7 @@ Exemple de sortie
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Voici quelques ressources supplémentaires pour en savoir plus sur l’utilisation d’Azure CLI 2.0.
 
 * [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

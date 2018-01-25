@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,11 +107,11 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété              | DESCRIPTION                              | Obligatoire |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nom                  | Nom de l’activité dans le pipeline     | Oui      |
+| Nom                  | Nom de l’activité dans le pipeline     | OUI      |
 | description           | Texte décrivant l’activité.  | Non        |
-| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
-| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | Oui      |
-| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
+| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | OUI      |
+| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | OUI      |
+| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | OUI      |
 | resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non        |
 | folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances. | Non        |
 | referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non        |
@@ -202,7 +202,7 @@ Lorsque l’activité est exécutée, les éléments referenceObjects et extende
 
 L’exemple de code suivant montre comment SampleApp.exe peut accéder aux informations nécessaires à partir de fichiers JSON : 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;
