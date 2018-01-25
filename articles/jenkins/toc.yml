@@ -1,6 +1,6 @@
 - name: Jenkins sur Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Jenkins sur Azure
       href: overview.md
@@ -40,6 +40,9 @@
       maintainContext: true
     - name: Utiliser Jenkins avec VSTS
       href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+    - name: Déployer des applications Service Fabric
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Exemples
   items:
     - name: Exemples de scripts et de travaux
@@ -50,6 +53,8 @@
       items:
         - name: Plug-in Azure App Service
           href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Plugin Azure AD
+          href: 'https://plugins.jenkins.io/azure-ad'
         - name: Plug-in Azure Container Agents
           href: 'https://plugins.jenkins.io/azure-container-agents'
         - name: Plug-in Azure Container Service
@@ -58,10 +63,14 @@
           href: 'https://plugins.jenkins.io/azure-credentials'
         - name: Plug-in Azure Function
           href: 'https://plugins.jenkins.io/azure-function'
+        - name: Plugin Azure Service Fabric
+          href: 'https://plugins.jenkins.io/service-fabric'
         - name: Plug-in Stockage Azure
           href: 'https://plugins.jenkins.io/windows-azure-storage'
         - name: Plug-in Agents de machine virtuelle Azure
           href: 'https://plugins.jenkins.io/azure-vm-agents'
+        - name: Plugin Azure VM Scale Sets
+          href: 'https://plugins.jenkins.io/azure-vmss'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Accueil de Jenkins

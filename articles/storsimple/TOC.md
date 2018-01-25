@@ -1,8 +1,7 @@
 # Baie virtuelle StorSimple
 
 ## Vue d’ensemble
-### [Quelle est la solution ?](storsimple-ova-overview.md)
-### [Disponibilité des régions](storsimple-regions.md)
+### [Quelle est la solution ?](storsimple-ova-overview.md)
 
 ## Prise en main
 ### Planification
@@ -13,6 +12,7 @@
 ### Déployer
 #### [Préparer au déploiement](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Déployer le service StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Nouvelle authentification](storsimple-virtual-array-aad-registration-key.md)
 #### [Approvisionner dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Approvisionner dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Configurer en tant que serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Déployer
 #### [Service StorSimple Device Manager](storsimple-8000-manage-service.md)
+#### [Nouvelle authentification de service](storsimple-8000-aad-registration-key.md)
 #### [Appareil physique dans Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Appareil physique dans le portail Azure Government](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Appliance cloud dans Azure](storsimple-8000-cloud-appliance-u2.md)

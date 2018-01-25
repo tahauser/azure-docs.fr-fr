@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -72,3 +72,13 @@ Oui, vous pouvez utiliser les sauvegardes effectuées avant la migration des dis
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Que se passe-t-il lorsque je modifie une stratégie de sauvegarde sur des machines virtuelles ?
 Lorsqu’une nouvelle stratégie est appliquée sur les machines virtuelles, le planning et la rétention de la nouvelle stratégie sont suivis. Si la rétention est étendue, les points de récupération existants sont marqués comme à conserver afin qu’ils soient conformes à la nouvelle stratégie. Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et sont ensuite supprimés. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Comment puis-je déplacer une machine virtuelle inscrite dans la sauvegarde Azure entre les groupes de ressources ?
+Suivez les étapes ci-dessous pour déplacer la machine virtuelle sauvegardée vers le groupe de ressources cible 
+1. Interrompre temporairement la sauvegarde et conserver les données de sauvegarde
+2. Déplacer la machine virtuelle vers le groupe de ressources cible
+3. Protéger de nouveau avec le même/un nouveau coffre
+
+Les utilisateurs peuvent effectuer des restaurations à partir des points de restauration créés avant le déplacement.
+
+

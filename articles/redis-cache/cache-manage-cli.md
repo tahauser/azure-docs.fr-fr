@@ -3,8 +3,8 @@ title: "Gérer le Cache Redis Azure à l’aide d’Azure CLI | Microsoft Docs"
 description: "Cette rubrique décrit comment installer l’interface de ligne de commande Azure sur toute plateforme, comment l’utiliser pour se connecter à un compte Azure et comment créer un cache Redis à partir de cette interface."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Création et gestion du cache Redis Azure à l’aide de l’interface de ligne de commande Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ L'interface de ligne de commande Azure est un excellent moyen de gérer votre in
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour créer et gérer des instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure, vous devez procéder comme suit.
 
 * Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
@@ -45,9 +45,9 @@ Pour créer et gérer des instances de cache Redis Azure à l’aide de l’inte
 ## <a name="redis-cache-properties"></a>Propriétés du cache Redis
 Les propriétés suivantes sont utilisées lors de la création et de la mise à jour des instances de cache Redis.
 
-| Propriété | Switch | Description |
+| Propriété | Switch | DESCRIPTION |
 | --- | --- | --- |
-| name |-n, --name |Nom du cache Redis. |
+| Nom |-n, --name |Nom du cache Redis. |
 | resource group |-g, --resource-group |Nom du groupe de ressources. |
 | location |-l, --location |Emplacement où créer le cache. |
 | size |-z, --size |Taille du cache Redis. Valeurs valides : [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
