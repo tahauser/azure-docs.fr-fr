@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Permet de gérer les nœuds qui forment un cluster.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|Description|
+|Commande|DESCRIPTION|
 | --- | --- |
 |    disable       | Désactive un nœud de cluster Service Fabric avec l’intention de désactivation spécifiée.|
 |    enable        | Active un nœud de cluster Service Fabric actuellement désactivé.|
@@ -47,7 +47,7 @@ Désactive un nœud de cluster Service Fabric avec l’intention de désactivat
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --deactivation-intent | Décrit l’intention ou le motif de la désactivation du nœud. Les valeurs possibles sont les suivantes. - Pause : indique que le nœud doit être suspendu. La valeur est égale à 1. - Restart : indique que l’intention est de redémarrer le nœud après une courte période de temps. La valeur est égale à 2. - RemoveData : indique que l’intention est de supprimer des données du nœud. La valeur est égale à 3. .|
@@ -55,7 +55,7 @@ Désactive un nœud de cluster Service Fabric avec l’intention de désactivat
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -70,14 +70,14 @@ Active un nœud de cluster Service Fabric actuellement désactivé. Une fois ac
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --timeout -t       | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -92,7 +92,7 @@ Permet d’obtenir l’intégrité d’un nœud Service Fabric. EventsHealthSta
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --events-health-state-filter| Permet de filtrer la collection d’objets HealthEvent retournés en fonction de l’état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont retournés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant toute valeur HealthState. La valeur est égale à 65535.|
@@ -100,7 +100,7 @@ Permet d’obtenir l’intégrité d’un nœud Service Fabric. EventsHealthSta
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                | Affiche ce message d’aide et quitte.|
@@ -115,14 +115,14 @@ Permet d’obtenir des informations sur un nœud spécifique du cluster Service�
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --timeout -t       | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -137,7 +137,7 @@ Le point de terminaison Nodes retourne des informations sur les nœuds du cluste
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse.      Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
 | --node-status-filter| Permet de filtrer les nœuds en fonction de NodeStatus. Seuls les nœuds qui correspondent à la valeur de filtre spécifiée sont retournés. Les valeurs possibles sont les suivantes. - default : cette valeur de filtre correspond à tous les nœuds, excepté ceux qui sont pourvus de l’état Inconnu ou Supprimé. - all : cette valeur de filtre correspond à tous les nœuds. - up : cette valeur de filtre correspond aux nœuds fonctionnels. - down : cette valeur de filtre correspond aux nœuds arrêtés. - enabling : cette valeur de filtre correspond aux nœuds qui sont en cours d’activation avec l’état Activation. - disabling : cette valeur de filtre correspond aux nœuds qui sont en cours de désactivation avec l’état Désactivation. - disabled : cette valeur de filtre correspond aux nœuds désactivés. - unknown : cette valeur de filtre correspond aux nœuds dont l’état est Inconnu. Un nœud est à l’état Inconnu si Service Fabric ne dispose pas d’informations faisant autorité sur ce nœud. Cela peut se produire si le système a connaissance d’un nœud lors de l’exécution. - removed : cette valeur de filtre correspond aux nœuds dont l’état est Supprimé. Ce sont les nœuds qui sont supprimés du cluster à l’aide de l’API RemoveNodeState. .      Default : valeur par défaut.|
@@ -145,7 +145,7 @@ Le point de terminaison Nodes retourne des informations sur les nœuds du cluste
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -160,14 +160,14 @@ Permet d’obtenir les informations de chargement d’un nœud Service Fabric.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --timeout -t       | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -182,7 +182,7 @@ Redémarre un nœud de cluster Service Fabric déjà démarré.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --node-name [Requis]| Nom du nœud.|
 | --create-fabric-dump  | Spécifiez True pour créer une image mémoire du processus du nœud Fabric. Cette valeur respecte la casse.  Valeur par défaut : False.|
@@ -191,7 +191,7 @@ Redémarre un nœud de cluster Service Fabric déjà démarré.
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug            | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h          | Affiche ce message d’aide et quitte.|
@@ -207,7 +207,7 @@ Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « St
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --node-instance-id [Requis]| ID d’instance du nœud cible. Il peut être déterminé via l’API GetNodeInfo.|
 | --node-name [Requis]| Nom du nœud.|
@@ -218,7 +218,7 @@ Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « St
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
@@ -226,6 +226,6 @@ Pour démarrer un nœud, définissez le paramètre NodeTransitionType sur « St
 | --query                           | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose                         | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

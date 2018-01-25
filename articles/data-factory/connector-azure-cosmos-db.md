@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1114fd272bd16d17fbeb382b0f374a69dc74916a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copier des données depuis/vers Azure Cosmos DB à l’aide d’Azure Data Factory
 
@@ -53,8 +53,8 @@ Les propriétés prises en charge pour le service lié Azure Cosmos DB sont les 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **CosmosDb**. | Oui |
-| connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB. Notez que vous devez spécifier des informations de base de données dans la chaîne de connexion comme dans l’exemple ci-dessous. Marquez ce champ comme SecureString. |Oui |
+| Type | La propriété type doit être définie sur **CosmosDb**. | OUI |
+| connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB. Notez que vous devez spécifier des informations de base de données dans la chaîne de connexion comme dans l’exemple ci-dessous. Marquez ce champ comme SecureString. |OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 **Exemple :**
@@ -86,8 +86,8 @@ Pour copier des données depuis/vers Azure Cosmos DB, définissez la propriété
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **DocumentDbCollection** |Oui |
-| collectionName |Nom de la collection de documents Cosmos DB. |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **DocumentDbCollection** |OUI |
+| collectionName |Nom de la collection de documents Cosmos DB. |OUI |
 
 **Exemple :**
 
@@ -124,7 +124,7 @@ Pour copier des données d’Azure Cosmos DB, définissez le type de source dans
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **DocumentDbCollectionSource** |Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **DocumentDbCollectionSource** |OUI |
 | query |Spécifiez la requête Cosmos DB pour lire les données.<br/><br/>Exemple : `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non  <br/><br/>Si non spécifié, l’instruction SQL exécutée : `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caractère spécial pour indiquer que le document est imbriqué et comment aplatir jeu de résultats.<br/><br/>Par exemple, si une requête Azure Cosmos DB retourne un résultat imbriqué `"Name": {"First": "John"}`, l’activité de copie identifie le nom de colonne en tant que « Nom.Prénom » avec la valeur « John » lorsque le séparateur (nestedSeparator) est un point. |Non (la valeur par défaut est un point `.`) |
 
@@ -166,7 +166,7 @@ Pour copier des données d’Azure Cosmos DB, définissez le type de récepteur 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DocumentDbCollectionSink**. |Oui |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DocumentDbCollectionSink**. |OUI |
 | nestingSeparator |Caractère spécial dans le nom de colonne source pour indiquer que le document imbriqué est nécessaire. <br/><br/>Par exemple, `Name.First` dans la structure du jeu de données de sortie génère la structure JSON suivante dans le document Cosmos DB :`"Name": {"First": "[value maps to this column from source]"}` lorsque le séparateur nestedSeparator est un point. |Non (la valeur par défaut est un point `.`) |
 | writeBatchTimeout |Temps d'attente pour que l'opération soit terminée avant d'expirer.<br/><br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non  |
 

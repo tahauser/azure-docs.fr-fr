@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Collecter les journaux d’activité Azure de différents abonnements dans Log Analytics
 
@@ -25,9 +25,9 @@ Cet article décrit une méthode permettant de collecter les journaux d’activi
 
 Si l’espace de travail Log Analytics est situé dans le même abonnement Azure, ou dans un autre abonnement mais au sein du même répertoire Azure Active Directory, utilisez la procédure décrite dans la [solution de journal d’activité Azure](../log-analytics/log-analytics-activity.md) pour collecter les journaux d’activité Azure.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-La stratégie utilisée dans ce scénario consiste à ce que le journal d’activité Azure envoie les événements à un [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), d’où une [application logique](../logic-apps/logic-apps-what-are-logic-apps.md) les envoie à son tour vers votre espace de travail Log Analytics. 
+La stratégie utilisée dans ce scénario consiste à ce que le journal d’activité Azure envoie les événements à un [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), d’où une [application logique](../logic-apps/logic-apps-overview.md) les envoie à son tour vers votre espace de travail Log Analytics. 
 
 ![image du flux de données du journal d’activité vers log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme
 
 Le concepteur d’applications logiques affiche à présent les connecteurs disponibles et leurs déclencheurs, que vous utilisez pour démarrer le flux de travail de votre application logique.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Ajouter un déclencheur Event Hub
 

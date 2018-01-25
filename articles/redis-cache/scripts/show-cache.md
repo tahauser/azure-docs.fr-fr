@@ -3,8 +3,8 @@ title: "Exemple de script Azure CLI - Obtenir les détails d’un cache Redis Az
 description: "Exemple de script Azure CLI - Obtenir les détails d’un cache Redis Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 0927508117bda67b62a188f89a2d2e151fe02a5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 21db3c9d02c275ec8827062de5135631ed900da8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-details-of-an-azure-redis-cache"></a>Obtenir les détails d’un cache Redis Azure
 
@@ -35,12 +35,12 @@ Dans ce scénario, vous allez apprendre à récupérer les détails d’une inst
 
 Ce script utilise les commandes suivantes pour récupérer les détails d’une instance du cache Redis Azure. Chaque commande du tableau renvoie à une documentation spécifique.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
 | [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Récupérer les détails d’une instance du cache Redis Azure. |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

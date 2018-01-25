@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copier des données vers et depuis Dynamics CRM et 365 à l’aide d’Azure Data Factory
 
@@ -50,7 +50,7 @@ Plus spécifiquement pour Dynamics 365, les types d’applications suivants sont
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques de Dynamics.
 
@@ -62,12 +62,12 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**. | Oui |
-| deploymentType | Type de déploiement de l’instance Dynamics. Doit être **« Online »** pour Dynamics en ligne. | Oui |
+| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| deploymentType | Type de déploiement de l’instance Dynamics. Doit être **« Online »** pour Dynamics en ligne. | OUI |
 | organizationName | Nom d’organisation de l’instance Dynamics. | Non, à spécifier quand il y a plusieurs instances Dynamics associées à l’utilisateur. |
-| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | Oui |
-| username | Spécifiez le nom d’utilisateur pour la connexion à Dynamics. | Oui |
-| password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous devez placer le mot de passe dans Azure Key Vault et le configurer en tant que « AzureKeyVaultSecret ». Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | OUI |
+| username | Spécifiez le nom d’utilisateur pour la connexion à Dynamics. | OUI |
+| password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous devez placer le mot de passe dans Azure Key Vault et le configurer en tant que « AzureKeyVaultSecret ». Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source ne dispose pas du runtime d’intégration. |
 
 >[!IMPORTANT]
@@ -109,14 +109,14 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**. | Oui |
-| deploymentType | Type de déploiement de l’instance Dynamics. Doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| Oui |
-| **hostName** | Nom d’hôte du serveur Dynamics local. | Oui |
+| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| deploymentType | Type de déploiement de l’instance Dynamics. Doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| OUI |
+| **hostName** | Nom d’hôte du serveur Dynamics local. | OUI |
 | **port** | Port du serveur de Dynamics local. | Non, la valeur par défaut est 443 |
-| organizationName | Nom d’organisation de l’instance Dynamics. | Oui |
-| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | Oui |
-| username | Spécifiez le nom d’utilisateur pour la connexion à Dynamics. | Oui |
-| password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Notez que vous devez placer le mot de passe dans Azure Key Vault et le configurer en tant que « AzureKeyVaultSecret ». Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| organizationName | Nom d’organisation de l’instance Dynamics. | OUI |
+| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | OUI |
+| username | Spécifiez le nom d’utilisateur pour la connexion à Dynamics. | OUI |
+| password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Notez que vous devez placer le mot de passe dans Azure Key Vault et le configurer en tant que « AzureKeyVaultSecret ». Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
 >[!IMPORTANT]
@@ -162,7 +162,7 @@ Pour copier des données vers/depuis Dynamics, affectez la valeur **DynamicsEnti
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **DynamicsEntity** |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **DynamicsEntity** |OUI |
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
 
 > [!IMPORTANT]
@@ -215,7 +215,7 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**.  | Oui |
+| Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**.  | OUI |
 | query  | FetchXML est un langage de requête propriétaire qui est utilisé dans Microsoft Dynamics (en ligne et local). Voyez l’exemple ci-dessous et apprenez-en davantage en lisant [Générer des requêtes avec FetchXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | Non (si « entityName » est spécifié dans le jeu de données)  |
 
 **Exemple :**
@@ -276,8 +276,8 @@ Pour copier des données vers Dynamics, définissez le type de récepteur dans l
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**.  | Oui |
-| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **Upsert**. | Oui |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**.  | OUI |
+| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **Upsert**. | OUI |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non (valeur par défaut : 10) |
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant l’opération d’écriture.<br/>Les valeurs autorisées sont **True** et **False**.<br>- true : ne modifie pas les données de l’objet de destination lors d’une opération Upsert/Update, et insère la valeur définie par défaut lors d’une opération Insert.<br/>false : attribue la valeur NULL aux données de l’objet de destination lors d’une opération Upsert/Update, et insère la valeur NULL lors d’une opération Insert.  | Non (valeur par défaut : false) |
 

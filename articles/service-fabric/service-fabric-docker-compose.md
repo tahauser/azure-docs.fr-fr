@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
-ms.openlocfilehash: 92d1951de8c8c80f7b47033dc751cd65a63c43f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6275cee87455bf8a226a51a6b2093b67c3159d0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Prise en charge du déploiement Docker Compose dans Azure Service Fabric (préversion)
 
@@ -91,13 +91,13 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 
 Pour démarrer une mise à niveau du déploiement Compose, utilisez la commande ci-après :
 
-```powershell
+```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 Une fois la mise à niveau acceptée, vous pouvez suivre sa progression à l’aide de la commande suivante :
 
-```powershell
+```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -139,7 +139,7 @@ Par exemple, le client A peut utiliser une application instanciée avec le type 
 
 Bien que ce modèle offre une certaine flexibilité, nous prévoyons également de prendre en charge un modèle de déploiement plus simple, basé sur les instances, dans lequel les types sont implicites à partir du fichier manifeste. Dans ce modèle, chaque application obtient son propre manifeste indépendant. Nous proposons cela en version préliminaire, en ajoutant la prise en charge du format docker-compose.yml, qui est un format de déploiement basé sur les instances.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Lisez les informations sur le [Modèle d’application Service Fabric](service-fabric-application-model.md)
 * [Bien démarrer avec l’interface CLI Service Fabric](service-fabric-cli.md)

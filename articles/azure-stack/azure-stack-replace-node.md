@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack
 
@@ -28,23 +28,23 @@ Cet article décrit la procédure générale permettant de remplacer un ordinate
 
 L’organigramme suivant illustre la procédure générale de la FRU pour remplacer un nœud d’unité d’échelle dans son ensemble.
 
-![Organigramme du processus de remplacement d’un nœud](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Organigramme du processus de remplacement d’un nœud](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 
-Si un nœud d’unité d’échelle est arrêté, vous recevrez toutes les alertes critiques suivantes :
+Si un nœud d’unité d’échelle est arrêté, vous recevrez les alertes critiques suivantes :
 
 - Nœud non connecté au contrôleur de réseau
 - Nœud inaccessible pour la sélection élective d’ordinateur virtuel
 - Nœud d’unité d’échelle hors ligne
 
-![Liste des alertes en cas d’arrêt d’unité d’échelle](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Liste des alertes en cas d’arrêt d’unité d’échelle](media/azure-stack-replace-node/nodedownalerts.png)
 
-Si vous ouvrez l’alerte « Nœud d’unité d’échelle hors ligne », la description de l’alerte contient le nœud d’unité d’échelle qui est inaccessible. Vous pouvez également recevoir des alertes supplémentaires dans la solution d’analyse propre à l’OEM qui est en cours d’exécution sur l’ordinateur hôte du cycle de vie du matériel.
+Si vous ouvrez l’alerte **Nœud d’unité d’échelle hors ligne**, la description de l’alerte contient le nœud d’unité d’échelle qui est inaccessible. Vous pouvez également recevoir des alertes supplémentaires dans la solution d’analyse propre à l’OEM qui est en cours d’exécution sur l’ordinateur hôte du cycle de vie du matériel.
 
-![Détails de l’alerte de nœud hors ligne](media/azure-stack-replace-node/NodeOffline.PNG)
+![Détails de l’alerte de nœud hors ligne](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Procédure de remplacement d’un nœud d’unité d’échelle
 
@@ -53,7 +53,7 @@ Les étapes suivantes fournissent une vue d’ensemble de la procédure de rempl
 1. Utilisez l’option [Drainer](azure-stack-node-actions.md#scale-unit-node-actions) pour placer le nœud d’unité d’échelle en mode maintenance. Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
    > [!NOTE]
-   > Dans tous les cas, un seul nœud peut être purgé et mis hors tension en même temps sans endommager le disque SSD.
+   > Dans tous les cas, un seul nœud peut être purgé et mis hors tension en même temps sans endommager l’espace de stockage direct S2D.
 
 2. Si le nœud est toujours sous tension, utilisez l’option [Mettre hors tension](azure-stack-node-actions.md#scale-unit-node-actions). Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
  
@@ -68,4 +68,4 @@ Les étapes suivantes fournissent une vue d’ensemble de la procédure de rempl
 ## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur le remplacement d’un disque physique échangeable à chaud, voir [Remplacer un disque](azure-stack-replace-disk.md). 
-- Pour plus d’informations sur le remplacement d’un composant matériel non échangeable à chaud, consultez [Remplacer un composant matériel](azure-stack-replace-component.md). 
+- Pour plus d’informations sur le remplacement d’un composant matériel non échangeable à chaud, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).

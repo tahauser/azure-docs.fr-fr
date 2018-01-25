@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9236198338fc66697942463e350a0f9732ea217b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: aa81f9d163da8d9236470c0b797f5430163ed39d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Copier des données de Xero à l’aide d’Azure Data Factory (version bêta)
 
@@ -37,7 +37,7 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Xero.
 
@@ -47,10 +47,10 @@ Les propriétés prises en charge pour le service lié Xero sont les suivantes :
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Xero** | Oui |
-| host | Point de terminaison du serveur Xero (autrement dit, api.xero.com).  | Oui |
-| consumerKey | Clé de consommateur associée à l’application Xero. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans Data Factory, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données durant la copie. Pour plus d’informations, consultez [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
-| privateKey | Clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n). Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans Data Factory, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données durant la copie. Pour plus d’informations, consultez [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
+| Type | La propriété de type doit être définie sur **Xero** | OUI |
+| host | Point de terminaison du serveur Xero (autrement dit, api.xero.com).  | OUI |
+| consumerKey | Clé de consommateur associée à l’application Xero. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans Data Factory, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données durant la copie. Pour plus d’informations, consultez [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
+| privateKey | Clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n). Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans Data Factory, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données durant la copie. Pour plus d’informations, consultez [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte est requis dans le certificat de serveur et doit correspondre au nom d’hôte du serveur lors de la connexion via le protocole SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
@@ -108,8 +108,8 @@ Pour copier des données de Xero, définissez le type de source dans l’activit
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **XeroSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Contacts"`. | Oui |
+| Type | La propriété de type de la source d’activité de copie doit être définie sur **XeroSource** | OUI |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Contacts"`. | OUI |
 
 **Exemple :**
 

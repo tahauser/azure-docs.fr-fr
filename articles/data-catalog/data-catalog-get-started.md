@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: a1d16cac19571c5802be081d6972e1f74f6dffe1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Prise en main d’Azure Data Catalog
 Azure Data Catalog est un service cloud entièrement géré qui sert de système d’inscription et de découverte des ressources de données d’entreprise. Pour une présentation détaillée, consultez l’article [Qu’est-ce qu’Azure Data Catalog ?](data-catalog-what-is-data-catalog.md).
 
 Ce didacticiel vous permet de commencer à utiliser Azure Data Catalog. Dans ce didacticiel, vous effectuez les procédures suivantes :
 
-| Procédure | Description |
+| Procédure | DESCRIPTION |
 |:--- |:--- |
 | [Approvisionner Data Catalog](#provision-data-catalog) |Dans cette procédure, vous créez ou configurez Azure Data Catalog. Vous effectuez cette étape uniquement si le catalogue n’a pas été configuré auparavant. Vous ne pouvez avoir qu’un seul catalogue de données par organisation (domaine Microsoft Azure Active Directory), même si plusieurs abonnements sont associés à votre compte Azure. |
 | [Inscrire des ressources de données](#register-data-assets) |Dans cette procédure, vous inscrivez les ressources de données de l’exemple de base de données AdventureWorks2014 auprès du catalogue de données. L’inscription est le processus par lequel les métadonnées structurelles clés (telles que les noms, les types et les emplacements) sont extraites de la source de données, puis copiées dans le catalogue. La source de données et les ressources de données restent au même endroit, mais les métadonnées sont utilisées par le catalogue pour faciliter leur découverte et leur compréhension. |

@@ -8,23 +8,26 @@ manager: femila
 editor: 
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
-ms.workload: na
+ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: a5a9757d871c343ba663862de7b6d75b9dd21c31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Activez le service de sauvegarde d’infrastructure via le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes. Vous pouvez utiliser ces sauvegardes pour restaurer votre environnement en cas de panne.
+
+> [!Note]  
+> Avant d’activer la sauvegarde via la console, vous devez configurer le service de sauvegarde. Vous pouvez configurer le service de sauvegarde à l’aide de PowerShell. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Activer la sauvegarde
 
@@ -33,9 +36,9 @@ Activez le service de sauvegarde d’infrastructure via le portail d’administr
 
     ![Azure Stack - Paramètres du contrôleur de sauvegarde](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Saisissez le chemin d’accès à l’**emplacement de stockage de sauvegarde**. Vous devez utiliser une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour le service, vous pouvez utiliser une adresse IP. Pour garantir la disponibilité des données de sauvegarde en cas de sinistre, l’appareil doit se trouver dans un emplacement distinct.
+3. Saisissez le chemin d’accès à l’**emplacement de stockage de sauvegarde**. Utilisez une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour le service, vous pouvez utiliser une adresse IP. Pour garantir la disponibilité des données de sauvegarde après un sinistre, l’appareil doit se trouver dans un emplacement distinct.
     > [!Note]  
-    > Vous pouvez utiliser un nom de domaine qualifié complet plutôt que l’adresse IP si votre environnement prend en charge la résolution de noms à partir du réseau d’infrastructure Azure Stack vers votre environnement d’entreprise.
+    > Si votre environnement prend en charge la résolution de noms à partir du réseau d’infrastructure Azure Stack vers votre environnement d’entreprise, vous pouvez utiliser un nom de domaine qualifié complet plutôt que l’adresse IP.
 4. Saisissez le **nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur. Par exemple : `Contoso\administrator`.
 5. Saisissez le **mot de passe** de l’utilisateur.
 5. Saisissez une nouvelle fois le mot de passe pour le **confirmer**.
@@ -46,5 +49,5 @@ Pour exécuter une sauvegarde, vous devez télécharger les outils Azure Stack, 
 
 ## <a name="next-steps"></a>étapes suivantes
 
- - Pour savoir comment exécuter une sauvegarde, voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Pour savoir comment vérifier que votre sauvegarde a été exécutée, voir [Confirmer que la sauvegarde est terminée dans le portail d’administration](azure-stack-backup-back-up-azure-stack.md ).
+ - Apprenez à exécuter une sauvegarde. Voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+- Apprenez à vérifier que votre sauvegarde a été exécutée. Voir [Confirmer la sauvegarde dans le portail d’administration](azure-stack-backup-back-up-azure-stack.md ).

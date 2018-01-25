@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shengc
-ms.openlocfilehash: 74bff33edd738642ea88ca9b3430aac0ff32bc6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: af5e19b212fdebe5220e49eeaa6ec9fc56b1da1c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Spark et d’un service lié HDInsight à la demande. Dans ce didacticiel, vous allez effectuer les étapes suivantes :
@@ -26,7 +26,7 @@ Dans ce didacticiel, vous utilisez Azure PowerShell pour créer un pipeline Azur
 > * Créer une fabrique de données. 
 > * Créer et déployer des services liés.
 > * Créer et déployer un pipeline. 
-> * Démarrez l’exécution d’un pipeline.
+> * Démarrer une exécution de pipeline.
 > * Surveiller l’exécution du pipeline.
 
 > [!NOTE]
@@ -83,7 +83,7 @@ Vous créez deux services liés dans cette section :
 - Un service lié au stockage Azure relie un compte de stockage Azure à la fabrique de données. Ce stockage est utilisé par le cluster HDInsight à la demande. Il contient également le script Spark à exécuter. 
 - Un service lié HDInsight à la demande. Azure Data Factory crée automatiquement un cluster HDInsight, exécute le programme Spark, puis supprime le cluster HDInsight à la fin de la période d’inactivité préconfigurée. 
 
-### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
+### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 Créez un fichier JSON à l’aide de votre éditeur favori, copiez la définition JSON suivante d’un service lié au stockage Azure, puis enregistrez le fichier sous **MyStorageLinkedService.json**.  
 
 ```json
@@ -333,14 +333,14 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
 4. Confirmez qu’un dossier nommé `outputfiles` est créé dans le dossier `spark` du conteneur adftutorial avec la sortie du programme Spark. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes : 
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 
 > * Créer et déployer des services liés.
 > * Créer et déployer un pipeline. 
-> * Démarrez l’exécution d’un pipeline.
+> * Démarrer une exécution de pipeline.
 > * Surveiller l’exécution du pipeline.
 
 Passez au didacticiel suivant pour découvrir comment transformer des données en exécutant un script Hive sur un cluster Azure HDInsight qui se trouve dans un réseau virtuel. 

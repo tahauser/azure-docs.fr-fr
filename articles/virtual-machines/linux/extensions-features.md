@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 59f718e0e547ed9374152985e706acad4421b35b
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 30e606154830b867382ea1ea439b97749370a1f6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -39,7 +39,7 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé pour Linux permet d’exécuter n’importe quel script Bash sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Linux, consultez [cet article](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Chaque extension de machine virtuelle peut présenter son propre ensemble de composants requis. Par exemple, l’extension de machine virtuelle Docker nécessite une distribution Linux compatible. Les composants requis pour une extension spécifique sont présentés en détail dans la documentation consacrée à celle-ci.
 
@@ -47,7 +47,7 @@ Chaque extension de machine virtuelle peut présenter son propre ensemble de com
 
 L’agent de machine virtuelle Azure gère l’interaction entre une machine virtuelle et le contrôleur de structure Azure. L’agent de machine virtuelle est responsable de nombreux aspects fonctionnels liés au déploiement et à la gestion des machines virtuelles Azure, dont les extensions de machine virtuelle en cours d’exécution. L’agent de machine virtuelle Azure est préinstallé sur les images de la Place de marché Azure et peut être installé manuellement sur les systèmes d’exploitation pris en charge.
 
-Pour plus d’informations sur les systèmes d’exploitation pris en charge et sur la procédure d’installation, consultez l’article [Agent de machine virtuelle et extensions Azure](../windows/classic/agents-and-extensions.md).
+Pour plus d’informations sur les systèmes d’exploitation pris en charge et sur la procédure d’installation, consultez l’article [Agent de machine virtuelle et extensions Azure](agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>Détecter les extensions de machine virtuelle
 
@@ -63,7 +63,7 @@ Les extensions de machine virtuelle Azure peuvent être exécutées sur des mach
 
 Les méthodes suivantes peuvent être utilisées pour exécuter une extension sur une machine virtuelle existante.
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Les extensions de machine virtuelle peuvent être exécutées sur une machine virtuelle existante à l’aide de la commande `az vm extension set`. Cet exemple exécute l’extension de script personnalisé sur une machine virtuelle.
 
@@ -235,7 +235,7 @@ Vous pouvez supprimer une extension à partir du portail Azure en procédant com
 4. Choisissez **Désinstaller**.
 
 ## <a name="common-vm-extension-reference"></a>Informations de référence sur les extensions de machine virtuelle courantes
-| Nom de l’extension | Description | Plus d’informations |
+| Nom de l’extension | DESCRIPTION | Plus d’informations |
 | --- | --- | --- |
 | Extension de script personnalisé pour Linux |Exécuter des scripts sur une machine virtuelle Azure |[Extension de script personnalisé pour Linux](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | Extension Docker |Installer le démon Docker pour prendre en charge les commandes Docker distantes |[Extension de machine virtuelle Docker](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |

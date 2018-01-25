@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Se connecter à Dynamics 365 à partir de flux de travail d’application logique
 
@@ -30,7 +30,7 @@ Avec les applications Logic Apps, vous pouvez vous connecter à Dynamics 365 (O
 
 Cette rubrique vous explique comment créer une application logique qui génère une tâche dans Dynamics 365 lorsqu’un prospect est créé dans Dynamics 365.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * Un compte Azure.
 * Un compte Dynamics 365 (Online).
 
@@ -113,7 +113,7 @@ Par exemple, vous pouvez utiliser une requête de filtre pour obtenir uniquement
 
 Lorsque vous ajoutez une valeur à un champ, vous devez faire correspondre le type de champ si vous saisissez une valeur ou sélectionner une valeur dans la liste de contenu dynamique.
 
-Type de champ  |Utilisation  |Comment y accéder  |Nom  |Type de données  
+Type de champ  |Utilisation  |Comment y accéder  |NOM  |Type de données  
 ---------|---------|---------|---------|---------
 Champs de texte|Les champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui est un champ de type texte. Exemples : Catégorie et Sous-catégorie.|Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |category |Ligne de texte unique        
 Champs de type entier | Certains champs nécessitent un entier ou un contenu dynamique qui est un champ de type entier. Exemples : Pourcentage achevé et Durée. |Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |percentcomplete |Nombre entier         
@@ -147,7 +147,7 @@ Vous pouvez également cliquer sur **ENVOYER UN LIEN PAR COURRIER ÉLECTRONIQUE*
 
    ![Flux : ID d’enregistrement et type de compte](./media/connectors-create-api-crmonline/recordid.png)
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Pour résoudre les problèmes qui peuvent se produire lors d’une étape dans une application logique, affichez les détails de l’état de l’événement.
 
 1. Dans la zone **Logic Apps**, sélectionnez votre application logique, puis cliquez sur **Vue d’ensemble**. 
@@ -166,9 +166,9 @@ Pour résoudre les problèmes qui peuvent se produire lors d’une étape dans u
 
 Pour plus d’informations sur la résolution des problèmes relatifs aux applications logiques, consultez [Diagnostic des échecs d’applications logiques](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/crm/). 
+Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/crm/). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).

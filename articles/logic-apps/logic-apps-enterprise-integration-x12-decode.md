@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bc2e5c2b351fb87cb763459a9e24368a422ada1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Décodez des messages X12 pour Azure Logic Apps avec Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Voici les éléments dont vous avez besoin :
 
 ## <a name="decode-x12-messages"></a>Décoder des messages X12
 
-1. [Créer une application logique](logic-apps-create-a-logic-app.md).
+1. [Créez une application logique](quickstart-create-first-logic-app-workflow.md).
 
 2. Le connecteur Decode X12 Message ne possède aucun déclencheur, ce qui signifie que vous devez ajouter un déclencheur pour le démarrage de votre application logique, par exemple un déclencheur de requête. Dans le concepteur d’applications logiques, ajoutez un déclencheur, puis ajoutez une action à votre application logique.
 
@@ -62,7 +62,7 @@ Voici les éléments dont vous avez besoin :
 
     ![connexion de compte d’intégration créée](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    Par exemple :
+    Par exemple : 
 
     ![Sélectionner le message de fichier plat X12 à décoder](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
@@ -104,9 +104,9 @@ Le connecteur X12 Decode effectue les tâches suivantes :
   * Suite à la validation de l’en-tête, un accusé de réception technique est généré. L’accusé de réception technique renvoie l’état du traitement de l’en-tête et du code de fin d’un échange par le récepteur de l’adresse.
   * Suite à la validation du corps, un accusé de réception fonctionnel est généré. L’accusé de réception fonctionnel signale chaque erreur rencontrée lors du traitement du document reçu
 
-## <a name="view-the-swagger"></a>Afficher Swagger
+## <a name="view-the-swagger"></a>Afficher le swagger
 Consultez les [détails sur Swagger](/connectors/x12/). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack") 
 

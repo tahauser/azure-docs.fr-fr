@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9008a29a5ca94b92669277ab3a2f68b3f129396b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Permet de créer, de supprimer et de gérer les applications et les types d’application.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|Description|
+|Commande|DESCRIPTION|
 | --- | --- |
 | create       | Permet de créer une application Service Fabric à l’aide de la description spécifiée.|
 | delete       | Supprime une application Service Fabric existante.|
@@ -39,7 +39,7 @@ Permet de créer, de supprimer et de gérer les applications et les types d’ap
 | manifest     | Permet d’obtenir le manifeste qui décrit un type d’application.|
 | provision    | Permet d’annuler l’inscription d’un type d’application Service Fabric avec le cluster.|
 | report-health| Permet d’envoyer un rapport d’intégrité sur l’application Service Fabric.|
-| type         | Permet d’obtenir la liste des types d’applications du cluster Service Fabric qui correspondent exactement au nom spécifié.|
+| Type         | Permet d’obtenir la liste des types d’applications du cluster Service Fabric qui correspondent exactement au nom spécifié.|
 | type-list    | Permet d’obtenir la liste des types d’applications du cluster Service Fabric.|
 | unprovision  | Permet de supprimer ou d’annuler l’inscription d’un type d’application Service Fabric dans le cluster.|
 | mettre à niveau      | Commence la mise à niveau d’une application dans le cluster Service Fabric.|
@@ -53,7 +53,7 @@ Permet de créer une application Service Fabric à l’aide de la description sp
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --app-name    [Requis]| Nom de l’application, y compris le schéma d’URI « fabric: ».|
 | --app-type    [Requis]| Nom du type d’application trouvé dans le manifeste d’application.|
@@ -66,7 +66,7 @@ Permet de créer une application Service Fabric à l’aide de la description sp
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug              | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h            | Affiche ce message d’aide et quitte.|
@@ -81,7 +81,7 @@ Supprime une application Service Fabric existante. Une application doit être c
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-id [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures, et « mon_app/app1 » dans les versions précédentes.|
 | --force-remove          | Force la suppression d’une application ou d’un service Service Fabric, sans passer par la séquence d’arrêt normale. Ce paramètre permet de forcer la suppression d’une application ou d’un service pour lesquels le délai de suppression expire à cause de problèmes dans le code de service qui empêchent la fermeture normale des réplicas.|
@@ -89,7 +89,7 @@ Supprime une application Service Fabric existante. Une application doit être c
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
@@ -102,7 +102,7 @@ Permet d’obtenir les informations relatives à une application déployée sur 
      
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-id [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures, et « mon_app/app1 » dans les versions précédentes.|
 | --node-name      [obligatoire]| Nom du nœud.|
@@ -110,7 +110,7 @@ Permet d’obtenir les informations relatives à une application déployée sur 
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
@@ -125,18 +125,18 @@ Permet d’obtenir l’état d’intégrité de l’application Service Fabric.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-id                 [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application, sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures, et « mon_app/app1 » dans les versions précédentes.|
-| --deployed-applications-health-state-filter| Permet de filtrer, par état d’intégrité, les objets d’état d’intégrité des applications déployées qui sont retournés dans le résultat de la requête d’intégrité de l’application. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seules les applications déployées qui correspondent au filtre sont retournées. Toutes les applications déployées sont utilisées pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, l’état d’intégrité des applications déployées dont la valeur HealthState est OK (2) et Warning (4) est retourné. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
-| --events-health-state-filter            | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de leur état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont renvoyés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
+| --deployed-applications-health-state-filter| Permet de filtrer, par état d’intégrité, les objets d’état d’intégrité des applications déployées qui sont retournés dans le résultat de la requête d’intégrité de l’application. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seules les applications déployées qui correspondent au filtre sont retournées. Toutes les applications déployées sont utilisées pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, l’état d’intégrité des applications déployées dont la valeur HealthState est OK (2) et Warning (4) est retourné. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
+| --events-health-state-filter            | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de leur état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont renvoyés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
 | --exclude-health-statistics | Indique si les statistiques d’intégrité doivent être retournées comme faisant partie du résultat de la requête. False par défaut. Les statistiques affichent le nombre d’entités enfants dont l’état d’intégrité est OK, Warning et Error.|
-| --services-health-state-filter          | Permet de filtrer, par état d’intégrité, les objets d’état d’intégrité des services qui sont retournés dans le résultat de la requête d’intégrité des services. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les services qui correspondent au filtre sont retournés. Tous les services sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, l’état d’intégrité des services dont la valeur HealthState est OK (2) et Warning (4) est retourné. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
+| --services-health-state-filter          | Permet de filtrer, par état d’intégrité, les objets d’état d’intégrité des services qui sont retournés dans le résultat de la requête d’intégrité des services. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les services qui correspondent au filtre sont retournés. Tous les services sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, l’état d’intégrité des services dont la valeur HealthState est OK (2) et Warning (4) est retourné. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
 | --timeout -t                            | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                               | Affiche ce message d’aide et quitte.|
@@ -151,7 +151,7 @@ Renvoie les informations sur l’application qui a été créée ou en cours de 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-id      [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures, et « mon_app/app1 » dans les versions précédentes.|
 | --exclude-application-parameters| Indicateur qui spécifie si les paramètres de l’application doivent être exclus du résultat.|
@@ -159,7 +159,7 @@ Renvoie les informations sur l’application qui a été créée ou en cours de 
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                    | Affiche ce message d’aide et quitte.|
@@ -174,7 +174,7 @@ Renvoie les informations sur les applications qui ont été créées ou sont en 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |--application-definition-kind-filter| Permet de filtrer selon le paramètre ApplicationDefinitionKind pour les opérations de requête d’application. - Default : valeur par défaut. Filtre qui correspond aux entrées ayant n’importe quelle valeur ApplicationDefinitionKind. La valeur est égale à 0. - All - Filtre qui correspond aux entrées ayant n’importe quelle valeur ApplicationDefinitionKind. La valeur est égale à 65535. - ServiceFabricApplicationDescription - Filtre qui correspond aux entrées dont la valeur d’ApplicationDefinitionKind est égale à ServiceFabricApplicationDescription. La valeur est égale à 1. - Compose - Filtre qui correspond aux entrées dont la valeur d’ApplicationDefinitionKind est égale à Compose. La valeur est égale à 2. Par défaut : 65535.|
 | --application-type-name      | Nom du type d’application utilisé pour filtrer les applications à interroger. Cette valeur ne doit pas contenir la version du type d’application.|
@@ -184,7 +184,7 @@ Renvoie les informations sur les applications qui ont été créées ou sont en 
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                    | Affiche ce message d’aide et quitte.|
@@ -198,13 +198,13 @@ Permet d’obtenir les informations relatives à une application Service Fabric
 Retourne des informations de chargement concernant l’application qui a été créée ou est en cours de création dans le cluster Service Fabric, et dont le nom correspond à celui spécifié comme paramètre. La réponse comprend le nom, le nombre minimal de nœuds, le nombre maximal de nœuds, le nombre de nœuds que l’application occupe actuellement, ainsi que les métriques de chargement relatives à l’application.
 
 ### <a name="arguments"></a>Arguments
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |--application-id [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application, sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures, et « mon_app/app1 » dans les versions précédentes. |
 | --timeout -t               | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |--debug                    | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
     --help -h                  | Affiche ce message d’aide et quitte.|
@@ -219,7 +219,7 @@ Permet d’obtenir le manifeste qui décrit un type d’application. La réponse
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-type-name [Requis]| Nom du type d’application.|
 | --application-type-version [Requis]| Version du type d’application.|
@@ -227,7 +227,7 @@ Permet d’obtenir le manifeste qui décrit un type d’application. La réponse
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
@@ -242,14 +242,14 @@ Permet d’annuler l’inscription d’un type d’application Service Fabric av
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-type-build-path [Requis]| Chemin d’accès du magasin d’images relatif au package d’application.|
 | --timeout -t                         | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                              | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                            | Affiche ce message d’aide et quitte.|
@@ -265,7 +265,7 @@ Renvoie les informations sur les types d’application qui sont approvisionnés 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-type-name [Requis]| Nom du type d’application.|
 | --continuation-token           | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
@@ -275,7 +275,7 @@ Renvoie les informations sur les types d’application qui sont approvisionnés 
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                        | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                      | Affiche ce message d’aide et quitte.|
@@ -290,7 +290,7 @@ Permet de supprimer ou d’annuler l’inscription d’un type d’application S
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-type-name [Requis]| Nom du type d’application.|
 | --application-type-version [Requis]| Version du type d’application.|
@@ -298,7 +298,7 @@ Permet de supprimer ou d’annuler l’inscription d’un type d’application S
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
@@ -313,7 +313,7 @@ Valide les paramètres de mise à niveau d’application fournis et commence la 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --app-id             [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures, et « mon_app/app1 » dans les versions précédentes.|
 | --app-version        [obligatoire]| Version de l’application cible.|
@@ -335,7 +335,7 @@ Valide les paramètres de mise à niveau d’application fournis et commence la 
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                     | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                   | Affiche ce message d’aide et quitte.|
@@ -350,7 +350,7 @@ Permet d’afficher éventuellement la progression du chargement pour chaque fic
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --path [Requis]| Chemin d’accès au package d’application local.|
 |--imagestore-string| Magasin d’images de destination dans lequel charger le package d’application.  Par défaut : fabric:ImageStore.|
@@ -358,7 +358,7 @@ Permet d’afficher éventuellement la progression du chargement pour chaque fic
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug       | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h     | Affiche ce message d’aide et quitte.|
@@ -366,6 +366,6 @@ Permet d’afficher éventuellement la progression du chargement pour chaque fic
 | --query       | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose     | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

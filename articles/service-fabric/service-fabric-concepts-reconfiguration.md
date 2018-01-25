@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: ee2808286012720210070817d7ee6c2349247858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8371c4b268e1181e61542261ad7fc5fd04f6e59c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Reconfiguration dans Azure Service Fabric
 Une *configuration* se définit comme étant les réplicas et leurs rôles pour une partition d’un service avec état.
@@ -56,7 +56,7 @@ Les reconfigurations peuvent se *bloquer* pour diverses raisons. Voici quelques-
 
 Utilisez les rapports d’intégrité à partir des composants système, tels que System.FM, System.RA et System.RAP, pour diagnostiquer où le blocage d’une reconfiguration a eu lieu. La [page sur les rapports d’intégrité du système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) décrit ces rapports.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les concepts propres à Service Fabric, consultez les articles suivants :
 
 - [Cycle de vie des Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)

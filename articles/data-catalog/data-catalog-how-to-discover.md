@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 7c2a1d61bc13ba1cde404e2b732933d2d314e3e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2db429860e6e3a60211c993bebfecbca98d67fd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Comment détecter les sources de données dans Azure Data Catalog
 ## <a name="introduction"></a>Introduction
@@ -37,7 +37,7 @@ En combinant recherche et filtrage, vous pouvez parcourir rapidement les sources
 ## <a name="search-syntax"></a>Syntaxe de recherche
 La recherche en texte libre par défaut est simple et intuitive. Cependant, vous pouvez également utiliser la syntaxe de recherche de Data Catalog pour mieux contrôler les résultats de recherche. La recherche avec Data Catalog prend en charge les techniques suivantes :
 
-| Technique | Utilisation | Exemple |
+| Technique | Utilisation | exemples |
 | --- | --- | --- |
 | Recherche de base |Recherche de base à l’aide d’un ou plusieurs termes de recherche. Les résultats sont constitués de toutes les ressources correspondant à une propriété quelconque avec un ou plusieurs termes spécifiés. |`sales data` |
 | Étendue de la propriété |Retourne des sources de données uniquement si le terme de recherche correspond à la propriété spécifiée. |`name:finance` |
@@ -64,5 +64,5 @@ Dans l’affichage en mosaïque par défaut, chaque vignette affichée dans les 
 ## <a name="summary"></a>Résumé
 L’inscription des sources de données dans Data Catalog facilite leur détection et leur compréhension, car elle consiste à copier les métadonnées descriptives et structurelles des sources de données dans le service Catalog. Une fois qu’une source de données a été inscrite, vous pouvez la détecter grâce aux fonctionnalités de filtrage et de recherche du portail Data Catalog.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour obtenir des informations détaillées sur la détection des sources de données, consultez [Bien démarrer avec Azure Data Catalog](data-catalog-get-started.md).

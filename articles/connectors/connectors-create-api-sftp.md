@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Prise en main du connecteur SFTP
 Utilisez le connecteur SFTP pour accéder à un compte SFTP afin d’envoyer et de recevoir des fichiers. Vous pouvez effectuer diverses opérations, telles que créer, mettre à jour, obtenir ou supprimer des fichiers.  
 
-Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-sftp"></a>Se connecter à SFTP
 Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service.  
@@ -35,7 +35,7 @@ Pour que votre application logique puisse accéder à un service, vous devez com
 > 
 
 ## <a name="use-an-sftp-trigger"></a>Utiliser un déclencheur SFTP
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Dans cet exemple,nous utilisons le déclencheur **SFTP - Lors de l’ajout ou de la modification d’un fichier**, un déclencheur est utilisé pour initialiser un flux de travail d’application logique lorsqu’un fichier est ajouté à un serveur SFTP ou modifié sur ce dernier. Vous ajoutez une condition qui vérifie le contenu du fichier nouveau ou modifié, puis prend une décision pour extraire le fichier si son contenu indique qu’il doit être extrait avant d’être utilisé. Enfin, ajoutez une action pour extraire le contenu d’un fichier et placer le contenu extrait dans un dossier du serveur SFTP. 
 
@@ -51,7 +51,7 @@ Dans un contexte d’entreprise, vous pourriez utiliser ce déclencheur pour sur
 > 
 
 ## <a name="use-an-sftp-action"></a>Utiliser une action SFTP
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 
@@ -59,7 +59,7 @@ Une action est une opération effectuée par le flux de travail défini dans une
 
 ## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
 
-Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/sftpconnector/).
+Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/sftpconnector/).
 
 ## <a name="more-connectors"></a>Autres connecteurs
 Revenir à la [liste des API](apis-list.md).

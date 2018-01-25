@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
@@ -116,18 +116,18 @@ Créez les groupes à haute disponibilité suivants :
 
 | Groupe à haute disponibilité | Rôle | Domaines d’erreur | Domaines de mise à jour |
 |:---:|:---:|:---:|:--- |
-| contosodcset |Contrôleur de domaine/AD FS |3 |5 |
-| contosowapset |WAP |3 |5 |
+| contosodcset |Contrôleur de domaine/AD FS |3 |5. |
+| contosowapset |WAP |3 |5. |
 
 ### <a name="4-deploy-virtual-machines"></a>4. Déployer les machines virtuelles
 L’étape suivante consiste à déployer les machines virtuelles qui hébergeront les différents rôles de votre infrastructure. Nous vous recommandons d’affecter au moins deux machines virtuelles à chaque groupe à haute disponibilité. Créez quatre machines virtuelles dans le cadre du déploiement de base.
 
 | Ordinateur | Rôle | Sous-réseau | Groupe à haute disponibilité | Compte de stockage | Adresse IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| contosodc1 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac1 |Statique |
-| contosodc2 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac2 |Statique |
-| contosowap1 |WAP |DMZ |contosowapset |contososac1 |Statique |
-| contosowap2 |WAP |DMZ |contosowapset |contososac2 |Statique |
+| contosodc1 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac1 |statique |
+| contosodc2 |Contrôleur de domaine/AD FS |INT |contosodcset |contososac2 |statique |
+| contosowap1 |WAP |DMZ |contosowapset |contososac1 |statique |
+| contosowap2 |WAP |DMZ |contosowapset |contososac2 |statique |
 
 Comme vous l’avez peut-être remarqué, aucun groupe de sécurité réseau n’a été spécifié, car Azure vous autorise à utiliser un groupe de sécurité réseau au niveau du sous-réseau. Vous pouvez dès lors contrôler le trafic réseau de la machine à l’aide du groupe de sécurité réseau précisément associé au sous-réseau ou à l’objet de carte réseau. Pour en savoir plus, consultez l’article [Présentation du groupe de sécurité réseau](https://aka.ms/Azure/NSG).
 Nous vous recommandons d’utiliser une adresse IP statique si vous gérez le serveur DNS. Vous pouvez aussi utiliser Azure DNS et, au lieu des enregistrements DNS de votre domaine, référencer les nouvelles machines virtuelles par leurs noms de domaine complets Azure.
@@ -267,7 +267,7 @@ Suivez les mêmes étapes que pour l’équilibreur de charge interne afin de co
 
 En général, vous devez appliquer les règles suivantes pour sécuriser efficacement votre sous-réseau interne (dans l’ordre indiqué ci-dessous)
 
-| Règle | Description | Flux |
+| Règle | DESCRIPTION | Flux |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Autoriser la communication HTTPS à partir de la zone DMZ |Trafic entrant |
 | DenyInternetOutbound |Aucun accès à Internet |Règle de trafic sortant |
@@ -278,14 +278,17 @@ En général, vous devez appliquer les règles suivantes pour sécuriser efficac
 
 **9.2. Sécurisation du sous-réseau DMZ**
 
-| Règle | Description | Flux |
+| Règle | DESCRIPTION | Flux |
 |:--- |:--- |:---:|
 | AllowHTTPSFromInternet |Autoriser le trafic HTTPS entre Internet et la zone DMZ |Trafic entrant |
 | DenyInternetOutbound |Tout trafic est bloqué, à l’exception du trafic HTTPS vers Internet |Règle de trafic sortant |
 
 ![Règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[comment]: <> (![règles d’accès EXT (entrant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![(règles d’accès EXT (sortant)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+<!--
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > Si l’authentification du certificat utilisateur client (authentification clientTLS à l’aide de certificats utilisateur X509) est requise, AD FS nécessite l’activation du port TCP 49443 pour l’accès entrant.
@@ -313,7 +316,7 @@ Le modèle déploie une installation à 6 machines, 2 par contrôleur de domaine
 
 Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau virtuel lors du déploiement de ce modèle. Les différents paramètres disponibles pour la personnalisation du déploiement sont répertoriés ci-dessous avec la description de l’utilisation du paramètre dans le processus de déploiement. 
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | Lieu |Région dans laquelle déployer les ressources, par exemple, États-Unis de l'Est. |
 | StorageAccountType |Type de compte de stockage créé |
@@ -350,8 +353,8 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 * [Réseaux virtuels Azure](https://aka.ms/Azure/VNet)
 * [Liens AD FS et Web Application Proxy](http://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>Étapes suivantes
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+## <a name="next-steps"></a>étapes suivantes
+* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 * [Configuration et gestion de vos services AD FS avec Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 

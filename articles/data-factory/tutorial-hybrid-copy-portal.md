@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Didacticiel : Copier des données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure
 Dans ce didacticiel, vous allez utiliser l’interface utilisateur de Azure Data Factory PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud. 
@@ -121,18 +121,18 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
-Dans cette étape, vous créez une fabrique de données et lancez l’interface utilisateur de Azure Data Factory pour créer un pipeline dans la fabrique de données. 
+Dans cette étape, vous créez une fabrique de données et lancez l’interface utilisateur d’Azure Data Factory pour créer un pipeline dans la fabrique de données. 
 
 1. Cliquez sur **Nouveau** dans le menu de gauche, puis sur **Données + analyse** et sur **Data Factory**. 
    
    ![Nouveau -> DataFactory](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
 2. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 
       
-     ![Page de nouvelle fabrique de données](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
+     ![Page Nouvelle fabrique de données](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
  
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche pour le champ du nom, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory). Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
   
-     ![Page de nouvelle fabrique de données](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
+     ![Page Nouvelle fabrique de données](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 3. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données. 
 4. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
      
@@ -191,7 +191,7 @@ Dans cette étape, vous créez une fabrique de données et lancez l’interface 
 11. Dans la fenêtre **Installation rapide du runtime d’intégration (auto-hébergé)**, cliquez sur **Fermer**. 
 
    ![Installation du runtime d’intégration - réussie](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. Dans la fenêtre **Installation du runtime d’intégration**, cliquez sur **Terminer**. Vous devez alors être revenu à la fenêtre **Nouveau Service lié**.
+12. Dans la fenêtre **Installation du runtime d’intégration**, cliquez sur **Terminer**. 
 
    ![Installation du runtime d’intégration - terminée](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. Dans la fenêtre **Nouveau service lié**, procédez comme suit :

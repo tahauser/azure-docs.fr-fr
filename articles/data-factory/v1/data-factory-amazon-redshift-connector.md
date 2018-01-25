@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](data-factory-amazon-redshift-connector.md)
-> * [Version 2 - Préversion](../connector-amazon-redshift.md)
+> * [Version 2 - Préversion](../connector-amazon-redshift.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 de Data Factory, disponible en préversion, consultez [Connecteur Amazon Redshift dans V2](../connector-amazon-redshift.md).
@@ -36,7 +36,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > [!TIP]
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données d’Amazon Redshift, utilisez le mécanisme Redshift intégré **UNLOAD** via Amazon Simple Storage Service (Amazon S3). Pour plus d’informations, consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accordez l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, consultez la rubrique relative à l’[autorisation d’accès au cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Pour déplacer des données vers une banque de données Azure, procédez de la manière décrite dans [calcul de l’adresse IP et des plages SQL utilisés par les centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -61,14 +61,14 @@ Les sections suivantes décrivent les propriétés JSON utilisées pour définir
 
 Le tableau suivant décrit les éléments JSON spécifiques du service lié Amazon Redshift.
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 | --- | --- | --- |
-| **type** |Cette propriété doit être définie sur **AmazonRedshift**. |Oui |
-| **server** |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
+| **type** |Cette propriété doit être définie sur **AmazonRedshift**. |OUI |
+| **server** |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
 | **port** |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non (valeur par défaut : 5439) |
-| **database** |Nom de la base de données Amazon Redshift. |Oui |
-| **nom d’utilisateur** |Nom de l’utilisateur ayant accès à la base de données. |Oui |
-| **mot de passe** |Mot de passe du compte d’utilisateur. |Oui |
+| **database** |Nom de la base de données Amazon Redshift. |OUI |
+| **nom d’utilisateur** |Nom de l’utilisateur ayant accès à la base de données. |OUI |
+| **mot de passe** |Mot de passe du compte d’utilisateur. |OUI |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -76,7 +76,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement des données dans la banque. La section **typeProperties** pour le jeu de données de type **RelationalTable**, qui inclut le jeu de données Amazon Redshift, a les propriétés suivantes :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 | --- | --- | --- |
 | **tableName** |Nom de la table dans la base de données Amazon Redshift à laquelle le service lié fait référence. |Non (si la propriété **query** d’une activité de copie de type **RelationalSource** est spécifiée) |
 
@@ -86,16 +86,16 @@ Pour obtenir la liste des sections et des propriétés disponibles pour la défi
 
 Pour une activité de copie, quand une source est de type **AmazonRedshiftSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 | --- | --- | --- |
 | **query** | Utilise la requête personnalisée pour lire les données. |Non (si la propriété **tableName** d’un jeu de données est spécifié) |
-| **redshiftUnloadSettings** | Contient le groupe de propriétés lors de l’utilisation de la commande Redshift **UNLOAD**. | Non |
+| **redshiftUnloadSettings** | Contient le groupe de propriétés lors de l’utilisation de la commande Redshift **UNLOAD**. | Non  |
 | **s3LinkedServiceName** | Amazon S3 à utiliser en tant que magasin temporaire. Le service lié est spécifié au moyen d’un nom Azure Data Factory de type **AwsAccessKey**. | Obligatoire lorsque vous utilisez la propriété **redshiftUnloadSettings** |
 | **bucketName** | Indique le compartiment Amazon S3 à utiliser pour stocker les données intermédiaires. Si cette propriété n’est pas fournie, l’activité de copie génère automatiquement un compartiment. | Obligatoire lorsque vous utilisez la propriété **redshiftUnloadSettings** |
 
 Vous pouvez également utiliser le type **RelationalSource**, qui inclut Amazon Redshift, avec la propriété suivante dans la section **typeProperties**. Notez que ce type de source ne prend pas en charge la commande **UNLOAD** de Redshift.
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 | --- | --- | --- |
 | **query** |Utilise la requête personnalisée pour lire les données. | Non (si la propriété **tableName** d’un jeu de données est spécifié) |
 
@@ -207,7 +207,7 @@ La propriété **external** est définie sur « true » pour informer le servi
 }
 ```
 
-**Jeu de données de sortie d’objet Blob Azure**
+**Jeu de données de sortie d'objet Blob Azure**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures en configurant la propriété **frequency** sur « Hour » et la propriété **interval** sur 1. La propriété **folderPath** du blob est évaluée dynamiquement. La valeur de propriété est fondée sur l’heure de début de la tranche en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et la partie heure de l’heure de début.
 
@@ -334,15 +334,15 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
-| DÉCIMAL |DÉCIMAL |
+| DÉCIMAL |Décimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |String |
-| CHAR |String |
-| VARCHAR |String |
-| DATE |DateTime |
-| TIMESTAMP |DateTime |
-| TEXTE |String |
+| BOOLEAN |Chaîne |
+| CHAR |Chaîne |
+| VARCHAR |Chaîne |
+| DATE |Datetime |
+| TIMESTAMP |Datetime |
+| TEXTE |Chaîne |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour savoir comment mapper des colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).
@@ -353,5 +353,5 @@ Lorsque vous copiez des données à partir d’un magasin de données relationne
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Pour en savoir plus sur les facteurs clés affectant les performances de l’activité de copie et les différentes manières de les optimiser, consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

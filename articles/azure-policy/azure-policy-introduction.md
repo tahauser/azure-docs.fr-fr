@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -38,7 +38,7 @@ Ces autorisations ne sont pas incluses dans le rôle **Contributeur**.
 
 Chaque définition de stratégie présente des conditions dans lesquelles elle est appliquée. Si les conditions sont remplies, une action d’accompagnement a lieu.
 
-Dans Azure Policy, nous offrons quelques stratégies intégrées qui sont disponibles par défaut. Par exemple :
+Dans Azure Policy, nous offrons quelques stratégies intégrées qui sont disponibles par défaut. Par exemple : 
 
 - **Nécessitent SQL Server 12.0** : cette définition de stratégie a des conditions/règles garantissant que tous les serveurs SQL Server utilisent la version 12.0. Son action consiste à refuser tous les serveurs qui ne répondent pas à ces critères.
 - **Références (SKU) de compte de stockage autorisées**: cette définition de stratégie a un ensemble de conditions/règles qui déterminent si un compte de stockage qui est déployé est dans un ensemble de tailles de référence (SKU). Son action consiste à refuser tous les serveurs dont la taille ne fait pas partie de l’ensemble de tailles de références (SKU) définies.
@@ -96,7 +96,7 @@ Par exemple, prenons un scénario où vous avez une définition d’initiative, 
 | Stratégie | nom du paramètre |Type de paramètre  |Remarque |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Ce paramètre attend une liste de chaînes pour une valeur, le type de paramètre ayant été défini comme tableau |
-| policyB | allowedSingleLocation |string |Ce paramètre attend un mot pour une valeur, le type de paramètre ayant été défini comme chaîne |
+| policyB | allowedSingleLocation |chaîne |Ce paramètre attend un mot pour une valeur, le type de paramètre ayant été défini comme chaîne |
 
 Dans ce scénario, quand vous définissez les paramètres d’initiative pour **initiativeC**, vous avec trois options :
 
@@ -118,7 +118,7 @@ Voici quelques conseils que nous vous recommandons de suivre lors de la créatio
 
    N’oubliez pas qu’une fois que vous avez créé une affectation d’initiative à partir d’une définition d’initiative, toutes les nouvelles définitions de stratégie ajoutées à la définition d’initiative sont automatiquement ajoutées sous la ou les affectations d’initiative sous cette définition d’initiative. Cependant, si un nouveau paramètre est introduit dans la nouvelle définition de stratégie, vous devez mettre à jour la définition et les affectations de l’initiative en modifiant la définition ou les affectations de l’initiative.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez une vue d’ensemble d’Azure Policy et des autres concepts clés que nous avons introduits, voici les étapes suivantes que nous suggérons :
 

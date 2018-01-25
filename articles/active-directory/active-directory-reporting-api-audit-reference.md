@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Référence d’API d’audit Azure Active Directory
 Cette rubrique fait partie d’un ensemble de rubriques relatives à l’API de création de rapports Azure Active Directory.  
@@ -45,7 +45,7 @@ Pour :
 * Administrateurs généraux
 * Toute application qui a l’autorisation d’accéder à l’API (l’autorisation de l’application peut être configurée uniquement en fonction de l’autorisation Administrateur général)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour accéder à ce rapport via l’API de création de rapports, vous devez disposer des éléments suivants :
 
 * Une [édition Azure Active Directory gratuite ou une édition récente](active-directory-editions.md)
@@ -200,7 +200,7 @@ ne respecte pas la casse
 
 **Remarques**:
 
-ne respecte pas la casse
+Non-respect de la casse
 
 - - -
 ### <a name="targetupn"></a>target/upn
@@ -233,7 +233,7 @@ ne respecte pas la casse
 
 **Remarques**:
 
-* ne respecte pas la casse 
+* Non-respect de la casse 
 * Vous devez ajouter l’espace de noms complet lors de l’interrogation de Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -

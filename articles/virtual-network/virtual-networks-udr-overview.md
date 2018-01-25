@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -61,8 +61,8 @@ Azure ajoute des itinéraires système par défaut supplémentaires pour les dif
 
 |Source                 |Préfixes d’adresse                       |Type de tronçon suivant|Sous-réseau au sein d’un réseau virtuel auquel l’itinéraire est ajouté|
 |-----                  |----                                   |---------                    |--------|
-|Default                |Unique pour le réseau virtuel, par exemple : 10.1.0.0/16|Homologation de réseaux virtuels                 |Tout|
-|Passerelle de réseau virtuel|Préfixes publiés à partir du site via le protocole BGP, ou configurés dans la passerelle de réseau local     |Passerelle de réseau virtuel      |Tout|
+|Default                |Unique pour le réseau virtuel, par exemple : 10.1.0.0/16|Homologation de réseaux virtuels                 |Tous|
+|Passerelle de réseau virtuel|Préfixes publiés à partir du site via le protocole BGP, ou configurés dans la passerelle de réseau local     |Passerelle de réseau virtuel      |Tous|
 |Default                |Multiple                               |VirtualNetworkServiceEndpoint|Seul le sous-réseau pour lequel un point de terminaison de service est activé.|
 
 - **Homologation de réseau virtuel (VNet)** : lorsque vous créez une homologation de réseau virtuel entre deux réseaux virtuels, un itinéraire est ajouté pour chaque plage d’adresses dans l’espace d’adressage de chaque réseau virtuel pour laquelle une homologation est créée. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md).  
@@ -89,7 +89,7 @@ Vous pouvez spécifier les types suivants de tronçon suivants lors de la créat
     > [!NOTE]
     > Déployez une appliance virtuelle dans un sous-réseau autre que celui dans lequel les ressources de routage par l’intermédiaire de l’appliance virtuelle sont déployées. Le déploiement de l’appliance virtuelle dans le même sous-réseau, puis l’application d’une table de routage au sous-réseau qui achemine le trafic via l’appliance virtuelle, peut entraîner des boucles de routage, où le trafic ne quitte jamais le sous-réseau.
 
-    - L’adresse IP privée d’un [équilibreur de charge interne](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. Un équilibreur de charge est souvent utilisé dans le cadre d’une [stratégie de haute disponibilité pour les appliances virtuelles du réseau](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - L’adresse IP privée d’un [équilibreur de charge interne](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure. Un équilibreur de charge est souvent utilisé dans le cadre d’une [stratégie de haute disponibilité pour les appliances virtuelles du réseau](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     Vous pouvez définir un itinéraire avec 0.0.0.0/0 comme le préfixe d’adresse et un type de tronçon suivant de l’appliance virtuelle, ce qui permet à l’appliance d’inspecter le trafic et de déterminer s’il faut le transférer ou le supprimer. Si vous envisagez de créer un itinéraire défini par l’utilisateur contenant le préfixe d’adresse 0.0.0.0/0, lisez d’abord la rubrique [préfixe d’adresse 0.0.0.0/0](#default-route).
 
@@ -200,17 +200,17 @@ Flèches indiquent le flux du trafic.
 
 La table de routage du *Sous-réseau1* dans l’image contient les itinéraires suivants :
 
-|ID  |Source |State  |Préfixes d’adresse    |Type de tronçon suivant          |Adresse IP de tronçon suivant|Nom d’itinéraire défini par l’utilisateur| 
+|ID  |Source |État  |Préfixes d’adresse    |Type de tronçon suivant          |Adresse IP de tronçon suivant|Nom d’itinéraire défini par l’utilisateur| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Default|Non valide|10.0.0.0/16         |Réseau virtuel        |                   |              |
 |2   |Utilisateur   |Actif |10.0.0.0/16         |Appliance virtuelle      |10.0.100.4         |Au sein de VNet1  |
 |3   |Utilisateur   |Actif |10.0.0.0/24         |Réseau virtuel        |                   |Dans le Sous-réseau1|
 |4   |Default|Non valide|10.1.0.0/16         |Homologation de réseaux virtuels           |                   |              |
-|5   |Default|Non valide|10.2.0.0/16         |Homologation de réseaux virtuels           |                   |              |
-|6   |Utilisateur   |Actif |10.1.0.0/16         |Aucun                   |                   |ToVNet2-1-Drop|
+|5.   |Default|Non valide|10.2.0.0/16         |Homologation de réseaux virtuels           |                   |              |
+|6.   |Utilisateur   |Actif |10.1.0.0/16         |Aucun                   |                   |ToVNet2-1-Drop|
 |7   |Utilisateur   |Actif |10.2.0.0/16         |Aucun                   |                   |ToVNet2-2-Drop|
 |8   |Default|Non valide|10.10.0.0/16        |Passerelle de réseau virtuel|[X.X.X.X]          |              |
-|9   |Utilisateur   |Actif |10.10.0.0/16        |Appliance virtuelle      |10.0.100.4         |To-On-Prem    |
+|9.   |Utilisateur   |Actif |10.10.0.0/16        |Appliance virtuelle      |10.0.100.4         |To-On-Prem    |
 |10  |Default|Actif |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Default|Non valide|0.0.0.0/0           |Internet|              |                   |              |
 |12  |Utilisateur   |Actif |0.0.0.0/0           |Appliance virtuelle      |10.0.100.4         |Default-NVA   |
@@ -234,7 +234,7 @@ Les identificateurs d’itinéraire sont décrits ci-dessous :
 
 La table de routage du *Sous-réseau2* dans l’image contient les itinéraires suivants :
 
-|Source  |State  |Préfixes d’adresse    |Type de tronçon suivant             |Adresse IP de tronçon suivant|
+|Source  |État  |Préfixes d’adresse    |Type de tronçon suivant             |Adresse IP de tronçon suivant|
 |------- |-------|------              |-------                   |--------           
 |Default |Actif |10.0.0.0/16         |Réseau virtuel           |                   |
 |Default |Actif |10.1.0.0/16         |Homologation de réseaux virtuels              |                   |
@@ -248,7 +248,7 @@ La table de routage du *Sous-réseau2* dans l’image contient les itinéraires 
 
 La table de routage du *Sous-réseau2* contient tous les itinéraires par défaut créés par Azure et les itinéraires facultatifs d’homologation de réseau virtuel et de passerelle de réseau virtuel. Azure a ajouté les itinéraires facultatifs à tous les sous-réseaux du réseau virtuel lorsque la passerelle et l’homologation ont été ajoutées au réseau virtuel. Azure a supprimé les itinéraires pour les préfixes d’adresse 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 et 100.64.0.0/10 de la table de routage du *Sous-réseau1* lorsque l’itinéraire défini par l’utilisateur pour le préfixe d’adresse 0.0.0.0/0 a été ajouté au *Sous-réseau1*.  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - [Créer une table de routage définie par l’utilisateur avec des itinéraires et une appliance virtuelle de réseau](create-user-defined-route-portal.md)
 - [Configurer BGP pour une passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

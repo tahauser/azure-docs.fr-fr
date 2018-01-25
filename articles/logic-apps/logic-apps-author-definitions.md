@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Créer des définitions de workflow pour les applications logiques à l’aide de JSON
 
-Vous pouvez créer des définitions de workflow pour [Azure Logic Apps](logic-apps-what-are-logic-apps.md) à l’aide d’un langage JSON déclaratif simple. Si vous ne l’avez pas encore fait, commencez par consulter l’article décrivant la [procédure de création de votre première application logique avec le concepteur d’application logique](logic-apps-create-a-logic-app.md). Vous pouvez également lire la [référence complète du langage de définition de workflow](http://aka.ms/logicappsdocs).
+Vous pouvez créer des définitions de workflow pour [Azure Logic Apps](logic-apps-overview.md) à l’aide d’un langage JSON déclaratif simple. Si vous ne l’avez pas encore fait, commencez par consulter l’article décrivant la [procédure de création de votre première application logique avec le concepteur d’application logique](quickstart-create-first-logic-app-workflow.md). Vous pouvez également lire la [référence complète du langage de définition de workflow](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Répéter des étapes dans une liste
 

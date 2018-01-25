@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5285cddcb64e44cb61c99cc18f8a66d60cd1c0fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 Integration Runtime (IR) est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -28,7 +28,7 @@ Integration Runtime (IR) est l’infrastructure de calcul utilisée par Azure 
 
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
 Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par le service lié et fournit l’environnement de calcul dans lequel l’activité s’exécute ou depuis lequel elle est envoyée.  L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
 
@@ -91,7 +91,7 @@ Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous
 Pour effectuer une opération lift-and-shift sur la charge de travail SSIS existante, vous pouvez créer un runtime d’intégration Azure SSIS pour exécuter les packages SSIS en mode natif.
 
 ### <a name="network-environment"></a>Environnement réseau
-Le runtime d’intégration Azure SSIS peut être configuré dans un réseau public ou un réseau privé.  L’accès aux données sur site est pris en charge en associant le runtime d’intégration Azure SSIS à un réseau virtuel connecté à votre réseau local. Actuellement, seuls les réseaux virtuels classiques sont pris en charge. 
+Le runtime d’intégration Azure SSIS peut être configuré dans un réseau public ou un réseau privé.  L’accès aux données sur site est pris en charge en associant le runtime d’intégration Azure SSIS à un réseau virtuel connecté à votre réseau local.  
 
 ### <a name="compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle
 Le runtime d’intégration Azure SSIS est un cluster entièrement géré de machines virtuelles Azure qui est chargé d’exécuter vos packages SSIS. Vous pouvez demander à votre propre serveur Azure SQL Database ou Managed Instance (préversion privée) d’héberger le catalogue de projets/packages SSIS (SSISDB) qui y sera attaché. Vous pouvez monter en puissance le calcul en spécifiant la taille du nœud et augmenter la taille des instances en spécifiant le nombre de nœuds du cluster. Vous pouvez maîtriser le coût d’exécution de votre runtime d’intégration Azure SSIS en l’arrêtant et en le démarrant comme bon vous semble.
@@ -137,10 +137,10 @@ Zone géographique du magasin de données récepteur | Emplacement du magasin de
 États-Unis | Est des États-Unis | Est des États-Unis
 &nbsp; | Est des États-Unis 2 | Est des États-Unis 2
 &nbsp; | Centre des États-Unis | Centre des États-Unis
-&nbsp; | États-Unis - partie centrale septentrionale | États-Unis - partie centrale septentrionale
-&nbsp; | Centre-Sud des États-Unis | États-Unis - partie centrale méridionale
+&nbsp; | Centre-Nord des États-Unis | Centre-Nord des États-Unis
+&nbsp; | États-Unis - partie centrale méridionale | États-Unis - partie centrale méridionale
 &nbsp; | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis
-&nbsp; | Ouest des États-Unis | Ouest des États-Unis
+&nbsp; | États-Unis de l’Ouest | États-Unis de l’Ouest
 &nbsp; | Ouest des États-Unis 2 | Ouest des États-Unis 2
 Canada | Est du Canada | Centre du Canada
 &nbsp; | Centre du Canada | Centre du Canada
@@ -152,7 +152,7 @@ Royaume-Uni | Ouest du Royaume-Uni | Sud du Royaume-Uni
 Asie-Pacifique | Asie du Sud-Est | Asie du Sud-Est
 &nbsp; | Est de l'Asie | Asie du Sud-Est
 Australie | Est de l’Australie | Est de l’Australie
-&nbsp; | Sud-est de l’Australie | Sud-Est de l’Australie
+&nbsp; | Sud-est de l’Australie | Sud-est de l’Australie
 Japon | Est du Japon | Est du Japon
 &nbsp; | Ouest du Japon | Est du Japon
 Corée du Sud | Centre de la Corée | Centre de la Corée
@@ -183,7 +183,7 @@ Le choix de l’emplacement pour votre runtime d’intégration Azure SSIS est 
 - Si l’emplacement de votre serveur Azure SQL Database/Managed Instance (préversion privée) où SSISDB est hébergé n’est pas le même que l’emplacement où un réseau virtuel est connecté à votre réseau local, créez d’abord votre runtime d’intégration Azure SSIS en utilisant Azure SQL Database/Managed Instance (préversion privée) et en associant un autre réseau virtuel situé au même emplacement. Ensuite, configurez une connexion entre deux réseaux virtuels situés à différents emplacements.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants :
 
 - [Créer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md)

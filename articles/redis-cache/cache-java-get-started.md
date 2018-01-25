@@ -3,8 +3,8 @@ title: Utilisation du Cache Redis Azure avec Java | Microsoft Docs
 description: Prise en main du Cache Redis Azure avec Java
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/31/2017
-ms.author: sdanie
-ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: a93dbf78c9cb94f6c20c8569a69e068ceb3b98bc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>Utilisation du Cache Redis Azure avec Java
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Le Cache Redis Azure permet d’accéder à un cache Redis dédié géré par Mi
 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Java.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 [Jedis](https://github.com/xetorthio/jedis) : client Java pour Redis
 
 Ce didacticiel utilise Jedis, mais vous pouvez utiliser n'importe quel client Java parmi ceux répertoriés ici : [http://redis.io/clients](http://redis.io/clients).
@@ -78,7 +78,7 @@ Les dernières versions de [jedis](https://github.com/xetorthio/jedis) prennent 
     }
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache.
 * Lisez la [documentation Redis](http://redis.io/documentation)officielle.
 * Découvrez comment [configurer une application Spring Initializr pour utiliser Cache Redis](cache-java-spring-boot-initializer-with-redis-cache.md).

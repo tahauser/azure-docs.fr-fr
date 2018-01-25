@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Spark et d’un service lié HDInsight à la demande. Dans ce didacticiel, vous allez effectuer les étapes suivantes :
@@ -83,11 +83,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
    ![Nouveau -> DataFactory](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
 2. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 
       
-     ![Page de nouvelle fabrique de données](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
+     ![Page Nouvelle fabrique de données](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche pour le champ du nom, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory). Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
   
-     ![Erreur : nom indisponible](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
+     ![Nom indisponible - erreur](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 3. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données. 
 4. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
      
@@ -105,7 +105,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
     ![Page d'accueil Data Factory](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
-10. Cliquez sur le titre **Créer et surveiller** pour lancer l’application de l’interface utilisateur de Data Factory dans un onglet séparé.
+10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’application de l’interface utilisateur de Data Factory dans un onglet séparé.
 
 ## <a name="create-linked-services"></a>Créez des services liés
 Vous créez deux services liés dans cette section : 
@@ -115,7 +115,7 @@ Vous créez deux services liés dans cette section :
 
 ### <a name="create-an-azure-storage-linked-service"></a>Créer un service lié Stockage Azure
 
-1. Sur la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche, comme illustré dans l’image suivante : 
+1. Dans la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche comme illustré dans l’image suivante : 
 
     ![Création d’une vignette de pipeline](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
@@ -180,6 +180,8 @@ Vous créez deux services liés dans cette section :
     
     ![Bouton de validation](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Cliquez sur **Publier**. L’interface utilisateur de Data Factory publie des entités (services liés et pipelines) sur le service Azure Data Factory. 
+    
+    ![Bouton Publier](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
 Cliquez sur **Déclencher** dans la barre d’outils, cliquez sur **Déclencher maintenant**. 

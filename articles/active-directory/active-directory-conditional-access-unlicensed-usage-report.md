@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8bcd814ee7b7bfc158e62ad26e6cc23781f5352d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="unlicensed-usage-report"></a>Rapport d’utilisation sans licence
 Le rapport d’utilisation sans licence vous aide à identifier les utilisateurs qui utilisent les fonctionnalités Azure AD payantes sans licence. Cela vous permet de tirer un meilleur profit des licences que vous avez achetées et vous aide à déterminer le bon moment pour faire l’acquisition de licences supplémentaires. 
@@ -25,7 +25,7 @@ Le rapport d’utilisation sans licence vous aide à identifier les utilisateurs
 Le rapport présente l’utilisation active des fonctionnalités payantes au cours des 30 derniers jours. 
 
 ## <a name="report-structure"></a>Structure du rapport
-| Nom de la colonne | Description |
+| Nom de la colonne | DESCRIPTION |
 |:--- |:--- |
 | Utilisateur sans licence |Nom de l’utilisateur |
 | Fonctionnalité |Nom de la fonctionnalité. Par exemple : accès conditionnel |

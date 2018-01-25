@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Vous pouvez rechercher le nom de l’IoT Hub qui héberge vos points de terminaison dans le portail sur le panneau **Vue d’ensemble**. Par défaut, le nom DNS d’un IoT Hub ressemble à : `{your iot hub name}.azure-devices.net`.
 
-Vous pouvez utiliser le DNS Azure afin de créer un nom DNS personnalisé pour votre IoT Hub. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md#azure-iot) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
+Vous pouvez utiliser le DNS Azure afin de créer un nom DNS personnalisé pour votre IoT Hub. Pour plus d’informations, consultez [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md) (Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Liste de points de terminaison IoT Hub intégrés
 
@@ -101,9 +101,9 @@ Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et
 
 Vous pouvez utiliser [Azure IoT Edge][lnk-iot-edge] pour implémenter une passerelle de champ. IoT Edge offre des fonctionnalités, comme la possibilité de multiplexer les communications à partir de plusieurs appareils sur la même connexion IoT Hub.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
+Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 
 * [Langage de requête IoT Hub pour les jumeaux d’appareils, les travaux et le routage des messages][lnk-devguide-query]
 * [Quotas et limitation][lnk-devguide-quotas]

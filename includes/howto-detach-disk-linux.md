@@ -6,7 +6,7 @@ Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à 
 ## <a name="find-the-disk"></a>Recherche du disque
 Avant de pouvoir détacher un disque d'une machine virtuelle, vous devez rechercher le nombre LUN (numéro d’unité logique), qui est un identificateur pour le disque à détacher. Pour ce faire, procédez comme suit :
 
-1. Ouvrez l’interface de ligne de commande (CLI) Azure, puis [connectez-vous à votre abonnement Azure](/cli/azure/authenticate-azure-cli). Assurez-vous que vous êtes en mode Azure Service Management (`azure config mode asm`).
+1. Ouvrez l’interface de ligne de commande (CLI) Azure, puis [connectez-vous à votre abonnement Azure](/cli/azure/authenticate-azure-cli). Vérifiez que vous êtes en mode Gestion des services Azure (`azure config mode asm`).
 2. Recherchez les disques attachés à votre machine virtuelle. L’exemple ci-après répertorie les disques de la machine virtuelle nommée `myVM` :
 
     ```azurecli
@@ -29,7 +29,7 @@ Avant de pouvoir détacher un disque d'une machine virtuelle, vous devez recherc
 3. Notez le LUN ou le **numéro d'unité logique** pour le disque que vous souhaitez détacher.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Supprimer les références de système d’exploitation sur le disque
-Avant de détacher le disque de l’invité Linux, assurez-vous que toutes les partitions sur le disque ne sont pas en cours d’utilisation. Assurez-vous que le système d’exploitation n’essaie pas de les remonter après un redémarrage. Ces étapes annulent la configuration que vous avez probablement créée lors de [l’attachement](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) du disque.
+Avant de détacher le disque de l’invité Linux, assurez-vous que toutes les partitions sur le disque ne sont pas en cours d’utilisation. Assurez-vous que le système d’exploitation n’essaie pas de les remonter après un redémarrage. Ces étapes annulent la configuration que vous avez probablement créée lors de [l’attachement](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) du disque.
 
 1. Utilisez la commande `lsscsi` pour détecter l’iddentifiateur de disque. `lsscsi` peut être installé par `yum install lsscsi` (dans des distributions Red Hat) ou `apt-get install lsscsi` (dans des distributions Debian). Vous pouvez trouver l’identificateur de disque que vous recherchez à l’aide du numéro de LUN. Le dernier numéro du tuple dans chaque ligne est le LUN. Dans l’exemple ci-après pour la commande `lsscsi`, LUN 0 correspond à */dev/sdc*
 
@@ -74,7 +74,7 @@ Avant de détacher le disque de l’invité Linux, assurez-vous que toutes les p
    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
    ```
 
-    ou
+    or
    
    ```sh   
    /dev/sdc1   /datadrive   ext4   defaults   1   2

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8adda0d9cd6af98c04f2432eeabbc003ad403719
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Créer des workflows d’application logique à partir de modèles prédéfinis
 
@@ -27,7 +27,7 @@ Pour vous amener à commencer à créer des workflows plus rapidement, Logic App
 
 Voici certaines catégories de modèles :
 
-| Type de modèle | Description | 
+| Type de modèle | DESCRIPTION | 
 | ------------- | ----------- | 
 | Modèles de cloud d’entreprise | Il s’agit de modèles pour l’intégration de Blob Azure, de Dynamics CRM, de Salesforce et de Box, ainsi que d’autres connecteurs pour les besoins cloud de votre entreprise. Par exemple, vous pouvez utiliser ces modèles pour organiser des responsables commerciaux ou sauvegarder vos données de dossier d’entreprise. | 
 | Modèles de productivité personnelle | Améliorez la productivité personnelle en définissant des rappels quotidiens, en convertissant des éléments de travail importants en listes de tâches, et en automatisant des tâches fastidieuses de façon à les réduire à une étape d’approbation par un utilisateur unique. | 
@@ -36,7 +36,7 @@ Voici certaines catégories de modèles :
 | Modèles de modèles de protocole | Pour l’implémentation de modèles de protocole tels que requête-réponse sur HTTP et les intégrations entre FTP et SFTP. Utilisez ces modèles tels quels, ou appuyez-vous dessus pour générer des modèles de protocole complexe. | 
 ||| 
 
-Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer. Pour plus d’informations sur la génération d’une application logique, voir [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer. Pour plus d’informations sur la génération d’une application logique, voir [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-logic-apps-from-templates"></a>Créer des applications logiques à partir de modèles
 
@@ -50,12 +50,12 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
    ![Spécifier les détails de l’application logique](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Paramètre | Valeur | Description | 
+   | Paramètre | Valeur | DESCRIPTION | 
    | ------- | ----- | ----------- | 
    | **Name** | *nom-de-votre-application-logique* | Donnez un nom unique à l’application logique. | 
    | **Abonnement** | *nom-de-votre-abonnement-Azure* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser. | 
    | **Groupe de ressources** | *nom-de-votre-groupe-de-ressources-Azure* | Créez ou sélectionnez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) pour cette application logique et pour organiser toutes les ressources associées à celle-ci. | 
-   | **Emplacement** | *région-de-votre-centre-de-données-Azure* | Sélectionnez la région du centre de données où déployer votre application logique, par exemple Ouest des États-Unis. | 
+   | **Lieu** | *région-de-votre-centre-de-données-Azure* | Sélectionnez la région du centre de données où déployer votre application logique, par exemple Ouest des États-Unis. | 
    | **Log Analytics** | **Désactivé** (par défaut) ou **Activé** | Activez la [journalisation des diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) pour votre application logique via [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Requiert que vous ayez déjà un espace de travail [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md). | 
    |||| 
 
@@ -67,7 +67,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
    Une fois qu’Azure a déployé votre application logique, le Concepteur Logic Apps s’ouvre et affiche une page contenant une vidéo de présentation. 
    Sous la vidéo, vous pouvez trouver des modèles courants d’applications logiques. 
 
-5. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple :
+5. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple : 
 
    ![Choisir un modèle d’application logique](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -75,7 +75,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
    > Pour créer votre application logique à partir de rien, choisissez **Application logique vide**.
 
    Lorsque vous sélectionnez un modèle prédéfini, vous pouvez voir des informations supplémentaires sur ce modèle. 
-   Par exemple :
+   Par exemple : 
 
    ![Choisir un modèle prédéfini](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -89,7 +89,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
    * Si vous avez déjà configuré ces connexions, choisissez **Continuer**.
 
-   Par exemple :
+   Par exemple : 
 
    ![Créer des connexions](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -107,16 +107,16 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
 1. Dans le [portail Azure](https://portal.azure.com "portail Azure"), recherchez et ouvrez votre application logique dans le Concepteur d’application logique.
 
-2. Dans la barre d’outils du concepteur, choisissez **Modèles**. Cette action ayant pour effet de supprimer toutes les modifications non enregistrées, un message d’avertissement s’affiche pour vous permettre confirmer votre volonté de continuer. Pour confirmer, choisissez **OK**. Par exemple :
+2. Dans la barre d’outils du concepteur, choisissez **Modèles**. Cette action ayant pour effet de supprimer toutes les modifications non enregistrées, un message d’avertissement s’affiche pour vous permettre confirmer votre volonté de continuer. Pour confirmer, choisissez **OK**. Par exemple : 
 
    ![Choisissez « Modèles »](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple :
+3. Faites défiler au-delà de la vidéo de présentation et les déclencheurs courants jusqu’à **Modèles**. Choisissez un modèle prédéfini. Par exemple : 
 
    ![Choisir un modèle d’application logique](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Lorsque vous sélectionnez un modèle prédéfini, vous pouvez voir des informations supplémentaires sur ce modèle. 
-   Par exemple :
+   Par exemple : 
 
    ![Choisir un modèle prédéfini](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -150,12 +150,12 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 ![Enregistrer et publier votre application logique](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
 
-## <a name="get-support"></a>Obtenir de l'aide
+## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Apprenez-en davantage sur la création d’applications logiques via des exemples, des scénarios, des témoignages de clients et des procédures pas à pas.
 

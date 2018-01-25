@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -197,7 +197,7 @@ Une fois que vous avez sélectionné une option de mise à l’échelle, créez 
 Une application de fonction dispose de nombreuses ressources enfant que vous pouvez utiliser dans votre développement, notamment les paramètres de l’application et les options de contrôle de code source. Vous pouvez également choisir de supprimer la ressource enfant **sourcecontrols** et utiliser une autre [option de déploiement](functions-continuous-deployment.md) à la place.
 
 > [!IMPORTANT]
-> Il est important de comprendre comment les ressources sont déployées dans Azure pour déployer correctement votre application en utilisant Azure Resource Manager. Dans l’exemple suivant, les configurations de niveau supérieur sont appliquées à l’aide de **siteConfig**. Il est important de définir ces configurations à un niveau supérieur, car elles fournissent des informations au moteur de déploiement et au runtime Functions. Des informations de niveau supérieur sont requises avant que la ressource enfant **sourcecontrols/web** soit appliquée. Bien qu’il soit possible de configurer ces paramètres dans la ressource **configuration/appSettings** au niveau enfant, dans certains cas, votre application de fonction doit être déployée *avant* que la ressource **configuration/appSettings** soit appliquée. Par exemple, quand vous utilisez des fonctions avec [Logic Apps](../logic-apps/index.md), vos fonctions sont une dépendance d’une autre ressource.
+> Il est important de comprendre comment les ressources sont déployées dans Azure pour déployer correctement votre application en utilisant Azure Resource Manager. Dans l’exemple suivant, les configurations de niveau supérieur sont appliquées à l’aide de **siteConfig**. Il est important de définir ces configurations à un niveau supérieur, car elles fournissent des informations au moteur de déploiement et au runtime Functions. Des informations de niveau supérieur sont requises avant que la ressource enfant **sourcecontrols/web** soit appliquée. Bien qu’il soit possible de configurer ces paramètres dans la ressource **configuration/appSettings** au niveau enfant, dans certains cas, votre application de fonction doit être déployée *avant* que la ressource **configuration/appSettings** soit appliquée. Par exemple, quand vous utilisez des fonctions avec [Logic Apps](../logic-apps/index.yml), vos fonctions sont une dépendance d’une autre ressource.
 
 ```json
 {
@@ -259,8 +259,8 @@ Une application de fonction dispose de nombreuses ressources enfant que vous pou
 Vous pouvez utiliser une des méthodes suivantes pour déployer votre modèle :
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Bouton Déployer dans Azure
@@ -279,7 +279,7 @@ Voici un exemple qui utilise HTML :
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En savoir plus sur le développement et la configuration d’Azure Functions.
 

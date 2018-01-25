@@ -3,7 +3,7 @@ title: Connecteur Lotus Domino | Microsoft Docs
 description: "Cet article décrit comment configurer le connecteur Lotus Domino de Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Référence technique du connecteur Lotus Domino
 Cet article décrit le connecteur Lotus Domino. Cet article s’applique aux produits suivants :
@@ -43,7 +43,7 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 
 Le connecteur Lotus Domino utilise le client Lotus Notes pour communiquer avec le serveur Lotus Domino. Conséquence de cette dépendance, un client Lotus Notes pris en charge doit être installé sur le serveur de synchronisation. La communication entre le client et le serveur est mise en œuvre via l’interface d’interopérabilité .NET Lotus Notes (Interop.domino.dll). Cette interface facilite la communication entre la plateforme Microsoft.NET et le client Lotus Notes, et prend en charge l’accès aux documents et vues Lotus Domino. Pour une importation différentielle, il est également possible d’utiliser l’interface C++ native (en fonction de la méthode d’importation différentielle sélectionnée).
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 Avant d’utiliser le connecteur, vérifiez que vous disposez des composants requis suivants sur le serveur de synchronisation :
 
 * Microsoft .NET 4.5.2 Framework ou version ultérieure
@@ -128,7 +128,7 @@ Le fichier UserID fourni est stocké dans la base de données de configuration d
 
 Pour **Delta Import** , vous disposez des options suivantes :
 
-* **None**. Le connecteur n’effectue aucune importation différentielle.
+* **Aucun**. Le connecteur n’effectue aucune importation différentielle.
 * **Add/Update**. Le connecteur effectue une importation différentielle des opérations d’ajout et de mise à jour. Pour la suppression, une opération **Full Import** est requise. Cette opération utilise l’interopérabilité .Net.
 * **Add/Update/Delete**. Le connecteur effectue une importation différentielle des opérations d’ajout, de mise à jour et de suppression. Cette opération utilise les interfaces C++ natives.
 
@@ -155,7 +155,7 @@ Cette option de configuration est requise pour prendre en charge les opérations
 #### <a name="import-settings-method"></a>Paramètres d’importation, méthode
 Le paramètre **Perform Full Import By** présente les options suivantes :
 
-* Search
+* action
 * View (recommandée)
 
 **Search** utilise l’indexation dans Domino, mais souvent les index ne sont pas mis à jour en temps réel et les données renvoyées par le serveur ne sont pas toujours correctes. Pour un système avec de nombreuses modifications, cette option ne fonctionne pas très bien et indique de fausses suppressions dans certaines situations. Cependant, **Search** est plus rapide que **View**.
@@ -371,7 +371,7 @@ Lorsque vous approvisionnez des objets Personne sur votre annuaire Lotus Domino,
 
 Le tableau suivant répertorie ces propriétés ainsi que leur description.
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 | --- | --- |
 | \_MMS_AltFullName |L’autre nom complet de l’utilisateur. |
 | \_MMS_AltFullNameLanguage |La langue à utiliser pour spécifier l’autre nom complet de l’utilisateur. |
@@ -416,7 +416,7 @@ Cette section répertorie les attributs obligatoires pour chaque objet pris en c
 | Base courrier en arrivée |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Personne |<li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Contact (personne sans autorité de certification) |<li>\_MMS_IDRegType</li> |
-| Ressource |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Ressource |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Questions et problèmes courants
 ### <a name="schema-detection-does-not-work"></a>La détection du schéma ne fonctionne pas

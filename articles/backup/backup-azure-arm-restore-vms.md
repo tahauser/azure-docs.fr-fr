@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utiliser le portail Azure pour restaurer des machines virtuelles
 Protégez vos données en prenant des instantanés de vos données à des intervalles définis. Ces instantanés sont considérés comme des points de récupération stockés dans des coffres Recovery Services. Lorsqu’il est nécessaire de réparer ou de générer de nouveau une machine virtuelle, sa restauration peut s’effectuer à partir des points de récupération enregistrés. Lorsque vous restaurez un point de récupération, vous pouvez :
@@ -42,7 +42,7 @@ La restauration d’une machine virtuelle ou de tous les disques à partir de la
 * Sélectionnez le type de restauration, créez une machine virtuelle ou restaurez des disques, et spécifiez les paramètres requis. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Sélectionner un point pour la restauration
-1. Connectez-vous au [portail Azure](http://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](http://portal.azure.com/).
 
 2. Dans le menu Azure, sélectionnez **Parcourir**. Dans la liste des services, tapez **Recovery Services**. La liste des services s’ajuste en fonction de ce que vous tapez. Lorsque vous voyez **Coffres Recovery Services**, cliquez dessus.
 
@@ -196,7 +196,7 @@ Pour obtenir le modèle qui a été généré dans le cadre de l’option de res
    ![Envoyer un déploiement de modèle](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Étapes post-restauration
-* Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe est bloqué après la restauration pour des raisons de sécurité. Utilisez l’extension VMAccess sur la machine virtuelle restaurée pour [réinitialiser le mot de passe](../virtual-machines/linux/classic/reset-access.md). Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration.
+* Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe est bloqué après la restauration pour des raisons de sécurité. Utilisez l’extension VMAccess sur la machine virtuelle restaurée pour [réinitialiser le mot de passe](../virtual-machines/linux/reset-password.md). Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour éviter de réinitialiser le mot de passe après la restauration.
 * Les extensions présentes au cours de la configuration de sauvegarde sont installées, mais pas activées. Si vous rencontrez un problème, réinstallez les extensions. 
 * Si la machine virtuelle sauvegardée a une IP statique, la machine virtuelle restaurée possède une adresse IP dynamique après la restauration pour éviter tout conflit lorsque vous créez une machine virtuelle restaurée. Découvrez comment [ajouter une adresse IP statique à une machine virtuelle restaurée](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Une machine virtuelle restaurée n’a aucune valeur de disponibilité définie. Nous recommandons d’utiliser l’option de restauration des disques et [d’ajouter un groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) lorsque vous créez une machine virtuelle depuis PowerShell ou de modèles à l’aide de disques restaurés. 
@@ -248,7 +248,7 @@ Pour pouvoir recréer entièrement les machines virtuelles après les avoir rest
 
    d. Créer une machine virtuelle avec [plusieurs adresses IP réservées](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous pouvez restaurer vos machines virtuelles, consultez l’article de résolution des problèmes pour en savoir plus sur les erreurs courantes relatives aux machines virtuelles. En outre, consultez l’article sur la gestion des tâches avec vos machines virtuelles.
 
 * [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)

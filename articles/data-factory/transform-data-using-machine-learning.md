@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-azure-ml-batch-execution-activity.md)
-> * [Version 2 - Préversion](transform-data-using-machine-learning.md)
+> * [Version 2 - Préversion](transform-data-using-machine-learning.md)
 
 [AZURE MACHINE LEARNING](https://azure.microsoft.com/documentation/services/machine-learning/) vous permet de générer, tester et déployer des solutions d’analyse prédictive. D’un point de vue très général, cela s’effectue en trois étapes :
 
@@ -131,15 +131,15 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 
 
-| Propriété          | Description                              | Requis |
+| Propriété          | DESCRIPTION                              | Obligatoire |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Nom de l’activité dans le pipeline     | Oui      |
-| Description       | Texte décrivant l’activité.  | Non       |
-| type              | Pour l’activité U-SQL de Data Lake Analytics, le type d’activité est **AzureMLBatchExecution**. | Oui      |
-| linkedServiceName | Services liés au service lié Azure Machine Learning. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
-| webServiceInputs  | Paires clé/valeur, correspondant aux noms des entrées du service web Azure Machine Learning. La clé doit correspondre aux paramètres d’entrée définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob d’entrée. | Non       |
-| webServiceOutputs | Paires clé/valeur, correspondant aux noms des sorties du service web Azure Machine Learning. La clé doit correspondre aux paramètres de sortie définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob de sortie. | Non       |
-| globalParameters  | Paires clé/valeur à passer au point de terminaison du service d’exécution par lot Azure ML. Les clés doivent correspondre aux noms des paramètres de service web définis dans le service web Azure ML publié. Les valeurs sont passées dans la propriété GlobalParameters de la demande d’exécution par lot Azure ML. | Non       |
+| Nom              | Nom de l’activité dans le pipeline     | OUI      |
+| description       | Texte décrivant l’activité.  | Non        |
+| Type              | Pour l’activité U-SQL de Data Lake Analytics, le type d’activité est **AzureMLBatchExecution**. | OUI      |
+| linkedServiceName | Services liés au service lié Azure Machine Learning. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
+| webServiceInputs  | Paires clé/valeur, correspondant aux noms des entrées du service web Azure Machine Learning. La clé doit correspondre aux paramètres d’entrée définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob d’entrée. | Non        |
+| webServiceOutputs | Paires clé/valeur, correspondant aux noms des sorties du service web Azure Machine Learning. La clé doit correspondre aux paramètres de sortie définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob de sortie. | Non        |
+| globalParameters  | Paires clé/valeur à passer au point de terminaison du service d’exécution par lot Azure ML. Les clés doivent correspondre aux noms des paramètres de service web définis dans le service web Azure ML publié. Les valeurs sont passées dans la propriété GlobalParameters de la demande d’exécution par lot Azure ML. | Non        |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scénario 1 : expériences qui utilisent des entrées/sorties de service web qui font référence à des données du stockage d’objets blob Azure
 
@@ -227,12 +227,12 @@ Une fois que vous avez fini la reformation, mettez à jour le service web de not
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)
-* [Activité Pig](transform-data-using-hadoop-pig.md)
+* [Activité pig](transform-data-using-hadoop-pig.md)
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)

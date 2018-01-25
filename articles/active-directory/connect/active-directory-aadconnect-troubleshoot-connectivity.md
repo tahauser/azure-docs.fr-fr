@@ -3,7 +3,7 @@ title: "Azure AD Connect : Résoudre les problèmes de connectivité | Microso
 description: "Explique comment résoudre les problèmes de connectivité liés à Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -38,14 +38,14 @@ Nous devons d’abord nous assurer que le fichier [**machine.config**](active-di
 
 Les URL requises doivent également être ouvertes dans le serveur proxy. La liste officielle est documentée dans [URL et plages d’adresses IP Office 365 ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Parmi ces URL, le tableau suivant indique celles qui représentent le strict minimum pour pouvoir se connecter à Azure AD. Cette liste n’inclut pas de fonctionnalités facultatives, comme l’écriture différée du mot de passe ou Azure AD Connect Health. Elle est documentée ici pour faciliter le dépannage de la configuration initiale.
+Parmi ces URL, le tableau suivant indique celles qui représentent le strict minimum pour pouvoir se connecter à Azure AD. Cette liste n’inclut pas de fonctionnalités facultatives, comme la réécriture du mot de passe ou Azure AD Connect Health. Elle est documentée ici pour faciliter le dépannage de la configuration initiale.
 
-| URL | Port | Description |
+| URL | Port | DESCRIPTION |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.verisign.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats. |
 | \*.entrust.com |HTTP/80 |Permet de télécharger des listes de révocation de certificats pour MFA. |
-| \*.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
+| \**.windows.net |HTTPS/443 |Permet de se connecter à Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilisé pour MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Permet de configurer votre annuaire Azure AD et pour importer/exporter des données. |
 
@@ -108,9 +108,9 @@ Si vous avez suivi l’ensemble des étapes précédentes et que vous ne pouvez 
 ### <a name="reference-proxy-logs"></a>Journaux de proxy de référence
 Voici une image mémoire d’un journal de proxy réel et la page de l’Assistant Installation d’où elle a été prise (les entrées en double pour un même point de terminaison ont été supprimées). Cette section peut être utilisée comme référence pour vos propres journaux de proxy et de réseau. Les points de terminaison réels peuvent être différents dans votre environnement (en particulier les URL en *italique*).
 
-**Se connecter à Azure AD**
+**Connexion à Azure AD**
 
-| Time | URL |
+| Temps | URL |
 | --- | --- |
 | 11/01/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 11/01/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -121,7 +121,7 @@ Voici une image mémoire d’un journal de proxy réel et la page de l’Assista
 
 **Configurer**
 
-| Time | URL |
+| Temps | URL |
 | --- | --- |
 | 11/01/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 11/01/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -137,7 +137,7 @@ Voici une image mémoire d’un journal de proxy réel et la page de l’Assista
 
 **Synchronisation initiale**
 
-| Time | URL |
+| Temps | URL |
 | --- | --- |
 | 11/01/2016 8:48 |connect://login.windows.net:443 |
 | 11/01/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
@@ -197,5 +197,5 @@ Cette erreur apparaît quand l’Assistant de connexion ne peut pas accéder au 
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: cccab530e86373fee8a78b42c8cba532b05c1bab
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Prise en main de l’Explorateur de stockage (version préliminaire)
 ## <a name="overview"></a>Vue d’ensemble
@@ -26,11 +26,11 @@ L’Explorateur de stockage Azure (version préliminaire) est une application au
 
 ![Explorateur de stockage Microsoft Azure (version préliminaire)][15]
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 * [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Connexion à un service ou un compte de stockage
-L’Explorateur de stockage (version préliminaire) offre de nombreuses façons de se connecter à des comptes de stockage. Vous pouvez par exemple afficher :
+L’Explorateur de stockage (version préliminaire) offre de nombreuses façons de se connecter à des comptes de stockage. Vous pouvez par exemple :
 * Vous connecter à des comptes de stockage associés à vos abonnements Azure.
 * Vous connecter à des comptes de stockage et à des services partagés à partir d’autres abonnements Azure.
 * Vous connecter au stockage local et le gérer à l’aide de l’émulateur de stockage Azure. 
@@ -99,7 +99,7 @@ L’Explorateur de stockage (version préliminaire) vous permet d’effectuer un
 ### <a name="get-the-storage-account-credentials"></a>Obtention des informations d’identification du compte de stockage
 Pour partager un compte de stockage externe, le propriétaire du compte doit d’abord obtenir les informations d’identification du compte (nom et clé du compte), puis les partager avec les personnes souhaitant effectuer un attachement à ce compte (externe). Vous pouvez obtenir les informations d’identification du compte de stockage via le portail Azure en suivant ces étapes :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Sélectionnez **Parcourir**.
 
@@ -241,9 +241,9 @@ Si vous avez une longue liste de comptes de stockage, la zone de recherche situ�
 
 ![Recherche de compte de stockage][11]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Gérer les ressources de Stockage Blob Azure avec l’Explorateur de stockage (version préliminaire)](vs-azure-tools-storage-explorer-blobs.md)
-* [Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure (préversion)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+* [Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure (préversion)](./cosmos-db/storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

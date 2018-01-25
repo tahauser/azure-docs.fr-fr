@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Créer des API personnalisées qui peuvent être appelées à partir de workflows d’applications logiques
 
@@ -31,7 +31,7 @@ Bien qu’Azure Logic Apps offre [plus de 100 connecteurs intégrés](../connec
 
 En principe, les connecteurs sont des API web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](http://swagger.io/specification/) pour la documentation et JSON en tant que format d’échange de données. Étant donné que les connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, comme .NET, Java ou Node.js, pour la création de connecteurs. Vous pouvez également héberger votre API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre de plateforme en tant que service (PaaS) qui fournit une des manières les plus optimales, les plus simples et les plus évolutives d’héberger des API. 
 
-Pour que les API personnalisées fonctionnent avec les applications logiques, votre API peut fournir des [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) qui effectuent des tâches spécifiques dans les flux de travail des applications logiques. Votre API peut également faire office de [*déclencheur*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) qui démarre le flux de travail d’une application logique lorsque de nouvelles données ou un événement répondent à une condition donnée. Cette rubrique décrit les modèles courants que vous pouvez suivre pour la création d’actions et de déclencheurs dans votre API, en fonction du comportement que vous souhaitez que votre API adopte.
+Pour que les API personnalisées fonctionnent avec les applications logiques, votre API peut fournir des [*actions*](./logic-apps-overview.md#logic-app-concepts) qui effectuent des tâches spécifiques dans les flux de travail des applications logiques. Votre API peut également faire office de [*déclencheur*](./logic-apps-overview.md#logic-app-concepts) qui démarre le flux de travail d’une application logique lorsque de nouvelles données ou un événement répondent à une condition donnée. Cette rubrique décrit les modèles courants que vous pouvez suivre pour la création d’actions et de déclencheurs dans votre API, en fonction du comportement que vous souhaitez que votre API adopte.
 
 Vous pouvez héberger vos API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre PaaS (platform as a service) qui propose un hébergement d’API simple et hautement évolutif.
 
@@ -73,7 +73,7 @@ De nombreuses bibliothèques (telles que [Swashbuckle](https://github.com/domain
 
 ## <a name="action-patterns"></a>Modèles d’action
 
-Pour que les applications logiques effectuent des tâches, votre API personnalisée doit fournir des [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Chaque opération dans votre API renvoie à une action. Une action de base peut être un contrôleur qui accepte les requêtes HTTP et renvoie des réponses HTTP. Par exemple, une application logique envoie une requête HTTP à votre application web ou à votre application API. Votre application renvoie alors une réponse HTTP, ainsi que du contenu que l’application logique peut traiter.
+Pour que les applications logiques effectuent des tâches, votre API personnalisée doit fournir des [*actions*](./logic-apps-overview.md#logic-app-concepts). Chaque opération dans votre API renvoie à une action. Une action de base peut être un contrôleur qui accepte les requêtes HTTP et renvoie des réponses HTTP. Par exemple, une application logique envoie une requête HTTP à votre application web ou à votre application API. Votre application renvoie alors une réponse HTTP, ainsi que du contenu que l’application logique peut traiter.
 
 Pour une action standard, vous pouvez écrire une méthode de requête HTTP dans votre API et décrire cette méthode dans un fichier Swagger. Vous pouvez ensuite appeler votre API directement avec une [action HTTP](../connectors/connectors-native-http.md) ou une action [HTTP + Swagger](../connectors/connectors-native-http-swagger.md). Par défaut, les réponses doivent être renvoyées dans le [délai d’expiration de la requête](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Pour ce modèle, définissez deux points de terminaison sur votre contrôleur :
 
 ## <a name="trigger-patterns"></a>Modèles de déclencheur
 
-Votre API personnalisée peut faire office de [*déclencheur*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) qui démarre une application logique lorsque de nouvelles données ou un événement répondent à une condition donnée. Ce déclencheur peut soit vérifier régulièrement, soit attendre et écouter, la présence de nouvelles données ou d’événements au niveau du point de terminaison de votre service. Si de nouvelles données ou un événement remplissent la condition indiquée, le déclencheur est activé et démarre l’application logique, qui est à l’écoute de ce déclencheur. Pour démarrer les applications logiques de cette manière, votre API peut suivre le modèle de [*déclencheur d’interrogation*](#polling-triggers) ou de [*déclencheur Webhook*](#webhook-triggers). Ces modèles sont semblables à leurs équivalents : [actions d’interrogation](#async-pattern) et [actions Webhook](#webhook-actions). Découvrez également les [mesures d’utilisation des déclencheurs](logic-apps-pricing.md).
+Votre API personnalisée peut faire office de [*déclencheur*](./logic-apps-overview.md#logic-app-concepts) qui démarre une application logique lorsque de nouvelles données ou un événement répondent à une condition donnée. Ce déclencheur peut soit vérifier régulièrement, soit attendre et écouter, la présence de nouvelles données ou d’événements au niveau du point de terminaison de votre service. Si de nouvelles données ou un événement remplissent la condition indiquée, le déclencheur est activé et démarre l’application logique, qui est à l’écoute de ce déclencheur. Pour démarrer les applications logiques de cette manière, votre API peut suivre le modèle de [*déclencheur d’interrogation*](#polling-triggers) ou de [*déclencheur Webhook*](#webhook-triggers). Ces modèles sont semblables à leurs équivalents : [actions d’interrogation](#async-pattern) et [actions Webhook](#webhook-actions). Découvrez également les [mesures d’utilisation des déclencheurs](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -178,8 +178,8 @@ Par exemple, pour vérifier périodiquement la présence de nouveaux fichiers da
 
 | La requête inclut `triggerState` ? | Réponse de l’API | 
 | -------------------------------- | -------------| 
-| Non | Renvoyez un état HTTP `202 ACCEPTED` plus un en-tête `location` avec `triggerState` défini sur l’heure actuelle et l’intervalle `retry-after` sur 15 secondes. | 
-| Oui | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. | 
+| Non  | Renvoyez un état HTTP `202 ACCEPTED` plus un en-tête `location` avec `triggerState` défini sur l’heure actuelle et l’intervalle `retry-after` sur 15 secondes. | 
+| OUI | Vérifiez la présence de fichiers ajoutés après le `DateTime` pour `triggerState` dans votre service. | 
 ||| 
 
 | Nombre de fichiers trouvés | Réponse de l’API | 
@@ -227,7 +227,7 @@ Pour mettre vos API personnalisées à la disposition d’autres utilisateurs Lo
 
 Pour mettre vos API personnalisées à la disposition de tous les utilisateurs de Logic Apps, Microsoft Flow et Microsoft PowerApps, vous devez ajouter un dispositif de sécurité, inscrire vos API en tant que connecteurs Logic Apps et les proposer au [Programme Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-## <a name="get-support"></a>Obtenir de l'aide
+## <a name="get-support"></a>Obtenir de l’aide
 
 * Pour obtenir de l’aide concernant les API personnalisées, contactez [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
@@ -235,7 +235,7 @@ Pour mettre vos API personnalisées à la disposition de tous les utilisateurs d
 
 * Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Gérer les erreurs et exceptions](../logic-apps/logic-apps-exception-handling.md)
 * [Appeler, déclencher ou imbriquer des applications logiques via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md)

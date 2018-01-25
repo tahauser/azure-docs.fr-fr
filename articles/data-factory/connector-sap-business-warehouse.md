@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Plus précisément, ce connecteur SAP Business Warehouse prend en charge ce qui 
 - Copie de données **d’InfoCubes et de QueryCubes** (y compris des requêtes BEx) à l’aide de requêtes MDX.
 - Copie de données en utilisant une authentification de base.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour utiliser ce connecteur SAP Business Warehouse, vous devez :
 
@@ -61,13 +61,13 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse so
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapBw** | Oui |
-| server | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
-| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
-| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
-| userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
-| password | Mot de passe pour l’utilisateur. Marquez ce champ comme SecureString. | Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
+| Type | La propriété type doit être définie sur **SapBw** | OUI |
+| server | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
+| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
+| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
+| userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
+| password | Mot de passe pour l’utilisateur. Marquez ce champ comme SecureString. | OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
 
 **Exemple :**
 
@@ -126,8 +126,8 @@ Pour copier des données de SAP BW, définissez **RelationalSource** comme type 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
-| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
+| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | OUI |
 
 **Exemple :**
 

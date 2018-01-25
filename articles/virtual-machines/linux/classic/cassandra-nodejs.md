@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Exécuter un cluster Cassandra sur Linux dans Azure avec Node.js
 
@@ -292,7 +292,7 @@ Ouvrez une session sur la machine virtuelle à l'aide du nom d'hôte (hk-AC-temp
 Exécutez la séquence d'actions suivante pour capturer l'image :
 
 ##### <a name="1-deprovision"></a>1. annulation du déploiement
-Utilisez la commande « sudo waagent –deprovision+user » pour supprimer des informations spécifiques à l'instance de machine virtuelle. Pour plus de détails sur le processus de capture d’image, consultez la page [Capture d’une machine virtuelle Linux à utiliser comme modèle](capture-image.md) .
+Utilisez la commande « sudo waagent –deprovision+user » pour supprimer des informations spécifiques à l'instance de machine virtuelle. Pour plus de détails sur le processus de capture d’image, consultez la page [Capture d’une machine virtuelle Linux à utiliser comme modèle](capture-image-classic.md) .
 
 ##### <a name="2-shut-down-the-vm"></a>2: Arrêt de la machine virtuelle
 Assurez-vous que la machine virtuelle est sélectionnée et cliquez sur le lien Arrêter dans la barre de commandes inférieure.

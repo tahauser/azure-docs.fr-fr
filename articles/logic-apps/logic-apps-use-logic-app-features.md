@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-logic-apps-features"></a>Utiliser les fonctionnalités des applications logiques
 
-Dans une [rubrique précédente](../logic-apps/logic-apps-create-a-logic-app.md), vous avez créé votre première application logique. Pour contrôler le workflow de votre application logique, vous pouvez définir des chemins d’accès différents pour l’exécution de votre application logique et spécifier comment traiter les données dans des tableaux, des collections et des lots. Vous pouvez inclure les éléments suivants dans le workflow de votre application logique :
+Dans une [rubrique précédente](../logic-apps/quickstart-create-first-logic-app-workflow.md), vous avez créé votre première application logique. Pour contrôler le workflow de votre application logique, vous pouvez définir des chemins d’accès différents pour l’exécution de votre application logique et spécifier comment traiter les données dans des tableaux, des collections et des lots. Vous pouvez inclure les éléments suivants dans le workflow de votre application logique :
 
 * Les conditions et les [instructions switch](../logic-apps/logic-apps-switch-case.md) permettent à votre application logique d’exécuter différentes actions si certaines conditions sont remplies ou non.
 
@@ -48,7 +48,7 @@ Par exemple, supposons que vous disposez d’une application logique qui vous en
 2. Ajoutez une condition dans le workflow à l’emplacement souhaité. 
 
    Pour ajouter la condition entre des étapes existantes du workflow de l’application logique, déplacez le pointeur sur la flèche où vous voulez ajouter la condition. 
-   Cliquez sur le **signe plus** (**+**), puis choisissez **Ajouter une condition**. Par exemple :
+   Cliquez sur le **signe plus** (**+**), puis choisissez **Ajouter une condition**. Par exemple : 
 
    ![Ajouter une condition à l’application logique](./media/logic-apps-use-logic-app-features/add-condition.png)
 
@@ -57,7 +57,7 @@ Par exemple, supposons que vous disposez d’une application logique qui vous en
 
 3. Maintenant, définissez la condition. Spécifiez le champ source à évaluer, l’opération à effectuer et la valeur ou le champ cible. Pour ajouter des champs existants à votre condition, utilisez la liste **Ajouter du contenu dynamique**.
 
-   Par exemple :
+   Par exemple : 
 
    ![Modifier la condition en mode de base](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
@@ -66,13 +66,13 @@ Par exemple, supposons que vous disposez d’une application logique qui vous en
    ![Condition complète](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
-   > Pour définir la condition dans le code, choisissez **Modifier en mode Avancé**. Par exemple :
+   > Pour définir la condition dans le code, choisissez **Modifier en mode Avancé**. Par exemple : 
    > 
    > ![Modifier la condition dans le code](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
 4. Sous **SI OUI** et **SI NON**, ajoutez les étapes à effectuer si la condition est remplie ou non.
 
-   Par exemple :
+   Par exemple : 
 
    ![Condition avec les chemins SI OUI et SI NON](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 
@@ -102,7 +102,7 @@ Même si vous avez le concepteur d’applications logiques, vous pouvez modifier
 
 2. Pour enregistrer vos modifications, cliquez sur **Enregistrer**.
 
-## <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>parameters
 
 Certaines fonctionnalités de Logic Apps sont disponibles uniquement en mode code, les paramètres par exemple. Les paramètres simplifient la réutilisation des valeurs dans votre application logique. Par exemple, si vous avez une adresse de messagerie que vous souhaitez utiliser dans plusieurs actions, vous devez la définir en tant que paramètre.
 
@@ -143,7 +143,7 @@ Pour démarrer un workflow, les services peuvent appeler un point de terminaison
 <!-- Shared links -->
 [portail Azure]: https://portal.azure.com
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Instructions switch](../logic-apps/logic-apps-switch-case.md) 
 * [Boucles, étendues et décomposition](../logic-apps/logic-apps-loops-and-scopes.md)

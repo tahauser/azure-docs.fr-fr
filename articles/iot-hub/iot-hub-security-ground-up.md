@@ -3,7 +3,7 @@ title: "Sécuriser votre solution Azure IoT de bout en bout | Microsoft Docs"
 description: "Comment utiliser les fonctionnalités de sécurité intégrée de Microsoft Azure IoT Hub et de Suite."
 services: iot-hub
 documentationcenter: 
-author: YuriDio
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 1a30c2d5-ad82-4980-8203-5ce275184964
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: yurid
-ms.openlocfilehash: 5966c2b2a84892a91a6d8a5f18d00e326329e403
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.date: 01/17/2018
+ms.author: dobett
+ms.openlocfilehash: ea9baf61b1335a6240c13c841e41bd7e4346fa6c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 

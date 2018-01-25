@@ -3,7 +3,7 @@ title: 'Azure AD Connect : Instances de service Sync | Microsoft Docs'
 description: "Cette page décrit des considérations spéciales relatives aux instances d’Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: billmath
-ms.openlocfilehash: 396a0ff94f380e194d4b1d45c3d8132a4265a131
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b3f274c2bf457760a1d62d5cc369ebdb0c52c59
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect : considérations spéciales relatives aux instances
 Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD et Office 365. Mais il existe également d’autres instances, qui ont des exigences différentes en matière d’URL et autres considérations spéciales.
@@ -29,7 +29,7 @@ Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD
 | URL à ouvrir dans le serveur proxy |
 | --- |
 | \*.microsoftonline.de |
-| \*.windows.net |
+| \**.windows.net |
 | + Listes de révocation de certificat |
 
 Quand vous vous connectez à votre locataire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
@@ -48,10 +48,10 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 
 | URL à ouvrir dans le serveur proxy |
 | --- |
-| \*.microsoftonline.com |
+| \**.microsoftonline.com |
 | \*.microsoftonline.us |
 | \*.windows.net (requis pour la détection automatique d'un locataire de gouvernement Azure AD) |
-| \*.gov.us.microsoftonline.com |
+| \**.gov.us.microsoftonline.com |
 | + Listes de révocation de certificat |
 
 > [!NOTE]
@@ -64,5 +64,5 @@ Fonctionnalités actuellement absentes du cloud Microsoft Azure Government :
 * L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
 * Les autres services Azure AD Premium ne sont pas disponibles.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

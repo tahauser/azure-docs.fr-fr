@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fedf0ffe11763dcfccadf78c0b258c8bce773376
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-trello-connector"></a>Prise en main du connecteur Trello
 Trello vous donne une perspective sur tous vos projets, qu’ils soient personnels ou professionnels.  Cet outil simple, gratuit, souple et visuel vous permet de gérer vos projets et d’organiser tout ce que vous souhaitez.  Connectez-vous à Trello pour gérer vos tableaux, vos listes et vos cartes.
 
-Commencez par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Commencez par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-trello"></a>Créer une connexion à Trello
 Pour créer des applications logiques avec Trello, créez d’abord une **connexion**, puis entrez les détails pour les propriétés suivantes :
 
-| Propriété | Requis | Description |
+| Propriété | Obligatoire | DESCRIPTION |
 | --- | --- | --- |
-| Jeton |Oui |Fournit les informations d’identification Trello |
+| par jeton |OUI |Fournit les informations d’identification Trello |
 
 Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs.
 
 > [!INCLUDE [Steps to create a connection to Trello](../../includes/connectors-create-api-trello.md)]
 > 
 
-## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/trello/).
+Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/trello/).
 
 ## <a name="more-connectors"></a>Autres connecteurs
 Revenir à la [liste des API](apis-list.md).

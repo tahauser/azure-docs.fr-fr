@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/05/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fdf65ac87273502edb1548ed6c1cf5c7bc25649
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 39d768f08305b8dcc18146b119f5bdc83a8d35d4
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Déployer et supprimer des applications avec FabricClient
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interface de ligne de commande de Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -99,7 +99,7 @@ Lorsque vous n’avez plus besoin d’une instance d’application, vous pouvez 
 ## <a name="unregister-an-application-type"></a>Désinscrire un type d’application
 Lorsque vous n’avez plus besoin d’une version spécifique d’un type d’application, il est recommandé de la désinscrire à l’aide de l’API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). La désinscription des versions inutilisées des types d’application libère l’espace de stockage utilisé par le magasin d’images. Vous pouvez désinscrire une version d’un type d’application tant qu’elle ne contient aucune instance de cette version du type d’application et qu’elle n’est référencée par aucune mise à niveau d’application en attente.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
 L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. ImageStoreConnectionString se trouve dans le manifeste de cluster récupéré à l’aide des commandes [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) et Get-ImageStoreConnectionStringFromClusterManifest :
 
@@ -330,7 +330,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
 [Présentation de l’intégrité de Service Fabric](service-fabric-health-introduction.md)

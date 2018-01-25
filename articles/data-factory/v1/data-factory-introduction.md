@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: bcd0535c689bfda02b3c100b4ae3ab8bacb932e3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d'Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](data-factory-introduction.md)
-> * [Version 2 - Préversion](../introduction.md)
+> * [Version 2 - Préversion](../introduction.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Azure Data Factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif à la [présentation de Data Factory V2](../introduction.md).
@@ -73,7 +73,7 @@ Par exemple, vous pouvez collecter des données dans Azure Data Lake Store, puis
 ### <a name="transform-and-enrich"></a>Transformer et enrichir
 Une fois que les données sont présentes dans un magasin de données centralisé dans le cloud, traitez ou transférez-les à l’aide de services de calcul tels que HDInsight Hadoop, Spark, Data Lake Analytics et Machine Learning. Vous souhaitez générer de manière fiable des données transformées selon une planification facile à gérer et contrôlée afin de fournir aux environnements de production des données approuvées. 
 
-### <a name="publish"></a>Publier 
+### <a name="publish"></a>Publish 
 Remettez les données transformées depuis le cloud vers des sources locales telles que SQL Server. Vous pouvez également les conserver dans vos sources de stockage sur le cloud pour une consommation par BI, des outils analytiques et d’autres applications.
 
 ## <a name="key-components"></a>Composants clés
@@ -102,7 +102,7 @@ Pour plus d’informations, consultez [Déplacer des données à l’aide de l�
 ### <a name="custom-net-activities"></a>Activités .NET personnalisées
 Créez une activité .NET personnalisée si vous devez déplacer des données vers ou à partir d’un magasin de données qui n’est pas prise en charge par l’activité de copie, ou transformer des données à l’aide de votre propre logique. Pour plus d’informations sur la façon de créer et d’utiliser une activité personnalisée, consultez [Utilisation des activités personnalisées dans un pipeline Azure Data Factory](data-factory-use-custom-activities.md).
 
-### <a name="datasets"></a>JEUX DE DONNÉES
+### <a name="datasets"></a>Groupes de données
 Une activité accepte ou non des jeux de données en tant qu’entrées et produit un ou plusieurs jeux de données en tant que sorties. Les jeux de données forment des structures de données au sein des magasins de données. Ces structures pointent ou référencent les données que vous souhaitez utiliser dans vos activités (telles que des entrées ou des sorties). 
 
 Par exemple, un jeu de données d’objets Blob Azure spécifie le conteneur et le dossier du stockage Blob Azure à partir duquel le pipeline doit lire les données. Ou un jeu de données Azure SQL Table spécifie la table dans laquelle les données de sortie sont écrites par l’activité. 
@@ -138,12 +138,12 @@ Vous pouvez utiliser un des outils ou API suivants pour créer des pipelines de 
 - Visual Studio
 - PowerShell
 - API .NET
-- API REST
+- de l’API REST
 - Modèle Azure Resource Manager
 
 Pour découvrir comment créer des fabriques de données avec des pipelines de données, suivez les instructions pas à pas des didacticiels suivants :
 
-| Didacticiel | Description |
+| Didacticiel | DESCRIPTION |
 | --- | --- |
 | [Déplacer des données entre deux magasins de données cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Créez une fabrique de données avec un pipeline qui déplace des données de Blob Storage vers une base de données SQL. |
 | [Transformer des données à l’aide du cluster Hadoop](data-factory-build-your-first-pipeline.md) |Générez votre première fabrique de données Azure avec un pipeline de données qui traite les données en exécutant le script Hive sur un cluster Azure HDInsight (Hadoop). |

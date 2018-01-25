@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Hive avec Hadoop dans HDInsight à l’aide de REST
 
@@ -50,7 +50,9 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
 
     La réponse reçue est similaire au texte suivant :
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
@@ -65,7 +67,9 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
 
     Cette requête renvoie une réponse similaire au texte suivant :
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Utilisez la commande suivante pour créer une table nommée **log4jLogs** :
 
@@ -84,7 +88,7 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
    Ces instructions effectuent les opérations suivantes :
    
    * **DROP TABLE** : si la table existe déjà, elle est supprimée.
-   * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
+   * **CREATE EXTERNAL TABLE** : crée une table externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
      > [!NOTE]
      > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, par exemple, par un processus de téléchargement de données automatisé ou une autre opération MapReduce.
@@ -105,7 +109,9 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
 
    Cette commande retourne un ID de tâche qui peut être utilisé pour vérifier le statut de la tâche.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. Pour vérifier le statut de la tâche, utilisez la commande suivante :
 
@@ -137,7 +143,7 @@ Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Hi
      > [!NOTE]
      > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
-   * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
+   * **STORED AS ORC** : stocke les données dans un format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
    * **SELECT** : sélectionne toutes les lignes de la nouvelle table **errorLogs**.
 

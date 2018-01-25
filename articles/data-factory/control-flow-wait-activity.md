@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Activité Wait dans Azure Data Factory
 Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant la période spécifiée avant de poursuivre l’exécution des activités suivantes. 
@@ -40,13 +40,13 @@ Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | Description | Valeurs autorisées | Requis
+Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-name | Nom de l’activité `Wait`. | String | Oui
-type | Doit être défini sur **Wait**. | String | Oui
-waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier  | Oui
+Nom | Nom de l’activité `Wait`. | Chaîne | OUI
+Type | Doit être défini sur **Wait**. | Chaîne | OUI
+waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier  | OUI
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 
 > [!NOTE]
 > Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline Data Factory en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).
@@ -102,10 +102,10 @@ Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’ac
 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
-- [Activité If Condition](control-flow-if-condition-activity.md)
+- [Activité IfCondition](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Pour chaque activité](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)

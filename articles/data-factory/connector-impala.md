@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 6719db60c7a5f67e45f53c548c573e05599734fb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e87117731a8af59fedc1bba903ef81b67d91c9f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-impala-using-azure-data-factory-beta"></a>Copier des données d’Impala avec Azure Data Factory (version bêta)
 
@@ -37,7 +37,7 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 
 ## <a name="getting-started"></a>Prise en main
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur Impala.
 
@@ -47,10 +47,10 @@ Les propriétés suivantes sont prises en charge pour le service lié Impala :
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Impala** | Oui |
-| host | Adresse IP ou nom d’hôte du serveur Impala. (c’est-à-dire 192.168.222.160).  | Oui |
+| Type | La propriété de type doit être définie sur **Impala** | OUI |
+| host | Adresse IP ou nom d’hôte du serveur Impala. (c’est-à-dire 192.168.222.160).  | OUI |
 | port | Port TCP utilisé par le serveur Impala pour écouter les connexions clientes. Valeur par défaut : 21050.  | Non  |
-| authenticationType | Type d’authentification à utiliser. <br/>Valeurs autorisées : **Anonymous**, **SASLUsername**, **UsernameAndPassword**. | Oui |
+| authenticationType | Type d’authentification à utiliser. <br/>Valeurs autorisées : **Anonymous**, **SASLUsername**, **UsernameAndPassword**. | OUI |
 | username | Nom d’utilisateur utilisé pour accéder au serveur Impala. Valeur par défaut : Anonymous en cas d’utilisation de SASLUsername.  | Non  |
 | password | Mot de passe correspondant au nom d’utilisateur en cas d’utilisation de UsernameAndPassword. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Non  |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non  |
@@ -116,8 +116,8 @@ Pour copier des données d’Impala, affectez la valeur **ImpalaSource** au type
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Oui |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource** | OUI |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
 
 **Exemple :**
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
@@ -46,7 +46,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVnet|
+    |NOM|myVnet|
     |Espace d’adressage|10.0.0.0/16|
     |Nom du sous-réseau|Public|
     |Plage d’adresses de sous-réseau|10.0.0.0/24|
@@ -64,7 +64,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
     - Sur le panneau **myVnet**, cliquez sur l’icône **Supprimer**.
     - Pour confirmer la suppression, dans la zone **Supprimer le réseau virtuel**, cliquez sur **Oui**.
 
-## <a name="azure-cli"></a>Interface de ligne de commande Azure
+## <a name="azure-cli"></a>Azure CLI
 
 1. Vous pouvez soit [installer et configurer Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), soit utiliser l’interface de ligne de commande au sein d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Pour obtenir de l’aide sur les commandes CLI, entrez `azure <command> --help`. 
 2. Dans une session d’interface de ligne de commande, connectez-vous à Azure avec la commande suivante. Si vous cliquez sur **Essayez-la** dans la zone ci-dessous, Cloud Shell s’ouvre. Vous pouvez vous connecter à votre abonnement Azure sans entrer la commande suivante :
@@ -159,10 +159,10 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 
 ---
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour découvrir tous les paramètres de réseau virtuel et de sous-réseau, consultez [Gérer des réseaux virtuels](virtual-network-manage-network.md) et [Gérer les sous-réseaux virtuels](virtual-network-manage-subnet.md). Vous disposez de différentes options pour l’utilisation de réseaux virtuels et de sous-réseaux dans un environnement de production afin de répondre à différentes exigences.
 - Pour filtrer le trafic de sous-réseau entrant et sortant, créez des [groupes de sécurité réseau](virtual-networks-nsg.md) et appliquez-les à des sous-réseaux.
-- Créez une machine virtuelle [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou une machine virtuelle [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), puis connectez-la à un réseau virtuel existant.
+- Créez une machine virtuelle [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou une machine virtuelle [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json), puis connectez-la à un réseau virtuel existant.
 - Pour connecter deux réseaux virtuels situés dans un même emplacement Azure, créez une [homologation de réseaux virtuels](create-peering-different-deployment-models.md) entre les réseaux virtuels. Vous pouvez apparier un réseau virtuel (Resource Manager) à un réseau virtuel (Classic), mais vous ne pouvez pas créer une homologation entre deux réseaux virtuels (Classic).
 - Connectez le réseau virtuel à un réseau local en utilisant un circuit [Passerelle VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

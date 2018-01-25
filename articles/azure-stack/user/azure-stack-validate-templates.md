@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Vérifier vos modèles pour Azure Stack par le validateur de modèle
 
@@ -56,17 +56,17 @@ Les avertissements ou erreurs de validation de modèle sont journalisés sur la 
 
 ![exemple de rapport de validation](./media/azure-stack-validate-templates/image1.png)
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-| Paramètre | Description | Requis |
+| Paramètre | DESCRIPTION | Obligatoire |
 | ----- | -----| ----- |
-| TemplatePath | Spécifie le chemin pour rechercher des modèles Resource Manager de manière récursive | Oui | 
-| TemplatePattern | Spécifie le nom des fichiers de modèle à faire correspondre | Non |
-| CapabilitiesPath | Spécifie le chemin du fichier JSON des fonctionnalités du cloud | Oui | 
-| IncludeComputeCapabilities | Inclut l’évaluation de ressources IaaS telles que des tailles de machine virtuelle et des extensions de machine virtuelle | Non |
-| IncludeStorageCapabilities | Inclut l’évaluation de ressources de stockage comme des types de références (SKU) | Non |
-| Rapport | Spécifie le nom du rapport HTML généré | Non |
-| Détaillé | Journalise les erreurs et les avertissements dans la console | Non|
+| TemplatePath | Spécifie le chemin pour rechercher des modèles Resource Manager de manière récursive | OUI | 
+| TemplatePattern | Spécifie le nom des fichiers de modèle à faire correspondre | Non  |
+| CapabilitiesPath | Spécifie le chemin du fichier JSON des fonctionnalités du cloud | OUI | 
+| IncludeComputeCapabilities | Inclut l’évaluation de ressources IaaS telles que des tailles de machine virtuelle et des extensions de machine virtuelle | Non  |
+| IncludeStorageCapabilities | Inclut l’évaluation de ressources de stockage comme des types de références (SKU) | Non  |
+| Rapport | Spécifie le nom du rapport HTML généré | Non  |
+| Détaillé | Journalise les erreurs et les avertissements dans la console | Non |
 
 
 ### <a name="examples"></a>Exemples
@@ -93,11 +93,11 @@ Les fichiers téléchargés incluent un fichier *AzureStackCloudCapabilities_wit
 3.  Utilisez l’applet de commande Get-CloudCapabilities pour récupérer des versions de services et créer un fichier JSON des fonctionnalités du cloud :
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
  - [Déployer des modèles sur Azure Stack](azure-stack-arm-templates.md)
  - [Développer des modèles pour Azure Stack](azure-stack-develop-templates.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 
@@ -66,7 +66,7 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 1. Préparez le modèle Resource Manager de votre cluster en vue du déploiement. Pour plus d’informations à ce sujet, consultez [Créer un cluster Service Fabric à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Pensez à certaines des applications que vous prévoyez de déployer sur le cluster. En existe-t-il exécutées en permanence sur lesquelles d’autres applications prendront des dépendances ? Envisagez-vous de déployer des applications de configuration ou de gouvernance de cluster ? Ces types d’applications sont mieux gérés par le biais d’un modèle Resource Manager, comme expliqué plus haut. 
 3. Une fois que vous avez déterminé quelles applications déployer de cette manière, vous devez les empaqueter, les compresser, puis les placer sur un partage de fichiers. Le partage doit être accessible par le biais d’un point de terminaison REST utilisable par Azure Resource Manager pendant le déploiement.
-4. Dans votre modèle Resource Manager, sous votre déclaration de cluster, décrivez les propriétés de chaque application. Ces propriétés incluent le nombre de réplicas ou d’instance et toutes les chaînes de dépendances entre les ressources (autres applications ou services). Pour obtenir la liste complète des propriétés, consultez les [Spécifications Swagger de l’API REST](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Notez que cela ne remplace pas les manifestes Application ou Service, mais décrit plutôt certaines de leurs composantes dans le cadre du modèle Resource Manager du cluster. Voici un exemple de modèle qui inclut le déploiement d’un service sans état *Service1* et d’un service avec état *Service2* dans le cadre *d’Application1* :
+4. Dans votre modèle Resource Manager, sous votre déclaration de cluster, décrivez les propriétés de chaque application. Ces propriétés incluent le nombre de réplicas ou d’instance et toutes les chaînes de dépendances entre les ressources (autres applications ou services). Pour obtenir la liste complète des propriétés, consultez les [Spécifications Swagger de l’API REST](https://aka.ms/sfrpswaggerspec). Notez que cela ne remplace pas les manifestes Application ou Service, mais décrit plutôt certaines de leurs composantes dans le cadre du modèle Resource Manager du cluster. Voici un exemple de modèle qui inclut le déploiement d’un service sans état *Service1* et d’un service avec état *Service2* dans le cadre *d’Application1* :
 
   ```json
   {
@@ -77,62 +77,62 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },
@@ -263,7 +263,7 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Utilisez [l’interface CLI Service Fabric](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) pour déployer d’autres applications sur votre cluster. 
 * [Mettez à niveau votre cluster Service Fabric](service-fabric-cluster-upgrade.md).

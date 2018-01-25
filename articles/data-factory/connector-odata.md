@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,9 +50,9 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes�
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **OData** |Oui |
-| url | URL racine du service OData. |Oui |
-| authenticationType | Type d’authentification utilisé pour se connecter à la source OData.<br/>Valeurs autorisées : **Anonyme**, **De base** et **Windows**. Notez Qu'OAuth n’est pas pris en charge. | Oui |
+| Type | La propriété de type doit être définie sur **OData** |OUI |
+| url | URL racine du service OData. |OUI |
+| authenticationType | Type d’authentification utilisé pour se connecter à la source OData.<br/>Valeurs autorisées : **Anonyme**, **De base** et **Windows**. Notez Qu'OAuth n’est pas pris en charge. | OUI |
 | userName | Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. | Non  |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ comme SecureString. | Non  |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
@@ -132,7 +132,7 @@ Pour copier des données de OData, affectez la valeur **ODataResource** à la pr
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **ODataResource** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur **ODataResource** | OUI |
 | chemin d’accès | Chemin d'accès de la ressource OData. | Non  |
 
 **Exemple**
@@ -165,7 +165,7 @@ Pour copier des données d’OData, définissez **RelationalSource** comme type 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
 | query | Options de requête OData pour filtrer les données. Exemple : "?$select=Name,Description&$top=5".<br/><br/>Notez enfin que le connecteur OData copie des données de l’URL combinée : `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Voir [Composants d’URL d’OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
 
 **Exemple :**

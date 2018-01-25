@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Effectuer différentes actions dans les applications logiques avec une instruction switch
 
@@ -31,10 +31,10 @@ Vous pouvez utiliser une instruction switch pour mettre en place ces scénarios.
 > Comme dans tous les langages de programmation, les instructions switch ne prennent en charge que les opérateurs d’égalité. Si vous avez besoin d’autres opérateurs relationnels, par exemple « supérieur à », utilisez une instruction de condition.
 > Pour garantir un comportement d’exécution constant, les cas de figure doivent contenir une valeur statique unique et non des jetons ou une expression dynamiques.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 - Un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure actif, créez un [compte gratuit](https://azure.microsoft.com/free/) ou essayez [Logic Apps gratuitement](https://tryappservice.azure.com/).
-- [Connaissance de base des applications logiques](logic-apps-what-are-logic-apps.md)
+- [Connaissance de base des applications logiques](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Ajouter une instruction switch à un flux de travail
 
@@ -120,7 +120,7 @@ Pour poser des questions, répondre aux questions et voir ce que font les autres
 
 Afin d’améliorer Azure Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Apprendre à [ajouter des conditions](logic-apps-use-logic-app-features.md)
 - En savoir plus sur la [gestion des erreurs et des exceptions](logic-apps-exception-handling.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparer les versions V1 et V2 d’Azure Data Factory
 Cet article compare la version V2 à la version V1 d’Azure Data Factory. Pour une présentation de V1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). Pour une présentation de V2, consultez [Présentation d’Azure Data Factory (V2 - préversion)](introduction.md).
@@ -27,7 +27,7 @@ Le tableau suivant compare les fonctionnalités de V1 et V2.
 
 | Fonctionnalité | version 1 | version 2 | 
 | ------- | --------- | --------- | 
-| JEUX DE DONNÉES | Une vue de données nommée qui fait référence aux données que vous souhaitez utiliser dans vos activités en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du stockage Blob Azure à partir duquel l’activité doit lire les données.<br/><br/>**Disponibilité** définit le modèle de découpage de fenêtre de traitement du jeu de données (par exemple, horaire, journalier, etc.). | Les jeux de données sont les mêmes dans V2. Toutefois, vous n’avez pas besoin de définir de planifications de **disponibilité** pour les jeux de données. Vous pouvez définir une ressource de déclencheur qui permet de planifier des pipelines à partir d’un paradigme de planificateur d’horloge. Pour plus d’informations, consultez [Déclencheurs](concepts-pipeline-execution-triggers.md#triggers) et [Jeux de données](concepts-datasets-linked-services.md). | 
+| Groupes de données | Une vue de données nommée qui fait référence aux données que vous souhaitez utiliser dans vos activités en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du stockage Blob Azure à partir duquel l’activité doit lire les données.<br/><br/>**Disponibilité** définit le modèle de découpage de fenêtre de traitement du jeu de données (par exemple, horaire, journalier, etc.). | Les jeux de données sont les mêmes dans V2. Toutefois, vous n’avez pas besoin de définir de planifications de **disponibilité** pour les jeux de données. Vous pouvez définir une ressource de déclencheur qui permet de planifier des pipelines à partir d’un paradigme de planificateur d’horloge. Pour plus d’informations, consultez [Déclencheurs](concepts-pipeline-execution-triggers.md#triggers) et [Jeux de données](concepts-datasets-linked-services.md). | 
 | Services liés | Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires à Data Factory pour se connecter à des ressources externes. | Les services liés sont identiques à ceux de Data Factory V1, mais avec une nouvelle propriété **connectVia** qui permet d’utiliser l’environnement Compute de runtime d’intégration de Data Factory V2. Pour plus d’informations, consultez [Runtimes d’intégration dans Azure Data Factory](concepts-integration-runtime.md) et [Propriétés de service lié pour le stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipelines | Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Vous utilisez startTime, endTime et isPaused pour planifier et exécuter des pipelines. | Les pipelines sont des groupes d’activités qui sont effectuées sur les données. Toutefois, la planification des activités dans le pipeline a été divisée en nouvelles ressources de déclencheur. Vous pouvez davantage considérer les pipelines de Data Factory V2 comme des « unités de workflow » que vous planifiez séparément via des déclencheurs. <br/><br/>Les pipelines n’ont pas de « fenêtres » d’exécution dans Data Factory V2. Les concepts startTime, endTime et isPaused de Data Factory V1 ne sont plus présents dans Data Factory V2. Pour plus d’informations, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md) et [Pipelines et activités](concepts-pipelines-activities.md). |
 | Activités | Les activités définissent les actions à effectuer sur vos données dans un pipeline. Le déplacement des données (activité de copie) et des activités de transformation des données (tels que Hive, Pig et MapReduce) sont pris en charge. | Dans Data Factory V2, les activités sont toujours des actions définies dans un pipeline. V2 introduit de nouvelles [activités de flux de contrôle](concepts-pipelines-activities.md#control-activities). Vous utilisez ces activités dans un flux de contrôle (bouclage et création de branche). Le déplacement des données et les activités de transformation des données qui étaient prises en charge dans V1 le sont également dans V2. Vous pouvez définir des activités de transformation sans utiliser de jeux de données dans V2. |
@@ -73,7 +73,7 @@ Un cas d’utilisation typique dans des modèles ETL correspond aux « charges d
 ### <a name="other-control-flow-activities"></a>Autres activités de flux de contrôle
 D’autres activités de flux de contrôle prises en charge par Data Factory V2 sont indiquées ci-dessous. 
 
-Activité de contrôle | Description
+Activité de contrôle | DESCRIPTION
 ---------------- | -----------
 [Activité ForEach](control-flow-for-each-activity.md) | Définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
 [Activité Web](control-flow-web-activity.md) | Appelle un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder. 
@@ -128,11 +128,20 @@ Pour plus d’informations, consultez [Différence entre une activité personnal
 Les Kits de développement logiciel (SDK) mis à jour pour V2 ne sont pas compatibles avec les clients V1. 
 
 ## <a name="authoring-experience"></a>Expérience de création
-Avec Data Factory V1, vous pouvez créer des pipelines à l’aide de Data Factory Editor dans le portail Azure. Data Factory V2 ne prend actuellement en charge que des méthodes par programmation (telles que SDK .NET, API REST, PowerShell et Python) pour créer des fabriques de données. Aucune interface utilisateur n’est prise en charge.  Data Factory V1 inclut également la prise en charge de la création de Kit de développement logiciel (SDK), REST et PowerShell.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Portail Azure | [Oui](quickstart-create-data-factory-portal.md) | [Oui](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Oui](quickstart-create-data-factory-powershell.md) | [Oui](data-factory-build-your-first-pipeline-using-powershell.md) |
+| Kit de développement logiciel (SDK) .NET | [Oui](quickstart-create-data-factory-dot-net.md) | [Oui](data-factory-build-your-first-pipeline-using-vs.md) |
+| de l’API REST | [Oui](quickstart-create-data-factory-rest-api.md) | [Oui](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Kit de développement logiciel (SDK) Python | [Oui](quickstart-create-data-factory-python.md) | Non  |
+| Modèle Resource Manager | [Oui](quickstart-create-data-factory-resource-manager-template.md) | [Oui](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Expérience de surveillance
 Dans V2, vous pouvez également surveiller les fabriques de données à l’aide d’[Azure Monitor](monitor-using-azure-monitor.md). Les nouvelles applets de commande PowerShell prennent en charge la surveillance des [runtimes d’intégration](monitor-integration-runtime.md). V1 et V2 prennent toutes deux en charge la surveillance visuelle à l’aide d’une application de surveillance pouvant être lancée depuis le portail Azure.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Découvrez comment créer une fabrique de données en suivant les instructions détaillées fournies dans les démarrages rapides suivants : [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md). 

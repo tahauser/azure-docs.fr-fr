@@ -12,29 +12,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](data-factory-onprem-db2-connector.md)
-> * [Version 2 - Préversion](../connector-db2.md)
+> * [Version 2 - Préversion](../connector-db2.md)
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de la fabrique de données, mise à la disposition générale (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur DB2 dans V2](../connector-db2.md).
+> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service de fabrique de données, qui est une version d’évaluation, consultez l’article relatif au [connecteur DB2 dans V2](../connector-db2.md).
 
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données DB2 locale dans un autre magasin de données. Vous pouvez copier des données dans n’importe quel magasin figurant dans la liste des récepteurs pris en charge que vous trouverez dans l’article sur les [activités de déplacement de données dans Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Cette rubrique s’appuie sur l’article concernant Data Factory, qui présente une vue d’ensemble du déplacement de données à l’aide de l’activité de copie et fournit une liste des combinaisons de magasins de données prises en charge. 
 
 Actuellement, Data Factory prend uniquement en charge le déplacement de données depuis une base de données DB2 vers un [magasin de données récepteur pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), et non le déplacement de données depuis d’autres magasins de données vers une base de données DB2.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Data Factory prend en charge la connexion à une base de données DB2 locale à l’aide de la [passerelle de gestion des données](data-factory-data-management-gateway.md). Pour obtenir des instructions détaillées sur la configuration du pipeline de données de la passerelle pour déplacer des données, consultez l’article [Déplacement de données entre des sources locales et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 Une passerelle est requise même si la base de données DB2 est hébergée sur une machine virtuelle Azure IaaS. Vous pouvez installer la passerelle sur la même machine virtuelle IaaS que le magasin de données, ou sur une autre machine virtuelle pourvu que la passerelle puisse se connecter à la base de données.
@@ -80,23 +80,23 @@ Les sections suivantes contiennent des informations détaillées sur les propri�
 ## <a name="db2-linked-service-properties"></a>Propriétés du service lié DB2
 Le tableau suivant répertorie les propriétés JSON spécifiques d’un service lié DB2.
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 | --- | --- | --- |
-| **type** |Cette propriété doit être définie sur **OnPremisesDb2**. |Oui |
-| **server** |Nom du serveur DB2. |Oui |
-| **database** |Nom de la base de données DB2. |Oui |
-| **schema** |Nom du schéma dans la base de données DB2. Cette propriété est sensible à la casse. |Non |
-| **authenticationType** |Type d'authentification utilisé pour se connecter à la base de données DB2. Les valeurs possibles sont : Anonyme, De base et Windows. |Oui |
-| **nom d’utilisateur** |Nom du compte d’utilisateur si vous utilisez l’authentification de base ou Windows. |Non |
-| **mot de passe** |Mot de passe du compte d’utilisateur. |Non |
-| **gatewayName** |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |Oui |
+| **type** |Cette propriété doit être définie sur **OnPremisesDb2**. |OUI |
+| **server** |Nom du serveur DB2. |OUI |
+| **database** |Nom de la base de données DB2. |OUI |
+| **schema** |Nom du schéma dans la base de données DB2. Cette propriété est sensible à la casse. |Non  |
+| **authenticationType** |Type d'authentification utilisé pour se connecter à la base de données DB2. Les valeurs possibles sont : Anonyme, De base et Windows. |OUI |
+| **nom d’utilisateur** |Nom du compte d’utilisateur si vous utilisez l’authentification de base ou Windows. |Non  |
+| **mot de passe** |Mot de passe du compte d’utilisateur. |Non  |
+| **gatewayName** |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |OUI |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la **structure**, la **disponibilité** et la **stratégie** d’un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, stockage Azure Blob, stockage Azure Table, etc.).
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement des données dans le magasin de données. La section **typeProperties** pour un jeu de données de type **RelationalTable** (qui inclut le jeu de données DB2) a la propriété suivante :
 
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 | --- | --- | --- |
 | **tableName** |Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. Cette propriété est sensible à la casse. |Non (si la propriété **query** d’une activité de copie de type **RelationalSource** est spécifiée) |
 
@@ -105,7 +105,7 @@ Pour obtenir la liste des sections et des propriétés disponibles pour la défi
 
 Pour l’activité de copie, lorsque la source est de type **RelationalSource** (qui inclut DB2), les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
-| Propriété | Description | Valeurs autorisées | Requis |
+| Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | **query** |Utilise la requête personnalisée pour lire les données. |Chaîne de requête SQL. Par exemple : `"query": "select * from "MySchema"."MyTable""` |Non (si la propriété **tableName** d’un jeu de données est spécifié) |
 
@@ -191,7 +191,7 @@ La propriété **external** est définie sur « true ». Ce paramètre informe l
 }
 ```
 
-**Jeu de données de sortie d’objet Blob Azure**
+**Jeu de données de sortie d'objet Blob Azure**
 
 Les données sont écrites dans un nouvel objet blob toutes les heures en configurant la propriété **frequency** sur « Hour » et la propriété **interval** sur 1. La propriété **folderPath** de l’objet blob est évaluée dynamiquement en fonction de l’heure de début de la section en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
@@ -310,7 +310,7 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | Type de base de données DB2 | Type de .NET Framework |
 | --- | --- |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Entier  |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -318,25 +318,25 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | Décimal |Décimal |
 | DecimalFloat |Décimal |
 | Chiffre |Décimal |
-| Date |DateTime |
-| Time |TimeSpan |
+| Date |Datetime |
+| Temps |intervalle de temps |
 | Timestamp |Datetime |
 | xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
-| Fichier binaire |Byte[] |
+| Char |Chaîne |
+| VarChar |Chaîne |
+| LongVarChar |Chaîne |
+| DB2DynArray |Chaîne |
+| Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| Graphic |Chaîne |
+| VarGraphic |Chaîne |
+| LongVarGraphic |Chaîne |
+| Clob |Chaîne |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |Chaîne |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Entier  |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -344,11 +344,11 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | Décimal |Décimal |
 | DecimalFloat |Décimal |
 | Chiffre |Décimal |
-| Date |DateTime |
-| Time |TimeSpan |
+| Date |Datetime |
+| Temps |intervalle de temps |
 | Timestamp |Datetime |
 | xml |Byte[] |
-| Char |String |
+| Char |Chaîne |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour savoir comment mapper des colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

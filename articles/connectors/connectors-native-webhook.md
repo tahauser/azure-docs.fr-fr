@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Prise en main du connecteur webhook
 
@@ -79,7 +79,7 @@ Voici plus de détails sur les déclencheurs et les actions que webhook prend en
 
 ## <a name="webhook-triggers"></a>Déclencheurs Webhook
 
-| Action | Description |
+| Action | DESCRIPTION |
 | --- | --- |
 | HTTP Webhook |Permet d’abonner une URL de rappel à un service qui peut appeler l’URL pour déclencher l’application logique lorsque nécessaire. |
 
@@ -90,15 +90,15 @@ Voici plus de détails sur les déclencheurs et les actions que webhook prend en
 Permet d’abonner une URL de rappel à un service qui peut appeler l’URL pour déclencher l’application logique lorsque nécessaire.
 Une * signifie que le champ est obligatoire.
 
-| Display Name | Nom de la propriété | Description |
+| Nom d’affichage | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
-| Méthode d’abonnement* |statique |Méthode HTTP à utiliser pour la demande d’abonnement |
+| Méthode d’abonnement* |method |Méthode HTTP à utiliser pour la demande d’abonnement |
 | URI d’abonnement* |URI |URI HTTP à utiliser pour la demande d’abonnement |
-| Méthode de résiliation d’abonnement* |statique |Méthode HTTP à utiliser pour la demande de résiliation d’abonnement |
+| Méthode de résiliation d’abonnement* |method |Méthode HTTP à utiliser pour la demande de résiliation d’abonnement |
 | URI de résiliation d’abonnement* |URI |URI HTTP à utiliser pour la demande de résiliation d’abonnement |
 | Corps d’abonnement |body |Corps de la demande HTTP pour s’abonner |
 | En-têtes de l’abonnement |headers |En-têtes de la demande HTTP pour s’abonner |
-| Authentification de l’abonnement |authentication |Authentification HTTP à utiliser pour s’abonner. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
+| Authentification de l’abonnement |Authentification |Authentification HTTP à utiliser pour s’abonner. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 | Corps de résiliation d’abonnement |body |Corps de la demande HTTP de résiliation d’abonnement |
 | En-têtes de résiliation d’abonnement |headers |En-têtes de la demande HTTP de résiliation d’abonnement |
 | Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
@@ -107,7 +107,7 @@ Une * signifie que le champ est obligatoire.
 
 Requête Webhook
 
-| Nom de la propriété | Type de données | Description |
+| Nom de la propriété | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | headers |objet |En-têtes de requête Webhook |
 | body |objet |Objet de la requête Webhook |
@@ -115,7 +115,7 @@ Requête Webhook
 
 ## <a name="webhook-actions"></a>Actions de webhook
 
-| Action | Description |
+| Action | DESCRIPTION |
 | --- | --- |
 | HTTP Webhook |Permet d’abonner une URL de rappel à un service qui peut appeler l’URL redémarrer une étape du flux de travail lorsque nécessaire. |
 
@@ -126,15 +126,15 @@ Requête Webhook
 Permet d’abonner une URL de rappel à un service qui peut appeler l’URL redémarrer une étape du flux de travail lorsque nécessaire.
 Une * signifie que le champ est obligatoire.
 
-| Display Name | Nom de la propriété | Description |
+| Nom d’affichage | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
-| Méthode d’abonnement* |statique |Méthode HTTP à utiliser pour la demande d’abonnement |
+| Méthode d’abonnement* |method |Méthode HTTP à utiliser pour la demande d’abonnement |
 | URI d’abonnement* |URI |URI HTTP à utiliser pour la demande d’abonnement |
-| Méthode de résiliation d’abonnement* |statique |Méthode HTTP à utiliser pour la demande de résiliation d’abonnement |
+| Méthode de résiliation d’abonnement* |method |Méthode HTTP à utiliser pour la demande de résiliation d’abonnement |
 | URI de résiliation d’abonnement* |URI |URI HTTP à utiliser pour la demande de résiliation d’abonnement |
 | Corps d’abonnement |body |Corps de la demande HTTP pour s’abonner |
 | En-têtes de l’abonnement |headers |En-têtes de la demande HTTP pour s’abonner |
-| Authentification de l’abonnement |authentication |Authentification HTTP à utiliser pour s’abonner. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
+| Authentification de l’abonnement |Authentification |Authentification HTTP à utiliser pour s’abonner. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
 | Corps de résiliation d’abonnement |body |Corps de la demande HTTP de résiliation d’abonnement |
 | En-têtes de résiliation d’abonnement |headers |En-têtes de la demande HTTP de résiliation d’abonnement |
 | Authentification de la résiliation d’abonnement |authentication |Authentification HTTP à utiliser pour la résiliation d’abonnement. Voir [Connecteur HTTP](connectors-native-http.md#authentication) pour plus d’informations |
@@ -143,13 +143,13 @@ Une * signifie que le champ est obligatoire.
 
 Requête Webhook
 
-| Nom de la propriété | Type de données | Description |
+| Nom de la propriété | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | headers |objet |En-têtes de requête Webhook |
 | body |objet |Objet de la requête Webhook |
 | Code d’état |int |Code d’état de la requête Webhook |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-* [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Rechercher d’autres connecteurs](apis-list.md)

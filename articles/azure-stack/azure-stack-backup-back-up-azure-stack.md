@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: df1f4c6fadd08b17a1a1eb8bbe41ab71ae4729fc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Sauvegarde d’Azure Stack
 
@@ -26,13 +26,22 @@ ms.lasthandoff: 01/02/2018
 
 Effectuez une sauvegarde à la demande sur Azure Stack avec la sauvegarde en place. Si vous devez activer le service de sauvegarde d’infrastructure, voir la section [Activer la sauvegarde d’Azure Stack à partir du portail d’administration](azure-stack-backup-enable-backup-console.md).
 
+> [!Note]  
+>  Les outils Azure Stack contiennent l’applet de commande **Start-AzSBackup**. Pour obtenir des instructions sur l’installation des outils, consultez [Devenir opérationnel avec PowerShell sur Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+
 ## <a name="start-azure-stack-backup"></a>Démarrer la sauvegarde d’Azure Stack
 
-Ouvrez Windows PowerShell avec une invite et exécutez les commandes suivantes :
+Ouvrez Windows PowerShell avec une invite dans l’environnement de gestion de l’opérateur et exécutez les commandes suivantes :
 
-   ```powershell
-   Start-AzSBackup -Location $location
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirmer la sauvegarde dans le portail d’administration
 

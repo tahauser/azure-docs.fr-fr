@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit de bout en bout
 ## <a name="introduction"></a>Introduction
@@ -416,7 +416,7 @@ Ajoutez une sortie de type *Stockage Blob Azure*. Elle pointe vers le fichier sy
 ### <a name="azure-logic-app"></a>Application logique Azure
 Vous devez ensuite créer une application logique Azure qui sélectionne les événements que la fonction place dans la file d’attente Service Bus, analyse le contenu et envoie un e-mail lorsqu’une condition est remplie.
 
-[Créez une application logique](../logic-apps/logic-apps-create-a-logic-app.md) en accédant à **Nouveau &gt; Application logique**.
+[Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) en accédant à **Nouveau &gt; Application logique**.
 
 Une fois l’application logique créée, accédez à celle-ci et choisissez **Modifier**. Dans l’éditeur d’application logique, choisissez la **File d’attente Service Bus** et entrez vos informations d’identification Service Bus pour la connecter à la file d’attente.
 

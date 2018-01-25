@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Permet de sélectionner, de gérer et d’utiliser les clusters Service Fabric.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|Description|
+|Commande|DESCRIPTION|
 | --- | --- |
 |    code-versions| Obtient une liste des versions de code fabric approvisionnées dans un cluster Service Fabric.|
 |    config-versions | Obtient une liste des versions de configuration fabric approvisionnées dans un cluster Service Fabric.|
@@ -52,7 +52,7 @@ Obtient l’intégrité d’un cluster Service Fabric. EventsHealthStateFilter p
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --applications-health-state-filter| Permet de filtrer, par état d’intégrité, les objets d’état d’intégrité des applications qui sont retournés dans les résultats de la requête d’intégrité du cluster. Les valeurs possibles pour ce paramètre incluent la valeur entière qui est obtenue à partir des membres ou des opérations au niveau du bit effectuées sur les membres de l’énumération HealthStateFilter. Seules les applications qui correspondent au filtre sont retournées.  Toutes les applications sont utilisées pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état correspondent à une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, l’état d’intégrité des applications dont la valeur HealthState est OK (2) et Warning (4) est retourné. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond aux entrées ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond aux entrées ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond aux entrées ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond aux entrées ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
 | --events-health-state-filter   | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de leur état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont retournés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état correspondent à une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat dans une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond aux entrées ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond aux entrées ayant Warning comme valeur HealthState.  La valeur est égale à 4. - Error : filtre qui correspond aux entrées ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond aux entrées ayant n’importe quelle valeur HealthState. La valeur est égale à 65535.|
@@ -63,7 +63,7 @@ Obtient l’intégrité d’un cluster Service Fabric. EventsHealthStateFilter p
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                        | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                      | Affiche ce message d’aide et quitte.|
@@ -78,13 +78,13 @@ Obtient le manifeste du cluster Service Fabric. Le manifeste du cluster contient
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --timeout -t| Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h| Affiche ce message d’aide et quitte.|
@@ -93,12 +93,12 @@ Obtient le manifeste du cluster Service Fabric. Le manifeste du cluster contient
 | --verbose| Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
-Provisionne le code ou les packages de configuration d’un cluster Service Fabric.
+Approvisionner le code ou les packages de configuration d’un cluster Service Fabric.
 Valide et provisionne le code ou les packages de configuration d’un cluster Service Fabric.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |--cluster-manifest-file-path| Chemin d’accès au fichier du manifeste de cluster.|
 |    --code-file-path            | Chemin d’accès au fichier du package de code de cluster.|
@@ -106,7 +106,7 @@ Valide et provisionne le code ou les packages de configuration d’un cluster Se
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h  | Affiche ce message d’aide et quitte.|
@@ -121,7 +121,7 @@ Si vous vous connectez au cluster sécurisé, vous devez spécifier un fichier d
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --endpoint [Requis]| URL de point de terminaison du cluster, y compris le port et le préfixe HTTP ou HTTPS.|
 | --aad             | Utilisez Azure Active Directory pour l’authentification.|
@@ -133,7 +133,7 @@ Si vous vous connectez au cluster sécurisé, vous devez spécifier un fichier d
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h         | Affiche ce message d’aide et quitte.|
@@ -147,14 +147,14 @@ Déprovisionne le code ou les packages de configuration d’un cluster Service F
 Annule l’approvisionnement du code ou des packages de configuration d’un cluster Service Fabric.
 
 ### <a name="arguments"></a>Arguments
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |--code-version  | Version du package de code de cluster.|
 |    --config-version| Version du manifeste de cluster.|
 |    --timeout -t    | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |--debug         | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
  |   --help -h       | Affiche ce message d’aide et quitte.|
@@ -168,7 +168,7 @@ Commence la mise à niveau du code ou de la version de configuration d’un clus
 Valide les paramètres de mise à niveau fournis et démarre la mise à niveau de la version du code ou de la configuration d’un cluster Service Fabric, si les paramètres sont valides.
 
 ### <a name="arguments"></a>Arguments
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |    --app-health-map                      | Dictionnaire au format JSON comprenant des paires Nom d’application/Pourcentage maximal de non intégrité avant déclenchement d’une erreur.|
  |   --app-type-health-map                 | Dictionnaire au format JSON comprenant des paires Nom de type d’application/Pourcentage maximal de non intégrité avant déclenchement d’une erreur.|
@@ -192,7 +192,7 @@ Valide les paramètres de mise à niveau fournis et démarre la mise à niveau d
  |   --warning-as-error                    | Les avertissements sont traités avec le même niveau de gravité que les erreurs.|
 
 ### <a name="global-arguments"></a>Arguments globaux
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 |--debug                               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 |    --help -h                             | Affiche ce message d’aide et quitte.|
@@ -200,6 +200,6 @@ Valide les paramètres de mise à niveau fournis et démarre la mise à niveau d
 |    --query                               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 |    --verbose                             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

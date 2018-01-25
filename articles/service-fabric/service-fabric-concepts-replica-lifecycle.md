@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: b4a01752cf2658bcc8dea663462336ca5c610d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4037fc869d3e26d52f33baa62c626f4621cd11f5
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="replicas-and-instances"></a>Réplicas et instances 
 Cet article donne une vue d’ensemble du cycle de vie des réplicas de services avec état et des instances de services sans état.
@@ -140,7 +140,7 @@ Le diagramme suivant illustre les transitions du rôle de réplica et donne quel
 > Les modèles de programmation de niveau supérieur, tels que [Reliable Actors](service-fabric-reliable-actors-introduction.md) et [Reliable Services](service-fabric-reliable-services-introduction.md), empêchent le développeur de voir le concept de rôle de réplica. Dans Actors, la notion de rôle est superflue. Dans Services, elle est en grande partie simplifiée pour la plupart des scénarios.
 >
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations sur les concepts propres à Service Fabric, consultez l’article suivant :
 
 [Cycle de vie des Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)

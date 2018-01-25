@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 11c7a10c6448248ffacee2b519f48b6ca7e4e188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-is"></a>sfctl is
 Interroge et envoie des commandes vers le service d’infrastructure.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|Description|
+|Commande|DESCRIPTION|
 | --- | --- |
 |    command| Appelle une commande d’administration dans l’instance de service d’infrastructure donnée.|
 |    query  | Appelle une requête en lecture seule dans l’instance de service d’infrastructure donnée.|
@@ -38,7 +38,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --command [Requis]| Texte de la commande à appeler. Le contenu de la commande est propre à l’infrastructure.  Valeur par défaut : is command.|
 | --service-id     | Identité du service d’infrastructure. Il s’agit du nom complet du service d’infrastructure sans le schéma d’URI « fabric: ». Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent.|
@@ -46,7 +46,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -61,7 +61,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --command [Requis]| Texte de la commande à appeler. Le contenu de la commande est propre à l’infrastructure.  Valeur par défaut : is query.|
 | --service-id     | Identité du service d’infrastructure. Il s’agit du nom complet du service d’infrastructure sans le schéma d’URI « fabric: ». Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent.|
@@ -69,7 +69,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -77,6 +77,6 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 | --query          | Chaîne de requête JMESPath. Pour plus d’informations, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose        | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

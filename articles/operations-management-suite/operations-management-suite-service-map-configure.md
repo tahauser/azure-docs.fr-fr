@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurer Service Map dans Operations Management Suite
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Extension de machine virtuelle Azure
-Vous pouvez facilement déployer l’Agent de dépendances sur vos machines virtuelles Azure à l’aide d’une [Extension de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Avec l’Extension de machine virtuelle Azure, vous pouvez déployer l’Agent de dépendances sur vos machines virtuelles par le biais d’un script PowerShell ou directement dans le modèle Azure Resource Manager de la machine virtuelle.  Une extension est disponible pour Windows (DependencyAgentWindows) et Linux (DependencyAgentLinux).  Si vous déployez par le biais de l’Extension de machine virtuelle Azure, vos agents peuvent être mis à jour automatiquement avec les dernières versions.
+Vous pouvez facilement déployer l’Agent de dépendances sur vos machines virtuelles Azure à l’aide d’une [Extension de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Avec l’Extension de machine virtuelle Azure, vous pouvez déployer l’Agent de dépendances sur vos machines virtuelles par le biais d’un script PowerShell ou directement dans le modèle Azure Resource Manager de la machine virtuelle.  Une extension est disponible pour Windows (DependencyAgentWindows) et Linux (DependencyAgentLinux).  Si vous déployez par le biais de l’Extension de machine virtuelle Azure, vos agents peuvent être mis à jour automatiquement avec les dernières versions.
 
 Pour déployer l’Extension de machine virtuelle Azure par le biais de PowerShell, vous pouvez utiliser l’exemple suivant :
 ```PowerShell

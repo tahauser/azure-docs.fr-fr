@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Surveiller les fabriques de données à l’aide d’Azure Monitor  
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
@@ -103,16 +103,16 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 } 
 ```
 
-| Propriété | Type | Description |
+| Propriété | type | DESCRIPTION |
 | --- | --- | --- |
-| storageAccountId |String | ID de ressource du compte de stockage dans lequel vous voulez ajouter les journaux de diagnostic. |
-| serviceBusRuleId |String | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle présente le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
+| storageAccountId |Chaîne | ID de ressource du compte de stockage dans lequel vous voulez ajouter les journaux de diagnostic. |
+| serviceBusRuleId |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que des concentrateurs d’événements soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle présente le format suivant : « {ID de ressource Service Bus}/authorizationrules/{nom de la clé} ».|
 | workspaceId | Type complexe | Tableau de fragments de temps de métrique et leurs stratégies de rétention. Actuellement, cette propriété est vide. |
 |Mesures| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON mappant des noms de paramètres à des valeurs d’arguments. | 
 | journaux| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |
-| category| String| Tableau de catégories de journal et leurs stratégies de rétention. |
-| timeGrain | String | Granularité des métriques capturées au format de durée ISO 8601. Elle doit être de PT1M (une minute).|
-| Activé| Boolean | Indique si la collection de cette métrique ou catégorie de journal est activée pour cette ressource.|
+| category| Chaîne| Tableau de catégories de journal et leurs stratégies de rétention. |
+| timeGrain | Chaîne | Granularité des métriques capturées au format de durée ISO 8601. Elle doit être de PT1M (une minute).|
+| Activé| Booléen | Indique si la collection de cette métrique ou catégorie de journal est activée pour cette ressource.|
 | retentionPolicy| Type complexe| Décrit la stratégie de rétention pour une métrique ou une catégorie de journal. Utilisé pour l’option de compte de stockage uniquement.|
 | days| Int| Nombre de jours durant lesquels les métriques ou les journaux sont conservés. La valeur 0 indique que les journaux sont conservés indéfiniment. Utilisé pour l’option de compte de stockage uniquement. |
 
@@ -273,21 +273,21 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 }
 ```
 
-| Propriété | Type | Description | Exemple |
+| Propriété | type | DESCRIPTION | exemples |
 | --- | --- | --- | --- |
-| Level |String | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’exécution d’activité. | `4`  |
-| correlationId |String | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|activityRunId| String| ID de l’exécution d’activité | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|pipelineRunId| String| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| String | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « ActivityRuns » | `ActivityRuns` |
-|level| String | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
-|operationName| String |Nom de l’activité avec état. Si l’état est la pulsation de début, il s’agit de `MyActivity -`. Si l’état est la pulsation de fin, il s’agit de `MyActivity - Succeeded` avec l’état final | `MyActivity - Succeeded` |
-|pipelineName| String | Nom du pipeline | `MyPipeline` |
-|activityName| String | Nom de l’activité | `MyActivity` |
-|start| String | Début de l’exécution d’activité dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
-|end| String | Met fin à l’exécution d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
+| Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’exécution d’activité. | `4`  |
+| correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|activityRunId| Chaîne| ID de l’exécution d’activité | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|pipelineRunId| Chaîne| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|ResourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Chaîne | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « ActivityRuns » | `ActivityRuns` |
+|level| Chaîne | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
+|operationName| Chaîne |Nom de l’activité avec état. Si l’état est la pulsation de début, il s’agit de `MyActivity -`. Si l’état est la pulsation de fin, il s’agit de `MyActivity - Succeeded` avec l’état final | `MyActivity - Succeeded` |
+|pipelineName| Chaîne | Nom du pipeline | `MyPipeline` |
+|activityName| Chaîne | Nom de l’activité | `MyActivity` |
+|start| Chaîne | Début de l’exécution d’activité dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
+|end| Chaîne | Met fin à l’exécution d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
 
 
 ### <a name="pipeline-run-logs-attributes"></a>Attributs des journaux d’exécution de pipeline
@@ -320,20 +320,20 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 }
 ```
 
-| Propriété | Type | Description | Exemple |
+| Propriété | type | DESCRIPTION | exemples |
 | --- | --- | --- | --- |
-| Level |String | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’exécution d’activité. | `4`  |
-| correlationId |String | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|runId| String| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| String | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « PipelineRuns » | `PipelineRuns` |
-|level| String | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
-|operationName| String |Nom du pipeline avec état. « Pipeline - Succeeded » avec état final quand l’exécution de pipeline arrive à son terme| `MyPipeline - Succeeded` |
-|pipelineName| String | Nom du pipeline | `MyPipeline` |
-|start| String | Début de l’exécution d’activité dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
-|end| String | Met fin aux exécutions d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
-|status| String | État final de l’exécution de pipeline (Succeeded ou Failed) | `Succeeded`|
+| Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’exécution d’activité. | `4`  |
+| correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|runId| Chaîne| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|ResourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Chaîne | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « PipelineRuns » | `PipelineRuns` |
+|level| Chaîne | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
+|operationName| Chaîne |Nom du pipeline avec état. « Pipeline - Succeeded » avec état final quand l’exécution de pipeline arrive à son terme| `MyPipeline - Succeeded` |
+|pipelineName| Chaîne | Nom du pipeline | `MyPipeline` |
+|start| Chaîne | Début de l’exécution d’activité dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
+|end| Chaîne | Met fin aux exécutions d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
+|status| Chaîne | État final de l’exécution de pipeline (Succeeded ou Failed) | `Succeeded`|
 
 
 ### <a name="trigger-run-logs-attributes"></a>Attributs des journaux d’exécution de déclencheur
@@ -365,21 +365,21 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 
 ```
 
-| Propriété | Type | Description | Exemple |
+| Propriété | type | DESCRIPTION | exemples |
 | --- | --- | --- | --- |
-| Level |String | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’exécution d’activité. | `4`  |
-| correlationId |String | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|triggerId| String| ID de l’exécution du déclencheur | `08587023010602533858661257311` |
-|resourceId| String | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « PipelineRuns » | `PipelineRuns` |
-|level| String | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
-|operationName| String |Nom du déclencheur avec état final s’il a été déclenché avec succès. "MyTrigger - Succeeded" si la pulsation a abouti| `MyTrigger - Succeeded` |
-|triggerName| String | Nom du déclencheur | `MyTrigger` |
-|triggerType| String | Type du déclencheur (déclencheur manuel ou déclencheur planifié) | `ScheduleTrigger` |
-|triggerEvent| String | Événement du déclencheur | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|start| String | Début d’activation du déclencheur dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
-|status| String | État final indiquant si le déclencheur a été activé avec succès (Succeeded ou Failed) | `Succeeded`|
+| Level |Chaîne | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’exécution d’activité. | `4`  |
+| correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|triggerId| Chaîne| ID de l’exécution du déclencheur | `08587023010602533858661257311` |
+|ResourceId| Chaîne | ID de ressource associé pour la ressource de fabrique de données | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| Chaîne | Catégorie de journaux de diagnostic. Attribuez à cette propriété la valeur « PipelineRuns » | `PipelineRuns` |
+|level| Chaîne | Niveau des journaux de diagnostic. Attribuez à cette propriété la valeur « Informational » | `Informational` |
+|operationName| Chaîne |Nom du déclencheur avec état final s’il a été déclenché avec succès. "MyTrigger - Succeeded" si la pulsation a abouti| `MyTrigger - Succeeded` |
+|triggerName| Chaîne | Nom du déclencheur | `MyTrigger` |
+|triggerType| Chaîne | Type du déclencheur (déclencheur manuel ou déclencheur planifié) | `ScheduleTrigger` |
+|triggerEvent| Chaîne | Événement du déclencheur | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|start| Chaîne | Début d’activation du déclencheur dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
+|status| Chaîne | État final indiquant si le déclencheur a été activé avec succès (Succeeded ou Failed) | `Succeeded`|
 
 ### <a name="metrics"></a>Mesures
 
@@ -389,14 +389,14 @@ ADFV2 émet les métriques suivantes :
 
 | **Mesure**           | **Nom d’affichage de la métrique**         | **Unité** | **Type d’agrégation** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Métriques d’exécutions de pipeline ayant abouti | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
-| PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
-| ActiviySucceededRuns | Métriques d’exécutions d’activité ayant abouti | Nombre    | Total                | Nombre total d’exécutions d’activité ayant abouti en une minute  |
-| ActivityFailedRuns   | Métriques d’exécutions d’activité ayant échoué    | Nombre    | Total                | Nombre total d’exécutions d’activité ayant échoué en une minute     |
-| TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Nombre    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
-| TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Nombre    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
+| PipelineSucceededRun | Métriques d’exécutions de pipeline ayant abouti | Count    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
+| PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Count    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
+| ActiviySucceededRuns | Métriques d’exécutions d’activité ayant abouti | Count    | Total                | Nombre total d’exécutions d’activité ayant abouti en une minute  |
+| ActivityFailedRuns   | Métriques d’exécutions d’activité ayant échoué    | Count    | Total                | Nombre total d’exécutions d’activité ayant échoué en une minute     |
+| TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Count    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
+| TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
 
 Pour accéder aux métriques, suivez les instructions contenues dans l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez l’article [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la surveillance et la gestion des pipelines en exécutant . 

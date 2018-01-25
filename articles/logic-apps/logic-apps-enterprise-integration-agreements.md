@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f939c626be11a358b0f8bece8840992a4362e1f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contrats de partenariat pour la communication B2B avec Azure Logic Apps et Enterprise Integration Pack
 
@@ -46,7 +46,7 @@ Voici quelques avantages communs lors de l’utilisation des contrats :
 
 ## <a name="how-to-use-an-agreement"></a>Comment utiliser un contrat ?
 
-Vous pouvez créer des [applications logiques](logic-apps-what-are-logic-apps.md "En savoir plus sur les applications logiques") dotées de fonctionnalités B2B à l’aide d’un contrat que vous avez créé.
+Vous pouvez créer des [applications logiques](logic-apps-overview.md "En savoir plus sur les applications logiques") dotées de fonctionnalités B2B à l’aide d’un contrat que vous avez créé.
 
 ## <a name="how-to-edit-an-agreement"></a>Comment modifier un contrat ?
 
@@ -74,5 +74,5 @@ Vous pouvez supprimer n’importe quel contrat en procédant comme suit :
 
     Le panneau Contrats n’affiche plus le contrat supprimé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Créer un contrat AS2](logic-apps-enterprise-integration-as2.md)

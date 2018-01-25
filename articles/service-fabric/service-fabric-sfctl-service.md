@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 Permet de créer, de supprimer et de gérer le service, les types de service et les packages de services.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|Description|
+|Commande|DESCRIPTION|
 | --- | --- |
 |    app-name       | Permet d’obtenir le nom de l’application Service Fabric d’un service.|
 |    code-package-list | Permet d’obtenir la liste des packages de code déployés sur un nœud Service Fabric.|
@@ -54,7 +54,7 @@ Crée le service Service Fabric spécifié à partir de la description.
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --app-id [Requis]| Identité de l’application parente. Il s’agit généralement de l’ID complet de l’application sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures et « mon_app/app1 » dans les versions précédentes.|
 | --name [Requis]| Nom du service. Ce doit être un enfant de l’ID d’application.           Il doit s’agir du nom complet incluant l’URI `fabric:`. Par exemple, le service `fabric:/A/B` est un enfant de l’application `fabric:/A`.|
@@ -87,7 +87,7 @@ Crée le service Service Fabric spécifié à partir de la description.
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -102,7 +102,7 @@ Supprime un service Service Fabric existant. Un service doit être créé avant
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --force-remove      | Supprime de force une application ou un service Service Fabric sans passer par la séquence d’arrêt normale. Ce paramètre permet de forcer la suppression d’une application ou d’un service pour lesquels le délai de suppression est arrivé à expiration en raison de problèmes intervenant dans le code de service qui empêchent la fermeture normale des réplicas.|
@@ -110,7 +110,7 @@ Supprime un service Service Fabric existant. Un service doit être créé avant
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
@@ -125,14 +125,14 @@ Permet d’obtenir la description d’un service Service Fabric existant. Vous 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --timeout -t        | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
@@ -147,7 +147,7 @@ Permet d’obtenir les informations d’intégrité du service spécifié. Event
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --events-health-state-filter | Permet de filtrer la collection d’objets HealthEvent retournés en fonction de l’état d’intégrité. Les valeurs possibles de ce paramètre incluent la valeur entière de l’un des états d’intégrité suivants. Seuls les événements qui correspondent au filtre sont retournés. Tous les événements sont utilisés pour évaluer l’état d’intégrité agrégé. Si cet argument n’est pas spécifié, toutes les entrées sont retournées. Les valeurs d’état sont une énumération basée sur des indicateurs. La valeur peut donc être une combinaison de ces valeurs obtenue à l’aide de l’opérateur « OR » au niveau du bit. Par exemple, si la valeur indiquée est 6, tous les événements dont la valeur HealthState est OK (2) et Warning (4) sont retournés. - Default : valeur par défaut. Correspond à toute valeur HealthState. La valeur est égale à zéro. - None : filtre qui ne correspond à aucune valeur HealthState. Permet de ne retourner aucun résultat sur une collection donnée d’états. La valeur est égale à 1. - OK : filtre qui correspond à l’entrée ayant OK comme valeur HealthState. La valeur est égale à 2. - Warning : filtre qui correspond à l’entrée ayant Warning comme valeur HealthState. La valeur est égale à 4. - Error : filtre qui correspond à l’entrée ayant Error comme valeur HealthState. La valeur est égale à 8. - All : filtre qui correspond à l’entrée ayant toute valeur HealthState. La valeur est égale à 65535.|
@@ -157,7 +157,7 @@ Permet d’obtenir les informations d’intégrité du service spécifié. Event
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                      | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                    | Affiche ce message d’aide et quitte.|
@@ -172,7 +172,7 @@ Retourne les informations sur le service spécifique faisant partie de l’appli
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-id [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures et « mon_app/app1 » dans les versions précédentes.|
 | --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
@@ -180,7 +180,7 @@ Retourne les informations sur le service spécifique faisant partie de l’appli
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
@@ -195,7 +195,7 @@ Retourne les informations sur tous les services faisant partie de l’applicatio
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-id [Requis]| Identité de l’application. Il s’agit généralement du nom complet de l’application sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si une application est nommée « fabric://mon_app/app1 », son identité est « mon_app~app1 » dans les versions 6.0 et supérieures et « mon_app/app1 » dans les versions précédentes.|
 | --continuation-token    | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
@@ -204,7 +204,7 @@ Retourne les informations sur tous les services faisant partie de l’applicatio
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                 | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h               | Affiche ce message d’aide et quitte.|
@@ -219,7 +219,7 @@ Permet d’obtenir le manifeste qui décrit un type de service. La réponse cont
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --application-type-name [Requis]| Nom du type d’application.|
 | --application-type-version [Requis]| Version du type d’application.|
@@ -228,7 +228,7 @@ Permet d’obtenir le manifeste qui décrit un type de service. La réponse cont
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                           | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                         | Affiche ce message d’aide et quitte.|
@@ -243,14 +243,14 @@ Indique au cluster Service Fabric qu’il doit tenter de récupérer le service
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --timeout -t        | Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
@@ -265,7 +265,7 @@ Résout une partition de service Service Fabric pour obtenir les points de term
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --service-id [Requis]| Identité du service. Il s’agit généralement du nom complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --partition-key-type| Type de clé de la partition. Ce paramètre est obligatoire si le schéma de partition du service est Int64Range ou Named. Les valeurs possibles sont les suivantes. - None (1) : indique que le paramètre PartitionKeyValue n’est pas spécifié. Cela concerne les partitions dont le schéma de partitionnement est Singleton. Il s’agit de la valeur par défaut. La valeur est égale à 1. - Int64Range (2) : indique que le paramètre PartitionKeyValue est une clé de partition int64. Cela concerne les partitions dont le schéma de partitionnement est Int64Range. La valeur est égale à 2. - Named (3) : indique que le paramètre PartitionKeyValue est un nom de la partition. Cela concerne les partitions dont le schéma de partitionnement est Named. La valeur est égale à 3.|
@@ -275,7 +275,7 @@ Résout une partition de service Service Fabric pour obtenir les points de term
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug             | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h           | Affiche ce message d’aide et quitte.|
@@ -288,7 +288,7 @@ Met à jour le service spécifié à l’aide de la description de la mise à jo
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --service-id [Requis]| Service cible à mettre à jour. Il s’agit généralement de l’ID complet du service sans le schéma d’URI « fabric: ». Depuis la version 6.0, les noms hiérarchiques sont séparés par le caractère « ~ ». Par exemple, si un service est nommé « fabric://mon_app/app1/svc1 », son identité est « mon_app~app1~svc1 » dans les versions 6.0 et supérieures et « mon_app/app1/svc1 » dans les versions précédentes.|
 | --constraints         | Contraintes de placement sous forme de chaîne. Les contraintes de placement sont des expressions booléennes sur les propriétés de nœud et permettent de restreindre un service à des nœuds particuliers en fonction des besoins du service. Par exemple, pour placer un service sur des nœuds où NodeType est bleu, spécifiez : « NodeColor == blue ».|
@@ -309,7 +309,7 @@ Met à jour le service spécifié à l’aide de la description de la mise à jo
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug               | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h             | Affiche ce message d’aide et quitte.|
@@ -317,6 +317,6 @@ Met à jour le service spécifié à l’aide de la description de la mise à jo
 | --query               | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose             | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

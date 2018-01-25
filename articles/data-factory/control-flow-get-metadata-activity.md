@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 L’activité d’obtention des métadonnées peut être utilisée pour récupérer les métadonnées de n’importe quelle donnée dans Azure Data Factory. Cette activité est prise en charge uniquement pour les fabriques de données version 2. Elle peut être utilisée dans les scénarios suivants :
@@ -33,7 +33,7 @@ La fonctionnalité suivante est disponible dans le flux de contrôle :
 L’activité d’obtention des métadonnées sélectionne un jeu de données en tant qu’entrée requise, puis génère les informations de métadonnées disponibles en tant que sortie. Actuellement, seul le jeu de données d’objets blob Azure est pris en charge. Les champs de métadonnées pris en charge sont size, structure et lastModified time.  
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, qui est actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory V1](v1/data-factory-introduction.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez [Documentation de Data Factory V1](v1/data-factory-introduction.md).
 
 
 ## <a name="syntax"></a>Syntaxe
@@ -94,12 +94,12 @@ Dans l’exemple suivant, l’activité d’obtention des métadonnées renvoie 
 ## <a name="type-properties"></a>Propriétés type
 Actuellement, l’activité d’obtention des métadonnées peut extraire les types d’informations de métadonnées suivants à partir d’un jeu de données de stockage Azure.
 
-Propriété | Description | Valeurs autorisées | Requis
+Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-fieldList | Répertorie les types d’informations de métadonnées requis.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    Non<br/>Si cette valeur est vide, l’activité retourne toutes les 3 informations de métadonnées prises en charge. 
-dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. <br/><br/>Le type de jeu de données actuellement pris en charge est Azure Blob. Les propriétés secondaires sont : <ul><li><b>referenceName</b>: référence à un jeu de données Azure Blob existant</li><li><b>type</b> : comme le jeu de données est référencé, le type est « DatasetReference »</li></ul> |    <ul><li>String</li><li>DatasetReference</li></ul> | Oui
+fieldList | Répertorie les types d’informations de métadonnées requis.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |    Non <br/>Si cette valeur est vide, l’activité retourne toutes les 3 informations de métadonnées prises en charge. 
+dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. <br/><br/>Le type de jeu de données actuellement pris en charge est Azure Blob. Les propriétés secondaires sont : <ul><li><b>referenceName</b>: référence à un jeu de données Azure Blob existant</li><li><b>type</b> : comme le jeu de données est référencé, le type est « DatasetReference »</li></ul> |    <ul><li>Chaîne</li><li>DatasetReference</li></ul> | OUI
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

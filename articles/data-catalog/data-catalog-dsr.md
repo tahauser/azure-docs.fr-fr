@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
 
@@ -40,7 +40,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Répertoire Azure Data Lake Store</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -48,7 +48,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Fichier Azure Data Lake Store</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -56,7 +56,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Stockage d'objets blob Azure</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -64,7 +64,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Répertoire de stockage Azure</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -72,7 +72,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table de stockage Azure</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>
         <font size="2">
@@ -84,7 +84,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Répertoire HDFS</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -92,7 +92,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Fichier HDFS</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -100,7 +100,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table hive</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -108,7 +108,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Affichage hive</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -116,7 +116,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table MySQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -124,7 +124,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue MySQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -132,7 +132,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table de base de données Oracle</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -140,7 +140,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue de base de données Oracle</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -156,7 +156,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table Azure SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -164,7 +164,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -172,7 +172,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Dimension SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -180,7 +180,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Indicateur de performance clé de SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -188,7 +188,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Mesure SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -196,7 +196,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -204,7 +204,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Rapport SQL Server Reporting Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
       <td>Serveurs en mode natif uniquement. Le mode SharePoint n’est pas pris en charge.</td>
@@ -212,7 +212,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table SQL Server</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -220,7 +220,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue SQL Server</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -228,7 +228,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table Teradata</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -236,7 +236,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue Teradata</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -244,7 +244,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue SAP HANA</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -252,7 +252,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table DB2</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -260,7 +260,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue DB2</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -276,7 +276,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Répertoire FTP</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -284,7 +284,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Fichier FTP</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -332,7 +332,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table PostgreSQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -340,7 +340,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue PostgreSQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -356,7 +356,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td> Objet Salesforce</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -372,7 +372,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Collection Azure Cosmos DB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -380,7 +380,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table ODBC générique</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -388,7 +388,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue ODBC générique</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -396,7 +396,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table Cassandra</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publier en tant que ressource ODBC générique</td>
@@ -404,7 +404,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue Cassandra</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publier en tant que ressource ODBC générique</td>
@@ -412,7 +412,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table Sybase</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -420,7 +420,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue Sybase</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -428,7 +428,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Table MongoDB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publier en tant que ressource ODBC générique</td>
@@ -436,14 +436,14 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
     <tr>
       <td>Vue MongoDB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Publier en tant que ressource ODBC générique</td>
     </tr>
 </table>
 
-Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans le [Catalogue de données sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog).
+Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Spécification de référence de la source de données

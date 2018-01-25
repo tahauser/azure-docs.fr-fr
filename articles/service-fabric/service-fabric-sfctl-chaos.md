@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbea84511c37cf52c3d98f0247e5ce3c0b2a05c3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Permet de démarrer, d’arrêter et de créer des rapports sur le service de test chaos.
 
 ## <a name="commands"></a>Commandes
 
-|Commande|Description|
+|Commande|DESCRIPTION|
 | --- | --- |
 |    report| Obtient le segment suivant du rapport Chaos sur la base du jeton de liaison passé ou l’intervalle de temps passé.|
 |    start | Si Chaos n’est pas encore en cours d’exécution dans le cluster, commence par exécuter Chaos avec les paramètres spécifiés dans Chaos.|
@@ -39,7 +39,7 @@ Vous pouvez soit spécifier le ContinuationToken pour obtenir le segment suivant
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --continuation-token| Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison pourvu d’une valeur non vide est inclus dans la réponse de l’API si les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL.|
 | --end-time-utc   | Nombre de cycles représentant l’heure de fin de la plage horaire pour laquelle un rapport Chaos doit être généré. Veuillez consulter [DateTime.Ticks, propriété](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) pour plus d’informations sur les cycles.|
@@ -48,7 +48,7 @@ Vous pouvez soit spécifier le ContinuationToken pour obtenir le segment suivant
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug          | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h        | Affiche ce message d’aide et quitte.|
@@ -61,7 +61,7 @@ Si Chaos n’est pas encore en cours d’exécution dans le cluster, commence pa
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --app-type-health-policy-map  | Liste encodée au format JSON avec pourcentage maximal d’applications défectueuses pour des types d’applications spécifiques. Chaque entrée spécifie sous forme de clé le nom du type d’application et sous forme de valeur un entier qui représente le pourcentage MaxPercentUnhealthyApplications permettant d’évaluer les applications du type d’application spécifié.|
 | --disable-move-replica-faults | Permet de désactiver les erreurs MovePrimary et MoveSecondary.|
@@ -77,7 +77,7 @@ Si Chaos n’est pas encore en cours d’exécution dans le cluster, commence pa
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug                    | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h                  | Affiche ce message d’aide et quitte.|
@@ -92,13 +92,13 @@ Empêche Chaos de planifier d’autres erreurs. Toutefois, les erreurs en cours 
 
 ### <a name="arguments"></a>Arguments
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --timeout -t| Délai d’attente du serveur en secondes.  Valeur par défaut : 60.|
 
 ### <a name="global-arguments"></a>Arguments globaux
 
-|Argument|Description|
+|Argument|DESCRIPTION|
 | --- | --- |
 | --debug  | Augmente le détail de la journalisation pour afficher tous les journaux de débogage.|
 | --help -h| Affiche ce message d’aide et quitte.|
@@ -106,6 +106,6 @@ Empêche Chaos de planifier d’autres erreurs. Toutefois, les erreurs en cours 
 | --query  | Chaîne de requête JMESPath. Pour obtenir plus d’informations et d’exemples, consultez le site à l’adresse http://jmespath.org/.|
 | --verbose| Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets.|
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.
 - Découvrez comment utiliser l’interface de ligne de commande (CLI) Service Fabric à l’aide d’[exemples de scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

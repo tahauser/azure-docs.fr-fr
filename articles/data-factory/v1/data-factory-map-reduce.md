@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Appeler des programmes MapReduce à partir de Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -122,7 +122,7 @@ Le pipeline dans cet exemple exécute le programme Map/Reduce du nombre de mots 
 ### <a name="linked-services"></a>Services liés
 Tout d'abord, vous créez un service lié pour lier le stockage Azure qui est utilisé par le cluster Azure HDInsight à la fabrique de données Azure. Si vous copiez/collez le code suivant, n’oubliez pas de remplacer le **nom de compte** et la **clé de compte** par le nom et la clé de votre stockage Azure. 
 
-#### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
+#### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 
 ```JSON
 {
@@ -183,9 +183,9 @@ Le pipeline de cet exemple n’accepte pas d’entrées. Vous spécifiez un jeu 
 ### <a name="pipeline"></a>Pipeline
 Le pipeline de cet exemple n'a qu'une seule activité de type : HDInsightMapReduce. Certaines propriétés importantes dans le JSON sont : 
 
-| Propriété | Remarques |
+| Propriété | Notes |
 |:--- |:--- |
-| type |Le type doit être défini sur **HDInsightMapReduce**. |
+| Type |Le type doit être défini sur **HDInsightMapReduce**. |
 | className |Le nom de la classe est : **wordcount** |
 | jarFilePath |Chemin d’accès au fichier jar contenant la classe. Si vous copiez/collez le code suivant, n'oubliez pas de modifier le nom du cluster. |
 | jarLinkedService |Service Azure Storage lié qui contient le fichier jar. Ce service lié fait référence au stockage associé au cluster HDInsight. |

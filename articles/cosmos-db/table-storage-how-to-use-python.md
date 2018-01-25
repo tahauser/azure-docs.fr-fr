@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a4480750377b3762346e746867b83c3c2a50e46f
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a786f82d94a1a0039ed65a618670f872ffa3e3c2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-python"></a>Utilisation du stockage Table Azure avec Python
 
@@ -153,7 +153,7 @@ for task in tasks:
     print(task.priority)
 ```
 
-## <a name="query-a-subset-of-entity-properties"></a>Interrogation d’un sous-ensemble de propriétés d’entité
+## <a name="query-a-subset-of-entity-properties"></a>Interrogation d'un sous-ensemble de propriétés d'entité
 
 Vous pouvez également restreindre les propriétés renvoyées pour chaque entité dans une requête. Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses ou les jeux de résultats. Utilisez le paramètre **select** et transmettez le nom des propriétés à renvoyer au client.
 
@@ -168,7 +168,7 @@ for task in tasks:
     print(task.description)
 ```
 
-## <a name="delete-an-entity"></a>Suppression d'une entité
+## <a name="delete-an-entity"></a>Suppression d’une entité
 
 Supprimez une entité en passant des propriétés PartitionKey et RowKey à la méthode [delete_entity][py_delete_entity].
 
@@ -184,7 +184,7 @@ Si vous n’avez plus besoin une table ou une des entités qui s’y trouvent, a
 table_service.delete_table('tasktable')
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Référence du kit de développement logiciel (SDK) Stockage Azure pour l’API Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 * [Kit de développement logiciel (SDK) Stockage Azure pour Python](https://github.com/Azure/azure-storage-python)

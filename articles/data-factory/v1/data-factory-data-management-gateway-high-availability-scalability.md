@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -32,7 +32,7 @@ Cet article vous aide à configurer la solution de haute disponibilité et scala
 
 >**Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez associer des passerelles de gestion des données installées sur plusieurs ordinateurs locaux à une seule passerelle logique du portail. Ces ordinateurs sont appelés **nœuds**. Vous pouvez associer jusqu’à **quatre nœuds** à une passerelle logique. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :  
 
 - Les performances du déplacement des données entre les magasins de données locaux et dans le cloud sont améliorées.  
@@ -184,10 +184,10 @@ Dans le portail Azure, vous pouvez afficher un instantané en quasi temps réel 
 
 Vous pouvez activer l’option **Paramètres avancés** dans la page **Passerelle** pour afficher des métriques avancées telles que **Réseau**(entrée/sortie), **État du rôle et des informations d’identification**, ce qui s’avère utile pour résoudre les problèmes liés à la passerelle, ainsi que **Tâches simultanées** (en cours d’exécution/limite) que vous pouvez modifier en conséquence lors du réglage des performances. Le tableau suivant fournit les descriptions des colonnes utilisées dans la liste **Nœuds de passerelle** :  
 
-Propriété de surveillance | Description
+Propriété de surveillance | DESCRIPTION
 :------------------ | :---------- 
-Nom | Nom de la passerelle logique et nœuds associés à la passerelle.  
-État | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
+NOM | Nom de la passerelle logique et nœuds associés à la passerelle.  
+Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status). 
 Version | Indique la version de la passerelle logique et de chaque nœud de passerelle. La version de la passerelle logique est déterminée selon la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans l’installation de la passerelle logique, seuls les nœuds dont le numéro de version est identique à celui de la passerelle logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). 
 Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
 Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel. 
@@ -201,7 +201,7 @@ Rôle | Il existe deux types de rôles : répartiteur et rôle de travail. Tous
 
 Le tableau suivant indique les états possibles d’un **nœud de passerelle** : 
 
-État  | Commentaires/Scénarios
+Statut  | Commentaires/Scénarios
 :------- | :------------------
 En ligne | Nœud connecté au service Data Factory.
 Hors ligne | Le nœud est hors connexion.
@@ -212,7 +212,7 @@ Inactif | La configuration du nœud est différente de celle de la majorité des
 
 Le tableau suivant indique les états possibles d’une **passerelle logique**. L’état de la passerelle dépend des états des nœuds de passerelle. 
 
-État | Commentaires
+Statut | Commentaires
 :----- | :-------
 Doit être inscrite | Aucun nœud n’est encore inscrit sur cette passerelle logique.
 En ligne | Les nœuds de passerelle sont en ligne.
@@ -256,7 +256,7 @@ Pour effectuer une restauration à partir de la préversion, supprimez tous les 
 Après la suppression, cliquez sur **Fonctionnalités de préversion** dans la même page du portail Azure et désactivez la fonctionnalité de préversion. Vous avez réinitialisé votre passerelle qui redevient alors une passerelle à nœud unique à disponibilité générale.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants :
 - [Passerelle de gestion des données](data-factory-data-management-gateway.md) - fournit une vue d’ensemble descriptive de la passerelle.
 - [Déplacer des données entre des magasins de données locaux et dans le cloud](data-factory-move-data-between-onprem-and-cloud.md) - contient une procédure pas à pas donnant des instructions sur l’utilisation d’une passerelle à nœud unique. 

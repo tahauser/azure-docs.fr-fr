@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Une fois que vous avez effectué les étapes de cet article, votre stratégie personnalisée prend en charge l’inscription ou la connexion de « comptes locaux » via une adresse e-mail et un mot de passe. Vous préparez également votre environnement à l’ajout de fournisseurs d’identité (par exemple Facebook ou Azure AD). Nous vous encourageons à effectuer ces étapes avant de découvrir d’autres utilisations de l’infrastructure d’expérience d’identité Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de continuer, vérifiez que vous disposez d’un locataire Azure AD B2C, qui est pour l’ensemble de vos utilisateurs, applications, stratégies, etc. Si vous n’en avez pas déjà un, vous devez en [créer un locataire Azure AD B2C](active-directory-b2c-get-started.md). Nous encourageons fortement tous les développeurs à suivre les procédures pas à pas relatives aux stratégies intégrées d’Azure AD B2C et à configurer leurs applications avec des stratégies intégrées avant de continuer. Vos applications fonctionneront avec les deux types de stratégies après une modification mineure du nom de la stratégie pour appeler la stratégie personnalisée.
 
@@ -122,7 +122,7 @@ Chaque pack de démarrage contient :
 >[!NOTE]
 >Si votre éditeur XML prend en charge la validation, validez la conformité des fichiers au schéma XML TrustFrameworkPolicy_0.3.0.0.xsd, qui se trouve dans le dossier racine du pack de démarrage. La validation du schéma XML identifie les erreurs avant le chargement.
 
- C’est parti :
+ C’est parti :
 
 1. Téléchargez active-directory-b2c-custom-policy-starterpack depuis GitHub. [Téléchargez le fichier zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ou exécutez
 
@@ -154,10 +154,10 @@ Chaque pack de démarrage contient :
 Ajoutez les ID d’application au fichier d’extensions (`TrustFrameworkExtensions.xml`) :
 
 1. Dans le fichier d’extensions (TrustFrameworkExtensions.xml), recherchez l’élément `<TechnicalProfile Id="login-NonInteractive">`.
-2. Remplacez les deux instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité que vous avez créée précédemment. Voici un exemple :
+2. Remplacez les deux instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité que vous avez créée précédemment. Voici un exemple : 
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Remplacez les deux instances de `ProxyIdentityExperienceFrameworkAppId` par l’ID de l’application Infrastructure d’expérience d’identité de proxy que vous avez créée précédemment.
 4. Enregistrez votre fichier d’extensions.
@@ -196,7 +196,7 @@ Lorsqu’un fichier est chargé, son nom est précédé de `B2C_1A_`.
 >Souvent, la mauvaise configuration de l’application IdentityExperienceFramework est à l’origine des échecs de connexion.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Ajouter Facebook en tant que fournisseur d’identité
 Pour configurer Facebook :

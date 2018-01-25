@@ -8,22 +8,22 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Stockage Table Azure : application web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans ce didacticiel, l’application que vous avez créée dans le didacticiel [Application web Node.js avec Express] est étendue à l’aide des bibliothèques clientes Microsoft Azure pour Node.js, afin qu’elle fonctionne avec les services de gestion de données. Vous étendez votre application en créant une application de liste de tâches web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 
 Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Le service Stockage Azure englobe plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez utiliser les services de stockage via les API du kit SDK Azure pour Node.js ou via les API REST. Pour plus d’informations, consultez la page [Stockage et accessibilité des données dans Azure].

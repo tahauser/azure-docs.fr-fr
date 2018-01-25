@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Le système d’exploitation génère un ensemble d’erreurs pouvant nécessite
 
 Il existe essentiellement deux cas d’erreurs AcquireTokenSilent :
 
-| Cas | Description |
+| Cas | DESCRIPTION |
 |------|-------------|
 | **Cas n° 1** : L’erreur peut être résolue via une connexion interactive | Pour les erreurs dues à un manque de jetons valides, une requête interactive est nécessaire. Plus spécifiquement, une recherche de cache et un jeton d’actualisation non valide/expiré nécessitent un appel AcquireToken pour résoudre l’erreur.<br><br>Dans ce cas, l’utilisateur final doit être invité à se connecter. L’application peut choisir d’effectuer une requête interactive immédiatement, après l’interaction de l’utilisateur final (par exemple, un clic sur un bouton de connexion) ou ultérieurement. Le choix dépend du comportement souhaité de l’application.<br><br>Consultez le code dans la section suivante pour ce cas particulier, ainsi que les erreurs qui le caractérisent.|
 | **Cas n° 2** : L’erreur ne peut pas être résolue via une connexion interactive | Pour les erreurs passagères/temporaires, les problèmes réseau et autres défaillances, une requête interactive AcquireToken ne permet pas de résoudre le problème. Les invites de connexion interactive inutiles peuvent également frustrer les utilisateurs finaux. ADAL effectue automatiquement une seule nouvelle tentative pour la plupart des erreurs relatives à des échecs AcquireTokenSilent.<br><br>L’application cliente peut également effectuer une nouvelle tentative ultérieurement, mais le moment et la façon de le faire dépend du comportement de l’application et de l’expérience utilisateur souhaitée. Par exemple, l’application peut effectuer une nouvelle tentative AcquireTokenSilent après quelques minutes ou en réponse à une action de l’utilisateur final. Une nouvelle tentative immédiate limite l’application et n’est pas recommandée.<br><br>Une nouvelle tentative ultérieure qui échoue avec la même erreur ne signifie pas que le client doive effectuer une requête interactive avec AcquireToken, étant donné qu’elle ne résout pas l’erreur.<br><br>Consultez le code dans la section suivante pour ce cas particulier, ainsi que les erreurs qui le caractérisent. |
@@ -576,6 +576,7 @@ window.Logging = {
 
 Utilisez la section de commentaires suivante pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
 
+[![Bouton Se connecter][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ Utilisez la section de commentaires suivante pour fournir des commentaires et no
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[![Sign in button][AAD-Sign-In]][AAD-Sign-In] [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

@@ -3,7 +3,7 @@ title: "Azure AD Connect : Présentation de l’approvisionnement déclaratif | 
 description: "Explique le modèle de configuration de l’approvisionnement déclaratif dans Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync : présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 L’approvisionnement déclaratif correspond au traitement des objets provenant d’un répertoire source connecté. Il détermine comment l’objet et les attributs doivent être transformés à partir d’une source vers une cible. Les objets sont traités dans un pipeline de synchronisation identique pour les règles de trafic entrant et sortant. Les règles de trafic entrant vont d’un espace de connecteur au métaverse et les règles de trafic sortant vont du métaverse vers un espace de connecteur.
 
 ![Pipeline de synchronisation](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)  
@@ -39,18 +39,18 @@ Le pipeline a plusieurs modules. Chacun d’eux est responsable d’un concept d
 * [Precedence](#precedence), résout les contributions d’attribut conflictuelles
 * Target, l’objet cible
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Étendue
 Le module Scope évalue un objet et détermine les règles qui sont dans la portée et doivent être incluses lors du traitement. En fonction des valeurs d’attributs de l’objet, différentes règles de synchronisation sont évaluées pour être dans la portée. Par exemple, un utilisateur désactivé sans boîte aux lettres Exchange possède des règles différentes d’un utilisateur activé avec une boîte aux lettres.  
-![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
+![Étendue](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
 
 La portée est définie selon des groupes et des clauses. Les clauses sont à l’intérieur des groupes. Un opérateur logique AND est utilisé entre toutes les clauses d’un groupe. Par exemple, (department = IT AND country = Denmark). Un opérateur logique OR est utilisé entre les groupes.
 
-![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope2.png)  
+![Étendue](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope2.png)  
 La portée de cette image doit être lue comme (department = IT AND country = Denmark) OR (country = Sweden). Si le groupe 1 ou le groupe 2 est évalué comme true, la règle est dans la portée.
 
 Le module Scope prend en charge les opérations suivantes.
 
-| Opération | Description |
+| Opération | DESCRIPTION |
 | --- | --- |
 | EQUAL, NOTEQUAL |Comparaison de chaînes qui évalue si la valeur est égale à la valeur de l’attribut. Pour les attributs à valeurs multiples, consultez ISIN et ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Comparaison de chaînes qui évalue si la valeur est inférieure à la valeur de l’attribut. |
@@ -117,7 +117,7 @@ Le littéral **AuthoritativeNull** est similaire à **NULL**, à ceci près qu�
 
 Un flux d’attributs peut également utiliser le littéral **IgnoreThisFlow**. Celui-ci est similaire à la valeur NULL en ce sens qu’il indique qu’il n’a rien à transmettre. En revanche, il ne supprime aucune valeur déjà existante dans la cible. Il agit comme si le flux d’attributs n’avait jamais existé.
 
-Voici un exemple :
+Voici un exemple : 
 
 Dans *Out to AD - User Exchange hybrid*, vous trouverez le flux suivant :  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
@@ -148,7 +148,7 @@ Si vous avez plusieurs objets dans le même espace de connecteur joints au même
 Pour ce scénario, vous devez modifier la portée des règles de synchronisation, de façon à ce que les objets sources aient des règles de synchronisation différentes dans la portée. Cela vous permet de définir une précédence différente.  
 ![Plusieurs objets joints au même objet mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur le langage d’expression dans [Comprendre les expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).

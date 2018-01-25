@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
@@ -135,7 +135,7 @@ if($s)
    | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Collecter les journaux à l’aide d’une interface graphique utilisateur
+### <a name="bkmk_gui"></a>Collecter les journaux à l’aide d’une interface graphique utilisateur
 Au lieu de fournir les paramètres obligatoires pour que la cmdlet Get-AzureStackLog récupère les journaux Azure Stack, vous pouvez tirer parti des outils Azure Stack open source disponibles dans le dépôt GitHub d’outils Azure Stack principal, à l’adresse http://aka.ms/AzureStackTools.
 
 Le script PowerShell **ERCS_AzureStackLogs.ps1** est stocké dans le dépôt d’outils GitHub et est mis à jour régulièrement. Pour vous assurer de disposer de la dernière version disponible, nous vous conseillons de le télécharger directement sur http://aka.ms/ERCS. Démarré à partir d’une session d’administration PowerShell, le script se connecte au point de terminaison privilégié et exécute Get-AzureStackLog avec les paramètres fournis. Si aucun paramètre n’est fourni, le script invite par défaut l’utilisateur à fournir des paramètres par le biais d’une interface graphique utilisateur.
@@ -159,3 +159,4 @@ Pour plus d’informations sur le script PowerShell ERCS_AzureStackLogs.ps1, vou
 
 ## <a name="next-steps"></a>étapes suivantes
 [Dépannage de Microsoft Azure Stack](azure-stack-troubleshooting.md)
+

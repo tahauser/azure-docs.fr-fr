@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 835f1804b204b988b86b13f48cd9143f6bc81cee
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 49fb249b6ff1169527829c77a6539926ec99b912
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Didacticiel : Créer une fabrique de données à l’aide de Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/02/2017
 
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en version préliminaire, consultez [Démarrage rapide : créer une fabrique de données à l’aide de la version 2 de Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [Démarrage rapide : créer une fabrique de données à l’aide de la version 2 de Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Ce didacticiel vous explique comment créer une fabrique de données Azure à l’aide de Visual Studio. Vous allez créer un projet Visual Studio à l’aide du modèle de projet Data Factory, puis définir des entités Data Factory (services liés, jeux de données et pipeline) au format JSON et vous allez terminer en publiant/déployant ces entités dans le cloud. 
 
@@ -59,7 +59,7 @@ Voici les étapes à effectuer dans le cadre de cette procédure pas à pas :
 4. Créez une fabrique de données nommée **DataFactoryUsingVS**. Déployez la fabrique de données et toutes les entités Data Factory (services liés, tables et pipeline).
 5. Après la publication, utilisez les panneaux du portail Azure et l’application de surveillance et gestion pour surveiller le pipeline. 
   
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes **préalables** . Vous pouvez également sélectionner l’option **Vue d’ensemble et étapes préalables requises** de la liste déroulante figurant en haut de la page pour basculer vers l’article correspondant. Une fois les étapes préalables suivies, revenez à cet article en sélectionnant l’option **Visual Studio** dans la liste déroulante.
 2. Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.  
 3. Les composants suivants doivent être installés sur votre ordinateur :
@@ -78,7 +78,7 @@ Voici les étapes à effectuer dans le cadre de cette procédure pas à pas :
 
     ![Explorateur de solutions](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-### <a name="create-linked-services"></a>Créer des services liés
+### <a name="create-linked-services"></a>Créez des services liés
 Au cours de cette étape, vous allez créer deux services liés : **Stockage Azure** et **HDInsight à la demande**. 
 
 Le service lié Stockage Azure lie votre compte de stockage Azure à la fabrique de données en fournissant les informations de connexion. Le service Data Factory utilise la chaîne de connexion à partir du paramètre de service lié pour se connecter au stockage Azure lors de l’exécution. Ce stockage contient les données d’entrée et de sortie pour le pipeline et le fichier de script Hive utilisé par l’activité Hive. 
@@ -88,7 +88,7 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
 > [!NOTE]
 > Vous créez une fabrique de données en spécifiant son nom et ses paramètres au moment de la publication de votre solution Data Factory.
 
-#### <a name="create-azure-storage-linked-service"></a>Créer le service lié Azure Storage
+#### <a name="create-azure-storage-linked-service"></a>Créer le service lié Stockage Azure
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Services liés**, pointez sur **Ajouter**, puis cliquez sur **Nouvel élément**.      
 2. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Service lié Azure Storage** dans la liste, puis cliquez sur **Ajouter**.
     ![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
@@ -119,7 +119,7 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
 
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-    Propriété | Description
+    Propriété | DESCRIPTION
     -------- | ----------- 
     ClusterSize | Spécifie la taille du cluster HDInsight Hadoop.
     TimeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression.
@@ -168,12 +168,12 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 
     Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de code :
 
-    Propriété | Description |
+    Propriété | DESCRIPTION |
     -------- | ----------- |
-    type |La propriété de type est définie sur **AzureBlob**, car les données se trouvent dans le Stockage Blob Azure.
+    Type |La propriété de type est définie sur **AzureBlob**, car les données se trouvent dans le Stockage Blob Azure.
     linkedServiceName | Fait référence au service AzureStorageLinkedService1 que vous avez créé précédemment.
     fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité.
-    type | Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
+    Type | Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
     columnDelimiter | Les colonnes des fichiers journaux sont délimitées par une virgule (`,`)
     frequency/interval | La fréquence est définie sur Mois et l’intervalle est 1, ce qui signifie que les segments d’entrée sont disponibles mensuellement.
     external | Cette propriété a la valeur true si les données d’entrée de l’activité ne sont pas générées par le pipeline. Cette propriété est uniquement spécifiée sur les jeux de données d’entrée. Pour le jeu de données d’entrée de la première activité, choisissez toujours la valeur true.
@@ -290,7 +290,7 @@ Jusqu’à présent, vous avez créé le service lié Stockage Azure et les jeux
 
 Quand vous publiez la solution à l’étape suivante, le fichier **partitionweblogs.hql** est chargé dans le dossier **script** du conteneur de blobs `adfgetstarted`.   
 
-### <a name="publishdeploy-data-factory-entities"></a>Publier/déployer des entités Data Factory
+### <a name="publishdeploy-data-factory-entities"></a>Publier/Déployer des entités Data Factory
 Dans cette étape, vous allez publier les entités Data Factory (services liés, jeux de données et pipeline) dans votre projet pour le service Azure Data Factory. Lors du processus de publication, vous spécifiez le nom de votre fabrique de données. 
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
@@ -302,7 +302,7 @@ Dans cette étape, vous allez publier les entités Data Factory (services liés,
 
     ![Publier - Nouveau paramètres de fabrique de données](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
 
-   1. Sélectionnez l’option **Créer une fabrique de données** .
+   1. Sélectionnez l'option **Créer une fabrique de données** .
    2. Entrez un **nom** unique pour la fabrique de données. Par exemple : **DataFactoryUsingVS09152016**. Le nom doit être globalement unique.
    3. Sélectionnez l’abonnement approprié pour le champ **Abonnement** . 
         > [!IMPORTANT]
@@ -312,7 +312,7 @@ Dans cette étape, vous allez publier les entités Data Factory (services liés,
    6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (Utilisez la touche **TABULATION** pour passer au champ Nom si le bouton **Suivant** est désactivé.)
 
     > [!IMPORTANT]
-    > Si vous recevez l’erreur **Le nom de la fabrique de données « DataFactoryUsingVS » n’est pas disponible** au moment de la publication, changez le nom (par exemple en votrenomDataFactoryUsingVS). Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.   
+    > Si vous recevez l’erreur **Le nom de la fabrique de données « DataFactoryUsingVS » n’est pas disponible** au moment de la publication, changez le nom (par exemple en votrenomDataFactoryUsingVS). Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.   
 1. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.
 
     ![Page Publier des éléments](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -372,7 +372,7 @@ Au cours de cette étape, vous allez surveiller le pipeline à l’aide de la Vu
 9. Quand le traitement est terminé, l’état de la tranche est **Prêt** .
 
    > [!IMPORTANT]
-   > La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes). Le pipeline devrait donc traiter la tranche en **30 minutes environ** .  
+   > La création d’un cluster HDInsight à la demande prend généralement un certain temps (environ 20 minutes). Le pipeline devrait donc traiter la tranche en **30 minutes environ** .  
    
     ![Jeu de données](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. Lorsque la tranche indique l’état **Prêt**, vérifiez le dossier `partitioneddata` dans le conteneur `adfgetstarted` de votre stockage d’objets blob pour les données de sortie.  
@@ -562,7 +562,7 @@ Vous pouvez chaîner deux activités (une après l’autre) en configurant le je
 
 
 ## <a name="see-also"></a>Voir aussi
-| Rubrique | Description |
+| Rubrique | DESCRIPTION |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Cet article vous aide à comprendre les pipelines et les activités dans Azure Data Factory, et à les utiliser dans l’optique de créer des workflows pilotés par les données pour votre scénario ou votre entreprise. |
 | [Groupes de données](data-factory-create-datasets.md) |Cet article vous aide à comprendre les jeux de données dans Azure Data Factory. |

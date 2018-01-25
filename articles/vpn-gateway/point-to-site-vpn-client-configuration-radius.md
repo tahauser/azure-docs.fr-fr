@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS (préversion)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS
 
 Les fichiers de configuration du client VPN se trouvent dans un fichier zip. Les fichiers de configuration fournissent les paramètres nécessaires à un client VPN IKEv2 Windows ou Mac pour se connecter à un réseau virtuel en point à site. Le serveur RADIUS fournit plusieurs options d’authentification. La configuration du client VPN varie ainsi d’une option à une autre.
 
@@ -94,7 +94,7 @@ Suivez les étapes suivantes pour configurer le client VPN Windows natif pour un
   ![continuer](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
 5. Pendant l’installation du profil, vous avez la possibilité de spécifier le nom d’utilisateur et le mot de passe utilisés pour l’authentification VPN. Vous n’êtes pas obligé de renseigner ces informations. Si spécifiées, les informations sont enregistrées et utilisées automatiquement à la connexion. Cliquez sur **Installer** pour continuer.
 
-  ![Paramètres](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
+  ![paramètres](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
 6. Entrez un nom d’utilisateur et un mot de passe pour les privilèges nécessaires requis pour installer le profil sur votre ordinateur. Cliquez sur **OK**.
 
   ![nom d’utilisateur et mot de passe](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
@@ -205,6 +205,6 @@ Pour utiliser un type d’authentification différent (par mot de passe à usage
   * Itinéraires : itinéraires que vous devez configurer dans votre profil afin que seul le trafic en direction du réseau virtuel Azure ne passe par le tunnel P2S.
   * Le dossier GenericDevice contient aussi un fichier .cer nommé VpnServerRoot. Ce fichier contient le certificat racine requis pour valider la passerelle VPN Azure lors de la configuration de la connexion P2S. Installez le certificat sur tous les appareils qui se connecteront au réseau virtuel Azure. 
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Revenez à l’article pour [terminer la configuration P2S](point-to-site-how-to-radius-ps.md).

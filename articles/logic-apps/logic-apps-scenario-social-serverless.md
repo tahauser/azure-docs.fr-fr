@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord Insights client en temps réel avec Azure Logic Apps et Azure Functions
 
@@ -37,7 +37,7 @@ La solution complète peut être [générée dans Visual Studio](logic-apps-depl
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Générer l’application logique à déclencher sur des données du client
 
-Après avoir [créé une application logique](logic-apps-create-a-logic-app.md) dans Visual Studio ou le portail Azure :
+Après avoir [créé une application logique](quickstart-create-first-logic-app-workflow.md) dans Visual Studio ou le portail Azure :
 
 1. Ajoutez un déclencheur pour **On New Tweets (Aux nouveaux tweets)** de Twitter.
 2. Configurez le déclencheur pour qu’il écoute les tweets sur un mot-clé ou un mot-dièse.
@@ -99,7 +99,7 @@ Une fois qu’une solution a été développée, elle peut être capturée et d�
 
 La solution Azure Functions peut aussi être intégrée au modèle de déploiement. De cette façon, la solution complète avec toutes les dépendances peut être gérée comme un seul et même modèle.  Vous trouverez un exemple de modèle de déploiement de fonction dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Voir d’autres exemples et scénarios relatifs à Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Regarder une vidéo de procédure pas à pas sur la création de cette solution de bout en bout](http://aka.ms/logicappsdemo)

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Annotation de sources de données
 ## <a name="introduction"></a>Introduction
@@ -40,10 +40,10 @@ Chacune de ces perspectives est précieuse, et Data Catalog utilise une approche
 ## <a name="different-types-of-annotations"></a>Différents types d’annotations
 Data Catalog prend en charge les types d’annotations suivants :
 
-| Annotation | Remarques |
+| Annotation | Notes |
 | --- | --- |
 | Nom convivial |Les noms conviviaux peuvent être fournis au niveau des ressources de données pour en favoriser la compréhension. Les noms conviviaux sont particulièrement utiles lorsque le nom d’objet sous-jacent est peu clair, abrégé ou peu explicite auprès des utilisateurs. |
-| Description |Des descriptions peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les descriptions sont de courtes annotations de texte libre décrivant la perspective de l’utilisateur sur la ressource de données ou son utilisation. |
+| DESCRIPTION |Des descriptions peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les descriptions sont de courtes annotations de texte libre décrivant la perspective de l’utilisateur sur la ressource de données ou son utilisation. |
 | Balises (balises utilisateur) |Des balises peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les balises utilisateur sont des étiquettes définies par l’utilisateur qui permettent de classer les ressources de données ou les attributs. |
 | Balises (balises glossaire) |Des balises peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les balises de glossaire sont des termes de glossaire définis de façon centralisée qui permettent de classer les ressources de données ou les attributs à l’aide d’une taxonomie métier commune. Pour plus d’informations, consultez l’article [Comment configurer le glossaire métier pour un balisage géré](data-catalog-how-to-business-glossary.md) |
 | Experts |Des experts peuvent être fournis au niveau des ressources de données. Les experts identifient les utilisateurs ou groupes avec des perspectives d’expert sur les données et peuvent servir de points de contact pour les utilisateurs qui détectent les sources de données inscrites et se posent des questions auxquelles les annotations existantes n’apportent pas de réponse. |

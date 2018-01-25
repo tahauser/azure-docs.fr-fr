@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`. 
@@ -68,15 +68,15 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | Description | Valeurs autorisées | Requis
+Propriété | DESCRIPTION | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-name | Nom de l’activité de condition « if ». | String | Oui
-type | Doit avoir la valeur **IfCondition** | String | Oui
-expression | Expression qui doit retourner true ou false | Oui
-ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Oui
-ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Oui
+Nom | Nom de l’activité de condition « if ». | Chaîne | OUI
+Type | Doit avoir la valeur **IfCondition** | Chaîne | OUI
+expression | Expression qui doit retourner true ou false | OUI
+ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | OUI
+ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | OUI
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection. Si la valeur de routeSelection est true, les données sont copiées vers outputPath1. Par contre, si la valeur de routeSelection est false, les données sont copiées vers outputPath2. 
 
 > [!NOTE]
@@ -290,7 +290,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

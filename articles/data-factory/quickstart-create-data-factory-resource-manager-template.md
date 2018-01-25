@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/28/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 944310b802dafa15612fe92f4115a2e819436a6a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - Disponibilité générale](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Version 2 - Préversion](quickstart-create-data-factory-resource-manager-template.md) 
+> * [Version 2 - Préversion](quickstart-create-data-factory-resource-manager-template.md) 
 
 Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Manager pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un didacticiel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Didacticiel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
 
@@ -59,11 +59,12 @@ Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTu
             "type": "string",
             "allowedValues": [
                 "East US",
-                "East US 2"
+                "East US 2",
+                "West Europe"
             ],
             "defaultValue": "East US",
             "metadata": {
-                "description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+                "description": "Location of the data factory. Currently, only East US, East US 2, and West Europe are supported. "
             }
         },
         "storageAccountName": {
@@ -357,7 +358,7 @@ DeploymentDebugLogLevel :
 
 Le modèle déploie les entités Data Factory suivantes : 
 
-- Service lié Azure Storage
+- Service lié Stockage Azure
 - Jeux de données Blob Azure (entrée et sortie)
 - Pipeline avec une activité de copie
 - Déclencheur pour déclencher le pipeline
@@ -464,11 +465,11 @@ Les entités Data Factory suivantes sont définies dans le modèle JSON :
 
 - [Service lié Azure Storage](#azure-storage-linked-service)
 - [Jeu de données d'entrée d'objet Blob Azure](#azure-blob-input-dataset)
-- [Jeu de données de sortie d’objet Blob Azure](#azure-blob-output-dataset)
+- [Jeu de données de sortie d'objet Blob Azure](#azure-blob-output-dataset)
 - [Pipeline de données avec une activité de copie](#data-pipeline)
 - [Déclencheur](#trigger)
 
-#### <a name="azure-storage-linked-service"></a>Service lié Azure Storage
+#### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
 AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage en remplissant les conditions préalables. Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette section. Consultez [Service lié Stockage Azure](connector-azure-blob-storage.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié Stockage Azure. 
 
 ```json
@@ -646,5 +647,5 @@ Notez que la première commande utilise le fichier de paramètres pour l’envir
 Vous pouvez également réutiliser le modèle pour effectuer des tâches répétitives. Par exemple, créer plusieurs fabriques de données avec un ou plusieurs pipelines qui implémentent la même logique, mais chaque fabrique de données utilise des comptes Stockage Azure différents. Dans ce scénario, vous utilisez le même modèle dans le même environnement (développement, test ou production) avec différents fichiers de paramètres pour créer des fabriques de données. 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Consultez les [didacticiels](tutorial-copy-data-dot-net.md) pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server dans les machines virtuelles Azure
 > [!IMPORTANT] 
@@ -75,13 +75,13 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 * SQL Server 2012 SP3 Enterprise
 * SQL Server 2012 SP3 Standard
 
-| Fonctionnalité BI de SQL Server | Installé sur l’image de la galerie | Remarques |
+| Fonctionnalité BI de SQL Server | Installé sur l’image de la galerie | Notes |
 | --- | --- | --- |
-| **Mode natif de Reporting Services** |Oui |Installé, mais nécessite une configuration, notamment de l’URL du Gestionnaire de rapports. Consultez la section [Configurer Reporting Services](#configure-reporting-services). |
-| **Mode SharePoint de Reporting Services** |Non |L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup> |
-| **Mode multidimensionnel et d’exploration de données Analysis Services (OLAP)** |Oui |Installé et configuré comme instance par défaut de Analysis Services |
-| **Mode tabulaire Analysis Services** |Non |Pris en charge dans les images SQL Server 2012, 2014 et 2016, mais pas installé par défaut. Installez une autre instance d’Analysis Services. Consultez la section Installation d’autres services et fonctionnalités SQL Server dans cette rubrique. |
-| **Analysis Services Power Pivot pour SharePoint** |Non |L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup> |
+| **Mode natif de Reporting Services** |OUI |Installé, mais nécessite une configuration, notamment de l’URL du Gestionnaire de rapports. Consultez la section [Configurer Reporting Services](#configure-reporting-services). |
+| **Mode SharePoint de Reporting Services** |Non  |L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup> |
+| **Mode multidimensionnel et d’exploration de données Analysis Services (OLAP)** |OUI |Installé et configuré comme instance par défaut de Analysis Services |
+| **Mode tabulaire Analysis Services** |Non  |Pris en charge dans les images SQL Server 2012, 2014 et 2016, mais pas installé par défaut. Installez une autre instance d’Analysis Services. Consultez la section Installation d’autres services et fonctionnalités SQL Server dans cette rubrique. |
+| **Analysis Services Power Pivot pour SharePoint** |Non  |L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup> |
 
 <sup>1</sup> Pour plus d’informations sur SharePoint et les machines virtuelles Azure, consultez [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) et [Déploiement de SharePoint dans Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
 
@@ -98,7 +98,7 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
   * La stratégie de mise en cache du lecteur **C**: par défaut n’est pas optimale pour l’utilisation de données.
   * Nous vous déconseillons d’utiliser le lecteur **D**: qui est un disque temporaire principalement utilisé pour le fichier d’échange. Nous vous déconseillons d’utiliser le lecteur **D**: qui n’est pas persistant et n’est pas stocké dans le stockage d’objets blob. Les tâches de gestion telles qu’une simple modification de la taille d’une machine virtuelle réinitialisent le lecteur **D**:. Nous vous **DÉCONSEILLONS** d’utiliser le lecteur **D**: pour les fichiers de base de données, y compris tempdb.
     
-    Pour plus d’informations sur la création et l’attachement de disques, consultez la page [Procédure d’attachement d’un disque de données à une machine virtuelle](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Pour plus d’informations sur la création et l’attachement de disques, consultez la page [Procédure d’attachement d’un disque de données à une machine virtuelle](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Arrêtez ou désinstallez les services que vous ne prévoyez pas d’utiliser. Par exemple, si la machine virtuelle est uniquement utilisée pour Reporting Services, arrêtez ou désinstallez Analysis Services et SQL Server Integration Services. L’image suivante est un exemple de services qui sont démarrés par défaut.
   
     ![Services SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -206,7 +206,7 @@ Ou :
 **URL du portail web ou URL du Gestionnaire de rapports pour 2012 et 2014 :**
 
 1. Cliquez sur **URL du portail web** ou sur **URL du Gestionnaire de rapports** pour 2014 et 2012, dans le volet gauche.
-2. Cliquez sur **Apply**.
+2. Cliquez sur **Appliquer**.
 3. Dans le volet **Résultats** , vérifiez que les actions ont été effectuées.
 4. Cliquez sur **Quitter**.
 
@@ -223,7 +223,7 @@ Si vous souhaitez vous connecter au portail web ou au Gestionnaire de rapports p
 
 1. Créez un point de terminaison pour la machine virtuelle avec le port TCP 80. Pour plus d’informations, consultez la section [Points de terminaison de la machine virtuelle et ports de pare-feu](#virtual-machine-endpoints-and-firewall-ports) dans ce document.
 2. Ouvrez le port 80 dans le pare-feu de la machine virtuelle.
-3. Accédez au portail web ou au Gestionnaire de rapports en utilisant le **nom DNS** de la machine virtuelle Azure comme nom de serveur dans l’URL. Par exemple :
+3. Accédez au portail web ou au Gestionnaire de rapports en utilisant le **nom DNS** de la machine virtuelle Azure comme nom de serveur dans l’URL. Par exemple : 
    
     **Serveur de rapports** : http://uebi.cloudapp.net/reportserver  **Portail web** : http://uebi.cloudapp.net/reports
    
@@ -316,7 +316,7 @@ Cette section résume les points de terminaison de machine virtuelle Microsoft A
   * Créez des points de terminaison de machine virtuelle pour les ports notés (*).
 * Si la machine virtuelle est jointe à un domaine avec un tunnel VPN tel que le réseau virtuel Azure, les points de terminaison ne sont pas requis. Ouvrez toutefois les ports dans le pare-feu sur la machine virtuelle.
   
-  | Port | Type | Description |
+  | Port | type | DESCRIPTION |
   | --- | --- | --- |
   | **80** |TCP |Accès distant au serveur de rapports (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -339,7 +339,7 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 * [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Configuration d'une machine virtuelle SQL Server sur Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Association d’un disque de données à une machine virtuelle](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Association d’un disque de données à une machine virtuelle](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrating a Database to SQL Server on an Azure VM](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Déterminer le mode serveur d’une instance Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Modélisation multidimensionnelle (didacticiel Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)

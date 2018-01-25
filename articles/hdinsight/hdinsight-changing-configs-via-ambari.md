@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Ambari pour optimiser les configurations de cluster HDInsight
 
@@ -183,10 +183,10 @@ Les types de compression disponibles sont :
 
 | Format | Outil | Algorithme | Extension de fichier | Fractionnable ? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | Non |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | Oui |
+| Gzip | Gzip | DEFLATE | .gz | Non  |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | OUI |
 | LZO | Lzop | LZO | .lzo | Oui, si indexé |
-| Snappy | Non applicable | Snappy | Snappy | Non |
+| Snappy | N/A | Snappy | Snappy | Non  |
 
 En règle générale, il est important d’avoir une méthode de compression fractionnable. Sinon, le nombre de mappeurs créés est très faible. Si les données d’entrée sont textuelles, `bzip2` est la meilleure option. Pour le format ORC, l’option de compression la plus rapide est Snappy.
 
@@ -234,7 +234,7 @@ L’exécution spéculative lance un certain nombre de tâches en double afin de
 
 N’activez pas l’exécution spéculative pour les tâches MapReduce à exécution longue qui traitent beaucoup d’entrées.
 
-1. Pour activer l’exécution spéculative, accédez à l’onglet **Configs (Configurations)** de Hive, puis réglez le paramètre `hive.mapred.reduce.tasks.speculative.execution` sur true. La valeur par défaut est false.
+* Pour activer l’exécution spéculative, accédez à l’onglet **Configs (Configurations)** de Hive, puis réglez le paramètre `hive.mapred.reduce.tasks.speculative.execution` sur true. La valeur par défaut est false.
 
     ![Exécution spéculative sur les tâches MapReduce dans Hive](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -353,7 +353,7 @@ Pig génère des fichiers temporaires lors de l’exécution du travail. La comp
 
 ### <a name="enable-split-combining"></a>Activer la combinaison de fractionnements
 
-Lorsque ce paramètre est activé, les petits fichiers sont combinés pour réduire le nombre de tâches de mappage. Cela améliore l’efficacité des travaux comportant de nombreux petits fichiers. Pour activer cette fonction, réglez `pig.noSplitCombination` sur true. La valeur par défaut est false.
+Lorsque ce paramètre est activé, les petits fichiers sont combinés pour réduire le nombre de tâches de mappage. Cela améliore l’efficacité des travaux comportant de nombreux petits fichiers. Pour l’activer, réglez `pig.noSplitCombination` sur true. La valeur par défaut est false.
 
 
 ### <a name="tune-mappers"></a>Paramétrer les mappeurs
@@ -456,7 +456,7 @@ L’utilisation de la mémoire tampon d’allocation locale de Memstore est dét
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>étapes suivantes
 
 * [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
 * [API Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md)

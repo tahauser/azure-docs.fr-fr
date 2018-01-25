@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Surveillez, recevez et envoyez des événements avec le connecteur Event Hubs
 
@@ -30,7 +30,7 @@ Pour configurer un observateur d’événements afin que votre application logiq
 
 * Vous devez avoir un [espace de noms Event Hubs et un hub Event Hubs](../event-hubs/event-hubs-create.md) dans Azure. Découvrez [comment créer un espace de noms Event Hubs et un hub Event Hubs](../event-hubs/event-hubs-create.md). 
 
-* Pour utiliser [n’importe quel connecteur](https://docs.microsoft.com/azure/connectors/apis-list) dans votre application logique, vous devez d’abord créer une application logique. Découvrez [comment créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+* Pour utiliser [n’importe quel connecteur](https://docs.microsoft.com/azure/connectors/apis-list) dans votre application logique, vous devez d’abord créer une application logique. Découvrez [comment créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Vérifier les autorisations d’espace de noms Event Hubs et rechercher la chaîne de connexion
@@ -64,7 +64,7 @@ Pour vérifier vos autorisations et obtenir la chaîne de connexion, procédez c
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Démarrer le workflow lorsque votre hub Event Hubs reçoit de nouveaux événements
 
-Un [*déclencheur*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) désigne un événement qui démarre un workflow dans votre application logique. Pour démarrer un workflow lorsque de nouveaux événements sont envoyés à votre hub Event Hubs, procédez comme suit afin d’ajouter le déclencheur qui détecte cet événement.
+Un [*déclencheur*](../logic-apps/logic-apps-overview.md#logic-app-concepts) désigne un événement qui démarre un workflow dans votre application logique. Pour démarrer un workflow lorsque de nouveaux événements sont envoyés à votre hub Event Hubs, procédez comme suit afin d’ajouter le déclencheur qui détecte cet événement.
 
 1.  Dans le [portail Azure](https://portal.azure.com "portail Azure"), accédez à votre application logique existante ou créez une application logique vide.
 
@@ -94,7 +94,7 @@ Un [*déclencheur*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-co
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Envoyer des événements à votre hub Event Hubs à partir de votre application logique
 
-Une [*action*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) est une tâche effectuée par le flux de travail de votre application logique. Après avoir ajouté un déclencheur à votre application logique, vous pouvez ajouter une action permettant d’effectuer des opérations avec les données générées par ce déclencheur. Pour envoyer un événement à votre hub Event Hubs à partir de votre application logique, procédez comme suit.
+Une [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une tâche effectuée par le flux de travail de votre application logique. Après avoir ajouté un déclencheur à votre application logique, vous pouvez ajouter une action permettant d’effectuer des opérations avec les données générées par ce déclencheur. Pour envoyer un événement à votre hub Event Hubs à partir de votre application logique, procédez comme suit.
 
 1.  Dans le Concepteur d’application logique, sous le déclencheur de votre application logique, sélectionnez **Nouvelle étape** > **Ajouter une action**.
 
@@ -121,16 +121,16 @@ Sélectionnez cette action : **Envoyer un événement**
 
     Vous avez à présent défini une action permettant d’envoyer des événements à partir de votre application logique. 
 
-## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
 Consultez tous les déclencheurs et les actions définies dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/eventhubs/). 
 
-## <a name="get-help"></a>Obtenir de l'aide
+## <a name="get-help"></a>Obtenir de l’aide
 
 Pour poser des questions, répondre aux questions et voir ce que font les autres utilisateurs d’Azure Logic Apps, visitez le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 Afin d’améliorer Logic Apps ainsi que les connecteurs, votez pour des idées ou soumettez-en sur le [site de commentaires utilisateur Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 *  [Rechercher d’autres connecteurs pour Azure Logic Apps](./apis-list.md)

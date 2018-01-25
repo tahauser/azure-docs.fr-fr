@@ -3,7 +3,7 @@ title: Connecteur PowerShell | Microsoft Docs
 description: "Cet article décrit comment configurer le connecteur Windows PowerShell de Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Référence technique du connecteur PowerShell Windows
 Cet article décrit le connecteur PowerShell Windows Cet article s’applique aux produits suivants :
@@ -32,7 +32,7 @@ Pour MIM2016 et FIM2010R2, le connecteur est disponible en téléchargement dans
 ## <a name="overview-of-the-powershell-connector"></a>Vue d’ensemble du connecteur PowerShell
 Le connecteur PowerShell vous permet d’intégrer le service de synchronisation dans des systèmes externes qui offrent des API Windows PowerShell. Le connecteur offre un pont entre les fonctions de l’agent de gestion de connectivité extensible basé sur une structure appel 2 (ECMA2) et Windows PowerShell. Pour plus d’informations sur l’infrastructure d’ECMA, consultez la section [Référence de l’agent gestion de connectivité extensible 2.2](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 Avant d’utiliser le connecteur, vérifiez que vous disposez des éléments suivants sur le serveur de synchronisation :
 
 * Microsoft .NET 4.5.2 Framework ou version ultérieure
@@ -88,7 +88,7 @@ Le script de validation est un script Windows PowerShell facultatif qui peut êt
 
 Le script de validation reçoit les paramètres suivants de la part du connecteur :
 
-| Name | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |Boîte de dialogue ou l’onglet de configuration qui a déclenché la demande de validation. |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
@@ -101,7 +101,7 @@ Le script de découverte de schéma est obligatoire. Ce script renvoie les types
 
 Le script de découverte reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -120,7 +120,7 @@ L’onglet fonctionnalités de Management Agent Designer définit le comportemen
 
 ![Fonctionnalités](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
-| Fonctionnalité | Description |
+| Fonctionnalité | DESCRIPTION |
 | --- | --- |
 | [Style de nom unique][dnstyle] |Indique si le connecteur prend en charge les noms uniques et le cas échéant, le style. |
 | [Type d’exportation][exportT] |Détermine le type des objets qui sont présentés au script d’exportation. <li>AttributeReplace : inclut l’ensemble des valeurs d’un attribut à valeurs multiples lorsque l’attribut change.</li><li>AttributeUpdate : inclut uniquement les écarts d’un attribut à valeurs multiples lorsque l’attribut change.</li><li>MultivaluedReferenceAttributeUpdate - contient un ensemble complet de valeurs d’attributs à valeurs multiples sans référence et uniquement pour les écarts des attributs de référence à valeurs multiples.</li><li>ObjectReplace – inclut tous les attributs d’un objet en cas de modification d’attribut</li> |
@@ -148,7 +148,7 @@ Une partition est un espace de noms distinct au sein d’un seul schéma partag�
 
 Le script de découverte de la partition reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -160,7 +160,7 @@ Le script de découverte de hiérarchie est utilisé uniquement lorsque le style
 
 Le script de découverte de partition reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -168,7 +168,7 @@ Le script de découverte de partition reçoit les paramètres suivants de la par
 
 Le script doit retourner soit un objet HierarchyNode enfant unique, soit une liste [T] d’objets enfant HierarchyNode au pipeline.
 
-#### <a name="import"></a>Importation
+#### <a name="import"></a>Importer
 Les connecteurs qui prennent en charge les opérations d’importation doivent implémenter trois scripts.
 
 **Début de l’importation**  
@@ -176,7 +176,7 @@ Le script de début d’importation est exécuté au début de l’exécution d�
 
 Le script de démarrage reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -190,7 +190,7 @@ Le script d’importation de données est appelé par le connecteur jusqu’à c
 
 Le script d’importation reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -205,7 +205,7 @@ Le script d’importation de données doit écrire un objet List[[CSEntryChange]
 
 Le script de fin reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -222,7 +222,7 @@ Le script de début d’exportation est lancé au début de l’exécution d’u
 
 Le script de début d’exportation reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -236,7 +236,7 @@ Le service de synchronisation appelle le script d’exportation de données auss
 
 Le script d’exportation reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -251,7 +251,7 @@ Le script de données d’exportation doit renvoyer un objet [PutExportEntriesRe
 
 Le script d’exportation de fin reçoit les paramètres suivants du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
@@ -265,16 +265,16 @@ Les connecteurs PowerShell Windows peuvent servir de cible pour les modification
 
 Le script de mot de passe reçoit les paramètres suivants de la part du connecteur :
 
-| Nom | Type de données | Description |
+| NOM | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tableau des paramètres de configuration pour le connecteur. |
 | Informations d'identification |[PSCredential][pscred] |Contient les informations d’identification saisies par l’administrateur sur l’onglet Connectivité. |
 | Partition |[Partition][part] |Partition d’annuaire dans laquelle se trouve CSEntry. |
 | CSEntry |[CSEntry][cse] |Entrée d’espace de connecteur de l’objet reçu de à la suite d’un changement ou d’une réinitialisation de mot de passe. |
-| OperationType |String |Indique si l’opération est une réinitialisation (**SetPassword**) ou une modification (**ChangePassword**). |
+| OperationType |Chaîne |Indique si l’opération est une réinitialisation (**SetPassword**) ou une modification (**ChangePassword**). |
 | PasswordOptions |[PasswordOptions][pwdopt] |Indicateurs qui spécifient le comportement de réinitialisation de mot de passe prévu. Ce paramètre est disponible uniquement si le type d’opération est défini sur **SetPassword**. |
-| OldPassword |String |Remplie avec le mot de passe de l’ancien objet pour les modifications de mot de passe. Ce paramètre est disponible uniquement si le type d’opération est **ChangePassword**. |
-| NewPassword |String |Rempli avec le nouveau mot de passe de l’objet que le script doit définir. |
+| OldPassword |Chaîne |Remplie avec le mot de passe de l’ancien objet pour les modifications de mot de passe. Ce paramètre est disponible uniquement si le type d’opération est **ChangePassword**. |
+| NewPassword |Chaîne |Rempli avec le nouveau mot de passe de l’objet que le script doit définir. |
 
 En principe, le script de mot de passe ne doit pas renvoyer des résultats dans le pipeline Windows PowerShell. Si une erreur se produit dans le script de mot de passe, le script doit lever l’une des exceptions qui suivent pour informer le service de synchronisation sur le problème suivant :
 

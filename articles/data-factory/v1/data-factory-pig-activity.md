@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,19 +82,19 @@ L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.m
 }
 ```
 ## <a name="syntax-details"></a>Détails de la syntaxe
-| Propriété | Description | Requis |
+| Propriété | DESCRIPTION | Obligatoire |
 | --- | --- | --- |
-| name |Nom de l’activité |Oui |
-| Description |Texte décrivant la raison motivant l’activité. |Non |
-| type |HDinsightPig |Oui |
-| inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non |
-| outputs |Une ou plusieurs sorties produites par l’activité pig |Oui |
-| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |Oui |
-| script |Spécifier le script en ligne pig |Non |
-| chemin d'accès du script |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
-| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non |
+| Nom |Nom de l’activité |OUI |
+| description |Texte décrivant la raison motivant l’activité. |Non  |
+| Type |HDinsightPig |OUI |
+| inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non  |
+| outputs |Une ou plusieurs sorties produites par l’activité pig |OUI |
+| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |OUI |
+| script |Spécifier le script en ligne pig |Non  |
+| chemin d'accès du script |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
+| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non  |
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 Prenons un exemple d'analyse de journaux de jeux où vous souhaitez identifier le temps passé par les joueurs à jouer à des jeux créés par votre entreprise.
 
 L’exemple de journal de jeu suivant est un fichier séparé par des virgules (,). Il contient les champs suivants : ProfileID, SessionStart, Duration, SrcIPAddress et GameType.

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Prise en main de l’action HTTP + Swagger
 
 Vous pouvez créer un connecteur de première classe pour n’importe quel point de terminaison REST avec un [document Swagger](https://swagger.io) lorsque vous utilisez l’action HTTP + Swagger dans votre workflow d’application logique. Vous pouvez également étendre une application logique pour appeler n’importe quel point de terminaison REST avec une expérience de conception Logic App de première classe.
 
-Pour savoir comment créer des applications logiques avec des connecteurs, consultez [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md).
+Pour savoir comment créer des applications logiques avec des connecteurs, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Utiliser HTTP + Swagger comme un déclencheur ou d’une action
 
@@ -77,14 +77,14 @@ Vous trouverez ci-dessous les détails des déclencheurs et des actions que ce c
 ## <a name="http--swagger-triggers"></a>Déclencheurs HTTP + Swagger
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs.](connectors-overview.md) Le connecteur HTTP + Swagger a un déclencheur.
 
-| Déclencheur | Description |
+| Déclencheur | DESCRIPTION |
 | --- | --- |
 | HTTP + Swagger |Exécuter un appel HTTP et obtenir le contenu de la réponse |
 
 ## <a name="http--swagger-actions"></a>Actions HTTP + Swagger
 Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions.](connectors-overview.md) Le connecteur HTTP + Swagger a une action possible.
 
-| Action | Description |
+| Action | DESCRIPTION |
 | --- | --- |
 | HTTP + Swagger |Exécuter un appel HTTP et obtenir le contenu de la réponse |
 
@@ -95,28 +95,28 @@ Le connecteur HTTP + Swagger est créé avec une action possible. Vous trouverez
 Faites une demande HTTP sortante avec assistance des métadonnées Swagger.
 Un astérisque (*) signifie un champ obligatoire.
 
-| Nom complet | Nom de la propriété | Description |
+| Nom complet | Nom de la propriété | DESCRIPTION |
 | --- | --- | --- |
-| Method (Méthode)* |statique |Verbe HTTP à utiliser. |
+| Method (Méthode)* |method |Verbe HTTP à utiliser. |
 | URI* |URI |URI de la requête HTTP. |
-| En-têtes |En-têtes |Un objet JSON d’en-têtes HTTP à inclure. |
-| Corps |Corps |Le texte de la requête HTTP. |
+| headers |headers |Un objet JSON d’en-têtes HTTP à inclure. |
+| body |body |Le texte de la requête HTTP. |
 | Authentification |Authentification |Authentification à utiliser pour la requête. Pour plus d’informations, consultez la page [Connecteur HTTP](connectors-native-http.md#authentication). |
 
 **Détails des résultats**
 
 Réponse HTTP
 
-| Nom de la propriété | Type de données | Description |
+| Nom de la propriété | Type de données | DESCRIPTION |
 | --- | --- | --- |
 | headers |objet |En-têtes de réponse |
-| Corps |objet |Objet Réponse |
+| body |objet |Objet Réponse |
 | Code d’état |int |Code d'état HTTP |
 
 ### <a name="http-responses"></a>Réponses HTTP
 Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certaines réponses. La table ci-dessous indique les réponses correspondantes et leurs descriptions.
 
-| Name | Description |
+| NOM | DESCRIPTION |
 | --- | --- |
 | 200 |OK |
 | 202 |Acceptée |
@@ -127,7 +127,7 @@ Lorsque vous exécutez des appels de diverses actions, vous pouvez obtenir certa
 | 500 |Erreur interne du serveur. Une erreur inconnue s’est produite. |
 
 - - -
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-* [Créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Rechercher d’autres connecteurs](apis-list.md)

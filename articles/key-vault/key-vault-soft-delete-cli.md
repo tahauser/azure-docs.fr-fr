@@ -2,18 +2,18 @@
 ms.assetid: 
 title: "Azure Key Vault - Utilisation de la suppression réversible avec l’interface CLI"
 description: "Exemples d’utilisation de la suppression réversible avec extraits de code CLI"
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: bruceper
-ms.openlocfilehash: 3ee2c5dfb99d734cde25894174466b8e49823c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -22,7 +22,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 - Azure CLI 2.0 - Si vous ne l’avez pas encore installé pour votre environnement, consultez [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) 2.0](key-vault-manage-with-cli2.md).
 
@@ -32,7 +32,7 @@ Pour obtenir des informations de référence propres à Key Vault pour l’inter
 
 Les opérations Key Vault sont gérées séparément par l’intermédiaire d’autorisations de contrôle d’accès en fonction du rôle (RBAC) comme suit :
 
-| Opération | Description | Autorisation utilisateur |
+| Opération | DESCRIPTION | Autorisation utilisateur |
 |:--|:--|:--|
 |Liste|Énumère les coffres de clé supprimés.|Microsoft.KeyVault/deletedVaults/read|
 |Recover|Restaure un coffre de clés supprimé.|Microsoft.KeyVault/vaults/write|

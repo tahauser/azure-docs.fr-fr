@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiver les données de surveillance d’Azure
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -66,7 +66,7 @@ Les données de surveillance de votre abonnement sont maintenant transférées d
 
 Nous configurons à présent les données au niveau des ressources (journaux de diagnostic et de métriques des ressources) pour qu’elles soient routées vers le compte de stockage en configurant les **paramètres de diagnostic des ressources**.
 
-1. Cliquez sur le bouton **Moniteur** dans la liste de navigation de gauche, puis sur **Paramètres de diagnostic**. Vous trouverez la liste de toutes les ressources dans votre abonnement, qui produisent des données de surveillance dans Azure Monitor. Si vous n’avez pas de ressources dans cette liste, vous pouvez [créer une application logique](../logic-apps/logic-apps-create-a-logic-app.md) avant de poursuivre afin que de disposer d’une ressource sur laquelle configurer un paramètre de diagnostic.
+1. Cliquez sur le bouton **Moniteur** dans la liste de navigation de gauche, puis sur **Paramètres de diagnostic**. Vous trouverez la liste de toutes les ressources dans votre abonnement, qui produisent des données de surveillance dans Azure Monitor. Si vous n’avez pas de ressources dans cette liste, vous pouvez [créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) avant de poursuivre afin que de disposer d’une ressource sur laquelle configurer un paramètre de diagnostic.
 
 2. Cliquez sur une ressource dans la liste, puis sur **Activer les diagnostics**.
    
@@ -164,7 +164,7 @@ Vous avez à présent correctement configuré les données de surveillance à ar
 
 5. Si vous avez créé une machine virtuelle ou une application logique pour les étapes précédentes, supprimez-les également.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à configurer les données de surveillance de votre environnement Azure (abonnement, ressources et système d’exploitation invité) de façon à ce qu’elles soient archivées sur un compte de stockage. 
 

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8602decfa35a21e88885fda1a4c70264bb38444b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Connexion à une machine virtuelle SQL Server dans Azure (déploiement classique)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ La méthode utilisée par un client pour se connecter à un serveur SQL Server e
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>se connecter à SQL Server dans le même service de cloud computing
-Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, consultez la page [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Dans ce scénario, un client sur une machine virtuelle tente de se connecter à une instance SQL Server en cours d’exécution sur une autre machine virtuelle dans le même service cloud.
+Plusieurs machines virtuelles peuvent être créées dans le même service cloud. Pour comprendre ce scénario impliquant des machines virtuelles, consultez la page [Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Dans ce scénario, un client sur une machine virtuelle tente de se connecter à une instance SQL Server en cours d’exécution sur une autre machine virtuelle dans le même service cloud.
 
 Dans ce scénario, vous pouvez vous connecter à l’aide de la machine virtuelle **nom** (représentée par **nom de l’ordinateur** ou **nom d’hôte** dans le portail). Il s’agit du nom que vous avez fourni pour la machine virtuelle lors de sa création. Par exemple, si vous avez nommé votre machine virtuelle SQL **mysqlvm**, une machine virtuelle cliente dans le même service cloud peut utiliser la chaîne de connexion suivante pour se connecter :
 

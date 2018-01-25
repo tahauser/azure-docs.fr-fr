@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Cet article décrit comment surveiller, gérer et déboguer vos pipelines à l�
 Cette section décrit également comment une tranche de jeu de données passe d’un état à un autre.   
 
 ### <a name="navigate-to-your-data-factory"></a>Accédez à votre fabrique de données
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >**, puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
 
    ![Parcourir tout > Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -86,7 +86,7 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Sous-état</th><th align="left">Description</th>
+    <th align="left">État</th><th align="left">Sous-état</th><th align="left">DESCRIPTION</th>
 </tr>
 <tr>
     <td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure n’est pas venue pour l’exécution de la tranche.</td>
@@ -177,7 +177,7 @@ Vous pouvez suspendre l’exécution des pipelines à l’aide de l’applet de 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Par exemple :
+Par exemple : 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -188,7 +188,7 @@ Une fois le problème résolu au niveau du pipeline, vous pouvez reprendre le pi
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Par exemple :
+Par exemple : 
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -220,7 +220,7 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Par exemple :
+   Par exemple : 
 
     ```powershell   
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -234,7 +234,7 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Par exemple :
+    Par exemple : 
 
     ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -288,7 +288,7 @@ En cas d’échec de validation de la tranche à cause d’une erreur de straté
 ### <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
 Vous pouvez réexécuter des problèmes à l’aide de l’applet de commande **Set-AzureRmDataFactorySliceStatus**. Consultez la rubrique [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) pour la syntaxe et pour plus d’informations sur l’applet de commande.
 
-**Exemple :**
+**Exemple :**
 
 L’exemple suivant définit l’état de toutes les tranches de la table « DAWikiAggregatedData » sur « En attente » dans la fabrique de données Azure « WikiADF ».
 
@@ -366,13 +366,13 @@ L'exemple ci-dessus définit l'alerte de toutes les fabriques de données de vot
 
 Le tableau suivant dresse la liste des opérations et des états (et états secondaires) disponibles.
 
-| Nom d’opération | État | État secondaire |
+| Nom d’opération | Statut | État secondaire |
 | --- | --- | --- |
-| RunStarted |Démarré |Starting |
+| RunStarted |Démarré |Démarrage en cours |
 | RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandonné |
 | OnDemandClusterCreateStarted |Démarré | |
-| OnDemandClusterCreateSuccessful |Réussi | |
-| OnDemandClusterDeleted |Réussi | |
+| OnDemandClusterCreateSuccessful |Succeeded | |
+| OnDemandClusterDeleted |Succeeded | |
 
 Consultez [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) (Créer une règle d’alerte) pour plus d’informations sur les éléments JSON utilisés dans l’exemple.
 

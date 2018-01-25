@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Plus précisément, ce connecteur MongoDB prend en charge :
 - MongoDB **versions 2.4, 2.6, 3.0 et 3.2**.
 - Copie de données en utilisant une authentification **De base** ou **Anonyme**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour copier des données depuis/vers une base de données MongoDB qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote MongoDB intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données vers/depuis MongoDB.
 
@@ -55,11 +55,11 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété type doit être définie sur **MongoDb** |Oui |
-| server |Nom d’hôte ou adresse IP du serveur MongoDB. |Oui |
+| Type |La propriété type doit être définie sur **MongoDb** |OUI |
+| server |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Non (valeur par défaut est 27017) |
-| databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |Oui |
-| authenticationType | Type d'authentification utilisé pour se connecter à la base de données MongoDB.<br/>Valeurs autorisées : **De base** et **Anonyme**. |Oui |
+| databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |OUI |
+| authenticationType | Type d'authentification utilisé pour se connecter à la base de données MongoDB.<br/>Valeurs autorisées : **De base** et **Anonyme**. |OUI |
 | username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
 | password |Mot de passe pour l’utilisateur. Marquez ce champ comme SecureString. |Oui (si l’authentification de base est utilisée). |
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Non. Par défaut, l’authentification de base utilise le compte d’administrateur et la base de données spécifiés à l’aide de la propriété databaseName. |
@@ -98,8 +98,8 @@ Pour copier des données depuis MongoDB, affectez la valeur **MongoDbCollection*
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **MongoDbCollection** | Oui |
-| collectionName |Nom de la collection dans la base de données MongoDB. |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **MongoDbCollection** | OUI |
+| collectionName |Nom de la collection dans la base de données MongoDB. |OUI |
 
 **Exemple :**
 
@@ -129,7 +129,7 @@ Pour copier des données de MongoDB, définissez le type de source dans l’acti
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **MongoDbSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **MongoDbSource** | OUI |
 | query |Utiliser la requête SQL-92 personnalisée pour lire les données. Par exemple : select * from MyTable. |Non (si « collectionName » est spécifié dans le jeu de données) |
 
 **Exemple :**

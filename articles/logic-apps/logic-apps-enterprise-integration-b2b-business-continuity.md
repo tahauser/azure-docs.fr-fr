@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Récupération d’urgence inter-régions Logic Apps B2B
 
@@ -86,13 +86,13 @@ La continuité des activités pour les documents EDI X12 documents repose sur l
 > [!TIP]
 > Vous pouvez également utiliser le [modèle de démarrage rapide X12](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) pour créer des applications logiques. La création d’un compte d’intégration primaire et d’un compte d’intégration secondaire est nécessaire pour utiliser le modèle. Le modèle permet de créer deux applications logiques, une pour les numéros de contrôle reçus et l’autre pour les numéros de contrôle générés. Les déclencheurs et actions respectifs sont créés dans les applications logiques, ce qui permet de connecter le déclencheur connecté au compte d’intégration primaire et de connecter l’action au compte d’intégration secondaire.
 
-**Configuration requise**
+**Composants requis**
 
 Pour activer la récupération d’urgence pour les messages entrants, sélectionnez les options de vérification de doublons dans les paramètres de réception de l’accord X12.
 
 ![Sélectionnez les paramètres de vérification des doublons](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire.    
+1. Créez une [application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) dans la région secondaire.    
 
 2. Lancez une recherche sur **X12** et sélectionnez **X12 - Lors de la modification d’un numéro de contrôle**.   
 
@@ -141,13 +141,13 @@ En fonction de l’intervalle de temps, l’état d’exécution incrémentiel e
 
 La continuité des activités pour les documents EDI EDIFACT repose sur les numéros de contrôle.
 
-**Configuration requise**
+**Composants requis**
 
 Pour activer la récupération d’urgence pour les messages entrants, sélectionnez les options de vérification de doublons dans les paramètres de réception de l’accord EDIFACT.
 
 ![Sélectionnez les paramètres de vérification des doublons](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire.    
+1. Créez une [application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) dans la région secondaire.    
 
 2. Lancez une recherche sur **EDIFACT** et sélectionnez **EDIFACT - Lors de la modification d’un numéro de contrôle**.
 
@@ -199,7 +199,7 @@ La continuité des activités pour les documents qui utilisent le protocole AS2 
 > [!TIP]
 > Vous pouvez également utiliser le [modèle de démarrage rapide AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) pour créer des applications logiques. La création d’un compte d’intégration primaire et d’un compte d’intégration secondaire est nécessaire pour utiliser le modèle. Ce modèle permet de créer une application logique qui comporte un déclencheur et une action. L’application logique crée une connexion entre le déclencheur et un compte d’intégration primaire et entre l’action et un compte d’intégration secondaire.
 
-1. Créez une [application logique](../logic-apps/logic-apps-create-a-logic-app.md) dans la région secondaire.  
+1. Créez une [application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) dans la région secondaire.  
 
 2. Recherchez **AS2** et sélectionnez **AS2 - Lorsqu’une valeur MIC est créée**.   
 
@@ -243,7 +243,7 @@ La continuité des activités pour les documents qui utilisent le protocole AS2 
 
 En fonction de l’intervalle de temps, l’état d’exécution incrémentiel est dupliqué de la région primaire à la région secondaire. Lors d’un sinistre, lorsque la région primaire n’est pas disponible, dirigez le trafic vers la région secondaire pour la continuité des activités. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Surveiller les messages B2B](logic-apps-monitor-b2b-message.md)
 

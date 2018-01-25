@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -39,11 +39,13 @@ Le proxy inverse expose un ou plusieurs points de terminaison sur le nœud local
 
 ![Communications internes][1]
 
+> [!NOTE]
 > **Plateformes prises en charge**
 >
 > Le proxy inverse dans Service Fabric prend en charge les plateformes suivantes :
 > * *Cluster Windows* : Windows versions 8 et ultérieures ou Windows Server versions 2012 et ultérieures
 > * *Cluster Linux* : le proxy inverse n’est pas disponible pour les clusters Linux.
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Atteindre les microservices de l’extérieur du cluster
 Le modèle de communication externe par défaut des microservices est un modèle d’adhésion, avec lequel aucun service n’est accessible directement à partir des clients externes. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), qui représente une limite réseau située entre les microservices et les clients externes, effectue la traduction des adresses réseau et transfère les requêtes externes vers des points de terminaison IP:port internes. Pour que le point de terminaison d’un microservice soit accessible aux clients externes, vous devez tout d’abord configurer l’équilibreur de charge de sorte qu’il transfère le trafic vers chaque port utilisé par le service au sein du cluster. En outre, la plupart des microservices, en particulier les microservices avec état, ne résident pas sur tous les nœuds du cluster. Les microservices peuvent se déplacer entre les nœuds lors d’un basculement. Dans ce cas, l’équilibreur de charge ne peut pas déterminer efficacement l’emplacement du nœud cible des réplicas auxquels il doit transférer le trafic.
@@ -309,7 +311,7 @@ Tout d’abord, vous récupérez le modèle du cluster que vous souhaitez déplo
 > [!NOTE]
 > Lorsque vous utilisez des certificats différents du certificat de cluster pour activer le certificat du proxy inverse sur un cluster existant, installez le proxy inverse et mettez à jour l’ACL sur le cluster avant d’activer le proxy inverse. Terminez le déploiement du [modèle Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) avec les paramètres mentionnés précédemment avant de commencer un déploiement pour activer le proxy inverse en suivant les étapes 1 à 4.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour obtenir un exemple de communication HTTP entre services, consultez cet [exemple de projet sur GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Transfert vers un service HTTP sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Appels de procédure distante avec Reliable Services à distance](service-fabric-reliable-services-communication-remoting.md)

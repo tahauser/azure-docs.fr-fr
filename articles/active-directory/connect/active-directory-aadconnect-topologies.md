@@ -3,7 +3,7 @@ title: "Azure AD Connect : topologies prises en charge | Microsoft Docs"
 description: "Cette rubrique détaille les topologies prises en charge et celles qui ne le sont pas pour Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
 
 Voici la légende des images de l’article :
 
-| Description | Symbole |
+| DESCRIPTION | Symbole |
 | --- | --- |
 | Forêt Active Directory locale |![Forêt Active Directory locale](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
 | Active Directory local avec importation filtrée |![Active Directory avec importation filtrée](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
@@ -178,7 +178,7 @@ Les locataires Azure AD sont isolés de par leur conception. Les tâches suivant
 
 Vous pouvez utiliser FIM 2010 ou MIM 2016 local pour synchroniser les utilisateurs (via GALSync) entre deux organisations Exchange. Les utilisateurs d’une organisation apparaissent alors comme des utilisateurs/contacts externes dans l’autre organisation. Ces différentes instances Active Directory locales peuvent ensuite être synchronisées vers leurs propres locataires Azure AD.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour savoir comment installer Azure AD Connect pour ces scénarios, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

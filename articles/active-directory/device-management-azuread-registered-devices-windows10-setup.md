@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1ff50a63aca93c4b9ba79eb113064a41a5e05cd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Configurer des appareils Windows 10 inscrits à Azure Active Directory
 
@@ -51,7 +51,7 @@ Lorsque vous inscrivez un appareil, gardez à l’esprit les éléments suivants
 
 Cette section fournit les étapes permettant d’inscrire votre appareil Windows 10 dans Azure AD. Si vous avez correctement inscrit votre appareil dans Azure AD, la boîte de dialogue **Accès Professionnel ou Scolaire** vous le confirme avec l’entrée **Compte professionnel ou scolaire**.
 
-![S’inscrire](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+![Register ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
 
 **Pour inscrire votre appareil Windows 10 :**
@@ -92,17 +92,17 @@ Cette section fournit les étapes permettant d’inscrire votre appareil Windows
 
 Pour vérifier si un appareil est joint à un annuaire Azure AD, consultez la boîte de dialogue **Accès Professionnel ou Scolaire** sur votre appareil.
 
-![S’inscrire](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
+![Register ](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
 Vous pouvez également examiner les paramètres de l’appareil dans le portail Azure AD.
 
-![S’inscrire](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
+![Register ](./media/device-management-azuread-registered-devices-windows10-setup/09.png)
 
 
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md).
 

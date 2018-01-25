@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: d056ed0b7030079f3ea47a56c65e08a9ecfe4583
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16ec2b320f733d8828b0046c20f7f7b0e341daf9
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="account-provisioning-notifications"></a>Notifications d’approvisionnement de comptes
+# <a name="account-provisioning-notifications"></a>Notifications d’approvisionnement de compte
 Avec l’approvisionnement d’utilisateurs, vous pouvez automatiser le processus de gestion des utilisateurs dans les applications SaaS tierces. <br>
 Bien qu’il soit automatisé, votre interaction avec ce processus est parfois nécessaire. <br>
 C’est par exemple le cas quand le mot de passe du compte que vous avez configuré pour échanger des données avec une application SaaS tierce a expiré. 
@@ -32,7 +32,7 @@ Vous activez ou désactivez les notifications d’approvisionnement de comptes d
 
 Pour activer les notifications d’approvisionnement de comptes, cochez la case associée dans la page de boîte de dialogue **Confirmation** , puis tapez l’alias de messagerie du destinataire.
 
-![Notifications d’approvisionnement de comptes][2]
+![Notifications d’approvisionnement de compte][2]
 
 Vous pouvez entrer une liste de distribution comme destinataire ; toutefois, il convient de noter que le message électronique de notification contient des liens vers des rapports qui sont accessibles uniquement aux administrateurs Azure AD.
 

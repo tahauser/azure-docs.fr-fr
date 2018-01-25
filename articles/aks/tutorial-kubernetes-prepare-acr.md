@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
-Azure Container Registry (ACR) est un registre privé Azure pour les images de conteneur Docker. Ce didacticiel (deuxième d’une série de huit) vous aide à déployer une instance Azure Container Registry et à envoyer une image conteneur à ce dernier. Les étapes terminées sont les suivantes :
+Azure Container Registry (ACR) est un registre privé Azure pour les images de conteneur Docker. Ce didacticiel (deuxième d’une série de huit) vous aide à déployer une instance Azure Container Registry et à envoyer une image conteneur à ce dernier. Les étapes effectuées sont les suivantes :
 
 > [!div class="checklist"]
 > * Déploiement d’une instance Azure Container Registry (ACR)
@@ -42,7 +42,7 @@ Créez un groupe de ressources avec la commande [az group create][az-group-creat
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez un registre de conteneurs Azure à l’aide de la commande [az acr create][az-acr-create]. Le nom d’un registre de conteneurs **doit être unique**.
+Créez un registre de conteneurs Azure à l’aide de la commande [az acr create][az-acr-create]. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -68,7 +68,7 @@ Pour afficher la liste des images actuelles, utilisez la commande [docker images
 docker images
 ```
 
-Output:
+Sortie :
 
 ```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -97,7 +97,7 @@ Une fois le marquage effectué, exécutez [docker images][docker-images] pour v�
 docker images
 ```
 
-Output:
+Sortie :
 
 ```
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -127,7 +127,7 @@ Pour retourner une liste d’images qui ont été déplacées dans le registre d
 az acr repository list --name <acrName> --output table
 ```
 
-Sortie :
+Sortie :
 
 ```azurecli
 Result
@@ -141,7 +141,7 @@ Puis, pour afficher les balises d’une image spécifique, utilisez la commande 
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Sortie :
+Sortie :
 
 ```azurecli
 Result
@@ -151,7 +151,7 @@ redis-v1
 
 Au terme de ce didacticiel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, cette image est déployée à partir d’ACR vers un cluster Kubernetes.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, un Azure Container Registry a été préparé pour une utilisation dans un cluster ACS. Les étapes suivantes ont été effectuées :
 

@@ -3,7 +3,7 @@ title: Planificateur Azure AD Connect Sync | Microsoft Docs
 description: "Cette rubrique décrit la fonctionnalité de planificateur intégré dans Azure AD Connect Sync."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Planificateur Azure AD Connect Sync
 Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (également appelé moteur de synchronisation).
@@ -71,10 +71,10 @@ La configuration du planificateur est stockée dans Azure AD. Si vous avez un se
 Syntaxe : `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - jours, HH - heures, mm - minutes, ss - secondes
 
-Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Modifie le planificateur pour qu’il s’exécute toutes les 3 heures.
 
-Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+Exemple : `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 Modifie le planificateur pour qu’il s’exécute tous les jours.
 
 ### <a name="disable-the-scheduler"></a>Désactivation du planificateur  
@@ -168,7 +168,7 @@ Dans l'illustration ci-dessus, la première ligne est dans un état où le moteu
 ## <a name="scheduler-and-installation-wizard"></a>Planificateur et Assistant d’installation
 Si vous démarrez l’Assistant d’installation, le planificateur est temporairement interrompu. Ce comportement repose sur l’hypothèse que vous apportez des modifications de configuration et le fait que ces paramètres ne peuvent pas être appliqués si le moteur de synchronisation s’exécute activement. Pour cette raison, ne laissez pas l’Assistant d’installation ouvert, car il empêche le moteur de synchronisation d’effectuer toutes les actions de synchronisation.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).

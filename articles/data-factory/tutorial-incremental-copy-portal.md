@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
@@ -159,7 +159,7 @@ END
    ![Nouveau -> DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
 2. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialOnPremDF** comme **nom**. 
       
-     ![Page de nouvelle fabrique de données](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
+     ![Page Nouvelle fabrique de données](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
  
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si vous voyez un point d’exclamation rouge avec l’erreur suivante, changez le nom de la fabrique de données (par exemple, votrenomADFIncCopyTutorialDF), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
   
@@ -181,7 +181,7 @@ END
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
    ![Page d'accueil Data Factory](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. Cliquez sur le titre **Créer et surveiller** pour lancer l’interface utilisateur de Azure Data Factory dans un onglet séparé.
+10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 Dans ce didacticiel, vous allez créer un pipeline avec deux activités de recherche, une activité de copie et une activité StoredProcedure chaînées dans le même pipeline. 
@@ -257,7 +257,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 21. Sélectionnez l’**activité de copie** et vérifiez que vous vouez les propriétés de l’activité dans la fenêtre **Propriétés**. 
 
     ![Propriétés de l’activité de copie](./media/tutorial-incremental-copy-portal/back-to-copy-activity-properties.png)
-22. Basculez vers l’onglet **Source** onglet dans la fenêtre**Propriétés**, et procédez comme suit :
+22. Basculez vers l’onglet **Source** dans la fenêtre**Propriétés**, et procédez comme suit :
 
     1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**. 
     2. Sélectionnez **Requête** pour le champ **Utiliser la requête**. 
@@ -311,7 +311,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
         | NOM | type | Valeur | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Chaîne | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Activité de procédure stockée- paramètres de procédure stockée](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -446,7 +446,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 Dans ce didacticiel, le pipeline a copié les données d’une table unique d’une base de données SQL vers un stockage d’objets blob. Passez au didacticiel suivant pour découvrir comment copier les données de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL. 
 
 > [!div class="nextstepaction"]
->[Charger de façon incrémentielle des données provenant de plusieurs tables dans SQL Server vers Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Charger de façon incrémentielle des données provenant de plusieurs tables dans SQL Server vers Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

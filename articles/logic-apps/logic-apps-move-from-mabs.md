@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Déplacer depuis BizTalk Services vers Logic Apps
 
 Microsoft Azure BizTalk Services (MABS) fait l’objet d’une mise hors service. Utilisez cette rubrique pour déplacer vos solutions d’intégration MABS vers Azure Logic Apps. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 BizTalk Services se compose de deux services secondaires :
 
@@ -126,6 +126,6 @@ Logic Apps offre des fonctionnalités de suivi et de surveillance plus riches da
 Pour obtenir une haute disponibilité dans BizTalk Services, vous utilisez plusieurs instances dans une région donnée pour partager la charge de traitement. Avec les applications logiques, la haute disponibilité dans une région est intégrée et est fournie sans coût supplémentaire. Pour une récupération d’urgence hors région d’un traitement B2B dans BizTalk Services, un processus de sauvegarde et de restauration est requis. Dans Logic Apps, vous disposez d’une [capacité de récupération d’urgence](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) active/passive entre régions, grâce à laquelle vous pouvez synchroniser les données B2B entre les comptes d’intégration dans différentes régions afin de garantir la continuité d’activité.
 
 ## <a name="next"></a>Suivant
-* [Qu’est-ce qu’une application logique ?](logic-apps-what-are-logic-apps.md)
-* [Créez votre première application logique](logic-apps-create-a-logic-app.md), ou devenez rapidement opérationnel à l’aide d’un [modèle prédéfini](logic-apps-create-logic-apps-from-templates.md)  
+* [Qu’est-ce qu’une application logique ?](logic-apps-overview.md)
+* [Créez votre première application logique](quickstart-create-first-logic-app-workflow.md), ou devenez rapidement opérationnel à l’aide d’un [modèle prédéfini](logic-apps-create-logic-apps-from-templates.md)  
 * [Affichez tous les connecteurs disponibles](../connectors/apis-list.md) que vous pouvez utiliser dans une application logique

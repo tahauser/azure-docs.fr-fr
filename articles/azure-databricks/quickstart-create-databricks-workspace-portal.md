@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
@@ -38,10 +38,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
 2. Sous **Azure Databricks (Préversion)**, cliquez sur **Créer**.
 
-    > [!NOTE]
-    > Azure Databricks est actuellement en préversion limitée. Si vous voulez que votre abonnement Azure soit pris en compte dans la liste des abonnements autorisés pour la préversion, vous devez remplir le [formulaire d’inscription](https://databricks.azurewebsites.net/).
-
-2. Sous **Service Azure Databricks**, indiquez les valeurs suivantes :
+3. Sous **Service Azure Databricks**, indiquez les valeurs suivantes :
 
     ![Créer un espace de travail Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Créer un espace de travail Azure Databricks")
 
@@ -50,7 +47,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     * Pour **Groupe de ressources**, indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionnez un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).
     * Pour **Emplacement**, sélectionnez **États-Unis de l’Est 2**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).
 
-3. Cliquez sur **Créer**.
+4. Cliquez sur **Créer**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Créer un cluster Spark dans Databricks
 
@@ -141,7 +138,7 @@ Procédez comme suit pour créer un notebook dans Databricks, configurer le note
     * Définissez **Valeurs** sur **level**.
     * Définissez **Agrégation** sur **COUNT**.
 
-    Cliquez sur **Apply**.
+    Cliquez sur **Appliquer**.
 
 9. La sortie montre la représentation visuelle, comme illustré dans la capture d’écran suivante :
 
@@ -155,7 +152,7 @@ Si vous n’avez pas coché la case, vous devez arrêter manuellement le cluster
 
 ![Arrêter le cluster Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Arrêter le cluster Databricks")
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et vous avez exécuté un travail Spark avec des données dans Stockage Azure. Vous pouvez également consulter [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Passez à l’article suivant pour découvrir comment utiliser Azure Data Lake Store avec Azure Databricks.
 

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: aad93abd6e7bdf75e6f3b4fcd02b433a1d301ebc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-service-identity"></a>Identité de service Azure Data Factory
 
@@ -25,7 +25,7 @@ Cet article vous aide à comprendre ce qu’est l’identité de service de fabr
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez la [documentation Data Factory version 1](v1/data-factory-introduction.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lors de la création d’une fabrique de données, une identité du service est créée en même temps que la fabrique. L’identité du service est une application managée qui est inscrite auprès d’Azure Active Directory et qui représente la fabrique de données en question.
 
@@ -167,7 +167,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’identité de service de fabrique de données :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)

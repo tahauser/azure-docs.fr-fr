@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,10 +53,10 @@ Les propriétés prises en charge pour le service lié HTTP sont les suivantes 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **FtpServer**. | Oui |
-| url | URL de base du serveur web | Oui |
+| Type | La propriété type doit être définie sur **FtpServer**. | OUI |
+| url | URL de base du serveur web | OUI |
 | enableServerCertificateValidation | Spécifiez si vous souhaitez activer la validation du certificat SSL du serveur lors de la connexion au point de terminaison HTTP. | Non, la valeur par défaut est True. |
-| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonymous** (Anonyme), **Basic** (De base), **Digest**, **Windows**, **ClientCertificate** (Certificat client). <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | Oui |
+| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonymous** (Anonyme), **Basic** (De base), **Digest**, **Windows**, **ClientCertificate** (Certificat client). <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Utilisation de l’authentification Basic (De base), Digest ou Windows
@@ -65,8 +65,8 @@ Définissez la valeur de la propriété « authenticationType » sur **De base
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | Oui |
-| password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ comme SecureString. | Oui |
+| userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
+| password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ comme SecureString. | OUI |
 
 **Exemple**
 
@@ -161,7 +161,7 @@ Pour copier des données de HTTP, définissez la propriété type du jeu de donn
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **HttpFile** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur **HttpFile** | OUI |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL spécifiée dans la définition du service lié est utilisée. | Non  |
 | requestMethod | Méthode HTTP.<br/>Valeurs autorisées : **GET** (par défaut) ou **POST**. | Non  |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
@@ -218,7 +218,7 @@ Pour copier des données de HTTP, définissez le type de source dans l’activit
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **HttpSource** | Oui |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **HttpSource** | OUI |
 | httpRequestTimeout | Délai d’expiration (TimeSpan) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse.<br/> Valeur par défaut : 00:01:40  | Non  |
 
 **Exemple :**

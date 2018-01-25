@@ -1,6 +1,6 @@
 - name: Documentation App Service
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Web Apps
       href: app-service-web-overview.md
@@ -31,6 +31,8 @@
   items:
     - name: 1 - Application avec base de données
       items:
+        - name: .NET Core avec SQL DB
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET avec SQL DB
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP avec MySQL
@@ -49,7 +51,7 @@
       href: app-service-web-tutorial-content-delivery-network.md
 - name: Exemples
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: app-service-cli-samples.md
     - name: "Azure\_PowerShell"
       href: app-service-powershell-samples.md
@@ -167,19 +169,19 @@
           href: web-sites-create-web-jobs.md
         - name: Développer WebJobs avec Visual Studio
           href: websites-dotnet-deploy-webjobs.md
-- name: Référence
+- name: Informations de référence
   items:
-    - name: Interface de ligne de commande Azure
+    - name: Azure CLI
       href: /cli/azure/appservice
     - name: "Azure\_PowerShell"
       href: /powershell
-    - name: API REST
+    - name: de l’API REST
       href: /rest/api/appservice/
 - name: Ressources
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informations sur les quotas
       href: '../azure-subscription-service-limits.md#app-service-limits'
@@ -215,7 +217,7 @@
       href: app-service-best-practices.md
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: Vidéos
+    - name: vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
     - name: Livres de recettes
       items:
@@ -223,7 +225,7 @@
           href: ../guidance/guidance-ra-app-service.md
         - name: Scripts de déploiement
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Résolution des problèmes
+    - name: Résolution de problèmes
       items:
         - name: Résoudre les problèmes à l’aide de Visual Studio
           href: web-sites-dotnet-troubleshoot-visual-studio.md

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 7486e7c6816538fc120fd0b0a8bea0b006fb21f0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copier des données à partir d’un objet blob Azure vers Azure SQL Database à l’aide d’Azure Data Factory
 Dans ce didacticiel, vous créez une fabrique de données à l’aide de l’interface utilisateur (IU) d’Azure Data Factory. Le pipeline de cette fabrique de données copie les données du Stockage Blob Azure vers Azure SQL Database. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -147,7 +147,7 @@ Dans ce didacticiel, vous commencez par créer le pipeline, puis vous créez des
 10. Basculez vers l’onglet **Connexions** dans la fenêtre Propriétés.   
 
     ![Onglet Connexions](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Cliquez sur **+ Nouveau** en regard de la zone de texte **Service lié**. Un service lié rattache un magasin de données ou une ressource de calcul à une fabrique de données. Dans ce cas, vous créez un service lié de stockage Azure pour lier votre compte de stockage Azure au magasin de données. Le service lié comporte les informations de connexion utilisées par le service Data Factory pour établir la connexion au stockage Blob lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) qui contient les données sources. 
+11. Cliquez sur **+ Nouveau** en regard de la zone de texte **Service lié**. Un service lié rattache un magasin de données ou une ressource de calcul à une fabrique de données. Dans ce cas, vous créez un service lié de stockage Azure pour lier votre compte de Stockage Azure à la fabrique de données. Le service lié comporte les informations de connexion utilisées par le service Data Factory pour établir la connexion au stockage Blob lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) qui contient les données sources. 
 
     ![Bouton de nouveau service lié](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Dans la fenêtre **Nouveau service lié**, procédez comme suit : 
@@ -415,4 +415,4 @@ Dans cet exemple, le pipeline copie les données d’un emplacement vers un autr
 Passez au didacticiel suivant pour en savoir plus sur la copie des données locales vers le cloud : 
 
 > [!div class="nextstepaction"]
->[Copier des données locales vers le cloud](tutorial-hybrid-copy-data-tool.md)
+>[Copier des données locales vers le cloud](tutorial-hybrid-copy-portal.md)

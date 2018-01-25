@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
-ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 559e64ae3c16ed21bc09ac0c044281aa0a6e43df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Répliquer des machines virtuelles Azure vers une autre région après migration vers Azure à l’aide d’Azure Site Recovery
 
@@ -51,7 +51,7 @@ Après la migration, vous n’avez pas besoin de valider ou de supprimer un basc
 2. L’action **Terminer la migration** achève le processus de migration, supprime la réplication de la machine et arrête la facturation de Site Recovery pour celle-ci.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Étape 2 : Installer l’agent de machine virtuelle Azure sur la machine virtuelle
-L’[agent de machine virtuelle](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) Azure doit être installé sur la machine virtuelle pour que l’extension Site Recovery fonctionne et pour aider à protéger la machine virtuelle.
+L’[agent de machine virtuelle](../../virtual-machines/windows/agent-user-guide.md) Azure doit être installé sur la machine virtuelle pour que l’extension Site Recovery fonctionne et pour aider à protéger la machine virtuelle.
 
 >[!IMPORTANT]
 >Depuis la version 9.7.0.0, sur les machines virtuelles Windows, le programme d’installation du service Mobilité installe également l’agent de machine virtuelle Azure le plus récent disponible. Lors de la migration, la machine virtuelle remplit les conditions préalables à l’installation de l’agent pour l’utilisation de toute extension de machine virtuelle, dont l’extension Site Recovery. L’agent de machine virtuelle Azure doit être installé manuellement uniquement si le service Mobilité installé sur la machine migrée est de la version 9.6 ou d’une version antérieure.

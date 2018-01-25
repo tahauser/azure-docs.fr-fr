@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
 Cet article décrit la manière dont l’activité de copie d’Azure Data Factory effectue un mappage de schéma et de type de données, des données de la source au données du récepteur lors de la copie.
 
 > [!NOTE]
-> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez la [documentation de Data Factory version 1](v1/data-factory-introduction.md).
+> Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est généralement disponible (GA), consultez la [documentation de Data Factory version 1](v1/data-factory-introduction.md).
 
 
 ## <a name="column-mapping"></a>Mappage de colonnes
@@ -151,8 +151,8 @@ Vous pouvez trouver le mappage du type natif au type intermédiaire dans la sect
 Azure Data Factory prend en charge les types de données intermédiaires suivants. Vous pouvez spécifier les valeurs ci-dessous lors de la fourniture des informations de type dans une configuration de [structure de jeu de données](concepts-datasets-linked-services.md#dataset-structure) :
 
 * Byte[]
-* Boolean
-* Datetime
+* Booléen
+* DateTime
 * Datetimeoffset
 * Décimal
 * Double
@@ -161,7 +161,7 @@ Azure Data Factory prend en charge les types de données intermédiaires suivant
 * Int32
 * Int64
 * Single
-* String
+* Chaîne
 * Timespan
 
 ### <a name="explicit-data-type-conversion"></a>Conversion de type de données explicite
@@ -186,7 +186,7 @@ Une « structure » est suggérée pour le jeu de données dans les scénarios
 * Copie à partir de banques de données au schéma flexible, par exemple, Azure Table/Cosmos DB (jeu de données d’entrée), pour garantir que les données attendues (colonnes) sont copiées au lieu de laisser l’activité de copie déduire le schéma sur la base des lignes supérieures lors de l’exécution de chaque activité.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3ebcb5b3b4a84f7a5c25caa3f6b245f97bc8049f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7775bad1503e62e1887e6d85f67c3107f48866bf
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Considérations relatives à la confidentialité et à la sécurité de Cloud App Discovery
 Cette rubrique explique comment les données sont collectées, traitées et sécurisées dans Azure Active Directory Cloud App Discovery. Microsoft s’engage à protéger la confidentialité de vos données et à les sécuriser. Microsoft fournit des services dans le respect des pratiques de sécurisation du cycle de vie du développement de logiciels. La sécurisation et la protection des données constituent une priorité de premier plan pour Microsoft.
@@ -26,7 +26,7 @@ Cette rubrique explique comment les données sont collectées, traitées et séc
 > [!TIP] 
 > Découvrez le nouveau service Cloud App Discovery sans agent dans Azure Active Directory (Azure AD), qui est amélioré par [l’intégration à Microsoft Cloud App Security](https://portal.cloudappsecurity.com). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cloud App Discovery est une fonctionnalité d’Azure AD hébergée dans Microsoft Azure.  
 Un agent Cloud App Discovery Endpoint Agent permet de recueillir des données de détection d’application à partir d’ordinateurs gérés par le service informatique. Les données recueillies sont envoyées en toute sécurité via un canal chiffré au service Azure AD Cloud App Discovery. Les données Cloud App Discovery d’une organisation sont ensuite visibles dans le portail Azure. 
 
