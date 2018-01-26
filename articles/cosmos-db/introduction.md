@@ -44,7 +44,6 @@ En tant que service de base de données distribué mondialement, Azure Cosmos DB
         * [API MongoDB](mongodb-introduction.md) : service de base de données MongoDB reposant sur Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications MongoDB existants.
         * [API Table](table-introduction.md) : service de base de données de stockage de clés-valeurs qui fournit des fonctionnalités haut de gamme pour les applications de stockage Table Azure.
         * [API Graph (Gremlin)](graph-introduction.md) : service de base de données graphique conçu conformément à la [spécification Apache TinkerPop](http://tinkerpop.apache.org/).
-        * [API Cassandra](cassandra-introduction.md) : service de base de données orienté colonne. Compatible avec les bibliothèques, pilotes, outils et applications Cassandra existants.
         * Des modèles de données supplémentaires seront bientôt disponibles.
 
 * **Ajuster le débit et le stockage de façon élastique et à la demande, dans le monde entier**
