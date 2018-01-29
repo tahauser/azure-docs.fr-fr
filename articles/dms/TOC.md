@@ -1,5 +1,6 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [À propos de Database Migration Service](dms-overview.md)
+## [Vue d’ensemble des composants requis](pre-reqs.md)
 
 # Démarrages rapides
 ## [Créer un service - Portail](quickstart-create-data-migration-service-portal.md)
@@ -16,3 +17,4 @@
 ## [Guide pour la migration de base de données](https://aka.ms/datamigration)
 ## [Assistant de migration des données](https://aka.ms/dma)
 ## [Tarification](https://aka.ms/dms-pricing)
+## [FORUM AUX QUESTIONS](faq.md)

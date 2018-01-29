@@ -1,6 +1,6 @@
 ---
 title: "Autorisation - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
+description: "Mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/service | Article |
 | --------------- | ------- |
 | **Délimitation d’approbation machine** | <ul><li>[Vérifier que les ACL appropriées sont configurées pour limiter l’accès non autorisé aux données sur l’appareil](#acl-restricted-access)</li><li>[Vérifier que le contenu sensible d’application spécifique à l’utilisateur est stocké dans le répertoire du profil utilisateur](#sensitive-directory)</li><li>[Vérifier que les applications déployées sont exécutées avec des privilèges minimum](#deployed-privileges)</li></ul> |
-| **Application web** | <ul><li>[Appliquer l’ordre d’étapes séquentiel pendant le traitement du flux de logique d’entreprise](#sequential-logic)</li><li>[Implémenter le mécanisme de limitation du débit pour empêcher une énumération](#rate-enumeration)</li><li>[Vérifier que l’autorisation appropriée est en place et que le principe de privilèges minimum est respecté](#principle-least-privilege)</li><li>[Les décisions de logique d’entreprise et d’autorisation d’accès aux ressources ne doivent pas être basées sur les paramètres de demande entrante](#logic-request-parameters)</li><li>[Vérifier que le contenu et les ressources ne sont pas énumérables ou accessibles via la navigation forcée](#enumerable-browsing)</li></ul> |
+| **Application Web** | <ul><li>[Appliquer l’ordre d’étapes séquentiel pendant le traitement du flux de logique d’entreprise](#sequential-logic)</li><li>[Implémenter le mécanisme de limitation du débit pour empêcher une énumération](#rate-enumeration)</li><li>[Vérifier que l’autorisation appropriée est en place et que le principe de privilèges minimum est respecté](#principle-least-privilege)</li><li>[Les décisions de logique d’entreprise et d’autorisation d’accès aux ressources ne doivent pas être basées sur les paramètres de demande entrante](#logic-request-parameters)</li><li>[Vérifier que le contenu et les ressources ne sont pas énumérables ou accessibles via la navigation forcée](#enumerable-browsing)</li></ul> |
 | **Base de données** | <ul><li>[Vérifier que des comptes avec des privilèges minimum sont utilisés pour se connecter au serveur de base de données](#privileged-server)</li><li>[Implémenter la sécurité au niveau des lignes (RLS) pour empêcher les locataires d’accéder aux données des autres](#rls-tenants)</li><li>[Le rôle Administrateur système doit comporter uniquement des utilisateurs valides nécessaires](#sysadmin-users)</li></ul> |
 | **Passerelle de cloud IoT** | <ul><li>[Se connecter à la passerelle de cloud à l’aide de jetons avec des privilèges minimum](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Utiliser une clé SAP d’autorisations d’envoi seulement pour générer des jetons d’appareil](#sendonly-sas)</li><li>[Ne pas utiliser des jetons d’accès qui fournissent un accès direct au concentrateur d’événement](#access-tokens-hub)</li><li>[Se connecter au concentrateur d’événement à l’aide des clés SAP qui disposent des autorisations minimales requises](#sas-minimum-permissions)</li></ul> |
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/11/2017
 | **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès client aux opérations de cluster à l’aide de RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Effectuer la modélisation de sécurité et utiliser la sécurité au niveau des champs si nécessaire](#modeling-field)</li></ul> |
 | **Portail Dynamics CRM** | <ul><li>[Effectuer la modélisation de sécurité des comptes du portail en gardant à l’esprit que le modèle de sécurité pour le portail est différent du reste de CRM](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Accorder une autorisation précise sur un ensemble d’entités dans Azure Table Storage](#permission-entities)</li><li>[Activer le contrôle d’accès en fonction du rôle (RBAC) sur le compte de stockage Azure à l’aide d’Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Stockage Azure** | <ul><li>[Accorder une autorisation précise sur un ensemble d’entités dans Azure Table Storage](#permission-entities)</li><li>[Activer le contrôle d’accès en fonction du rôle (RBAC) sur le compte de stockage Azure à l’aide d’Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Client mobile** | <ul><li>[Implémenter la libération implicite ou la détection du rootage](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Référence de classe faible dans WCF](#weak-class-wcf)</li><li>[WCF - Implémenter le contrôle de l’autorisation](#wcf-authz)</li></ul> |
 | **API Web** | <ul><li>[Implémenter le mécanisme d’autorisation approprié dans l’API web ASP.NET](#authz-aspnet)</li></ul> |
@@ -117,7 +117,7 @@ ms.lasthandoff: 12/11/2017
 | **Informations de référence**              | N/A  |
 | **Étapes** | Chaque fois que vous vérifiez si un utilisateur est limité à la consultation de certaines données, les restrictions d’accès doivent être traitées côté serveur. L’ID utilisateur doit être stocké dans une variable de session au moment de la connexion et doit être utilisé pour récupérer les données utilisateur dans la base de données |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 ```SQL
 SELECT data 
 FROM personaldata 
@@ -175,7 +175,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Passerelle de cloud IoT | 
+| **Composant**               | Passerelle cloud IoT | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Choix de passerelle - Azure IoT Hub |
@@ -274,7 +274,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Storage | 
+| **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | StorageType - Table |
@@ -285,7 +285,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Storage | 
+| **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
@@ -314,7 +314,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | <p>Le système utilise une référence de classe faible, permettant ainsi à une personne malveillante d’exécuter du code non autorisé. Le programme fait référence à une classe définie par l’utilisateur qui n’est pas identifiée de manière unique. Lorsque .NET charge cette classe identifiée de manière faible, le chargeur de type CLR recherche la classe dans les emplacements suivants, dans l’ordre indiqué :</p><ol><li>Si le type de l’assembly est connu, le chargeur recherche les emplacements de redirection du fichier de configuration, GAC, l’assembly actuel à l’aide d’informations de configuration et le répertoire de base d’application</li><li>Si l’assembly est inconnu, le chargeur recherche l’assembly actuel, mscorlib et l’emplacement renvoyé par le gestionnaire d’événements TypeResolve</li><li>Cet ordre de recherche CLR peut être modifié avec des raccordements tels que le mécanisme de transfert de type et l’événement AppDomain.TypeResolve</li></ol><p>Si une personne malveillante exploite l’ordre de recherche CLR en créant une autre classe portant le même nom et en la plaçant dans un emplacement autre que l’emplacement de chargement CLR initial, le CLR exécutera involontairement le code fourni par la personne malveillante</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 L’élément `<behaviorExtensions/>` du fichier de configuration WCF ci-dessous indique à WCF d’ajouter une classe de comportements personnalisée à une extension WCF particulière.
 ```
 <system.serviceModel>
@@ -327,7 +327,7 @@ L’élément `<behaviorExtensions/>` du fichier de configuration WCF ci-dessous
 ```
 L’utilisation de noms complets (forts) identifie de manière unique un type et renforce considérablement la sécurité de votre système. Utilisez des noms d’assembly complets lors de l’inscription des types dans les fichiers machine.config et app.config.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 L’élément `<behaviorExtensions/>` du fichier de configuration WCF ci-dessous indique à WCF d’ajouter une classe de comportements personnalisée référencée de manière forte à une extension WCF particulière.
 ```
 <system.serviceModel>
@@ -351,7 +351,7 @@ L’élément `<behaviorExtensions/>` du fichier de configuration WCF ci-dessous
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | <p>Ce service n’utilise pas un contrôle d’autorisation. Lorsqu’un client appelle un service WCF particulier, WCF fournit divers schémas d’autorisation qui vérifient que l’appelant est autorisé à exécuter la méthode de service sur le serveur. Si les contrôles d’autorisation ne sont pas activés pour les services WCF, un utilisateur authentifié peut obtenir une élévation des privilèges.</p>|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 La configuration suivante indique à WCF de ne pas vérifier le niveau d’autorisation du client lors de l’exécution du service :
 ```
 <behaviors>
@@ -365,7 +365,7 @@ La configuration suivante indique à WCF de ne pas vérifier le niveau d’autor
 ```
 Utilisez un schéma d’autorisation de service pour vérifier que l’appelant de la méthode de service est autorisé à le faire. WCF propose deux modes et permet de définir un schéma d’autorisation personnalisé. Le mode UseWindowsGroups utilise des rôles et utilisateurs Windows, et le mode UseAspNetRoles utilise un fournisseur de rôle ASP.NET, tel que SQL Server, pour l’authentification.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 La configuration suivante indique à WCF de vérifier que le client fait partie du groupe Administrateurs avant d’exécuter le service Ajouter :
 ```
 <behaviors>
@@ -399,8 +399,8 @@ return result;
 | **Informations de référence**              | [Authentification et autorisation dans l’API Web ASP.NET](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **Étapes** | <p>Des informations de rôle pour les utilisateurs d’applications peuvent être dérivées d’Azure AD ou de revendications ADFS si l’application s’appuie sur ces derniers en tant que fournisseur d’identité ou que l’application elle-même peut lui fournir. Dans tous les cas, l’implémentation d’une autorisation personnalisée doit valider les informations de rôle utilisateur.</p><p>Des informations de rôle pour les utilisateurs d’applications peuvent être dérivées d’Azure AD ou de revendications ADFS si l’application s’appuie sur ces derniers en tant que fournisseur d’identité ou que l’application elle-même peut lui fournir. Dans tous les cas, l’implémentation d’une autorisation personnalisée doit valider les informations de rôle utilisateur.</p>
 
-### <a name="example"></a>Exemple
-```C#
+### <a name="example"></a>exemples
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -431,7 +431,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 Tous les contrôleurs et toutes les méthodes d’action qui doivent être protégés doivent inclure l’attribut ci-dessus.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

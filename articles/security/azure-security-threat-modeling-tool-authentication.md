@@ -1,6 +1,6 @@
 ---
 title: "Authentification - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs"
-description: "mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
+description: "Mesures de correction des menaces exposées dans l’outil de modélisation des menaces"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastructure de sécurité : Authentification | Mesures de correction 
 | Produit/Service | Article |
 | --------------- | ------- |
-| **Application web**    | <ul><li>[Envisager d’utiliser un mécanisme d’authentification standard pour l’application web](#standard-authn-web-app)</li><li>[Les applications doivent gérer les scénarios d’authentification ayant échoué en toute sécurité ](#handle-failed-authn)</li><li>[Activer l’authentification adaptative ou avancée](#step-up-adaptive-authn)</li><li>[Garantir que les interfaces d’administration sont correctement verrouillées](#admin-interface-lockdown)</li><li>[Implémenter des fonctionnalités de mot de passe oublié en toute sécurité](#forgot-pword-fxn)</li><li>[Garantir que la stratégie de compte et de mot de passe est implémentée](#pword-account-policy)</li><li>[Implémenter des contrôles pour empêcher l’énumération de nom d’utilisateur](#controls-username-enum)</li></ul> |
+| **Application Web**    | <ul><li>[Envisager d’utiliser un mécanisme d’authentification standard pour l’application web](#standard-authn-web-app)</li><li>[Les applications doivent gérer les scénarios d’authentification ayant échoué en toute sécurité ](#handle-failed-authn)</li><li>[Activer l’authentification adaptative ou avancée](#step-up-adaptive-authn)</li><li>[Garantir que les interfaces d’administration sont correctement verrouillées](#admin-interface-lockdown)</li><li>[Implémenter des fonctionnalités de mot de passe oublié en toute sécurité](#forgot-pword-fxn)</li><li>[Garantir que la stratégie de compte et de mot de passe est implémentée](#pword-account-policy)</li><li>[Implémenter des contrôles pour empêcher l’énumération de nom d’utilisateur](#controls-username-enum)</li></ul> |
 | **Base de données** | <ul><li>[Si possible, utiliser l’authentification Windows pour la connexion à SQL Server](#win-authn-sql)</li><li>[Si possible, utiliser l’authentification Azure Active Directory pour la connexion à SQL Database](#aad-authn-sql)</li><li>[Lorsque le mode d’authentification SQL est utilisé, garantir que la stratégie de compte et de mot de passe est appliquée sur SQL Server](#authn-account-pword)</li><li>[Ne pas utiliser l’authentification SQL dans des bases de données à relation contenant-contenu](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Utiliser les informations d’authentification par appareil à l’aide des jetons SAP](#authn-sas-tokens)</li></ul> |
 | **Délimitation d’approbation Azure** | <ul><li>[Activer Azure Multi-Factor Authentication pour les administrateurs Azure](#multi-factor-azure-admin)</li></ul> |
 | **Délimitation d’approbation Service Fabric** | <ul><li>[Restreindre l’accès anonyme au cluster Service Fabric](#anon-access-cluster)</li><li>[Garantir que le certificat client à nœud Service Fabric est différent du certificat nœud à nœud](#fabric-cn-nn)</li><li>[Utiliser AAD pour authentifier les clients sur les clusters Service Fabric](#aad-client-fabric)</li><li>[Garantir que les certificats Service Fabric proviennent d’une autorité de certification approuvée](#fabric-cert-ca)</li></ul> |
-| **IdentityServer** | <ul><li>[Utiliser des scénarios d’authentification standard pris en charge par IdentityServer](#standard-authn-id)</li><li>[Remplacer le cache de jetons IdentityServer par défaut par une solution évolutive](#override-token)</li></ul> |
+| **Serveur d’identité** | <ul><li>[Utiliser des scénarios d’authentification standard pris en charge par IdentityServer](#standard-authn-id)</li><li>[Remplacer le cache de jetons IdentityServer par défaut par une solution évolutive](#override-token)</li></ul> |
 | **Délimitation d’approbation machine** | <ul><li>[Garantir que les fichiers binaires de l’application déployée sont signés numériquement](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[Activer l’authentification lors de la connexion aux files d’attente MSMQ dans WCF](#msmq-queues)</li><li>[WCF - Ne pas définir clientCredentialType du message sur la valeur « aucun »](#message-none)</li><li>[WCF - Ne pas définir clientCredentialType du transport sur la valeur « aucun »](#transport-none)</li></ul> |
 | **API Web** | <ul><li>[Garantir que les techniques d’authentification standard sont utilisées pour sécuriser les API Web](#authn-secure-api)</li></ul> |
 | **Azure AD** | <ul><li>[Utiliser des scénarios d’authentification standard pris en charge par Azure Active Directory](#authn-aad)</li><li>[Remplacer le cache de jetons ADAL par défaut par une solution évolutive](#adal-scalable)</li><li>[Garantir que TokenReplayCache est utilisé pour empêcher la relecture de jetons d’authentification ADAL](#tokenreplaycache-adal)</li><li>[Utiliser les bibliothèques ADAL pour gérer les demandes de jeton des clients OAuth2 vers AAD (ou Active Directory local)](#adal-oauth2)</li></ul> |
 | **Passerelle de champ IoT** | <ul><li>[Authentifier les appareils se connectant à la passerelle de champ](#authn-devices-field)</li></ul> |
 | **Passerelle de cloud IoT** | <ul><li>[Garantir que les appareils se connectant à la passerelle de cloud sont authentifiés](#authn-devices-cloud)</li><li>[Utiliser les informations d’authentification par appareil](#authn-cred)</li></ul> |
-| **Azure Storage** | <ul><li>[Garantir que seuls les conteneurs et blobs requis disposent d’un accès en lecture anonyme](#req-containers-anon)</li><li>[Accorder un accès limité aux objets dans le stockage Azure à l’aide de SAS ou SAP](#limited-access-sas)</li></ul> |
+| **Stockage Azure** | <ul><li>[Garantir que seuls les conteneurs et blobs requis disposent d’un accès en lecture anonyme](#req-containers-anon)</li><li>[Accorder un accès limité aux objets dans le stockage Azure à l’aide de SAS ou SAP](#limited-access-sas)</li></ul> |
 
 ## <a id="standard-authn-web-app"></a>Envisager d’utiliser un mécanisme d’authentification standard pour l’application web
 
@@ -268,7 +268,7 @@ ms.lasthandoff: 10/11/2017
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
 | **Étapes** | Le programme ne parvient pas à activer l’authentification lors de la connexion aux files d’attente MSMQ, un pirate peut envoyer anonymement des messages à la file d’attente pour traitement. Si l’authentification n’est pas utilisée pour se connecter à une file d’attente MSMQ pour remettre un message à un autre programme, un pirate pourrait envoyer un message malveillant anonyme.|
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous indique à WCF de désactiver l’authentification lors de la connexion à une file d’attente MSMQ pour la remise du message.
 ```
 <bindings>
@@ -283,7 +283,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 ```
 Configurez MSMQ pour exiger l’authentification de certificat ou de domaine Windows à tout moment pour les messages entrants ou sortants.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous indique à WCF d’activer l’authentification de certificat lors de la connexion à une file d’attente MSMQ. Le client est authentifié à l’aide de certificats X.509. Le certificat client doit être présent dans le magasin de certificats du serveur.
 ```
 <bindings>
@@ -308,7 +308,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | L’absence d’authentification signifie que tout le monde peut accéder à ce service. Un service qui n’authentifie pas ses clients autorise l’accès à tous les utilisateurs. Configurez l’application pour une authentification en fonction des informations d’identification du client. Cela est possible en définissant le clientCredentialType du message sur Windows ou Certificat. |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 ```
 <message clientCredentialType=""Certificate""/>
 ```
@@ -324,7 +324,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Étapes** | L’absence d’authentification signifie que tout le monde peut accéder à ce service. Un service qui n’authentifie pas ses clients autorise tous les utilisateurs à accéder à ses fonctionnalités. Configurez l’application pour une authentification en fonction des informations d’identification du client. Cela est possible en définissant le clientCredentialType du transport sur Windows ou Certificat. |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 ```
 <transport clientCredentialType=""Certificate""/>
 ```
@@ -373,8 +373,8 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Informations de référence**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) (Authentification moderne avec Azure Active Directory pour les applications web) |
 | **Étapes** | <p>La propriété TokenReplayCache permet aux développeurs de définir un cache de relecture de jetons, un magasin qui peut être utilisé pour enregistrer les jetons afin de vérifier qu’aucun jeton ne peut être utilisé plusieurs fois.</p><p>Il s’agit d’une mesure contre une attaque courante, l’attaque judicieusement appelée relecture de jetons : un pirate interceptant le jeton envoyé à la connexion peut tenter de l’envoyer à nouveau à l’application (le « relire ») pour établir une nouvelle session. Par exemple, dans le flux d’octroi de code d’OIDC, après une authentification utilisateur réussie, une demande vers le point de terminaison « /signin-oidc » de la partie de confiance est réalisée avec les paramètres « id_token », « code » et « état ».</p><p>La partie de confiance valide cette demande et établit une nouvelle session. Si un adversaire capture cette demande et la relit, il peut réussir à établir une session et tromper l’utilisateur. La présence de la valeur à usage unique dans OpenID Connect peut limiter mais pas complètement éliminer les circonstances dans lesquelles l’attaque peut être mise en œuvre correctement. Pour protéger leurs applications, les développeurs peuvent fournir une implémentation de ITokenReplayCache et assigner une instance à TokenReplayCache.</p>|
 
-### <a name="example"></a>Exemple
-```C#
+### <a name="example"></a>exemples
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -383,9 +383,9 @@ bool TryFind(string securityToken);
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 Voici un exemple d’implémentation de l’interface ITokenReplayCache. (Veuillez personnaliser et mettre en œuvre votre infrastructure de mise en cache spécifique au projet)
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 Le cache implémenté doit être référencé dans les options OIDC via la propriété « TokenValidationParameters » comme suit.
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -449,15 +449,15 @@ Notez que pour tester l’efficacité de cette configuration, vous devez vous co
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Passerelle de cloud IoT | 
+| **Composant**               | Passerelle cloud IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, C#, Node.JS  |
 | **Attributs**              | N/A, choix de passerelle - Azure IoT Hub |
 | **Informations de référence**              | N/A, [Mise en route d’Azure IoT Hub (.NET)](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Mise en route d’Azure IoT Hub (Node)](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Contrôler l’accès à IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [référentiel Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **Étapes** | <ul><li>**Générique :** authentifiez l’appareil à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Utilisez Azure AD, OAuth.</li><li>**C# :** par défaut, la méthode de création Create crée une instance DeviceClient qui utilise le protocole AMQP pour communiquer avec IoT Hub. Pour utiliser le protocole HTTPS, remplacez la méthode Create afin de pouvoir spécifier le protocole. Si vous utilisez le protocole HTTPS, vous devez également ajouter le package NuGet `Microsoft.AspNet.WebApi.Client` à votre projet de manière à inclure l’espace de noms `System.Net.Http.Formatting`.</li></ul>|
 
-### <a name="example"></a>Exemple
-```C#
+### <a name="example"></a>exemples
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";
@@ -471,7 +471,7 @@ deviceClient = DeviceClient.Create(iotHubUri, new DeviceAuthenticationWithRegist
 await deviceClient.SendEventAsync(message);
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>exemples
 **Node.JS : authentification**
 #### <a name="symmetric-key"></a>Clé symétrique
 * Créez un IoT Hub sur Azure.
@@ -549,7 +549,7 @@ await deviceClient.SendEventAsync(message);
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Passerelle de cloud IoT  | 
+| **Composant**               | Passerelle cloud IoT  | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Choix de passerelle - Azure IoT Hub |
@@ -560,7 +560,7 @@ await deviceClient.SendEventAsync(message);
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Storage | 
+| **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | StorageType - Blob |
@@ -571,7 +571,7 @@ await deviceClient.SendEventAsync(message);
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Storage | 
+| **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A |
