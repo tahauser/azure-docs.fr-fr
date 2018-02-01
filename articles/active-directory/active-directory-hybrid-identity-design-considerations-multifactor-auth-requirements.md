@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière d’authentification multifacteur"
+title: "Conception d’identités hybrides : exigences en matière d’authentification multifacteur Azure | Microsoft Docs"
 description: "Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seohack1
+ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d'authentification multifacteur (Multi-Factor Authentication) pour votre solution d'identités hybrides
 Dans un monde basé sur la mobilité, avec des utilisateurs qui accèdent à des données et à des applications dans le cloud et à partir de n'importe quel périphérique, la sécurisation de ces informations est devenue prééminente.  On entend parler chaque jour de nouvelles failles de sécurité.  Bien qu'il n'existe aucune garantie contre ces violations, l'authentification multifacteur (Multi-Factor Authentication), fournit une couche supplémentaire de sécurité afin de les empêcher.
@@ -56,7 +57,7 @@ Après avoir répondu à ces questions, vous serez en mesure de déterminer s'il
 * Votre société a-t-elle besoin d'activer l'authentification multifacteur pour tous les utilisateurs autorisés de ces applications ou uniquement pour les administrateurs ?
 * L'authentification multifacteur doit-elle être toujours activée ou uniquement lorsque les utilisateurs se connectent en dehors votre réseau d'entreprise ?
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Définir une stratégie d’adoption des identités hybrides](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 ## <a name="see-also"></a>Voir aussi

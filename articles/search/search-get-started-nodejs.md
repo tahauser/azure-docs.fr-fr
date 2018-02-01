@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Prise en main d’Azure Search dans Node.js
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Nous avons utilisé [Node.js](https://Nodejs.org) et NPM, [Sublime Text 3](http:
 Pour exécuter cet exemple, vous devez disposer d’un service Azure Search auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com). Consultez [Création d’un service Azure Search dans le portail](search-create-service-portal.md) pour obtenir des instructions pas-à-pas.
 
 ## <a name="about-the-data"></a>À propos des données
-Cet exemple d'application utilise des données de l’ [USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments repères, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
+Cet exemple d'application utilise des données de l’ [USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
 
 Dans cette application, le programme **DataIndexer** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx) , en récupérant le jeu de données USGS filtré à partir d'une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
 
@@ -48,7 +48,7 @@ Dans cette application, le programme **DataIndexer** crée et charge l'index à 
 ## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Rechercher le nom et la clé API de votre service Azure Search
 Une fois le service créé, revenez au portail pour obtenir l'URL ou `api-key`. Pour vous connecter à votre service de recherche, vous devez saisir l'URL et une `api-key` afin d’authentifier l'appel.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre d’index, cliquez sur **Service de recherche** pour obtenir la liste des services Azure Search approvisionnés pour votre abonnement.
 3. Sélectionnez le service que vous souhaitez utiliser.
 4. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l’icône de clé permettant d’accéder aux clés administrateur.
@@ -57,7 +57,7 @@ Une fois le service créé, revenez au portail pour obtenir l'URL ou `api-key`. 
 ## <a name="download-the-sample-files"></a>Télécharger les fichiers exemples
 Utilisez l'une des approches suivantes pour télécharger l'exemple.
 
-1. Accédez à [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Accédez à [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Cliquez sur **Download ZIP**, enregistrez le fichier ZIP sur le disque, puis extrayez tous les fichiers qu'il contient.
 
 Toutes les modifications et instructions d’exécution ultérieures seront effectuées sur les fichiers de ce dossier.
@@ -101,7 +101,7 @@ Vous pouvez également essayer les termes suivants :
 * Pembroke
 * goose +cape
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ceci est le premier didacticiel Azure Search basé sur Node.js et le jeu de données USGS. Au fil du temps, nous le compléterons avec des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
 
 Si vous connaissez déjà Azure Search, vous pouvez utiliser cet exemple comme tremplin pour tester des générateurs de suggestions (requêtes prédictives ou à saisie semi-automatique), des filtres et la navigation à facettes. Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.

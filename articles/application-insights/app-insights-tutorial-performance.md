@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -27,7 +27,7 @@ Azure Application Insights collecte des données de télémétrie à partir de v
 > * Analyser les détails des affichages de page à l’aide du langage de requête
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -63,6 +63,14 @@ Application Insights collecte des informations sur les performances pour les dif
 5.  Dans cet exemple, vous pouvez voir que de nombreuses requêtes prennent une seconde à être traitées. Vous pouvez afficher les détails de cette opération en cliquant sur **Détails de l’opération**.
 
     ![Détails de l’opération](media/app-insights-tutorial-performance/operation-details.png)
+
+    > [!NOTE]
+    Activez [l’expérience de la version préliminaire](app-insights-previews.md) « Unified details: E2E Transaction Diagnostics » pour voir tous les requêtes, dépendances, exceptions, traces, événements, etc. connexes à la télémétrie côté serveur dans un affichage unique en plein écran. 
+
+    Avec la version d’évaluation activée, vous pouvez voir le temps passé dans les appels de dépendance, ainsi que les échecs ou les exceptions dans une expérience unifiée. Pour les transactions entre composants, le diagramme de Gantt, ainsi que le volet de détails peuvent vous aider à diagnostiquer rapidement le composant, la dépendance ou l’exception d’une cause-racine. Vous pouvez développer la section inférieure pour visualiser la séquence horaire de toutes les traces ou événements collectés pour l’opération du composant sélectionné. [En savoir plus sur la nouvelle expérience](app-insights-transaction-diagnostics.md)  
+
+    ![Diagnostics de transaction](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
 
 6.  Les informations que vous avez collectées jusqu'à présent confirment un ralentissement des performances, mais il est assez facile d’identifier l’origine du problème.  Le **Profileur** vous aide en affichant le code qui s’exécutait pour l’opération et le temps nécessaire à chaque étape. Certaines opérations peuvent ne pas avoir de suivi car le profileur s’exécute périodiquement.  Au fil du temps, d’autres opérations devraient avoir un suivi.  Pour démarrer le profileur pour l’opération, cliquez sur **Suivis du Profileur**.
 5.  Le suivi affiche les événements individuels pour chaque opération pour vous permettre d’identifier la cause de la durée de l’opération globale.  Cliquez sur un des exemples en haut de la liste, dont la durée est la plus longue.
@@ -120,7 +128,7 @@ Comme avec les données collectées pour les performances du serveur, Applicatio
     ![Smart Diagnostics](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Maintenant que vous avez appris à identifier les exceptions d’exécution, passez à l’étape suivante du didacticiel pour apprendre à créer des alertes en réponse aux défaillances.
 
 > [!div class="nextstepaction"]

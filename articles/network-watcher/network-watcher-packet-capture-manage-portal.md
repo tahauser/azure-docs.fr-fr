@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail
 
 > [!div class="op_single_selector"]
-> - [portail Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Portail Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 > - [API REST Azure](network-watcher-packet-capture-manage-rest.md)
 
 La fonctionnalité de capture des paquets Network Watcher vous permet de créer des sessions de capture afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. Les filtres sont fournis pour la session de capture afin de vous garantir que vous capturez uniquement le trafic souhaité. La capture des paquets permet de diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc. En déclenchant à distance des captures de paquets, cette fonctionnalité simplifie l’exécution manuelle de la capture de paquets sur l’ordinateur souhaité, ce qui permet d’économiser un temps précieux.
@@ -83,7 +83,7 @@ Les propriétés suivantes peuvent être définies dans une capture de paquets 
 - **Compte de stockage** : détermine si la capture de paquets est enregistrée dans un compte de stockage.
 - **Fichier** : détermine si la capture de paquets est enregistrée localement sur la machine virtuelle.
 - **Comptes de stockage** : compte de stockage sélectionné dans lequel la capture de paquets est enregistrée. Emplacement par défaut : https://{nom du compte de stockage}.blob.core.windows.net/network-watcher-logs/subscriptions/{ID d’abonnement}/resourcegroups/{nom du groupe de ressources}/providers/microsoft.compute/virtualmachines/{nom de la machine virtuelle}/{AA}/{MM}/{JJ}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Activé uniquement si **Stockage** est sélectionné.)
-- **Chemin de fichier local** : chemin d’accès local sur une machine virtuelle pour enregistrer la capture des paquets. (Activé uniquement si **Fichier** est sélectionné.) Un chemin d’accès valide doit être fourni.
+- **Chemin de fichier local** : chemin d’accès local sur une machine virtuelle pour enregistrer la capture des paquets. (Activé uniquement si **Fichier** est sélectionné.) Un chemin valide doit être fourni. Pour une machine virtuelle Linux, le chemin doit commencer par */var/captures*.
 - **Nombre maximal d’octets par paquet** : nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés.
 - **Nombre maximal d’octets par session** : nombre total d’octets capturés. Une fois cette valeur atteinte, la capture de paquets s’arrête.
 - **Délai imparti (secondes)** : définit une limite de temps pour arrêter la capture de paquets. La valeur par défaut est de 18 000 secondes.
@@ -134,7 +134,7 @@ Si un compte de stockage est spécifié, les fichiers de capture de paquets sont
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en consultant [Create an alert triggered packet capture (Créer une capture de paquets déclenchée par alerte)](network-watcher-alert-triggered-packet-capture.md)
 

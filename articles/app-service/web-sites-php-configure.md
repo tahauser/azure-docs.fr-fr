@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 624dd416f37aacdb3d2f6e59afdc2efe646e610b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0467707a46709674d3f5de3346ad242af5c9dcb8
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurer PHP dans Azure App Service Web Apps
 ## <a name="introduction"></a>Introduction
@@ -27,7 +27,7 @@ Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Modification de la version intégrée de PHP
-Par défaut, PHP 5.5 est installé et immédiatement utilisable lorsque vous créez une application web App Service. Pour afficher la révision de version disponible, sa configuration par défaut et les extensions activées, la méthode idéale consiste à déployer un script qui appelle la fonction [phpinfo()] .
+Par défaut, PHP 5.6 est installé et immédiatement utilisable lorsque vous créez une application web App Service. Pour afficher la révision de version disponible, sa configuration par défaut et les extensions activées, la méthode idéale consiste à déployer un script qui appelle la fonction [phpinfo()] .
 
 Les versions PHP 5.6 et PHP 7.0 sont également disponibles, mais ne sont pas activées par défaut. Pour mettre à jour la version de PHP, procédez au choix comme suit :
 
@@ -178,7 +178,7 @@ Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dan
    
     ![Déploiement Git avec automatisation du Compositeur dans Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 > [!NOTE]

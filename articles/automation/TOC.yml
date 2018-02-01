@@ -1,6 +1,6 @@
 - name: "Documentation de l’utilisateur Azure\_Automation"
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Automation\_?"
       href: automation-intro.md
@@ -29,7 +29,7 @@
   items:
     - name: Gestion des mises à jour
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
         - name: Gérer les mises à jour pour plusieurs machines virtuelles
           href: manage-update-multi.md
@@ -37,7 +37,7 @@
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Suivi des modifications
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
         - name: Suivi des modifications dans vos machines virtuelles
           href: automation-vm-change-tracking.md
@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Créer et importer des runbooks
           href: automation-creating-importing-runbook.md
+        - name: Créer un runbook graphique
+          href: automation-first-runbook-graphical.md
+        - name: Créer un runbook PowerShell
+          href: automation-first-runbook-textual-powershell.md
+        - name: Créer un runbook PowerShell Workflow
+          href: automation-first-runbook-textual.md
+        - name: Créer un runbook Python
+          href: automation-first-runbook-textual-python2.md
         - name: Modifier des runbooks textuels
           href: automation-edit-textual-runbook.md
         - name: Modifier des runbooks graphiques

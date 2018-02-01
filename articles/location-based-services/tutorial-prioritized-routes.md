@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Rechercher des itinéraires pour différents modes de déplacement à l’aide d’Azure Location Based Services
 
@@ -28,7 +28,7 @@ Ce didacticiel montre comment utiliser votre compte Azure Location Based Service
 
 ## <a name="prerequisites"></a>configuration requise
 
-Avant de continuer, assurez-vous de [créer votre compte Azure Location Based Services](./tutorial-search-location.md#createaccount) et [d’obtenir la clé d’abonnement pour votre compte](./tutorial-search-location.md#getkey). Vous pouvez également consulter l’utilisation des API Map Control et Search Service comme indiqué dans le didacticiel [Rechercher des points d’intérêt de proximité à l’aide d’Azure Location Based Services](./tutorial-search-location.md). Vous pouvez également découvrir l’utilisation de base des API Route Service comme indiqué dans le didacticiel [Obtenir l’itinéraire vers un point d’intérêt à l’aide d’Azure Location Based Services](./tutorial-route-location.md).
+Avant de continuer, assurez-vous de [créer votre compte Azure Location Based Services](./tutorial-search-location.md#createaccount) et [d’obtenir une clé de votre compte](./tutorial-search-location.md#getkey). Vous pouvez également consulter l’utilisation des API Map Control et Search Service comme indiqué dans le didacticiel [Rechercher des points d’intérêt de proximité à l’aide d’Azure Location Based Services](./tutorial-search-location.md). Vous pouvez également découvrir l’utilisation de base des API Route Service comme indiqué dans le didacticiel [Obtenir l’itinéraire vers un point d’intérêt à l’aide d’Azure Location Based Services](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
@@ -80,9 +80,9 @@ Utilisez les étapes suivantes pour créer une page HTML statique incorporée av
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive et est un composant de l’API Azure Map Control.
@@ -195,7 +195,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -209,7 +209,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
     ```
     Cet extrait de code crée un objet [XMLHttpRequest](https://xhr.spec.whatwg.org/), puis ajoute un gestionnaire d’événements pour analyser la réponse entrante. Pour obtenir une réponse correcte, il crée un tableau de coordonnées pour l’itinéraire retourné et l’ajoute à la couche `truckRouteLayerName` de la carte. 
     
-    Cet extrait de code envoie aussi la requête à Route Service, afin d’obtenir l’itinéraire pour des points de départ et d’arrivée spécifiés, pour la clé d’abonnement de votre compte. Les paramètres facultatifs suivants sont utilisés pour indiquer l’itinéraire pour un poids lourd : - Le paramètre `travelMode=truck` spécifie le mode de déplacement en tant que *camion*. Les autres modes de déplacement pris en charge sont *taxi*, *bus*, *van*, *moto* et par défaut *voiture*.  
+    Cet extrait de code envoie aussi la requête à Route Service, afin d’obtenir l’itinéraire pour des points de départ et d’arrivée spécifiés, pour la clé de votre compte. Les paramètres facultatifs suivants sont utilisés pour indiquer l’itinéraire pour un poids lourd : - Le paramètre `travelMode=truck` spécifie le mode de déplacement en tant que *camion*. Les autres modes de déplacement pris en charge sont *taxi*, *bus*, *van*, *moto* et par défaut *voiture*.  
         - Les paramètres `vehicleWidth`, `vehicleHeight` et `vehicleLength` spécifient les dimensions du véhicule en mètres, et ne sont pris en compte que si le mode de déplacement est *camion*.  
         - Le paramètre `vehicleLoadType` classe la cargaison comme dangereuse et restreinte sur certaines routes. Actuellement, ce paramètre n’est également pris en charge que pour le mode *camion*.  
 
@@ -238,7 +238,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
@@ -247,7 +247,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Location B
     ```
     Cet extrait de code crée un autre objet [XMLHttpRequest](https://xhr.spec.whatwg.org/), puis ajoute un gestionnaire d’événements pour analyser la réponse entrante. Pour obtenir une réponse correcte, il crée un tableau de coordonnées pour l’itinéraire retourné et l’ajoute à la couche `carRouteLayerName` de la carte. 
     
-    Cet extrait de code envoie aussi la requête à Route Service, afin d’obtenir l’itinéraire pour les points de départ et d’arrivée spécifiés, pour la clé d’abonnement de votre compte. Étant donné qu’aucun autre paramètre n’est utilisé, l’itinéraire pour le mode de déplacement par défaut *voiture* est retourné. 
+    Cet extrait de code envoie aussi la requête à Route Service, afin d’obtenir l’itinéraire pour des points de départ et d’arrivée spécifiés, pour la clé de votre compte. Étant donné qu’aucun autre paramètre n’est utilisé, l’itinéraire pour le mode de déplacement par défaut *voiture* est retourné. 
 
 3. Enregistrez le fichier **MapTruckRoute.html** localement, ouvrez-le dans le navigateur web de votre choix, puis observez le résultat. Si la connexion aux API Location Based Services est couronnée de succès, vous devez voir une carte semblable à celle ci-après. 
 

@@ -1,6 +1,6 @@
 - name: Documentation Cosmos DB
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure Cosmos DB
       href: introduction.md
@@ -358,6 +358,8 @@
           href: spark-connector.md
         - name: Se connecter à Spark GraphX
           href: spark-connector-graph.md
+        - name: Diffusion en continu avec Kafka et Spark sur HDInsight
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
         - name: Déployer un site web dans Azure App Service
           href: create-website.md
         - name: Journalisation des applications avec Logic Apps

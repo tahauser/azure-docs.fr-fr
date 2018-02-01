@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -121,11 +121,11 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Vais-je perdre ma connectivité en cas d’échec de l’un de mes liens ExpressRoute ?
 
-Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour prendre en charge la charge de votre réseau. Vous pouvez également créer plusieurs circuits dans un autre emplacement d’homologation pour bénéficier de la tolérance de panne.
+Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour gérer la charge de votre réseau et fournir une haute disponibilité de votre circuit ExpressRoute. Vous pouvez également créer un circuit dans un autre emplacement d’homologation pour bénéficier de la résilience au niveau du circuit.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
 
-Vous pouvez obtenir une disponibilité élevée en connectant à votre réseau virtuel plusieurs circuits ExpressRoute sur différents emplacements d’homologation. Par exemple, si un site ExpressRoute tombe en panne, la connectivité bascule sur un autre site ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir une connexion plutôt qu’une autre. Voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md) pour plus d’informations sur le poids de connexion.
+Vous pouvez obtenir une haute disponibilité en connectant à votre réseau virtuel des circuits ExpressRoute à différents emplacements d’homologation (par exemple Singapore, Singapore2). Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md) pour plus d’informations sur le poids de connexion.
 
 ### <a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d’un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ?
 
@@ -145,9 +145,12 @@ Oui. Vous pouvez avoir plusieurs circuits ExpressRoute dans votre abonnement. La
 
 Oui. Vous pouvez avoir des circuits ExpressRoute de nombreux fournisseurs de services. Chaque circuit ExpressRoute est associé uniquement à un fournisseur de services. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même emplacement ?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Je vois deux emplacements d’homologation ExpressRoute dans le même métro, par exemple Singapore et Singapore2. Quel emplacement d’homologation dois-je choisir pour créer mon circuit ExpressRoute ?
+Si votre fournisseur de services propose ExpressRoute sur les deux sites, vous pouvez collaborer avec lui et choisir l’un ou l’autre site pour configurer ExpressRoute. 
 
-Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents, dans le même emplacement. Vous ne pouvez toutefois pas lier plusieurs circuits ExpressRoute au même réseau virtuel à partir du même emplacement.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même métro ? Puis-je les lier au même réseau virtuel ?
+
+Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous ne pouvez pas les lier au même réseau virtuel.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 
@@ -173,7 +176,7 @@ Oui. Vous pouvez autoriser jusqu’à 10 autres abonnements Azure à utiliser u
 
 Pour plus d'informations, consultez la page [Partage d'un circuit ExpressRoute entre plusieurs abonnements](expressroute-howto-linkvnet-arm.md).
 
-### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>J’ai plusieurs abonnements Azure associés à différents clients Azure Active Directory ou inscriptions d’Accord Entreprise. Puis-je connecter des réseaux virtuels qui se trouvent dans des clients et des inscriptions distincts à un même circuit ExpressRoute qui ne se trouve pas dans le même client ou la même inscription ?
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>J’ai plusieurs abonnements Azure associés à différents locataires Azure Active Directory ou des contrats Entreprise. Puis-je connecter des réseaux virtuels qui se trouvent dans des locataires et des abonnements distincts à un même circuit ExpressRoute qui ne se trouve pas dans le même locataire ou le même abonnement ?
 
 Oui. Les autorisations ExpressRoute peuvent aller jusqu’aux limites de l’abonnement, du client et de l’inscription sans aucune configuration supplémentaire. 
 

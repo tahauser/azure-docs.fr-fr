@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device SDK pour C
 
@@ -68,9 +68,9 @@ Maintenant que vous avez l’exemple de code source, vous devez à présent obte
 Il existe plusieurs outils open source pour vous aider à gérer votre IoT Hub.
 
 * Une application Windows appelée [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Un outil d’interface de ligne de commande (CLI) multiplateforme node.js appelé [iothub-explorer](https://github.com/azure/iothub-explorer).
+* Un outil CLI Python multiplateforme appelé [extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Ce didacticiel utilise l’outil graphique *Explorateur d’appareils*. Vous pouvez également utiliser l’outil *iothub-explorer* si vous préférez utiliser un outil d’interface CLI.
+Ce didacticiel utilise l’outil graphique *Explorateur d’appareils*. Vous pouvez également utiliser l’outil d’*extension IoT pour Azure CLI 2.0* si vous préférez utiliser un outil CLI.
 
 L’outil Explorateur d’appareils utilise les bibliothèques de service Azure IoT pour effectuer diverses fonctions sur IoT Hub, notamment ajouter des appareils. Si vous utilisez l'outil Explorateur d'appareils pour ajouter un appareil, vous obtenez une chaîne de connexion pour votre appareil. Vous avez besoin de cette chaîne de connexion pour exécuter les exemples d'applications.
 

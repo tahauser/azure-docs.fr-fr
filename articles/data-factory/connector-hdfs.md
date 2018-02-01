@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 80892d5f87c1f7a588023e4baa5de79bd73329a5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copier des données depuis/vers HDFS à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ Plus précisément, ce connecteur HDFS prend en charge ce qui suit :
 - Copie de fichiers en utilisant le protocole **webhdfs** ou la prise en charge de **DistCp intégré**.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Pour copier des données depuis/vers un HDFS qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](concepts-integration-runtime.md).
 
@@ -56,9 +56,9 @@ Les propriétés prises en charge pour le service lié HDFS sont les suivantes 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Hdfs**. | Oui |
-| url |URL vers le système HDFS |Oui |
-| authenticationType | Valeurs autorisées : **Anonyme** ou **Windows**. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |Oui |
+| Type | La propriété type doit être définie sur **Hdfs**. | OUI |
+| url |URL vers le système HDFS |OUI |
+| authenticationType | Valeurs autorisées : **Anonyme** ou **Windows**. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |OUI |
 | userName |Nom d’utilisateur de l’authentification Windows Pour l’authentification Kerberos, spécifiez `<username>@<domain>.com`. |Oui (pour l’authentification Windows) |
 | password |Mot de passe de l’authentification Windows Marquez ce champ comme SecureString. |Oui (pour l’authentification Windows) |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
@@ -115,8 +115,8 @@ Pour copier des données de HDFS, affectez la valeur **FileShare** à la propri�
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **FileShare** |Oui |
-| folderPath | Chemin d'accès au dossier. Par exemple : dossier/sous-dossier / |Oui |
+| Type | La propriété type du jeu de données doit être définie sur **FileShare** |OUI |
+| folderPath | Chemin d'accès au dossier. Par exemple : dossier/sous-dossier / |OUI |
 | fileName | Si vous souhaitez copier à partir d’un fichier spécifique, spécifiez le nom de celui-ci dans **folderPath**. Si vous ne spécifiez aucune valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier en tant que source. |Non  |
 | format | Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser des fichiers d’un format spécifique, les types de formats de fichier pris en charge sont les suivants : **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](supported-file-formats-and-compression-codecs.md#text-format), [format Json](supported-file-formats-and-compression-codecs.md#json-format), [format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non  |
@@ -159,8 +159,8 @@ Pour copier des données de HDFS, définissez le type de source dans l’activit
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **HdfsSource** |Oui |
-| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **HdfsSource** |OUI |
+| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur fichier, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
 | distcpSettings | Groupe de propriétés lors de l’utilisation de HDFS DistCp. | Non  |
 | resourceManagerEndpoint | Point de terminaison de Yarn ResourceManager | Oui, en cas d’utilisation de DistCp |
 | tempScriptPath | Chemin d’accès du dossier utilisé pour stocker le script de commande DistCp temporaire. Le fichier de script est généré par Data Factory et supprimé une fois le travail de copie terminé. | Oui, en cas d’utilisation de DistCp |

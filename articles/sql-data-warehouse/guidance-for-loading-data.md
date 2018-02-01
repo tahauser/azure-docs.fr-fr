@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Meilleures pratiques de chargement de données dans Azure SQL Data Warehouse
 Recommandations et optimisation des performances pour le chargement de données dans Azure SQL Data Warehouse. 
@@ -31,7 +31,7 @@ Recommandations et optimisation des performances pour le chargement de données 
 ## <a name="preparing-data-in-azure-storage"></a>Préparation des données dans Stockage Azure
 Afin de réduire la latence, colocalisez votre couche de stockage et votre entrepôt de données.
 
-Lorsque vous exportez des données au format de fichier ORC, le nombre de colonnes contenant beaucoup de texte peut être limité à 50, en raison d’erreurs Java de mémoire insuffisante. Pour contourner cette limitation, exportez uniquement un sous-ensemble de ces colonnes.
+Lorsque vous exportez des données dans un format de fichier ORC, vous pouvez obtenir des erreurs Java de mémoire insuffisante lorsqu’il existe des colonnes de texte de grande taille. Pour contourner cette limitation, exportez uniquement un sous-ensemble de ces colonnes.
 
 PolyBase ne peut pas charger de lignes comptant plus de 1 000 000 octets de données. Lorsque vous placez des données dans des fichiers texte dans le stockage Blob Azure ou Azure Data Lake Store, elles doivent être inférieures à 1 000 000 octets. Cette limitation du nombre d’octets est valable, quel que soit le schéma de table.
 
@@ -45,14 +45,22 @@ Pour une vitesse de chargement plus élevée, exécutez un seul travail de charg
 
 Pour exécuter des charges avec des ressources de calcul appropriées, créez des utilisateurs de chargement désignés pour cette tâche. Attribuez à chaque utilisateur de chargement pour une classe de ressources spécifique. Pour exécuter une charge, connectez-vous en tant qu’utilisateur de chargement, puis exécutez la charge. La charge s’exécute avec la classe de ressources de l’utilisateur.  Cette méthode est plus simple que d’essayer de modifier la classe de ressources d’un utilisateur pour répondre au besoin de la classe de ressources actuelle.
 
-Ce code crée un utilisateur de chargement pour la classe de ressources staticrc20. Il donne l’autorisation d’utiliser le contrôle utilisateur sur une base données, puis ajoute l’utilisateur en tant que membre du rôle de base de données staticrc20. Pour exécuter une charge avec des ressources pour les classes de ressources staticRC20, connectez-vous simplement en tant que LoaderRC20 et exécutez la charge. 
+### <a name="example-of-creating-a-loading-user"></a>Exemple de création d’un utilisateur de chargement
+Ce code crée un utilisateur de chargement pour la classe de ressources staticrc20. La première étape consiste à **se connecter au maître** et à créer une connexion.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+Connectez-vous à l’entrepôt de données et créez un utilisateur. Le code suivant suppose que vous êtes connecté à la base de données appelée mySampleDataWarehouse. Il montre comment créer un utilisateur nommé LoaderRC20, et lui donner la autorisation de contrôle d’une base de données. Il ajoute ensuite l’utilisateur en tant que membre du rôle de base de données staticrc20.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+Pour exécuter une charge avec des ressources pour les classes de ressources staticRC20, connectez-vous simplement en tant que LoaderRC20 et exécutez la charge.
 
 Exécutez des charges sous des classes de ressources statiques plutôt que dynamiques. L’utilisation des classes de ressources statiques garantit les mêmes ressources, quel que soit votre [niveau de service](performance-tiers.md#service-levels). Si vous utilisez une classe de ressources dynamique, les ressources varient en fonction de votre niveau de service. Pour les classes dynamiques, un niveau de service inférieur signifie que vous devrez probablement utiliser une classe de ressources supérieure pour votre utilisateur de chargement.
 
@@ -60,7 +68,7 @@ Exécutez des charges sous des classes de ressources statiques plutôt que dynam
 
 Il est souvent nécessaire que plusieurs utilisateurs chargent les données dans un entrepôt de données. Le chargement avec [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] nécessite des autorisations CONTROL de la base de données.  L’autorisation CONTROL permet de contrôler l’accès à tous les schémas. Vous ne souhaiterez peut-être pas attribuer aux utilisateurs de chargement le contrôle d’accès sur tous les schémas. Pour limiter les autorisations, utilisez l’instruction DENY CONTROL.
 
-Par exemple, les schémas de base de données schema_A pour le service A et schema_B pour le service B laissent les utilisateurs de base de données user_A et user_B être utilisateurs du chargement PolyBase dans les services A et B, respectivement. Ils ont tous deux reçu des autorisations de base de données CONTROL. Les créateurs des schémas A et B verrouillent maintenant leurs schémas à l’aide de DENY :
+Par exemple, les schémas de base de données schema_A pour le service A et schema_B pour le service B laissent les utilisateurs de base de données user_A et user_B être utilisateurs du chargement PolyBase dans les services A et B, respectivement. Ils ont tous deux reçu des autorisations de base de données CONTROL. Les créateurs des schémas A et B verrouillent maintenant leurs schémas à l’aide de DENY :
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -123,8 +131,8 @@ Après la migration de vos tables externes vers la nouvelle source de données, 
 3. Connexion à Azure et régénération de la clé d’accès primaire, afin qu’elle soit prête pour votre prochaine rotation.
 
 
-## <a name="next-steps"></a>Étapes suivantes
-Pour surveiller le processus de chargement, consultez [Surveiller votre charge de travail à l’aide de vues de gestion dynamique](sql-data-warehouse-manage-monitor.md).
+## <a name="next-steps"></a>étapes suivantes
+Pour surveiller les charges de données, consultez [Surveiller votre charge de travail à l’aide de vues de gestion dynamique](sql-data-warehouse-manage-monitor.md).
 
 
 

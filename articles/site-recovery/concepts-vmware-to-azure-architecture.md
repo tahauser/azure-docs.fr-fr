@@ -4,13 +4,13 @@ description: "Cet article fournit une vue d’ensemble des composants et de l’
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Architecture de la réplication VMware vers Azure
 
@@ -24,11 +24,9 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 **Composant** | **Prérequis** | **Détails**
 --- | --- | ---
 **Microsoft Azure** | Un abonnement Azure, un compte de stockage Azure et un réseau Azure. | Les données répliquées à partir de machines virtuelles locales sont stockées dans le compte de stockage. Les machines virtuelles Azure sont créées avec les données répliquées quand vous exécutez un basculement depuis le site local vers Azure. Les machines virtuelles Azure se connectent au réseau virtuel Azure lors de leur création.
-**Serveur de configuration** | Une seule machine virtuelle VMware locale est déployée pour exécuter tous les composants Site Recovery locaux. La machine virtuelle exécute le serveur de configuration, le serveur de traitement et le serveur cible maître. | Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.
- **Serveur de traitement**:  | Installé par défaut avec le serveur de configuration. | Fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure.<br/><br/> En outre, le serveur de traitement installe le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la découverte automatique des machines virtuelles sur les serveurs VMware locaux.<br/><br/> À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication.
- **Serveur cible maître** | Installé par défaut avec le serveur de configuration. | Gère les données de réplication pendant la restauration automatique à partir d’Azure.<br/><br/> Pour les déploiements à grande échelle, vous pouvez ajouter un serveur cible maître distinct à des fins de restauration automatique.
+**Machine du serveur de configuration** | Une seule machine locale. Nous vous recommandons de l’exécuter en tant que machine virtuelle VMware qui peut être déployée à partir d’un modèle OVF téléchargé.<br/><br/> La machine exécute tous les composants de Site Recovery locaux, y compris le serveur de configuration, le serveur de traitement et le serveur cible maître. | **Serveur de configuration** : coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.<br/><br/> **Serveur de processus** : installé par défaut sur le serveur de configuration. Il reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure. De plus, le serveur de processus installe le service Mobilité sur les machines virtuelles que vous voulez répliquer et effectue la détection automatique sur les machines locales. À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication.<br/><br/>  **Serveur cible maître** : Installé par défaut sur le serveur de configuration. Il gère les données de réplication pendant la restauration automatique à partir d’Azure. Pour les déploiements à grande échelle, vous pouvez ajouter un serveur cible maître distinct à des fins de restauration automatique.
 **Serveurs VMware** | Les machines virtuelles VMware sont hébergées sur des serveurs vSphere ESXi locaux. Nous recommandons d’utiliser un serveur vCenter pour gérer les hôtes. | Pendant le déploiement de Site Recovery, vous ajoutez des serveurs VMware au coffre Recovery Services.
-**Machines répliquées** | Le service Mobilité est installé sur chaque machine virtuelle VMware que vous répliquez. | Nous vous recommandons d’autoriser l’installation automatique à partir du serveur de traitement. Vous pouvez également installer le service manuellement, ou utiliser une méthode de déploiement automatisé telle que System Center Configuration Manager. 
+**Machines répliquées** | Le service Mobilité est installé sur chaque machine virtuelle VMware que vous répliquez. | Nous vous recommandons d’autoriser l’installation automatique à partir du serveur de traitement. Vous pouvez également installer le service manuellement, ou utiliser une méthode de déploiement automatisé telle que System Center Configuration Manager.
 
 **Architecture VMware vers Azure**
 
@@ -36,15 +34,17 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 
 ## <a name="replication-process"></a>Processus de réplication
 
-1. Vous configurez le déploiement, notamment celui des composants locaux et des composants Azure. Dans le coffre Recovery Services, vous spécifiez la source et la cible de réplication, configurez le serveur de configuration, créez une stratégie de réplication et activez la réplication.
-2. Les machines sont répliquées conformément à la stratégie définie, et une copie initiale des données des machines virtuelles est répliquée dans le stockage Azure.
-3. La réplication des modifications delta dans Azure commence à l’issue de la réplication initiale. Le suivi des modifications d’une machine est conservé dans un fichier .hrl.
+1.  Vous préparez des ressources Azure et des composants locaux.
+2.  Dans le coffre Recovery Services, vous spécifiez les paramètres de réplication source. Dans le cadre de ce processus, vous configurez le serveur de configuration local. Pour déployer ce serveur comme une machine virtuelle VMware, vous téléchargez un modèle OVF préparé et vous l’importez dans VMware pour créer la machine virtuelle.
+3. Vous spécifiez les paramètres de réplication cible, créez une stratégie de réplication et activez la réplication pour vos machines virtuelles VMware.
+4.  Les machines sont répliquées conformément à la stratégie définie, et une copie initiale des données des machines virtuelles est répliquée dans le stockage Azure.
+5.  La réplication des modifications delta dans Azure commence à l’issue de la réplication initiale. Le suivi des modifications d’une machine est conservé dans un fichier .hrl.
     - Les machines communiquent avec le serveur de configuration sur le port HTTPS 443 entrant, pour la gestion de la réplication.
     - Les machines envoient des données de réplication au serveur de traitement sur le port HTTPS 9443 entrant (modification possible).
     - Le serveur de configuration orchestre la gestion de la réplication avec Azure sur le port HTTPS 443 sortant.
     - Le serveur de traitement reçoit les données à partir des machines source, puis les chiffre et les envoie au stockage Azure via le port 443 sortant.
     - Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Le mode multimachine virtuelle est utilisé si vous regroupez plusieurs machines dans des groupes de réplication qui partagent des points de récupération cohérents en cas d’incident et avec les applications lorsqu’ils basculent. Cela est utile si les machines exécutent la même charge de travail et doivent être cohérentes.
-4. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. L’autre solution consiste à utiliser l’[homologation publique](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
+6.  Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. L’autre solution consiste à utiliser [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
 
 
 **Processus de réplication VMware vers Azure**

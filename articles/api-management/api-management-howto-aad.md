@@ -1,8 +1,8 @@
 ---
-title: "Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure | Microsoft Docs"
-description: Comment autoriser des utilisateurs avec Azure Active Directory dans Gestion des API.
+title: "Gérer des comptes de développeurs à l’aide de groupes dans Gestion des API Azure | Microsoft Docs"
+description: "Apprenez à gérer des comptes de développeurs à l'aide de groupes dans Gestion des API Azure."
 services: api-management
-documentationcenter: API Management
+documentationcenter: 
 author: juliako
 manager: cfowler
 editor: 
@@ -11,235 +11,98 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 5fa4825db7216f4b6e2d833c64d5835d6cef93a6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/22/2018
 ---
-> [!WARNING]
-> L’intégration d’Azure Active Directory est proposée uniquement dans les niveaux [Développeur, Standard et Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+# <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
+Dans Gestion des API, les groupes permettent de gérer la visibilité des produits pour les développeurs. Les produits sont d'abord visibles pour les groupes. Les développeurs de ces groupes peuvent afficher les produits associés aux groupes et s'y abonner. 
 
-# <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
-## <a name="overview"></a>Vue d'ensemble
-Ce guide vous explique comment activer l’accès au portail des développeurs pour les utilisateurs d’Azure Active Directory. Il vous montre également comment gérer des groupes d’utilisateurs Azure Active Directory en ajoutant des groupes externes qui contiennent les utilisateurs d’un annuaire Azure Active Directory.
+Le service Gestion des API possède les groupes système suivants, qui ne sont pas modifiables :
 
-> Pour effectuer les étapes de ce guide, vous devez disposer d’un annuaire Azure Active Directory dans lequel vous souhaitez créer une application.
-> 
+* **Administrateurs** : les administrateurs d’abonnements Azure sont membres de ce groupe. Les administrateurs gèrent les instances du service Gestion des API, créant les API, opérations et produits qui sont utilisés par les développeurs.
+* **Développeurs** : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
+* **Invités** : les utilisateurs non authentifiés du portail des développeurs, comme les prospects, qui consultent le portail des développeurs d’une instance d’API Management appartiennent à ce groupe. Ils peuvent recevoir certains accès en lecture seule, comme la possibilité d'afficher les API, mais pas de les appeler.
 
-## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory
-Pour commencer, cliquez sur **Portail des éditeurs** dans le portail Azure de votre service Gestion des API. Vous accédez au portail des éditeurs Gestion des API.
+Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés][leverage external groups in associated Azure Active Directory tenants]. Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.
 
-![Portail des éditeurs][api-management-management-console]
+Ce guide explique comment les administrateurs de l'instance Gestion des API peuvent ajouter de nouveaux groupes et les associer à des produits et des développeurs.
 
-> Si vous n’avez pas encore créé une instance de service Gestion des API, consultez la page de [création d’une instance de service Gestion des API][Create an API Management service instance] dans le didacticiel de [prise en main de Gestion des API Azure][Get started with Azure API Management].
-> 
-> 
+En plus de créer et gérer des groupes dans le portail de publication, vous pouvez créer et gérer vos groupes à l'aide de l’entité [Groupe](https://msdn.microsoft.com/library/azure/dn776329.aspx) de l’API REST de gestion des API.
 
-Cliquez sur **Sécurité** dans le menu **Gestion des API** à gauche, puis sur **Identités externes**.
+## <a name="prerequisites"></a>configuration requise
 
-![Identités externes][api-management-security-external-identities]
+Effectuez les tâches indiquées dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
-Cliquez sur **Azure Active Directory**. Notez l’ **URL de redirection** et revenez à votre annuaire Azure Active Directory dans le portail Azure Classic.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-![Identités externes][api-management-security-aad-new]
+## <a name="create-group"></a>Création d’un groupe
 
-Cliquez sur le bouton **Ajouter** pour créer une application Azure Active Directory, puis choisissez **Ajouter une application développée par mon organisation**.
+Cette section montre comment ajouter un nouveau groupe à votre compte Gestion des API.
 
-![Ajouter de nouvelles applications Azure Active Directory][api-management-new-aad-application-menu]
+1. Sélectionnez l’onglet **Groupes** à gauche de l’écran.
+2. Cliquez sur **+Ajouter**.
+3. Entrez un nom unique pour le groupe, et éventuellement une description.
+4. Appuyez sur **Créer**.
 
-Entrez le nom de l’application, sélectionnez **Application web et/ou API web**, puis cliquez sur le bouton Suivant.
+    ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups001.png)
 
-![Nouvelle application Azure Active Directory][api-management-new-aad-application-1]
+Une fois le groupe créé, il est ajouté à la liste **Groupes**. <br/>Pour modifier le **nom** ou la **description** du groupe, cliquez sur le nom du groupe, puis sur **Paramètres**.<br/>Pour supprimer le groupe, cliquez sur son nom, puis appuyez sur **Supprimer**.
 
-Pour **URL de connexion**, entrez l’URL de connexion de votre portail des développeurs. Dans cet exemple, la valeur de **URL de connexion** est `https://aad03.portal.current.int-azure-api.net/signin`. 
+Maintenant que le groupe est créé, il peut être associé à des produits et des développeurs.
 
-Dans **URL d’ID de l’application**, entrez le domaine par défaut ou un domaine personnalisé pour Azure Active Directory et ajoutez une chaîne unique. Dans cet exemple, le domaine par défaut de **https://contoso5api.onmicrosoft.com** est utilisé avec le suffixe **/api** spécifié.
+## <a name="associate-group-product"></a>Association d’un groupe à un produit
 
-![Propriétés de la nouvelle application Azure Active Directory][api-management-new-aad-application-2]
+1. Sélectionnez l’onglet **Produits** vers la gauche.
+2. Cliquez sur le nom du produit souhaité.
+3. Appuyez sur **Contrôle d’accès**.
+4. Cliquez sur **+ Ajouter un groupe**.
 
-Cliquez sur la coche pour enregistrer et créer l’application, puis revenez à l’onglet **Configurer** pour configurer la nouvelle application.
+    ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups002.png)
+5. Sélectionnez le groupe que vous souhaitez ajouter.
 
-![Nouvelle application Azure Active Directory créée][api-management-new-aad-app-created]
+    ![Ajouter un nouveau groupe](./media/api-management-howto-create-groups/groups003.png)
 
-Si plusieurs annuaires Azure Active Directory vont être utilisés pour cette application, cliquez sur **Oui** pour **Application mutualisée**. La valeur par défaut est **Non**.
+    Pour supprimer un groupe du produit, cliquez sur **Supprimer**.
 
-![Application mutualisée][api-management-aad-app-multi-tenant]
+    ![Supprimer un groupe](./media/api-management-howto-create-groups/groups004.png)
 
-Copiez **l’URL de redirection** dans la section **Azure Active Directory** de l’onglet **Identités externes** du portail des éditeurs et collez-la dans la zone de texte **URL de réponse**. 
+Une fois le produit associé à un groupe, les développeurs de ce groupe peuvent le voir et s'y abonner.
 
-![URL de réponse][api-management-aad-reply-url]
+> [!NOTE]
+> Pour ajouter des groupes Azure Active Directory, consultez la rubrique [Comment autoriser des comptes de développeur utilisant Azure Active Directory dans Gestion des API Azure](api-management-howto-aad.md).
 
-Allez en bas de l’onglet Configurer, sélectionnez la liste déroulante **Autorisations de l’application** et activez l’option **Lire les données de l’annuaire**.
+## <a name="associate-group-developer"></a>Association des groupes aux développeurs
 
-![Autorisations de l’application][api-management-aad-app-permissions]
+Cette section montre comment associer des groupes à des membres.
 
-Sélectionnez la liste déroulante **Déléguer les autorisations** et activez l’option **Activer l’authentification et lire les profils utilisateur**.
+1. Sélectionnez l’onglet **Groupes** à gauche de l’écran.
+2. Sélectionnez **Membres**.
 
-![Autorisations déléguées][api-management-aad-delegated-permissions]
+    ![Ajouter un membre](./media/api-management-howto-create-groups/groups005.png)
+3. Appuyez sur **+Ajouter** et sélectionnez un membre.
 
-> Pour plus d’informations sur l’application et les autorisations déléguées, consultez la page [Accès à l’API Graph][Accessing the Graph API].
-> 
-> 
+    ![Ajouter un membre](./media/api-management-howto-create-groups/groups006.png)
+4. Appuyez sur **Sélectionner**.
 
-Copiez l’ **ID de client** dans le Presse-papiers.
 
-![ID de client][api-management-aad-app-client-id]
+Une fois l’association entre le développeur et le groupe ajoutée, vous pouvez la consulter dans l’onglet **Utilisateurs** .
 
-Revenez au portail des éditeurs et collez l’ **ID de client** copié dans la configuration de l’application Azure Active Directory.
+## <a name="next-steps"></a>Étapes suivantes
+* Une fois le développeur ajouté à un groupe, il peut voir tous les produits associés à ce groupe et s'y abonner. Pour plus d’informations, consultez la page [Création et publication d’un produit dans Gestion des API Azure][How create and publish a product in Azure API Management].
+* En plus de créer et gérer des groupes dans le portail de publication, vous pouvez créer et gérer vos groupes à l'aide de l’entité [Groupe](https://msdn.microsoft.com/library/azure/dn776329.aspx) de l’API REST de gestion des API.
 
-![ID de client][api-management-client-id]
-
-Revenez à la configuration d’Azure Active Directory, puis cliquez sur la liste déroulante **Sélectionner une durée** dans la section **Clés** et spécifiez un intervalle. Dans cet exemple, la valeur **1 an** est utilisée.
-
-![Clé][api-management-aad-key-before-save]
-
-Cliquez sur **Enregistrer** pour enregistrer la configuration et afficher la clé. Copiez la clé dans le Presse-papiers.
-
-> Notez sa valeur. Une fois que vous fermez la fenêtre de configuration Azure Active Directory, la clé ne peut plus être affichée.
-> 
-> 
-
-![Clé][api-management-aad-key-after-save]
-
-Revenez au portail des éditeurs et collez la clé dans la zone de texte **Clé secrète client** .
-
-![Secret du client][api-management-client-secret]
-
-**Locataires autorisés** spécifie les répertoires qui ont accès aux API de l’instance de service Gestion des API. Spécifiez les domaines des instances Azure Active Directory auxquelles vous souhaitez accorder l’accès. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
-
-![Locataires autorisés][api-management-client-allowed-tenants]
-
-
-Une fois la configuration souhaitée spécifiée, cliquez sur **Enregistrer**.
-
-![Enregistrer][api-management-client-allowed-tenants-save]
-
-Après avoir enregistré les modifications, les utilisateurs de l’annuaire Azure Active Directory spécifié peuvent se connecter au portail des développeurs en suivant les étapes de la section [Connexion au portail des développeurs avec un compte Azure Active Directory][Log in to the Developer portal using an Azure Active Directory account].
-
-Plusieurs domaines peuvent être spécifiés dans la section **Locataires autorisés** . Avant qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit accéder à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent), entrer le nom de domaine du client Active Directory auquel il souhaite accorder l’accès, puis cliquer sur Envoyer. Dans l’exemple suivant, un administrateur général de `miaoaad.onmicrosoft.com` tente d’accorder l’autorisation à ce portail développeur spécifique. 
-
-![Autorisations][api-management-aad-consent]
-
-Dans l’écran suivant, l’administrateur général sera invité à confirmer l’octroi de l’autorisation. 
-
-![Autorisations][api-management-permissions-form]
-
-> Si un administrateur autre que l’administrateur global tente de se connecter avant que les autorisations ne soient accordées par un administrateur général, la tentative de connexion échoue et un écran d’erreur s’affiche.
-> 
-> 
-
-## <a name="how-to-add-an-external-azure-active-directory-group"></a>Ajout d’un groupe Azure Active Directory externe
-Après avoir activé l’accès pour les utilisateurs dans Azure Active Directory, vous pouvez ajouter des groupes Azure Active Directory à Gestion des API pour gérer plus facilement l’association des développeurs du groupe avec les produits souhaités.
-
-> Pour pouvoir configurer un groupe Azure Active Directory externe, Azure Active Directory doit d’abord être configuré dans l’onglet Identités, selon la procédure décrite dans la section précédente. 
-> 
-> 
-
-Les groupes Azure Active Directory externes sont ajoutés à partir de l’onglet **Visibilité** du produit auquel vous souhaitez accorder l’accès au groupe. Cliquez sur **Produits**, puis sur le nom du produit souhaité.
-
-![Configure product][api-management-configure-product]
-
-Passez à l’onglet **Visibilité**, puis cliquez sur **Ajouter des groupes depuis Azure Active Directory**.
-
-![Ajouter des groupes][api-management-add-groups]
-
-Sélectionnez le **locataire Azure Active Directory** dans la liste déroulante, puis tapez le nom du groupe de votre choix dans la zone de texte des **groupes** à ajouter.
-
-![Sélectionner un groupe][api-management-select-group]
-
-Ce nom de groupe se trouve dans la liste **Groupes** de votre annuaire Azure Active Directory, comme illustré dans l’exemple suivant.
-
-![Liste des groupes Azure Active Directory][api-management-aad-groups-list]
-
-Cliquez sur **Ajouter** pour valider le nom du groupe et ajouter le groupe. Dans cet exemple, le groupe externe **Contoso 5 Developers** est ajouté. 
-
-![Group added][api-management-aad-group-added]
-
-Cliquez sur **Enregistrer** pour enregistrer la nouvelle sélection de groupe.
-
-Une fois le groupe Azure Active Directory configuré à partir d’un produit, il est consultable dans l’onglet **Visibilité** des autres produits dans l’instance de service Gestion des API.
-
-Pour vérifier et configurer les propriétés des groupes externes une fois qu’ils ont été ajoutés, cliquez sur le nom du groupe dans l’onglet **Groupes**.
-
-![Gérer les groupes][api-management-groups]
-
-À partir de là, vous pouvez modifier le **nom** et la **description** du groupe.
-
-![Modifier un groupe][api-management-edit-group]
-
-Les utilisateurs de l’annuaire Azure Active Directory configuré peuvent se connecter au portail des développeurs et consulter des groupes. Ils peuvent s’abonner aux groupes qui leur sont accessibles selon les instructions de la section suivante.
-
-## <a name="how-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a>Connexion au portail des développeurs avec un compte Azure Active Directory
-Pour vous connecter au portail des développeurs à l’aide d’un compte Azure Active Directory configuré dans les sections précédentes, ouvrez une nouvelle fenêtre de navigateur avec **l’URL de connexion** dans la configuration de l’application Active Directory, puis cliquez sur **Azure Active Directory**.
-
-![Portail des développeurs][api-management-dev-portal-signin]
-
-Entrez les informations d’identification d’un des utilisateurs dans votre annuaire Azure Active Directory, puis cliquez sur **Se connecter**.
-
-![Se connecter][api-management-aad-signin]
-
-Un formulaire d’inscription peut vous être présenté si certaines informations supplémentaires sont requises. Renseignez le formulaire d’inscription, puis cliquez sur **S’inscrire**.
-
-![Inscription][api-management-complete-registration]
-
-Votre utilisateur est maintenant connecté au portail des développeurs pour votre instance de service Gestion des API.
-
-![Inscription terminée][api-management-registration-complete]
-
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
-[api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png
-[api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
-[api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
-[api-management-new-aad-application-1]: ./media/api-management-howto-aad/api-management-new-aad-application-1.png
-[api-management-new-aad-application-2]: ./media/api-management-howto-aad/api-management-new-aad-application-2.png
-[api-management-new-aad-app-created]: ./media/api-management-howto-aad/api-management-new-aad-app-created.png
-[api-management-aad-app-permissions]: ./media/api-management-howto-aad/api-management-aad-app-permissions.png
-[api-management-aad-app-client-id]: ./media/api-management-howto-aad/api-management-aad-app-client-id.png
-[api-management-client-id]: ./media/api-management-howto-aad/api-management-client-id.png
-[api-management-aad-key-before-save]: ./media/api-management-howto-aad/api-management-aad-key-before-save.png
-[api-management-aad-key-after-save]: ./media/api-management-howto-aad/api-management-aad-key-after-save.png
-[api-management-client-secret]: ./media/api-management-howto-aad/api-management-client-secret.png
-[api-management-client-allowed-tenants]: ./media/api-management-howto-aad/api-management-client-allowed-tenants.png
-[api-management-client-allowed-tenants-save]: ./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png
-[api-management-aad-delegated-permissions]: ./media/api-management-howto-aad/api-management-aad-delegated-permissions.png
-[api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
-[api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
-[api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
-[api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-[api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
-[api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
-[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
-[api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
-[api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
-[api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
-[api-management-select-group]: ./media/api-management-howto-aad/api-management-select-group.png
-[api-management-aad-groups-list]: ./media/api-management-howto-aad/api-management-aad-groups-list.png
-[api-management-aad-group-added]: ./media/api-management-howto-aad/api-management-aad-group-added.png
-[api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
-[api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: get-started-create-service-instance.md
-
-[http://oauth.net/2/]: http://oauth.net/2/
-[WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
-
-[Prerequisites]: #prerequisites
-[Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Create a group]: #create-group
+[Associate a group with a product]: #associate-group-product
+[Associate groups with developers]: #associate-group-developer
 [Next steps]: #next-steps
 
-[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+[How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group

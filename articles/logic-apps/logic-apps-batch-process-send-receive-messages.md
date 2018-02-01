@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans les applications logiques
 
@@ -39,7 +39,7 @@ Pour suivre cet exemple, vous avez besoin de ce qui suit :
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Des connaissances de base en [création d’applications logiques](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Un compte de courrier de n’importe quel [fournisseur de messagerie pris en charge par Azure Logic Apps](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Les applications logiques expéditrices doivent savoir où envoyer les élément
       Par exemple, si vous avez un compte professionnel ou scolaire, sélectionnez le connecteur Outlook Office 365. 
       Si vous avez un compte Gmail, sélectionnez le connecteur Gmail.
 
-   3. Sélectionnez cette action pour votre connecteur : **{*fournisseur de messagerie*} - Envoyer un message électronique**
+   3. Sélectionnez cette action pour votre connecteur : **{*fournisseur de messagerie*} - Envoyer un e-mail**
 
-      Par exemple :
+      Par exemple : 
 
       ![Sélection de l’action « Envoyer un message électronique » pour votre fournisseur de messagerie](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Si vous n’avez pas déjà créé une connexion pour votre fournisseur de messagerie, entrez votre adresse e-mail et votre mot de passe lorsque vous êtes invité à vous authentifier. En savoir plus sur [l’authentification à l’aide d’une adresse e-mail et d’un mot de passe](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Si vous n’avez pas déjà créé une connexion pour votre fournisseur de messagerie, entrez votre adresse e-mail et votre mot de passe lorsque vous êtes invité à vous authentifier. En savoir plus sur [l’authentification à l’aide d’une adresse e-mail et d’un mot de passe](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Définissez les propriétés de l’action que vous venez d’ajouter.
 
@@ -200,7 +200,7 @@ Votre application logique BatchSender s’exécute chaque minute, génère un no
 > [!IMPORTANT]
 > Lorsque vous avez terminé vos tests, veillez à désactiver l’application logique BatchSender afin d’arrêter l’envoi de messages et éviter la surcharge de la boîte de réception.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Créer des définitions d’application logique à l’aide de JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Créer une application sans serveur dans Visual Studio avec Azure Logic Apps et Azure Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)

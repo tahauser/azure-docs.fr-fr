@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copier plusieurs tables en bloc à l’aide d’Azure Data Factory
 Ce didacticiel montre **comment copier des tables d’Azure SQL Database dans Azure SQL Data Warehouse**. Vous pouvez appliquer le même modèle à d’autres scénarios de copie. Par exemple : copie de tables à partir de SQL Server/Oracle dans Azure SQL Database/Data Warehouse/Azure Blob, copie de différents chemins à partir de Blob dans des tables Azure SQL Database.
@@ -195,7 +195,7 @@ Dans ce didacticiel, les tables SQL source et de destination ne sont pas codées
 5. Basculez vers l’onglet **Paramètres**, puis cliquez sur **+ Nouveau**
 
     ![Page de connexion du jeu de données source](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Entrez **DWTableName** pour le nom du paramètre. 
+6. Entrez **DWTableName** pour le nom du paramètre. Si vous copiez-collez ce nom à partir de la page, vérifiez qu’il n’y a aucun **espace de fin** à la fin de **DWTableName**. 
 7. Dans la section **Parameterized properties** (Propriétés paramétrables), entrez `@{dataset().DWTableName}` pour la propriété **tableName**. La propriété **tableName** du jeu de données est définie sur la valeur qui est transmise en tant qu’argument pour le paramètre **DWTableName**. L’activité ForEach effectue une itération dans une liste de tables et les transmet une par une à l’activité de copie. 
    
     ![Nom du paramètre](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

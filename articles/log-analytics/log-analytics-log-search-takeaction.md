@@ -1,5 +1,5 @@
 ---
-title: "Action de runbook d’Azure Automation initiée par l’utilisateur dans Log Analytics | Documents Microsoft"
+title: "Action de runbook Automation Azure lancée par l’utilisateur dans Log Analytics | Microsoft Doc"
 description: "Cet article décrit comment exécuter un runbook Automation à partir d’un résultat de recherche Log Analytics à la demande."
 services: log-analytics
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Utilisation d’un runbook Automation sur un résultat de recherche dans les journaux Log Analytics
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Lancement d’un runbook à partir d’une recherche dans les journaux
 
-Pour agir sur un événement et lancer un runbook à partir des résultats de votre recherche dans les journaux, vous créez une recherche dans les journaux, et à partir des résultats, vous devez appeler un runbook à la demande.  Ceci peut être réalisé à partir de la fonctionnalité de recherche dans les journaux sur le portail Azure ou [OMS](../log-analytics/log-analytics-log-searches.md).  Dans cet exemple, nous effectuons une recherche dans les journaux à partir du portail Azure avec une démonstration de base de cette fonctionnalité.
+Pour agir sur un événement et lancer un runbook à partir des résultats de votre recherche dans les journaux, vous créez une recherche dans les journaux, et à partir des résultats, vous devez appeler un runbook à la demande.  Vous pouvez réaliser ces opérations à partir de la fonctionnalité de recherche dans les journaux dans le [portail Azure](../log-analytics/log-analytics-log-search-new.md).  Dans cet exemple, nous effectuons une recherche dans les journaux à partir du portail Azure avec une démonstration de base de cette fonctionnalité.
 
 1. Sur le portail Azure, cliquez sur **Plus de services** dans le menu Hub et sélectionnez **Log Analytics**.  
 2. Dans le panneau Log Analytics, sélectionnez votre espace de travail Log Analytics, et sur le panneau de l’espace de travail, sélectionnez **Recherche dans les journaux**.  
@@ -49,4 +49,4 @@ Si vous sélectionnez un runbook qui a été configuré pour être [appelé à p
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour connaître tous les champs de recherche et facettes disponibles dans Log Analytics, consultez les [informations de référence sur la recherche de journal avec Log Analytics](log-analytics-search-reference.md) .
-* Pour découvrir comment appeler un runbook Automation automatiquement, consultez [Appeler un runbook Azure Automation à partir d’une alerte OMS Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Pour découvrir comment appeler un runbook Automation automatiquement, consultez [Appeler un runbook Automation Azure à partir d’une alerte Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Référence des composants pour le Concepteur de vue dans OMS Log Analytics | Microsoft Docs"
-description: "Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article fournit une référence relative aux paramètres de chacun des composants de visualisation disponibles dans vos vues personnalisées."
+title: "Référence des composants du Concepteur de vues dans Azure Log Analytics | Microsoft Docs"
+description: "Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans le portail Azure, qui contiennent différentes visualisations de données de votre espace de travail Log Analytics. Cet article fournit une référence relative aux paramètres de chacun des composants de visualisation disponibles dans vos vues personnalisées."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Référence des composants de visualisation du Concepteur de vues de Log Analytics
-Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations de données du référentiel OMS. Cet article fournit une référence relative aux paramètres de chacun des composants de visualisation disponibles dans vos vues personnalisées.
+Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans le portail Azure, qui contiennent différentes visualisations de données de votre espace de travail Log Analytics. Cet article fournit une référence relative aux paramètres de chacun des composants de visualisation disponibles dans vos vues personnalisées.
 
 Autres articles disponibles concernant le Concepteur de vues :
 
@@ -33,7 +33,7 @@ Autres articles disponibles concernant le Concepteur de vues :
 
 Le tableau suivant décrit les différents types de vignettes disponibles dans le Concepteur de vues.  Les sections suivantes décrivent en détail chaque type de vignette et ses propriétés.
 
-| Type de vue | Description |
+| Type de vue | DESCRIPTION |
 |:--- |:--- |
 | [Liste de requêtes](#list-of-queries-part) |Affiche une liste des requêtes de recherche dans le journal.  L’utilisateur peut cliquer sur chaque requête pour afficher ses résultats. |
 | [Nombre et liste](#number-amp-list-part) |L’en-tête affiche une valeur indiquant le nombre d’enregistrements obtenus à partir d’une requête de recherche dans le journal.  La liste affiche les dix premiers résultats d’une requête, avec un graphique indiquant la valeur relative d’une colonne numérique ou ses changements avec le temps. |
@@ -50,7 +50,7 @@ Affiche une liste des requêtes de recherche dans le journal.  L’utilisateur p
 
 ![Liste de vues de requêtes](media/log-analytics-view-designer/view-list-queries.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Intitulé |Texte à afficher en haut de la vue. |
@@ -66,7 +66,7 @@ L’en-tête affiche une valeur indiquant le nombre d’enregistrements obtenus 
 
 ![Liste de vues de requêtes](media/log-analytics-view-designer/view-number-list.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vue. |
@@ -84,7 +84,7 @@ L’en-tête affiche une valeur indiquant le nombre d’enregistrements obtenus 
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
 | **Liste** |**&gt; Titres des colonnes** |
-| Nom |Texte à afficher en haut de la première colonne de la liste. |
+| NOM |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
@@ -94,7 +94,7 @@ L’en-tête affiche deux valeurs indiquant les nombres d’enregistrements obte
 
 ![Deux nombres et affichage de liste](media/log-analytics-view-designer/view-two-numbers-list.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vue. |
@@ -113,7 +113,7 @@ L’en-tête affiche deux valeurs indiquant les nombres d’enregistrements obte
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
 | **Liste** |**&gt; Titres des colonnes** |
-| Nom |Texte à afficher en haut de la première colonne de la liste. |
+| NOM |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
@@ -123,7 +123,7 @@ L’en-tête affiche un nombre résumé à partir d’une colonne de valeur dans
 
 ![Anneau et affichage de liste](media/log-analytics-view-designer/view-donut-list.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vignette. |
@@ -153,7 +153,7 @@ L’en-tête affiche un nombre résumé à partir d’une colonne de valeur dans
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
 | **Liste** |**&gt; Titres des colonnes** |
-| Nom |Texte à afficher en haut de la première colonne de la liste. |
+| NOM |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
@@ -163,7 +163,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 
 ![Deux chronologies et affichage de liste](media/log-analytics-view-designer/view-two-timelines-list.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vignette. |
@@ -173,7 +173,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | **Premier graphique<br>Deuxième graphique** | |
 | Légende |Texte à afficher dans la légende de la première série. |
 | Couleur |Couleur à utiliser pour les colonnes de la série. |
-| Interroger |Requête à exécuter pour la première série.  Le décompte du nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
+| Requête |Requête à exécuter pour la première série.  Le décompte du nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
 | Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br><br>-Sum : somme des valeurs de tous les enregistrements.<br>- Average : moyenne des valeurs de tous les enregistrements.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- First Sample : valeur du premier intervalle inclus dans le graphique.<br>- Count : nombre de tous les enregistrements retournés par la requête. |
 | **Liste** | |
 | Requête |Requête à exécuter pour obtenir la liste.  Affiche le décompte du nombre d’enregistrements retournés par la requête. |
@@ -183,7 +183,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | Opération |Opération à effectuer pour la sparkline.  Consultez [Paramètres communs](#sparklines) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
 | **Liste** |**&gt; Titres des colonnes** |
-| Nom |Texte à afficher en haut de la première colonne de la liste. |
+| NOM |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
@@ -193,7 +193,7 @@ L’en-tête affiche un texte statique et un lien facultatif.  La liste affiche 
 
 ![Vue Informations](media/log-analytics-view-designer/view-information.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vignette. |
@@ -214,7 +214,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 
 ![Graphique en courbes, légende et affichage de liste](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vignette. |
@@ -243,7 +243,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
 | **Liste** |**&gt; Titres des colonnes** |
-| Nom |Texte à afficher en haut de la première colonne de la liste. |
+| NOM |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
@@ -253,7 +253,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 
 ![Affichage graphique et vue liste](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vignette. |
@@ -278,7 +278,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique si vous souhaitez analyser la propriété de texte en plusieurs valeurs.  Consultez [Paramètres communs](#name-value-separator) pour plus d’informations. |
 | Requête de navigation |Requête à exécuter lorsque l’utilisateur sélectionne un élément dans la liste.  Consultez [Paramètres communs](#navigation-query) pour plus d’informations. |
 | **Liste** |**&gt; Titres des colonnes** |
-| Nom |Texte à afficher en haut de la première colonne de la liste. |
+| NOM |Texte à afficher en haut de la première colonne de la liste. |
 | Valeur |Texte à afficher en haut de la deuxième colonne de la liste. |
 | **Liste** |**&gt; Seuils** |
 | Activer les seuils |Sélectionnez cette option pour activer les seuils.  Consultez [Paramètres communs](#thresholds) pour plus d’informations. |
@@ -288,7 +288,7 @@ Affiche trois graphiques en courbes distincts avec plusieurs séries à partir d
 
 ![Pile de graphiques en courbes](media/log-analytics-view-designer/view-stack-line-charts.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | **Généralités** | |
 | Titre du groupe |Texte à afficher en haut de la vignette. |
@@ -322,7 +322,7 @@ Une sparkline est un petit graphique en courbes qui illustre la valeur d’une e
 
 Le tableau suivant décrit les paramètres pour les sparklines.
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | Activation des sparklines |Sélectionnez cette option pour afficher la sparkline au lieu de la barre horizontale. |
 | Opération |Si les sparklines sont activées, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique sparkline.<br><br>- Last Sample : dernière valeur de la série sur l’intervalle de temps.<br>- Max : valeur maximale de la série sur l’intervalle de temps.<br>- Min : valeur minimale de la série sur l’intervalle de temps.<br>- Sum : somme des valeurs de la série sur l’intervalle de temps.<br>- Summary : utilise la même commande de mesure que la requête dans l’en-tête. |
@@ -336,12 +336,12 @@ Chaque ensemble de seuils a un seuil avec la valeur **par défaut**.  Il s’agi
 
 Le tableau suivant décrit les paramètres pour les seuils.
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
 | Activer les seuils |Sélectionnez cette option pour afficher une icône de couleur à gauche de chaque valeur et indiquer son état d’intégrité par rapport aux seuils spécifiés. |
-| Nom |Nom permettant d’identifier la valeur de seuil. |
+| NOM |Nom permettant d’identifier la valeur de seuil. |
 | Seuil |Valeur du seuil.  La couleur d’intégrité de chaque élément de liste est définie sur la couleur de la valeur du seuil le plus élevé dépassée par la valeur de l’élément.  Il existe un seuil par défaut qui est la couleur définie si aucune valeur de seuil n’est dépassée. |
 | Couleur |La couleur pour la valeur du seuil. |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur la [Recherche dans les journaux](log-analytics-log-searches.md) pour prendre en charge les requêtes dans des composants de visualisation.

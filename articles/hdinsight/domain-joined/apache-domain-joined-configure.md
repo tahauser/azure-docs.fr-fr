@@ -4,7 +4,7 @@ description: "Découvrez comment configurer les clusters HDInsight joints à un 
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurer un environnement de bac à sable HDInsight joint à un domaine
 
@@ -29,7 +29,6 @@ Sans cluster HDInsight joint à un domaine, chaque cluster peut uniquement avoir
 
 -   Un annuaire Active Directory autonome s’exécutant sur Azure IaaS
 -   Azure Active Directory
--   Active Directory s’exécutant sur l’environnement local du client
 
 Cet article couvre l’utilisation d’un annuaire Active Directory autonome s’exécutant sur Azure IaaS. Il s’agit de l’architecture la plus simple qu’un client peut suivre pour la prise en charge de plusieurs utilisateurs sur HDInsight. Cet article aborde deux approches pour cette configuration :
 
@@ -71,9 +70,10 @@ Dans cette section, vous ouvrez un modèle de gestion de ressources Azure à par
     - **Nom d’utilisateur de l’administrateur** : entrez le nom d’utilisateur de l’administrateur du domaine.
     - **Mot de passe d’administrateur** : entrez le mot de passe de l’administrateur du domaine.
     - **Nom de domaine** : le nom par défaut est *contoso.com*.  Si vous changez le nom de domaine, vous devez également mettre à jour les champs **Certificat LDAP sécurisé** et **Nom unique de l’unité d’organisation**.
+    - **Préfixe DNS** : entrez le préfixe DNS de l’adresse IP publique utilisée par l’équilibreur de charge.
     - **Nom du cluster** : entrez le nom du cluster HDInsight.
     - **Type de cluster** : ne changez pas cette valeur. Si vous souhaitez changer le type de cluster, utilisez le modèle prévu à cet effet à la dernière étape.
-
+    - **Mot de passe du certificat LDAP sécurisé** : utilisez la valeur par défaut, sauf si vous modifiez le champ du certificat LDAP sécurisé.
     Certaines valeurs sont codées en dur dans le modèle, par exemple, le nombre d’instances de nœud Worker est deux.  Pour changer les valeurs codées en dur, cliquez sur **Modifier le modèle**.
 
     ![Cluster joint à un domaine HDInsight, modifier le modèle](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de contrôle d’accès | Microsoft Docs"
+title: "Conception d’identités hybrides : exigences en matière de contrôle d’accès Azure | Microsoft Docs"
 description: "Couvre les piliers de l'identité et l'identification des conditions d'accès aux ressources pour les utilisateurs dans un environnement hybride."
 documentationcenter: 
 services: active-directory
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
 Lorsqu'une organisation conçoit sa solution d'identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d'accès pour les ressources qu'elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
 
 * Administration
 * Authentification
-* Autorisation
+* Authorization
 * Audit
 
 Les sections suivantes couvriront l'authentification et l'autorisation de manière plus détaillée, l'administration et l'audit font partie du cycle de vie de l'identité hybride. Lire [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) pour plus d'informations sur ces fonctionnalités.
@@ -74,7 +75,7 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

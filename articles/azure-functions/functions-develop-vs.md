@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pour Visual Studio  
 
@@ -34,9 +34,9 @@ Azure Functions Tools propose les avantages suivants :
 Cette rubrique vous montre comment utiliser Azure Functions Tools pour Visual Studio 2017 afin de développer vos fonctions en C#. Vous apprenez également à publier votre projet sur Azure en tant qu’assembly .NET.
 
 > [!IMPORTANT]
-> Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Lorsque vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
+> Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 Azure Functions Tools est inclus dans la charge de travail de développement Azure dans [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) ou ultérieure. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2017 :
 
@@ -61,9 +61,9 @@ Lorsque vous créez un projet à l’aide du modèle Azure Functions, vous obten
     
 * **local.settings.json** : maintient les paramètres utilisés lors de l’exécution des fonction en local. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par [Azure Functions Core Tools](functions-run-local.md). Utilisez ce fichier pour spécifier des paramètres, tels que des chaînes de connexion vers d’autres services Azure. Ajoutez une clé au tableau **Valeurs** pour chaque connexion requise par les fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans la rubrique Procédure locale de codage et de test d’Azure Functions.
 
-Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide.
+Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. 
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  Pour définir la chaîne de connexion de compte de stockage :
 
@@ -83,7 +83,7 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    Une clé de chaîne de connexion nommée **QueueStorage** est fournie, qui est définie dans le fichier local.settings.json. 
+    Cet exemple de déclencheur utilise une chaîne de connexion avec une clé nommée **QueueStorage**. Ce paramètre de chaîne de connexion doit être défini dans le fichier local.settings.json. 
  
 3. Examinez la classe qui vient d’être ajoutée. Vous voyez une méthode statique **Run**, qui est attribuée avec l’attribut **FunctionName**. Cet attribut indique que la méthode est le point d’entrée de la fonction. 
 
@@ -113,7 +113,7 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
 
 Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions sur votre ordinateur de développement local. Vous êtes invité à installer ces outils la première fois que vous démarrez une fonction dans Visual Studio.  
 
-Pour tester votre fonction, appuyez sur F5. Si vous y êtes invité, acceptez la requête dans Visual Studio pour télécharger et installer Azure Functions Core (CLI) Tools.  Vous devrez peut-être activer une exception de pare-feu afin de permettre aux outils de prendre en charge les requêtes HTTP.
+Pour tester votre fonction, appuyez sur F5. Si vous y êtes invité, acceptez la requête dans Visual Studio pour télécharger et installer Azure Functions Core (CLI) Tools. Vous devrez peut-être activer une exception de pare-feu afin de permettre aux outils de prendre en charge les requêtes HTTP.
 
 Avec le projet en cours d’exécution, vous pouvez tester votre code comme vous testeriez la fonction déployée. Pour plus d’informations, consultez [Stratégies permettant de tester votre code dans Azure Functions](functions-test-a-function.md). Lors de l’exécution en mode débogage, les points d’arrêt sont atteints dans Visual Studio comme prévu. 
 
@@ -125,14 +125,25 @@ Pour en savoir plus sur l’utilisation d’Azure Functions Core Tools, consulte
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonction dans Azure. Ces paramètres ne sont pas ajoutés automatiquement. Vous pouvez ajouter les paramètres requis à votre application de fonction de l’une des manières suivantes :
->
->* [Utilisation du portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
->* [Utilisation de l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
->* [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#set). 
+## <a name="function-app-settings"></a>Paramètres de l’application de fonctions   
 
-## <a name="next-steps"></a>étapes suivantes
+Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonctions dans Azure. Ces paramètres ne sont pas chargés automatiquement quand vous publiez le projet. 
+
+Le moyen le plus simple de charger les paramètres obligatoires sur votre application de fonctions dans Azure consiste à utiliser le lien **Gérer les paramètres d’application...** qui apparaît une fois votre projet correctement publié. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+Vous accédez ainsi à la boîte de dialogue **Paramètres de l’application** de l’application de fonctions, où vous pouvez ajouter de nouveaux paramètres d’application ou modifier des paramètres existants.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+Vous pouvez également gérer les paramètres d’application d’une des manières suivantes :
+
+* [Utilisation du portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Utilisation de l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
+* [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#set). 
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur Azure Functions Tools, consultez la section Common Questions (Questions courantes) de l’article de blog [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Visual Studio 2017 Tools pour Azure Functions).
 

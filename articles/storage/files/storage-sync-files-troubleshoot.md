@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -135,6 +135,8 @@ Si la synchronisation de certains fichiers échoue :
 
     > [!NOTE]
     > Azure File Sync capture régulièrement des instantanés VSS pour synchroniser les fichiers ayant des descripteurs ouverts.
+
+Le déplacement de ressources vers un autre abonnement et le déplacement vers un autre locataire Azure AD ne sont actuellement pas pris en charge.  Si l’abonnement est déplacé vers un autre locataire, le partage de fichiers Azure devient inaccessible à notre service en raison du changement de propriété. Si le locataire est modifié, vous devez supprimer les points de terminaison de serveur et le point de terminaison cloud (consultez la section « Gestion du groupe de synchronisation » pour savoir comment nettoyer le partage de fichiers Azure en vue de sa réutilisation), puis recréer le groupe de synchronisation.
 
 ## <a name="cloud-tiering"></a>Hiérarchisation cloud 
 Il existe deux chemins d’accès dédiés aux défaillances dans la hiérarchisation cloud :

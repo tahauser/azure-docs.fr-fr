@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
@@ -122,6 +122,7 @@ Vérifiez si vous avez désactivé une application avec l’identificateur 00000
 
 Pour résoudre cette erreur, activez cette application et réessayez d’activer les services de domaine pour votre client Azure AD.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Les utilisateurs sont incapables de se connecter aux services de domaine Asure AD gérés
 Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de se connecter au domaine géré nouvellement créé, effectuez les étapes de dépannage suivantes :
 
@@ -145,12 +146,17 @@ Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de s
     2. net start 'Microsoft Azure AD Sync'
 * **Comptes cloud uniquement**: si le compte d’utilisateur affecté est un compte d’utilisateur dans le cloud uniquement, assurez-vous que l’utilisateur a modifié son mot de passe après avoir activé les services de domaine Azure AD. Cette étape permet de générer les hachures d’informations d'identification requises pour les services de domaine Azure AD.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Il existe une ou plusieurs alertes sur votre domaine géré
+
+Découvrez comment résoudre les alertes sur votre domaine géré en vous rendant sur l’article [Dépanner les alertes](active-directory-ds-troubleshoot-alerts.md).
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Les utilisateurs supprimés de votre client Azure AD ne sont pas supprimés de votre domaine géré
 Azure AD vous protège contre la suppression accidentelle d’objets utilisateur. Lorsque vous supprimez un compte d’utilisateur de votre client Azure AD, l’objet utilisateur correspondant est déplacé vers la Corbeille. Lorsque cette opération de suppression est synchronisée avec votre domaine géré, le compte d’utilisateur correspondant est marqué comme étant désactivé. Cette fonctionnalité vous permet de récupérer ou restaurer le compte d’utilisateur ultérieurement.
 
 Le compte d’utilisateur reste dans un état désactivé dans votre domaine managé, même si vous recréez un compte d’utilisateur avec le même nom d’utilisateur principal dans votre annuaire Azure AD. Pour supprimer le compte d’utilisateur de votre domaine managé, vous devez forcer sa suppression de votre locataire Azure AD.
 
 Pour supprimer complètement le compte d’utilisateur de votre domaine géré, supprimez définitivement l’utilisateur de votre client Azure AD. Utilisez l’applet de commande PowerShell `Remove-MsolUser` avec l’option `-RemoveFromRecycleBin`, comme décrit dans cet [article MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+
 
 ## <a name="contact-us"></a>Nous contacter
 Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](active-directory-ds-contact-us.md).

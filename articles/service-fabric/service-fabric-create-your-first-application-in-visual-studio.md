@@ -12,23 +12,23 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Création de votre première application de services fiables avec état c# Service Fabric
 
-Découvrez comment déployer votre première application Service Fabric pour .NET sur Windows en quelques minutes. Une fois l’opération terminée, vous obtenez un cluster local fonctionnant avec une application de service fiable.
+Découvrez comment déployer votre première application Service Fabric pour .NET sur Windows en quelques minutes. Une fois l’opération terminée, vous disposez d’un cluster local fonctionnant avec une application de service fiable.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du SDK de Service Fabric et de Visual Studio 2017 ou 2015.
 
-## <a name="create-the-application"></a>Création de l'application
+## <a name="create-the-application"></a>Création de l’application
 
 Lancez Visual Studio en tant qu’**administrateur**.
 
@@ -82,7 +82,7 @@ Une fois que l’application a démarré, Visual Studio affiche automatiquement 
    
 ![Observateur d’événements de diagnostic][5]
 
-Le modèle de service avec état que nous avons utilisé indique simplement une valeur du compteur incrémentée dans la méthode `RunAsync` de **MyStatefulService.cs**.
+Le modèle de service avec état utilisé indique une valeur du compteur incrémentée dans la méthode `RunAsync` de **MyStatefulService.cs**.
 
 Pour plus d’informations, développez un des événements, et notamment le nœud sur lequel le code s’exécute. Dans ce cas, il s’agit du \_Node\_0, bien que cela puisse être différent sur votre ordinateur.
    
@@ -129,7 +129,7 @@ Supprimez le cluster en effectuant un clic droit sur l’application de **gestio
 
 Si vous choisissez cette option, Visual Studio redéploiera le cluster la prochaine fois que vous exécuterez l’application. Optez pour cette option si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps ou si vous avez besoin de libérer des ressources.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur les [services fiables](service-fabric-reliable-services-introduction.md).
 <!-- Image References -->
 

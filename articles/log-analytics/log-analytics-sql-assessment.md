@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimisez votre environnement SQL avec la solution SQL Server Health Check dans Log Analytics
 
@@ -39,7 +39,7 @@ Une fois la solution ajoutée et l’évaluation terminée, le récapitulatif de
 
 ![image du tableau de bord SQL Health Check](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * La solution SQL Health Check nécessite l’installation d’une version prise en charge de .NET Framework 4 sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 - Operations Manager, Operations Manager 2012 R2 et le service Log Analytics.  
 * La solution prend en charge SQL Server 2012, 2014 et 2016.
@@ -165,14 +165,14 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
 1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
 2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
-3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur la vignette **Portail OMS**.  
+3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis cliquez sur la vignette **Vue d’ensemble**.  
 4. Dans la page **Vue d’ensemble**, cliquez sur la vignette **SQL Health Check**. 
 5. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
 6. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations SQL Health Check](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Vous pouvez effectuer les actions correctives suggérées dans **Actions suggérées**. Une fois l'élément traité, les évaluations ultérieures indiqueront que des mesures ont été prises et votre score de conformité augmentera. Les éléments corrigés apparaissent comme **objets passés**.
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
-Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier texte qu’OMS utilisera pour empêcher les recommandations d'apparaître dans les résultats de votre évaluation.
+Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier texte que Log Analytics utilisera pour empêcher les recommandations d’apparaître dans les résultats de votre évaluation.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -265,5 +265,5 @@ Si vous souhaitez ignorer, des recommandations, vous pouvez créer un fichier te
 
 * Oui, consultez la section [Ignorer les recommandations](#ignore-recommendations) ci-dessus.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Rechercher dans les journaux](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées de SQL Health Check.

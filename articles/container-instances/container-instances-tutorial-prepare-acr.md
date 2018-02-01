@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c0aad1f9bbaac9a456b34f75633faba92f57f498
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 94ecba44b8281460da4518c146aab814d2eaa850
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -48,7 +48,7 @@ Créez un groupe de ressources avec la commande [az group create][az-group-creat
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez un registre de conteneurs Azure à l’aide de la commande [az acr create][az-acr-create]. Le nom du registre de conteneurs **doit être unique** dans Azure et doit contenir de 5 à 50 caractères alphanumériques. Remplacez `<acrName>` par un nom unique pour votre registre :
+Créez un registre de conteneurs Azure à l’aide de la commande [az acr create][az-acr-create]. Le nom du registre de conteneurs doit être unique dans Azure et contenir de 5 à 50 caractères alphanumériques. Remplacez `<acrName>` par un nom unique pour votre registre :
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic

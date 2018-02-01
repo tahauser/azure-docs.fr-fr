@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.  
@@ -172,7 +172,7 @@ La syntaxe des expressions de stratégie est C# 6.0. Chaque expression a accès 
   
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Déploiement<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Requête<br /><br /> RequestId: Guid<br /><br /> response<br /><br /> Abonnement<br /><br /> Tracing: bool<br /><br /> Utilisateur<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> Déploiement<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Requête<br /><br /> RequestId: Guid (identificateur de demande unique)<br /><br /> response<br /><br /> Abonnement<br /><br /> Timestamp: DateTime (point dans le temps où la demande a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> Utilisateur<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> IsRevisionCurrent: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |  
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificats : IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|  

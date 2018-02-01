@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
@@ -63,6 +63,8 @@ Une fois que vous êtes connecté, Docker met les informations d’identificatio
 
 Selon la version de Docker que vous avez installée, vous pouvez voir un avertissement de sécurité recommandant l’utilisation du paramètre `--password-stdin`. Même si son utilisation n’est pas le sujet de cet article, nous vous recommandons de suivre cette meilleure pratique. Pour en savoir plus, consultez les informations de référence sur la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
+Pour plus d’informations sur l’utilisation d’un principal de service pour l’authentification sans périphérique de contrôle à ACR, consultez [Authentification d’Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
+
 ## <a name="admin-account"></a>Compte d’administrateur
 
 Chaque registre de conteneurs inclut un compte d’utilisateur administrateur, qui est désactivé par défaut. Vous pouvez activer le compte d’utilisateur administrateur et gérer ses informations d’identification dans le [portail Azure](container-registry-get-started-portal.md#create-a-container-registry) ou à l’aide d’Azure CLI.
@@ -71,7 +73,7 @@ Chaque registre de conteneurs inclut un compte d’utilisateur administrateur, q
 > Le compte d’administrateur est conçu pour permettre à un seul utilisateur d’accéder au registre, principalement à des fins de test. Nous vous recommandons de partager les informations d’identification du compte d’administrateur avec plusieurs utilisateurs. Tous les utilisateurs qui s’authentifient avec le compte d’administrateur apparaissent sous la forme d’un seul utilisateur avec un accès par envoi et par extraction au registre. La modification ou la désactivation de ce compte désactive l’accès au registre pour tous les utilisateurs qui utilisent ces informations d’identification. Une identité individuelle est recommandée pour les utilisateurs et principaux du service pour les scénarios sans périphérique de contrôle.
 >
 
-Le compte d’administrateur reçoit deux mots de passe qui peuvent être régénérés. Deux mots de passe vous permettent de maintenir la connexion au registre en utilisant un mot de passe tandis que vous régénérez l’autre. Si le compte d’administrateur est activé, vous pouvez transmettre le nom d’utilisateur et l’un ou l’autre des mots de passe à la commande `docker login` pour une authentification de base auprès du registre. Par exemple :
+Le compte d’administrateur reçoit deux mots de passe qui peuvent être régénérés. Deux mots de passe vous permettent de maintenir la connexion au registre en utilisant un mot de passe tandis que vous régénérez l’autre. Si le compte d’administrateur est activé, vous pouvez transmettre le nom d’utilisateur et l’un ou l’autre des mots de passe à la commande `docker login` pour une authentification de base auprès du registre. Par exemple : 
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
@@ -89,7 +91,7 @@ Pour activer l’utilisateur administrateur dans le portail Azure, accédez au r
 
 ![Activer l’IU de l’utilisateur administrateur dans le portail Azure][auth-portal-01]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Push your first image using the Azure CLI (Transmettre votre première image à l’aide d’Azure CLI)](container-registry-get-started-azure-cli.md)
 

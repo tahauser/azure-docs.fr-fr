@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Résoudre les problèmes de sauvegarde Microsoft Azure : problèmes liés à un agent et/ou une extension
 
@@ -78,7 +78,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>La configuration de disque spécifiée n’est pas prise en charge
 
 > [!NOTE]
-> Nous avons une préversion privée pour prendre en charge les sauvegardes des machines virtuelles dotées de disques non managés de >1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Nous avons une préversion privée qui prend en charge les sauvegardes des machines virtuelles dotées de disques de plus de 1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Pour fonctionner correctement, l’extension de sauvegarde nécessite une connec
 
 ####  <a name="solution"></a>Solution
 Pour résoudre le problème, essayez l’une des méthodes répertoriées ci-dessous :
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Autorisez l’accès aux plages IP du centre de données Azure.
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Autoriser l’accès au stockage Azure correspondant à la région
 
-1. Obtenez la [liste des adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) pour y autoriser l’accès.
-2. Débloquez les adresses IP en exécutant l’applet de commande **New-NetRoute** de la machine virtuelle Azure dans une fenêtre PowerShell avec élévation de privilèges. Exécutez l’applet de commande en tant qu’administrateur.
-3. Ajoutez des règles au groupe de sécurité réseau (le cas échéant) pour autoriser l’accès aux adresses IP.
+Vous pouvez autoriser les connexions au stockage de la région spécifique à l’aide de [balises de service](../virtual-network/security-overview.md#service-tags). Vérifiez que la règle qui autorise l’accès au compte de stockage a une priorité plus élevée que la règle bloquant l’accès à Internet. 
+
+![Groupe de sécurité réseau avec des balises de stockage pour une région](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Les balises de service de stockage sont en préversion et disponibles uniquement dans certaines régions. Pour obtenir une liste de régions, consultez [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Créez un chemin d'accès pour le trafic HTTP
 
@@ -166,8 +169,6 @@ Voici les causes possibles de l’échec d’une tâche de capture instantanée 
 | --- | --- |
 | La sauvegarde SQL Server a été configurée que la machine virtuelle. | Par défaut, la sauvegarde de machine virtuelle exécute une sauvegarde complète VSS sur les machines virtuelles Windows. Sur les machines virtuelles exécutant des serveurs basés sur SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, des retards d’exécution des captures instantanées peuvent survenir.<br><br>Définissez la clé de Registre suivante si vous rencontrez des échecs de sauvegarde en raison de problèmes de capture instantanée.<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | L’état de la machine virtuelle est rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP. | Si vous avez arrêté la machine virtuelle dans Remote Desktop Protocol (RDP), retournez sur le portail pour vérifier que l’état de la machine virtuelle est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option **Arrêter** dans le tableau de bord de la machine virtuelle. |
-| Plusieurs machines virtuelles du même service cloud sont configurées pour exécuter la sauvegarde en même temps. | Il est recommandé d’étaler les planifications de sauvegarde entre les différentes machines virtuelles d’un même service cloud. |
-| Forte sollicitation du processeur ou de la mémoire sur la machine virtuelle. | Si la machine virtuelle sollicite fortement le processeur (plus de 90 pour cent) ou la mémoire, la tâche de capture instantanée est mise en file d’attente et retardée, puis finit par expirer. En pareille situation, essayez de procéder à une sauvegarde à la demande. |
 | La machine virtuelle ne peut pas obtenir l’adresse d’hôte/de structure du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne.  Si la machine virtuelle ne peut pas bénéficier de l’adresse d’hôte/de structure de la réponse DHCP 245, elle ne peut ni télécharger, ni exécuter d’extension. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. Pour en savoir plus, consultez la [définition d’une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>L’extension de sauvegarde ne peut être ni mise à jour ni chargée
@@ -192,24 +193,6 @@ Pour désinstaller l’extension, procédez comme suit :
 6. Cliquer sur **Désinstaller**.
 
 Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Les machines virtuelles Azure Classic ont peut-être besoin d’une étape supplémentaire pour effectuer l’inscription
-L’agent des machines virtuelles Azure Classic doit être inscrit pour établir une connexion au service de sauvegarde et démarrer la sauvegarde
-
-#### <a name="solution"></a>Solution
-
-Après avoir installé l’agent invité de machine virtuelle, lancez Azure PowerShell <br>
-1. Connectez-vous au compte Azure avec <br>
-       `Login-AzureAsAccount`<br>
-2. Vérifiez si la propriété ProvisionGuestAgent sur la machine virtuelle est définie sur True à l’aide des commandes suivantes <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Si la propriété est définie sur FALSE, exécutez les commandes suivantes pour la définir sur TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Exécutez la commande suivante pour mettre à jour la machine virtuelle <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Essayez de lancer la sauvegarde. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage du groupe de ressources
 Ce problème est propre aux machines virtuelles managées, quand l’utilisateur verrouille le groupe de ressources et que le service de sauvegarde ne peut pas supprimer les anciens points de restauration. Par conséquent, les nouvelles sauvegardes échouent, car une limite maximale de 18 points de restauration est imposée par le backend.

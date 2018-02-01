@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introduction à Azure Cosmos DB : API pour MongoDB
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) est le service de base de données multimodèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Azure Cosmos DB fournit la [distribution mondiale clés en main](distribute-data-globally.md), la [mise à l’échelle élastique du débit et du stockage](partition-data.md), des latences de l’ordre de quelques millisecondes dans le monde entier dans plus de 99 pour cent des cas, [cinq niveaux de cohérence bien définis](consistency-levels.md) et une garantie d’une haute disponibilité, le tout soutenu par nos [contrats SLA de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexe automatiquement les données](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sans avoir à s’occuper de la gestion des schémas et des index. Il est multi-modèle et prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Azure Cosmos DB fournit la [distribution mondiale clés en main](distribute-data-globally.md), la [mise à l’échelle élastique du débit et du stockage](partition-data.md), des latences de l’ordre de quelques millisecondes dans le monde entier dans plus de 99 pour cent des cas, [cinq niveaux de cohérence bien définis](consistency-levels.md) et une garantie d’une haute disponibilité, le tout soutenu par nos [contrats SLA de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexe automatiquement les données](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sans avoir à s’occuper de la gestion des schémas et des index. Il est multi-modèle et prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur. 
 
 ![Azure Cosmos DB : API MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -58,12 +58,12 @@ Suivez les démarrages rapides de MongoDB pour créer un compte Azure Cosmos DB 
 * [Développer une application web API MongoDB avec .NET et le Portail Azure](create-mongodb-dotnet.md)
 * [Développer une application console API MongoDB avec Java et le Portail Azure](create-mongodb-java.md)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Des informations sur l’API MongoDB d’Azure Cosmos DB sont intégrées dans l’ensemble de la documentation Azure Cosmos DB, mais voici quelques points qui vous aideront à démarrer :
 
 * Pour savoir comment obtenir les informations de chaîne de connexion de votre compte, suivez le didacticiel [Se connecter à un compte MongoDB](connect-mongodb-account.md).
-* Pour savoir comment créer une connexion entre votre base de données Azure Cosmos DB et l’application MongoDB dans MongoChef, suivez le didacticiel [Utiliser MongoChef avec un compte Azure Cosmos DB : API pour MongoDB](mongodb-mongochef.md).
+* Pour savoir comment créer une connexion entre votre base de données Azure Cosmos DB et l’application MongoDB dans Studio 3T, suivez le didacticiel [Utiliser Studio 3T (MongoChef) avec Azure Cosmos DB](mongodb-mongochef.md).
 * Suivez le didacticiel [Migrer des données vers Azure Cosmos DB à l’aide de mongoimport et mongorestore](mongodb-migrate.md) pour importer vos données dans une API de base de données MongoDB.
 * Établissez une connexion à une API de compte MongoDB à l’aide de [Robomongo](mongodb-robomongo.md).
 * Découvrez combien d’unités de requête sont utilisées par vos opérations avec la commande [GetLastRequestStatistics et des mesures du portail Azure](request-units.md#GetLastRequestStatistics).

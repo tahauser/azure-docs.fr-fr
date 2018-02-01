@@ -1,5 +1,5 @@
 ---
-title: "Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications | Microsoft Docs"
+title: "Automatiser l’approvisionnement des applications avec SCIM dans Azure Active Directory | Microsoft Docs"
 description: "Azure Active Directory peut configurer automatiquement les utilisateurs et les groupes sur une application ou un magasin d’identités avec en façade un service web avec l’interface définie dans Spécification du protocole SCIM."
 services: active-directory
 documentationcenter: 
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Active Directory (Azure AD) peut affecter automatiquement des utilisateurs et des groupes à une application ou un magasin d’identités avec en façade un service Web avec l’interface définie dans la [Spécification du protocole SCIM (System for Cross-Domain Identity Management) 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory peut envoyer des requêtes pour créer, modifier ou supprimer des utilisateurs et groupes attribués au service web. Le service web peut ensuite traduire ces requêtes en opérations sur le magasin d’identités cible. 
 
 ![][0]
@@ -85,7 +85,7 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
 Une fois la synchronisation initiale démarrée, vous pouvez utiliser l’onglet **Journaux d’audit** pour surveiller la progression. Il indique toutes les actions effectuées par le service d’approvisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
->La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. 
+>La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent environ toutes les 20 minutes, tant que le service est en cours d’exécution. 
 
 
 ## <a name="building-your-own-provisioning-solution-for-any-application"></a>Création de votre propre solution d’attribution pour n’importe quelle application
@@ -101,7 +101,7 @@ Fonctionnement :
 ### <a name="code-samples"></a>Exemples de code
 Pour faciliter ce processus, un ensemble d' [exemples de code](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) qui crée un point de terminaison de service Web SCIM et illustre l'attribution automatique est fourni. Exemple : un fournisseur qui gère un fichier avec des lignes de valeurs séparées par des virgules représentant des utilisateurs et des groupes.  L’autre exemple est un fournisseur qui opère sur le service de gestion des identités et des accès des services web Amazon.  
 
-**Configuration requise**
+**Composants requis**
 
 * Visual Studio 2013 ou une version ultérieure
 * [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/)

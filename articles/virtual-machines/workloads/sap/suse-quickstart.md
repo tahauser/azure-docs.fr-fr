@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Exécution de SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux
 Cet article décrit les divers éléments à prendre en compte lorsque vous exécutez SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux. À compter du 19 mai 2016, SAP NetWeaver est officiellement pris en charge sur les machines virtuelles SUSE Linux dans Azure. Vous trouverez tous les détails concernant les versions de Linux et les versions du noyau SAP, ainsi que d’autres prérequis, dans la note SAP 1928533 « SAP Applications on Azure: Supported Products and Azure VM types » (Applications SAP sur Azure : produits et types de machines virtuelles pris en charge).
@@ -162,5 +162,5 @@ Si vous souhaitez utiliser le bureau Gnome pour installer un système complet de
    ```
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Prise en charge par SAP d’Oracle sur Linux dans le cloud
-Il existe une restriction de prise en charge d’Oracle sur Linux dans les environnements virtualisés. Bien que cette restriction de prise en charge ne soit pas spécifique à Azure, il est important de bien la comprendre. SAP ne prend pas en charge Oracle sur SUSE ni Red Hat dans un cloud public comme Azure. Pour discuter de ce sujet, contactez directement Oracle.
+Il existe une restriction de prise en charge d’Oracle sur Linux dans les environnements virtualisés. Bien que cette restriction de prise en charge ne soit pas spécifique à Azure, il est important de bien la comprendre. SAP ne prend pas en charge Oracle sur SUSE ni Red Hat dans un cloud public comme Azure. En attendant, les bases de données Oracle dans Azure sont intégralement prises en charge par SAP sur Oracle Linux (voir note SAP 1928533). Si d’autres combinaisons sont requises, contactez directement Oracle.
 

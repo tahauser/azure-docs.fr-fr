@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données SQL Azure à l’aide des sauvegardes automatisées d’une base de données
 SQL Database fournit trois options pour la récupération de base de données à l’aide des [sauvegardes de base de données automatisées](sql-database-automated-backups.md) et des [sauvegardes depuis la rétention à long terme](sql-database-long-term-retention.md). Vous pouvez effectuer une restauration à partir d’une sauvegarde de base de données vers :
@@ -90,7 +90,7 @@ Pour effectuer une récupération à un point dans le temps à l’aide du porta
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Restauration d’une base de données supprimée
-Vous pouvez restaurer une base de données supprimée à l’heure de suppression sur le même serveur logique à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou de [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Vous pouvez restaurer une base de données supprimée à l’heure de suppression sur le même serveur logique à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) ou de [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Vous pouvez restaurer une base de données supprimée à un point antérieur dans le temps au cours de la rétention à l’aide de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Pour obtenir un exemple de script PowerShell montrant comment restaurer une base de données supprimée, consultez [Restaurer une base de données SQL à l’aide de PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -134,7 +134,7 @@ Pour effectuer une géorestauration d’une base de données lors de sa [périod
 Comme indiqué précédemment, en plus du Portail Azure, la récupération de la base de données peut être effectuée par programme à l’aide d’Azure PowerShell ou de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles.
 
 ### <a name="powershell"></a>PowerShell
-| Applet de commande | Description |
+| Applet de commande | DESCRIPTION |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtient une ou plusieurs bases de données. |
 | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Obtient une base de données supprimée que vous pouvez restaurer. |
@@ -143,7 +143,7 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 |  | |
 
 ### <a name="rest-api"></a>de l’API REST
-| API | Description |
+| API | DESCRIPTION |
 | --- | --- |
 | [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |Restaure une base de données |
 | [Créer ou mettre à jour l’état de la base de données](https://msdn.microsoft.com/library/azure/mt643934.aspx) |Retourne l’état durant une opération de restauration |
@@ -152,7 +152,7 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 ## <a name="summary"></a>Résumé
 Les sauvegardes automatiques protègent vos bases de données des erreurs utilisateur et des erreurs d’application, de la suppression accidentelle d’une base de données et des interruptions prolongées. Cette fonctionnalité intégrée est disponible pour tous les niveaux de service et de performances. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 * Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 * Pour plus d’informations sur la rétention des sauvegardes à long terme, consultez [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md).

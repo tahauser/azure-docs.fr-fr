@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Classification d’Iris, partie 1 : préparer les données
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -64,26 +64,30 @@ Vous pouvez installer l’application Azure Machine Learning Workbench en suivan
 
    ![Vue de données](media/tutorial-classifying-iris/data_view.png)
 
-3. Conservez les valeurs par défaut, puis cliquez sur le bouton **Suivant**.  
+3. Sélectionnez **Fichiers texte (*.csv, .json, .txt...)**, puis cliquez sur **Suivant**.
+   ![Source de données](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. Accédez au fichier **iris.csv**, puis cliquez sur **Suivant**.  
  
    ![Sélectionner iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Veillez à sélectionner le fichier **iris.csv** dans le répertoire de projet actif pour cet exercice. Sinon, les étapes suivantes risquent d’échouer.
    
-4. Après avoir sélectionné le fichier, sélectionnez le bouton **Terminer**.
+5. Laissez les valeurs par défaut et cliquez sur **Terminer**.
 
-4. Un nouveau fichier nommé **iris-1.dsource** est créé. Le fichier est nommé de façon unique à l’aide d’un tiret et du chiffre 1, car l’exemple de projet est déjà fourni avec un fichier **iris.dsource** non numéroté.  
+6. Un nouveau fichier nommé **iris-1.dsource** est créé. Le fichier est nommé de façon unique à l’aide de « -1 », car l’exemple de projet est déjà fourni avec un fichier **iris.dsource** non numéroté.  
 
    Le fichier s’ouvre et les données s’affichent. Une série d’en-têtes de colonne, de **Colonne1** à **Colonne5**, est automatiquement ajoutée à ce jeu de données. Si vous faites défiler les données vers le bas, vous noterez que la dernière ligne du jeu de données est vide. La ligne est vide, car le fichier CSV comporte un saut de ligne supplémentaire.
 
    ![Affichage de données Iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Cliquez sur le bouton **Métriques**. Observez les histogrammes. Un ensemble complet de statistiques a été calculé pour chaque colonne. Vous pouvez également sélectionner le bouton **Données** pour afficher à nouveau les données. 
+7. Cliquez sur le bouton **Métriques**. Observez les histogrammes. Un ensemble complet de statistiques a été calculé pour chaque colonne. Vous pouvez également sélectionner le bouton **Données** pour afficher à nouveau les données. 
 
    ![Affichage de données Iris](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Cliquez sur le bouton **Préparer**. La boîte de dialogue **Préparer** s’ouvre. 
+8. Cliquez sur le bouton **Préparer**. La boîte de dialogue **Préparer** s’ouvre. 
 
    L’exemple de projet est fourni avec un fichier **iris.dprep**. Par défaut, vous êtes invité à créer un nouveau flux de données dans le package de préparation de données **iris.dprep** existant. 
 
@@ -93,27 +97,27 @@ Vous pouvez installer l’application Azure Machine Learning Workbench en suivan
 
    Un nouveau package de préparation de données nommé **iris-1.dprep** est créé et ouvert dans l’éditeur de préparation des données.
 
-7. Effectuons à présent quelques tâches de base de préparation de données. Renommez les colonnes. Sélectionnez chaque en-tête de colonne pour activer la modification du texte d’en-tête. 
+9. Effectuons à présent quelques tâches de base de préparation de données. Renommez les colonnes. Sélectionnez chaque en-tête de colonne pour activer la modification du texte d’en-tête. 
 
    Entrez la **Longueur des sépales**, la **Largeur des sépales**, la **Longueur des pétales**, la **Largeur des pétales**, et les **Espèces** pour les cinq colonnes, respectivement.
 
    ![Renommer les colonnes](media/tutorial-classifying-iris/rename_column.png)
 
-8. Pour compter les valeurs distinctes, sélectionnez la colonne **Espèces**, puis cliquez dessus avec le bouton droit pour la sélectionner. Sélectionnez **Nombre de valeurs** dans le menu déroulant. 
+10. Pour compter les valeurs distinctes, sélectionnez la colonne **Espèces**, puis cliquez dessus avec le bouton droit pour la sélectionner. Sélectionnez **Nombre de valeurs** dans le menu déroulant. 
 
    ![Sélectionner les nombres de valeur](media/tutorial-classifying-iris/value_count.png)
 
    Cette action ouvre le volet **Inspecteurs** et affiche un histogramme à quatre barres. La colonne cible comporte trois valeurs distinctes : **Iris_virginica**, **Iris_versicolor**, **Iris-setosa**et une valeur **(null)**.
 
-9. Pour filtrer les valeurs null, sélectionnez la barre du graphique qui représente la valeur null. Il y a également une ligne avec une valeur **(null)**. Pour supprimer cette ligne, sélectionnez le signe moins (**-**).
+11. Pour filtrer les valeurs null, sélectionnez la barre du graphique qui représente la valeur null. Il y a également une ligne avec une valeur **(null)**. Pour supprimer cette ligne, sélectionnez le signe moins (**-**).
 
    ![Nombre de valeurs de l’histogramme](media/tutorial-classifying-iris/filter_out.png)
 
-10. Notez que les étapes individuelles sont détaillées dans le volet **ÉTAPES**. Lorsque vous avez renommé les colonnes et filtré les lignes correspondant à une valeur null, chaque action a été enregistrée comme une étape de préparation des données. Vous pouvez modifier les étapes individuelles pour ajuster les paramètres, réorganiser les étapes et supprimer des étapes.
+12. Notez que les étapes individuelles sont détaillées dans le volet **ÉTAPES**. Lorsque vous avez renommé les colonnes et filtré les lignes correspondant à une valeur null, chaque action a été enregistrée comme une étape de préparation des données. Vous pouvez modifier les étapes individuelles pour ajuster les paramètres, réorganiser les étapes et supprimer des étapes.
 
    ![Étapes](media/tutorial-classifying-iris/steps.png)
 
-11. Fermez l’éditeur de préparation des données. Sélectionnez **Fermer** (x) sur l’onglet **iris-1** qui comporte l’icône de graphique. Votre travail est automatiquement sauvegardé dans le fichier **iris-1.dprep** sous le titre **Préparations des données**.
+13. Fermez l’éditeur de préparation des données. Sélectionnez **Fermer** (x) sur l’onglet **iris-1** qui comporte l’icône de graphique. Votre travail est automatiquement sauvegardé dans le fichier **iris-1.dprep** sous le titre **Préparations des données**.
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Générer du code Python/PySpark pour appeler un package de préparation de données
 

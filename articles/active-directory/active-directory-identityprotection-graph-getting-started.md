@@ -1,5 +1,5 @@
 ---
-title: "Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph | Microsoft Docs"
+title: "Microsoft Graph pour Azure Active Directory Identity Protection | Microsoft Docs"
 description: "Découvrez comment interroger Microsoft Graph pour obtenir une liste d’événements à risque et des informations associées à partir d’Azure Active Directory."
 services: active-directory
 keywords: "azure active directory identity protection, événement à risque, vulnérabilité, stratégie de sécurité, Microsoft Graph"
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph
 Microsoft Graph est le point de terminaison d’API unifiée de Microsoft et accueille également les API [d’Azure Active Directory Identity Protection](active-directory-identityprotection.md). La première API, **identityRiskEvents**, vous permet d’interroger Microsoft Graph pour obtenir une liste [d’événements à risque](active-directory-identityprotection-risk-events-types.md) et des informations associées. Cet article vous permet de vous familiariser avec l’interrogation de cette API. Pour des informations détaillées ainsi qu’un accès à l’explorateur de Graph, consultez le [site de Microsoft Graph](https://graph.microsoft.io/).
@@ -144,7 +145,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Authentifiez-vous auprès de Microsoft Graph et interrogez l’API d’événements à risque concernant l’identité
 À ce stade, vous devez avoir :
 
-- Le nom de domaine de votre locataire
+- le nom de domaine de votre client ;
 
 - L’ID client 
 
@@ -206,7 +207,7 @@ Il suffit d’ajouter l’ID client, la clé secrète, ainsi que le domaine du l
     } 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Félicitations, vous venez de créer votre premier appel à Microsoft Graph !  
 Vous pouvez à présent interroger les événements à risque concernant l’identité et utiliser les données comme bon vous semble.

@@ -14,16 +14,16 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Ajout de notifications Push à votre application Apache Cordova.
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide Apache Cordova] afin qu'une notification Push soit envoyée chaque fois qu'un enregistrement est inséré.
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps][1] pour plus d’informations.
@@ -79,6 +79,7 @@ Exécutez la commande suivante :
 
 2. Cliquez sur la flèche en regard de la source d’installation.
 3. Si vous avez déjà un ID de projet numérique pour le projet de Console de développement Google, ajoutez-le dans **SENDER_ID**. Entrez temporairement une valeur d’espace réservé, par exemple, 777777.  Si vous ciblez Android, vous pourrez modifier cette valeur dans le fichier config.xml ultérieurement.
+     Notez que, à compter de la version 2.0.0, SENDER_ID a été supprimé de la phase d’installation et vous devez installer google-services.json dans le dossier racine de votre projet.  Affichez plus de détails [ici](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md).
 4. Cliquez sur **Add**.
 
 Le plug-in de notification Push est maintenant installé.

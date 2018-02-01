@@ -1,5 +1,5 @@
 ---
-title: "Restaurer un utilisateur supprimé dans Azure Active Directory | Microsoft Docs"
+title: "Restaurer ou supprimer de façon définitive un utilisateur supprimé dans Azure Active Directory | Microsoft Docs"
 description: "Comment restaurer un utilisateur supprimé, afficher les utilisateurs pouvant être restaurés et supprimer de façon définitve un utilisateur dans Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -11,19 +11,35 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 01/12/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c3b7550c2aea0e8bcb7998e0e8c732894b500403
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: d8a1850f8635097364268abdf77394ba592f761b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Restaurer un utilisateur supprimé dans Azure Active Directory
 
 Cet article contient des instructions pour restaurer ou supprimer définitivement un utilisateur supprimé précédemment. Lorsque vous supprimez un utilisateur dans Azure Active Directory (Azure AD), celui-ci est conservé pendant 30 jours à partir de la date de suppression. Durant ce laps de temps, l’utilisateur et ses propriétés peuvent être restaurés. 
+
+
+## <a name="how-to-restore-a-recently-deleted-user"></a>Comment restaurer un utilisateur supprimé récemment
+Lorsqu’un utilisateur est supprimé récemment, toutes les informations d’annuaire sont conservées. Si l’utilisateur est restauré, ces informations sont également restaurées.
+
+1. Dans le [centre d’administration Azure AD](https://aad.portal.azure.com), sélectionnez **Utilisateurs et groupes** &gt; **Tous les utilisateurs**. 
+2. Sous **Afficher**, filtrez la page pour afficher les **Utilisateurs supprimés récemment**. 
+3. Sélectionnez un ou plusieurs utilisateurs récemment supprimés.
+4. Sélectionnez **Restaurer utilisateur**.
+
+## <a name="how-to-permanently-delete-a-recently-deleted-user"></a>Comment supprimer définitivement un utilisateur récemment supprimé
+
+1. Dans le [centre d’administration Azure AD](https://aad.portal.azure.com), sélectionnez **Utilisateurs et groupes** &gt; **Tous les utilisateurs**. 
+2. Sous **Afficher**, filtrez la page pour afficher les **Utilisateurs supprimés récemment**. 
+3. Sélectionnez un ou plusieurs utilisateurs récemment supprimés.
+4. Sélectionnez **Supprimer définitivement**.
 
 ## <a name="required-permissions"></a>Autorisations requises
 Les autorisations suivantes sont suffisantes pour restaurer un utilisateur.
@@ -32,15 +48,6 @@ Rôle  | Autorisations
 --------- | ---------
 Administrateur d’entreprise<p>Prise en charge de niveau 1 de partenaire<p>Prise en charge de niveau 2 de partenaire<p>Administrateur de compte utilisateur | Peut restaurer les utilisateurs supprimés 
 Administrateur d’entreprise<p>Prise en charge de niveau 1 de partenaire<p>Prise en charge de niveau 2 de partenaire<p>Administrateur de compte utilisateur | Peut supprimer définitivement les utilisateurs
-
-## <a name="how-to-restore-a-deleted-user"></a>Comment restaurer un utilisateur supprimé
-
-Dans le portail Azure, vous pouvez restaurer un utilisateur supprimé, et supprimer définitivement un utilisateur supprimé.
-
-1. Dans le [centre d’administration Azure AD](https://aad.portal.azure.com), sélectionnez **Utilisateurs et groupes** &gt; **Tous les utilisateurs**. 
-2. Sous **Afficher**, filtrez la page pour afficher les **Utilisateurs supprimés récemment**. 
-3. Sélectionnez un ou plusieurs utilisateurs récemment supprimés.
-4. Sélectionnez **Restaurer l’utilisateur** ou **Supprimer définitivement**.
 
 ## <a name="next-steps"></a>étapes suivantes
 Ces articles fournissent des informations supplémentaires sur la gestion des utilisateurs Azure Active Directory.

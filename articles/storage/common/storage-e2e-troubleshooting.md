@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec la journalisation et les mesures du stockage Azure, AzCopy et Message Analyzer
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Diagnostic et résolution des problèmes sont essentiels pour la création et la prise en charge d'applications clientes avec Microsoft Azure Storage. En raison de la nature distribuée d'une application Azure, diagnostic et résolution des erreurs et des problèmes de performances peuvent être plus complexes que dans les environnements traditionnels.
@@ -37,9 +37,7 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
   * **Journalisation du stockage** enregistre chaque demande aux services de stockage Azure dans un journal côté serveur. Le journal assure le suivi des données détaillées de chaque demande, y compris l'opération effectuée, son statut et les informations de latence. Pour plus d’informations sur les données de demande et de réponse qui sont écrites dans les journaux par Storage Analytics, voir la page [Format de journal de Storage Analytics](/rest/api/storageservices/Storage-Analytics-Log-Format) .
 
 > [!NOTE]
-> Pour l’instant, les fonctionnalités de mesure et de journalisation ne sont pas activées pour les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS). 
-> 
-> 
+> Les comptes de stockage avec le type de réplication Stockage redondant dans une zone (ZRS) prennent en charge les métriques et la journalisation. Les comptes ZRS classiques ne prennent en charge ni les métriques ni la journalisation. Pour plus d’informations sur ZRS, consultez [Stockage redondant dans une zone](storage-redundancy.md#zone-redundant-storage). 
 
 * **Portail Azure**. Vous pouvez configurer les mesures et la journalisation pour votre compte de stockage dans le [portail Azure](https://portal.azure.com). Vous pouvez également afficher des tableaux et des graphiques qui illustrent le fonctionnement de votre application au fil du temps et configurer des alertes pour vous avertir si votre application ne fonctionne pas comme prévu pour une métrique spécifique.
   
@@ -352,24 +350,24 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Retards inattendus de la remise des messages dans une file d'attente |AzureStorageClientDotNetV4.Description contient "Retrying failed operation." |Client |
 | HTTP, augmentation de la valeur PercentThrottlingError |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Réseau |
 | Augmentation de la valeur PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Réseau |
-| Augmentation de la valeur PercentTimeoutError (tous) |*StatusCode   == 500 |Tout |
+| Augmentation de la valeur PercentTimeoutError (tous) |*StatusCode   == 500 |Tous |
 | Augmentation de la valeur PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Client |
 | Messages HTTP 403 (refusé) |HTTP.Response.StatusCode   == 403 |Réseau |
 | Messages HTTP 404 (non trouvé) |HTTP.Response.StatusCode   == 404 |Réseau |
-| 404 (tous) |*StatusCode   == 404 |Tout |
+| 404 (tous) |*StatusCode   == 404 |Tous |
 | Problème d'autorisation de la signature d'accès partagé (SAS) |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |Réseau |
 | Messages HTTP 409 (conflit) |HTTP.Response.StatusCode   == 409 |Réseau |
-| 409 (tous) |*StatusCode   == 409 |Tout |
+| 409 (tous) |*StatusCode   == 409 |Tous |
 | Les entrées à faible valeur PercentSuccess ou du journal   d’analyse incluent des opérations avec un statut de transaction ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Serveur |
 | Avertissement   de Nagle |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) et (AzureStorageLog.RequestPacketSize <1460) et (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Serveur |
 | Plage horaire   dans les journaux serveur et réseau |#Timestamp   >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 |Serveur, réseau |
 | Plage horaire   dans les journaux serveur |AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 et AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 |Serveur |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour plus d'informations sur les scénarios de résolution des problèmes de bout en bout dans Azure Storage, consultez les ressources suivantes :
 
 * [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 * [Analyse du stockage](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
-* [Transfert de données avec l'utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
+* [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)

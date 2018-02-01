@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Prise en main d'Azure Search dans Java
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 ## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Rechercher le nom et la clé API de votre service Azure Search
 Tous les appels d’API REST dans Azure Search exigent que vous fournissiez l’URL du service et une clé d’api. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans la barre d’index, cliquez sur **Service de recherche** pour obtenir la liste des services Azure Search approvisionnés pour votre abonnement.
 3. Sélectionnez le service que vous souhaitez utiliser.
 4. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
@@ -72,7 +72,7 @@ Tous les appels d’API REST dans Azure Search exigent que vous fournissiez l’
 5. Copiez l'URL du service et une clé d’administration. Vous en aurez besoin plus tard, pour les ajouter au fichier **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Télécharger les fichiers exemples
-1. Accédez à [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) sur GitHub.
+1. Accédez à [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) sur GitHub.
 2. Cliquez sur **Download ZIP**, enregistrez le fichier ZIP sur le disque, puis extrayez tous les fichiers qu'il contient. Si vous le souhaitez, vous pouvez extraire ces fichiers dans votre espace de travail Java pour faciliter la recherche du projet ultérieurement.
 3. Les fichiers exemples sont en lecture seule. Avec le bouton droit de la souris, cliquez sur le dossier et désactivez l'attribut de lecture seule.
 
@@ -100,7 +100,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 2. Sélectionnez **Dynamic Web Module**, **Java** et **JavaScript**.
    
     ![][6]
-3. Cliquez sur **Apply**.
+3. Cliquez sur **Appliquer**.
 4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**.
 5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
    
@@ -159,7 +159,7 @@ Vous pouvez également essayer les termes suivants :
 * Pembroke
 * goose +cape
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Ceci est le premier didacticiel Azure Search basé sur Java et le jeu de données USGS. Au fil du temps, nous le compléterons avec des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
 
 Si vous avez déjà une certaine maîtrise d’Azure Search, vous pouvez utiliser cet exemple comme un tremplin pour d’autres expérimentations, notamment pour améliorer la [page de recherche](search-pagination-page-layout.md) ou mettre en place la [navigation par facettes](search-faceted-navigation.md). Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.

@@ -5,18 +5,18 @@ services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: d969b44bdfa610b18f3f934b48d987cb1735155f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 867953c0aef877b1f1c07d910a8e9350ec2f2176
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Créer et acheminer des événements personnalisés avec Azure CLI et Event Grid
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure CLI pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Toutefois, pour simplifier cet article, vous envoyez les événements à une URL qui collecte seulement les messages. Vous créez cette URL à l’aide d’un outil tiers en open-source nommé [RequestBin](https://requestb.in/).
+Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure CLI pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Toutefois, pour simplifier cet article, vous envoyez les événements à une URL qui collecte seulement les messages. Vous créez cette URL à l’aide d’un outil tiers open source nommé [RequestBin](https://requestb.in/).
 
 >[!NOTE]
 >**RequestBin** est un outil open source qui n’est pas destiné à une utilisation à haut débit. L’utilisation de l’outil ici est uniquement à but démonstratif. Si vous envoyez plusieurs événements par push en simultané, vous pouvez ne pas voir tous les événements dans l’outil.
@@ -29,7 +29,7 @@ Une fois terminé, vous voyez que les données d’événement ont été envoyé
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, cet article nécessite l’exécution de la version la plus récente d’Azure CLI (2.0.14 ou une version ultérieure). Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, cet article nécessite l’exécution de la version la plus récente d’Azure CLI (2.0.24 ou une version ultérieure). Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -53,17 +53,18 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 
-Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. Au lieu d’écrire du code qui réponde à l’événement, nous allons créer un point de terminaison qui collecte les messages, afin que vous puissiez les consulter. RequestBin est un outil tiers en open-source qui vous permet de créer un point de terminaison et d’afficher les requêtes qui lui sont envoyées. Accédez à [RequestBin](https://requestb.in/), puis cliquez sur **Créer un RequestBin**.  Copiez l’URL du fichier bin, dont vous avez besoin pour vous abonner à la rubrique.
+Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. Au lieu d’écrire du code qui réponde à l’événement, nous allons créer un point de terminaison qui collecte les messages, afin que vous puissiez les consulter. RequestBin est un outil tiers open source qui vous permet de créer un point de terminaison et d’afficher les requêtes qui lui sont envoyées. Accédez à [RequestBin](https://requestb.in/), puis cliquez sur **Créer un RequestBin**.  Copiez l’URL du fichier bin, dont vous avez besoin pour vous abonner à la rubrique.
 
 ## <a name="subscribe-to-a-topic"></a>S’abonner à une rubrique
 
 Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent. L’exemple suivant s’abonne à la rubrique que vous avez créée et transmet l’URL à partir de RequestBin en tant que point de terminaison de la notification d’événement. Remplacez `<event_subscription_name>` par un nom unique pour votre abonnement, et `<URL_from_RequestBin>` par la valeur de la section précédente. En spécifiant un point de terminaison lors de l’abonnement, Event Grid gère le routage d’événements vers ce point de terminaison. Pour `<topic_name>`, utilisez la valeur que vous avez créée précédemment. 
 
 ```azurecli-interactive
-az eventgrid topic event-subscription create --name <event_subscription_name> \
-  --endpoint <URL_from_RequestBin> \
+az eventgrid event-subscription create \
   -g gridResourceGroup \
-  --topic-name <topic_name>
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="send-an-event-to-your-topic"></a>Envoyer un événement à votre rubrique
@@ -112,7 +113,7 @@ Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous savez créer des rubriques et des abonnements d’événements, vous pouvez en apprendre davantage sur Event Grid et ce qu’il peut vous offrir :
 

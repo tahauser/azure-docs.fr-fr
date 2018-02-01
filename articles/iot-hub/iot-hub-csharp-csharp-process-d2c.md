@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>Routage des messages avec IoT Hub (.Net)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-Ce didacticiel repose sur le didacticiel [Bien démarrer avec IoT Hub]. Le didacticiel :
+Ce didacticiel s’appuie sur celui relatif à la [prise en main du IoT Hub]. Le didacticiel :
 
 * Explique comment utiliser les règles de routage pour dispatcher les messages de l’appareil au cloud suivant une configuration facile.
 * Indique comment isoler les messages interactifs qui nécessitent une action immédiate du serveur principal de la solution pour un traitement ultérieur. Par exemple, un appareil peut envoyer un message d’alerte qui déclenche l’insertion d’un ticket dans un système CRM. Par opposition, les messages de point de données tels que la télémétrie de température sont chargés dans un moteur d’analyse.
 
 À la fin de ce didacticiel, vous exécutez trois applications console .NET :
 
-* **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [Bien démarrer avec IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes.
+* **SimulatedDevice**, une version modifiée de l’application créée dans le didacticiel [prise en main du IoT Hub] qui envoie des messages de point de données des appareils vers le cloud chaque seconde et des messages interactifs des appareils vers le cloud toutes les 10 secondes.
 * **ReadDeviceToCloudMessages**, qui affiche les données non critiques de télémétrie envoyées par votre application d’appareil.
-* **ReadCriticalQueue** enlève de la file d’attente Service Bus les messages critiques envoyés par votre application d’appareil. Cette file d’attente est attachée au hub IoT.
+* **ReadCriticalQueue** enlève de la file d’attente Service Bus les messages critiques envoyés par votre application d’appareil. Cette file d’attente est attachée à IoT hub.
 
 > [!NOTE]
-> IoT Hub offre la prise en charge du kit SDK sur plusieurs plateformes d’appareils et dans plusieurs langages (notamment C, Java et JavaScript). Pour savoir comment remplacer l’appareil simulé de ce didacticiel par un appareil physique, voir le [Centre de développement Azure IoT].
+> IoT Hub offre la prise en charge de Kit de développement logiciel (SDK) de plusieurs plateformes d’appareils et de plusieurs langages (notamment C, Java et JavaScript). Pour savoir comment remplacer l’appareil simulé de ce didacticiel par un appareil physique, voir le [Centre de développement Azure IoT].
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -47,7 +47,7 @@ Nous recommandons également la lecture de [Stockage Azure] et [Azure Service Bu
 
 ## <a name="send-interactive-messages"></a>Envoyer des messages interactifs
 
-Modifiez l’application d’appareil créée dans le didacticiel [Bien démarrer avec IoT Hub] de façon à envoyer occasionnellement des messages interactifs.
+Modifiez l’application d’appareil créée dans le didacticiel [prise en main du IoT Hub] de façon à envoyer occasionnellement des messages interactifs.
 
 Dans Visual Studio, dans le projet **SimulatedDevice**, remplacez la méthode `SendDeviceToCloudMessagesAsync` par le code suivant :
 
@@ -101,7 +101,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Cette méthode ajoute de façon aléatoire la propriété `"level": "critical"` et `"level": "storage"` aux messages envoyés par l’appareil, ce qui simule un message nécessitant une action immédiate du serveur principal de l’application, ou demandant à être définitivement stocké. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que IoT Hub puisse acheminer le message vers la destination adéquate.
+Cette méthode ajoute de façon aléatoire la propriété `"level": "critical"` et `"level": "storage"` aux messages envoyés par l’appareil, ce qui simule un message nécessitant une action immédiate du serveur principal de l’application, ou demandant à être définitivement stocké. L’application prend en charge le routage des messages en fonction de leur corps.
 
 > [!NOTE]
 > Vous pouvez utiliser les propriétés de message pour acheminer les messages pour de nombreux scénarios, tels que le traitement de chemin d’accès à froid, en plus de l’exemple de chemin d’accès à chaud présenté ici.
@@ -109,30 +109,30 @@ Cette méthode ajoute de façon aléatoire la propriété `"level": "critical"` 
 > [!NOTE]
 > Nous vous recommandons vivement de mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling] (Gestion des erreurs temporaires).
 
-## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Router les messages vers une file d’attente dans votre hub IoT
+## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Router les messages vers une file d’attente dans votre IoT hub
 
 Dans cette section, vous allez :
 
-* Créer une file d’attente Service Bus.
-* La connecter à votre hub IoT.
-* Configurer votre hub IoT pour envoyer des messages à la file d’attente, en fonction de la présence d’une propriété dans le message.
+* créer une file d’attente Service Bus ;
+* la connecter à votre IoT Hub ;
+* configurer votre IoT Hub pour envoyer des messages à la file d’attente, en fonction de la présence d’une propriété dans le message.
 
 Pour plus d’informations sur la façon de traiter les messages des files d’attente Service Bus, consultez [Prise en main des files d’attente][Service Bus queue].
 
-1. Créez une file d’attente Service Bus, comme décrit dans [Prise en main des files d’attente][Service Bus queue]. La file d’attente doit être située dans les mêmes région et abonnement que votre hub IoT. Prenez note de l’espace de noms et de la file d’attente.
+1. Créez une file d’attente Service Bus, comme décrit dans [Prise en main des files d’attente][Service Bus queue]. La file d’attente doit être située dans les mêmes région et abonnement que votre IoT hub. Prenez note de l’espace de noms et de la file d’attente.
 
     > [!NOTE]
     > Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
 
-2. Dans le portail Azure, ouvrez votre hub IoT, puis cliquez sur **Points de terminaison**.
+2. Dans le portail Azure, ouvrez votre IoT Hub, puis cliquez sur **Points de terminaison**.
     
-    ![Points de terminaison dans le hub IoT][30]
+    ![Points de terminaison dans IoT hub][30]
 
-3. En haut du panneau **Points de terminaison**, cliquez sur **Ajouter** pour ajouter votre file d’attente à votre hub IoT. Nommez le point de terminaison **CriticalQueue**, puis utilisez les listes déroulantes pour sélectionner **File d’attente Service Bus**, l’espace de noms Service Bus dans lequel réside votre file d’attente, ainsi que le nom de votre file d’attente. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
+3. En haut du panneau **Points de terminaison**, cliquez sur **Ajouter** pour ajouter votre file d’attente à votre IoT Hub. Nommez le point de terminaison **CriticalQueue**, puis utilisez les listes déroulantes pour sélectionner **File d’attente Service Bus**, l’espace de noms Service Bus dans lequel réside votre file d’attente, ainsi que le nom de votre file d’attente. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
     
     ![Ajout d’un point de terminaison][31]
     
-4. À présent, cliquez sur **Itinéraires** dans votre hub IoT. En haut du panneau, cliquez sur **Ajouter** afin de créer une règle qui achemine les messages vers la file d’attente que vous venez d’ajouter. Sélectionnez **DeviceTelemetry** comme source de données. Saisissez `level="critical"` comme condition, puis sélectionnez la file d’attente que vous venez d’ajouter comme point de terminaison personnalisé en tant que point de terminaison de la règle de routage. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
+4. À présent, cliquez sur **Itinéraires** dans votre IoT Hub. En haut du panneau, cliquez sur **Ajouter** afin de créer une règle qui achemine les messages vers la file d’attente que vous venez d’ajouter. Sélectionnez **DeviceTelemetry** comme source de données. Saisissez `level="critical"` comme condition, puis sélectionnez la file d’attente que vous venez d’ajouter comme point de terminaison personnalisé en tant que point de terminaison de la règle de routage. Lorsque vous avez terminé, cliquez sur **Enregistrer** en bas.
     
     ![Ajout d’un itinéraire][32]
     
@@ -190,11 +190,11 @@ Vous êtes maintenant prêt à exécuter les applications.
 Dans cette section, vous créez un compte de stockage, vous le connectez à votre hub IoT que vous configurez ensuite pour envoyer des messages au compte, en fonction de la présence d’une propriété sur le message. Pour plus d’informations sur la gestion du stockage, consultez [Bien démarrer avec Stockage Azure][Stockage Azure].
 
  > [!NOTE]
-   > Si vous n’êtes pas limité à un seul **point de terminaison**, vous pouvez configurer **StorageContainer** en plus de **CriticalQueue** et exécutez les deux simultanément.
+   > Si vous n’êtes pas limité à un seul **point de terminaison**, vous pouvez configurer **StorageContainer** en plus de **CriticalQueue** et exécuter les deux simultanément.
 
 1. Créez un compte de stockage, comme décrit dans la [Documentation Stockage Azure] [lnk-storage]. Notez le nom du compte.
 
-2. Dans le portail Azure, ouvrez votre hub IoT et cliquez sur **Points de terminaison**.
+2. Dans le portail Azure, ouvrez votre IoT Hub, puis cliquez sur **Points de terminaison**.
 
 3. Dans le panneau **Points de terminaison**, sélectionnez le point de terminaison **CriticalQueue** et cliquez sur **Supprimer**. Cliquez sur **Oui**, puis sur **Ajouter**. Nommez le point de terminaison **StorageContainer** et utilisez les listes déroulantes pour sélectionner **Conteneur de stockage Azure** et créer un **Compte de stockage** et un **Conteneur de stockage**.  Notez les noms.  Lorsque vous avez terminé, cliquez sur **OK** en bas. 
 
@@ -203,13 +203,13 @@ Dans cette section, vous créez un compte de stockage, vous le connectez à votr
 
 4. Cliquez sur **Itinéraires** dans votre hub IoT. En haut du panneau, cliquez sur **Ajouter** afin de créer une règle qui achemine les messages vers la file d’attente que vous venez d’ajouter. Sélectionnez **Messages des appareils** comme source de données. Indiquez `level="storage"` comme condition, puis sélectionnez **StorageContainer** comme point de terminaison personnalisé en tant que point de terminaison de la règle de routage. Cliquez sur **Enregistrer** au bas de la page.  
 
-    Assurez-vous que l’itinéraire de secours est défini sur **ACTIVÉ**. Ce paramètre correspond à la configuration par défaut d’un hub IoT.
+    Assurez-vous que l’itinéraire de secours est défini sur **ACTIVÉ**. Ce paramètre correspond à la configuration par défaut d’un IoT Hub.
 
 1. Assurez-vous que vos applications précédentes sont toujours en cours d’exécution. 
 
-1. Dans le Portail Azure, accédez à votre compte de stockage, sous **Service BLOB**, cliquez sur **Parcourir les objets blob...**   Sélectionnez votre conteneur, accédez au fichier JSON et cliquez dessus, cliquez ensuite sur **Télécharger** pour afficher les données.
+1. Dans le portail Azure, accédez à votre compte de stockage sous **Service BLOB**, cliquez sur **Parcourir les objets blob...**.  Sélectionnez votre conteneur, accédez au fichier JSON et cliquez dessus, puis cliquez sur **Télécharger** pour afficher les données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Dans ce didacticiel, vous avez appris à répartir de façon fiable des messages appareil-à-cloud à l’aide de la fonctionnalité d’acheminement de messages d’IoT Hub.
 
 Le didacticiel [Envoi de messages cloud-à-appareil avec IoT Hub][lnk-c2d] vous montre comment envoyer des messages à vos appareils à partir de votre serveur principal de solution.
@@ -232,7 +232,7 @@ Pour en savoir plus sur le routage des messages dans IoT Hub, consultez [Envoyer
 [Stockage Azure]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 [Guide du développeur IoT Hub]: iot-hub-devguide.md
-[Bien démarrer avec IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[prise en main du IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

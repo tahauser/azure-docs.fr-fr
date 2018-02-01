@@ -17,11 +17,11 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: fe3ea6c22fafad0d0dcf611ceb365a2ebca80011
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Utiliser PolyBase pour charger des données du Stockage Blob Azure dans Azure SQL Data Warehouse
 
@@ -62,7 +62,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
 
-   | Paramètre | Valeur suggérée | Description | 
+   | Paramètre | Valeur suggérée | DESCRIPTION | 
    | ------- | --------------- | ----------- | 
    | **Nom de la base de données** | mySampleDataWarehouse | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -73,12 +73,12 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | Description | 
+    | Paramètre | Valeur suggérée | DESCRIPTION | 
     | ------- | --------------- | ----------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
     | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
-    | **Emplacement** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
+    | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
 
     ![créer un serveur de base de données](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -90,7 +90,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
     ![configurer les performances](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Cliquez sur **Apply**.
+8. Cliquez sur **Appliquer**.
 9. Dans la page SQL Data Warehouse, sélectionnez un **classement** pour la base de données vide. Pour ce didacticiel, utilisez la valeur par défaut. Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations.md)
 
 11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour approvisionner la base de données. L’approvisionnement prend quelques minutes. 
@@ -101,7 +101,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
     
      ![notification](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>créer une règle de pare-feu au niveau du serveur ;
+## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 
 Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêche les applications et outils externes de se connecter au serveur ou à toute base de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques.  Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client. 
 
@@ -109,7 +109,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 > SQL Data Warehouse communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 >
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le nom de serveur complet (par ex., **mynewserver-20171113.database.windows.net**) et fournit des options pour poursuivre la configuration. 
+1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le nom de serveur complet (par exemple **mynewserver-20171113.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
 2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants. Ensuite, cliquez sur le nom du serveur pour ouvrir les paramètres du serveur.
 
@@ -125,7 +125,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 
 4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Cliquez sur **Save**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
+5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
 
 6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
@@ -152,7 +152,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
 
-    | Paramètre      | Valeur suggérée | Description | 
+    | Paramètre      | Valeur suggérée | DESCRIPTION | 
     | ------------ | --------------- | ----------- | 
     | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
     | Nom du serveur | Nom complet du serveur | Le nom doit ressembler à : **mynewserver-20171113.database.windows.net**. |
@@ -170,7 +170,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 
-Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement de données demande généralement beaucoup de mémoire. Les [valeurs maximales de mémoire](performance-tiers.md#memory-maximums) sont définies conformément au [niveau de performance](performance-tiers.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
+Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les [valeurs maximales de mémoire](performance-tiers.md#memory-maximums) sont définies conformément au [niveau de performance](performance-tiers.md) et à la [classe de ressource](resource-classes-for-workload-management.md). 
 
 Il est préférable de créer une connexion et un utilisateur dédiés au chargement des données. Ensuite, ajoutez l’utilisateur de chargement à une [classe de ressource](resource-classes-for-workload-management.md) qui permet une allocation de mémoire maximale appropriée.
 
@@ -211,7 +211,7 @@ La première étape du chargement des données consiste à se connecter sous Loa
 
     ![Se connecter avec le nouvelle connexion](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Entrez le nom complet du serveur, mais, cette fois, entrez **LoaderRC20** comme connexion.  Entrez votre mot de passe pour LoaderRC20.
+2. Entrez le nom complet du serveur, puis **LoaderRC20** comme connexion.  Entrez votre mot de passe pour LoaderRC20.
 
 3. Cliquez sur **Connecter**.
 
@@ -452,6 +452,10 @@ Exécutez les scripts SQL suivants en spécifiant les informations des données 
 
 Cette section utilise les tables externes que vous venez de définir pour charger les exemples de données d’Azure Storage Blob dans SQL Data Warehouse.  
 
+> [!NOTE]
+> Ce didacticiel charge directement les données dans la table finale. Dans un environnement de production, vous utilisez généralement l’instruction CREATE TABLE AS SELECT pour procéder au chargement dans une table de mise en lots. Lorsque les données se trouvent dans la table de mise en lots, vous pouvez effectuer toutes les transformations nécessaires. Pour ajouter les données de la table de mise en lots à une table de production, vous pouvez utiliser l’instruction INSERT...SELECT. Pour plus d’informations, voir [Insertion de données dans une table de production](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> 
+
 Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, SQL Data Warehouse importe les données dans une table relationnelle de l’entrepôt de données. 
 
 1. Exécutez le script suivant pour charger les données dans de nouvelles tables de votre entrepôt de données.
@@ -567,7 +571,7 @@ Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-s
 
 SQL Data Warehouse ne prend pas en charge les statistiques de création ou de mise à jour automatiques. Par conséquent, pour obtenir des performances élevées pour les requêtes, il est important de créer des statistiques pour chaque colonne de chaque table après le premier chargement. Il est également important de mettre à jour les statistiques après des modifications importantes des données.
 
-1. Exécutez ces commandes pour créer des statistiques sur les colonnes susceptibles d’être utilisées dans des jointures.
+Exécutez ces commandes pour créer des statistiques sur les colonnes susceptibles d’être utilisées dans des jointures.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -587,7 +591,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
     ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Pour suspendre un calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** s’affiche.  Pour reprendre le calcul, cliquez sur **Démarrer**.
+2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** s’affiche.  Pour reprendre le calcul, cliquez sur **Démarrer**.
 
 3. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 
@@ -595,7 +599,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 5. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>étapes suivantes 
 Dans ce didacticiel, vous avez appris à créer un entrepôt de données et un utilisateur pour le chargement des données. Vous avez créé des tables externes pour définir la structure des données stockées dans Azure Storage Blob, puis avez utilisé l’instruction PolyBase CREATE TABLE AS SELECT pour charger des données dans votre entrepôt de données. 
 
 Voici les étapes que vous avez effectuées :

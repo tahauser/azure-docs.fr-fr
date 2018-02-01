@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Questions fréquentes (FAQ) sur la nouvelle recherche dans les journaux Log Analytics et problèmes connus
 
@@ -134,7 +134,7 @@ Oui.  Vous devez utiliser la version d’API 2017-03-15-preview et ajouter une s
 
 
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 ### <a name="question-will-my-solutions-continue-to-work"></a>Question : Mes solutions continueront-elles de fonctionner ?
 Toutes les solutions continueront de fonctionner dans un espace de travail mis à niveau. Cependant, en les convertissant dans le nouveau langage de requête, vous bénéficierez de meilleures performances.  Certaines solutions existantes décrites dans cette section font face à des problèmes connus.
@@ -160,13 +160,12 @@ La recherche de journal héritée sera déconseillée dans les prochains mois. L
 Avant la disponibilité générale, vous pouviez revenir à la dernière version de votre espace de travail après la mise à niveau.  Le nouveau langage étant désormais en phase de disponibilité générale, cette fonctionnalité a été supprimée et la plateforme héritée va progressivement être mise hors service.
 
 
-
 ## <a name="views"></a>Views
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Question : Comment créer une vue avec le Concepteur de vues ?
-Avant la mise à niveau, il était possible de créer une vue avec le Concepteur de vues à partir d’une vignette du tableau de bord principal.  Quand l’espace de travail est mis à niveau, cette vignette est supprimée.  Vous pouvez créer une vue à l’aide du Concepteur de vues dans le portail OMS en cliquant sur le bouton + vert dans le menu de gauche.
+Avant la mise à niveau, il était possible de créer une vue avec le Concepteur de vues à partir d’une vignette du tableau de bord principal dans le portail OMS.  Quand l’espace de travail est mis à niveau, cette vignette est supprimée.  Vous pouvez créer une vue à l’aide du Concepteur de vues dans le portail OMS en cliquant sur le bouton + vert dans le menu de gauche.  Vous continuez à créer une nouvelle vue avec le portail Azure en cliquant sur la vignette Concepteur de vues.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Plus d’informations sur la [mise à niveau de votre espace de travail vers le nouveau langage de requête de Log Analytics](log-analytics-log-search-upgrade.md).

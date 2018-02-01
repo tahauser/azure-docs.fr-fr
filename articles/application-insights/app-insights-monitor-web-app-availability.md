@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c9dd60170e93722cab8e8d5eb5b4202b71bbb8e4
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -30,6 +30,12 @@ Il existe deux types de tests de disponibilité :
 * [Test web multi-étapes](#multi-step-web-tests) : que vous créez dans Visual Studio Enterprise et que vous chargez sur le portail.
 
 Vous pouvez créer jusqu’à 100 tests de disponibilité par ressource d’application.
+
+
+> [!NOTE] 
+> * Les emplacements de test de disponibilité ont récemment été déplacés vers les centres de données Azure. Ce déplacement permet d’ajouter des emplacements avec le réseau croissant de centres de données Azure.  
+> * Vous n’avez pas besoin de mettre à jour les tests. Tous les tests sont migrés et en cours d’exécution à partir de nouveaux emplacements. 
+>* Pour plus d’informations, reportez-vous à la [mise à jour de service](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/).
 
 ## <a name="create"></a>Ouvrir une ressource pour vos rapports de test de disponibilité
 
@@ -118,7 +124,8 @@ Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple,
 Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l’aide de Visual Studio Enterprise et téléchargez ensuite l’enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
 
 > [!NOTE]
-> Vous ne pouvez pas utiliser de fonctions codées ni de boucles dans vos tests. Le test doit être entièrement contenu dans le script .webtest. Toutefois, vous pouvez utiliser des plug-ins standard.
+> * Vous ne pouvez pas utiliser de fonctions codées ni de boucles dans vos tests. Le test doit être entièrement contenu dans le script .webtest. Toutefois, vous pouvez utiliser des plug-ins standard.
+> * Seuls les caractères anglais sont pris en charge dans les tests web à plusieurs étapes. Si vous utilisez Visual Studio dans d’autres langages, veuillez mettre à jour le fichier de définition de test web pour traduire/exclure les caractères non anglais.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Enregistrement d’un scénario

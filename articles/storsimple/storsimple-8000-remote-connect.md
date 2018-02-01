@@ -4,7 +4,7 @@ description: "Explique comment configurer votre appareil pour la gestion à dist
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connexion à distance à votre appareil StorSimple série 8000
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Vous pouvez vous connecter à distance à votre appareil via Windows PowerShell. Quand vous vous connectez de cette façon, aucun menu ne s’affiche. (Vous voyez un menu seulement si vous utilisez la console série sur l’appareil pour vous connecter). Avec l’accès distant Windows PowerShell, vous vous connectez à une instance d’exécution spécifique. Vous pouvez également spécifier la langue d’affichage.
 
@@ -84,7 +84,10 @@ Procédez comme suit sur la console série de l’appareil pour activer la gesti
 Procédez comme suit sur le client pour activer la gestion à distance.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Pour préparer le client pour une connexion à distance
-1. Démarrez une session Windows PowerShell en tant qu’administrateur.
+1. Démarrez une session Windows PowerShell en tant qu’administrateur. Si vous utilisez un client Windows 10, par défaut, le service Windows Remote Management est défini sur manuel. Vous devrez peut-être démarrer le service en tapant :
+
+    `Start-Service WinRM`
+    
 2. Tapez la commande suivante pour ajouter l’adresse IP de l’appareil StorSimple à la liste des hôtes approuvés du client :
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Utilisez Windows PowerShell et SSL pour entrer dans une session SSAdmin sur votr
 Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez établir la connexion Windows PowerShell à distance.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Pour entrer dans une session SSAdmin sur l’appareil en utilisant Windows PowerShell et SSL
-1. Démarrez une session Windows PowerShell en tant qu’administrateur.
+1. Démarrez une session Windows PowerShell en tant qu’administrateur. Si vous utilisez un client Windows 10, par défaut, le service Windows Remote Management est défini sur manuel. Vous devrez peut-être démarrer le service en tapant :
+
+    `Start-Service WinRM`
+
 2. Ajoutez l’adresse IP de l’appareil aux hôtes approuvés du client en tapant :
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -230,15 +236,15 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Pour le paramètre -ComputerName de l’applet de commande, vous devez fournir le <*numéro de série de l’appareil cible*>. Ce numéro de série a été mappé à l’adresse IP de DATA 0 dans le fichier hosts sur l’hôte distant, par exemple, **SHX0991003G44MT** dans l’image suivante.
-5. Entrez :
+5. Tapez :
    
      `Enter-PSSession $session`
 6. Patientez quelques minutes, puis vous serez connecté à votre appareil via HTTPS sur SSL. Un message indiquant que vous êtes connecté à votre appareil s’affiche.
    
     ![Accès distant PowerShell en utilisant HTTPS et SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * En savoir plus sur [l’utilisation de Windows PowerShell pour gérer votre appareil StorSimple](storsimple-8000-windows-powershell-administration.md).
-* Découvrez plus en détail comment [utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
+* En savoir plus sur l’[utilisation du service StorSimple Device Manager pour gérer votre appareil StorSimple](storsimple-8000-manager-service-administration.md).
 

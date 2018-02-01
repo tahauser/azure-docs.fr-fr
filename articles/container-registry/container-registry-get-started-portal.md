@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Créer un registre de conteneur à l’aide du portail Azure
 
@@ -35,7 +35,7 @@ Entrez les valeurs **Nom du registre** et **Groupe de ressources**. Le nom du re
 
 ![Création d’un registre de conteneur dans le portail Azure][qs-portal-03]
 
-Dans le cadre de ce guide de démarrage rapide, nous allons créer un registre *De base*. Azure Container Registry est disponible dans plusieurs références SKU, qui sont brièvement décrites dans le tableau suivant. Pour plus d’informations sur chaque référence, consultez [Références (SKU) Azure Container Registry][container-registry-skus].
+Dans le cadre de ce guide de démarrage rapide, nous allons créer un registre *De base*. Azure Container Registry est disponible dans plusieurs références SKU, qui sont brièvement décrites dans le tableau suivant. Pour plus d’informations sur chaque référence, consultez [Références SKU de registres de conteneurs][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -71,13 +71,13 @@ Pour envoyer une image dans votre registre Azure Container Registry, vous devez 
 docker pull microsoft/aci-helloworld
 ```
 
-Avant d’envoyer l’image dans votre registre, vous devez l’étiqueter avec le nom du serveur de connexion à l’ACR. Étiquetez l’image en utilisant la commande [docker tag][docker-tag]. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion enregistré précédemment.
+Avant d’envoyer l’image dans votre registre, vous devez l’étiqueter avec le nom du serveur de connexion à l’ACR. Marquez l’image en utilisant la commande [docker tag][docker-tag]. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion enregistré précédemment.
 
 ```
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
-Enfin, utilisez la commande [docker push][docker-push] pour envoyer l’image à l’instance ACR. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion de votre instance ACR.
+Enfin, utilisez la commande [docker push][docker-push] pour pousser l’image vers l’instance ACR. Remplacez la valeur du *serveur de connexion* par le nom du serveur de connexion de votre instance ACR.
 
 ```
 docker push <login server>/aci-helloworld:v1
@@ -110,9 +110,9 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources **myReso
 
 ![Création d’un registre de conteneur dans le portail Azure][qs-portal-08]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry avec Azure CLI. Si vous souhaitez utiliser Azure Container Registry avec des instances Azure Container Instances, passez au didacticiel Azure Container Instances.
+Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry à l’aide du portail Azure. Si vous souhaitez utiliser Azure Container Registry avec des instances Azure Container Instances, passez au didacticiel Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Didacticiels Azure Container Instances][container-instances-tutorial-prepare-app]

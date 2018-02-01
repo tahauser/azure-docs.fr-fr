@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
@@ -217,27 +217,9 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-
-### <a name="create-a-public-ip-address-and-nic"></a>Créer une adresse IP publique et une carte réseau
-Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) et d’une interface réseau.
-
-1. Créez l’adresse IP publique. Dans cet exemple, le nom d’adresse IP publique est défini sur **myIP**.
-   
-    ```powershell
-    $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. Créez la carte réseau. Dans cet exemple, le nom de carte réseau est défini sur **myNicName**.
-   
-    ```powershell
-    $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-    ```
-
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Créer le groupe de sécurité réseau et une règle RDP
 Pour pouvoir vous connecter à votre machine virtuelle avec le protocole RDP, vous devez disposer d’une règle de sécurité qui autorise l’accès RDP sur le port 3389. Du fait que le disque dur virtuel de la nouvelle machine virtuelle a été créé à partir d’une machine virtuelle spécialisée, une fois que la machine virtuelle est créée, vous pouvez utiliser un compte existant à partir de la machine virtuelle source qui a l’autorisation de se connecter à l’aide de RDP.
+Vous devez le faire avant la création de l’interface réseau à laquelle elle sera associée.  
 Cet exemple définit le nom du groupe de sécurité réseau sur **myNsg** et le nom de règle RDP sur **myRdpRule**.
 
 ```powershell
@@ -253,6 +235,24 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 Pour plus d’informations sur les points de terminaison et les règles NSG, consultez [Ouverture de ports sur une machine virtuelle dans Azure avec PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+### <a name="create-a-public-ip-address-and-nic"></a>Créer une adresse IP publique et une carte réseau
+Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) et d’une interface réseau.
+
+1. Créez l’adresse IP publique. Dans cet exemple, le nom d’adresse IP publique est défini sur **myIP**.
+   
+    ```powershell
+    $ipName = "myIP"
+    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+        -AllocationMethod Dynamic
+    ```       
+2. Créez la carte réseau. Dans cet exemple, le nom de carte réseau est défini sur **myNicName**. Cette étape associe également le groupe de sécurité réseau créé précédemment à cette carte réseau.
+   
+    ```powershell
+    $nicName = "myNicName"
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+    ```
 
 ### <a name="set-the-vm-name-and-size"></a>Définir le nom et la taille de machine virtuelle
 
@@ -319,6 +319,6 @@ $vmList = Get-AzureRmVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour vous connecter à votre nouvelle machine virtuelle, accédez à la machine virtuelle dans le [portail](https://portal.azure.com), cliquez sur **Se connecter**, puis ouvrez le fichier RDP Bureau à distance. Utilisez les informations d’identification de compte de votre machine virtuelle d’origine pour vous connecter à votre nouvelle machine virtuelle. Pour plus d’informations, consultez [Connexion à une machine virtuelle Azure exécutant Windows](connect-logon.md).
 

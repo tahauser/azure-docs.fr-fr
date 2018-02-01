@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Guide pratique pour gérer les inscriptions d’appareil avec les SDK du service de provisionnement des appareils Azure
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service de provisionnement des appareils à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareils pour votre service de provisionnement par programmation en utilisant les SDK du service de provisionnement des appareils Azure IoT.  Les SDK sont disponibles sur GitHub dans le même dépôt que les SDK Azure IoT.
@@ -25,8 +25,9 @@ Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un
 Cet article explique aborde les concepts généraux de la gestion des inscriptions d’appareils pour votre service de provisionnement par programmation à l’aide des SDK du service de provisionnement Azure IoT.  Les appels d’API peuvent différer d’un langage à l’autre.  Pour plus d’informations, consultez les exemples que nous fournissons sur GitHub :
 * [Exemples de provisionnement de client de service en Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Exemples de provisionnement de client de service en Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [Exemples de provisionnement de client de service en .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 * Chaîne de connexion à partir d’une instance du service de provisionnement des appareils
 * Artefacts de sécurité des appareils
     * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security) :

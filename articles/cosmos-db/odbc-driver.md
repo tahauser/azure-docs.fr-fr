@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -38,9 +38,11 @@ Familiarisons-nous à présent avec le pilote ODBC.
 
 1. Téléchargez les pilotes correspondant à votre environnement :
 
-    * [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) pour Windows 64 bits
-    * [Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) pour 32 bits sur Windows 64 bits
-    * [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) pour Windows 32 bits
+    | Programme d’installation | Systèmes d’exploitation pris en charge| 
+    |---|---| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) pour Windows 64 bits| Versions 64 bits de Windows 8.1 ou version ultérieure, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 et Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64) pour 32 bits sur Windows 64 bits| Versions 64 bits de Windows 8.1 ou version ultérieure, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) pour Windows 32 bits|Versions 32 bits de Windows 8.1 ou version ultérieure, Windows 8, Windows 7, Windows XP et Windows Vista.|
 
     Exécutez le fichier msi localement pour lancer l’**Assistant d’installation du pilote ODBC Microsoft Azure Cosmos DB**. 
 2. Terminez l’assistant d’installation en utilisant l’entrée par défaut pour installer le pilote ODBC.
@@ -58,9 +60,9 @@ Familiarisons-nous à présent avec le pilote ODBC.
     ![Fenêtre de configuration DSN du pilote ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nom de source de données** : le nom convivial de votre DSN ODBC. Ce nom étant spécifique à votre compte Azure Cosmos DB, choisissez-le de manière appropriée si vous possédez plusieurs comptes.
     - **Description** : courte description de la source de données.
-    - **Hôte** : URI de votre compte Azure Cosmos DB. Vous pouvez récupérer cette information dans le panneau Azure Cosmos DB Keys (Clés Azure Cosmos DB) du portail Azure, comme illustré dans la capture d’écran suivante. 
-    - **Clé d’accès** : clé primaire ou secondaire, en lecture-écriture ou en lecture seule, affichée dans le panneau Azure Cosmos DB Keys (Clés Azure Cosmos DB) du portail Azure, comme illustré dans la capture d’écran suivante. Nous vous recommandons d'utiliser la clé en lecture seule si le DSN sert au traitement des données en lecture seule et à la création de rapports.
-    ![Panneau Azure Cosmos DB Keys (Clés Azure Cosmos DB)](./media/odbc-driver/odbc-driver-keys.png)
+    - **Hôte** : URI de votre compte Azure Cosmos DB. Vous pouvez récupérer cette information sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. 
+    - **Clé d’accès** : clé primaire ou secondaire, en lecture-écriture ou en lecture seule, affichée sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. Nous vous recommandons d'utiliser la clé en lecture seule si le DSN sert au traitement des données en lecture seule et à la création de rapports.
+    ![Page des clés Azure Cosmos DB](./media/odbc-driver/odbc-driver-keys.png)
     - **Chiffrer la clé d’accès pour** : sélectionnez l’option optimale en fonction des utilisateurs de cet ordinateur. 
 4. Cliquez sur le bouton **Test** pour vérifier que vous pouvez vous connecter à votre compte Azure Cosmos DB. 
 5. Cliquez sur **Options avancées** et définissez les valeurs suivantes :
@@ -146,6 +148,6 @@ Si l’erreur suivante s’affiche, vérifiez que les valeurs **Hôte** et **Cl�
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour en savoir plus sur Azure Cosmos DB, consultez [Bienvenue dans Azure Cosmos DB](introduction.md).
+Pour en savoir plus sur Azure Cosmos DB, consultez la page [Bienvenue dans Azure Cosmos DB](introduction.md).

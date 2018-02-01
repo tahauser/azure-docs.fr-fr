@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 1/12/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 534d00c0938aaadf9abd9942be80eb456787fcf9
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 0e9615ca52fe981f49eb85f68cd1ab0204406bfc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) avec le module Azure PowerShell. Vous pouvez également suivre ces étapes avec l’interface [Azure CLI](quick-backup-vm-cli.md) ou [le portail Azure](quick-backup-vm-portal.md).
@@ -44,7 +44,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
 
-## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
+## <a name="create-a-recovery-services-vaults"></a>Créer des coffres Recovery Services
 Un coffre Recovery Services est un conteneur logique qui stocke les données de sauvegarde de chaque ressource protégée, telles que des machines virtuelles Azure. Lorsque le travail de sauvegarde d’une ressource protégée s’exécute, il crée un point de récupération à l’intérieur du coffre Recovery Services. Vous pouvez ensuite utiliser un de ces points de récupération pour restaurer des données à un moment donné dans le temps.
 
 Créez un coffre Recovery Services avec [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Spécifiez le même groupe de ressources et le même emplacement que ceux de la machine virtuelle que vous souhaitez protéger. Si vous avez utilisé l’[exemple de script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) pour créer votre machine virtuelle, le groupe de ressources est nommé *myResourceGroup*, la machine virtuelle est nommée *myVM* et les ressources se trouvent à l’emplacement *WestEurope*.

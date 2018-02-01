@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 
 ## [À propos de SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 ## [Aide-mémoire](cheat-sheet.md)
@@ -6,6 +6,10 @@
 # Démarrages rapides
 
 ## [Créer et connecter - portail](create-data-warehouse-portal.md)
+## Suspension et reprise du calcul
+### [Portail](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Didacticiels
 ## [1 - Charger des données à partir d’un objet blob](load-data-from-azure-blob-storage-using-polybase.md)

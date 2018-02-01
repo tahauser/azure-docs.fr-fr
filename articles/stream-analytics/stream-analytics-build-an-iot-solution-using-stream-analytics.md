@@ -4,8 +4,8 @@ description: "Prise en main du didacticiel pour la solution IoT Stream Analytics
 keywords: "solution IOT, fonctions de fenêtre"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
+
 ## <a name="introduction"></a>Introduction
 Ce didacticiel explique comment utiliser Azure Stream Analytics pour obtenir des informations en temps réel à partir de vos données. Les développeurs peuvent aisément combiner des flux de données, tels que des flux de clics, des journaux et des événements générés par des appareils, avec des enregistrements d’historique ou des données de référence pour recueillir des perspectives. En tant que service de calcul de flux en temps réel entièrement géré hébergé dans Microsoft Azure, Azure Stream Analytics offre la résilience, la faible latence et la scalabilité nécessaires pour être opérationnel en quelques minutes.
 
@@ -33,7 +34,7 @@ Après avoir effectué ce didacticiel, vous pourrez :
 * développer des solutions de streaming pour vos clients à l’aide de Stream Analytics en toute confiance ;
 * vous appuyer sur l’expérience de surveillance et de journalisation pour résoudre les problèmes.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Pour suivre ce didacticiel, vous avez besoin des composants suivants :
 
 * La version la plus récente d’ [Azure PowerShell](/powershell/azure/overview)
@@ -54,24 +55,24 @@ Ce didacticiel fonctionne avec deux flux de données. Des capteurs installés à
 ### <a name="entry-data-stream"></a>Flux des données d’entrée
 Le flux des données d’entrée contient les informations relatives aux véhicules qui arrivent aux stations de péage.
 
-| TollID | EntryTime | LicensePlate | State | Make | Modèle | VehicleType | VehicleWeight | Toll | Tag |
+| TollID | EntryTime | LicensePlate | État | Marque | Modèle | VehicleType | VehicleWeight | Toll | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
-| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
+| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5. |456789123 |
 | 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
-| 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
+| 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5. |789123456 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6. |321987654 |
 
 Voici une brève description des colonnes :
 
-| Colonne | Description |
+| Colonne | DESCRIPTION |
 | --- | --- |
 | TollID |ID de guichet identifiant de façon unique un poste de péage |
 | EntryTime |Date et heure UTC d’entrée du véhicule en poste de péage |
 | LicensePlate |Numéro de plaque d’immatriculation du véhicule |
-| State |État aux États-Unis |
-| Make |Fabricant du véhicule |
+| État |État aux États-Unis |
+| Marque |Fabricant du véhicule |
 | Modèle |Numéro de modèle du véhicule |
 | VehicleType |1 pour les véhicules de transport de personnes, 2 pour les véhicules commerciaux |
 | WeightType |Poids du véhicule en tonnes ; 0 pour les véhicules de tourisme |
@@ -92,7 +93,7 @@ Le flux des données de sortie contient des informations sur les véhicules qui 
 
 Voici une brève description des colonnes :
 
-| Colonne | Description |
+| Colonne | DESCRIPTION |
 | --- | --- |
 | TollID |ID de guichet identifiant de façon unique un poste de péage |
 | ExitTime |Date et heure UTC auxquelles le véhicule quitte le poste de péage |
@@ -112,7 +113,7 @@ Le didacticiel utilise un instantané statique de la base de données d’inscri
 
 Voici une brève description des colonnes :
 
-| Colonne | Description |
+| Colonne | DESCRIPTION |
 | --- | --- |
 | LicensePlate |Numéro de plaque d’immatriculation du véhicule |
 | ID d’inscription |ID d’inscription du véhicule |
@@ -175,24 +176,11 @@ Vous voyez également une autre fenêtre semblable à la capture d’écran suiv
 Normalement, toutes vos ressources doivent maintenant apparaître dans le portail Azure. Accédez à <https://manage.windowsazure.com> et connectez-vous avec les informations d’identification de votre compte. Notez que certaines fonctionnalités utilisent actuellement le portail Classic. Ces étapes sont clairement indiquées.
 
 ### <a name="azure-event-hubs"></a>Hubs d'événements Azure
-Dans le portail Azure, cliquez sur **Autres services** en bas du volet de gestion de gauche. Tapez **Event Hubs** dans le champ fourni, puis cliquez sur **Event Hubs**. Cette action lance une nouvelle fenêtre de navigateur affichant la zone **SERVICE BUS** dans le **portail Classic**. Ici, vous pouvez voir l’Event Hub créé par le script Setup.ps1.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Cliquez sur celui qui commence par *tolldata*. Accédez à l’onglet **HUBS D’ÉVÉNEMENTS** . Deux concentrateurs d’événements nommés *entry* et *exit* apparaissent dans cet espace de noms.
-
-![Onglet Event Hubs dans le portail Classic](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+Dans le portail Azure, cliquez sur **Autres services** en bas du volet de gestion de gauche. Saisissez **Event hubs** dans le champ fourni. Vous pouvez voir un nouvel espace de noms Event Hubs qui commence par **tolldata**. Cet espace de noms est créé par le script Setup.ps1. Deux concentrateurs d’événements nommés **entry** et **exit** apparaissent dans cet espace de noms.
 
 ### <a name="azure-storage-container"></a>Conteneur Azure Storage
-1. Revenez à l’onglet dans votre navigateur pour ouvrir le portail Azure. Cliquez sur **STOCKAGE** sur le côté gauche du portail Azure pour voir le conteneur Stockage Azure utilisé dans le didacticiel.
-   
-    ![Élément de menu de stockage](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Cliquez sur celui qui commence par *tolldata*. Ouvrez l’onglet **CONTENEURS** pour voir le conteneur créé.
-   
-    ![Onglet Conteneurs dans le portail Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Cliquez sur le conteneur **tolldata** pour voir le fichier JSON chargé, qui contient les données d’inscription des véhicules.
-   
-    ![Capture d’écran du fichier registration.json dans le conteneur](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+À partir du portail Azure, accédez aux comptes de stockage. Vous devriez voir un compte de stockage qui commence par **tolldata**. Cliquez sur le conteneur **tolldata** pour voir le fichier JSON chargé, qui contient les données d’inscription des véhicules.
 
 ### <a name="azure-sql-database"></a>Base de données SQL Azure
 1. Revenez au portail Azure sur le premier onglet qui a été ouvert dans le navigateur. Cliquez sur **BASES DE DONNÉES SQL** sur le côté gauche du portail Azure pour voir la base de données SQL à utiliser dans le didacticiel, puis cliquez sur **tolldatadb**.
@@ -285,13 +273,13 @@ Désormais, toutes les entrées sont définies.
 1. Dans le volet de vue d’ensemble de la tâche Stream Analytics, sélectionnez **Sorties**.
    
     ![Onglet Sortie et option « Ajouter une sortie »](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
-2. Cliquez sur **Ajouter**.
+2. Cliquez sur **Add**.
 3. Définissez l’**Alias de sortie** sur « sortie », puis **Récepteur** sur **SQL database**.
 3. Sélectionnez le nom de serveur utilisé dans la section « Se connecter à la base de données à partir de Visual Studio » de l’article. Le nom de la base de données est **TollDataDB**.
 4. Entrez **tolladmin** dans le champ **NOM D’UTILISATEUR**, **123toll!** dans le champ **MOT DE PASSE** et **TollDataRefJoin** dans le champ **TABLE**.
    
     ![Paramètres SQL Database](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.png)
-5. Cliquez sur **Create**.
+5. Cliquez sur **Créer**.
 
 ## <a name="azure-stream-analytics-query"></a>Requête Azure Stream Analytics
 L’onglet **REQUÊTE** contient une requête SQL qui convertit les données entrantes.

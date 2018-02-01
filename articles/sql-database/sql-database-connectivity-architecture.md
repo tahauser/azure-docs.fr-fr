@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database 
 
@@ -71,15 +71,15 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Centre des États-Unis | 23.99.160.139 | 13.67.215.62 |
 | Est de l'Asie | 191.234.2.139 | 52.175.33.150 |
 | Est des États-Unis 1 | 191.238.6.43 | 40.121.158.30 |
-| Est des États-Unis 2 | 191.239.224.107 | 40.79.84.180 |
+| Est des États-Unis 2 | 191.239.224.107 | 40.79.84.180 * |
 | Inde-Centre | 104.211.96.159  | |
-| Sud de l'Inde | 104.211.224.146  | |
+| Sud de l’Inde | 104.211.224.146  | |
 | Inde-Ouest | 104.211.160.80 | |
 | Est du Japon | 191.237.240.43 | 13.78.61.196 |
 | Ouest du Japon | 191.238.68.11 | 104.214.148.156 |
 | Centre de la Corée | 52.231.32.42 | |
 | Corée du Sud | 52.231.200.86 |  |
-| États-Unis - partie centrale septentrionale | 23.98.55.75 | 23.96.178.199 |
+| Centre-Nord des États-Unis | 23.98.55.75 | 23.96.178.199 |
 | Europe du Nord | 191.235.193.75 | 40.113.93.91 |
 | Centre-Sud des États-Unis | 23.98.162.75 | 13.66.62.124 |
 | Asie du Sud-Est | 23.100.117.95 | 104.43.15.0 |
@@ -92,6 +92,8 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Ouest des États-Unis 1 | 23.99.34.75 | 104.42.238.205 |
 | Ouest des États-Unis 2 | 13.66.226.202  | |
 ||||
+
+\***REMARQUE :** *Est des États-Unis 2* a également l’adresse IP tertiaire `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 
@@ -183,7 +185,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur la façon de modifier la stratégie de connexion Azure SQL Database d’un serveur Azure SQL Database, consultez [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx) (Créer ou mettre à jour la stratégie de connexion au serveur à l’aide de l’API REST).
 - Pour plus d’informations sur le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure, consultez [Ports au-delà de 1433 pour ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

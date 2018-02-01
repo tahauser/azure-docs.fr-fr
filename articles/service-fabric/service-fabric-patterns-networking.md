@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -36,7 +36,7 @@ Si le port 19080 n’est pas accessible à partir du fournisseur de ressources S
 
 ## <a name="templates"></a>Modèles
 
-Tous les modèles Service Fabric se trouvent dans [un même fichier de téléchargement](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Vous devriez pouvoir déployer les modèles tels quels avec les commandes PowerShell suivantes. Si vous déployez le modèle de réseau virtuel Azure existant ou le modèle d’adresse IP publique statique, commencez par lire la section [Configuration initiale](#initialsetup) de cet article.
+Tous les modèles Service Fabric se trouvent dans [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Vous devriez pouvoir déployer les modèles tels quels avec les commandes PowerShell suivantes. Si vous déployez le modèle de réseau virtuel Azure existant ou le modèle d’adresse IP publique statique, commencez par lire la section [Configuration initiale](#initialsetup) de cet article.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Configuration initiale
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Modèle Service Fabric
 
-Dans les exemples de cet article, nous utilisons le modèle Service Fabric template.json. Vous pouvez utiliser l’Assistant du portail standard pour télécharger le modèle sur le portail avant de créer un cluster. Vous pouvez également utiliser l’un des modèles de la [galerie de modèles](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), comme le [cluster Service Fabric à cinq nœuds](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Dans les exemples de cet article, nous utilisons le modèle Service Fabric template.json. Vous pouvez utiliser l’Assistant du portail standard pour télécharger le modèle sur le portail avant de créer un cluster. Vous pouvez également utiliser l’un des [exemples de modèles](https://github.com/Azure-Samples/service-fabric-cluster-templates), comme le [cluster Service Fabric à cinq nœuds sécurisé](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Réseau virtuel ou sous-réseau existant
@@ -596,5 +596,5 @@ Dans un cluster à deux types de nœuds, l’un des types de nœuds est sur l’
 
 Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Créer un cluster](service-fabric-cluster-creation-via-arm.md)

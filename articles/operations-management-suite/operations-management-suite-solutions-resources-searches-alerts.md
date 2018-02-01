@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion OMS (préversion)
 
@@ -31,7 +31,7 @@ Les [solutions de gestion dans OMS](operations-management-suite-solutions.md) in
 > [!NOTE]
 > Les exemples dans cet article utilisent des paramètres et des variables qui sont nécessaires ou courants pour les solutions de gestion. Ils sont décrits dans la rubrique [Création de solutions de gestion dans Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](operations-management-suite-solutions-creating.md) et la structure d’un [modèle Resource Manager](../resource-group-authoring-templates.md) et d’un fichier solution.
 
 
@@ -45,17 +45,14 @@ Le nom de l’espace de travail figure dans le nom de chaque ressource Log Analy
 ## <a name="log-analytics-api-version"></a>Version de l’API Log Analytics
 Toutes les ressources Log Analytics définies dans un modèle Resource Manager ont une propriété **apiVersion** qui définit la version de l’API que la ressource doit utiliser.  Cette version varie selon que les ressources utilisent [le langage de requête hérité ou mis à niveau](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- Le tableau suivant présente les versions de l’API Log Analytics pour les espaces de travail hérités et mis à niveau, ainsi qu’un exemple de requête illustrant les différences de syntaxe. 
+ Le tableau suivant indique les versions de l’API Log Analytics pour les recherches enregistrées dans des espaces de travail hérités et mis à niveau : 
 
-| Version de l’espace de travail | Version de l’API | Exemple de requête |
+| Version de l’espace de travail | Version de l'API | Requête |
 |:---|:---|:---|
-| v1 (hérité)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
-| v2 (mis à niveau) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+| v1 (hérité)   | 2015-11-01-preview | Format hérité.<br> Exemple : Type=Event EventLevelName = Error  |
+| v2 (mis à niveau) | 2015-11-01-preview | Format hérité.  Converti au format mis à niveau durant l’installation.<br> Exemple : Type=Event EventLevelName = Error<br>Converti au format : Event &#124; where EventLevelName == "Error"  |
+| v2 (mis à niveau) | 2017-03-03-preview | Format mis à niveau. <br>Exemple : Event &#124; where EventLevelName == "Error"  |
 
-Notez les points suivants concernant la prise en charge des espaces de travail par les différentes versions.
-
-- Les modèles qui utilisent le langage de requête hérité peuvent être installés dans un espace de travail hérité ou mis à niveau.  Si les modèles sont installés dans un espace de travail mis à niveau, les requêtes sont converties à la volée dans le nouveau langage quand elles sont exécutées par l’utilisateur.
-- Les modèles qui utilisent le langage de requête mis à niveau peuvent uniquement être installés dans un espace de travail mis à niveau.
 
 
 ## <a name="saved-searches"></a>Recherches enregistrées
@@ -82,7 +79,7 @@ Les ressources de [recherche enregistrée Log Analytics](../log-analytics/log-an
 
 Chaque propriété d’une recherche enregistrée est décrite dans le tableau suivant. 
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 |:--- |:--- |
 | category | La catégorie de la recherche enregistrée.  Toutes les recherches enregistrées d’une même solution partagent généralement une catégorie unique. Elles sont ainsi regroupées dans la console. |
 | displayname | Le nom à afficher pour la recherche enregistrée dans le portail. |
@@ -128,11 +125,11 @@ Une recherche enregistrée peut avoir une ou plusieurs planifications, chacune d
 
 Les propriétés des ressources de planification sont décrites dans le tableau suivant.
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
-| Activé       | Oui | Spécifie si l’alerte est activée lors de sa création. |
-| interval      | Oui | La fréquence d’exécution de la requête (en minutes). |
-| queryTimeSpan | Oui | Durée sur laquelle les résultats sont évalués (en minutes). |
+| Activé       | OUI | Spécifie si l’alerte est activée lors de sa création. |
+| interval      | OUI | La fréquence d’exécution de la requête (en minutes). |
+| queryTimeSpan | OUI | Durée sur laquelle les résultats sont évalués (en minutes). |
 
 La ressource de planification doit dépendre de la recherche enregistrée, de sorte qu’elle soit créée avant la planification.
 
@@ -187,60 +184,60 @@ Les actions d’alerte présentent la structure suivante.  Cela inclut des varia
 
 Les propriétés des ressources d’action d’alerte sont décrites dans les tableaux suivants.
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
-| Type | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
-| Nom | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
-| Description | Non | La description facultative de l’alerte. |
-| Severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **Critique**<br>**Avertissement**<br>**Information** |
+| type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
+| NOM | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
+| DESCRIPTION | Non  | La description facultative de l’alerte. |
+| Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **Critical**<br>**Avertissement**<br>**Informational** |
 
 
 ##### <a name="threshold"></a>Seuil
 Cette section est obligatoire.  Elle définit les propriétés du seuil d’alerte.
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
-| Opérateur  | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | Oui | La valeur par rapport à laquelle les résultats doivent être comparés. |
+| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
 
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative.  Vous devez l’inclure pour une alerte relative aux mesures métriques.
 
 > [!NOTE]
-> Les alertes relatives aux mesures métriques sont actuellement en préversion publique. 
+> Les alertes relatives aux mesures métriques sont actuellement en version préliminaire publique. 
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
-| TriggerCondition | Oui | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
-| Opérateur  | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | Oui | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
+| TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
+| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
 
 ##### <a name="throttling"></a>Limitation
 Cette section est facultative.  Insérez cette section si vous souhaitez supprimer des alertes à partir de la même règle sur une certaine période après la création d’une alerte.
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
 | DurationInMinutes | Oui, si l’élément Throttling est inclus | Le délai de suppression des alertes, en minutes, une fois créée une alerte à partir de la même règle. |
 
 ##### <a name="emailnotification"></a>EmailNotification
  Cette section est facultative. Insérez-la si vous souhaitez que l’alerte envoie un e-mail à un ou plusieurs destinataires.
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
-| Destinataires | Oui | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Objet | Oui | La ligne d’objet du message. |
-| Pièce jointe | Non | Actuellement, les pièces jointes ne sont pas prises en charge.  Si cet élément est inclus, il doit avoir la valeur **None**. |
+| Destinataires | OUI | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Objet | OUI | La ligne d’objet du message. |
+| Pièce jointe | Non  | Actuellement, les pièces jointes ne sont pas prises en charge.  Si cet élément est inclus, il doit avoir la valeur **None**. |
 
 
 ##### <a name="remediation"></a>Correction
 Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook démarre en réponse à l’alerte. |
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
-| RunbookName | Oui | Le nom du runbook à démarrer. |
-| WebhookUri | Oui | L’URI du webhook pour le runbook. |
-| Expiry | Non | La date et l’heure d’expiration de la correction. |
+| RunbookName | OUI | Le nom du runbook à démarrer. |
+| WebhookUri | OUI | L’URI du webhook pour le runbook. |
+| Expiry | Non  | La date et l’heure d’expiration de la correction. |
 
 #### <a name="webhook-actions"></a>Actions de webhook
 
@@ -266,12 +263,12 @@ Si votre alerte appelle un webhook, elle nécessite une ressource d’action ave
 
 Les propriétés des ressources d’action Webhook sont décrites dans les tableaux suivants.
 
-| Nom de l'élément | Requis | Description |
+| Nom de l'élément | Obligatoire | DESCRIPTION |
 |:--|:--|:--|
-| type | Oui | Type de l’action.  **Webhook** pour les actions de webhook. |
-| name | Oui | Le nom d’affichage de l’action.  Il n’est pas affiché dans la console. |
-| wehookUri | Oui | L’URI du webhook. |
-| customPayload | Non | Charge utile personnalisée à envoyer au webhook. Le format dépend de ce que le webhook attend. |
+| Type | OUI | Type de l’action.  **Webhook** pour les actions de webhook. |
+| Nom | OUI | Le nom d’affichage de l’action.  Il n’est pas affiché dans la console. |
+| wehookUri | OUI | L’URI du webhook. |
+| customPayload | Non  | Charge utile personnalisée à envoyer au webhook. Le format dépend de ce que le webhook attend. |
 
 
 
@@ -520,7 +517,7 @@ Le fichier de paramètres suivant fournit des exemples de valeurs pour cette sol
     }
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Ajoutez des vues](operations-management-suite-solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks Automation et d’autres ressources](operations-management-suite-solutions-resources-automation.md) à votre solution de gestion.
 

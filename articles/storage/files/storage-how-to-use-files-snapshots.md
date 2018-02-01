@@ -3,7 +3,7 @@ title: "Utiliser des instantanés de partage (préversion) | Microsoft Docs"
 description: "Un instantané de partage est une version en lecture seule d’un partage Azure Files enregistrée à un point dans le temps pour sauvegarder le partage."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Utiliser des instantanés de partage (préversion)
 Un instantané de partage (préversion) est une version en lecture seule d’un partage de fichiers Azure pris à un certain point dans le temps. Une fois créé, un instantané de partage peut être lu, copié ou supprimé, mais pas modifié. Un instantané de partage offre un moyen de sauvegarder le partage tel qu’il apparaît à un certain moment. 
@@ -246,7 +246,46 @@ Dans la sortie, vous voyez que le contenu du fichier téléchargé et ses propri
 }
 ```
 
+<<<<<<< HEAD
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Opérations sur les instantanés de partage de fichiers dans Azure PowerShell
+Vous pouvez utiliser Azure PowerShell pour effectuer les mêmes opérations, telles que répertorier les instantanés de partage, explorer le contenu des instantanés de partage, restaurer ou télécharger des fichiers à partir des instantanés de partage, ou supprimer des instantanés de partage.
+
+#### <a name="list-share-snapshots"></a>Répertorier les instantanés de partage
+
+Vous pouvez lister les instantanés d’un partage spécifique à l’aide de la commande `Get-AzureStorageShare`.
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Parcourir les instantanés de partage
+Vous pouvez également parcourir un instantané de partage spécifique pour afficher son contenu en utilisant `Get-AzureStorageFile` avec la valeur `-Share` pointant vers cet instantané
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Effectuer une restauration à partir d’instantanés de partage
+
+Vous pouvez restaurer un fichier en le copiant ou téléchargeant à partir de l’instantané de partage à l’aide de la commande `Get-AzureStorageFileContent`.
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>Supprimer un instantané de partage de fichiers Azure
+=======
 ## <a name="delete-a-share-snapshot"></a>Supprimer un instantané de partage
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Vous pouvez supprimer des instantanés de partage en utilisant le portail Azure, PowerShell, l’interface CLI, l’API REST ou n’importe quel SDK Stockage. Les sections suivantes décrivent comment supprimer un instantané de partage avec le portail Azure, l’interface CLI et PowerShell.
 
@@ -294,6 +333,6 @@ Remove-AzureStorageShare -Share $snapshot
 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * [Vue d’ensemble des instantanés](storage-snapshots-files.md)
 * [Forum aux questions sur les instantanés](storage-files-faq.md)

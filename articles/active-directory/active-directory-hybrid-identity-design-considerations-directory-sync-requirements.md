@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière de synchronisation de répertoire | Microsoft Docs"
+title: "Conception d’identités hybrides : exigences en matière de synchronisation d’annuaire Azure | Microsoft Docs"
 description: "Identifier les exigences nécessaires pour la synchronisation de tous les utilisateurs entre en local et cloud pour l'entreprise."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Déterminer les exigences de synchronisation de répertoire
 La synchronisation consiste à fournir aux utilisateurs une identité dans le cloud basée sur leur identité locale. Qu'ils comptent utiliser le compte synchronisé pour l'authentification ou pour l'authentification fédérée, les utilisateurs doivent toujours avoir une identité dans le cloud.  Cette identité devra être gérée et mise à jour de temps en temps.  Les mises à jour peuvent prendre différentes formes, des modifications de titre aux modifications de mot de passe.  
@@ -68,7 +69,7 @@ Vous devez également déterminer la synchronisation des annuaires d'exigences e
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déterminer les exigences d’authentification multifacteur](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

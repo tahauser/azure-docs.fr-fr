@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Dépannage des problèmes courants dans Azure Automation 
 Cet article aide à dépanner les problèmes courants que vous pourriez rencontrer dans Azure Automation et suggère des solutions possibles pour les résoudre.
@@ -152,7 +152,7 @@ Cet article aide à dépanner les problèmes courants que vous pourriez rencontr
   * Pour affecter une configuration de nœud à un nœud à l’aide d’une applet de commande PowerShell, utilisez l’applet de commande **Set-AzureRmAutomationDscNode** .
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Scénario : aucune configuration de nœud (fichiers MOF) ne s’est produite au cours d’une compilation de configuration
-**Erreur :** la tâche de compilation de votre DSC a été interrompue avec l’erreur : « Compilation completed successfully, but no node configuration .mofs were generated » (« La compilation s’est terminée correctement, mais aucune configuration de nœud .mofs n’a été générée »).
+**Erreur :** la tâche de compilation de votre DSC a été interrompue avec l’erreur : « Compilation completed successfully, but no node configuration .mofs were generated » (« La compilation s’est terminée correctement, mais aucune configuration de nœud .mofs n’a été générée »).
 
 **Raison de l’erreur :** quand l’expression qui suit le mot-clé **Node** dans la configuration DSC s’évalue à `$null`, aucune configuration de nœud n’est générée.
 
@@ -190,6 +190,16 @@ Ce code d’erreur signifie que la requête de recherche de groupe d’ordinateu
 **Conseils de dépannage :**
 
 Vous pouvez supprimer la requête pour cette solution et réintégrer la solution, ce qui recrée la requête. La requête se trouve dans votre espace de travail, sous **Recherches enregistrées**. Le nom de la requête est **MicrosoftDefaultComputerGroup**, et la catégorie de la requête est le nom de la solution associée à cette requête. Si plusieurs solutions sont activées, **MicrosoftDefaultComputerGroup** s’affiche plusieurs fois sous **Recherches enregistrées**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Raison de l’erreur :**
+
+Ce code d’erreur signifie que le déploiement a échoué en raison d’une violation de la stratégie.
+
+**Conseils de dépannage :**
+
+Consultez les notifications dans le coin supérieur droit du portail Azure ou accédez au groupe de ressources comportant votre compte Automation, puis sélectionnez **Déploiements** sous **Paramètres** pour afficher le déploiement mis en échec. Pour en savoir plus sur la stratégie Azure, consultez la section suivante : [Présentation de Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Gestion des services AD FS (Active Directory Federation Services) et personnalisation avec Azure AD Connect | Microsoft Docs
+title: "Azure AD Connect - Gestion et personnalisation d’AD FS | Microsoft Docs"
 description: "Gestion d’AD FS avec Azure AD Connect et personnalisation de la connexion de l’utilisateur à AD FS avec Azure AD Connect et PowerShell."
 keywords: "AD FS, ADFS, gestion AD FS, AAD Connect, Connect, connexion, personnalisation d’AD FS, réparer l’approbation, O365, fédération, partie de confiance"
 services: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gérer et personnaliser Active Directory Federation Services à l’aide d’Azure AD Connect
 Cet article décrit comment gérer et personnaliser Active Directory Federation Services (ADFS) à l’aide d’Azure Active Directory (Azure AD) Connect. Il indique également d’autres tâches courantes liées à AD FS que vous devrez peut-être effectuer pour terminer la configuration d’une batterie de serveurs AD FS.
@@ -48,7 +49,7 @@ Vous pouvez utiliser Azure AD Connect pour vérifier l’état actuel des servic
    ![Réparer la confiance AAD et ADFS](media/active-directory-aadconnect-federation-management/RepairADTrust1.PNG)
 
 2. Dans la page **Connexion à Azure AD**, saisissez vos informations d’identification d’administrateur global d’Azure AD, puis cliquez sur **Suivant**.
-   ![Se connecter à Azure AD](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
+   ![Connexion à Azure AD](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
 
 3. Dans la page **Informations d’identification d’accès à distance** , indiquez les informations d’identification de l’administrateur de domaine.
 
@@ -269,5 +270,5 @@ Pour n’avoir que le domaine racine dans la valeur de revendication de l’éme
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur les [options de connexion de l’utilisateur](active-directory-aadconnect-user-signin.md).

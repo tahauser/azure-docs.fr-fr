@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Démarrage rapide : Explorer Azure Time Series Insights
-Ce démarrage rapide montre comment démarrer avec l’Explorateur Time Series Insights dans un environnement de démonstration gratuit. Vous apprenez à utiliser votre navigateur web pour visualiser de grands volumes de données IoT et faites le tour des fonctionnalités clés de l’Explorateur Time Series Insights. 
+Ce démarrage rapide montre comment démarrer avec l’Explorateur Time Series Insights dans un environnement de démonstration gratuit. Vous allez découvrir comment utiliser votre navigateur web pour visualiser de grands volumes de données IoT avant de faire le tour des fonctionnalités clés de l’Explorateur Time Series Insights. 
 
 Azure Time Series Insights est un service entièrement managé d’analyse, de stockage et de visualisation qui simplifie la découverte et l’analyse simultanées de milliards d’événements IoT. Il vous offre une vue globale de vos données, ce qui vous permet de valider rapidement votre solution IoT et d’éviter les temps d’arrêt coûteux sur les appareils stratégiques en vous aidant à découvrir les tendances cachées, à identifier les anomalies et à effectuer des analyses de la cause première en temps presque réel.  Si vous générez une application qui nécessite de stocker ou d’interroger des données de série chronologique, vous pouvez développer à l’aide des API REST Time Series Insights.
 
@@ -71,7 +71,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 
 Après avoir terminé le démarrage rapide, vous pouvez tester l’exemple de jeu de données pour créer différentes visualisations. 
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>étapes suivantes
 Vous êtes prêt à créer votre propre environnement Time Series Insights :
 > [!div class="nextstepaction"]
 > [Planifier votre environnement Time Series Insights](time-series-insights-environment-planning.md)

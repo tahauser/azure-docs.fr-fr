@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/14/2017
+ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fae88e44ee763a0c59b4ad2c731d77db379aa1ee
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 839fc3a326dca8b60c6750231b06d2369c3de2fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Collecter des données à partir d’ordinateurs Linux hébergés dans votre environnement
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de vos ordinateurs Linux physiques ou virtuels et d’autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
@@ -75,7 +75,7 @@ Les étapes suivantes configurent le programme d’installation de l’agent pou
 
 ## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>Configurer l’agent pour communiquer avec un serveur proxy
 
-Réalisez les étapes suivantes si vos ordinateurs Linux doivent communiquer avec Log Analytics via un serveur proxy.  La valeur de configuration de proxy a la syntaxe suivante `[protocol://][user:password@]proxyhost[:port]`.
+Réalisez les étapes suivantes si vos ordinateurs Linux doivent communiquer avec Log Analytics via un serveur proxy.  La valeur de configuration de proxy a la syntaxe suivante `[protocol://][user:password@]proxyhost[:port]`.  La propriété *proxyhost* accepte un nom de domaine complet ou l’adresse IP du serveur proxy.    
 
 1. Modifiez le fichier `/etc/opt/microsoft/omsagent/proxy.conf` en exécutant les commandes suivantes et modifiez les valeurs en vous basant sur vos paramètres spécifiques.
 

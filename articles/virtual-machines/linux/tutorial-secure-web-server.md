@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Sécuriser un serveur web à l’aide de certificats SSL sur une machine virtuelle Linux dans Azure
 Pour sécuriser les serveurs web, vous pouvez utiliser un certificat SSL (Secure Sockets Layer) et chiffrer ainsi le trafic web. Ces certificats SSL peuvent être stockés dans Azure Key Vault et autoriser des déploiements sécurisés de certificats sur des machines virtuelles Linux dans Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -158,4 +158,5 @@ Dans ce didacticiel, vous avez sécurisé un serveur web NGINX à l’aide d’u
 Suivez ce lien pour consulter des exemples de scripts de machine virtuelle prédéfinis.
 
 > [!div class="nextstepaction"]
-> [Exemples de scripts de machine virtuelle Windows](./cli-samples.md)
+> [Exemples de scripts de machine virtuelle Linux](./cli-samples.md)
+

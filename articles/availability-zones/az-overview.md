@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a0e654637bc4aca4230c56cc7c1706f5cd73622e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Vue d’ensemble des zones de disponibilité dans Azure (préversion)
 
@@ -31,6 +31,7 @@ Les zones de disponibilité vous permettent de vous protéger contre les défail
 ## <a name="regions-that-support-availability-zones"></a>Régions prenant en charge les zones de disponibilité
 
 - Est des États-Unis 2
+- Centre des États-Unis
 - Europe de l'Ouest
 - France-Centre
 
@@ -40,14 +41,15 @@ Les services Azure qui prennent en charge les zones de disponibilité sont les s
 
 - Machines virtuelles Linux
 - Machines virtuelles Windows
-- Groupes zonaux de machines virtuelles identiques
+- Jeux de mise à l’échelle de machine virtuelle
 - Managed Disks
 - Équilibreur de charge
 - Adresse IP publique
+- Stockage redondant dans une zone
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Prise en main de la préversion des zones de disponibilité
 
-La préversion des zones de disponibilité est disponible dans les régions États-Unis de l’Est 2, Europe de l’Ouest et France-Centre pour certains services Azure. 
+La préversion des zones de disponibilité est disponible dans les régions États-Unis de l’Est 2, Centre des États-Unis, Europe de l’Ouest et France-Centre pour certains services Azure. 
 
 1. [Inscrivez-vous à la préversion des zones de disponibilité](http://aka.ms/azenroll). 
 2. Connectez-vous à votre abonnement Azure.

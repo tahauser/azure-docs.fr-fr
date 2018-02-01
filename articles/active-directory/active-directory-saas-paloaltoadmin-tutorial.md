@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Didacticiel : Intégration d’Azure Active Directory avec Palo Alto Networks - Admin UI
 
@@ -28,16 +28,16 @@ L’intégration de Palo Alto Networks - Admin UI avec Azure AD vous offre les a
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à Palo Alto Networks - Admin UI.
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Palo Alto Networks - Admin UI (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD avec Palo Alto Networks - Admin UI, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Palo Alto Networks - Admin UI pour lequel l’authentification unique est activée
+- Un pare-feu Palo Alto Networks de nouvelle génération ou un dispositif Panorama (système de gestion centralisée pour les pare-feu)
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -48,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Palo Alto Networks - Admin UI depuis la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -72,7 +72,7 @@ Pour configurer l’intégration de Palo Alto Networks - Admin UI à Azure AD, v
 
 4. Dans la zone de recherche, tapez **Palo Alto Networks - Admin UI**, sélectionnez **Palo Alto Networks - Admin UI** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Palo Alto Networks - Admin UI dans la liste des résultats](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Palo Alto Networks - Admin UI dans la liste des résultats](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -84,10 +84,10 @@ Dans Palo Alto Networks - Admin UI, affectez la valeur du **nom d’utilisateur*
 
 Pour configurer et tester l’authentification unique Azure AD avec Palo Alto Networks - Admin UI, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Créez un utilisateur de test Palo Alto Networks - Admin UI](#create-a-palo-alto-networks---admin-ui-test-user)** pour obtenir un équivalent de Britta Simon dans Palo Alto Networks - Admin UI lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -108,16 +108,16 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Informations d’authentification unique dans Domaine et URL de Palo Alto Networks - Admin UI](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<Customer Firewall URL>/php/login.php`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<Customer Firewall FQDN>/php/login.php`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<Customer Firewall URL>/SAML20/SP`
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez [l’équipe de support client de Palo Alto Networks - Admin UI](https://support.paloaltonetworks.com/support) pour obtenir ces valeurs. 
  
 4. L’application Palo Alto Networks - Admin UI attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section « **Attributs utilisateur** » sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
-    ![Configurer l’authentification unique](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
 5. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit. Notez que les valeurs des attributs sont seulement des exemples : utilisez donc des valeurs appropriées pour username et adminrole. Il existe un autre attribut facultatif, « accessdomain », qui est utilisé pour restreindre l’accès administrateur à des systèmes virtuels spécifiques sur le pare-feu.
         
@@ -128,9 +128,9 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_04.png)
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_05.png)
     
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
     
@@ -145,13 +145,13 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
 
 7. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Ouvrez le site Palo Alto en tant qu’administrateur dans une autre fenêtre de navigateur.
+8. Ouvrez l’interface utilisateur de l’administration du pare-feu Palo Alto Networks en tant qu’administrateur dans une autre fenêtre de navigateur.
 
 9. Cliquez sur **Appareil**.
 

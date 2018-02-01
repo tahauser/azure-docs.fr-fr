@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,6 +68,13 @@ Utilisez des disques de restauration pour :
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Puis-je utiliser des sauvegardes de machine virtuelle avec disque non géré pour effectuer une restauration après la mise à niveau de mes disques vers des disques gérés ?
 Oui, vous pouvez utiliser les sauvegardes effectuées avant la migration des disques non gérés vers des disques gérés. Par défaut, le travail de restauration de la machine virtuelle créera une machine virtuelle avec des disques non gérés. Vous pouvez utiliser la fonctionnalité restauration de disques pour restaurer des disques et les utiliser pour créer une machine virtuelle sur des disques gérés. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Quelle est la procédure dédiée à la restauration d’une machine virtuelle à un point de restauration antérieur à la conversion de disques non gérés en disques gérés pour une machine virtuelle ?
+Dans ce scénario, par défaut, la tâche de restauration de machine virtuelle crée une machine virtuelle avec des disques non gérés. Pour créer une machine virtuelle avec des disques gérés :
+1. [Restaurer vers des disques non gérés](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Convertir les disques restaurés en disques gérés](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Créer une machine virtuelle avec des disques gérés](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Pour les applets de commande PowerShell, accédez [ici](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Que se passe-t-il lorsque je modifie une stratégie de sauvegarde sur des machines virtuelles ?

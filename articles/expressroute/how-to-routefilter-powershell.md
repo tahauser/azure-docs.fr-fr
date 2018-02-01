@@ -15,22 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurer des filtres de routage pour l’homologation Microsoft : PowerShell
 > [!div class="op_single_selector"]
 > * [portail Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
+> * [interface de ligne de commande Azure](how-to-routefilter-cli.md)
 > 
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via l’homologation Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
 
-Les services Dynamics 365 et les services Office 365, comme Exchange Online, SharePoint Online et Skype pour entreprises, et les services Azure, comme le stockage et la base de données SQL, sont accessibles via l’homologation Microsoft. Lorsque l’homologation Microsoft est configurée dans un circuit ExpressRoute, tous les préfixes liés à ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
+Les services Dynamics 365 et les services Office 365, comme Exchange Online, SharePoint Online et Skype pour entreprises, et les services Azure publics, comme le stockage et SQL Database, sont accessibles via l’homologation Microsoft. Les services publics Azure sont sélectionnables par région ; ils ne peuvent pas être définis par service public. 
+
+Lorsque l’homologation Microsoft est configurée sur un circuit ExpressRoute et qu’un filtre de routage est attaché, l’ensemble des préfixes sélectionnés pour ces services sont publiés via les sessions BGP établies. Une valeur de communauté BGP est attachée à chaque préfixe pour identifier le service qui est proposé par le biais du préfixe. Pour obtenir la liste de valeurs de communauté BGP et des services auxquels elles sont mappées, consultez les [communautés BGP](expressroute-routing.md#bgp).
 
 Si vous avez besoin de connectivité à tous les services, de nombreux préfixes sont publiés via BGP. Cela augmente considérablement la taille des tables de routage gérées par les routeurs au sein de votre réseau. Si vous envisagez d’utiliser uniquement un sous-ensemble des services offerts par le biais de l’homologation de Microsoft, vous pouvez réduire la taille de vos tables de routage de deux manières. Vous pouvez :
 
@@ -98,7 +100,7 @@ Si vous disposez de plusieurs abonnements Azure, vérifiez les abonnements assoc
 Get-AzureRmSubscription
 ```
 
-Spécifiez l’abonnement que vous souhaitez utiliser.
+Spécifiez l’abonnement à utiliser.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
@@ -152,6 +154,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Exécutez la commande suivante pour joindre le filtre de routage au circuit ExpressRoute, en admettant que vous n’avez que l’homologation Microsoft :
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

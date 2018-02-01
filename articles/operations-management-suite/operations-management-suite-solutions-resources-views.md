@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vues dans des solutions de gestion dans Operations Management Suite (OMS) (préversion)
 > [!NOTE]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](operations-management-suite-solutions-creating.md) et la structure d’un fichier solution.
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -75,11 +75,10 @@ Ajoutez la ressource de la vue suivante à l’élément **resources** de votre 
 
 Ajoutez les variables suivantes à l’élément variables du fichier de la solution et remplacez les valeurs par celles de votre solution.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Notez que vous pouvez copier la ressource de vue entière depuis votre fichier de vue exporté, mais que vous devez apporter les modifications suivantes pour qu’elle fonctionne dans votre solution.  
 
@@ -90,10 +89,22 @@ Notez que vous pouvez copier la ressource de vue entière depuis votre fichier d
 * Les noms des paramètres doivent être modifiés de manière à correspondre à l’ensemble de paramètres nécessaire.
 * Les variables doivent être définies dans la solution et utilisées dans les propriétés appropriées.
 
+### <a name="log-analytics-api-version"></a>Version de l’API Log Analytics
+Toutes les ressources Log Analytics définies dans un modèle Resource Manager ont une propriété **apiVersion** qui définit la version de l’API que la ressource doit utiliser.  Cette version varie selon que les affichages avec des requêtes utilisent [le langage de requête hérité ou mis à niveau](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ Le tableau suivant indique les versions de l’API Log Analytics pour les affichages dans des espaces de travail hérités et mis à niveau : 
+
+| Version de l’espace de travail | Version de l'API | Requête |
+|:---|:---|:---|
+| v1 (hérité)   | 2015-11-01-preview | Format hérité.<br> Exemple : Type=Event EventLevelName = Error  |
+| v2 (mis à niveau) | 2015-11-01-preview | Format hérité.  Converti au format mis à niveau durant l’installation.<br> Exemple : Type=Event EventLevelName = Error<br>Converti au format : Event &#124; where EventLevelName == "Error"  |
+| v2 (mis à niveau) | 2017-03-03-preview | Format mis à niveau. <br>Exemple : Event &#124; where EventLevelName == "Error"  |
+
+
 ## <a name="add-the-view-details"></a>Ajout des détails de la vue
 La ressource de la vue dans le fichier exporté contient deux éléments dans l’élément **properties** nommés **Dashboard** et **OverviewTile** qui contiennent la configuration détaillée de la vue.  Copiez ces deux éléments et leur contenu dans l’élément **properties** de la ressource de vue dans votre fichier solution.
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 Par exemple, l’exemple suivant montre un fichier solution simple avec une vue.  Des points de suspension (...) sont affichés à la place du contenu des éléments **Dashboard** et **OverviewTile** pour des raisons d’espace.
 
     {
@@ -176,6 +187,6 @@ Par exemple, l’exemple suivant montre un fichier solution simple avec une vue.
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez plus de détails sur la création de [solutions de gestion](operations-management-suite-solutions-creating.md).
 * Inclure [des runbooks Automation dans votre solution de gestion](operations-management-suite-solutions-resources-automation.md).

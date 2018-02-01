@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Paramètres de configuration de la passerelle VPN pour Azure Stack
 
@@ -160,7 +160,7 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |Version IKE |IKEv2 |
 |Chiffrement et algorithmes de hachage (Chiffrement)     | GCMAES256|
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
-|Durée de vie de l’AS (durée)  | 3 600 secondes |
+|Durée de vie de l’AS (durée)  | 14 400 secondes |
 |Durée de vie de l’AS (octets) | 819,200       |
 |PFS (Perfect Forward Secrecy) |PFS2048 |
 |Détection d’homologue mort | Prise en charge|  

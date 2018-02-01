@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Résolution de problèmes : une connexion VPN de site à site Azure cesse de fonctionner
 
@@ -52,7 +52,7 @@ Comparez la clé partagée du périphérique VPN local et celle du VPN de résea
 
 Pour afficher la clé partagée dans l’optique de la connexion VPN Azure, utilisez l’une des méthodes suivantes :
 
-**Portail Azure**
+**Portail Azure**
 
 1. Accédez à la connexion de site à site de passerelle VPN que vous avez créée.
 
@@ -87,12 +87,12 @@ Recherchez et supprimez l’itinéraire défini par l’utilisateur (UDR) ou les
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Étape 6. Vérifier la correspondance des sous-réseaux (passerelles Azure basées sur des stratégies)
 
--   Vérifiez que les sous-réseaux correspondent exactement dans le réseau virtuel Azure et dans les définitions locales pour le réseau virtuel Azure.
+-   Vérifiez que les espaces d’adressage du réseau virtuel correspondent exactement entre le réseau virtuel Azure et les définitions locales.
 -   Vérifiez que les sous-réseaux correspondent exactement dans **la passerelle réseau locale** et dans les définitions locales pour le réseau local.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Étape 7. Vérifier la sonde d’intégrité de la passerelle Azure
 
-1. Accédez à la [sonde d’intégrité](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Accédez à la sonde d’intégrité.
 
 2. Cliquez sur l’avertissement de certificat.
 3. Si vous recevez une réponse, cela signifie que la passerelle VPN est considérée comme saine. Vous ne recevez pas de réponse, cela signifie que la passerelle n’est peut-être pas saine ou qu’un groupe de sécurité réseau sur le sous-réseau de passerelle pose problème. Voici un exemple de réponse :
@@ -103,7 +103,7 @@ Recherchez et supprimez l’itinéraire défini par l’utilisateur (UDR) ou les
 
 La fonctionnalité Perfect Forward Secrecy peut provoquer des problèmes de déconnexion. Si la fonctionnalité Perfect Forward Secrecy du périphérique VPN est activée, désactivez-la. Mettez ensuite à jour la stratégie IPsec de la passerelle de réseau virtuel.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 -   [Création d’une connexion de site à site dans le portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel](vpn-gateway-ipsecikepolicy-rm-powershell.md)

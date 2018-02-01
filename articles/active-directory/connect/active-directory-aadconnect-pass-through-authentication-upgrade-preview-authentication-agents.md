@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect : authentification directe - mise à niveau de la version préliminaire des agents d’authentification | Microsoft Docs"
+title: "Azure AD Connect : authentification directe - mise à niveau des agents d’authentification | Microsoft Docs"
 description: "Cet article décrit la mise à niveau de la configuration d’authentification directe de votre Azure Active Directory (Azure AD)."
 services: active-directory
 keywords: "Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 01/14/2018
 ms.author: billmath
-ms.openlocfilehash: 96d4e8e240d845be5f04bf0e724d91d740ad9cdf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Connect : authentification directe - mise à niveau de la version préliminaire des agents d’authentification
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article est destiné aux clients utilisant l’authentification directe Azure AD directe via l’aperçu. Nous avons récemment mis à niveau le logiciel de l’agent d’authentification (tout en changeant son nom). Vous devez procéder à la mise à niveau _manuelle_ de la version préliminaire des agents d’authentification sur vos serveurs locaux. Cette mise à niveau manuelle s’effectue une seule fois. Toutes les futures mises à jour des agents d’authentification sont automatiques. Vous pouvez effectuer la mise à niveau pour les raisons suivantes :
 
@@ -84,5 +85,5 @@ Procédez comme suit pour mettre à niveau les agents d’authentification sur d
 >[!NOTE]
 >Si vous consultez le panneau Authentification directe dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) une fois les étapes précédentes effectuées, vous pouvez voir deux entrées Agent d’authentification par serveur : une entrée indiquant que l’agent d’authentification est **actif** et une autre indiquant qu’il est **inactif**. Ceci est _normal_. L’entrée indiquant **inactif** est automatiquement supprimée après quelques jours.
 
-## <a name="next-steps"></a>Étapes suivantes
-- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de se produire avec cette fonctionnalité.
+## <a name="next-steps"></a>étapes suivantes
+- [**Résolution des problèmes**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.

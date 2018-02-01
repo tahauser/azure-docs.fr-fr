@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e33186b189394172cba6cf550c01954db941c19
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Vue d’ensemble des machines virtuelles Windows dans Azure
 
@@ -57,11 +57,12 @@ Toutes les ressources créées dans Azure sont réparties sur plusieurs [région
 
 Ce tableau présente quelques moyens d’obtenir la liste des emplacements disponibles.
 
-| Méthode | Description |
+| Méthode | DESCRIPTION |
 | --- | --- |
 | Portail Azure |Sélectionnez un emplacement dans la liste lorsque vous créez une machine virtuelle. |
 | Azure PowerShell |Utilisez la commande [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
-| API REST |Utilisez l’opération [Lister les emplacements](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
+| de l’API REST |Utilisez l’opération [Lister les emplacements](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
+| Azure CLI |Utilisez l’opération [az account list-locations](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
 
 ### <a name="vm-size"></a>Taille de la machine virtuelle
 La [taille](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
@@ -78,11 +79,12 @@ Azure fournit de nombreuses [images Marketplace](https://azure.microsoft.com/mar
 
 Ce tableau présente différents moyens de trouver les informations d’une image.
 
-| Méthode | Description |
+| Méthode | DESCRIPTION |
 | --- | --- |
 | Portail Azure |Les valeurs sont spécifiées automatiquement pour vous lorsque vous sélectionnez une image à utiliser. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "emplacement"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "emplacement" -Publisher "nomÉditeur"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "emplacement" -Publisher "nomÉditeur" -Offer "nomOffre" |
 | API REST |[Lister les éditeurs d’images](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lister les offres d’images](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lister les références d’images](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "emplacement"<BR>[az vm image list-offers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "emplacement" --publisher "nomÉditeur"<BR>[az vm image list-skus](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "emplacement" --publisher "nomÉditeur" --offer "nomOffre"|
 
 Vous pouvez choisir de [charger et utiliser votre propre image](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) ; lorsque vous procédez ainsi, le nom de l’éditeur, l’offre et la référence ne sont pas utilisés.
 
@@ -98,14 +100,14 @@ Ces tâches courantes peuvent être accomplies à l’aide des extensions :
 ### <a name="related-resources"></a>Ressources associées
 Les ressources de cette table sont utilisées par la machine virtuelle et doivent exister ou être créées lors de sa création.
 
-| Ressource | Requis | Description |
+| Ressource | Obligatoire | DESCRIPTION |
 | --- | --- | --- |
-| [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) |Oui |La machine virtuelle doit être contenue dans un groupe de ressources. |
-| [Compte de stockage](../../storage/common/storage-create-storage-account.md) |Oui |La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage. |
-| [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) |Oui |La machine virtuelle doit faire partie d’un réseau virtuel. |
-| [Adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
-| [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
-| [Disques de données](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
+| [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) |OUI |La machine virtuelle doit être contenue dans un groupe de ressources. |
+| [Compte de stockage](../../storage/common/storage-create-storage-account.md) |OUI |La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage. |
+| [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) |OUI |La machine virtuelle doit faire partie d’un réseau virtuel. |
+| [Adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Non  |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
+| [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |OUI |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
+| [Disques de données](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non  |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Comment créer sa première machine virtuelle ?
 Vous avez plusieurs possibilités pour la création de votre machine virtuelle. Votre choix dépend de votre environnement. 
@@ -119,6 +121,7 @@ Ce tableau fournit des informations pour vous aider à créer votre machine virt
 | Azure PowerShell |[Créer une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Kits de développement logiciel (SDK) client |[Déployer des ressources Azure en C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | API REST |[Créer ou mettre à jour une machine virtuelle](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
+| Azure CLI |[Créer une machine virtuelle avec l’interface de ligne de commande Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 Même si l’on souhaite que cela ne se produise jamais, des problèmes peuvent survenir. Si vous rencontrez cette situation, consultez les informations dans [Résolution des problèmes de déploiement Resource Manager lors de la création d’une machine virtuelle Windows dans Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -128,12 +131,13 @@ Les machines virtuelles peuvent être gérées à l’aide d’un portail sur na
 ### <a name="get-information-about-a-vm"></a>Obtenir des informations sur une machine virtuelle
 Ce tableau montre différents moyens d’obtenir des informations sur une machine virtuelle.
 
-| Méthode | Description |
+| Méthode | DESCRIPTION |
 | --- | --- |
 | Portail Azure |Dans le menu Hub, cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle dans la liste. Dans le panneau de la machine virtuelle, vous pouvez consulter les informations, fixer des valeurs et surveiller les métriques. |
 | Azure PowerShell |Pour plus d’informations sur l’utilisation de PowerShell pour gérer des machines virtuelles, voir [Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| API REST |Utilisez l’opération [Récupérer des informations sur la machine virtuelle](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) pour obtenir des informations sur une machine virtuelle. |
+| de l’API REST |Utilisez l’opération [Récupérer des informations sur la machine virtuelle](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) pour obtenir des informations sur une machine virtuelle. |
 | Kits de développement logiciel (SDK) client |Pour plus d’informations sur l’utilisation de C# pour gérer des machines virtuelles, consultez [Gérer des Machines Virtuelles Azure à l’aide d’Azure Ressources Manager et de C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure CLI |Pour plus d’informations sur l’utilisation de Azure CLI pour gérer les machines virtuelles, consultez [Informations de référence sur Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>Se connecter à la machine virtuelle
 Vous utilisez le bouton [Connecter](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) dans le Portail Azure pour démarrer une session Bureau à distance (RDP). Des problèmes peuvent survenir lorsque vous tentez d’utiliser une connexion à distance. Si vous en rencontrez, consultez les informations d’aide dans [Résoudre les problèmes de connexions bureau à distance à une machine virtuelle Azure sous Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -146,6 +150,6 @@ Afin que votre déploiement puisse bénéficier de notre contrat de niveau de se
 ### <a name="back-up-the-vm"></a>Sauvegarder la machine virtuelle
 Un [coffre Recovery Services](../../backup/backup-introduction-to-azure-backup.md) est utilisé pour protéger les données et les actifs dans la Sauvegarde Azure et Azure Site Recovery Services. Vous pouvez utiliser un coffre Recovery Services pour [déployer et gérer les sauvegardes des machines virtuelles déployées avec le modèle Resource Manager à l’aide de PowerShell](../../backup/backup-azure-vms-automation.md). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Si votre objectif est d’utiliser des machines virtuelles Linux, consultez [Azure et Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Pour en savoir plus sur les instructions de configuration de votre infrastructure, consultez [Exploration d’un exemple d’infrastructure Azure](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -2,9 +2,9 @@
 title: "Notes de publication de l’API Key Vault .NET 2.x | Microsoft Docs"
 description: "Les développeurs .NET utiliseront cette API pour coder pour Azure Key Vault"
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
-editor: bruceper
+editor: alleonar
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
@@ -12,27 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-ms.author: bruceper
-ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: alleonar
+ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Notes de publication et guide de migration
-Les notes et conseils suivants sont destinés aux développeurs utilisant Azure Key Vault .NET/bibliothèque C#. Lors du passage de la version 1.0 à la version 2.0, un certain nombre de mises à jour effectuées nécessiteront un travail de migration dans votre code pour que vous puissiez bénéficier des améliorations fonctionnelles et des ajouts de fonctionnalités telles que la prise en charge des **certificats Key Vault**.
+Les informations suivantes vous permettent d’effectuer la migration vers la version 2.0 de la bibliothèque Azure Key Vault pour C# et .NET.  Les applications écrites pour les versions antérieures doivent être mises à jour pour prendre en charge la version la plus récente.  Ces modifications sont nécessaires pour prendre en charge des fonctionnalités nouvelles et améliorées, telles que les **certificats Key Vault**.
 
 ## <a name="key-vault-certificates"></a>Certificats Key Vault
 
-La prise en charge des certificats Key Vault permet de gérer vos certificats x509 et les comportements suivants :  
+Les certificats Key Vault gèrent les certificats x509 et prennent en charge les comportements suivants :  
 
-* Permet à un propriétaire de certificat de créer un certificat via un processus de création de Key Vault ou l’importation d’un certificat existant. Cela concerne à la fois les certificats auto-signés et ceux générés par une autorité de certification.
-* Permet à un propriétaire de certificat Key Vault d’implémenter le stockage sécurisé et la gestion des certificats X509 sans interaction avec des éléments de clé privée.  
-* Permet à un propriétaire de certificat de créer une stratégie qui ordonne à Key Vault de gérer le cycle de vie d’un certificat.  
-* Permet aux propriétaires de certificat de fournir des informations de contact pour les notifications concernant des événements d’expiration du cycle de vie et le renouvellement de certificat.  
-* Prend en charge le renouvellement automatique avec des émetteurs sélectionnés : fournisseurs de certificats X509 de partenaire Key Vault/autorités de certification.
-  
-  * REMARQUE : les fournisseurs/autorités non partenaires sont également autorisés, mais ils ne prendront pas en charge la fonctionnalité de renouvellement automatique.
+* Création de certificats par le biais d’un processus de création Key Vault ou importation de certificat existant. Cela concerne à la fois les certificats auto-signés et ceux générés par une autorité de certification.
+* Stockage en toute sécurité et gestion du stockage de certificats x509 sans interaction à l’aide d’éléments de clé privée.  
+* Définition de stratégies qui font en sorte que Key Vault gère le cycle de vie de certificat.  
+* Spécification d’informations de contact pour les événements de cycle de vie, tels que les avertissements d’expiration et les notifications de renouvellement.  
+* Renouvellement automatique des certificats avec des émetteurs sélectionnés (autorités de certification et fournisseurs de certificats X509 partenaires de Key Vault). * Prise en charge des certificats émis par d’autres fournisseurs et autorités de certification (non partenaires) (renouvellement automatique non pris en charge).  
 
 ## <a name="net-support"></a>Prise en charge de .NET
 
@@ -44,7 +42,10 @@ La prise en charge des certificats Key Vault permet de gérer vos certificats x5
 
 * L’espace de noms des **modèles** **Microsoft.Azure.KeyVault** est remplacé par **Microsoft.Azure.KeyVault.Models**.
 * L’espace de noms **Microsoft.Azure.KeyVault.Internal** est supprimé.
-* L’espace de noms des dépendances du Kit de développement logiciel (SDK) Azure **Hyak.Common** et **Hyak.Common.Internals** est remplacé par **Microsoft.Rest** et **Microsoft.Rest.Serialization**
+* Les espaces de noms de dépendances Azure SDK suivants ont changé : 
+
+    - **Hyak.Common** est désormais **Microsoft.Rest**.
+    - **Hyak.Common.Internals** est désormais **Microsoft.Rest.Serialization**.
 
 ## <a name="type-changes"></a>Modifications des types
 
@@ -55,8 +56,8 @@ La prise en charge des certificats Key Vault permet de gérer vos certificats x5
 
 ## <a name="return-types"></a>Types de retour
 
-* **KeyList** et **SecretList** renvoient *IPage<T>* au lieu de *ListKeysResponseMessage*
-* Le résultat généré **BackupKeyAsync** renvoie *BackupKeyResult* qui contient *Valeur* (objet blob de sauvegarde). Auparavant, la méthode était encapsulée et ne renvoyait que la valeur.
+* **KeyList** et **SecretList** retournent désormais *IPage<T>* au lieu de *ListKeysResponseMessage*
+* Le résultat généré **BackupKeyAsync** retourne désormais *BackupKeyResult*, qui contient *Value* (objet blob de sauvegarde). Auparavant, la méthode était encapsulée et ne retournait que la valeur.
 
 ## <a name="exceptions"></a>Exceptions
 
@@ -70,29 +71,29 @@ La prise en charge des certificats Key Vault permet de gérer vos certificats x5
 
 ## <a name="downloaded-packages"></a>Packages téléchargés
 
-Lorsqu’un client traite une dépendance sur Key Vault, les éléments suivants sont téléchargés
+Quand un client traite une dépendance Key Vault, les packages suivants sont téléchargés :
 
 ### <a name="previous-package-list"></a>Liste des packages précédents
 
-* package id="Hyak.Common" version="1.0.2" targetFramework="net45"
-* package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"
-* package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"
-* package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"
-* package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"
-* package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"
-* package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"
-* package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"
+* `package id="Hyak.Common" version="1.0.2" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
+* `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
 ### <a name="current-package-list"></a>Liste des packages actuels
 
-* package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"
-* package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"
-* package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"
+* `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
 ## <a name="class-changes"></a>Modifications de classe
 
-* La classe **UnixEpoch** a été supprimée
-* La classe **Base64UrlConverter** a été renommée **Base64UrlJsonConverter**
+* La classe **UnixEpoch** a été supprimée.
+* La classe **Base64UrlConverter** a été renommée **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Autres modifications
 
@@ -100,7 +101,7 @@ Lorsqu’un client traite une dépendance sur Key Vault, les éléments suivants
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Pour les opérations qui renvoyaient *vault*, le type de retour était une classe contenant une propriété Vault. Le type de retour est maintenant *Vault*.
+* Pour les opérations qui retournaient *vault*, le type de retour était une classe contenant une propriété **Vault**. Le type de retour est maintenant *Vault*.
 * *PermissionsToKeys* et *PermissionsToSecrets* sont à présent *Permissions.Keys* et *Permissions.Secrets*
 * Certaines modifications des types de retour s’appliquent également à control-plane.
 

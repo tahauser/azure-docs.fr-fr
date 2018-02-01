@@ -16,16 +16,16 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d5364dbc1a155c7852b5581d563e4938ad116402
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Créer une application web .NET Core dans App Service sur Linux
 
 > [!NOTE]
-> Cet article explique le déploiement d’une application sur App Service sous Linux. Pour déployer une application App Service sur _Windows_, consultez [Créer une application web ASP.NET Core dans Azure](../app-service-web-get-started-dotnet.md).
+> Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer une application App Service sur _Windows_, consultez [Créer une application web ASP.NET Core dans Azure](../app-service-web-get-started-dotnet.md).
 >
 
 [App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce guide de démarrage rapide vous montre comment créer une application [.NET Core](https://docs.microsoft.com/aspnet/core/) sur App Service sur Linux. Vous allez créer l’application web à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) et utiliser Git pour déployer le code .NET Core dans l’application web.
@@ -140,11 +140,11 @@ Accédez à l’application déployée à l’aide de votre navigateur web.
 http://<app_name>.azurewebsites.net
 ```
 
-L’exemple de code Node.js s’exécute dans une application web avec une image intégrée.
+L’exemple de code .NET Core s’exécute dans une application web avec une image intégrée.
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Félicitations !** Vous avez déployé votre première application Node.js sur App Service sur Linux.
+**Félicitations !** Vous avez déployé votre première application .NET Core sur App Service sur Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Mettre à jour et redéployer le code
 

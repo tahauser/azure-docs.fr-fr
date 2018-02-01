@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Activer une image sous licence dans votre laboratoire Azure DevTest Labs
 
@@ -29,7 +29,7 @@ La première étape pour permettre aux utilisateurs de créer des machines virtu
 
 1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sélectionnez **Plus de services**, puis **DevTest Labs** dans la liste.
+1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 
@@ -53,7 +53,9 @@ Pour vérifier qu’une image sous licence est accessible aux utilisateurs du la
 
 Vous pouvez activer le déploiement par programmation pour une image sous licence en suivant ces étapes :
 
-1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), dans la liste des **Images de la Place de marché**, identifiez une image sous licence à laquelle vous souhaitez que les utilisateurs aient accès, mais dont les conditions générales n’ont pas été acceptées. Par exemple, vous pouvez voir une Data Science Virtual Machine dont l’état est **Conditions acceptées** ou **Revue nécessaire des conditions**.
+1. Dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), accédez à la liste des **Images de la Place de marché**.
+
+1. Identifiez une image sous licence à laquelle vous souhaitez que les utilisateurs aient accès, mais dont les conditions générales n’ont pas été acceptées. Par exemple, vous pouvez voir une Data Science Virtual Machine dont l’état est **Conditions acceptées** ou **Revue nécessaire des conditions**.
 
     ![Fenêtre Configurer le déploiement par programmation](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
@@ -74,13 +76,23 @@ Vous pouvez activer le déploiement par programmation pour une image sous licenc
    >
 
 
-1. Sélectionnez **Enregistrer**. Dans la liste des images de la Place de Marché, **Conditions acceptées** est maintenant affichée pour cette image, et celle-ci est accessible aux utilisateurs pour la création de machines virtuelles.
+1. Sélectionnez **Enregistrer**. 
+
+    Dans la liste des images de la Place de Marché, **Conditions acceptées** est maintenant affichée pour cette image, et celle-ci est accessible aux utilisateurs pour la création de machines virtuelles.
+
+> [!NOTE]
+> Les utilisateurs peuvent créer une image personnalisée à partir d’une image sous licence. Pour plus d’informations, consultez [Créer une image personnalisée à partir d’un fichier de disque dur virtuel](devtest-lab-create-template.md).
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 
 - [Custom images or formulas? (Images personnalisées ou formules ?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copying Custom Images between Azure DevTest Labs (Copie d’images personnalisées entre plusieurs Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
+- [Créer une image personnalisée à partir d’une machine virtuelle](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Créer une image personnalisée à partir d’un fichier de disque dur virtuel](devtest-lab-create-template.md)
 - [Ajout d’une machine virtuelle à votre laboratoire](devtest-lab-add-vm.md)

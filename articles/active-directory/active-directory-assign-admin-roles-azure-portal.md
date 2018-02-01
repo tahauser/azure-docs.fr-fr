@@ -1,6 +1,6 @@
 ---
 title: "Attribution de rôles d’administrateur dans Azure Active Directory | Microsoft Docs"
-description: "Le rôle de l’administrateur peut servir à créer ou à modifier des utilisateurs, attribuer des rôles d’administrateur, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc. Un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations pour tous les services cloud auxquels votre organisation s’est abonnée."
+description: "Le rôle de l’administrateur peut servir à ajouter des utilisateurs, attribuer des rôles d’administrateur, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc. Un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations pour tous les services cloud auxquels votre organisation s’est abonnée."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/23/2018
 ms.author: curtand
-ms.reviewer: Vince.Smith
+ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Attribution de rôles d’administrateur dans Azure Active Directory
 
 À l’aide d’Azure Active Directory (Azure AD), vous pouvez affecter des administrateurs distincts à différentes fonctions. Les administrateurs ont accès à plusieurs fonctionnalités du portail Azure et, en fonction de leur rôle, ils peuvent créer ou modifier des utilisateurs, attribuer des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe d’utilisateur, gérer les licences utilisateur et les domaines, etc. Un utilisateur à qui un rôle d’administrateur est affecté a les mêmes autorisations sur tous les services cloud auxquels votre organisation s’est abonnée, peu importe que vous attribuiez le rôle dans le portail Office 365 ou dans le portail Azure ou encore à l’aide du module Azure AD pour Windows PowerShell.
 
+## <a name="details-about-the-global-administrator-role"></a>Informations sur le rôle d’administrateur général
+L’administrateur général a accès à toutes les fonctionnalités d’administration. Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur.
+
+## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
+Pour découvrir comment attribuer des rôles d’administration à un utilisateur dans Azure Active Directory, consultez l’article [Attribution de rôles d’administrateur à un utilisateur d’Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="available-roles"></a>Rôles disponibles
 Les rôles d’administrateur disponibles sont les suivants :
 
 * **Administrateur de facturation**: effectue les achats, gère les abonnements ainsi que les tickets de support et surveille l’état des services.
@@ -57,6 +64,8 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **Inviteur** : les utilisateurs disposant de ce rôle peuvent gérer les invitations d’utilisateurs invités Azure Active Directory B2B lorsque le paramètre utilisateur « Les membres peuvent inviter » est défini sur Non. Pour plus d’informations sur B2B Collaboration, consultez [À propos de la version préliminaire d’Azure AD B2B Collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il n’inclut pas d’autres autorisations.
 
+* **Administrateur Information Protection** : les utilisateurs disposant de ce rôle peuvent accéder à Azure Information Protection dans le portail Azure. Ils peuvent configurer les étiquettes pour la stratégie Azure Information Protection, gérer les modèles de protection et activer la protection.
+
 * **Administrateur de service Intune**: les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft Intune Online, lorsque le service est présent. Ce rôle donne aussi la possibilité de gérer les utilisateurs et les appareils afin d’associer la stratégie, ainsi que de créer et de gérer des groupes.
 
 * **Administrateur de la boîte aux lettres** : ce rôle n’est utilisé que dans le cadre de la prise en charge de la messagerie Exchange Online sur les appareils RIM Blackberry. Si votre organisation n’utilise pas la messagerie Exchange Online sur les appareils RIM Blackberry, n’employez pas ce rôle.
@@ -65,7 +74,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **Support de niveau 2 de partenaire** : ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
 
-* **Administrateur de mots de passe/Administrateur du support technique** : les utilisateurs dotés de ce rôle peuvent réinitialiser les mots de passe, gérer les demandes de service et surveiller l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
+* **Administrateur de mots de passe/Administrateur du support technique** : les utilisateurs dotés de ce rôle peuvent modifier les mots de passe, gérer les demandes de service et surveiller l’état des services. Les administrateurs du support technique peuvent modifier uniquement les mots de passe des utilisateurs et des autres administrateurs du support technique. 
 
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur Helpdesk ». Il est appelé « Administrateur général » dans le [portail Azure](https://portal.azure.com/).
@@ -75,6 +84,8 @@ Les rôles d’administrateur disponibles sont les suivants :
 * **Administrateur de service Power BI** : les utilisateurs disposant de ce rôle ont des autorisations globales dans Microsoft Power BI, lorsque le service est présent. Ils peuvent également gérer les tickets de support et surveiller l’état des services. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Administrateur de rôle privilégié** : les utilisateurs disposant de ce rôle peuvent gérer les attributions de rôles dans Azure Active Directory, ainsi que dans Azure AD Privileged Identity Management. En outre, ce rôle permet de gérer tous les aspects de Privileged Identity Management.
+
+* **Lecteur de rapports** : les utilisateurs disposant de ce rôle peuvent afficher les données des rapports d’utilisation et le tableau de bord des rapports dans le centre d’administration Office 365, ainsi que le pack du contexte d’adoption dans Power BI. En outre, ce rôle donne accès aux rapports de connexion et aux activités dans Azure AD, ainsi qu’aux données renvoyées par l’API de création de rapports Microsoft Graph. Un utilisateur disposant du rôle Lecteur de rapports peut uniquement accéder au métriques d’utilisation et d’adoption pertinentes. Il n’a pas les autorisations administrateur permettant de configurer les paramètres ou d’accéder aux centres d’administration propres au produit comme Exchange. 
 
 * **Administrateur de sécurité** : les utilisateurs disposant de ce rôle ont toutes les autorisations en lecture seule du rôle Lecteur de sécurité, plus la possibilité de gérer la configuration des services de sécurité : Azure Active Directory Identity Protection, Azure Information Protection, Privileged Identity Management et Centre de sécurité et conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -91,7 +102,7 @@ Les rôles d’administrateur disponibles sont les suivants :
   >
   >
 
-* **Administrateur des comptes d’utilisateur** : les utilisateurs disposant de ce rôle peuvent créer et gérer tous les aspects relatifs aux utilisateurs et groupes. En outre, ce rôle inclut la possibilité de gérer les tickets de support et de surveiller l’état des services. Quelques restrictions s’appliquent. Par exemple, ce rôle n’autorise pas la suppression d’un administrateur général. En outre, bien qu’il autorise la modification des mots de passe des utilisateurs non administrateurs, il n’autorise pas la modification des mots de passe des administrateurs généraux ou des autres administrateurs privilégiés.
+* **Administrateur des comptes d’utilisateur** : les utilisateurs disposant de ce rôle peuvent créer et gérer tous les aspects relatifs aux utilisateurs et groupes. En outre, ce rôle inclut la possibilité de gérer les tickets de support et de surveiller l’état des services. Quelques restrictions s’appliquent. Par exemple, ce rôle n’autorise pas la suppression d’un administrateur général. Les administrateurs des comptes d’utilisateur peuvent uniquement modifier les mots de passe des utilisateurs, des administrateurs du support technique et des autres administrateurs des comptes d’utilisateur.
 
 ## <a name="administrator-permissions"></a>Autorisations des administrateurs
 
@@ -112,20 +123,21 @@ Les rôles d’administrateur disponibles sont les suivants :
 | --- | --- |
 |<p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Réinitialiser les mots de passe utilisateur</p><p>Réinitialiser les mots de passe de l’autre administrateur</p> <p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Activer ou désactiver l’authentification multifacteur</p><p>Afficher les journaux d’audit</p> |N/A |
 
-### <a name="password-administrator"></a>Administrateur de mots de passe
+### <a name="password-administrator--helpdesk-administrator"></a>Administrateur de mot de passe / Administrateur du support technique
 | Peut | Ne peut pas |
 | --- | --- |
-| <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Réinitialiser les mots de passe utilisateur</p> <p>Réinitialiser les mots de passe de l’autre administrateur</p>|<p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher des rapports</p>|
+| <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Modifier les mots de passe des utilisateurs et des autres administrateurs du support technique uniquement</p>|<p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher des rapports</p>|
 
-### <a name="service-administrator"></a>Administrateur de services fédérés
-| Peut | Ne peut pas |
-| --- | --- |
-| <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p> |<p>Réinitialiser les mots de passe utilisateur</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher les journaux d’audit</p> |
-
-### <a name="user-administrator"></a>Administrateur d’utilisateurs
-| Peut | Ne peut pas |
-| --- | --- |
-| <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Réinitialisez les mots de passe utilisateur, avec certaines limitations.</p><p>Réinitialiser les mots de passe de l’autre administrateur</p><p>Réinitialiser les mots de passe des autres utilisateurs</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur, avec des restrictions. Il lui est impossible de supprimer un administrateur général ou de créer d’autres administrateurs.</p> |<p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Activer ou désactiver l’authentification multifacteur</p><p>Afficher les journaux d’audit</p> |
+### <a name="information-protection-administrator"></a>Administrateur Information Protection 
+Dans | Peut
+-------- | ---------
+Azure Information Protection | * Configurer les étiquettes et les stratégies étendues et globales<br>* Gérer, configurer et mettre à jour les modèles de protection<br>* Activer la protection pour l’utilisation 
+Privileged Identity Management | * Autorisations de lecture<br>* Ne peut pas gérer les appartenances aux rôles Azure AD ou les paramètres.
+ 
+### <a name="reports-reader"></a>Lecteur de rapports 
+Peut | Ne peut pas
+------ | ----------
+Afficher les rapports de connexion d’Azure AD et les journaux d’audit<br>Afficher les informations sur la société et les utilisateurs<br>Accéder au tableau de bord d’utilisation d’Office 365 | Créer et gérer des vues utilisateur<br>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur<br>Déléguer des rôles administratifs à d’autres personnes<br>Modifier les informations de l’entreprise
 
 ### <a name="security-reader"></a>Lecteur de sécurité
 | Dans | Peut |
@@ -141,8 +153,15 @@ Les rôles d’administrateur disponibles sont les suivants :
 | Privileged Identity Management |<ul><li>Toutes les autorisations du rôle lecteur de sécurité.<li>**Ne peut pas** gérer les appartenances aux rôles Azure AD ou les paramètres. |
 | <p>Monitor Office 365 Service Health</p><p>Centre de sécurité et conformité Office 365 |<ul><li>Toutes les autorisations du rôle lecteur de sécurité.<li>Peut configurer tous les paramètres de la fonctionnalité de protection avancée contre les menaces (protection contre les virus et logiciels malveillants, configuration des URL malveillantes, suivi des ’URL, etc.). |
 
-## <a name="details-about-the-global-administrator-role"></a>Informations sur le rôle d’administrateur général
-L’administrateur général a accès à toutes les fonctionnalités d’administration. Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur.
+### <a name="service-administrator"></a>Administrateur de services fédérés
+| Peut | Ne peut pas |
+| --- | --- |
+| <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p> |<p>Réinitialiser les mots de passe utilisateur</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Afficher les journaux d’audit</p> |
+
+### <a name="user-account-administrator"></a>Administrateur des comptes d’utilisateur
+| Peut | Ne peut pas |
+| --- | --- |
+| <p>Afficher les informations sur la société et les utilisateurs</p><p>Gérer les tickets de support Office</p><p>Modifier les mots de passe des utilisateurs, des administrateurs du support technique et des autres administrateurs des comptes d’utilisateur uniquement</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et groupes, et gérer les licences utilisateur, avec des restrictions. Il lui est impossible de supprimer un administrateur général ou de créer d’autres administrateurs.</p> |<p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Gérer des domaines</p><p>Modifier les informations de l’entreprise</p><p>Déléguer des rôles administratifs à d’autres personnes</p><p>Utiliser la synchronisation de répertoires</p><p>Activer ou désactiver l’authentification multifacteur</p><p>Afficher les journaux d’audit</p> |
 
 ### <a name="to-add-a-colleague-as-a-global-administrator"></a>Pour ajouter un collègue en tant qu’administrateur général
 
@@ -158,9 +177,6 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
  
 5. Dans le panneau du rôle Directory, sélectionnez le rôle **Administrateur général** et enregistrez.
 
-## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
-Pour découvrir comment attribuer des rôles d’administration à un utilisateur dans Azure Active Directory, consultez l’article [Attribution de rôles d’administrateur à un utilisateur dans la version préliminaire d’Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
-
 ## <a name="deprecated-roles"></a>Rôles déconseillés
 
 Les rôles suivants ne doivent pas être utilisés. Ils sont déconseillés et seront prochainement supprimés d’Azure AD.
@@ -172,7 +188,7 @@ Les rôles suivants ne doivent pas être utilisés. Ils sont déconseillés et s
 * Utilisateurs d’appareils
 * Jonction d’appareils d’espace de travail
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d’informations sur la modification des administrateurs d’un abonnement Azure, consultez [Ajout ou modification de rôles d’administrateur Azure](../billing-add-change-azure-subscription-administrator.md)
 * Pour plus d’informations sur la façon dont l’accès aux ressources est contrôlé dans Microsoft Azure, voir [Présentation de l’accès aux ressources dans Azure](active-directory-understanding-resource-access.md)

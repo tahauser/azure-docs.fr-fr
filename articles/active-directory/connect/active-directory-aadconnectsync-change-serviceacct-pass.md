@@ -4,7 +4,7 @@ description: "Cette rubrique décrit la clé de chiffrement et comment l’annul
 services: active-directory
 keywords: Compte de service de synchronisation Azure AD, mot de passe
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modification du mot de passe du compte de service de synchronisation Azure AD
 Si vous modifiez le mot de passe du service Azure AD Connect Sync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service Azure AD Connect Sync. 
@@ -43,7 +43,7 @@ Ensuite, sous certaines conditions, si le mot de passe est mis à jour, le servi
 Vous voyez des erreurs telles que :
 
 - Sous le Gestionnaire de contrôle des services Windows, si vous essayez de démarrer le service de synchronisation et qu’il ne peut pas récupérer la clé de chiffrement, il échoue avec l’erreur « **Windows n’a pas pu démarrer Microsoft Azure AD Sync sur l’ordinateur local. Pour plus d’informations, consultez le journal des événements système. S’il s’agit d’un service hors Microsoft, contactez le fournisseur de services et faites référence au code d’erreur propre au service **-21451857952****.”
-- Dans l’observateur d’événements Windows, le journal des événements contient une erreur avec **l’ID d’événement 6028** et le message d’erreur *”**La clé de chiffrement du serveur n’est pas accessible.* *”*
+- Dans l’observateur d’événements Windows, le journal des événements contient une erreur avec **l’ID d’événement 6028** et le message d’erreur *”**La clé de chiffrement du serveur n’est pas accessible.**”*
 
 Pour vous assurer que vous ne recevez pas ces erreurs, suivez les procédures de [Abandon de la clé de chiffrement Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) lorsque vous modifiez le mot de passe.
  
@@ -107,9 +107,9 @@ Maintenant que le service de synchronisation a accès à la clé de chiffrement 
 1. Accédez au Gestionnaire de contrôle des services Windows (DÉMARRER → Services).
 2. Sélectionnez **Microsoft Azure AD Sync** et cliquez sur Redémarrer.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 **Rubriques de présentation**
 
 * [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)

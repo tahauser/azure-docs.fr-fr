@@ -1,9 +1,9 @@
 ---
-title: "Résoudre les problèmes d’Azure RBAC | Microsoft Docs"
+title: "Résolution des problèmes de contrôle d’accès en fonction du rôle Azure RBAC | Microsoft Docs"
 description: "Obtenez de l’aide en cas de problèmes ou de questions concernant les ressources de contrôle d’accès en fonction du rôle."
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,21 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Résolution des problèmes de contrôle d’accès en fonction du rôle
+# <a name="troubleshooting-azure-role-based-access-control"></a>Résolution des problèmes de contrôle d’accès en fonction du rôle Azure 
 
 Cet article répond aux questions courantes sur les droits d’accès spécifiques qui sont accordés aux rôles, afin que vous sachiez à quoi vous attendre lorsque vous utilisez les rôles sur le Portail Azure et que vous puissiez résoudre les problèmes d’accès. Ces trois rôles couvrent tous les types de ressources :
 
 * Propriétaire  
-* Collaborateur  
+* Contributeur  
 * Lecteur  
 
 Les propriétaires et collaborateurs disposent tous les deux d’un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d’accès à d’autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. Consultez l’ [article Prise en main du contrôle d’accès en fonction du rôle](role-based-access-control-configure.md) pour plus d’informations sur la façon d’octroyer l’accès.

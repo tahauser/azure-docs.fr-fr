@@ -1,6 +1,6 @@
 ---
-title: "Référence de vignette pour le Concepteur de vue dans OMS Log Analytics | Microsoft Docs"
-description: "Le Concepteur de vues de Log Analytics permet de créer dans la console OMS des vues personnalisées contenant différentes visualisations des données du référentiel OMS. Cet article fournit une référence pour les paramètres de chacune des vignettes utilisables dans vos vues personnalisées."
+title: "Référence des vignettes pour le Concepteur de vues dans Azure Log Analytics | Microsoft Docs"
+description: "Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans le portail Azure, qui contiennent différentes visualisations de données de votre espace de travail Log Analytics. Cet article fournit une référence pour les paramètres de chacune des vignettes utilisables dans vos vues personnalisées."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Référence de la vignette Concepteur de vues de Log Analytics
-Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans la console OMS, qui contiennent différentes visualisations de données du référentiel OMS. Cet article fournit une référence pour les paramètres de chacune des vignettes utilisables dans vos vues personnalisées.
+Le Concepteur de vues de Log Analytics permet de créer des vues personnalisées dans le portail Azure, qui contiennent différentes visualisations de données de votre espace de travail Log Analytics. Cet article fournit une référence pour les paramètres de chacune des vignettes utilisables dans vos vues personnalisées.
 
 Autres articles disponibles concernant le Concepteur de vues :
 
@@ -33,7 +33,7 @@ Autres articles disponibles concernant le Concepteur de vues :
 
 Le tableau suivant répertorie les différents types de vignettes disponibles dans le Concepteur de vues.  Les sections suivantes décrivent en détail chaque type de vignette et ses propriétés.
 
-| Vignette | Description |
+| Vignette | DESCRIPTION |
 |:--- |:--- |
 | [Nombre](#number-tile) |Nombre unique indiquant le décompte des enregistrements retournés par une requête. |
 | [Deux nombres](#two-numbers-tile) |Deux nombres uniques indiquant le décompte des enregistrements retournés par deux requêtes distinctes. |
@@ -47,15 +47,15 @@ La vignette **Nombre** affiche un nombre unique correspondant au nombre d’enre
 
 ![Vignette Nombre](media/log-analytics-view-designer/tile-number.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
-| Nom |Texte à afficher en haut de la vignette. |
-| Description |Texte à afficher sous le nom de la vignette. |
+| NOM |Texte à afficher en haut de la vignette. |
+| DESCRIPTION |Texte à afficher sous le nom de la vignette. |
 | **Vignette** | |
 | Légende |Texte à afficher sous la valeur. |
 | Requête |Requête à exécuter.  Affiche le décompte du nombre d’enregistrements retournés par la requête. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
+| activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
 
@@ -65,10 +65,10 @@ La vignette **Deux nombres** affiche deux nombres indiquant le décompte des enr
 
 ![Vignette Deux nombres](media/log-analytics-view-designer/tile-two-numbers.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
-| Nom |Texte à afficher en haut de la vignette. |
-| Description |Texte à afficher sous le nom de la vignette. |
+| NOM |Texte à afficher en haut de la vignette. |
+| DESCRIPTION |Texte à afficher sous le nom de la vignette. |
 | **Première vignette** | |
 | Légende |Texte à afficher sous la valeur. |
 | Requête |Requête à exécuter.  Affiche le décompte du nombre d’enregistrements retournés par la requête. |
@@ -76,7 +76,7 @@ La vignette **Deux nombres** affiche deux nombres indiquant le décompte des enr
 | Légende |Texte à afficher sous la valeur. |
 | Requête |Requête à exécuter.  Affiche le décompte du nombre d’enregistrements retournés par la requête. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
+| activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
 
@@ -86,10 +86,10 @@ La vignette **Anneau** affiche un nombre unique résumé à partir d’une colon
 
 ![Vignette Anneau](media/log-analytics-view-designer/tile-donut.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
-| Nom |Texte à afficher en haut de la vignette. |
-| Description |Texte à afficher sous le nom de la vignette. |
+| NOM |Texte à afficher en haut de la vignette. |
+| DESCRIPTION |Texte à afficher sous le nom de la vignette. |
 | **Anneau** | |
 | Requête |Requête à exécuter pour obtenir l’anneau.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats. |
 | **Anneau** |**&gt; Centrer** |
@@ -100,7 +100,7 @@ La vignette **Anneau** affiche un nombre unique résumé à partir d’une colon
 | Couleurs |Couleur à afficher pour chacune des trois premières propriétés.  Si vous souhaitez spécifier d’autres couleurs pour des valeurs de propriété spécifiques, utilisez l’option Mappage avancé des couleurs. |
 | Mappage avancé des couleurs |Affiche une couleur pour des valeurs de propriété spécifiques.  Si la valeur spécifiée figure parmi les trois premières, l’autre couleur s’affiche au lieu de la couleur standard.  Si la propriété ne figure pas parmi les trois premières, la couleur ne s’affiche pas. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
+| activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
 
@@ -110,10 +110,10 @@ La vignette **Graphique en courbes** affiche un graphique en courbes comprenant 
 
 ![Vignette Graphique en courbes et légende](media/log-analytics-view-designer/tile-line-chart.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
-| Nom |Texte à afficher en haut de la vignette. |
-| Description |Texte à afficher sous le nom de la vignette. |
+| NOM |Texte à afficher en haut de la vignette. |
+| DESCRIPTION |Texte à afficher sous le nom de la vignette. |
 | **Graphique en courbes** | |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
 | **Graphique en courbes** |**&gt; Axe des Y** |
@@ -121,7 +121,7 @@ La vignette **Graphique en courbes** affiche un graphique en courbes comprenant 
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête.  Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs.  Le **Type d’unité** spécifie la catégorie de l’unité et définit les valeurs de **Type d’unité en cours** disponibles.  Si vous sélectionnez une valeur dans **Convertir en**, les valeurs numériques sont converties du type **Unité actuelle** dans le type **Convertir en**. |
 | Étiquette personnalisée |Texte à afficher pour l’axe des X en regard de l’étiquette du type d’unité.  Si aucune étiquette n’est spécifiée, le type d’unité s’affiche. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
+| activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
 
@@ -131,10 +131,10 @@ La vignette **Graphique en courbes et légende** affiche un graphique en courbes
 
 ![Vignette Graphique en courbes et légende](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
-| Nom |Texte à afficher en haut de la vignette. |
-| Description |Texte à afficher sous le nom de la vignette. |
+| NOM |Texte à afficher en haut de la vignette. |
+| DESCRIPTION |Texte à afficher sous le nom de la vignette. |
 | **Graphique en courbes** | |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes.  La première propriété doit être une valeur de texte et la seconde une valeur numérique.  Il s’agit généralement d’une requête qui utilise le mot clé **measure** pour résumer les résultats.  Si la requête utilise le mot clé **interval**, l’axe des abscisses (X) du graphique utilise cet intervalle de temps.  Si la requête n’inclut pas le mot clé **interval**, des intervalles horaires sont utilisés pour l’axe des abscisses (X). |
 | **Graphique en courbes** |**&gt; Légende** |
@@ -146,7 +146,7 @@ La vignette **Graphique en courbes et légende** affiche un graphique en courbes
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête.  Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs.  Le **Type d’unité** spécifie la catégorie de l’unité et définit les valeurs de **Type d’unité en cours** disponibles.  Si vous sélectionnez une valeur dans **Convertir en**, les valeurs numériques sont converties du type **Unité actuelle** dans le type **Convertir en**. |
 | Étiquette personnalisée |Texte à afficher pour l’axe des X en regard de l’étiquette du type d’unité.  Si aucune étiquette n’est spécifiée, le type d’unité s’affiche. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
+| activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
 
@@ -156,10 +156,10 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 
 ![Vignette Deux chronologies](media/log-analytics-view-designer/tile-two-timelines.png)
 
-| Paramètre | Description |
+| Paramètre | DESCRIPTION |
 |:--- |:--- |
-| Nom |Texte à afficher en haut de la vignette. |
-| Description |Texte à afficher sous le nom de la vignette. |
+| NOM |Texte à afficher en haut de la vignette. |
+| DESCRIPTION |Texte à afficher sous le nom de la vignette. |
 | Premier graphique | |
 | Légende |Texte à afficher dans la légende de la première série. |
 | Couleur |Couleur à utiliser pour les colonnes de la première série. |
@@ -171,11 +171,11 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 | Requête de graphique |Requête à exécuter pour la deuxième série.  Le décompte du nombre d’enregistrements sur chaque intervalle de temps est représenté par les colonnes de graphique. |
 | Opération |Opération à effectuer sur la valeur de propriété à résumer en une valeur unique pour la légende.<br><br>- Average : moyenne des valeurs de tous les enregistrements.<br>- Count : nombre de tous les enregistrements retournés par la requête.<br>- Last Sample : valeur du dernier intervalle inclus dans le graphique.<br>- Max : valeur maximale des intervalles inclus dans le graphique. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
+| activé |Sélectionner si la vérification du flux de données doit être activée pour la vignette.  Un autre message s’affiche si les données ne sont pas disponibles pour la vignette.  Cette option est généralement utilisée pour fournir un message pendant la période temporaire, lorsque la vue est installée et que des données sont disponibles. |
 | Requête |Requête à exécuter pour vérifier si les données sont disponibles pour la vue.  Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message à afficher si la requête de vérification du flux de données ne retourne aucune donnée.  Si vous ne fournissez aucun message, le texte *Exécution de l'évaluation* s’affiche. |
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur la [recherche dans les journaux](log-analytics-log-searches.md) pour prendre en charge les requêtes dans les vignettes.
 * Ajouter des [composants de visualisation](log-analytics-view-designer-parts.md) à votre vue personnalisée.

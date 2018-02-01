@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les exigences en matière d’identité | Microsoft Docs"
+title: "Identifier les exigences en matière de conception d’identités cloud hybrides Azure | Microsoft Docs"
 description: "Identifier les besoins métier de l’entreprise vous conduira à définir les exigences pour la conception d’identités hybrides."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d’identité pour votre solution d’identités hybrides
 La première étape dans la conception d’une solution d’identités hybrides consiste à déterminer les exigences de l’entreprise qui va exploiter cette solution.  L’identité hybride démarre comme un rôle de support (elle prend en charge toutes les autres solutions cloud en assurant l’authentification), et continue en proposant des fonctionnalités nouvelles et intéressantes qui révèlent de nouvelles charges de travail pour les utilisateurs.  Ces charges de travail ou les services que vous souhaitez adopter pour vos utilisateurs déterminent les exigences pour la conception d’identités hybrides.  Ces services et charges de travail doivent exploiter l’identité hybride à la fois en local et dans le cloud.  
@@ -103,7 +104,7 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déterminer les exigences de synchronisation de répertoire](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

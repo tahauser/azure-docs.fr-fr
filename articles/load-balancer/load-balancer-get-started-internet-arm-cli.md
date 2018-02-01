@@ -1,6 +1,6 @@
 ---
-title: "Créer un équilibrage de charge accessible sur Internet à l’aide de l’interface de ligne de commande Azure | Microsoft Docs"
-description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de l’interface de ligne de commande Azure"
+title: "Créer un équilibreur de charge public - Azure CLI | Microsoft Docs"
+description: "Apprendre à créer un équilibreur de charge public à l’aide de Azure CLI"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Création d’un équilibreur de charge Internet à l’aide de l’interface de ligne de commande Azure
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Créer un équilibreur de charge public à l’aide de Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portail](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modèle](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l'aide du déploiement classique](load-balancer-get-started-internet-classic-portal.md)
+Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [découvrir comment créer un équilibreur de charge public à l’aide du déploiement classique](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>Déploiement de la solution à l’aide de l’interface de ligne de commande (CLI) Azure
 
-Les étapes suivantes expliquent comment créer un équilibrage de charge accessible sur Internet à l'aide d'Azure Resource Manager avec CLI. Avec Azure Resource Manager, chaque ressource est créée et configurée individuellement, puis rassemblées pour créer une ressource.
+Les étapes suivantes expliquent comment créer un équilibreur de charge public à l’aide d’Azure Resource Manager avec CLI. Avec Azure Resource Manager, chaque ressource est créée et configurée individuellement, puis rassemblées pour créer une ressource.
 
 Vous devez créer et configurer les objets suivants pour déployer un équilibrage de charge :
 
@@ -304,7 +304,7 @@ Pour supprimer un équilibrage de charge, utilisez la commande suivante :
 azure network lb delete --resource-group nrprg --name nrplb
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-cli.md)
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: ganesr
-ms.openlocfilehash: 088147060eeeba5c900cdcdc3fb38fc1d4ccfc58
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -118,7 +118,7 @@ Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais néces
 L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L’authentification des sessions BGP n’est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Pour plus d’informations sur la configuration des sessions BGP, consultez [Configuration du routage](expressroute-howto-routing-classic.md) et [Workflows d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
 
 ## <a name="autonomous-system-numbers"></a>Numéros système autonomes
-Microsoft utilise le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
+Microsoft utilise le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge. Nous avons besoin d’un ASN enregistré publiquement pour l’homologation Microsoft uniquement. Les homologations privées et publiques peuvent utiliser des ASN privés.
 
 Il n’existe aucune exigence concernant une symétrie de transfert des données. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des deux côtés sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
 
@@ -159,10 +159,10 @@ Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. L
 | **Amérique du Nord** | |
 | Est des États-Unis | 12076:51004 |
 | Est des États-Unis 2 | 12076:51005 |
-| Ouest des États-Unis | 12076:51006 |
+| États-Unis de l’Ouest | 12076:51006 |
 | Ouest des États-Unis 2 | 12076:51026 |
 | Centre-Ouest des États-Unis | 12076:51027 |
-| États-Unis - partie centrale septentrionale | 12076:51007 |
+| Centre-Nord des États-Unis | 12076:51007 |
 | États-Unis - partie centrale méridionale | 12076:51008 |
 | Centre des États-Unis | 12076:51009 |
 | Centre du Canada | 12076:51020 |
@@ -177,7 +177,7 @@ Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. L
 | France-Centre | 12076:51030 |
 | France-Sud | 12076:51031 |
 | **Asie-Pacifique** | |
-| Est de l’Asie | 12076:51010 |
+| Est de l'Asie | 12076:51010 |
 | Asie du Sud-Est | 12076:51011 |
 | **Japon** | |
 | Est du Japon | 12076:51012 |
@@ -222,7 +222,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | --- | --- |
 | **Gouvernement américain** |  |
 | Gouvernement des États-Unis – Arizona | 12076:51106 |
-| Gouvernement américain - Iowa | 12076:51109 |
+| US Gov Iowa | 12076:51109 |
 | Gouvernement américain - Virginie | 12076:51105 |
 | Gouvernement des États-Unis – Texas | 12076:51108 |
 | Centre des États-Unis – US DoD | 12076:51209 |
@@ -238,7 +238,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | Dynamics 365 |12076:5140 |
 | Autres services Office 365 en ligne |12076:5200 |
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Configurez votre connexion ExpressRoute.
   
   * [Créer et modifier un circuit](expressroute-howto-circuit-arm.md)

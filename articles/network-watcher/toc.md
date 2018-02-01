@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Qu’est-ce que Network Watcher ?](network-watcher-monitoring-overview.md)
 ## [Topologie](network-watcher-topology-overview.md)
 ## [Capture de paquets variable](network-watcher-packet-capture-overview.md)
@@ -7,7 +7,7 @@
 ## [Affichage des groupes de sécurité](network-watcher-security-group-view-overview.md)
 ## [Tronçon suivant](network-watcher-next-hop-overview.md)
 ## [Résolution des problèmes de connectivité VPN](network-watcher-troubleshoot-overview.md)
-## [Vérification de la connectivité](network-watcher-connectivity-overview.md)
+## [Résoudre les problèmes de connexion](network-watcher-connectivity-overview.md)
 ## [Limites du service](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Prise en main
@@ -46,7 +46,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [interface de ligne de commande Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Tester la connectivité
+## Résoudre les problèmes des connexions
 ### [Portail Azure](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [interface de ligne de commande Azure](network-watcher-connectivity-cli.md)

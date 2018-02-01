@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la conception d’identités hybrides Azure Active Directory : Définir une stratégie d’adoption des identités hybrides | Microsoft Docs"
+title: "Conception d’identités hybrides : stratégie d’adoption Azure | Microsoft Docs"
 description: "Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans cette tâche, vous allez définir la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans :
@@ -178,11 +179,11 @@ Options de conception multifacteur :
 
 | Élément multimédia à sécuriser | MFA dans le cloud | MFA en local |
 | --- | --- | --- |
-| Applications Microsoft |yes |yes |
-| Applications SaaS dans la galerie d’applications |yes |yes |
-| Applications IIS publiées via le proxy d'application Azure AD |yes |yes |
-| Applications IIS non publiées via le proxy Azure AD App  |no |yes |
-| Accès à distance en tant que VPN, passerelle Bureau à distance (RDG) |no |yes |
+| Applications Microsoft |Oui |Oui |
+| Applications SaaS dans la galerie d’applications |Oui |Oui |
+| Applications IIS publiées via le proxy d'application Azure AD |Oui |Oui |
+| Applications IIS non publiées via le proxy Azure AD App  |no |Oui |
+| Accès à distance en tant que VPN, passerelle Bureau à distance (RDG) |no |Oui |
 
 Même si vous avez opté pour une solution pour votre stratégie, vous devez toujours utiliser l’évaluation ci-dessus sur l’emplacement où se trouvent vos utilisateurs.  Cela peut entraîner la modification de la solution.  Utilisez le tableau ci-dessous pour vous aider à déterminer les éléments suivants :
 
@@ -207,7 +208,7 @@ Multi-Factor Authentication est disponible par défaut pour les administrateurs 
 > 
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 [Déterminer les exigences de protection des données](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## <a name="see-also"></a>Voir aussi

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
 
@@ -61,7 +61,7 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 ### <a name="debugging"></a>Débogage
 **Débogage à distance**. Active le débogage distant. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre application web. Le débogage à distance reste activé pendant 48 heures. 
 
-### <a name="app-settings"></a>Paramètres de l'application
+### <a name="app-settings"></a>Paramètres de l’application
 Cette section contient des paires nom/valeur qui seront chargées par votre application web au démarrage. 
 
 * Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 

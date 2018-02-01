@@ -12,23 +12,23 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
-Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
+Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations figurant dans le tableau ci-dessous.
 
 ## <a name="backup"></a>Sauvegarde
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erreur : La configuration de disque spécifiée n’est pas prise en charge
 
 > [!NOTE]
-> Nous avons une préversion privée pour prendre en charge les sauvegardes des machines virtuelles dotées de disques non managés de >1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Nous avons une préversion privée qui prend en charge les sauvegardes des machines virtuelles dotées de disques de plus de 1 To. Pour plus d’informations, consultez [Préversion privée pour la prise en charge de la sauvegarde des machines virtuelles dotées de disques volumineux](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -90,7 +90,7 @@ Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque [sup
 | Le type de compte de stockage spécifié pour l’opération de restauration n’est pas en ligne. Assurez-vous que le compte de stockage spécifié dans l’opération de restauration est en ligne |Cela peut se produire cas d’erreur temporaire dans le stockage Azure ou en cas de panne. Veuillez choisir un autre compte de stockage. |
 | Le quota de groupe de ressources a été atteint. Veuillez supprimer certains groupes de ressources du portail Azure ou contactez le support Azure pour étendre les limites. |Aucun |
 | Le sous-réseau sélectionné n’existe pas. Veuillez sélectionner un sous-réseau qui existe |Aucun |
-| Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre ce problème, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restore backed up disks** (Restaurer les disques sauvegardés) dans [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration) (Choisir la configuration de restauration de la machine virtuelle). Après cela, suivez les étapes de PowerShell mentionnées dans [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) (Créer une machine virtuelle à partir de disques restaurés) pour créer une machine virtuelle complète à partir de disques restaurés. |
+| Le service de sauvegarde n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre ce problème, commencez par restaurer les disques en suivant les étapes mentionnées dans la section **Restaurer les disques sauvegardés** dans [Choisir la configuration de restauration de la machine virtuelle](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Après cela, suivez les étapes de PowerShell mentionnées dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pour créer une machine virtuelle complète à partir de disques restaurés. |
 
 ## <a name="backup-or-restore-taking-time"></a>Sauvegarde ou restauration qui prend du temps
 Si vous constatez que votre sauvegarde (>12 heures) ou votre restauration prend du temps (>6 heures) :
@@ -119,7 +119,7 @@ Pour les machines virtuelles Windows :
 Pour les machines virtuelles Linux :
 
 * Suivez les instructions dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-Nous **recommandons vivement** la mise à jour de l’agent uniquement par le biais de référentiel de distribution. Nous ne recommandons pas de télécharger le code de l’agent à partir de github directement et d’effectuer la mise à jour. Si le dernier agent n’est pas disponible pour la distribution, contactez le support de distribution pour obtenir des instructions sur l’installation de l’agent le plus récent. Vous pouvez vérifier les informations sur [l’agent Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) le plus récent dans le référentiel github.
+Nous **recommandons vivement** la mise à jour de l’agent uniquement par le biais de référentiel de distribution. Nous ne recommandons pas de télécharger le code de l’agent à partir de github directement et d’effectuer la mise à jour. Si le dernier agent n’est pas disponible pour la distribution, contactez le support de distribution pour obtenir des instructions sur l’installation de l’agent le plus récent. Vous pouvez vérifier les informations sur [l’agent Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) le plus récent dans le dépôt github.
 
 ### <a name="validating-vm-agent-installation"></a>Validation de l’installation de l’agent de machine virtuelle
 Pour vérifier la version de l’agent de machine virtuelle sur les machines virtuelles Windows :

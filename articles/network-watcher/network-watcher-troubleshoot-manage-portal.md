@@ -1,6 +1,6 @@
 ---
-title: "Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure - PowerShell | Microsoft Docs"
-description: "Cette page explique comment utiliser Azure Network Watcher pour résoudre les problèmes liés à l’applet de commande PowerShell"
+title: "Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure - Portail | Microsoft Docs"
+description: "Cette page explique comment utiliser Azure Network Watcher pour résoudre des problèmes liés au portail"
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions par le biais de PowerShell d’Azure Network Watcher
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Résoudre des problèmes liés à la passerelle de réseau virtuel et aux connexions à l’aide de Network Watcher depuis le portail Azure
 
 > [!div class="op_single_selector"]
 > - [Portail](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
+> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
 Le service Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. Vous pouvez appeler la solution de résolution des problèmes de ressources par le biais du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Créer une instance d’Azure Network Watcher](network-watcher-create.md) pour créer un Network Watcher.
+Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Create a Network Watcher (Créer une instance Network Watcher)](network-watcher-create.md) pour créer une instance Network Watcher.
 
 Vous trouverez la liste des types de passerelles pris en charge sur la page [Types de passerelles pris en charge](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La résolution des problèmes liés aux ressources offre la possibilité de résoudre les problèmes qui surviennent avec les passerelles de réseau virtuel et les connexions. Lorsqu’une demande de résolution des problèmes liés aux ressources est faite, les journaux sont interrogés et inspectés. Lorsque l’inspection est terminée, les résultats sont renvoyés. Les demandes de résolution des problèmes liés aux ressources sont longues : vous devrez peut-être patienter plusieurs minutes avant d’obtenir un résultat. Les journaux de dépannage sont stockés dans un conteneur sur un compte de stockage spécifié.
 
@@ -60,7 +60,7 @@ Si plusieurs ressources sont sélectionnées, la résolution des problèmes s’
 
 Dans la section **Détails** de la fenêtre, l’onglet **État** affiche l’état de la dernière exécution de la résolution des problèmes sur la ressource sélectionnée. Les résultats du dernier diagnostic s’affichent xx minutes après la dernière exécution.
 
-|Propriété  |Description  |
+|Propriété  |DESCRIPTION  |
 |---------|---------|
 |Ressource     | Lien vers la ressource.        |
 |Chemin de stockage     |  Chemin d’accès du compte de stockage et du conteneur qui contiennent les journaux (si produits pendant l’exécution). Ce paramètre n’est pas conservé une fois que vous avez quitté le portail.        |
@@ -72,7 +72,7 @@ Dans la section **Détails** de la fenêtre, l’onglet **État** affiche l’é
 L’onglet **Action** offre une aide générale sur la résolution du problème. Si une action peut être entreprise pour résoudre le problème, un lien est fourni avec des indications supplémentaires. En l’absence d’indications supplémentaires, la réponse fournit l’URL permettant d’ouvrir un dossier de support.  Pour plus d’informations sur les propriétés de la réponse et sur ce qu’elle contient, consultez [Network Watcher Troubleshoot overview (Vue d’ensemble de la résolution des problèmes Network Watcher)](network-watcher-troubleshoot-overview.md)
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Si les paramètres ont été modifiés et arrêtent la connectivité VPN, consultez la page [Gérer les groupes de sécurité réseau à partir du portail](../virtual-network/virtual-network-manage-nsg-arm-portal.md) afin d’effectuer le suivi du groupe de sécurité réseau et des règles de sécurité pouvant être concernés.
 

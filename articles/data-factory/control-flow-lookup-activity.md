@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 Vous pouvez utiliser l’activité de recherche pour lire ou rechercher un enregistrement, un nom de table ou une valeur à partir de n’importe quelle source externe. Cette sortie peut être référencée par des activités complémentaires. 
@@ -36,6 +36,8 @@ Les sources de données suivantes sont actuellement prises en charge pour la rec
 - Azure SQL Data Warehouse (données JSON converties à partir d’une requête)
 - SQL Server (données JSON converties à partir d’une requête)
 - Stockage Table Azure (données JSON converties à partir d’une requête)
+
+Le nombre maximum de lignes retournées par l’activité de recherche est de **5000**, et jusqu’à une taille de **10 Mo**.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -60,8 +62,8 @@ Les sources de données suivantes sont actuellement prises en charge pour la rec
 ## <a name="type-properties"></a>Propriétés type
 NOM | DESCRIPTION | type | Requis ?
 ---- | ----------- | ---- | --------
-dataset | Fournit la référence de jeu de données pour la recherche. Actuellement, les types de jeu de données pris en charge sont :<ul><li>`AzureBlobDataset` pour le [stockage Blob Azure](connector-azure-blob-storage.md#dataset-properties) en tant que source</li><li>`FileShareDataset` pour le [système de fichiers](connector-file-system.md#dataset-properties) en tant que source</li><li>`AzureSqlTableDataset` pour [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) ou [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) en tant que source</li><li>`SqlServerTable` pour [SQL Server](connector-sql-server.md#dataset-properties) en tant que source</li><li>`AzureTableDataset` pour le [stockage Table Azure](connector-azure-table-storage.md#dataset-properties) en tant que source</li> | Paire clé/valeur | Oui
-source | Contient des propriétés source spécifiques au jeu de données, identiques à la source de l’activité de copie. Pour plus d’informations, consulter la section « Propriétés de l’activité de copie » dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | Oui
+dataset | Fournit la référence de jeu de données pour la recherche. Actuellement, les types de jeu de données pris en charge sont :<ul><li>`AzureBlobDataset` pour le [stockage Blob Azure](connector-azure-blob-storage.md#dataset-properties) en tant que source</li><li>`FileShareDataset` pour le [système de fichiers](connector-file-system.md#dataset-properties) en tant que source</li><li>`AzureSqlTableDataset` pour [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) ou [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) en tant que source</li><li>`SqlServerTable` pour [SQL Server](connector-sql-server.md#dataset-properties) en tant que source</li><li>`AzureTableDataset` pour le [stockage Table Azure](connector-azure-table-storage.md#dataset-properties) en tant que source</li> | Paire clé/valeur | OUI
+source | Contient des propriétés source spécifiques au jeu de données, identiques à la source de l’activité de copie. Pour plus d’informations, consulter la section « Propriétés de l’activité de copie » dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
 firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen | Non. La valeur par défaut est `true`.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Utiliser le résultat de l’activité de recherche dans une activité ultérieure
@@ -98,7 +100,7 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
     } 
     ```
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>exemples
 Dans cet exemple, l’activité de copie copie les données d’une table SQL de votre instance Azure SQL Database vers le stockage Blob Azure. Le nom de la table SQL est stocké dans un fichier JSON dans le stockage Blob. L’activité de recherche recherche le nom de la table lors de l’exécution. Cette approche vous permet de modifier JSON de manière dynamique sans avoir à redéployer les pipelines ou les jeux de données. 
 
 Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc à l’aide d’Azure Data Factory](tutorial-bulk-copy.md).
@@ -248,7 +250,7 @@ Ce compte de stockage contient le fichier JSON avec les noms des tables SQL.
 }
 ```
 
-### <a name="azure-sql-database-linked-service"></a>Service lié Azure SQL Database
+### <a name="azure-sql-database-linked-service"></a>Service lié pour base de données SQL Azure
 Cette instance Azure SQL Database contient les données à copier dans le stockage Blob. 
 
 ```json
@@ -303,4 +305,4 @@ Consultez les autres activités de flux de contrôle prises en charge par Data F
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Activité ForEach](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)
-- [Activité web](control-flow-web-activity.md)
+- [Activité Web](control-flow-web-activity.md)

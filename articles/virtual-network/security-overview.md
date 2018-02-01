@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 142b9e052e09f88826ae8ea3866316444a5d7acc
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 89a4a165690c7a308d5bc7222b8a5a9716d22785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="network-security"></a>Sécurité du réseau
 
@@ -119,7 +119,7 @@ Vous ne pouvez pas supprimer les règles par défaut, mais vous pouvez les rempl
 * **VirtualNetwork** (*Gestionnaire des ressources) (**VIRTUAL_NETWORK** pour le mode Classic) : cette balise inclut l’espace d’adressage du réseau virtuel (toutes les plages CIDR définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, ainsi que les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou réseau virtuel connecté à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** pour Classic) : cette balise désigne l’équilibreur de charge de l’infrastructure Azure. Elle est convertie en l’[adresse IP de centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) de l’emplacement d’où proviennent les sondes d’intégrité d’Azure. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure.
 * **Internet** (Resource Manager) (**INTERNET** pour Classic) : cette balise indique l’espace d’adressage IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. La plage d’adresse inclut l’[espace de l’adresse IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureTrafficManager** (Resource Manager uniquement) : cette balise désigne l’espace d’adressage IP pour le service Azure Traffic Manager.
+* **AzureTrafficManager** (Resource Manager uniquement) : cette balise désigne l’espace d’adressage IP pour les adresses IP de sonde Microsoft Azure Traffic Manager. Vous trouverez plus d’informations sur les adresses IP de sonde Traffic Manager dans le [Forum Aux Questions (FAQ) relatif à Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs).
 * **Storage** (Resource Manager uniquement) : cette balise désigne l’espace d’adressage IP pour le service Azure Storage. Si vous spécifiez *Storage* pour la valeur, le trafic est autorisé ou refusé vers le stockage. Si vous souhaitez uniquement autoriser l’accès au stockage dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez préciser la région. Par exemple, si vous souhaitez autoriser l’accès à Azure Storage uniquement dans la région Est des États-Unis, vous pouvez spécifier *Storage.EastUS* comme balise de service. La balise représente le service, mais pas des instances du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique.
 * **Sql** (Resource Manager uniquement) : cette balise désigne les préfixes d’adresse des services Azure SQL Database et Azure SQL Data Warehouse. Si vous spécifiez *Sql* pour la valeur, le trafic vers Sql est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à Sql dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez préciser la région. Par exemple, si vous souhaitez autoriser l’accès à Azure SQL Database uniquement dans la région Est des États-Unis, vous pouvez spécifier *Sql.EastUS* comme balise de service. La balise représente le service, mais pas des instances du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique.
 

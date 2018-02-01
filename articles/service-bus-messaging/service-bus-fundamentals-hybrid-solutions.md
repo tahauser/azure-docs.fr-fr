@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: f095407a58e00ed9143e8f19d91a212d2167564b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -44,9 +44,9 @@ Lorsque vous créez une file d'attente, une rubrique ou un relais, vous lui donn
 
 Pour utiliser ces objets dans le scénario de relais, les applications Windows peuvent utiliser Windows Communication Foundation (WCF). Ce service est appelé [Relais WCF](../service-bus-relay/relay-what-is-it.md). Pour les files d’attente et les rubriques, les applications Windows peuvent utiliser des API de messagerie définie par Service Bus. Pour faciliter l’utilisation de ces objets à partir d’applications non-Windows, Microsoft fournit des Kits de développement logiciel (SDK) pour Java, Node.js et d’autres langages. Vous pouvez également accéder aux files d’attente et aux rubriques à l’aide des [API REST](/rest/api/servicebus/) sur HTTP(s). 
 
-Il est important de comprendre que même si Service Bus fonctionne dans le cloud (c'est-à-dire dans les centres de données Microsoft Azure), les applications qui y ont recours peuvent s'exécuter n'importe où. Vous pouvez utiliser Service Bus pour connecter des applications qui s’exécutent sous Azure, par exemple, ou des applications qui s’exécutent dans votre centre de données. Vous pouvez également l’utiliser pour connecter une application qui s’exécute sous Azure ou une autre plateforme cloud avec une application locale ou avec des tablettes et des téléphones. Il est également possible de connecter des appareils électroménagers, des capteurs ou d’autres appareils à une application centrale ou bien de les connecter entre eux. Service Bus est un mécanisme de communication générique dans le cloud, accessible quasiment partout. La façon dont vous l’utilisez dépend des besoins de vos applications.
+Il est important de comprendre que même si Service Bus fonctionne dans le cloud (c'est-à-dire dans les centres de données Microsoft Azure), les applications qui y ont recours peuvent s'exécuter n'importe où. Vous pouvez utiliser Service Bus pour connecter des applications qui s’exécutent sous Azure, par exemple, ou des applications qui s’exécutent dans votre centre de données. Vous pouvez également l’utiliser pour connecter une application qui s’exécute sous Azure ou une autre plateforme cloud avec une application locale ou avec des tablettes et des téléphones. Il est également possible de connecter des appareils électroménagers, des capteurs ou d’autres appareils à une application centrale ou de les connecter entre eux. Service Bus est un mécanisme de communication générique dans le cloud, accessible quasiment partout. La façon dont vous l’utilisez dépend des besoins de vos applications.
 
-## <a name="queues"></a>files d’attente
+## <a name="queues"></a>Files d’attente
 
 Supposons que vous décidiez de connecter deux applications à l'aide d'une file d'attente Service Bus. La figure 2 illustre cette situation.
 
@@ -110,7 +110,7 @@ Lorsque vous avez besoin d’une communication directe entre les applications, l
 
 La connexion d’applications a toujours fait partie de l’assemblage de solutions complètes, et l’éventail de scénarios qui requièrent des services et des applications pour communiquer entre eux augmentera, étant donné que de plus en plus d’applications et de périphériques sont connectés à Internet. En fournissant pour cela des technologies cloud comme les files d’attente, les rubriques et les relais, Service Bus vise à rendre cette fonction essentielle encore plus simple à implémenter et plus largement accessible.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Maintenant que vous avez appris les principes de base d’Azure Service Bus, consultez ces liens pour en savoir plus :
 

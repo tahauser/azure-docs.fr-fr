@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: "R\_Server sur HDInsight"
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: r-server-overview.md
     - name: Composants Hadoop sur HDInsight
       href: ../hdinsight-component-versioning.md
@@ -93,6 +93,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Publier des applications HDInsight dans la Place de marché Azure
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: 'Installer une application publiée : CDAP (Cask Data Application Platform)'
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Dataiku'
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Datameer'
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 'Installer une application publiée : H2O'
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 'Installer une application publiée : Streamsets'
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: Sécuriser
       items:

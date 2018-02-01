@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Requêtes SQL pour Azure Cosmos DB
 
@@ -1503,7 +1503,7 @@ Les fonctions scalaires suivantes effectuent une opération sur une valeur d’e
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Retourne le nombre de caractères de l’expression de chaîne spécifiée. |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Retourne une partie d’une expression de chaîne. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde. |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retourne une valeur booléenne indiquant si la première expression de chaîne commence par la seconde |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde. |
 | [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Retourne une valeur booléenne indiquant si la première expression de chaîne contient la seconde. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Retourne la position de départ de la première occurrence de la seconde expression de chaîne dans la première expression de chaîne spécifiée, ou -1 si la chaîne est introuvable. |

@@ -5,19 +5,19 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
-Il est important de comprendre comment créer et gérer des stratégies dans Azure pour rester conforme aux normes de votre entreprise et aux contrats de niveau de service. Dans ce didacticiel, vous allez apprendre à utiliser une stratégie Azure pour effectuer certaines des tâches les plus courantes liées à la création, à l’affectation et à la gestion des stratégies de votre organisation, notamment :
+Il est important de comprendre comment créer et gérer des stratégies dans Azure pour rester conforme aux normes de votre entreprise et aux contrats de niveau de service. Dans ce didacticiel, vous allez découvrir comment utiliser Azure Policy pour effectuer certaines des tâches les plus courantes liées à la création, à l’affectation et à la gestion des stratégies dans votre organisation, notamment :
 
 > [!div class="checklist"]
 > * Affecter une stratégie pour appliquer une condition aux ressources que vous créez dans le futur
@@ -25,11 +25,11 @@ Il est important de comprendre comment créer et gérer des stratégies dans Azu
 > * Résoudre une ressource non conforme ou refusée
 > * Implémenter une nouvelle stratégie dans l’ensemble de l’entreprise
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous souhaitez affecter une stratégie pour identifier l’état actuel de la conformité de vos ressources existantes, consultez les articles de démarrage rapide qui passent en revue la marche à suivre. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="assign-a-policy"></a>Attribution d’une stratégie
 
-La première étape de l’application de la conformité avec une stratégie Azure consiste à affecter une définition de stratégie. Une définition de stratégie définit dans quelle condition une stratégie est appliquée et l’action à effectuer. Dans cet exemple, nous affectons une définition de stratégie intégrée appelée *Nécessitent SQL Server version 12.0* afin d’appliquer la condition que toutes les bases de données SQL Server doivent être de version 12.0 pour être compatibles.
+La première étape de l’application de la conformité avec une stratégie Azure consiste à affecter une définition de stratégie. Une définition de stratégie définit dans quelle condition une stratégie est appliquée et l’action à effectuer. Dans cet exemple, affectez une définition de stratégie intégrée appelée *Nécessiter SQL Server version 12.0* afin d’appliquer la condition selon laquelle toutes les bases de données SQL Server doivent être de version 12.0 pour être compatibles.
 
 1. Lancez le service de la stratégie Azure dans le portail Azure en recherchant puis en sélectionnant **Stratégie** dans le volet gauche.
 
@@ -40,28 +40,29 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    ![Affecter une définition de stratégie](media/create-manage-policy/select-assign-policy.png)
 
-4. Dans la page **Assigner une stratégie**, cliquez sur le ![bouton de définition de stratégie](media/assign-policy-definition/definitions-button.png) situé en regard du champ **Stratégie** pour afficher la liste des définitions disponibles.
+4. Dans la page **Assigner une stratégie**, cliquez sur le ![bouton de définition de stratégie](media/assign-policy-definition/definitions-button.png) situé en regard du champ **Stratégie** pour afficher la liste des définitions disponibles. Vous pouvez filtrer le **Type** de définition de stratégie sur *BuiltIn* pour les afficher dans leur ensemble et lire leurs descriptions.
 
    ![Afficher les définitions de stratégie disponibles](media/create-manage-policy/open-policy-definitions.png)
 
-5. Sélectionnez **Nécessitent SQL Server version 12.0**.
+5. Sélectionnez **Nécessitent SQL Server version 12.0**. Si vous ne la trouvez pas immédiatement, tapez **Nécessiter SQL Server version 12.0** dans la zone de recherche, puis appuyez sur ENTRÉE.
 
    ![Rechercher une stratégie](media/create-manage-policy/select-available-definition.png)
 
-6. Attribuez un **Nom** d’affichage à l’affectation de stratégie. Dans le cas présent, utilisons *Require SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur la façon dont cette affectation de stratégie s’assure que tous les serveurs SQL créés dans cet environnement utilisent la version 12.0.
+6. Le **nom** affiché est automatiquement renseigné, mais vous pouvez le modifier. Pour cet exemple, utilisez *Nécessiter SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur la façon dont cette affectation de stratégie s’assure que tous les serveurs SQL créés dans cet environnement utilisent la version 12.0.
+
 7. Définissez le niveau tarifaire sur **Standard** pour vous assurer que la stratégie soit appliquée aux ressources existantes.
 
-   Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Étant donné qu’il s’agit d’une préversion limitée, nous n'avons pas encore publié de modèle tarifaire. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+   Il existe deux niveaux tarifaires dans Azure Policy : *Gratuit* et *Standard*. Avec le niveau Gratuit, vous pouvez uniquement appliquer des stratégies à des ressources futures, alors qu’avec le niveau Standard, vous pouvez également les appliquer à des ressources existantes pour mieux comprendre votre état de conformité. Comme Azure Policy est en préversion, il n’existe pas encore de modèle de tarification publié. Vous ne recevrez donc pas de facture pour la sélection du niveau *Standard*. Pour en savoir plus sur les prix, consultez : [Prix Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Sélectionnez **l’étendue** : l’abonnement (ou le groupe de ressources) précédemment enregistré. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources.
 
-   Pour cet exemple, nous utilisons l’abonnement suivant : **Azure Analytics Capacity Dev**. Votre abonnement sera différent.
+   L’abonnement **Azure Analytics Capacity Dev** est utilisé dans cet exemple. Votre abonnement sera différent.
 
 10. Sélectionnez **Attribuer**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implémenter une nouvelle stratégie personnalisée
 
-Maintenant que nous avons attribué la définition de stratégie, nous allons créer une stratégie pour réduire les coûts en veillant à ce que les machines virtuelles créées dans votre environnement ne puissent pas figurer dans la série G. De cette manière, chaque fois qu’un utilisateur de votre organisation tente de créer une machine virtuelle dans la série G, la demande sera refusée.
+Maintenant que vous avez affecté une définition de stratégie intégrée, vous pouvez continuer avec Azure Policy. Créez une stratégie personnalisée pour réduire les coûts en veillant à ce que les machines virtuelles créées dans votre environnement ne puissent pas être dans la série G. De cette manière, à chaque fois qu’un utilisateur de votre organisation tente de créer une machine virtuelle dans la série G, la requête est refusée.
 
 1. Sélectionnez **Définition** sous **Création** dans le volet gauche.
 
@@ -72,7 +73,8 @@ Maintenant que nous avons attribué la définition de stratégie, nous allons cr
 
    - Le nom de la définition de stratégie : *nécessite des références (SKU) de machines virtuelles inférieures à la série G*
    - La description de l’objectif de la définition de stratégie : cette définition de stratégie impose que toutes les machines virtuelles créées dans cette étendue possèdent des références (SKU) inférieures à la série G afin de réduire le coût.
-   - L’abonnement où figurera la définition de stratégie : dans ce cas, notre définition de stratégie se trouvera dans **Advisor Analytics Capacity Dev**. La liste de vos abonnements sera différente.
+   - Abonnement dans lequel réside la définition de stratégie. Dans ce cas, la définition de stratégie se trouve dans **Advisor Analytics Capacity Dev**. La liste de vos abonnements sera différente.
+   - Faites votre choix parmi les options existantes ou créez une catégorie pour cette définition de stratégie.
    - Copiez le code json suivant et mettez-le à jour selon vos besoins avec :
       - Les paramètres de la stratégie.
       - Les règles/conditions de la stratégie, dans ce cas : la taille de la référence (SKU) de la machine virtuelle est égale à la série G
@@ -102,7 +104,9 @@ Maintenant que nous avons attribué la définition de stratégie, nous allons cr
 }
     ```
 
-    Pour afficher des exemples de code json, consultez l’article : [Modèles pour Azure Policy](json-samples.md).
+    La valeur de la *propriété de champ* de la règle de stratégie doit être l’une des suivantes : Nom, Type, Emplacement, Balises ou un alias. Par exemple : `"Microsoft.Compute/VirtualMachines/Size"`.
+
+    Pour afficher d’autres exemples de code json, consultez l’article [Modèles pour Azure Policy](json-samples.md).
 
 4. Sélectionnez **Enregistrer**.
 
@@ -333,22 +337,22 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 2. Sélectionnez **Définition d’initiative** en haut de la page pour accéder au formulaire **Définition d’initiative**.
 3. Entrez le nom et la description de l’initiative.
 
-   Dans cet exemple, nous voulons nous assurer que les ressources sont conformes aux définitions de stratégies pour garantir la sécurité. Le nom de l’initiative serait **Garantir la sécurité**, et la description serait : **Cette initiative a été créée pour gérer toutes les définitions de stratégie associées à la sécurisation des ressources**.
+   Dans cet exemple, assurez-vous que les ressources sont conformes aux définitions de stratégie relatives à la sécurisation. Le nom de l’initiative serait donc **Garantir la sécurité**, et la description serait **Cette initiative a été créée pour gérer toutes les définitions de stratégie associées à la sécurisation des ressources**.
 
    ![Définition d’initiative](media/create-manage-policy/initiative-definition.png)
 
-4. Parcourez la liste des **définitions disponibles** et sélectionnez la ou les définitions de stratégie à ajouter à cette initiative. Pour notre initiative **Garantir la sécurité**, ajoutez les définitions de stratégie intégrées suivantes :
+4. Parcourez la liste des **définitions disponibles** et sélectionnez la ou les définitions de stratégie à ajouter à cette initiative. Pour notre initiative **Garantir la sécurité**, **ajoutez** les définitions de stratégie intégrées suivantes :
    - Nécessitent SQL Server version 12.0
-   - Analyser les applications web non protégées dans le centre de sécurité.
+   - Analyser les applications web non protégées dans Security Center.
    - Surveiller le réseau permissif dans l’ensemble du centre de sécurité.
    - Surveiller la création de listes autorisées dans le centre de sécurité possibles pour les applications.
    - Analyser les disques de machine virtuelle non chiffrés dans le centre de sécurité.
 
    ![Définitions d’initiative](media/create-manage-policy/initiative-definition-2.png)
 
-   Après avoir sélectionné les définitions de stratégie dans la liste, ces définitions apparaissent sous **Stratégies et paramètres**, comme indiqué ci-dessus.
+   Après avoir sélectionné les définitions de stratégie dans la liste, vous les voyez sous **Stratégies et paramètres**, comme illustré dans l’image précédente.
 
-5. Sélectionnez **Créer**.
+5. Utilisez **Emplacement de définition** pour sélectionner un abonnement afin de stocker la définition. Sélectionnez **Enregistrer**.
 
 ### <a name="assign-an-initiative-definition"></a>Attribuer une définition d’initiative
 
@@ -358,27 +362,27 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
    ![Attribuer une définition](media/create-manage-policy/assign-definition.png)
 
-4. Remplissez le formulaire d**’attribution**, en entrant :
-   - nom : attribution Garantir la sécurité
-   - description : cette attribution d’initiative est spécifiquement conçue pour appliquer ce groupe de définitions de stratégie dans l’abonnement **Azure Advisor Capacity Dev**
-   - niveau de tarification : Standard
-   - étendue concernée par cette attribution : **Azure Advisor Capacity Dev**
+4. Remplissez le formulaire **Affectation** en entrant les informations de l’exemple suivant. Vous pouvez utiliser vos propres informations.
+   - Nom : affectation Garantir la sécurité
+   - Description : cette affectation d’initiative est personnalisée pour appliquer ce groupe de définitions de stratégie dans l’abonnement **Azure Advisor Capacity Dev**.
+   - Niveau tarifaire : Standard
+   - Étendue souhaitée pour cette affectation : **Azure Advisor Capacity Dev**. Vous pouvez choisir votre propre abonnement et groupe de ressources.
 
 5. Sélectionnez **Attribuer**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Résoudre une ressource non conforme ou refusée
 
-En suivant l’exemple ci-dessus, après avoir attribué la définition de stratégie pour nécessiter SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, nous allons pas à pas résoudre une situation où la création d’un serveur SQL a été refusée en raison d’une version différente en demandant une exclusion.
+En suivant l’exemple ci-dessus, après avoir attribué la définition de stratégie pour nécessiter SQL Server version 12.0, tout serveur SQL créé avec une autre version sera refusé. Dans cette section, vous allez résoudre pas à pas une situation dans laquelle la création d’un serveur SQL a été refusée en raison d’une version différente en demandant une exclusion. L’exclusion empêche principalement l’application des stratégies. Une exclusion peut s’appliquer à un groupe de ressources. Vous pouvez également la restreindre à des ressources particulières.
 
 1. Sélectionnez **Attributions** dans le volet gauche.
-2. Parcourez toutes les attributions de stratégies puis lancez l’attribution *Nécessitent SQL Server version 12.0*.
-3. Demandez une exclusion pour les groupes de ressources dans lesquels vous essayez de créer le serveur SQL. Dans ce cas, nous excluons Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* et *baconandbeer/Chorizo*.
+2. Parcourez toutes les affectations de stratégie, puis ouvrez l’affectation *Nécessiter SQL Server version 12.0*.
+3. **Sélectionnez** une exclusion pour les ressources dans les groupes de ressources dans lesquels vous essayez de créer le serveur SQL. Dans cet exemple, excluez Microsoft.Sql/servers/databases : *azuremetrictest/testdb* et *azuremetrictest/testdb2*.
 
    ![Exclusion d’une demande](media/create-manage-policy/request-exclusion.png)
 
    Voici d’autres méthodes pour résoudre une ressource refusée : contacter la personne associée à la stratégie si vous avez une raison valable pour demander la création du serveur SQL, et modifier directement la stratégie si vous y avez accès.
 
-4. Sélectionnez **Enregistrer**.
+4. Cliquez sur **Affecter**.
 
 Dans cette section, vous avez résolu le refus de votre tentative de création d’un serveur SQL avec une version 12.0, en demandant une exclusion des ressources.
 

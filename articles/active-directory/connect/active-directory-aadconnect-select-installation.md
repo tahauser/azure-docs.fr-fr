@@ -3,7 +3,7 @@ title: "Azure AD Connect : Sélectionner le type d’installation | Microsoft Do
 description: "Cette rubrique vous montre comment sélectionner le type d’installation à utiliser pour Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Sélectionner le type d’installation à utiliser pour Azure AD Connect
 Azure AD Connect a deux types d’installation pour une nouvelle installation : Express et personnalisée. Cette rubrique vous aide à choisir l’option à utiliser lors de l’installation.
@@ -41,7 +41,7 @@ Vous obtenez :
 
 Cas où vous pouvez toujours utiliser Express :
 
-- Si vous ne voulez pas synchroniser toutes les unités d’organisation, vous pouvez néanmoins utiliser Express et, dans la dernière page, désélectionner **Démarrer le processus de synchronisation...***. Réexécutez ensuite l’Assistant Installation, changez les unités d’organisation dans les [options de configuration](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) et activez la synchronisation planifiée.
+- Si vous ne voulez pas synchroniser toutes les UO, vous pouvez néanmoins utiliser Express et, sur la dernière page, désélectionner **Démarrer le processus de synchronisation...***. Réexécutez ensuite l’Assistant Installation, changez les unités d’organisation dans les [options de configuration](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) et activez la synchronisation planifiée.
 - Vous voulez activer une des fonctionnalités dans Azure AD Premium, comme la réécriture du mot de passe. Choisissez d’abord Express pour effectuer l’installation initiale. Réexécutez ensuite l’Assistant Installation et changez les [options de configuration](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personnalisée
@@ -71,5 +71,5 @@ Si vous utilisez actuellement Azure AD Sync, vous pouvez suivre les [mêmes éta
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrer depuis FIM2010 ou MIM2016
 Si vous utilisez actuellement Forefront Identity Manager 2010 ou Microsoft Identity Manager 2016 avec le connecteur Azure AD, votre seule option est une migration. Suivez les étapes décrites dans [Migration via une instance distincte](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). Dans les étapes, remplacez les mentions d’Azure AD Sync par FIM2010/MIM2016.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Selon l’option que vous avez choisie, utilisez la table des matières à gauche pour trouver votre article avec les étapes détaillées.

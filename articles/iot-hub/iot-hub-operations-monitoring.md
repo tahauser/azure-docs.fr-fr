@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>Surveillance des opérations IoT Hub
 
 La surveillance des opérations IoT Hub vous permet de surveiller l’état des opérations sur votre hub IoT en temps réel. IoT Hub effectue le suivi des événements entre différentes catégories d’opérations. Vous pouvez opter pour l’envoi des événements d’une ou plusieurs catégories à un point de terminaison de votre IoT Hub en vue de leur traitement. Vous pouvez surveiller les données des erreurs ou configurer un traitement plus complexe basé sur des modèles de données.
 
 >[!NOTE]
->La surveillance des opérations d’IoT Hub est déconseillée et sera supprimée d’IoT Hub ultérieurement. Pour plus d’informations sur la surveillance des opérations et de l’intégrité d’IoT Hub, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes][lnk-monitor]. Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health][lnk-blog-announcement].
+>La surveillance des opérations d’IoT Hub est déconseillée et sera supprimée d’IoT Hub le 10 octobre 2018. Pour plus d’informations sur la surveillance des opérations et de l’intégrité d’IoT Hub, consultez l’article [Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes][lnk-monitor]. Pour plus d’informations sur la chronologie de dépréciation, consultez l’article [Surveiller vos solutions Azure IoT avec Azure Monitor et Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub surveille six catégories d’événements :
 
 * Opérations d’identité des appareils
 * Télémétrie d’appareil
 * Messages Cloud à appareil
-* Connexions
+* connexions
 * Chargements de fichiers
 * Routage de messages
 
@@ -125,7 +125,7 @@ La catégorie de commandes cloud-à-appareil effectue le suivi des erreurs qui s
 }
 ```
 
-### <a name="connections"></a>Connexions
+### <a name="connections"></a>connexions
 
 La catégorie de connexions effectue le suivi des erreurs provoquées par la connexion des appareils à un hub IoT ou leur déconnexion de celui-ci. Le suivi de cette catégorie est utile pour identifier les tentatives de connexion non autorisées et pour repérer les moments auxquels une connexion est perdue pour les appareils qui se trouvent dans des zones bénéficiant d’une connectivité médiocre.
 
@@ -287,10 +287,10 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur IoT Hub][lnk-devguide]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 * [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->

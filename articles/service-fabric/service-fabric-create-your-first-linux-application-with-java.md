@@ -12,25 +12,25 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: c7625a5670aca5d105601432fedfd0d7a78bb53c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
 Ce guide de démarrage rapide vous aide à créer votre première application Azure Service Fabric Java dans un environnement de développement Linux en quelques minutes.  Lorsque vous aurez terminé, vous disposerez d’une simple application de service unique Java exécutée sur le cluster de développement local.  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer, installez le Kit de développement logiciel (SDK), l’interface de ligne de commande Service Fabric, puis configurez un cluster de développement dans votre [environnement de développement Linux](service-fabric-get-started-linux.md). Si vous utilisez Mac OS X, vous pouvez [configurer un environnement de développement Linux sur une machine virtuelle à l’aide de Vagrant](service-fabric-get-started-mac.md).
 
 Installez aussi l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).
@@ -143,11 +143,16 @@ Il contient votre implémentation d’acteur et le code d’inscription de l’a
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
 ```java
-@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@ActorServiceAttribute(name = "HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
-    Logger logger = Logger.getLogger(this.getClass().getName());
+public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor {
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    public HelloWorldActorImpl(FabricActorService actorService, ActorId actorId){
+        super(actorService, actorId);
+    }
+
+    @Override
     protected CompletableFuture<?> onActivateAsync() {
         logger.log(Level.INFO, "onActivateAsync");
 
@@ -176,15 +181,16 @@ Le service de l’acteur doit être enregistré avec un type de service dans le 
 ```java
 public class HelloWorldActorHost {
 
-    public static void main(String[] args) throws Exception {
-
+private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
+    
+public static void main(String[] args) throws Exception {
+        
         try {
-            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
 
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
-
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Exception occured", e);
             throw e;
         }
     }
@@ -203,14 +209,14 @@ Les dépendances Java Service Fabric ont été extraites de Maven. Pour génére
 Pour générer et placer l’application dans un package, exécutez ce qui suit :
 
   ```bash
-  cd myapp
+  cd HelloWorldActorApplication
   gradle
   ```
 
 ## <a name="deploy-the-application"></a>Déployer l’application
 Une fois que l’application est générée, vous pouvez la déployer sur le cluster local.
 
-1. Connectez-vous au cluster Service Fabric local.
+1. Connectez-vous au cluster Service Fabric local (le cluster doit être [configuré et en cours d’exécution](service-fabric-get-started-linux.md#set-up-a-local-cluster)).
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
@@ -235,7 +241,7 @@ Les acteurs ne font rien seuls, ils ont besoin d’un autre service ou client po
 1. Exécutez le script à l’aide de l’utilitaire watch pour afficher la sortie du service d’acteur.  Le script de test appelle la méthode `setCountAsync()` sur l’acteur pour incrémenter un compteur, appelle la méthode `getCountAsync()` sur l’acteur pour obtenir la nouvelle valeur du compteur et affiche cette valeur dans la console.
 
     ```bash
-    cd myactorsvcTestClient
+    cd HelloWorldActorTestClient
     watch -n 1 ./testclient.sh
     ```
 
@@ -345,7 +351,7 @@ Assistance du niveau système pour Service Fabric, qui communique avec le runtim
 ## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migration d’anciennes applications Java Service Fabric à utiliser avec Maven
 Nous avons récemment déplacé les bibliothèques Java Service Fabric vers un référentiel Maven depuis le Kit de développement logiciel (SDK) Java Service Fabric. Tandis que les nouvelles applications que vous générez à l’aide de Yeonman ou d’Eclipse généreront les derniers projets mis à jour (en mesure de fonctionner avec Maven), vous pouvez mettre à jour vos services sans état Service Fabric existants ou vos applications Java Actor existantes ayant utilisé le Kit de développement logiciel (SDK) précédemment, afin d’utiliser les dépendances Java Service Fabric à partir de Maven. Suivez les étapes mentionnées [ici](service-fabric-migrate-old-javaapp-to-use-maven.md) pour vous assurer qu’une version plus ancienne de votre application fonctionne avec Maven.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Création de votre première application Java Service Fabric sur Linux à l’aide d’Eclipse](service-fabric-get-started-eclipse.md)
 * [Présentation des Acteurs fiables Service Fabric](service-fabric-reliable-actors-introduction.md)

@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Hébergement haute densité sur Azure App Service
 Lorsque vous utilisez App Service, votre application est découplée à partir de la capacité allouée par deux concepts :
@@ -38,12 +38,12 @@ Toutefois, lorsque plusieurs applications partagent un plan App Service, une ins
 La mise à l’échelle par application permet de mettre à l’échelle une application indépendamment du plan App Service qui l’héberge. De cette manière, un plan App Service peut passer à 10 instances, mais une application peut être définie de manière à n’en utiliser que cinq.
 
    >[!NOTE]
-   >La mise à l’échelle par application est disponible uniquement pour les plans App Service **Premium** de référence
+   >La mise à l’échelle par application est uniquement disponible pour les plans App Service avec des références SKU **Standard**, **Premium**, **Premium V2** et **Isolé**.
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Mise à l’échelle par application à l’aide de PowerShell
 
-Vous pouvez créer un plan configuré comme plan de *mise à l’échelle par application* en passant l’attribut ```-perSiteScaling $true``` dans l’applet de commande ```New-AzureRmAppServicePlan```.
+Créez un plan configuré comme plan de *mise à l’échelle par application* en passant l’attribut ```-perSiteScaling $true``` dans l’applet de commande ```New-AzureRmAppServicePlan```.
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-Au niveau de l’application, nous devons configurer le nombre d’instances que l’application peut utiliser dans le plan App Service.
+Au niveau de l’application, configurez le nombre d’instances que l’application peut utiliser dans le plan App Service.
 
 Dans l’exemple ci-dessous, l’application est limitée à deux instances quel que soit le nombre d’instances mis à l’échelle pour le plan App Service sous-jacent.
 
@@ -154,7 +154,7 @@ Suivez ces étapes pour configurer un hébergement haute densité pour vos appli
 1. Créez un seul plan App Service et mettez-le à l’échelle pour utiliser toute la capacité disponible sur le pool de Workers.
 1. Définissez l’indicateur PerSiteScaling sur true dans le plan App Service.
 1. Les nouvelles applications sont créées et attribuées à ce plan App Service avec la propriété **numberOfWorkers** définie sur **1**. Cela donne la densité la plus élevée possible sur ce pool de Workers.
-1. Le nombre de Workers peut être configuré indépendamment par application pour accorder des ressources supplémentaires en fonction des besoins. Par exemple :
+1. Le nombre de Workers peut être configuré indépendamment par application pour accorder des ressources supplémentaires en fonction des besoins. Par exemple : 
     - Une application à haut niveau d’utilisation peut définir **numberOfWorkers** sur **3** pour accroître la capacité de traitement de cette application. 
     - Les applications à faible niveau d’utilisation définiraient **numberOfWorkers** sur **1**.
 

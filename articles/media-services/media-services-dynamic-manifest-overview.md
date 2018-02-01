@@ -1,6 +1,6 @@
 ---
 title: Filtres et manifestes dynamiques | Microsoft Docs
-description: "Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d’un flux. Media Services crée des manifestes dynamiques pour l’archivage de cette diffusion sélective."
+description: "Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour l’archivage de cette diffusion sélective."
 services: media-services
 documentationcenter: 
 author: cenkdin
@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
 À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos ressources est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
-Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère très utile pour vos clients et établit des liens vers d’autres rubriques qui montrent comment créer par programme de tels filtres (actuellement, vous pouvez créer des filtres avec les API REST uniquement).
+Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère très utile pour vos clients et établit des liens vers d’autres rubriques qui montrent comment créer par programme de tels filtres.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Quand vous distribuez votre contenu aux clients (diffusion en continu d'événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour atteindre cet objectif, procédez comme suit :
 
 * encodez votre flux dans un flux vidéo à débit binaire multiple ([débit binaire adaptatif](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (les conditions de qualité et de réseau sont ainsi prises en charge) ; 
@@ -67,14 +67,14 @@ Voici un exemple de fichier manifeste :
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifestes dynamiques
-Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios) dans lesquels votre client a besoin de davantage de flexibilité que celle décrite dans le fichier manifeste de l'élément multimédia par défaut. Par exemple :
+Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios) dans lesquels votre client a besoin de davantage de flexibilité que celle décrite dans le fichier manifeste de l'élément multimédia par défaut. Par exemple : 
 
 * Particularité de l'appareil : distribuez uniquement les rendus spécifiés et/ou les pistes de langue spécifiées qui sont prises en charge par l'appareil utilisé pour lire le contenu (« filtrage de rendu »). 
 * Réduisez le manifeste pour afficher un sous-clip d'un événement en direct (« filtrage de sous-clip »).
 * Découpez le début d'une vidéo (« découpage d'une vidéo »).
 * Ajustez la fenêtre de présentation (DVR) afin de fournir une longueur limitée de la fenêtre du DVR dans le lecteur (« ajustement de la fenêtre de présentation »).
 
-Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH et Smooth Streaming. Par exemple :
+Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH et Smooth Streaming. Par exemple : 
 
 URL MPEG DASH avec filtre
 
@@ -124,7 +124,7 @@ Vos éléments multimédias peuvent inclure plusieurs langues audio telles que l
 ![Filtrage des pistes de langue][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Découpage du début d'un élément multimédia
-Pour la plupart des événements de diffusion en continu en direct, les opérateurs exécutent des tests avant l'événement réel. Par exemple, ils peuvent inclure une ardoise comme celle-ci avant le début de l'événement : « Le programme va commencer dans un instant ». Si le programme est en cours d’archivage, le test et les données d’ardoise sont également archivés et donc inclus dans la présentation. Toutefois, ces informations ne doivent pas être montrées aux clients. Avec un manifeste dynamique, vous pouvez créer un filtre sur l'heure de début et supprimer les données indésirables du manifeste.
+Pour la plupart des événements de diffusion en continu en direct, les opérateurs exécutent des tests avant l'événement réel. Par exemple, ils peuvent inclure une ardoise comme celle-ci avant le début de l'événement : « Le programme va commencer dans un instant. Si le programme est en cours d’archivage, le test et les données d’ardoise sont également archivés et donc inclus dans la présentation. Toutefois, ces informations ne doivent pas être montrées aux clients. Avec un manifeste dynamique, vous pouvez créer un filtre sur l'heure de début et supprimer les données indésirables du manifeste.
 
 ![Découpage du début][trim_filter]
 
@@ -156,7 +156,7 @@ Vous pouvez combiner plusieurs règles de filtrage dans un filtre unique. Par ex
 
 ![plusieurs règles][multiple-rules]
 
-## <a name="create-filters-programmatically"></a>Création de filtres par programmation
+## <a name="create-filters-programmatically"></a>Création de filtres par programme
 L’article suivant aborde les entités Media Services liées aux filtres. L’article indique également comment créer par programmation des filtres.  
 
 [Créez des filtres avec les API REST](media-services-rest-dynamic-manifest.md).

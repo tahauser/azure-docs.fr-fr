@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a0074bd68dc9714eed9064e42c6e1c6d708d1100
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,8 +51,8 @@ Les propriétés prises en charge pour le service lié Azure SQL Database sont l
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur : **AzureSqlDatabase** | Oui |
-| connectionString |Spécifier les informations requises pour la connexion à l’instance de base de données SQL Azure pour la propriété connectionString. Seule l’authentification de base est prise en charge. Marquez ce champ comme SecureString. |Oui |
+| Type | La propriété de type doit être définie sur : **AzureSqlDatabase** | OUI |
+| connectionString |Spécifier les informations requises pour la connexion à l’instance de base de données SQL Azure pour la propriété connectionString. Seule l’authentification de base est prise en charge. Marquez ce champ comme SecureString. |OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 > [!IMPORTANT]
@@ -87,8 +87,8 @@ Pour copier des données depuis/vers Azure SQL Database, définissez la proprié
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **AzureSqlTable** | Oui |
-| TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. | Oui |
+| Type | La propriété type du jeu de données doit être définie sur **AzureSqlTable** | OUI |
+| TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. | OUI |
 
 **Exemple :**
 
@@ -119,7 +119,7 @@ Pour copier des données d’Azure SQL Database, définissez **SqlSource** comme
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **SqlSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **SqlSource** | OUI |
 | SqlReaderQuery |Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
@@ -223,13 +223,13 @@ Pour copier des données vers Azure SQL Database, définissez **SqlSink** comme 
 
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlSink**. | OUI |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non  |
-| sqlWriterStoredProcedureName |Nom de la procédure stockée qui met à jour/insère les données dans la table cible. |Non  |
+| preCopyScript |Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database. Elle ne sera appelée qu’une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non  |
+| sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `preCopyScript`. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non  |
-| preCopyScript |Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non  |
 
 > [!TIP]
 > Lors de la copie de données vers Azure SQL Database, l’activité de copie ajoute des données à la table du récepteur par défaut. Pour effectuer un UPSERT ou une logique métier supplémentaire, utilisez la procédure stockée dans SqlSink. Pour en savoir plus, consultez [Appel d’une procédure stockée pour un récepteur SQL](#invoking-stored-procedure-for-sql-sink).

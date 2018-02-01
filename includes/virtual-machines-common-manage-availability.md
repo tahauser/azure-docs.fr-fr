@@ -14,7 +14,7 @@ Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : 
 Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ces événements, nous vous recommandons les meilleures pratiques suivantes pour la haute disponibilité de vos machines virtuelles :
 
 * [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
-* [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]
+* [Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité]
 * [Utiliser les événements planifiés pour répondre de façon proactive aux événements affectant les machines virtuelles ] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]
 * [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]
@@ -33,23 +33,21 @@ Les domaines d’erreur définissent le groupe de machines virtuelles partageant
 <!--Image reference-->
    ![Schéma conceptuel de la configuration du domaine de mise à jour et du domaine d’erreur](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
-## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité
-Si vous utilisez actuellement des machines virtuelles avec des disques non managés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques managés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité
+Si vous utilisez actuellement des machines virtuelles avec des disques non gérés, nous vous recommandons fortement de [convertir les machines virtuelles du groupe à haute disponibilité pour utiliser les disques gérés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-Les [disques gérés](../articles/virtual-machines/windows/managed-disks-overview.md) augmentent la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres, ceci pour éviter les points de défaillance uniques. Comment le service procède-t-il ? Il place automatiquement les disques dans différents clusters de stockage. Si un cluster de stockage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec.
-
-![Domaines d’erreur des disques managés](./media/virtual-machines-common-manage-availability/md-fd.png)
+Les [disques gérés](../articles/virtual-machines/windows/managed-disks-overview.md) augmentent la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres, ceci pour éviter les points de défaillance uniques. Ceci se fait en plaçant automatiquement les disques dans des domaines d’erreur de stockage différents (cachet) et en les alignant avec le domaine d’erreur de machine virtuelle. Si un domaine d’erreur de stockage est mis en échec en raison d’une défaillance matérielle ou logicielle, seule l’instance de machine virtuelle possédant des disques sur le domaine d’erreur de stockage est mise en échec.
 
 > [!IMPORTANT]
-> Le nombre de domaines d’erreur des groupes à haute disponibilité managés varie selon la région : de deux à trois par région. Le tableau suivant présente le nombre de domaines d’erreur par région
+> Le nombre de domaines d’erreur des groupes à haute disponibilité gérés varie selon la région : de deux à trois par région. Le tableau suivant présente le nombre de domaines d’erreur par région
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Si vous prévoyez d’utiliser des machines virtuelles avec des [disques non managés](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks), suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+Si vous prévoyez d’utiliser des machines virtuelles avec des [disques non gérés](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks), suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Conservez tous les disques (système d’exploitation et données) associés à une machine virtuelle dans le même compte de stockage.**
-2. **Examinez les [limites](../articles/storage/common/storage-scalability-targets.md) sur le nombre de disques non managés dans un compte de stockage** avant d’ajouter plus de disques durs virtuels à un compte de stockage.
-3. **Utilisez un compte de stockage distinct pour chaque machine virtuelle d’un groupe à haute disponibilité.** Ne partagez pas de comptes de stockage avec plusieurs machines virtuelles d’un même groupe à haute disponibilité. Il est acceptable pour les machines virtuelles de différents groupes à haute disponibilité de partager des comptes de stockage si les meilleures pratiques ci-dessus sont suivies.
+2. **Examinez les [limites](../articles/storage/common/storage-scalability-targets.md) sur le nombre de disques non gérés dans un compte de stockage** avant d’ajouter plus de disques durs virtuels à un compte de stockage.
+3. **Utilisez un compte de stockage distinct pour chaque machine virtuelle d’un groupe à haute disponibilité.** Ne partagez pas de comptes de stockage avec plusieurs machines virtuelles d’un même groupe à haute disponibilité. Il est acceptable pour les machines virtuelles de différents groupes à haute disponibilité de partager des comptes de stockage si les meilleures pratiques ci-dessus sont suivies ![FDs de disques non gérés](./media/virtual-machines-common-manage-availability/md-fd.png)
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configuration de chaque couche application dans des groupes à haute disponibilité séparés
 Si vos machines virtuelles sont presque identiques et ont la même fonction au sein de votre application, nous vous recommandons de configurer un groupe à haute disponibilité pour chaque couche de votre application.  Si vous placez deux couches différentes dans le même groupe à haute disponibilité, toutes les machines virtuelles de la même couche application peuvent être redémarrées en même temps. En configurant deux machines virtuelles ou plus dans un groupe à haute disponibilité par couche, vous vous assurez qu’au moins une machine de chaque couche reste disponible.
@@ -80,5 +78,5 @@ Apprenez-en davantage sur le déploiement d’une machine virtuelle [Windows](..
 [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]: #configure-each-application-tier-into-separate-availability-sets
 [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]: #use-managed-disks-for-vms-in-an-availability-set
+[Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité]: #use-managed-disks-for-vms-in-an-availability-set
 [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]: #use-availability-zones-to-protect-from-datacenter-level-failures

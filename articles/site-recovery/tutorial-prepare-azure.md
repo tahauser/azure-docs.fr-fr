@@ -5,20 +5,20 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
-Ce didacticiel décrit comment préparer les composants Azure pour répliquer des machines virtuelles (Hyper-V ou VMware) ou des serveurs physiques Windows/Linux locaux sur Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel décrit comment préparer les composants Azure pour répliquer des machines virtuelles (Hyper-V ou VMware) ou des serveurs physiques Windows/Linux locaux sur Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Vérifiez que votre compte dispose des autorisations de réplication.
@@ -46,9 +46,9 @@ Le rôle prédéfini « Contributeur de machines virtuelles » a ces autorisatio
 Les images des machines répliquées sont conservées dans le stockage Azure. Les machines virtuelles Azure sont créées à partir du stockage quand vous basculez du site local vers Azure.
 
 1. Dans le menu [Portail Azure](https://portal.azure.com), cliquez sur **Nouveau** -> **Stockage** -> **Compte de stockage**.
-2. Entrez un nom pour votre compte de stockage. Pour ces didacticiels, nous utilisons le nom **contosovmsacct1910171607**. Le nom doit être unique dans Azure, avoir entre 3 et 24 caractères, et contenir uniquement des nombres et des lettres minuscules.
+2. Dans **Créer un compte de stockage** , entrez un nom correspondant au compte. Pour ces didacticiels, nous utilisons le nom **contosovmsacct1910171607**. Le nom doit être unique dans Azure, avoir entre 3 et 24 caractères, et contenir uniquement des nombres et des lettres minuscules.
 3. Utilisez le modèle de déploiement **Resource Manager**.
-4. Sélectionnez **Usage général** > **Standard**.
+4. Sélectionnez **Usage général** > **Standard**. Ne sélectionnez pas Stockage Blob.
 5. Sélectionnez la valeur par défaut **RA-GRS** pour la redondance du stockage.
 6. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
 7. Spécifiez un nouveau groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour ces didacticiels, nous utilisons le nom **ContosoRG**.

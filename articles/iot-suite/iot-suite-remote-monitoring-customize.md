@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Personnaliser la solution préconfigurée de surveillance à distance
 
@@ -24,6 +24,10 @@ Cet article fournit des informations sur la façon dont vous pouvez accéder au 
 
 * Les dépôts GitHub qui contiennent le code source et les ressources pour les microservices qui composent la solution préconfigurée.
 * Des scénarios de personnalisation courants tels que l’ajout d’un nouveau type d’appareil.
+
+La vidéo suivante présente une vue d’ensemble des options pour personnaliser la solution préconfigurée de surveillance à distance :
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Vue d’ensemble du projet
 
@@ -133,7 +137,7 @@ The following steps describe how to add a new KPI to display on the **Dashboard*
 
 ### <a name="customize-the-map"></a>Personnaliser la carte
 
-Pour obtenir des informations détaillées sur composants de la carte de la solution, consultez la page GitHub [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) (Personnaliser la carte).
+Pour obtenir des informations détaillées sur des composants de la carte de la solution, consultez la page GitHub [Customize map](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) (Personnaliser la carte).
 
 <!--
 ### Customize the telemetry chart
@@ -192,7 +196,7 @@ Pour savoir comment définir des méthodes personnalisées pour les appareils si
 TODO: add steps for the simulator microservice here
 -->
 
-#### <a name="using-a-physical-device"></a>Utilisant d’un appareil physique
+#### <a name="using-a-physical-device"></a>Utilisation d’un appareil physique
 
 Pour implémenter des méthodes et travaux sur vos appareils physiques, consultez les articles suivants sur IoT Hub :
 

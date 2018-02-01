@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e6a22e9989bfe7064ead1c5598e9c68d4a929b07
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Routage des messages avec IoT Hub (Node)
 
@@ -89,7 +89,7 @@ Dans cette section, vous allez modifier l’application pour appareils que vous 
     };
     ```
    
-    Cette méthode ajoute de façon aléatoire la propriété `"level": "critical"` et `"level": "storage"` aux messages envoyés par l’appareil, ce qui simule un message nécessitant une action immédiate du serveur principal de l’application, ou demandant à être définitivement stocké. L’application transmet ces informations dans les propriétés du message, plutôt que dans le corps du message, afin que IoT Hub puisse acheminer le message vers la destination adéquate.
+    Cette méthode ajoute de façon aléatoire la propriété `"level": "critical"` et `"level": "storage"` aux messages envoyés par l’appareil, ce qui simule un message nécessitant une action immédiate du serveur principal de l’application, ou demandant à être définitivement stocké. L’application prend en charge le routage des messages en fonction de leur corps.
    
    > [!NOTE]
    > Vous pouvez utiliser les propriétés de message pour acheminer les messages pour de nombreux scénarios, tels que le traitement de chemin d’accès à froid, en plus de l’exemple de chemin d’accès à chaud présenté ici.
@@ -222,7 +222,7 @@ Dans cette section, vous créez un compte de stockage, vous le connectez à votr
 
 1. Dans le Portail Azure, accédez à votre compte de stockage, sous **Service BLOB**, cliquez sur **Parcourir les objets blob...**   Sélectionnez votre conteneur, accédez au fichier JSON et cliquez dessus, puis cliquez sur **Télécharger** pour afficher les données.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à répartir de façon fiable des messages appareil-à-cloud à l’aide de la fonctionnalité d’acheminement de messages d’IoT Hub.
 
@@ -259,7 +259,7 @@ Pour en savoir plus sur le routage des messages dans IoT Hub, consultez [Envoyer
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Gestion des erreurs temporaires]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-c2d]: iot-hub-node-node-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

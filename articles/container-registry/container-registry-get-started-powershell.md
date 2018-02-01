@@ -5,15 +5,15 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Créer un registre Azure Container Registry à l’aide de PowerShell
 
@@ -43,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 Créez une instance ACR à l’aide de la commande [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry).
 
-Le nom du registre **doit être unique**. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry007*. Mettez à jour le nom de façon à utiliser une valeur unique.
+Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry007*. Mettez à jour le nom de façon à utiliser une valeur unique.
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
@@ -99,7 +99,7 @@ Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-Azu
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un registre Azure Container Registry avec Azure CLI. Si vous souhaitez utiliser Azure Container Registry avec des instances Azure Container Instances, passez au didacticiel Azure Container Instances.
 

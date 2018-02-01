@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Présentation de la référence Standard d’Azure Load Balancer (préversion)
 
@@ -68,12 +68,12 @@ Les groupes à haute disponibilité ne sont plus requis. Cependant, vous pouvez 
 
 La référence Standard de Load Balancer offre de nouvelles fonctionnalités de diagnostic multidimensionnel pour les configurations Load Balancer publiques et internes. Ces nouvelles métriques sont fournies par le biais d’Azure Monitor (préversion) et utilisent toutes les fonctions connexes, y compris la possibilité d’intégration à divers consommateurs en aval.
 
-| Métrique | Description |
+| Métrique | DESCRIPTION |
 | --- | --- |
 | Disponibilité VIP | La référence Standard de Load Balancer teste en continu le chemin de données d’une région vers le serveur frontal Load Balancer, jusqu’à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.|
 | Disponibilité DIP | La référence Standard de Load Balancer utilise un service de détection d’intégrité distribué qui surveille l’intégrité du point de terminaison de votre application en fonction de vos paramètres de configuration. Cette métrique fournit un agrégat ou une vue filtrée par point de terminaison de chaque point de terminaison d’instance dans le pool Load Balancer.  Vous pouvez observer comment Load Balancer voit l’intégrité de votre application comme indiqué par votre configuration de sonde d’intégrité.
-| Paquets SYN | La référence Standard de Load Balancer ne termine pas les connexions TCP et n’interagit pas avec les flux de paquets UDP et TCP. Les flux et leurs établissements de liaisons sont toujours entre la source et l’instance de machine virtuelle. Pour mieux résoudre les problèmes posés par vos scénarios de protocole TCP, vous pouvez utiliser les paquets SYN pour comprendre le nombre de tentatives de connexion TCP effectuées. La métrique indique le nombre de paquets SYN TCP reçus. Elle peut également indiquer les clients qui tentent d’établir une connexion à votre service.|
-| Connexions SNAT | La référence Standard de Load Balancer indique le nombre de connexions sortantes usurpées sur le serveur frontal d’adresse IP publique. Les ports SNAT constituent une ressource qui n’est pas inépuisable. Cette métrique peut donner une idée de l’importance du rôle joué par SNAT dans votre application pour les connexions sortantes.|
+| Paquets SYN | La référence Standard de Load Balancer ne termine pas les connexions TCP et n’interagit pas avec les flux de paquets UDP et TCP. Les flux et leurs établissements de liaisons sont toujours entre la source et l’instance de machine virtuelle. Pour mieux résoudre les problèmes posés par vos scénarios de protocole TCP, vous pouvez utiliser les compteurs de paquets SYN pour comprendre le nombre de tentatives de connexion TCP effectuées. La métrique indique le nombre de paquets SYN TCP reçus.|
+| Connexions SNAT | La référence Standard de Load Balancer indique le nombre de flux sortants usurpés sur le serveur frontal d’adresse IP publique. Les ports SNAT constituent une ressource qui n’est pas inépuisable. Cette métrique peut donner une idée de l’importance du rôle joué par SNAT dans votre application pour les flux sortants.  Les compteurs relatifs aux flux SNAT sortants réussis et mis en échec sont indiqués et peuvent être utilisés pour comprendre l’intégrité de vos flux sortants et résoudre les problèmes associés.|
 | Compteurs d’octets | La référence Standard de Load Balancer indique les données traitées par serveur frontal.|
 | Compteurs de paquets | La référence Standard de Load Balancer indique les paquets traités par serveur frontal.|
 
@@ -217,7 +217,7 @@ Lorsque les connexions sortantes sont utilisées avec un serveur frontal redonda
 
 Le nouvel algorithme de la référence Standard de Load Balancer préalloue les ports SNAT à l’interface réseau de chaque machine virtuelle. Lorsqu’une interface réseau est ajoutée au pool, les ports SNAT sont préalloués selon la taille du pool. Le tableau suivant présente les préallocations de port pour six niveaux de taille de pool de principal :
 
-| Taille du pool (instances de machine virtuelle) | Port SNAT préalloué |
+| Taille du pool (instances de machine virtuelle) | Nombre préalloué de ports SNAT |
 | --- | --- |
 | 1 - 50 | 1 024 |
 | 51 - 100 | 512 |
@@ -255,7 +255,7 @@ Les références SKU sont uniquement disponibles dans le modèle de déploiement
 >[!IMPORTANT]
 >La référence SKU d’une ressource n’est pas mutable. Vous ne pouvez pas modifier la référence SKU d’une ressource existante.  
 
-### <a name="load-balancer"></a>Load Balancer
+### <a name="load-balancer"></a>Équilibreur de charge
 
 La [ressource de Load Balancer existante](load-balancer-overview.md) devient la référence SKU De base et reste disponible publiquement et inchangée.
 
@@ -339,7 +339,7 @@ La référence Standard de Load Balancer est actuellement disponible dans ces r�
 
 Le tableau suivant compare les limites et fonctions des références SKU De base et Standard de Load Balancer :
 
-| Load Balancer | De base | Standard |
+| Équilibreur de charge | De base | standard |
 | --- | --- | --- |
 | Taille de pool principal | jusqu’à 100 | jusqu’à 1 000 |
 | Limite de pool principal | Groupe à haute disponibilité | réseau virtuel, région |
@@ -351,17 +351,17 @@ Le tableau suivant compare les limites et fonctions des références SKU De base
 |Scénarios de zones de disponibilité | Zonaux uniquement | Équilibrage de charge entre les zones, redondant dans une zone, zonal |
 | Algorithme SNAT sortant | À la demande | Préalloué |
 | Sélection du serveur frontal SNAT sortant | Non configurable, plusieurs candidats | Configuration facultative pour réduire les candidats |
-| Groupe de sécurité réseau | Facultatif sur la carte d’interface réseau/le sous-réseau | Requis |
+| Groupe de sécurité réseau | Facultatif sur la carte d’interface réseau/le sous-réseau | Obligatoire |
 
 Le tableau suivant compare les limites et fonctions des références SKU d’adresse IP publique De base et Standard :
 
-| Adresse IP publique | De base | Standard |
+| Adresse IP publique | De base | standard |
 | --- | --- | --- |
 | Scénarios de zones de disponibilité | Zonaux uniquement | Redondants dans une zone (par défaut), zonaux (facultatif) | 
 | Mobilité d’adresses IP rapide | Non pris en charge | Disponible |
 | Disponibilité VIP | Non pris en charge | Disponible |
 | Counters | Non pris en charge | Disponible |
-| Groupe de sécurité réseau | Facultatif sur la carte d’interface réseau | Requis |
+| Groupe de sécurité réseau | Facultatif sur la carte d’interface réseau | Obligatoire |
 
 
 ## <a name="preview-sign-up"></a>S’inscrire à la préversion
@@ -432,7 +432,7 @@ Pour découvrir la préversion de la référence SKU Standard de Load Balancer e
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
     ```
  
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 
 La facturation de la référence SKU Standard de Load Balancer est basée sur les règles configurées et les données traitées. Aucuns frais ne sont facturés lors de la durée de la préversion. Consultez les pages de tarification de [Load Balancer](https://aka.ms/lbpreviewpricing) et [d’adresse IP publique](https://aka.ms/lbpreviewpippricing) pour plus d’informations.
 
@@ -452,7 +452,7 @@ Les limitations suivantes s’appliquent au moment de la préversion et sont sus
 - Dans le contexte des zones de disponibilité, une adresse IP publique zonale ne peut pas être déplacée d’une zone à l’autre.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur [la référence De base de Load Balancer](load-balancer-overview.md)
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)
