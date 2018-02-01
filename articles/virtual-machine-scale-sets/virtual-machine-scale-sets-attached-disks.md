@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
 Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent désormais en charge les machines virtuelles avec des disques de données associés. Les disques de données peuvent être définis dans le profil de stockage pour des groupes identiques qui ont été créés avec des disques gérés Azure. Auparavant, les seules options de stockage associées directement disponibles avec les machines virtuelles dans des groupes identiques étaient le lecteur du système d’exploitation et les lecteurs temporaires.
@@ -28,14 +28,14 @@ Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-set
 >  Lorsque vous créez un groupe identique dans lequel des disques de données associés sont définis, vous devez toujours monter et formater les disques à partir d’une machine virtuelle pour les utiliser (comme pour les machines virtuelles Azure autonomes). Une méthode pratique pour effectuer ce processus consiste à utiliser une extension de script personnalisé qui appelle un script standard pour partitionner et formater tous les disques de données sur une machine virtuelle.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Créer un groupe identique avec des disques de données associés
-Une méthode simple pour créer un groupe identique avec des disques associés consiste à utiliser la commande [az vmss create](/cli/azure/vmss#create). L’exemple suivant crée un groupe de ressources Azure et un groupe identique de 10 machines virtuelles Ubuntu, chacune ayant 2 disques de données associés, de 50 et 100 Go respectivement.
+Une méthode simple pour créer un groupe identique avec des disques associés consiste à utiliser la commande [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe de ressources Azure et un groupe identique de 10 machines virtuelles Ubuntu, chacune ayant 2 disques de données associés, de 50 et 100 Go respectivement.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-La commande [az vmss create](/cli/azure/vmss#create) inclut par défaut des valeurs de configuration si vous ne les spécifiez pas. Pour voir les options disponibles que vous pouvez remplacer, essayez :
+La commande [az vmss create](/cli/azure/vmss#az_vmss_create) inclut par défaut des valeurs de configuration si vous ne les spécifiez pas. Pour voir les options disponibles que vous pouvez remplacer, essayez :
 
 ```bash
 az vmss create --help

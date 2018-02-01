@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Windows
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -251,6 +251,8 @@
           href: ../workloads/sap/get-started.md
         - name: Cluster MATLAB
           href: matlab-mdcs-cluster.md
+        - name: "Visual\_Studio"
+          href: using-visual-studio-vm.md
         - name: 'HPC (High-Performance Computing, calcul haute performance)'
           href: hpcpack-cluster-options.md
           items:

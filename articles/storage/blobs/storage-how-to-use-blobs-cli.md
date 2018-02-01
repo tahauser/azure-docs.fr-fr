@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Effectuer des opérations de stockage d’objets blob avec Azure CLI
 
@@ -44,7 +44,7 @@ Ce didacticiel nécessite Azure CLI version 2.0.4 ou ultérieure. Exécutez `az
 
 À l’instar des répertoires de votre ordinateur dans lesquels vous pouvez organiser des fichiers, les conteneurs vous permettent d’organiser des groupes d’objets blob. Un compte de stockage peut avoir un certain nombre de conteneurs. Vous pouvez stocker jusqu’à 500 To de données d’objets blob dans un conteneur, ce qui correspond à la quantité maximale de données dans un compte de stockage.
 
-Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container#create).
+Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ Par défaut, un conteneur qui vient d’être créé est privé. Autrement dit, 
 
 Si vous choisissez `blob` ou `container` comme accès public, vous activez l’accès en lecture seule pour toute personne sur Internet. Par exemple, si vous souhaitez afficher des images stockées sous forme d’objets blob sur votre site web, vous devez activer l’accès en lecture public. Si vous souhaitez activer l’accès en lecture/écriture, vous devez utiliser une [signature d’accès partagé](#create-a-shared-access-signature-sas) à la place.
 
-Activez l’accès en lecture public pour votre conteneur avec la commande [az storage container set-permission](/cli/azure/storage/container#create).
+Activez l’accès en lecture public pour votre conteneur avec la commande [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Les objets blob de blocs sont les plus courants dans Stockage Azure. Les objets blob d’ajout sont utilisés quand les données doivent être ajoutées à un objet blob existant sans modifier son contenu existant, par exemple pour la journalisation. Les objets blob de pages stockent les fichiers de disque dur virtuel des machines virtuelles IaaS.
 
-Dans cet exemple, nous chargeons un objet blob dans le conteneur que nous avons créé à la dernière étape avec la commande [az storage blob upload](/cli/azure/storage/blob#upload).
+Dans cet exemple, nous chargeons un objet blob dans le conteneur que nous avons créé à la dernière étape avec la commande [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ Cette opération crée l’objet blob s’il n’existe pas déjà, et le rempla
 
 ## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
-Listez les objets blob d’un conteneur avec la commande [az storage blob list](/cli/azure/storage/blob#list).
+Listez les objets blob d’un conteneur avec la commande [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Télécharger un objet blob
 
-Téléchargez l’objet blob que vous avez chargé dans une étape précédente à l’aide de la commande [az storage blob download](/cli/azure/storage/blob#download).
+Téléchargez l’objet blob que vous avez chargé dans une étape précédente à l’aide de la commande [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Supprimer un objet blob
 
-Supprimez l’objet blob du conteneur à l’aide de la commande [az storage blob delete](/cli/azure/storage/blob#delete).
+Supprimez l’objet blob du conteneur à l’aide de la commande [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete).
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Afficher et modifier les propriétés et métadonnées d’un objet blob
 
-Chaque objet blob comprend plusieurs propriétés définies par le service (nom, type, longueur, etc.) que vous pouvez afficher avec la commande [az storage blob show](/cli/azure/storage/blob#show). Vous pouvez également configurer un objet blob avec vos propres propriétés et leurs valeurs à l’aide de la commande [az storage blob metadata update](/cli/azure/storage/blob/metadata#update).
+Chaque objet blob comprend plusieurs propriétés définies par le service (nom, type, longueur, etc.) que vous pouvez afficher avec la commande [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show). Vous pouvez également configurer un objet blob avec vos propres propriétés et leurs valeurs à l’aide de la commande [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update).
 
-Dans cet exemple, nous commençons par afficher les propriétés définies par le service d’un objet blob, puis nous le mettons à jour avec deux de nos propres propriétés de métadonnées. Enfin, nous affichons les propriétés de métadonnées de l’objet blob et leurs valeurs avec la commande [az storage blob metadata show](/cli/azure/storage/blob/metadata#show).
+Dans cet exemple, nous commençons par afficher les propriétés définies par le service d’un objet blob, puis nous le mettons à jour avec deux de nos propres propriétés de métadonnées. Enfin, nous affichons les propriétés de métadonnées de l’objet blob et leurs valeurs avec la commande [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show).
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Vérifier l’accès privé
 
-Pour vérifier que l’accès en lecture public aux objets blob du conteneur n’est pas autorisé, obtenez l’URL de l’un de ses objets blob avec la commande [az storage blob url](/cli/azure/storage/blob#url).
+Pour vérifier que l’accès en lecture public aux objets blob du conteneur n’est pas autorisé, obtenez l’URL de l’un de ses objets blob avec la commande [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url).
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ Accédez à l’URL de l’objet blob dans une fenêtre de navigation privée. L
 
 ### <a name="create-a-sas-uri"></a>Créer un URI SAP
 
-Nous allons maintenant créer un URI SAP qui autorise l’accès à l’objet blob. Dans l’exemple suivant, nous commençons par définir une variable avec l’URL de l’objet blob à l’aide de la commande [az storage blob url](/cli/azure/storage/blob#url), puis nous définissons une autre variable avec un jeton SAP généré à l’aide de la commande [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas). Pour terminer, nous générons l’URI SAP complet de l’objet blob en concaténant les deux variables avec le séparateur de chaîne de requête `?`.
+Nous allons maintenant créer un URI SAP qui autorise l’accès à l’objet blob. Dans l’exemple suivant, nous commençons par définir une variable avec l’URL de l’objet blob à l’aide de la commande [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), puis nous définissons une autre variable avec un jeton SAP généré à l’aide de la commande [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas). Pour terminer, nous générons l’URI SAP complet de l’objet blob en concaténant les deux variables avec le séparateur de chaîne de requête `?`.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ Attendez que l’URL arrive à expiration (deux minutes dans cet exemple), puis 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment le compte de stockage créé et les objets blob chargés dans ce didacticiel, supprimez le groupe de ressources avec la commande [az group delete](/cli/azure/group#delete).
+Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment le compte de stockage créé et les objets blob chargés dans ce didacticiel, supprimez le groupe de ressources avec la commande [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

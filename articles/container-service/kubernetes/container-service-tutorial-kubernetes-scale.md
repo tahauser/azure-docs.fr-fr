@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a748e15abbc01f260349fba2678c03a40c4d7713
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Mettre à l’échelle des pods Kubernetes et l’infrastructure Kubernetes
 
@@ -44,7 +44,7 @@ Jusqu’à maintenant, le front-end Azure Vote et l’instance de Redis ont ét�
 kubectl get pods
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -64,7 +64,7 @@ Exécutez [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/
 kubectl get pods
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -103,7 +103,7 @@ Pour voir l’état de la mise à l’échelle automatique, exécutez la command
 kubectl get hpa
 ```
 
-Output:
+Sortie :
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
@@ -114,7 +114,7 @@ Au bout de quelques minutes, avec une charge minimale sur l’application Azure 
 
 ## <a name="scale-the-agents"></a>Mettre à l’échelle les agents
 
-Si vous avez créé votre cluster Kubernetes à l’aide des commandes par défaut dans le didacticiel précédent, il comporte trois nœuds agents. Vous pouvez ajuster le nombre d’agents manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster. Utilisez la commande [az acs scale](/cli/azure/acs#scale), puis spécifiez le nombre d’agents avec le paramètre `--new-agent-count`.
+Si vous avez créé votre cluster Kubernetes à l’aide des commandes par défaut dans le didacticiel précédent, il comporte trois nœuds agents. Vous pouvez ajuster le nombre d’agents manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster. Utilisez la commande [az acs scale](/cli/azure/acs#az_acs_scale), puis spécifiez le nombre d’agents avec le paramètre `--new-agent-count`.
 
 L’exemple suivant permet d’augmenter le nombre de nœuds agents à 4 dans le cluster Kubernetes nommé *myK8sCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
 
@@ -139,7 +139,7 @@ La sortie de la commande indique le nombre de nœuds agents dans la valeur de `a
 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez utilisé différentes fonctionnalités de mise à l’échelle dans votre cluster Kubernetes. Les tâches traitées ont inclus :
 

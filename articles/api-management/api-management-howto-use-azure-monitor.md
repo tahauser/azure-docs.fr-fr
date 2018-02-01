@@ -14,17 +14,17 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
 Azure Monitor est un nouveau service Azure qui fournit une source unique d’analyse pour toutes vos ressources Azure. Avec Azure Monitor, vous pouvez visualiser, interroger, acheminer, archiver et agir sur les mesures et journaux provenant de vos ressources Azure, comme la gestion des API. 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Afficher les journaux d’activité
@@ -38,7 +38,7 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 >
 >
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
@@ -56,7 +56,8 @@ Vous pouvez accéder aux journaux d’activité dans votre service de Gestion de
 
 Pour afficher les journaux d’activité :
 
-1. À partir de votre instance **Gestion des API**, cliquez sur **Journal d’activité**.
+1. Sélectionnez votre instance de service APIM.
+2. Cliquez sur **Journal d’activité**.
 
 ## <a name="view-diagnostic-logs"></a>Afficher les journaux de diagnostic
 
@@ -64,7 +65,8 @@ Les journaux de diagnostic offrent des informations détaillées sur les opérat
 
 Pour accéder aux journaux de diagnostic :
 
-1. À partir de votre instance **Gestion des API**, cliquez sur **Journal de diagnostic**.
+1. Sélectionnez votre instance de service APIM.
+2. Cliquez sur **Journal de diagnostic**.
 
 ## <a name="view-metrics-of-your-apis"></a>Afficher les métriques de vos API
 
@@ -108,9 +110,9 @@ Pour configurer des alertes :
 
     ![Configurer une alerte](./media/api-management-azure-monitor/set-up-alert.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Afficher les journaux d’activité

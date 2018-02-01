@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4cde427115df5bb7cd80acd676c6788ff3a379e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6ce5d49fe4e58b3c89c09ef80d563d001a4abb41
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Créer une application web ASP.NET Framework dans Azure
 
@@ -29,7 +29,9 @@ Regardez la vidéo pour voir ce démarrage rapide en action et suivez les étape
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
-## <a name="prerequisites"></a>Composants requis
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -38,8 +40,6 @@ Pour suivre ce didacticiel :
     - **Développement Azure**
 
     ![Développement web et ASP.NET et Développement Azure (sous Web et cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-aspnet-web-app"></a>Créez une application web ASP.NET
 
@@ -102,7 +102,7 @@ Dans la boîte de dialogue **Configurer le plan App Service**, utilisez les para
 
 ![Créer un plan App Service](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
-| Paramètre | Valeur suggérée | Description |
+| Paramètre | Valeur suggérée | DESCRIPTION |
 |-|-|-|
 |Plan App Service| myAppServicePlan | Nom du plan App Service. |
 | Lieu | Europe de l'Ouest | Centre de données dans lequel l’application web est hébergée. |
@@ -163,7 +163,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [ASP.NET avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)

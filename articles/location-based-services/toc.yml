@@ -31,7 +31,7 @@
       href: how-to-use-map-control.md
     - name: Comment rechercher une adresse
       href: how-to-search-for-address.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: API fonctionnelle
       href: 'https://docs.microsoft.com/rest/api/location-based-services/'
@@ -46,7 +46,7 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Calculatrice de prix

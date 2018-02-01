@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 01/30/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Gérer les coûts à l’aide d’Azure Cost Management
 
@@ -22,7 +22,7 @@ Vous gérez les coûts et générez des rapports de récupération des données 
 
 Par exemple, vous pouvez souhaiter être remboursé de coûts d’ingénierie. Vous devez pouvoir montrer à votre équipe d’ingénierie que vous avez besoin d’un montant spécifique, basé sur les coûts des ressources. Vous pouvez leur montrer un rapport pour toutes les ressources consommées qui portent la balise *ingénierie*.
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser des balises personnalisées pour allouer les coûts.
@@ -112,9 +112,9 @@ Vous pouvez facilement créer et enregistrer des rapports axés sur des services
 Si vous avez besoin de fournir des données de capture instantanée à d’autres équipes, vous pouvez exporter un rapport au format PDF ou CSV.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser des balises personnalisées pour allouer les coûts.
