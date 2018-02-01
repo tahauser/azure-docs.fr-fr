@@ -68,7 +68,7 @@ Le module de réécriture d’URL pour IIS peut servir à rediriger le trafic ar
 
 ## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Comment puis-je bloquer/désactiver le trafic entrant sur l’URL par défaut de mon service cloud ? 
 
-Si vous souhaitez empêcher l’arrivée du trafic entrant sur l’URL/nom par défaut de votre service cloud (par exemple, \*. cloudapp.net), définissez l’en-tête d’hôte sur un nom DNS personnalisé (par exemple, www.MyCloudService.com) dans la configuration de liaison de site du fichier de définition de service cloud (*.csdef) comme indiqué ci-dessous : 
+Si vous souhaitez empêcher l’arrivée du trafic entrant sur l’URL/nom par défaut de votre service cloud (par exemple, \*. cloudapp.net), définissez l’en-tête d’hôte sur un nom DNS personnalisé (par exemple, www.MyCloudService.com) dans la configuration de liaison de site du fichier de définition de service cloud (\*.csdef) comme indiqué ci-dessous : 
  
 
     <?xml version="1.0" encoding="utf-8"?> 
@@ -90,7 +90,7 @@ Si vous souhaitez empêcher l’arrivée du trafic entrant sur l’URL/nom par d
       </WebRole> 
     </ServiceDefinition> 
  
-Étant donné que cette liaison d’en-tête d’hôte est appliquée via le fichier csdef, le service serait uniquement accessible via le nom personnalisé 'www.MyCloudService.com', tandis que toutes les requêtes entrantes sur le domaine '*.cloudapp.net' échoueraient toujours. Cela dit, notez toutefois que si vous utilisez une sonde SLB personnalisée ou un équilibreur de charge interne dans le service, le blocage de l’URL/nom par défaut du service risque d’affecter le comportement de sondage. 
+Étant donné que cette liaison d’en-tête d’hôte est appliquée via le fichier csdef, le service serait uniquement accessible via le nom personnalisé 'www.MyCloudService.com', tandis que toutes les requêtes entrantes sur le domaine '\*.cloudapp.net' échoueraient toujours. Cela dit, notez toutefois que si vous utilisez une sonde SLB personnalisée ou un équilibreur de charge interne dans le service, le blocage de l’URL/nom par défaut du service risque d’affecter le comportement de sondage. 
 
 ## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>Comment s’assurer que l’adresse IP publique d’un service cloud (aka, adresse IP virtuelle) ne change jamais afin de pouvoir être habituellement dans la liste approuvée par des clients spécifiques ?
 
