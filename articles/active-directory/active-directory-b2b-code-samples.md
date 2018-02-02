@@ -7,19 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
-ms.author: sasubram
-ms.openlocfilehash: 6a75fdd6c6f8fc03945be4b7d843777286cc70a7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 672eda222a0fa7d0e05dd2fc75ac743ec330463d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Code Azure Active Directory B2B Collaboration et exemples PowerShell
 
@@ -28,7 +28,7 @@ Vous pouvez inviter des utilisateurs externes en bloc dans une organisation à p
 
 1. Préparer le fichier .CSV Créez un fichier .CSV et nommez-le invitations.csv. Dans cet exemple, le fichier est enregistré dans C:\data et contient les informations suivantes :
   
-  Nom                  |  InvitedUserEmailAddress
+  NOM                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Invité B2B Gmail     | b2binvitee@gmail.com
   Invité B2B Outlook   | b2binvitee@outlook.com
@@ -48,7 +48,7 @@ Vous pouvez inviter des utilisateurs externes en bloc dans une organisation à p
   ```
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-  $messageInfo.customizedMessageBody = “Hey there! Check this out. I created an invitation through PowerShell”
+  $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
@@ -231,11 +231,11 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Consultez les autres articles sur la collaboration B2B d'Azure AD :
 
-* [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Qu'est-ce que la collaboration B2B d'Azure AD ?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriétés de l’utilisateur B2B Collaboration](active-directory-b2b-user-properties.md)
 * [Ajout d’un utilisateur B2B Collaboration à un rôle](active-directory-b2b-add-guest-to-role.md)
 * [Déléguer des invitations B2B Collaboration](active-directory-b2b-delegate-invitations.md)

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce didacticiel vous montre comment configurer la récupération d’urgence de serveurs physiques Windows et Linux locaux vers Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment configurer la récupération d’urgence de serveurs physiques Windows et Linux locaux vers Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Configurer les prérequis Azure et locaux
@@ -33,7 +33,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 > * Créer une stratégie de réplication
 > * Activer la réplication pour un serveur
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour suivre ce didacticiel :
 
@@ -64,7 +64,7 @@ Assurez-vous que votre compte Azure dispose des autorisations nécessaires pour 
 
 ### <a name="set-up-an-azure-network"></a>Configurer un réseau Azure
 
-Configurez un [réseau Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Configurez un [réseau Azure](../virtual-network/quick-create-portal.md).
 
 - Les machines virtuelles Azure sont placées dans ce réseau une fois créées après le basculement.
 - Ce réseau doit se trouver dans la même région que le coffre Recovery Services.
@@ -181,6 +181,6 @@ Activez la réplication pour chaque serveur.
 
 Pour effectuer le monitoring des serveurs, vous pouvez consulter l’heure de leur dernière détection dans **Serveurs de configuration** > **Dernier contact à**. Pour ajouter des machines sans attendre l’heure de la détection planifiée, mettez en surbrillance le serveur de configuration (sans cliquer dessus) et cliquez sur **Actualiser**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-[Exécuter une simulation de récupération d'urgence](tutorial-dr-drill-azure.md)
+[Exécuter une simulation de récupération d’urgence](tutorial-dr-drill-azure.md)

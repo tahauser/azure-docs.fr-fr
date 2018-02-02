@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégrer Azure Active Directory dans vxMaintain | Microsoft Docs"
+title: "Didacticiel : Intégration d’Azure Active Directory à vxMaintain | Microsoft Docs"
 description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et vxMaintain."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Didacticiel : Intégrer Azure Active Directory dans vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Didacticiel : Intégration d’Azure Active Directory à vxMaintain
 
 Dans ce didacticiel, vous allez apprendre à intégrer vxMaintain à Azure Active Directory (Azure AD).
 
@@ -31,7 +31,7 @@ Cette intégration offre plusieurs avantages importants. Vous pouvez :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 Pour configurer l’intégration d’Azure AD à vxMaintain, vous avez besoin des éléments suivants :
 
@@ -195,7 +195,7 @@ Quand vous cliquez sur la vignette **vxMaintain** dans le panneau d’accès, vo
 
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)

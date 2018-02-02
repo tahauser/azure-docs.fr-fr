@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Cet article présente des méthodes pour créer une image de machine virtuelle personnalisée d’un groupe identique, ou pour exécuter automatiquement des scripts d’installation sur des instances de machine virtuelle existantes. Vous apprendrez également à gérer des applications ou des mises à jour du système d’exploitation sur un groupe identique.
@@ -58,7 +58,7 @@ PowerShell utilise une table de hachage pour stocker le fichier à télécharger
 - Obtient des informations sur un groupe identique avec [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
 - Applique l’extension aux instances de machine virtuelle avec [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
-L’extension de script personnalisé est appliquée aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Saisissez vos propres noms, comme suit :
+L’extension de script personnalisé est appliquée aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Entrez vos propres noms, comme suit :
 
 ```powershell
 # Define the script for your Custom Script Extension to run
@@ -103,7 +103,7 @@ Dans l’interpréteur de commandes actuel, créez un fichier nommé *customConf
 }
 ```
 
-Appliquez la configuration de l’extension de script personnalisé aux instances de machine virtuelle dans votre groupe identique avec [az vmss extension set](/cli/azure/vmss/extension#set). L’exemple suivant applique la configuration *customConfig.json* aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Saisissez vos propres noms, comme suit :
+Appliquez la configuration de l’extension de script personnalisé aux instances de machine virtuelle dans votre groupe identique avec [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set). L’exemple suivant applique la configuration *customConfig.json* aux instances de machine virtuelle *myScaleSet* dans le groupe de ressources nommé *myResourceGroup*. Entrez vos propres noms, comme suit :
 
 ```azurecli
 az vmss extension set \
@@ -172,7 +172,7 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
 
 Pour plus d’informations, y compris un exemple de fichier *cloud-init.txt*, consultez [Utiliser cloud-init pour personnaliser des machines virtuelles Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Pour créer un groupe identique et utiliser un fichier cloud-init, ajoutez le paramètre `--custom-data` à la commande [az vmss create](/cli/azure/vmss#create) et spécifiez le nom d’un fichier cloud-init. L’exemple suivant crée un groupe identique nommé *myScaleSet* dans *myResourceGroup* et configure des instances de machine virtuelle avec un fichier nommé *cloud-init.txt*. Saisissez vos propres noms, comme suit :
+Pour créer un groupe identique et utiliser un fichier cloud-init, ajoutez le paramètre `--custom-data` à la commande [az vmss create](/cli/azure/vmss#az_vmss_create) et spécifiez le nom d’un fichier cloud-init. L’exemple suivant crée un groupe identique nommé *myScaleSet* dans *myResourceGroup* et configure des instances de machine virtuelle avec un fichier nommé *cloud-init.txt*. Entrez vos propres noms, comme suit :
 
 ```azurecli
 az vmss create \
@@ -222,5 +222,5 @@ Lorsque de nouvelles versions du système d’exploitation sont disponibles, vou
 Si vous utilisez une image de machine virtuelle personnalisée avec l’application préinstallée, vous pouvez intégrer les mises à jour de l’application dans un pipeline de déploiement pour créer les nouvelles images et déployer des mises à niveau du système d’exploitation sur l’ensemble du groupe identique. Avec cette approche, le pipeline peut récupérer les dernières versions de l’application, créer et valider une image de machine virtuelle, puis mettre à niveau les instances de machine virtuelle dans le groupe identique. Pour exécuter un pipeline de déploiement qui crée et déploie des mises à jour de l’application sur des images de machine virtuelle personnalisées, vous pouvez utiliser [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Lorsque vous générez et déployez des applications sur vos groupes identiques, vous pouvez consulter [Vue d’ensemble de la conception de groupes identiques](virtual-machine-scale-sets-design-overview.md). Pour plus d’informations sur la façon de gérer votre groupe identique, consultez [Utiliser PowerShell pour gérer votre groupe identique](virtual-machine-scale-sets-windows-manage.md).

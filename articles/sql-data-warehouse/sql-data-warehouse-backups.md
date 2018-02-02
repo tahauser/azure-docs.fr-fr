@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Sauvegarde et restauration dans SQL Data Warehouse
 Cet article explique les spécificités des sauvegardes dans SQL Data Warehouse. Utilisez des sauvegardes d’entrepôts de données pour restaurer une capture instantanée de base de données dans la région principale, ou restaurer une géosauvegarde pour votre région associée géographiquement. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>Géosauvegardes
 SQL Data Warehouse effectue une géosauvegarde une fois par jour vers un [centre de données couplé](../best-practices-availability-paired-regions.md). Le RPO pour une géo-restauration est de 24 heures. Vous pouvez restaurer la géosauvegarde sur le serveur dans la région associée géographiquement. Cette géosauvegarde vous garantit de pouvoir restaurer un entrepôt de base de données dans le cas où vous ne pouvez pas accéder aux captures instantanées de votre région primaire.
 
-Les géosauvegardes sont activées par défaut. Si votre entrepôt de données est optimisé pour l’élasticité, vous pouvez les [désactiver](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) si vous le souhaitez. Vous ne pouvez pas désactiver les géosauvegardes avec le niveau de performance optimisé pour le calcul.
+Les géosauvegardes sont activées par défaut. Si votre entrepôt de données est optimisé pour l’élasticité, vous pouvez les [désactiver](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) si vous le souhaitez. Vous ne pouvez pas désactiver les géosauvegardes avec le niveau de performance optimisé pour le calcul.
 
 ## <a name="backup-costs"></a>Coûts de sauvegarde
 Vous remarquerez que la facture Azure a un élément de ligne pour le Stockage Premium Azure et un élément de ligne pour le stockage géoredondant. Les frais de Stockage Premium sont le coût total pour le stockage de vos données dans la région primaire, ce qui inclut les instantanés.  Les frais géoredondants couvrent le coût du stockage des géosauvegardes.  
@@ -72,7 +72,7 @@ Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une ca
 > Si vous supprimez une instance SQL Server logique, toutes les bases de données qui appartiennent à l’instance sont également supprimées, sans pouvoir être récupérées. Vous ne pouvez pas restaurer un serveur supprimé.
 > 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour restaurer un entrepôt de données SQL, consultez [Restaurer un entrepôt de données SQL](sql-data-warehouse-restore-database-overview.md).
 
 Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](../sql-database/sql-database-business-continuity.md)

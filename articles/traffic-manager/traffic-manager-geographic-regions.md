@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hiérarchie de pays/région utilisée par Azure Traffic Manager pour la méthode de routage du trafic géographique
 
@@ -65,14 +65,6 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
         - FR(France)
 
         - GB(Royaume-Uni)
-
-            - GB-ENG(Angleterre)
-
-            - GB-NIR(Irlande du Nord)
-
-            - GB-SCT(Ecosse)
-
-            - GB-WLS(Pays de Galles)
 
         - GG(Guernesey)
 
@@ -698,6 +690,6 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - En savoir plus sur la [méthode de routage du trafic géographique dans Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

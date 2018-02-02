@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 5f325cf19afd5a5a42c09b49486c0c1d9ee15e5d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c2cf81729a0556484bb0eb6c93ea57f0a6208cb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-docker-ce-cluster"></a>Déployer le cluster Docker CE
 
@@ -27,7 +27,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#create). Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées.
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *ukwest*.
 
@@ -35,7 +35,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 az group create --name myResourceGroup --location ukwest
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -52,7 +52,7 @@ Output:
 
 ## <a name="create-docker-swarm-cluster"></a>Créer le cluster Docker Swarm
 
-Pour créer un cluster Docker CE dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#create). 
+Pour créer un cluster Docker CE dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#az_acs_create). 
 
 L’exemple ci-après permet de créer un cluster nommé *mySwarmCluster*, qui inclut un nœud maître Linux et trois nœuds agents Linux.
 
@@ -60,7 +60,7 @@ L’exemple ci-après permet de créer un cluster nommé *mySwarmCluster*, qui i
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#create). 
+Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#az_acs_create). 
 
 Au bout de quelques minutes, la commande se termine et retourne des informations formatées JSON sur le cluster.
 
@@ -73,7 +73,7 @@ Pour suivre ce guide de démarrage rapide, vous avez besoin du nom de domaine co
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
-Output:
+Sortie :
 
 ```bash
 Master                                                               Agent
@@ -123,7 +123,7 @@ Exécutez la commande [docker stack deploy](https://docs.docker.com/engine/refer
 docker stack deploy azure-vote --compose-file azure-vote.yaml
 ```
 
-Output:
+Sortie :
 
 ```bash
 Creating network azure-vote_default
@@ -152,7 +152,7 @@ Naviguez dans le nom de domaine complet du pool d’agents Swarm pour tester l�
 ![Image de la navigation vers Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Supprimer un cluster
-Lorsque vous n’avez plus besoin du cluster, vous pouvez utiliser la commande [az group delete](/cli/azure/group#delete) pour supprimer le groupe de ressources, le service de conteneur et toutes les ressources associées.
+Lorsque vous n’avez plus besoin du cluster, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le service de conteneur et toutes les ressources associées.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -164,7 +164,7 @@ Dans ce guide de démarrage rapide, des images de conteneur créées au préalab
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez déployé un cluster Docker Swarm et vous y avez déployé une application de plusieurs conteneurs.
 

@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+
 
 App Service sur Azure Stack prend en charge le déploiement à la demande à partir de plusieurs fournisseurs de contrôle de code source. Cette fonctionnalité permet aux développeurs d’applications d’effectuer un déploiement directement à partir de leurs référentiels de contrôle de code source. Si les utilisateurs veulent configurer App Service pour se connecter à leurs référentiels, les opérateurs doivent d’abord configurer l’intégration entre App Service sur Azure Stack et le fournisseur de contrôle de code source.  
 
@@ -150,6 +152,6 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 [15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
 [16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les utilisateurs peuvent désormais utiliser les sources de déploiement pour le [déploiement continu](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), le [déploiement Git local](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), et la [synchronisation de dossiers de cloud](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

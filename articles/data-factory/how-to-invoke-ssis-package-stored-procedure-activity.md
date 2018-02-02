@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -31,7 +31,7 @@ Cet article décrit comment appeler un package SSIS à partir d’un pipeline Az
 La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance (préversion privée).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Créer un runtime d’intégration Azure-SSIS
-Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas en suivant les instructions pas à pas fournies dans le [Didacticiel : Déployer des packages SSIS](tutorial-deploy-ssis-packages-azure.md).
+Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas en suivant les instructions pas à pas fournies dans le [Didacticiel : Déployer des packages SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interface utilisateur de Data Factory (portail Azure)
 Dans cette section, vous utilisez l’interface utilisateur de Data Factory pour créer un pipeline Data Factory avec une activité de procédure stockée qui appelle un package SSIS.
@@ -91,7 +91,7 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
     6. Testez la connexion à la base de données en cliquant sur le bouton **Tester la connexion**.
     7. Enregistrez le service lié en cliquant sur le bouton **Enregistrer**. 
 
-        ![Service lié Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![Service lié pour base de données SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Dans la fenêtre de propriétés, basculez vers l’onglet **Procédure stockée** à partir de l’onglet **Compte SQL** et effectuez les étapes suivantes : 
 
     1. Dans le champ **Nom de la procédure stockée**, entrez `sp_executesql`. 
@@ -106,13 +106,13 @@ Lors de cette étape, vous utilisez l’interface utilisateur de Data Factory po
         DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END
         ```
 
-        ![Service lié Azure SQL Database ](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
+        ![Service lié pour base de données SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
 6. Pour valider la configuration du pipeline, cliquez sur **Valider** dans la barre d’outils. Pour fermer le **Rapport de validation de pipeline**, cliquez sur **>>**.
 
     ![Valider le pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Publiez le pipeline dans Data Factory en cliquant sur le bouton **Publier tout**. 
 
-    ![Publier](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
+    ![Publish](./media/how-to-invoke-ssis-package-stored-procedure-activity/publish-all-button.png)    
 
 ### <a name="run-and-monitor-the-pipeline"></a>Exécuter et surveiller le pipeline
 Dans cette section, vous déclenchez une exécution du pipeline puis vous la surveillez. 

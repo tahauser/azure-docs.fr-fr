@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
@@ -32,7 +32,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Func
 
 Actuellement, Visual Studio fournit la meilleure expérience de développement d’applications qui utilisent l’extension Fonctions durables.  Vos fonctions peuvent être exécutées en local, et peuvent également être publiées dans Azure. Vous pouvez commencer par un projet vide, ou par un ensemble d’exemples de fonctions.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 * Installez la [dernière version de Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 ou plus). Incluez la charge de travail de **développement Azure** dans vos options d’installation.
 
@@ -58,7 +58,7 @@ Suivez les instructions permettant de commencer par l’exemple, mais procédez 
 
 Visual Studio Code fournit une expérience de développement local qui couvre toutes les principales plates-formes : Windows, macOS et Linux.  Vos fonctions peuvent être exécutées en local, et peuvent également être publiées dans Azure. Vous pouvez commencer par un projet vide, ou par un ensemble d’exemples de fonctions.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>configuration requise
 
 * Installer la [dernière version de Visual Studio Code](https://code.visualstudio.com/Download) 
 
@@ -123,7 +123,7 @@ Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonc
 
 1. Créez une nouvelle application de fonction sur le site [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configurez l’application de fonction pour qu’elle [utilise la version du runtime 2.0](functions-versions.md).
+2. Configurez l’application de fonction pour qu’elle [utilise la version du runtime 2.0](set-runtime-version.md).
 
 3. Créez une nouvelle fonction en sélectionnant **« créer votre propre fonction personnalisée »**.
 
@@ -175,7 +175,7 @@ Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonc
 
 Félicitations ! Votre première fonction durable est maintenant opérationnelle dans le portail Azure !
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Exécuter l’exemple de chaînage de fonction](durable-functions-sequence.md)

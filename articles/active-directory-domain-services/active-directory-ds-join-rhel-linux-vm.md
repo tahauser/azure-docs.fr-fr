@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: b48ba1a1a47bc27e1d394e6fa56826df1eb742dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux 7 à un domaine géré
 Cet article indique comment joindre une machine virtuelle Red Hat Enterprise Linux (RHEL) 7 à un domaine géré par les services de domaine Azure Active Directory.
@@ -34,8 +34,8 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Configurer une machine virtuelle Red Hat Enterprise Linux
 Approvisionnez une machine virtuelle RHEL 7 dans Azure, en utilisant l’une des méthodes suivantes :
-* [Portail Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
+* [Portail Azure](../virtual-machines/linux/quick-create-portal.md)
+* [interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Ici, « contoso100.com » est le nom de domaine DNS de votre domaine géré. « 
 Ensuite, installez les packages requis pour la jonction de domaine sur la machine virtuelle. Dans votre terminal SSH, saisissez la commande suivante pour installer les packages nécessaires :
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 

@@ -2,19 +2,19 @@
 title: Charges de travail de conteneur sur Azure Batch | Microsoft Docs
 description: "Découvrez comment exécuter des applications à partir d’images conteneur sur Azure Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 12/01/2017
-ms.author: v-dotren
-ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: danlep
+ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -25,7 +25,7 @@ L’utilisation de conteneurs permet d’exécuter simplement des tâches par lo
 Cet article suppose une connaissance des concepts du conteneur Docker et de la manière de créer un pool et un travail de traitement par lots et le travail avec le kit de développement logiciel SDK .NET. Les extraits de code sont destinés à être utilisés dans une application cliente similaire à l’[exemple DotNetTutorial](batch-dotnet-get-started.md) et sont des exemples de code dont vous auriez besoin pour prendre en charge des applications de conteneur dans Batch.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 
 * Versions du kit de développement logiciel : le kit de développement logiciel prend en charge des images conteneur dans les versions suivantes :
     * API REST (version : 6.0 du 01/09/2017)
@@ -237,7 +237,7 @@ CloudTask containerTask = new CloudTask (
 ```
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
 

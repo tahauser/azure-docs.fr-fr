@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: ad008432b0e8f6ce9f9357cc539c982e878e2eba
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copier des données d’un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,9 @@ Pour utiliser l’authentification de base, définissez la propriété « authe
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -112,7 +114,9 @@ Pour utiliser l’authentification par clé publique SSH, définissez la propri�
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -139,7 +143,9 @@ Pour utiliser l’authentification par clé publique SSH, définissez la propri�
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SftpLinkedService",
+    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -184,7 +190,9 @@ Pour copier des données de SFTP, affectez la valeur **FileShare** à la propri�
 
 ```json
 {
+    "apiVersion": "2017-09-01-preview",
     "name": "SFTPDataset",
+    "type": "Datasets",
     "properties": {
         "type": "FileShare",
         "linkedServiceName":{
@@ -219,7 +227,7 @@ Pour copier des données de SFTP, définissez **FileSystemSource** comme type de
 | Propriété | DESCRIPTION | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type de la source d’activité de copie doit être définie sur **FileSystemSource** |OUI |
-| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur fichier, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
+| recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur des fichiers, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non  |
 
 **Exemple :**
 

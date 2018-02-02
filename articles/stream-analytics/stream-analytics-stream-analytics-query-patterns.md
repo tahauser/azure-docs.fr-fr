@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 ## <a name="introduction"></a>Introduction
@@ -146,7 +146,7 @@ Par exemple, analyser des données relatives à une alerte basée sur un seuil e
 
 **Output2**:
 
-| Marque | Temps | Nombre |
+| Marque | Temps | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -178,7 +178,7 @@ La première requête est un transfert des données que nous avons reçues vers 
 La deuxième requête effectue une agrégation et un filtrage simples, et envoie les résultats vers un système d’alerte en aval.
 
 Notez que vous pouvez également réutiliser les résultats d’expressions de table communes (par exemple avec des instructions **WITH**) dans plusieurs instructions de sortie. Cette option a l’avantage d’ouvrir moins de lecteurs vers la source d’entrée.
-Par exemple : 
+Par exemple :  
 
     WITH AllRedCars AS (
         SELECT
@@ -207,7 +207,7 @@ Par exemple, combien de voitures d’une même marque ont franchi le péage dans
 
 **Output:**
 
-| Nombre | Temps |
+| CountMake | Temps |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -401,7 +401,7 @@ Par exemple, deux voitures consécutives de la même marque se sont-elles engag
 
 **Sortie**:  
 
-| Utilisateur | Fonctionnalité | Durée |
+| Utilisateur | Fonctionnalité | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -475,8 +475,8 @@ Par exemple, générer toutes les cinq secondes un événement qui indique le p
 | "2014-01-01T06:01:05" |2 |
 | "2014-01-01T06:01:10" |3 |
 | "2014-01-01T06:01:15" |4 |
-| "2014-01-01T06:01:30" |5 |
-| "2014-01-01T06:01:35" |6 |
+| "2014-01-01T06:01:30" |5. |
+| "2014-01-01T06:01:35" |6. |
 
 **Sortie (10 premières lignes)**:
 
@@ -488,10 +488,10 @@ Par exemple, générer toutes les cinq secondes un événement qui indique le p
 | 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
 | 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
 | 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
-| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5. |
+| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6. |
+| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6. |
+| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6. |
 
 **Solution**:
 
@@ -511,7 +511,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

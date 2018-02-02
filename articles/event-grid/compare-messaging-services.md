@@ -6,20 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Choisir entre des services Azure qui remettent des messages
 
 Azure propose trois services qui facilitent la remise des messages d’événement dans une solution. Ces services sont :
 
 * [Event Grid](/azure/event-grid/)
-* [Concentrateurs d'événements](/azure/event-hubs/)
+* [Hubs d'événements](/azure/event-hubs/)
 * [Service Bus](/azure/service-bus-messaging/)
 
 Même si ces services ont des similitudes, chacun d’eux est conçu pour certains scénarios particuliers. Cet article décrit les différences entre ces services et vous aide à déterminer celui qui convient à votre application. Dans de nombreux cas, les services de messagerie sont complémentaires et peuvent être utilisés ensemble.
@@ -38,7 +38,7 @@ Un message est constitué de données brutes générées par un service et desti
 
 ## <a name="comparison-of-services"></a>Comparaison des services
 
-| Service | Objectif | Type | Quand utiliser |
+| de diffusion en continu | Objectif | type | Quand utiliser |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programmation réactive | Répartition des événements | Réagir aux changements d’état |
 | Event Hubs | Pipeline de Big Data | Diffusion en continu des événements | Données de télémétrie et streaming de données distribuées |
@@ -84,7 +84,7 @@ Dans d’autres cas, vous les liez pour former un pipeline d’événements et d
 
 ![Vue d’ensemble du flux des données](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * Pour plus d’informations sur les services de messagerie Azure, consultez le billet de blog [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Événements, points de données et messages : choisir le service de messagerie Azure adéquat pour vos données).
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
 
@@ -57,7 +57,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>configuration requise
 
 - Pour accéder aux informations des journaux d’activité Azure, vous devez posséder un abonnement Azure.
 
@@ -90,10 +90,10 @@ Les données de journal d’activité apparaissent uniquement *après* avoir con
 
 | Panneau | DESCRIPTION |
 | --- | --- |
-| Entrées de journal d’activité Azure | Affiche un graphique à barres du plus grand nombre d’enregistrements d’entrée de journal d’activité Azure pour la période sélectionnée et affiche la liste des 10 premiers appelants d’activité. Cliquez sur le graphique à barres pour exécuter une recherche dans les journaux de <code>Type=AzureActivity</code>. Cliquez sur un élément appelant pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet élément. |
-| Journaux d’activité par état | Affiche un graphique en anneau de l’état des journaux d’activité Azure pour la période sélectionnée. Affiche également la liste des dix premiers enregistrements d’état. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Cliquez sur un élément d’état pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet enregistrement d’état. |
-| Journaux d’activité par ressource | Affiche le nombre total de ressources avec les journaux d’activité et répertorie les dix premières ressources avec le nombre d’enregistrements pour chaque ressource. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by Resource</code>, qui affiche toutes les ressources Azure disponibles pour la solution. Cliquez sur une ressource pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour cette ressource. |
-| Journaux d’activité par fournisseur de ressources | Affiche le nombre total de fournisseurs de ressources qui génèrent des journaux d’activité et répertorie les dix premiers. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, qui affiche tous les fournisseurs de ressources Azure. Cliquez sur un fournisseur de ressources pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour ce fournisseur. |
+| Entrées de journal d’activité Azure | Affiche un graphique à barres du plus grand nombre d’enregistrements d’entrée de journal d’activité Azure pour la période sélectionnée et affiche la liste des 10 premiers appelants d’activité. Cliquez sur le graphique à barres pour exécuter une recherche dans les journaux de <code>AzureActivity</code>. Cliquez sur un élément appelant pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet élément. |
+| Journaux d’activité par état | Affiche un graphique en anneau de l’état des journaux d’activité Azure pour la période sélectionnée. Affiche également la liste des dix premiers enregistrements d’état. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Cliquez sur un élément d’état pour exécuter une recherche dans les journaux qui renvoie toutes les entrées de journal d’activité pour cet enregistrement d’état. |
+| Journaux d’activité par ressource | Affiche le nombre total de ressources avec les journaux d’activité et répertorie les dix premières ressources avec le nombre d’enregistrements pour chaque ressource. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, qui affiche toutes les ressources Azure disponibles pour la solution. Cliquez sur une ressource pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour cette ressource. |
+| Journaux d’activité par fournisseur de ressources | Affiche le nombre total de fournisseurs de ressources qui génèrent des journaux d’activité et répertorie les dix premiers. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, qui affiche tous les fournisseurs de ressources Azure. Cliquez sur un fournisseur de ressources pour exécuter une recherche dans les journaux qui renvoie tous les enregistrements d’activité pour ce fournisseur. |
 
 ![Tableau de bord Journaux d’activité Azure](./media/log-analytics-activity/activity-log-dash.png)
 

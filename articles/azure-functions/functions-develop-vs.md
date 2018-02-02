@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pour Visual Studio  
 
@@ -125,9 +125,9 @@ Pour en savoir plus sur l’utilisation d’Azure Functions Core Tools, consulte
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Paramètres de l’application de fonctions   
+## <a name="function-app-settings"></a>Paramètres Function App   
 
-Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonctions dans Azure. Ces paramètres ne sont pas chargés automatiquement quand vous publiez le projet. 
+Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonction dans Azure. Ces paramètres ne sont pas chargés automatiquement quand vous publiez le projet. 
 
 Le moyen le plus simple de charger les paramètres obligatoires sur votre application de fonctions dans Azure consiste à utiliser le lien **Gérer les paramètres d’application...** qui apparaît une fois votre projet correctement publié. 
 
@@ -141,9 +141,9 @@ Vous pouvez également gérer les paramètres d’application d’une des maniè
 
 * [Utilisation du portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Utilisation de l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
-* [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#set). 
+* [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set). 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour plus d’informations sur Azure Functions Tools, consultez la section Common Questions (Questions courantes) de l’article de blog [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Visual Studio 2017 Tools pour Azure Functions).
 

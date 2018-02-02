@@ -1,5 +1,5 @@
 ---
-title: Connecteur de gestion des services informatiques dans Azure Log Analytics | Microsoft Docs
+title: IT Service Management Connector dans Azure Log Analytics | Microsoft Docs
 description: "Cet article fournit une vue d’ensemble du connecteur de gestion des services informatiques (ITSMC) et des informations sur l’utilisation de cette solution pour surveiller et gérer de manière centralisée les éléments de travail ITSM dans Azure Log Analytics et résoudre rapidement les problèmes éventuels."
 services: log-analytics
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: d586ee1b96b34d6ca83e1ffd76aee38e79bdd727
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -48,7 +48,7 @@ Vous pouvez commencer à utiliser le connecteur ITSM en effectuant les étapes s
 3.  [Utiliser la connexion](#using-the-solution)
 
 
-##  <a name="adding-the-it-service-management-connector-solution"></a>Ajout de la solution Connecteur de gestion des services informatiques
+##  <a name="adding-the-it-service-management-connector-solution"></a>Ajout de la solution IT Service Management Connector
 
 Avant de pouvoir créer une connexion, vous devez ajouter la solution de connecteur ITSM.
 
@@ -203,7 +203,7 @@ Le tableau de bord fournit également des informations sur l’état du connecte
 
 Vous pouvez également visualiser les incidents synchronisés avec les ordinateurs concernés, dans la solution Service Map.
 
-La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent. [Plus d’informations](../operations-management-suite/operations-management-suite-service-map.md)
+La solution Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme des systèmes interconnectés qui fournissent des services critiques. Carte de service affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée à TCP, sans configuration requise autre que l’installation d’un agent. [Plus d’informations](../operations-management-suite/operations-management-suite-service-map.md)
 
 Si vous utilisez la solution Service Map, vous pouvez afficher les éléments de service d’assistance créés dans les solutions ITSM comme dans l’exemple suivant :
 
@@ -334,10 +334,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM
 1.  Si la connexion échoue à partir de l’interface utilisateur de la source connectée avec un message **Erreur lors de l’enregistrement de la connexion**, procédez comme suit :
 - Pour les connexions ServiceNow, Cherwell et Provance,  
-       - vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.  
-       - vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.  
+           - vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.  
+           - vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.  
 - Pour les connexions Service Manager,  
-       - vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+           - vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Si les données de ServiceNow ne sont pas synchronisées dans Log Analytics, vérifiez que l’instance ServiceNow n’est pas en état de veille. Parfois, les instances de développement ServiceNow entrent en veille quand elles restent longtemps inactives. Autrement, signalez le problème.
 3.  Si des alertes OMS se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM ou qu’aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations génériques, examinez les emplacements suivants :

@@ -29,7 +29,7 @@ Dans Bash, les partages de fichiers existants reçoivent une image de 5 Go pour
 ![Paramètre Groupe de ressources](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restreindre la création de ressources avec une stratégie de ressource Azure
-Les comptes de stockage que vous créez dans Cloud Shell sont identifiés à l’aide de la balise `ms-resource-usage:azure-cloud-shell`. Si vous souhaitez interdire aux utilisateurs de créer des comptes de stockage par le biais de Cloud Shell, créez une [stratégie de ressource Azure pour les balises](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) déclenchée par cette balise spécifique.
+Les comptes de stockage que vous créez dans Cloud Shell sont identifiés à l’aide de la balise `ms-resource-usage:azure-cloud-shell`. Si vous souhaitez interdire aux utilisateurs de créer des comptes de stockage par le biais de Cloud Shell, créez une [stratégie de ressource Azure pour les balises](../articles/azure-policy/json-samples.md) déclenchée par cette balise spécifique.
 
 ## <a name="supported-storage-regions"></a>Régions de stockage prises en charge
 Les comptes de stockage Azure associées doivent résider dans la même région que la machine Cloud Shell sur laquelle le montage est effectué.

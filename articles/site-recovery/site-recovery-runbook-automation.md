@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que pour la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
 
-Si vous ne connaissez pas Azure Automation, vous pouvez vous [inscrire](https://azure.microsoft.com/services/automation/) et [télécharger des exemples de scripts](https://azure.microsoft.com/documentation/scripts/). Pour plus d’informations et pour savoir comment orchestrer la récupération vers Azure à l’aide de [plans de récupération](https://azure.microsoft.com/blog/?p=166264), voir [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Si vous ne connaissez pas Azure Automation, vous pouvez vous [inscrire](https://azure.microsoft.com/services/automation/) et [télécharger des exemples de scripts](https://azure.microsoft.com/documentation/scripts/). Pour plus d’informations et pour savoir comment orchestrer la récupération vers Azure à l’aide de [plans de récupération](./site-recovery-create-recovery-plans.md), voir [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 Cet article explique comment intégrer des runbooks Azure Automation dans vos plans de récupération. Nous utilisons des exemples pour automatiser des tâches de base qui nécessitaient auparavant une intervention manuelle. Nous décrivons également comment convertir une récupération multiétape en une action de récupération d’un simple clic.
 
@@ -256,8 +256,10 @@ Pour un autre exemple, regardez la vidéo suivante. Elle montre comment récupé
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Documentation Automation](../automation/automation-sec-configure-azure-runas-account.md)
+* [Documentation Automation](../automation/automation-create-runas-account.md)
 * [Vue d’ensemble d’Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Vue d’ensemble d’Azure Automation")
 * [Ressources de script pour les professionnels de l'informatique](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Ressources de script pour les professionnels de l'informatique")
+
+## <a name="next-steps"></a>étapes suivantes
+[En savoir plus](site-recovery-failover.md) sur l’exécution des basculements.

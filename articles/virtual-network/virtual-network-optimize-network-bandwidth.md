@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: a208e0709c152ea889e6d5262add71b55cb83aa5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimiser le débit du réseau des machines virtuelles Azure
 
@@ -95,7 +95,7 @@ Des performances significatives en termes de débit peuvent être atteintes en m
 uname -r
 
 #sample output on Azure kernel:
-#4.11.0-1014-azure
+#4.13.0-1007-azure
 ```
 
 Si votre machine virtuelle ne dispose pas du noyau Azure, le numéro de version commence en général par « 4.4 ». Si la machine virtuelle n’a pas le noyau Azure, exécutez les commandes suivantes à la racine :
@@ -142,17 +142,17 @@ Pour bénéficier des optimisations, il est préférable de créer une machine v
 Il peut être bénéfique pour les machines virtuelles nouvelles ou existantes d’installer la dernière version de Linux Integration Services (LIS). L’optimisation du débit est incluse dans les LIS, à partir de la version 4.2. Entrez les commandes suivantes pour télécharger et installer les LIS :
 
 ```bash
-mkdir lis4.2.3-1
-cd lis4.2.3-1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
-tar xvzf lis-rpms-4.2.3-1.tar.gz
+mkdir lis4.2.3-4
+cd lis4.2.3-4
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-4.tar.gz
+tar xvzf lis-rpms-4.2.3-4.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
 Apprenez-en plus sur les Services d’intégration Linux version 4.2 pour Hyper-V en consultant la [page de téléchargement](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * Découvrez le résultat optimisé avec le [Test de bande passante/débit de machine virtuelle Azure](virtual-network-bandwidth-testing.md) pour votre scénario.
 * Découvrez de quelle façon [la bande passante est allouée aux machines virtuelles] (virtual-machine-network-throughput.md)
 * En savoir plus avec le [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)

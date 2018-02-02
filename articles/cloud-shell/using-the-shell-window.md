@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 43da2bf5b66ff7db03a6fb5c2e1ceaebe322bcbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Utilisation de la fenêtre Azure Cloud Shell
 
@@ -46,7 +46,7 @@ Cloud Shell permet plusieurs sessions simultanées dans les onglets du navigateu
 Lorsque vous quittez une session, veillez à fermer chaque fenêtre de session dans la mesure où chaque processus s’exécute indépendamment sur la même machine.
 
 ## <a name="copy-and-paste"></a>Copier et coller
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## <a name="resize-cloud-shell-window"></a>Redimensionner la fenêtre Cloud Shell
 * Cliquez et faites glisser le bord supérieur de la barre d’outils vers haut ou le bas pour redimensionner la fenêtre Cloud Shell.
@@ -61,7 +61,7 @@ Lorsque vous quittez une session, veillez à fermer chaque fenêtre de session d
 ## <a name="exit-command"></a>Commande Quitter
 Cliquez sur `exit` pour mettre un terme à la session active. Ce comportement se produit par défaut au bout de 20 minutes en l’absence d’interaction.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md)
 [Démarrage rapide de PowerShell dans Cloud Shell](quickstart-powershell.md)

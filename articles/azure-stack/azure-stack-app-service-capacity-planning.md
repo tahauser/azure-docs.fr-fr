@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planification de la capacité pour les rôles serveur Azure App Service dans Azure Stack
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Pour approvisionner un déploiement prêt pour la production d’Azure App Service sur Azure Stack, vous devez planifier la capacité que vous attendez que le système prenne en charge.  Voici des conseils sur le nombre minimal d’instances et de références SKU de calcul à utiliser pour un déploiement de production.
 
@@ -30,8 +31,8 @@ Vous pouvez planifier votre stratégie de capacité App Service à l’aide de c
 | --- | --- | --- |
 | Controller | 2 | A1 |
 | Serveur frontal | 2 | A1 |
-| Gestion | 2 | A3 |
-| Éditeur | 2 | A1 |
+| gestion | 2 | A3 |
+| Publisher | 2 | A1 |
 | Rôles de travail - partagés | 2 | A1 |
 | Rôles de travail - dédiés | 2 par niveau | A1 |
 
@@ -97,6 +98,6 @@ Dans les environnements de production, le rôle de serveur de fichiers fait face
 - Un cluster de serveur de fichiers
 - Un périphérique NAS (Network Attached Storage). Pour plus d’informations, consultez [Approvisionner un serveur de fichiers](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 [Avant de commencer avec App Service sur Azure Stack](azure-stack-app-service-before-you-get-started.md)

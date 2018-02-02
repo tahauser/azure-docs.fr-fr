@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 639f8540be289c03abc8d352f4bd9150c945625e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gérer les ressources du cluster Apache Spark dans Azure HDInsight 
 
@@ -76,7 +76,7 @@ Les trois paramètres clés pouvant être utilisés pour la configuration de Spa
 Les trois paramètres de configuration peuvent être configurés au niveau du cluster (pour toutes les applications qui s’exécutent sur le cluster) ou spécifiés pour chaque application.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Modifier les paramètres à l’aide de l’interface utilisateur d’Ambari
-1. À partir de l’interface utilisateur d’Ambari, cliquez sur **Spark**, puis sur **Configs** (Configurations), puis développez **Custom spark-defaults** (Personnaliser les valeurs Spark par défaut).
+1. À partir de l’interface utilisateur d’Ambari, cliquez sur **Spark**, puis sur **Configs (Configurations)**, puis développez **Custom spark-defaults (Personnaliser les valeurs Spark par défaut)**.
 
     ![Définir des paramètres à l’aide d’Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. Les valeurs par défaut conviennent si vous souhaitez exécuter simultanément quatre applications Spark sur le cluster. Vous pouvez modifier ces valeurs dans l’interface utilisateur, comme indiqué dans la capture d’écran suivante :

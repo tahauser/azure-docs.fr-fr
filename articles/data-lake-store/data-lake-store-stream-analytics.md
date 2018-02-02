@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2017
+ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Diffuser des données à partir d’un objet blob Azure Storage dans Data Lake Store à l’aide d’Azure Stream Analytics
 Dans cet article, vous allez apprendre à utiliser Azure Data Lake Store comme sortie d’une tâche Azure Stream Analytics. Cet article présente un scénario simple qui lit des données à partir d’un objet blob Azure Storage (entrée) et écrit les données dans Data Lake Store (sortie).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>configuration requise
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Compte Stockage Azure**. Vous allez utiliser un conteneur d’objets blob à partir de ce compte pour entrer des données pour une tâche Stream Analytics. Ce didacticiel part du principe que vous disposez d’un compte de stockage nommé **storageforasa** et d’un conteneur dans ce compte nommé **storageforasacontainer**. Une fois que vous avez créé le conteneur, chargez-y un fichier d’exemples de données. 
   
-* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d'Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Imaginons que vous ayez un compte Data Lake Store nommé **asadatalakestore**. 
+* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Imaginons que vous ayez un compte Data Lake Store nommé **asadatalakestore**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Créer un objet blob Stream Analytics
 Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une source d’entrée et une destination de sortie. Pour ce didacticiel, la source est un conteneur d’objets blob Azure et la destination est Lake Data Store.
@@ -65,7 +65,7 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
     * Pour **Délimiteur**, sélectionnez **tabulation**.
     * Pour **Encodage**, sélectionnez **UTF-8**.
 
-    Cliquez sur **Create**. Le portail ajoute désormais l’entrée et teste la connexion à celle-ci.
+    Cliquez sur **Créer**. Le portail ajoute désormais l’entrée et teste la connexion à celle-ci.
 
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>Créer une sortie Data Lake Store pour la tâche
@@ -94,7 +94,7 @@ Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une sou
     * Pour **Délimiteur**, sélectionnez **tabulation**.
     * Pour **Encodage**, sélectionnez **UTF-8**.
     
-    Cliquez sur **Create**. Le portail ajoute désormais la sortie et teste la connexion à celle-ci.
+    Cliquez sur **Créer**. Le portail ajoute désormais la sortie et teste la connexion à celle-ci.
     
 ## <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics
 

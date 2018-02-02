@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
@@ -45,7 +45,7 @@ Rôles disponibles :
 
 Les principaux du service activent une connectivité sans périphérique de contrôle à un registre dans les scénarios d’envoi et d’extraction suivants :
 
-  * *Lecteur* : déploiements de conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris DC/OS, Docker Swarm et Kubernetes. Vous pouvez également procéder à des extractions depuis les registres de conteneurs vers des services Azure connexes tels que [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), et autres.
+  * *Lecteur* : déploiements de conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris DC/OS, Docker Swarm et Kubernetes. Vous pouvez également procéder à des extractions depuis les registres de conteneurs vers des services Azure connexes tels que [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), et autres.
 
   * *Contributeur* : solutions d’intégration et de déploiement en continu, comme Visual Studio Team Services (VSTS) ou Jenkins, qui créent des images de conteneur et les envoient vers un registre.
 

@@ -2,17 +2,17 @@
 title: "Approvisionner des pools Azure Batch à partir d’images personnalisées | Microsoft Docs"
 description: "Vous pouvez créer un pool Batch à partir d’une image personnalisée pour approvisionner les nœuds qui contiennent les logiciels et les données dont vous avez besoin pour votre application. Les images personnalisées sont un moyen efficace de configurer les nœuds de calcul pour exécuter vos charges de travail Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image personnalisée managée pour créer un pool de machines virtuelles 
 
@@ -33,7 +33,7 @@ Le recours à une image personnalisée configurée pour votre scénario peut off
 - **Croissance des pools.** Quand vous utilisez une image personnalisée managée pour créer un pool, celui-ci peut atteindre n’importe quelle taille demandée. Vous n’avez pas besoin d’effectuer des copies des disques durs virtuels d’objets blob d’images pour satisfaire le nombre de machines virtuelles. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>configuration requise
 
 - **Une ressource d’image managée**. Pour créer un pool de machines virtuelles à l’aide d’une image personnalisée, vous devez créer une ressource d’image managée dans le même abonnement et la même région Azure que le compte Batch. Pour connaître les options de préparation d’image managée, consultez la section suivante.
 - **Authentification Azure Active Directory (AAD)**. L’API du client Batch doit utiliser l’authentification AAD. La prise en charge d’Azure Batch pour AAD est documentée dans [Authentifier les solutions de service Batch avec Active Directory](batch-aad-auth.md).
@@ -93,6 +93,6 @@ Pour vérifier si un pool existant est basé sur une image personnalisée, consu
 
 Toutes les images personnalisées associées à un pool sont affichées dans la fenêtre **Propriétés** de ce dernier.
  
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).

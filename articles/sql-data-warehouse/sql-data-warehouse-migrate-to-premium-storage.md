@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrer votre entrepôt de données vers un stockage Premium
 Azure SQL Data Warehouse propose depuis peu le [stockage Premium pour améliorer la prévisibilité des performances][premium storage for greater performance predictability]. Nous sommes maintenant prêts à migrer des entrepôts de données situés sur le stockage standard vers le stockage Premium. Vous pouvez utiliser la migration automatique ou, si vous préférez contrôler le déclenchement de la migration (ce qui implique un temps d’inactivité), effectuer la migration vous-même.
@@ -38,7 +38,7 @@ Si vous avez créé un entrepôt de données avant les dates ci-dessous, vous ut
 | Nord-Est de l’Allemagne |1er novembre 2016 |
 | Inde-Ouest |Stockage Premium non encore disponible |
 | Ouest du Japon |Stockage Premium non encore disponible |
-| États-Unis - partie centrale septentrionale |10 novembre 2016 |
+| Centre-Nord des États-Unis |10 novembre 2016 |
 
 ## <a name="automatic-migration-details"></a>Détails sur la migration automatique
 Par défaut, nous allons migrer votre base de données pour vous entre 18h00 et 6h00 (heure locale) selon les instructions de la section [Planification de la migration automatique][automatic migration schedule]. Votre entrepôt de données sera inutilisable pendant la migration. L’opération prendra environ une heure par To de stockage pour chaque entrepôt de données. La migration automatique ne donne lieu à aucune facturation.
@@ -76,7 +76,7 @@ Les migrations automatiques s’effectuent entre 18h00 et 06h00 (heure locale) p
 | Nord-Est de l’Allemagne |9 janvier 2017 |13 janvier 2017 |
 | Inde-Ouest |Pas encore déterminée |Pas encore déterminée |
 | Ouest du Japon |Pas encore déterminée |Pas encore déterminée |
-| États-Unis - partie centrale septentrionale |9 janvier 2017 |13 janvier 2017 |
+| Centre-Nord des États-Unis |9 janvier 2017 |13 janvier 2017 |
 
 ## <a name="self-migration-to-premium-storage"></a>Migration ponctuelle vers le stockage Premium
 Si vous souhaitez déterminer à quel moment le temps d’arrêt doit se produire, suivez la procédure ci-après qui permet de migrer un entrepôt de données du stockage standard vers le stockage Premium. Si vous choisissez cette option, vous devez effectuer la migration ponctuelle avant le début de la migration automatique dans cette région. Vous évitez ainsi tout risque de conflit dû à la migration automatique (reportez-vous à la [planification de la migration automatique][automatic migration schedule]).
@@ -110,7 +110,7 @@ Dans cet exemple, imaginez que votre entrepôt de données sur le stockage stand
 4. Supprimez « MyDW_BeforeMigration ». **Si vous n’effectuez pas cette opération, vous serez facturé pour les deux entrepôts de données.**
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Le stockage Premium augmente le nombre de fichiers blob de base de données dans l’architecture sous-jacente de votre entrepôt de données. Pour optimiser les avantages de ce changement en termes de performances, recréez vos index columnstore clustérisés à l’aide du script suivant. Ce script force le déplacement de certaines de vos données vers les objets blob supplémentaires. Si vous ne faites rien, les données sont naturellement redistribuées au fil du temps, lorsque vous en chargez d’autres dans vos tables.
 
 **Configuration requise :**
@@ -170,7 +170,7 @@ Si vous rencontrez des problèmes avec votre entrepôt de données, [créez un t
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
-[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power

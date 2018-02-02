@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Modèles pour Azure Policy
 
@@ -55,7 +55,7 @@ Le tableau suivant inclut des liens vers des modèles json pour Azure Policy. Ce
 | [Références SKU d’équilibreur de charge autorisées](scripts/allowed-lb-skus.md) | Exige que les équilibreurs de charge utilisent une référence SKU approuvée. Spécifiez un tableau de références SKU autorisées. |
 | [Aucun appairage de réseau avec un réseau ER](scripts/no-peering-er-net.md) | Interdit un appairage de réseau avec un réseau dans un groupe de ressources spécifié. À utiliser pour empêcher la connexion avec l’infrastructure réseau gérée centrale. Spécifiez le nom du groupe de ressources pour empêcher l’association. |
 | [Aucune table d’itinéraires définie par l’utilisateur](scripts/no-user-def-route-table.md)  |Interdit le déploiement de réseaux virtuels avec une table d’itinéraires définie par l’utilisateur. |
-| [Références SKU de passerelle de réseau virtuel autorisées](scripts/no-user-def-route-table.md) | Exige que les passerelles de réseau virtuel utilisent un type de passerelle et une référence SKU approuvés. Spécifiez un tableau de références SKU approuvées et un tableau de types de passerelle approuvés. |
+| [Références SKU de passerelle de réseau virtuel autorisées](scripts/allowed-vn-gate-sku.md) | Exige que les passerelles de réseau virtuel utilisent un type de passerelle et une référence SKU approuvés. Spécifiez un tableau de références SKU approuvées et un tableau de types de passerelle approuvés. |
 | [Utiliser un sous-réseau approuvé pour les interfaces réseau de machine virtuelle](scripts/use-approved-subnet-vm-nics.md) | Exige que les interfaces réseau utilisent un sous-réseau approuvé. Spécifiez l’identifiant du sous-réseau approuvé. |
 | [Utiliser un réseau virtuel approuvé pour les interfaces réseau de machine virtuelle](scripts/use-approved-vnet-vm-nics.md) | Exige que les interfaces réseau utilisent un réseau virtuel approuvé. Spécifiez l’identifiant du réseau virtuel approuvé. |
 |**Balises**||

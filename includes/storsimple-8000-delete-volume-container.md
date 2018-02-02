@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Si le conteneur de volumes a des volumes associés, commencez par mettre ces volumes hors connexion. Suivez les étapes de la [Mise hors connexion d’un volume](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Une fois les volumes hors connexion, vous pouvez les supprimer. Lorsque le conteneur de volumes n’est associé à aucun volume, supprimez-le. Pour supprimer un conteneur de volumes, procédez comme suit.
+Si le conteneur de volumes a des volumes associés, commencez par mettre ces volumes hors connexion. Suivez les étapes de la [Mise hors connexion d’un volume](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Une fois les volumes hors connexion, vous pouvez les supprimer. Lorsque le conteneur de volumes n’est associé à aucun volume, supprimez-le. Pour supprimer un conteneur de volumes, procédez comme suit.
 
 #### <a name="to-delete-a-volume-container"></a>Pour supprimer un conteneur de volumes
 1. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Sélectionnez l’appareil et cliquez dessus, puis accédez à **Paramètres > Gérer > Conteneurs de volumes**.

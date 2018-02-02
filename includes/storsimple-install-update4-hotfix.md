@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Pour télécharger des correctifs logiciels
 
@@ -27,7 +27,7 @@ Procédez comme suit pour télécharger la mise à jour logicielle à partir du 
 
 Procédez comme suit pour installer et vérifier les correctifs logiciels en mode Normal. Si vous les avez déjà installés à l’aide du portail Azure Classic, passez directement à la section [Pour installer et vérifier les correctifs logiciels en mode Maintenance](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Pour installer les correctifs logiciels, accédez à l’interface Windows PowerShell sur la console série de votre appareil StorSimple. Suivez les instructions détaillées de la section [Utilisation de PuTTY pour se connecter à la console série de l’appareil](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). À l'invite de commandes, appuyez sur **Entrée**.
+1. Pour installer les correctifs logiciels, accédez à l’interface Windows PowerShell sur la console série de votre appareil StorSimple. Suivez les instructions détaillées de la section [Utilisation de PuTTY pour se connecter à la console série de l’appareil](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). À l'invite de commandes, appuyez sur **Entrée**.
 2. Sélectionnez **Option 1** pour vous connecter à l’appareil avec un accès complet. Nous vous recommandons d’installer le correctif d’abord sur le contrôleur passif.
 3. Pour installer le correctif logiciel, tapez ce qui suit à l’invite de commandes :
    
@@ -81,7 +81,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
     > [!NOTE]
     > Parfois, l'applet de commande indique `False` lorsque la mise à jour est encore en cours d'exécution. Pour vous assurer que le correctif logiciel est terminé, patientez quelques minutes, exécutez à nouveau cette commande et vérifiez que `RunInProgress` est `False`. Dans ce cas, le correctif est terminé.
 
-6. Lorsque la mise à jour logicielle est terminée, vérifiez les versions des logiciels du système. Entrez :
+6. Lorsque la mise à jour logicielle est terminée, vérifiez les versions des logiciels du système. Tapez :
    
     `Get-HcsSystem`
    
@@ -112,7 +112,7 @@ Notez que si votre microprogramme de disque est déjà à jour, vous n’aurez p
 
 Pour installer les mises à jour du microprogramme de disque, suivez les instructions ci-dessous.
 
-1. Mettez l’appareil en mode maintenance. **Notez que vous ne devez pas utiliser l’accès distant Windows PowerShell quand vous vous connectez à un appareil en mode maintenance. À la place, exécutez cette applet de commande sur le contrôleur de l’appareil si vous êtes connecté par le biais de la console série de l’appareil.** Entrez :
+1. Mettez l’appareil en mode maintenance. **Notez que vous ne devez pas utiliser l’accès distant Windows PowerShell quand vous vous connectez à un appareil en mode maintenance. À la place, exécutez cette applet de commande sur le contrôleur de l’appareil si vous êtes connecté par le biais de la console série de l’appareil.** Tapez :
    
     `Enter-HcsMaintenanceMode`
    
@@ -153,7 +153,7 @@ Pour installer les mises à jour du microprogramme de disque, suivez les instruc
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Surveillez la progression de l’installation à l’aide de la commande `Get-HcsUpdateStatus` . La mise à jour est terminée quand `RunInProgress` passe à `False`.
-4. Une fois l’installation terminée, le contrôleur sur lequel le correctif logiciel en mode Maintenance a été installé redémarre. Connectez-vous avec l’option 1 (accès total) et vérifiez la version du microprogramme de disque. Entrez :
+4. Une fois l’installation terminée, le contrôleur sur lequel le correctif logiciel en mode Maintenance a été installé redémarre. Connectez-vous avec l’option 1 (accès total) et vérifiez la version du microprogramme de disque. Tapez :
    
    `Get-HcsFirmwareVersion`
    

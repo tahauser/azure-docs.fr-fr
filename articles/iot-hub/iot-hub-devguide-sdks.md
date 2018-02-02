@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e299de0953cefac925b0015a15983d25d456576f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96dad8917f4483c3d7c74ea0462b96d89286f549
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Comprendre et utiliser les kits Azure IoT SDK
 
@@ -88,7 +88,7 @@ La liste suivant contient des liens vers la documentation de référence sur les
 * [IoT Hub REST][lnk-rest-ref]
 * [Azure IoT Edge][lnk-gateway-ref]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 

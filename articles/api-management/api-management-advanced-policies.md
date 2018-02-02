@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -93,7 +93,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -124,15 +124,15 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|choose|Élément racine.|Oui|  
-|when|Condition à utiliser pour les parties `if` ou `ifelse` de la stratégie `choose`. Si la stratégie `choose` possède plusieurs sections `when`, elles sont évaluées de façon séquentielle. Une fois la `condition` d’un élément when évaluée à `true`, aucune autre condition `when` n’est évaluée.|Oui|  
+|choose|Élément racine.|OUI|  
+|when|Condition à utiliser pour les parties `if` ou `ifelse` de la stratégie `choose`. Si la stratégie `choose` possède plusieurs sections `when`, elles sont évaluées de façon séquentielle. Une fois la `condition` d’un élément when évaluée à `true`, aucune autre condition `when` n’est évaluée.|OUI|  
 |otherwise|Contient l’extrait de stratégie à utiliser si aucune des conditions `when` n’est évaluée à `true`.|Non |  
   
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|  
 |---------------|-----------------|--------------|  
-|condition="Boolean expression &#124; Boolean constant"|Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée.|Oui|  
+|condition="Boolean expression &#124; Boolean constant"|Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée.|OUI|  
   
 ###  <a name="ChooseUsage"></a> Utilisation  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -236,7 +236,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|forward-request|Élément racine.|Oui|  
+|forward-request|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
@@ -283,14 +283,14 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|    
-|limit-concurrency|Élément racine.|Oui|  
+|limit-concurrency|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|Default|  
 |---------------|-----------------|--------------|--------------|  
-|key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|Oui|Non applicable|  
-|max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|Oui|Non applicable|  
+|key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|OUI|N/A|  
+|max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|OUI|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -333,13 +333,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|log-to-eventhub|Élément racine. La valeur de cet élément est la chaîne à consigner dans votre Event Hub.|Oui|  
+|log-to-eventhub|Élément racine. La valeur de cet élément est la chaîne à consigner dans votre Event Hub.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|  
 |---------------|-----------------|--------------|  
-|logger-id|ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.|Oui|  
+|logger-id|ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.|OUI|  
 |partition-id|Spécifie l’index de la partition où les messages sont envoyés.|facultatif. Cet attribut peut ne pas être utilisé si `partition-key` est utilisé.|  
 |partition-key|Spécifie la valeur utilisée pour l’affectation de partitions lorsque des messages sont envoyés.|facultatif. Cet attribut peut ne pas être utilisé si `partition-id` est utilisé.|  
   
@@ -376,7 +376,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|mock-response|Élément racine.|Oui|  
+|mock-response|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
@@ -432,17 +432,17 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|retry|Élément racine. Peut contenir n’importe quelle autre stratégie sous forme d’élément enfant.|Oui|  
+|retry|Élément racine. Peut contenir n’importe quelle autre stratégie sous forme d’élément enfant.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
-|condition|[Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).|Oui|Non applicable|  
-|count|Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.|Oui|Non applicable|  
-|interval|Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.|Oui|Non applicable|  
-|max-interval|Nombre positif en secondes spécifiant le délai d’attente maximal entre les tentatives. Il est utilisé pour implémenter un algorithme de nouvelles tentatives exponentiel.|Non |Non applicable|  
-|delta|Nombre positif en secondes spécifiant l’incrément du délai d’attente. Il est utilisé pour implémenter les algorithmes de nouvelles tentatives linéaires et exponentiels.|Non |Non applicable|  
+|condition|[Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).|OUI|N/A|  
+|count|Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.|OUI|N/A|  
+|interval|Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.|OUI|N/A|  
+|max-interval|Nombre positif en secondes spécifiant le délai d’attente maximal entre les tentatives. Il est utilisé pour implémenter un algorithme de nouvelles tentatives exponentiel.|Non |N/A|  
+|delta|Nombre positif en secondes spécifiant l’incrément du délai d’attente. Il est utilisé pour implémenter les algorithmes de nouvelles tentatives linéaires et exponentiels.|Non |N/A|  
 |first-fast-retry|S’il a la valeur `true`, la première des nouvelles tentatives est effectuée immédiatement.|Non |`false`|  
   
 > [!NOTE]
@@ -487,7 +487,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|return-response|Élément racine.|Oui|  
+|return-response|Élément racine.|OUI|  
 |set-header|Instruction de stratégie [set-header](api-management-transformation-policies.md#SetHTTPheader).|Non |  
 |set-body|Instruction de stratégie [set-body](api-management-transformation-policies.md#SetBody).|Non |  
 |set-status|Instruction de stratégie [set-status](api-management-advanced-policies.md#SetStatus).|Non |  
@@ -553,7 +553,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|send-one-way-request|Élément racine.|Oui|  
+|send-one-way-request|Élément racine.|OUI|  
 |url|URL de la demande.|Non si mode=copy ; sinon, oui.|  
 |method|Méthode HTTP de la demande.|Non si mode=copy ; sinon, oui.|  
 |en-tête|En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.|Non |  
@@ -564,7 +564,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|DESCRIPTION|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|  
-|Nom|Spécifie le nom de l’en-tête à définir.|Oui|Non applicable|  
+|Nom|Spécifie le nom de l’en-tête à définir.|OUI|N/A|  
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|  
   
 ### <a name="usage"></a>Usage  
@@ -632,7 +632,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|send-request|Élément racine.|Oui|  
+|send-request|Élément racine.|OUI|  
 |url|URL de la demande.|Non si mode=copy ; sinon, oui.|  
 |method|Méthode HTTP de la demande.|Non si mode=copy ; sinon, oui.|  
 |en-tête|En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.|Non |  
@@ -643,10 +643,10 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|DESCRIPTION|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|  
-|response-variable-name="string"|En son absence, `context.Response` est utilisé.|Non |Non applicable|  
+|response-variable-name="string"|En son absence, `context.Response` est utilisé.|Non |N/A|  
 |timeout="integer"|Délai d’expiration en secondes avant l’échec de l’appel à l’URL.|Non |60|  
 |ignore-error|S’il a la valeur true et que la demande aboutit à une erreur :<br /><br /> - Si response-variable-name a été spécifié, il contiendra une valeur Null.<br />- Si response-variable-nam n’est pas spécifié, context.Request ne sera pas mis à jour.|Non |false|  
-|Nom|Spécifie le nom de l’en-tête à définir.|Oui|Non applicable|  
+|Nom|Spécifie le nom de l’en-tête à définir.|OUI|N/A|  
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|  
   
 ### <a name="usage"></a>Usage  
@@ -678,15 +678,15 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|proxy|Élément racine|Oui|  
+|proxy|Élément racine|OUI|  
 
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
-|url="chaîne"|URL du proxy sous la forme http://host:port.|Oui|Non applicable|  
-|username="chaîne"|Nom d’utilisateur à utiliser pour l’authentification auprès du proxy.|Non |Non applicable|  
-|password="chaîne"|Mot de passe à utiliser pour l’authentification auprès du proxy.|Non |Non applicable|  
+|url="chaîne"|URL du proxy sous la forme http://host:port.|OUI|N/A|  
+|username="chaîne"|Nom d’utilisateur à utiliser pour l’authentification auprès du proxy.|Non |N/A|  
+|password="chaîne"|Mot de passe à utiliser pour l’authentification auprès du proxy.|Non |N/A|  
 
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -738,7 +738,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|set-method|Élément racine. La valeur de l’élément spécifie la méthode HTTP.|Oui|  
+|set-method|Élément racine. La valeur de l’élément spécifie la méthode HTTP.|OUI|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -778,14 +778,14 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|set-status|Élément racine.|Oui|  
+|set-status|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
-|code="integer"|Code d’état HTTP à renvoyer.|Oui|Non applicable|  
-|reason="string"|Description du motif pour lequel le code d’état est renvoyé.|Oui|Non applicable|  
+|code="integer"|Code d’état HTTP à renvoyer.|OUI|N/A|  
+|reason="string"|Description du motif pour lequel le code d’état est renvoyé.|OUI|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -813,14 +813,14 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|set-variable|Élément racine.|Oui|  
+|set-variable|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|  
 |---------------|-----------------|--------------|  
-|Nom|Nom de la variable.|Oui|  
-|value|Valeur de la variable. Peut être une expression ou une valeur littérale.|Oui|  
+|Nom|Nom de la variable.|OUI|  
+|value|Valeur de la variable. Peut être une expression ou une valeur littérale.|OUI|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -880,13 +880,13 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|trace|Élément racine.|Oui|  
+|trace|Élément racine.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   
 |Attribut|DESCRIPTION|Obligatoire|Default|  
 |---------------|-----------------|--------------|-------------|  
-|source|Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message.|Oui|Non applicable|  
+|source|Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message.|OUI|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -947,7 +947,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
   
 |Élément|DESCRIPTION|Obligatoire|  
 |-------------|-----------------|--------------|  
-|wait|Élément racine. Ne peut contenir comme éléments enfants que les stratégies `send-request`, `cache-lookup-value` et `choose`.|Oui|  
+|wait|Élément racine. Ne peut contenir comme éléments enfants que les stratégies `send-request`, `cache-lookup-value` et `choose`.|OUI|  
   
 ### <a name="attributes"></a>Attributs  
   

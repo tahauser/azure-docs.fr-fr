@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Mise en réseau Azure
 
@@ -153,12 +153,12 @@ Vous pouvez déployer et configurer les ressources réseau Azure avec un des out
 - **Interface de ligne de commande Azure (CLI) :** des outils de ligne de commande pour la gestion d’Azure à partir d’ordinateurs Windows, Mac OS ou Linux. Apprenez-en davantage sur l’interface CLI Azure en lisant l’article [Vue d’ensemble de l’interface CLI Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Modèles Azure Resource Manager :** Un fichier (au format JSON) définissant l’infrastructure et la configuration d’une solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Pour en savoir plus sur la création de modèles, lisez les [Meilleures pratiques pour la création de modèles](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json). Les modèles peuvent être déployés avec le portail Azure, l’interface CLI ou PowerShell. Pour commencer à utiliser des modèles immédiatement, déployez un des nombreux modèles préconfigurés dans la bibliothèque [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?term=network). 
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 
 Certains des services de mise en réseau Azure sont facturés, tandis que d’autres sont gratuits. Affichez les pages de facturation pour [Réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network), [Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [Application Gateway](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [Équilibrage de charge](https://azure.microsoft.com/pricing/details/load-balancer), [Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) et [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) pour plus d’informations.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-- Créez votre premier réseau virtuel et connectez-y plusieurs machines virtuelles en effectuant les étapes décrites dans l’article [Créer votre premier réseau virtuel](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- Créez votre premier réseau virtuel et connectez-y plusieurs machines virtuelles en effectuant les étapes décrites dans l’article [Créer votre premier réseau virtuel](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Connectez votre ordinateur à un réseau virtuel en effectuant les étapes décrites dans l’article [Configurer une connexion de point à site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Équilibrez la charge de trafic Internet sur les serveurs publics en effectuant les étapes décrites dans l’article [Créer un équilibrage de charge accessible sur Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

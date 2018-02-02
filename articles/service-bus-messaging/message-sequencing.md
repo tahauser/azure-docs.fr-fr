@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: e97bdd645ef2a3efba83e3f87114c998f9a9e344
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67a9d01f686c6aa8a569239667ae14d7bf087a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-sequencing-and-timestamps"></a>Séquencement et horodatage des messages
 
@@ -45,9 +45,9 @@ La valeur **SequenceNumber** d’un message planifié est valide seulement si le
 
 Étant donné que la fonctionnalité s’applique à des messages individuels et que les messages ne peuvent être mis en file d’attente qu’une seule fois, Service Bus ne prend pas en charge les planifications récurrentes des messages.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
-Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suivantes :
+Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)

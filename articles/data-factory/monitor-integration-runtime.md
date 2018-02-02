@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.openlocfilehash: e1bfb7199ddf9f02297db9de529729ba3833cf8c
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -40,22 +40,22 @@ Cette cmdlet renvoie des informations différentes en fonction du type de runtim
 ## <a name="azure-integration-runtime"></a>Runtime d’intégration Azure
 La ressource de calcul d’un runtime d’intégration Azure est entièrement gérée dans Azure, en toute flexibilité. Le tableau suivant fournit des descriptions des propriétés renvoyées par la commande **Get-AzureRmDataFactoryV2IntegrationRuntime** :
 
-### <a name="properties"></a>Propriétés
+### <a name="properties"></a>properties
 Le tableau suivant fournit des descriptions des propriétés renvoyées par la cmdlet pour un runtime d’intégration Azure :
 
-| Propriété | Description |
+| Propriété | DESCRIPTION |
 -------- | ------------- | 
-| Nom | Nom du runtime d’intégration Azure. |  
-| State | État du runtime d’intégration Azure. | 
+| NOM | Nom du runtime d’intégration Azure. |  
+| État | État du runtime d’intégration Azure. | 
 | Lieu | Emplacement du runtime d’intégration Azure. Pour plus d’informations sur l’emplacement d’un runtime d’intégration d’Azure, voir [Introduction au runtime d’intégration](concepts-integration-runtime.md). |
 | DataFactoryName | Nom de la fabrique de données à laquelle le runtime d’intégration Azure appartient. | 
 | ResourceGroupName | Nom du groupe de ressources auquel la fabrique de données appartient.  |
-| Description | Description du runtime d’intégration Azure.  |
+| DESCRIPTION | Description du runtime d’intégration Azure.  |
 
-### <a name="status"></a>État
+### <a name="status"></a>Statut
 Le tableau suivant indique les états possibles d’un runtime d’intégration Azure :
 
-| État | Commentaires/Scénarios | 
+| Statut | Commentaires/Scénarios | 
 | ------ | ------------------ |
 | En ligne | Le runtime d’intégration Azure est en ligne et prêt à être utilisé. | 
 | Hors ligne | Le runtime d’intégration Azure est hors connexion en raison d’une erreur interne. |
@@ -66,14 +66,14 @@ Le tableau suivant fournit des descriptions des propriétés renvoyées par la c
 > [!NOTE] 
 > Les propriétés renvoyées et l’état contiennent des informations sur le runtime d’intégration auto-hébergé dans son ensemble et sur chacun des nœuds du runtime.  
 
-### <a name="properties"></a>Propriétés
+### <a name="properties"></a>properties
 
 Le tableau suivant fournit des descriptions des propriétés de surveillance pour **chaque nœud** :
 
-| Propriété | Description | 
+| Propriété | DESCRIPTION | 
 | -------- | ----------- | 
-| Nom | Nom du runtime d’intégration auto-hébergé et des nœuds qui lui sont associés. Le nœud est un ordinateur Windows local sur lequel le runtime d’intégration auto-hébergé est installé. |  
-| État | État du runtime d’intégration auto-hébergé dans son ensemble et de chacun des nœuds. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, voir la section suivante. | 
+| NOM | Nom du runtime d’intégration auto-hébergé et des nœuds qui lui sont associés. Le nœud est un ordinateur Windows local sur lequel le runtime d’intégration auto-hébergé est installé. |  
+| Statut | État du runtime d’intégration auto-hébergé dans son ensemble et de chacun des nœuds. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, voir la section suivante. | 
 | Version | Version du runtime d’intégration auto-hébergé et de chacun des nœuds. La version du runtime d’intégration auto-hébergé est déterminée d’après la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans la configuration du runtime d’intégration auto-hébergé, seuls les nœuds dont le numéro de version est identique à celui du runtime d’intégration auto-hébergé logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). | 
 | Mémoire disponible | Mémoire disponible dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. | 
 | Utilisation du processeur | Utilisation du processeur dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. |
@@ -86,7 +86,7 @@ Certains paramètres de ces propriétés semblent plus logiques en présence de 
 ### <a name="status-per-node"></a>État (par nœud)
 Le tableau suivant indique les états possibles d’un nœud de runtime d’intégration Azure auto-hébergé :
 
-| État | Description |
+| Statut | DESCRIPTION |
 | ------ | ------------------ | 
 | En ligne | Le nœud est connecté au service Data Factory. |
 | Hors ligne | Le nœud est hors connexion. |
@@ -99,7 +99,7 @@ Un nœud peut être inactif quand il ne parvient pas à se connecter à d’autr
 ### <a name="status-overall-self-hosted-integration-runtime"></a>État (runtime d’intégration auto-hébergé dans son ensemble)
 Le tableau suivant indique les états possibles d’un runtime d’intégration Azure auto-hébergé. Cet état dépend des états de tous les nœuds appartenant au runtime. 
 
-| État | Description |
+| Statut | DESCRIPTION |
 | ------ | ----------- | 
 | Inscription requise | Aucun nœud n’est encore inscrit dans ce runtime d’intégration auto-hébergé. |
 | En ligne | Tous les nœuds sont en ligne. |
@@ -149,15 +149,15 @@ Exemple de sortie (suppose que deux nœuds sont associés à ce runtime d’int�
 ## <a name="azure-ssis-integration-runtime"></a>Runtime d’intégration Azure SSIS
 Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de machines virtuelles (ou nœuds) Azure. Il est dédié à l’exécution de vos packages SSIS. Il n’exécute aucune autre activité d’Azure Data Factory. Une fois configuré, vous pouvez interroger ses propriétés et surveiller ses états (dans son ensemble ou selon les nœuds).
 
-### <a name="properties"></a>Propriétés
+### <a name="properties"></a>properties
 
-| Propriété/état | Description |
+| Propriété/état | DESCRIPTION |
 | --------------- | ----------- |
 | CreateTime | Heure UTC de création du runtime d’intégration Azure-SSIS. |
 | Nœuds | Nœuds disponibles ou alloués de votre runtime d’intégration Azure-SSIS avec états spécifiques aux nœuds (démarrage/disponibilité/recyclage/indisponibilité) et erreurs exploitables. |
 | OtherErrors | Erreurs exploitables non spécifiques aux nœuds de votre runtime d’intégration Azure-SSIS. |
 | LastOperation | Résultat de la dernière opération de démarrage ou d’arrêt de votre runtime d’intégration Azure-SSIS avec erreurs exploitables en cas d’échec. |
-| State | État d’ensemble (initial/démarrage/arrêt/arrêté) de votre runtime d’intégration Azure-SSIS. |
+| État | État d’ensemble (initial/démarrage/arrêt/arrêté) de votre runtime d’intégration Azure-SSIS. |
 | Lieu | Emplacement de votre runtime d’intégration Azure-SSIS. |
 | NodeSize | Taille de chacun des nœuds de votre runtime d’intégration Azure-SSIS. |
 | NodeCount | Nombre de nœuds de votre runtime d’intégration Azure-SSIS. |
@@ -169,28 +169,28 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | VNetId | ID de ressource de réseau virtuel (VNet) que votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | Sous-réseau | Nom du sous-réseau que pour votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | ID | ID de ressource de votre runtime d’intégration Azure-SSIS. |
-| Type | Type (managé/auto-hébergé) de votre runtime d’intégration Azure-SSIS. |
+| type | Type (managé/auto-hébergé) de votre runtime d’intégration Azure-SSIS. |
 | ResourceGroupName | Nom du groupe de ressources Azure dans lequel votre fabrique de données et le runtime d’intégration Azure-SSIS ont été créés. |
 | DataFactoryName | Nom de votre service Azure Data Factory. |
-| Nom | Nom de votre runtime d’intégration Azure-SSIS. |
-| Description | Description de votre runtime d’intégration Azure-SSIS. |
+| NOM | Nom de votre runtime d’intégration Azure-SSIS. |
+| DESCRIPTION | Description de votre runtime d’intégration Azure-SSIS. |
 
   
 ### <a name="status-per-node"></a>État (par nœud)
 
-| État | Description |
+| Statut | DESCRIPTION |
 | ------ | ----------- | 
-| Starting | Ce nœud est en cours de préparation. |
+| Démarrage en cours | Ce nœud est en cours de préparation. |
 | Disponible | Ce nœud est prêt pour vous permettre de déployer ou d’exécuter des packages SSIS. |
 | Recyclage | Ce nœud est en cours de réparation ou de redémarrage. |
 | Non disponible | Ce nœud n’est pas prêt pour vous permettre de déployer ou d’exécuter des packages SSIS. Il présente des erreurs ou problèmes sur lesquels vous pouvez intervenir et que vous pouvez résoudre. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>État (runtime d’intégration Azure SSIS dans son ensemble)
 
-| État global | Description | 
+| État global | DESCRIPTION | 
 | -------------- | ----------- | 
 | Initial | Les nœuds de votre runtime d’intégration Azure-SSIS ont été alloués ou préparés. | 
-| Starting | Les nœuds de votre runtime d’intégration Azure-SSIS sont en cours d’affectation ou de préparation et la facturation a commencé. |
+| Démarrage en cours | Les nœuds de votre runtime d’intégration Azure-SSIS sont en cours d’affectation ou de préparation et la facturation a commencé. |
 | Démarré | Les nœuds de votre runtime d’intégration Azure-SSIS ont été alloués ou préparés et ils sont prêts pour vous permettre de déployer et d’exécuter des packages SSIS. |
 | En cours d’arrêt  | Les nœuds de votre runtime d’intégration Azure-SSIS sont libérés. |
 | Arrêté | Les nœuds de votre runtime d’intégration Azure-SSIS ont été libérés et la facturation a pris fin. |
@@ -198,12 +198,12 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 Pour plus d’informations sur le runtime d’intégration Azure-SSIS, voir les articles suivants :
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) (Runtime d’intégration Azure-SSIS). Cet article fournit des informations conceptuelles sur les runtimes d’intégration en général, y compris sur le runtime d’intégration Azure-SSIS. 
-- [Didacticiel : deploy SSIS packages to Azure](tutorial-deploy-ssis-packages-azure.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
+- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
 - [Procédures : Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) (Créer un runtime d’intégration Azure-SSIS). Cet article s’appuie sur le didacticiel et fournit des instructions sur la façon d’utiliser Azure SQL Managed Instance (préversion privée) et d’associer le runtime d’intégration à un VNet. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment le faire évoluer en lui ajoutant des nœuds supplémentaires. 
 - [Join an Azure-SSIS IR to a VNet](join-azure-ssis-integration-runtime-virtual-network.md) (Attacher un runtime d’intégration Azure-SSIS à un VNet). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure (VNet). Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Consultez les articles suivants pour surveiller les pipelines de différentes façons : 
 
 - [Démarrages rapides : create a data factory](quickstart-create-data-factory-dot-net.md) (Créer une fabrique de données)

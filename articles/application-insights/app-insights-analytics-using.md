@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Utilisation d’Analytics dans Application Insights
 [Analytics](app-insights-analytics.md) est la fonctionnalité de recherche performante [d’Application Insights](app-insights-overview.md). Ces pages décrivent le langage de requête Log Analytics.
@@ -99,7 +99,7 @@ Si vous pensez que vous ne voyez pas tous les résultats escomptés, il existe d
 
     Toutefois, vous pouvez modifier ce filtre d'intervalle à l’aide du menu déroulant.
 
-    Ou vous pouvez remplacer l'intervalle automatique en incluant votre propre [clause `where  ... timestamp ...`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) dans la requête. Par exemple :
+    Ou vous pouvez remplacer l'intervalle automatique en incluant votre propre [clause `where  ... timestamp ...`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) dans la requête. Par exemple : 
 
     `requests | where timestamp > ago('2d')`
 
