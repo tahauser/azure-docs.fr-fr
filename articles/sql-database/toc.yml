@@ -1,9 +1,11 @@
 - name: Documentation SQL Database
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de SQL Database
       href: sql-database-technical-overview.md
+    - name: PaaS ou IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -59,7 +61,7 @@
       href: sql-database-powershell-samples.md
 - name: Concepts
   items:
-    - name: Fonctionnalités du service
+    - name: Service de base de données
       items:
         - name: Serveurs et bases de données
           href: sql-database-servers-databases.md
@@ -73,42 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: Architecture de connectivité
           href: sql-database-connectivity-architecture.md
-        - name: Règles de pare-feu
-          href: sql-database-firewall-configure.md
-        - name: Règles de réseau virtuel de pare-feu
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU et eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Référence DTU
           href: sql-database-benchmark-overview.md
-        - name: PaaS ou IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Audit
-          href: sql-database-auditing.md
-        - name: Détection de menaces
-          href: sql-database-threat-detection.md
-        - name: Sauvegardes de base de données
-          href: sql-database-automated-backups.md
-        - name: Rétention des sauvegardes
-          href: sql-database-long-term-retention.md
-        - name: Groupes de basculement
-          href: sql-database-geo-replication-overview.md
-        - name: Bibliothèque cliente élastique
-          href: sql-database-elastic-database-client-library.md
-        - name: Requêtes élastiques
-          href: sql-database-elastic-query-overview.md
-        - name: Transactions élastiques
-          href: sql-database-elastic-transactions-overview.md
-        - name: Tâches élastiques
-          href: sql-database-elastic-jobs-overview.md
-        - name: Évaluation des vulnérabilités SQL
-          href: sql-vulnerability-assessment.md
         - name: Fonctionnalités communes de SQL Server
           href: sql-database-features.md
+    - name: Haute disponibilité
+      href: sql-database-high-availability.md
     - name: Sécurité
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-database-security-overview.md
+        - name: Règles de pare-feu
+          href: sql-database-firewall-configure.md
+        - name: Règles de réseau virtuel de pare-feu
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Contrôle d’accès
           href: sql-database-control-access.md
         - name: "Azure\_AD"
@@ -117,16 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Authentification multifacteur
           href: sql-database-ssms-mfa-authentication.md
+        - name: Audit
+          href: sql-database-auditing.md
+        - name: Détection de menaces
+          href: sql-database-threat-detection.md
         - name: Audit de table et TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Masquage de données
+        - name: Masquage des données dynamiques
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: Haute disponibilité
-      href: sql-database-high-availability.md
+        - name: Évaluation des vulnérabilités
+          href: sql-vulnerability-assessment.md
+        - name: Découverte et classification des données
+          href: sql-database-data-discovery-and-classification.md
     - name: Continuité de l’activité
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-database-business-continuity.md
+        - name: Sauvegardes de base de données
+          href: sql-database-automated-backups.md
+        - name: Rétention des sauvegardes
+          href: sql-database-long-term-retention.md
+        - name: Groupes de basculement
+          href: sql-database-geo-replication-overview.md
         - name: Récupération des bases de données
           href: sql-database-recovery-using-backups.md
         - name: Configurer la sécurité
@@ -143,7 +137,7 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Migrer vers SQL Database
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-database-cloud-migrate.md
         - name: Modifications de T-SQL
           href: sql-database-transact-sql-information.md
@@ -161,7 +155,7 @@
           href: sql-database-sync-data.md
     - name: Surveiller et régler
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-database-troubleshoot-performance.md
         - name: Analyse des performances
           href: sql-database-single-database-monitor.md
@@ -183,8 +177,16 @@
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Montée en charge
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-database-elastic-scale-introduction.md
+        - name: Bibliothèque cliente élastique
+          href: sql-database-elastic-database-client-library.md
+        - name: Requêtes élastiques
+          href: sql-database-elastic-query-overview.md
+        - name: Transactions élastiques
+          href: sql-database-elastic-transactions-overview.md
+        - name: Tâches élastiques
+          href: sql-database-elastic-jobs-overview.md
         - name: Cartes de partition
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routage des requêtes
@@ -211,7 +213,7 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Développer des bases de données
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-database-develop-overview.md
         - name: Données JSON
           href: sql-database-json-features.md
@@ -299,6 +301,8 @@
           href: sql-database-advisor-portal.md
         - name: Activer le réglage automatique
           href: sql-database-automatic-tuning-enable.md
+        - name: Notifications par e-mail sur l’ajustement automatique
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Résolution des problèmes de performances Intelligent Insights
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Utiliser des DMV pour surveiller les performances

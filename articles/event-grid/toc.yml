@@ -10,6 +10,8 @@
   items:
     - name: Itinéraire d’événements de stockage Blob - Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Itinéraire d’événements de stockage Blob - Azure PowerShell
+      href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Créer un événement personnalisé - Interface de ligne de commande Azure
       href: custom-event-quickstart.md
     - name: Créer un événement personnalisé - Azure PowerShell
@@ -36,11 +38,15 @@
   items:
     - name: Diffuser des données en continu sur l’entrepôt de données à partir d’Event Hubs
       href: event-grid-event-hubs-integration.md
+    - name: Envoyer des notifications concernant les événements IoT Hub
+      href: publish-iot-hub-events-to-logic-apps.md
+    - name: Envoyer des messages dans une rubrique personnalisée
+      href: post-to-custom-topic.md
     - name: Modèles d’abonnement aux événements
       href: event-subscription-template.md
     - name: Surveiller la remise d’événement
       href: monitor-event-delivery.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: Azure CLI
       href: /cli/azure/eventgrid
@@ -48,6 +54,8 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
+    - name: Kits de développement logiciel (SDK)
+      href: sdk-overview.md
     - name: Schéma d’abonnement
       href: subscription-creation-schema.md
     - name: Schéma d’événement
@@ -59,6 +67,8 @@
           href: event-schema-blob-storage.md
         - name: Hubs d'événements
           href: event-schema-event-hubs.md
+        - name: IoT Hub
+          href: event-schema-iot-hub.md
         - name: Groupes de ressources
           href: event-schema-resource-groups.md
 - name: Ressources

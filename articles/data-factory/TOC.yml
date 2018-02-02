@@ -1,6 +1,6 @@
 - name: Documentation Data Factory V2
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de Data Factory
       href: introduction.md
@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Interface utilisateur (IU)
           href: tutorial-copy-data-portal.md
-        - name: "Azure\_PowerShell"
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 - Copier des données locales dans le cloud
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-control-flow-portal.md
-        - name: "Azure\_PowerShell"
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Exemples
   items:
@@ -350,6 +350,8 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: "Appeler les packages\_SSIS à l’aide d’une activité de procédure stockée"
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Planifier le runtime d’intégration Azure-SSIS Integration Runtime
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Créer des déclencheurs
       items:
         - name: Créer un déclencheur de planification

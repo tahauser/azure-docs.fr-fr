@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 ## [À propos de la gestion des identités Azure](identity-fundamentals.md)
 ## [Comprendre les solutions d’identité Azure](understand-azure-identity-solutions.md)
@@ -176,6 +176,16 @@
 ##### [Mettre à jour les paramètres du Registre](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Comprendre la sécurité et la confidentialité](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Approvisionnement/déprovisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+#### [Didacticiels d’intégration d’applications](active-directory-saas-tutorial-list.md)
+#### [Automatiser l’approvisionnement vers des applications prenant en charge le protocole SCIM](active-directory-scim-provisioning.md)
+#### [Personnalisation des mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md)
+#### [Écrire des expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Utiliser des filtres d’étendue](active-directory-saas-scoping-filters.md)
+#### [Créer des rapports sur l’approvisionnement d’utilisateurs automatique](active-directory-saas-provisioning-reporting.md)
+#### [Résoudre les problèmes d’approvisionnement d’utilisateurs](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Accéder aux applications à distance avec le proxy d’application](active-directory-application-proxy-get-started.md)
 #### Prise en main
@@ -219,7 +229,7 @@
 #### [Signature de certificat avancée pour les applications SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Masquer une application à partir de l’expérience utilisateur](active-directory-coreapps-hide-third-party-app.md)
 ### [Configurer l’accélération automatique de la connexion à l’aide de la stratégie HRD Policy](active-directory-auto-acceleration-using-hrd.md)
-
+### [Migrer des applications AD FS vers Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Gérer l’accès aux applications](active-directory-managing-access-to-apps.md)
 #### [Accès par authentification unique](active-directory-appssoaccess-whatis.md)
 #### [Certificats pour authentification unique](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## Déléguer l’accès aux ressources
 ### [Rôles d’administrateur](active-directory-assign-admin-roles-azure-portal.md)
-#### [Affecter des rôles d’administrateur](active-directory-users-assign-role-azure-portal.md)
+#### [Affecter un rôle d’administrateur à un utilisateur](active-directory-users-assign-role-azure-portal.md)
+#### [Comparer les autorisations des invités et des membres](users-default-permissions.md)
 ### [Unités administratives](active-directory-administrative-units-management.md)
 ### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
 ### [Gérer les comptes d’administration d’accès d’urgence](active-directory-admin-manage-emergency-access-accounts.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Intégrer d’autres services à Azure AD]()
-### [Activer l’intégration de LinkedIn](linkedin-integration.md)
+## Intégrer d’autres services avec Azure AD
+### [Intégrer LinkedIn avec Azure AD](linkedin-integration.md)
 
 ## [Déployer AD DS sur des machines virtuelles Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory sur les machines virtuelles Azure](active-directory-deploying-ws-ad-guidelines.md)

@@ -1,4 +1,4 @@
-# Vue d’ensemble
+# Vue d'ensemble
 ## [Azure et IoT](iot-hub-what-is-azure-iot.md)
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
@@ -40,10 +40,11 @@
 
 # Procédures
 ## Planification
-### [Comparaison entre IoT Hub et Event Hubs](iot-hub-compare-event-hubs.md)
+### [Comparer IoT Hub et Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Mettre à l’échelle votre solution](iot-hub-scaling.md)
 ### [Haute disponibilité et récupération d’urgence](iot-hub-ha-dr.md)
 ### [Protocoles supplémentaires pris en charge](iot-hub-protocol-gateway.md)
+### [Comparer le message et le routage d’événement](iot-hub-event-grid-routing-comparison.md)
 ## [Développement](iot-hub-how-to.md)
 ### [Guide du développeur](iot-hub-devguide.md)
 #### [Guide des fonctionnalités appareil-à-cloud](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [Envoyer et recevoir des messages](iot-hub-devguide-messaging.md)
 ##### [Envoyer des messages appareil-à-cloud sur IoT Hub](iot-hub-devguide-messages-d2c.md)
 ##### [Lire des messages appareil-à-cloud à partir du point de terminaison intégré](iot-hub-devguide-messages-read-builtin.md)
+##### [Réagir aux événements IoT Hub](iot-hub-event-grid.md)
 ##### [Utiliser des points de terminaison et des règles de routage personnalisés pour les messages appareil-à-cloud](iot-hub-devguide-messages-read-custom.md)
 ##### [Envoyer des messages cloud-à-appareil à partir d’IoT Hub](iot-hub-devguide-messages-c2d.md)
 ##### [Créer et lire des messages IoT Hub](iot-hub-devguide-messages-construct.md)

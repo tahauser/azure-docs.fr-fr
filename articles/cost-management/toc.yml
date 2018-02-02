@@ -29,7 +29,11 @@
       href: understading-cost-reports.md
 - name: Procédures
   items:
-    - name: Utiliser les rapports de Cost Management
+    - name: Activer des abonnements et comptes Azure
+      href: activate-subs-accounts.md
+    - name: Ajouter des métriques étendues pour les machines virtuelles
+      href: azure-vm-extended-metrics.md
+    - name: Utiliser les rapports Azure Cost Management
       href: use-reports.md
 - name: Ressources
   items:
@@ -37,7 +41,7 @@
       href: ref-videos.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarification
+    - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cost-management'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/en-us/regions/services/'

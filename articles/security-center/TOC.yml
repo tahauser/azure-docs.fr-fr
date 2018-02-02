@@ -146,6 +146,8 @@
           href: security-center-search.md
     - name: Intégration des journaux Azure
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: Exporter des données vers SIEM
+      href: security-center-export-data-to-siem.md
     - name: Scénarios
       items:
         - name: Réponse aux incidents
@@ -154,7 +156,7 @@
           href: security-center-using-recommendations.md
     - name: Résolution des problèmes
       href: security-center-troubleshooting-guide.md
-- name: Référence
+- name: Informations de référence
   items:
     - name: API REST
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
