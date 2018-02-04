@@ -1,6 +1,6 @@
 - name: Documentation relative au service Azure IoT Hub Device Provisioning
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de l’approvisionnement d’appareils IoT
       href: about-iot-dps.md
@@ -37,12 +37,16 @@
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
             - name: Node.js
               href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
+            - name: 'C#'
+              href: quick-enroll-device-x509-csharp.md
             - name: Node.js
               href: quick-enroll-device-x509-node.md
 - name: Didacticiels

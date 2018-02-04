@@ -1,7 +1,5 @@
 # Vue d'ensemble
 ## [Guide du développeur](azure-developer-guide.md) 
-## [Présentation des services Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Présentation du portail](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Kits de développement logiciel (SDK) et outils](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Démarrage rapide
@@ -27,7 +25,7 @@
 ## [Déploiement Docker d’application Web sur Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
 
 # Exemples
-## Interface de ligne de commande Azure
+## Azure CLI
 ### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
@@ -92,7 +90,7 @@
 ### [Mettre à l'échelle une machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Mettre à l’échelle une machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 
-# Référence
+# Informations de référence
 ## [REST](https://docs.microsoft.com/rest/api/)
 ## Kits de développement logiciel (SDK)
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
@@ -102,7 +100,7 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Interfaces de ligne de commande
-### [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/)
+### [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Facturation](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 

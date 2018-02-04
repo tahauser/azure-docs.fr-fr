@@ -1,14 +1,15 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: "Documentation Microsoft Azure"
 description: "Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore."
-featureFlags: clicktale
-ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+featureFlags:
+- clicktale
+ms.openlocfilehash: 88c99f7aa0af914210e760d498bb4fb514798207
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -155,7 +156,7 @@ ms.lasthandoff: 01/23/2018
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/">
+                                                        <a class="barLink" href="/javascript/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.JS</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -800,19 +801,19 @@ ms.lasthandoff: 01/23/2018
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
                                                 <p>Stockage d’objets blob</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/disks/">
+                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Stockage sur disque</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                            <a href="/azure/storage/queues/storage-queues-introduction">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Stockage de files d’attente</p>
                                             </a>
@@ -3914,10 +3915,10 @@ ms.lasthandoff: 01/23/2018
                                                     <a href="/javascript/azure/node-sdk-azure-get-started">Obtention de bibliothèques Azure pour Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/">Prise en main</a>
+                                                    <a href="/javascript/azure/">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/nodejs/api/overview/azure">Référence API</a>
+                                                    <a href="/javascript/api/overview/azure/">Référence API</a>
                                                 </p>
                                             </div>
                                         </div>
