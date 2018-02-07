@@ -1,4 +1,4 @@
----
+﻿---
 title: "Vue d’ensemble des machines virtuelles Linux dans Azure | Microsoft Docs"
 description: "Décrit les services de calcul, de stockage et de mise en réseau Azure à l’aide de machines virtuelles Linux."
 services: virtual-machines-linux
